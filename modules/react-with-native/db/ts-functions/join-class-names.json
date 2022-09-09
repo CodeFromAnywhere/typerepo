@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662726477474,
+  "updatedAt": 1662726477474,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726477474,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/util/util.tsx",
+  "commentsInside": [],
+  "rawText": " (...args: (string | undefined)[]) => {\n  return args.filter((x) => !!x).join(\" \");\n}",
+  "name": "joinClassNames",
+  "slug": "join-class-names",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 85,
+    "lines": 3,
+    "bytes": 85,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "MsrUDHbKLDyVHZxe"
+}

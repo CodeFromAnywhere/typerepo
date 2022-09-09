@@ -1,0 +1,34 @@
+[
+  {
+    "createdAt": 1662726836162,
+    "updatedAt": 1662726836162,
+    "deletedAt": 0,
+    "createdFirstAt": 1662726836162,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/object-merge.ts",
+    "comment": "merges two objects: a config object and a defaults object. If the config object has something missing, a default will be used from the defaults object.\n\nIn short: merges two objects, for every parameter, use the default as a fallback\n\nDEPRECATED: in favor of mergeObjects",
+    "rawStatement": "export const mergeObjectParameters = <T>(\n  config: T | undefined,\n  defaults: T | undefined\n) => {\n  const parameters = Object.keys({\n    ...config,\n    ...defaults,\n  }) as (keyof T)[];\n\n  const mergedConfig = parameters.reduce(\n    (getConfig, p) => ({ ...getConfig, [p]: config?.[p] || defaults?.[p] }),\n    {} as Partial<T>\n  );\n  return mergedConfig;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 1,
+    "lastLine": 7,
+    "id": "PSGPxNpwVctoryHF"
+  },
+  {
+    "createdAt": 1662726836162,
+    "updatedAt": 1662726836162,
+    "deletedAt": 0,
+    "createdFirstAt": 1662726836162,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/object-merge.ts",
+    "comment": "merges multiple objects, overwriting the previous one with the next. Can be useful for configs where there are multiple layers of configs that overwrite each other.\n\nPlease note though, that only the root keys of the object are overwriting each other, so if there is nested datastructures, the last one with a specific key overwrites the previous ones copletely",
+    "rawStatement": "export const mergeObjects = <T extends { [key: string]: any | undefined }>(\n  ...objects: (T | undefined)[]\n): T | undefined => {\n  if (objects.length === 0) return;\n\n  const firstObject = objects[0];\n\n  const mergedObject = objects.reduce((previous, current) => {\n    if (!current) return previous;\n\n    const newObject: T | undefined = !previous\n      ? current\n      : { ...previous, ...current };\n\n    return newObject;\n  }, firstObject);\n\n  return mergedObject;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 24,
+    "lastLine": 28,
+    "id": "bsNPdaRiXaFfiyPl"
+  }
+]

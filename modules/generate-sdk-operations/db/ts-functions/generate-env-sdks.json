@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662740116003,
+  "updatedAt": 1662740116003,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740116003,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateEnvSdks.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  bundleConfig: BundleConfig,\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  const promises = [\n    newEnvSdk(bundleConfig, \"public\", config),\n    newEnvSdk(bundleConfig, \"private\", config),\n  ];\n\n  const results = await Promise.all(promises);\n\n  return results;\n}",
+  "name": "generateEnvSdks",
+  "slug": "generate-env-sdks",
+  "parameters": [],
+  "description": "generates sdk-env-public and sdk-env-private\n\nreturns the paths of the geneated operations",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 427,
+    "lines": 19,
+    "bytes": 427,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 19,
+    "numberOfFiles": 1
+  },
+  "id": "kjtzmKaBLmMGygrS"
+}

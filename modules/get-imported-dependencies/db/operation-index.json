@@ -1,0 +1,54 @@
+{
+  "createdAt": 1662720758845,
+  "updatedAt": 1662720758845,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720758845,
+  "folderName": "get-imported-dependencies",
+  "packageName": "get-imported-dependencies",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "get-imported-dependencies",
+  "slug": "get-imported-dependencies",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getTsMorphProject"
+  ],
+  "packageDependencies": [
+    "ImportDeclaration",
+    "Project"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 42,
+      "characters": 1463,
+      "bytes": 1463
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 58,
+      "characters": 1265,
+      "bytes": 1265
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 59,
+      "characters": 1012,
+      "bytes": 1012
+    },
+    "size": {
+      "bytes": 3740,
+      "characters": 3740,
+      "lines": 159,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "tLhmchyaAwxgnsTc",
+  "language": "en"
+}

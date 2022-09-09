@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662720757347,
+  "updatedAt": 1662720757347,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720757347,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (moduleString: string) =>\n  !moduleString.startsWith(\".\")",
+  "name": "isAbsoluteImport",
+  "slug": "is-absolute-import",
+  "parameters": [],
+  "description": "if it doesn't start with a dot it must be an absolute import so most likely a package that needs to be installed",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 170,
+    "lines": 2,
+    "bytes": 170,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 85,
+    "linesPerFile": 2,
+    "numberOfFiles": 1
+  },
+  "id": "PIPaLazovXAiAGLV"
+}

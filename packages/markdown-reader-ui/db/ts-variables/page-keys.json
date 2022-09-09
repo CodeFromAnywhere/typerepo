@@ -1,0 +1,40 @@
+{
+  "createdAt": 1662726297210,
+  "updatedAt": 1662726297210,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726297210,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/pages.ts",
+  "comments": [],
+  "name": "pageKeys",
+  "slug": "page-keys",
+  "value": "Object.keys(pagesObject) as PageKey[]",
+  "type": {
+    "rawType": "\"index\"[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "nDoOCyZBwDBCcAtG"
+}

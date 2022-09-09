@@ -1,0 +1,54 @@
+{
+  "createdAt": 1662726872027,
+  "updatedAt": 1662735047251,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726872027,
+  "folderName": "nodemon",
+  "packageName": "nodemon",
+  "relativeOperationLocationPath": "operations/tools/util",
+  "classification": "node",
+  "name": "nodemon",
+  "slug": "nodemon",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getOperationPath",
+    "log"
+  ],
+  "packageDependencies": [
+    "spawn"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 56,
+      "characters": 1306,
+      "bytes": 1306
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 76,
+      "characters": 1516,
+      "bytes": 1516
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 31,
+      "characters": 340,
+      "bytes": 340
+    },
+    "size": {
+      "bytes": 3162,
+      "characters": 3162,
+      "lines": 163,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/util/nodemon/src/nodemon.ts. Error: Error: Cannot find name 'sdkUtilPath'.\\n\\nCannot find name 'sdkFunctionName'. Did you mean 'cliFunctionName'?\\n\\nCannot find name 'sdkFunctionName'. Did you mean 'cliFunctionName'?\\n\\nArgument of type 'string[] | undefined' is not assignable to parameter of type 'string'.\\n  Type 'undefined' is not assignable to type 'string'.\"]",
+  "lintProblems": [],
+  "id": "awTmkQGrmkQxFgYF",
+  "language": "en"
+}

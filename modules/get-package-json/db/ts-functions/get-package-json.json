@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718761493,
+  "updatedAt": 1662718761493,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718761493,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPackageJson.ts",
+  "commentsInside": [],
+  "rawText": " async (config: {\n  operationFolderPath: string;\n}) => {\n  const { operationFolderPath } = config;\n  const packageJsonPath = path.join(operationFolderPath, \"package.json\");\n  const packageJson = readJsonFile<PackageJson>(packageJsonPath);\n  return packageJson;\n}",
+  "name": "getPackageJson",
+  "slug": "get-package-json",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 262,
+    "lines": 8,
+    "bytes": 262,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "HTHEDuQGoeyEzsnZ"
+}

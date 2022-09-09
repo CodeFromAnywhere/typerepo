@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662740117119,
+  "updatedAt": 1662740117119,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740117119,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "commentsInside": [],
+  "rawText": " (tsFunction: TsFunction) => {\n  const fileId = getSrcRelativeFileId(\n    tsFunction.operationRelativeTypescriptFilePath\n  );\n  return isIndexableFileId(fileId);\n}",
+  "name": "isTsFunctionIndexable",
+  "slug": "is-ts-function-indexable",
+  "parameters": [],
+  "description": "The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 268,
+    "lines": 6,
+    "bytes": 268,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 45,
+    "linesPerFile": 6,
+    "numberOfFiles": 1
+  },
+  "id": "ECVkOGnltvmvBmqh"
+}

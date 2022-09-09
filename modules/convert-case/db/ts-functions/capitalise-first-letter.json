@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662719521902,
+  "updatedAt": 1662719521902,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719521902,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (word: string) => {\n  return word.charAt(0).toUpperCase().concat(word.substring(1));\n}",
+  "name": "capitaliseFirstLetter",
+  "slug": "capitalise-first-letter",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 87,
+    "lines": 3,
+    "bytes": 87,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "jZQmZdgiofCyjwuc"
+}

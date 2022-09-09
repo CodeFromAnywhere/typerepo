@@ -1,0 +1,44 @@
+{
+  "createdAt": 1662720260931,
+  "updatedAt": 1662720260931,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720260931,
+  "id": "nested-title",
+  "name": "NestedTitle",
+  "slug": "nested-title",
+  "operationRelativeTypescriptFilePath": "src/parsing/outline.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type NestedTitle = string | NestedTitle[];",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/NestedTitle"
+          }
+        }
+      ]
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NestedTitle",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "createdAt": 1662720925502,
+  "updatedAt": 1662720925502,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720925502,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/schema-util.ts",
+  "commentsInside": [],
+  "rawText": " (schema: Schema | undefined): SchemaProperty[] => {\n  if (!schema) return [];\n  const propertyKeys = schema.properties ? Object.keys(schema.properties) : [];\n  const properties = propertyKeys\n    .map((key) => {\n      const propertySchema = getSchema(schema.properties?.[key]);\n      return propertySchema\n        ? {\n            name: key,\n            schema: propertySchema,\n            required: schema.required?.includes(key) || false,\n          }\n        : null;\n    })\n    .filter(notEmpty);\n\n  return properties;\n}",
+  "name": "getProperties",
+  "slug": "get-properties",
+  "parameters": [],
+  "description": "Gets all the properties of a schema",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/typescript/schema-util/src/schema-util\").SchemaProperty[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "schema": {},
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name",
+          "schema",
+          "required"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "name",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "schema",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "required",
+                "required": true,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 557,
+    "lines": 18,
+    "bytes": 557,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 18,
+    "numberOfFiles": 1
+  },
+  "id": "rAEMJyEqiNuOydQF"
+}

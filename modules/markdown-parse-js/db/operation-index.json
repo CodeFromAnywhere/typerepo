@@ -1,0 +1,64 @@
+{
+  "createdAt": 1662720238701,
+  "updatedAt": 1662720238699,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720238701,
+  "folderName": "markdown-parse-js",
+  "packageName": "markdown-parse-js",
+  "relativeOperationLocationPath": "operations/tools/parsing/file-conversion/md",
+  "classification": "node",
+  "name": "markdown-parse-js",
+  "slug": "markdown-parse-js",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "MarkdownParse",
+    "makeTest",
+    "frontmatterParseToString",
+    "MarkdownChunk",
+    "makeTest",
+    "MarkdownParse",
+    "MarkdownParse",
+    "Frontmatter",
+    "mergeObjectsArray",
+    "makeTest",
+    "parsePrimitive",
+    "MarkdownChunk",
+    "makeTest",
+    "makeTest"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 7,
+      "lines": 332,
+      "characters": 9644,
+      "bytes": 9644
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 71,
+      "characters": 1508,
+      "bytes": 1508
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 90,
+      "characters": 1956,
+      "bytes": 1956
+    },
+    "size": {
+      "bytes": 13108,
+      "characters": 13108,
+      "lines": 493,
+      "numberOfFiles": 10
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "dWeWzPcbCloZlTlC",
+  "language": "en"
+}

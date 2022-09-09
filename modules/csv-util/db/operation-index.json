@@ -1,0 +1,54 @@
+{
+  "createdAt": 1662720151061,
+  "updatedAt": 1662720151060,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720151061,
+  "folderName": "csv-util",
+  "packageName": "csv-util",
+  "relativeOperationLocationPath": "operations/tools/parsing/file-conversion/csv",
+  "classification": "node",
+  "name": "csv-util",
+  "slug": "csv-util",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "makeTest",
+    "mergeObjectsArray",
+    "makeTest",
+    "parsePrimitive"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 143,
+      "characters": 2857,
+      "bytes": 2857
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 69,
+      "characters": 1434,
+      "bytes": 1434
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 52,
+      "characters": 571,
+      "bytes": 571
+    },
+    "size": {
+      "bytes": 4862,
+      "characters": 4862,
+      "lines": 264,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "RJAjnypztdltSokK",
+  "language": "en"
+}

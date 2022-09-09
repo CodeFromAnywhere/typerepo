@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662718809382,
+  "updatedAt": 1662718809382,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718809382,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/explore.ts",
+  "commentsInside": [],
+  "rawText": " (\n  extension: string\n): extension is SearchableExtension => {\n  return allowedSearchContentExtensions\n    .map((x) => x as string)\n    .includes(extension);\n}",
+  "name": "isSearchContentExtension",
+  "slug": "is-search-content-extension",
+  "parameters": [],
+  "description": "type checker for a string to be an extension that can be searched for",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 229,
+    "lines": 7,
+    "bytes": 229,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "byhXBcjPETCbZVlg"
+}

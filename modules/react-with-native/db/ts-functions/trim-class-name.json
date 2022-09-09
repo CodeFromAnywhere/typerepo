@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662726476949,
+  "updatedAt": 1662726476949,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726476949,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/util/trimClassName.ts",
+  "commentsInside": [],
+  "rawText": " (className: string) => {\n  return className;\n}",
+  "name": "trimClassName",
+  "slug": "trim-class-name",
+  "parameters": [],
+  "description": "in react-native not all classNames are supported",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 95,
+    "lines": 3,
+    "bytes": 95,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "wWyxAMpJfrAgrUdI"
+}

@@ -1,0 +1,65 @@
+{
+  "createdAt": 1662718926096,
+  "updatedAt": 1662718926095,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718926096,
+  "folderName": "read-kvmd-file",
+  "packageName": "read-kvmd-file",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "read-kvmd-file",
+  "slug": "read-kvmd-file",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "KeyValueMarkdownParse",
+    "path",
+    "writeStringToFile",
+    "kvmdParseToMarkdownString",
+    "readJsonFile",
+    "path",
+    "writeJsonToFile",
+    "canRead",
+    "fs",
+    "path",
+    "Path",
+    "ModelLocation",
+    "DbFileLocation",
+    "KeyValueMarkdownParse",
+    "markdownStringToKvmdParse"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 85,
+      "characters": 2298,
+      "bytes": 2298
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 70,
+      "characters": 1485,
+      "bytes": 1485
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 49,
+      "characters": 507,
+      "bytes": 507
+    },
+    "size": {
+      "bytes": 4290,
+      "characters": 4290,
+      "lines": 204,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "BSFCconpYxwXACca",
+  "language": "en"
+}

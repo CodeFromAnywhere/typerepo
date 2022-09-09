@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662740743879,
+  "updatedAt": 1662740743879,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740743879,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/ParameterName.ts",
+  "commentsInside": [],
+  "rawText": " (parameterName: string) => {\n  const generatedPatterns = parameterNames\n    .filter(\n      (x) => x.contentType.length === 1 && x.contentType[0] === \"generated\"\n    )\n    .map((x) => x.pattern);\n  // TODO: match the patterns against the name to find match\n}",
+  "name": "isGeneratedParameterName",
+  "slug": "is-generated-parameter-name",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 258,
+    "lines": 8,
+    "bytes": 258,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "rspJAiteqBUAicFv"
+}

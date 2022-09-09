@@ -1,0 +1,44 @@
+{
+  "createdAt": 1662720464246,
+  "updatedAt": 1662720464246,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720464246,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/frontmatterParseToString.ts",
+  "commentsInside": [],
+  "rawText": " (\n  value: FrontmatterValue\n): string | null => {\n  if (value === undefined) return null;\n  if (value === null) return \"null\";\n  if (typeof value === \"number\") return String(value);\n  if (typeof value === \"boolean\") return String(value);\n  if (typeof value === \"boolean\") return String(value);\n  if (Array.isArray(value))\n    return value.map(quotedOrNot).map(stringifyNewlines).join(\", \");\n  if (typeof value === \"string\") return stringifyNewlines(quotedOrNot(value));\n  // NB: according to current support this should never happen\n  if (typeof value === \"object\") return `\"${JSON.stringify(value)}\"`;\n\n  return null;\n}",
+  "name": "getFrontmatterValueString",
+  "slug": "get-frontmatter-value-string",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "string | null",
+    "typeDefinition": {
+      "optional": true,
+      "type": "string | null"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 621,
+    "lines": 16,
+    "bytes": 621,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 39,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "HXodEXgLDBOgfyrp"
+}

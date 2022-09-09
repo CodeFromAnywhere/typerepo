@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720698002,
+  "updatedAt": 1662720698002,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720698002,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string,\n  /**\n   * skip recursing on these ones because they are already found\n   */\n  already: string[],\n  ignore?: string[]\n): Promise<string[]> => {\n  if (ignore?.includes(operationName)) return [];\n\n  const notIgnored = (operationName: string) =>\n    !ignore?.includes(operationName);\n  const imports = await db.get(\"TsImport\", { operationName });\n  const monorepoModules = imports\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved ? x.module : null\n    )\n    .filter(notEmpty)\n    .filter(onlyUnique)\n    .filter(notIgnored);\n\n  const newAlready = already.concat(monorepoModules).filter(onlyUnique);\n\n  const dependencyPromises = monorepoModules\n    .filter((x) => !already?.includes(x))\n    .map((operationName) =>\n      findDependenciesRecursively(operationName, newAlready, ignore)\n    );\n  const dependencies = (await Promise.all(dependencyPromises)).flat();\n  const all: string[] = monorepoModules.concat(dependencies);\n  return all;\n}",
+  "name": "findDependenciesRecursively",
+  "slug": "find-dependencies-recursively",
+  "parameters": [],
+  "description": "finds all dependencies of an operation name",
+  "returnType": {
+    "rawType": "Promise<string[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1031,
+    "lines": 32,
+    "bytes": 1031,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 32,
+    "numberOfFiles": 1
+  },
+  "id": "pgRPpKHtsTUmESee"
+}

@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662720211874,
+  "updatedAt": 1662720211874,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720211874,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/kvmdDataMap.ts",
+  "commentsInside": [],
+  "rawText": " <\n  T extends { [key: string]: string | string[] | undefined }\n>(\n  data: KeyValueMarkdownModelType[],\n  {\n    keyName,\n    valueName,\n    categoryStackCalculatedName,\n    commentName,\n  }: {\n    /**\n     * key by default\n     */\n    keyName?: string;\n    /**\n     * value by default\n     */\n    valueName?: string;\n    /**\n     * comment by default\n     */\n    commentName?: string;\n    /**\n     * categoryStackCalculated by default\n     */\n    categoryStackCalculatedName?: string;\n  }\n): T[] => {\n  const newDataObject = data.map((item) => {\n    const newData = {\n      [keyName || \"name\"]: item.name,\n      [valueName || \"value\"]: item.value,\n      [commentName || \"comment\"]: item.comment,\n      [categoryStackCalculatedName || \"categoryStackCalculated\"]:\n        item.categoryStackCalculated,\n    } as T;\n\n    return newData;\n  });\n\n  return newDataObject;\n}",
+  "name": "kvmdDataMap",
+  "slug": "kvmd-data-map",
+  "parameters": [],
+  "description": "DEPRECATED: probably never needed, unless I make it useful\n\nmapper function to give a kvmd data object other parameters.\n\nNB: not sure if this is useful. it would be useful if we could auto-generate the application of this function for multiple db models.",
+  "returnType": {
+    "rawType": "T[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 1120,
+    "lines": 46,
+    "bytes": 1120,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 46,
+    "numberOfFiles": 1
+  },
+  "id": "yDjQCawqnmCsNqzX"
+}

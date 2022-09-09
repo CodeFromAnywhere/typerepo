@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662718827021,
+  "updatedAt": 1662718827021,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718827021,
+  "folderName": "make-file-type",
+  "packageName": "make-file-type",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "js",
+  "name": "make-file-type",
+  "slug": "make-file-type",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "findOperationBasePath"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 48,
+      "characters": 1229,
+      "bytes": 1229
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 64,
+      "characters": 1328,
+      "bytes": 1328
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 31,
+      "characters": 320,
+      "bytes": 320
+    },
+    "size": {
+      "bytes": 2877,
+      "characters": 2877,
+      "lines": 143,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "GCmTyAxUcmcCqdFy",
+  "language": "en"
+}

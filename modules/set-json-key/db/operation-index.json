@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662719013097,
+  "updatedAt": 1662719013096,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719013097,
+  "folderName": "set-json-key",
+  "packageName": "set-json-key",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "set-json-key",
+  "slug": "set-json-key",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "getFolder"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 97,
+      "characters": 2489,
+      "bytes": 2489
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 67,
+      "characters": 1543,
+      "bytes": 1543
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 49,
+      "characters": 787,
+      "bytes": 787
+    },
+    "size": {
+      "bytes": 4819,
+      "characters": 4819,
+      "lines": 213,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "MTdfOResEZpqXfaa",
+  "language": "en"
+}

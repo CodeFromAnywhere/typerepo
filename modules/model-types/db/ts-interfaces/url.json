@@ -1,0 +1,35 @@
+{
+  "createdAt": 1662720481461,
+  "updatedAt": 1662720481461,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720481461,
+  "id": "url",
+  "name": "Url",
+  "slug": "url",
+  "operationRelativeTypescriptFilePath": "src/common.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * valid url, can be validated\n */\nexport type Url = string;",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "valid url, can be validated",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "description": "valid url, can be validated"
+    },
+    "simplifiedSchema": {
+      "description": "valid url, can be validated",
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "Url",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

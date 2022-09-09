@@ -1,0 +1,23 @@
+{
+  "createdAt": 1662739843910,
+  "updatedAt": 1662739843910,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739843910,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getRootPath.ts",
+  "comments": [],
+  "name": "projectRootFoldersConst",
+  "slug": "project-root-folders-const",
+  "value": "[\"text\", databaseFolderName] as const",
+  "type": {
+    "rawType": "readonly [\"text\", \"db\"]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "classification": "const",
+  "id": "jcOmppLYUhXYYcjQ"
+}

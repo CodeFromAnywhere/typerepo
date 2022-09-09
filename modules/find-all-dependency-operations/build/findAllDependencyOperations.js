@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+"use strict";var __awaiter=this&&this.__awaiter||function(e,n,r,t){return new(r||(r=Promise))((function(i,o){function a(e){try{u(t.next(e))}catch(e){o(e)}}function s(e){try{u(t.throw(e))}catch(e){o(e)}}function u(e){var n;e.done?i(e.value):(n=e.value,n instanceof r?n:new r((function(e){e(n)}))).then(a,s)}u((t=t.apply(e,n||[])).next())}))},__generator=this&&this.__generator||function(e,n){var r,t,i,o,a={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return o={next:s(0),throw:s(1),return:s(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function s(o){return function(s){return function(o){if(r)throw new TypeError("Generator is already executing.");for(;a;)try{if(r=1,t&&(i=2&o[0]?t.return:o[0]?t.throw||((i=t.return)&&i.call(t),0):t.next)&&!(i=i.call(t,o[1])).done)return i;switch(t=0,i&&(o=[2&o[0],i.value]),o[0]){case 0:case 1:i=o;break;case 4:return a.label++,{value:o[1],done:!1};case 5:a.label++,t=o[1],o=[0];continue;case 7:o=a.ops.pop(),a.trys.pop();continue;default:if(!(i=a.trys,(i=i.length>0&&i[i.length-1])||6!==o[0]&&2!==o[0])){a=0;continue}if(3===o[0]&&(!i||o[1]>i[0]&&o[1]<i[3])){a.label=o[1];break}if(6===o[0]&&a.label<i[1]){a.label=i[1],i=o;break}if(i&&a.label<i[2]){a.label=i[2],a.ops.push(o);break}i[2]&&a.ops.pop(),a.trys.pop();continue}o=n.call(e,a)}catch(e){o=[6,e],t=0}finally{r=i=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,s])}}},__spreadArray=this&&this.__spreadArray||function(e,n,r){if(r||2===arguments.length)for(var t,i=0,o=n.length;i<o;i++)!t&&i in n||(t||(t=Array.prototype.slice.call(n,0,i)),t[i]=n[i]);return e.concat(t||Array.prototype.slice.call(n))};Object.defineProperty(exports,"__esModule",{value:!0}),exports.findDependantsRecursively=exports.findDependants=exports.getDependencyTree=exports.getDependencyObject=exports.findAllDependencyOperations=exports.findDependenciesRecursively=exports.findMonorepoModules=void 0;var js_util_1=require("js-util"),database_1=require("database"),k_explore_1=require("k-explore"),fs_util_1=require("fs-util"),findMonorepoModules=function(e){return __awaiter(void 0,void 0,void 0,(function(){var n;return __generator(this,(function(r){switch(r.label){case 0:return[4/*yield*/,database_1.db.get("TsImport",{operationName:e})];case 1:return n=r.sent(),[2/*return*/,n.map((function(e){return e.isModuleFromMonorepo&&e.isModuleResolved?e.module:null})).filter(js_util_1.notEmpty).filter(js_util_1.onlyUnique)]}}))}))};exports.findMonorepoModules=findMonorepoModules;
+/**
+ * finds all dependencies of an operation name
+ */
+var findDependenciesRecursively=function(e,
+/**
+ * skip recursing on these ones because they are already found
+ */
+n,r){return __awaiter(void 0,void 0,void 0,(function(){var t,i,o,a,s,u;return __generator(this,(function(l){switch(l.label){case 0:return(null==r?void 0:r.includes(e))?[2/*return*/,[]]:(t=function(e){return!(null==r?void 0:r.includes(e))},[4/*yield*/,database_1.db.get("TsImport",{operationName:e})]);case 1:return i=l.sent(),o=i.map((function(e){return e.isModuleFromMonorepo&&e.isModuleResolved?e.module:null})).filter(js_util_1.notEmpty).filter(js_util_1.onlyUnique).filter(t),a=n.concat(o).filter(js_util_1.onlyUnique),s=o.filter((function(e){return!(null==n?void 0:n.includes(e))})).map((function(e){return(0,exports.findDependenciesRecursively)(e,a,r)})),[4/*yield*/,Promise.all(s)];case 2:return u=l.sent().flat(),[2/*return*/,o.concat(u)]}}))}))};exports.findDependenciesRecursively=findDependenciesRecursively;
+/**
+ * to be used when you need to know all dependencies for multiple operation names at once
+ *
+ * TODO: NB: this breaks with circular dependencies
+ */
+var findAllDependencyOperations=function(e){var n=e.operationNames,r=e.ignoreOperationNames;return __awaiter(void 0,void 0,void 0,(function(){var e;return __generator(this,(function(t){switch(t.label){case 0:return e=n.map((function(e){return(0,exports.findDependenciesRecursively)(e,n,r)})),[4/*yield*/,Promise.all(e)];case 1:return[2/*return*/,t.sent().flat().filter(js_util_1.onlyUnique)]}}))}))};exports.findAllDependencyOperations=findAllDependencyOperations;
+// findAllDependencyOperations(["fs-orm"]).then(console.log);
+// how do I get a format like this?
+// const x = {
+//   "fs-orm": ["js-util"],
+//   "js-util": [],
+// }
+var getDependencyObject=function(){return __awaiter(void 0,void 0,void 0,(function(){var e,n;return __generator(this,(function(r){switch(r.label){case 0:return[4/*yield*/,(0,k_explore_1.exploreOperationFolders)({})];case 1:return e=r.sent(),n=js_util_1.mergeObjectsArray,[4/*yield*/,Promise.all(e.map((function(e){return __awaiter(void 0,void 0,void 0,(function(){var n,r,t;return __generator(this,(function(i){switch(i.label){case 0:return n=(0,fs_util_1.getLastFolder)(e),[4/*yield*/,(0,exports.findMonorepoModules)(n)];case 1:return r=i.sent(),[2/*return*/,(t={},t[n]=r,t)]}}))}))})))];case 2:return[2/*return*/,n.apply(void 0,[r.sent()])]}}))}))};exports.getDependencyObject=getDependencyObject;var getDependencyTree=function(e,n){return __awaiter(void 0,void 0,void 0,(function(){var r;return __generator(this,(function(t){switch(t.label){case 0:return 0===e.length?[2/*return*/,null]:(r=js_util_1.mergeObjectsArray,[4/*yield*/,Promise.all(e.map((function(e){return __awaiter(void 0,void 0,void 0,(function(){var r,t,i,o,a,s;return __generator(this,(function(u){switch(u.label){case 0:return[4/*yield*/,(0,exports.findMonorepoModules)(e)];case 1:return r=u.sent(),t=n.concat(e),i=r.filter((function(e){return!t.includes(e)})),o=r.filter((function(e){return t.includes(e)})),r.length!==i.length&&console.log("prevented circular dependency at ".concat(e," (").concat(o.join(", ")," were removed)")),s={},a=e,[4/*yield*/,(0,exports.getDependencyTree)(i,t)];case 2:return[2/*return*/,(s[a]=u.sent(),s)]}}))}))})))]);case 1:return[2/*return*/,r.apply(void 0,[t.sent()])]}}))}))};exports.getDependencyTree=getDependencyTree;
+// getDependencyTree(["k-types", "fs-orm"], []).then((res) =>
+//   console.dir(res, { depth: 999 })
+// );
+/**
+ * finds all dependants of an operation or a specific import from that operation
+ *
+ * normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
+ */
+var findDependants=function(e){var n=e.operationName,r=e.importName,t=e.returnOperationName;return __awaiter(void 0,void 0,void 0,(function(){var e,i;return __generator(this,(function(o){switch(o.label){case 0:return e=t?"operationName":"projectRelativePath",[4/*yield*/,database_1.db.get("TsImport")];case 1:return i=o.sent(),[2/*return*/,i.filter((function(e){return e.module===n})).filter((function(e){return!r||e.name===r})).map((function(n){return n.isModuleFromMonorepo&&n.isModuleResolved?n[e]:null})).filter(js_util_1.notEmpty).filter(js_util_1.onlyUnique)]}}))}))};exports.findDependants=findDependants;
+// findDependants({
+//   operationName: "js-util",
+//   importName: "notEmpty",
+//   returnOperationName: false,
+// }).then(console.log);
+var findDependantsRecursively=function(e,n){return __awaiter(void 0,void 0,void 0,(function(){var r,t,i,o;return __generator(this,(function(a){switch(a.label){case 0:return[4/*yield*/,(0,exports.findDependants)({returnOperationName:!0,operationName:e})];case 1:return r=a.sent(),t=__spreadArray(__spreadArray([e],r,!0),n||[],!0),r.length>0?[4/*yield*/,Promise.all(r.map((function(e){return(0,exports.findDependantsRecursively)(e,t)})))]:[3/*break*/,3];case 2:return o=a.sent().flat(),[3/*break*/,4];case 3:o=[],a.label=4;case 4:return i=o,[2/*return*/,__spreadArray(__spreadArray([],t,!0),i,!0).filter((0,js_util_1.onlyUnique2)())]}}))}))};exports.findDependantsRecursively=findDependantsRecursively;
+//# sourceMappingURL=findAllDependencyOperations.js.map

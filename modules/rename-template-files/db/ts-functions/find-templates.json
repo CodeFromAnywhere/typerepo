@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718995376,
+  "updatedAt": 1662718995376,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718995376,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  basePath: string,\n  doNotExploreChildFolders?: boolean\n) => {\n  return (\n    await explore({\n      basePath,\n      subExtension: [\"template\"],\n      searchLevel: \"fileName\",\n      doNotExploreChildFolders,\n    })\n  ).map((textJson) => textJson.path);\n}",
+  "name": "findTemplates",
+  "slug": "find-templates",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 263,
+    "lines": 13,
+    "bytes": 263,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 13,
+    "numberOfFiles": 1
+  },
+  "id": "ZezjrGrjxHvVySMO"
+}

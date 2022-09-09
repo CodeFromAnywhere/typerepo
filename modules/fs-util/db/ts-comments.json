@@ -1,0 +1,34 @@
+[
+  {
+    "createdAt": 1662739819592,
+    "updatedAt": 1662739819592,
+    "deletedAt": 0,
+    "createdFirstAt": 1662739819592,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/types.ts",
+    "comment": "unlike PathLike, this is only a string\n\nFor now, we don't have a clear convention whether or not this string should be absolute or anything.",
+    "rawStatement": "export type Path = string;",
+    "parameters": {},
+    "types": [],
+    "firstLine": 20,
+    "lastLine": 24,
+    "id": "pyJzmmLqkSTRpIAQ"
+  },
+  {
+    "createdAt": 1662739819592,
+    "updatedAt": 1662739819592,
+    "deletedAt": 0,
+    "createdFirstAt": 1662739819592,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/types.ts",
+    "comment": "DEPRECATED: just use ParsedPath",
+    "rawStatement": "export type FolderPath = { relativeFolder: string | undefined; path: Path };",
+    "parameters": {},
+    "types": [],
+    "firstLine": 26,
+    "lastLine": 28,
+    "id": "SpDojOYUHYoENrVR"
+  }
+]

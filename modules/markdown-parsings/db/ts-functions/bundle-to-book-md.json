@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662735932600,
+  "updatedAt": 1662735932600,
+  "deletedAt": 0,
+  "createdFirstAt": 1662735932600,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "commentsInside": [],
+  "rawText": " async (config: {\n  bundleConfig: BundleConfig;\n  title?: string;\n  coverImagePath?: string;\n  isModulesIncluded?: boolean;\n  manualProjectRoot?: string;\n}) => {\n  const {\n    bundleConfig,\n    coverImagePath,\n    title,\n    isModulesIncluded,\n    manualProjectRoot,\n  } = config;\n\n  const bundleSummary = getBundleSummary(bundleConfig);\n\n  const bundleDocs = bundleConfig.docsRelativeFolderPath;\n\n  const moduleNamesOrNot = isModulesIncluded ? [] : bundleSummary.moduleNames;\n\n  const allOperations = [\n    ...bundleSummary.appNames,\n    ...bundleSummary.packageNames,\n    ...moduleNamesOrNot,\n  ];\n\n  const operationMarkdownParses = (\n    await Promise.all(\n      allOperations.map(async (operationName) => {\n        const markdownParse = (await operationToMarkdown({\n          operationName,\n          manualProjectRoot,\n          mergeDocsInline: true,\n          returnType: \"parse\",\n        })) as MarkdownParse;\n        if (!markdownParse) return;\n\n        return markdownParse;\n      })\n    )\n  ).filter(notEmpty);\n\n  const mergedMarkdown = mergeMarkdownParse(operationMarkdownParses);\n\n  //   getOutline();\n\n  // 1) getOutline\n  // 2) mergeMarkdownParse\n  // 3) add cover + outline + contents together\n}",
+  "name": "bundleToBookMd",
+  "slug": "bundle-to-book-md",
+  "parameters": [],
+  "description": "Input: BundleConfig (one or more folder(s), readme, operations with a docs folder)\n\nOutput should be all md files concatenated in the right order with the right titles",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1378,
+    "lines": 53,
+    "bytes": 1378,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 53,
+    "numberOfFiles": 1
+  },
+  "id": "QhaapmFkzkmhnbeh"
+}

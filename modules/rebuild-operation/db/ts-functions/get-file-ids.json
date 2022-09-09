@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662740038807,
+  "updatedAt": 1662740038807,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740038807,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getFileIds.ts",
+  "commentsInside": [],
+  "rawText": " async ({\n  operationFolderPath,\n  pathSuffix,\n  extension,\n}: {\n  operationFolderPath: string;\n  extension?: SearchableExtension | SearchableExtension[];\n  pathSuffix: string;\n}) => {\n  const basePath = path.join(operationFolderPath, pathSuffix);\n\n  return (\n    await explore({\n      basePath,\n      extension,\n    })\n  )\n    .map((x) => x.path)\n    .map((p) => withoutExtension(p.slice(basePath.length)));\n}",
+  "name": "getFileIds",
+  "slug": "get-file-ids",
+  "parameters": [],
+  "description": "gets all identifiers of files, which are the relative path to a file without the extension",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 500,
+    "lines": 20,
+    "bytes": 500,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 20,
+    "numberOfFiles": 1
+  },
+  "id": "oOEoZnCALjzimbxj"
+}

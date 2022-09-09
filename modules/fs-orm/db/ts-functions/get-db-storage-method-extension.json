@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662718704075,
+  "updatedAt": 1662718704075,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718704075,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/convention/getDbStorageMethodExtension.ts",
+  "commentsInside": [],
+  "rawText": " (\n  dbStorageMethod: DbStorageMethod\n): string => {\n  if (dbStorageMethod === \"csv\") return \".csv\";\n  if (dbStorageMethod === \"jsonMultiple\") return \".json\";\n  if (dbStorageMethod === \"jsonSingle\") return \".json\";\n  if (dbStorageMethod === \"keyValueMarkdown\") return \".md\";\n  return \".md\";\n}",
+  "name": "getDbStorageMethodExtension",
+  "slug": "get-db-storage-method-extension",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 292,
+    "lines": 9,
+    "bytes": 292,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "DuPGuYAaRjmegEqy"
+}

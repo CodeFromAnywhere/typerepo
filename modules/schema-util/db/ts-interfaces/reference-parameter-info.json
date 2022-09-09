@@ -1,0 +1,103 @@
+{
+  "createdAt": 1662720924946,
+  "updatedAt": 1662720924946,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720924946,
+  "id": "reference-parameter-info",
+  "name": "ReferenceParameterInfo",
+  "slug": "reference-parameter-info",
+  "operationRelativeTypescriptFilePath": "src/getReferenceParameterInfo.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type ReferenceParameterInfo = {\n  descriptor: string | undefined;\n  keyInModel: string | undefined;\n  interfaceName: string | undefined;\n  isReferenceMultipleParameter: boolean;\n  isReferenceSingleParameter: boolean;\n  isReferenceParameter: boolean;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "descriptor": {
+          "type": "string"
+        },
+        "keyInModel": {
+          "type": "string"
+        },
+        "interfaceName": {
+          "type": "string"
+        },
+        "isReferenceMultipleParameter": {
+          "type": "boolean"
+        },
+        "isReferenceSingleParameter": {
+          "type": "boolean"
+        },
+        "isReferenceParameter": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "isReferenceMultipleParameter",
+        "isReferenceSingleParameter",
+        "isReferenceParameter"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "descriptor",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "keyInModel",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "interfaceName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isReferenceMultipleParameter",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isReferenceSingleParameter",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isReferenceParameter",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "ReferenceParameterInfo",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

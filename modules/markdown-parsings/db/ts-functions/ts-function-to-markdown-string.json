@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662735932600,
+  "updatedAt": 1662735932600,
+  "deletedAt": 0,
+  "createdFirstAt": 1662735932600,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "commentsInside": [],
+  "rawText": " (tsFunction: TsFunction): string => {\n  const titleString = `## ${tsFunction.name}`;\n  const infoString = `${\n    tsFunction.codeSize?.lines ? `${tsFunction.codeSize.lines} LOC, ` : \"\"\n  }Max. indexation depth: ${tsFunction.maxIndentationDepth}, ${\n    tsFunction.cumulativeCodeSize?.lines\n      ? `${tsFunction.cumulativeCodeSize?.lines} Cumulative LOC`\n      : \"\"\n  }`;\n\n  const returnTypeString = tsFunction.returnType.simplifiedSchema\n    ? simplifiedSchemaToMarkdownString(\n        tsFunction.returnType.simplifiedSchema,\n        \"Returns\",\n        true,\n        3\n      )\n    : \"## Returns: unknown\";\n\n  const argumentStrings =\n    tsFunction.parameters && tsFunction.parameters.length > 0\n      ? `### Arguments\\n\\n${tsFunction.parameters\n          .map((x) =>\n            simplifiedSchemaToMarkdownString(\n              x.simplifiedSchema,\n              x.name,\n              x.required,\n              4\n            )\n          )\n          .join(\"\\n\\n\")}`\n      : undefined;\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // infoString, // TODO: Maybe make it optional.\n    tsFunction.description,\n    returnTypeString,\n    argumentStrings,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "name": "tsFunctionToMarkdownString",
+  "slug": "ts-function-to-markdown-string",
+  "parameters": [],
+  "description": "TsFunction:\n- name and operation\n- size\n- description (doc-comment)\n- input, output",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 1307,
+    "lines": 47,
+    "bytes": 1307,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 47,
+    "numberOfFiles": 1
+  },
+  "id": "QQByqnuBZUerrIab"
+}

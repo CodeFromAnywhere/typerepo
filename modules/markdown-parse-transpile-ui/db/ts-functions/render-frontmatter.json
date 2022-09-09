@@ -1,0 +1,40 @@
+{
+  "createdAt": 1662726649653,
+  "updatedAt": 1662726649653,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726649653,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
+  "commentsInside": [],
+  "rawText": " (\n  parameters: Frontmatter,\n  config?: { renderSpacer?: boolean }\n) => {\n  const frontMatterKeys = Object.keys(parameters);\n\n  return frontMatterKeys.length > 0 ? (\n    <Div>\n      <Div>\n        {frontMatterKeys.map((key) => (\n          <P>\n            {key}: {parameters[key]}\n          </P>\n        ))}\n      </Div>\n\n      {config?.renderSpacer ? <P>------------</P> : null}\n    </Div>\n  ) : null;\n}",
+  "name": "renderFrontmatter",
+  "slug": "render-frontmatter",
+  "parameters": [],
+  "description": "Renders markdown frontmatter parameters (and optionally a spacer)",
+  "returnType": {
+    "rawType": "JSX.Element | null",
+    "typeDefinition": {
+      "optional": true,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 468,
+    "lines": 20,
+    "bytes": 468,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 20,
+    "numberOfFiles": 1
+  },
+  "id": "OdXcsiVaUayCBmAv"
+}

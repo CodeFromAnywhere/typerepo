@@ -1,0 +1,40 @@
+{
+  "createdAt": 1662718809386,
+  "updatedAt": 1662718809386,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718809386,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/explore.ts",
+  "comments": [],
+  "name": "allowedSearchContentExtensions",
+  "slug": "allowed-search-content-extensions",
+  "value": "[\n  ...typescriptExtensions,\n  ...markdownExtensions,\n  ...jsonExtensions,\n]",
+  "type": {
+    "rawType": "any[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "tcdaOiEoEMDWvBxl"
+}

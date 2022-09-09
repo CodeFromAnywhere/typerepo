@@ -1,0 +1,93 @@
+{
+  "createdAt": 1662720780594,
+  "updatedAt": 1662732864875,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720780594,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/get-imports-exports/src/getImportsExports.ts. Error: Error: Reference type not set yet\"]",
+  "buildSucceeded": true,
+  "id": "FkaslrNISdRYPKXl",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "get-imports-exports",
+  "packageName": "get-imports-exports",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "get-imports-exports",
+  "slug": "get-imports-exports",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "mergeObjectsArray",
+    "notEmpty",
+    "onlyUnique2",
+    "PackageInfoObject",
+    "PackageJson",
+    "TsImport",
+    "Creation",
+    "getSrcRelativeFileId",
+    "frontendOptionalFileSubExtensions",
+    "hasSubExtension",
+    "getOperationPath",
+    "log",
+    "db",
+    "getAllTsMorphSourceFiles",
+    "getLastFolder",
+    "kebabCase",
+    "exploreOperationFolders",
+    "log",
+    "TsExport",
+    "TsImport",
+    "ImportClassification",
+    "PackageJson",
+    "Creation",
+    "generateId",
+    "readJsonFile",
+    "path",
+    "getLastFolder",
+    "findOperationBasePath",
+    "getOperationPathParse",
+    "getPathParse",
+    "notEmpty",
+    "getHasGeneric",
+    "getPackageSourcePaths",
+    "getOperationPath",
+    "getTsMorphProject",
+    "log",
+    "makeTest"
+  ],
+  "packageDependencies": [
+    "builtinModules",
+    "SourceFile",
+    "ImportDeclaration",
+    "Symbol",
+    "TypeAliasDeclaration",
+    "InterfaceDeclaration",
+    "ImportSpecifier",
+    "SyntaxKind"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 667,
+      "characters": 20043,
+      "bytes": 20043
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 86,
+      "characters": 1892,
+      "bytes": 1892
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 254,
+      "characters": 5194,
+      "bytes": 5194
+    },
+    "size": {
+      "bytes": 27129,
+      "characters": 27129,
+      "lines": 1007,
+      "numberOfFiles": 8
+    }
+  }
+}

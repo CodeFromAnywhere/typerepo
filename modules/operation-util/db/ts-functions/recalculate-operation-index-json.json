@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718859543,
+  "updatedAt": 1662718859543,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718859543,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/recalculateOperationIndexJson.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationBasePath: string\n) => {\n  const operationMetaData = await getOperationMetaData(operationBasePath);\n\n  if (!operationMetaData) {\n    log(`Operation on ${operationBasePath} doesn't have a basepath`, {\n      type: \"error\",\n    });\n    return;\n  }\n\n  const {\n    operationIndex,\n    operationFolderName,\n    operationName,\n    relativeOperationLocationPath,\n  } = operationMetaData;\n\n  if (!operationName || !relativeOperationLocationPath) {\n    log(\n      `Operation on ${operationBasePath} doesn't have a name or relativeOperationLocationPath`,\n      { type: \"error\" }\n    );\n    return;\n  }\n\n  const classification = getOperationClassification(operationBasePath)!; //NB: we know it's there because operationBasePath must be valid\n  const dependencies = await getDependenciesSummary(operationName);\n\n  const generalOperationIndex: GeneralOperationIndex = {\n    updatedAt: Date.now(),\n    folderName: operationFolderName,\n    packageName: operationName!,\n    relativeOperationLocationPath,\n    classification,\n    name: operationName!,\n    slug: operationName!,\n    ...dependencies,\n  };\n\n  const categories = await categorizeFiles({\n    basePath: operationBasePath,\n    ignoreIndexFiles: true,\n  });\n  const size = await getFolderSummary(categories);\n\n  const newOperationIndex: Creation<OperationIndex> = operationIndex\n    ? {\n        ...operationIndex,\n        ...generalOperationIndex,\n        size,\n        operationName,\n      }\n    : {\n        // new\n        deletedAt: 0,\n        createdFirstAt: Date.now(),\n        createdAt: Date.now(),\n        // calculated\n        ...generalOperationIndex,\n        size,\n\n        // NB: give default values for the ones that we didn't calculate yet\n        buildSucceeded: false,\n        dependenciesBuildsFailed: false,\n        indexErrors: [],\n        indexImportExportError: \"\",\n        indexInteracesErrors: [],\n        lintProblems: [],\n        id: generateId(),\n        language: \"en\",\n        operationName,\n      };\n\n  // @ts-ignore\n  await db.upsert(\"OperationIndex\", newOperationIndex, { operationName });\n}",
+  "name": "recalculateOperationIndexJson",
+  "slug": "recalculate-operation-index-json",
+  "parameters": [],
+  "description": "relies on import index",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 2103,
+    "lines": 78,
+    "bytes": 2103,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 78,
+    "numberOfFiles": 1
+  },
+  "id": "nAcVyGUeICRFpdKg"
+}

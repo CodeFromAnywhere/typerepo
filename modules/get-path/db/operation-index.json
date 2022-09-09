@@ -1,0 +1,81 @@
+{
+  "createdAt": 1662718790020,
+  "updatedAt": 1662755384086,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718790020,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/get-path/src/getRootPath.ts. Error: Error: Unknown node \\\" databaseFolderName\"]",
+  "buildSucceeded": true,
+  "id": "uRBSpRBsdGEctSlL",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "get-path",
+  "packageName": "get-path",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "js",
+  "name": "get-path",
+  "slug": "get-path",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "path",
+    "fs",
+    "log",
+    "OperationClassification",
+    "fs",
+    "path",
+    "OperationClassification",
+    "PackageJson",
+    "tryParseJson",
+    "exploreOperationFolders",
+    "getLastFolder",
+    "operations",
+    "log",
+    "path",
+    "getLastFolder",
+    "OperationPathParse",
+    "PackageJson",
+    "readJsonFileSync",
+    "PathParse",
+    "fs",
+    "path",
+    "log",
+    "path",
+    "databaseFolderName",
+    "path",
+    "path",
+    "PackageJson",
+    "SensibleConfig",
+    "readJsonFileSync",
+    "fs",
+    "path",
+    "PackageJson",
+    "SensibleConfig",
+    "tryParseJson"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 15,
+      "lines": 580,
+      "characters": 17553,
+      "bytes": 17553
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 69,
+      "characters": 1463,
+      "bytes": 1463
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 259,
+      "characters": 4522,
+      "bytes": 4522
+    },
+    "size": {
+      "bytes": 23538,
+      "characters": 23538,
+      "lines": 908,
+      "numberOfFiles": 18
+    }
+  }
+}

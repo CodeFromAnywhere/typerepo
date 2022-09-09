@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718924864,
+  "updatedAt": 1662718924864,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718924864,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/readKvmdFile.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  filePath: Path,\n  /**\n   * TODO: make this optional. if not provided, calculate it ourselves here.\n   */\n  dbFileLocation: DbFileLocation\n): Promise<KeyValueMarkdownParse | null> => {\n  // TODO: is this needed?\n  const pathParse = path.parse(filePath);\n  const isMarkdownFile = [\"md\", \"mdx\"].includes(pathParse.ext.slice(1));\n  if (!isMarkdownFile) return null;\n\n  if (!fs.existsSync(filePath)) return null;\n  const readable = await canRead(filePath);\n  if (!readable) return null;\n  const fileString = await fs.readFile(filePath, \"utf8\");\n  if (!fileString) return null;\n\n  const keyValueMarkdownParse = markdownStringToKvmdParse(\n    fileString,\n    dbFileLocation\n  );\n\n  console.log({ keyValueMarkdownParse });\n  return keyValueMarkdownParse;\n}",
+  "name": "readKvmdFile",
+  "slug": "read-kvmd-file",
+  "parameters": [],
+  "description": "Reads and parses a markdown file",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/model-types/build/keyValueMarkdown\").KeyValueMarkdownParse | null>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 791,
+    "lines": 26,
+    "bytes": 791,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 26,
+    "numberOfFiles": 1
+  },
+  "id": "kLFAvvbLIDxbakPR"
+}

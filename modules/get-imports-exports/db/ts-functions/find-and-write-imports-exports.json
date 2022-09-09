@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662732860937,
+  "updatedAt": 1662732860937,
+  "deletedAt": 0,
+  "createdFirstAt": 1662732860937,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/findAndWriteImportsExports.ts",
+  "commentsInside": [],
+  "rawText": " async ({\n  operationBasePath,\n  debug,\n  manualProjectRoot,\n}: {\n  operationBasePath: string;\n  debug?: boolean;\n  manualProjectRoot?: string;\n}): Promise<{ success: boolean; message: string }> => {\n  const operationName = getLastFolder(operationBasePath);\n  const sourceFiles = await getAllTsMorphSourceFiles(operationBasePath);\n\n  if (!sourceFiles || sourceFiles.length === 0) {\n    const problem = `couldn't load any SourceFiles for ${operationBasePath} (sourceFiles=${sourceFiles})`;\n    log(problem, { type: \"error\" });\n    return { success: false, message: problem };\n  }\n\n  const importsAndExports = await getImportsExports({\n    sourceFiles,\n    debug,\n    manualProjectRoot,\n  });\n\n  if (!importsAndExports) {\n    const problem = \"Something went wrong creating imports/exports\";\n    log(problem, { type: \"error\" });\n    return { success: false, message: problem };\n  }\n\n  const { exports, imports } = importsAndExports;\n\n  // When rebuilding operations, add `packageJson.dependencies` according to imports found.\n\n  const packageJsons = await db.get(\"PackageJson\");\n\n  await db.update(\n    \"PackageJson\",\n    // NB: this should always be true, but this extra check will make sure it doesn't update too much...\n    (x) => x.name === operationName,\n    (packageJson) => ({\n      ...packageJson,\n      dependencies: calculatePackageJsonDependencies(\n        packageJson.dependencies,\n        imports,\n        packageJsons\n      ),\n    }),\n    { operationName }\n  );\n\n  await db.clear(\"TsImport\", { operationName });\n  await db.clear(\"TsExport\", { operationName });\n  // @ts-ignore\n  await db.upsert(\"TsImport\", imports, { operationName });\n  // @ts-ignore\n  await db.upsert(\"TsExport\", exports, { operationName });\n  return {\n    success: true,\n    message: \"Succesfully created imports and exports\",\n  };\n}",
+  "name": "findAndWriteImportsExports",
+  "slug": "find-and-write-imports-exports",
+  "parameters": [],
+  "description": "takes an operation base path and finds all imports and exports in all the files, and writes it to the ts-imports/ts-exports indexes\n\nNB: has a side effect: it also updates the package.json to include all needed dependencies.",
+  "returnType": {
+    "rawType": "Promise<{ success: boolean; message: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 2038,
+    "lines": 64,
+    "bytes": 2038,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 64,
+    "numberOfFiles": 1
+  },
+  "id": "UmErkuqdEWNMswZv"
+}

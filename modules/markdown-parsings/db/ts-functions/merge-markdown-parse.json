@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720260428,
+  "updatedAt": 1662720260428,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720260428,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/parsing/merge.ts",
+  "commentsInside": [],
+  "rawText": " (\n  markdownParses: MarkdownParse[],\n  fileName?: string\n): MarkdownParse => {\n  const allParameters = mergeObjectsArray(\n    markdownParses.map((x) => x.parameters)\n  );\n\n  const allMarkdownChunks = markdownParses.map((x) => {\n    const newMarkodwnChunk: MarkdownChunk = {\n      children: upMarkdownChunkLevelRecursively(x.content),\n      level: 1,\n      content: undefined,\n      title: x.fileName ? humanCase(x.fileName) : undefined,\n    };\n\n    return newMarkodwnChunk;\n  });\n\n  const newMarkdownParse: MarkdownParse = {\n    parameters: allParameters,\n    raw: markdownChunksToMarkdownStringRecursive(allMarkdownChunks),\n    content: allMarkdownChunks,\n    fileName,\n  };\n\n  return newMarkdownParse;\n}",
+  "name": "mergeMarkdownParse",
+  "slug": "merge-markdown-parse",
+  "parameters": [],
+  "description": "Merges multiple markdown parses to create a new markdown parse",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 768,
+    "lines": 28,
+    "bytes": 768,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 28,
+    "numberOfFiles": 1
+  },
+  "id": "cePMvGSoNjyWgsvm"
+}

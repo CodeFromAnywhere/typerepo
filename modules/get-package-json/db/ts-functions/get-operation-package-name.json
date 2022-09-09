@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718760904,
+  "updatedAt": 1662718760904,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718760904,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " async (operationFolderPath: string) => {\n  const packageJson = await getPackageJson({ operationFolderPath });\n  return packageJson?.name;\n}",
+  "name": "getOperationPackageName",
+  "slug": "get-operation-package-name",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 140,
+    "lines": 4,
+    "bytes": 140,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 4,
+    "numberOfFiles": 1
+  },
+  "id": "QtvonxhPmDENxZUd"
+}

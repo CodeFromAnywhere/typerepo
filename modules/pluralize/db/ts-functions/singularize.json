@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662726914935,
+  "updatedAt": 1662726914935,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726914935,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pluralize.ts",
+  "commentsInside": [],
+  "rawText": " (parameterName: string) => {\n  return parameterName.endsWith(\"s\")\n    ? parameterName.substring(0, parameterName.length - 1)\n    : parameterName;\n}",
+  "name": "singularize",
+  "slug": "singularize",
+  "parameters": [],
+  "description": "Removes the 's' if it is found at the end of the parameter name",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 211,
+    "lines": 5,
+    "bytes": 211,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 42,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "amXXnhITdBIWSdek"
+}

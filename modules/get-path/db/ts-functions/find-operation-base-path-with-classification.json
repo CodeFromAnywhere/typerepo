@@ -1,0 +1,80 @@
+{
+  "createdAt": 1662739839222,
+  "updatedAt": 1662739839222,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739839222,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/findOperationBasePath.ts",
+  "commentsInside": [],
+  "rawText": " (\n  startPath: string\n):\n  | { folderPath: string; classification: OperationClassification }\n  | undefined => {\n  const result = findFolderWhereMatch(startPath, getOperationClassification);\n\n  return result\n    ? { folderPath: result.folderPath, classification: result.matchResult! }\n    : undefined;\n}",
+  "name": "findOperationBasePathWithClassification",
+  "slug": "find-operation-base-path-with-classification",
+  "parameters": [],
+  "description": "recursive. goes up until it finds a folder that's an operation\n\nbecause it had to read the package.json anyway, it's returning the operation classification as well",
+  "returnType": {
+    "rawType": "{ folderPath: string; classification: any; } | undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "folderPath": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "classification": {}
+      },
+      "required": [
+        "folderPath",
+        "classification"
+      ],
+      "optional": true
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "folderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "classification",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 466,
+    "lines": 13,
+    "bytes": 466,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 36,
+    "linesPerFile": 13,
+    "numberOfFiles": 1
+  },
+  "id": "cywqcRSLJKUegNxK"
+}

@@ -1,0 +1,69 @@
+{
+  "createdAt": 1662720928893,
+  "updatedAt": 1662720928888,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720928893,
+  "folderName": "schema-util",
+  "packageName": "schema-util",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "schema-util",
+  "slug": "schema-util",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "SimplifiedSchema",
+    "referenceParameterNames",
+    "referencePluralParameterNames",
+    "lowerCaseArray",
+    "pascalCase",
+    "singularize",
+    "makeArray",
+    "notEmpty",
+    "TsInterface",
+    "SimplifiedSchema",
+    "log",
+    "notEmpty",
+    "SimplifiedSchema",
+    "SimplifiedSchemaProperty",
+    "SimplifiedSchemaItem"
+  ],
+  "packageDependencies": [
+    "JSONSchema7Definition",
+    "JSONSchema7",
+    "JSONSchema7"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 373,
+      "characters": 10842,
+      "bytes": 10842
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 73,
+      "characters": 1655,
+      "bytes": 1655
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 141,
+      "characters": 2534,
+      "bytes": 2534
+    },
+    "size": {
+      "bytes": 15031,
+      "characters": 15031,
+      "lines": 587,
+      "numberOfFiles": 8
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "QydCqiTHtFZrLStM",
+  "language": "en"
+}

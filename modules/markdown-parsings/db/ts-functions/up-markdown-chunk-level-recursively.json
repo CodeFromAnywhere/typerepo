@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720262156,
+  "updatedAt": 1662720262156,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720262156,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/parsing/parsing.ts",
+  "commentsInside": [],
+  "rawText": " (\n  markdownChunks: MarkdownChunk[] | undefined\n): MarkdownChunk[] | undefined => {\n  if (!markdownChunks) return;\n\n  const newMarkdownChunks: MarkdownChunk[] = markdownChunks.map((chunk) => ({\n    ...chunk,\n    level: chunk.level + 1,\n    children: upMarkdownChunkLevelRecursively(chunk.children),\n  }));\n\n  return newMarkdownChunks;\n}",
+  "name": "upMarkdownChunkLevelRecursively",
+  "slug": "up-markdown-chunk-level-recursively",
+  "parameters": [],
+  "description": "Ups the levels of the markdownChunk array, recursively.\n\nCan be useful for merging multiple markdown sources",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownChunk[] | undefined",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 445,
+    "lines": 15,
+    "bytes": 445,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "ffkGyPFCxsdTaEFV"
+}

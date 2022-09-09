@@ -1,0 +1,54 @@
+{
+  "createdAt": 1662726418185,
+  "updatedAt": 1662726418187,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726418185,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/ui/react-with-native/next/next-a-link/src/ALink.type.ts. Error: Error: Module '\\\"react-with-native\\\"' has no exported member 'AType'.\"]",
+  "buildSucceeded": false,
+  "id": "RUqALbGTsicHTwEC",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "next-a-link",
+  "packageName": "next-a-link",
+  "relativeOperationLocationPath": "operations/tools/ui/react-with-native/next",
+  "classification": "node",
+  "name": "next-a-link",
+  "slug": "next-a-link",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "A",
+    "A",
+    "AType",
+    "AType"
+  ],
+  "packageDependencies": [
+    "LinkProps",
+    "LinkProps"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 47,
+      "characters": 968,
+      "bytes": 968
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 69,
+      "characters": 1429,
+      "bytes": 1429
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 33,
+      "characters": 404,
+      "bytes": 404
+    },
+    "size": {
+      "bytes": 2801,
+      "characters": 2801,
+      "lines": 149,
+      "numberOfFiles": 6
+    }
+  }
+}

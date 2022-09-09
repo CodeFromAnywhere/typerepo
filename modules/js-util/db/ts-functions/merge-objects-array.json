@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662726835279,
+  "updatedAt": 1662726835279,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726835279,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/mergeObjectsArray.ts",
+  "commentsInside": [],
+  "rawText": " <T extends { [key: string]: any }>(\n  objectsArray: T[]\n): T => {\n  const result = objectsArray.reduce((previous, current) => {\n    return { ...previous, ...current };\n  }, {} as T);\n\n  return result;\n}",
+  "name": "mergeObjectsArray",
+  "slug": "merge-objects-array",
+  "parameters": [],
+  "description": "TODO: find a way to return the correct type interface",
+  "returnType": {
+    "rawType": "{ [key: string]: any; }",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 256,
+    "lines": 9,
+    "bytes": 256,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "wGFoIPQJtWMPkUlh"
+}

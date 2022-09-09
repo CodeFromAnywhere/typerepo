@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662739784609,
+  "updatedAt": 1662739784609,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739784609,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const promises = [\n    runModelEndToEndTest(\"CsvTestModel\", generateCsvInstance),\n    runModelEndToEndTest(\"DefaultTestModel\", generateJsonSingleInstance),\n    runModelEndToEndTest(\"JsonMultipleTestModel\", generateSlugTestModel),\n    testOperationModels(),\n    runModelEndToEndTest(\"MarkdownTestModel\", generateMarkdownInstance),\n    // runModelEndToEndTest(\"KeyValueMarkdownTestModel\", generateKvmdInstance),\n  ];\n  await Promise.all(promises);\n}",
+  "name": "test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 464,
+    "lines": 11,
+    "bytes": 464,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 42,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "bpjNpmyDZaPMbZJx"
+}

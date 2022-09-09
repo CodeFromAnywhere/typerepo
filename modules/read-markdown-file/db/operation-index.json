@@ -1,0 +1,56 @@
+{
+  "createdAt": 1662718941300,
+  "updatedAt": 1662718941299,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718941300,
+  "folderName": "read-markdown-file",
+  "packageName": "read-markdown-file",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "read-markdown-file",
+  "slug": "read-markdown-file",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "canRead",
+    "fs",
+    "path",
+    "Path",
+    "MarkdownParse",
+    "mdToJsonParse"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 26,
+      "characters": 809,
+      "bytes": 809
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 69,
+      "characters": 1457,
+      "bytes": 1457
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 31,
+      "characters": 372,
+      "bytes": 372
+    },
+    "size": {
+      "bytes": 2638,
+      "characters": 2638,
+      "lines": 126,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "CAtmHbjMqSkdGFwv",
+  "language": "en"
+}

@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662732832387,
+  "updatedAt": 1662732832387,
+  "deletedAt": 0,
+  "createdFirstAt": 1662732832387,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "commentsInside": [],
+  "rawText": " (x: ImportStatement) => {\n  const nameEndsWithTest = lowerCaseArray(x.name).pop() === \"test\";\n  const typeIsFn = x.type === \"function\";\n  return typeIsFn && nameEndsWithTest;\n}",
+  "name": "isTestFn",
+  "slug": "is-test-fn",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 177,
+    "lines": 5,
+    "bytes": 177,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "SKXmuWSunVHvqwhd"
+}

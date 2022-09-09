@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662720975718,
+  "updatedAt": 1662720975718,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720975718,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getHasGeneric.ts",
+  "commentsInside": [],
+  "rawText": " (\n  type: InterfaceDeclaration | TypeAliasDeclaration\n) => {\n  return type.getTypeParameters().length > 0;\n}",
+  "name": "getHasGeneric",
+  "slug": "get-has-generic",
+  "parameters": [],
+  "description": "returns a boolean indicating whether an interface or type has one or more generic arguments",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 200,
+    "lines": 5,
+    "bytes": 200,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 40,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "EjXTBVbiyrXoFDjz"
+}

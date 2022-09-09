@@ -1,0 +1,46 @@
+{
+  "createdAt": 1662726668050,
+  "updatedAt": 1662726668050,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726668050,
+  "id": "nested-path-object",
+  "name": "NestedPathObject",
+  "slug": "nested-path-object",
+  "operationRelativeTypescriptFilePath": "src/util/queryPathsArrayToNestedPathObject.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "/**\n * A different way to represent a path array in a nested object of folders\n */\nexport type NestedPathObject = {\n  [key: string]: NestedPathObject | null;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "A different way to represent a path array in a nested object of folders",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/NestedPathObject"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "description": "A different way to represent a path array in a nested object of folders"
+    },
+    "simplifiedSchema": {
+      "description": "A different way to represent a path array in a nested object of folders",
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NestedPathObject",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

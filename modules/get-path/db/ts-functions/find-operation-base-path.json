@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662739839222,
+  "updatedAt": 1662739839222,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739839222,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/findOperationBasePath.ts",
+  "commentsInside": [],
+  "rawText": " (\n  startPath: string\n): string | undefined => {\n  return findOperationBasePathWithClassification(startPath)?.folderPath;\n}",
+  "name": "findOperationBasePath",
+  "slug": "find-operation-base-path",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "string | undefined",
+    "typeDefinition": {
+      "optional": true,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 124,
+    "lines": 5,
+    "bytes": 124,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "DQnHeuxIhxQCvVSF"
+}

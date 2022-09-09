@@ -1,0 +1,81 @@
+{
+  "createdAt": 1662720213511,
+  "updatedAt": 1662720213511,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720213511,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/markdownStringToKvmdParse.ts",
+  "commentsInside": [],
+  "rawText": " (\n  kvMdString: string,\n  dbFileLocation: DbFileLocation\n): KeyValueMarkdownParse => {\n  const { parameters, content } = mdToJsonParse(kvMdString);\n  const { absolutePath, modelName, ...modelLocation } = dbFileLocation;\n\n  const parentKey = `parent_${camelCase(modelName)}Slug`;\n\n  if (!content) {\n    console.log(\"NO CONTENT FOUND\");\n    return { parameters: {}, data: [] };\n  }\n\n  const kvmdItems = content\n    .map((chunk) => getKvmdItemsRecursively(chunk))\n    .flat();\n\n  const data: KeyValueMarkdownModelType[] = kvmdItems.map((x) => ({\n    ...x,\n    ...modelLocation,\n    // NB: here we set the reference to its parent (which is equal to the last item in the categoryStackCalculated)\n    [parentKey]:\n      x.categoryStackCalculated[x.categoryStackCalculated.length - 1],\n  }));\n\n  return { parameters, data };\n}",
+  "name": "markdownStringToKvmdParse",
+  "slug": "markdown-string-to-kvmd-parse",
+  "parameters": [],
+  "description": "parses a key value md string (with support for headings and frontmatter)",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/model-types/build/keyValueMarkdown\").KeyValueMarkdownParse",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "type": "object",
+          "properties": {}
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValueMarkdownModelType"
+          }
+        }
+      },
+      "required": [
+        "parameters",
+        "data"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "parameters",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "data",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "name": "KeyValueMarkdownModelType"
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 892,
+    "lines": 28,
+    "bytes": 892,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 28,
+    "numberOfFiles": 1
+  },
+  "id": "GQLEjtXwZEwvbKXg"
+}

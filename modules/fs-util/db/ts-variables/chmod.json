@@ -1,0 +1,32 @@
+{
+  "createdAt": 1662739817138,
+  "updatedAt": 1662739817138,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739817138,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/fs.ts",
+  "comments": [],
+  "name": "chmod",
+  "slug": "chmod",
+  "value": "promisify(gracefulFs.chmod)",
+  "type": {
+    "rawType": "typeof import(\"fs\").chmod.__promisify__",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "RJYRSfjSetRnXcHR"
+}

@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662739842949,
+  "updatedAt": 1662739842949,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739842949,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getProjectRoot.ts",
+  "commentsInside": [],
+  "rawText": " (fullSourcePath?: string): string | undefined => {\n  const matchFolder = findFolderWhereMatch(\n    fullSourcePath || __dirname,\n    isWorkspaceRoot\n  );\n  if (!matchFolder) return;\n\n  /**\n   * NB: for Sensible porjects, the project root is the same as the workspace root.\n   * NB: For OS projects, the project root is one folder up from the workspace root\n   */\n  const realPath = matchFolder.matchResult?.isSensibleProject\n    ? matchFolder.folderPath\n    : path.join(matchFolder.folderPath, \"..\");\n\n  return realPath;\n}",
+  "name": "getProjectRoot",
+  "slug": "get-project-root",
+  "parameters": [],
+  "description": "returns project root folder path\n\nrecursive. goes up until it finds a folder that's the project root\n\nif no source path is given, uses the directory name where the function is executed from as a starting point",
+  "returnType": {
+    "rawType": "string | undefined",
+    "typeDefinition": {
+      "optional": true,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 731,
+    "lines": 21,
+    "bytes": 731,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "avVPFvZELlZihSMd"
+}

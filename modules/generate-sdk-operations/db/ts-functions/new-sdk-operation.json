@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662740117119,
+  "updatedAt": 1662740117119,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740117119,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string,\n  tsFunctions: TsFunction[],\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  log(`${operationName} should contain ${tsFunctions.length} functions`, {\n    type: \"debug\",\n  });\n  const skipYarnInstall = config?.skipYarnInstall;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const dryrun = config?.dryrun;\n  const importsString = tsFunctions\n    .map((fn) => `import { ${fn.name} } from \"${fn.operationName}\";`)\n    .join(\"\\n\");\n  const sdkConstString = `export const sdk = { ${tsFunctions\n    .map((fn) => `${fn.name}`)\n    .join(\",\\n\")}};`;\n\n  const sdkTypeString = `export type SdkType = typeof sdk;`;\n\n  const sdkTypescriptFileString = `${importsString}\\n\\n${sdkConstString}\\n\\n${sdkTypeString}`;\n\n  const operationConfig = await getOperationConfig(operationName);\n\n  const filesObject = { [`src/${operationName}.ts`]: sdkTypescriptFileString };\n  const result = await newOperationWithFiles(operationConfig, filesObject, {\n    overwriteIfExists: true,\n    manualProjectRoot,\n    skipYarnInstall,\n    dryrun,\n  });\n\n  return result;\n}",
+  "name": "newSdkOperation",
+  "slug": "new-sdk-operation",
+  "parameters": [],
+  "description": "Uses an array of functions to create an operation that imports all those functions and exports an object where all those functions have been comprised",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 1292,
+    "lines": 38,
+    "bytes": 1292,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 34,
+    "linesPerFile": 38,
+    "numberOfFiles": 1
+  },
+  "id": "HuHWcVspZyvdInGr"
+}

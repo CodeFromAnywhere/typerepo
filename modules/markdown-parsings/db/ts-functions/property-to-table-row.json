@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662735932600,
+  "updatedAt": 1662735932600,
+  "deletedAt": 0,
+  "createdFirstAt": 1662735932600,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "commentsInside": [],
+  "rawText": " (\n  property: SimplifiedSchemaProperty\n): string => {\n  const requiredString = property.required ? \"\" : \"(optional)\";\n\n  const descriptionString =\n    property.schema.description?.replaceAll(\"\\n\", \"<br />\") || \"\";\n\n  // TODO: stack deeper objects and make sure to also print tables for those\n  return `| ${property.name} ${requiredString} | ${property.schema.type} | ${descriptionString} |`;\n}",
+  "name": "propertyToTableRow",
+  "slug": "property-to-table-row",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 394,
+    "lines": 11,
+    "bytes": 394,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 36,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "GuWFtnEVNciHhLVl"
+}

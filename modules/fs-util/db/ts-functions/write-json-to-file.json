@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662739816125,
+  "updatedAt": 1662739816125,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739816125,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/files.ts",
+  "commentsInside": [],
+  "rawText": " async <T>(\n  p: Path,\n  data: T\n): Promise<boolean> => {\n  if (!data) {\n    console.log({ p, data });\n    return false;\n  }\n  const stringifiedData = JSON.stringify(data, null, 2);\n\n  const folderToBe = getFolder(p);\n  if (!fs.existsSync(folderToBe)) {\n    //first, make sure the folder exists\n    await fs.mkdir(folderToBe, { recursive: true });\n  }\n  //then write it\n  await fs.writeFile(p, stringifiedData, \"utf8\");\n  return true;\n}",
+  "name": "writeJsonToFile",
+  "slug": "write-json-to-file",
+  "parameters": [],
+  "description": "write json to a file\n\nmakes the dir and file if they don't exist",
+  "returnType": {
+    "rawType": "Promise<boolean>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 500,
+    "lines": 21,
+    "bytes": 500,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "rjydvNwtlWnEQNwS"
+}

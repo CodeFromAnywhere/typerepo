@@ -1,0 +1,51 @@
+{
+  "createdAt": 1662735741644,
+  "updatedAt": 1662742657542,
+  "deletedAt": 0,
+  "createdFirstAt": 1662735741644,
+  "folderName": "k-dev",
+  "packageName": "k-dev",
+  "relativeOperationLocationPath": "operations/tools/util",
+  "classification": "node",
+  "name": "k-dev",
+  "slug": "k-dev",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "nodemon"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 14,
+      "characters": 378,
+      "bytes": 378
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 75,
+      "characters": 1505,
+      "bytes": 1505
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 77,
+      "characters": 1264,
+      "bytes": 1264
+    },
+    "size": {
+      "bytes": 3147,
+      "characters": 3147,
+      "lines": 166,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/util/k-dev/src/dev.ts. Error: Error: Type 'void' is not a valid async function return type in ES5/ES3 because it does not refer to a Promise-compatible constructor value.\"]",
+  "lintProblems": [],
+  "id": "mgFhzWdhzrHUWRxk",
+  "language": "en"
+}

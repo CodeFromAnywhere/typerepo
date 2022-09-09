@@ -1,0 +1,95 @@
+{
+  "createdAt": 1662720484912,
+  "updatedAt": 1662720484912,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720484912,
+  "id": "slug-model-properties",
+  "name": "SlugModelProperties",
+  "slug": "slug-model-properties",
+  "operationRelativeTypescriptFilePath": "src/modelTypes.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type SlugModelProperties = {\n  /**\n   * kebab-case of the name, should be unique\n   */\n  slug: Slug;\n  name: string;\n  /**\n   * @default en\n   */\n  language: Language;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "slug": {
+          "$ref": "#/definitions/Slug",
+          "description": "kebab-case of the name, should be unique"
+        },
+        "name": {
+          "type": "string"
+        },
+        "language": {
+          "$ref": "#/definitions/Language",
+          "default": "en"
+        }
+      },
+      "required": [
+        "slug",
+        "name",
+        "language"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "slug",
+          "required": true,
+          "schema": {
+            "description": "use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
+            "type": "string"
+          }
+        },
+        {
+          "name": "name",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "language",
+          "required": true,
+          "schema": {
+            "description": "all currently supported languages",
+            "enum": [
+              "en",
+              "nl",
+              "np",
+              "pt",
+              "de",
+              "fr",
+              "es",
+              "it",
+              "no",
+              "sw",
+              "da",
+              "vn",
+              "in",
+              "vl",
+              "af",
+              "tk"
+            ],
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "SlugModelProperties",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

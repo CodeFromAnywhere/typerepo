@@ -1,0 +1,33 @@
+{
+  "createdAt": 1662745019838,
+  "updatedAt": 1662745019838,
+  "deletedAt": 0,
+  "createdFirstAt": 1662745019838,
+  "id": "project-relative-file-path",
+  "name": "ProjectRelativeFilePath",
+  "slug": "project-relative-file-path",
+  "operationRelativeTypescriptFilePath": "src/types.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\nexport type ProjectRelativeFilePath = string;",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string"
+    },
+    "simplifiedSchema": {
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "ProjectRelativeFilePath",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

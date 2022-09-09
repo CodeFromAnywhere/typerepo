@@ -1,0 +1,32 @@
+{
+  "createdAt": 1662719521906,
+  "updatedAt": 1662719521906,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719521906,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "comments": [],
+  "name": "nonCasingDelimiters",
+  "slug": "non-casing-delimiters",
+  "value": "/[\\s,._-]+/",
+  "type": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "iQWSHxsfHxeEYrRI"
+}

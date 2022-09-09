@@ -1,0 +1,23 @@
+{
+  "createdAt": 1662740739028,
+  "updatedAt": 1662740739028,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740739028,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/DbStorageMethod.ts",
+  "comments": [],
+  "name": "dbStorageMethodsConst",
+  "slug": "db-storage-methods-const",
+  "value": "[\n  \"jsonMultiple\",\n  \"jsonSingle\",\n  \"markdown\",\n  \"keyValueMarkdown\",\n  \"csv\",\n] as const",
+  "type": {
+    "rawType": "readonly [\"jsonMultiple\", \"jsonSingle\", \"markdown\", \"keyValueMarkdown\", \"csv\"]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "classification": "const",
+  "id": "NXzLtcdrvoXYggji"
+}

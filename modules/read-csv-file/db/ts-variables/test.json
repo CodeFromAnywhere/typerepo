@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662718893309,
+  "updatedAt": 1662718893309,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718893309,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/readCsvFile.ts",
+  "comments": [],
+  "name": "test",
+  "slug": "test",
+  "value": "[\n  makeTest(\n    () => {\n      return readCsvFile(path.join(__dirname, \"..\", \"assets\", \"example.csv\"));\n    },\n    (result) => {\n      return result?.length === 6;\n    }\n  ),\n  makeTest(\n    () => {\n      return readCsvFileSync(\n        path.join(__dirname, \"..\", \"assets\", \"example.csv\")\n      );\n    },\n    (result) => {\n      return result?.length === 6;\n    }\n  ),\n]",
+  "type": {
+    "rawType": "(() => Promise<boolean>)[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "ZkbxRQMJHElaTGfk"
+}

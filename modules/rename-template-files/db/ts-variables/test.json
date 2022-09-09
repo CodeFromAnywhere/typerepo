@@ -1,0 +1,32 @@
+{
+  "createdAt": 1662718995997,
+  "updatedAt": 1662718995997,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718995997,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "comments": [],
+  "name": "test",
+  "slug": "test",
+  "value": "makeTest(() => {\n  const fileNames = [\".gitignore\", \"package.json\", \"Podfile\"];\n  const changedFileNames = fileNames\n    .map(renameToTemplateFile)\n    .map(renameTemplateToNormalFile);\n\n  return isEqualArray(fileNames, changedFileNames);\n})",
+  "type": {
+    "rawType": "() => Promise<boolean>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "tXRINlFQQrHBAKBd"
+}

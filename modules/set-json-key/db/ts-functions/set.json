@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662719011234,
+  "updatedAt": 1662719011234,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719011234,
+  "name": "set",
+  "slug": "set",
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "description": "",
+  "parameters": [],
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "size": {
+    "characters": 385,
+    "lines": 14,
+    "bytes": 385,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "rawText": "\n//\nfunction set(path: string, value: string | number | boolean, object: any) {\n  var schema = object; // a moving reference to internal objects within obj\n  var pList = path.split(\".\");\n  var len = pList.length;\n  for (var i = 0; i < len - 1; i++) {\n    var elem = pList[i];\n    if (!schema[elem]) schema[elem] = {};\n    schema = schema[elem];\n  }\n\n  schema[pList[len - 1]] = value;\n}",
+  "maxIndentationDepth": 2,
+  "id": "CRoNYxSYrGNlTaiG"
+}

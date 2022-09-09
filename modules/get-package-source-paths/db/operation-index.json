@@ -1,0 +1,52 @@
+{
+  "createdAt": 1662718772282,
+  "updatedAt": 1662718772281,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718772282,
+  "folderName": "get-package-source-paths",
+  "packageName": "get-package-source-paths",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "get-package-source-paths",
+  "slug": "get-package-source-paths",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "path",
+    "explore"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 33,
+      "characters": 957,
+      "bytes": 957
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 68,
+      "characters": 1435,
+      "bytes": 1435
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 34,
+      "characters": 593,
+      "bytes": 593
+    },
+    "size": {
+      "bytes": 2985,
+      "characters": 2985,
+      "lines": 135,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "kdBgtCfyzFtKcgwO",
+  "language": "en"
+}

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662719521903,
+  "updatedAt": 1662719521903,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719521903,
+  "name": "slugify",
+  "slug": "slugify",
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "description": "/**\n * this function does the same as kebabCase but it also does some more transformation on top\n *\n * TODO: make the tranformations that are done here into smaller util functions and make a clean function that can be ran before running every casing conversion (maybe in a config)\n */",
+  "parameters": [],
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "size": {
+    "characters": 1333,
+    "lines": 29,
+    "bytes": 1414,
+    "bytesPerCharacter": 1.0607651912978244,
+    "charactersPerLine": 46,
+    "linesPerFile": 29,
+    "numberOfFiles": 1
+  },
+  "rawText": "\n\n/**\n * this function does the same as kebabCase but it also does some more transformation on top\n *\n * TODO: make the tranformations that are done here into smaller util functions and make a clean function that can be ran before running every casing conversion (maybe in a config)\n */\nexport function slugify(string: string) {\n  const a =\n    \"àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìıİłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·/_,:;\";\n  const b =\n    \"aaaaaaaaaacccddeeeeeeeegghiiiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz------\";\n  const p = new RegExp(a.split(\"\").join(\"|\"), \"g\");\n\n  return string\n    .toString()\n    .toLowerCase()\n    .replace(/\\s+/g, \"-\") // Replace spaces with -\n    .replace(p, (c) => b.charAt(a.indexOf(c))) // Replace special characters\n    .replace(/&/g, \"-and-\") // Replace & with 'and'\n    .replace(/[^\\w\\-]+/g, \"\") // Remove all non-word characters\n    .replace(/\\-\\-+/g, \"-\") // Replace multiple - with single -\n    .replace(/^-+/, \"\") // Trim - from start of text\n    .replace(/-+$/, \"\"); // Trim - from end of text\n}",
+  "maxIndentationDepth": 2,
+  "id": "TRRyBhmVIQrjRZyY"
+}

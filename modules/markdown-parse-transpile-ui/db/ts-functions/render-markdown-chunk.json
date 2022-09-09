@@ -1,0 +1,40 @@
+{
+  "createdAt": 1662726649653,
+  "updatedAt": 1662726649653,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726649653,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
+  "commentsInside": [],
+  "rawText": " (chunk: MarkdownChunk) => {\n  const title = chunk.title\n    ? renderMarkdownTitle(chunk.title, chunk.level)\n    : null;\n  return (\n    <Div>\n      {title}\n      {chunk.content ? renderMarkdownContent(chunk.content) : null}\n      {chunk.children?.map(renderMarkdownChunk)}\n    </Div>\n  );\n}",
+  "name": "renderMarkdownChunk",
+  "slug": "render-markdown-chunk",
+  "parameters": [],
+  "description": "renders a MarkdownChunk interface",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 323,
+    "lines": 12,
+    "bytes": 323,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "CGrpAevvvFsRQtSn"
+}

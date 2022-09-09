@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662726926913,
+  "updatedAt": 1662726926913,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726926913,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/runChildProcess.ts",
+  "commentsInside": [],
+  "rawText": " async ({\n  operationFolderName,\n  scriptFileName,\n  args,\n}: {\n  operationFolderName: string;\n  /**\n   * the location of the script in the build folder\n   * NB: this must be a CLI that that actually executes the function!\n   */\n  scriptFileName: string;\n  args?: string[];\n}) => {\n  const childOperationPath = await getOperationPath(operationFolderName);\n  if (!childOperationPath) {\n    log(\"Couldn't find childPath\", { type: \"error\" });\n    return;\n  }\n  const scriptPath = path.join(\n    childOperationPath,\n    `build/${scriptFileName}.js`\n  );\n\n  if (!fs.existsSync(scriptPath)) {\n    log(\"Couldn't find scriptfile\", { type: \"error\" });\n    return;\n  }\n\n  const readable = await canRead(scriptPath);\n\n  if (!readable) {\n    log(`Can't read ${scriptPath}`, { type: \"error\" });\n    return;\n  }\n\n  const command = `node ${scriptPath} ${args?.join(\" \") || \"\"}`;\n\n  // log(`going to execute: ${command}`, { type: \"important\" });\n\n  const result = spawnSync(command, {\n    shell: true,\n    stdio: \"inherit\",\n    encoding: \"utf8\",\n  });\n\n  return result.output;\n}",
+  "name": "runChildProcess",
+  "slug": "run-child-process",
+  "parameters": [],
+  "description": "spawns a child process and returns its output after it's done",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 1123,
+    "lines": 47,
+    "bytes": 1123,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 47,
+    "numberOfFiles": 1
+  },
+  "id": "ZhkxJhSyLXNsgFKX"
+}

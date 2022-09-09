@@ -1,0 +1,153 @@
+{
+  "createdAt": 1662720924383,
+  "updatedAt": 1662720924383,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720924383,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getRecerencableModels.ts",
+  "commentsInside": [],
+  "rawText": " (\n  simplifiedSchema?: SimplifiedSchema\n): ReferenceParameterInfo[] | undefined => {\n  if (simplifiedSchema?.type !== \"object\") return undefined;\n  const parameterNames = simplifiedSchema.properties?.map((x) => x.name);\n\n  const referenceParameterInfo = parameterNames\n    ?.map((parameterName) => {\n      const referenceParameterInfo = getReferenceParameterInfo(parameterName);\n\n      return referenceParameterInfo;\n    })\n    .filter((x) => x.isReferenceParameter);\n\n  return referenceParameterInfo;\n}",
+  "name": "getReferencableModels",
+  "slug": "get-referencable-models",
+  "parameters": [],
+  "description": "based on the object properties in SimplifiedSchema, returns the model names that can be referenced",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/typescript/schema-util/src/getReferenceParameterInfo\").ReferenceParameterInfo[] | undefined",
+    "typeDefinition": {
+      "optional": true,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "descriptor": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "keyInModel": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "interfaceName": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "isReferenceMultipleParameter": {
+            "type": "boolean"
+          },
+          "isReferenceSingleParameter": {
+            "type": "boolean"
+          },
+          "isReferenceParameter": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "isReferenceMultipleParameter",
+          "isReferenceSingleParameter",
+          "isReferenceParameter"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "descriptor",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "keyInModel",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "interfaceName",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "isReferenceMultipleParameter",
+                "required": true,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isReferenceSingleParameter",
+                "required": true,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isReferenceParameter",
+                "required": true,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 602,
+    "lines": 16,
+    "bytes": 602,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 38,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "oCDBsiMDFQrRLvOt"
+}

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662726834354,
+  "updatedAt": 1662726834354,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726834354,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/mapMany.test.ts",
+  "commentsInside": [],
+  "rawText": " async (letter: string) => `${letter}+${letter}`",
+  "name": "concatenate",
+  "slug": "concatenate",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 48,
+    "lines": 1,
+    "bytes": 48,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 48,
+    "linesPerFile": 1,
+    "numberOfFiles": 1
+  },
+  "id": "ZIWSecdtNFZqAhlF"
+}

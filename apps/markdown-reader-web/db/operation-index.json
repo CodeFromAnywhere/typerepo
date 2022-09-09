@@ -1,0 +1,66 @@
+{
+  "createdAt": 1662726319308,
+  "updatedAt": 1662726319321,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726319308,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/ui/markdown-reader/markdown-reader-web/src/pages/_app.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\"]",
+  "buildSucceeded": true,
+  "id": "UNzdBmXTMvwciXUl",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "markdown-reader-web",
+  "packageName": "markdown-reader-web",
+  "relativeOperationLocationPath": "operations/tools/ui/markdown-reader",
+  "classification": "web",
+  "name": "markdown-reader-web",
+  "slug": "markdown-reader-web",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getBundleQueryPaths",
+    "getRealPathFromQueryPath",
+    "fs",
+    "MainPageProps",
+    "getQueryPath",
+    "getBundleQueryPaths",
+    "pagesObject",
+    "pages",
+    "getPageTitle",
+    "Layout",
+    "useRouter",
+    "pagesObject"
+  ],
+  "packageDependencies": [
+    "GetStaticPropsContext",
+    "GetStaticPaths",
+    "GetStaticPathsContext",
+    "AppProps",
+    "QueryClient",
+    "QueryClientProvider"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 119,
+      "characters": 3596,
+      "bytes": 3596
+    },
+    "dataSize": {
+      "numberOfFiles": 173,
+      "lines": 466,
+      "characters": 1618394,
+      "bytes": 1618394
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 49,
+      "characters": 548,
+      "bytes": 548
+    },
+    "size": {
+      "bytes": 1622538,
+      "characters": 1622538,
+      "lines": 634,
+      "numberOfFiles": 179
+    }
+  }
+}

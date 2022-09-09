@@ -1,0 +1,75 @@
+{
+  "createdAt": 1662718880206,
+  "updatedAt": 1662733041128,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718880206,
+  "folderName": "path-util",
+  "packageName": "path-util",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "js",
+  "name": "path-util",
+  "slug": "path-util",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "parseFrontmatterMarkdownString",
+    "path",
+    "fs",
+    "getLastFolder",
+    "getFolder",
+    "CategorizedFilePaths",
+    "PathMetaData",
+    "TsComment",
+    "findCommentTypes",
+    "getIndexId",
+    "getNumberOfLines",
+    "getPathParse",
+    "determineFileType",
+    "explore",
+    "SearchableExtension",
+    "extensions",
+    "determineFileType",
+    "CategorizedFilePaths",
+    "buildFolderName",
+    "databaseFolderName",
+    "sumAllKeys",
+    "fs",
+    "CategorizedFilePaths",
+    "FolderSummary",
+    "SizeSummary"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 4,
+      "lines": 279,
+      "characters": 7881,
+      "bytes": 7881
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 70,
+      "characters": 1499,
+      "bytes": 1499
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 157,
+      "characters": 3292,
+      "bytes": 3292
+    },
+    "size": {
+      "bytes": 12672,
+      "characters": 12672,
+      "lines": 506,
+      "numberOfFiles": 7
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "fDSeNxJQjifULCbs",
+  "language": "en"
+}

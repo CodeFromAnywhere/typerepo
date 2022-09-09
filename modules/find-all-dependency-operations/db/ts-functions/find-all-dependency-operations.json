@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720698002,
+  "updatedAt": 1662720698002,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720698002,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
+  "commentsInside": [],
+  "rawText": " async ({\n  operationNames,\n  ignoreOperationNames,\n}: {\n  operationNames: string[];\n  ignoreOperationNames?: string[];\n}) => {\n  const dependencyPromises = operationNames.map((operationName) =>\n    findDependenciesRecursively(\n      operationName,\n      operationNames,\n      ignoreOperationNames\n    )\n  );\n  const dependencies = (await Promise.all(dependencyPromises)).flat();\n  return dependencies.filter(onlyUnique);\n}",
+  "name": "findAllDependencyOperations",
+  "slug": "find-all-dependency-operations",
+  "parameters": [],
+  "description": "to be used when you need to know all dependencies for multiple operation names at once\n\nTODO: NB: this breaks with circular dependencies",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 559,
+    "lines": 19,
+    "bytes": 559,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 19,
+    "numberOfFiles": 1
+  },
+  "id": "uzWFSatZknDRyXYC"
+}

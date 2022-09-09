@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662739817663,
+  "updatedAt": 1662739817663,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739817663,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/js.ts",
+  "commentsInside": [],
+  "rawText": " (fileNameOrPath: string) => {\n  const pieces = fileNameOrPath.split(\".\");\n  return pieces.pop()!;\n}",
+  "name": "getExtension",
+  "slug": "get-extension",
+  "parameters": [],
+  "description": "returns the extension of the filename or path\n\nNB: not sure, but could be nice to replace this with path.extname(pathString)",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 224,
+    "lines": 6,
+    "bytes": 224,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 37,
+    "linesPerFile": 6,
+    "numberOfFiles": 1
+  },
+  "id": "hZsqfzPQKAeglDqE"
+}

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662740117119,
+  "updatedAt": 1662740117119,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740117119,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}): Promise<FunctionsPerClassification | undefined> => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const sdkDependants = await findDependantsRecursively(\"sdk\");\n\n  const exportedFunctions = (await db.get(\"TsFunction\", { manualProjectRoot }))\n    .filter((x) => x.isExported)\n    .filter(isTsFunctionIndexable)\n    .filter((x) => {\n      return x.operationName && !sdkDependants.includes(x.operationName);\n    })\n    .filter(onlyUnique2<TsFunction>((a, b) => a.name === b.name));\n\n  const operationFolders = await exploreOperationFolders({});\n  const operationClassificationObject: OperationClassificationObject =\n    mergeObjectsArray(\n      operationFolders\n        .map((operationBasePath) => {\n          const operationClassification =\n            getOperationClassification(operationBasePath);\n          if (!operationClassification) return;\n          const operationName = getLastFolder(operationBasePath);\n          return { [operationName]: operationClassification };\n        })\n        .filter(notEmpty)\n    );\n\n  const sdkFunctionsPerClassification = mergeObjectsArray(\n    operationClassificationConst.map((operationClassification) => {\n      const sdkFunctions = exportedFunctions\n        .filter((x) =>\n          tsFunctionIsSdkable(\n            x,\n            operationClassificationObject,\n            operationClassification\n          )\n        )\n        .filter(onlyUnique2<TsFunction>((a, b) => a.name === b.name));\n\n      log(\n        `for ${operationClassification} we found ${sdkFunctions.length} functions`,\n        { type: \"debug\" }\n      );\n      return { [operationClassification]: sdkFunctions };\n    })\n  ) as FunctionsPerClassification;\n\n  return sdkFunctionsPerClassification;\n}",
+  "name": "getSdkFunctions",
+  "slug": "get-sdk-functions",
+  "parameters": [],
+  "description": "returns all sdk functions grouped by operation classification",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/typescript/generate-sdk-operations/src/generateFunctionSdks\").FunctionsPerClassification | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 1921,
+    "lines": 53,
+    "bytes": 1921,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 36,
+    "linesPerFile": 53,
+    "numberOfFiles": 1
+  },
+  "id": "eAwHjWiyvzpChQWx"
+}

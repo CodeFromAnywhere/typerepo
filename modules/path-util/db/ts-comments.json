@@ -1,0 +1,50 @@
+[
+  {
+    "createdAt": 1662733037963,
+    "updatedAt": 1662733037963,
+    "deletedAt": 0,
+    "createdFirstAt": 1662733037963,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/getFolderSummary.ts",
+    "comment": "This function will return the byte size of any UTF-8 string you pass to it.",
+    "rawStatement": "export function byteCount(s: string) {\n  return encodeURI(s).split(/%..|./).length - 1;\n}",
+    "parameters": {},
+    "types": [],
+    "firstLine": 5,
+    "lastLine": 7,
+    "id": "ZBuOdvjeoyIgDVUF"
+  },
+  {
+    "createdAt": 1662733037963,
+    "updatedAt": 1662733037963,
+    "deletedAt": 0,
+    "createdFirstAt": 1662733037963,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/getFolderSummary.ts",
+    "comment": "gets a size summary for a file path",
+    "rawStatement": "export const getSizeSummary = async (\n  filePath: string\n): Promise<SizeSummary> => {\n  const content = await fs.readFile(filePath, \"utf8\");\n\n  const bytes = byteCount(content);\n  const characters = content.length;\n  const lines = content.split(\"\\n\").length;\n\n  return {\n    bytes,\n    characters,\n    lines,\n    numberOfFiles: 1,\n    bytesPerCharacter: bytes / characters,\n    charactersPerLine: characters / lines,\n    linesPerFile: lines,\n  };\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 12,
+    "lastLine": 14,
+    "id": "GayaGdTSPzpVWCav"
+  },
+  {
+    "createdAt": 1662733037963,
+    "updatedAt": 1662733037963,
+    "deletedAt": 0,
+    "createdFirstAt": 1662733037963,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/getFolderSummary.ts",
+    "comment": "calculates folder summary from a categorized file paths object",
+    "rawStatement": "export const getFolderSummary = async (\n  categorizedFiles: CategorizedFilePaths\n): Promise<FolderSummary> => {\n  const categoriesSummary: Omit<FolderSummary, \"size\"> = {\n    codeSize: await sumSizeSummary(categorizedFiles.code),\n    dataSize: await sumSizeSummary(categorizedFiles.data),\n    textSize: await sumSizeSummary(categorizedFiles.text),\n  };\n\n  const folderSummary: FolderSummary = {\n    ...categoriesSummary,\n    size: sumAllKeys(Object.values(categoriesSummary), [\n      \"bytes\",\n      \"characters\",\n      \"lines\",\n      \"numberOfFiles\",\n    ]),\n  };\n\n  return folderSummary;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 48,
+    "lastLine": 50,
+    "id": "AIoVyHJSYKkPQUIE"
+  }
+]

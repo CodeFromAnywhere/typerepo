@@ -1,0 +1,23 @@
+{
+  "createdAt": 1662740743880,
+  "updatedAt": 1662740743880,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740743880,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/ParameterName.ts",
+  "comments": [],
+  "name": "contentTypeConst",
+  "slug": "content-type-const",
+  "value": "[\n  // automatic\n  \"generated\",\n  //string\n  \"markdown\",\n  \"text\",\n  // numbers\n  \"number\",\n  \"date\",\n  \"time\",\n  \"datetime\",\n  // boolean\n  \"toggle\",\n  // enum\n  \"select\",\n  // enum[]\n  \"selectMultiple\",\n] as const",
+  "type": {
+    "rawType": "readonly [\"generated\", \"markdown\", \"text\", \"number\", \"date\", \"time\", \"datetime\", \"toggle\", \"select\", \"selectMultiple\"]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "classification": "const",
+  "id": "zVTxGpWiHNTbcSUl"
+}

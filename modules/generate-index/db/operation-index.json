@@ -1,0 +1,70 @@
+{
+  "createdAt": 1662720719288,
+  "updatedAt": 1662732834159,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720719288,
+  "folderName": "generate-index",
+  "packageName": "generate-index",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "generate-index",
+  "slug": "generate-index",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "log",
+    "lowerCaseArray",
+    "notEmpty",
+    "getOperationPath",
+    "db",
+    "fs",
+    "path",
+    "log",
+    "getOperationPath",
+    "getSrcRelativeFileId",
+    "makeRelative",
+    "getPackageSourcePaths",
+    "isIndexableFileId",
+    "TsFunction",
+    "TsInterface",
+    "TsVariable",
+    "lowerCaseArray",
+    "getSrcRelativeFileId"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 8,
+      "lines": 351,
+      "characters": 10486,
+      "bytes": 10486
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 76,
+      "characters": 1642,
+      "bytes": 1642
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 115,
+      "characters": 3882,
+      "bytes": 3882
+    },
+    "size": {
+      "bytes": 16010,
+      "characters": 16010,
+      "lines": 542,
+      "numberOfFiles": 12
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "UMVLhalfoqmAqeNp",
+  "language": "en"
+}

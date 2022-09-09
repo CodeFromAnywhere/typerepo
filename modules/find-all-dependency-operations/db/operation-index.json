@@ -1,0 +1,60 @@
+{
+  "createdAt": 1662720700382,
+  "updatedAt": 1662720700382,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720700382,
+  "folderName": "find-all-dependency-operations",
+  "packageName": "find-all-dependency-operations",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "find-all-dependency-operations",
+  "slug": "find-all-dependency-operations",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "mergeObjectsArray",
+    "notEmpty",
+    "onlyUnique",
+    "onlyUnique2",
+    "db",
+    "exploreOperationFolders",
+    "getLastFolder",
+    "TsImport",
+    "forAllFolders",
+    "getLastFolder"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 258,
+      "characters": 6952,
+      "bytes": 6952
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 72,
+      "characters": 1542,
+      "bytes": 1542
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 140,
+      "characters": 2238,
+      "bytes": 2238
+    },
+    "size": {
+      "bytes": 10732,
+      "characters": 10732,
+      "lines": 470,
+      "numberOfFiles": 5
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "mTEZRHhVjywbQIRn",
+  "language": "en"
+}

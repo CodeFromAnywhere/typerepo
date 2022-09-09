@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718995376,
+  "updatedAt": 1662718995376,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718995376,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (fileName: string) => {\n  return fileName.replace(\".template\", \"\");\n}",
+  "name": "renameTemplateToNormalFile",
+  "slug": "rename-template-to-normal-file",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 70,
+    "lines": 3,
+    "bytes": 70,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "fAxjXAbtdvgKTvgr"
+}

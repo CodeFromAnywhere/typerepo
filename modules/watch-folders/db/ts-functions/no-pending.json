@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662719042973,
+  "updatedAt": 1662719042973,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719042973,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/fswatch.ts",
+  "commentsInside": [],
+  "rawText": " () => pending.length === 0",
+  "name": "noPending",
+  "slug": "no-pending",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 27,
+    "lines": 1,
+    "bytes": 27,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 1,
+    "numberOfFiles": 1
+  },
+  "id": "XlwnBHFvcOzKMzfM"
+}

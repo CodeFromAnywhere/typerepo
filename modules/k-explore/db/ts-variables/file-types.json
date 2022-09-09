@@ -1,0 +1,56 @@
+{
+  "createdAt": 1662718809386,
+  "updatedAt": 1662718809386,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718809386,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/explore.ts",
+  "comments": [],
+  "name": "fileTypes",
+  "slug": "file-types",
+  "value": "Object.keys(extensions) as FileType[]",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/control-fs/k-explore/src/explore\").FileType[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "enum": [
+          "code",
+          "data",
+          "text"
+        ],
+        "x-enumNames": [
+          "code",
+          "data",
+          "text"
+        ],
+        "type": "string"
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "enum": [
+              "code",
+              "data",
+              "text"
+            ],
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "DeYBMPNuyXCFatXv"
+}

@@ -1,0 +1,32 @@
+{
+  "createdAt": 1662720236958,
+  "updatedAt": 1662720236958,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720236958,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/removeHeaderPrefix.ts",
+  "comments": [],
+  "name": "test",
+  "slug": "test",
+  "value": "makeTest(\n  () => removeHeaderPrefix(\"#### Header\"),\n  (result) => result === \"Header\"\n)",
+  "type": {
+    "rawType": "() => Promise<boolean>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "YcPGhOhWgRQuwKdv"
+}

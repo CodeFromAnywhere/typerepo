@@ -1,0 +1,40 @@
+{
+  "createdAt": 1662726444737,
+  "updatedAt": 1662726444737,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726444737,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/html/H2/H2.tsx",
+  "commentsInside": [],
+  "rawText": " ({ native, ...props }: H2Type) => {\n  return <h2 {...props} />;\n}",
+  "name": "H2",
+  "slug": "h2",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 66,
+    "lines": 3,
+    "bytes": 66,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "cqMhiRGuURjuJBxa"
+}

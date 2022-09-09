@@ -1,0 +1,68 @@
+{
+  "createdAt": 1662719189032,
+  "updatedAt": 1662719189032,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719189032,
+  "folderName": "bundle-util",
+  "packageName": "bundle-util",
+  "relativeOperationLocationPath": "operations/tools/deployment/bundling",
+  "classification": "node",
+  "name": "bundle-util",
+  "slug": "bundle-util",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "findFileNameCaseInsensitive",
+    "getPathsWithOperations",
+    "getProjectRoot",
+    "isSensibleProject",
+    "explore",
+    "exploreOperationFolders",
+    "kebabCase",
+    "getRootPath",
+    "makeArray",
+    "notEmpty",
+    "onlyUnique2",
+    "BundleConfig",
+    "path",
+    "TsInterface",
+    "getDbModelsFromOperations",
+    "BundleConfig"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 189,
+      "characters": 5243,
+      "bytes": 5243
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 74,
+      "characters": 1566,
+      "bytes": 1566
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 71,
+      "characters": 1012,
+      "bytes": 1012
+    },
+    "size": {
+      "bytes": 7821,
+      "characters": 7821,
+      "lines": 334,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "fRLZsKzVCmqBTBdm",
+  "language": "en"
+}

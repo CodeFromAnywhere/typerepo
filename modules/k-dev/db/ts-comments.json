@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1662736403663,
+    "updatedAt": 1662736403663,
+    "deletedAt": 0,
+    "createdFirstAt": 1662736403663,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/dev.ts",
+    "comment": "Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))",
+    "rawStatement": "export const dev = (): void => {\n  nodemon(\"watch-operations\", \"watchOperations\", undefined);\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 3,
+    "lastLine": 5,
+    "id": "mXqfalwPflqFbeyw"
+  }
+]

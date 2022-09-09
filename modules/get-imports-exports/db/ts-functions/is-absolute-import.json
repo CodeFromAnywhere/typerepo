@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662732861760,
+  "updatedAt": 1662732861760,
+  "deletedAt": 0,
+  "createdFirstAt": 1662732861760,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/getImportsExports.ts",
+  "commentsInside": [],
+  "rawText": " (moduleString: string | undefined) =>\n  moduleString ? !moduleString.startsWith(\".\") : false",
+  "name": "isAbsoluteImport",
+  "slug": "is-absolute-import",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 93,
+    "lines": 2,
+    "bytes": 93,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 47,
+    "linesPerFile": 2,
+    "numberOfFiles": 1
+  },
+  "id": "vOnWDtzInKhFfUGN"
+}

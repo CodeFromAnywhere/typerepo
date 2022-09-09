@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662718893309,
+  "updatedAt": 1662718893309,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718893309,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/readCsvFile.ts",
+  "commentsInside": [],
+  "rawText": " <T extends CsvItemType>(\n  filePath: Path\n): T[] | null => {\n  // TODO: is this needed?\n  if (!fs.existsSync(filePath)) return null;\n\n  const readable = canReadSync(filePath);\n  if (!readable) return null;\n  const fileString = fs.readFileSync(filePath, \"utf8\");\n  if (!fileString) return null;\n  const parsed = tryParseCsv<T>(fileString);\n  return parsed;\n}",
+  "name": "readCsvFileSync",
+  "slug": "read-csv-file-sync",
+  "parameters": [],
+  "description": "Reads and parses CSV file\n\nspecify a generic of what type of item the file contains an array of",
+  "returnType": {
+    "rawType": "T[] | null",
+    "typeDefinition": {
+      "optional": true,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 453,
+    "lines": 15,
+    "bytes": 453,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "BTjJHxAavdOfJlXk"
+}

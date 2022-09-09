@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662720262156,
+  "updatedAt": 1662720262156,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720262156,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/parsing/parsing.ts",
+  "commentsInside": [],
+  "rawText": " (\n  markdownChunks: MarkdownChunk[]\n): string => {\n  const result: string = markdownChunks\n    .map(markdownChunkToMarkdownStringRecursive)\n    .join(\"\");\n\n  return result;\n}",
+  "name": "markdownChunksToMarkdownStringRecursive",
+  "slug": "markdown-chunks-to-markdown-string-recursive",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 175,
+    "lines": 9,
+    "bytes": 175,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 19,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "QPahZKnPrhkJrcdG"
+}

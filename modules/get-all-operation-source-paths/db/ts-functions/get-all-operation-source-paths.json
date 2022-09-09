@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718732741,
+  "updatedAt": 1662718732741,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718732741,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getAllOperationSourcePaths.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const operationFolders: string[] = await exploreOperationFolders({\n    basePath: getPathsWithOperations({ manualProjectRoot }),\n  });\n\n  const operationSourceFolders = operationFolders.reduce(\n    (allSources, operationPath) => {\n      const srcPath = path.join(operationPath, \"src\");\n\n      if (!fs.existsSync(srcPath)) return allSources;\n\n      return allSources.concat(\n        [srcPath]\n        // TODO: this function would be great, but the inputs in tsconfig contain glob patterns and that doesn't work.\n        // getPackageSourcePaths({ packageFolder: operationPath })\n      );\n    },\n    [] as string[]\n  );\n\n  return operationSourceFolders;\n}",
+  "name": "getAllOperationSourcePaths",
+  "slug": "get-all-operation-source-paths",
+  "parameters": [],
+  "description": "returns src folder paths of all operations in tools",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 817,
+    "lines": 25,
+    "bytes": 817,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 25,
+    "numberOfFiles": 1
+  },
+  "id": "qPzMVkSshVcqXWPu"
+}

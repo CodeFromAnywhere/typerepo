@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662739816125,
+  "updatedAt": 1662739816125,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739816125,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/files.ts",
+  "commentsInside": [],
+  "rawText": " (p: PathLike) => canAccessSync(p, fs.constants.R_OK)",
+  "name": "canReadSync",
+  "slug": "can-read-sync",
+  "parameters": [],
+  "description": "File is readable to the calling process",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 92,
+    "lines": 1,
+    "bytes": 92,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 92,
+    "linesPerFile": 1,
+    "numberOfFiles": 1
+  },
+  "id": "UcbjFwmAosJQKUpD"
+}

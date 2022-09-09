@@ -1,0 +1,61 @@
+{
+  "createdAt": 1662719521902,
+  "updatedAt": 1662719521902,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719521902,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (target: Casing) => {\n  if (target === \"capital\") return \"_\";\n  if (target === \"human\") return \" \";\n  if (target === \"kebab\") return \"-\";\n  if (target === \"snake\") return \"_\";\n  return \"\";\n}",
+  "name": "getDelimiter",
+  "slug": "get-delimiter",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "\"_\" | \" \" | \"-\" | \"\"",
+    "typeDefinition": {
+      "optional": false,
+      "enum": [
+        "_",
+        " ",
+        "-",
+        ""
+      ],
+      "x-enumNames": [
+        "_",
+        " ",
+        "-",
+        ""
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "enum": [
+        "_",
+        " ",
+        "-",
+        ""
+      ],
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 191,
+    "lines": 7,
+    "bytes": 191,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "CXnrHArjTjEuGRbv"
+}

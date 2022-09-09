@@ -1,0 +1,75 @@
+{
+  "createdAt": 1662718724276,
+  "updatedAt": 1662739828606,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718724276,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/fs-util/src/deprecated.ts. Error: Error: Cannot find name 'withoutExtension'.\\n\\nCannot find name 'withoutExtension'.\"]",
+  "buildSucceeded": false,
+  "id": "iOCiTxvoOVJvJMCJ",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "fs-util",
+  "packageName": "fs-util",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "js",
+  "name": "fs-util",
+  "slug": "fs-util",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "mergeObjectsArray",
+    "log",
+    "makeArray",
+    "notEmpty"
+  ],
+  "packageDependencies": [
+    "readdirSync",
+    "constants",
+    "rmSync",
+    "existsSync",
+    "accessSync",
+    "cpSync",
+    "promisify",
+    "cp",
+    "PathLike",
+    "Dir",
+    "Dirent",
+    "Stats",
+    "parse",
+    "basename",
+    "delimiter",
+    "dirname",
+    "extname",
+    "format",
+    "isAbsolute",
+    "join",
+    "normalize",
+    "resolve",
+    "sep"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 9,
+      "lines": 690,
+      "characters": 17926,
+      "bytes": 17926
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 67,
+      "characters": 1394,
+      "bytes": 1394
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 317,
+      "characters": 5242,
+      "bytes": 5242
+    },
+    "size": {
+      "bytes": 24562,
+      "characters": 24562,
+      "lines": 1074,
+      "numberOfFiles": 12
+    }
+  }
+}

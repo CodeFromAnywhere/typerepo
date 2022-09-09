@@ -1,0 +1,70 @@
+{
+  "createdAt": 1662739841805,
+  "updatedAt": 1662739841805,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739841805,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPathParse.ts",
+  "commentsInside": [],
+  "rawText": " (absolutePath: string): PathParse | undefined => {\n  const projectRoot = getProjectRoot(absolutePath);\n  if (!projectRoot) return;\n  const relativePathFromProjectRoot = absolutePath.slice(projectRoot.length);\n  return { relativePathFromProjectRoot };\n}",
+  "name": "getPathParse",
+  "slug": "get-path-parse",
+  "parameters": [],
+  "description": "gets all kinds of information that can be inferred from any path (file or folder).",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/PathMetaData\").PathParse | undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "relativePathFromProjectRoot": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "relativePathFromProjectRoot"
+      ],
+      "optional": true
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "relativePathFromProjectRoot",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 335,
+    "lines": 6,
+    "bytes": 335,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 56,
+    "linesPerFile": 6,
+    "numberOfFiles": 1
+  },
+  "id": "mcjChRjymEMOTywN"
+}

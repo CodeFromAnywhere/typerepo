@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662719521903,
+  "updatedAt": 1662719521903,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719521903,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (text: string) => convertCase(text, \"capital\")",
+  "name": "capitalCase",
+  "slug": "capital-case",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 47,
+    "lines": 1,
+    "bytes": 47,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 47,
+    "linesPerFile": 1,
+    "numberOfFiles": 1
+  },
+  "id": "VnJevZFWGvWNxTDB"
+}

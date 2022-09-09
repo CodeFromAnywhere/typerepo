@@ -1,0 +1,34 @@
+[
+  {
+    "createdAt": 1662726668057,
+    "updatedAt": 1662726668057,
+    "deletedAt": 0,
+    "createdFirstAt": 1662726668057,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/util/queryPathsArrayToNestedPathObject.ts",
+    "comment": "A different way to represent a path array in a nested object of folders",
+    "rawStatement": "export type NestedPathObject = {\n  [key: string]: NestedPathObject | null;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 1,
+    "lastLine": 3,
+    "id": "pwNbAdiypceKaxox"
+  },
+  {
+    "createdAt": 1662726668057,
+    "updatedAt": 1662726668057,
+    "deletedAt": 0,
+    "createdFirstAt": 1662726668057,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/util/queryPathsArrayToNestedPathObject.ts",
+    "comment": "Handy function to transform an array of querypaths into a nested menu, assuming you want to create a new sub-menu for every path",
+    "rawStatement": "export const queryPathsArrayToNestedPathObject = (\n  queryPaths: string[]\n): NestedPathObject => {\n  const nestedPathObject: NestedPathObject = reduceQueryPathsRecursively(\n    queryPaths,\n    {}\n  );\n  return nestedPathObject;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 40,
+    "lastLine": 42,
+    "id": "kLzwGgIoWHSRdHtc"
+  }
+]

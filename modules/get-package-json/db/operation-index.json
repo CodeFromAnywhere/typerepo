@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662718762651,
+  "updatedAt": 1662718762650,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718762651,
+  "folderName": "get-package-json",
+  "packageName": "get-package-json",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "get-package-json",
+  "slug": "get-package-json",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "PackageJson",
+    "path",
+    "readJsonFile"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 30,
+      "characters": 987,
+      "bytes": 987
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 73,
+      "characters": 1532,
+      "bytes": 1532
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 49,
+      "characters": 673,
+      "bytes": 673
+    },
+    "size": {
+      "bytes": 3192,
+      "characters": 3192,
+      "lines": 152,
+      "numberOfFiles": 5
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "yFtQZIrSdOYJKhDA",
+  "language": "en"
+}

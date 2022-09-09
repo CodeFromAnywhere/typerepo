@@ -1,0 +1,123 @@
+{
+  "createdAt": 1662720211411,
+  "updatedAt": 1662720211411,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720211411,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getParagraphsRecursively.ts",
+  "commentsInside": [],
+  "rawText": " (\n  chunk: MarkdownChunk,\n  categoryStackCalculatedUntilNow?: CategoryStack\n): MarkdownParagraph[] => {\n  const categoryStackCalculated = categoryStackCalculatedUntilNow || [];\n  if (chunk.title) {\n    categoryStackCalculated.push(chunk.title);\n  }\n\n  const childParagraphs =\n    chunk.children\n      ?.map((childChunk) =>\n        getParagraphsRecursively(childChunk, categoryStackCalculated)\n      )\n      .flat() || [];\n\n  const thisParagraph: MarkdownParagraph = {\n    paragraph: chunk.content || \"\",\n    categoryStackCalculated,\n  };\n\n  return [thisParagraph, ...childParagraphs];\n}",
+  "name": "getParagraphsRecursively",
+  "slug": "get-paragraphs-recursively",
+  "parameters": [],
+  "description": "recursively dives into the Chunk to get all paragraphs inside",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParagraph[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "paragraph": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "categoryStackCalculated": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            }
+          },
+          "level": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "paragraph",
+          "categoryStackCalculated"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "paragraph",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "categoryStackCalculated",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "level",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 648,
+    "lines": 23,
+    "bytes": 648,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 23,
+    "numberOfFiles": 1
+  },
+  "id": "aPcHJuCzPUhcCoBO"
+}

@@ -1,0 +1,58 @@
+{
+  "createdAt": 1662720978316,
+  "updatedAt": 1662720978319,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720978316,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/ts-morph-util/src/getHasGeneric.ts. Error: Error: Reference type not set yet\"]",
+  "buildSucceeded": true,
+  "id": "ZOLGjTOpidgAXChO",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "ts-morph-util",
+  "packageName": "ts-morph-util",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "ts-morph-util",
+  "slug": "ts-morph-util",
+  "coreDependencies": [
+    "existsSync"
+  ],
+  "operationDependencies": [
+    "getPackageSourcePaths",
+    "log",
+    "path",
+    "fs",
+    "log"
+  ],
+  "packageDependencies": [
+    "InterfaceDeclaration",
+    "TypeAliasDeclaration",
+    "Project"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 59,
+      "characters": 1751,
+      "bytes": 1751
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 73,
+      "characters": 1531,
+      "bytes": 1531
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 66,
+      "characters": 823,
+      "bytes": 823
+    },
+    "size": {
+      "bytes": 4105,
+      "characters": 4105,
+      "lines": 198,
+      "numberOfFiles": 6
+    }
+  }
+}

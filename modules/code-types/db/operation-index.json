@@ -1,0 +1,88 @@
+{
+  "createdAt": 1662739174918,
+  "updatedAt": 1662740757887,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739174918,
+  "folderName": "code-types",
+  "packageName": "code-types",
+  "relativeOperationLocationPath": "operations/tools/types",
+  "classification": "js",
+  "name": "code-types",
+  "slug": "code-types",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "pluralize",
+    "kebabCase",
+    "MarkdownModelType",
+    "Slug",
+    "MarkdownIndex",
+    "CategoryStack",
+    "Frontmatter",
+    "Downmatter",
+    "ModelLocation",
+    "generateId",
+    "MarkdownModelType",
+    "Storing",
+    "kebabCase",
+    "Frontmatter",
+    "MarkdownModelType",
+    "SlugModelType",
+    "AnyModelType",
+    "Stats",
+    "Markdown",
+    "TsIndexModelType",
+    "Frontmatter",
+    "AnyModelType",
+    "Creation",
+    "TsIndexModelType",
+    "Markdown",
+    "TsIndexModelType",
+    "TsIndexModelType",
+    "Markdown",
+    "TsIndexModelType",
+    "Creation",
+    "TsIndexModelType",
+    "kebabCase",
+    "TsIndexModelType"
+  ],
+  "packageDependencies": [
+    "JSONSchema7Type",
+    "Schema",
+    "Schema",
+    "Schema"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 23,
+      "lines": 1650,
+      "characters": 45666,
+      "bytes": 45670
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 60,
+      "characters": 1299,
+      "bytes": 1299
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 586,
+      "characters": 38176,
+      "bytes": 38176
+    },
+    "size": {
+      "bytes": 85145,
+      "characters": 85141,
+      "lines": 2296,
+      "numberOfFiles": 26
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "FNbthisylOHrzPXk",
+  "language": "en"
+}

@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662720849962,
+  "updatedAt": 1662720849961,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720849962,
+  "folderName": "lint",
+  "packageName": "lint",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "lint",
+  "slug": "lint",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getLastFolder",
+    "getPackageJson",
+    "getTsConfig"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 54,
+      "characters": 1513,
+      "bytes": 1513
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 72,
+      "characters": 1475,
+      "bytes": 1475
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 38,
+      "characters": 730,
+      "bytes": 730
+    },
+    "size": {
+      "bytes": 3718,
+      "characters": 3718,
+      "lines": 164,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "wOsIzTpVXxVnwHQq",
+  "language": "en"
+}

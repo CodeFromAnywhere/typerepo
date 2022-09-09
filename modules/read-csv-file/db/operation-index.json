@@ -1,0 +1,58 @@
+{
+  "createdAt": 1662718894511,
+  "updatedAt": 1662718894510,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718894511,
+  "folderName": "read-csv-file",
+  "packageName": "read-csv-file",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "read-csv-file",
+  "slug": "read-csv-file",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "canRead",
+    "fs",
+    "Path",
+    "canReadSync",
+    "path",
+    "makeTest",
+    "tryParseCsv",
+    "CsvItemType"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 65,
+      "characters": 1613,
+      "bytes": 1613
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 69,
+      "characters": 1437,
+      "bytes": 1437
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 50,
+      "characters": 633,
+      "bytes": 633
+    },
+    "size": {
+      "bytes": 3683,
+      "characters": 3683,
+      "lines": 184,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "ONYpPbIfmESjIRRt",
+  "language": "en"
+}

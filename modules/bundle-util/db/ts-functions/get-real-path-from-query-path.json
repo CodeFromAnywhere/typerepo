@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662719186313,
+  "updatedAt": 1662719186313,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719186313,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getBundlePaths.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  queryPath: string,\n  config?: { manualProjectRoot?: string }\n): Promise<string | undefined> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n  const isSensible = isSensibleProject(projectRoot);\n\n  if (!isSensible && queryPath === \"\") {\n    const readmePath = await findFileNameCaseInsensitive(\n      path.join(projectRoot, \"text\"),\n      \"README.md\"\n    );\n    return readmePath;\n  }\n\n  if (queryPath === \"\") {\n    const readmePath = await findFileNameCaseInsensitive(\n      projectRoot,\n      \"README.md\"\n    );\n\n    if (readmePath) return readmePath;\n\n    const docsReadmePath = await findFileNameCaseInsensitive(\n      path.join(projectRoot, \"docs\"),\n      \"README.md\"\n    );\n\n    return docsReadmePath;\n  }\n\n  if (queryPath.startsWith(\"docs/\")) {\n    const realPath = path.join(projectRoot, `${queryPath}.md`);\n    if (fs.existsSync(realPath)) return realPath;\n    return;\n  } else {\n    // must be operation, use that convention\n\n    const realPath = await findFileNameCaseInsensitive(\n      path.join(projectRoot, queryPath),\n      \"README.md\"\n    );\n    return realPath;\n  }\n}",
+  "name": "getRealPathFromQueryPath",
+  "slug": "get-real-path-from-query-path",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<string | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1147,
+    "lines": 46,
+    "bytes": 1147,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 46,
+    "numberOfFiles": 1
+  },
+  "id": "GiUzDZhSviXkQoqF"
+}

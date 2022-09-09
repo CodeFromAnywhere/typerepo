@@ -1,0 +1,36 @@
+[
+  {
+    "createdAt": 1662742652275,
+    "updatedAt": 1662742652275,
+    "deletedAt": 0,
+    "createdFirstAt": 1662742652275,
+    "name": "nodemon",
+    "slug": "nodemon",
+    "type": "value",
+    "module": "nodemon",
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/dev.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "isModuleResolved": true,
+    "id": "acNBgqZXSdbwZMFh"
+  },
+  {
+    "createdAt": 1662742652275,
+    "updatedAt": 1662742652275,
+    "deletedAt": 0,
+    "createdFirstAt": 1662742652275,
+    "name": "dev",
+    "slug": "dev",
+    "type": "value",
+    "module": "../dev",
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/cli/dev.cli.ts",
+    "classification": "internal",
+    "isAbsolute": false,
+    "isModuleFromMonorepo": false,
+    "isModuleResolved": true,
+    "id": "naweDhhqDEstIEVm"
+  }
+]

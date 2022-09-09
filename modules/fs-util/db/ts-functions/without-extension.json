@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662739817663,
+  "updatedAt": 1662739817663,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739817663,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/js.ts",
+  "commentsInside": [],
+  "rawText": " (fileName: string) => {\n  const pieces = fileName.split(\".\");\n  pieces.pop();\n  return pieces.join(\".\");\n}",
+  "name": "withoutExtension",
+  "slug": "without-extension",
+  "parameters": [],
+  "description": "removes extension from the filename",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 142,
+    "lines": 5,
+    "bytes": 142,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "DkJCmceiQGnBSvzI"
+}

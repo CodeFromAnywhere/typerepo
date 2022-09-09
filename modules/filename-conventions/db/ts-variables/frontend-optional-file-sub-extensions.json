@@ -1,0 +1,51 @@
+{
+  "createdAt": 1662755691574,
+  "updatedAt": 1662755691574,
+  "deletedAt": 0,
+  "createdFirstAt": 1662755691574,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/filename-conventions.ts",
+  "comments": [],
+  "name": "frontendOptionalFileSubExtensions",
+  "slug": "frontend-optional-file-sub-extensions",
+  "value": "[\n  \"native\",\n  \"ios\",\n  \"android\",\n  \"web\",\n]",
+  "type": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "yIBNrYjlpsgsLsyG"
+}

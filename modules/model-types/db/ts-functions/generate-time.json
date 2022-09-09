@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662720485495,
+  "updatedAt": 1662720485495,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720485495,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/time.ts",
+  "commentsInside": [],
+  "rawText": " (): Time => Date.now()",
+  "name": "generateTime",
+  "slug": "generate-time",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "number"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "number"
+    }
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 23,
+    "lines": 1,
+    "bytes": 23,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 1,
+    "numberOfFiles": 1
+  },
+  "id": "XNcVBSqAMkNBwvKD"
+}

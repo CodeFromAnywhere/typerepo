@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662720148746,
+  "updatedAt": 1662720148746,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720148746,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/csvItemArrayToCsvString.ts",
+  "commentsInside": [],
+  "rawText": " <T extends CsvItemType>(\n  csvModelData: T[]\n): string => {\n  if (csvModelData.length === 0) return \"\";\n\n  // let propertyNames = simplifiedSchema?.properties?.map((x) => x.name);\n\n  const longestItem = csvModelData.reduce(\n    (previous, current) => {\n      const keysAmount = Object.keys(current).length;\n      if (keysAmount > previous.keysAmount) {\n        return { keysAmount, item: current };\n      }\n      return previous;\n    },\n    { keysAmount: 0, item: undefined } as {\n      keysAmount: number;\n      item: T | undefined;\n    }\n  ).item!;\n\n  const propertyNames = Object.keys(longestItem);\n\n  const headerString = propertyNames.join(\",\");\n\n  const rowStrings = csvModelData.map((row) => {\n    return propertyNames!\n      .map((propertyName) => String(row[propertyName]))\n      .join(\",\");\n  });\n\n  return `${headerString}\\n${rowStrings.join(\"\\n\")}`;\n}",
+  "name": "csvItemArrayToCsvString",
+  "slug": "csv-item-array-to-csv-string",
+  "parameters": [],
+  "description": "make csv string from a csv model type",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 901,
+    "lines": 33,
+    "bytes": 901,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 33,
+    "numberOfFiles": 1
+  },
+  "id": "WjElQnNaBwqgxHJU"
+}

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718809383,
+  "updatedAt": 1662718809383,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718809383,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/explore.ts",
+  "commentsInside": [],
+  "rawText": " async (searchConfigs: SearchConfig[]) => {\n  const textJsonPromises = searchConfigs.map(async (config) => {\n    return explore(config);\n  });\n\n  return (await Promise.all(textJsonPromises)).flat();\n}",
+  "name": "exploreMultiple",
+  "slug": "explore-multiple",
+  "parameters": [],
+  "description": "DEPRECATED: not sure if we still need it, look up usecases, can prob be replaced now",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 284,
+    "lines": 7,
+    "bytes": 284,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 41,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "ZnaPUjEkWRgjwbpN"
+}

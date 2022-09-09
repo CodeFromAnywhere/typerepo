@@ -1,0 +1,88 @@
+{
+  "createdAt": 1662726437810,
+  "updatedAt": 1662726437810,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726437810,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/html/Aside/Aside.tsx",
+  "comments": [],
+  "name": "Aside",
+  "slug": "aside",
+  "value": "React.forwardRef(PureAside)",
+  "type": {
+    "rawType": "React.ForwardRefExoticComponent<any>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "defaultProps": {},
+        "propTypes": {
+          "type": "object",
+          "properties": {}
+        },
+        "displayName": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "$$typeof": {}
+      },
+      "required": [
+        "defaultProps",
+        "$$typeof"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "defaultProps",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "propTypes",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "displayName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "$$typeof",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "JzScziKiAvobhKUg"
+}

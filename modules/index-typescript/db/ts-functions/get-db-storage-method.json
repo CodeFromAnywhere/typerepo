@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662740136847,
+  "updatedAt": 1662740136847,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740136847,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getDbStorageMethod.ts",
+  "commentsInside": [],
+  "rawText": " ({\n  typeName,\n  frontmatter,\n  extensions,\n}: {\n  frontmatter: Frontmatter;\n  extensions?: string[];\n  typeName: string;\n}): DbStorageMethod | null => {\n  const typeWords = lowerCaseArray(typeName);\n  const isModelTypeName =\n    typeWords.length >= 2 && [\"model\", \"db\"].includes(typeWords.pop()!);\n\n  const dbStorageMethodFromModelTypeName = isModelTypeName\n    ? \"jsonMultiple\"\n    : null;\n\n  const frontmatterResult = getFrontmatterDbStorageMethod(frontmatter);\n  const specialExtensionStorageMethod =\n    getSpecialExtensionDbStorageMethod(extensions);\n\n  const dbStorageMethod: DbStorageMethod | null =\n    frontmatterResult === null\n      ? null\n      : frontmatterResult ||\n        specialExtensionStorageMethod ||\n        dbStorageMethodFromModelTypeName ||\n        null;\n\n  return dbStorageMethod;\n}",
+  "name": "getDbStorageMethod",
+  "slug": "get-db-storage-method",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 809,
+    "lines": 31,
+    "bytes": 809,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 31,
+    "numberOfFiles": 1
+  },
+  "id": "hJDvmxqsQLiuivfV"
+}

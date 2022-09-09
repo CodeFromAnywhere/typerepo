@@ -1,0 +1,32 @@
+{
+  "createdAt": 1662739815529,
+  "updatedAt": 1662739815529,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739815529,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/deprecated.ts",
+  "comments": [],
+  "name": "mergeObjectsArray",
+  "slug": "merge-objects-array",
+  "value": "mergeObjectsArrayJsUtil",
+  "type": {
+    "rawType": "<T extends { [key: string]: any; }>(objectsArray: T[]) => T",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "cxkFEknPzBRdPitY"
+}

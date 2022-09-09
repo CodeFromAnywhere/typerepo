@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718809383,
+  "updatedAt": 1662718809383,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718809383,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/explore.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  config: BaseConfig\n): Promise<string[]> => {\n  const folders = (await findAllPackages({ basePath: config?.basePath }))\n    .map((textJson) => textJson.path)\n    .map((p) => getFolder(p))\n    .filter((p) => fs.existsSync(path.join(p, \"tsconfig.json\")));\n\n  return folders;\n}",
+  "name": "exploreOperationFolders",
+  "slug": "explore-operation-folders",
+  "parameters": [],
+  "description": "find all active operations (folders having `package.json` but also `tsconfig.json`)\n\nreturns folder path array",
+  "returnType": {
+    "rawType": "Promise<string[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 394,
+    "lines": 12,
+    "bytes": 394,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "vSovbXUcRGIlVjkr"
+}

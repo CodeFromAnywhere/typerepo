@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720257618,
+  "updatedAt": 1662720257618,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720257618,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/expose/print.ts",
+  "commentsInside": [],
+  "rawText": " ({ absoluteFilePath }: { absoluteFilePath: string }) => {\n  /**\n    \n    markdown files should be rendered via the renderer first\n    \n    ts, json files should be color highlighted (we can simply wrap this in triple backticks and print it as markdown)\n    */\n}",
+  "name": "print",
+  "slug": "print",
+  "parameters": [],
+  "description": "should print any file using a preconfigured printer (which can be local or remote. if remote and there is no connection, it should save the task for later)\n\nthis function maybe needs \"generateStaticSite\"",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 465,
+    "lines": 10,
+    "bytes": 465,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 47,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "oKSWYXCmsyIRmabp"
+}

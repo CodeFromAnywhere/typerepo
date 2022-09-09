@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720262731,
+  "updatedAt": 1662720262731,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720262731,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const result = await operationToMarkdown({\n    operationName: \"markdown-parsings\",\n    mergeDocsInline: true,\n  });\n\n  console.log({ result });\n}",
+  "name": "test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 162,
+    "lines": 8,
+    "bytes": 162,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "oEgeaHJhiCmkxRIk"
+}

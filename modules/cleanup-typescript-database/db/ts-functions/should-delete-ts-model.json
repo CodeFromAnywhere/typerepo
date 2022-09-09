@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662740102195,
+  "updatedAt": 1662740102195,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740102195,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/cleanupTsDatabase.ts",
+  "commentsInside": [],
+  "rawText": " (\n  tsModel:\n    | TsFunction\n    | TsComment\n    | TsInterface\n    | TsBuildError\n    | TsLintWarning\n    | TsExport\n    | TsImport\n    | TsVariable,\n  operationName: string,\n  operationRelativePaths: string[]\n) => {\n  if (!tsModel.operationName) return true;\n  if (tsModel.operationName !== operationName) return true;\n  if (!tsModel.operationRelativePath) return true;\n  if (\n    !operationRelativePaths.includes(\n      tsModel.operationRelativeTypescriptFilePath\n    )\n  ) {\n    return true;\n  }\n  return false;\n}",
+  "name": "shouldDeleteTsModel",
+  "slug": "should-delete-ts-model",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 518,
+    "lines": 25,
+    "bytes": 518,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 25,
+    "numberOfFiles": 1
+  },
+  "id": "cTgNshAFXHzjZwQU"
+}

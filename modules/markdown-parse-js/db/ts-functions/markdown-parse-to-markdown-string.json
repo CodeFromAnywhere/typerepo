@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662720231564,
+  "updatedAt": 1662720231564,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720231564,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/markdownParseToMarkdownString.ts",
+  "commentsInside": [],
+  "rawText": " (\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
+  "name": "markdownParseToMarkdownString",
+  "slug": "markdown-parse-to-markdown-string",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 184,
+    "lines": 7,
+    "bytes": 184,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "YFtUSJsRlzLcFLFs"
+}

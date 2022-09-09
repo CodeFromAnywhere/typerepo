@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720257146,
+  "updatedAt": 1662720257146,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720257146,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/expose/pdf.ts",
+  "commentsInside": [],
+  "rawText": " ({\n  absoluteFilePath,\n  markdown,\n  markdownParse,\n  pdfAbsoluteFilePath,\n}: {\n  absoluteFilePath?: string;\n  markdown?: string;\n  markdownParse?: MarkdownParse;\n  pdfAbsoluteFilePath?: string;\n}) => {\n  //\n}",
+  "name": "mdToPdf",
+  "slug": "md-to-pdf",
+  "parameters": [],
+  "description": "Have function `mdToPdf` like the vscode plugin. Probably exists.\n\nHowever, may be good to do it myself since I want different renderings",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 346,
+    "lines": 15,
+    "bytes": 346,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "lIoLkWdrHgQSKEBJ"
+}

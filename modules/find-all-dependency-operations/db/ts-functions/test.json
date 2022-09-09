@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720698611,
+  "updatedAt": 1662720698611,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720698611,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  forAllFolders({\n    type: \"operations\",\n    callback: async (folderPath) => {\n      // console.log(folderPath);\n\n      const operationNames = [getLastFolder(folderPath)];\n      const x = await findAllDependencyOperations({ operationNames });\n\n      console.log(folderPath, x);\n    },\n  });\n}",
+  "name": "test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 302,
+    "lines": 13,
+    "bytes": 302,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 13,
+    "numberOfFiles": 1
+  },
+  "id": "ZMQEJXqecTcxyiAL"
+}

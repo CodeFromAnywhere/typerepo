@@ -1,0 +1,64 @@
+{
+  "createdAt": 1662739839752,
+  "updatedAt": 1662739839752,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739839752,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getOperationClassification.ts",
+  "commentsInside": [],
+  "rawText": " (p: PackageJson): string[] => {\n  const dependencies = p.dependencies ? Object.keys(p.dependencies) : [];\n  const devDependencies = p.devDependencies\n    ? Object.keys(p.devDependencies)\n    : [];\n  const peerDependencies = p.peerDependencies\n    ? Object.keys(p.peerDependencies)\n    : [];\n\n  return [...dependencies, ...devDependencies, ...peerDependencies];\n}",
+  "name": "getAllPackageJsonDependencies",
+  "slug": "get-all-package-json-dependencies",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 363,
+    "lines": 11,
+    "bytes": 363,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "tQQLDovOiGoCyMBq"
+}

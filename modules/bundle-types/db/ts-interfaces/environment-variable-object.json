@@ -1,0 +1,37 @@
+{
+  "createdAt": 1662745019385,
+  "updatedAt": 1662745019385,
+  "deletedAt": 0,
+  "createdFirstAt": 1662745019385,
+  "id": "environment-variable-object",
+  "name": "EnvironmentVariableObject",
+  "slug": "environment-variable-object",
+  "operationRelativeTypescriptFilePath": "src/BundleConfig.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport interface EnvironmentVariableObject {\n  [key: string]: Json;\n}",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/definitions/Json"
+      }
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "EnvironmentVariableObject",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

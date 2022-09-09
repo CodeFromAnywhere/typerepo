@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662745019838,
+  "updatedAt": 1662745019838,
+  "deletedAt": 0,
+  "createdFirstAt": 1662745019838,
+  "id": "app-shell",
+  "name": "AppShell",
+  "slug": "app-shell",
+  "operationRelativeTypescriptFilePath": "src/types.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type AppShell =\n  | \"web\"\n  | \"app\"\n  | \"computer\"\n  | \"vscode\"\n  | \"browser\"\n  | \"docusaurus\";",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "web",
+        "app",
+        "computer",
+        "vscode",
+        "browser",
+        "docusaurus"
+      ]
+    },
+    "simplifiedSchema": {
+      "enum": [
+        "web",
+        "app",
+        "computer",
+        "vscode",
+        "browser",
+        "docusaurus"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "AppShell",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

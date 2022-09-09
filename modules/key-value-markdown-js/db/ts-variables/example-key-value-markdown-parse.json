@@ -1,0 +1,68 @@
+{
+  "createdAt": 1662720209664,
+  "updatedAt": 1662720209664,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720209664,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/example.ts",
+  "comments": [],
+  "name": "exampleKeyValueMarkdownParse",
+  "slug": "example-key-value-markdown-parse",
+  "value": "{\n  parameters: { a: 1, b: 2, c: true, d: null, e: \"hello world\", f: 888 },\n  data: [],\n}",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/model-types/build/keyValueMarkdown\").KeyValueMarkdownParse",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "type": "object",
+          "properties": {}
+        },
+        "data": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/KeyValueMarkdownModelType"
+          }
+        }
+      },
+      "required": [
+        "parameters",
+        "data"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "parameters",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "data",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "name": "KeyValueMarkdownModelType"
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "VoNeNNaXHCgEGXFj"
+}

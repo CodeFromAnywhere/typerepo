@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662746560017,
+  "updatedAt": 1662746560017,
+  "deletedAt": 0,
+  "createdFirstAt": 1662746560017,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/db.ts",
+  "commentsInside": [],
+  "rawText": " (\n  modelName: keyof DbModels,\n  customQueryConfig?: CustomQueryConfig\n) => mergeConfigs<DbModels>(modelName, dbConfig, customQueryConfig)",
+  "name": "getMergedQueryConfig",
+  "slug": "get-merged-query-config",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/control-fs/fs-orm/build/types\").QueryConfig & { dbStorageMethod: any; manualProjectRoot: string; }",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 139,
+    "lines": 4,
+    "bytes": 139,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 4,
+    "numberOfFiles": 1
+  },
+  "id": "izXPVjYMzMQfxTCo"
+}

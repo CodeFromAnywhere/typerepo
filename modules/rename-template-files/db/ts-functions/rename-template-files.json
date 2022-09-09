@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718995376,
+  "updatedAt": 1662718995376,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718995376,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " async ({ appDir }: { appDir: string }) => {\n  const templateFiles = await findTemplates(appDir);\n  const renameables = templateFiles.map((path) => ({\n    oldPath: path,\n    newPath: renameTemplateToNormalFile(path),\n  }));\n\n  await oneByOne(renameables, async (oldNew) =>\n    fs.rename(oldNew.oldPath, oldNew.newPath)\n  );\n\n  return;\n}",
+  "name": "renameTemplateFiles",
+  "slug": "rename-template-files",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 336,
+    "lines": 13,
+    "bytes": 336,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 13,
+    "numberOfFiles": 1
+  },
+  "id": "MdydzvujjMIKEWum"
+}

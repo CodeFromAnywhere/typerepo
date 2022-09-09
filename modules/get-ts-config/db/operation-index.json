@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662718799653,
+  "updatedAt": 1662718799652,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718799653,
+  "folderName": "get-ts-config",
+  "packageName": "get-ts-config",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "js",
+  "name": "get-ts-config",
+  "slug": "get-ts-config",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "readJsonFile",
+    "path",
+    "TsConfig"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 10,
+      "characters": 323,
+      "bytes": 323
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 65,
+      "characters": 1359,
+      "bytes": 1359
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 31,
+      "characters": 315,
+      "bytes": 315
+    },
+    "size": {
+      "bytes": 1997,
+      "characters": 1997,
+      "lines": 106,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "DYAWBSpOACrhuoyr",
+  "language": "en"
+}

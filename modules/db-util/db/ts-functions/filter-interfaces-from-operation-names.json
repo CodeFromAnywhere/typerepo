@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662719895667,
+  "updatedAt": 1662719895667,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719895667,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/dbUtil.ts",
+  "commentsInside": [],
+  "rawText": " (\n  tsInterface: TsInterface,\n  operationNames?: string[]\n) => {\n  return (\n    !operationNames ||\n    (tsInterface.operationName &&\n      operationNames.includes(tsInterface.operationName))\n  );\n}",
+  "name": "filterInterfacesFromOperationNames",
+  "slug": "filter-interfaces-from-operation-names",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 198,
+    "lines": 10,
+    "bytes": 198,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "WjkZIRwioSlJrDya"
+}

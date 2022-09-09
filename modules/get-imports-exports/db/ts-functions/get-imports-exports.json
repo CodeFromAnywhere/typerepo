@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662732861760,
+  "updatedAt": 1662732861760,
+  "deletedAt": 0,
+  "createdFirstAt": 1662732861760,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getImportsExports.ts",
+  "commentsInside": [],
+  "rawText": " async ({\n  sourceFiles,\n  debug,\n  manualProjectRoot,\n}: {\n  /**\n   * if given, only these sourcefiles are used, otherwise takes all source files from project.\n   */\n  sourceFiles: SourceFile[];\n  debug?: boolean;\n  manualProjectRoot?: string;\n}): Promise<ImportsAndExports | undefined> => {\n  if (sourceFiles.length === 0) {\n    log(\"No source files provided\", { type: \"warning\" });\n    return;\n  }\n\n  const allOperationsPaths = await exploreOperationFolders({\n    basePath: manualProjectRoot,\n  });\n  const allOperations = allOperationsPaths.map(getLastFolder);\n  const firstFilePath = sourceFiles[0].getFilePath();\n  if (!firstFilePath) return;\n\n  const operationBasePath = findOperationBasePath(firstFilePath);\n  if (!operationBasePath) return;\n\n  const packageJson = await readJsonFile<PackageJson>(\n    path.join(operationBasePath, \"package.json\")\n  );\n\n  if (!packageJson) {\n    log(\"PackageJson could not be found\", { type: \"error\" });\n    return;\n  }\n\n  const importsAndExports = sourceFiles.reduce(\n    (importsAndExports, sourceFile) => {\n      const exportSymbols: Symbol[] = sourceFile.getExportSymbols();\n      let exports: Creation<TsExport>[] = exportSymbols\n        .map((symbol) => {\n          const name = symbol.getName();\n          const { type, hasGeneric } = getExportSymbolType(\n            symbol,\n            sourceFile,\n            debug\n          );\n\n          const absoluteFilePath = sourceFile.getFilePath();\n          if (!absoluteFilePath) return;\n          const operationPathParse = getOperationPathParse(absoluteFilePath);\n          if (!operationPathParse) return;\n\n          const exportObject: Creation<TsExport> = {\n            name,\n            slug: kebabCase(name),\n            operationRelativeTypescriptFilePath:\n              operationPathParse.operationRelativeTypescriptFilePath,\n            // TODO:\n            comments: [],\n            type,\n            hasGeneric,\n            // For testing purposes: kinds,\n          };\n          return exportObject;\n        })\n        .filter(notEmpty);\n\n      let imports: Creation<TsImport>[] = [];\n      const allImports: ImportDeclaration[] =\n        sourceFile.getImportDeclarations();\n\n      allImports.forEach((importDeclaration) => {\n        const module = String(\n          importDeclaration.getModuleSpecifier().getLiteralText()\n        );\n        const namedImports: NamedImport[] = importDeclaration\n          .getNamedImports()\n          .map((x) => {\n            const name = x.getName();\n            const namedImport: NamedImport = {\n              name,\n              slug: kebabCase(name),\n              ...getTypeFromImportSpecifier(x, debug),\n            };\n\n            return namedImport;\n          });\n\n        const newImports: Creation<TsImport>[] = namedImports\n          .map((namedImport) => {\n            const filePath = sourceFile.getFilePath();\n\n            const operationPathParse = getOperationPathParse(filePath);\n\n            if (!operationPathParse) return;\n\n            const nodeModules = [\"fs\", \"path\"];\n            const reactModules = [\"react\", \"react-dom\", \"react-native\", \"expo\"];\n            const classification: ImportClassification = nodeModules.includes(\n              module\n            )\n              ? \"node\"\n              : reactModules.includes(module)\n              ? \"react\"\n              : allOperations.includes(module)\n              ? \"operation\"\n              : !isAbsoluteImport(module)\n              ? \"internal\"\n              : \"package\";\n\n            const importObject: Creation<TsImport> = {\n              ...namedImport,\n              module,\n              // TODO\n              comments: [],\n              operationRelativeTypescriptFilePath:\n                operationPathParse.operationRelativeTypescriptFilePath,\n\n              classification,\n              isAbsolute: isAbsoluteImport(module),\n              isModuleFromMonorepo: allOperations.includes(module),\n              // NB: will not be resolved if build folder doesn't exist or if entry file doesn't exist\n              isModuleResolved:\n                !!importDeclaration.getModuleSpecifierSourceFile(),\n            };\n\n            return importObject;\n          })\n          .filter(notEmpty);\n\n        imports = imports.concat(newImports);\n      });\n\n      return {\n        imports: importsAndExports.imports.concat(imports),\n        exports: importsAndExports.exports.concat(exports),\n      };\n    },\n    { imports: [], exports: [] } as ImportsAndExports\n  );\n\n  return importsAndExports;\n}",
+  "name": "getImportsExports",
+  "slug": "get-imports-exports",
+  "parameters": [],
+  "description": "Uses ts-morph to get all exports inside all files in a project or an array of source files.\nDoesn't use index, it actually looks in all files except index,\nso some of them may not be exported from the package itself depending on your indexing strategy!",
+  "returnType": {
+    "rawType": "Promise<ImportsAndExports | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 8,
+  "size": {
+    "characters": 4769,
+    "lines": 146,
+    "bytes": 4769,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 146,
+    "numberOfFiles": 1
+  },
+  "id": "WGoFKqhNdWAptVLX"
+}

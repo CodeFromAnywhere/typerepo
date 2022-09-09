@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718893308,
+  "updatedAt": 1662718893308,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718893308,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/readCsvFile.ts",
+  "commentsInside": [],
+  "rawText": " async <T extends CsvItemType>(\n  filePath: Path | undefined\n): Promise<T[] | null> => {\n  if (!filePath) return null;\n  // TODO: is this needed?\n  if (!fs.existsSync(filePath)) return null;\n\n  const readable = await canRead(filePath);\n  if (!readable) return null;\n  const fileString = await fs.readFile(filePath, \"utf8\");\n  if (!fileString) return null;\n\n  const parsed = tryParseCsv<T>(fileString);\n  return parsed;\n}",
+  "name": "readCsvFile",
+  "slug": "read-csv-file",
+  "parameters": [],
+  "description": "Reads and parses CSV file\n\nspecify a generic of what type of item the file contains an array of",
+  "returnType": {
+    "rawType": "Promise<T[] | null>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 515,
+    "lines": 17,
+    "bytes": 515,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "HRJwEhAHRRaiFAfb"
+}

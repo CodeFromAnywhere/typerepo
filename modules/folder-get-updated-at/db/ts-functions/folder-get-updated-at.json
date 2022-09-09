@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718689422,
+  "updatedAt": 1662718689422,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718689422,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/folderGetUpdatedAt.ts",
+  "commentsInside": [],
+  "rawText": " async ({\n  folderPath,\n}: {\n  folderPath: string;\n}): Promise<number> => {\n  return (\n    await explore({\n      basePath: folderPath,\n      includeStats: true,\n      extension: [\"ts\", \"tsx\"],\n      ignore: \"index.ts\",\n    })\n  ).reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.mtimeMs;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n}",
+  "name": "folderGetUpdatedAt",
+  "slug": "folder-get-updated-at",
+  "parameters": [],
+  "description": "get last updated file updatedAt time in whole folder, recursively",
+  "returnType": {
+    "rawType": "Promise<number>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 503,
+    "lines": 19,
+    "bytes": 503,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 19,
+    "numberOfFiles": 1
+  },
+  "id": "CpFLhZoqBBsdEXfN"
+}

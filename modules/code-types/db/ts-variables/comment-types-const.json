@@ -1,0 +1,23 @@
+{
+  "createdAt": 1662740746076,
+  "updatedAt": 1662740746076,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740746076,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/TsComment.ts",
+  "comments": [],
+  "name": "commentTypesConst",
+  "slug": "comment-types-const",
+  "value": "[\n  \"todo\",\n  \"discussion\",\n  \"idea\",\n  \"later\",\n  \"nb\",\n] as const",
+  "type": {
+    "rawType": "readonly [\"todo\", \"discussion\", \"idea\", \"later\", \"nb\"]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "classification": "const",
+  "id": "gxNUWbXestDLSYGJ"
+}

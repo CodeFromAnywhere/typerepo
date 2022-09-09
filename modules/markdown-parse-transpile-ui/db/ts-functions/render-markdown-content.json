@@ -1,0 +1,40 @@
+{
+  "createdAt": 1662726649653,
+  "updatedAt": 1662726649653,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726649653,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
+  "commentsInside": [],
+  "rawText": " (\n  content: string,\n  config?: { big?: boolean }\n) => {\n  console.log(\"Need to render:\", content);\n  return (\n    <ReactMarkdown\n      className={config?.big ? \"max-w-lg\" : undefined}\n      rehypePlugins={[rehypeHighlight, remarkGfm]}\n      components={{\n        td: ({ node, ...props }) => (\n          // @ts-ignore\n          <td\n            className=\"border border-gray-900 dark:border-gray-100\"\n            {...props}\n          />\n        ),\n        th: ({ node, ...props }) => (\n          // @ts-ignore\n          <th\n            className=\"border border-gray-900 dark:border-gray-100\"\n            {...props}\n          />\n        ),\n\n        ol: ({ node, ...props }) => <ol className=\"list-decimal\" {...props} />,\n        ul: ({ node, ...props }) => (\n          <ul\n            style={{ listStyleType: \"circle\" }}\n            className=\"mx-3 p-2\"\n            {...props}\n          />\n        ),\n        p: ({ node, ...props }) => (\n          <p style={{ marginTop: 15, marginBottom: 15 }} {...props} />\n        ),\n        li: ({ node, ...props }) => <li className=\"\" {...props} />,\n        code: ({ node, ...props }) => (\n          <code\n            className=\"dark:bg-gray-700\"\n            style={{ color: \"darkcyan\" }}\n            {...props}\n          />\n        ),\n      }}\n    >\n      {content}\n    </ReactMarkdown>\n  );\n}",
+  "name": "renderMarkdownContent",
+  "slug": "render-markdown-content",
+  "parameters": [],
+  "description": "renders a markdown striing (without frontmatter)",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 1379,
+    "lines": 50,
+    "bytes": 1379,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 50,
+    "numberOfFiles": 1
+  },
+  "id": "bCZwVwKAeZqekWGr"
+}

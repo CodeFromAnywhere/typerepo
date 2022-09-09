@@ -1,0 +1,57 @@
+{
+  "createdAt": 1662726929161,
+  "updatedAt": 1662726929160,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726929161,
+  "folderName": "run-child-process",
+  "packageName": "run-child-process",
+  "relativeOperationLocationPath": "operations/tools/util",
+  "classification": "js",
+  "name": "run-child-process",
+  "slug": "run-child-process",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "path",
+    "fs",
+    "canRead",
+    "getOperationPath",
+    "log"
+  ],
+  "packageDependencies": [
+    "spawnSync"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 83,
+      "characters": 1791,
+      "bytes": 1791
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 65,
+      "characters": 1354,
+      "bytes": 1354
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 40,
+      "characters": 472,
+      "bytes": 472
+    },
+    "size": {
+      "bytes": 3617,
+      "characters": 3617,
+      "lines": 188,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "gvPjTOpMoxrOJqyf",
+  "language": "en"
+}

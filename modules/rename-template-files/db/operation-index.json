@@ -1,0 +1,54 @@
+{
+  "createdAt": 1662718997992,
+  "updatedAt": 1662718997992,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718997992,
+  "folderName": "rename-template-files",
+  "packageName": "rename-template-files",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "rename-template-files",
+  "slug": "rename-template-files",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "explore",
+    "oneByOne",
+    "makeTest"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 89,
+      "characters": 2583,
+      "bytes": 2583
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 57,
+      "characters": 1239,
+      "bytes": 1239
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 87,
+      "characters": 1461,
+      "bytes": 1461
+    },
+    "size": {
+      "bytes": 5283,
+      "characters": 5283,
+      "lines": 233,
+      "numberOfFiles": 5
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "JEAJlUkovQcGKpiM",
+  "language": "en"
+}

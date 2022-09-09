@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662726766509,
+  "updatedAt": 1662726766509,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726766509,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/forAllFiles.ts",
+  "commentsInside": [],
+  "rawText": " async ({\n  filePaths,\n  callback,\n  command,\n}: ForAllFilesConfig): Promise<void> => {\n  const locationPromises = filePaths.map(async (p) => {\n    if (command) {\n      execSync(command, {\n        env: {\n          LOCATION: p,\n        },\n        cwd: getFolder(p),\n        encoding: \"utf8\",\n        stdio: \"inherit\",\n      });\n    }\n\n    if (callback) {\n      callback(p);\n    }\n  });\n\n  await Promise.all(locationPromises);\n\n  console.log(\"done!\");\n}",
+  "name": "forAllFiles",
+  "slug": "for-all-files",
+  "parameters": [],
+  "description": "executes a command or callback for every file\n\nin commands, $LOCATION is provided as env variable, and command is executed in the dir of the file",
+  "returnType": {
+    "rawType": "Promise<void>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 596,
+    "lines": 28,
+    "bytes": 596,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 28,
+    "numberOfFiles": 1
+  },
+  "id": "cXgCAslOSYAbtsTS"
+}

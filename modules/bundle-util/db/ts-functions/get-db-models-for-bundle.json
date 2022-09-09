@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662719187479,
+  "updatedAt": 1662719187479,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719187479,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getDbModelsForBundle.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  bundleConfig: BundleConfig\n): Promise<TsInterface[]> => {\n  const bundleSummary = getBundleSummary(bundleConfig);\n  const dbModels = getDbModelsFromOperations(bundleSummary.packageNames);\n  return dbModels;\n}",
+  "name": "getDbModelsForBundle",
+  "slug": "get-db-models-for-bundle",
+  "parameters": [],
+  "description": "Gets all TsInterface's that are used in a bundle according to a BundleConfig",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 295,
+    "lines": 7,
+    "bytes": 295,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 42,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "zsDQGHusDRhJLbAs"
+}

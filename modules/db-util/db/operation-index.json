@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662719896957,
+  "updatedAt": 1662719896956,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719896957,
+  "folderName": "db-util",
+  "packageName": "db-util",
+  "relativeOperationLocationPath": "operations/tools/deployment/bundling",
+  "classification": "node",
+  "name": "db-util",
+  "slug": "db-util",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "TsInterface",
+    "db",
+    "onlyUnique2"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 28,
+      "characters": 747,
+      "bytes": 747
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 69,
+      "characters": 1426,
+      "bytes": 1426
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 40,
+      "characters": 511,
+      "bytes": 511
+    },
+    "size": {
+      "bytes": 2684,
+      "characters": 2684,
+      "lines": 137,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "CJoZsrQjCZvBwzNw",
+  "language": "en"
+}

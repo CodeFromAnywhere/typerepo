@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662739817138,
+  "updatedAt": 1662739817138,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739817138,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/fs.ts",
+  "comments": [],
+  "name": "fsPromises",
+  "slug": "fs-promises",
+  "value": "{\n  /**\n   * cp from graceful doesn't copy folders for me for some reason\n   *\n   * NB: this is not graceful!\n   */\n  cpAsync,\n}",
+  "type": {
+    "rawType": "{ cpAsync: typeof import(\"fs/promises\").cp; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "cpAsync": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "cpAsync"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "cpAsync",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "ibuDIGOWRNiAoIFF"
+}

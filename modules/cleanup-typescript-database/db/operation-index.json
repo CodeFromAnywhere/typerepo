@@ -1,0 +1,63 @@
+{
+  "createdAt": 1662720648677,
+  "updatedAt": 1662740103931,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720648677,
+  "folderName": "cleanup-typescript-database",
+  "packageName": "cleanup-typescript-database",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "cleanup-typescript-database",
+  "slug": "cleanup-typescript-database",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getPackageSourcePaths",
+    "db",
+    "getOperationPath",
+    "getOperationRelativePath",
+    "TsBuildError",
+    "TsComment",
+    "TsExport",
+    "TsFunction",
+    "TsImport",
+    "TsInterface",
+    "TsLintWarning",
+    "TsVariable",
+    "typescriptIndexModels"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 92,
+      "characters": 2297,
+      "bytes": 2297
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 70,
+      "characters": 1508,
+      "bytes": 1508
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 36,
+      "characters": 423,
+      "bytes": 423
+    },
+    "size": {
+      "bytes": 4228,
+      "characters": 4228,
+      "lines": 198,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "wqgwkXSoIcRfjjjs",
+  "language": "en"
+}

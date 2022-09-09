@@ -1,0 +1,43 @@
+{
+  "createdAt": 1662739816125,
+  "updatedAt": 1662739816125,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739816125,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/files.ts",
+  "commentsInside": [],
+  "rawText": " (p: PathLike, mode: number): boolean => {\n  try {\n    fs.accessSync(p, mode);\n    return true;\n  } catch (e) {\n    return false;\n  }\n}",
+  "name": "canAccessSync",
+  "slug": "can-access-sync",
+  "parameters": [],
+  "description": "uses fs.access to determine if something can be accessed\n\nCheck File access constants for possible values of mode. It is possible to create a mask consisting of the bitwise OR of two or more values (e.g. fs.constants.W_OK | fs.constants.R_OK).",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 378,
+    "lines": 10,
+    "bytes": 378,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 38,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "iEEGiVkdXoOSCubS"
+}

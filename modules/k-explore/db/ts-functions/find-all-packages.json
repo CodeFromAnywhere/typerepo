@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662718809383,
+  "updatedAt": 1662718809383,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718809383,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/explore.ts",
+  "commentsInside": [],
+  "rawText": " (config?: {\n  basePath: string | string[] | undefined;\n}) => {\n  return explore({\n    basePath: config?.basePath || getPathsWithOperations(),\n    search: \"package.json\",\n    exact: true,\n    extension: \"json\",\n    searchLevel: \"fileName\",\n    ignore: generatedFolders.concat([\"src\", \"assets\", \"data\"]),\n  });\n}",
+  "name": "findAllPackages",
+  "slug": "find-all-packages",
+  "parameters": [],
+  "description": "Finds all package.json's everywhere. also in /tools, but this is to be expected.\n\nTODO: `stopRecursionAfterMatch` never worked, so I just removed it... the behavior now is that it also explores folders that are in a folder with a `package.json`, unless that foldername is ignored. For now it's fine, but this could easily create an ineficiency if there's a lot of data in an operation or something...\n\nTODO: We should be careful with ignoring all these folders... what if we use those folders outside of operations? This could have unexpected behavior. We either need to lint for these foldernames not to be used, or we need to make sure to only ignore it if we encounter a package.json",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TextJson\").TextJson[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 997,
+    "lines": 16,
+    "bytes": 997,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 62,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "rCFkUvQjTULcCrBt"
+}

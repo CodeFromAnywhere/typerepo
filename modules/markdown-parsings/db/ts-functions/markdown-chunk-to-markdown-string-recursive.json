@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662720262156,
+  "updatedAt": 1662720262156,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720262156,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/parsing/parsing.ts",
+  "commentsInside": [],
+  "rawText": " (\n  markdownChunk: MarkdownChunk\n): string => {\n  const title =\n    markdownChunk.title && markdownChunk.level !== 0\n      ? `${\"#\".repeat(markdownChunk.level)} ${markdownChunk.title}`\n      : undefined;\n\n  const content = markdownChunk.content;\n\n  const children = markdownChunk.children\n    ? markdownChunksToMarkdownStringRecursive(markdownChunk.children)\n    : \"\";\n\n  return `${title ? `${title}\\n\\n` : \"\"}${\n    content ? `${content}\\n\\n` : \"\"\n  }${children}`;\n}",
+  "name": "markdownChunkToMarkdownStringRecursive",
+  "slug": "markdown-chunk-to-markdown-string-recursive",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 468,
+    "lines": 18,
+    "bytes": 468,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 18,
+    "numberOfFiles": 1
+  },
+  "id": "rujinnflyRUqXQbo"
+}

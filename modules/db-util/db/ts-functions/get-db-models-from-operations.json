@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662719895667,
+  "updatedAt": 1662719895667,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719895667,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/dbUtil.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationNames: string[]\n): Promise<TsInterface[]> => {\n  const dbModels = (await db.get(\"TsInterface\"))\n    .filter((x) => x.isDbModel)\n    .filter(onlyUnique2<TsInterface>((a, b) => a.name === b.name))\n    .filter((tsInterface) =>\n      filterInterfacesFromOperationNames(tsInterface, operationNames)\n    );\n\n  return dbModels;\n}",
+  "name": "getDbModelsFromOperations",
+  "slug": "get-db-models-from-operations",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 342,
+    "lines": 12,
+    "bytes": 342,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "uFeglCWmbapaBcQm"
+}

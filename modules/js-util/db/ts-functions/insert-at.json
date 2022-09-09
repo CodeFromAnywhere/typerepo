@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662726832471,
+  "updatedAt": 1662726832471,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726832471,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/array-modifications.ts",
+  "commentsInside": [],
+  "rawText": " <T>(array: T[], items: T[], beforeIndex: number) => {\n  // NB: slice makes copies\n  const before = array.slice(0, beforeIndex);\n  const after = array.slice(beforeIndex);\n  return [...before, ...items, ...after];\n}",
+  "name": "insertAt",
+  "slug": "insert-at",
+  "parameters": [],
+  "description": "Insert an array inside of an array before a certain index\n\nExample:\n\n```ts\n\nconst testArray = [1, 2, 3, 4, 5];\nconst result = insertAt(testArray, [99, 100], 2);\nconsole.log({ testArray, result });\n\n```",
+  "returnType": {
+    "rawType": "any[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 415,
+    "lines": 16,
+    "bytes": 415,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "scMbdvTiEncvWZpp"
+}

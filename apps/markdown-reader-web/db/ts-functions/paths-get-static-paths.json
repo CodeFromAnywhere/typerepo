@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662726319281,
+  "updatedAt": 1662726319281,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726319281,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pathsGetStaticPaths.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  context: GetStaticPathsContext\n) => {\n  const paths = await getBundleQueryPaths();\n\n  // console.log({ paths });\n  if (!paths) {\n    return { paths: [], fallback: false };\n  }\n\n  const staticPaths = paths.map((p) => ({ params: { paths: p.split(\"/\") } }));\n\n  return {\n    paths: staticPaths,\n    fallback: false, // can also be true or 'blocking'\n  };\n}",
+  "name": "pathsGetStaticPaths",
+  "slug": "paths-get-static-paths",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 364,
+    "lines": 17,
+    "bytes": 364,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "mIehjfayLPPPXipj"
+}

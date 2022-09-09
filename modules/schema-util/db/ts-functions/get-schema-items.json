@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720925501,
+  "updatedAt": 1662720925501,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720925501,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/schema-util.ts",
+  "commentsInside": [],
+  "rawText": " (schema: Schema | undefined) => {\n  const schemas = makeArray(schema?.items).map(getSchema).filter(notEmpty);\n  return schemas;\n}",
+  "name": "getSchemaItems",
+  "slug": "get-schema-items",
+  "parameters": [],
+  "description": "==========",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 140,
+    "lines": 4,
+    "bytes": 140,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 4,
+    "numberOfFiles": 1
+  },
+  "id": "SPJgTlOQCIGkTjlE"
+}

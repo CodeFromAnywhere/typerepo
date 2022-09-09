@@ -1,0 +1,54 @@
+{
+  "createdAt": 1662718733869,
+  "updatedAt": 1662718733869,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718733869,
+  "folderName": "get-all-operation-source-paths",
+  "packageName": "get-all-operation-source-paths",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "get-all-operation-source-paths",
+  "slug": "get-all-operation-source-paths",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "exploreOperationFolders",
+    "path",
+    "fs",
+    "getPathsWithOperations"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 33,
+      "characters": 1032,
+      "bytes": 1032
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 69,
+      "characters": 1472,
+      "bytes": 1472
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 31,
+      "characters": 445,
+      "bytes": 445
+    },
+    "size": {
+      "bytes": 2949,
+      "characters": 2949,
+      "lines": 133,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "oTMtIFumwrZbdyAs",
+  "language": "en"
+}

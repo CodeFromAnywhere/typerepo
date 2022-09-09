@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662726770763,
+  "updatedAt": 1662726770763,
+  "deletedAt": 0,
+  "createdFirstAt": 1662726770763,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/minifyAllOperations.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  config?: Omit<\n    AllInputType,\n    \"type\" | \"command\" | \"callback\" | \"fileName\" | \"folderName\" | \"ignore\"\n  >\n) => {\n  return forAllFolders({\n    type: \"operations\",\n    callback: (folderPath) => {\n      return minifyBuild({ buildFolderPath: path.join(folderPath, \"build\") });\n    },\n    basePath: config?.basePath || getPathsWithOperations(),\n    shell: config?.shell,\n  });\n}",
+  "name": "minifyAllOperations",
+  "slug": "minify-all-operations",
+  "parameters": [],
+  "description": "minify all operations everywhere. optionally:\n- enable the shell\n- specify a basepath (tools by default)",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 494,
+    "lines": 17,
+    "bytes": 494,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "yBFBqonNubkWqVho"
+}

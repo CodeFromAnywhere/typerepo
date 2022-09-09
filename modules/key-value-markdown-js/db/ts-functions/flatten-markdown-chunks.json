@@ -1,0 +1,123 @@
+{
+  "createdAt": 1662720210291,
+  "updatedAt": 1662720210291,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720210291,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/flattenMarkdownChunks.ts",
+  "commentsInside": [],
+  "rawText": " (\n  markdownChunks: MarkdownChunk[]\n): MarkdownParagraph[] => {\n  const flatMarkdownChunks = markdownChunks\n    .map((chunk) => getParagraphsRecursively(chunk))\n    .flat();\n  return flatMarkdownChunks;\n}",
+  "name": "flattenMarkdownChunks",
+  "slug": "flatten-markdown-chunks",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParagraph[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "paragraph": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "categoryStackCalculated": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            }
+          },
+          "level": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "paragraph",
+          "categoryStackCalculated"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "paragraph",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "categoryStackCalculated",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "level",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 205,
+    "lines": 8,
+    "bytes": 205,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "pKXbYBxpevlLvozH"
+}

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662733037961,
+  "updatedAt": 1662733037961,
+  "deletedAt": 0,
+  "createdFirstAt": 1662733037961,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getFolderSummary.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  categorizedFiles: CategorizedFilePaths\n): Promise<FolderSummary> => {\n  const categoriesSummary: Omit<FolderSummary, \"size\"> = {\n    codeSize: await sumSizeSummary(categorizedFiles.code),\n    dataSize: await sumSizeSummary(categorizedFiles.data),\n    textSize: await sumSizeSummary(categorizedFiles.text),\n  };\n\n  const folderSummary: FolderSummary = {\n    ...categoriesSummary,\n    size: sumAllKeys(Object.values(categoriesSummary), [\n      \"bytes\",\n      \"characters\",\n      \"lines\",\n      \"numberOfFiles\",\n    ]),\n  };\n\n  return folderSummary;\n}",
+  "name": "getFolderSummary",
+  "slug": "get-folder-summary",
+  "parameters": [],
+  "description": "calculates folder summary from a categorized file paths object",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/FolderSummary\").FolderSummary>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 621,
+    "lines": 21,
+    "bytes": 621,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "vCzauXUtjIHnHrQG"
+}

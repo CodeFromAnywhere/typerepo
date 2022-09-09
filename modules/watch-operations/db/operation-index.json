@@ -1,0 +1,59 @@
+{
+  "createdAt": 1662719061247,
+  "updatedAt": 1662753739969,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719061247,
+  "folderName": "watch-operations",
+  "packageName": "watch-operations",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "watch-operations",
+  "slug": "watch-operations",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getAllOperationSourcePaths",
+    "log",
+    "getProjectRoot",
+    "watchFoldersFs",
+    "getAllOperationSourcePaths",
+    "log",
+    "rebuildOperation"
+  ],
+  "packageDependencies": [
+    "execSync"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 147,
+      "characters": 3677,
+      "bytes": 3681
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 71,
+      "characters": 1524,
+      "bytes": 1524
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 113,
+      "characters": 1703,
+      "bytes": 1703
+    },
+    "size": {
+      "bytes": 6908,
+      "characters": 6904,
+      "lines": 331,
+      "numberOfFiles": 7
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/watch-operations/src/cli/watchOperations.cli.ts. Error: Error: Module '\\\"../general\\\"' has no exported member 'watchOperations'.\"]",
+  "lintProblems": [],
+  "id": "iOhpqlbmPyfeYGNR",
+  "language": "en"
+}

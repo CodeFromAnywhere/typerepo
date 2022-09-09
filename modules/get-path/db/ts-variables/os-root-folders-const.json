@@ -1,0 +1,23 @@
+{
+  "createdAt": 1662739843910,
+  "updatedAt": 1662739843910,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739843910,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getRootPath.ts",
+  "comments": [],
+  "name": "osRootFoldersConst",
+  "slug": "os-root-folders-const",
+  "value": "[\n  \"assets\",\n  \"backups\",\n  \"bundled\",\n  \"cloned\",\n  \"bundles\",\n  \"distributions\",\n  \"operations\",\n] as const",
+  "type": {
+    "rawType": "readonly [\"assets\", \"backups\", \"bundled\", \"cloned\", \"bundles\", \"distributions\", \"operations\"]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "classification": "const",
+  "id": "wOYuJNdypQWkrFFr"
+}

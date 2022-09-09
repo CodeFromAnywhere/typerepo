@@ -1,0 +1,98 @@
+{
+  "createdAt": 1662744632940,
+  "updatedAt": 1662744632940,
+  "deletedAt": 0,
+  "createdFirstAt": 1662744632940,
+  "id": "project-log-config",
+  "name": "ProjectLogConfig",
+  "slug": "project-log-config",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type ProjectLogConfig = {\n  config: GlobalLogConfig;\n  operationConfig: {\n    [key: string]: OperationLogConfig;\n  };\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "$ref": "#/definitions/GlobalLogConfig"
+        },
+        "operationConfig": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/OperationLogConfig"
+          }
+        }
+      },
+      "required": [
+        "config",
+        "operationConfig"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": true,
+          "schema": {
+            "description": "a logging configuration object that you can set using a file in the root of your operation or project.",
+            "properties": [
+              {
+                "name": "showDebug",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "showDefault",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "sayTitles",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "logFolder",
+                "required": false,
+                "schema": {
+                  "description": "Folder where logs can be stored. If i can access the caller location this can be the operation db.",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "operationConfig",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "ProjectLogConfig",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

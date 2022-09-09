@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662735932600,
+  "updatedAt": 1662735932600,
+  "deletedAt": 0,
+  "createdFirstAt": 1662735932600,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "commentsInside": [],
+  "rawText": " (\n  tsInterface: TsInterface\n): string => {\n  const titleString = `## ${tsInterface.name}`;\n  const storageMethodString = tsInterface.dbStorageMethod\n    ? `${tsInterface.dbStorageMethod} model\\n\\n`\n    : undefined;\n\n  const operationName = tsInterface.operationName\n    ? `(from: \\`${tsInterface.operationName}\\`)`\n    : undefined;\n\n  // const interfaceText = `\\`\\`\\`ts\\n${tsInterface.rawText}\\n\\`\\`\\``;\n\n  const interfaceText = simplifiedSchemaToMarkdownString(\n    tsInterface.type.simplifiedSchema,\n    tsInterface.name,\n    true,\n    2\n  );\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    operationName,\n    storageMethodString,\n    tsInterface.description,\n    interfaceText,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "name": "tsInterfaceToMarkdownString",
+  "slug": "ts-interface-to-markdown-string",
+  "parameters": [],
+  "description": "properties, their type, and their description\n\nuse simplifiedJsonSchema, but split up nested things into multiple tables (ive written a thing for splitting up nested objects before, use that)",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 947,
+    "lines": 33,
+    "bytes": 947,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 33,
+    "numberOfFiles": 1
+  },
+  "id": "RFsTIDljBWSKKdJv"
+}

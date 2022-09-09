@@ -1,0 +1,33 @@
+{
+  "createdAt": 1662745019838,
+  "updatedAt": 1662745019838,
+  "deletedAt": 0,
+  "createdFirstAt": 1662745019838,
+  "id": "server-operation-name",
+  "name": "ServerOperationName",
+  "slug": "server-operation-name",
+  "operationRelativeTypescriptFilePath": "src/types.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\nexport type ServerOperationName = string;",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string"
+    },
+    "simplifiedSchema": {
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "ServerOperationName",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

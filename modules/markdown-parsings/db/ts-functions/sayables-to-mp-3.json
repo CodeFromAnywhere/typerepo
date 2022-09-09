@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662720258649,
+  "updatedAt": 1662720258649,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720258649,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/expose/sayablesToMp3.ts",
+  "commentsInside": [],
+  "rawText": " ({\n  sayables,\n  destinationAbsoluteFilePath,\n}: {\n  destinationAbsoluteFilePath: string;\n  sayables: Sayable[];\n}) => {\n  /**\n  \n  \n  \n   */\n}",
+  "name": "sayablesToMp3",
+  "slug": "sayables-to-mp-3",
+  "parameters": [],
+  "description": "Creates a single audiofile of a Sayable[] and stores that in a configured location",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 226,
+    "lines": 13,
+    "bytes": 226,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 17,
+    "linesPerFile": 13,
+    "numberOfFiles": 1
+  },
+  "id": "BZGoddaJmljFrqmw"
+}

@@ -1,0 +1,145 @@
+{
+  "createdAt": 1662719186911,
+  "updatedAt": 1662719186911,
+  "deletedAt": 0,
+  "createdFirstAt": 1662719186911,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getBundleSummary.ts",
+  "commentsInside": [],
+  "rawText": " (bundleConfig: BundleConfig): BundleSummary => {\n  const bundlesPath = getRootPath(\"bundles\");\n  const foldersFromRepo = bundlesPath\n    ? bundleConfig.foldersFromRepo?.map((x) =>\n        path.join(bundlesPath, kebabCase(bundleConfig.name), x)\n      )\n    : undefined;\n\n  // const filesAndFoldersToInclude = [\n  //   // ...(foldersFromRepo || []),\n  //   bundleConfig.readmeRelativeFilePath,\n  //   bundleConfig.docsRelativeFolderPath,\n  // ].filter(notEmpty);\n\n  const appNames = bundleConfig.bundles\n    .map((x) => {\n      const frontendOperationNames = makeArray(\n        x.appShellOperationNames,\n        x.serverOperationName\n      );\n\n      return frontendOperationNames;\n    })\n    .flat()\n    .filter(onlyUnique2());\n\n  const uiOperationNames = makeArray(\n    bundleConfig.bundles.map((x) => x.uiOperationName).filter(notEmpty)\n  );\n\n  const bundlePublicOperationNames = bundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"public\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n  const bundlePrivateOperationNames = bundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"private\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n\n  const packageNames = bundleConfig.dependencies\n    .filter((x) => x.privacy === \"public\")\n    .map((x) => x.operationName)\n    .concat(uiOperationNames)\n    .concat(bundlePublicOperationNames)\n    .filter(onlyUnique2());\n\n  const moduleNames = bundleConfig.dependencies\n    .filter((x) => x.privacy === \"private\")\n    .map((x) => x.operationName)\n    .concat(bundlePrivateOperationNames)\n    .filter(onlyUnique2());\n\n  const summary: BundleSummary = {\n    // filesAndFoldersToInclude,\n    packageNames,\n    moduleNames,\n    appNames,\n  };\n\n  return summary;\n}",
+  "name": "getBundleSummary",
+  "slug": "get-bundle-summary",
+  "parameters": [],
+  "description": "Summarizes a bundle config so it can be used easily in things like explore project",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/deployment/bundling/bundle-util/src/getBundleSummary\").BundleSummary",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "packageNames": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          }
+        },
+        "moduleNames": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          }
+        },
+        "appNames": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "packageNames",
+        "moduleNames",
+        "appNames"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "packageNames",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "moduleNames",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "appNames",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1922,
+    "lines": 69,
+    "bytes": 1922,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 69,
+    "numberOfFiles": 1
+  },
+  "id": "QjfQMhnFscCSqshk"
+}

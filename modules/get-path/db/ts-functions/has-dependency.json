@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662739839752,
+  "updatedAt": 1662739839752,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739839752,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getOperationClassification.ts",
+  "commentsInside": [],
+  "rawText": " (packageJson: PackageJson, dependency: string) => {\n  return getAllPackageJsonDependencies(packageJson).includes(dependency);\n}",
+  "name": "hasDependency",
+  "slug": "has-dependency",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 128,
+    "lines": 3,
+    "bytes": 128,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 43,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "zFGoFEinpAghuWKs"
+}

@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var general_1=require("./general"),operationName=process.argv.slice(2)[0];(0,general_1.minifyBuild)({operationName:operationName});
+//# sourceMappingURL=cli.js.map

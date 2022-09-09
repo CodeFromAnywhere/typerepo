@@ -1,0 +1,4 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.isSensibleProject=void 0;var fs_util_1=require("fs-util"),read_json_file_1=require("read-json-file"),getProjectRoot_1=require("./getProjectRoot"),isSensibleProject=function(e){var o=e||(0,getProjectRoot_1.getProjectRoot)();if(!o)return!1;
+// get package-json and check sensible config
+var r=(0,read_json_file_1.readJsonFileSync)(fs_util_1.path.join(o,"package.json")),t=null==r?void 0:r.sensible;return(null==t?void 0:t.isSensibleProject)||!1};exports.isSensibleProject=isSensibleProject;
+//# sourceMappingURL=isSensibleProject.js.map

@@ -1,0 +1,53 @@
+{
+  "createdAt": 1662720464247,
+  "updatedAt": 1662720464247,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720464247,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/frontmatterParseToString.ts",
+  "commentsInside": [],
+  "rawText": " (frontmatter: Frontmatter): string => {\n  const keys = Object.keys(frontmatter);\n\n  const keyValueLines = keys\n    .map((key) => {\n      const value = frontmatter[key];\n      const valueString = getFrontmatterValueString(value);\n\n      if (valueString === null) {\n        return null;\n      }\n\n      const parsedFrontmatterLine = `${key}: ${valueString}`;\n\n      return parsedFrontmatterLine;\n    })\n    .filter(notEmpty);\n\n  return keyValueLines.length === 0\n    ? \"\"\n    : `---\\n${keyValueLines.join(\"\\n\")}\\n---\\n`;\n}",
+  "name": "frontmatterParseToString",
+  "slug": "frontmatter-parse-to-string",
+  "parameters": [],
+  "description": "Parses frontmatter object into a frontmatter string\n- includes a newline at the end\n- string[] becomes a comma separated string\nTODO: maybe parse xxxAt values into human readable dates",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 704,
+    "lines": 25,
+    "bytes": 704,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 25,
+    "numberOfFiles": 1
+  },
+  "id": "YApjmUTiuLNnCcXx"
+}

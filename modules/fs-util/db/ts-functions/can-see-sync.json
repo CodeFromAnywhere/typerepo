@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662739816125,
+  "updatedAt": 1662739816125,
+  "deletedAt": 0,
+  "createdFirstAt": 1662739816125,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/files.ts",
+  "commentsInside": [],
+  "rawText": " async (p: PathLike) =>\n  canAccessSync(p, fs.constants.F_OK)",
+  "name": "canSeeSync",
+  "slug": "can-see-sync",
+  "parameters": [],
+  "description": "File is visible to the calling process",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 99,
+    "lines": 2,
+    "bytes": 99,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 50,
+    "linesPerFile": 2,
+    "numberOfFiles": 1
+  },
+  "id": "xuGHiBNemUrRrszG"
+}

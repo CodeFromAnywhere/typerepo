@@ -1,0 +1,32 @@
+{
+  "createdAt": 1662720213957,
+  "updatedAt": 1662720213957,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720213957,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/parseKvmdLine.ts",
+  "comments": [],
+  "name": "test",
+  "slug": "test",
+  "value": "makeTest(\n  () => parseKvmdLine(exampleLine),\n  (line) =>\n    JSON.stringify({\n      name: \"key\",\n      value: \"value\",\n      comment: \"comment\",\n      slug: \"key\",\n    }) === JSON.stringify(line)\n)",
+  "type": {
+    "rawType": "() => Promise<boolean>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "UDGQBhCHPcHrMORp"
+}

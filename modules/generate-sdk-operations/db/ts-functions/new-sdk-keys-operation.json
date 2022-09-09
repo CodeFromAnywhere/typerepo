@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662740117119,
+  "updatedAt": 1662740117119,
+  "deletedAt": 0,
+  "createdFirstAt": 1662740117119,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string,\n  tsFunctions: TsFunction[],\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  const keysConstString = `export const keys = [ ${tsFunctions\n    .map((fn) => `\"${fn.name}\"`)\n    .join(\",\\n\")}];`;\n\n  const result = await newOperationWithFiles(\n    await getOperationConfig(operationName),\n    { [`src/${operationName}.ts`]: keysConstString },\n    { overwriteIfExists: true, ...config }\n  );\n\n  return result;\n}",
+  "name": "newSdkKeysOperation",
+  "slug": "new-sdk-keys-operation",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 503,
+    "lines": 21,
+    "bytes": 503,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "RuXdTUINWzYxycxi"
+}

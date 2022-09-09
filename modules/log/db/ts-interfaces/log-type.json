@@ -1,0 +1,51 @@
+{
+  "createdAt": 1662744632940,
+  "updatedAt": 1662744632940,
+  "deletedAt": 0,
+  "createdFirstAt": 1662744632940,
+  "id": "log-type",
+  "name": "LogType",
+  "slug": "log-type",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\nhow should it look and feel?\n */\nexport type LogType =\n  | \"debug\"\n  | \"error\"\n  | \"warning\"\n  | \"success\"\n  | \"important\"\n  | \"default\";",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "how should it look and feel?",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "debug",
+        "error",
+        "warning",
+        "success",
+        "important",
+        "default"
+      ],
+      "description": "how should it look and feel?"
+    },
+    "simplifiedSchema": {
+      "description": "how should it look and feel?",
+      "enum": [
+        "debug",
+        "error",
+        "warning",
+        "success",
+        "important",
+        "default"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "LogType",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}
