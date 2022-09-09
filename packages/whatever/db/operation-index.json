@@ -1,6 +1,6 @@
 {
   "createdAt": 1662757834762,
-  "updatedAt": 1662757834761,
+  "updatedAt": 1662757930946,
   "deletedAt": 0,
   "createdFirstAt": 1662757834762,
   "folderName": "whatever",
@@ -10,35 +10,37 @@
   "name": "whatever",
   "slug": "whatever",
   "coreDependencies": [],
-  "operationDependencies": [],
+  "operationDependencies": [
+    "db"
+  ],
   "packageDependencies": [],
   "size": {
     "codeSize": {
       "numberOfFiles": 1,
-      "lines": 5,
-      "characters": 60,
-      "bytes": 60
+      "lines": 10,
+      "characters": 201,
+      "bytes": 201
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 63,
-      "characters": 2303,
-      "bytes": 2303
+      "lines": 65,
+      "characters": 2330,
+      "bytes": 2330
     },
     "textSize": {
       "numberOfFiles": 1,
       "lines": 23,
-      "characters": 135,
-      "bytes": 135
+      "characters": 130,
+      "bytes": 130
     },
     "size": {
-      "bytes": 2498,
-      "characters": 2498,
-      "lines": 91,
+      "bytes": 2661,
+      "characters": 2661,
+      "lines": 98,
       "numberOfFiles": 4
     }
   },
-  "buildSucceeded": false,
+  "buildSucceeded": true,
   "dependenciesBuildsFailed": false,
   "indexErrors": [],
   "indexImportExportError": "",
