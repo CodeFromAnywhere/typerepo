@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662757929868,
-  "updatedAt": 1662757929868,
+  "createdAt": 1662757960810,
+  "updatedAt": 1662757960810,
   "deletedAt": 0,
-  "createdFirstAt": 1662757929868,
+  "createdFirstAt": 1662757960810,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/util.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const functionssss = db.get(\"TsFunction\", { operationName: \"whatever\" });\n  //\n  console.log(\"hello\", { functionssss });\n}",
+  "rawText": " async () => {\n  const functionssss = await db.get(\"TsFunction\", {\n    operationName: \"whatever\",\n  });\n  //\n  console.log(\"hello\", { functionssss });\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -22,15 +22,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 1,
+  "maxIndentationDepth": 2,
   "size": {
-    "characters": 139,
-    "lines": 5,
-    "bytes": 139,
+    "characters": 152,
+    "lines": 7,
+    "bytes": 152,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 28,
-    "linesPerFile": 5,
+    "charactersPerLine": 22,
+    "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "PDzWeqrzxFelTElJ"
+  "id": "vchCZaRCLBnAoaWq"
 }
