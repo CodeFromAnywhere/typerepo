@@ -5,7 +5,7 @@ import {
   nestedPathObjectToNestedMenuRecursive,
   MenuItemType,
   MenuType,
-} from "nested-menu";
+} from "nested-menu"; //
 
 export const Layout = ({
   queryPaths,

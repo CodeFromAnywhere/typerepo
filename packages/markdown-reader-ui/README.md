@@ -1,16 +1,10 @@
 # Markdown reader ui
 
-markdown-reader-ui (undefined operation)
+markdown-reader-ui (ui-es6 operation)
 
 All frontend components can go here
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -26,23 +20,17 @@ Imported dependencies:
 
 ## getPageTitle
 
-Max. indexation depth: 1, 
-
 utility function to get a title from a page
 
 ## Returns: unknown
 
 ## getQueryPath
 
-Max. indexation depth: 2, 
-
 
 
 ## Returns: unknown
 
 ## Layout
-
-Max. indexation depth: 5, 
 
 
 
