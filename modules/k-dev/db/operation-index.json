@@ -1,6 +1,6 @@
 {
   "createdAt": 1662735741644,
-  "updatedAt": 1662742657542,
+  "updatedAt": 1662889156227,
   "deletedAt": 0,
   "createdFirstAt": 1662735741644,
   "folderName": "k-dev",
@@ -11,32 +11,35 @@
   "slug": "k-dev",
   "coreDependencies": [],
   "operationDependencies": [
-    "nodemon"
+    "nodemon",
+    "path",
+    "writeJsonToFile",
+    "readJsonFile"
   ],
   "packageDependencies": [],
   "size": {
     "codeSize": {
       "numberOfFiles": 2,
-      "lines": 14,
-      "characters": 378,
-      "bytes": 378
+      "lines": 44,
+      "characters": 1286,
+      "bytes": 1286
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 75,
-      "characters": 1505,
-      "bytes": 1505
+      "lines": 74,
+      "characters": 1579,
+      "bytes": 1579
     },
     "textSize": {
       "numberOfFiles": 2,
-      "lines": 77,
-      "characters": 1264,
-      "bytes": 1264
+      "lines": 88,
+      "characters": 1480,
+      "bytes": 1480
     },
     "size": {
-      "bytes": 3147,
-      "characters": 3147,
-      "lines": 166,
+      "bytes": 4345,
+      "characters": 4345,
+      "lines": 206,
       "numberOfFiles": 6
     }
   },
@@ -44,7 +47,7 @@
   "dependenciesBuildsFailed": false,
   "indexErrors": [],
   "indexImportExportError": "",
-  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/util/k-dev/src/dev.ts. Error: Error: Type 'void' is not a valid async function return type in ES5/ES3 because it does not refer to a Promise-compatible constructor value.\"]",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/util/k-dev/src/dev.ts. Error: Error: Type 'string | undefined' is not assignable to type 'string'.\\n  Type 'undefined' is not assignable to type 'string'.\"]",
   "lintProblems": [],
   "id": "mgFhzWdhzrHUWRxk",
   "language": "en"

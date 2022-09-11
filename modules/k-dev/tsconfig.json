@@ -5,6 +5,7 @@
   "createdFirstAt": 1662717424100,
   "compilerOptions": {
     "outDir": "build",
+    "noUncheckedIndexedAccess": true,
     "target": "ES5",
     "sourceMap": true,
     "declarationMap": true,
@@ -29,12 +30,7 @@
     ],
     "noEmitOnError": true
   },
-  "include": [
-    "src"
-  ],
-  "exclude": [
-    "node_modules",
-    "build/**/*"
-  ],
+  "include": ["src"],
+  "exclude": ["node_modules", "build/**/*"],
   "id": "sLdzGnKrasctwIAi"
 }

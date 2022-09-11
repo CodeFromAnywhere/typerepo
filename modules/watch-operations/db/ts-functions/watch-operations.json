@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662753737511,
-  "updatedAt": 1662753737511,
+  "createdAt": 1662888550986,
+  "updatedAt": 1662888550986,
   "deletedAt": 0,
-  "createdFirstAt": 1662753737511,
+  "createdFirstAt": 1662888550986,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/watchOperations.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  const allOperationSourcePaths = await getAllOperationSourcePaths();\n\n  exitIfOperationsChange(allOperationSourcePaths);\n  gitCommitAllEveryMinute();\n\n  log(\"Watching 👁 👁\", { type: \"success\" });\n  console.log({ allOperationSourcePaths });\n  watchFoldersFs({\n    folders: allOperationSourcePaths,\n    debug: true,\n    onChange: async ({ eventType, filePaths, operationBasePath }) => {\n      if (filePaths.length === 0) {\n        return;\n      }\n\n      log(\n        `OnChange triggered! ${filePaths\n          .map((f) => path.parse(f).name)\n          .join(\",\")}`,\n        {\n          type: \"warning\",\n        }\n      );\n\n      const filteredFilePaths = filePaths.filter(\n        (x) => !x.endsWith(\"/index.ts\")\n      );\n\n      if (filteredFilePaths.length === 0) {\n        return;\n      }\n      await rebuildOperation({\n        operationBasePath,\n        debug: false,\n        filePaths: filteredFilePaths,\n        force: false,\n        noExit: false,\n        stack: [],\n      });\n    },\n  });\n}",
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  const allOperationSourcePaths = await getAllOperationSourcePaths({\n    manualProjectRoot,\n  });\n\n  exitIfOperationsChange(allOperationSourcePaths);\n  gitCommitAllEveryMinute();\n\n  log(`Watching 👁 👁  at ${projectRoot}`, { type: \"success\" });\n\n  watchFoldersFs({\n    folders: allOperationSourcePaths,\n    debug: true,\n    onChange: async ({ eventType, filePaths, operationBasePath }) => {\n      if (filePaths.length === 0) {\n        return;\n      }\n\n      log(\n        `OnChange triggered! ${filePaths\n          .map((f) => path.parse(f).name)\n          .join(\",\")}`,\n        {\n          type: \"warning\",\n        }\n      );\n\n      const filteredFilePaths = filePaths.filter(\n        (x) => !x.endsWith(\"/index.ts\")\n      );\n\n      if (filteredFilePaths.length === 0) {\n        return;\n      }\n      await rebuildOperation({\n        operationBasePath,\n        manualProjectRoot,\n        debug: false,\n        filePaths: filteredFilePaths,\n        force: false,\n        noExit: false,\n        stack: [],\n      });\n    },\n  });\n}",
   "name": "watchOperations",
   "slug": "watch-operations",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1229,
-    "lines": 46,
-    "bytes": 1233,
-    "bytesPerCharacter": 1.0032546786004881,
+    "characters": 1418,
+    "lines": 53,
+    "bytes": 1422,
+    "bytesPerCharacter": 1.002820874471086,
     "charactersPerLine": 27,
-    "linesPerFile": 46,
+    "linesPerFile": 53,
     "numberOfFiles": 1
   },
-  "id": "xJWfHLzcUeobxguC"
+  "id": "XLWpibsODgGashbp"
 }

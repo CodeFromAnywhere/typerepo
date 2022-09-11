@@ -9,6 +9,10 @@ t,
 /**
  * vars that need to be passed to the cli
  */
-n,o){return __awaiter(void 0,void 0,void 0,(function(){var r;return __generator(this,(function(a){switch(a.label){case 0:return[4/*yield*/,(0,get_path_1.getOperationPath)(e,{manualProjectRoot:o})];case 1:return(r=a.sent())?(
+n,
+/**
+ * manual project root for the operation to run
+ */
+o){return __awaiter(void 0,void 0,void 0,(function(){var r;return __generator(this,(function(a){switch(a.label){case 0:return[4/*yield*/,(0,get_path_1.getOperationPath)(e,{manualProjectRoot:o})];case 1:return(r=a.sent())?(
 (0,child_process_1.spawn)("node build/cli/".concat(t,".cli.js ").concat(n?" ".concat(n.join(" ")):""),{cwd:r,shell:!0,stdio:"inherit"}).on("exit",(function(r){(0,log_1.log)("Process ".concat(t," has ended with code ").concat(r,", restarting..."),{type:"important"}),(0,exports.nodemon)(e,t,n,o)})).on("data",(function(e){(0,log_1.log)(e)})).on("error",(function(e){(0,log_1.log)("".concat(e.name," Error: ").concat(e.message),{type:"error"})})),[2/*return*/]):(console.log("".concat(e," not found")),[2/*return*/])}}))}))};exports.nodemon=nodemon;
 //# sourceMappingURL=nodemon.js.map

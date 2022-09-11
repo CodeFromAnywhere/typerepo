@@ -12,6 +12,7 @@ k-dev (node operation)
 
 ## Functions
 
+- [devCli](#devCli)
 - [dev](#dev)
 
 
@@ -35,8 +36,9 @@ Inside of this monorepo, many cli's are accessible through `npx [function-name]`
 Some important ones:
 
 ```bash
-npx generateSdkOperations
+npx rebuildOperation
 npx rebuildAllOperations
+npx generateSdkOperations
 npx please
 npx yo
 ```
@@ -45,6 +47,14 @@ If you just search for `cli/*.cli.js` files in the different operaitons, you wil
 
 
 # Functions
+
+## devCli
+
+The dev-cli
+- runs the `dev` command which watches your operations with restarts
+- stores your last choice in `dev.json`
+
+## Returns: unknown
 
 ## dev
 

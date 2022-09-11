@@ -1,3 +1,14 @@
 #!/usr/bin/env node
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var generateSdkOperations_1=require("../generateSdkOperations"),dryrunString=process.argv.slice(2)[0],dryrun=dryrunString?Boolean(dryrunString):void 0;(0,generateSdkOperations_1.generateSdkOperations)(void 0,{dryrun:dryrun,yarnInstallAfter:!0}),dryrun?console.log("Check new-operation/assets"):console.log("Check generated");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var generateSdkOperations_1 = require("../generateSdkOperations");
+var dryrunString = process.argv.slice(2)[0];
+var dryrun = dryrunString ? Boolean(dryrunString) : undefined;
+(0, generateSdkOperations_1.generateSdkOperations)(undefined, { dryrun: dryrun, yarnInstallAfter: true });
+if (dryrun) {
+    console.log("Check new-operation/assets");
+}
+else {
+    console.log("Check generated");
+}
 //# sourceMappingURL=generateSdkOperations.cli.js.map

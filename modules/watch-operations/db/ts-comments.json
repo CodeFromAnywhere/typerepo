@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1662753737647,
-    "updatedAt": 1662753737647,
+    "createdAt": 1662888551123,
+    "updatedAt": 1662888551123,
     "deletedAt": 0,
-    "createdFirstAt": 1662753737647,
+    "createdFirstAt": 1662888551123,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/watchOperations.ts",
     "comment": "watches all operations and does much more",
-    "rawStatement": "export const watchOperations = async () => {\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  const allOperationSourcePaths = await getAllOperationSourcePaths();\n\n  exitIfOperationsChange(allOperationSourcePaths);\n  gitCommitAllEveryMinute();\n\n  log(\"Watching 👁 👁\", { type: \"success\" });\n  console.log({ allOperationSourcePaths });\n  watchFoldersFs({\n    folders: allOperationSourcePaths,\n    debug: true,\n    onChange: async ({ eventType, filePaths, operationBasePath }) => {\n      if (filePaths.length === 0) {\n        return;\n      }\n\n      log(\n        `OnChange triggered! ${filePaths\n          .map((f) => path.parse(f).name)\n          .join(\",\")}`,\n        {\n          type: \"warning\",\n        }\n      );\n\n      const filteredFilePaths = filePaths.filter(\n        (x) => !x.endsWith(\"/index.ts\")\n      );\n\n      if (filteredFilePaths.length === 0) {\n        return;\n      }\n      await rebuildOperation({\n        operationBasePath,\n        debug: false,\n        filePaths: filteredFilePaths,\n        force: false,\n        noExit: false,\n        stack: [],\n      });\n    },\n  });\n};",
+    "rawStatement": "export const watchOperations = async (config?: {\n  manualProjectRoot?: string;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  const allOperationSourcePaths = await getAllOperationSourcePaths({\n    manualProjectRoot,\n  });\n\n  exitIfOperationsChange(allOperationSourcePaths);\n  gitCommitAllEveryMinute();\n\n  log(`Watching 👁 👁  at ${projectRoot}`, { type: \"success\" });\n\n  watchFoldersFs({\n    folders: allOperationSourcePaths,\n    debug: true,\n    onChange: async ({ eventType, filePaths, operationBasePath }) => {\n      if (filePaths.length === 0) {\n        return;\n      }\n\n      log(\n        `OnChange triggered! ${filePaths\n          .map((f) => path.parse(f).name)\n          .join(\",\")}`,\n        {\n          type: \"warning\",\n        }\n      );\n\n      const filteredFilePaths = filePaths.filter(\n        (x) => !x.endsWith(\"/index.ts\")\n      );\n\n      if (filteredFilePaths.length === 0) {\n        return;\n      }\n      await rebuildOperation({\n        operationBasePath,\n        manualProjectRoot,\n        debug: false,\n        filePaths: filteredFilePaths,\n        force: false,\n        noExit: false,\n        stack: [],\n      });\n    },\n  });\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 9,
-    "lastLine": 11,
-    "id": "DGdCOITUKAjJrTIQ"
+    "firstLine": 10,
+    "lastLine": 12,
+    "id": "QQRVwxevDxqXJctX"
   }
 ]

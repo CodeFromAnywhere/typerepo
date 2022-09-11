@@ -1,12 +1,191 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var n,t=1,r=arguments.length;t<r;t++)for(var o in n=arguments[t])Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,n,t,r){return new(t||(t=Promise))((function(o,i){function a(e){try{u(r.next(e))}catch(e){i(e)}}function s(e){try{u(r.throw(e))}catch(e){i(e)}}function u(e){var n;e.done?o(e.value):(n=e.value,n instanceof t?n:new t((function(e){e(n)}))).then(a,s)}u((r=r.apply(e,n||[])).next())}))},__generator=this&&this.__generator||function(e,n){var t,r,o,i,a={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return i={next:s(0),throw:s(1),return:s(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function s(i){return function(s){return function(i){if(t)throw new TypeError("Generator is already executing.");for(;a;)try{if(t=1,r&&(o=2&i[0]?r.return:i[0]?r.throw||((o=r.return)&&o.call(r),0):r.next)&&!(o=o.call(r,i[1])).done)return o;switch(r=0,o&&(i=[2&i[0],o.value]),i[0]){case 0:case 1:o=i;break;case 4:return a.label++,{value:i[1],done:!1};case 5:a.label++,r=i[1],i=[0];continue;case 7:i=a.ops.pop(),a.trys.pop();continue;default:if(!(o=a.trys,(o=o.length>0&&o[o.length-1])||6!==i[0]&&2!==i[0])){a=0;continue}if(3===i[0]&&(!o||i[1]>o[0]&&i[1]<o[3])){a.label=i[1];break}if(6===i[0]&&a.label<o[1]){a.label=o[1],o=i;break}if(o&&a.label<o[2]){a.label=o[2],a.ops.push(i);break}o[2]&&a.ops.pop(),a.trys.pop();continue}i=n.call(e,a)}catch(e){i=[6,e],r=0}finally{t=o=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,s])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.generateFunctionSdks=exports.newSdkKeysOperation=exports.newSdkOperation=exports.getSdkFunctions=exports.tsFunctionIsSdkable=exports.isTsFunctionIndexable=void 0;var database_1=require("database"),fs_util_1=require("fs-util"),log_1=require("log"),get_path_1=require("get-path"),code_types_1=require("code-types"),find_all_dependency_operations_1=require("find-all-dependency-operations"),new_operation_1=require("new-operation"),js_util_1=require("js-util"),k_explore_1=require("k-explore"),filename_conventions_1=require("filename-conventions"),isTsFunctionIndexable=function(e){var n=(0,get_path_1.getSrcRelativeFileId)(e.operationRelativeTypescriptFilePath);return(0,filename_conventions_1.isIndexableFileId)(n)};exports.isTsFunctionIndexable=isTsFunctionIndexable;var tsFunctionIsSdkable=function(e,n,t){var r=e.operationName;return!!r&&n[r]===t};exports.tsFunctionIsSdkable=tsFunctionIsSdkable;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateFunctionSdks = exports.newSdkKeysOperation = exports.newSdkOperation = exports.getSdkFunctions = exports.tsFunctionIsSdkable = exports.isTsFunctionIndexable = void 0;
+var database_1 = require("database");
+var fs_util_1 = require("fs-util");
+var log_1 = require("log");
+var get_path_1 = require("get-path");
+var code_types_1 = require("code-types");
+var find_all_dependency_operations_1 = require("find-all-dependency-operations");
+var new_operation_1 = require("new-operation");
+var js_util_1 = require("js-util");
+var k_explore_1 = require("k-explore");
+var filename_conventions_1 = require("filename-conventions");
+/**
+ * The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!
+ */
+var isTsFunctionIndexable = function (tsFunction) {
+    var fileId = (0, get_path_1.getSrcRelativeFileId)(tsFunction.operationRelativeTypescriptFilePath);
+    return (0, filename_conventions_1.isIndexableFileId)(fileId);
+};
+exports.isTsFunctionIndexable = isTsFunctionIndexable;
+var tsFunctionIsSdkable = function (tsFunction, operationClassificationObject, operationClassification) {
+    var operationName = tsFunction.operationName;
+    if (!operationName)
+        return false;
+    var functionClassification = operationClassificationObject[operationName];
+    var isSdkable = functionClassification === operationClassification;
+    return isSdkable;
+};
+exports.tsFunctionIsSdkable = tsFunctionIsSdkable;
 /**
  * returns all sdk functions grouped by operation classification
  */
-var getSdkFunctions=function(e){return __awaiter(void 0,void 0,void 0,(function(){var n,t,r,o,i,a;return __generator(this,(function(s){switch(s.label){case 0:return n=null==e?void 0:e.manualProjectRoot,n||(0,get_path_1.getProjectRoot)()?[4/*yield*/,(0,find_all_dependency_operations_1.findDependantsRecursively)("sdk")]:[2/*return*/];case 1:return t=s.sent(),[4/*yield*/,database_1.db.get("TsFunction",{manualProjectRoot:n})];case 2:return r=s.sent().filter((function(e){return e.isExported})).filter(exports.isTsFunctionIndexable).filter((function(e){return e.operationName&&!t.includes(e.operationName)})).filter((0,js_util_1.onlyUnique2)((function(e,n){return e.name===n.name}))),[4/*yield*/,(0,k_explore_1.exploreOperationFolders)({})];case 3:return o=s.sent(),i=(0,js_util_1.mergeObjectsArray)(o.map((function(e){var n,t=(0,get_path_1.getOperationClassification)(e);if(t)return(n={})[(0,fs_util_1.getLastFolder)(e)]=t,n})).filter(js_util_1.notEmpty)),a=(0,js_util_1.mergeObjectsArray)(code_types_1.operationClassificationConst.map((function(e){var n,t=r.filter((function(n){return(0,exports.tsFunctionIsSdkable)(n,i,e)})).filter((0,js_util_1.onlyUnique2)((function(e,n){return e.name===n.name})));return(0,log_1.log)("for ".concat(e," we found ").concat(t.length," functions"),{type:"debug"}),(n={})[e]=t,n}))),[2/*return*/,a]}}))}))};exports.getSdkFunctions=getSdkFunctions;
+var getSdkFunctions = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var manualProjectRoot, projectRoot, sdkDependants, exportedFunctions, operationFolders, operationClassificationObject, sdkFunctionsPerClassification;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                manualProjectRoot = config === null || config === void 0 ? void 0 : config.manualProjectRoot;
+                projectRoot = manualProjectRoot || (0, get_path_1.getProjectRoot)();
+                if (!projectRoot)
+                    return [2 /*return*/];
+                return [4 /*yield*/, (0, find_all_dependency_operations_1.findDependantsRecursively)("sdk")];
+            case 1:
+                sdkDependants = _a.sent();
+                return [4 /*yield*/, database_1.db.get("TsFunction", { manualProjectRoot: manualProjectRoot })];
+            case 2:
+                exportedFunctions = (_a.sent())
+                    .filter(function (x) { return x.isExported; })
+                    .filter(exports.isTsFunctionIndexable)
+                    .filter(function (x) {
+                    return x.operationName && !sdkDependants.includes(x.operationName);
+                })
+                    .filter((0, js_util_1.onlyUnique2)(function (a, b) { return a.name === b.name; }));
+                return [4 /*yield*/, (0, k_explore_1.exploreOperationFolders)({})];
+            case 3:
+                operationFolders = _a.sent();
+                operationClassificationObject = (0, js_util_1.mergeObjectsArray)(operationFolders
+                    .map(function (operationBasePath) {
+                    var _a;
+                    var operationClassification = (0, get_path_1.getOperationClassification)(operationBasePath);
+                    if (!operationClassification)
+                        return;
+                    var operationName = (0, fs_util_1.getLastFolder)(operationBasePath);
+                    return _a = {}, _a[operationName] = operationClassification, _a;
+                })
+                    .filter(js_util_1.notEmpty));
+                sdkFunctionsPerClassification = (0, js_util_1.mergeObjectsArray)(code_types_1.operationClassificationConst.map(function (operationClassification) {
+                    var _a;
+                    var sdkFunctions = exportedFunctions
+                        .filter(function (x) {
+                        return (0, exports.tsFunctionIsSdkable)(x, operationClassificationObject, operationClassification);
+                    })
+                        .filter((0, js_util_1.onlyUnique2)(function (a, b) { return a.name === b.name; }));
+                    (0, log_1.log)("for ".concat(operationClassification, " we found ").concat(sdkFunctions.length, " functions"), { type: "debug" });
+                    return _a = {}, _a[operationClassification] = sdkFunctions, _a;
+                }));
+                return [2 /*return*/, sdkFunctionsPerClassification];
+        }
+    });
+}); };
+exports.getSdkFunctions = getSdkFunctions;
 /**
  * Uses an array of functions to create an operation that imports all those functions and exports an object where all those functions have been comprised
  */
-var newSdkOperation=function(e,n,t){return __awaiter(void 0,void 0,void 0,(function(){var r,o,i,a,s,u,c,l,p;return __generator(this,(function(d){switch(d.label){case 0:return(0,log_1.log)("".concat(e," should contain ").concat(n.length," functions"),{type:"debug"}),r=null==t?void 0:t.skipYarnInstall,o=null==t?void 0:t.manualProjectRoot,i=null==t?void 0:t.dryrun,a=n.map((function(e){return"import { ".concat(e.name,' } from "').concat(e.operationName,'";')})).join("\n"),s="export const sdk = { ".concat(n.map((function(e){return"".concat(e.name)})).join(",\n"),"};"),"export type SdkType = typeof sdk;",u="".concat(a,"\n\n").concat(s,"\n\n").concat("export type SdkType = typeof sdk;"),[4/*yield*/,(0,new_operation_1.getOperationConfig)(e)];case 1:return c=d.sent(),(p={})["src/".concat(e,".ts")]=u,l=p,[4/*yield*/,(0,new_operation_1.newOperationWithFiles)(c,l,{overwriteIfExists:!0,manualProjectRoot:o,skipYarnInstall:r,dryrun:i})];case 2:return[2/*return*/,d.sent()]}}))}))};exports.newSdkOperation=newSdkOperation;var newSdkKeysOperation=function(e,n,t){return __awaiter(void 0,void 0,void 0,(function(){var r,o,i;return __generator(this,(function(a){switch(a.label){case 0:return r="export const keys = [ ".concat(n.map((function(e){return'"'.concat(e.name,'"')})).join(",\n"),"];"),o=new_operation_1.newOperationWithFiles,[4/*yield*/,(0,new_operation_1.getOperationConfig)(e)];case 1:return[4/*yield*/,o.apply(void 0,[a.sent(),(i={},i["src/".concat(e,".ts")]=r,i),__assign({overwriteIfExists:!0},t)])];case 2:return[2/*return*/,a.sent()]}}))}))};exports.newSdkKeysOperation=newSdkKeysOperation;
+var newSdkOperation = function (operationName, tsFunctions, config) { return __awaiter(void 0, void 0, void 0, function () {
+    var skipYarnInstall, manualProjectRoot, dryrun, importsString, sdkConstString, sdkTypeString, sdkTypescriptFileString, operationConfig, filesObject, result;
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                (0, log_1.log)("".concat(operationName, " should contain ").concat(tsFunctions.length, " functions"), {
+                    type: "debug",
+                });
+                skipYarnInstall = config === null || config === void 0 ? void 0 : config.skipYarnInstall;
+                manualProjectRoot = config === null || config === void 0 ? void 0 : config.manualProjectRoot;
+                dryrun = config === null || config === void 0 ? void 0 : config.dryrun;
+                importsString = tsFunctions
+                    .map(function (fn) { return "import { ".concat(fn.name, " } from \"").concat(fn.operationName, "\";"); })
+                    .join("\n");
+                sdkConstString = "export const sdk = { ".concat(tsFunctions
+                    .map(function (fn) { return "".concat(fn.name); })
+                    .join(",\n"), "};");
+                sdkTypeString = "export type SdkType = typeof sdk;";
+                sdkTypescriptFileString = "".concat(importsString, "\n\n").concat(sdkConstString, "\n\n").concat(sdkTypeString);
+                return [4 /*yield*/, (0, new_operation_1.getOperationConfig)(operationName)];
+            case 1:
+                operationConfig = _b.sent();
+                filesObject = (_a = {}, _a["src/".concat(operationName, ".ts")] = sdkTypescriptFileString, _a);
+                return [4 /*yield*/, (0, new_operation_1.newOperationWithFiles)(operationConfig, filesObject, {
+                        overwriteIfExists: true,
+                        manualProjectRoot: manualProjectRoot,
+                        skipYarnInstall: skipYarnInstall,
+                        dryrun: dryrun,
+                    })];
+            case 2:
+                result = _b.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.newSdkOperation = newSdkOperation;
+var newSdkKeysOperation = function (operationName, tsFunctions, config) { return __awaiter(void 0, void 0, void 0, function () {
+    var keysConstString, result, _a;
+    var _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                keysConstString = "export const keys = [ ".concat(tsFunctions
+                    .map(function (fn) { return "\"".concat(fn.name, "\""); })
+                    .join(",\n"), "];");
+                _a = new_operation_1.newOperationWithFiles;
+                return [4 /*yield*/, (0, new_operation_1.getOperationConfig)(operationName)];
+            case 1: return [4 /*yield*/, _a.apply(void 0, [_c.sent(), (_b = {}, _b["src/".concat(operationName, ".ts")] = keysConstString, _b), __assign({ overwriteIfExists: true }, config)])];
+            case 2:
+                result = _c.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.newSdkKeysOperation = newSdkKeysOperation;
 /**
 Creates
 - sdk
@@ -18,9 +197,38 @@ Creates
 
 Overwrites them if they already exist with minimal interruption time of the system
 */
-var generateFunctionSdks=function(e){return __awaiter(void 0,void 0,void 0,(function(){var n,t,r,o;return __generator(this,(function(i){switch(i.label){case 0:return n=null==e?void 0:e.manualProjectRoot,[4/*yield*/,(0,exports.getSdkFunctions)({manualProjectRoot:n})];case 1:return(t=i.sent())?(r=t.node.concat(t.js).filter((0,js_util_1.onlyUnique2)((function(e,n){return e.name===n.name}))),o=[
-// sdks
-(0,exports.newSdkOperation)("sdk",r,e),(0,exports.newSdkOperation)("sdk-api",t.node,e),(0,exports.newSdkOperation)("sdk-js",t.js,e),
-// sdk-keys
-(0,exports.newSdkKeysOperation)("sdk-keys",r,e),(0,exports.newSdkKeysOperation)("sdk-api-keys",t.node,e),(0,exports.newSdkKeysOperation)("sdk-js-keys",t.js,e)],[4/*yield*/,Promise.all(o)]):[2/*return*/];case 2:return i.sent(),[2/*return*/]}}))}))};exports.generateFunctionSdks=generateFunctionSdks;
+var generateFunctionSdks = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var manualProjectRoot, functionsPerClassification, sdkFunctions, promises;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                manualProjectRoot = config === null || config === void 0 ? void 0 : config.manualProjectRoot;
+                return [4 /*yield*/, (0, exports.getSdkFunctions)({
+                        manualProjectRoot: manualProjectRoot,
+                    })];
+            case 1:
+                functionsPerClassification = _a.sent();
+                if (!functionsPerClassification)
+                    return [2 /*return*/];
+                sdkFunctions = functionsPerClassification.node
+                    .concat(functionsPerClassification.js)
+                    .filter((0, js_util_1.onlyUnique2)(function (a, b) { return a.name === b.name; }));
+                promises = [
+                    // sdks
+                    (0, exports.newSdkOperation)("sdk", sdkFunctions, config),
+                    (0, exports.newSdkOperation)("sdk-api", functionsPerClassification.node, config),
+                    (0, exports.newSdkOperation)("sdk-js", functionsPerClassification.js, config),
+                    // sdk-keys
+                    (0, exports.newSdkKeysOperation)("sdk-keys", sdkFunctions, config),
+                    (0, exports.newSdkKeysOperation)("sdk-api-keys", functionsPerClassification.node, config),
+                    (0, exports.newSdkKeysOperation)("sdk-js-keys", functionsPerClassification.js, config),
+                ];
+                return [4 /*yield*/, Promise.all(promises)];
+            case 2:
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.generateFunctionSdks = generateFunctionSdks;
 //# sourceMappingURL=generateFunctionSdks.js.map

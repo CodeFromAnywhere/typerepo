@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1662742652275,
-    "updatedAt": 1662742652275,
+    "createdAt": 1662889148060,
+    "updatedAt": 1662889148060,
     "deletedAt": 0,
-    "createdFirstAt": 1662742652275,
+    "createdFirstAt": 1662889148060,
     "name": "nodemon",
     "slug": "nodemon",
     "type": "value",
@@ -14,13 +14,64 @@
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
     "isModuleResolved": true,
-    "id": "acNBgqZXSdbwZMFh"
+    "id": "igcooIoVRJVPIuNQ"
   },
   {
-    "createdAt": 1662742652275,
-    "updatedAt": 1662742652275,
+    "createdAt": 1662889148060,
+    "updatedAt": 1662889148060,
     "deletedAt": 0,
-    "createdFirstAt": 1662742652275,
+    "createdFirstAt": 1662889148060,
+    "name": "path",
+    "slug": "path",
+    "type": "value",
+    "module": "fs-util",
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/cli/dev.cli.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "isModuleResolved": true,
+    "id": "fGHFhrJExFztsSkA"
+  },
+  {
+    "createdAt": 1662889148060,
+    "updatedAt": 1662889148060,
+    "deletedAt": 0,
+    "createdFirstAt": 1662889148060,
+    "name": "writeJsonToFile",
+    "slug": "write-json-to-file",
+    "type": "value",
+    "module": "fs-util",
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/cli/dev.cli.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "isModuleResolved": true,
+    "id": "mMJjHySJbNKvmTYY"
+  },
+  {
+    "createdAt": 1662889148060,
+    "updatedAt": 1662889148060,
+    "deletedAt": 0,
+    "createdFirstAt": 1662889148060,
+    "name": "readJsonFile",
+    "slug": "read-json-file",
+    "type": "value",
+    "module": "read-json-file",
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/cli/dev.cli.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "isModuleResolved": true,
+    "id": "OwYKCYiJRuCLfNjd"
+  },
+  {
+    "createdAt": 1662889148060,
+    "updatedAt": 1662889148060,
+    "deletedAt": 0,
+    "createdFirstAt": 1662889148060,
     "name": "dev",
     "slug": "dev",
     "type": "value",
@@ -31,6 +82,6 @@
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
     "isModuleResolved": true,
-    "id": "naweDhhqDEstIEVm"
+    "id": "lacOKpBaGLHzgdeq"
   }
 ]
