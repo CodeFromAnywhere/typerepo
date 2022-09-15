@@ -1,0 +1,50 @@
+{
+  "createdAt": 1662905607871,
+  "updatedAt": 1662905607871,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905607871,
+  "id": "named-parameters-<typeof-get-simple-json-string->",
+  "name": "NamedParameters<typeof getSimpleJsonString>",
+  "slug": "named-parameters-<typeof-get-simple-json-string->",
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "json": {
+          "$ref": "#/definitions/Json"
+        }
+      },
+      "required": [
+        "json"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "json",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getSimpleJsonString>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

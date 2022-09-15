@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663018080306,
+  "updatedAt": 1663018080306,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018080306,
+  "id": "named-parameters-<typeof-get-path-parse->",
+  "name": "NamedParameters<typeof getPathParse>",
+  "slug": "named-parameters-<typeof-get-path-parse->",
+  "operationRelativeTypescriptFilePath": "src/getPathParse.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absolutePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absolutePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absolutePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPathParse>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

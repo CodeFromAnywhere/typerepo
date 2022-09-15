@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662720308429,
+  "updatedAt": 1662905750679,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720308429,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/parsing/search/src/searchRecursiveObject.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+  "buildSucceeded": true,
+  "id": "JiZTXuxTlYYpxtxx",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "search",
+  "packageName": "search",
+  "relativeOperationLocationPath": "operations/tools/parsing",
+  "classification": "js",
+  "name": "search",
+  "slug": "search",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "lowerCaseArray",
+    "makeTest"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 170,
+      "characters": 3948,
+      "bytes": 3948
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 67,
+      "characters": 1373,
+      "bytes": 1373
+    },
+    "textSize": {
+      "numberOfFiles": 3,
+      "lines": 157,
+      "characters": 6021,
+      "bytes": 6021
+    },
+    "size": {
+      "bytes": 11342,
+      "characters": 11342,
+      "lines": 394,
+      "numberOfFiles": 7
+    }
+  }
+}

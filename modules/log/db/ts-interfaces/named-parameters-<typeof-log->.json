@@ -1,0 +1,139 @@
+{
+  "createdAt": 1662907456928,
+  "updatedAt": 1662907456928,
+  "deletedAt": 0,
+  "createdFirstAt": 1662907456928,
+  "id": "named-parameters-<typeof-log->",
+  "name": "NamedParameters<typeof log>",
+  "slug": "named-parameters-<typeof-log->",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "description": "the message to be displayed to the user"
+        },
+        "config": {
+          "$ref": "#/definitions/LogConfig",
+          "description": "the configuration (optional)"
+        },
+        "data": {
+          "description": "Extra data the user needs to be able to see."
+        }
+      },
+      "required": [
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "message",
+          "required": true,
+          "schema": {
+            "description": "the message to be displayed to the user",
+            "type": "string"
+          }
+        },
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "description": "The title of this log. If not given, a title will still be parsed from your message by taking the first sentence.",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "type",
+                "required": false,
+                "schema": {
+                  "description": "how should it look and feel?",
+                  "enum": [
+                    "debug",
+                    "error",
+                    "warning",
+                    "success",
+                    "important",
+                    "default"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "customConfig",
+                "required": false,
+                "schema": {
+                  "description": "a logging configuration object that you can set using a file in the root of your operation or project.",
+                  "properties": [
+                    {
+                      "name": "showDebug",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "showDefault",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "sayTitles",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "logFolder",
+                      "required": false,
+                      "schema": {
+                        "description": "Folder where logs can be stored. If i can access the caller location this can be the operation db.",
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "data",
+          "required": false,
+          "schema": {
+            "description": "Extra data the user needs to be able to see.",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof log>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "createdAt": 1662904439479,
+  "updatedAt": 1662904439479,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904439479,
+  "id": "named-parameters-<typeof-set-script-everywhere->",
+  "name": "NamedParameters<typeof setScriptEverywhere>",
+  "slug": "named-parameters-<typeof-set-script-everywhere->",
+  "operationRelativeTypescriptFilePath": "src/setScriptEverywhere.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "script": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "script",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "script",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "value",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof setScriptEverywhere>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

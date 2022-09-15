@@ -1,0 +1,64 @@
+{
+  "createdAt": 1663008994485,
+  "updatedAt": 1663008994485,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008994485,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/removeExtensionsFromPath.ts",
+  "commentsInside": [],
+  "rawText": " (relativePath: string): string => {\n  const chunks = relativePath.split(\"/\");\n\n  const chunksWithoutNumbers = chunks.map(removeNumberPrefix);\n\n  // could be file\n  const lastChunk = chunksWithoutNumbers[chunksWithoutNumbers.length - 1];\n  const parts = lastChunk.split(\".\");\n  const lastPart = parts[parts.length - 1];\n\n  if (availableExtensions.includes(lastPart)) {\n    // remove extension\n    parts.pop();\n    chunksWithoutNumbers[chunksWithoutNumbers.length - 1] = parts.join(\".\");\n  }\n\n  const simplifiedPath = chunksWithoutNumbers.join(\"/\");\n\n  return simplifiedPath;\n}",
+  "name": "removeExtensionsFromPath",
+  "slug": "remove-extensions-from-path",
+  "parameters": [
+    {
+      "name": "relativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "- Removes numbers from file or foldernames in a path.\n- Removes extension of files\n- Returns the new path without numbers and without extension\n\nWorks for files and folders",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 748,
+    "lines": 24,
+    "bytes": 748,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 24,
+    "numberOfFiles": 1
+  },
+  "id": "WLokWqxobuzasWyJ"
+}

@@ -1,0 +1,54 @@
+{
+  "createdAt": 1662735741644,
+  "updatedAt": 1662907443928,
+  "deletedAt": 0,
+  "createdFirstAt": 1662735741644,
+  "folderName": "k-dev",
+  "packageName": "k-dev",
+  "relativeOperationLocationPath": "operations/tools/util",
+  "classification": "node",
+  "name": "k-dev",
+  "slug": "k-dev",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "nodemon",
+    "path",
+    "writeJsonToFile",
+    "readJsonFile"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 44,
+      "characters": 1286,
+      "bytes": 1286
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 74,
+      "characters": 1579,
+      "bytes": 1579
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 98,
+      "characters": 1572,
+      "bytes": 1572
+    },
+    "size": {
+      "bytes": 4437,
+      "characters": 4437,
+      "lines": 216,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/util/k-dev/src/dev.ts. Error: Error: Type 'string | undefined' is not assignable to type 'string'.\\n  Type 'undefined' is not assignable to type 'string'.\"]",
+  "lintProblems": [],
+  "id": "mgFhzWdhzrHUWRxk",
+  "language": "en"
+}

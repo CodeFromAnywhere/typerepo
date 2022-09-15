@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662906054718,
+  "updatedAt": 1662906054718,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906054718,
+  "id": "named-parameters-<typeof-cleanup-ts-database->",
+  "name": "NamedParameters<typeof cleanupTsDatabase>",
+  "slug": "named-parameters-<typeof-cleanup-ts-database->",
+  "operationRelativeTypescriptFilePath": "src/cleanupTsDatabase.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof cleanupTsDatabase>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

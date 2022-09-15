@@ -1,9 +1,9 @@
 {
   "createdAt": 1662726319308,
-  "updatedAt": 1662726319321,
+  "updatedAt": 1663009346966,
   "deletedAt": 0,
   "createdFirstAt": 1662726319308,
-  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/ui/markdown-reader/markdown-reader-web/src/pages/_app.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\"]",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/ui/markdown-reader/markdown-reader-web/src/pathGetStaticProps.ts. Error: Error: Property 'queryPaths' does not exist on type 'MainPageProps'.\\n\\nProperty 'markdownString' does not exist on type 'MainPageProps'.\\n\\nProperty 'markdownString' does not exist on type 'MainPageProps'.\"]",
   "buildSucceeded": true,
   "id": "UNzdBmXTMvwciXUl",
   "indexImportExportError": "",
@@ -16,12 +16,11 @@
   "slug": "markdown-reader-web",
   "coreDependencies": [],
   "operationDependencies": [
-    "getBundleQueryPaths",
-    "getRealPathFromQueryPath",
-    "fs",
+    "getDocsMarkdownReaderPages",
     "MainPageProps",
     "getQueryPath",
-    "getBundleQueryPaths",
+    "readMarkdownFileToModel",
+    "getMarkdownReaderQueryPaths",
     "pagesObject",
     "pages",
     "getPageTitle",
@@ -40,27 +39,27 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 5,
-      "lines": 119,
-      "characters": 3596,
-      "bytes": 3596
+      "lines": 129,
+      "characters": 3726,
+      "bytes": 3726
     },
     "dataSize": {
-      "numberOfFiles": 173,
-      "lines": 466,
-      "characters": 1618394,
-      "bytes": 1618394
+      "numberOfFiles": 10,
+      "lines": 141,
+      "characters": 16303,
+      "bytes": 16303
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 49,
-      "characters": 548,
-      "bytes": 548
+      "lines": 53,
+      "characters": 702,
+      "bytes": 702
     },
     "size": {
-      "bytes": 1622538,
-      "characters": 1622538,
-      "lines": 634,
-      "numberOfFiles": 179
+      "bytes": 20731,
+      "characters": 20731,
+      "lines": 323,
+      "numberOfFiles": 16
     }
   }
 }

@@ -1,0 +1,73 @@
+{
+  "createdAt": 1662907315786,
+  "updatedAt": 1662907315786,
+  "deletedAt": 0,
+  "createdFirstAt": 1662907315786,
+  "id": "named-parameters-<typeof-reduce-query-paths-recursively->",
+  "name": "NamedParameters<typeof reduceQueryPathsRecursively>",
+  "slug": "named-parameters-<typeof-reduce-query-paths-recursively->",
+  "operationRelativeTypescriptFilePath": "src/util/queryPathsArrayToNestedPathObject.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "queryPaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "initialValue": {
+          "$ref": "#/definitions/NestedPathObject"
+        }
+      },
+      "required": [
+        "queryPaths",
+        "initialValue"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "queryPaths",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "initialValue",
+          "required": true,
+          "schema": {
+            "description": "A different way to represent a path array in a nested object of folders",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof reduceQueryPathsRecursively>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

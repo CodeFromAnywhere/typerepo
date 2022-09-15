@@ -1,14 +1,8 @@
 # K explore
 
-k-explore (undefined operation)
+k-explore (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -36,73 +30,64 @@ Imported dependencies:
 
 ## benchmark
 
-Max. indexation depth: 2, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: amount (optional): number
 
 ## determineFileType
 
-Max. indexation depth: 2, 
-
 returns the file type or null if it's unknown
 
-## Returns: unknown
+
+
 
 ## exploreGitRepoFolders
 
-Max. indexation depth: 2, 
-
 find all active git folders (folders having `.git`)
 
-## Returns: unknown
+
+
 
 ## exploreMultiple
 
-Max. indexation depth: 2, 
-
 DEPRECATED: not sure if we still need it, look up usecases, can prob be replaced now
 
-## Returns: unknown
+
+
 
 ## exploreOperationFolders
-
-Max. indexation depth: 2, 
 
 find all active operations (folders having `package.json` but also `tsconfig.json`)
 
 returns folder path array
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: config (optional): object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| basePath (optional) | object |  |
+
+
 
 ## explorePreset
 
-Max. indexation depth: 6, 
-
-
-
-## Returns: unknown
-
 ## explore
-
-Max. indexation depth: 3, 
 
 this is the safe and friendly version of findFilesRecursively: it
 
-## Returns: unknown
+
+
 
 ## findAllDotGitFolders
 
-Max. indexation depth: 2, 
-
-
-
-## Returns: unknown
-
 ## findAllPackages
-
-Max. indexation depth: 2, 
 
 Finds all package.json's everywhere. also in /tools, but this is to be expected.
 
@@ -110,11 +95,10 @@ TODO: `stopRecursionAfterMatch` never worked, so I just removed it... the behavi
 
 TODO: We should be careful with ignoring all these folders... what if we use those folders outside of operations? This could have unexpected behavior. We either need to lint for these foldernames not to be used, or we need to make sure to only ignore it if we encounter a package.json
 
-## Returns: unknown
+
+
 
 ## findFilesRecursively
-
-Max. indexation depth: 8, 
 
 Explores your files with many possibilities.
 
@@ -124,53 +108,32 @@ TODO: since this not only finds files but also explores them, naming should be e
 
 TODO: TextJson[] is a bit weird name for the resulting type interface...
 
-## Returns: unknown
+
+
 
 ## getArgument
 
-Max. indexation depth: 1, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: number: number
 
 ## getContents
-
-Max. indexation depth: 2, 
 
 gets needed contents of file path, based on the extension
 
 returns a markdownparse if it's markdown, a json parse for json, or a file content string for anything else
 
-## Returns: unknown
+
+
 
 ## getOutline
 
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
-
 ## isMatch
-
-Max. indexation depth: 2, 
-
-
-
-## Returns: unknown
 
 ## isSearchContentExtension
 
-Max. indexation depth: 2, 
-
 type checker for a string to be an extension that can be searched for
 
+
 ### Returns: boolean
-
-
-
-
-
-
 

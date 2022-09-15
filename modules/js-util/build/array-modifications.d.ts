@@ -1,5 +1,5 @@
 /**
- Insert an array inside of an array before a certain index
+ Insert an array or item inside of an array before a certain index
  
  Example:
 
@@ -11,7 +11,7 @@
 
  ```
  */
-export declare const insertAt: <T>(array: T[], items: T[], beforeIndex: number) => T[];
+export declare const insertAt: <T>(array: T[], items: T | T[], beforeIndex: number) => T[];
 /**
  removes an index from an array
 

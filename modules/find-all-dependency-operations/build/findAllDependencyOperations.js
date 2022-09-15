@@ -7,13 +7,13 @@ var findDependenciesRecursively=function(e,
 /**
  * skip recursing on these ones because they are already found
  */
-n,r){return __awaiter(void 0,void 0,void 0,(function(){var t,i,o,a,s,u;return __generator(this,(function(l){switch(l.label){case 0:return(null==r?void 0:r.includes(e))?[2/*return*/,[]]:(t=function(e){return!(null==r?void 0:r.includes(e))},[4/*yield*/,database_1.db.get("TsImport",{operationName:e})]);case 1:return i=l.sent(),o=i.map((function(e){return e.isModuleFromMonorepo&&e.isModuleResolved?e.module:null})).filter(js_util_1.notEmpty).filter(js_util_1.onlyUnique).filter(t),a=n.concat(o).filter(js_util_1.onlyUnique),s=o.filter((function(e){return!(null==n?void 0:n.includes(e))})).map((function(e){return(0,exports.findDependenciesRecursively)(e,a,r)})),[4/*yield*/,Promise.all(s)];case 2:return u=l.sent().flat(),[2/*return*/,o.concat(u)]}}))}))};exports.findDependenciesRecursively=findDependenciesRecursively;
+n,r,t){return __awaiter(void 0,void 0,void 0,(function(){var i,o,a,s,u,l;return __generator(this,(function(c){switch(c.label){case 0:return(null==r?void 0:r.includes(e))?[2/*return*/,[]]:(i=function(e){return!(null==r?void 0:r.includes(e))&&(!t||t(e))},[4/*yield*/,database_1.db.get("TsImport",{operationName:e})]);case 1:return o=c.sent(),a=o.map((function(e){return e.isModuleFromMonorepo&&e.isModuleResolved?e.module:null})).filter(js_util_1.notEmpty).filter(js_util_1.onlyUnique).filter(i),s=n.concat(a).filter(js_util_1.onlyUnique),u=a.filter((function(e){return!(null==n?void 0:n.includes(e))})).map((function(e){return(0,exports.findDependenciesRecursively)(e,s,r)})),[4/*yield*/,Promise.all(u)];case 2:return l=c.sent().flat(),[2/*return*/,a.concat(l)]}}))}))};exports.findDependenciesRecursively=findDependenciesRecursively;
 /**
  * to be used when you need to know all dependencies for multiple operation names at once
  *
  * TODO: NB: this breaks with circular dependencies
  */
-var findAllDependencyOperations=function(e){var n=e.operationNames,r=e.ignoreOperationNames;return __awaiter(void 0,void 0,void 0,(function(){var e;return __generator(this,(function(t){switch(t.label){case 0:return e=n.map((function(e){return(0,exports.findDependenciesRecursively)(e,n,r)})),[4/*yield*/,Promise.all(e)];case 1:return[2/*return*/,t.sent().flat().filter(js_util_1.onlyUnique)]}}))}))};exports.findAllDependencyOperations=findAllDependencyOperations;
+var findAllDependencyOperations=function(e){var n=e.operationNames,r=e.ignoreOperationNames,t=e.ignoreFilter;return __awaiter(void 0,void 0,void 0,(function(){var e;return __generator(this,(function(i){switch(i.label){case 0:return e=n.map((function(e){return(0,exports.findDependenciesRecursively)(e,n,r,t)})),[4/*yield*/,Promise.all(e)];case 1:return[2/*return*/,i.sent().flat().filter(js_util_1.onlyUnique)]}}))}))};exports.findAllDependencyOperations=findAllDependencyOperations;
 // findAllDependencyOperations(["fs-orm"]).then(console.log);
 // how do I get a format like this?
 // const x = {

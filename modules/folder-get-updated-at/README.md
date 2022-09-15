@@ -1,14 +1,8 @@
 # Folder get updated at
 
-folder-get-updated-at (undefined operation)
+folder-get-updated-at (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -22,9 +16,19 @@ Imported dependencies:
 
 ## folderGetUpdatedAt
 
-Max. indexation depth: 3, 
-
 get last updated file updatedAt time in whole folder, recursively
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: {  folderPath,}: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| folderPath  | string |  |
+
 

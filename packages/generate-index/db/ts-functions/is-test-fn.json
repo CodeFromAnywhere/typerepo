@@ -1,0 +1,82 @@
+{
+  "createdAt": 1662906133352,
+  "updatedAt": 1662906133352,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906133352,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "commentsInside": [],
+  "rawText": " (x: ImportStatement) => {\n  const nameEndsWithTest = lowerCaseArray(x.name).pop() === \"test\";\n  const typeIsFn = x.type === \"function\";\n  return typeIsFn && nameEndsWithTest;\n}",
+  "name": "isTestFn",
+  "slug": "is-test-fn",
+  "parameters": [
+    {
+      "name": "x",
+      "schema": {
+        "$ref": "#/definitions/ImportStatement"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "type",
+            "required": true,
+            "schema": {
+              "enum": [
+                "variable",
+                "function",
+                "interface"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "srcRelativeFileId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 177,
+    "lines": 5,
+    "bytes": 177,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "wuJqCWqyTnSqEpUX"
+}

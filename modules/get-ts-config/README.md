@@ -1,14 +1,8 @@
 # Get ts config
 
-get-ts-config (undefined operation)
+get-ts-config (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -22,9 +16,7 @@ Imported dependencies:
 
 ## getTsConfig
 
-Max. indexation depth: 1, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: packageFolder: string
 

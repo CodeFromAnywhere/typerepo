@@ -12,12 +12,26 @@ export const renderMarkdownContent = (
   content: string,
   config?: { big?: boolean }
 ) => {
-  console.log("Need to render:", content);
+  // console.log("Need to render:", content);
   return (
     <ReactMarkdown
       className={config?.big ? "max-w-lg" : undefined}
       rehypePlugins={[rehypeHighlight, remarkGfm]}
       components={{
+        //Fix newlines with `<br>`
+        br: ({ node, ...props }) => (
+          // @ts-ignore
+          <br {...props} />
+        ),
+
+        details: ({ node, ...props }) => (
+          // @ts-ignore
+          <details {...props} />
+        ),
+        summary: ({ node, ...props }) => (
+          // @ts-ignore
+          <summary {...props} />
+        ),
         td: ({ node, ...props }) => (
           // @ts-ignore
           <td

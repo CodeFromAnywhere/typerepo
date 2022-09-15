@@ -1,14 +1,8 @@
 # Get package json
 
-get-package-json (undefined operation)
+get-package-json (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -24,25 +18,31 @@ Imported dependencies:
 
 ## getOperationBins
 
-Max. indexation depth: 1, 
-
 returns array of bins. by convention, these bins should also be exported from operation index file
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: operationFolderPath: string
 
 ## getOperationPackageName
 
-Max. indexation depth: 1, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: operationFolderPath: string
 
 ## getPackageJson
 
-Max. indexation depth: 1, 
+### Parameters (1)
 
+#### Parameter 1: config: object
 
+Properties: 
 
-## Returns: unknown
+ | Name | Type | Description |
+|---|---|---|
+| operationFolderPath  | string |  |
+
 

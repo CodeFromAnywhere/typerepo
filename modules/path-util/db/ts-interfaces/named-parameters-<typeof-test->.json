@@ -1,0 +1,33 @@
+{
+  "createdAt": 1662904858682,
+  "updatedAt": 1662904858682,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904858682,
+  "id": "named-parameters-<typeof-test->",
+  "name": "NamedParameters<typeof test>",
+  "slug": "named-parameters-<typeof-test->",
+  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof test>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

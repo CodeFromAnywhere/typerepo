@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720280052,
-  "updatedAt": 1662720280052,
+  "createdAt": 1662905717911,
+  "updatedAt": 1662905717911,
   "deletedAt": 0,
-  "createdFirstAt": 1662720280052,
+  "createdFirstAt": 1662905717911,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (\n  string: string\n): boolean | null | undefined | number | string => {\n  // NB: failsafes\n  if (string === undefined) return undefined;\n  if (string === null) return null;\n\n  if (string === \"true\") return true;\n  if (string === \"false\") return false;\n  if (string === \"null\") return null;\n  if (string === \"undefined\") return undefined;\n  // NB: an empty string will count as 0 in the next statement\n  if (string === \"\") return \"\";\n  if (!isNaN(Number(string))) return Number(string);\n  if (string.startsWith('\"') && string.endsWith('\"')) {\n    return string.substring(1, string.length - 1);\n  }\n  return string;\n}",
   "name": "parsePrimitive",
   "slug": "parse-primitive",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "string",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "string | number | boolean | null | undefined",
@@ -60,5 +71,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "QbPcvmfhZucHKdnB"
+  "id": "qUXhSMnvxLzkqLLQ"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718858877,
-  "updatedAt": 1662718858877,
+  "createdAt": 1662904834046,
+  "updatedAt": 1662904834046,
   "deletedAt": 0,
-  "createdFirstAt": 1662718858877,
+  "createdFirstAt": 1662904834046,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,20 @@
   "rawText": " async (\n  /**\n   * any path in an operation\n   */\n  operationBasePath: string\n): Promise<undefined | OperationMetaData> => {\n  if (!operationBasePath) return;\n  const projectRoot = getProjectRoot(operationBasePath);\n  if (!projectRoot) return;\n  const packageJson = await getPackageJson({\n    operationFolderPath: operationBasePath,\n  });\n  const operationName = packageJson?.name;\n\n  if (!operationName) {\n    return;\n  }\n  const srcPath = path.join(operationBasePath, \"src\");\n  const operationFolderName = getLastFolder(operationBasePath);\n\n  const operationIndexArray = await db.get(\"OperationIndex\", { operationName });\n  const operationIndex: OperationIndex | undefined =\n    takeFirst(operationIndexArray);\n\n  const relativeOperationLocationPath = makeRelative(\n    path.join(operationBasePath, \"..\"),\n    projectRoot\n  );\n  if (!relativeOperationLocationPath) return;\n\n  return {\n    operationBasePath,\n    operationIndex,\n    operationName,\n    srcPath,\n    operationFolderName,\n    /**\n     * where the operation is located relative to the project root\n     */\n    relativeOperationLocationPath,\n  };\n}",
   "name": "getOperationMetaData",
   "slug": "get-operation-meta-data",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "operationBasePath",
+      "schema": {
+        "type": "string",
+        "description": "any path in an operation"
+      },
+      "simplifiedSchema": {
+        "description": "any path in an operation",
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "gets a whole bunch of metadata about an operation, mainly filepath related, but it also reads the operation index json file",
   "returnType": {
     "rawType": "Promise<import(\"/Users/king/King/operations/tools/control-fs/operation-util/src/getOperationMetaData\").OperationMetaData | undefined>",
@@ -32,5 +45,5 @@
     "linesPerFile": 42,
     "numberOfFiles": 1
   },
-  "id": "pnQRGfTvoNPWrHVg"
+  "id": "JRYHMLLcoGqDQXoc"
 }

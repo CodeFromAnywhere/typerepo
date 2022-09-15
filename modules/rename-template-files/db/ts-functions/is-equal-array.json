@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718995375,
-  "updatedAt": 1662718995375,
+  "createdAt": 1662904996735,
+  "updatedAt": 1662904996735,
   "deletedAt": 0,
-  "createdFirstAt": 1662718995375,
+  "createdFirstAt": 1662904996735,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,48 @@
   "rawText": " (array1: unknown[], array2: unknown[]) =>\n  array1.length === array2.length &&\n  array1.every((value, index) => value === array2[index])",
   "name": "isEqualArray",
   "slug": "is-equal-array",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "array1",
+      "schema": {
+        "type": "array",
+        "items": {}
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [],
+              "type": "object"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    },
+    {
+      "name": "array2",
+      "schema": {
+        "type": "array",
+        "items": {}
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [],
+              "type": "object"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
   "description": "As long as there are no .template files present in the template folder that DONT need to be changed, it is fine.\nIf there are, we should warn people.\n\nfinds all .template renamed files recursively and returns the paths in an array\n\nshould be placed back into sensible, this is sensible-specific.\n//\nexport const findTemplateFiles = (dirName: string): string[] => {\nconst appTemplateFiles = findTemplates(`${dirName}/apps`);\nconst packageTemplateFiles = findTemplates(`${dirName}/packages`);\nconst rootTemplateFiles = findTemplates(dirName, true);\nreturn appTemplateFiles\n.concat(packageTemplateFiles)\n.concat(rootTemplateFiles);\n};",
   "returnType": {
     "rawType": "any",
@@ -32,5 +73,5 @@
     "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "stTUxbjzQJngZrbZ"
+  "id": "IAduEVvCiRRapfOu"
 }

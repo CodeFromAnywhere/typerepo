@@ -1,0 +1,61 @@
+{
+  "createdAt": 1662904620968,
+  "updatedAt": 1662904620968,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904620968,
+  "id": "named-parameters-<typeof-get-all-operation-source-paths->",
+  "name": "NamedParameters<typeof getAllOperationSourcePaths>",
+  "slug": "named-parameters-<typeof-get-all-operation-source-paths->",
+  "operationRelativeTypescriptFilePath": "src/getAllOperationSourcePaths.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "manualProjectRoot": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getAllOperationSourcePaths>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

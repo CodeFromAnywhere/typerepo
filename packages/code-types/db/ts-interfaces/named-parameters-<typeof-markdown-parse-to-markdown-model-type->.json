@@ -1,0 +1,57 @@
+{
+  "createdAt": 1663018217766,
+  "updatedAt": 1663018217766,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018217766,
+  "id": "named-parameters-<typeof-markdown-parse-to-markdown-model-type->",
+  "name": "NamedParameters<typeof markdownParseToMarkdownModelType>",
+  "slug": "named-parameters-<typeof-markdown-parse-to-markdown-model-type->",
+  "operationRelativeTypescriptFilePath": "src/markdownParseToMarkdownModelType.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "markdownParse": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/MarkdownParse"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "markdownParse"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "markdownParse",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof markdownParseToMarkdownModelType>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

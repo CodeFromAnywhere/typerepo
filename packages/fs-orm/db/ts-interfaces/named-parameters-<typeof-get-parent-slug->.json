@@ -1,0 +1,41 @@
+{
+  "createdAt": 1663146702585,
+  "updatedAt": 1663146702585,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146702585,
+  "id": "named-parameters-<typeof-get-parent-slug->",
+  "name": "NamedParameters<typeof getParentSlug>",
+  "slug": "named-parameters-<typeof-get-parent-slug->",
+  "operationRelativeTypescriptFilePath": "src/convention/getParentSlug.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "$ref": "#/definitions/Storing%3CKeyValueMarkdownModelType%3E"
+        }
+      },
+      "required": [
+        "item"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getParentSlug>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

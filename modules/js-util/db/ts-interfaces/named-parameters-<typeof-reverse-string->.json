@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663147175858,
+  "updatedAt": 1663147175858,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147175858,
+  "id": "named-parameters-<typeof-reverse-string->",
+  "name": "NamedParameters<typeof reverseString>",
+  "slug": "named-parameters-<typeof-reverse-string->",
+  "operationRelativeTypescriptFilePath": "src/replaceLastOccurence.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "string"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "string",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof reverseString>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

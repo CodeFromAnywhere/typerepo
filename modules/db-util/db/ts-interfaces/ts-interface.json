@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662719895450,
-  "updatedAt": 1662719895450,
+  "createdAt": 1662905303398,
+  "updatedAt": 1662905303398,
   "deletedAt": 0,
-  "createdFirstAt": 1662719895450,
+  "createdFirstAt": 1662905303398,
   "id": "ts-interface",
   "name": "TsInterface",
   "slug": "ts-interface",
@@ -46,7 +46,7 @@
         },
         "operationRelativeTypescriptFilePath": {
           "type": "string",
-          "description": "relative file path from the operation src that this indexed instance is referencing to\n\ne.g. src/general.ts"
+          "description": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)"
         },
         "type": {
           "$ref": "#/definitions/TypeInfo"
@@ -169,7 +169,7 @@
           "name": "operationRelativeTypescriptFilePath",
           "required": true,
           "schema": {
-            "description": "relative file path from the operation src that this indexed instance is referencing to\n\ne.g. src/general.ts",
+            "description": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
             "type": "string"
           }
         },
@@ -859,7 +859,7 @@
                       "name": "operationRelativeTypescriptFilePath",
                       "required": true,
                       "schema": {
-                        "description": "relative file path from the operation src that this indexed instance is referencing to\n\ne.g. src/general.ts",
+                        "description": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
                         "type": "string"
                       }
                     },

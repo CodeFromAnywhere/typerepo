@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662733037961,
-  "updatedAt": 1662733037961,
+  "createdAt": 1662904857744,
+  "updatedAt": 1662904857744,
   "deletedAt": 0,
-  "createdFirstAt": 1662733037961,
+  "createdFirstAt": 1662904857744,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " async (\n  filePath: string\n): Promise<SizeSummary> => {\n  const content = await fs.readFile(filePath, \"utf8\");\n\n  const bytes = byteCount(content);\n  const characters = content.length;\n  const lines = content.split(\"\\n\").length;\n\n  return {\n    bytes,\n    characters,\n    lines,\n    numberOfFiles: 1,\n    bytesPerCharacter: bytes / characters,\n    charactersPerLine: characters / lines,\n    linesPerFile: lines,\n  };\n}",
   "name": "getSizeSummary",
   "slug": "get-size-summary",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "filePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "gets a size summary for a file path",
   "returnType": {
     "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/FolderSummary\").SizeSummary>",
@@ -32,5 +43,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "HxBPxPKRGjGKpdDD"
+  "id": "AXUHBaIfsEmMODGP"
 }

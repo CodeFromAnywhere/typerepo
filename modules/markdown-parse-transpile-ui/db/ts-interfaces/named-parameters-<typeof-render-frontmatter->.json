@@ -1,0 +1,76 @@
+{
+  "createdAt": 1663009414558,
+  "updatedAt": 1663009414558,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009414558,
+  "id": "named-parameters-<typeof-render-frontmatter->",
+  "name": "NamedParameters<typeof renderFrontmatter>",
+  "slug": "named-parameters-<typeof-render-frontmatter->",
+  "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "parameters": {
+          "$ref": "#/definitions/Frontmatter"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "renderSpacer": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "parameters"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "parameters",
+          "required": true,
+          "schema": {
+            "description": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "renderSpacer",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof renderFrontmatter>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

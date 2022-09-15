@@ -1,0 +1,51 @@
+{
+  "createdAt": 1663018194221,
+  "updatedAt": 1663018194221,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018194221,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/DbStorageMethod.ts",
+  "comments": [],
+  "name": "dbStorageMethods",
+  "slug": "db-storage-methods",
+  "value": "[...dbStorageMethodsConst]",
+  "type": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "LkGiZImzRqWWHnxP"
+}

@@ -1,10 +1,10 @@
 {
   "createdAt": 1662718724276,
-  "updatedAt": 1662739828606,
+  "updatedAt": 1663008902754,
   "deletedAt": 0,
   "createdFirstAt": 1662718724276,
-  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/fs-util/src/deprecated.ts. Error: Error: Cannot find name 'withoutExtension'.\\n\\nCannot find name 'withoutExtension'.\"]",
-  "buildSucceeded": false,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/fs-util/src/deprecated.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+  "buildSucceeded": true,
   "id": "iOCiTxvoOVJvJMCJ",
   "indexImportExportError": "",
   "lintProblems": [],
@@ -49,9 +49,9 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 9,
-      "lines": 690,
-      "characters": 17926,
-      "bytes": 17926
+      "lines": 691,
+      "characters": 17967,
+      "bytes": 17967
     },
     "dataSize": {
       "numberOfFiles": 2,
@@ -61,14 +61,14 @@
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 317,
-      "characters": 5242,
-      "bytes": 5242
+      "lines": 585,
+      "characters": 15874,
+      "bytes": 15874
     },
     "size": {
-      "bytes": 24562,
-      "characters": 24562,
-      "lines": 1074,
+      "bytes": 35235,
+      "characters": 35235,
+      "lines": 1343,
       "numberOfFiles": 12
     }
   }

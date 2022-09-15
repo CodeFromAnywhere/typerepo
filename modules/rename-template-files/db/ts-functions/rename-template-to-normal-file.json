@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718995376,
-  "updatedAt": 1662718995376,
+  "createdAt": 1662904996735,
+  "updatedAt": 1662904996735,
   "deletedAt": 0,
-  "createdFirstAt": 1662718995376,
+  "createdFirstAt": 1662904996735,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (fileName: string) => {\n  return fileName.replace(\".template\", \"\");\n}",
   "name": "renameTemplateToNormalFile",
   "slug": "rename-template-to-normal-file",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "fileName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "fAxjXAbtdvgKTvgr"
+  "id": "eRTYSsjdkgZrsAZL"
 }

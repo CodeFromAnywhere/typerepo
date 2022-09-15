@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662904855492,
+  "updatedAt": 1662904855492,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904855492,
+  "id": "named-parameters-<typeof-calculate-path-meta-data->",
+  "name": "NamedParameters<typeof calculatePathMetaData>",
+  "slug": "named-parameters-<typeof-calculate-path-meta-data->",
+  "operationRelativeTypescriptFilePath": "src/calculatePathMetaData.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absolutePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absolutePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absolutePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof calculatePathMetaData>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

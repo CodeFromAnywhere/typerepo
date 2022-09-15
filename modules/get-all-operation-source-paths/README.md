@@ -1,14 +1,8 @@
 # Get all operation source paths
 
-get-all-operation-source-paths (undefined operation)
+get-all-operation-source-paths (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -22,9 +16,19 @@ Imported dependencies:
 
 ## getAllOperationSourcePaths
 
-Max. indexation depth: 4, 
-
 returns src folder paths of all operations in tools
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: config (optional): object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| manualProjectRoot (optional) | string |  |
+
 

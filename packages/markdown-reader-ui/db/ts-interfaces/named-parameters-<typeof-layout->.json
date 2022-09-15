@@ -1,0 +1,88 @@
+{
+  "createdAt": 1662906795428,
+  "updatedAt": 1662906795428,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906795428,
+  "id": "named-parameters-<typeof-layout->",
+  "name": "NamedParameters<typeof Layout>",
+  "slug": "named-parameters-<typeof-layout->",
+  "operationRelativeTypescriptFilePath": "src/components/Layout.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "{\n  queryPaths,\n  children,\n}": {
+          "type": "object",
+          "properties": {
+            "queryPaths": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "children": {}
+          },
+          "required": [
+            "queryPaths",
+            "children"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "{\n  queryPaths,\n  children,\n}"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "{\n  queryPaths,\n  children,\n}",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "queryPaths",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "children",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof Layout>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

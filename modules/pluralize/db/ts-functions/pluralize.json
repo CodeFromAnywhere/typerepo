@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726914935,
-  "updatedAt": 1662726914935,
+  "createdAt": 1663147198637,
+  "updatedAt": 1663147198637,
   "deletedAt": 0,
-  "createdFirstAt": 1662726914935,
+  "createdFirstAt": 1663147198637,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (parameterName: string) => {\n  return parameterName.concat(\"s\");\n}",
   "name": "pluralize",
   "slug": "pluralize",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "parameterName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "KISS; fuck grammar\n\nIf we are going to apply grammar here, it becomes impossible to create typescript rules that can detect and convert plural/singular parameter names.\n\nTo pluralize any word we simply attach an \"s\" at the end",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "wSyYPGTJkovzsHFc"
+  "id": "iyHnKGARgAGnbWml"
 }

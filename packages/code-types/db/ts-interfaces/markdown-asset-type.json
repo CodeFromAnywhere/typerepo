@@ -1,0 +1,55 @@
+{
+  "createdAt": 1663018198344,
+  "updatedAt": 1663018198344,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018198344,
+  "id": "markdown-asset-type",
+  "name": "MarkdownAssetType",
+  "slug": "markdown-asset-type",
+  "operationRelativeTypescriptFilePath": "src/MarkdownParse.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * type of asset that is being embedded\n */\nexport type MarkdownAssetType =\n  | \"youtube\"\n  | \"video\"\n  | \"image\"\n  | \"audio\"\n  | \"markdown\"\n  | \"json\"\n  | \"typescript\"\n  | \"file\";",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "type of asset that is being embedded",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "youtube",
+        "video",
+        "image",
+        "audio",
+        "markdown",
+        "json",
+        "typescript",
+        "file"
+      ],
+      "description": "type of asset that is being embedded"
+    },
+    "simplifiedSchema": {
+      "description": "type of asset that is being embedded",
+      "enum": [
+        "youtube",
+        "video",
+        "image",
+        "audio",
+        "markdown",
+        "json",
+        "typescript",
+        "file"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "MarkdownAssetType",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

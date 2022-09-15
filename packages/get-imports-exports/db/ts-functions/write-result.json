@@ -1,0 +1,87 @@
+{
+  "createdAt": 1663018283922,
+  "updatedAt": 1663018283922,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018283922,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/writeResult.ts",
+  "commentsInside": [],
+  "rawText": " async (options: {\n  operationName: string;\n  success: boolean;\n  message: string;\n}) => {\n  const { message, operationName, success } = options;\n\n  if (!success) {\n    log(`Couldn't write imports/exports.`);\n\n    await db.update(\n      \"OperationIndex\",\n      () => true,\n      (operationIndex) => ({\n        ...operationIndex,\n        indexImportExportError: message,\n      }),\n      { operationName }\n    );\n\n    return false;\n  }\n}",
+  "name": "writeResult",
+  "slug": "write-result",
+  "parameters": [
+    {
+      "name": "options",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "operationName": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "operationName",
+          "success",
+          "message"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "success",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "message",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 435,
+    "lines": 23,
+    "bytes": 435,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 19,
+    "linesPerFile": 23,
+    "numberOfFiles": 1
+  },
+  "id": "iJfWPkNDKGHoOfQU"
+}

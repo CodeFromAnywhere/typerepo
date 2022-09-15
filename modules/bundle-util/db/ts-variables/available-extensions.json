@@ -1,0 +1,51 @@
+{
+  "createdAt": 1663008994592,
+  "updatedAt": 1663008994592,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008994592,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/removeExtensionsFromPath.ts",
+  "comments": [],
+  "name": "availableExtensions",
+  "slug": "available-extensions",
+  "value": "[\"md\"]",
+  "type": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "fTyUCyUeKoFbPgjE"
+}

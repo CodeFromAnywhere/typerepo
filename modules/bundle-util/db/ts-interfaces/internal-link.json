@@ -1,0 +1,64 @@
+{
+  "createdAt": 1663008996125,
+  "updatedAt": 1663008996125,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008996125,
+  "id": "internal-link",
+  "name": "InternalLink",
+  "slug": "internal-link",
+  "operationRelativeTypescriptFilePath": "src/types.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * Internal links should have a small footprint since there can be many of them\n *\n * An internal link just needs to be a word connected to a different page\n */\nexport type InternalLink = { internalLinkWord: string; queryPath: string };",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "Internal links should have a small footprint since there can be many of them\n\nAn internal link just needs to be a word connected to a different page",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "internalLinkWord": {
+          "type": "string"
+        },
+        "queryPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "internalLinkWord",
+        "queryPath"
+      ],
+      "additionalProperties": false,
+      "description": "Internal links should have a small footprint since there can be many of them\n\nAn internal link just needs to be a word connected to a different page"
+    },
+    "simplifiedSchema": {
+      "description": "Internal links should have a small footprint since there can be many of them\n\nAn internal link just needs to be a word connected to a different page",
+      "properties": [
+        {
+          "name": "internalLinkWord",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "queryPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "InternalLink",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

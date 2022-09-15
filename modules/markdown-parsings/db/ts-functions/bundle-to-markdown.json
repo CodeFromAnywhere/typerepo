@@ -1,0 +1,94 @@
+{
+  "createdAt": 1662905682931,
+  "updatedAt": 1662905682931,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905682931,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/bundleToMarkdown.ts",
+  "commentsInside": [],
+  "rawText": " ({\n  bundleConfigId,\n  includeModules,\n}: {\n  bundleConfigId: string;\n  /** if true, also includes the private modules */\n  includeModules?: boolean;\n}): string => {\n  /**\n       - explain operation config itself, e.g. which apps there are and an outline of the packages and modules\n    \n       - extract all needed operations from bundle config (with or without modules) and use operationToMd for those\n      \n       - extract docs and readmes from bundle config and bundle those\n      */\n  return \"\";\n}",
+  "name": "bundleToMarkdown",
+  "slug": "bundle-to-markdown",
+  "parameters": [
+    {
+      "name": "{\n  bundleConfigId,\n  includeModules,\n}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "bundleConfigId": {
+            "type": "string"
+          },
+          "includeModules": {
+            "type": "boolean",
+            "description": "if true, also includes the private modules"
+          }
+        },
+        "required": [
+          "bundleConfigId"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "bundleConfigId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeModules",
+            "required": false,
+            "schema": {
+              "description": "if true, also includes the private modules",
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "creates a summary for a whole bundle\n\nNB: Related to `bundleToBookMd`",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 574,
+    "lines": 19,
+    "bytes": 574,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 19,
+    "numberOfFiles": 1
+  },
+  "id": "okDtxCzbNznngFmR"
+}

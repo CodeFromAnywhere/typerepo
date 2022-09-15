@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663018076798,
+  "updatedAt": 1663018076798,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018076798,
+  "id": "named-parameters-<typeof-get-operation-classification->",
+  "name": "NamedParameters<typeof getOperationClassification>",
+  "slug": "named-parameters-<typeof-get-operation-classification->",
+  "operationRelativeTypescriptFilePath": "src/getOperationClassification.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "folderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "folderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "folderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOperationClassification>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

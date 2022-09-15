@@ -1,0 +1,59 @@
+{
+  "createdAt": 1663018279292,
+  "updatedAt": 1663018279292,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018279292,
+  "id": "named-parameters-<typeof-find-and-write-imports-exports->",
+  "name": "NamedParameters<typeof findAndWriteImportsExports>",
+  "slug": "named-parameters-<typeof-find-and-write-imports-exports->",
+  "operationRelativeTypescriptFilePath": "src/findAndWriteImportsExports.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationBasePath": {
+          "type": "string"
+        },
+        "manualProjectRoot": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationBasePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationBasePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof findAndWriteImportsExports>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

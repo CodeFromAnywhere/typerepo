@@ -1,28 +1,3 @@
-import { allOperationsRemoveJsSrc } from "all";
-import { clearAllTsDatabases } from "all";
-import { codeAll } from "all";
-import { forAllFiles } from "all";
-import { forAllFolders } from "all";
-import { getAllOperationClassifications } from "all";
-import { gitShipAllRepos } from "all";
-import { mdAllOperations } from "all";
-import { minifyAllOperations } from "all";
-import { publishAllOperations } from "all";
-import { rebuildAllOperations } from "all";
-import { removeAllFiles } from "all";
-import { removeAllFolders } from "all";
-import { removeAll } from "all";
-import { renameAll } from "all";
-import { runScriptEverywhere } from "all";
-import { setScriptEverywhere } from "all";
-import { getBundleQueryPaths } from "bundle-util";
-import { getBundleSummary } from "bundle-util";
-import { getDbModelsForBundle } from "bundle-util";
-import { getRealPathFromQueryPath } from "bundle-util";
-import { cleanupTsDatabase } from "cleanup-typescript-database";
-import { shouldDeleteTsModel } from "cleanup-typescript-database";
-import { csvItemArrayToCsvString } from "csv-util";
-import { tryParseCsv } from "csv-util";
 import { generateCsvInstance } from "database";
 import { generateJsonSingleInstance } from "database";
 import { generateKvmdInstance } from "database";
@@ -32,16 +7,6 @@ import { getMergedQueryConfig } from "database";
 import { randomName } from "database";
 import { runModelEndToEndTest } from "database";
 import { testOperationModels } from "database";
-import { filterInterfacesFromOperationNames } from "db-util";
-import { getDbModelsFromOperations } from "db-util";
-import { findAllDependencyOperations } from "find-all-dependency-operations";
-import { findDependantsRecursively } from "find-all-dependency-operations";
-import { findDependants } from "find-all-dependency-operations";
-import { findDependenciesRecursively } from "find-all-dependency-operations";
-import { findMonorepoModules } from "find-all-dependency-operations";
-import { getDependencyObject } from "find-all-dependency-operations";
-import { getDependencyTree } from "find-all-dependency-operations";
-import { folderGetUpdatedAt } from "folder-get-updated-at";
 import { addDefaultValues } from "fs-orm";
 import { alterAny } from "fs-orm";
 import { alterCsv } from "fs-orm";
@@ -49,6 +14,7 @@ import { alterJsonMultiple } from "fs-orm";
 import { alterJsonSingle } from "fs-orm";
 import { alterKeyValueMarkdown } from "fs-orm";
 import { alterMarkdown } from "fs-orm";
+import { augmentItemWithReferencedDataRecursively } from "fs-orm";
 import { calculateOperationsObject } from "fs-orm";
 import { createDb } from "fs-orm";
 import { findParent } from "fs-orm";
@@ -84,20 +50,20 @@ import { newEnvSdk } from "generate-sdk-operations";
 import { newSdkKeysOperation } from "generate-sdk-operations";
 import { newSdkOperation } from "generate-sdk-operations";
 import { tsFunctionIsSdkable } from "generate-sdk-operations";
-import { getAllOperationSourcePaths } from "get-all-operation-source-paths";
-import { getImportedDependencies } from "get-imported-dependencies";
-import { getPackage } from "get-imported-dependencies";
-import { isAbsoluteImport } from "get-imported-dependencies";
 import { calculatePackageJsonDependencies } from "get-imports-exports";
 import { findAndWriteImportsExports } from "get-imports-exports";
+import { getDefaultSymbolType } from "get-imports-exports";
+import { getExportSpecifierNames } from "get-imports-exports";
+import { getExportSymbolTypeRecursive } from "get-imports-exports";
+import { getImportSpecifiersWithNames } from "get-imports-exports";
 import { getImportsExports } from "get-imports-exports";
 import { getPackageNameFromAbsoluteImport } from "get-imports-exports";
+import { getSymbolTypeDeclarations } from "get-imports-exports";
+import { getTypeFromImportSpecifierRecursive } from "get-imports-exports";
 import { isAbsoluteImportBuiltin } from "get-imports-exports";
+import { isAbsoluteImport } from "get-imports-exports";
 import { isImportFromOptionalFile } from "get-imports-exports";
-import { getOperationBins } from "get-package-json";
-import { getOperationPackageName } from "get-package-json";
-import { getPackageJson } from "get-package-json";
-import { getPackageSourcePaths } from "get-package-source-paths";
+import { writeResult } from "get-imports-exports";
 import { findAndUpsertTsInterfaces } from "index-typescript";
 import { findCommentTypes } from "index-typescript";
 import { generateSchema } from "index-typescript";
@@ -125,6 +91,72 @@ import { schemaToTsInterface } from "index-typescript";
 import { tryCreateSchema } from "index-typescript";
 import { typeToSchema } from "index-typescript";
 import { dev } from "k-dev";
+import { minifyBuild } from "minify-build";
+import { getAvailableOperationName } from "new-operation";
+import { getOperationConfig } from "new-operation";
+import { newOperationWithFiles } from "new-operation";
+import { newOperation } from "new-operation";
+import { nodemon } from "nodemon";
+import { clearTsDatabase } from "rebuild-operation";
+import { executeCommandQuietUnlessFail } from "rebuild-operation";
+import { exitIfProcessDependenciesChanged } from "rebuild-operation";
+import { getFileIds } from "rebuild-operation";
+import { getIndexFileIds } from "rebuild-operation";
+import { getSrcIds } from "rebuild-operation";
+import { isOperationBuildNeeded } from "rebuild-operation";
+import { isSdkOperation } from "rebuild-operation";
+import { rebuildAllOperations } from "rebuild-operation";
+import { rebuildOperation } from "rebuild-operation";
+import { shouldSkip } from "rebuild-operation";
+import { yarnBuild } from "rebuild-operation";
+import { allOperationsRemoveJsSrc } from "all";
+import { clearAllTsDatabases } from "all";
+import { codeAll } from "all";
+import { forAllFiles } from "all";
+import { forAllFolders } from "all";
+import { getAllOperationClassifications } from "all";
+import { gitShipAllRepos } from "all";
+import { mdAllOperations } from "all";
+import { minifyAllOperations } from "all";
+import { publishAllOperations } from "all";
+import { removeAllFiles } from "all";
+import { removeAllFolders } from "all";
+import { removeAll } from "all";
+import { renameAll } from "all";
+import { runScriptEverywhere } from "all";
+import { setScriptEverywhere } from "all";
+import { askOk } from "ask";
+import { ask } from "ask";
+import { getArgumentOrAsk } from "ask";
+import { getBundleSummary } from "bundle-util";
+import { getDbModelsForBundle } from "bundle-util";
+import { getDocsMarkdownReaderPages } from "bundle-util";
+import { getInternalLinks } from "bundle-util";
+import { getMarkdownReaderQueryPaths } from "bundle-util";
+import { getPublicMarkdownFilePaths } from "bundle-util";
+import { removeExtensionsFromPath } from "bundle-util";
+import { removeNumberPrefix } from "bundle-util";
+import { cleanupTsDatabase } from "cleanup-typescript-database";
+import { shouldDeleteTsModel } from "cleanup-typescript-database";
+import { csvItemArrayToCsvString } from "csv-util";
+import { tryParseCsv } from "csv-util";
+import { filterInterfacesFromOperationNames } from "db-util";
+import { getDbModelsFromOperations } from "db-util";
+import { findAllDependencyOperations } from "find-all-dependency-operations";
+import { findDependantsRecursively } from "find-all-dependency-operations";
+import { findDependants } from "find-all-dependency-operations";
+import { findDependenciesRecursively } from "find-all-dependency-operations";
+import { findMonorepoModules } from "find-all-dependency-operations";
+import { getDependencyObject } from "find-all-dependency-operations";
+import { getDependencyTree } from "find-all-dependency-operations";
+import { folderGetUpdatedAt } from "folder-get-updated-at";
+import { getAllOperationSourcePaths } from "get-all-operation-source-paths";
+import { getImportedDependencies } from "get-imported-dependencies";
+import { getPackage } from "get-imported-dependencies";
+import { getOperationBins } from "get-package-json";
+import { getOperationPackageName } from "get-package-json";
+import { getPackageJson } from "get-package-json";
+import { getPackageSourcePaths } from "get-package-source-paths";
 import { determineFileType } from "k-explore";
 import { exploreGitRepoFolders } from "k-explore";
 import { exploreMultiple } from "k-explore";
@@ -135,23 +167,26 @@ import { findAllDotGitFolders } from "k-explore";
 import { findAllPackages } from "k-explore";
 import { preIndexLint } from "lint";
 import { bundleFolderWithMarkdown } from "markdown-parsings";
-import { bundleToBookMd } from "markdown-parsings";
-import { bundleToMd } from "markdown-parsings";
+import { bundleToBookMarkdown } from "markdown-parsings";
+import { bundleToMarkdown } from "markdown-parsings";
 import { deployToVercel } from "markdown-parsings";
 import { emailMarkdownParse } from "markdown-parsings";
 import { generateStaticSite } from "markdown-parsings";
+import { getFunctionsInfo } from "markdown-parsings";
 import { getOutline } from "markdown-parsings";
 import { getTitlesRecursively } from "markdown-parsings";
+import { makePropertiesTable } from "markdown-parsings";
 import { markdownChunkToMarkdownStringRecursive } from "markdown-parsings";
 import { markdownChunksToMarkdownStringRecursive } from "markdown-parsings";
 import { markdownToSayable } from "markdown-parsings";
 import { mdToPdf } from "markdown-parsings";
 import { mergeMarkdownParse } from "markdown-parsings";
+import { noNewlines } from "markdown-parsings";
 import { operationRadio } from "markdown-parsings";
 import { operationToMarkdown } from "markdown-parsings";
 import { printNestedTitles } from "markdown-parsings";
 import { print } from "markdown-parsings";
-import { projectToMd } from "markdown-parsings";
+import { projectToMarkdown } from "markdown-parsings";
 import { propertyToTableRow } from "markdown-parsings";
 import { sayablesToMp3 } from "markdown-parsings";
 import { selectRandomOperation } from "markdown-parsings";
@@ -159,31 +194,14 @@ import { simplifiedSchemaToMarkdownString } from "markdown-parsings";
 import { tsFunctionToMarkdownString } from "markdown-parsings";
 import { tsInterfaceToMarkdownString } from "markdown-parsings";
 import { upMarkdownChunkLevelRecursively } from "markdown-parsings";
-import { minifyBuild } from "minify-build";
-import { getAvailableOperationName } from "new-operation";
-import { getOperationConfig } from "new-operation";
-import { newOperationWithFiles } from "new-operation";
-import { newOperation } from "new-operation";
-import { nodemon } from "nodemon";
 import { readCsvFileSync } from "read-csv-file";
 import { readCsvFile } from "read-csv-file";
 import { readJsonFileSync } from "read-json-file";
 import { readJsonFile } from "read-json-file";
 import { tryParseJson } from "read-json-file";
 import { readKvmdFile } from "read-kvmd-file";
+import { readMarkdownFileToModel } from "read-markdown-file";
 import { readMarkdownFile } from "read-markdown-file";
-import { clearTsDatabase } from "rebuild-operation";
-import { executeCommandQuietUnlessFail } from "rebuild-operation";
-import { exitIfProcessDependenciesChanged } from "rebuild-operation";
-import { getFileIds } from "rebuild-operation";
-import { getIndexFileIds } from "rebuild-operation";
-import { getSrcIds } from "rebuild-operation";
-import { isGeneratedOperation } from "rebuild-operation";
-import { isOperationBuildNeeded } from "rebuild-operation";
-import { isSdkOperation } from "rebuild-operation";
-import { rebuildOperation } from "rebuild-operation";
-import { shouldSkip } from "rebuild-operation";
-import { yarnBuild } from "rebuild-operation";
 import { isEqualArray } from "rename-template-files";
 import { renameTemplateFiles } from "rename-template-files";
 import { renameTemplateToNormalFile } from "rename-template-files";
@@ -197,24 +215,31 @@ import { makeSubscription } from "watch-folders";
 import { watchFoldersFs } from "watch-folders";
 import { watchFolders } from "watch-folders";
 import { exitIfOperationsChange } from "watch-operations";
-import { gitCommitAllEveryMinute } from "watch-operations";
+import { gitCommitAllCron } from "watch-operations";
 import { watchOperations } from "watch-operations";
-import { isGeneratedParameterName } from "code-types";
 import { markdownParseToMarkdownModelType } from "code-types";
 import { parseMarkdownModelTimestamp } from "code-types";
 import { tryParseDate } from "code-types";
+import { getCompileErrors } from "compile-typescript";
+import { getTypescriptErrorsFromFiles } from "compile-typescript";
+import { writeBuildErrors } from "compile-typescript";
+import { generateId } from "model-types";
+import { generatePassword } from "model-types";
+import { generateRandomString } from "model-types";
+import { generateTime } from "model-types";
+import { isEmail } from "model-types";
+import { markdownModelTypeToMarkdownString } from "model-types";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
 import { stripComment } from "comment-util";
 import { stripSlashes } from "comment-util";
 import { stripStar } from "comment-util";
 import { trim } from "comment-util";
-import { getCompileErrors } from "compile-typescript";
-import { getTypescriptErrorsFromFiles } from "compile-typescript";
-import { writeBuildErrors } from "compile-typescript";
 import { camelCase } from "convert-case";
 import { capitalCase } from "convert-case";
+import { capitaliseFirstLetter } from "convert-case";
 import { convertCase } from "convert-case";
+import { getDelimiter } from "convert-case";
 import { humanCase } from "convert-case";
 import { kebabCase } from "convert-case";
 import { lowerCaseArray } from "convert-case";
@@ -222,6 +247,8 @@ import { pascalCase } from "convert-case";
 import { slugify } from "convert-case";
 import { snakeCase } from "convert-case";
 import { hasSubExtension } from "filename-conventions";
+import { isGeneratedOperationName } from "filename-conventions";
+import { isGeneratedOperation } from "filename-conventions";
 import { isIndexableFileId } from "filename-conventions";
 import { canAccessSync } from "fs-util";
 import { canAccess } from "fs-util";
@@ -295,6 +322,8 @@ import { objectValuesMap } from "js-util";
 import { onlyUnique2 } from "js-util";
 import { onlyUnique } from "js-util";
 import { removeIndexFromArray } from "js-util";
+import { replaceLastOccurence } from "js-util";
+import { reverseString } from "js-util";
 import { sumAllKeys } from "js-util";
 import { sumObjectParameters } from "js-util";
 import { sum } from "js-util";
@@ -324,12 +353,9 @@ import { frontmatterParseToString } from "matter-types";
 import { getFrontmatterValueString } from "matter-types";
 import { quotedOrNot } from "matter-types";
 import { stringifyNewlines } from "matter-types";
-import { generateId } from "model-types";
-import { generatePassword } from "model-types";
-import { generateRandomString } from "model-types";
-import { generateTime } from "model-types";
-import { isEmail } from "model-types";
-import { markdownModelTypeToMarkdownString } from "model-types";
+import { getParameterContentType } from "name-conventions";
+import { isCalculatedParameter } from "name-conventions";
+import { isGeneratedParameterName } from "name-conventions";
 import { ALink } from "next-a-link";
 import { oneByOne } from "one-by-one";
 import { getDependenciesSummary } from "operation-util";
@@ -343,9 +369,12 @@ import { categorizeFiles } from "path-util";
 import { getFolderSummary } from "path-util";
 import { getPathMainComment } from "path-util";
 import { sumSizeSummary } from "path-util";
+import { isPlural } from "pluralize";
+import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
 import { runChildProcess } from "run-child-process";
+import { getPossibleReferenceParameterNames } from "schema-util";
 import { getProperties } from "schema-util";
 import { getRefLink } from "schema-util";
 import { getReferencableModels } from "schema-util";
@@ -354,33 +383,10 @@ import { getSchemaItems } from "schema-util";
 import { getSchema } from "schema-util";
 import { simplifiedSchemaToTypeDefinitionString } from "schema-util";
 import { simplifySchema } from "schema-util";
+import { findSentenceMatches } from "search";
+import { searchRecursiveObjectArray } from "search";
 
-export const sdk = { allOperationsRemoveJsSrc,
-clearAllTsDatabases,
-codeAll,
-forAllFiles,
-forAllFolders,
-getAllOperationClassifications,
-gitShipAllRepos,
-mdAllOperations,
-minifyAllOperations,
-publishAllOperations,
-rebuildAllOperations,
-removeAllFiles,
-removeAllFolders,
-removeAll,
-renameAll,
-runScriptEverywhere,
-setScriptEverywhere,
-getBundleQueryPaths,
-getBundleSummary,
-getDbModelsForBundle,
-getRealPathFromQueryPath,
-cleanupTsDatabase,
-shouldDeleteTsModel,
-csvItemArrayToCsvString,
-tryParseCsv,
-generateCsvInstance,
+export const sdk = { generateCsvInstance,
 generateJsonSingleInstance,
 generateKvmdInstance,
 generateMarkdownInstance,
@@ -389,16 +395,6 @@ getMergedQueryConfig,
 randomName,
 runModelEndToEndTest,
 testOperationModels,
-filterInterfacesFromOperationNames,
-getDbModelsFromOperations,
-findAllDependencyOperations,
-findDependantsRecursively,
-findDependants,
-findDependenciesRecursively,
-findMonorepoModules,
-getDependencyObject,
-getDependencyTree,
-folderGetUpdatedAt,
 addDefaultValues,
 alterAny,
 alterCsv,
@@ -406,6 +402,7 @@ alterJsonMultiple,
 alterJsonSingle,
 alterKeyValueMarkdown,
 alterMarkdown,
+augmentItemWithReferencedDataRecursively,
 calculateOperationsObject,
 createDb,
 findParent,
@@ -441,20 +438,20 @@ newEnvSdk,
 newSdkKeysOperation,
 newSdkOperation,
 tsFunctionIsSdkable,
-getAllOperationSourcePaths,
-getImportedDependencies,
-getPackage,
-isAbsoluteImport,
 calculatePackageJsonDependencies,
 findAndWriteImportsExports,
+getDefaultSymbolType,
+getExportSpecifierNames,
+getExportSymbolTypeRecursive,
+getImportSpecifiersWithNames,
 getImportsExports,
 getPackageNameFromAbsoluteImport,
+getSymbolTypeDeclarations,
+getTypeFromImportSpecifierRecursive,
 isAbsoluteImportBuiltin,
+isAbsoluteImport,
 isImportFromOptionalFile,
-getOperationBins,
-getOperationPackageName,
-getPackageJson,
-getPackageSourcePaths,
+writeResult,
 findAndUpsertTsInterfaces,
 findCommentTypes,
 generateSchema,
@@ -482,6 +479,72 @@ schemaToTsInterface,
 tryCreateSchema,
 typeToSchema,
 dev,
+minifyBuild,
+getAvailableOperationName,
+getOperationConfig,
+newOperationWithFiles,
+newOperation,
+nodemon,
+clearTsDatabase,
+executeCommandQuietUnlessFail,
+exitIfProcessDependenciesChanged,
+getFileIds,
+getIndexFileIds,
+getSrcIds,
+isOperationBuildNeeded,
+isSdkOperation,
+rebuildAllOperations,
+rebuildOperation,
+shouldSkip,
+yarnBuild,
+allOperationsRemoveJsSrc,
+clearAllTsDatabases,
+codeAll,
+forAllFiles,
+forAllFolders,
+getAllOperationClassifications,
+gitShipAllRepos,
+mdAllOperations,
+minifyAllOperations,
+publishAllOperations,
+removeAllFiles,
+removeAllFolders,
+removeAll,
+renameAll,
+runScriptEverywhere,
+setScriptEverywhere,
+askOk,
+ask,
+getArgumentOrAsk,
+getBundleSummary,
+getDbModelsForBundle,
+getDocsMarkdownReaderPages,
+getInternalLinks,
+getMarkdownReaderQueryPaths,
+getPublicMarkdownFilePaths,
+removeExtensionsFromPath,
+removeNumberPrefix,
+cleanupTsDatabase,
+shouldDeleteTsModel,
+csvItemArrayToCsvString,
+tryParseCsv,
+filterInterfacesFromOperationNames,
+getDbModelsFromOperations,
+findAllDependencyOperations,
+findDependantsRecursively,
+findDependants,
+findDependenciesRecursively,
+findMonorepoModules,
+getDependencyObject,
+getDependencyTree,
+folderGetUpdatedAt,
+getAllOperationSourcePaths,
+getImportedDependencies,
+getPackage,
+getOperationBins,
+getOperationPackageName,
+getPackageJson,
+getPackageSourcePaths,
 determineFileType,
 exploreGitRepoFolders,
 exploreMultiple,
@@ -492,23 +555,26 @@ findAllDotGitFolders,
 findAllPackages,
 preIndexLint,
 bundleFolderWithMarkdown,
-bundleToBookMd,
-bundleToMd,
+bundleToBookMarkdown,
+bundleToMarkdown,
 deployToVercel,
 emailMarkdownParse,
 generateStaticSite,
+getFunctionsInfo,
 getOutline,
 getTitlesRecursively,
+makePropertiesTable,
 markdownChunkToMarkdownStringRecursive,
 markdownChunksToMarkdownStringRecursive,
 markdownToSayable,
 mdToPdf,
 mergeMarkdownParse,
+noNewlines,
 operationRadio,
 operationToMarkdown,
 printNestedTitles,
 print,
-projectToMd,
+projectToMarkdown,
 propertyToTableRow,
 sayablesToMp3,
 selectRandomOperation,
@@ -516,31 +582,14 @@ simplifiedSchemaToMarkdownString,
 tsFunctionToMarkdownString,
 tsInterfaceToMarkdownString,
 upMarkdownChunkLevelRecursively,
-minifyBuild,
-getAvailableOperationName,
-getOperationConfig,
-newOperationWithFiles,
-newOperation,
-nodemon,
 readCsvFileSync,
 readCsvFile,
 readJsonFileSync,
 readJsonFile,
 tryParseJson,
 readKvmdFile,
+readMarkdownFileToModel,
 readMarkdownFile,
-clearTsDatabase,
-executeCommandQuietUnlessFail,
-exitIfProcessDependenciesChanged,
-getFileIds,
-getIndexFileIds,
-getSrcIds,
-isGeneratedOperation,
-isOperationBuildNeeded,
-isSdkOperation,
-rebuildOperation,
-shouldSkip,
-yarnBuild,
 isEqualArray,
 renameTemplateFiles,
 renameTemplateToNormalFile,
@@ -554,24 +603,31 @@ makeSubscription,
 watchFoldersFs,
 watchFolders,
 exitIfOperationsChange,
-gitCommitAllEveryMinute,
+gitCommitAllCron,
 watchOperations,
-isGeneratedParameterName,
 markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
+getCompileErrors,
+getTypescriptErrorsFromFiles,
+writeBuildErrors,
+generateId,
+generatePassword,
+generateRandomString,
+generateTime,
+isEmail,
+markdownModelTypeToMarkdownString,
 stripCommentEnd,
 stripCommentStart,
 stripComment,
 stripSlashes,
 stripStar,
 trim,
-getCompileErrors,
-getTypescriptErrorsFromFiles,
-writeBuildErrors,
 camelCase,
 capitalCase,
+capitaliseFirstLetter,
 convertCase,
+getDelimiter,
 humanCase,
 kebabCase,
 lowerCaseArray,
@@ -579,6 +635,8 @@ pascalCase,
 slugify,
 snakeCase,
 hasSubExtension,
+isGeneratedOperationName,
+isGeneratedOperation,
 isIndexableFileId,
 canAccessSync,
 canAccess,
@@ -652,6 +710,8 @@ objectValuesMap,
 onlyUnique2,
 onlyUnique,
 removeIndexFromArray,
+replaceLastOccurence,
+reverseString,
 sumAllKeys,
 sumObjectParameters,
 sum,
@@ -681,12 +741,9 @@ frontmatterParseToString,
 getFrontmatterValueString,
 quotedOrNot,
 stringifyNewlines,
-generateId,
-generatePassword,
-generateRandomString,
-generateTime,
-isEmail,
-markdownModelTypeToMarkdownString,
+getParameterContentType,
+isCalculatedParameter,
+isGeneratedParameterName,
 ALink,
 oneByOne,
 getDependenciesSummary,
@@ -700,9 +757,12 @@ categorizeFiles,
 getFolderSummary,
 getPathMainComment,
 sumSizeSummary,
+isPlural,
+isSingular,
 pluralize,
 singularize,
 runChildProcess,
+getPossibleReferenceParameterNames,
 getProperties,
 getRefLink,
 getReferencableModels,
@@ -710,6 +770,8 @@ getReferenceParameterInfo,
 getSchemaItems,
 getSchema,
 simplifiedSchemaToTypeDefinitionString,
-simplifySchema};
+simplifySchema,
+findSentenceMatches,
+searchRecursiveObjectArray};
 
 export type SdkType = typeof sdk;

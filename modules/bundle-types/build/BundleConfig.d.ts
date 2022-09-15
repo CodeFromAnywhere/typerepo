@@ -1,5 +1,6 @@
 import { SlugModelType, Json } from "model-types";
-import { FrontBackBundle, InformationStrategy, OperationPrivacy, ProjectRelativeFilePath, ProjectRelativeFolderPath } from "./types";
+import { GenerateBundleConfig } from "./GenerateBundleConfig";
+import { FrontBackBundle, OperationPrivacy, ProjectRelativeFilePath, ProjectRelativeFolderPath } from "./types";
 export interface EnvironmentVariableObject {
     [key: string]: Json;
 }
@@ -8,7 +9,7 @@ export interface EnvironmentVariableObject {
  * dbStorageMethod: jsonSingle
  * ---
  */
-export interface BundleConfig extends SlugModelType {
+export interface BundleConfig extends SlugModelType, GenerateBundleConfig {
     /**
      * Human readable name of the monorepo (A kebab-case version of this will be used as root foldername)
      */
@@ -40,13 +41,5 @@ export interface BundleConfig extends SlugModelType {
      * can be handy if you're working with someone else...
      */
     foldersFromRepo?: string[];
-    informationStrategy?: InformationStrategy;
-    gitRepoUrl?: string;
-    /**
-     * specify the branch to use of your git repo (defaults to "main")
-     */
-    branchName?: string;
-    publicEnvironmentVariables?: EnvironmentVariableObject;
-    privateEnvironmentVariables?: EnvironmentVariableObject;
 }
 //# sourceMappingURL=BundleConfig.d.ts.map

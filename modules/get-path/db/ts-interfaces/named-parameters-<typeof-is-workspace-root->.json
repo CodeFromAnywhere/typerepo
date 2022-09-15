@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663018086203,
+  "updatedAt": 1663018086203,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018086203,
+  "id": "named-parameters-<typeof-is-workspace-root->",
+  "name": "NamedParameters<typeof isWorkspaceRoot>",
+  "slug": "named-parameters-<typeof-is-workspace-root->",
+  "operationRelativeTypescriptFilePath": "src/isWorkspaceRoot.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "folderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "folderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "folderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isWorkspaceRoot>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

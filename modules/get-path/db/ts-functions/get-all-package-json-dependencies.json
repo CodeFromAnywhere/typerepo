@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739839752,
-  "updatedAt": 1662739839752,
+  "createdAt": 1663018077048,
+  "updatedAt": 1663018077048,
   "deletedAt": 0,
-  "createdFirstAt": 1662739839752,
+  "createdFirstAt": 1663018077048,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,166 @@
   "rawText": " (p: PackageJson): string[] => {\n  const dependencies = p.dependencies ? Object.keys(p.dependencies) : [];\n  const devDependencies = p.devDependencies\n    ? Object.keys(p.devDependencies)\n    : [];\n  const peerDependencies = p.peerDependencies\n    ? Object.keys(p.peerDependencies)\n    : [];\n\n  return [...dependencies, ...devDependencies, ...peerDependencies];\n}",
   "name": "getAllPackageJsonDependencies",
   "slug": "get-all-package-json-dependencies",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "p",
+      "schema": {
+        "$ref": "#/definitions/PackageJson"
+      },
+      "simplifiedSchema": {
+        "description": "--- dbStorageMethod: jsonSingle operationRelativePath: package.json\n---",
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "description": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "main",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "source",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "private",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "author",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "repository",
+            "required": true,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "homepage",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "bin",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "workspaces",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "scripts",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "type",
+            "required": false,
+            "schema": {
+              "description": "# Classification\n\nTODO: think about what the differences are and how we need to change processes to make it all work good\n\n### Possible values\n\njs: only js (no node) (well, ts of course)\n\nnode: includes other node packages, operations, core-imports, or globals.\n\nserver: exposes something on some port when it is ran and uses node code\n\nweb: uses react and exposes something on some port when it is ran\n\napp: uses react-native and exposes something on some port when it is ran\n\nui-es6: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled)\n\nui-es5: ui which main entry points to javascript es5 files (this ui package can be built)",
+              "enum": [
+                "js",
+                "ts",
+                "node",
+                "server",
+                "web",
+                "app",
+                "ui-es6",
+                "ui-es5"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "string[]",
@@ -60,5 +219,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "tQQLDovOiGoCyMBq"
+  "id": "dpsRbjtfsAYybKtl"
 }

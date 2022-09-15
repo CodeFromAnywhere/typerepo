@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718995376,
-  "updatedAt": 1662718995376,
+  "createdAt": 1662904996735,
+  "updatedAt": 1662904996735,
   "deletedAt": 0,
-  "createdFirstAt": 1662718995376,
+  "createdFirstAt": 1662904996735,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": false,
@@ -11,7 +11,28 @@
   "rawText": " async (\n  basePath: string,\n  doNotExploreChildFolders?: boolean\n) => {\n  return (\n    await explore({\n      basePath,\n      subExtension: [\"template\"],\n      searchLevel: \"fileName\",\n      doNotExploreChildFolders,\n    })\n  ).map((textJson) => textJson.path);\n}",
   "name": "findTemplates",
   "slug": "find-templates",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "basePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "doNotExploreChildFolders",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "unknown",
@@ -32,5 +53,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "ZezjrGrjxHvVySMO"
+  "id": "OpvVPXROtyrudZkc"
 }

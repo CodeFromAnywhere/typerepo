@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718808720,
-  "updatedAt": 1662718808720,
+  "createdAt": 1662904758412,
+  "updatedAt": 1662904758412,
   "deletedAt": 0,
-  "createdFirstAt": 1662718808720,
+  "createdFirstAt": 1662904758412,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": false,
@@ -11,7 +11,18 @@
   "rawText": " (number: number) => {\n  return process.argv[1 + number];\n}",
   "name": "getArgument",
   "slug": "get-argument",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "number",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "lkEndVdohlfhQsTi"
+  "id": "ykMmdqJxeVTOEyQJ"
 }

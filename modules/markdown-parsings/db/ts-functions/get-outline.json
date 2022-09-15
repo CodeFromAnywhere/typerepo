@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720261030,
-  "updatedAt": 1662720261030,
+  "createdAt": 1662905695556,
+  "updatedAt": 1662905695556,
   "deletedAt": 0,
-  "createdFirstAt": 1662720261030,
+  "createdFirstAt": 1662905695556,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,122 @@
   "rawText": " (\n  markdownParse: MarkdownParse\n): string | undefined => {\n  const titles = markdownParse.content?.map(getTitlesRecursively).flat();\n  const outlineString = printNestedTitles(titles);\n  return outlineString;\n}",
   "name": "getOutline",
   "slug": "get-outline",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdownParse",
+      "schema": {
+        "$ref": "#/definitions/MarkdownParse"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "fileName",
+            "required": false,
+            "schema": {
+              "description": "if available, this can be the filename of the markdown in this markdown-parse. Can be used for things like merging",
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "openedAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "updatedAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "deletedAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "createdFirstAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "content",
+            "required": false,
+            "schema": {
+              "description": "structured content based on h1, h2, h3, etc (paragraphs, recursive)",
+              "items": [
+                {
+                  "schema": {
+                    "properties": [
+                      {
+                        "name": "content",
+                        "required": false,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "title",
+                        "required": false,
+                        "schema": {
+                          "description": "NB: title can also be an empty string (\"\")",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "children",
+                        "required": false,
+                        "schema": {
+                          "description": "all content until the next title. it's either a content array if there's any titles found, or a string[] if it's paragraphs",
+                          "items": [
+                            {
+                              "schema": {
+                                "circularRefName": "MarkdownChunk",
+                                "properties": [],
+                                "type": "object"
+                              },
+                              "name": "MarkdownChunk"
+                            }
+                          ],
+                          "type": "array"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "name": "MarkdownChunk"
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "raw",
+            "required": true,
+            "schema": {
+              "description": "raw markdown without frontmatter",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "low-level function that gets the outline for MarkdownParse\n\nNB: with books usually the pages are referred in the outline. Since that depends on the font size and dimensions, this cannot be done straight from the markdown parse. Eventually we probably need to check the made pdf for its content, maybe there is even a pdf feature that creates an outline for you. There must be more people having this problem.",
   "returnType": {
     "rawType": "string | undefined",
@@ -49,5 +164,5 @@
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "IYLHlHVXwiGtIzlH"
+  "id": "xGYNDTkhpaUnecvP"
 }

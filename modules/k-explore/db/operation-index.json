@@ -1,6 +1,6 @@
 {
   "createdAt": 1662718812218,
-  "updatedAt": 1662718812221,
+  "updatedAt": 1662914746925,
   "deletedAt": 0,
   "createdFirstAt": 1662718812218,
   "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/k-explore/src/explore.ts. Error: Error: Unknown type \\\"function\\\"\"]",
@@ -16,6 +16,7 @@
   "slug": "k-explore",
   "coreDependencies": [],
   "operationDependencies": [
+    "Dirent",
     "fs",
     "readJsonFile",
     "MarkdownParse",
@@ -26,39 +27,42 @@
     "getSubExtension",
     "makeArray",
     "notEmpty",
+    "removeIndexFromArray",
     "canRead",
     "canSee",
     "mdToJsonParse",
     "getPathsWithOperations",
     "getProjectRoot",
-    "getPathsWithOperations",
-    "makeTest"
+    "fs",
+    "getFolder",
+    "path",
+    "getPathsWithOperations"
   ],
   "packageDependencies": [],
   "size": {
     "codeSize": {
-      "numberOfFiles": 3,
-      "lines": 661,
-      "characters": 20084,
-      "bytes": 20084
+      "numberOfFiles": 4,
+      "lines": 678,
+      "characters": 20690,
+      "bytes": 20690
     },
     "dataSize": {
       "numberOfFiles": 2,
       "lines": 75,
-      "characters": 1607,
-      "bytes": 1607
+      "characters": 1606,
+      "bytes": 1606
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 177,
-      "characters": 3432,
-      "bytes": 3432
+      "lines": 140,
+      "characters": 2881,
+      "bytes": 2881
     },
     "size": {
-      "bytes": 25123,
-      "characters": 25123,
-      "lines": 913,
-      "numberOfFiles": 6
+      "bytes": 25177,
+      "characters": 25177,
+      "lines": 893,
+      "numberOfFiles": 7
     }
   }
 }

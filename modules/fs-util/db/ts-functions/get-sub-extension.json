@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739817663,
-  "updatedAt": 1662739817663,
+  "createdAt": 1663008896672,
+  "updatedAt": 1663008896672,
   "deletedAt": 0,
-  "createdFirstAt": 1662739817663,
+  "createdFirstAt": 1663008896672,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (fileName: string): string | undefined => {\n  const parts = fileName.split(\".\");\n  //removes extension\n  parts.pop();\n  //returns extension that's left (the sub-extension)\n  const subExtension = parts.pop();\n  return subExtension;\n}",
   "name": "getSubExtension",
   "slug": "get-sub-extension",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "fileName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "string | undefined",
@@ -49,5 +60,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "iuFKdyAbzwqgtvKp"
+  "id": "HyjVTkGttElRUNob"
 }

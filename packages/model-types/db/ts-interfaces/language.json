@@ -1,0 +1,71 @@
+{
+  "createdAt": 1663009118938,
+  "updatedAt": 1663009118938,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009118938,
+  "id": "language",
+  "name": "Language",
+  "slug": "language",
+  "operationRelativeTypescriptFilePath": "src/language.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * all currently supported languages\n */\nexport type Language = keyof typeof languages;",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "all currently supported languages",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "en",
+        "nl",
+        "np",
+        "pt",
+        "de",
+        "fr",
+        "es",
+        "it",
+        "no",
+        "sw",
+        "da",
+        "vn",
+        "in",
+        "vl",
+        "af",
+        "tk"
+      ],
+      "description": "all currently supported languages"
+    },
+    "simplifiedSchema": {
+      "description": "all currently supported languages",
+      "enum": [
+        "en",
+        "nl",
+        "np",
+        "pt",
+        "de",
+        "fr",
+        "es",
+        "it",
+        "no",
+        "sw",
+        "da",
+        "vn",
+        "in",
+        "vl",
+        "af",
+        "tk"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "Language",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

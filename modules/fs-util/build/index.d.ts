@@ -2,6 +2,7 @@ export * from "./deprecated";
 export * from "./files";
 export * from "./findFileNameCaseInsensitive";
 export * from "./fs";
+export * from "./js";
 export * from "./parseMd";
 export * from "./path";
 export * from "./removeAllExcept";

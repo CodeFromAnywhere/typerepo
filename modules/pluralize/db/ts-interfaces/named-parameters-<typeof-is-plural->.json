@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663147198239,
+  "updatedAt": 1663147198239,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147198239,
+  "id": "named-parameters-<typeof-is-plural->",
+  "name": "NamedParameters<typeof isPlural>",
+  "slug": "named-parameters-<typeof-is-plural->",
+  "operationRelativeTypescriptFilePath": "src/pluralize.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "parameterName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameterName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "parameterName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isPlural>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,17 +1,52 @@
 {
-  "createdAt": 1662726319281,
-  "updatedAt": 1662726319281,
+  "createdAt": 1663009346101,
+  "updatedAt": 1663009346101,
   "deletedAt": 0,
-  "createdFirstAt": 1662726319281,
+  "createdFirstAt": 1663009346101,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/pathsGetStaticPaths.ts",
   "commentsInside": [],
-  "rawText": " async (\n  context: GetStaticPathsContext\n) => {\n  const paths = await getBundleQueryPaths();\n\n  // console.log({ paths });\n  if (!paths) {\n    return { paths: [], fallback: false };\n  }\n\n  const staticPaths = paths.map((p) => ({ params: { paths: p.split(\"/\") } }));\n\n  return {\n    paths: staticPaths,\n    fallback: false, // can also be true or 'blocking'\n  };\n}",
+  "rawText": " async (\n  context: GetStaticPathsContext\n) => {\n  const paths = await getMarkdownReaderQueryPaths();\n\n  // console.log({ paths });\n  if (!paths) {\n    return { paths: [], fallback: false };\n  }\n\n  const staticPaths = paths.map((p) => ({ params: { paths: p.split(\"/\") } }));\n\n  return {\n    paths: staticPaths,\n    fallback: false, // can also be true or 'blocking'\n  };\n}",
   "name": "pathsGetStaticPaths",
   "slug": "paths-get-static-paths",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "context",
+      "schema": {
+        "$ref": "#/definitions/GetStaticPathsContext"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "locales",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "defaultLocale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "unknown",
@@ -24,13 +59,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 364,
+    "characters": 372,
     "lines": 17,
-    "bytes": 364,
+    "bytes": 372,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 21,
+    "charactersPerLine": 22,
     "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "mIehjfayLPPPXipj"
+  "id": "wlwEHhbfkiPTJPSs"
 }

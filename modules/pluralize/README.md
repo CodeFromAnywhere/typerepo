@@ -1,19 +1,15 @@
 # Pluralize
 
-pluralize (undefined operation)
+pluralize (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
 ## Functions
 
+- [isPlural](#isPlural)
+- [isSingular](#isSingular)
 - [pluralize](#pluralize)
 - [singularize](#singularize)
 
@@ -21,9 +17,21 @@ Imported dependencies:
 
 # Functions
 
-## pluralize
+## isPlural
 
-Max. indexation depth: 1, 
+### Parameters (1)
+
+#### Parameter 1: parameterName: string
+
+## isSingular
+
+### Returns: boolean
+
+### Parameters (1)
+
+#### Parameter 1: parameterName: string
+
+## pluralize
 
 KISS; fuck grammar
 
@@ -31,13 +39,21 @@ If we are going to apply grammar here, it becomes impossible to create typescrip
 
 To pluralize any word we simply attach an "s" at the end
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: parameterName: string
 
 ## singularize
 
-Max. indexation depth: 2, 
-
 Removes the 's' if it is found at the end of the parameter name
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: parameterName: string
 

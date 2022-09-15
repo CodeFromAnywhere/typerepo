@@ -1,8 +1,17 @@
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+import { MarkdownReaderPage } from "bundle-util";
+import { MarkdownFile } from "code-types";
 
 export type MainPageProps = {
-  markdownString: null | string;
-  queryPaths: string[];
+  /**
+   * If markdownfile is null, the page should exist, but the reading of the file failed
+   */
+  markdownFile?: MarkdownFile | null;
+  pages: MarkdownReaderPage[];
+  /**
+   * Title of the page
+   */
+  title?: string | null;
 };
 
 export type PageOptions = {

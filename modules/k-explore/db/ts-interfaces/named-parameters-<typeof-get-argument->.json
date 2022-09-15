@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662904758116,
+  "updatedAt": 1662904758116,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904758116,
+  "id": "named-parameters-<typeof-get-argument->",
+  "name": "NamedParameters<typeof getArgument>",
+  "slug": "named-parameters-<typeof-get-argument->",
+  "operationRelativeTypescriptFilePath": "src/cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "number"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "number",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getArgument>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

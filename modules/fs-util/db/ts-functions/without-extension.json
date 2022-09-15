@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739817663,
-  "updatedAt": 1662739817663,
+  "createdAt": 1663008896672,
+  "updatedAt": 1663008896672,
   "deletedAt": 0,
-  "createdFirstAt": 1662739817663,
+  "createdFirstAt": 1663008896672,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (fileName: string) => {\n  const pieces = fileName.split(\".\");\n  pieces.pop();\n  return pieces.join(\".\");\n}",
   "name": "withoutExtension",
   "slug": "without-extension",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "fileName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "removes extension from the filename",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "DkJCmceiQGnBSvzI"
+  "id": "iKALpZMHpUioyRbj"
 }

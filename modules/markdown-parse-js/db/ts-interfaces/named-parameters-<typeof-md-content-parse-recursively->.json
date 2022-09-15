@@ -1,0 +1,60 @@
+{
+  "createdAt": 1662905653184,
+  "updatedAt": 1662905653184,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905653184,
+  "id": "named-parameters-<typeof-md-content-parse-recursively->",
+  "name": "NamedParameters<typeof mdContentParseRecursively>",
+  "slug": "named-parameters-<typeof-md-content-parse-recursively->",
+  "operationRelativeTypescriptFilePath": "src/mdContentParseRecursively.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "markdownString": {
+          "type": "string"
+        },
+        "level": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "markdownString",
+        "level"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "markdownString",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "level",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof mdContentParseRecursively>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

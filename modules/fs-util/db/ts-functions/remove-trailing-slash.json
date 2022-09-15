@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739817663,
-  "updatedAt": 1662739817663,
+  "createdAt": 1663008896672,
+  "updatedAt": 1663008896672,
   "deletedAt": 0,
-  "createdFirstAt": 1662739817663,
+  "createdFirstAt": 1663008896672,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (p: string) =>\n  p.charAt(0) === \"/\" ? p.slice(1) : p",
   "name": "removeTrailingSlash",
   "slug": "remove-trailing-slash",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "p",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 2,
     "numberOfFiles": 1
   },
-  "id": "mSAeFLpMiLEmbxwF"
+  "id": "wNZiaZDKYOEdzQmu"
 }

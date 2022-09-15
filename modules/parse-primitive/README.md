@@ -1,14 +1,8 @@
 # Parse primitive
 
-parse-primitive (undefined operation)
+parse-primitive (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -22,15 +16,9 @@ Imported dependencies:
 
 ## parsePrimitive
 
-Max. indexation depth: 2, 
+### Returns: string(Enum: ul | trin | umbe | als | ru)
 
+### Parameters (1)
 
-
-### Returns: string(Enum: ul | trin | umbe | als | ru) 
-
-
-
-
-
-
+#### Parameter 1: string: string
 

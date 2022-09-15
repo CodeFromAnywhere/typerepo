@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662740102195,
-  "updatedAt": 1662740102195,
+  "createdAt": 1662906055293,
+  "updatedAt": 1662906055293,
   "deletedAt": 0,
-  "createdFirstAt": 1662740102195,
+  "createdFirstAt": 1662906055293,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,75 @@
   "rawText": " (\n  tsModel:\n    | TsFunction\n    | TsComment\n    | TsInterface\n    | TsBuildError\n    | TsLintWarning\n    | TsExport\n    | TsImport\n    | TsVariable,\n  operationName: string,\n  operationRelativePaths: string[]\n) => {\n  if (!tsModel.operationName) return true;\n  if (tsModel.operationName !== operationName) return true;\n  if (!tsModel.operationRelativePath) return true;\n  if (\n    !operationRelativePaths.includes(\n      tsModel.operationRelativeTypescriptFilePath\n    )\n  ) {\n    return true;\n  }\n  return false;\n}",
   "name": "shouldDeleteTsModel",
   "slug": "should-delete-ts-model",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "tsModel",
+      "schema": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/TsFunction"
+          },
+          {
+            "$ref": "#/definitions/TsComment"
+          },
+          {
+            "$ref": "#/definitions/TsInterface"
+          },
+          {
+            "$ref": "#/definitions/TsBuildError"
+          },
+          {
+            "$ref": "#/definitions/TsLintWarning"
+          },
+          {
+            "$ref": "#/definitions/TsExport"
+          },
+          {
+            "$ref": "#/definitions/TsImport"
+          },
+          {
+            "$ref": "#/definitions/TsVariable"
+          }
+        ]
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "operationRelativePaths",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "{}",
@@ -39,5 +107,5 @@
     "linesPerFile": 25,
     "numberOfFiles": 1
   },
-  "id": "cTgNshAFXHzjZwQU"
+  "id": "YSGbXzmMDyDxyKNf"
 }

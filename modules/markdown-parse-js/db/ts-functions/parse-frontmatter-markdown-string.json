@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720235220,
-  "updatedAt": 1662720235220,
+  "createdAt": 1662905656777,
+  "updatedAt": 1662905656777,
   "deletedAt": 0,
-  "createdFirstAt": 1662720235220,
+  "createdFirstAt": 1662905656777,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (\n  markdownWithFrontmatter: string\n): MarkdownParse => {\n  const lines = markdownWithFrontmatter.split(\"\\n\");\n\n  const frontmatterStartIndex = lines.findIndex((x) => x === \"---\");\n\n  //console.log({ frontmatterStartIndex });\n  if (frontmatterStartIndex === -1) {\n    return { raw: markdownWithFrontmatter, parameters: {}, content: [] };\n  }\n\n  const linesAfterStart = lines.slice(frontmatterStartIndex + 1);\n  const frontmatterEndIndex =\n    linesAfterStart.findIndex((x) => x === \"---\") + frontmatterStartIndex + 1;\n\n  //console.log({ frontmatterEndIndex });\n  const frontmatterLines = lines.slice(\n    frontmatterStartIndex + 1,\n    frontmatterEndIndex\n  );\n\n  //   console.log({ frontmatterLines });\n  const parameters: Frontmatter = mergeObjectsArray(\n    frontmatterLines.map((line) => {\n      const [key, value] = line.split(\":\").map((x) => x.trim());\n      return { [key]: parsePrimitive(value) };\n    })\n  );\n\n  const raw = lines.slice(frontmatterEndIndex + 1).join(\"\\n\");\n\n  return { parameters, raw, content: [] };\n}",
   "name": "parseFrontmatterMarkdownString",
   "slug": "parse-frontmatter-markdown-string",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdownWithFrontmatter",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "splits a markdown string into its frontmatter object and the raw content (without frontmatter)",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse",
@@ -32,5 +43,5 @@
     "linesPerFile": 34,
     "numberOfFiles": 1
   },
-  "id": "xCDUnGOCVaOksbiZ"
+  "id": "hSHVTmqBJOPoviqH"
 }

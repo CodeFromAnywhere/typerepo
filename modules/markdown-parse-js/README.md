@@ -1,14 +1,8 @@
 # Markdown parse js
 
-markdown-parse-js (undefined operation)
+markdown-parse-js (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -21,27 +15,38 @@ Imported dependencies:
 - [parseMdToChunks](#parseMdToChunks)
 - [removeHeaderPrefix](#removeHeaderPrefix)
 
+## Interfaces:
+
+- [MarkdownParse](#MarkdownParse)
+
 
 
 # Functions
 
 ## markdownParseToMarkdownString
 
-Max. indexation depth: 1, 
-
-
-
 ### Returns: string
 
+### Parameters (1)
 
+#### Parameter 1: markdownParse: object
 
+Properties: 
 
+ | Name | Type | Description |
+|---|---|---|
+| fileName (optional) | string | if available, this can be the filename of the markdown in this markdown-parse. Can be used for things like merging |
+| createdAt (optional) | number |  |
+| openedAt (optional) | number |  |
+| updatedAt (optional) | number |  |
+| deletedAt (optional) | number |  |
+| createdFirstAt (optional) | number |  |
+| content (optional) | array | structured content based on h1, h2, h3, etc (paragraphs, recursive) |
+| raw  | string | raw markdown without frontmatter |
 
 
 
 ## mdContentParseRecursively
-
-Max. indexation depth: 5, 
 
 recursively parses a string containing markdown (without frontmatter) into a MarkdownChunk[]
 
@@ -49,11 +54,16 @@ Improve:
 - include the comment-type (TODO/NB/etc), both on a chunk level and on root level
 - parse paragraphs further around the assets
 
-## Returns: unknown
+
+
+
+### Parameters (2)
+
+#### Parameter 1: markdownString: string
+
+#### Parameter 2: level: number
 
 ## mdToJsonParse
-
-Max. indexation depth: 2, 
 
 makes a markdown parse from a markdown string
 
@@ -61,29 +71,67 @@ TODO: `markdownStringToMarkdownParse` is a better name. First make a refactor sc
 
 TODO: BUG: it doesn't take into account triple backticks! if there is markdown inside of the triple backticks, it can still be seen as main markdown. Triple backticks are stronger!
 
-## Returns: unknown
+
+
+
+### Parameters (2)
+
+#### Parameter 1: markdownString: string
+
+#### Parameter 2: fileName (optional): string
 
 ## parseFrontmatterMarkdownString
 
-Max. indexation depth: 3, 
-
 splits a markdown string into its frontmatter object and the raw content (without frontmatter)
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: markdownWithFrontmatter: string
 
 ## parseMdToChunks
 
-Max. indexation depth: 6, 
-
 should get chunks recursively. first just look for every h1 line. everything after the h1 line is the children  until there's another h1 line, then do this recursivley for h2, h3, etc.
 
-## Returns: unknown
+
+
+
+### Parameters (2)
+
+#### Parameter 1: markdownString: string
+
+#### Parameter 2: level: number
 
 ## removeHeaderPrefix
 
-Max. indexation depth: 4, 
-
 removes header prefix (##### etc) and trims whats behind that
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: string: string
+
+# Interfaces
+
+## MarkdownParse
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| fileName (optional) | string | if available, this can be the filename of the markdown in this markdown-parse. Can be used for things like merging |
+| createdAt (optional) | number |  |
+| openedAt (optional) | number |  |
+| updatedAt (optional) | number |  |
+| deletedAt (optional) | number |  |
+| createdFirstAt (optional) | number |  |
+| parameters  | object | Our version of frontmatter is a bit simpler than regular frontmatter<br /><br />Not sure if this is a good idea, but it keeps it simple for our OS<br /><br />all values parse in a similar way to csv<br /><br />make sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array<br /><br />NB: string arrays are comma separated values, where you can put values with special characters in between quotes |
+| downmatterParameters (optional) | object |  |
+| content (optional) | array | structured content based on h1, h2, h3, etc (paragraphs, recursive) |
+| raw  | string | raw markdown without frontmatter |
+
 

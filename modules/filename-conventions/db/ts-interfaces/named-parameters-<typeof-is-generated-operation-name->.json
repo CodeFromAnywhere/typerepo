@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663018002884,
+  "updatedAt": 1663018002884,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018002884,
+  "id": "named-parameters-<typeof-is-generated-operation-name->",
+  "name": "NamedParameters<typeof isGeneratedOperationName>",
+  "slug": "named-parameters-<typeof-is-generated-operation-name->",
+  "operationRelativeTypescriptFilePath": "src/isGeneratedOperation.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isGeneratedOperationName>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

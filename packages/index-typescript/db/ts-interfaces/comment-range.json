@@ -1,0 +1,34 @@
+{
+  "createdAt": 1662906271458,
+  "updatedAt": 1662906271458,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906271458,
+  "id": "comment-range",
+  "name": "CommentRange",
+  "slug": "comment-range",
+  "operationRelativeTypescriptFilePath": "src/makeTsComment.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {}
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "CommentRange",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

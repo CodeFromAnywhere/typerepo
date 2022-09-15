@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662756707762,
-  "updatedAt": 1662756707762,
+  "createdAt": 1662904437214,
+  "updatedAt": 1662904437214,
   "deletedAt": 0,
-  "createdFirstAt": 1662756707762,
+  "createdFirstAt": 1662904437214,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,89 @@
   "rawText": " async (config: {\n  basePath: string;\n  folderNames: string[];\n  ignore?: string | string[];\n  onlyRoot?: boolean;\n}) => {\n  const { basePath, folderNames, ignore, onlyRoot } = config;\n  const removeFolderPromises = folderNames.map(async (folderName) => {\n    const rmResult = await removeAll({\n      basePath,\n      type: \"folder\",\n      folderName,\n      shell: true,\n      onlyRoot,\n      ignore,\n    });\n\n    return;\n  });\n\n  await Promise.all(removeFolderPromises);\n\n  return true;\n}",
   "name": "removeAllFolders",
   "slug": "remove-all-folders",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "basePath": {
+            "type": "string"
+          },
+          "folderNames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "ignore": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          },
+          "onlyRoot": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "basePath",
+          "folderNames"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "basePath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "folderNames",
+            "required": true,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "ignore",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "onlyRoot",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "unknown",
@@ -32,5 +114,5 @@
     "linesPerFile": 24,
     "numberOfFiles": 1
   },
-  "id": "eCgfKtgZjFwpcsfo"
+  "id": "mRGaUthjhpBuFuAP"
 }

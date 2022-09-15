@@ -1,0 +1,61 @@
+{
+  "createdAt": 1662905680863,
+  "updatedAt": 1662905680863,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905680863,
+  "id": "named-parameters-<typeof-bundle-folder-with-markdown->",
+  "name": "NamedParameters<typeof bundleFolderWithMarkdown>",
+  "slug": "named-parameters-<typeof-bundle-folder-with-markdown->",
+  "operationRelativeTypescriptFilePath": "src/bundleFolderWithMarkdown.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absoluteFolderPath": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string",
+          "description": "filename to include in the final MarkdownParse"
+        }
+      },
+      "required": [
+        "absoluteFolderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absoluteFolderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "fileName",
+          "required": false,
+          "schema": {
+            "description": "filename to include in the final MarkdownParse",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof bundleFolderWithMarkdown>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

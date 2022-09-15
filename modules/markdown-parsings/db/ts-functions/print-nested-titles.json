@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720261030,
-  "updatedAt": 1662720261030,
+  "createdAt": 1662905695556,
+  "updatedAt": 1662905695556,
   "deletedAt": 0,
-  "createdFirstAt": 1662720261030,
+  "createdFirstAt": 1662905695556,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,40 @@
   "rawText": " (\n  nestedTitles: NestedTitle[] | undefined,\n  depth?: number\n): string | undefined => {\n  const realDepth = depth || 0;\n  const prefix = \"..\".repeat(realDepth);\n\n  const printedTogether = nestedTitles\n    ?.map((nestedTitle) => {\n      return Array.isArray(nestedTitle)\n        ? printNestedTitles(nestedTitle, realDepth + 1)\n        : `${prefix}${nestedTitle}\\n`;\n    })\n    .join(\"\\n\");\n\n  return printedTogether;\n}",
   "name": "printNestedTitles",
   "slug": "print-nested-titles",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "nestedTitles",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/NestedTitle"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [],
+              "type": "object"
+            },
+            "name": "NestedTitle"
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    },
+    {
+      "name": "depth",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": false
+    }
+  ],
   "description": "helper function (recursive) that prints nested titles with .. as prefix and a newline after every title\n\nTODO: allow for numbering titles",
   "returnType": {
     "rawType": "string | undefined",
@@ -49,5 +82,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "WsaPiOAdOvwZPxEj"
+  "id": "JUKzLoQrRArTUXPm"
 }

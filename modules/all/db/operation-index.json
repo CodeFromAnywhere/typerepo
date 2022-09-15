@@ -1,9 +1,9 @@
 {
   "createdAt": 1662756755407,
-  "updatedAt": 1662756784072,
+  "updatedAt": 1662904443344,
   "deletedAt": 0,
   "createdFirstAt": 1662756755407,
-  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/all/src/forAllFolders.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/all/src/renameAll.ts. Error: Error: Unknown type \\\"function\\\"\"]",
   "buildSucceeded": true,
   "id": "PkrzmtavGlALLlRC",
   "indexImportExportError": "",
@@ -42,9 +42,6 @@
     "minifyBuild",
     "path",
     "getPathsWithOperations",
-    "getPathsWithOperations",
-    "rebuildOperation",
-    "log",
     "fs",
     "fs",
     "getRootPath",
@@ -67,28 +64,28 @@
   ],
   "size": {
     "codeSize": {
-      "numberOfFiles": 27,
-      "lines": 676,
-      "characters": 17245,
-      "bytes": 17245
+      "numberOfFiles": 25,
+      "lines": 642,
+      "characters": 16354,
+      "bytes": 16354
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 87,
-      "characters": 2228,
-      "bytes": 2228
+      "lines": 86,
+      "characters": 2157,
+      "bytes": 2157
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 143,
-      "characters": 2658,
-      "bytes": 2658
+      "lines": 192,
+      "characters": 3307,
+      "bytes": 3307
     },
     "size": {
-      "bytes": 22131,
-      "characters": 22131,
-      "lines": 906,
-      "numberOfFiles": 30
+      "bytes": 21818,
+      "characters": 21818,
+      "lines": 920,
+      "numberOfFiles": 28
     }
   }
 }

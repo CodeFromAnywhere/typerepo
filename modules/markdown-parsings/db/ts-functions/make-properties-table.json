@@ -1,0 +1,92 @@
+{
+  "createdAt": 1662905701519,
+  "updatedAt": 1662905701519,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905701519,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/util/makePropertiesTable.ts",
+  "commentsInside": [],
+  "rawText": " (\n  properties: SimplifiedSchemaProperty[] | undefined\n) => {\n  return properties && properties.length > 0\n    ? `Properties: \\n\\n | Name | Type | Description |\\n|---|---|---|\\n${properties\n        .map(propertyToTableRow)\n        .join(\"\\n\")}\\n`\n    : \"\";\n}",
+  "name": "makePropertiesTable",
+  "slug": "make-properties-table",
+  "parameters": [
+    {
+      "name": "properties",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/SimplifiedSchemaProperty"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "required",
+                  "required": true,
+                  "schema": {
+                    "description": "NB: can't we put this in the SimplifiedSchema itself?",
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "SimplifiedSchemaProperty"
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 259,
+    "lines": 9,
+    "bytes": 259,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "QWErdpVMJyAgHnrn"
+}

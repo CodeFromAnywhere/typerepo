@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726914935,
-  "updatedAt": 1662726914935,
+  "createdAt": 1663147198637,
+  "updatedAt": 1663147198637,
   "deletedAt": 0,
-  "createdFirstAt": 1662726914935,
+  "createdFirstAt": 1663147198637,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (parameterName: string) => {\n  return parameterName.endsWith(\"s\")\n    ? parameterName.substring(0, parameterName.length - 1)\n    : parameterName;\n}",
   "name": "singularize",
   "slug": "singularize",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "parameterName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "Removes the 's' if it is found at the end of the parameter name",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "amXXnhITdBIWSdek"
+  "id": "EvhZWcIvCMVtjMCD"
 }

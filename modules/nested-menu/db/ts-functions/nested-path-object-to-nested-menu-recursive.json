@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726667550,
-  "updatedAt": 1662726667550,
+  "createdAt": 1662907315057,
+  "updatedAt": 1662907315057,
   "deletedAt": 0,
-  "createdFirstAt": 1662726667550,
+  "createdFirstAt": 1662907315057,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,51 @@
   "rawText": " (\n  /**\n   * your nested path object that you want to create a menu for\n   */\n  nestedPathObject: NestedPathObject | null,\n  /**\n   * used for recursion to get the final url (defaults to empty array)\n   */\n  pathStack: string[] = []\n): MenuType | undefined => {\n  if (!nestedPathObject) return;\n\n  const menu: MenuType = Object.keys(nestedPathObject).map((path) => {\n    const newPathStack = pathStack.concat(path);\n    const fullPath = newPathStack.join(\"/\");\n    const children = nestedPathObjectToNestedMenuRecursive(\n      nestedPathObject[path],\n      newPathStack\n    );\n\n    const menuItem: MenuItemType = {\n      title: path,\n      href: fullPath,\n      children,\n      showChildren: true,\n    };\n\n    return menuItem;\n  });\n\n  return menu;\n}",
   "name": "nestedPathObjectToNestedMenuRecursive",
   "slug": "nested-path-object-to-nested-menu-recursive",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "nestedPathObject",
+      "schema": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/NestedPathObject"
+          },
+          {
+            "type": "null"
+          }
+        ],
+        "description": "your nested path object that you want to create a menu for"
+      },
+      "simplifiedSchema": {
+        "description": "your nested path object that you want to create a menu for",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "pathStack",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "used for recursion to get the final url (defaults to empty array)"
+      },
+      "simplifiedSchema": {
+        "description": "used for recursion to get the final url (defaults to empty array)",
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
   "description": "Transform a nested path object into a nested menu (MenuType), recursively",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/ui/react-with-native/recipes/nested-menu/src/types\").MenuType | undefined",
@@ -32,5 +76,5 @@
     "linesPerFile": 32,
     "numberOfFiles": 1
   },
-  "id": "UYSXczjBBoPslVMQ"
+  "id": "rrUAbBwdHChvmmEb"
 }

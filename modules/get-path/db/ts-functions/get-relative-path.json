@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739843439,
-  "updatedAt": 1662739843439,
+  "createdAt": 1663018082832,
+  "updatedAt": 1663018082832,
   "deletedAt": 0,
-  "createdFirstAt": 1662739843439,
+  "createdFirstAt": 1663018082832,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,29 @@
   "rawText": " (\n  absolutePath: string,\n  relativeFrom: \"project-root\"\n) => {\n  const rootPath =\n    relativeFrom === \"project-root\" ? getRootPath() : getRootPath();\n\n  if (!rootPath) return;\n\n  const relativePath = absolutePath.replace(rootPath, \"\");\n\n  return relativePath;\n}",
   "name": "getRelativePath",
   "slug": "get-relative-path",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "absolutePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "relativeFrom",
+      "schema": {
+        "type": "string",
+        "const": "project-root"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "gets the relative path from a specified root\n\nwill start with \"/\"",
   "returnType": {
     "rawType": "any",
@@ -32,5 +54,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "GlRqurvxNfKNDjCk"
+  "id": "MeYMtkGvSFPgNOvR"
 }

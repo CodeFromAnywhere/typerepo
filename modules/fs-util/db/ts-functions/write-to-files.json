@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739816125,
-  "updatedAt": 1662739816125,
+  "createdAt": 1663008892070,
+  "updatedAt": 1663008892070,
   "deletedAt": 0,
-  "createdFirstAt": 1662739816125,
+  "createdFirstAt": 1663008892070,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,19 @@
   "rawText": " async (fileObject: { [filePath: string]: any }) => {\n  let s = 0;\n  let e = 0;\n  const writePromises = Object.keys(fileObject).map(async (filePath) => {\n    const value = fileObject[filePath];\n    const success = await writeJsonToFile(filePath, value);\n    if (success) s++;\n    if (!success) e++;\n\n    return success;\n  });\n  await Promise.all(writePromises);\n}",
   "name": "writeToFiles",
   "slug": "write-to-files",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "fileObject",
+      "schema": {
+        "type": "object"
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "writes all values in an object to the file that should be specified as key of that value",
   "returnType": {
     "rawType": "any",
@@ -32,5 +44,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "eXCsfZtowiqvcVXF"
+  "id": "mUIZAbtRuNMdOQPq"
 }

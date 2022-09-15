@@ -1,12 +1,12 @@
 {
   "createdAt": 1662720928893,
-  "updatedAt": 1662720928888,
+  "updatedAt": 1663146889207,
   "deletedAt": 0,
   "createdFirstAt": 1662720928893,
   "folderName": "schema-util",
   "packageName": "schema-util",
   "relativeOperationLocationPath": "operations/tools/typescript",
-  "classification": "node",
+  "classification": "js",
   "name": "schema-util",
   "slug": "schema-util",
   "coreDependencies": [],
@@ -14,9 +14,13 @@
     "SimplifiedSchema",
     "referenceParameterNames",
     "referencePluralParameterNames",
+    "camelCase",
     "lowerCaseArray",
     "pascalCase",
+    "capitaliseFirstLetter",
+    "isPlural",
     "singularize",
+    "replaceLastOccurence",
     "makeArray",
     "notEmpty",
     "TsInterface",
@@ -35,30 +39,30 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 5,
-      "lines": 373,
-      "characters": 10842,
-      "bytes": 10842
+      "lines": 475,
+      "characters": 13073,
+      "bytes": 13073
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 73,
-      "characters": 1655,
-      "bytes": 1655
+      "lines": 76,
+      "characters": 1716,
+      "bytes": 1716
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 141,
-      "characters": 2534,
-      "bytes": 2534
+      "lines": 618,
+      "characters": 18217,
+      "bytes": 18217
     },
     "size": {
-      "bytes": 15031,
-      "characters": 15031,
-      "lines": 587,
+      "bytes": 33006,
+      "characters": 33006,
+      "lines": 1169,
       "numberOfFiles": 8
     }
   },
-  "buildSucceeded": false,
+  "buildSucceeded": true,
   "dependenciesBuildsFailed": false,
   "indexErrors": [],
   "indexImportExportError": "",

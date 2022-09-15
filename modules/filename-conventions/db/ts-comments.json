@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1662755691826,
-    "updatedAt": 1662755691826,
+    "createdAt": 1663018002357,
+    "updatedAt": 1663018002357,
     "deletedAt": 0,
-    "createdFirstAt": 1662755691826,
+    "createdFirstAt": 1663018002357,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/filename-conventions.ts",
-    "comment": "these special operations are generated, so should not be copied, but should be generated in the bundle after everything is copied",
-    "rawStatement": "export const frontendOptionalFileSubExtensions = [\n  \"native\",\n  \"ios\",\n  \"android\",\n  \"web\",\n];",
+    "operationRelativeTypescriptFilePath": "src/hasSubExtension.ts",
+    "comment": "Returns true if a fileid includes one of the specified subextensions.",
+    "rawStatement": "export const hasSubExtension = (\n  srcRelativeFileId: string,\n  subExtensions: string | string[],\n  /**\n   * if true, also returns true if the extension is the complete name of the file\n   */\n  includeRootName?: boolean\n): boolean => {\n  const subExtensionsArray = makeArray(subExtensions);\n  const parts = srcRelativeFileId.split(\".\");\n  const isSinglePart = parts.length === 1;\n  const subExtension = parts.pop()!;\n  const includesSubExtension = subExtensionsArray.includes(subExtension);\n  const isCounting = includeRootName ? true : !isSinglePart;\n  const has = isCounting && includesSubExtension;\n  return has;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 16,
-    "lastLine": 18,
-    "id": "vemNcwwliSaLaWbX"
+    "firstLine": 3,
+    "lastLine": 5,
+    "id": "zziRMuYloaciMuss"
   }
 ]

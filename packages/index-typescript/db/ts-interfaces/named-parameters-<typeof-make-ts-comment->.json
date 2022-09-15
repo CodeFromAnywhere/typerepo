@@ -1,0 +1,115 @@
+{
+  "createdAt": 1662906271458,
+  "updatedAt": 1662906271458,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906271458,
+  "id": "named-parameters-<typeof-make-ts-comment->",
+  "name": "NamedParameters<typeof makeTsComment>",
+  "slug": "named-parameters-<typeof-make-ts-comment->",
+  "operationRelativeTypescriptFilePath": "src/makeTsComment.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "{\n  commentRange,\n  rawStatement,\n  statementName,\n  fileContent,\n  operationRelativeTypescriptFilePath,\n}": {
+          "type": "object",
+          "properties": {
+            "operationRelativeTypescriptFilePath": {
+              "type": "string"
+            },
+            "commentRange": {
+              "$ref": "#/definitions/CommentRange"
+            },
+            "statementName": {
+              "type": "string",
+              "description": "if we can give the statement a name, it should be provided here"
+            },
+            "rawStatement": {
+              "type": "string"
+            },
+            "fileContent": {
+              "type": "string",
+              "description": "needed for calculating line numbers"
+            }
+          },
+          "required": [
+            "operationRelativeTypescriptFilePath",
+            "commentRange",
+            "rawStatement",
+            "fileContent"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "{\n  commentRange,\n  rawStatement,\n  statementName,\n  fileContent,\n  operationRelativeTypescriptFilePath,\n}"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "{\n  commentRange,\n  rawStatement,\n  statementName,\n  fileContent,\n  operationRelativeTypescriptFilePath,\n}",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "operationRelativeTypescriptFilePath",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "commentRange",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "statementName",
+                "required": false,
+                "schema": {
+                  "description": "if we can give the statement a name, it should be provided here",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "rawStatement",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "fileContent",
+                "required": true,
+                "schema": {
+                  "description": "needed for calculating line numbers",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof makeTsComment>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

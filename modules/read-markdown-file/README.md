@@ -1,30 +1,56 @@
 # Read markdown file
 
-read-markdown-file (undefined operation)
+read-markdown-file (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
 ## Functions
 
+- [readMarkdownFileToModel](#readMarkdownFileToModel)
 - [readMarkdownFile](#readMarkdownFile)
+
+## Interfaces:
+
+- [Path](#Path)
 
 
 
 # Functions
 
-## readMarkdownFile
+## readMarkdownFileToModel
 
-Max. indexation depth: 1, 
+### Parameters (1)
+
+#### Parameter 1: absoluteFilePath: string
+
+## readMarkdownFile
 
 Reads and parses a markdown file
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: filePath: string
+
+> unlike PathLike, this is only a string<br /><br />For now, we don't have a clear convention whether or not this string should be absolute or anything.
+
+
+
+# Interfaces
+
+## Path
+
+unlike PathLike, this is only a string
+
+For now, we don't have a clear convention whether or not this string should be absolute or anything.
+
+
+
+> unlike PathLike, this is only a string<br /><br />For now, we don't have a clear convention whether or not this string should be absolute or anything.
+
+
 

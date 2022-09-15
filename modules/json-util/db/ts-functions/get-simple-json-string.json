@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720198200,
-  "updatedAt": 1662720198200,
+  "createdAt": 1662905608162,
+  "updatedAt": 1662905608162,
   "deletedAt": 0,
-  "createdFirstAt": 1662720198200,
+  "createdFirstAt": 1662905608162,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,19 @@
   "rawText": " (json: Json): string | undefined => {\n  if (\n    [\n      \"string\",\n      \"number\",\n      \"bigint\",\n      \"boolean\",\n      \"symbol\",\n      \"undefined\",\n      // \"function\", // I don't think function is that simple, is it?\n    ].includes(typeof json) ||\n    json === null\n  ) {\n    return String(json);\n  }\n}",
   "name": "getSimpleJsonString",
   "slug": "get-simple-json-string",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "json",
+      "schema": {
+        "$ref": "#/definitions/Json"
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "stringifies simple json things if the json is one of them, otherwise returns undefined",
   "returnType": {
     "rawType": "string | undefined",
@@ -49,5 +61,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "PUmsxdGOLdDZpwlu"
+  "id": "BBQurHIeviWyGhGc"
 }

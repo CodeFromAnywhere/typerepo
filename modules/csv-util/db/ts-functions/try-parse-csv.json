@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720149749,
-  "updatedAt": 1662720149749,
+  "createdAt": 1662905564641,
+  "updatedAt": 1662905564641,
   "deletedAt": 0,
-  "createdFirstAt": 1662720149749,
+  "createdFirstAt": 1662905564641,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " <T extends CsvItemType>(\n  csvString: string\n): T[] | null => {\n  const [columnsString, ...rowStrings] = csvString.split(\"\\n\");\n\n  const columns = columnsString.split(\",\").map((x) => x.trim());\n\n  const rows = rowStrings.map((rowString) => {\n    const values = rowString.split(\",\");\n\n    const rowObject = mergeObjectsArray(\n      columns.map((columnName, index) => {\n        return { [columnName]: parsePrimitive(values[index]) };\n      })\n    ) as T;\n\n    return rowObject;\n  });\n\n  return rows;\n}",
   "name": "tryParseCsv",
   "slug": "try-parse-csv",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "csvString",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "This function parses a CSV into the object it says it has in the header",
   "returnType": {
     "rawType": "T[] | null",
@@ -49,5 +60,5 @@
     "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "WnRkduHoQHULxoXG"
+  "id": "MWgGgkLhoIkNBJst"
 }

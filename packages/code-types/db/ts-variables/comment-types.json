@@ -1,0 +1,40 @@
+{
+  "createdAt": 1663018208408,
+  "updatedAt": 1663018208408,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018208408,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/TsComment.ts",
+  "comments": [],
+  "name": "commentTypes",
+  "slug": "comment-types",
+  "value": "[...commentTypesConst]",
+  "type": {
+    "rawType": "any[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "XKbyKhUnDOoVmrLF"
+}

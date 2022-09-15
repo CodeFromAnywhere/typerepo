@@ -1,0 +1,1 @@
+If we can also get md-files with fs-orm that are not only in the `db` folder but also anywhere in the tools, we can also fetch `todo` with the `fs-orm` and `docs`. We probably need to crawl folder names for this, which is more inefficient. Let's not support this usecase. It's better to keep it simple and simply support stuff in the `db` folder.

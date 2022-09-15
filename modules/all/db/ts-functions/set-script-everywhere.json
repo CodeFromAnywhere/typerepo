@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726777739,
-  "updatedAt": 1662726777739,
+  "createdAt": 1662904439572,
+  "updatedAt": 1662904439572,
   "deletedAt": 0,
-  "createdFirstAt": 1662726777739,
+  "createdFirstAt": 1662904439572,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,28 @@
   "rawText": " async (script: string, value: string) => {\n  forAllFolders({\n    basePath: getPathsWithOperations(),\n    type: \"operations\",\n    shell: true,\n    callback: (folderPath, index) => {\n      setJsonKey({\n        jsonPath: path.join(folderPath, \"package.json\"),\n        keyLocation: `scripts.${script}`,\n        value,\n      });\n    },\n  });\n}",
   "name": "setScriptEverywhere",
   "slug": "set-script-everywhere",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "script",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "value",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "set package.json script to another value in all operations in tools folder",
   "returnType": {
     "rawType": "any",
@@ -32,5 +53,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "CxKMWXHJYcHftOTb"
+  "id": "FBXZvoKrnEVJUFVl"
 }

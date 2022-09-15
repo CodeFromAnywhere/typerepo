@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726668056,
-  "updatedAt": 1662726668056,
+  "createdAt": 1662907315999,
+  "updatedAt": 1662907315999,
   "deletedAt": 0,
-  "createdFirstAt": 1662726668056,
+  "createdFirstAt": 1662907315999,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,29 @@
   "rawText": " (\n  queryPaths: string[]\n): NestedPathObject => {\n  const nestedPathObject: NestedPathObject = reduceQueryPathsRecursively(\n    queryPaths,\n    {}\n  );\n  return nestedPathObject;\n}",
   "name": "queryPathsArrayToNestedPathObject",
   "slug": "query-paths-array-to-nested-path-object",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "queryPaths",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
   "description": "Handy function to transform an array of querypaths into a nested menu, assuming you want to create a new sub-menu for every path",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/ui/react-with-native/recipes/nested-menu/src/util/queryPathsArrayToNestedPathObject\").NestedPathObject",
@@ -41,5 +63,5 @@
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "EspwBgOiszfFJtux"
+  "id": "VxJDvMCDEeQrVaul"
 }

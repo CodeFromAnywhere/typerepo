@@ -1,0 +1,60 @@
+{
+  "createdAt": 1662905657504,
+  "updatedAt": 1662905657504,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905657504,
+  "id": "named-parameters-<typeof-parse-md-to-chunks->",
+  "name": "NamedParameters<typeof parseMdToChunks>",
+  "slug": "named-parameters-<typeof-parse-md-to-chunks->",
+  "operationRelativeTypescriptFilePath": "src/parseMdToChunks.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "markdownString": {
+          "type": "string"
+        },
+        "level": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "markdownString",
+        "level"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "markdownString",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "level",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof parseMdToChunks>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

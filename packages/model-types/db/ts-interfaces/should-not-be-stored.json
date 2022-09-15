@@ -1,0 +1,45 @@
+{
+  "createdAt": 1663009115858,
+  "updatedAt": 1663009115858,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009115858,
+  "id": "should-not-be-stored",
+  "name": "ShouldNotBeStored",
+  "slug": "should-not-be-stored",
+  "operationRelativeTypescriptFilePath": "src/generics.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * Parameters that should not be stored into the database\n */\nexport type ShouldNotBeStored =\n  | \"operationName\"\n  | \"projectRelativePath\"\n  | \"operationRelativePath\";",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "Parameters that should not be stored into the database",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "operationName",
+        "projectRelativePath",
+        "operationRelativePath"
+      ],
+      "description": "Parameters that should not be stored into the database"
+    },
+    "simplifiedSchema": {
+      "description": "Parameters that should not be stored into the database",
+      "enum": [
+        "operationName",
+        "projectRelativePath",
+        "operationRelativePath"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "ShouldNotBeStored",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

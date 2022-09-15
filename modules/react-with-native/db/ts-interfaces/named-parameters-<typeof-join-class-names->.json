@@ -1,0 +1,68 @@
+{
+  "createdAt": 1662907059346,
+  "updatedAt": 1662907059346,
+  "deletedAt": 0,
+  "createdFirstAt": 1662907059346,
+  "id": "named-parameters-<typeof-join-class-names->",
+  "name": "NamedParameters<typeof joinClassNames>",
+  "slug": "named-parameters-<typeof-join-class-names->",
+  "operationRelativeTypescriptFilePath": "src/util/util.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "args": {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "not": {}
+              }
+            ]
+          }
+        }
+      },
+      "required": [
+        "args"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "args",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof joinClassNames>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

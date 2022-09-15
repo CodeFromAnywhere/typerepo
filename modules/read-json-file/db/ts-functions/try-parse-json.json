@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718908370,
-  "updatedAt": 1662718908370,
+  "createdAt": 1662904891070,
+  "updatedAt": 1662904891070,
   "deletedAt": 0,
-  "createdFirstAt": 1662718908370,
+  "createdFirstAt": 1662904891070,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,28 @@
   "rawText": " <T>(\n  text: string,\n  logParseError?: boolean\n): T | null => {\n  try {\n    const jsonStringWithoutComments = text.replace(\n      removeCommentsRegex,\n      (m, g) => (g ? \"\" : m)\n    );\n    return JSON.parse(jsonStringWithoutComments) as T;\n  } catch (parseError) {\n    if (logParseError) console.log(\"JSON Parse error:\", parseError);\n    return null;\n  }\n}",
   "name": "tryParseJson",
   "slug": "try-parse-json",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "text",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "logParseError",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
   "description": "if text isn't json, returns null",
   "returnType": {
     "rawType": "T | null",
@@ -51,5 +72,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "qvmUIFzHVLjcPcIX"
+  "id": "sWoovCThQxCPaOPF"
 }

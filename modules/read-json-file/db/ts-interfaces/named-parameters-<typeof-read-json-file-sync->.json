@@ -1,0 +1,50 @@
+{
+  "createdAt": 1662904889895,
+  "updatedAt": 1662904889895,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904889895,
+  "id": "named-parameters-<typeof-read-json-file-sync->",
+  "name": "NamedParameters<typeof readJsonFileSync>",
+  "slug": "named-parameters-<typeof-read-json-file-sync->",
+  "operationRelativeTypescriptFilePath": "src/readJsonFile.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "filePath": {
+          "$ref": "#/definitions/Path"
+        }
+      },
+      "required": [
+        "filePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "filePath",
+          "required": true,
+          "schema": {
+            "description": "unlike PathLike, this is only a string\n\nFor now, we don't have a clear convention whether or not this string should be absolute or anything.",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof readJsonFileSync>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

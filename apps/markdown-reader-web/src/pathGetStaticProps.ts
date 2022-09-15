@@ -1,25 +1,43 @@
-import { getBundleQueryPaths, getRealPathFromQueryPath } from "bundle-util";
-import { fs } from "fs-util";
+import { getDocsMarkdownReaderPages } from "bundle-util";
+import { path } from "fs-util";
 import { MainPageProps, getQueryPath } from "markdown-reader-ui";
 import { GetStaticPropsContext } from "next";
+import { readMarkdownFileToModel } from "read-markdown-file";
+import { getProjectRoot } from "get-path";
 
+/**
+ */
 export const pathGetStaticProps = async (
   context: GetStaticPropsContext
 ): Promise<{
   props: MainPageProps;
 }> => {
-  const queryPaths = (await getBundleQueryPaths()) || [];
-  const queryPath = getQueryPath(context.params);
-  const realPath = await getRealPathFromQueryPath(queryPath);
-
-  if (!realPath) {
-    return { props: { markdownString: null, queryPaths } };
+  const pages = (await getDocsMarkdownReaderPages()) || [];
+  const projectRoot = getProjectRoot();
+  if (!projectRoot) {
+    return { props: { pages } };
   }
 
-  const markdownString = await fs.readFile(realPath, "utf8");
+  const queryPath = getQueryPath(context.params);
+
+  // definitions/statements/functions/interfaces/operations
+
+  const realPage = pages.find((x) => x.queryPath === queryPath);
+  if (!realPage) {
+    return { props: { pages } };
+  }
+
+  const absoluteMarkdownPath = realPage.filePath
+    ? path.join(projectRoot, realPage.filePath)
+    : undefined;
+
+  const title = realPage.internalLinkWord || null;
+  const markdownFile = absoluteMarkdownPath
+    ? await readMarkdownFileToModel(absoluteMarkdownPath)
+    : undefined;
 
   return {
     // Passed to the page component as props
-    props: { markdownString, queryPaths },
+    props: { pages, markdownFile, title },
   };
 };

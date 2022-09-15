@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662719011234,
-  "updatedAt": 1662719011234,
+  "createdAt": 1662905012625,
+  "updatedAt": 1662905012625,
   "deletedAt": 0,
-  "createdFirstAt": 1662719011234,
+  "createdFirstAt": 1662905012625,
   "name": "set",
   "slug": "set",
   "apiAuthenticationStrategy": "admin",
@@ -11,7 +11,41 @@
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
   "description": "",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "path",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "value",
+      "schema": {
+        "type": [
+          "string",
+          "number",
+          "boolean"
+        ]
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "object",
+      "schema": {},
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "returnType": {
     "rawType": "void",
     "typeCoverage": 0,
@@ -32,5 +66,5 @@
   },
   "rawText": "\n//\nfunction set(path: string, value: string | number | boolean, object: any) {\n  var schema = object; // a moving reference to internal objects within obj\n  var pList = path.split(\".\");\n  var len = pList.length;\n  for (var i = 0; i < len - 1; i++) {\n    var elem = pList[i];\n    if (!schema[elem]) schema[elem] = {};\n    schema = schema[elem];\n  }\n\n  schema[pList[len - 1]] = value;\n}",
   "maxIndentationDepth": 2,
-  "id": "CRoNYxSYrGNlTaiG"
+  "id": "VNgeIawEmMgYREtX"
 }

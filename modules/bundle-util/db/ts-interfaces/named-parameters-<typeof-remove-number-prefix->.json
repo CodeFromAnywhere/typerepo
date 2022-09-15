@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663008995245,
+  "updatedAt": 1663008995245,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008995245,
+  "id": "named-parameters-<typeof-remove-number-prefix->",
+  "name": "NamedParameters<typeof removeNumberPrefix>",
+  "slug": "named-parameters-<typeof-remove-number-prefix->",
+  "operationRelativeTypescriptFilePath": "src/removeNumberPrefix.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "fileOrFolderName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fileOrFolderName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "fileOrFolderName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof removeNumberPrefix>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

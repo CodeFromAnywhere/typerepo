@@ -1,0 +1,71 @@
+{
+  "createdAt": 1663147175858,
+  "updatedAt": 1663147175858,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147175858,
+  "id": "named-parameters-<typeof-replace-last-occurence->",
+  "name": "NamedParameters<typeof replaceLastOccurence>",
+  "slug": "named-parameters-<typeof-replace-last-occurence->",
+  "operationRelativeTypescriptFilePath": "src/replaceLastOccurence.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        },
+        "searchValue": {
+          "type": "string"
+        },
+        "replaceValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "string",
+        "searchValue",
+        "replaceValue"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "string",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "searchValue",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "replaceValue",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof replaceLastOccurence>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

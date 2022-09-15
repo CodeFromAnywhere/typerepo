@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663146731140,
+  "updatedAt": 1663146731140,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146731140,
+  "id": "named-parameters-<typeof-is-generated-parameter-name->",
+  "name": "NamedParameters<typeof isGeneratedParameterName>",
+  "slug": "named-parameters-<typeof-is-generated-parameter-name->",
+  "operationRelativeTypescriptFilePath": "src/name-conventions.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "parameterName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameterName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "parameterName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isGeneratedParameterName>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720258085,
-  "updatedAt": 1662720258085,
+  "createdAt": 1662905687657,
+  "updatedAt": 1662905687657,
   "deletedAt": 0,
-  "createdFirstAt": 1662720258085,
+  "createdFirstAt": 1662905687657,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " async (\n  baseFolderPath?: string\n): Promise<string> => {\n  return \"\";\n}",
   "name": "selectRandomOperation",
   "slug": "select-random-operation",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "baseFolderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "selects a random operation",
   "returnType": {
     "rawType": "Promise<string>",
@@ -32,5 +43,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "idQKoAdYvHKTCnOf"
+  "id": "vxuqyFThBQHJaFoZ"
 }

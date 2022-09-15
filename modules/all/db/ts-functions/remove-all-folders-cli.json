@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662904427252,
+  "updatedAt": 1662904427252,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904427252,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/cli/removeAllFolders.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  await removeAllFolders({\n    basePath: projectRoot,\n    folderNames: [folderName],\n    ignore: [\"node_modules\"],\n  });\n\n  console.log(\"DONE\");\n}",
+  "name": "removeAllFoldersCli",
+  "slug": "remove-all-folders-cli",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 229,
+    "lines": 11,
+    "bytes": 229,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "hJNXliFYHGhhqZwD"
+}

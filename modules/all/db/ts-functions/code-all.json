@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726766040,
-  "updatedAt": 1662726766040,
+  "createdAt": 1662904428973,
+  "updatedAt": 1662904428973,
   "deletedAt": 0,
-  "createdFirstAt": 1662726766040,
+  "createdFirstAt": 1662904428973,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " async (search: string) => {\n  const filePaths = (\n    await explore({\n      basePath: getProjectRoot(),\n      ignore: [\"node_modules\", \"build\"],\n      exact: true,\n      search,\n      searchLevel: \"fileName\",\n    })\n  ).map((x) => x.path);\n\n  return forAllFiles({ filePaths, command: `code $LOCATION` });\n}",
   "name": "codeAll",
   "slug": "code-all",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "search",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "opens all files in vscode",
   "returnType": {
     "rawType": "unknown",
@@ -32,5 +43,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "nHQoWpJMSqfuYKSm"
+  "id": "DMFucipTDArLcRNH"
 }

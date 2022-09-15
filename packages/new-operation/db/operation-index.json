@@ -1,0 +1,81 @@
+{
+  "createdAt": 1662720870238,
+  "updatedAt": 1662906324196,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720870238,
+  "folderName": "new-operation",
+  "packageName": "new-operation",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "new-operation",
+  "slug": "new-operation",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "getOperationPath",
+    "OperationConfig",
+    "generateId",
+    "db",
+    "canRead",
+    "path",
+    "fs",
+    "setJsonKey",
+    "renameTemplateFiles",
+    "kebabCase",
+    "log",
+    "OperationConfig",
+    "canRead",
+    "fs",
+    "getLastFolder",
+    "path",
+    "writeStringToFile",
+    "getProjectRoot",
+    "getSrcRelativeFileId",
+    "isSensibleProject",
+    "objectMapAsync",
+    "yarnBuild",
+    "setJsonKey",
+    "projectRelativeGeneratedOperationsFolder",
+    "db",
+    "log"
+  ],
+  "packageDependencies": [
+    "execSync",
+    "spawnSync"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 14,
+      "lines": 4046,
+      "characters": 126130,
+      "bytes": 126130
+    },
+    "dataSize": {
+      "numberOfFiles": 4,
+      "lines": 139,
+      "characters": 3963,
+      "bytes": 3963
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 187,
+      "characters": 13401,
+      "bytes": 13401
+    },
+    "size": {
+      "bytes": 143494,
+      "characters": 143494,
+      "lines": 4372,
+      "numberOfFiles": 19
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "MRhbIfCxDwUSJLWz",
+  "language": "en"
+}

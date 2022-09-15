@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720210291,
-  "updatedAt": 1662720210291,
+  "createdAt": 1662905627732,
+  "updatedAt": 1662905627732,
   "deletedAt": 0,
-  "createdFirstAt": 1662720210291,
+  "createdFirstAt": 1662905627732,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,64 @@
   "rawText": " (\n  markdownChunks: MarkdownChunk[]\n): MarkdownParagraph[] => {\n  const flatMarkdownChunks = markdownChunks\n    .map((chunk) => getParagraphsRecursively(chunk))\n    .flat();\n  return flatMarkdownChunks;\n}",
   "name": "flattenMarkdownChunks",
   "slug": "flatten-markdown-chunks",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdownChunks",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/MarkdownChunk"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [
+                {
+                  "name": "content",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "title",
+                  "required": false,
+                  "schema": {
+                    "description": "NB: title can also be an empty string (\"\")",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "children",
+                  "required": false,
+                  "schema": {
+                    "description": "all content until the next title. it's either a content array if there's any titles found, or a string[] if it's paragraphs",
+                    "items": [
+                      {
+                        "schema": {
+                          "circularRefName": "MarkdownChunk",
+                          "properties": [],
+                          "type": "object"
+                        },
+                        "name": "MarkdownChunk"
+                      }
+                    ],
+                    "type": "array"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "MarkdownChunk"
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParagraph[]",
@@ -119,5 +176,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "pKXbYBxpevlLvozH"
+  "id": "kIGwYsHHWZWvWkSE"
 }

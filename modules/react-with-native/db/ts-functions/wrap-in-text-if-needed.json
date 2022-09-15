@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726477474,
-  "updatedAt": 1662726477474,
+  "createdAt": 1662907059480,
+  "updatedAt": 1662907059480,
   "deletedAt": 0,
-  "createdFirstAt": 1662726477474,
+  "createdFirstAt": 1662907059480,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,27 @@
   "rawText": " (children: any, textClassName?: string) => {\n  return typeof children === \"string\" ? (\n    <Text className={textClassName}>{children}</Text>\n  ) : (\n    children\n  );\n}",
   "name": "wrapInTextIfNeeded",
   "slug": "wrap-in-text-if-needed",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "children",
+      "schema": {},
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "textClassName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "NB: figure out a way to do the styles of the text right.",
   "returnType": {
     "rawType": "any",
@@ -32,5 +52,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "ImPYwPVMofxboaIw"
+  "id": "ZkTPSDbzTjqursSP"
 }

@@ -1,0 +1,46 @@
+{
+  "createdAt": 1662914744108,
+  "updatedAt": 1662914744108,
+  "deletedAt": 0,
+  "createdFirstAt": 1662914744108,
+  "id": "named-parameters-<typeof-benchmark->",
+  "name": "NamedParameters<typeof benchmark>",
+  "slug": "named-parameters-<typeof-benchmark->",
+  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "amount",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof benchmark>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

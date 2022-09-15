@@ -1,0 +1,59 @@
+{
+  "createdAt": 1662904438653,
+  "updatedAt": 1662904438653,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904438653,
+  "id": "named-parameters-<typeof-run-script-everywhere->",
+  "name": "NamedParameters<typeof runScriptEverywhere>",
+  "slug": "named-parameters-<typeof-run-script-everywhere->",
+  "operationRelativeTypescriptFilePath": "src/runScriptEverywhere.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "script": {
+          "type": "string"
+        },
+        "startIndex": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "script"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "script",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "startIndex",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof runScriptEverywhere>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

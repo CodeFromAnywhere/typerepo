@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 export declare type Casing = "camel" | "pascal" | "snake" | "kebab" | "capital" | "human";
+export declare const getDelimiter: (target: Casing) => "_" | " " | "-" | "";
+export declare const capitaliseFirstLetter: (word: string) => string;
 /**
  *
  */

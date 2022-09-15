@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663009116778,
+  "updatedAt": 1663009116778,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009116778,
+  "id": "named-parameters-<typeof-generate-random-string->",
+  "name": "NamedParameters<typeof generateRandomString>",
+  "slug": "named-parameters-<typeof-generate-random-string->",
+  "operationRelativeTypescriptFilePath": "src/id.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "length": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "length"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "length",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof generateRandomString>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

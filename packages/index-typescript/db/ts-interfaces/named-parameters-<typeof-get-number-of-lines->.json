@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662906282713,
+  "updatedAt": 1662906282713,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906282713,
+  "id": "named-parameters-<typeof-get-number-of-lines->",
+  "name": "NamedParameters<typeof getNumberOfLines>",
+  "slug": "named-parameters-<typeof-get-number-of-lines->",
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "string"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "string",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getNumberOfLines>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

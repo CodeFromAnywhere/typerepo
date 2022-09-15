@@ -1,17 +1,118 @@
 {
-  "createdAt": 1662719186911,
-  "updatedAt": 1662719186911,
+  "createdAt": 1663009818037,
+  "updatedAt": 1663009818037,
   "deletedAt": 0,
-  "createdFirstAt": 1662719186911,
+  "createdFirstAt": 1663009818037,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getBundleSummary.ts",
   "commentsInside": [],
-  "rawText": " (bundleConfig: BundleConfig): BundleSummary => {\n  const bundlesPath = getRootPath(\"bundles\");\n  const foldersFromRepo = bundlesPath\n    ? bundleConfig.foldersFromRepo?.map((x) =>\n        path.join(bundlesPath, kebabCase(bundleConfig.name), x)\n      )\n    : undefined;\n\n  // const filesAndFoldersToInclude = [\n  //   // ...(foldersFromRepo || []),\n  //   bundleConfig.readmeRelativeFilePath,\n  //   bundleConfig.docsRelativeFolderPath,\n  // ].filter(notEmpty);\n\n  const appNames = bundleConfig.bundles\n    .map((x) => {\n      const frontendOperationNames = makeArray(\n        x.appShellOperationNames,\n        x.serverOperationName\n      );\n\n      return frontendOperationNames;\n    })\n    .flat()\n    .filter(onlyUnique2());\n\n  const uiOperationNames = makeArray(\n    bundleConfig.bundles.map((x) => x.uiOperationName).filter(notEmpty)\n  );\n\n  const bundlePublicOperationNames = bundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"public\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n  const bundlePrivateOperationNames = bundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"private\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n\n  const packageNames = bundleConfig.dependencies\n    .filter((x) => x.privacy === \"public\")\n    .map((x) => x.operationName)\n    .concat(uiOperationNames)\n    .concat(bundlePublicOperationNames)\n    .filter(onlyUnique2());\n\n  const moduleNames = bundleConfig.dependencies\n    .filter((x) => x.privacy === \"private\")\n    .map((x) => x.operationName)\n    .concat(bundlePrivateOperationNames)\n    .filter(onlyUnique2());\n\n  const summary: BundleSummary = {\n    // filesAndFoldersToInclude,\n    packageNames,\n    moduleNames,\n    appNames,\n  };\n\n  return summary;\n}",
+  "rawText": " (bundleConfig: BundleConfig): BundleSummary => {\n  const operationsPath = getRootPath(\"operations\");\n  const bundlesPath = operationsPath\n    ? path.join(operationsPath, \"bundles\")\n    : undefined;\n\n  const foldersFromRepo = bundlesPath\n    ? bundleConfig.foldersFromRepo?.map((x) =>\n        path.join(bundlesPath, kebabCase(bundleConfig.name), x)\n      )\n    : undefined;\n\n  // const filesAndFoldersToInclude = [\n  //   // ...(foldersFromRepo || []),\n  //   bundleConfig.readmeRelativeFilePath,\n  //   bundleConfig.docsRelativeFolderPath,\n  // ].filter(notEmpty);\n\n  const appNames = bundleConfig.bundles\n    .map((x) => {\n      const frontendOperationNames = makeArray(\n        x.appShellOperationNames,\n        x.serverOperationName\n      );\n\n      return frontendOperationNames;\n    })\n    .flat()\n    .filter(onlyUnique2());\n\n  const uiOperationNames = makeArray(\n    bundleConfig.bundles.map((x) => x.uiOperationName).filter(notEmpty)\n  );\n\n  const bundlePublicOperationNames = bundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"public\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n  const bundlePrivateOperationNames = bundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"private\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n\n  const packageNames = bundleConfig.dependencies\n    .filter((x) => x.privacy === \"public\")\n    .map((x) => x.operationName)\n    .concat(uiOperationNames)\n    .concat(bundlePublicOperationNames)\n    .filter(onlyUnique2());\n\n  const moduleNames = bundleConfig.dependencies\n    .filter((x) => x.privacy === \"private\")\n    .map((x) => x.operationName)\n    .concat(bundlePrivateOperationNames)\n    .filter(onlyUnique2());\n\n  const summary: BundleSummary = {\n    // filesAndFoldersToInclude,\n    packageNames,\n    moduleNames,\n    appNames,\n  };\n\n  return summary;\n}",
   "name": "getBundleSummary",
   "slug": "get-bundle-summary",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "bundleConfig",
+      "schema": {
+        "$ref": "#/definitions/BundleConfig"
+      },
+      "simplifiedSchema": {
+        "description": "--- dbStorageMethod: jsonSingle\n---",
+        "properties": [
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "description": "Human readable name of the monorepo (A kebab-case version of this will be used as root foldername)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "description": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "bundles",
+            "required": true,
+            "schema": {
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "dependencies",
+            "required": true,
+            "schema": {
+              "description": "Generated, private by default. If they're already here, uses private/public setting as given.\n\nWhen generating, removes the ones that are not dependencies (of dependencies) of your standalone apps",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "foldersFromRepo",
+            "required": false,
+            "schema": {
+              "description": "if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n\ncan be handy if you're working with someone else...",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "gitRepoUrl",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "branchName",
+            "required": false,
+            "schema": {
+              "description": "specify the branch to use of your git repo (defaults to \"main\")",
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipPush",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "Summarizes a bundle config so it can be used easily in things like explore project",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/deployment/bundling/bundle-util/src/getBundleSummary\").BundleSummary",
@@ -133,13 +234,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1922,
-    "lines": 69,
-    "bytes": 1922,
+    "characters": 2026,
+    "lines": 73,
+    "bytes": 2026,
     "bytesPerCharacter": 1,
     "charactersPerLine": 28,
-    "linesPerFile": 69,
+    "linesPerFile": 73,
     "numberOfFiles": 1
   },
-  "id": "QjfQMhnFscCSqshk"
+  "id": "uIfzvJpUhZZbSRnc"
 }

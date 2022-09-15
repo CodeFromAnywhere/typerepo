@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726836161,
-  "updatedAt": 1662726836161,
+  "createdAt": 1663147175037,
+  "updatedAt": 1663147175037,
   "deletedAt": 0,
-  "createdFirstAt": 1662726836161,
+  "createdFirstAt": 1663147175037,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,30 @@
   "rawText": " <T extends { [key: string]: any | undefined }>(\n  ...objects: (T | undefined)[]\n): T | undefined => {\n  if (objects.length === 0) return;\n\n  const firstObject = objects[0];\n\n  const mergedObject = objects.reduce((previous, current) => {\n    if (!current) return previous;\n\n    const newObject: T | undefined = !previous\n      ? current\n      : { ...previous, ...current };\n\n    return newObject;\n  }, firstObject);\n\n  return mergedObject;\n}",
   "name": "mergeObjects",
   "slug": "merge-objects",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "objects",
+      "schema": {
+        "type": "array",
+        "items": {
+          "not": {}
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [],
+              "type": "object"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
   "description": "merges multiple objects, overwriting the previous one with the next. Can be useful for configs where there are multiple layers of configs that overwrite each other.\n\nPlease note though, that only the root keys of the object are overwriting each other, so if there is nested datastructures, the last one with a specific key overwrites the previous ones copletely",
   "returnType": {
     "rawType": "T | undefined",
@@ -32,5 +55,5 @@
     "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "mmliBazeFdlOYXLS"
+  "id": "IarHfNqvKBJrRhRk"
 }

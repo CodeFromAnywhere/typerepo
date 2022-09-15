@@ -1,0 +1,58 @@
+{
+  "createdAt": 1662718843615,
+  "updatedAt": 1662904798504,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718843615,
+  "folderName": "minify-build",
+  "packageName": "minify-build",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "minify-build",
+  "slug": "minify-build",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getOperationPath",
+    "makeRelative",
+    "log",
+    "fs",
+    "path",
+    "explore"
+  ],
+  "packageDependencies": [
+    "minify"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 127,
+      "characters": 3414,
+      "bytes": 3414
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 71,
+      "characters": 1480,
+      "bytes": 1480
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 36,
+      "characters": 555,
+      "bytes": 555
+    },
+    "size": {
+      "bytes": 5449,
+      "characters": 5449,
+      "lines": 234,
+      "numberOfFiles": 5
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "TmnBkisATVZhoDew",
+  "language": "en"
+}

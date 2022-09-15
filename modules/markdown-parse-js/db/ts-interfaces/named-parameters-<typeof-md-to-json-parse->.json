@@ -1,0 +1,59 @@
+{
+  "createdAt": 1662905654674,
+  "updatedAt": 1662905654674,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905654674,
+  "id": "named-parameters-<typeof-md-to-json-parse->",
+  "name": "NamedParameters<typeof mdToJsonParse>",
+  "slug": "named-parameters-<typeof-md-to-json-parse->",
+  "operationRelativeTypescriptFilePath": "src/mdToJsonParse.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "markdownString": {
+          "type": "string"
+        },
+        "fileName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "markdownString"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "markdownString",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "fileName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof mdToJsonParse>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

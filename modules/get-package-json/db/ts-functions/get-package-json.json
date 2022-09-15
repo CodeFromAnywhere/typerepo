@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718761493,
-  "updatedAt": 1662718761493,
+  "createdAt": 1662904672082,
+  "updatedAt": 1662904672082,
   "deletedAt": 0,
-  "createdFirstAt": 1662718761493,
+  "createdFirstAt": 1662904672082,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,36 @@
   "rawText": " async (config: {\n  operationFolderPath: string;\n}) => {\n  const { operationFolderPath } = config;\n  const packageJsonPath = path.join(operationFolderPath, \"package.json\");\n  const packageJson = readJsonFile<PackageJson>(packageJsonPath);\n  return packageJson;\n}",
   "name": "getPackageJson",
   "slug": "get-package-json",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "operationFolderPath": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "operationFolderPath"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "operationFolderPath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "unknown",
@@ -32,5 +61,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "HTHEDuQGoeyEzsnZ"
+  "id": "FqEpoYoDsBmBitSx"
 }

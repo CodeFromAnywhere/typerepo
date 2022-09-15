@@ -6,11 +6,11 @@ var log_1 = require("log");
 var getProjectRoot_1 = require("./getProjectRoot");
 var isSensibleProject_1 = require("./isSensibleProject");
 /**
- * returns an array of all paths containing operations
+ * returns an array of all (absolute) paths containing operations
  *
  * for a sensible project, that means /apps and /packages
  *
- * for the OS project, that means /tools and /bundles
+ * for the OS project, that means /operations/tools and /operations/bundles
  */
 var getPathsWithOperations = function (config) {
     var rootPath = (config === null || config === void 0 ? void 0 : config.manualProjectRoot) || (0, getProjectRoot_1.getProjectRoot)();

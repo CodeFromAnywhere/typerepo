@@ -1,6 +1,6 @@
 {
   "createdAt": 1662720700382,
-  "updatedAt": 1662720700382,
+  "updatedAt": 1663012945714,
   "deletedAt": 0,
   "createdFirstAt": 1662720700382,
   "folderName": "find-all-dependency-operations",
@@ -26,9 +26,9 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 2,
-      "lines": 258,
-      "characters": 6952,
-      "bytes": 6952
+      "lines": 263,
+      "characters": 7152,
+      "bytes": 7152
     },
     "dataSize": {
       "numberOfFiles": 2,
@@ -38,22 +38,22 @@
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 140,
-      "characters": 2238,
-      "bytes": 2238
+      "lines": 104,
+      "characters": 1632,
+      "bytes": 1632
     },
     "size": {
-      "bytes": 10732,
-      "characters": 10732,
-      "lines": 470,
+      "bytes": 10326,
+      "characters": 10326,
+      "lines": 439,
       "numberOfFiles": 5
     }
   },
-  "buildSucceeded": false,
+  "buildSucceeded": true,
   "dependenciesBuildsFailed": false,
   "indexErrors": [],
   "indexImportExportError": "",
-  "indexInteracesErrors": [],
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/find-all-dependency-operations/src/findAllDependencyOperations.ts. Error: Error: Unknown type \\\"function\\\"\"]",
   "lintProblems": [],
   "id": "mTEZRHhVjywbQIRn",
   "language": "en"

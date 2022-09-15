@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720211411,
-  "updatedAt": 1662720211411,
+  "createdAt": 1662905629516,
+  "updatedAt": 1662905629516,
   "deletedAt": 0,
-  "createdFirstAt": 1662720211411,
+  "createdFirstAt": 1662905629516,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,71 @@
   "rawText": " (\n  chunk: MarkdownChunk,\n  categoryStackCalculatedUntilNow?: CategoryStack\n): MarkdownParagraph[] => {\n  const categoryStackCalculated = categoryStackCalculatedUntilNow || [];\n  if (chunk.title) {\n    categoryStackCalculated.push(chunk.title);\n  }\n\n  const childParagraphs =\n    chunk.children\n      ?.map((childChunk) =>\n        getParagraphsRecursively(childChunk, categoryStackCalculated)\n      )\n      .flat() || [];\n\n  const thisParagraph: MarkdownParagraph = {\n    paragraph: chunk.content || \"\",\n    categoryStackCalculated,\n  };\n\n  return [thisParagraph, ...childParagraphs];\n}",
   "name": "getParagraphsRecursively",
   "slug": "get-paragraphs-recursively",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "chunk",
+      "schema": {
+        "$ref": "#/definitions/MarkdownChunk"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "content",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "required": false,
+            "schema": {
+              "description": "NB: title can also be an empty string (\"\")",
+              "type": "string"
+            }
+          },
+          {
+            "name": "children",
+            "required": false,
+            "schema": {
+              "description": "all content until the next title. it's either a content array if there's any titles found, or a string[] if it's paragraphs",
+              "items": [
+                {
+                  "schema": {
+                    "circularRefName": "MarkdownChunk",
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": "MarkdownChunk"
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "categoryStackCalculatedUntilNow",
+      "schema": {
+        "$ref": "#/definitions/CategoryStack"
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
   "description": "recursively dives into the Chunk to get all paragraphs inside",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParagraph[]",
@@ -119,5 +183,5 @@
     "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "aPcHJuCzPUhcCoBO"
+  "id": "ioTlzyxnlJDyEDmf"
 }

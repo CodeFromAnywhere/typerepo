@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662755691491,
-  "updatedAt": 1662755691491,
+  "createdAt": 1663018001234,
+  "updatedAt": 1663018001234,
   "deletedAt": 0,
-  "createdFirstAt": 1662755691491,
+  "createdFirstAt": 1663018001234,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (fileId: string): boolean => {\n  const isOperationName = hasSubExtension(\n    fileId,\n    operationUnindexableNamesOrSubExtensions,\n    true\n  );\n\n  const isFrontendOptionalName = hasSubExtension(\n    fileId,\n    frontendOptionalFileSubExtensions,\n    false\n  );\n\n  const isIndex = fileId === \"index\";\n\n  const isIndexable = !isIndex && !isFrontendOptionalName && !isOperationName;\n\n  return isIndexable;\n}",
   "name": "isIndexableFileId",
   "slug": "is-indexable-file-id",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "fileId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "{}",
@@ -39,5 +50,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "sgtKrrbHvQWzgJWg"
+  "id": "mMEgncwtwzYcJvrP"
 }

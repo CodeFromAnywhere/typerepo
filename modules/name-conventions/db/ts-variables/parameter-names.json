@@ -1,0 +1,34 @@
+{
+  "createdAt": 1663146731707,
+  "updatedAt": 1663146731707,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146731707,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/name-conventions.ts",
+  "comments": [],
+  "name": "parameterNames",
+  "slug": "parameter-names",
+  "value": "[\n  {\n    pattern: \"%d_%m%r\",\n    example: \"author_userSlug\",\n    type: \"string\",\n    contentType: [\"select\"],\n    description: \"model reference with description\",\n  },\n  {\n    pattern: \"%m%r\",\n    example: \"userSlug\",\n    type: \"string\",\n    contentType: [\"select\"],\n    description: \"model reference without description\",\n  },\n\n  {\n    pattern: \"%d_%m%rs\",\n    example: \"author_userSlugs\",\n    type: \"array\",\n    secondaryType: \"string\",\n    contentType: [\"selectMultiple\"],\n    description: \"multiple model references with description\",\n  },\n  {\n    pattern: \"%m%rs\",\n    example: \"userSlugs\",\n    type: \"array\",\n    secondaryType: \"string\",\n    contentType: [\"selectMultiple\"],\n    description: \"multiple model reference without description\",\n  },\n  {\n    pattern: \"%r\",\n    example: \"slug\",\n    type: \"string\",\n    contentType: [\"generated\"],\n    description: \"identifier\",\n  },\n  {\n    pattern: \"createdAt\",\n    example: \"createdAt\",\n    contentType: [\"generated\"],\n    type: \"number\",\n    description: \"the time the instance in the model was created\",\n  },\n  {\n    pattern: \"updatedAt\",\n    example: \"updatedAt\",\n    contentType: [\"generated\"],\n    type: \"number\",\n    description: \"the time the instance in the model was last updated\",\n  },\n  {\n    pattern: \"%dAt\",\n    example: \"fulfilledAt\",\n    contentType: [\"date\", \"datetime\", \"time\", \"generated\"],\n    type: \"number\",\n    description: \"any time indicator\",\n  },\n]",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/ParameterName\").ParameterName[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ParameterName"
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [],
+      "type": "array"
+    }
+  },
+  "classification": "const",
+  "id": "AnWJxTHKdiOcjosG"
+}

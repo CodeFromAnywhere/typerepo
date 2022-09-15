@@ -1,0 +1,77 @@
+{
+  "createdAt": 1662906133087,
+  "updatedAt": 1662906133087,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906133087,
+  "id": "named-parameters-<typeof-is-test-fn->",
+  "name": "NamedParameters<typeof isTestFn>",
+  "slug": "named-parameters-<typeof-is-test-fn->",
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "$ref": "#/definitions/ImportStatement"
+        }
+      },
+      "required": [
+        "x"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "x",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "type",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "variable",
+                    "function",
+                    "interface"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "name",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "srcRelativeFileId",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isTestFn>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

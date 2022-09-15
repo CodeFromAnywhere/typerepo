@@ -6,15 +6,16 @@ export declare const findMonorepoModules: (operationName: string) => Promise<str
 /**
  * finds all dependencies of an operation name
  */
-export declare const findDependenciesRecursively: (operationName: string, already: string[], ignore?: string[]) => Promise<string[]>;
+export declare const findDependenciesRecursively: (operationName: string, already: string[], ignore?: string[], ignoreFilter?: ((operationName: string) => boolean) | undefined) => Promise<string[]>;
 /**
  * to be used when you need to know all dependencies for multiple operation names at once
  *
  * TODO: NB: this breaks with circular dependencies
  */
-export declare const findAllDependencyOperations: ({ operationNames, ignoreOperationNames, }: {
+export declare const findAllDependencyOperations: ({ operationNames, ignoreOperationNames, ignoreFilter, }: {
     operationNames: string[];
     ignoreOperationNames?: string[] | undefined;
+    ignoreFilter?: ((operationName: string) => boolean) | undefined;
 }) => Promise<string[]>;
 export declare const getDependencyObject: () => Promise<{
     [x: string]: string[];

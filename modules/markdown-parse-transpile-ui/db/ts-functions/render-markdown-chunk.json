@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726649653,
-  "updatedAt": 1662726649653,
+  "createdAt": 1663009415155,
+  "updatedAt": 1663009415155,
   "deletedAt": 0,
-  "createdFirstAt": 1662726649653,
+  "createdFirstAt": 1663009415155,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": false,
@@ -11,7 +11,53 @@
   "rawText": " (chunk: MarkdownChunk) => {\n  const title = chunk.title\n    ? renderMarkdownTitle(chunk.title, chunk.level)\n    : null;\n  return (\n    <Div>\n      {title}\n      {chunk.content ? renderMarkdownContent(chunk.content) : null}\n      {chunk.children?.map(renderMarkdownChunk)}\n    </Div>\n  );\n}",
   "name": "renderMarkdownChunk",
   "slug": "render-markdown-chunk",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "chunk",
+      "schema": {
+        "$ref": "#/definitions/MarkdownChunk"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "content",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "required": false,
+            "schema": {
+              "description": "NB: title can also be an empty string (\"\")",
+              "type": "string"
+            }
+          },
+          {
+            "name": "children",
+            "required": false,
+            "schema": {
+              "description": "all content until the next title. it's either a content array if there's any titles found, or a string[] if it's paragraphs",
+              "items": [
+                {
+                  "schema": {
+                    "circularRefName": "MarkdownChunk",
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": "MarkdownChunk"
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "renders a MarkdownChunk interface",
   "returnType": {
     "rawType": "JSX.Element",
@@ -36,5 +82,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "CGrpAevvvFsRQtSn"
+  "id": "wciWGDkJnzPyNOkc"
 }

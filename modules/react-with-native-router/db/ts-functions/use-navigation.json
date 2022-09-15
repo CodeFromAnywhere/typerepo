@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726591955,
-  "updatedAt": 1662726591955,
+  "createdAt": 1662907208812,
+  "updatedAt": 1662907208812,
   "deletedAt": 0,
-  "createdFirstAt": 1662726591955,
+  "createdFirstAt": 1662907208812,
   "name": "useNavigation",
   "slug": "use-navigation",
   "apiAuthenticationStrategy": "admin",
@@ -201,5 +201,5 @@
   },
   "rawText": "\n\nexport function useNavigation() {\n  const router = useRouter();\n\n  return {\n    addListener: () => {},\n    canGoBack: () => true,\n    dispatch: () => {},\n    getParent: () => {},\n    getState: () => {},\n    goBack: () => {\n      router.back();\n    },\n    isFocused: () => {},\n    removeListener: () => {},\n    reset: () => {},\n    setOptions: () => {},\n    setParams: () => {},\n\n    navigate: (screen: string, params?: { [key: string]: any }) => {\n      router.push(screen, { query: params });\n    },\n  };\n}",
   "maxIndentationDepth": 3,
-  "id": "wsRaUwaAXvBNmqov"
+  "id": "gATLUQrmWNMVxWYO"
 }

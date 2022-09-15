@@ -18,8 +18,8 @@ all (node operation)
 - [mdAllOperations](#mdAllOperations)
 - [minifyAllOperations](#minifyAllOperations)
 - [publishAllOperations](#publishAllOperations)
-- [rebuildAllOperations](#rebuildAllOperations)
 - [removeAllFiles](#removeAllFiles)
+- [removeAllFoldersCli](#removeAllFoldersCli)
 - [removeAllFolders](#removeAllFolders)
 - [removeAll](#removeAll)
 - [renameAll](#renameAll)
@@ -34,19 +34,25 @@ all (node operation)
 
 BEWARE! This removes all .d.ts, .js, and .d.ts.map files in your source folder!
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: debug (optional): boolean
 
 ## clearAllTsDatabases
-
-
-
-## Returns: unknown
 
 ## codeAll
 
 opens all files in vscode
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: search: string
 
 ## forAllFiles
 
@@ -54,31 +60,30 @@ executes a command or callback for every file
 
 in commands, $LOCATION is provided as env variable, and command is executed in the dir of the file
 
-## Returns: unknown
+
+
 
 ## forAllFolders
 
 executes a command or callback in every folder of a certain type. Supports git repos and operations now
 
-## Returns: unknown
+
+
 
 ## getAllOperationClassifications
-
-
-
-## Returns: unknown
 
 ## gitShipAllRepos
 
 `gitShipAllPackages` Just ships code everywhere to github, wherever there's a git folder and there are changes.
 
-## Returns: unknown
+
+
 
 ## mdAllOperations
 
+### Parameters (1)
 
-
-## Returns: unknown
+#### Parameter 1: debug (optional): boolean
 
 ## minifyAllOperations
 
@@ -86,31 +91,59 @@ minify all operations everywhere. optionally:
 - enable the shell
 - specify a basepath (tools by default)
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: config (optional): object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| basePath (optional) | object |  |
+| onlyRoot (optional) | boolean |  |
+| shell (optional) | boolean | if you run a command, setting this to true, will make sure the results are shown |
+
+
 
 ## publishAllOperations
 
 Script to publish all packages everywhere (that also runs prepublish). Only src in git, only build in npm.
 
-## Returns: unknown
-
-## rebuildAllOperations
 
 
-
-## Returns: unknown
 
 ## removeAllFiles
 
 removes all files that have an exact match of the location (folders not because we use rm without -rf)
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: search: string
+
+## removeAllFoldersCli
 
 ## removeAllFolders
 
+### Parameters (1)
+
+#### Parameter 1: config: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| basePath  | string |  |
+| folderNames  | array |  |
+| ignore (optional) | object |  |
+| onlyRoot (optional) | boolean |  |
 
 
-## Returns: unknown
 
 ## removeAll
 
@@ -118,13 +151,15 @@ removes all xyz for a folder
 
 make sure to specify which type you want.... folder or file most likely
 
-## Returns: unknown
+
+
 
 ## renameAll
 
 renames all files to a new name (optionally a func, based on the old path)
 
-## Returns: unknown
+
+
 
 ## runScriptEverywhere
 
@@ -132,11 +167,25 @@ runs a package script in all tools operations
 
 NB: uses npm insead of yarn, but for scripts this shouldn't matter
 
-## Returns: unknown
+
+
+
+### Parameters (2)
+
+#### Parameter 1: script: string
+
+#### Parameter 2: startIndex (optional): number
 
 ## setScriptEverywhere
 
 set package.json script to another value in all operations in tools folder
 
-## Returns: unknown
+
+
+
+### Parameters (2)
+
+#### Parameter 1: script: string
+
+#### Parameter 2: value: string
 

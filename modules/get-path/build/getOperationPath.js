@@ -55,17 +55,17 @@ var getOperationPath = function (
  * specify the operation folder name
  */
 operationName, config) { return __awaiter(void 0, void 0, void 0, function () {
-    var operationRelativeOperationPath, projectRoot, basePath, operationPaths, operationPathsWithTheirFolder, foundPath;
+    var projectRelativeOperationPath, projectRoot, basePath, operationPaths, operationPathsWithTheirFolder, foundPath;
     var _a;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 // NB: In case of manualProjectRoot, we should not use the SDK! The sdk is from our own project root.
                 if (!(config === null || config === void 0 ? void 0 : config.notUseSdk) && !(config === null || config === void 0 ? void 0 : config.manualProjectRoot)) {
-                    operationRelativeOperationPath = sdk_operations_1.operations[operationName];
+                    projectRelativeOperationPath = sdk_operations_1.operations[operationName];
                     projectRoot = (0, getProjectRoot_1.getProjectRoot)();
-                    if (operationRelativeOperationPath && projectRoot) {
-                        return [2 /*return*/, fs_util_1.path.join(projectRoot, operationRelativeOperationPath)];
+                    if (projectRelativeOperationPath && projectRoot) {
+                        return [2 /*return*/, fs_util_1.path.join(projectRoot, projectRelativeOperationPath)];
                     }
                 }
                 basePath = (0, getPathsWithOperations_1.getPathsWithOperations)({

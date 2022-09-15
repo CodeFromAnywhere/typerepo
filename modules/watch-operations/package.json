@@ -6,6 +6,9 @@
   "version": "0.0.1",
   "main": "build/index.js",
   "source": "src/index.ts",
+  "bin": {
+    "watch-operations": "./build/cli/watchOperations.cli.js"
+  },
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",

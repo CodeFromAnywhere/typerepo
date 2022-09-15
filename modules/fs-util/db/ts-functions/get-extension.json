@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739817663,
-  "updatedAt": 1662739817663,
+  "createdAt": 1663008896672,
+  "updatedAt": 1663008896672,
   "deletedAt": 0,
-  "createdFirstAt": 1662739817663,
+  "createdFirstAt": 1663008896672,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (fileNameOrPath: string) => {\n  const pieces = fileNameOrPath.split(\".\");\n  return pieces.pop()!;\n}",
   "name": "getExtension",
   "slug": "get-extension",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "fileNameOrPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "returns the extension of the filename or path\n\nNB: not sure, but could be nice to replace this with path.extname(pathString)",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 6,
     "numberOfFiles": 1
   },
-  "id": "hZsqfzPQKAeglDqE"
+  "id": "XBrbtpLhxZPEbANQ"
 }

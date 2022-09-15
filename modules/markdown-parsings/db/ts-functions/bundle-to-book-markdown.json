@@ -1,0 +1,188 @@
+{
+  "createdAt": 1662905682186,
+  "updatedAt": 1662905682186,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905682186,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/bundleToBookMarkdown.ts",
+  "commentsInside": [],
+  "rawText": " async (config: {\n  bundleConfig: BundleConfig;\n  title?: string;\n  coverImagePath?: string;\n  isModulesIncluded?: boolean;\n  manualProjectRoot?: string;\n}) => {\n  const {\n    bundleConfig,\n    coverImagePath,\n    title,\n    isModulesIncluded,\n    manualProjectRoot,\n  } = config;\n\n  const bundleSummary = getBundleSummary(bundleConfig);\n\n  const bundleDocs = bundleConfig.docsRelativeFolderPath;\n\n  const moduleNamesOrNot = isModulesIncluded ? [] : bundleSummary.moduleNames;\n\n  const allOperations = [\n    ...bundleSummary.appNames,\n    ...bundleSummary.packageNames,\n    ...moduleNamesOrNot,\n  ];\n\n  const operationMarkdownParses = (\n    await Promise.all(\n      allOperations.map(async (operationName) => {\n        const markdownParse = (await operationToMarkdown({\n          operationName,\n          manualProjectRoot,\n          mergeDocsInline: true,\n          returnType: \"parse\",\n        })) as MarkdownParse;\n        if (!markdownParse) return;\n\n        return markdownParse;\n      })\n    )\n  ).filter(notEmpty);\n\n  const mergedMarkdown = mergeMarkdownParse(operationMarkdownParses);\n\n  //   getOutline();\n\n  // 1) getOutline\n  // 2) mergeMarkdownParse\n  // 3) add cover + outline + contents together\n}",
+  "name": "bundleToBookMarkdown",
+  "slug": "bundle-to-book-markdown",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "bundleConfig": {
+            "$ref": "#/definitions/BundleConfig"
+          },
+          "title": {
+            "type": "string"
+          },
+          "coverImagePath": {
+            "type": "string"
+          },
+          "isModulesIncluded": {
+            "type": "boolean"
+          },
+          "manualProjectRoot": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "bundleConfig"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "bundleConfig",
+            "required": true,
+            "schema": {
+              "description": "--- dbStorageMethod: jsonSingle\n---",
+              "properties": [
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "description": "Human readable name of the monorepo (A kebab-case version of this will be used as root foldername)",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "description": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "bundles",
+                  "required": true,
+                  "schema": {
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "dependencies",
+                  "required": true,
+                  "schema": {
+                    "description": "Generated, private by default. If they're already here, uses private/public setting as given.\n\nWhen generating, removes the ones that are not dependencies (of dependencies) of your standalone apps",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "foldersFromRepo",
+                  "required": false,
+                  "schema": {
+                    "description": "if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n\ncan be handy if you're working with someone else...",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "gitRepoUrl",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "branchName",
+                  "required": false,
+                  "schema": {
+                    "description": "specify the branch to use of your git repo (defaults to \"main\")",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "title",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "coverImagePath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isModulesIncluded",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Input: BundleConfig (one or more folder(s), readme, operations with a docs folder)\n\nOutput should be all md files concatenated in the right order with the right titles",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1378,
+    "lines": 53,
+    "bytes": 1378,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 53,
+    "numberOfFiles": 1
+  },
+  "id": "CunDzxnrAtOwkFpS"
+}

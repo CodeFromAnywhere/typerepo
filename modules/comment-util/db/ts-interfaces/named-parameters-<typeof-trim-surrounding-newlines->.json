@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662906069857,
+  "updatedAt": 1662906069857,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906069857,
+  "id": "named-parameters-<typeof-trim-surrounding-newlines->",
+  "name": "NamedParameters<typeof trimSurroundingNewlines>",
+  "slug": "named-parameters-<typeof-trim-surrounding-newlines->",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "string": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "string"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "string",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof trimSurroundingNewlines>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

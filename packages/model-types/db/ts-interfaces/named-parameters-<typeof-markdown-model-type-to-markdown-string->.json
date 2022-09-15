@@ -1,0 +1,41 @@
+{
+  "createdAt": 1663009119850,
+  "updatedAt": 1663009119850,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009119850,
+  "id": "named-parameters-<typeof-markdown-model-type-to-markdown-string->",
+  "name": "NamedParameters<typeof markdownModelTypeToMarkdownString>",
+  "slug": "named-parameters-<typeof-markdown-model-type-to-markdown-string->",
+  "operationRelativeTypescriptFilePath": "src/markdown-model-type.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "markdownModelType": {
+          "$ref": "#/definitions/Storing%3CMarkdownModelType%3E"
+        }
+      },
+      "required": [
+        "markdownModelType"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof markdownModelTypeToMarkdownString>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

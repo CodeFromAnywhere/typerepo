@@ -1,0 +1,51 @@
+{
+  "createdAt": 1662904833889,
+  "updatedAt": 1662904833889,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904833889,
+  "id": "named-parameters-<typeof-get-operation-meta-data->",
+  "name": "NamedParameters<typeof getOperationMetaData>",
+  "slug": "named-parameters-<typeof-get-operation-meta-data->",
+  "operationRelativeTypescriptFilePath": "src/getOperationMetaData.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationBasePath": {
+          "type": "string",
+          "description": "any path in an operation"
+        }
+      },
+      "required": [
+        "operationBasePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationBasePath",
+          "required": true,
+          "schema": {
+            "description": "any path in an operation",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOperationMetaData>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

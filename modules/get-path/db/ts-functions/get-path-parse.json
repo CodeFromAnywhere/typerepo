@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739841805,
-  "updatedAt": 1662739841805,
+  "createdAt": 1663018080399,
+  "updatedAt": 1663018080399,
   "deletedAt": 0,
-  "createdFirstAt": 1662739841805,
+  "createdFirstAt": 1663018080399,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (absolutePath: string): PathParse | undefined => {\n  const projectRoot = getProjectRoot(absolutePath);\n  if (!projectRoot) return;\n  const relativePathFromProjectRoot = absolutePath.slice(projectRoot.length);\n  return { relativePathFromProjectRoot };\n}",
   "name": "getPathParse",
   "slug": "get-path-parse",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "absolutePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "gets all kinds of information that can be inferred from any path (file or folder).",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/PathMetaData\").PathParse | undefined",
@@ -66,5 +77,5 @@
     "linesPerFile": 6,
     "numberOfFiles": 1
   },
-  "id": "mcjChRjymEMOTywN"
+  "id": "CYXvsPPflQaTmntP"
 }

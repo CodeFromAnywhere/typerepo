@@ -1,0 +1,54 @@
+{
+  "createdAt": 1663147198637,
+  "updatedAt": 1663147198637,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147198637,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pluralize.ts",
+  "commentsInside": [],
+  "rawText": " (parameterName: string) => {\n  return !isPlural(parameterName);\n}",
+  "name": "isSingular",
+  "slug": "is-singular",
+  "parameters": [
+    {
+      "name": "parameterName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 66,
+    "lines": 3,
+    "bytes": 66,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "toIVfDTJLiRxdcas"
+}

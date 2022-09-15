@@ -1,0 +1,127 @@
+{
+  "createdAt": 1662904466756,
+  "updatedAt": 1662904466756,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904466756,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/db.ts",
+  "comments": [],
+  "name": "db",
+  "slug": "db",
+  "value": "createDb<DbModels>(dbConfig)",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/control-fs/fs-orm/build/types\").Db<import(\"/Users/king/King/operations/tools/generated/sdk-db/build/sdk-db\").DbModels>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "get": {
+          "type": "object",
+          "properties": {}
+        },
+        "getByFile": {
+          "type": "object",
+          "properties": {}
+        },
+        "set": {
+          "type": "object",
+          "properties": {}
+        },
+        "remove": {
+          "type": "object",
+          "properties": {}
+        },
+        "update": {
+          "type": "object",
+          "properties": {}
+        },
+        "clear": {
+          "type": "object",
+          "properties": {}
+        },
+        "upsert": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "get",
+        "getByFile",
+        "set",
+        "remove",
+        "update",
+        "clear",
+        "upsert"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "get",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "getByFile",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "set",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "remove",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "update",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "clear",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "upsert",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "DmeZiyRLxTzBbqTJ"
+}

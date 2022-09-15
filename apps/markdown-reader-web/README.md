@@ -1,14 +1,8 @@
 # Markdown reader web
 
-markdown-reader-web (undefined operation)
+markdown-reader-web (web operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -18,31 +12,41 @@ Imported dependencies:
 - [pathGetStaticProps](#pathGetStaticProps)
 - [pathsGetStaticPaths](#pathsGetStaticPaths)
 
+## Interfaces:
+
+- [GetStaticPathsContext](#GetStaticPathsContext)
+
 
 
 # Functions
 
 ## MyApp
 
-Max. indexation depth: 5, 
-
-
-
-## Returns: unknown
-
 ## pathGetStaticProps
-
-Max. indexation depth: 2, 
-
-
-
-## Returns: unknown
 
 ## pathsGetStaticPaths
 
-Max. indexation depth: 2, 
+### Parameters (1)
+
+#### Parameter 1: context: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| locales (optional) | array |  |
+| defaultLocale (optional) | string |  |
 
 
+# Interfaces
 
-## Returns: unknown
+## GetStaticPathsContext
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| locales (optional) | array |  |
+| defaultLocale (optional) | string |  |
+
 

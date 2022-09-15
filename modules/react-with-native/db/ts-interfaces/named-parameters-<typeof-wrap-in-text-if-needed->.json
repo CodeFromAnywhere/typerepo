@@ -1,0 +1,58 @@
+{
+  "createdAt": 1662907059346,
+  "updatedAt": 1662907059346,
+  "deletedAt": 0,
+  "createdFirstAt": 1662907059346,
+  "id": "named-parameters-<typeof-wrap-in-text-if-needed->",
+  "name": "NamedParameters<typeof wrapInTextIfNeeded>",
+  "slug": "named-parameters-<typeof-wrap-in-text-if-needed->",
+  "operationRelativeTypescriptFilePath": "src/util/util.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "children": {},
+        "textClassName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "children"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "children",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "textClassName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof wrapInTextIfNeeded>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

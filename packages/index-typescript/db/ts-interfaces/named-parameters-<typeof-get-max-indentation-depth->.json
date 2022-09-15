@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662906260799,
+  "updatedAt": 1662906260799,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906260799,
+  "id": "named-parameters-<typeof-get-max-indentation-depth->",
+  "name": "NamedParameters<typeof getMaxIndentationDepth>",
+  "slug": "named-parameters-<typeof-get-max-indentation-depth->",
+  "operationRelativeTypescriptFilePath": "src/getMaxIndexationDepth.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "functionText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "functionText"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "functionText",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getMaxIndentationDepth>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "createdAt": 1663146700046,
+  "updatedAt": 1663146700046,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146700046,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/convention/getDbFileLocation.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  /**\n   * The ModelLocation properties in the item are completely ignored. Only the ID or slug are used to determine the exact file the item should be stored in.\n   */\n  storedItem: Storing<AugmentedAnyModelType>,\n  /**\n   * Should be the modellocation of the actual item. If the operationName is present there, this will take priority over the merged query config.\n   */\n  itemModelLocation: ModelLocation,\n  mergedConfig: MergedQueryConfig,\n  modelName: string\n): Promise<DbFileLocation | undefined> => {\n  if (!mergedConfig.manualProjectRoot) {\n    log(\"No project root\", { type: \"error\" });\n    return;\n  }\n  const operationName =\n    itemModelLocation.operationName || mergedConfig.operationName;\n\n  const rootFolder = await getDatabaseRootFolder(\n    operationName,\n    mergedConfig.manualProjectRoot\n  );\n\n  if (!rootFolder) return;\n\n  const slugOrId: string = storedItem.slug || storedItem.id;\n\n  const pattern = getLocationPattern(\n    mergedConfig.dbStorageMethod,\n    modelName,\n    mergedConfig\n  );\n  if (!pattern) return;\n\n  const absolutePath = path.join(rootFolder, pattern.replace(\"*\", slugOrId));\n  if (!absolutePath) return;\n\n  const operationRelativePath = makeRelative(absolutePath, rootFolder);\n  const projectRelativePath = makeRelative(\n    absolutePath,\n    mergedConfig.manualProjectRoot\n  );\n\n  const dbFileLocation: DbFileLocation = {\n    modelName,\n    absolutePath,\n    operationName: operationName || null,\n    projectRelativePath,\n    operationRelativePath,\n  };\n\n  return dbFileLocation;\n}",
+  "name": "getDbFileLocation",
+  "slug": "get-db-file-location",
+  "parameters": [
+    {
+      "name": "storedItem",
+      "schema": {
+        "$ref": "#/definitions/Storing%3CAugmentedAnyModelType%3E",
+        "description": "The ModelLocation properties in the item are completely ignored. Only the ID or slug are used to determine the exact file the item should be stored in."
+      },
+      "required": true
+    },
+    {
+      "name": "itemModelLocation",
+      "schema": {
+        "$ref": "#/definitions/ModelLocation",
+        "description": "Should be the modellocation of the actual item. If the operationName is present there, this will take priority over the merged query config."
+      },
+      "simplifiedSchema": {
+        "description": "Parameters that tell you about the location an instance of a model. Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.",
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "description": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "mergedConfig",
+      "schema": {
+        "$ref": "#/definitions/MergedQueryConfig"
+      },
+      "required": true
+    },
+    {
+      "name": "modelName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "Applies the convention to get the db-file-location of an item\n\nBased on the merged config:\n\n- if `operationRelativePath` is specified, gets a filePath in the operation\n- if `projectRelativePath` is specified, gets a filepath in the project\n- otherwise gets the pattern and replaces \"*\" with the slug (or id if slug is not available)\n\nBesides the absolute path, the operationName, projectRelativePath and operationRelativePath are also supplied.\n\nNB: currently, the item's `operationName`, `operationRelativePath` or `projectRelativePath` is not taken into account. It will simply look at the convention to see where it should be saved, and apply the MergedQueryConfig...",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/model-types/build/any-model\").DbFileLocation | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 2202,
+    "lines": 64,
+    "bytes": 2202,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 34,
+    "linesPerFile": 64,
+    "numberOfFiles": 1
+  },
+  "id": "QKwUYFUhNCSuHKSF"
+}

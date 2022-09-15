@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662904834838,
+  "updatedAt": 1662904834838,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904834838,
+  "id": "named-parameters-<typeof-recalculate-operation-index-json->",
+  "name": "NamedParameters<typeof recalculateOperationIndexJson>",
+  "slug": "named-parameters-<typeof-recalculate-operation-index-json->",
+  "operationRelativeTypescriptFilePath": "src/recalculateOperationIndexJson.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationBasePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationBasePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationBasePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof recalculateOperationIndexJson>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

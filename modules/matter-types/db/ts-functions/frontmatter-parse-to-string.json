@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720464247,
-  "updatedAt": 1662720464247,
+  "createdAt": 1662905931520,
+  "updatedAt": 1662905931520,
   "deletedAt": 0,
-  "createdFirstAt": 1662720464247,
+  "createdFirstAt": 1662905931520,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,15 @@
   "rawText": " (frontmatter: Frontmatter): string => {\n  const keys = Object.keys(frontmatter);\n\n  const keyValueLines = keys\n    .map((key) => {\n      const value = frontmatter[key];\n      const valueString = getFrontmatterValueString(value);\n\n      if (valueString === null) {\n        return null;\n      }\n\n      const parsedFrontmatterLine = `${key}: ${valueString}`;\n\n      return parsedFrontmatterLine;\n    })\n    .filter(notEmpty);\n\n  return keyValueLines.length === 0\n    ? \"\"\n    : `---\\n${keyValueLines.join(\"\\n\")}\\n---\\n`;\n}",
   "name": "frontmatterParseToString",
   "slug": "frontmatter-parse-to-string",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "frontmatter",
+      "schema": {
+        "$ref": "#/definitions/Frontmatter"
+      },
+      "required": true
+    }
+  ],
   "description": "Parses frontmatter object into a frontmatter string\n- includes a newline at the end\n- string[] becomes a comma separated string\nTODO: maybe parse xxxAt values into human readable dates",
   "returnType": {
     "rawType": "String",
@@ -49,5 +57,5 @@
     "linesPerFile": 25,
     "numberOfFiles": 1
   },
-  "id": "YApjmUTiuLNnCcXx"
+  "id": "ZlTcefbKIUZKLbNj"
 }

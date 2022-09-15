@@ -1,14 +1,8 @@
 # React with native router
 
-react-with-native-router (undefined operation)
+react-with-native-router (ui-es5 operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -75,15 +69,7 @@ const YourPage = () => {
 
 ## useNavigation
 
-Max. indexation depth: 3, 
-
-
-
 ### Returns: object
-
-
-
-
 
 Properties: 
 
@@ -103,11 +89,6 @@ Properties:
 | navigate  | object |  |
 
 
+
 ## useRouter
-
-Max. indexation depth: 5, 
-
-
-
-## Returns: unknown
 

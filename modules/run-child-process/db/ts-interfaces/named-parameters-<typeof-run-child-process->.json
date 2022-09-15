@@ -1,0 +1,101 @@
+{
+  "createdAt": 1662907536716,
+  "updatedAt": 1662907536716,
+  "deletedAt": 0,
+  "createdFirstAt": 1662907536716,
+  "id": "named-parameters-<typeof-run-child-process->",
+  "name": "NamedParameters<typeof runChildProcess>",
+  "slug": "named-parameters-<typeof-run-child-process->",
+  "operationRelativeTypescriptFilePath": "src/runChildProcess.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "{\n  operationFolderName,\n  scriptFileName,\n  args,\n}": {
+          "type": "object",
+          "properties": {
+            "operationFolderName": {
+              "type": "string"
+            },
+            "scriptFileName": {
+              "type": "string",
+              "description": "the location of the script in the build folder NB: this must be a CLI that that actually executes the function!"
+            },
+            "args": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "operationFolderName",
+            "scriptFileName"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "{\n  operationFolderName,\n  scriptFileName,\n  args,\n}"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "{\n  operationFolderName,\n  scriptFileName,\n  args,\n}",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "operationFolderName",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "scriptFileName",
+                "required": true,
+                "schema": {
+                  "description": "the location of the script in the build folder NB: this must be a CLI that that actually executes the function!",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "args",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof runChildProcess>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

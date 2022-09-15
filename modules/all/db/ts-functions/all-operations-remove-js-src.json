@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726764364,
-  "updatedAt": 1662726764364,
+  "createdAt": 1662904420999,
+  "updatedAt": 1662904420999,
   "deletedAt": 0,
-  "createdFirstAt": 1662726764364,
+  "createdFirstAt": 1662904420999,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " async (debug?: boolean) => {\n  await forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    command: \"[ -d \\\"src\\\" ] && find src -name '*.d.ts' -delete || echo 'hoi'\",\n    shell: true,\n  });\n\n  await forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    command: \"[ -d \\\"src\\\" ] && find src -name '*.js' -delete || echo 'hoi'\",\n    shell: true,\n  });\n\n  await forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    command:\n      \"[ -d \\\"src\\\" ] && find src -name '*.d.ts.map' -delete || echo 'hoi'\",\n    shell: true,\n  });\n}",
   "name": "allOperationsRemoveJsSrc",
   "slug": "all-operations-remove-js-src",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "debug",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
   "description": "BEWARE! This removes all .d.ts, .js, and .d.ts.map files in your source folder!",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "EOyRGhsEqXhkvJWo"
+  "id": "JhZbAkjEWsPgigGS"
 }

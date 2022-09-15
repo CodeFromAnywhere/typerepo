@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720757347,
-  "updatedAt": 1662720757347,
+  "createdAt": 1662906177337,
+  "updatedAt": 1662906177337,
   "deletedAt": 0,
-  "createdFirstAt": 1662720757347,
+  "createdFirstAt": 1662906177337,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (moduleString: string) =>\n  !moduleString.startsWith(\".\")",
   "name": "isAbsoluteImport",
   "slug": "is-absolute-import",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "moduleString",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "if it doesn't start with a dot it must be an absolute import so most likely a package that needs to be installed",
   "returnType": {
     "rawType": "{}",
@@ -39,5 +50,5 @@
     "linesPerFile": 2,
     "numberOfFiles": 1
   },
-  "id": "PIPaLazovXAiAGLV"
+  "id": "HkZExlijwbjzrdni"
 }

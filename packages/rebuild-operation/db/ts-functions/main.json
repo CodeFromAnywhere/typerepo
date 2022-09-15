@@ -1,0 +1,36 @@
+{
+  "createdAt": 1663018117465,
+  "updatedAt": 1663018117465,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018117465,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/cli/rebuildOperation.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const operationNames = process.argv.slice(2);\n\n  if (operationNames.length > 0) {\n    oneByOne(operationNames, async (operationName) => {\n      const operationBasePath = await getOperationPath(operationName);\n      if (!operationBasePath) {\n        log(\"couldn't find that operation\");\n        return;\n      }\n\n      // console.log({ operationNames, operationName });\n\n      const x = await rebuildOperation({\n        operationBasePath,\n        force: true,\n        debug: true,\n        noExit: true,\n      });\n    });\n  }\n}",
+  "name": "main",
+  "slug": "main",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 541,
+    "lines": 22,
+    "bytes": 541,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 22,
+    "numberOfFiles": 1
+  },
+  "id": "QrnuNJvUngspavXK"
+}

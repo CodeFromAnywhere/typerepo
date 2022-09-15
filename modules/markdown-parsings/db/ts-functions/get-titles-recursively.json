@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720261030,
-  "updatedAt": 1662720261030,
+  "createdAt": 1662905695556,
+  "updatedAt": 1662905695556,
   "deletedAt": 0,
-  "createdFirstAt": 1662720261030,
+  "createdFirstAt": 1662905695556,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,53 @@
   "rawText": " (chunk: MarkdownChunk) => {\n  const childrenTitles: NestedTitle[] | undefined =\n    chunk.children?.map(getTitlesRecursively);\n\n  const returnStatement: NestedTitle[] = [];\n\n  if (chunk.title) returnStatement.push(chunk.title);\n  if (childrenTitles?.length) returnStatement.push(childrenTitles);\n\n  return returnStatement;\n}",
   "name": "getTitlesRecursively",
   "slug": "get-titles-recursively",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "chunk",
+      "schema": {
+        "$ref": "#/definitions/MarkdownChunk"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "content",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "required": false,
+            "schema": {
+              "description": "NB: title can also be an empty string (\"\")",
+              "type": "string"
+            }
+          },
+          {
+            "name": "children",
+            "required": false,
+            "schema": {
+              "description": "all content until the next title. it's either a content array if there's any titles found, or a string[] if it's paragraphs",
+              "items": [
+                {
+                  "schema": {
+                    "circularRefName": "MarkdownChunk",
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": "MarkdownChunk"
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "helper function to get a nested array of the titles and its subtitles",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/markdown-parsings/src/parsing/outline\").NestedTitle[]",
@@ -32,5 +78,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "ojNLpGezxXApFIxx"
+  "id": "EtYsnsgGJDFIHlqa"
 }

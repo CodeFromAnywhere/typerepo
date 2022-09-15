@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726769683,
-  "updatedAt": 1662726769683,
+  "createdAt": 1662904432934,
+  "updatedAt": 1662904432934,
   "deletedAt": 0,
-  "createdFirstAt": 1662726769683,
+  "createdFirstAt": 1662904432934,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " async (debug?: boolean) => {\n  forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    callback: async (folderPath, index) => {\n      const operationName = getLastFolder(folderPath);\n      log(`#${index}: README for ${operationName}`, { type: \"success\" });\n      await operationToMarkdown({ operationName, mergeDocsInline: true });\n      return;\n    },\n  });\n}",
   "name": "mdAllOperations",
   "slug": "md-all-operations",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "debug",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "WbwWHeumRDmpWtqH"
+  "id": "sBBjpeEjLUIqsVvs"
 }

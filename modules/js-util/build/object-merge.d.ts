@@ -10,8 +10,10 @@ export declare const mergeObjectParameters: <T>(config: T | undefined, defaults:
  * merges multiple objects, overwriting the previous one with the next. Can be useful for configs where there are multiple layers of configs that overwrite each other.
  *
  * Please note though, that only the root keys of the object are overwriting each other, so if there is nested datastructures, the last one with a specific key overwrites the previous ones copletely
+ *
+ * Please note that you can provide partial objects as well, as long as you are sure that the final object is full, the type interface is correct.
  */
 export declare const mergeObjects: <T extends {
     [key: string]: any;
-}>(...objects: (T | undefined)[]) => T | undefined;
+}>(...objects: (Partial<T> | undefined)[]) => T | undefined;
 //# sourceMappingURL=object-merge.d.ts.map

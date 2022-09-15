@@ -1,17 +1,102 @@
 {
-  "createdAt": 1662735932600,
-  "updatedAt": 1662735932600,
+  "createdAt": 1662905691979,
+  "updatedAt": 1662905691979,
   "deletedAt": 0,
-  "createdFirstAt": 1662735932600,
+  "createdFirstAt": 1662905691979,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "operationRelativeTypescriptFilePath": "src/operationToMarkdown.ts",
   "commentsInside": [],
-  "rawText": " async (config: {\n  operationName: string;\n  manualProjectRoot?: string;\n  /**\n   * if true, just returns the outline of the operation (function + interface names, size, deps)\n   */\n  isSummary?: boolean;\n  /**\n   * if true, it will merge all docs into the readme, not linking to them (by default, docs will be linked to)\n   */\n  mergeDocsInline?: boolean;\n  /**\n   * save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n   *\n   * string: returns the full markdown string\n   *\n   * parse: returns the markdownparse\n   */\n  returnType?: \"parse\" | \"string\" | \"save\";\n}): Promise<string | MarkdownParse | undefined> => {\n  const {\n    isSummary,\n    manualProjectRoot,\n    operationName,\n    mergeDocsInline,\n    returnType,\n  } = config;\n\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) {\n    log(\"Projectroot not found\", { type: \"error\" });\n    return;\n  }\n\n  const operationFolderPath = await getOperationPath(operationName, {\n    manualProjectRoot: projectRoot,\n  });\n\n  if (!operationFolderPath) {\n    log(\"Operation not found\", { type: \"error\" });\n    return;\n  }\n\n  /**    \n  operation info\n  */\n\n  const packageJson = await getPackageJson({ operationFolderPath });\n  const description = packageJson?.description;\n\n  const operationIndexPath = path.join(\n    operationFolderPath,\n    databaseFolderName,\n    \"operation-index.json\"\n  );\n  const operationIndex = await readJsonFile<OperationIndex>(operationIndexPath);\n\n  const sizeString = `Size: ${operationIndex?.size?.codeSize?.lines} LOC, ${\n    operationIndex?.size?.dataSize?.characters !== undefined\n      ? `${operationIndex?.size?.dataSize?.characters} data characters, `\n      : \"\"\n  }${\n    operationIndex?.size?.textSize?.characters !== undefined\n      ? `${operationIndex?.size?.textSize?.characters} text characters, `\n      : \"\"\n  }`;\n\n  /**\n  - packagejson description\n  - size (code, data, text (lines / characters))\n  - dependencies: core, operation, package\n  - links to docs or inline docs\n   */\n\n  const coreDependencies =\n    operationIndex &&\n    operationIndex.coreDependencies &&\n    operationIndex.coreDependencies.length > 0\n      ? operationIndex.coreDependencies.join(\", \")\n      : \"none\";\n  const operationDependencies =\n    operationIndex &&\n    operationIndex.operationDependencies &&\n    operationIndex.operationDependencies.length > 0\n      ? operationIndex.operationDependencies.join(\", \")\n      : \"none\";\n  const packageDependencies =\n    operationIndex &&\n    operationIndex.packageDependencies &&\n    operationIndex.packageDependencies.length > 0\n      ? operationIndex.packageDependencies.join(\", \")\n      : \"none\";\n\n  const operationInfoMd = `${operationName} (${\n    operationIndex?.classification\n  } operation)\n\n${description ? `${description}\\n\\n` : \"\"}`;\n\n  /*\n\nTODO: Maybe put back optionally, but for readme NO\n\n${sizeString}\n \nImported dependencies:\n\n- From Core Libraries: ${coreDependencies}\n- From Packages: ${packageDependencies}\n- From Operations: ${operationDependencies}\n\n*/\n\n  const operationInfoMarkdownParse = mdToJsonParse(\n    operationInfoMd,\n    operationName\n  );\n\n  const docsPath = path.join(operationFolderPath, \"docs\");\n  const hasDocs = fs.existsSync(docsPath);\n  const docs = hasDocs\n    ? await bundleFolderWithMarkdown(docsPath, \"docs\")\n    : undefined;\n\n  const docsMarkdownParse = docs?.markdownParse;\n\n  const docsOutline = docs?.outline || \"\";\n\n  /**\n   * Functions\n   */\n  const tsFunctions = (await db.get(\"TsFunction\", { operationName })).filter(\n    onlyUnique2<TsFunction>((a, b) => a.name === b.name)\n  );\n\n  const functionsMarkdownString =\n    tsFunctions.length > 0\n      ? tsFunctions.map(tsFunctionToMarkdownString).join(\"\\n\\n\")\n      : undefined;\n\n  const functionsMarkdownParse: MarkdownParse | undefined =\n    functionsMarkdownString\n      ? mdToJsonParse(functionsMarkdownString, \"functions\")\n      : undefined;\n\n  const functionsOutline =\n    tsFunctions.length > 0\n      ? `## Functions\\n\\n${tsFunctions\n          .map((tsFunction) => `- [${tsFunction.name}](#${tsFunction.name})`)\n          .join(\"\\n\")}\\n\\n`\n      : \"\";\n\n  /**\n   * Models\n   */\n  const models = (await db.get(\"TsInterface\", { operationName })).filter(\n    (x) => x.isDbModel\n  );\n\n  const modelsMarkdownString =\n    models.length > 0\n      ? models.map(tsInterfaceToMarkdownString).join(\"\\n\\n\")\n      : undefined;\n\n  const modelsMarkdownParse: MarkdownParse | undefined = modelsMarkdownString\n    ? mdToJsonParse(modelsMarkdownString, \"models\")\n    : undefined;\n\n  const modelsOutline =\n    models.length > 0\n      ? `## Models:\\n\\n${models\n          .map((model) => `- [${model.name}](#${model.name})`)\n          .join(\"\\n\")}\\n\\n`\n      : \"\";\n\n  const completeOutlineMarkdownParse = mdToJsonParse(\n    `${docsOutline}${functionsOutline}${modelsOutline}`,\n    \"outline\"\n  );\n\n  const merged = mergeMarkdownParse(\n    [\n      operationInfoMarkdownParse,\n      completeOutlineMarkdownParse,\n      docsMarkdownParse,\n      functionsMarkdownParse,\n      modelsMarkdownParse,\n    ].filter(notEmpty)\n  );\n\n  let returnString: string | undefined = undefined;\n  if (returnType !== \"parse\") {\n    returnString = markdownParseToMarkdownString(merged);\n  }\n\n  const shouldSave = returnType === \"save\" || !returnType;\n  if (shouldSave && returnString) {\n    await fs.writeFile(\n      path.join(operationFolderPath, \"README.md\"),\n      returnString,\n      \"utf8\"\n    );\n  }\n\n  return returnType === \"parse\"\n    ? merged\n    : returnType === \"string\"\n    ? returnString\n    : undefined;\n}",
+  "rawText": " async (config: {\n  operationName: string;\n  manualProjectRoot?: string;\n  /**\n   * if true, just returns the outline of the operation (function + interface names, size, deps)\n   */\n  isSummary?: boolean;\n  /**\n   * if true, it will merge all docs into the readme, not linking to them (by default, docs will be linked to)\n   */\n  mergeDocsInline?: boolean;\n  /**\n   * save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n   *\n   * string: returns the full markdown string\n   *\n   * parse: returns the markdownparse\n   */\n  returnType?: \"parse\" | \"string\" | \"save\";\n}): Promise<string | MarkdownParse | undefined> => {\n  const {\n    isSummary,\n    manualProjectRoot,\n    operationName,\n    mergeDocsInline,\n    returnType,\n  } = config;\n\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) {\n    log(\"Projectroot not found\", { type: \"error\" });\n    return;\n  }\n\n  const operationFolderPath = await getOperationPath(operationName, {\n    manualProjectRoot: projectRoot,\n  });\n\n  if (!operationFolderPath) {\n    log(\"Operation not found\", { type: \"error\" });\n    return;\n  }\n\n  /**    \n  operation info\n  */\n\n  const packageJson = await getPackageJson({ operationFolderPath });\n  const description = packageJson?.description;\n\n  const operationIndexPath = path.join(\n    operationFolderPath,\n    databaseFolderName,\n    \"operation-index.json\"\n  );\n  const operationIndex = await readJsonFile<OperationIndex>(operationIndexPath);\n\n  const sizeString = `Size: ${operationIndex?.size?.codeSize?.lines} LOC, ${\n    operationIndex?.size?.dataSize?.characters !== undefined\n      ? `${operationIndex?.size?.dataSize?.characters} data characters, `\n      : \"\"\n  }${\n    operationIndex?.size?.textSize?.characters !== undefined\n      ? `${operationIndex?.size?.textSize?.characters} text characters, `\n      : \"\"\n  }`;\n\n  /**\n  - packagejson description\n  - size (code, data, text (lines / characters))\n  - dependencies: core, operation, package\n  - links to docs or inline docs\n   */\n\n  const coreDependencies =\n    operationIndex &&\n    operationIndex.coreDependencies &&\n    operationIndex.coreDependencies.length > 0\n      ? operationIndex.coreDependencies.join(\", \")\n      : \"none\";\n  const operationDependencies =\n    operationIndex &&\n    operationIndex.operationDependencies &&\n    operationIndex.operationDependencies.length > 0\n      ? operationIndex.operationDependencies.join(\", \")\n      : \"none\";\n  const packageDependencies =\n    operationIndex &&\n    operationIndex.packageDependencies &&\n    operationIndex.packageDependencies.length > 0\n      ? operationIndex.packageDependencies.join(\", \")\n      : \"none\";\n\n  const operationInfoMd = `${operationName} (${\n    operationIndex?.classification\n  } operation)\n\n${description ? `${description}\\n\\n` : \"\"}`;\n\n  /*\n\nTODO: Maybe put back optionally, but for readme NO\n\n${sizeString}\n \nImported dependencies:\n\n- From Core Libraries: ${coreDependencies}\n- From Packages: ${packageDependencies}\n- From Operations: ${operationDependencies}\n\n*/\n\n  const operationInfoMarkdownParse = mdToJsonParse(\n    operationInfoMd,\n    operationName\n  );\n\n  const docsPath = path.join(operationFolderPath, \"docs\");\n  const hasDocs = fs.existsSync(docsPath);\n  const docs = hasDocs\n    ? await bundleFolderWithMarkdown(docsPath, \"docs\")\n    : undefined;\n\n  const docsMarkdownParse = docs?.markdownParse;\n\n  const docsOutline = docs?.outline || \"\";\n\n  /**\n   * Functions\n   */\n  const { functionsMarkdownParse, functionsOutline } = await getFunctionsInfo(\n    operationName\n  );\n\n  /**\n   * Models+interfaces\n   */\n  const models = (await db.get(\"TsInterface\", { operationName })).filter(\n    (x) => x.isDbModel\n  );\n\n  const interfaces = (await db.get(\"TsInterface\", { operationName })).filter(\n    (x) => !x.isDbModel && !x.name.startsWith(\"NamedParameters<\")\n  );\n\n  const modelsMarkdownString =\n    models.length > 0\n      ? models.map(tsInterfaceToMarkdownString).join(\"\\n\\n\")\n      : undefined;\n  const interfacesMarkdownString =\n    interfaces.length > 0\n      ? interfaces.map(tsInterfaceToMarkdownString).join(\"\\n\\n\")\n      : undefined;\n\n  const modelsMarkdownParse: MarkdownParse | undefined = modelsMarkdownString\n    ? mdToJsonParse(modelsMarkdownString, \"models\")\n    : undefined;\n  const interfacesMarkdownParse: MarkdownParse | undefined =\n    interfacesMarkdownString\n      ? mdToJsonParse(interfacesMarkdownString, \"interfaces\")\n      : undefined;\n\n  const modelsOutline =\n    models.length > 0\n      ? `## Models:\\n\\n${models\n          .map((model) => `- [${model.name}](#${model.name})`)\n          .join(\"\\n\")}\\n\\n`\n      : \"\";\n\n  const interfacesOutline =\n    interfaces.length > 0\n      ? `## Interfaces:\\n\\n${interfaces\n          .map((tsInterface) => `- [${tsInterface.name}](#${tsInterface.name})`)\n          .join(\"\\n\")}\\n\\n`\n      : \"\";\n\n  const completeOutlineMarkdownParse = mdToJsonParse(\n    `${docsOutline}${functionsOutline}${modelsOutline}${interfacesOutline}`,\n    \"outline\"\n  );\n\n  const merged = mergeMarkdownParse(\n    [\n      operationInfoMarkdownParse,\n      completeOutlineMarkdownParse,\n      docsMarkdownParse,\n      functionsMarkdownParse,\n      modelsMarkdownParse,\n      interfacesMarkdownParse,\n    ].filter(notEmpty)\n  );\n\n  let returnString: string | undefined = undefined;\n  if (returnType !== \"parse\") {\n    returnString = markdownParseToMarkdownString(merged);\n  }\n\n  const shouldSave = returnType === \"save\" || !returnType;\n  if (shouldSave && returnString) {\n    await fs.writeFile(\n      path.join(operationFolderPath, \"README.md\"),\n      returnString,\n      \"utf8\"\n    );\n  }\n\n  return returnType === \"parse\"\n    ? merged\n    : returnType === \"string\"\n    ? returnString\n    : undefined;\n}",
   "name": "operationToMarkdown",
   "slug": "operation-to-markdown",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "operationName": {
+            "type": "string"
+          },
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "isSummary": {
+            "type": "boolean",
+            "description": "if true, just returns the outline of the operation (function + interface names, size, deps)"
+          },
+          "mergeDocsInline": {
+            "type": "boolean",
+            "description": "if true, it will merge all docs into the readme, not linking to them (by default, docs will be linked to)"
+          },
+          "returnType": {
+            "type": "string",
+            "enum": [
+              "parse",
+              "string",
+              "save"
+            ],
+            "description": "save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n\nstring: returns the full markdown string\n\nparse: returns the markdownparse"
+          }
+        },
+        "required": [
+          "operationName"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isSummary",
+            "required": false,
+            "schema": {
+              "description": "if true, just returns the outline of the operation (function + interface names, size, deps)",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "mergeDocsInline",
+            "required": false,
+            "schema": {
+              "description": "if true, it will merge all docs into the readme, not linking to them (by default, docs will be linked to)",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "returnType",
+            "required": false,
+            "schema": {
+              "description": "save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n\nstring: returns the full markdown string\n\nparse: returns the markdownparse",
+              "enum": [
+                "parse",
+                "string",
+                "save"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "converts an operation and all its contents into a flat markdown file that contains the needed information. configurable.\n\nmarkdown for reading (so there are no links)",
   "returnType": {
     "rawType": "Promise<string | import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse | undefined>",
@@ -24,13 +109,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 5734,
-    "lines": 212,
-    "bytes": 5734,
+    "characters": 5914,
+    "lines": 215,
+    "bytes": 5914,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 212,
+    "charactersPerLine": 28,
+    "linesPerFile": 215,
     "numberOfFiles": 1
   },
-  "id": "LGOpFYWzHDlDETAP"
+  "id": "DMyWhOoHvGTYMAuW"
 }

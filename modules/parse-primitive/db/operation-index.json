@@ -1,12 +1,12 @@
 {
   "createdAt": 1662720281181,
-  "updatedAt": 1662720281180,
+  "updatedAt": 1662905719655,
   "deletedAt": 0,
   "createdFirstAt": 1662720281181,
   "folderName": "parse-primitive",
   "packageName": "parse-primitive",
   "relativeOperationLocationPath": "operations/tools/parsing",
-  "classification": "node",
+  "classification": "js",
   "name": "parse-primitive",
   "slug": "parse-primitive",
   "coreDependencies": [],
@@ -21,24 +21,24 @@
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 65,
-      "characters": 1364,
-      "bytes": 1364
+      "lines": 64,
+      "characters": 1334,
+      "bytes": 1334
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 37,
-      "characters": 370,
-      "bytes": 370
+      "lines": 25,
+      "characters": 259,
+      "bytes": 259
     },
     "size": {
-      "bytes": 2381,
-      "characters": 2381,
-      "lines": 122,
+      "bytes": 2240,
+      "characters": 2240,
+      "lines": 109,
       "numberOfFiles": 4
     }
   },
-  "buildSucceeded": false,
+  "buildSucceeded": true,
   "dependenciesBuildsFailed": false,
   "indexErrors": [],
   "indexImportExportError": "",

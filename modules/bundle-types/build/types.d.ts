@@ -64,26 +64,6 @@ export interface FrontBackBundle {
     endpointsAuthToken?: string;
 }
 /**
- * configuration that can be applied when generating a new bundle
- */
-export declare type GenerateBundleConfig = {
-    /** skips the step where it gets the new stuff from github */
-    skipPull?: boolean;
-    /** skips the step where it pushes the new bundle to remote */
-    skipPush?: boolean;
-    /** skips the step where it saves to the db */
-    skipUpsert?: boolean;
-    /** descriptioin for git commit, if pushing. Default is "monorepo update" */
-    description?: string;
-    /** normally, the informationStrategy is taken from BundleConfig (if present). Can be overwritten with this setting */
-    informationStrategy?: InformationStrategy;
-    debug?: boolean;
-    /**
-     * optionally, specify a custom branch name to pull from
-     */
-    branchName?: string;
-};
-/**
  * push (default): take needed information from project and push to bundle (removing the existing info)
  *
  * pullReplace: pull bundle and keep its information intact, not taking anything new from the OS, replacing all the information we had from these models in the OS

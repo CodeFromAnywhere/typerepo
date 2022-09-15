@@ -1,6 +1,6 @@
 {
   "createdAt": 1662726298599,
-  "updatedAt": 1662889340887,
+  "updatedAt": 1662924107360,
   "deletedAt": 0,
   "createdFirstAt": 1662726298599,
   "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/ui/markdown-reader/markdown-reader-ui/src/types.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\"]",
@@ -10,12 +10,14 @@
   "lintProblems": [],
   "folderName": "markdown-reader-ui",
   "packageName": "markdown-reader-ui",
-  "relativeOperationLocationPath": "packages",
+  "relativeOperationLocationPath": "operations/tools/ui/markdown-reader",
   "classification": "ui-es6",
   "name": "markdown-reader-ui",
   "slug": "markdown-reader-ui",
   "coreDependencies": [],
   "operationDependencies": [
+    "MarkdownReaderPage",
+    "MarkdownFile",
     "Div",
     "Span",
     "NestedMenu",
@@ -36,9 +38,9 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 4,
-      "lines": 120,
-      "characters": 3306,
-      "bytes": 3306
+      "lines": 125,
+      "characters": 3508,
+      "bytes": 3508
     },
     "dataSize": {
       "numberOfFiles": 2,
@@ -47,16 +49,16 @@
       "bytes": 1925
     },
     "textSize": {
-      "numberOfFiles": 2,
-      "lines": 126,
-      "characters": 4079,
-      "bytes": 4079
+      "numberOfFiles": 6,
+      "lines": 161,
+      "characters": 4846,
+      "bytes": 4846
     },
     "size": {
-      "bytes": 9310,
-      "characters": 9310,
-      "lines": 327,
-      "numberOfFiles": 8
+      "bytes": 10279,
+      "characters": 10279,
+      "lines": 367,
+      "numberOfFiles": 12
     }
   }
 }

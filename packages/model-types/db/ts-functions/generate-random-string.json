@@ -1,0 +1,64 @@
+{
+  "createdAt": 1663009116978,
+  "updatedAt": 1663009116978,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009116978,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/id.ts",
+  "commentsInside": [],
+  "rawText": " (length: number) => {\n  const characters = \"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ\";\n  const characterArray = \"x\".repeat(length).split(\"\");\n\n  const string: Id = characterArray\n    .map(() => {\n      const randomIndex = Math.floor(Math.random() * characters.length); //0-63 --> index for above\n      const character = characters.charAt(randomIndex);\n      return character;\n    })\n    .join(\"\");\n\n  return string;\n}",
+  "name": "generateRandomString",
+  "slug": "generate-random-string",
+  "parameters": [
+    {
+      "name": "length",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 430,
+    "lines": 14,
+    "bytes": 430,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "AFhzIvcQGqLOIOHa"
+}

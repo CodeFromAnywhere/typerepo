@@ -1,6 +1,6 @@
 {
   "createdAt": 1662718941300,
-  "updatedAt": 1662718941299,
+  "updatedAt": 1662923975776,
   "deletedAt": 0,
   "createdFirstAt": 1662718941300,
   "folderName": "read-markdown-file",
@@ -16,36 +16,42 @@
     "path",
     "Path",
     "MarkdownParse",
-    "mdToJsonParse"
+    "mdToJsonParse",
+    "MarkdownFile",
+    "getLastFolder",
+    "findOperationBasePath",
+    "getProjectRoot",
+    "makeRelative",
+    "ModelLocation"
   ],
   "packageDependencies": [],
   "size": {
     "codeSize": {
-      "numberOfFiles": 1,
-      "lines": 26,
-      "characters": 809,
-      "bytes": 809
+      "numberOfFiles": 2,
+      "lines": 95,
+      "characters": 3108,
+      "bytes": 3108
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 69,
-      "characters": 1457,
-      "bytes": 1457
+      "lines": 70,
+      "characters": 1482,
+      "bytes": 1482
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 31,
-      "characters": 372,
-      "bytes": 372
+      "lines": 57,
+      "characters": 914,
+      "bytes": 914
     },
     "size": {
-      "bytes": 2638,
-      "characters": 2638,
-      "lines": 126,
-      "numberOfFiles": 4
+      "bytes": 5504,
+      "characters": 5504,
+      "lines": 222,
+      "numberOfFiles": 5
     }
   },
-  "buildSucceeded": false,
+  "buildSucceeded": true,
   "dependenciesBuildsFailed": false,
   "indexErrors": [],
   "indexImportExportError": "",

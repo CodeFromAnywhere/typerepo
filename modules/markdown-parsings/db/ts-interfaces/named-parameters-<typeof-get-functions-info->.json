@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662905690241,
+  "updatedAt": 1662905690241,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905690241,
+  "id": "named-parameters-<typeof-get-functions-info->",
+  "name": "NamedParameters<typeof getFunctionsInfo>",
+  "slug": "named-parameters-<typeof-get-functions-info->",
+  "operationRelativeTypescriptFilePath": "src/getFunctionsInfo.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getFunctionsInfo>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

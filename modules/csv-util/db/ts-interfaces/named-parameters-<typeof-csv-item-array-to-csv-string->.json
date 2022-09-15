@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662905562723,
+  "updatedAt": 1662905562723,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905562723,
+  "id": "named-parameters-<typeof-csv-item-array-to-csv-string->",
+  "name": "NamedParameters<typeof csvItemArrayToCsvString>",
+  "slug": "named-parameters-<typeof-csv-item-array-to-csv-string->",
+  "operationRelativeTypescriptFilePath": "src/csvItemArrayToCsvString.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "required": [
+        "csvModelData"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof csvItemArrayToCsvString>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

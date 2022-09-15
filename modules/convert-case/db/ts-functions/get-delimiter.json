@@ -1,17 +1,36 @@
 {
-  "createdAt": 1662719521902,
-  "updatedAt": 1662719521902,
+  "createdAt": 1663147103453,
+  "updatedAt": 1663147103453,
   "deletedAt": 0,
-  "createdFirstAt": 1662719521902,
+  "createdFirstAt": 1663147103453,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
-  "isExported": false,
+  "isExported": true,
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
   "rawText": " (target: Casing) => {\n  if (target === \"capital\") return \"_\";\n  if (target === \"human\") return \" \";\n  if (target === \"kebab\") return \"-\";\n  if (target === \"snake\") return \"_\";\n  return \"\";\n}",
   "name": "getDelimiter",
   "slug": "get-delimiter",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "target",
+      "schema": {
+        "$ref": "#/definitions/Casing"
+      },
+      "simplifiedSchema": {
+        "enum": [
+          "camel",
+          "pascal",
+          "snake",
+          "kebab",
+          "capital",
+          "human"
+        ],
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "\"_\" | \" \" | \"-\" | \"\"",
@@ -57,5 +76,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "CXnrHArjTjEuGRbv"
+  "id": "ntkHyCTbXTGPqERI"
 }

@@ -1,0 +1,97 @@
+{
+  "createdAt": 1663018126594,
+  "updatedAt": 1663018126594,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018126594,
+  "id": "named-parameters-<typeof-should-skip->",
+  "name": "NamedParameters<typeof shouldSkip>",
+  "slug": "named-parameters-<typeof-should-skip->",
+  "operationRelativeTypescriptFilePath": "src/shouldSkip.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "operationBasePath": {
+              "type": "string"
+            },
+            "debug": {
+              "type": "boolean"
+            },
+            "force": {
+              "type": "boolean"
+            },
+            "rebuildUpdatedAt": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "operationBasePath"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "config"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "operationBasePath",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "debug",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "force",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "rebuildUpdatedAt",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof shouldSkip>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

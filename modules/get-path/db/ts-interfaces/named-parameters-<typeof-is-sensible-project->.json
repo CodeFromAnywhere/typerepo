@@ -1,0 +1,46 @@
+{
+  "createdAt": 1663018085437,
+  "updatedAt": 1663018085437,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018085437,
+  "id": "named-parameters-<typeof-is-sensible-project->",
+  "name": "NamedParameters<typeof isSensibleProject>",
+  "slug": "named-parameters-<typeof-is-sensible-project->",
+  "operationRelativeTypescriptFilePath": "src/isSensibleProject.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "folderPath": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "folderPath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isSensibleProject>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

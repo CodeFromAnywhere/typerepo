@@ -1,0 +1,60 @@
+{
+  "createdAt": 1663009414557,
+  "updatedAt": 1663009414557,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009414557,
+  "id": "named-parameters-<typeof-render-markdown-title->",
+  "name": "NamedParameters<typeof renderMarkdownTitle>",
+  "slug": "named-parameters-<typeof-render-markdown-title->",
+  "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "level": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "title",
+        "level"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "title",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "level",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof renderMarkdownTitle>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662923972391,
+  "updatedAt": 1662923972391,
+  "deletedAt": 0,
+  "createdFirstAt": 1662923972391,
+  "id": "named-parameters-<typeof-read-markdown-file-to-model->",
+  "name": "NamedParameters<typeof readMarkdownFileToModel>",
+  "slug": "named-parameters-<typeof-read-markdown-file-to-model->",
+  "operationRelativeTypescriptFilePath": "src/readMarkdownFileToModel.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absoluteFilePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absoluteFilePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absoluteFilePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof readMarkdownFileToModel>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

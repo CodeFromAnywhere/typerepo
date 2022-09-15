@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662907058475,
+  "updatedAt": 1662907058475,
+  "deletedAt": 0,
+  "createdFirstAt": 1662907058475,
+  "id": "named-parameters-<typeof-trim-class-name->",
+  "name": "NamedParameters<typeof trimClassName>",
+  "slug": "named-parameters-<typeof-trim-class-name->",
+  "operationRelativeTypescriptFilePath": "src/util/trimClassName.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "className": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "className"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "className",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof trimClassName>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

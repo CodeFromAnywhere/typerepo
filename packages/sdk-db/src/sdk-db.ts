@@ -1,6 +1,5 @@
 // THIS FILE HAS BEEN GENERATED
 
-import type { BundleConfig } from "bundle-types";
 import type { MarkdownFileConfig } from "code-types";
 import type { OperationConfig } from "code-types";
 import type { OperationIndex } from "code-types";
@@ -16,17 +15,14 @@ import type { TsLintWarning } from "code-types";
 import type { TsVariable } from "code-types";
 import type { CsvModelType } from "model-types";
 import type { SlugModelType } from "model-types";
+import type { BundleConfig } from "bundle-types";
 
 
-export type DbModels = { BundleConfig: BundleConfig,MarkdownFileConfig: MarkdownFileConfig,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,CsvModelType: CsvModelType,SlugModelType: SlugModelType };
-export const dbModelKeys = [ "BundleConfig","MarkdownFileConfig","OperationConfig","OperationIndex","PackageJson","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","CsvModelType","SlugModelType" ] as const;
+export type DbModels = { MarkdownFileConfig: MarkdownFileConfig,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,CsvModelType: CsvModelType,SlugModelType: SlugModelType,BundleConfig: BundleConfig };
+export const dbModelKeys = [ "MarkdownFileConfig","OperationConfig","OperationIndex","PackageJson","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","CsvModelType","SlugModelType","BundleConfig" ] as const;
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
-    BundleConfig: {
-          dbStorageMethod: "jsonSingle",
-          
-        },
-MarkdownFileConfig: {
+    MarkdownFileConfig: {
           dbStorageMethod: "markdown",
           
         },
@@ -84,6 +80,10 @@ CsvModelType: {
         },
 SlugModelType: {
           dbStorageMethod: "jsonMultiple",
+          
+        },
+BundleConfig: {
+          dbStorageMethod: "jsonSingle",
           
         }
   };

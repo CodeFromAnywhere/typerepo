@@ -2,13 +2,7 @@
 
 path-util (js operation)
 
-Size: 302 LOC, 1499 data characters, 3466 text characters, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: parseFrontmatterMarkdownString, path, fs, getLastFolder, getFolder, CategorizedFilePaths, PathMetaData, TsComment, findCommentTypes, getIndexId, getNumberOfLines, getPathParse, determineFileType, explore, SearchableExtension, extensions, determineFileType, CategorizedFilePaths, buildFolderName, databaseFolderName, sumAllKeys, fs, CategorizedFilePaths, FolderSummary, SizeSummary, makeArray
 
 # Outline
 
@@ -23,59 +17,84 @@ Imported dependencies:
 - [sumSizeSummary](#sumSizeSummary)
 - [test](#test)
 
+## Interfaces:
+
+- [CategorizedFilePaths](#CategorizedFilePaths)
+
 
 
 # Functions
 
 ## byteCount
 
-Max. indexation depth: 1, 
-
 /**
  * This function will return the byte size of any UTF-8 string you pass to it.
  */
 
+
 ### Returns: object
 
+### Parameters (1)
+
+#### Parameter 1: s: string
+
+## calculatePathMetaData
+
+for folders: finds all files used for calculation and uses sumPathMetaData to create a new PathMetaData.
+for files: just calculates the path metadata
 
 
 
+
+### Parameters (1)
+
+#### Parameter 1: absolutePath: string
+
+## categorizeFiles
+
+explores files in an operation within a specified location or from a specified type
+
+
+
+
+### Parameters (1)
+
+#### Parameter 1: {  basePath,  type,  ignoreIndexFiles,}: object
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
+| basePath  | object |  |
+| ignoreIndexFiles (optional) | boolean | ignore index files or not |
+| type (optional) | string | if given, only search for files of a specific containing data type |
 
 
-
-## calculatePathMetaData
-
-Max. indexation depth: 4, 
-
-for folders: finds all files used for calculation and uses sumPathMetaData to create a new PathMetaData.
-for files: just calculates the path metadata
-
-## Returns: unknown
-
-## categorizeFiles
-
-Max. indexation depth: 4, 
-
-explores files in an operation within a specified location or from a specified type
-
-## Returns: unknown
 
 ## getFolderSummary
 
-Max. indexation depth: 3, 
-
 calculates folder summary from a categorized file paths object
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: categorizedFiles: object
+
+> filepaths categorized based on the filetype. With king os there are only these filetypes:<br /><br />- code: ts, tsx<br />- data: json<br />- text: md, mdx
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| code  | array |  |
+| data  | array |  |
+| text  | array |  |
+
+
 
 ## getPathMainComment
-
-Max. indexation depth: 2, 
 
 export const sumFolderSummary = (
 firstFolderSummary: FolderSummary,
@@ -128,29 +147,59 @@ null as PathGeneralMetaData | null
 return sum;
 };
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: absolutePath: string
 
 ## getSizeSummary
 
-Max. indexation depth: 2, 
-
 gets a size summary for a file path
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: filePath: string
 
 ## sumSizeSummary
 
-Max. indexation depth: 2, 
+### Parameters (1)
+
+#### Parameter 1: filePaths: array
+
+- null: string
 
 
 
-## Returns: unknown
+
+
 
 ## test
 
-Max. indexation depth: 2, 
+# Interfaces
+
+## CategorizedFilePaths
+
+filepaths categorized based on the filetype. With king os there are only these filetypes:
+
+- code: ts, tsx
+- data: json
+- text: md, mdx
 
 
 
-## Returns: unknown
+> filepaths categorized based on the filetype. With king os there are only these filetypes:<br /><br />- code: ts, tsx<br />- data: json<br />- text: md, mdx
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| code  | array |  |
+| data  | array |  |
+| text  | array |  |
+
 

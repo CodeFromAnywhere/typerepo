@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720209664,
-  "updatedAt": 1662720209664,
+  "createdAt": 1662905626810,
+  "updatedAt": 1662905626810,
   "deletedAt": 0,
-  "createdFirstAt": 1662720209664,
+  "createdFirstAt": 1662905626810,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/example.ts",
   "comments": [],
@@ -51,11 +51,7 @@
           "name": "data",
           "required": true,
           "schema": {
-            "items": [
-              {
-                "name": "KeyValueMarkdownModelType"
-              }
-            ],
+            "items": [],
             "type": "array"
           }
         }
@@ -64,5 +60,5 @@
     }
   },
   "classification": "const",
-  "id": "VoNeNNaXHCgEGXFj"
+  "id": "ExyrCiSWUNdaQOlZ"
 }

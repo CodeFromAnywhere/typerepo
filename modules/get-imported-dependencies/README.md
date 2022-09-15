@@ -1,14 +1,8 @@
 # Get imported dependencies
 
-get-imported-dependencies (undefined operation)
+get-imported-dependencies (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -24,35 +18,46 @@ Imported dependencies:
 
 ## getImportedDependencies
 
-Max. indexation depth: 3, 
-
 DEPRECATED: should use generated index files with imports instead!
 
 gets all imported packages (dependencies) in a project
 doesn't take into account the fact that someone can set up a rule for absolute imports within the package.
 this assumes that any absolute package comes from node_modules.
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: {  operationFolderPath,}: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationFolderPath  | string |  |
+
+
 
 ## getPackage
 
-Max. indexation depth: 1, 
-
 only the first part
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: absoluteModuleString: string
 
 ## isAbsoluteImport
 
-Max. indexation depth: 1, 
-
 if it doesn't start with a dot it must be an absolute import so most likely a package that needs to be installed
+
 
 ### Returns: boolean
 
+### Parameters (1)
 
-
-
-
-
+#### Parameter 1: moduleString: string
 

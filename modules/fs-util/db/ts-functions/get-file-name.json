@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739817663,
-  "updatedAt": 1662739817663,
+  "createdAt": 1663008896672,
+  "updatedAt": 1663008896672,
   "deletedAt": 0,
-  "createdFirstAt": 1662739817663,
+  "createdFirstAt": 1663008896672,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (pathString: string) => {\n  return path.basename(pathString);\n}",
   "name": "getFileName",
   "slug": "get-file-name",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "pathString",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "removes everything before the last slash to get folder path",
   "returnType": {
     "rawType": "String",
@@ -49,5 +60,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "ziQvahkXksgyMWdh"
+  "id": "OtzYjWMfhZOMmGnI"
 }

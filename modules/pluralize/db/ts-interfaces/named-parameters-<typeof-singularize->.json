@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663147198238,
+  "updatedAt": 1663147198238,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147198238,
+  "id": "named-parameters-<typeof-singularize->",
+  "name": "NamedParameters<typeof singularize>",
+  "slug": "named-parameters-<typeof-singularize->",
+  "operationRelativeTypescriptFilePath": "src/pluralize.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "parameterName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameterName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "parameterName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof singularize>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

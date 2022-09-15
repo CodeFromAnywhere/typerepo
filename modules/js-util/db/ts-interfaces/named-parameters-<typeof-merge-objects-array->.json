@@ -1,0 +1,36 @@
+{
+  "createdAt": 1663147173040,
+  "updatedAt": 1663147173040,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147173040,
+  "id": "named-parameters-<typeof-merge-objects-array->",
+  "name": "NamedParameters<typeof mergeObjectsArray>",
+  "slug": "named-parameters-<typeof-merge-objects-array->",
+  "operationRelativeTypescriptFilePath": "src/mergeObjectsArray.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "required": [
+        "objectsArray"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof mergeObjectsArray>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

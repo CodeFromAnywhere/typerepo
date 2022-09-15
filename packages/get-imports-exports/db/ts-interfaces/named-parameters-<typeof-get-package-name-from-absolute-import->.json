@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663018275300,
+  "updatedAt": 1663018275300,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018275300,
+  "id": "named-parameters-<typeof-get-package-name-from-absolute-import->",
+  "name": "NamedParameters<typeof getPackageNameFromAbsoluteImport>",
+  "slug": "named-parameters-<typeof-get-package-name-from-absolute-import->",
+  "operationRelativeTypescriptFilePath": "src/calculatePackageJsonDependencies.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absoluteImportName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absoluteImportName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absoluteImportName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPackageNameFromAbsoluteImport>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739839740,
-  "updatedAt": 1662739839740,
+  "createdAt": 1663018076798,
+  "updatedAt": 1663018076798,
   "deletedAt": 0,
-  "createdFirstAt": 1662739839740,
+  "createdFirstAt": 1663018076798,
   "id": "package-json",
   "name": "PackageJson",
   "slug": "package-json",
@@ -319,7 +319,14 @@
             "properties": [
               {
                 "name": "isSensibleProject",
-                "required": true,
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "hasGeneratedDependencies",
+                "required": false,
                 "schema": {
                   "type": "boolean"
                 }

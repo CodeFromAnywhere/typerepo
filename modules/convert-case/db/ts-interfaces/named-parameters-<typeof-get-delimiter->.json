@@ -1,0 +1,57 @@
+{
+  "createdAt": 1663147102708,
+  "updatedAt": 1663147102708,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147102708,
+  "id": "named-parameters-<typeof-get-delimiter->",
+  "name": "NamedParameters<typeof getDelimiter>",
+  "slug": "named-parameters-<typeof-get-delimiter->",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "target": {
+          "$ref": "#/definitions/Casing"
+        }
+      },
+      "required": [
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "target",
+          "required": true,
+          "schema": {
+            "enum": [
+              "camel",
+              "pascal",
+              "snake",
+              "kebab",
+              "capital",
+              "human"
+            ],
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getDelimiter>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

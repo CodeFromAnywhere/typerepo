@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739816125,
-  "updatedAt": 1662739816125,
+  "createdAt": 1663008892070,
+  "updatedAt": 1663008892070,
   "deletedAt": 0,
-  "createdFirstAt": 1662739816125,
+  "createdFirstAt": 1663008892070,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,25 @@
   "rawText": " async (\n  p: PathLike,\n  mode: number\n): Promise<boolean> => {\n  try {\n    await fs.access(p, mode);\n    return true;\n  } catch (e) {\n    return false;\n  }\n}",
   "name": "canAccess",
   "slug": "can-access",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "p",
+      "schema": {
+        "$ref": "#/definitions/PathLike"
+      },
+      "required": true
+    },
+    {
+      "name": "mode",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    }
+  ],
   "description": "uses fs.access to determine if something can be accessed\n\nCheck File access constants for possible values of mode. It is possible to create a mask consisting of the bitwise OR of two or more values (e.g. fs.constants.W_OK | fs.constants.R_OK).",
   "returnType": {
     "rawType": "Promise<boolean>",
@@ -32,5 +50,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "xRRUICzokrXThAED"
+  "id": "JzbaTuDCxXHPdCNV"
 }

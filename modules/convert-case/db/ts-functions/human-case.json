@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662719521903,
-  "updatedAt": 1662719521903,
+  "createdAt": 1663147103454,
+  "updatedAt": 1663147103454,
   "deletedAt": 0,
-  "createdFirstAt": 1662719521903,
+  "createdFirstAt": 1663147103454,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (text: string) => convertCase(text, \"human\")",
   "name": "humanCase",
   "slug": "human-case",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "text",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 1,
     "numberOfFiles": 1
   },
-  "id": "qGwpepmEErrJonwF"
+  "id": "SXhzFEpapnYrOUur"
 }

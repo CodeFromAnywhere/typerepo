@@ -1,0 +1,48 @@
+{
+  "createdAt": 1663146882247,
+  "updatedAt": 1663146882247,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146882247,
+  "id": "named-parameters-<typeof-get-schema->",
+  "name": "NamedParameters<typeof getSchema>",
+  "slug": "named-parameters-<typeof-get-schema->",
+  "operationRelativeTypescriptFilePath": "src/schema-util.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "maybeSchema": {
+          "$ref": "#/definitions/JSONSchema7Definition"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "maybeSchema",
+          "required": false,
+          "schema": {
+            "description": "JSON Schema v7",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getSchema>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

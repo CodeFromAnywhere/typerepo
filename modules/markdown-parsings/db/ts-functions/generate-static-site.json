@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720256607,
-  "updatedAt": 1662720256607,
+  "createdAt": 1662905685224,
+  "updatedAt": 1662905685224,
   "deletedAt": 0,
-  "createdFirstAt": 1662720256607,
+  "createdFirstAt": 1662905685224,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,43 @@
   "rawText": " ({\n  projectRelativeMdFilePath,\n  singlePage,\n}: {\n  singlePage?: boolean;\n  projectRelativeMdFilePath?: string;\n}) => {\n  //\n}",
   "name": "generateStaticSite",
   "slug": "generate-static-site",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "{\n  projectRelativeMdFilePath,\n  singlePage,\n}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "singlePage": {
+            "type": "boolean"
+          },
+          "projectRelativeMdFilePath": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "singlePage",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "projectRelativeMdFilePath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "generates static site from a markdown file, with a menu on the right by default\n\nuses next.js\n\nbecause it is static, the markdown can be in the frontend assets and there is no need for a backend",
   "returnType": {
     "rawType": "void",
@@ -32,5 +68,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "kYyaupXGXbIxIcdU"
+  "id": "iivNyyPVFnccQgoH"
 }

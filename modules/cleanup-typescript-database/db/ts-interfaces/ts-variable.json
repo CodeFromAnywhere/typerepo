@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662740101983,
-  "updatedAt": 1662740101983,
+  "createdAt": 1662906054718,
+  "updatedAt": 1662906054718,
   "deletedAt": 0,
-  "createdFirstAt": 1662740101983,
+  "createdFirstAt": 1662906054718,
   "id": "ts-variable",
   "name": "TsVariable",
   "slug": "ts-variable",
@@ -796,11 +796,7 @@
           "required": true,
           "schema": {
             "description": "surrounding comments and comments inside of the variable",
-            "items": [
-              {
-                "name": "Creation%3CTsComment%3E"
-              }
-            ],
+            "items": [],
             "type": "array"
           }
         }

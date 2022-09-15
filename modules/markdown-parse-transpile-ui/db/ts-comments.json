@@ -1,25 +1,25 @@
 [
   {
-    "createdAt": 1662726649655,
-    "updatedAt": 1662726649655,
+    "createdAt": 1663009415448,
+    "updatedAt": 1663009415448,
     "deletedAt": 0,
-    "createdFirstAt": 1662726649655,
+    "createdFirstAt": 1663009415448,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
     "comment": "renders a markdown striing (without frontmatter)",
-    "rawStatement": "export const renderMarkdownContent = (\n  content: string,\n  config?: { big?: boolean }\n) => {\n  console.log(\"Need to render:\", content);\n  return (\n    <ReactMarkdown\n      className={config?.big ? \"max-w-lg\" : undefined}\n      rehypePlugins={[rehypeHighlight, remarkGfm]}\n      components={{\n        td: ({ node, ...props }) => (\n          // @ts-ignore\n          <td\n            className=\"border border-gray-900 dark:border-gray-100\"\n            {...props}\n          />\n        ),\n        th: ({ node, ...props }) => (\n          // @ts-ignore\n          <th\n            className=\"border border-gray-900 dark:border-gray-100\"\n            {...props}\n          />\n        ),\n\n        ol: ({ node, ...props }) => <ol className=\"list-decimal\" {...props} />,\n        ul: ({ node, ...props }) => (\n          <ul\n            style={{ listStyleType: \"circle\" }}\n            className=\"mx-3 p-2\"\n            {...props}\n          />\n        ),\n        p: ({ node, ...props }) => (\n          <p style={{ marginTop: 15, marginBottom: 15 }} {...props} />\n        ),\n        li: ({ node, ...props }) => <li className=\"\" {...props} />,\n        code: ({ node, ...props }) => (\n          <code\n            className=\"dark:bg-gray-700\"\n            style={{ color: \"darkcyan\" }}\n            {...props}\n          />\n        ),\n      }}\n    >\n      {content}\n    </ReactMarkdown>\n  );\n};",
+    "rawStatement": "export const renderMarkdownContent = (\n  content: string,\n  config?: { big?: boolean }\n) => {\n  // console.log(\"Need to render:\", content);\n  return (\n    <ReactMarkdown\n      className={config?.big ? \"max-w-lg\" : undefined}\n      rehypePlugins={[rehypeHighlight, remarkGfm]}\n      components={{\n        //Fix newlines with `<br>`\n        br: ({ node, ...props }) => (\n          // @ts-ignore\n          <br {...props} />\n        ),\n\n        details: ({ node, ...props }) => (\n          // @ts-ignore\n          <details {...props} />\n        ),\n        summary: ({ node, ...props }) => (\n          // @ts-ignore\n          <summary {...props} />\n        ),\n        td: ({ node, ...props }) => (\n          // @ts-ignore\n          <td\n            className=\"border border-gray-900 dark:border-gray-100\"\n            {...props}\n          />\n        ),\n        th: ({ node, ...props }) => (\n          // @ts-ignore\n          <th\n            className=\"border border-gray-900 dark:border-gray-100\"\n            {...props}\n          />\n        ),\n\n        ol: ({ node, ...props }) => <ol className=\"list-decimal\" {...props} />,\n        ul: ({ node, ...props }) => (\n          <ul\n            style={{ listStyleType: \"circle\" }}\n            className=\"mx-3 p-2\"\n            {...props}\n          />\n        ),\n        p: ({ node, ...props }) => (\n          <p style={{ marginTop: 15, marginBottom: 15 }} {...props} />\n        ),\n        li: ({ node, ...props }) => <li className=\"\" {...props} />,\n        code: ({ node, ...props }) => (\n          <code\n            className=\"dark:bg-gray-700\"\n            style={{ color: \"darkcyan\" }}\n            {...props}\n          />\n        ),\n      }}\n    >\n      {content}\n    </ReactMarkdown>\n  );\n};",
     "parameters": {},
     "types": [],
     "firstLine": 8,
     "lastLine": 10,
-    "id": "ZXNfLnJEkGpYHcoq"
+    "id": "oaIKCQVdHskJYSqE"
   },
   {
-    "createdAt": 1662726649656,
-    "updatedAt": 1662726649656,
+    "createdAt": 1663009415448,
+    "updatedAt": 1663009415448,
     "deletedAt": 0,
-    "createdFirstAt": 1662726649656,
+    "createdFirstAt": 1663009415448,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
@@ -27,15 +27,15 @@
     "rawStatement": "const renderMarkdownTitle = (title: string, level: number) => {\n  const levelSize =\n    level === 1\n      ? \"text-3xl\"\n      : level === 2\n      ? \"text-2xl\"\n      : level === 3\n      ? \"text-xl\"\n      : level === 4\n      ? \"text-lg\"\n      : level === 5\n      ? \"text-md\"\n      : level === 6\n      ? \"text-sm\"\n      : \"text-xs\";\n\n  return (\n    <P id={title} className={levelSize}>\n      {title}\n    </P>\n  );\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 62,
-    "lastLine": 64,
-    "id": "ItDrIxHOKkBtGSMh"
+    "firstLine": 76,
+    "lastLine": 78,
+    "id": "AZvGICzHgnRxJIwE"
   },
   {
-    "createdAt": 1662726649656,
-    "updatedAt": 1662726649656,
+    "createdAt": 1663009415448,
+    "updatedAt": 1663009415448,
     "deletedAt": 0,
-    "createdFirstAt": 1662726649656,
+    "createdFirstAt": 1663009415448,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
@@ -43,15 +43,15 @@
     "rawStatement": "const renderMarkdownChunk = (chunk: MarkdownChunk) => {\n  const title = chunk.title\n    ? renderMarkdownTitle(chunk.title, chunk.level)\n    : null;\n  return (\n    <Div>\n      {title}\n      {chunk.content ? renderMarkdownContent(chunk.content) : null}\n      {chunk.children?.map(renderMarkdownChunk)}\n    </Div>\n  );\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 88,
-    "lastLine": 90,
-    "id": "JRKQpLawhVEoPCrz"
+    "firstLine": 102,
+    "lastLine": 104,
+    "id": "uuquAYOaXYgqhLRI"
   },
   {
-    "createdAt": 1662726649656,
-    "updatedAt": 1662726649656,
+    "createdAt": 1663009415448,
+    "updatedAt": 1663009415448,
     "deletedAt": 0,
-    "createdFirstAt": 1662726649656,
+    "createdFirstAt": 1663009415448,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
@@ -59,15 +59,15 @@
     "rawStatement": "export const renderMarkdownParse = (markdownParse: MarkdownParse) => {\n  return (\n    <Div>\n      {renderFrontmatter(markdownParse.parameters, { renderSpacer: true })}\n      {markdownParse.content?.map(renderMarkdownChunk)}\n    </Div>\n  );\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 104,
-    "lastLine": 106,
-    "id": "oYhKiduvxeigIMXG"
+    "firstLine": 118,
+    "lastLine": 120,
+    "id": "hZrAlRQohXzPLxsa"
   },
   {
-    "createdAt": 1662726649656,
-    "updatedAt": 1662726649656,
+    "createdAt": 1663009415448,
+    "updatedAt": 1663009415448,
     "deletedAt": 0,
-    "createdFirstAt": 1662726649656,
+    "createdFirstAt": 1663009415448,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
@@ -75,8 +75,8 @@
     "rawStatement": "export const renderFrontmatter = (\n  parameters: Frontmatter,\n  config?: { renderSpacer?: boolean }\n) => {\n  const frontMatterKeys = Object.keys(parameters);\n\n  return frontMatterKeys.length > 0 ? (\n    <Div>\n      <Div>\n        {frontMatterKeys.map((key) => (\n          <P>\n            {key}: {parameters[key]}\n          </P>\n        ))}\n      </Div>\n\n      {config?.renderSpacer ? <P>------------</P> : null}\n    </Div>\n  ) : null;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 116,
-    "lastLine": 118,
-    "id": "lhcmquWRKRBVAnzI"
+    "firstLine": 130,
+    "lastLine": 132,
+    "id": "LlOhhgqgoHyYYeOF"
   }
 ]

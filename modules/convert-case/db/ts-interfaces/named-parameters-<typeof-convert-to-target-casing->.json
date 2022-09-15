@@ -1,0 +1,79 @@
+{
+  "createdAt": 1663147102708,
+  "updatedAt": 1663147102708,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147102708,
+  "id": "named-parameters-<typeof-convert-to-target-casing->",
+  "name": "NamedParameters<typeof convertToTargetCasing>",
+  "slug": "named-parameters-<typeof-convert-to-target-casing->",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "word": {
+          "type": "string"
+        },
+        "index": {
+          "type": "number"
+        },
+        "target": {
+          "$ref": "#/definitions/Casing"
+        }
+      },
+      "required": [
+        "word",
+        "index",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "word",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "index",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "target",
+          "required": true,
+          "schema": {
+            "enum": [
+              "camel",
+              "pascal",
+              "snake",
+              "kebab",
+              "capital",
+              "human"
+            ],
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof convertToTargetCasing>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

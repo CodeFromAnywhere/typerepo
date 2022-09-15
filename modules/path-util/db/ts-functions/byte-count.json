@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662733037961,
-  "updatedAt": 1662733037961,
+  "createdAt": 1662904857745,
+  "updatedAt": 1662904857745,
   "deletedAt": 0,
-  "createdFirstAt": 1662733037961,
+  "createdFirstAt": 1662904857745,
   "name": "byteCount",
   "slug": "byte-count",
   "apiAuthenticationStrategy": "admin",
@@ -11,7 +11,18 @@
   "operationRelativeTypescriptFilePath": "src/getFolderSummary.ts",
   "commentsInside": [],
   "description": "/**\n * This function will return the byte size of any UTF-8 string you pass to it.\n */",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "s",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "returnType": {
     "rawType": "{}",
     "typeDefinition": {
@@ -41,5 +52,5 @@
   },
   "rawText": "\n\n/**\n * This function will return the byte size of any UTF-8 string you pass to it.\n */\nexport function byteCount(s: string) {\n  return encodeURI(s).split(/%..|./).length - 1;\n}",
   "maxIndentationDepth": 1,
-  "id": "eWdVKAfsQjcZwGZq"
+  "id": "muxovoiFCHMZBVYG"
 }

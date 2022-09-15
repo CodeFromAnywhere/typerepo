@@ -1,0 +1,51 @@
+{
+  "createdAt": 1663008992000,
+  "updatedAt": 1663008992000,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008992000,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getInternalLinks.ts",
+  "commentsInside": [],
+  "rawText": " (pages: MarkdownReaderPage[]) => {\n  /* \n    Make the reader-ui fetch all words at build-time and match the md file for every page against words, statements, functions, interfaces, variables, operations. This will generate an array of extra information: a `description` and possibly a URL. I think there should be a `/definition/*` page for every word/statement inside of every reader-ui (the glossary)\n    */\n\n  const internalLinks: InternalLink[] = pages\n    .filter((page) => !!page.internalLinkWord)\n    .map((page) => {\n      const { queryPath, internalLinkWord } = page;\n      return { internalLinkWord: internalLinkWord!, queryPath };\n    });\n}",
+  "name": "getInternalLinks",
+  "slug": "get-internal-links",
+  "parameters": [
+    {
+      "name": "pages",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/MarkdownReaderPage"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
+  "description": "Returns the internal links taken out of the MarkdownReaderPage[]",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 716,
+    "lines": 12,
+    "bytes": 716,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 60,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "iStduBpUBWCLAQov"
+}

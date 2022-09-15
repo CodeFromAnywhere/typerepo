@@ -1,0 +1,59 @@
+{
+  "createdAt": 1662904890971,
+  "updatedAt": 1662904890971,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904890971,
+  "id": "named-parameters-<typeof-try-parse-json->",
+  "name": "NamedParameters<typeof tryParseJson>",
+  "slug": "named-parameters-<typeof-try-parse-json->",
+  "operationRelativeTypescriptFilePath": "src/tryParseJson.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "logParseError": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "text",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "logParseError",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof tryParseJson>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

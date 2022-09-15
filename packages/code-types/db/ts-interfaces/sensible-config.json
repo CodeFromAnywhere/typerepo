@@ -1,0 +1,60 @@
+{
+  "createdAt": 1663018202796,
+  "updatedAt": 1663018202796,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018202796,
+  "id": "sensible-config",
+  "name": "SensibleConfig",
+  "slug": "sensible-config",
+  "operationRelativeTypescriptFilePath": "src/PackageJson.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * Sensible-global configurations\n */\nexport type SensibleConfig = {\n  isSensibleProject?: boolean;\n  hasGeneratedDependencies?: boolean;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "Sensible-global configurations",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isSensibleProject": {
+          "type": "boolean"
+        },
+        "hasGeneratedDependencies": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Sensible-global configurations"
+    },
+    "simplifiedSchema": {
+      "description": "Sensible-global configurations",
+      "properties": [
+        {
+          "name": "isSensibleProject",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "hasGeneratedDependencies",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "SensibleConfig",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

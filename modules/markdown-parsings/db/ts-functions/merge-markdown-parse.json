@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720260428,
-  "updatedAt": 1662720260428,
+  "createdAt": 1662905694525,
+  "updatedAt": 1662905694525,
   "deletedAt": 0,
-  "createdFirstAt": 1662720260428,
+  "createdFirstAt": 1662905694525,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,143 @@
   "rawText": " (\n  markdownParses: MarkdownParse[],\n  fileName?: string\n): MarkdownParse => {\n  const allParameters = mergeObjectsArray(\n    markdownParses.map((x) => x.parameters)\n  );\n\n  const allMarkdownChunks = markdownParses.map((x) => {\n    const newMarkodwnChunk: MarkdownChunk = {\n      children: upMarkdownChunkLevelRecursively(x.content),\n      level: 1,\n      content: undefined,\n      title: x.fileName ? humanCase(x.fileName) : undefined,\n    };\n\n    return newMarkodwnChunk;\n  });\n\n  const newMarkdownParse: MarkdownParse = {\n    parameters: allParameters,\n    raw: markdownChunksToMarkdownStringRecursive(allMarkdownChunks),\n    content: allMarkdownChunks,\n    fileName,\n  };\n\n  return newMarkdownParse;\n}",
   "name": "mergeMarkdownParse",
   "slug": "merge-markdown-parse",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdownParses",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/MarkdownParse"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [
+                {
+                  "name": "fileName",
+                  "required": false,
+                  "schema": {
+                    "description": "if available, this can be the filename of the markdown in this markdown-parse. Can be used for things like merging",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "createdAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "openedAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "updatedAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "deletedAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "createdFirstAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "content",
+                  "required": false,
+                  "schema": {
+                    "description": "structured content based on h1, h2, h3, etc (paragraphs, recursive)",
+                    "items": [
+                      {
+                        "schema": {
+                          "properties": [
+                            {
+                              "name": "content",
+                              "required": false,
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "title",
+                              "required": false,
+                              "schema": {
+                                "description": "NB: title can also be an empty string (\"\")",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "children",
+                              "required": false,
+                              "schema": {
+                                "description": "all content until the next title. it's either a content array if there's any titles found, or a string[] if it's paragraphs",
+                                "items": [
+                                  {
+                                    "schema": {
+                                      "circularRefName": "MarkdownChunk",
+                                      "properties": [],
+                                      "type": "object"
+                                    },
+                                    "name": "MarkdownChunk"
+                                  }
+                                ],
+                                "type": "array"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        },
+                        "name": "MarkdownChunk"
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "raw",
+                  "required": true,
+                  "schema": {
+                    "description": "raw markdown without frontmatter",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "MarkdownParse"
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    },
+    {
+      "name": "fileName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "Merges multiple markdown parses to create a new markdown parse",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse",
@@ -32,5 +168,5 @@
     "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "cePMvGSoNjyWgsvm"
+  "id": "MHxTwgTwZYGNoGsn"
 }

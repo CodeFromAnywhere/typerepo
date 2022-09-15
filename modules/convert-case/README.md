@@ -1,14 +1,8 @@
 # Convert case
 
-convert-case (undefined operation)
+convert-case (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -28,101 +22,95 @@ Imported dependencies:
 - [snakeCase](#snakeCase)
 - [splitCasingDelimiters](#splitCasingDelimiters)
 
+## Interfaces:
+
+- [Casing](#Casing)
+
 
 
 # Functions
 
 ## camelCase
 
-Max. indexation depth: 0, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: text: string
 
 ## capitalCase
 
-Max. indexation depth: 0, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: text: string
 
 ## capitaliseFirstLetter
 
-Max. indexation depth: 1, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: word: string
 
 ## convertCase
 
-Max. indexation depth: 3, 
+### Parameters (2)
+
+#### Parameter 1: text: string
+
+> NB: texts of more than a sentence are not supported
 
 
 
-## Returns: unknown
+
+#### Parameter 2: target: string(Enum: camel | pascal | snake | kebab | capital | human)
 
 ## convertToTargetCasing
 
-Max. indexation depth: 2, 
+### Parameters (3)
 
+#### Parameter 1: word: string
 
+#### Parameter 2: index: number
 
-## Returns: unknown
+#### Parameter 3: target: string(Enum: camel | pascal | snake | kebab | capital | human)
 
 ## getDelimiter
 
-Max. indexation depth: 1, 
+### Returns: string(Enum: _ |   | - | )
 
+### Parameters (1)
 
-
-### Returns: string(Enum: _ |   | - | ) 
-
-
-
-
-
-
+#### Parameter 1: target: string(Enum: camel | pascal | snake | kebab | capital | human)
 
 ## humanCase
 
-Max. indexation depth: 0, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: text: string
 
 ## kebabCase
 
-Max. indexation depth: 0, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: text: string
 
 ## lowerCaseArray
-
-Max. indexation depth: 1, 
 
 converts any string to an array of lowercase words
 
 format ["word1","word2","word3"] from a string of any casing.
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: text: string
 
 ## pascalCase
 
-Max. indexation depth: 0, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: text: string
 
 ## slugify
-
-Max. indexation depth: 2, 
 
 /**
  * this function does the same as kebabCase but it also does some more transformation on top
@@ -130,21 +118,20 @@ Max. indexation depth: 2,
  * TODO: make the tranformations that are done here into smaller util functions and make a clean function that can be ran before running every casing conversion (maybe in a config)
  */
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: string: string
 
 ## snakeCase
 
-Max. indexation depth: 0, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: text: string
 
 ## splitCasingDelimiters
-
-Max. indexation depth: 4, 
-
-
 
 ### Returns: array
 
@@ -153,4 +140,13 @@ Max. indexation depth: 4,
 
 
 
+
+
+### Parameters (1)
+
+#### Parameter 1: word: string
+
+# Interfaces
+
+## Casing
 

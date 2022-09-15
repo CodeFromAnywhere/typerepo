@@ -13,7 +13,7 @@ watch-operations (node operation)
 ## Functions
 
 - [exitIfOperationsChange](#exitIfOperationsChange)
-- [gitCommitAllEveryMinute](#gitCommitAllEveryMinute)
+- [gitCommitAllCron](#gitCommitAllCron)
 - [main](#main)
 - [watchOperations](#watchOperations)
 
@@ -40,9 +40,21 @@ If you don't have these cli's, make sure to install them first.
 
 every 5 seconds compares if the operationsourcepaths have changed. If so, exits the process
 
-## Returns: unknown
 
-## gitCommitAllEveryMinute
+
+
+### Parameters (1)
+
+#### Parameter 1: allOperationSourcePaths: array
+
+- null: string
+
+
+
+
+
+
+## gitCommitAllCron
 
 const pushPosition = async () => {
 const position = await getLocation();
@@ -86,17 +98,26 @@ pushLight();
 }, 60000);
 };
 
-## Returns: unknown
+
+
 
 ## main
-
-
-
-## Returns: unknown
 
 ## watchOperations
 
 watches all operations and does much more
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: config (optional): object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| manualProjectRoot (optional) | string |  |
+
 

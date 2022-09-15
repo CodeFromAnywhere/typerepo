@@ -1,0 +1,33 @@
+{
+  "createdAt": 1662904463188,
+  "updatedAt": 1662904463188,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904463188,
+  "id": "named-parameters-<typeof-get-cli->",
+  "name": "NamedParameters<typeof getCli>",
+  "slug": "named-parameters-<typeof-get-cli->",
+  "operationRelativeTypescriptFilePath": "src/cli/test-get.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718893308,
-  "updatedAt": 1662718893308,
+  "createdAt": 1662904875071,
+  "updatedAt": 1662904875071,
   "deletedAt": 0,
-  "createdFirstAt": 1662718893308,
+  "createdFirstAt": 1662904875071,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,19 @@
   "rawText": " async <T extends CsvItemType>(\n  filePath: Path | undefined\n): Promise<T[] | null> => {\n  if (!filePath) return null;\n  // TODO: is this needed?\n  if (!fs.existsSync(filePath)) return null;\n\n  const readable = await canRead(filePath);\n  if (!readable) return null;\n  const fileString = await fs.readFile(filePath, \"utf8\");\n  if (!fileString) return null;\n\n  const parsed = tryParseCsv<T>(fileString);\n  return parsed;\n}",
   "name": "readCsvFile",
   "slug": "read-csv-file",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "filePath",
+      "schema": {
+        "$ref": "#/definitions/Path"
+      },
+      "simplifiedSchema": {
+        "description": "unlike PathLike, this is only a string\n\nFor now, we don't have a clear convention whether or not this string should be absolute or anything.",
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "Reads and parses CSV file\n\nspecify a generic of what type of item the file contains an array of",
   "returnType": {
     "rawType": "Promise<T[] | null>",
@@ -32,5 +44,5 @@
     "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "HRJwEhAHRRaiFAfb"
+  "id": "TdkIzqOyuGFGcZPL"
 }

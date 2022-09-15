@@ -1,0 +1,82 @@
+{
+  "createdAt": 1662907314669,
+  "updatedAt": 1662907314669,
+  "deletedAt": 0,
+  "createdFirstAt": 1662907314669,
+  "id": "named-parameters-<typeof-nested-path-object-to-nested-menu-recursive->",
+  "name": "NamedParameters<typeof nestedPathObjectToNestedMenuRecursive>",
+  "slug": "named-parameters-<typeof-nested-path-object-to-nested-menu-recursive->",
+  "operationRelativeTypescriptFilePath": "src/util/nestedPathObjectToNestedMenu.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "nestedPathObject": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/NestedPathObject"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "your nested path object that you want to create a menu for"
+        },
+        "pathStack": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "used for recursion to get the final url (defaults to empty array)"
+        }
+      },
+      "required": [
+        "nestedPathObject"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "nestedPathObject",
+          "required": true,
+          "schema": {
+            "description": "your nested path object that you want to create a menu for",
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "pathStack",
+          "required": false,
+          "schema": {
+            "description": "used for recursion to get the final url (defaults to empty array)",
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof nestedPathObjectToNestedMenuRecursive>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

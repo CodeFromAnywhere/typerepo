@@ -1,15 +1,15 @@
 {
-  "createdAt": 1662720924946,
-  "updatedAt": 1662720924946,
+  "createdAt": 1663146881169,
+  "updatedAt": 1663146881169,
   "deletedAt": 0,
-  "createdFirstAt": 1662720924946,
+  "createdFirstAt": 1663146881169,
   "id": "reference-parameter-info",
   "name": "ReferenceParameterInfo",
   "slug": "reference-parameter-info",
   "operationRelativeTypescriptFilePath": "src/getReferenceParameterInfo.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type ReferenceParameterInfo = {\n  descriptor: string | undefined;\n  keyInModel: string | undefined;\n  interfaceName: string | undefined;\n  isReferenceMultipleParameter: boolean;\n  isReferenceSingleParameter: boolean;\n  isReferenceParameter: boolean;\n};",
+  "rawText": "\nexport type ReferenceParameterInfo = {\n  parameterName: string;\n  /**\n   * If the parameterName is a reference parameter, this will contain the parameterName that should contain the referenced data, should there be one.\n   */\n  dataParameterName?: string;\n  descriptor: string | undefined;\n  keyInModel: string | undefined;\n  interfaceName: string | undefined;\n  isReferenceMultipleParameter: boolean;\n  isReferenceSingleParameter: boolean;\n  isReferenceParameter: boolean;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -19,6 +19,13 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "parameterName": {
+          "type": "string"
+        },
+        "dataParameterName": {
+          "type": "string",
+          "description": "If the parameterName is a reference parameter, this will contain the parameterName that should contain the referenced data, should there be one."
+        },
         "descriptor": {
           "type": "string"
         },
@@ -39,6 +46,7 @@
         }
       },
       "required": [
+        "parameterName",
         "isReferenceMultipleParameter",
         "isReferenceSingleParameter",
         "isReferenceParameter"
@@ -47,6 +55,21 @@
     },
     "simplifiedSchema": {
       "properties": [
+        {
+          "name": "parameterName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "dataParameterName",
+          "required": false,
+          "schema": {
+            "description": "If the parameterName is a reference parameter, this will contain the parameterName that should contain the referenced data, should there be one.",
+            "type": "string"
+          }
+        },
         {
           "name": "descriptor",
           "required": false,

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739846072,
-  "updatedAt": 1662739846072,
+  "createdAt": 1663018087056,
+  "updatedAt": 1663018087056,
   "deletedAt": 0,
-  "createdFirstAt": 1662739846072,
+  "createdFirstAt": 1663018087056,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,32 @@
   "rawText": " (\n  /**\n   * absolute path of a file or folder without a slash at the end\n   */\n  absolutePath: string,\n  /**\n   * folder path without a slash at the end\n   */\n  baseFolderPath: string\n): string => {\n  return absolutePath.slice(baseFolderPath.length + 1);\n}",
   "name": "makeRelative",
   "slug": "make-relative",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "absolutePath",
+      "schema": {
+        "type": "string",
+        "description": "absolute path of a file or folder without a slash at the end"
+      },
+      "simplifiedSchema": {
+        "description": "absolute path of a file or folder without a slash at the end",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "baseFolderPath",
+      "schema": {
+        "type": "string",
+        "description": "folder path without a slash at the end"
+      },
+      "simplifiedSchema": {
+        "description": "folder path without a slash at the end",
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "Makes a path relative using proper parsing\n\nResulting path will apply the paths conventions\n- no slash at the end\n- no slash at the beginning",
   "returnType": {
     "rawType": "String",
@@ -49,5 +74,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "TZyjxTTdyPKqAvib"
+  "id": "QfIzpnEosDkZUEHS"
 }

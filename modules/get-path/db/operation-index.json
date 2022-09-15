@@ -1,6 +1,6 @@
 {
   "createdAt": 1662718790020,
-  "updatedAt": 1662755384086,
+  "updatedAt": 1663018095393,
   "deletedAt": 0,
   "createdFirstAt": 1662718790020,
   "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/get-path/src/getRootPath.ts. Error: Error: Unknown node \\\" databaseFolderName\"]",
@@ -27,6 +27,7 @@
     "tryParseJson",
     "exploreOperationFolders",
     "getLastFolder",
+    "path",
     "operations",
     "log",
     "path",
@@ -56,25 +57,25 @@
     "codeSize": {
       "numberOfFiles": 15,
       "lines": 580,
-      "characters": 17553,
-      "bytes": 17553
+      "characters": 17743,
+      "bytes": 17743
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 69,
-      "characters": 1463,
-      "bytes": 1463
+      "lines": 71,
+      "characters": 1491,
+      "bytes": 1491
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 259,
-      "characters": 4522,
-      "bytes": 4522
+      "lines": 449,
+      "characters": 17210,
+      "bytes": 17210
     },
     "size": {
-      "bytes": 23538,
-      "characters": 23538,
-      "lines": 908,
+      "bytes": 36444,
+      "characters": 36444,
+      "lines": 1100,
       "numberOfFiles": 18
     }
   }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662750125132,
-  "updatedAt": 1662750125132,
+  "createdAt": 1663008952789,
+  "updatedAt": 1663008952789,
   "deletedAt": 0,
-  "createdFirstAt": 1662750125132,
+  "createdFirstAt": 1663008952789,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,29 @@
   "rawText": " (allOperationSourcePaths: string[]) => {\n  setInterval(async () => {\n    const newOperationSourcePaths = await getAllOperationSourcePaths();\n\n    const isSame = allOperationSourcePaths.reduce(\n      (same, p, i) => (newOperationSourcePaths[i] === p ? same : false),\n      true\n    );\n\n    //TODO: if you change a folder name, it's not detected now.\n    if (!isSame) {\n      log(\"new package? ok bye\", { type: \"error\" });\n      process.exit();\n    }\n  }, 5000);\n}",
   "name": "exitIfOperationsChange",
   "slug": "exit-if-operations-change",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "allOperationSourcePaths",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
   "description": "every 5 seconds compares if the operationsourcepaths have changed. If so, exits the process",
   "returnType": {
     "rawType": "void",
@@ -32,5 +54,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "GtLOSRGYynsRteAL"
+  "id": "kcUmXcgNMydLDaxe"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718858288,
-  "updatedAt": 1662718858288,
+  "createdAt": 1662904833102,
+  "updatedAt": 1662904833102,
   "deletedAt": 0,
-  "createdFirstAt": 1662718858288,
+  "createdFirstAt": 1662904833102,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " async (operationName: string) => {\n  const operationImports = await db.get(\"TsImport\", {\n    operationName,\n  });\n\n  const coreDependencies = operationImports\n    .filter((x) => [\"node\", \"react\"].includes(x.classification))\n    .map((x) => x.name);\n  const operationDependencies = operationImports\n    .filter((x) => [\"operation\"].includes(x.classification))\n    .map((x) => x.name);\n  const packageDependencies = operationImports\n    .filter((x) => [\"package\"].includes(x.classification))\n    .map((x) => x.name);\n\n  return {\n    coreDependencies,\n    operationDependencies,\n    packageDependencies,\n  };\n}",
   "name": "getDependenciesSummary",
   "slug": "get-dependencies-summary",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "unknown",
@@ -32,5 +43,5 @@
     "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "tmauHfEBBPBFTkbg"
+  "id": "nzpkWPrzRqUVZrrp"
 }

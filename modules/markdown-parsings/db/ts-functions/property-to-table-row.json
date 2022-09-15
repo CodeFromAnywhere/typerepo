@@ -1,17 +1,45 @@
 {
-  "createdAt": 1662735932600,
-  "updatedAt": 1662735932600,
+  "createdAt": 1662905703162,
+  "updatedAt": 1662905703162,
   "deletedAt": 0,
-  "createdFirstAt": 1662735932600,
+  "createdFirstAt": 1662905703162,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "operationRelativeTypescriptFilePath": "src/util/propertyToTableRow.ts",
   "commentsInside": [],
-  "rawText": " (\n  property: SimplifiedSchemaProperty\n): string => {\n  const requiredString = property.required ? \"\" : \"(optional)\";\n\n  const descriptionString =\n    property.schema.description?.replaceAll(\"\\n\", \"<br />\") || \"\";\n\n  // TODO: stack deeper objects and make sure to also print tables for those\n  return `| ${property.name} ${requiredString} | ${property.schema.type} | ${descriptionString} |`;\n}",
+  "rawText": " (\n  property: SimplifiedSchemaProperty\n): string => {\n  const requiredString = property.required ? \"\" : \"(optional)\";\n\n  const descriptionString = noNewlines(property.schema.description) || \"\";\n\n  // TODO: stack deeper objects and make sure to also print tables for those\n  return `| ${property.name} ${requiredString} | ${property.schema.type} | ${descriptionString} |`;\n}",
   "name": "propertyToTableRow",
   "slug": "property-to-table-row",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "property",
+      "schema": {
+        "$ref": "#/definitions/SimplifiedSchemaProperty"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "required",
+            "required": true,
+            "schema": {
+              "description": "NB: can't we put this in the SimplifiedSchema itself?",
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "String",
@@ -39,15 +67,15 @@
       "type": "string"
     }
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 1,
   "size": {
-    "characters": 394,
-    "lines": 11,
-    "bytes": 394,
+    "characters": 374,
+    "lines": 10,
+    "bytes": 374,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 36,
-    "linesPerFile": 11,
+    "charactersPerLine": 37,
+    "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "GuWFtnEVNciHhLVl"
+  "id": "rnsbLShkPQnQpwJJ"
 }

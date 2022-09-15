@@ -11,10 +11,10 @@ const Page: RWNPage = (props: MainPageProps) => {
   const queryPath = getQueryPath(router.query);
 
   return (
-    <Layout queryPaths={props.queryPaths}>
+    <Layout pages={props.pages}>
       <Div className="pb-4 px-4 w-full" scroll>
-        {props.markdownString ? (
-          renderMarkdownParse(mdToJsonParse(props.markdownString))
+        {props.markdownFile ? (
+          renderMarkdownParse(mdToJsonParse(props.markdownFile.markdown))
         ) : (
           <P>Markdown not found ({queryPath})</P>
         )}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662719895667,
-  "updatedAt": 1662719895667,
+  "createdAt": 1662905303739,
+  "updatedAt": 1662905303739,
   "deletedAt": 0,
-  "createdFirstAt": 1662719895667,
+  "createdFirstAt": 1662905303739,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,29 @@
   "rawText": " async (\n  operationNames: string[]\n): Promise<TsInterface[]> => {\n  const dbModels = (await db.get(\"TsInterface\"))\n    .filter((x) => x.isDbModel)\n    .filter(onlyUnique2<TsInterface>((a, b) => a.name === b.name))\n    .filter((tsInterface) =>\n      filterInterfacesFromOperationNames(tsInterface, operationNames)\n    );\n\n  return dbModels;\n}",
   "name": "getDbModelsFromOperations",
   "slug": "get-db-models-from-operations",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "operationNames",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface[]>",
@@ -32,5 +54,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "uFeglCWmbapaBcQm"
+  "id": "wYqbAsCCuJluMKde"
 }

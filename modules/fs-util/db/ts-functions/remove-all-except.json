@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739819137,
-  "updatedAt": 1662739819137,
+  "createdAt": 1663008899681,
+  "updatedAt": 1663008899681,
   "deletedAt": 0,
-  "createdFirstAt": 1662739819137,
+  "createdFirstAt": 1663008899681,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,74 @@
   "rawText": " async (\n  folderPath: string,\n  config?: {\n    /**\n     * array of relative folder paths and file paths that should not be removed (include the extensions!)\n     */\n    ignore?: string[];\n    typeToRemove?: \"file\" | \"folder\";\n  }\n): Promise<\n  {\n    name: string;\n    removed: boolean;\n  }[]\n> => {\n  const filesAndFolders = await fs.readdir(folderPath, {\n    encoding: \"utf8\",\n    withFileTypes: true,\n  });\n\n  const removePromises = filesAndFolders.map((dirent) => {\n    if (config?.ignore?.find((x) => x.includes(dirent.name)))\n      return { name: dirent.name, removed: false };\n\n    if (config?.typeToRemove === \"file\" && !dirent.isFile())\n      return { name: dirent.name, removed: false };\n\n    if (config?.typeToRemove === \"folder\" && !dirent.isDirectory())\n      return { name: dirent.name, removed: false };\n\n    return fs\n      .rm(path.join(folderPath, dirent.name), { recursive: true })\n      .then(() => ({ name: dirent.name, removed: true }));\n  });\n\n  const promised = await Promise.all(removePromises);\n  return promised;\n}",
   "name": "removeAllExcept",
   "slug": "remove-all-except",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "folderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "ignore": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "array of relative folder paths and file paths that should not be removed (include the extensions!)"
+          },
+          "typeToRemove": {
+            "type": "string",
+            "enum": [
+              "file",
+              "folder"
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "ignore",
+            "required": false,
+            "schema": {
+              "description": "array of relative folder paths and file paths that should not be removed (include the extensions!)",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "typeToRemove",
+            "required": false,
+            "schema": {
+              "enum": [
+                "file",
+                "folder"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
   "description": "Removes everything inside a folder except some files and folders that can, optionally, be ignored for removal. does not remove the folder itself\n\nNB: make this work with subdirectories!",
   "returnType": {
     "rawType": "Promise<{ name: string; removed: boolean; }[]>",
@@ -32,5 +99,5 @@
     "linesPerFile": 40,
     "numberOfFiles": 1
   },
-  "id": "srQfkghNclzHrGCA"
+  "id": "GADlPJBlBjVRIGHY"
 }

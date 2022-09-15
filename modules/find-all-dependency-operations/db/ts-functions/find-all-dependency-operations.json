@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662720698002,
-  "updatedAt": 1662720698002,
+  "createdAt": 1663012940621,
+  "updatedAt": 1663012940621,
   "deletedAt": 0,
-  "createdFirstAt": 1662720698002,
+  "createdFirstAt": 1663012940621,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
   "commentsInside": [],
-  "rawText": " async ({\n  operationNames,\n  ignoreOperationNames,\n}: {\n  operationNames: string[];\n  ignoreOperationNames?: string[];\n}) => {\n  const dependencyPromises = operationNames.map((operationName) =>\n    findDependenciesRecursively(\n      operationName,\n      operationNames,\n      ignoreOperationNames\n    )\n  );\n  const dependencies = (await Promise.all(dependencyPromises)).flat();\n  return dependencies.filter(onlyUnique);\n}",
+  "rawText": " async ({\n  operationNames,\n  ignoreOperationNames,\n  ignoreFilter,\n}: {\n  operationNames: string[];\n  ignoreOperationNames?: string[];\n  ignoreFilter?: (operationName: string) => boolean;\n}) => {\n  const dependencyPromises = operationNames.map((operationName) =>\n    findDependenciesRecursively(\n      operationName,\n      operationNames,\n      ignoreOperationNames,\n      ignoreFilter\n    )\n  );\n  const dependencies = (await Promise.all(dependencyPromises)).flat();\n  return dependencies.filter(onlyUnique);\n}",
   "name": "findAllDependencyOperations",
   "slug": "find-all-dependency-operations",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 559,
-    "lines": 19,
-    "bytes": 559,
+    "characters": 648,
+    "lines": 22,
+    "bytes": 648,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
-    "linesPerFile": 19,
+    "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "uzWFSatZknDRyXYC"
+  "id": "hsnDVXjNCeAtfLNz"
 }

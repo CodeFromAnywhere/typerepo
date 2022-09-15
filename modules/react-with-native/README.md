@@ -1,16 +1,10 @@
 # React with native
 
-react-with-native (undefined operation)
+react-with-native (ui-es5 operation)
 
 HTML elements with React Native capabilities.
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -51,6 +45,10 @@ Imported dependencies:
 - [trimClassName](#trimClassName)
 - [Ul](#Ul)
 - [wrapInTextIfNeeded](#wrapInTextIfNeeded)
+
+## Interfaces:
+
+- [SvgType](#SvgType)
 
 
 
@@ -203,255 +201,140 @@ To add the SVG Transformer, follow [these instructions](https://github.com/krist
 
 ## A
 
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
-
 ## ActivityIndicator
-
-Max. indexation depth: 3, 
-
-
-
-## Returns: unknown
 
 ## Aside
 
-Max. indexation depth: 3, 
-
-
-
-## Returns: unknown
-
 ## Button
-
-Max. indexation depth: 2, 
-
-
-
-## Returns: unknown
 
 ## Form
 
-Max. indexation depth: 2, 
-
 Form is just a html form on web. On react-native, it's a View
 
-## Returns: unknown
+
+
 
 ## getTailwindModules
 
-Max. indexation depth: 4, 
+### Parameters (1)
+
+#### Parameter 1: options: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| packages (optional) | array | if you are using a sensible monorepo, put the packages with tailwind-based ui here |
+| modules (optional) | array |  |
+| isWorkspace (optional) | boolean | if this is a yarn workspace, put true here |
 
 
-
-## Returns: unknown
 
 ## H2
 
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
-
 ## I
-
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
 
 ## Image
 
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
-
 ## Input
-
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
 
 ## joinClassNames
 
-Max. indexation depth: 1, 
+### Parameters (1)
+
+#### Parameter 1: args: array
+
+- null: object
 
 
 
-## Returns: unknown
+
+
 
 ## Label
 
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
-
 ## Li
-
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
 
 ## Nav
 
-Max. indexation depth: 5, 
-
-
-
-## Returns: unknown
-
 ## Ol
-
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
 
 ## P
 
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
-
 ## Pressable
-
-Max. indexation depth: 2, 
 
 button on web, pressable on react-native
 
-## Returns: unknown
+
+
 
 ## PureAside
 
-Max. indexation depth: 3, 
-
-
-
-## Returns: unknown
-
 ## PureDiv
-
-Max. indexation depth: 3, 
-
-
-
-## Returns: unknown
 
 ## PureNav
 
-Max. indexation depth: 3, 
-
-
-
-## Returns: unknown
-
 ## Select
-
-Max. indexation depth: 3, 
-
-
-
-## Returns: unknown
 
 ## Span
 
-Max. indexation depth: 2, 
-
-
-
-## Returns: unknown
-
 ## Strong
-
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
 
 ## Svg
 
-Max. indexation depth: 2, 
-
-
-
-## Returns: unknown
+### Parameters (1)
 
 ## TextArea
 
-Max. indexation depth: 2, 
-
-
-
-## Returns: unknown
-
 ## Text
-
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
 
 ## Toggle
 
-Max. indexation depth: 3, 
-
-
-
-## Returns: unknown
-
 ## TouchableOpacity
-
-Max. indexation depth: 2, 
 
 button on web, pressable on react-native
 
-## Returns: unknown
+
+
 
 ## trimClassName
 
-Max. indexation depth: 1, 
-
 in react-native not all classNames are supported
+
 
 ### Returns: string
 
+### Parameters (1)
 
-
-
-
-
+#### Parameter 1: className: string
 
 ## Ul
 
-Max. indexation depth: 1, 
-
-
-
-## Returns: unknown
-
 ## wrapInTextIfNeeded
-
-Max. indexation depth: 2, 
 
 NB: figure out a way to do the styles of the text right.
 
-## Returns: unknown
+
+
+
+### Parameters (2)
+
+#### Parameter 1: children: object
+
+#### Parameter 2: textClassName (optional): string
+
+# Interfaces
+
+## SvgType
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| src  | object |  |
+| width (optional) | number |  |
+| height (optional) | number |  |
+| className (optional) | string |  |
+| style (optional) | object |  |
+
 

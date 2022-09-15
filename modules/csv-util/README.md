@@ -1,14 +1,8 @@
 # Csv util
 
-csv-util (undefined operation)
+csv-util (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -17,29 +11,25 @@ Imported dependencies:
 - [csvItemArrayToCsvString](#csvItemArrayToCsvString)
 - [tryParseCsv](#tryParseCsv)
 
+## Interfaces:
+
+- [CsvItemType](#CsvItemType)
+
 
 
 # Functions
 
 ## csvItemArrayToCsvString
 
-Max. indexation depth: 4, 
-
 make csv string from a csv model type
+
 
 ### Returns: string
 
-
-
-
-
-
-
 ## tryParseCsv
 
-Max. indexation depth: 4, 
-
 This function parses a CSV into the object it says it has in the header
+
 
 ### Returns: array
 
@@ -48,4 +38,13 @@ This function parses a CSV into the object it says it has in the header
 
 
 
+
+
+### Parameters (1)
+
+#### Parameter 1: csvString: string
+
+# Interfaces
+
+## CsvItemType
 

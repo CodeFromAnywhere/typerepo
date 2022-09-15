@@ -8,7 +8,6 @@ export * from "./gitShipAllRepos";
 export * from "./mdAllOperations";
 export * from "./minifyAllOperations";
 export * from "./publishAllOperations";
-export * from "./rebuildAllOperations";
 export * from "./removeAll";
 export * from "./removeAllFiles";
 export * from "./removeAllFolders";

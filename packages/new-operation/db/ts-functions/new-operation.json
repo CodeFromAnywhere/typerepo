@@ -1,0 +1,96 @@
+{
+  "createdAt": 1662906320071,
+  "updatedAt": 1662906320071,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906320071,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/newOperation.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  name?: string,\n  config?: NewOperationConfig\n): Promise<string | undefined> => {\n  const description = config?.description;\n  const destinationPath = config?.destinationPath;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const folder = name ? kebabCase(name) : \"untitled-operation\";\n  const source = path.resolve(__dirname, \"..\", \"template\");\n  const rootFolderPath = destinationPath ? destinationPath : process.cwd();\n  const availableFolderName = await getAvailableOperationName(\n    rootFolderPath,\n    folder,\n    manualProjectRoot\n  );\n\n  const operationBasePath = path.join(rootFolderPath, availableFolderName);\n\n  // Make the non-existing folder\n  await fs.mkdir(operationBasePath, { recursive: true });\n  // Copy the template inthere\n  await fs.cpAsync(source, operationBasePath, { recursive: true });\n  // Rename templatefiles if needed\n  await renameTemplateFiles({ appDir: operationBasePath });\n\n  const packageJsonPath = path.join(operationBasePath, \"package.json\");\n\n  const hasAvailablePackageJson =\n    fs.existsSync(packageJsonPath) && (await canRead(packageJsonPath));\n  if (!hasAvailablePackageJson) {\n    log(\"The template package.json was not copied succesfully\", {\n      type: \"error\",\n    });\n    return;\n  }\n\n  await setJsonKey({\n    jsonPath: packageJsonPath,\n    keyLocation: \"name\",\n    value: availableFolderName,\n  });\n\n  if (description) {\n    await setJsonKey({\n      jsonPath: packageJsonPath,\n      keyLocation: \"description\",\n      value: description,\n    });\n  }\n\n  return operationBasePath;\n}",
+  "name": "newOperation",
+  "slug": "new-operation",
+  "parameters": [
+    {
+      "name": "name",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string"
+          },
+          "destinationPath": {
+            "type": "string",
+            "description": "destinationPath without the operation folder itself\n\n\nIf not provided, uses the working directory from where the process was executed + an inferred foldername"
+          },
+          "manualProjectRoot": {
+            "type": "string",
+            "description": "folder path (including if given, uses this project root instead of the project root of the executed process"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "description",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destinationPath",
+            "required": false,
+            "schema": {
+              "description": "destinationPath without the operation folder itself\n\n\nIf not provided, uses the working directory from where the process was executed + an inferred foldername",
+              "type": "string"
+            }
+          },
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "description": "folder path (including if given, uses this project root instead of the project root of the executed process",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "This cli creates the correct tsconfig.json, package.json, .gitignore, folder setup, so you can get started immedeately.\n\nReturns either the `operationBasePath` of the created operation, or undefined if something went wrong",
+  "returnType": {
+    "rawType": "Promise<string | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1771,
+    "lines": 54,
+    "bytes": 1771,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 54,
+    "numberOfFiles": 1
+  },
+  "id": "KBsOblCavDpyotII"
+}

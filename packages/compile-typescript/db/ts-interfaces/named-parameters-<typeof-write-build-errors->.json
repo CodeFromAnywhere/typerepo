@@ -1,0 +1,59 @@
+{
+  "createdAt": 1662906091134,
+  "updatedAt": 1662906091134,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906091134,
+  "id": "named-parameters-<typeof-write-build-errors->",
+  "name": "NamedParameters<typeof writeBuildErrors>",
+  "slug": "named-parameters-<typeof-write-build-errors->",
+  "operationRelativeTypescriptFilePath": "src/writeBuildErrors.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationBasePath": {
+          "type": "string"
+        },
+        "manualProjectRoot": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationBasePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationBasePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof writeBuildErrors>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

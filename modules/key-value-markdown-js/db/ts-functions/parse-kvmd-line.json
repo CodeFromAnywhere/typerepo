@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720213957,
-  "updatedAt": 1662720213957,
+  "createdAt": 1662905633868,
+  "updatedAt": 1662905633868,
   "deletedAt": 0,
-  "createdFirstAt": 1662720213957,
+  "createdFirstAt": 1662905633868,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (string: string): KvmdLine | undefined => {\n  const htmlCommentRegex = /<!--[\\s\\S]*?-->/g;\n  const lineWithoutComment = string.replace(htmlCommentRegex, \"\");\n\n  const commentMatch = string.match(htmlCommentRegex)?.[0];\n  const comment = commentMatch\n    ? commentMatch.replace(\"<!--\", \"\").replace(\"-->\", \"\").trim()\n    : null;\n\n  const [keyString, valueString] = lineWithoutComment\n    .split(\":\")\n    .map((x) => x.trim());\n\n  const value = valueString?.length ? valueString : undefined;\n  const slug = kebabCase(keyString);\n\n  if (keyString.length === 0) return;\n\n  return {\n    id: slug,\n    name: keyString,\n    value,\n    comment,\n    slug,\n  };\n}",
   "name": "parseKvmdLine",
   "slug": "parse-kvmd-line",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "string",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "parses a kv md line with data into a key, value, and comment (if available)\n\nif the key is an empty string, the line will return undefined",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/model-types/build/keyValueMarkdown\").KvmdLine | undefined",
@@ -150,5 +161,5 @@
     "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "uITYMRdqKlXBuRTd"
+  "id": "bFbmdbykbuYswaUk"
 }

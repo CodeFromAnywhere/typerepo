@@ -1,0 +1,23 @@
+{
+  "createdAt": 1663018216779,
+  "updatedAt": 1663018216779,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018216779,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/TypescriptIndex.ts",
+  "comments": [],
+  "name": "indexDbModels",
+  "slug": "index-db-models",
+  "value": "[\n  ...typescriptIndexModels,\n  \"OperationIndex\",\n] as const",
+  "type": {
+    "rawType": "readonly [\"TsBuildError\", \"TsLintWarning\", \"TsExport\", \"TsImport\", \"TsComment\", \"TsInterface\", \"TsFunction\", \"TsVariable\", \"OperationIndex\"]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "classification": "const",
+  "id": "nuPAbLBCAVJwpEVN"
+}

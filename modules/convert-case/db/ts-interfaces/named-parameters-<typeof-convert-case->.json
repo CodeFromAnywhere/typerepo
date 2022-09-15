@@ -1,0 +1,70 @@
+{
+  "createdAt": 1663147102708,
+  "updatedAt": 1663147102708,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147102708,
+  "id": "named-parameters-<typeof-convert-case->",
+  "name": "NamedParameters<typeof convertCase>",
+  "slug": "named-parameters-<typeof-convert-case->",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "description": "NB: texts of more than a sentence are not supported"
+        },
+        "target": {
+          "$ref": "#/definitions/Casing"
+        }
+      },
+      "required": [
+        "text",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "text",
+          "required": true,
+          "schema": {
+            "description": "NB: texts of more than a sentence are not supported",
+            "type": "string"
+          }
+        },
+        {
+          "name": "target",
+          "required": true,
+          "schema": {
+            "enum": [
+              "camel",
+              "pascal",
+              "snake",
+              "kebab",
+              "capital",
+              "human"
+            ],
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof convertCase>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

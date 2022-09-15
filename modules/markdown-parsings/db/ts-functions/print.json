@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720257618,
-  "updatedAt": 1662720257618,
+  "createdAt": 1662905686870,
+  "updatedAt": 1662905686870,
   "deletedAt": 0,
-  "createdFirstAt": 1662720257618,
+  "createdFirstAt": 1662905686870,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,36 @@
   "rawText": " ({ absoluteFilePath }: { absoluteFilePath: string }) => {\n  /**\n    \n    markdown files should be rendered via the renderer first\n    \n    ts, json files should be color highlighted (we can simply wrap this in triple backticks and print it as markdown)\n    */\n}",
   "name": "print",
   "slug": "print",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "{ absoluteFilePath }",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "absoluteFilePath": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "absoluteFilePath"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "absoluteFilePath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "should print any file using a preconfigured printer (which can be local or remote. if remote and there is no connection, it should save the task for later)\n\nthis function maybe needs \"generateStaticSite\"",
   "returnType": {
     "rawType": "void",
@@ -32,5 +61,5 @@
     "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "oKSWYXCmsyIRmabp"
+  "id": "JKvrQUGaVLeuTlec"
 }

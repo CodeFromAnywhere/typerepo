@@ -1,0 +1,42 @@
+{
+  "createdAt": 1663018198345,
+  "updatedAt": 1663018198345,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018198345,
+  "id": "category-stack",
+  "name": "CategoryStack",
+  "slug": "category-stack",
+  "operationRelativeTypescriptFilePath": "src/MarkdownParse.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    },
+    "typeCoverage": 0,
+    "rawType": "CategoryStack",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

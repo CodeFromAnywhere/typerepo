@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720231564,
-  "updatedAt": 1662720231564,
+  "createdAt": 1662905652410,
+  "updatedAt": 1662905652410,
   "deletedAt": 0,
-  "createdFirstAt": 1662720231564,
+  "createdFirstAt": 1662905652410,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,80 @@
   "rawText": " (\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
   "name": "markdownParseToMarkdownString",
   "slug": "markdown-parse-to-markdown-string",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdownParse",
+      "schema": {
+        "$ref": "#/definitions/MarkdownParse"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "fileName",
+            "required": false,
+            "schema": {
+              "description": "if available, this can be the filename of the markdown in this markdown-parse. Can be used for things like merging",
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "openedAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "updatedAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "deletedAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "createdFirstAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "content",
+            "required": false,
+            "schema": {
+              "description": "structured content based on h1, h2, h3, etc (paragraphs, recursive)",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "raw",
+            "required": true,
+            "schema": {
+              "description": "raw markdown without frontmatter",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "String",
@@ -49,5 +122,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "YFtUSJsRlzLcFLFs"
+  "id": "hXwGAdsIBgvkYcgJ"
 }

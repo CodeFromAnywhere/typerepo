@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720663138,
-  "updatedAt": 1662720663138,
+  "createdAt": 1662906070288,
+  "updatedAt": 1662906070288,
   "deletedAt": 0,
-  "createdFirstAt": 1662720663138,
+  "createdFirstAt": 1662906070288,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": false,
@@ -11,7 +11,18 @@
   "rawText": " (string: string): string => {\n  return string.startsWith(\"\\n\")\n    ? trimSurroundingNewlines(string.substring(1))\n    : string.endsWith(\"\\n\")\n    ? trimSurroundingNewlines(string.substring(0, string.length - 1))\n    : string;\n}",
   "name": "trimSurroundingNewlines",
   "slug": "trim-surrounding-newlines",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "string",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "removes new lines at beginning and end\n\nNB: This function uses a small recursion! I don't know if this is very efficient, but shouldn't be too deep!\n\nNB: it should be noted that a newline apparently seems to be counting as a single character! Strange.",
   "returnType": {
     "rawType": "String",
@@ -49,5 +60,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "vpUBcexNZlHBfVVP"
+  "id": "rWRUmXzAgqtCVLHv"
 }

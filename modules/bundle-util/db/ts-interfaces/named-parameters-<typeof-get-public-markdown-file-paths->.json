@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663008993562,
+  "updatedAt": 1663008993562,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008993562,
+  "id": "named-parameters-<typeof-get-public-markdown-file-paths->",
+  "name": "NamedParameters<typeof getPublicMarkdownFilePaths>",
+  "slug": "named-parameters-<typeof-get-public-markdown-file-paths->",
+  "operationRelativeTypescriptFilePath": "src/getPublicMarkdownFilePaths.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "baseFolderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "baseFolderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "baseFolderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPublicMarkdownFilePaths>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

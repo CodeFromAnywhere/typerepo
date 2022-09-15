@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718689422,
-  "updatedAt": 1662718689422,
+  "createdAt": 1662904531169,
+  "updatedAt": 1662904531169,
   "deletedAt": 0,
-  "createdFirstAt": 1662718689422,
+  "createdFirstAt": 1662904531169,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,36 @@
   "rawText": " async ({\n  folderPath,\n}: {\n  folderPath: string;\n}): Promise<number> => {\n  return (\n    await explore({\n      basePath: folderPath,\n      includeStats: true,\n      extension: [\"ts\", \"tsx\"],\n      ignore: \"index.ts\",\n    })\n  ).reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.mtimeMs;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n}",
   "name": "folderGetUpdatedAt",
   "slug": "folder-get-updated-at",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "{\n  folderPath,\n}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "folderPath": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "folderPath"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "folderPath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "get last updated file updatedAt time in whole folder, recursively",
   "returnType": {
     "rawType": "Promise<number>",
@@ -32,5 +61,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "CpFLhZoqBBsdEXfN"
+  "id": "iafljPypRHoXQHCV"
 }

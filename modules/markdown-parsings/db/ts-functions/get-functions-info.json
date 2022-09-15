@@ -1,0 +1,47 @@
+{
+  "createdAt": 1662905690332,
+  "updatedAt": 1662905690332,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905690332,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getFunctionsInfo.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string\n): Promise<{\n  functionsOutline: string;\n  functionsMarkdownParse: MarkdownParse | undefined;\n  functionsMarkdownString: string | undefined;\n}> => {\n  const tsFunctions = (await db.get(\"TsFunction\", { operationName })).filter(\n    onlyUnique2<TsFunction>((a, b) => a.name === b.name)\n  );\n\n  const functionsMarkdownString =\n    tsFunctions.length > 0\n      ? tsFunctions.map(tsFunctionToMarkdownString).join(\"\\n\\n\")\n      : undefined;\n\n  const functionsMarkdownParse: MarkdownParse | undefined =\n    functionsMarkdownString\n      ? mdToJsonParse(functionsMarkdownString, \"functions\")\n      : undefined;\n\n  const functionsOutline =\n    tsFunctions.length > 0\n      ? `## Functions\\n\\n${tsFunctions\n          .map((tsFunction) => `- [${tsFunction.name}](#${tsFunction.name})`)\n          .join(\"\\n\")}\\n\\n`\n      : \"\";\n\n  return { functionsOutline, functionsMarkdownParse, functionsMarkdownString };\n}",
+  "name": "getFunctionsInfo",
+  "slug": "get-functions-info",
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ functionsOutline: string; functionsMarkdownParse: import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse | undefined; functionsMarkdownString: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 930,
+    "lines": 30,
+    "bytes": 930,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 30,
+    "numberOfFiles": 1
+  },
+  "id": "aaDakEsfCxtmqUhS"
+}

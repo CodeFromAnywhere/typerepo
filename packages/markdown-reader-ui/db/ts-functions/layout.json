@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662889340556,
-  "updatedAt": 1662889340556,
+  "createdAt": 1662906795746,
+  "updatedAt": 1662906795746,
   "deletedAt": 0,
-  "createdFirstAt": 1662889340556,
+  "createdFirstAt": 1662906795746,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,57 @@
   "rawText": " ({\n  queryPaths,\n  children,\n}: {\n  queryPaths: string[];\n  children: any;\n}) => {\n  const nestedPathObject = queryPathsArrayToNestedPathObject(queryPaths);\n  const pathsMenu = nestedPathObjectToNestedMenuRecursive(nestedPathObject);\n\n  const homeMenu: MenuItemType = { title: \"Home\", href: \"/\" };\n  const menu: MenuType = pathsMenu ? [homeMenu, ...pathsMenu] : [homeMenu];\n  return (\n    <Div className=\"h-screen grid grid-rows-6\">\n      <Div className=\"row-span-6 grid grid-cols-5\">\n        <Div\n          className={`\n        col-span-4 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white`}\n          textClassName=\"dark:text-white\"\n        >\n          {children}\n        </Div>\n        <Span className=\"border-l col-span-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white border-l-gray-400\">\n          {menu ? <NestedMenu menu={menu} /> : \"Menu couldn't be found\"}\n        </Span>\n      </Div>\n    </Div>\n  );\n}",
   "name": "Layout",
   "slug": "layout",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "{\n  queryPaths,\n  children,\n}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "queryPaths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "children": {}
+        },
+        "required": [
+          "queryPaths",
+          "children"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "queryPaths",
+            "required": true,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "children",
+            "required": true,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "JSX.Element",
@@ -36,5 +86,5 @@
     "linesPerFile": 29,
     "numberOfFiles": 1
   },
-  "id": "SkxcBhPnCZOSYimW"
+  "id": "xyDJqcQZNKTiCuFN"
 }

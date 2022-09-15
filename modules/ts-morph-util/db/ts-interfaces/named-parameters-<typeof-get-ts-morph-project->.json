@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662906448497,
+  "updatedAt": 1662906448497,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906448497,
+  "id": "named-parameters-<typeof-get-ts-morph-project->",
+  "name": "NamedParameters<typeof getTsMorphProject>",
+  "slug": "named-parameters-<typeof-get-ts-morph-project->",
+  "operationRelativeTypescriptFilePath": "src/getTsMorphProject.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationFolderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationFolderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationFolderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getTsMorphProject>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

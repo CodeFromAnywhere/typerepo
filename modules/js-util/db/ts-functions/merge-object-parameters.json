@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726836161,
-  "updatedAt": 1662726836161,
+  "createdAt": 1663147175037,
+  "updatedAt": 1663147175037,
   "deletedAt": 0,
-  "createdFirstAt": 1662726836161,
+  "createdFirstAt": 1663147175037,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,30 @@
   "rawText": " <T>(\n  config: T | undefined,\n  defaults: T | undefined\n) => {\n  const parameters = Object.keys({\n    ...config,\n    ...defaults,\n  }) as (keyof T)[];\n\n  const mergedConfig = parameters.reduce(\n    (getConfig, p) => ({ ...getConfig, [p]: config?.[p] || defaults?.[p] }),\n    {} as Partial<T>\n  );\n  return mergedConfig;\n}",
   "name": "mergeObjectParameters",
   "slug": "merge-object-parameters",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "not": {}
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": false
+    },
+    {
+      "name": "defaults",
+      "schema": {
+        "not": {}
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
   "description": "merges two objects: a config object and a defaults object. If the config object has something missing, a default will be used from the defaults object.\n\nIn short: merges two objects, for every parameter, use the default as a fallback\n\nDEPRECATED: in favor of mergeObjects",
   "returnType": {
     "rawType": "any",
@@ -32,5 +55,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "VRCbIrrPmetnDaNv"
+  "id": "oRDvnugzPTzYVQEL"
 }

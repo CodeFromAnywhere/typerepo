@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720258649,
-  "updatedAt": 1662720258649,
+  "createdAt": 1662905688565,
+  "updatedAt": 1662905688565,
   "deletedAt": 0,
-  "createdFirstAt": 1662720258649,
+  "createdFirstAt": 1662905688565,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,74 @@
   "rawText": " ({\n  sayables,\n  destinationAbsoluteFilePath,\n}: {\n  destinationAbsoluteFilePath: string;\n  sayables: Sayable[];\n}) => {\n  /**\n  \n  \n  \n   */\n}",
   "name": "sayablesToMp3",
   "slug": "sayables-to-mp-3",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "{\n  sayables,\n  destinationAbsoluteFilePath,\n}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "destinationAbsoluteFilePath": {
+            "type": "string"
+          },
+          "sayables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/Sayable"
+            }
+          }
+        },
+        "required": [
+          "destinationAbsoluteFilePath",
+          "sayables"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "destinationAbsoluteFilePath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sayables",
+            "required": true,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "properties": [
+                      {
+                        "name": "sayableText",
+                        "required": false,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "voiceFileRelativePath",
+                        "required": false,
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "name": "Sayable"
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "Creates a single audiofile of a Sayable[] and stores that in a configured location",
   "returnType": {
     "rawType": "void",
@@ -32,5 +99,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "BZGoddaJmljFrqmw"
+  "id": "cdqnBSqrBIcxdlWC"
 }

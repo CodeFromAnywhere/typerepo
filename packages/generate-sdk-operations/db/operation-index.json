@@ -1,0 +1,90 @@
+{
+  "createdAt": 1662720741991,
+  "updatedAt": 1663018255410,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720741991,
+  "folderName": "generate-sdk-operations",
+  "packageName": "generate-sdk-operations",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "generate-sdk-operations",
+  "slug": "generate-sdk-operations",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "db",
+    "notEmpty",
+    "onlyUnique2",
+    "TsInterface",
+    "newOperationWithFiles",
+    "getOperationConfig",
+    "BundleConfig",
+    "getProjectRoot",
+    "newOperationWithFiles",
+    "getOperationConfig",
+    "OperationClassification",
+    "TsFunction",
+    "db",
+    "getLastFolder",
+    "log",
+    "getOperationClassification",
+    "getProjectRoot",
+    "getSrcRelativeFileId",
+    "operationClassificationConst",
+    "findDependantsRecursively",
+    "newOperationWithFiles",
+    "getOperationConfig",
+    "mergeObjectsArray",
+    "notEmpty",
+    "onlyUnique2",
+    "exploreOperationFolders",
+    "isIndexableFileId",
+    "getPathsWithOperations",
+    "getProjectRoot",
+    "makeRelative",
+    "getLastFolder",
+    "exploreOperationFolders",
+    "newOperationWithFiles",
+    "getOperationConfig",
+    "BundleConfig",
+    "getProjectRoot",
+    "db"
+  ],
+  "packageDependencies": [
+    "execSync",
+    "spawnSync"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 10,
+      "lines": 606,
+      "characters": 18380,
+      "bytes": 18384
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 87,
+      "characters": 2103,
+      "bytes": 2103
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 520,
+      "characters": 29386,
+      "bytes": 29386
+    },
+    "size": {
+      "bytes": 49873,
+      "characters": 49869,
+      "lines": 1213,
+      "numberOfFiles": 13
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "wEMdaYXmpCuWzHrI",
+  "language": "en"
+}

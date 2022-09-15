@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663018121952,
+  "updatedAt": 1663018121952,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018121952,
+  "id": "named-parameters-<typeof-get-src-ids->",
+  "name": "NamedParameters<typeof getSrcIds>",
+  "slug": "named-parameters-<typeof-get-src-ids->",
+  "operationRelativeTypescriptFilePath": "src/getSrcIds.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationFolderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationFolderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationFolderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getSrcIds>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

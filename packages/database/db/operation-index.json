@@ -1,0 +1,75 @@
+{
+  "createdAt": 1662718659026,
+  "updatedAt": 1662904475303,
+  "deletedAt": 0,
+  "createdFirstAt": 1662718659026,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/database/src/test-e2e.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+  "buildSucceeded": true,
+  "id": "BkgiZHOPpVznBkWy",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "database",
+  "packageName": "database",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "database",
+  "slug": "database",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "DbModels",
+    "modelQueryConfig",
+    "createDb",
+    "CustomQueryConfig",
+    "DbConfig",
+    "mergeConfigs",
+    "OperationConfig",
+    "OperationIndex",
+    "PackageJson",
+    "TsConfig",
+    "KeyValueMarkdownModelType",
+    "SlugModelType",
+    "CsvModelType",
+    "MarkdownModelType",
+    "DefaultModelType",
+    "generateId",
+    "Creation",
+    "createDb",
+    "DbConfig",
+    "AnyModelType",
+    "Creation",
+    "TsConfig",
+    "getObjectFromParamsString",
+    "getSubsetFromObject",
+    "DbModels",
+    "getObjectFromParamsString",
+    "getSubsetFromObject",
+    "getObjectFromParamsString"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 12,
+      "lines": 543,
+      "characters": 13103,
+      "bytes": 13103
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 78,
+      "characters": 1731,
+      "bytes": 1731
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 586,
+      "characters": 70729,
+      "bytes": 70729
+    },
+    "size": {
+      "bytes": 85563,
+      "characters": 85563,
+      "lines": 1207,
+      "numberOfFiles": 16
+    }
+  }
+}

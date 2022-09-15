@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739839752,
-  "updatedAt": 1662739839752,
+  "createdAt": 1663018077049,
+  "updatedAt": 1663018077049,
   "deletedAt": 0,
-  "createdFirstAt": 1662739839752,
+  "createdFirstAt": 1663018077049,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (\n  folderPath: string\n): OperationClassification | undefined => {\n  if (folderPath === undefined) {\n    console.log(\n      \"Incorrect type at getOperationClassification\"\n      // getOperationClassification.caller\n    );\n    process.exit(1);\n  }\n\n  const packageJsonPath = path.join(folderPath, \"package.json\");\n  const existsPackageJson = fs.existsSync(packageJsonPath);\n  const tsConfigPath = path.join(folderPath, \"tsconfig.json\");\n\n  const existsTsConfig = fs.existsSync(tsConfigPath);\n  // NB: must have these two in order to be an operation at all\n  if (!existsPackageJson || !existsTsConfig) {\n    return;\n  }\n\n  const packageJson = tryParseJson<PackageJson>(\n    fs.readFileSync(packageJsonPath, \"utf8\")\n  );\n  if (!packageJson || packageJson.workspaces) {\n    return;\n  }\n\n  const nextConfigPath = path.join(folderPath, \"next.config.js\");\n  const existsNextConfig = fs.existsSync(nextConfigPath);\n  const isNextApp = existsNextConfig;\n  if (isNextApp) return \"web\";\n\n  const appJsonPath = path.join(folderPath, \"app.json\");\n  const existsAppJson = fs.existsSync(appJsonPath);\n  const isReactNativeApp = existsAppJson;\n  if (isReactNativeApp) return \"app\";\n\n  const mainEntryTypescriptSource =\n    !!packageJson?.main &&\n    packageJson.main.startsWith(\"src/\") &&\n    (packageJson.main.endsWith(\".ts\") || packageJson.main.endsWith(\".tsx\"));\n\n  const isReactPackage =\n    !!packageJson &&\n    (hasDependency(packageJson, \"react\") ||\n      hasDependency(packageJson, \"react-native\") ||\n      hasDependency(packageJson, \"next\") ||\n      hasDependency(packageJson, \"expo\"));\n\n  if (isReactPackage) {\n    if (mainEntryTypescriptSource) {\n      return \"ui-es6\";\n    }\n    return \"ui-es5\";\n  }\n\n  const hasExpress = !!packageJson && hasDependency(packageJson, \"express\");\n  const hasServer = !!packageJson && hasDependency(packageJson, \"server\");\n  if (hasExpress || hasServer) {\n    return \"server\";\n  }\n\n  if (mainEntryTypescriptSource) {\n    return \"ts\";\n  }\n\n  const hasTypesNode = hasDependency(packageJson, \"@types/node\");\n\n  if (hasTypesNode) {\n    return \"node\";\n  }\n\n  return \"js\";\n}",
   "name": "getOperationClassification",
   "slug": "get-operation-classification",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "folderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "Returns OperationClassification if it's an operation, or undefined if it's not\n\nNB: don't confuse this with ProjectType or ImportClassification",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 77,
     "numberOfFiles": 1
   },
-  "id": "TgmYmTGukrUEmGmh"
+  "id": "aSGMncwiTJNKKdCC"
 }

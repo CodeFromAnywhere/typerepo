@@ -1,16 +1,10 @@
 # Set json key
 
-set-json-key (undefined operation)
+set-json-key (node operation)
 
 Update a JSON using the CLI
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -25,8 +19,6 @@ Imported dependencies:
 
 ## setJsonKey
 
-Max. indexation depth: 4, 
-
 npx setjsonkey [json-path] key1.key2.[index/latest/push].key3 "value"
 
 
@@ -36,13 +28,31 @@ reduce keys (arg2) to go deeper into the object and create keys as they don't ex
 make sure it works with arrays too
 convert value string (arg3) to number, boolean if they seem to be like that
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: {  jsonPath,  keyLocation,  value,  debug,}: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| jsonPath  | string |  |
+| keyLocation  | string |  |
+| value  | string |  |
+| debug (optional) | boolean |  |
+
+
 
 ## set
 
-Max. indexation depth: 2, 
+### Parameters (3)
 
+#### Parameter 1: path: string
 
+#### Parameter 2: value: string
 
-## Returns: unknown
+#### Parameter 3: object: object
 

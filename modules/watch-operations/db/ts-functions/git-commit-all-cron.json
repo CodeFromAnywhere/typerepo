@@ -1,0 +1,36 @@
+{
+  "createdAt": 1663008952789,
+  "updatedAt": 1663008952789,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008952789,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  setInterval(() => {\n    try {\n      // NB: This doesn't work well with nested .git folders!\n      execSync(\n        \"[[ `git status --porcelain .` ]] && git add . && git commit -m 'Automatic commit'\",\n        { cwd: getProjectRoot(), stdio: \"inherit\" }\n      );\n    } catch {}\n  }, 1000 * 3600);\n}",
+  "name": "gitCommitAllCron",
+  "slug": "git-commit-all-cron",
+  "parameters": [],
+  "description": "const pushPosition = async () => {\nconst position = await getLocation();\nif (position) {\npush(\"Position\", {\n...position,\ncreatedAt: Date.now(),\nupdatedAt: Date.now(),\ncreatedFirstAt: Date.now(),\ndeletedAt: 0,\nid: generateId(),\n});\n}\n};\n\nconst pushLight = async () => {\nconst light = 1;\nif (light) {\npush(\"Light\", {\nid: generateId(),\ncreatedFirstAt: Date.now(),\ncreatedAt: Date.now(),\nupdatedAt: Date.now(),\ndeletedAt: 0,\nlight,\n});\n}\n};\n\nconst watchLocation = async () => {\npushPosition();\nsetInterval(() => {\npushPosition();\n}, 60000);\n};\n\nconst watchLight = async () => {\npushLight();\nsetInterval(() => {\npushLight();\n}, 60000);\n};",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 941,
+    "lines": 51,
+    "bytes": 941,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 18,
+    "linesPerFile": 51,
+    "numberOfFiles": 1
+  },
+  "id": "DnsnpaRYtmJAaGiw"
+}

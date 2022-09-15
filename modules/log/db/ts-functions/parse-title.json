@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662744633104,
-  "updatedAt": 1662744633104,
+  "createdAt": 1662907457408,
+  "updatedAt": 1662907457408,
   "deletedAt": 0,
-  "createdFirstAt": 1662744633104,
+  "createdFirstAt": 1662907457408,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (markdown: string) => {\n  const sentences = markdown\n    .split(\"\\n\")\n    .map((x) => x.split(\".\"))\n    .flat();\n\n  const [title, ...rest] = sentences;\n\n  return { title, rest: rest.filter((x) => x.length > 0).join(\"\\n\") };\n}",
   "name": "parseTitle",
   "slug": "parse-title",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdown",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "TODO: Should parse a title from markdown",
   "returnType": {
     "rawType": "{ title: any; rest: any; }",
@@ -65,5 +76,5 @@
     "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "pcceIZhIYURSolXH"
+  "id": "gFOzRIRtQSPeOqnN"
 }

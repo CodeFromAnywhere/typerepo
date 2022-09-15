@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739816125,
-  "updatedAt": 1662739816125,
+  "createdAt": 1663008892070,
+  "updatedAt": 1663008892070,
   "deletedAt": 0,
-  "createdFirstAt": 1662739816125,
+  "createdFirstAt": 1663008892070,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,15 @@
   "rawText": " async (p: PathLike) => canAccess(p, fs.constants.F_OK)",
   "name": "canSee",
   "slug": "can-see",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "p",
+      "schema": {
+        "$ref": "#/definitions/PathLike"
+      },
+      "required": true
+    }
+  ],
   "description": "File is visible to the calling process",
   "returnType": {
     "rawType": "unknown",
@@ -32,5 +40,5 @@
     "linesPerFile": 1,
     "numberOfFiles": 1
   },
-  "id": "NxkVdVNzSlaONiuG"
+  "id": "FcilxlNXydlvZWrM"
 }

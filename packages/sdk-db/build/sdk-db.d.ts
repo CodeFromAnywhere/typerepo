@@ -1,4 +1,3 @@
-import type { BundleConfig } from "bundle-types";
 import type { MarkdownFileConfig } from "code-types";
 import type { OperationConfig } from "code-types";
 import type { OperationIndex } from "code-types";
@@ -14,8 +13,8 @@ import type { TsLintWarning } from "code-types";
 import type { TsVariable } from "code-types";
 import type { CsvModelType } from "model-types";
 import type { SlugModelType } from "model-types";
+import type { BundleConfig } from "bundle-types";
 export declare type DbModels = {
-    BundleConfig: BundleConfig;
     MarkdownFileConfig: MarkdownFileConfig;
     OperationConfig: OperationConfig;
     OperationIndex: OperationIndex;
@@ -31,13 +30,11 @@ export declare type DbModels = {
     TsVariable: TsVariable;
     CsvModelType: CsvModelType;
     SlugModelType: SlugModelType;
+    BundleConfig: BundleConfig;
 };
-export declare const dbModelKeys: readonly ["BundleConfig", "MarkdownFileConfig", "OperationConfig", "OperationIndex", "PackageJson", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "CsvModelType", "SlugModelType"];
+export declare const dbModelKeys: readonly ["MarkdownFileConfig", "OperationConfig", "OperationIndex", "PackageJson", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "CsvModelType", "SlugModelType", "BundleConfig"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
-    BundleConfig: {
-        dbStorageMethod: string;
-    };
     MarkdownFileConfig: {
         dbStorageMethod: string;
     };
@@ -85,6 +82,9 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     SlugModelType: {
+        dbStorageMethod: string;
+    };
+    BundleConfig: {
         dbStorageMethod: string;
     };
 };

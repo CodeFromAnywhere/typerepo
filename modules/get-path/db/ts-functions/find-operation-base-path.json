@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739839222,
-  "updatedAt": 1662739839222,
+  "createdAt": 1663018076032,
+  "updatedAt": 1663018076032,
   "deletedAt": 0,
-  "createdFirstAt": 1662739839222,
+  "createdFirstAt": 1663018076032,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (\n  startPath: string\n): string | undefined => {\n  return findOperationBasePathWithClassification(startPath)?.folderPath;\n}",
   "name": "findOperationBasePath",
   "slug": "find-operation-base-path",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "startPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "string | undefined",
@@ -49,5 +60,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "DQnHeuxIhxQCvVSF"
+  "id": "TmWLpnNgUlcATrgb"
 }

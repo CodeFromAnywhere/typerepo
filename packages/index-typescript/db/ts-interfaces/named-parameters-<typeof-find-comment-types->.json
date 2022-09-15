@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662906254872,
+  "updatedAt": 1662906254872,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906254872,
+  "id": "named-parameters-<typeof-find-comment-types->",
+  "name": "NamedParameters<typeof findCommentTypes>",
+  "slug": "named-parameters-<typeof-find-comment-types->",
+  "operationRelativeTypescriptFilePath": "src/findCommentTypes.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "commentWithoutFrontmatter": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "commentWithoutFrontmatter"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "commentWithoutFrontmatter",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof findCommentTypes>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

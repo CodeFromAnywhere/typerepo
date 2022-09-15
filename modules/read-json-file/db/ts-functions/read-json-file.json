@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718907928,
-  "updatedAt": 1662718907928,
+  "createdAt": 1662904890211,
+  "updatedAt": 1662904890211,
   "deletedAt": 0,
-  "createdFirstAt": 1662718907928,
+  "createdFirstAt": 1662904890211,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,19 @@
   "rawText": " async <T>(\n  filePath: Path | undefined\n): Promise<T | null> => {\n  if (!filePath) return null;\n  // TODO: is this needed?\n  if (!fs.existsSync(filePath)) return null;\n\n  const readable = await canRead(filePath);\n  if (!readable) return null;\n  const fileString = await fs.readFile(filePath, \"utf8\");\n  if (!fileString) return null;\n  const parsed = tryParseJson<T>(fileString);\n  return parsed;\n}",
   "name": "readJsonFile",
   "slug": "read-json-file",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "filePath",
+      "schema": {
+        "$ref": "#/definitions/Path"
+      },
+      "simplifiedSchema": {
+        "description": "unlike PathLike, this is only a string\n\nFor now, we don't have a clear convention whether or not this string should be absolute or anything.",
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "Reads and parses JSON file\n\nmake sure to specify what type the file contains as a generic!",
   "returnType": {
     "rawType": "Promise<T | null>",
@@ -32,5 +44,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "JWCCnXzuKDxTNYQl"
+  "id": "mQerOPOxlPdrjPmK"
 }

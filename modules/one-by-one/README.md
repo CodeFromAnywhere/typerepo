@@ -1,14 +1,8 @@
 # One by one
 
-one-by-one (undefined operation)
+one-by-one (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -22,10 +16,8 @@ Imported dependencies:
 
 ## oneByOne
 
-Max. indexation depth: 2, 
-
 for every item in an array, executes an async callback, one by one.
 promises an array of the results of every callback once it's done
 
-## Returns: unknown
+
 

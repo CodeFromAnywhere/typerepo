@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726832986,
-  "updatedAt": 1662726832986,
+  "createdAt": 1663147167981,
+  "updatedAt": 1663147167981,
   "deletedAt": 0,
-  "createdFirstAt": 1662726832986,
+  "createdFirstAt": 1663147167981,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -12,7 +12,7 @@
   "name": "apply",
   "slug": "apply",
   "parameters": [],
-  "description": "function that takes an array of functions and applies them one by one, on the value or the result of the previous function. Only possible if the type of the value stays the same.",
+  "description": "sum([1, 2, 3]);\n\nfunction that takes an array of functions and applies them one by one, on the value or the result of the previous function. Only possible if the type of the value stays the same.",
   "returnType": {
     "rawType": "any",
     "typeCoverage": 0,
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 305,
-    "lines": 5,
-    "bytes": 305,
+    "characters": 322,
+    "lines": 7,
+    "bytes": 322,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 61,
-    "linesPerFile": 5,
+    "charactersPerLine": 46,
+    "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "XDUUTrSKbFVOwYLA"
+  "id": "WxpofPMSiGPtVpUA"
 }

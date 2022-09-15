@@ -14,6 +14,10 @@ All frontend components can go here
 - [getQueryPath](#getQueryPath)
 - [Layout](#Layout)
 
+## Interfaces:
+
+- [NextParsedUrlQuery](#NextParsedUrlQuery)
+
 
 
 # Functions
@@ -22,17 +26,59 @@ All frontend components can go here
 
 utility function to get a title from a page
 
-## Returns: unknown
+
+
 
 ## getQueryPath
 
+### Parameters (1)
+
+#### Parameter 1: parsedUrlQuery (optional): object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| amp (optional) | string |  |
+| __nextNotFoundSrcPage (optional) | string |  |
+| __nextDefaultLocale (optional) | string |  |
+| __nextFallback (optional) | string |  |
+| __nextLocale (optional) | string |  |
+| __nextSsgPath (optional) | string |  |
+| _nextBubbleNoFallback (optional) | string |  |
+| _nextDataReq (optional) | string |  |
 
 
-## Returns: unknown
 
 ## Layout
 
+### Parameters (1)
+
+#### Parameter 1: {  queryPaths,  children,}: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| queryPaths  | array |  |
+| children  | object |  |
 
 
-## Returns: unknown
+# Interfaces
+
+## NextParsedUrlQuery
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| amp (optional) | string |  |
+| __nextNotFoundSrcPage (optional) | string |  |
+| __nextDefaultLocale (optional) | string |  |
+| __nextFallback (optional) | string |  |
+| __nextLocale (optional) | string |  |
+| __nextSsgPath (optional) | string |  |
+| _nextBubbleNoFallback (optional) | string |  |
+| _nextDataReq (optional) | string |  |
+
 

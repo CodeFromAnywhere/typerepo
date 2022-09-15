@@ -1,7 +1,7 @@
 /**
  * can only be accessed in the OS
  */
-export declare const osRootFoldersConst: readonly ["assets", "backups", "bundled", "cloned", "bundles", "distributions", "operations"];
+export declare const osRootFoldersConst: readonly ["assets", "backups", "bundled", "cloned", "distributions", "operations"];
 /**
  * can be accessed in projects as well as in the OS
  */

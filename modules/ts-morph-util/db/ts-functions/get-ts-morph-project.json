@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720976255,
-  "updatedAt": 1662720976255,
+  "createdAt": 1662906448589,
+  "updatedAt": 1662906448589,
   "deletedAt": 0,
-  "createdFirstAt": 1662720976255,
+  "createdFirstAt": 1662906448589,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (operationFolderPath: string) => {\n  const tsConfigFilePath = path.join(operationFolderPath, \"tsconfig.json\");\n\n  const tsConfigExists = fs.existsSync(tsConfigFilePath);\n  const srcExists = existsSync(path.join(operationFolderPath, \"src\"));\n  if (!tsConfigExists || !srcExists) {\n    log(\n      `This is not an operation: ${operationFolderPath}. (src folder or tsconfig.json are not present)`,\n      { type: \"error\" }\n    );\n    return;\n  }\n\n  const project = new Project({ tsConfigFilePath, libFolderPath: \"src\" });\n\n  return project;\n}",
   "name": "getTsMorphProject",
   "slug": "get-ts-morph-project",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "operationFolderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "returns a ts-morph Project given a operationFolderPath, if a tsconfig.json can be found",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/node_modules/ts-morph/lib/ts-morph\").Project | undefined",
@@ -39,5 +50,5 @@
     "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "tuJnVpndOakrgKXg"
+  "id": "TbYyVVQzJEEwnowN"
 }

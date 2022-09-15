@@ -35,6 +35,10 @@ export declare type SearchConfig = {
      */
     includeFoldersWithResults?: boolean;
     /**
+     * if true, readme files will return the first in every folder
+     */
+    readmeOnTop?: boolean;
+    /**
      * defaults to fileName
      */
     searchLevel?: SearchLevel;
@@ -123,12 +127,6 @@ export declare const findAllDotGitFolders: (config: BaseConfig) => Promise<TextJ
  find all active git folders (folders having `.git`)
  */
 export declare const exploreGitRepoFolders: (config: BaseConfig) => Promise<string[]>;
-/**
- find all active operations (folders having `package.json` but also `tsconfig.json`)
-
- returns folder path array
- */
-export declare const exploreOperationFolders: (config: BaseConfig) => Promise<string[]>;
 export declare const explorePreset: (preset: "packages" | "markdown" | "todo" | "docs" | "src" | "git", config?: BaseConfig) => Promise<TextJson[]>;
 /**
  * DEPRECATED: not sure if we still need it, look up usecases, can prob be replaced now

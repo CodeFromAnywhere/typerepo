@@ -1,14 +1,8 @@
 # Comment util
 
-comment-util (undefined operation)
+comment-util (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -28,23 +22,22 @@ Imported dependencies:
 
 ## stripCommentEnd
 
-Max. indexation depth: 2, 
-
 only strip slahes for single-line comments
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: trimmedLine: string
 
 ## stripCommentStart
 
-Max. indexation depth: 2, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: trimmedLine: string
 
 ## stripComment
-
-Max. indexation depth: 5, 
 
 parses comments (single line, multiline and doc) and removes the comment syntax
 
@@ -69,33 +62,26 @@ multiline
 comment
 ```
 
+
 ### Returns: string
 
+### Parameters (1)
 
-
-
-
-
+#### Parameter 1: rawCommentString: string
 
 ## stripSlashes
 
-Max. indexation depth: 1, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: trimmedLine: string
 
 ## stripStar
 
-Max. indexation depth: 1, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: trimmedLine: string
 
 ## trimSurroundingNewlines
-
-Max. indexation depth: 2, 
 
 removes new lines at beginning and end
 
@@ -103,19 +89,16 @@ NB: This function uses a small recursion! I don't know if this is very efficient
 
 NB: it should be noted that a newline apparently seems to be counting as a single character! Strange.
 
+
 ### Returns: string
 
+### Parameters (1)
 
-
-
-
-
+#### Parameter 1: string: string
 
 ## trim
 
-Max. indexation depth: 0, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: string: string
 

@@ -1,0 +1,50 @@
+{
+  "createdAt": 1663008891549,
+  "updatedAt": 1663008891549,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008891549,
+  "id": "named-parameters-<typeof-write-to-files->",
+  "name": "NamedParameters<typeof writeToFiles>",
+  "slug": "named-parameters-<typeof-write-to-files->",
+  "operationRelativeTypescriptFilePath": "src/files.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "fileObject": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "fileObject"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "fileObject",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof writeToFiles>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

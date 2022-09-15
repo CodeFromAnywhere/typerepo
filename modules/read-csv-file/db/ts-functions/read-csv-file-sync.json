@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718893309,
-  "updatedAt": 1662718893309,
+  "createdAt": 1662904875072,
+  "updatedAt": 1662904875072,
   "deletedAt": 0,
-  "createdFirstAt": 1662718893309,
+  "createdFirstAt": 1662904875072,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,19 @@
   "rawText": " <T extends CsvItemType>(\n  filePath: Path\n): T[] | null => {\n  // TODO: is this needed?\n  if (!fs.existsSync(filePath)) return null;\n\n  const readable = canReadSync(filePath);\n  if (!readable) return null;\n  const fileString = fs.readFileSync(filePath, \"utf8\");\n  if (!fileString) return null;\n  const parsed = tryParseCsv<T>(fileString);\n  return parsed;\n}",
   "name": "readCsvFileSync",
   "slug": "read-csv-file-sync",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "filePath",
+      "schema": {
+        "$ref": "#/definitions/Path"
+      },
+      "simplifiedSchema": {
+        "description": "unlike PathLike, this is only a string\n\nFor now, we don't have a clear convention whether or not this string should be absolute or anything.",
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "Reads and parses CSV file\n\nspecify a generic of what type of item the file contains an array of",
   "returnType": {
     "rawType": "T[] | null",
@@ -49,5 +61,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "BTjJHxAavdOfJlXk"
+  "id": "tBPwTaPaTinubltQ"
 }

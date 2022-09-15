@@ -1,0 +1,73 @@
+{
+  "createdAt": 1663009345966,
+  "updatedAt": 1663009345966,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009345966,
+  "id": "named-parameters-<typeof-paths-get-static-paths->",
+  "name": "NamedParameters<typeof pathsGetStaticPaths>",
+  "slug": "named-parameters-<typeof-paths-get-static-paths->",
+  "operationRelativeTypescriptFilePath": "src/pathsGetStaticPaths.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "$ref": "#/definitions/GetStaticPathsContext"
+        }
+      },
+      "required": [
+        "context"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "context",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "locales",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "defaultLocale",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof pathsGetStaticPaths>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

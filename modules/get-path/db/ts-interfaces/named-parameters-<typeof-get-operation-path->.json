@@ -1,0 +1,88 @@
+{
+  "createdAt": 1663018077842,
+  "updatedAt": 1663018077842,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018077842,
+  "id": "named-parameters-<typeof-get-operation-path->",
+  "name": "NamedParameters<typeof getOperationPath>",
+  "slug": "named-parameters-<typeof-get-operation-path->",
+  "operationRelativeTypescriptFilePath": "src/getOperationPath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string",
+          "description": "specify the operation folder name"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "manualProjectRoot": {
+              "type": "string"
+            },
+            "notUseSdk": {
+              "type": "boolean",
+              "description": "if true, will not use sdk (defaults to using it first...)"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "description": "specify the operation folder name",
+            "type": "string"
+          }
+        },
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "notUseSdk",
+                "required": false,
+                "schema": {
+                  "description": "if true, will not use sdk (defaults to using it first...)",
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOperationPath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

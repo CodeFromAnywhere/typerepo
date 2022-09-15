@@ -1,17 +1,159 @@
 {
-  "createdAt": 1662735932600,
-  "updatedAt": 1662735932600,
+  "createdAt": 1662905700669,
+  "updatedAt": 1662905700669,
   "deletedAt": 0,
-  "createdFirstAt": 1662735932600,
+  "createdFirstAt": 1662905700669,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "operationRelativeTypescriptFilePath": "src/tsInterfaceToMarkdownString.ts",
   "commentsInside": [],
-  "rawText": " (\n  tsInterface: TsInterface\n): string => {\n  const titleString = `## ${tsInterface.name}`;\n  const storageMethodString = tsInterface.dbStorageMethod\n    ? `${tsInterface.dbStorageMethod} model\\n\\n`\n    : undefined;\n\n  const operationName = tsInterface.operationName\n    ? `(from: \\`${tsInterface.operationName}\\`)`\n    : undefined;\n\n  // const interfaceText = `\\`\\`\\`ts\\n${tsInterface.rawText}\\n\\`\\`\\``;\n\n  const interfaceText = simplifiedSchemaToMarkdownString(\n    tsInterface.type.simplifiedSchema,\n    tsInterface.name,\n    true,\n    2\n  );\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    operationName,\n    storageMethodString,\n    tsInterface.description,\n    interfaceText,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "rawText": " (\n  tsInterface: TsInterface\n): string => {\n  const titleString = `# ${tsInterface.name}`;\n  const storageMethodString = tsInterface.dbStorageMethod\n    ? `${tsInterface.dbStorageMethod} model\\n\\n`\n    : undefined;\n\n  // const operationName = tsInterface.operationName\n  //   ? `(from: \\`${tsInterface.operationName}\\`)`\n  //   : undefined;\n\n  // const interfaceText = `\\`\\`\\`ts\\n${tsInterface.rawText}\\n\\`\\`\\``;\n\n  const interfaceText = simplifiedSchemaToMarkdownString(\n    tsInterface.type.simplifiedSchema,\n    undefined,\n    true,\n    2\n  );\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // operationName,\n    storageMethodString,\n    tsInterface.description,\n    interfaceText,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
   "name": "tsInterfaceToMarkdownString",
   "slug": "ts-interface-to-markdown-string",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "tsInterface",
+      "schema": {
+        "$ref": "#/definitions/TsInterface"
+      },
+      "simplifiedSchema": {
+        "description": "--- dbStorageMethod: jsonSingle\n---\n\nTODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.",
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "description": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "unique id of the model",
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "description": "name (identifier) of the model",
+              "type": "string"
+            }
+          },
+          {
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "description": "kebab-case variant of the name",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativeTypescriptFilePath",
+            "required": true,
+            "schema": {
+              "description": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "commentsInside",
+            "required": true,
+            "schema": {
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "isExported",
+            "required": true,
+            "schema": {
+              "description": "boolean indicating whether or not this interface is exported from the file, and with that, from the operation",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "hasGeneric",
+            "required": true,
+            "schema": {
+              "description": "boolean indicating whether or not this interface uses one or more generic variables",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "rawText",
+            "required": false,
+            "schema": {
+              "description": "raw interface text, coming from ts-morph",
+              "type": "string"
+            }
+          },
+          {
+            "name": "extensions",
+            "required": false,
+            "schema": {
+              "description": "if the interface extends anything, names will be specified here",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "isDbModel",
+            "required": true,
+            "schema": {
+              "description": "If true, this interface is marked as a db model, which means it will be included in the db function autocompletion so it's easy to store and fetch data in this format.\n\nIs automatically set to true when indexing and when one of the following statements holds true\n\n- if the doc-comment contains frontmatter with `isDbModel` or `dbStorageMethod` specified\n- if the interface last word is \"db\" or \"model\" and if there are minimum 2 words\n- if the interface extends some other special interface",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "isOperationIndex",
+            "required": true,
+            "schema": {
+              "description": "If this is true, this is a db-model that is ALWAYS attached to an operation.\n\nBy default this means it will get a folder in the `db` folder in the operation folder, where the interface will be stored linked to the file-id in specified folder.\n\nHowever, you can also specify a `storageLocationRelativeFilePath` if you want to store the model on an exact location relative to the operation root.",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "operationStorageLocationRelativeFilePath",
+            "required": false,
+            "schema": {
+              "description": "If given, specify a file path here where the data should be stored. Must be an operation relative path.\n\nThis will map onto the \"operationRelativePath\" for that instance.\n\nNB: Since this is a single file per project or per operation, it will overwrite your data in case of `jsonSingle` or `markdown` storage.",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "properties, their type, and their description\n\nuse simplifiedJsonSchema, but split up nested things into multiple tables (ive written a thing for splitting up nested objects before, use that)",
   "returnType": {
     "rawType": "String",
@@ -41,13 +183,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 947,
+    "characters": 951,
     "lines": 33,
-    "bytes": 947,
+    "bytes": 951,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
     "linesPerFile": 33,
     "numberOfFiles": 1
   },
-  "id": "RFsTIDljBWSKKdJv"
+  "id": "NEivXzMpnfVKllet"
 }

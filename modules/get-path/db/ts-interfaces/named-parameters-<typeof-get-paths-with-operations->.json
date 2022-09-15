@@ -1,0 +1,63 @@
+{
+  "createdAt": 1663018081106,
+  "updatedAt": 1663018081106,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018081106,
+  "id": "named-parameters-<typeof-get-paths-with-operations->",
+  "name": "NamedParameters<typeof getPathsWithOperations>",
+  "slug": "named-parameters-<typeof-get-paths-with-operations->",
+  "operationRelativeTypescriptFilePath": "src/getPathsWithOperations.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "manualProjectRoot": {
+              "type": "string",
+              "description": "if given, this will be taken as the project root instead of the one that can be found automatically (useful for bundling or working with multiple projects that alter each other)"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "description": "if given, this will be taken as the project root instead of the one that can be found automatically (useful for bundling or working with multiple projects that alter each other)",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPathsWithOperations>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

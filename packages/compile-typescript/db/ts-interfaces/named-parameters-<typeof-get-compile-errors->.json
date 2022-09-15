@@ -1,0 +1,59 @@
+{
+  "createdAt": 1662906088267,
+  "updatedAt": 1662906088267,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906088267,
+  "id": "named-parameters-<typeof-get-compile-errors->",
+  "name": "NamedParameters<typeof getCompileErrors>",
+  "slug": "named-parameters-<typeof-get-compile-errors->",
+  "operationRelativeTypescriptFilePath": "src/getCompileErrors.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationBasePath": {
+          "type": "string"
+        },
+        "onlyDependants": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "operationBasePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationBasePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "onlyDependants",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getCompileErrors>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,14 +1,8 @@
 # Read json file
 
-read-json-file (undefined operation)
+read-json-file (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -18,47 +12,74 @@ Imported dependencies:
 - [readJsonFile](#readJsonFile)
 - [tryParseJson](#tryParseJson)
 
+## Interfaces:
+
+- [Path](#Path)
+
 
 
 # Functions
 
 ## readJsonFileSync
 
-Max. indexation depth: 1, 
-
 Reads and parses JSON file
 
 make sure to specify what type the file contains as a generic!
 
-### Returns: string(Enum: ul | ) 
 
+### Returns: string(Enum: ul | )
 
+### Parameters (1)
 
+#### Parameter 1: filePath: string
+
+> unlike PathLike, this is only a string<br /><br />For now, we don't have a clear convention whether or not this string should be absolute or anything.
 
 
 
 
 ## readJsonFile
 
-Max. indexation depth: 1, 
-
 Reads and parses JSON file
 
 make sure to specify what type the file contains as a generic!
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: filePath (optional): string
+
+> unlike PathLike, this is only a string<br /><br />For now, we don't have a clear convention whether or not this string should be absolute or anything.
+
+
+
 
 ## tryParseJson
 
-Max. indexation depth: 3, 
-
 if text isn't json, returns null
 
-### Returns: string(Enum: ul | ) 
+
+### Returns: string(Enum: ul | )
+
+### Parameters (2)
+
+#### Parameter 1: text: string
+
+#### Parameter 2: logParseError (optional): boolean
+
+# Interfaces
+
+## Path
+
+unlike PathLike, this is only a string
+
+For now, we don't have a clear convention whether or not this string should be absolute or anything.
 
 
 
-
+> unlike PathLike, this is only a string<br /><br />For now, we don't have a clear convention whether or not this string should be absolute or anything.
 
 
 

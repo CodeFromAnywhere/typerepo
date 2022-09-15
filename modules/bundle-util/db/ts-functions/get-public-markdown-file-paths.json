@@ -1,0 +1,47 @@
+{
+  "createdAt": 1663008993658,
+  "updatedAt": 1663008993658,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008993658,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPublicMarkdownFilePaths.ts",
+  "commentsInside": [],
+  "rawText": " async (baseFolderPath: string) => {\n  const publicMarkdownFilePaths: string[] = (\n    await explore({\n      basePath: baseFolderPath,\n      extension: \"md\",\n      readmeOnTop: true,\n    })\n  )\n    .map((x) => x.path)\n    .filter((x) => {\n      const markdownString = fs.readFileSync(x, \"utf8\");\n      const { parameters } = parseFrontmatterMarkdownString(markdownString);\n      if (!!Boolean(parameters.isDraft) || parameters.privacy === \"private\")\n        return false;\n      return true;\n    });\n\n  return publicMarkdownFilePaths;\n}",
+  "name": "getPublicMarkdownFilePaths",
+  "slug": "get-public-markdown-file-paths",
+  "parameters": [
+    {
+      "name": "baseFolderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "Returns all absolute markdown file paths within a basePath which are not drafts and which are not marked private (through frontmatter)",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 669,
+    "lines": 19,
+    "bytes": 669,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 19,
+    "numberOfFiles": 1
+  },
+  "id": "DjbKwRtHouoBtezN"
+}

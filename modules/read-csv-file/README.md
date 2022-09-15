@@ -1,14 +1,8 @@
 # Read csv file
 
-read-csv-file (undefined operation)
+read-csv-file (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -17,17 +11,20 @@ Imported dependencies:
 - [readCsvFileSync](#readCsvFileSync)
 - [readCsvFile](#readCsvFile)
 
+## Interfaces:
+
+- [Path](#Path)
+
 
 
 # Functions
 
 ## readCsvFileSync
 
-Max. indexation depth: 1, 
-
 Reads and parses CSV file
 
 specify a generic of what type of item the file contains an array of
+
 
 ### Returns: array
 
@@ -37,13 +34,44 @@ specify a generic of what type of item the file contains an array of
 
 
 
-## readCsvFile
 
-Max. indexation depth: 1, 
+### Parameters (1)
+
+#### Parameter 1: filePath: string
+
+> unlike PathLike, this is only a string<br /><br />For now, we don't have a clear convention whether or not this string should be absolute or anything.
+
+
+
+
+## readCsvFile
 
 Reads and parses CSV file
 
 specify a generic of what type of item the file contains an array of
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: filePath (optional): string
+
+> unlike PathLike, this is only a string<br /><br />For now, we don't have a clear convention whether or not this string should be absolute or anything.
+
+
+
+# Interfaces
+
+## Path
+
+unlike PathLike, this is only a string
+
+For now, we don't have a clear convention whether or not this string should be absolute or anything.
+
+
+
+> unlike PathLike, this is only a string<br /><br />For now, we don't have a clear convention whether or not this string should be absolute or anything.
+
+
 

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662719189032,
-  "updatedAt": 1662719189032,
+  "createdAt": 1662921712951,
+  "updatedAt": 1663009820380,
   "deletedAt": 0,
-  "createdFirstAt": 1662719189032,
+  "createdFirstAt": 1662921712951,
   "folderName": "bundle-util",
   "packageName": "bundle-util",
   "relativeOperationLocationPath": "operations/tools/deployment/bundling",
@@ -11,14 +11,6 @@
   "slug": "bundle-util",
   "coreDependencies": [],
   "operationDependencies": [
-    "fs",
-    "path",
-    "findFileNameCaseInsensitive",
-    "getPathsWithOperations",
-    "getProjectRoot",
-    "isSensibleProject",
-    "explore",
-    "exploreOperationFolders",
     "kebabCase",
     "getRootPath",
     "makeArray",
@@ -28,41 +20,59 @@
     "path",
     "TsInterface",
     "getDbModelsFromOperations",
-    "BundleConfig"
+    "BundleConfig",
+    "fs",
+    "getLastFolder",
+    "path",
+    "findOperationBasePath",
+    "getPathsWithOperations",
+    "getProjectRoot",
+    "isSensibleProject",
+    "makeRelative",
+    "db",
+    "mergeObjectsArray",
+    "notEmpty",
+    "exploreOperationFolders",
+    "Include",
+    "fs",
+    "explore",
+    "parseFrontmatterMarkdownString",
+    "Id",
+    "Slug"
   ],
   "packageDependencies": [],
   "size": {
     "codeSize": {
-      "numberOfFiles": 3,
-      "lines": 189,
-      "characters": 5243,
-      "bytes": 5243
+      "numberOfFiles": 9,
+      "lines": 450,
+      "characters": 13963,
+      "bytes": 13963
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 74,
-      "characters": 1566,
-      "bytes": 1566
+      "lines": 76,
+      "characters": 1625,
+      "bytes": 1625
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 71,
-      "characters": 1012,
-      "bytes": 1012
+      "lines": 330,
+      "characters": 20791,
+      "bytes": 20791
     },
     "size": {
-      "bytes": 7821,
-      "characters": 7821,
-      "lines": 334,
-      "numberOfFiles": 6
+      "bytes": 36379,
+      "characters": 36379,
+      "lines": 856,
+      "numberOfFiles": 12
     }
   },
-  "buildSucceeded": false,
+  "buildSucceeded": true,
   "dependenciesBuildsFailed": false,
   "indexErrors": [],
   "indexImportExportError": "",
-  "indexInteracesErrors": [],
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/deployment/bundling/bundle-util/src/getDocsMarkdownReaderPages.ts. Error: Error: Argument of type 'string' is not assignable to parameter of type 'never'.\\n\\nArgument of type 'string' is not assignable to parameter of type 'never'.\\n\\nArgument of type 'string' is not assignable to parameter of type 'never'.\\n\\nArgument of type 'string' is not assignable to parameter of type 'never'.\\n\\nArgument of type 'string' is not assignable to parameter of type 'never'.\"]",
   "lintProblems": [],
-  "id": "fRLZsKzVCmqBTBdm",
+  "id": "UYZKgWCxWFURNJnz",
   "language": "en"
 }

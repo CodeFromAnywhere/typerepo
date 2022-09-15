@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720464246,
-  "updatedAt": 1662720464246,
+  "createdAt": 1662905931519,
+  "updatedAt": 1662905931519,
   "deletedAt": 0,
-  "createdFirstAt": 1662720464246,
+  "createdFirstAt": 1662905931519,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (string: string) => {\n  return string.replaceAll(\"\\n\", \"\\\\n\");\n}",
   "name": "stringifyNewlines",
   "slug": "stringify-newlines",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "string",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "NLhUZvxlbLfIMsiC"
+  "id": "UTFYYKJjibxJqVQN"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720975105,
-  "updatedAt": 1662720975105,
+  "createdAt": 1662906446757,
+  "updatedAt": 1662906446757,
   "deletedAt": 0,
-  "createdFirstAt": 1662720975105,
+  "createdFirstAt": 1662906446757,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " async (operationBasePath: string) => {\n  const filePaths = await getPackageSourcePaths({\n    operationBasePath,\n  });\n  const project = getTsMorphProject(operationBasePath);\n  if (!project) {\n    log(\"couldn't load project\", { type: \"error\" });\n    return;\n  }\n\n  //select correct SourceFile from tsmorph project\n  const sourceFiles = project.getSourceFiles(filePaths);\n\n  return sourceFiles;\n}",
   "name": "getAllTsMorphSourceFiles",
   "slug": "get-all-ts-morph-source-files",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "operationBasePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "unknown",
@@ -32,5 +43,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "qvHPwTShDPkKbtYr"
+  "id": "UOHdLColDdvIEIbo"
 }

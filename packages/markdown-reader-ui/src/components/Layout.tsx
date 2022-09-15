@@ -5,20 +5,20 @@ import {
   nestedPathObjectToNestedMenuRecursive,
   MenuItemType,
   MenuType,
-} from "nested-menu"; //
+} from "nested-menu";
+import { MarkdownReaderPage } from "bundle-util";
 
 export const Layout = ({
-  queryPaths,
+  pages,
   children,
 }: {
-  queryPaths: string[];
+  pages: MarkdownReaderPage[];
   children: any;
 }) => {
+  const queryPaths = pages.filter((x) => x.isMenuItem).map((x) => x.queryPath);
   const nestedPathObject = queryPathsArrayToNestedPathObject(queryPaths);
-  const pathsMenu = nestedPathObjectToNestedMenuRecursive(nestedPathObject);
+  const menu = nestedPathObjectToNestedMenuRecursive(nestedPathObject);
 
-  const homeMenu: MenuItemType = { title: "Home", href: "/" };
-  const menu: MenuType = pathsMenu ? [homeMenu, ...pathsMenu] : [homeMenu];
   return (
     <Div className="h-screen grid grid-rows-6">
       <Div className="row-span-6 grid grid-cols-5">

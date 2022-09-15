@@ -1,17 +1,40 @@
 {
-  "createdAt": 1662735932600,
-  "updatedAt": 1662735932600,
+  "createdAt": 1662905681208,
+  "updatedAt": 1662905681208,
   "deletedAt": 0,
-  "createdFirstAt": 1662735932600,
+  "createdFirstAt": 1662905681208,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "operationRelativeTypescriptFilePath": "src/bundleFolderWithMarkdown.ts",
   "commentsInside": [],
   "rawText": " async (\n  absoluteFolderPath: string,\n  /**\n   * filename to include in the final MarkdownParse\n   */\n  fileName?: string\n): Promise<{ markdownParse: MarkdownParse; outline: string }> => {\n  const mdPaths = (\n    await explore({ basePath: absoluteFolderPath, extension: \"md\" })\n  ).map((x) => x.path);\n\n  const markdownParses = (\n    await Promise.all(mdPaths.map((mdPath) => readMarkdownFile(mdPath)))\n  ).filter(notEmpty);\n\n  const merged = mergeMarkdownParse(markdownParses, fileName);\n\n  const docFileNames = markdownParses.map((x) => x.fileName).filter(notEmpty);\n\n  const outline =\n    docFileNames.length > 0\n      ? `## Docs\\n\\n${docFileNames\n          .map((fileName) => {\n            return `- [${humanCase(fileName)}](#${fileName})`;\n          })\n          .join(\"\\n\")}\\n\\n`\n      : \"\";\n\n  return { markdownParse: merged, outline };\n}",
   "name": "bundleFolderWithMarkdown",
   "slug": "bundle-folder-with-markdown",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "absoluteFolderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "fileName",
+      "schema": {
+        "type": "string",
+        "description": "filename to include in the final MarkdownParse"
+      },
+      "simplifiedSchema": {
+        "description": "filename to include in the final MarkdownParse",
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "finds all md files in a folder and creates a single MarkdownParse\n\nhandy for creating a single documentation file or other things that have to include multiple markdown files in a structured way\n\nNB: it recursively structures the files and folders with headings",
   "returnType": {
     "rawType": "Promise<{ markdownParse: import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse; outline: string; }>",
@@ -32,5 +55,5 @@
     "linesPerFile": 34,
     "numberOfFiles": 1
   },
-  "id": "APFPfcQsvyKRytSr"
+  "id": "FRNlSzmsTTMkdibQ"
 }

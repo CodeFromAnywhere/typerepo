@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662733037961,
-  "updatedAt": 1662733037961,
+  "createdAt": 1662904857745,
+  "updatedAt": 1662904857745,
   "deletedAt": 0,
-  "createdFirstAt": 1662733037961,
+  "createdFirstAt": 1662904857745,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,29 @@
   "rawText": " async (\n  filePaths: string[]\n): Promise<SizeSummary> => {\n  const sizeSummaries = await Promise.all(filePaths.map(getSizeSummary));\n  const summed = sumAllKeys(sizeSummaries, [\n    \"numberOfFiles\",\n    \"lines\",\n    \"characters\",\n    \"bytes\",\n  ]);\n  return summed;\n}",
   "name": "sumSizeSummary",
   "slug": "sum-size-summary",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "filePaths",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/FolderSummary\").SizeSummary>",
@@ -32,5 +54,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "AvhAloMehiwsGwke"
+  "id": "MJTaCkNXUGjTIhND"
 }

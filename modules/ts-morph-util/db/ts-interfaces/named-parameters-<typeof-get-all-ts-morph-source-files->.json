@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662906446454,
+  "updatedAt": 1662906446454,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906446454,
+  "id": "named-parameters-<typeof-get-all-ts-morph-source-files->",
+  "name": "NamedParameters<typeof getAllTsMorphSourceFiles>",
+  "slug": "named-parameters-<typeof-get-all-ts-morph-source-files->",
+  "operationRelativeTypescriptFilePath": "src/getAllTsMorphSourceFiles.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationBasePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationBasePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationBasePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getAllTsMorphSourceFiles>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

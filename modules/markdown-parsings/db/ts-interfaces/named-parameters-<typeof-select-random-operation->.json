@@ -1,0 +1,46 @@
+{
+  "createdAt": 1662905687531,
+  "updatedAt": 1662905687531,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905687531,
+  "id": "named-parameters-<typeof-select-random-operation->",
+  "name": "NamedParameters<typeof selectRandomOperation>",
+  "slug": "named-parameters-<typeof-select-random-operation->",
+  "operationRelativeTypescriptFilePath": "src/expose/radio.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "baseFolderPath": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "baseFolderPath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof selectRandomOperation>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

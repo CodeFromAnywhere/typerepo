@@ -6,4 +6,5 @@ export * from "./mapMany";
 export * from "./mergeObjectsArray";
 export * from "./object-maps";
 export * from "./object-merge";
+export * from "./replaceLastOccurence";
 //# sourceMappingURL=index.d.ts.map

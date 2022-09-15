@@ -1,14 +1,8 @@
 # Rename template files
 
-rename-template-files (undefined operation)
+rename-template-files (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -26,15 +20,13 @@ Imported dependencies:
 
 ## findTemplates
 
-Max. indexation depth: 3, 
+### Parameters (2)
 
+#### Parameter 1: basePath: string
 
-
-## Returns: unknown
+#### Parameter 2: doNotExploreChildFolders (optional): boolean
 
 ## isEqualArray
-
-Max. indexation depth: 1, 
 
 As long as there are no .template files present in the template folder that DONT need to be changed, it is fine.
 If there are, we should warn people.
@@ -52,35 +44,54 @@ return appTemplateFiles
 .concat(rootTemplateFiles);
 };
 
-## Returns: unknown
+
+
+
+### Parameters (2)
+
+#### Parameter 1: array1: array
+
+- null: object
+
+
+
+
+
+
+#### Parameter 2: array2: array
+
+- null: object
+
+
+
+
+
 
 ## renameTemplateFiles
 
-Max. indexation depth: 2, 
+### Parameters (1)
+
+#### Parameter 1: { appDir }: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| appDir  | string |  |
 
 
-
-## Returns: unknown
 
 ## renameTemplateToNormalFile
 
-Max. indexation depth: 1, 
+### Parameters (1)
 
-
-
-## Returns: unknown
+#### Parameter 1: fileName: string
 
 ## renameToTemplateFile
 
-Max. indexation depth: 2, 
-
-
-
 ### Returns: string
 
+### Parameters (1)
 
-
-
-
-
+#### Parameter 1: fileName: string
 

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662720262731,
-  "updatedAt": 1662720262731,
+  "createdAt": 1662905691154,
+  "updatedAt": 1662905691154,
   "deletedAt": 0,
-  "createdFirstAt": 1662720262731,
+  "createdFirstAt": 1662905691154,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": false,
-  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "operationRelativeTypescriptFilePath": "src/operationToMarkdown.test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const result = await operationToMarkdown({\n    operationName: \"markdown-parsings\",\n    mergeDocsInline: true,\n  });\n\n  console.log({ result });\n}",
+  "rawText": " async () => {\n  const result = (await operationToMarkdown({\n    operationName: \"markdown-parsings\",\n    mergeDocsInline: true,\n    returnType: \"string\",\n  })) as string;\n  // console.dir({ result }, { depth: 99 });\n\n  writeStringToFile(path.join(__dirname, \"..\", \"README.md\"), result);\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 162,
-    "lines": 8,
-    "bytes": 162,
+    "characters": 288,
+    "lines": 10,
+    "bytes": 288,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 20,
-    "linesPerFile": 8,
+    "charactersPerLine": 29,
+    "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "oEgeaHJhiCmkxRIk"
+  "id": "RouhNowPBuCDwYJL"
 }

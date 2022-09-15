@@ -1,19 +1,26 @@
-import { isGeneratedParameterName } from "code-types";
 import { markdownParseToMarkdownModelType } from "code-types";
 import { parseMarkdownModelTimestamp } from "code-types";
 import { tryParseDate } from "code-types";
+import { getCompileErrors } from "compile-typescript";
+import { getTypescriptErrorsFromFiles } from "compile-typescript";
+import { writeBuildErrors } from "compile-typescript";
+import { generateId } from "model-types";
+import { generatePassword } from "model-types";
+import { generateRandomString } from "model-types";
+import { generateTime } from "model-types";
+import { isEmail } from "model-types";
+import { markdownModelTypeToMarkdownString } from "model-types";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
 import { stripComment } from "comment-util";
 import { stripSlashes } from "comment-util";
 import { stripStar } from "comment-util";
 import { trim } from "comment-util";
-import { getCompileErrors } from "compile-typescript";
-import { getTypescriptErrorsFromFiles } from "compile-typescript";
-import { writeBuildErrors } from "compile-typescript";
 import { camelCase } from "convert-case";
 import { capitalCase } from "convert-case";
+import { capitaliseFirstLetter } from "convert-case";
 import { convertCase } from "convert-case";
+import { getDelimiter } from "convert-case";
 import { humanCase } from "convert-case";
 import { kebabCase } from "convert-case";
 import { lowerCaseArray } from "convert-case";
@@ -21,6 +28,8 @@ import { pascalCase } from "convert-case";
 import { slugify } from "convert-case";
 import { snakeCase } from "convert-case";
 import { hasSubExtension } from "filename-conventions";
+import { isGeneratedOperationName } from "filename-conventions";
+import { isGeneratedOperation } from "filename-conventions";
 import { isIndexableFileId } from "filename-conventions";
 import { canAccessSync } from "fs-util";
 import { canAccess } from "fs-util";
@@ -94,6 +103,8 @@ import { objectValuesMap } from "js-util";
 import { onlyUnique2 } from "js-util";
 import { onlyUnique } from "js-util";
 import { removeIndexFromArray } from "js-util";
+import { replaceLastOccurence } from "js-util";
+import { reverseString } from "js-util";
 import { sumAllKeys } from "js-util";
 import { sumObjectParameters } from "js-util";
 import { sum } from "js-util";
@@ -123,12 +134,9 @@ import { frontmatterParseToString } from "matter-types";
 import { getFrontmatterValueString } from "matter-types";
 import { quotedOrNot } from "matter-types";
 import { stringifyNewlines } from "matter-types";
-import { generateId } from "model-types";
-import { generatePassword } from "model-types";
-import { generateRandomString } from "model-types";
-import { generateTime } from "model-types";
-import { isEmail } from "model-types";
-import { markdownModelTypeToMarkdownString } from "model-types";
+import { getParameterContentType } from "name-conventions";
+import { isCalculatedParameter } from "name-conventions";
+import { isGeneratedParameterName } from "name-conventions";
 import { ALink } from "next-a-link";
 import { oneByOne } from "one-by-one";
 import { getDependenciesSummary } from "operation-util";
@@ -142,9 +150,12 @@ import { categorizeFiles } from "path-util";
 import { getFolderSummary } from "path-util";
 import { getPathMainComment } from "path-util";
 import { sumSizeSummary } from "path-util";
+import { isPlural } from "pluralize";
+import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
 import { runChildProcess } from "run-child-process";
+import { getPossibleReferenceParameterNames } from "schema-util";
 import { getProperties } from "schema-util";
 import { getRefLink } from "schema-util";
 import { getReferencableModels } from "schema-util";
@@ -153,23 +164,32 @@ import { getSchemaItems } from "schema-util";
 import { getSchema } from "schema-util";
 import { simplifiedSchemaToTypeDefinitionString } from "schema-util";
 import { simplifySchema } from "schema-util";
+import { findSentenceMatches } from "search";
+import { searchRecursiveObjectArray } from "search";
 
-export const sdk = { isGeneratedParameterName,
-markdownParseToMarkdownModelType,
+export const sdk = { markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
+getCompileErrors,
+getTypescriptErrorsFromFiles,
+writeBuildErrors,
+generateId,
+generatePassword,
+generateRandomString,
+generateTime,
+isEmail,
+markdownModelTypeToMarkdownString,
 stripCommentEnd,
 stripCommentStart,
 stripComment,
 stripSlashes,
 stripStar,
 trim,
-getCompileErrors,
-getTypescriptErrorsFromFiles,
-writeBuildErrors,
 camelCase,
 capitalCase,
+capitaliseFirstLetter,
 convertCase,
+getDelimiter,
 humanCase,
 kebabCase,
 lowerCaseArray,
@@ -177,6 +197,8 @@ pascalCase,
 slugify,
 snakeCase,
 hasSubExtension,
+isGeneratedOperationName,
+isGeneratedOperation,
 isIndexableFileId,
 canAccessSync,
 canAccess,
@@ -250,6 +272,8 @@ objectValuesMap,
 onlyUnique2,
 onlyUnique,
 removeIndexFromArray,
+replaceLastOccurence,
+reverseString,
 sumAllKeys,
 sumObjectParameters,
 sum,
@@ -279,12 +303,9 @@ frontmatterParseToString,
 getFrontmatterValueString,
 quotedOrNot,
 stringifyNewlines,
-generateId,
-generatePassword,
-generateRandomString,
-generateTime,
-isEmail,
-markdownModelTypeToMarkdownString,
+getParameterContentType,
+isCalculatedParameter,
+isGeneratedParameterName,
 ALink,
 oneByOne,
 getDependenciesSummary,
@@ -298,9 +319,12 @@ categorizeFiles,
 getFolderSummary,
 getPathMainComment,
 sumSizeSummary,
+isPlural,
+isSingular,
 pluralize,
 singularize,
 runChildProcess,
+getPossibleReferenceParameterNames,
 getProperties,
 getRefLink,
 getReferencableModels,
@@ -308,6 +332,8 @@ getReferenceParameterInfo,
 getSchemaItems,
 getSchema,
 simplifiedSchemaToTypeDefinitionString,
-simplifySchema};
+simplifySchema,
+findSentenceMatches,
+searchRecursiveObjectArray};
 
 export type SdkType = typeof sdk;

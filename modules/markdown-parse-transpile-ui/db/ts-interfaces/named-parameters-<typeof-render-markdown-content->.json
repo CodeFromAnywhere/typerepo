@@ -1,0 +1,74 @@
+{
+  "createdAt": 1663009414556,
+  "updatedAt": 1663009414556,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009414556,
+  "id": "named-parameters-<typeof-render-markdown-content->",
+  "name": "NamedParameters<typeof renderMarkdownContent>",
+  "slug": "named-parameters-<typeof-render-markdown-content->",
+  "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "big": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "content"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "content",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "big",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof renderMarkdownContent>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

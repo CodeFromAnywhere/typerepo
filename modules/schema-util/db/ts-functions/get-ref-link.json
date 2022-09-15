@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720925501,
-  "updatedAt": 1662720925501,
+  "createdAt": 1663146882666,
+  "updatedAt": 1663146882666,
   "deletedAt": 0,
-  "createdFirstAt": 1662720925501,
+  "createdFirstAt": 1663146882666,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (ref?: string) => {\n  return ref?.split(\"/\").pop();\n}",
   "name": "getRefLink",
   "slug": "get-ref-link",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "ref",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "gets the $ref from a schema and parses the interface name from it",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "WfZWwxYxBThPADQL"
+  "id": "pisABDLeacdDGYyU"
 }

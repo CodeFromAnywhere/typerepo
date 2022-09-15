@@ -1,17 +1,153 @@
 {
-  "createdAt": 1662735932600,
-  "updatedAt": 1662735932600,
+  "createdAt": 1662905699828,
+  "updatedAt": 1662905699828,
   "deletedAt": 0,
-  "createdFirstAt": 1662735932600,
+  "createdFirstAt": 1662905699828,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "operationRelativeTypescriptFilePath": "src/tsFunctionToMarkdownString.ts",
   "commentsInside": [],
-  "rawText": " (tsFunction: TsFunction): string => {\n  const titleString = `## ${tsFunction.name}`;\n  const infoString = `${\n    tsFunction.codeSize?.lines ? `${tsFunction.codeSize.lines} LOC, ` : \"\"\n  }Max. indexation depth: ${tsFunction.maxIndentationDepth}, ${\n    tsFunction.cumulativeCodeSize?.lines\n      ? `${tsFunction.cumulativeCodeSize?.lines} Cumulative LOC`\n      : \"\"\n  }`;\n\n  const returnTypeString = tsFunction.returnType.simplifiedSchema\n    ? simplifiedSchemaToMarkdownString(\n        tsFunction.returnType.simplifiedSchema,\n        \"Returns\",\n        true,\n        3\n      )\n    : \"## Returns: unknown\";\n\n  const argumentStrings =\n    tsFunction.parameters && tsFunction.parameters.length > 0\n      ? `### Arguments\\n\\n${tsFunction.parameters\n          .map((x) =>\n            simplifiedSchemaToMarkdownString(\n              x.simplifiedSchema,\n              x.name,\n              x.required,\n              4\n            )\n          )\n          .join(\"\\n\\n\")}`\n      : undefined;\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // infoString, // TODO: Maybe make it optional.\n    tsFunction.description,\n    returnTypeString,\n    argumentStrings,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "rawText": " (tsFunction: TsFunction): string => {\n  const titleString = `# ${tsFunction.name}`;\n  const infoString = `${\n    tsFunction.codeSize?.lines ? `${tsFunction.codeSize.lines} LOC, ` : \"\"\n  }Max. indexation depth: ${tsFunction.maxIndentationDepth}, ${\n    tsFunction.cumulativeCodeSize?.lines\n      ? `${tsFunction.cumulativeCodeSize?.lines} Cumulative LOC`\n      : \"\"\n  }`;\n\n  const returnTypeString = tsFunction.returnType.simplifiedSchema\n    ? simplifiedSchemaToMarkdownString(\n        tsFunction.returnType.simplifiedSchema,\n        \"Returns\",\n        true,\n        2\n      )\n    : \"\";\n\n  const argumentStrings =\n    tsFunction.parameters && tsFunction.parameters.length > 0\n      ? `## Parameters (${\n          tsFunction.parameters.length\n        })\\n\\n${tsFunction.parameters\n          .map((x, i) =>\n            simplifiedSchemaToMarkdownString(\n              x.simplifiedSchema,\n              `Parameter ${i + 1}: ${x.name}`,\n              x.required,\n              3\n            )\n          )\n          .join(\"\\n\\n\")}`\n      : undefined;\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // infoString, // TODO: Maybe make it optional.\n    tsFunction.description,\n    returnTypeString,\n    argumentStrings,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
   "name": "tsFunctionToMarkdownString",
   "slug": "ts-function-to-markdown-string",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "tsFunction",
+      "schema": {
+        "$ref": "#/definitions/TsFunction"
+      },
+      "simplifiedSchema": {
+        "description": "--- dbStorageMethod: jsonSingle\n---\n\nInterface for arrow functions and normal functions",
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "description": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "schema": {
+              "description": "unique id of the model",
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "description": "name (identifier) of the model",
+              "type": "string"
+            }
+          },
+          {
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "description": "kebab-case variant of the name",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativeTypescriptFilePath",
+            "required": true,
+            "schema": {
+              "description": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "isExported",
+            "required": true,
+            "schema": {
+              "description": "The function is immediately exported upon creation. If the os dev tools are being used, this means it is also exported from the operation",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "isApiExposed",
+            "required": true,
+            "schema": {
+              "description": "for all exported functions in node operations, true by default false for others\n\ncan be overwritten using frontmatter",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "rawText",
+            "required": false,
+            "schema": {
+              "description": "raw text of the function",
+              "type": "string"
+            }
+          },
+          {
+            "name": "commentsInside",
+            "required": true,
+            "schema": {
+              "description": "all comments found in a function and the node that they belong to",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "parameters",
+            "required": false,
+            "schema": {
+              "description": "parameters the function takes as its arguments, if any",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "maxIndentationDepth",
+            "required": true,
+            "schema": {
+              "description": "maximum amount of times indedented in this function\n\ngood for determining the complexity and finding code that can be simplified/destructured into smaller pieces",
+              "type": "number"
+            }
+          },
+          {
+            "name": "dependantFiles",
+            "required": false,
+            "schema": {
+              "description": "finds all files that import this function\n\nNB: this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly.",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "TsFunction:\n- name and operation\n- size\n- description (doc-comment)\n- input, output",
   "returnType": {
     "rawType": "String",
@@ -41,13 +177,13 @@
   },
   "maxIndentationDepth": 7,
   "size": {
-    "characters": 1307,
-    "lines": 47,
-    "bytes": 1307,
+    "characters": 1369,
+    "lines": 49,
+    "bytes": 1369,
     "bytesPerCharacter": 1,
     "charactersPerLine": 28,
-    "linesPerFile": 47,
+    "linesPerFile": 49,
     "numberOfFiles": 1
   },
-  "id": "QQByqnuBZUerrIab"
+  "id": "rfDuGVABFJEPAbLs"
 }

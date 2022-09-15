@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720262156,
-  "updatedAt": 1662720262156,
+  "createdAt": 1662905697217,
+  "updatedAt": 1662905697217,
   "deletedAt": 0,
-  "createdFirstAt": 1662720262156,
+  "createdFirstAt": 1662905697217,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,64 @@
   "rawText": " (\n  markdownChunks: MarkdownChunk[] | undefined\n): MarkdownChunk[] | undefined => {\n  if (!markdownChunks) return;\n\n  const newMarkdownChunks: MarkdownChunk[] = markdownChunks.map((chunk) => ({\n    ...chunk,\n    level: chunk.level + 1,\n    children: upMarkdownChunkLevelRecursively(chunk.children),\n  }));\n\n  return newMarkdownChunks;\n}",
   "name": "upMarkdownChunkLevelRecursively",
   "slug": "up-markdown-chunk-level-recursively",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdownChunks",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/MarkdownChunk"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [
+                {
+                  "name": "content",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "title",
+                  "required": false,
+                  "schema": {
+                    "description": "NB: title can also be an empty string (\"\")",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "children",
+                  "required": false,
+                  "schema": {
+                    "description": "all content until the next title. it's either a content array if there's any titles found, or a string[] if it's paragraphs",
+                    "items": [
+                      {
+                        "schema": {
+                          "circularRefName": "MarkdownChunk",
+                          "properties": [],
+                          "type": "object"
+                        },
+                        "name": "MarkdownChunk"
+                      }
+                    ],
+                    "type": "array"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "MarkdownChunk"
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
   "description": "Ups the levels of the markdownChunk array, recursively.\n\nCan be useful for merging multiple markdown sources",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownChunk[] | undefined",
@@ -32,5 +89,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "ffkGyPFCxsdTaEFV"
+  "id": "pXbODWPOwSqLqSvF"
 }

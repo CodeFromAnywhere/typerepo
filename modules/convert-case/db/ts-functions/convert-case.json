@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662719521902,
-  "updatedAt": 1662719521902,
+  "createdAt": 1663147103454,
+  "updatedAt": 1663147103454,
   "deletedAt": 0,
-  "createdFirstAt": 1662719521902,
+  "createdFirstAt": 1663147103454,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,38 @@
   "rawText": " (\n  /**\n   * NB: texts of more than a sentence are not supported\n   */\n  text: string,\n  target: Casing\n) =>\n  text\n    .split(nonCasingDelimiters)\n    .reduce(\n      (all, word) => all.concat(splitCasingDelimiters(word)),\n      [] as string[]\n    )\n    .map((word, index) => convertToTargetCasing(word, index, target))\n    .join(getDelimiter(target))",
   "name": "convertCase",
   "slug": "convert-case",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "text",
+      "schema": {
+        "type": "string",
+        "description": "NB: texts of more than a sentence are not supported"
+      },
+      "simplifiedSchema": {
+        "description": "NB: texts of more than a sentence are not supported",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "target",
+      "schema": {
+        "$ref": "#/definitions/Casing"
+      },
+      "simplifiedSchema": {
+        "enum": [
+          "camel",
+          "pascal",
+          "snake",
+          "kebab",
+          "capital",
+          "human"
+        ],
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +63,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "dyZFZxKLdZhJeYQJ"
+  "id": "YgjgXzbTOAFhamRj"
 }

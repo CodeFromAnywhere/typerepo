@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720257146,
-  "updatedAt": 1662720257146,
+  "createdAt": 1662905686126,
+  "updatedAt": 1662905686126,
   "deletedAt": 0,
-  "createdFirstAt": 1662720257146,
+  "createdFirstAt": 1662905686126,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,125 @@
   "rawText": " ({\n  absoluteFilePath,\n  markdown,\n  markdownParse,\n  pdfAbsoluteFilePath,\n}: {\n  absoluteFilePath?: string;\n  markdown?: string;\n  markdownParse?: MarkdownParse;\n  pdfAbsoluteFilePath?: string;\n}) => {\n  //\n}",
   "name": "mdToPdf",
   "slug": "md-to-pdf",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "{\n  absoluteFilePath,\n  markdown,\n  markdownParse,\n  pdfAbsoluteFilePath,\n}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "absoluteFilePath": {
+            "type": "string"
+          },
+          "markdown": {
+            "type": "string"
+          },
+          "markdownParse": {
+            "$ref": "#/definitions/MarkdownParse"
+          },
+          "pdfAbsoluteFilePath": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "absoluteFilePath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "markdown",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "markdownParse",
+            "required": false,
+            "schema": {
+              "properties": [
+                {
+                  "name": "fileName",
+                  "required": false,
+                  "schema": {
+                    "description": "if available, this can be the filename of the markdown in this markdown-parse. Can be used for things like merging",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "createdAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "openedAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "updatedAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "deletedAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "createdFirstAt",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "content",
+                  "required": false,
+                  "schema": {
+                    "description": "structured content based on h1, h2, h3, etc (paragraphs, recursive)",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "raw",
+                  "required": true,
+                  "schema": {
+                    "description": "raw markdown without frontmatter",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "pdfAbsoluteFilePath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "Have function `mdToPdf` like the vscode plugin. Probably exists.\n\nHowever, may be good to do it myself since I want different renderings",
   "returnType": {
     "rawType": "void",
@@ -32,5 +150,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "lIoLkWdrHgQSKEBJ"
+  "id": "FijxqwYfmropWvyf"
 }

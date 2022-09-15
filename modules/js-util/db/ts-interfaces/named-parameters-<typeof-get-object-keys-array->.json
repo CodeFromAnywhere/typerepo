@@ -1,0 +1,36 @@
+{
+  "createdAt": 1663147169602,
+  "updatedAt": 1663147169602,
+  "deletedAt": 0,
+  "createdFirstAt": 1663147169602,
+  "id": "named-parameters-<typeof-get-object-keys-array->",
+  "name": "NamedParameters<typeof getObjectKeysArray>",
+  "slug": "named-parameters-<typeof-get-object-keys-array->",
+  "operationRelativeTypescriptFilePath": "src/getObjectKeysArray.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "required": [
+        "object"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getObjectKeysArray>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "createdAt": 1663018119143,
+  "updatedAt": 1663018119143,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018119143,
+  "id": "named-parameters-<typeof-exit-if-process-dependencies-changed->",
+  "name": "NamedParameters<typeof exitIfProcessDependenciesChanged>",
+  "slug": "named-parameters-<typeof-exit-if-process-dependencies-changed->",
+  "operationRelativeTypescriptFilePath": "src/exitIfProcessDependenciesChange.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        },
+        "manualProjectRoot": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof exitIfProcessDependenciesChanged>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

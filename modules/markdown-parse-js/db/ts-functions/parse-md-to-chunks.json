@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720236541,
-  "updatedAt": 1662720236541,
+  "createdAt": 1662905658585,
+  "updatedAt": 1662905658585,
   "deletedAt": 0,
-  "createdFirstAt": 1662720236541,
+  "createdFirstAt": 1662905658585,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,28 @@
   "rawText": " (\n  markdownString: string,\n  level: number\n): MarkdownChunk[] => {\n  const lines = markdownString.split(\"\\n\");\n\n  const chunks = lines.reduce(\n    (chunks, line) => {\n      // NB: please note the space at the end, it's very important for this to work\n      const prefix = level !== 0 ? `${\"#\".repeat(level)} ` : null;\n\n      if (prefix && line.startsWith(prefix)) {\n        // Seems to be a header!\n\n        // NB: new header of this level detected, new chunk begins\n        return chunks.concat([\n          {\n            level,\n            title: removeHeaderPrefix(line),\n          },\n        ]);\n      } else {\n        // line is part of previous chunk, just add it to it\n\n        // NB: since the initial value contains something, we can assert it not being empty\n        const lastItem: MarkdownChunk = chunks.pop()!;\n        const previousContent = lastItem.content ? `${lastItem.content}\\n` : \"\";\n        const content = `${previousContent}${line}`;\n        return chunks.concat([{ ...lastItem, content }]);\n      }\n    },\n    // NB: by default it's a paragraph without header\n    [{ level: 0 }] as MarkdownChunk[]\n  );\n  // NB: we need something... filter out empty chunks!\n  return chunks.filter((x) => x.content || x.title || x.children);\n}",
   "name": "parseMdToChunks",
   "slug": "parse-md-to-chunks",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdownString",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "level",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    }
+  ],
   "description": "should get chunks recursively. first just look for every h1 line. everything after the h1 line is the children  until there's another h1 line, then do this recursivley for h2, h3, etc.",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownChunk[]",
@@ -32,5 +53,5 @@
     "linesPerFile": 37,
     "numberOfFiles": 1
   },
-  "id": "CCxgyuKZbumnDfOG"
+  "id": "NvSAPdPhtsXYGRYx"
 }

@@ -1,0 +1,95 @@
+{
+  "createdAt": 1662906319983,
+  "updatedAt": 1662906319983,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906319983,
+  "id": "named-parameters-<typeof-new-operation->",
+  "name": "NamedParameters<typeof newOperation>",
+  "slug": "named-parameters-<typeof-new-operation->",
+  "operationRelativeTypescriptFilePath": "src/newOperation.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string"
+            },
+            "destinationPath": {
+              "type": "string",
+              "description": "destinationPath without the operation folder itself\n\n\nIf not provided, uses the working directory from where the process was executed + an inferred foldername"
+            },
+            "manualProjectRoot": {
+              "type": "string",
+              "description": "folder path (including if given, uses this project root instead of the project root of the executed process"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "name",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "description",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "destinationPath",
+                "required": false,
+                "schema": {
+                  "description": "destinationPath without the operation folder itself\n\n\nIf not provided, uses the working directory from where the process was executed + an inferred foldername",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "description": "folder path (including if given, uses this project root instead of the project root of the executed process",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof newOperation>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

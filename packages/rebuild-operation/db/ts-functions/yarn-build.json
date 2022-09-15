@@ -1,0 +1,74 @@
+{
+  "createdAt": 1663018128460,
+  "updatedAt": 1663018128460,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018128460,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/yarnBuild.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationBasePath: string,\n  config?: {\n    /**\n     * if true, build folder will be removed first\n     */\n    rmFirst?: boolean;\n  }\n): Promise<Success> => {\n  if (config?.rmFirst) {\n    const removed = spawnSync(`rm -rf build`, {\n      cwd: operationBasePath,\n      encoding: \"utf8\",\n      stdio: \"inherit\",\n      shell: true,\n    });\n  }\n  // TODO:\n  // this should only happen conditionally but for now we'll always try\n  // later we can add the option to not build if any dependant builds break because of our code changes, but this is quite complex.\n  const success = executeCommandQuietUnlessFail({\n    command: \"yarn build\",\n    cwd: operationBasePath,\n    description: \"Compiling source\",\n  });\n\n  if (!success) {\n    log(`Build failed for ${getLastFolder(operationBasePath)}`, {\n      type: \"error\",\n    });\n    return false;\n  }\n\n  const minified = await minifyBuild({\n    buildFolderPath: path.join(operationBasePath, buildFolderName),\n  });\n\n  return minified || false;\n}",
+  "name": "yarnBuild",
+  "slug": "yarn-build",
+  "parameters": [
+    {
+      "name": "operationBasePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "rmFirst": {
+            "type": "boolean",
+            "description": "if true, build folder will be removed first"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "rmFirst",
+            "required": false,
+            "schema": {
+              "description": "if true, build folder will be removed first",
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "Builds and minifies the src",
+  "returnType": {
+    "rawType": "Promise<boolean>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1022,
+    "lines": 39,
+    "bytes": 1022,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 39,
+    "numberOfFiles": 1
+  },
+  "id": "ygbwJWTFkorUmGlJ"
+}

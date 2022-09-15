@@ -1,14 +1,8 @@
 # Run child process
 
-run-child-process (undefined operation)
+run-child-process (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -23,17 +17,23 @@ Imported dependencies:
 
 ## main
 
-Max. indexation depth: 2, 
-
-
-
-## Returns: unknown
-
 ## runChildProcess
-
-Max. indexation depth: 2, 
 
 spawns a child process and returns its output after it's done
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: {  operationFolderName,  scriptFileName,  args,}: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationFolderName  | string |  |
+| scriptFileName  | string | the location of the script in the build folder NB: this must be a CLI that that actually executes the function! |
+| args (optional) | array |  |
+
 

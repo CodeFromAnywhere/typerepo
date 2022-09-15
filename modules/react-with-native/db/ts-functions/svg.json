@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726464642,
-  "updatedAt": 1662726464642,
+  "createdAt": 1662907038831,
+  "updatedAt": 1662907038831,
   "deletedAt": 0,
-  "createdFirstAt": 1662726464642,
+  "createdFirstAt": 1662907038831,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,15 @@
   "rawText": " ({ src, width, height, className, style }: SvgType) => {\n  const Icon: any = src;\n  return (\n    <Icon width={width} height={height} className={className} style={style} />\n  );\n}",
   "name": "Svg",
   "slug": "svg",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "{ src, width, height, className, style }",
+      "schema": {
+        "$ref": "#/definitions/SvgType"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "JSX.Element",
@@ -36,5 +44,5 @@
     "linesPerFile": 6,
     "numberOfFiles": 1
   },
-  "id": "ozYvUJdeXdvcuokA"
+  "id": "qAbSweEuNsFyIirT"
 }

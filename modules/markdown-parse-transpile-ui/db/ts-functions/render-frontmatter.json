@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726649653,
-  "updatedAt": 1662726649653,
+  "createdAt": 1663009415155,
+  "updatedAt": 1663009415155,
   "deletedAt": 0,
-  "createdFirstAt": 1662726649653,
+  "createdFirstAt": 1663009415155,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,45 @@
   "rawText": " (\n  parameters: Frontmatter,\n  config?: { renderSpacer?: boolean }\n) => {\n  const frontMatterKeys = Object.keys(parameters);\n\n  return frontMatterKeys.length > 0 ? (\n    <Div>\n      <Div>\n        {frontMatterKeys.map((key) => (\n          <P>\n            {key}: {parameters[key]}\n          </P>\n        ))}\n      </Div>\n\n      {config?.renderSpacer ? <P>------------</P> : null}\n    </Div>\n  ) : null;\n}",
   "name": "renderFrontmatter",
   "slug": "render-frontmatter",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "parameters",
+      "schema": {
+        "$ref": "#/definitions/Frontmatter"
+      },
+      "simplifiedSchema": {
+        "description": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "renderSpacer": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "renderSpacer",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
   "description": "Renders markdown frontmatter parameters (and optionally a spacer)",
   "returnType": {
     "rawType": "JSX.Element | null",
@@ -36,5 +74,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "OdXcsiVaUayCBmAv"
+  "id": "pbmAOAddYBjViSTD"
 }

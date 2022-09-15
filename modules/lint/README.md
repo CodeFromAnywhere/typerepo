@@ -1,14 +1,8 @@
 # Lint
 
-lint (undefined operation)
+lint (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -22,8 +16,6 @@ Imported dependencies:
 
 ## preIndexLint
 
-Max. indexation depth: 3, 
-
 Should be a collection of small functions that check if all conventions are used and if there isn't used anything that should NOT be used. this can later become a linter. make sure to research how eslint works first
 
 Plan:
@@ -33,5 +25,17 @@ Plan:
 
 this lint can be done before indexation
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: {  operationFolderPath,}: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationFolderPath  | string |  |
+
 

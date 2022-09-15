@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718809950,
-  "updatedAt": 1662718809950,
+  "createdAt": 1662914744376,
+  "updatedAt": 1662914744376,
   "deletedAt": 0,
-  "createdFirstAt": 1662718809950,
+  "createdFirstAt": 1662914744376,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": false,
@@ -11,7 +11,18 @@
   "rawText": " async (amount: number = 100) => {\n  const key = `find src folders x${amount}`;\n  console.time(key);\n  let docs = await exploreOperationFolders({\n    basePath: getPathsWithOperations(),\n  });\n\n  console.timeEnd(key);\n  console.log(docs.length, \"folders found\", docs);\n}",
   "name": "benchmark",
   "slug": "benchmark",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "amount",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": false
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "AOYcpjJRphjNtBYa"
+  "id": "KFOWygNxQQVCbtiq"
 }

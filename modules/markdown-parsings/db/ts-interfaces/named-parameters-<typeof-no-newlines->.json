@@ -1,0 +1,46 @@
+{
+  "createdAt": 1662905702165,
+  "updatedAt": 1662905702165,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905702165,
+  "id": "named-parameters-<typeof-no-newlines->",
+  "name": "NamedParameters<typeof noNewlines>",
+  "slug": "named-parameters-<typeof-no-newlines->",
+  "operationRelativeTypescriptFilePath": "src/util/noNewlines.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "markdown": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "markdown",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof noNewlines>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

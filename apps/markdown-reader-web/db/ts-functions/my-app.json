@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726317669,
-  "updatedAt": 1662726317669,
+  "createdAt": 1663009343771,
+  "updatedAt": 1663009343771,
   "deletedAt": 0,
-  "createdFirstAt": 1662726317669,
+  "createdFirstAt": 1663009343771,
   "name": "MyApp",
   "slug": "my-app",
   "apiAuthenticationStrategy": "admin",
@@ -36,5 +36,5 @@
   },
   "rawText": "\n\n// Only holds serverRuntimeConfig and publicRuntimeConfig\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  const router = useRouter();\n  const path = router.route.slice(1);\n  const pageKey = (path === \"\" ? \"index\" : path) as keyof typeof pagesObject;\n  const page = pages.find((x) => x.key === pageKey);\n  const siteName = \"Docs\";\n  const title = page ? `${getPageTitle(page)} - ${siteName}` : siteName;\n\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>{title}</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      {/* @ts-ignore */}\n      <Component {...pageProps} />\n    </QueryClientProvider>\n  );\n}",
   "maxIndentationDepth": 5,
-  "id": "gzfhNpRlEtvPqmEE"
+  "id": "VsNeqfVNwxLmjInk"
 }

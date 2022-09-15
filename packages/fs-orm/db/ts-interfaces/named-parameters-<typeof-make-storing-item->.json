@@ -1,0 +1,36 @@
+{
+  "createdAt": 1663146704196,
+  "updatedAt": 1663146704196,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146704196,
+  "id": "named-parameters-<typeof-make-storing-item->",
+  "name": "NamedParameters<typeof makeStoringItem>",
+  "slug": "named-parameters-<typeof-make-storing-item->",
+  "operationRelativeTypescriptFilePath": "src/convention/storing-items.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "required": [
+        "item"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof makeStoringItem>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

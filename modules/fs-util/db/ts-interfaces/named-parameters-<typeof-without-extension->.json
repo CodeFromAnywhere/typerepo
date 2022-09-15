@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663008896321,
+  "updatedAt": 1663008896321,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008896321,
+  "id": "named-parameters-<typeof-without-extension->",
+  "name": "NamedParameters<typeof withoutExtension>",
+  "slug": "named-parameters-<typeof-without-extension->",
+  "operationRelativeTypescriptFilePath": "src/js.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fileName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "fileName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof withoutExtension>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

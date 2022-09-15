@@ -1,0 +1,41 @@
+{
+  "createdAt": 1663018275300,
+  "updatedAt": 1663018275300,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018275300,
+  "id": "named-parameters-<typeof-is-import-from-optional-file->",
+  "name": "NamedParameters<typeof isImportFromOptionalFile>",
+  "slug": "named-parameters-<typeof-is-import-from-optional-file->",
+  "operationRelativeTypescriptFilePath": "src/calculatePackageJsonDependencies.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "tsImport": {
+          "$ref": "#/definitions/Creation%3CTsImport%3E"
+        }
+      },
+      "required": [
+        "tsImport"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isImportFromOptionalFile>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

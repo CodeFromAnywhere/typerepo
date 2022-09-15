@@ -1,0 +1,83 @@
+{
+  "createdAt": 1663018002116,
+  "updatedAt": 1663018002116,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018002116,
+  "id": "named-parameters-<typeof-has-sub-extension->",
+  "name": "NamedParameters<typeof hasSubExtension>",
+  "slug": "named-parameters-<typeof-has-sub-extension->",
+  "operationRelativeTypescriptFilePath": "src/hasSubExtension.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "srcRelativeFileId": {
+          "type": "string"
+        },
+        "subExtensions": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "includeRootName": {
+          "type": "boolean",
+          "description": "if true, also returns true if the extension is the complete name of the file"
+        }
+      },
+      "required": [
+        "srcRelativeFileId",
+        "subExtensions"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "srcRelativeFileId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "subExtensions",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "includeRootName",
+          "required": false,
+          "schema": {
+            "description": "if true, also returns true if the extension is the complete name of the file",
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof hasSubExtension>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

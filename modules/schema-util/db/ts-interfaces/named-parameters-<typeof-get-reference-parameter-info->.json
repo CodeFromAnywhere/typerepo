@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663146881169,
+  "updatedAt": 1663146881169,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146881169,
+  "id": "named-parameters-<typeof-get-reference-parameter-info->",
+  "name": "NamedParameters<typeof getReferenceParameterInfo>",
+  "slug": "named-parameters-<typeof-get-reference-parameter-info->",
+  "operationRelativeTypescriptFilePath": "src/getReferenceParameterInfo.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "parameterName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "parameterName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "parameterName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getReferenceParameterInfo>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

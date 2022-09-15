@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739816125,
-  "updatedAt": 1662739816125,
+  "createdAt": 1663008892070,
+  "updatedAt": 1663008892070,
   "deletedAt": 0,
-  "createdFirstAt": 1662739816125,
+  "createdFirstAt": 1663008892070,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,15 @@
   "rawText": " (p: PathLike) =>\n  canAccessSync(p, fs.constants.W_OK)",
   "name": "canWriteSync",
   "slug": "can-write-sync",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "p",
+      "schema": {
+        "$ref": "#/definitions/PathLike"
+      },
+      "required": true
+    }
+  ],
   "description": "File is writable to the calling process",
   "returnType": {
     "rawType": "{}",
@@ -39,5 +47,5 @@
     "linesPerFile": 2,
     "numberOfFiles": 1
   },
-  "id": "xawGDoTNpEdAQEbD"
+  "id": "hOLxwUeUmhCCdqRc"
 }

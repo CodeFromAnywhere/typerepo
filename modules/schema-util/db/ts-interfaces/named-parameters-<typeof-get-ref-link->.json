@@ -1,0 +1,46 @@
+{
+  "createdAt": 1663146882247,
+  "updatedAt": 1663146882247,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146882247,
+  "id": "named-parameters-<typeof-get-ref-link->",
+  "name": "NamedParameters<typeof getRefLink>",
+  "slug": "named-parameters-<typeof-get-ref-link->",
+  "operationRelativeTypescriptFilePath": "src/schema-util.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "ref": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "ref",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getRefLink>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

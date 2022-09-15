@@ -1,17 +1,28 @@
 {
-  "createdAt": 1662719521902,
-  "updatedAt": 1662719521902,
+  "createdAt": 1663147103453,
+  "updatedAt": 1663147103453,
   "deletedAt": 0,
-  "createdFirstAt": 1662719521902,
+  "createdFirstAt": 1663147103453,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": false,
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
-  "rawText": " (word: string): string[] => {\n  const letters = word.split(\"\");\n  const allWords = letters.reduce(\n    (words, letter) => {\n      //get the last word, we know it's always defined because of the initial value of the reduce\n      const lastWord = words.pop()!;\n      //let's also get the last letter\n      const lastLetter = lastWord.substring(-1);\n      const lastLetterIsLowercase = lastLetter.toUpperCase() !== lastLetter;\n      const letterIsUppercase = letter.toUpperCase() === letter;\n      const createNewWord = lastLetterIsLowercase && letterIsUppercase;\n      const newSequence = createNewWord\n        ? [lastWord, letter]\n        : [`${lastWord}${letter}`];\n      const newWords = words.concat(newSequence);\n      return newWords;\n    },\n    [\"\"]\n  );\n\n  return allWords;\n  // if it was lowercase but it became upper, it's a new word\n}",
+  "rawText": " (word: string): string[] => {\n  const letters = word.split(\"\");\n  const allWords = letters.reduce(\n    (words, letter) => {\n      //get the last word, we know it's always defined because of the initial value of the reduce\n      const lastWord: string = words.pop()!;\n      //let's also get the last letter\n      const lastLetter = lastWord.substring(-1);\n      const lastLetterIsLowercase = lastLetter.toUpperCase() !== lastLetter;\n      const letterIsUppercase = letter.toUpperCase() === letter;\n      const createNewWord = lastLetterIsLowercase && letterIsUppercase;\n      const newSequence = createNewWord\n        ? [lastWord, letter]\n        : [`${lastWord}${letter}`];\n      const newWords = words.concat(newSequence);\n      return newWords;\n    },\n    [\"\"]\n  );\n\n  return allWords;\n  // if it was lowercase but it became upper, it's a new word\n}",
   "name": "splitCasingDelimiters",
   "slug": "split-casing-delimiters",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "word",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "string[]",
@@ -52,13 +63,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 844,
+    "characters": 852,
     "lines": 23,
-    "bytes": 844,
+    "bytes": 852,
     "bytesPerCharacter": 1,
     "charactersPerLine": 37,
     "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "FtosenMPqLOFkZnA"
+  "id": "ZJZpzhjuvAHHgntc"
 }

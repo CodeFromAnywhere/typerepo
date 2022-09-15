@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739844902,
-  "updatedAt": 1662739844902,
+  "createdAt": 1663018085527,
+  "updatedAt": 1663018085527,
   "deletedAt": 0,
-  "createdFirstAt": 1662739844902,
+  "createdFirstAt": 1663018085527,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (folderPath?: string): boolean => {\n  const realFolderPath = folderPath || getProjectRoot();\n  if (!realFolderPath) return false;\n\n  // get package-json and check sensible config\n  const packageJson = readJsonFileSync<PackageJson>(\n    path.join(realFolderPath, \"package.json\")\n  );\n\n  const sensibleConfig: SensibleConfig | undefined = packageJson?.sensible;\n  const isSensibleProject = sensibleConfig?.isSensibleProject || false;\n\n  return isSensibleProject;\n}",
   "name": "isSensibleProject",
   "slug": "is-sensible-project",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "folderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "{}",
@@ -39,5 +50,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "MfTjZrOGeXNVfrav"
+  "id": "UjeNBssZJZtHvHxQ"
 }

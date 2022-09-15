@@ -1,0 +1,39 @@
+{
+  "createdAt": 1663008996125,
+  "updatedAt": 1663008996125,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008996125,
+  "id": "internal-link-object",
+  "name": "InternalLinkObject",
+  "slug": "internal-link-object",
+  "operationRelativeTypescriptFilePath": "src/types.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * This datastructure is probably needed to make it more efficient.\n *\n * Should be a lookup table for the querypath for every word\n */\nexport type InternalLinkObject = {\n  [internalLinkWord: string]: string;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "This datastructure is probably needed to make it more efficient.\n\nShould be a lookup table for the querypath for every word",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "This datastructure is probably needed to make it more efficient.\n\nShould be a lookup table for the querypath for every word"
+    },
+    "simplifiedSchema": {
+      "description": "This datastructure is probably needed to make it more efficient.\n\nShould be a lookup table for the querypath for every word",
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "InternalLinkObject",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

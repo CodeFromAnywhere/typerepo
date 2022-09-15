@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663009114395,
+  "updatedAt": 1663009114395,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009114395,
+  "id": "named-parameters-<typeof-is-email->",
+  "name": "NamedParameters<typeof isEmail>",
+  "slug": "named-parameters-<typeof-is-email->",
+  "operationRelativeTypescriptFilePath": "src/common.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "email",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isEmail>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

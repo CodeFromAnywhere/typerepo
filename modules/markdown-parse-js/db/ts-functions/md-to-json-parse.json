@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662720233960,
-  "updatedAt": 1662720233960,
+  "createdAt": 1662905655363,
+  "updatedAt": 1662905655363,
   "deletedAt": 0,
-  "createdFirstAt": 1662720233960,
+  "createdFirstAt": 1662905655363,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,28 @@
   "rawText": " (\n  markdownString: string,\n  fileName?: string\n): MarkdownParse => {\n  const { parameters, raw } = parseFrontmatterMarkdownString(markdownString);\n  return {\n    fileName,\n    raw,\n    parameters,\n    content: mdContentParseRecursively(raw, 1),\n  };\n}",
   "name": "mdToJsonParse",
   "slug": "md-to-json-parse",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "markdownString",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "fileName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
   "description": "makes a markdown parse from a markdown string\n\nTODO: `markdownStringToMarkdownParse` is a better name. First make a refactor script for this, because it is too hard to rename stuff that is used a lot.\n\nTODO: BUG: it doesn't take into account triple backticks! if there is markdown inside of the triple backticks, it can still be seen as main markdown. Triple backticks are stronger!",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse",
@@ -32,5 +53,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "SoJFPtQHzkMqMuJT"
+  "id": "ukMpjIWIjUNgoLFY"
 }

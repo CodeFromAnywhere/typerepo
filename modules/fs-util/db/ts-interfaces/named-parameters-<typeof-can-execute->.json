@@ -1,0 +1,51 @@
+{
+  "createdAt": 1663008891549,
+  "updatedAt": 1663008891549,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008891549,
+  "id": "named-parameters-<typeof-can-execute->",
+  "name": "NamedParameters<typeof canExecute>",
+  "slug": "named-parameters-<typeof-can-execute->",
+  "operationRelativeTypescriptFilePath": "src/files.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "p": {
+          "$ref": "#/definitions/PathLike"
+        }
+      },
+      "required": [
+        "p"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "p",
+          "required": true,
+          "schema": {
+            "description": "Valid types for path values in \"fs\".",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof canExecute>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

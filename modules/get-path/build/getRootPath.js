@@ -22,7 +22,6 @@ exports.osRootFoldersConst = [
     "backups",
     "bundled",
     "cloned",
-    "bundles",
     "distributions",
     "operations",
 ];

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662719187479,
-  "updatedAt": 1662719187479,
+  "createdAt": 1663008990231,
+  "updatedAt": 1663008990231,
   "deletedAt": 0,
-  "createdFirstAt": 1662719187479,
+  "createdFirstAt": 1663008990231,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,108 @@
   "rawText": " async (\n  bundleConfig: BundleConfig\n): Promise<TsInterface[]> => {\n  const bundleSummary = getBundleSummary(bundleConfig);\n  const dbModels = getDbModelsFromOperations(bundleSummary.packageNames);\n  return dbModels;\n}",
   "name": "getDbModelsForBundle",
   "slug": "get-db-models-for-bundle",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "bundleConfig",
+      "schema": {
+        "$ref": "#/definitions/BundleConfig"
+      },
+      "simplifiedSchema": {
+        "description": "--- dbStorageMethod: jsonSingle\n---",
+        "properties": [
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "description": "Human readable name of the monorepo (A kebab-case version of this will be used as root foldername)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "description": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "bundles",
+            "required": true,
+            "schema": {
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "dependencies",
+            "required": true,
+            "schema": {
+              "description": "Generated, private by default. If they're already here, uses private/public setting as given.\n\nWhen generating, removes the ones that are not dependencies (of dependencies) of your standalone apps",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "foldersFromRepo",
+            "required": false,
+            "schema": {
+              "description": "if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n\ncan be handy if you're working with someone else...",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "gitRepoUrl",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "branchName",
+            "required": false,
+            "schema": {
+              "description": "specify the branch to use of your git repo (defaults to \"main\")",
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipPush",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "Gets all TsInterface's that are used in a bundle according to a BundleConfig",
   "returnType": {
     "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface[]>",
@@ -32,5 +133,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "zsDQGHusDRhJLbAs"
+  "id": "XmKNZKmiFdzQwwAd"
 }

@@ -1,12 +1,12 @@
 {
-  "createdAt": 1662735932409,
-  "updatedAt": 1662735932409,
+  "createdAt": 1662905682064,
+  "updatedAt": 1662905682064,
   "deletedAt": 0,
-  "createdFirstAt": 1662735932409,
+  "createdFirstAt": 1662905682064,
   "id": "bundle-config",
   "name": "BundleConfig",
   "slug": "bundle-config",
-  "operationRelativeTypescriptFilePath": "src/bundlings.ts",
+  "operationRelativeTypescriptFilePath": "src/bundleToBookMarkdown.ts",
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
@@ -127,9 +127,11 @@
             "not": {}
           }
         ]
-      }
+      },
+      "description": "--- dbStorageMethod: jsonSingle\n---"
     },
     "simplifiedSchema": {
+      "description": "--- dbStorageMethod: jsonSingle\n---",
       "properties": [
         {
           "name": "slug",

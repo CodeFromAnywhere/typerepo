@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739844347,
-  "updatedAt": 1662739844347,
+  "createdAt": 1663018084739,
+  "updatedAt": 1663018084739,
   "deletedAt": 0,
-  "createdFirstAt": 1662739844347,
+  "createdFirstAt": 1663018084739,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (operationRelativePath: string) => {\n  const srcRelativePath = operationRelativePath.replace(\"src/\", \"\");\n  const parts = srcRelativePath.split(\".\");\n  // remove the last one\n  parts.pop();\n  const srcRelativeFileId = parts.join(\".\");\n\n  const finalId = srcRelativeFileId.startsWith(\"/\")\n    ? srcRelativeFileId.substring(1)\n    : srcRelativeFileId;\n  return finalId;\n}",
   "name": "getSrcRelativeFileId",
   "slug": "get-src-relative-file-id",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "operationRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "returns a file id (path without extension) relative to the src folder of an operation\n\ne.g. \"general\" for src/general.ts\n\nNB: assumes all src is in the src folder\n\nNB: removes \"/\" in the beginning, if found",
   "returnType": {
     "rawType": "any",
@@ -32,5 +43,5 @@
     "linesPerFile": 18,
     "numberOfFiles": 1
   },
-  "id": "hjrmsfSeuYwlTjYB"
+  "id": "nDzdyfcqjBkBdEZc"
 }

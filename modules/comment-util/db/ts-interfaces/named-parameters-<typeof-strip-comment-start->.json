@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662906069857,
+  "updatedAt": 1662906069857,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906069857,
+  "id": "named-parameters-<typeof-strip-comment-start->",
+  "name": "NamedParameters<typeof stripCommentStart>",
+  "slug": "named-parameters-<typeof-strip-comment-start->",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "trimmedLine": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "trimmedLine"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "trimmedLine",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof stripCommentStart>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

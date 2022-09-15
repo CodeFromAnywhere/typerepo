@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662739816602,
-  "updatedAt": 1662739816602,
+  "createdAt": 1663008893697,
+  "updatedAt": 1663008893697,
   "deletedAt": 0,
-  "createdFirstAt": 1662739816602,
+  "createdFirstAt": 1663008893697,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,30 @@
   "rawText": " async (\n  folderPath: string,\n  /**\n   * fileName with extension\n   */\n  fileName: string\n): Promise<string | undefined> => {\n  if (!fs.existsSync(folderPath)) return;\n\n  const results = await fs.readdir(folderPath);\n\n  const foundPath = results\n    .map((fileName) => {\n      const absolutePath = path.join(folderPath, fileName);\n      return absolutePath;\n    })\n    .find((absolutePath) => {\n      const parsedPath = path.parse(absolutePath);\n      const isMatchCaseInsensitive =\n        parsedPath.base.toLowerCase() === fileName.toLowerCase();\n\n      return isMatchCaseInsensitive;\n    });\n\n  return foundPath;\n}",
   "name": "findFileNameCaseInsensitive",
   "slug": "find-file-name-case-insensitive",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "folderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "fileName",
+      "schema": {
+        "type": "string",
+        "description": "fileName with extension"
+      },
+      "simplifiedSchema": {
+        "description": "fileName with extension",
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "returns a path of a fileName",
   "returnType": {
     "rawType": "Promise<string | undefined>",
@@ -32,5 +55,5 @@
     "linesPerFile": 26,
     "numberOfFiles": 1
   },
-  "id": "UNKOvvyjvWigNMha"
+  "id": "FzYovztKdhaclnvP"
 }

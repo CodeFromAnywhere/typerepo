@@ -1,12 +1,12 @@
 {
-  "createdAt": 1662719187474,
-  "updatedAt": 1662719187474,
+  "createdAt": 1663009817652,
+  "updatedAt": 1663009817652,
   "deletedAt": 0,
-  "createdFirstAt": 1662719187474,
+  "createdFirstAt": 1663009817652,
   "id": "bundle-config",
   "name": "BundleConfig",
   "slug": "bundle-config",
-  "operationRelativeTypescriptFilePath": "src/getDbModelsForBundle.ts",
+  "operationRelativeTypescriptFilePath": "src/getBundleSummary.ts",
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
@@ -102,6 +102,9 @@
         },
         "privateEnvironmentVariables": {
           "$ref": "#/definitions/EnvironmentVariableObject"
+        },
+        "skipPush": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -127,9 +130,11 @@
             "not": {}
           }
         ]
-      }
+      },
+      "description": "--- dbStorageMethod: jsonSingle\n---"
     },
     "simplifiedSchema": {
+      "description": "--- dbStorageMethod: jsonSingle\n---",
       "properties": [
         {
           "name": "slug",
@@ -167,7 +172,8 @@
               "vn",
               "in",
               "vl",
-              "af"
+              "af",
+              "tk"
             ],
             "type": "string"
           }
@@ -457,6 +463,13 @@
           "schema": {
             "properties": [],
             "type": "object"
+          }
+        },
+        {
+          "name": "skipPush",
+          "required": false,
+          "schema": {
+            "type": "boolean"
           }
         }
       ],

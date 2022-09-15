@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726476949,
-  "updatedAt": 1662726476949,
+  "createdAt": 1662907058565,
+  "updatedAt": 1662907058565,
   "deletedAt": 0,
-  "createdFirstAt": 1662726476949,
+  "createdFirstAt": 1662907058565,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " (className: string) => {\n  return className;\n}",
   "name": "trimClassName",
   "slug": "trim-class-name",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "className",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "in react-native not all classNames are supported",
   "returnType": {
     "rawType": "String",
@@ -49,5 +60,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "wWyxAMpJfrAgrUdI"
+  "id": "xSkHAXjWzMAwbFFz"
 }

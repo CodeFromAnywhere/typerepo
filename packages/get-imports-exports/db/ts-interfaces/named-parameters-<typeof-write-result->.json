@@ -1,0 +1,89 @@
+{
+  "createdAt": 1663018283831,
+  "updatedAt": 1663018283831,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018283831,
+  "id": "named-parameters-<typeof-write-result->",
+  "name": "NamedParameters<typeof writeResult>",
+  "slug": "named-parameters-<typeof-write-result->",
+  "operationRelativeTypescriptFilePath": "src/writeResult.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "object",
+          "properties": {
+            "operationName": {
+              "type": "string"
+            },
+            "success": {
+              "type": "boolean"
+            },
+            "message": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "operationName",
+            "success",
+            "message"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "options",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "operationName",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "success",
+                "required": true,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "message",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof writeResult>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

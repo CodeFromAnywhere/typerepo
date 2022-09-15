@@ -1,0 +1,51 @@
+{
+  "createdAt": 1663008891549,
+  "updatedAt": 1663008891549,
+  "deletedAt": 0,
+  "createdFirstAt": 1663008891549,
+  "id": "named-parameters-<typeof-write-json-to-file->",
+  "name": "NamedParameters<typeof writeJsonToFile>",
+  "slug": "named-parameters-<typeof-write-json-to-file->",
+  "operationRelativeTypescriptFilePath": "src/files.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "p": {
+          "$ref": "#/definitions/Path"
+        }
+      },
+      "required": [
+        "p",
+        "data"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "p",
+          "required": true,
+          "schema": {
+            "description": "unlike PathLike, this is only a string\n\nFor now, we don't have a clear convention whether or not this string should be absolute or anything.",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof writeJsonToFile>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

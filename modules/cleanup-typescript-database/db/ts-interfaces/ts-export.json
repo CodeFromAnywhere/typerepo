@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662740101983,
-  "updatedAt": 1662740101983,
+  "createdAt": 1662906054717,
+  "updatedAt": 1662906054717,
   "deletedAt": 0,
-  "createdFirstAt": 1662740101983,
+  "createdFirstAt": 1662906054717,
   "id": "ts-export",
   "name": "TsExport",
   "slug": "ts-export",
@@ -145,11 +145,7 @@
           "required": true,
           "schema": {
             "description": "surrounding comments and comments inside of the import",
-            "items": [
-              {
-                "name": "Creation%3CTsComment%3E"
-              }
-            ],
+            "items": [],
             "type": "array"
           }
         },

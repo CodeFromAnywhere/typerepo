@@ -1,14 +1,8 @@
 # Get package source paths
 
-get-package-source-paths (undefined operation)
+get-package-source-paths (node operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -22,12 +16,24 @@ Imported dependencies:
 
 ## getPackageSourcePaths
 
-Max. indexation depth: 3, 
-
 Returns an array of absolute file paths of (typescript) files in the src of your operation
 
 TODO: we need a way to explore these glob patterns inside of tsConfig.include.
 until then, just assume we use "src" as the only folder
 
-## Returns: unknown
+
+
+
+### Parameters (1)
+
+#### Parameter 1: {  operationBasePath,  ignoreIndexFiles,  allTypes,}: object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationBasePath  | string |  |
+| ignoreIndexFiles (optional) | boolean |  |
+| allTypes (optional) | boolean | by default, only searches for ts and tsx files, if this is true, it will search for any type |
+
 

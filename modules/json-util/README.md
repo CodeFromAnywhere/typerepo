@@ -1,14 +1,8 @@
 # Json util
 
-json-util (undefined operation)
+json-util (js operation)
 
-Size: undefined LOC, 
- 
-Imported dependencies:
 
-- From Core Libraries: none
-- From Packages: none
-- From Operations: none
 
 # Outline
 
@@ -16,21 +10,26 @@ Imported dependencies:
 
 - [getSimpleJsonString](#getSimpleJsonString)
 
+## Interfaces:
+
+- [Json](#Json)
+
 
 
 # Functions
 
 ## getSimpleJsonString
 
-Max. indexation depth: 3, 
-
 stringifies simple json things if the json is one of them, otherwise returns undefined
+
 
 ### Returns: string
 
+### Parameters (1)
 
+#### Parameter 1: json: object
 
+# Interfaces
 
-
-
+## Json
 

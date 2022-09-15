@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662718825865,
-  "updatedAt": 1662718825865,
+  "createdAt": 1662904778819,
+  "updatedAt": 1662904778819,
   "deletedAt": 0,
-  "createdFirstAt": 1662718825865,
+  "createdFirstAt": 1662904778819,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,18 @@
   "rawText": " async (\n  filePath: string\n): Promise<FileType | undefined> => {\n  const exists = fs.existsSync(filePath);\n  const stats = exists ? await fs.stat(filePath) : null;\n  const mtime_ms = stats?.mtimeMs || 0;\n\n  const operationBasePath = findOperationBasePath(filePath);\n  if (!operationBasePath) return;\n  const operationSrcPath = path.join(operationBasePath, \"src\");\n  const relativePath = filePath.slice(operationSrcPath.length);\n  const name = relativePath;\n  // should not only be name, but also the relative path from src/*\n  // const parsedPath = path.parse(filePath);\n  //const name = `${parsedPath.name}${parsedPath.ext}`;\n\n  const size = stats?.size || 0;\n  const type = \"f\";\n  const file: FileType = { exists, mtime_ms, name, size, type };\n  return file;\n}",
   "name": "makeFileType",
   "slug": "make-file-type",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "filePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "Promise<import(\"/Users/king/King/operations/tools/control-fs/make-file-type/src/makeFileType\").FileType | undefined>",
@@ -32,5 +43,5 @@
     "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "SfFYTVsgQWhXDNZT"
+  "id": "fSeRuMSYRfchlNYn"
 }

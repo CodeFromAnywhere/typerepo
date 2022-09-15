@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663018078651,
+  "updatedAt": 1663018078651,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018078651,
+  "id": "named-parameters-<typeof-get-operation-path-parse->",
+  "name": "NamedParameters<typeof getOperationPathParse>",
+  "slug": "named-parameters-<typeof-get-operation-path-parse->",
+  "operationRelativeTypescriptFilePath": "src/getOperationPathParse.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absolutePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absolutePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absolutePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOperationPathParse>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

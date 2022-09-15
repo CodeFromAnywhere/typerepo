@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726298568,
-  "updatedAt": 1662726298568,
+  "createdAt": 1662906799132,
+  "updatedAt": 1662906799132,
   "deletedAt": 0,
-  "createdFirstAt": 1662726298568,
+  "createdFirstAt": 1662906799132,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -11,7 +11,76 @@
   "rawText": " (\n  parsedUrlQuery: NextParsedUrlQuery | undefined\n) => {\n  const paths = parsedUrlQuery?.paths;\n  const queryPath = Array.isArray(paths)\n    ? paths.join(\"/\")\n    : paths === undefined\n    ? \"\"\n    : paths;\n  return queryPath;\n}",
   "name": "getQueryPath",
   "slug": "get-query-path",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "parsedUrlQuery",
+      "schema": {
+        "$ref": "#/definitions/NextParsedUrlQuery"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "amp",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "__nextNotFoundSrcPage",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "__nextDefaultLocale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "__nextFallback",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "__nextLocale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "__nextSsgPath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_nextBubbleNoFallback",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "_nextDataReq",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "any",
@@ -32,5 +101,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "XjyruCCNTOHmnPSY"
+  "id": "SOpegoqXtULhBNxU"
 }

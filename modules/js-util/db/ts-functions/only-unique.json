@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662726832986,
-  "updatedAt": 1662726832986,
+  "createdAt": 1663147167981,
+  "updatedAt": 1663147167981,
   "deletedAt": 0,
-  "createdFirstAt": 1662726832986,
+  "createdFirstAt": 1663147167981,
   "name": "onlyUnique",
   "slug": "only-unique",
   "apiAuthenticationStrategy": "admin",
@@ -41,5 +41,5 @@
   },
   "rawText": "\n\n/**\n * DEPRECATED: should refactor everything to use onlyUnique2 and call it onlyUnique again\n *\n * to be used as a filter. removes duplicates\n */\nexport function onlyUnique<T extends unknown>(\n  value: T,\n  index: number,\n  self: T[]\n) {\n  return self.findIndex((v) => v === value) === index;\n}",
   "maxIndentationDepth": 1,
-  "id": "ZPjDxBcBeITDevwi"
+  "id": "EFRvGOiDsVooppSH"
 }

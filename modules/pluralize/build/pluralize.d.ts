@@ -10,4 +10,6 @@ export declare const pluralize: (parameterName: string) => string;
  * Removes the 's' if it is found at the end of the parameter name
  */
 export declare const singularize: (parameterName: string) => string;
+export declare const isPlural: (parameterName: string) => boolean;
+export declare const isSingular: (parameterName: string) => boolean;
 //# sourceMappingURL=pluralize.d.ts.map

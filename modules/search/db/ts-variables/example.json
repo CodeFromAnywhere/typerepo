@@ -1,0 +1,23 @@
+{
+  "createdAt": 1662905748857,
+  "updatedAt": 1662905748857,
+  "deletedAt": 0,
+  "createdFirstAt": 1662905748857,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/searchRecursiveObject.ts",
+  "comments": [],
+  "name": "example",
+  "slug": "example",
+  "value": "[\n  {\n    name: \"no match\",\n  },\n  {\n    name: \"top level\",\n    children: [\n      {\n        name: \"second level 1\",\n        children: [\n          {\n            name: \"downlevel a\",\n          },\n        ],\n      },\n      {\n        name: \"second level 2\",\n        children: [\n          {\n            name: \"downlevel b\",\n          },\n        ],\n      },\n    ],\n  },\n  {\n    name: \"top level\",\n    children: [\n      {\n        name: \"second level 1\",\n        children: [\n          {\n            name: \"downlevel a\",\n          },\n        ],\n      },\n      {\n        name: \"second level 2\",\n        children: [\n          {\n            name: \"downlevel b\",\n          },\n          {\n            name: \"something else\",\n          },\n        ],\n      },\n\n      {\n        name: \"something else\",\n        children: [\n          {\n            name: \"levels here!!!!\",\n          },\n          {\n            name: \"something else\",\n          },\n        ],\n      },\n    ],\n  },\n]",
+  "type": {
+    "rawType": "RecursiveDataStructure[]",
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "classification": "const",
+  "id": "zozfdEIreevPLIts"
+}

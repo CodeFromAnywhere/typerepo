@@ -1,0 +1,33 @@
+{
+  "createdAt": 1662904468258,
+  "updatedAt": 1662904468258,
+  "deletedAt": 0,
+  "createdFirstAt": 1662904468258,
+  "id": "named-parameters-<typeof-get-ranom-age->",
+  "name": "NamedParameters<typeof getRanomAge>",
+  "slug": "named-parameters-<typeof-get-ranom-age->",
+  "operationRelativeTypescriptFilePath": "src/test-db.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getRanomAge>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

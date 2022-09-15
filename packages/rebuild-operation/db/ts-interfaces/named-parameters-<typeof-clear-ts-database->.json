@@ -1,0 +1,46 @@
+{
+  "createdAt": 1663018114291,
+  "updatedAt": 1663018114291,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018114291,
+  "id": "named-parameters-<typeof-clear-ts-database->",
+  "name": "NamedParameters<typeof clearTsDatabase>",
+  "slug": "named-parameters-<typeof-clear-ts-database->",
+  "operationRelativeTypescriptFilePath": "src/clearTsDatabase.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof clearTsDatabase>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

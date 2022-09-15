@@ -1,0 +1,33 @@
+{
+  "createdAt": 1663018213324,
+  "updatedAt": 1663018213324,
+  "deletedAt": 0,
+  "createdFirstAt": 1663018213324,
+  "id": "markdown",
+  "name": "Markdown",
+  "slug": "markdown",
+  "operationRelativeTypescriptFilePath": "src/TsInterface.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "a string that is known to contain markdown.",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "description": "a string that is known to contain markdown."
+    },
+    "simplifiedSchema": {
+      "description": "a string that is known to contain markdown.",
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "Markdown",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

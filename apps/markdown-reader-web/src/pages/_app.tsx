@@ -4,9 +4,10 @@ import Head from "next/head";
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from "next/router";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { pagesObject, pages, getPageTitle, Layout } from "markdown-reader-ui";
-import { useRouter } from "react-with-native-router";
-
+import {
+  publicEnvironmentVariables,
+  publicLocalEnvironmentVariables,
+} from "sdk-env-public";
 import "../globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-datetime/css/react-datetime.css";
@@ -31,12 +32,12 @@ const queryClient = new QueryClient();
 // Only holds serverRuntimeConfig and publicRuntimeConfig
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const path = router.route.slice(1);
-  const pageKey = (path === "" ? "index" : path) as keyof typeof pagesObject;
-  const page = pages.find((x) => x.key === pageKey);
-  const siteName = "Docs";
-  const title = page ? `${getPageTitle(page)} - ${siteName}` : siteName;
+  const siteName =
+    publicLocalEnvironmentVariables.markdownReaderTitle ||
+    publicEnvironmentVariables.markdownReaderTitle ||
+    "Docs";
+
+  const title = pageProps.title ? `${pageProps.title} - ${siteName}` : siteName;
 
   return (
     <QueryClientProvider client={queryClient}>

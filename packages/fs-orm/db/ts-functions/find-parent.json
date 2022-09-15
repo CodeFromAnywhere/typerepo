@@ -1,0 +1,69 @@
+{
+  "createdAt": 1663146696350,
+  "updatedAt": 1663146696350,
+  "deletedAt": 0,
+  "createdFirstAt": 1663146696350,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/alter/upsertKeyValueMarkdown.ts",
+  "commentsInside": [],
+  "rawText": " (\n  arrayItem: Storing<KeyValueMarkdownModelType>,\n  newCategoryStack: CategoryStack\n) => {\n  const categoryStackCalculatedWithItself =\n    arrayItem.categoryStackCalculated.concat(arrayItem.slug);\n  const locationString = categoryStackCalculatedWithItself.join(\",\");\n  const newItemLocationString = newCategoryStack.join(\",\");\n  const isSameLocation = locationString === newItemLocationString;\n\n  return isSameLocation;\n}",
+  "name": "findParent",
+  "slug": "find-parent",
+  "parameters": [
+    {
+      "name": "arrayItem",
+      "schema": {
+        "$ref": "#/definitions/Storing%3CKeyValueMarkdownModelType%3E"
+      },
+      "required": true
+    },
+    {
+      "name": "newCategoryStack",
+      "schema": {
+        "$ref": "#/definitions/CategoryStack"
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
+  "description": "this location matches any category that equals the categorystack",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "boolean"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "boolean"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 487,
+    "lines": 12,
+    "bytes": 487,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 41,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "JOjzZZrRQHaClqWV"
+}
