@@ -18,8 +18,6 @@ var react_with_native_1 = require("react-with-native");
 var NestedMenuItem_1 = require("./NestedMenuItem");
 /**
  * General purpose nested menu component
- *
- * TODO: support for expanded items
  */
 var NestedMenu = function (props) {
     var menu = props.menu, headersClickable = props.headersClickable;

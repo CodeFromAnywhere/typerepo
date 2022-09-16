@@ -42,8 +42,9 @@ var k_explore_1 = require("k-explore");
 var markdown_parse_js_1 = require("markdown-parse-js");
 /**
  Returns all absolute markdown file paths within a basePath which are not drafts and which are not marked private (through frontmatter)
+
  */
-var getPublicMarkdownFilePaths = function (baseFolderPath) { return __awaiter(void 0, void 0, void 0, function () {
+var getPublicMarkdownFilePaths = function (baseFolderPath, includeFoldersWithResults) { return __awaiter(void 0, void 0, void 0, function () {
     var publicMarkdownFilePaths;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -51,16 +52,24 @@ var getPublicMarkdownFilePaths = function (baseFolderPath) { return __awaiter(vo
                     basePath: baseFolderPath,
                     extension: "md",
                     readmeOnTop: true,
+                    includeFoldersWithResults: includeFoldersWithResults,
                 })];
             case 1:
                 publicMarkdownFilePaths = (_a.sent())
-                    .map(function (x) { return x.path; })
                     .filter(function (x) {
-                    var markdownString = fs_util_1.fs.readFileSync(x, "utf8");
+                    if (x.isFolder)
+                        return true;
+                    // NB: we have a file
+                    var markdownString = fs_util_1.fs.readFileSync(x.path, "utf8");
                     var parameters = (0, markdown_parse_js_1.parseFrontmatterMarkdownString)(markdownString).parameters;
-                    if (!!Boolean(parameters.isDraft) || parameters.privacy === "private")
+                    if (!!Boolean(parameters.isDraft) || parameters.privacy === "private") {
                         return false;
+                    }
                     return true;
+                })
+                    .map(function (_a) {
+                    var path = _a.path, isFolder = _a.isFolder;
+                    return ({ path: path, isFolder: isFolder });
                 });
                 return [2 /*return*/, publicMarkdownFilePaths];
         }

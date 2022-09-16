@@ -2,17 +2,13 @@
 
 ## markdown-reader-ui
 
-Headers should be clickable, they should simply list all children. From a header you should also be able to navigate one folder up. This will also be the main navigation on mobile.
+internallinks is toooooo slow. It should not do the whole markdown, and the internallinks array should be a mapped object
 
-There should be a button to go to the next page (or previous)
+Menu Collapsability
 
-Outline on bigger screens would be super nice
+Deploy typerepo and others, share on pendrive
 
-On mobile we need a smart navigation, now it's a bit un-mobile-friendly
-
-Collapsability
-
-If the `md` file contains no title (or multiple) add a title as the main title in the frontend, which is simply the name of the file but human-readable.
+## Less important
 
 Add presentation-view (first extrahere that from operation-ui as a standalone component)
 
@@ -21,6 +17,12 @@ Apply as much things from frontmatter (`MarkdownFile`) as possible. These things
 Add print button and apply basic html practices to create a good printable UI.
 
 Add share button that lets you share on different social networks
+
+Outline on bigger screens would be super nice
+
+On mobile we need a smart navigation, now it's a bit un-mobile-friendly
+
+If the `md` file contains no title (or multiple) add a title as the main title in the frontend, which is simply the name of the file but human-readable.
 
 ## operation-index
 
@@ -40,8 +42,6 @@ Apply these things in `operationToMarkdown`
 ## Add operation descriptions
 
 Every operation should have a description that shows at the top. Do this manually. `OPERATION.md` should have it, which should then be taken to generate a readme. Also `sdk-*` needs description.
-
-## Add internal linking
 
 ## DePLoY
 

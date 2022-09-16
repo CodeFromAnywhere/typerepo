@@ -30,7 +30,11 @@ export const Layout = ({
           {children}
         </Div>
         <Span className="border-l col-span-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white border-l-gray-400">
-          {menu ? <NestedMenu menu={menu} /> : "Menu couldn't be found"}
+          {menu ? (
+            <NestedMenu menu={menu} headersClickable={true} />
+          ) : (
+            "Menu couldn't be found"
+          )}
         </Span>
       </Div>
     </Div>

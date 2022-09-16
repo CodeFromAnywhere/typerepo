@@ -1,15 +1,195 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,n=1,r=arguments.length;n<r;n++)for(var s in t=arguments[n])Object.prototype.hasOwnProperty.call(t,s)&&(e[s]=t[s]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,t,n,r){return new(n||(n=Promise))((function(s,o){function i(e){try{l(r.next(e))}catch(e){o(e)}}function a(e){try{l(r.throw(e))}catch(e){o(e)}}function l(e){var t;e.done?s(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,a)}l((r=r.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,r,s,o,i={label:0,sent:function(){if(1&s[0])throw s[1];return s[1]},trys:[],ops:[]};return o={next:a(0),throw:a(1),return:a(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function a(o){return function(a){return function(o){if(n)throw new TypeError("Generator is already executing.");for(;i;)try{if(n=1,r&&(s=2&o[0]?r.return:o[0]?r.throw||((s=r.return)&&s.call(r),0):r.next)&&!(s=s.call(r,o[1])).done)return s;switch(r=0,s&&(o=[2&o[0],s.value]),o[0]){case 0:case 1:s=o;break;case 4:return i.label++,{value:o[1],done:!1};case 5:i.label++,r=o[1],o=[0];continue;case 7:o=i.ops.pop(),i.trys.pop();continue;default:if(!(s=i.trys,(s=s.length>0&&s[s.length-1])||6!==o[0]&&2!==o[0])){i=0;continue}if(3===o[0]&&(!s||o[1]>s[0]&&o[1]<s[3])){i.label=o[1];break}if(6===o[0]&&i.label<s[1]){i.label=s[1],s=o;break}if(s&&i.label<s[2]){i.label=s[2],i.ops.push(o);break}s[2]&&i.ops.pop(),i.trys.pop();continue}o=t.call(e,i)}catch(e){o=[6,e],r=0}finally{n=s=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,a])}}},__rest=this&&this.__rest||function(e,t){var n={};for(var r in e)Object.prototype.hasOwnProperty.call(e,r)&&t.indexOf(r)<0&&(n[r]=e[r]);if(null!=e&&"function"==typeof Object.getOwnPropertySymbols){var s=0;for(r=Object.getOwnPropertySymbols(e);s<r.length;s++)t.indexOf(r[s])<0&&Object.prototype.propertyIsEnumerable.call(e,r[s])&&(n[r[s]]=e[r[s]])}return n},__spreadArray=this&&this.__spreadArray||function(e,t,n){if(n||2===arguments.length)for(var r,s=0,o=t.length;s<o;s++)!r&&s in t||(r||(r=Array.prototype.slice.call(t,0,s)),r[s]=t[s]);return e.concat(r||Array.prototype.slice.call(t))};Object.defineProperty(exports,"__esModule",{value:!0}),exports.exploreMultiple=exports.explorePreset=exports.exploreGitRepoFolders=exports.findAllDotGitFolders=exports.findAllPackages=exports.generatedFolders=exports.findFilesRecursively=exports.explore=exports.determineFileType=exports.fileTypes=exports.allowedSearchContentExtensions=exports.extensions=exports.jsonExtensions=exports.markdownExtensions=exports.typescriptExtensions=exports.jsonExtensionsConst=exports.markdownExtensionsConst=exports.typescriptExtensionsConst=void 0;var fs_util_1=require("fs-util"),read_json_file_1=require("read-json-file"),fs_util_2=require("fs-util"),fs_util_3=require("fs-util"),js_util_1=require("js-util"),fs_util_4=require("fs-util"),markdown_parse_js_1=require("markdown-parse-js"),get_path_1=require("get-path");exports.typescriptExtensionsConst=["ts","tsx"],exports.markdownExtensionsConst=["md","mdx"],exports.jsonExtensionsConst=["json"],exports.typescriptExtensions=__spreadArray([],exports.typescriptExtensionsConst,!0),exports.markdownExtensions=__spreadArray([],exports.markdownExtensionsConst,!0),exports.jsonExtensions=__spreadArray([],exports.jsonExtensionsConst,!0),exports.extensions={code:exports.typescriptExtensions,data:exports.jsonExtensions,text:exports.markdownExtensions},exports.allowedSearchContentExtensions=__spreadArray(__spreadArray(__spreadArray([],exports.typescriptExtensions,!0),exports.markdownExtensions,!0),exports.jsonExtensions,!0),exports.fileTypes=Object.keys(exports.extensions);
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.exploreMultiple = exports.explorePreset = exports.exploreGitRepoFolders = exports.findAllDotGitFolders = exports.generatedFolders = exports.findFilesRecursively = exports.explore = exports.determineFileType = exports.fileTypes = exports.allowedSearchContentExtensions = exports.extensions = exports.jsonExtensions = exports.markdownExtensions = exports.typescriptExtensions = exports.jsonExtensionsConst = exports.markdownExtensionsConst = exports.typescriptExtensionsConst = void 0;
+var fs_util_1 = require("fs-util");
+var read_json_file_1 = require("read-json-file");
+var fs_util_2 = require("fs-util");
+var fs_util_3 = require("fs-util");
+var js_util_1 = require("js-util");
+var fs_util_4 = require("fs-util");
+var markdown_parse_js_1 = require("markdown-parse-js");
+var get_path_1 = require("get-path");
+exports.typescriptExtensionsConst = ["ts", "tsx"];
+exports.markdownExtensionsConst = ["md", "mdx"];
+exports.jsonExtensionsConst = ["json"];
+exports.typescriptExtensions = __spreadArray([], exports.typescriptExtensionsConst, true);
+exports.markdownExtensions = __spreadArray([], exports.markdownExtensionsConst, true);
+exports.jsonExtensions = __spreadArray([], exports.jsonExtensionsConst, true);
+exports.extensions = {
+    code: exports.typescriptExtensions,
+    data: exports.jsonExtensions,
+    text: exports.markdownExtensions,
+};
+exports.allowedSearchContentExtensions = __spreadArray(__spreadArray(__spreadArray([], exports.typescriptExtensions, true), exports.markdownExtensions, true), exports.jsonExtensions, true);
+exports.fileTypes = Object.keys(exports.extensions);
 /**
  * type checker for a string to be an extension that can be searched for
  */
-var isSearchContentExtension=function(e){return exports.allowedSearchContentExtensions.map((function(e){return e})).includes(e)},determineFileType=function(e){var t=fs_util_2.path.parse(e).ext.substring(1);if(!isSearchContentExtension(t))return null;var n=exports.fileTypes.findIndex((function(e){return exports.extensions[e].includes(t)}));return exports.fileTypes[n]};
+var isSearchContentExtension = function (extension) {
+    return exports.allowedSearchContentExtensions
+        .map(function (x) { return x; })
+        .includes(extension);
+};
 /**
  * returns the file type or null if it's unknown
- */exports.determineFileType=determineFileType;
+ */
+var determineFileType = function (filePath) {
+    var extension = fs_util_2.path.parse(filePath).ext.substring(1);
+    if (!isSearchContentExtension(extension))
+        return null;
+    var index = exports.fileTypes.findIndex(function (fileType) {
+        return exports.extensions[fileType].includes(extension);
+    });
+    var fileType = exports.fileTypes[index];
+    return fileType;
+};
+exports.determineFileType = determineFileType;
 /**
  *
  */
-var getOutline=function(e){return console.log("outline is currently just filename"),e.split("/").pop()},isMatch=function(e){var t=e.exact,n=e.searchContender,r=e.searches;return 0===r.length||(t?r.includes(n):r.find((function(e){return n.includes(e)})))},getContents=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,n;return __generator(this,(function(r){switch(r.label){case 0:return t=(0,fs_util_3.getExtension)(e),isSearchContentExtension(t)?"json"!==t?[3/*break*/,1]:[2/*return*/,(0,read_json_file_1.readJsonFile)(e)]:[2/*return*/];case 1:return exports.markdownExtensions.includes(t)?[4/*yield*/,fs_util_1.fs.readFile(e,"utf8")]:[3/*break*/,3];case 2:return n=r.sent(),[2/*return*/,(0,markdown_parse_js_1.mdToJsonParse)(n)];case 3:return[2/*return*/,fs_util_1.fs.readFile(e,"utf8")]}}))}))},explore=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,n,r,s=e.basePath,o=e.searchLevel,i=void 0===o?"fileName":o,a=e.debug,l=__rest(e,["basePath","searchLevel","debug"]);return __generator(this,(function(e){switch(e.label){case 0:return t=function(e){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(t){switch(t.label){case 0:return[4/*yield*/,("outline"===i||"full"===i?fs_util_4.canRead:fs_util_4.canSee)(e)];case 1:return[2/*return*/,t.sent()]}}))}))},n=(0,js_util_1.makeArray)(s||(0,get_path_1.getProjectRoot)()).filter(fs_util_1.fs.existsSync).filter(t),a&&console.log("finding files in ".concat(n.join(","))),r=n.map((function(e){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(t){return[2/*return*/,(0,exports.findFilesRecursively)(__assign({basePath:e,searchLevel:i,debug:a},l))]}))}))})),[4/*yield*/,Promise.all(r)];case 1:return[2/*return*/,e.sent().flat()]}}))}))};exports.explore=explore;
+var getOutline = function (filePath) {
+    console.log("outline is currently just filename");
+    return filePath.split("/").pop();
+};
+var isMatch = function (_a) {
+    var exact = _a.exact, searchContender = _a.searchContender, searches = _a.searches;
+    return searches.length === 0
+        ? true
+        : exact
+            ? searches.includes(searchContender)
+            : searches.find(function (s) { return searchContender.includes(s); });
+};
+/**
+ * gets needed contents of file path, based on the extension
+ *
+ * returns a markdownparse if it's markdown, a json parse for json, or a file content string for anything else
+ */
+var getContents = function (filePath) { return __awaiter(void 0, void 0, void 0, function () {
+    var extension, contents, markdownParse, fileString;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                extension = (0, fs_util_3.getExtension)(filePath);
+                if (!isSearchContentExtension(extension)) {
+                    return [2 /*return*/];
+                }
+                if (!(extension === "json")) return [3 /*break*/, 1];
+                return [2 /*return*/, (0, read_json_file_1.readJsonFile)(filePath)];
+            case 1:
+                if (!exports.markdownExtensions.includes(extension)) return [3 /*break*/, 3];
+                return [4 /*yield*/, fs_util_1.fs.readFile(filePath, "utf8")];
+            case 2:
+                contents = _a.sent();
+                markdownParse = (0, markdown_parse_js_1.mdToJsonParse)(contents);
+                return [2 /*return*/, markdownParse];
+            case 3:
+                fileString = fs_util_1.fs.readFile(filePath, "utf8");
+                return [2 /*return*/, fileString];
+        }
+    });
+}); };
+/**
+ * this is the safe and friendly version of findFilesRecursively: it
+ */
+var explore = function (_a) { return __awaiter(void 0, void 0, void 0, function () {
+    var canAccess, accessibleBasePaths, textJsonPromises, textJsons;
+    var basePath = _a.basePath, _b = _a.searchLevel, searchLevel = _b === void 0 ? "fileName" : _b, debug = _a.debug, other = __rest(_a, ["basePath", "searchLevel", "debug"]);
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                canAccess = function (p) { return __awaiter(void 0, void 0, void 0, function () {
+                    return __generator(this, function (_a) {
+                        switch (_a.label) {
+                            case 0: return [4 /*yield*/, (searchLevel === "outline" || searchLevel === "full"
+                                    ? fs_util_4.canRead
+                                    : fs_util_4.canSee)(p)];
+                            case 1: return [2 /*return*/, _a.sent()];
+                        }
+                    });
+                }); };
+                accessibleBasePaths = (0, js_util_1.makeArray)(basePath || (0, get_path_1.getProjectRoot)())
+                    .filter(fs_util_1.fs.existsSync)
+                    .filter(canAccess);
+                if (debug)
+                    console.log("finding files in ".concat(accessibleBasePaths.join(",")));
+                textJsonPromises = accessibleBasePaths.map(function (p) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                    return [2 /*return*/, (0, exports.findFilesRecursively)(__assign({ basePath: p, searchLevel: searchLevel, debug: debug }, other))];
+                }); }); });
+                return [4 /*yield*/, Promise.all(textJsonPromises)];
+            case 1:
+                textJsons = (_c.sent()).flat();
+                return [2 /*return*/, textJsons];
+        }
+    });
+}); };
+exports.explore = explore;
 /**
 Explores your files with many possibilities.
 
@@ -19,38 +199,352 @@ TODO: since this not only finds files but also explores them, naming should be e
 
 TODO: TextJson[] is a bit weird name for the resulting type interface...
 */
-var findFilesRecursively=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,n,r,s,o,i,
-//booleans:
-a,l,c,u,d,p,x,f,_,h,g,m,v,b,y,E,w,j;return __generator(this,(function(F){switch(F.label){case 0:return t=e.basePath,n=e.ignore,r=e.searchLevel,s=e.extension,o=e.subExtension,i=e.search,a=e.includeFoldersWithResults,l=e.doNotExploreMatch,c=e.doNotExploreChildFolders,u=e.debug,d=e.exact,p=e.readmeOnTop,x=e.includeStats,f=e.includeMetaData,_=e.cancelRecursionOn,h=(0,js_util_1.makeArray)(o),g=(0,js_util_1.makeArray)(s),m=(0,js_util_1.makeArray)(i),v=(0,js_util_1.makeArray)(n),[4/*yield*/,fs_util_1.fs.readdir(t,{withFileTypes:!0,encoding:"utf8"})];case 1:
-// if contents should not be explored, return an empty array
-return b=F.sent(),y=p?b.findIndex((function(e){return"readme.md"===e.name.toLowerCase()})):-1,E=-1!==y?__spreadArray([b[y]],(0,js_util_1.removeIndexFromArray)(b,y),!0):b,w=E.map((function(e){return fs_util_2.path.join(t,e.name)})),(null==_?void 0:_(w))?[2/*return*/,a?[{path:t,isCancelRecursionResult:!0}]:[]]:(u&&console.log("contents contains ".concat(E.length," files/folders")),j=E.map((function(e){return __awaiter(void 0,void 0,void 0,(function(){var p,b,y,E,w,j,F,P,k,C,A,O,R,S,L,M,N,T,D,G,q,I;return __generator(this,(function(J){switch(J.label){case 0:
-// don't check files if search level is folder
-return"folder"===r&&e.isFile()?[2/*return*/,null]:
-//if dir/file name should be ignored, skip it
-v.includes(e.name)?(u&&console.log("Ignoring",e.name),[2/*return*/,null]):
-// if we want specific sub-extensions and this file isn't one of them, return
-e.isFile()&&h&&h.length>0&&!h.find((function(t){return(0,fs_util_3.getSubExtension)(e.name)===t}))?(u&&console.log("ignoring ".concat(e.name," because of subextension mismatch")),[2/*return*/,null]):
-// if we want specific extensions and this file isn't one of them, return
-e.isFile()&&g&&g.length>0&&!g.find((function(t){return(0,fs_util_3.getExtension)(e.name)===t}))?(u&&console.log("ignoring ".concat(e.name," because of extension mismatch")),[2/*return*/,null]):(p=fs_util_2.path.join(t,e.name),e.isFile()?(b=(0,fs_util_3.getExtension)(e.name)||"",y=exports.jsonExtensions.includes(b),exports.typescriptExtensions.includes(b),E=exports.markdownExtensions.includes(b),"folder"!==r?[3/*break*/,1]:(w=e.name,[3/*break*/,11])):[3/*break*/,18]);case 1:return"fileName"!==r?[3/*break*/,2]:(j=e.name,[3/*break*/,10]);case 2:return"filePath"!==r&&isSearchContentExtension(b)?[3/*break*/,3]:(F=p,[3/*break*/,9]);case 3:return"outline"!==r?[3/*break*/,4]:(P=getOutline(p),[3/*break*/,8]);case 4:return"full"!==r?[3/*break*/,6]:[4/*yield*/,getContents(p)];case 5:return k=J.sent(),[3/*break*/,7];case 6:k="SHOULD_NEVER_HAPPEN",J.label=7;case 7:P=k,J.label=8;case 8:F=P,J.label=9;case 9:j=F,J.label=10;case 10:w=j,J.label=11;case 11:return T=w,u&&console.log("searchContender: ".concat(T)),D=isMatch({exact:d,searchContender:T,searches:m}),C=y&&"full"===r?getContents(p):void 0,E&&"full"===r?[4/*yield*/,getContents(p)]:[3/*break*/,13];case 12:return O=J.sent(),[3/*break*/,14];case 13:O=void 0,J.label=14;case 14:return A=O,R=void 0,x?[4/*yield*/,fs_util_1.fs.stat(p)]:[3/*break*/,16];case 15:return L=J.sent(),[3/*break*/,17];case 16:L=void 0,J.label=17;case 17:return S=L,u&&console.log("".concat(e.name,"? match ").concat(D)),[2/*return*/,D?[{path:p,json:C,markdownJson:A,typescriptJson:R,stats:S}]:null];case 18:return!e.isDirectory()||c?[3/*break*/,21]:(M=[],N=!0,"folder"===r&&(T=e.name,(D=isMatch({searchContender:T,exact:d,searches:m}))&&(M.push({path:p}),N=!l)),N?(G=fs_util_2.path.join(t,e.name),[4/*yield*/,(0,exports.findFilesRecursively)({basePath:G,extension:s,search:i,searchLevel:r,subExtension:o,ignore:n,debug:u,exact:d,
-// NB: I think we just need to fill in everything in the recursion, right?
-cancelRecursionOn:_,includeFoldersWithResults:a,includeMetaData:f,includeStats:x,doNotExploreChildFolders:c,doNotExploreMatch:l})]):[3/*break*/,20]);case 19:(q=J.sent()).length>0&&(M=M.concat(q),a&&(void 0,I={path:G,metaData:undefined},M.push(I))),J.label=20;case 20:return[2/*return*/,M];case 21:return[2/*return*/,null]}}))}))})),[4/*yield*/,Promise.all(j)]);case 2:return[2/*return*/,F.sent().filter(js_util_1.notEmpty).flat()]}}))}))};exports.findFilesRecursively=findFilesRecursively,exports.generatedFolders=["node_modules","build",".next",".git"];
-/**
- * Finds all package.json's everywhere. also in /tools, but this is to be expected.
- *
- * TODO: `stopRecursionAfterMatch` never worked, so I just removed it... the behavior now is that it also explores folders that are in a folder with a `package.json`, unless that foldername is ignored. For now it's fine, but this could easily create an ineficiency if there's a lot of data in an operation or something...
- *
- * TODO: We should be careful with ignoring all these folders... what if we use those folders outside of operations? This could have unexpected behavior. We either need to lint for these foldernames not to be used, or we need to make sure to only ignore it if we encounter a package.json
- */
-var findAllPackages=function(e){return(0,exports.explore)({basePath:(null==e?void 0:e.basePath)||(0,get_path_1.getPathsWithOperations)(),search:"package.json",exact:!0,extension:"json",searchLevel:"fileName",ignore:exports.generatedFolders.concat(["src","assets","data"])})};exports.findAllPackages=findAllPackages;var findAllDotGitFolders=function(e){return(0,exports.explore)({basePath:null==e?void 0:e.basePath,search:".git",exact:!0,searchLevel:"folder",doNotExploreMatch:!0,
-// I guess we can assume there will never be git folders inside an operation on a deeper level, that would be strange... Therefore, these can be ignored
-ignore:["node_modules","build",".next","src","assets","data"]})};exports.findAllDotGitFolders=findAllDotGitFolders;
+var findFilesRecursively = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var basePath, ignore, searchLevel, extension, subExtension, search, 
+    //booleans:
+    includeFoldersWithResults, doNotExploreMatch, doNotExploreChildFolders, debug, exact, readmeOnTop, includeStats, includeMetaData, cancelRecursionOn, subExtensions, extensions, searches, ignores, contents, readmeIndex, sortedContents, pathArray, textJsonPromises, allMatches;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                basePath = config.basePath, ignore = config.ignore, searchLevel = config.searchLevel, extension = config.extension, subExtension = config.subExtension, search = config.search, includeFoldersWithResults = config.includeFoldersWithResults, doNotExploreMatch = config.doNotExploreMatch, doNotExploreChildFolders = config.doNotExploreChildFolders, debug = config.debug, exact = config.exact, readmeOnTop = config.readmeOnTop, includeStats = config.includeStats, includeMetaData = config.includeMetaData, cancelRecursionOn = config.cancelRecursionOn;
+                subExtensions = (0, js_util_1.makeArray)(subExtension);
+                extensions = (0, js_util_1.makeArray)(extension);
+                searches = (0, js_util_1.makeArray)(search);
+                ignores = (0, js_util_1.makeArray)(ignore);
+                return [4 /*yield*/, fs_util_1.fs.readdir(basePath, {
+                        withFileTypes: true,
+                        encoding: "utf8",
+                    })];
+            case 1:
+                contents = _a.sent();
+                readmeIndex = readmeOnTop
+                    ? contents.findIndex(function (x) { return x.name.toLowerCase() === "readme.md"; })
+                    : -1;
+                sortedContents = readmeIndex !== -1
+                    ? __spreadArray([contents[readmeIndex]], (0, js_util_1.removeIndexFromArray)(contents, readmeIndex), true) : contents;
+                pathArray = sortedContents.map(function (x) { return fs_util_2.path.join(basePath, x.name); });
+                // if contents should not be explored, return an empty array
+                if (cancelRecursionOn === null || cancelRecursionOn === void 0 ? void 0 : cancelRecursionOn(pathArray)) {
+                    return [2 /*return*/, includeFoldersWithResults
+                            ? [{ path: basePath, isCancelRecursionResult: true, isFolder: false }]
+                            : []];
+                }
+                if (debug)
+                    console.log("contents contains ".concat(sortedContents.length, " files/folders"));
+                textJsonPromises = sortedContents.map(function (dirent) { return __awaiter(void 0, void 0, void 0, function () {
+                    var filePath, ext, isJson, isTypescript, isMarkdown, searchContender, _a, _b, _c, _d, _e, match, json, markdownJson, _f, typescriptJson, stats, _g, matchOrNot, results, shouldRecurse, searchContender, match, thisFolderPath, thisFolderResults, metaData, folderResult;
+                    return __generator(this, function (_h) {
+                        switch (_h.label) {
+                            case 0:
+                                // don't check files if search level is folder
+                                if (searchLevel === "folder" && dirent.isFile()) {
+                                    return [2 /*return*/, null];
+                                }
+                                //if dir/file name should be ignored, skip it
+                                if (ignores.includes(dirent.name)) {
+                                    if (debug)
+                                        console.log("Ignoring", dirent.name);
+                                    return [2 /*return*/, null];
+                                }
+                                // if we want specific sub-extensions and this file isn't one of them, return
+                                if (dirent.isFile() &&
+                                    subExtensions &&
+                                    subExtensions.length > 0 &&
+                                    !subExtensions.find(function (ext) { return (0, fs_util_3.getSubExtension)(dirent.name) === ext; })) {
+                                    if (debug)
+                                        console.log("ignoring ".concat(dirent.name, " because of subextension mismatch"));
+                                    return [2 /*return*/, null];
+                                }
+                                // if we want specific extensions and this file isn't one of them, return
+                                if (dirent.isFile() &&
+                                    extensions &&
+                                    extensions.length > 0 &&
+                                    !extensions.find(function (ext) { return (0, fs_util_3.getExtension)(dirent.name) === ext; })) {
+                                    if (debug)
+                                        console.log("ignoring ".concat(dirent.name, " because of extension mismatch"));
+                                    return [2 /*return*/, null];
+                                }
+                                filePath = fs_util_2.path.join(basePath, dirent.name);
+                                if (!dirent.isFile()) return [3 /*break*/, 18];
+                                ext = (0, fs_util_3.getExtension)(dirent.name) || "";
+                                isJson = exports.jsonExtensions.includes(ext);
+                                isTypescript = exports.typescriptExtensions.includes(ext);
+                                isMarkdown = exports.markdownExtensions.includes(ext);
+                                if (!(searchLevel === "folder")) return [3 /*break*/, 1];
+                                _a = dirent.name;
+                                return [3 /*break*/, 11];
+                            case 1:
+                                if (!(searchLevel === "fileName")) return [3 /*break*/, 2];
+                                _b = dirent.name;
+                                return [3 /*break*/, 10];
+                            case 2:
+                                if (!(searchLevel === "filePath" || !isSearchContentExtension(ext))) return [3 /*break*/, 3];
+                                _c = filePath; //withoutExtension? dirent.name or filePath??? we also want to match folder names before it, right?
+                                return [3 /*break*/, 9];
+                            case 3:
+                                if (!(searchLevel === "outline")) return [3 /*break*/, 4];
+                                _d = getOutline(filePath);
+                                return [3 /*break*/, 8];
+                            case 4:
+                                if (!(searchLevel === "full")) return [3 /*break*/, 6];
+                                return [4 /*yield*/, getContents(filePath)];
+                            case 5:
+                                _e = _h.sent();
+                                return [3 /*break*/, 7];
+                            case 6:
+                                _e = "SHOULD_NEVER_HAPPEN";
+                                _h.label = 7;
+                            case 7:
+                                _d = _e;
+                                _h.label = 8;
+                            case 8:
+                                _c = _d;
+                                _h.label = 9;
+                            case 9:
+                                _b = _c;
+                                _h.label = 10;
+                            case 10:
+                                _a = _b;
+                                _h.label = 11;
+                            case 11:
+                                searchContender = _a;
+                                if (debug)
+                                    console.log("searchContender: ".concat(searchContender));
+                                match = isMatch({ exact: exact, searchContender: searchContender, searches: searches });
+                                json = isJson && searchLevel === "full" ? getContents(filePath) : undefined;
+                                if (!(isMarkdown && searchLevel === "full")) return [3 /*break*/, 13];
+                                return [4 /*yield*/, getContents(filePath)];
+                            case 12:
+                                _f = _h.sent();
+                                return [3 /*break*/, 14];
+                            case 13:
+                                _f = undefined;
+                                _h.label = 14;
+                            case 14:
+                                markdownJson = _f;
+                                typescriptJson = isTypescript ? undefined : undefined;
+                                if (!includeStats) return [3 /*break*/, 16];
+                                return [4 /*yield*/, fs_util_1.fs.stat(filePath)];
+                            case 15:
+                                _g = _h.sent();
+                                return [3 /*break*/, 17];
+                            case 16:
+                                _g = undefined;
+                                _h.label = 17;
+                            case 17:
+                                stats = _g;
+                                if (debug)
+                                    console.log("".concat(dirent.name, "? match ").concat(match));
+                                matchOrNot = match
+                                    ? [
+                                        {
+                                            path: filePath,
+                                            json: json,
+                                            isFolder: false,
+                                            markdownJson: markdownJson,
+                                            typescriptJson: typescriptJson,
+                                            stats: stats,
+                                        },
+                                    ]
+                                    : null;
+                                return [2 /*return*/, matchOrNot];
+                            case 18:
+                                if (!(dirent.isDirectory() && !doNotExploreChildFolders)) return [3 /*break*/, 21];
+                                results = [];
+                                shouldRecurse = true;
+                                if (searchLevel === "folder") {
+                                    searchContender = dirent.name;
+                                    match = isMatch({ searchContender: searchContender, exact: exact, searches: searches });
+                                    if (match) {
+                                        results.push({
+                                            path: filePath,
+                                            isFolder: true,
+                                        });
+                                        shouldRecurse = !doNotExploreMatch;
+                                    }
+                                }
+                                if (!shouldRecurse) return [3 /*break*/, 20];
+                                thisFolderPath = fs_util_2.path.join(basePath, dirent.name);
+                                return [4 /*yield*/, (0, exports.findFilesRecursively)({
+                                        basePath: thisFolderPath,
+                                        extension: extension,
+                                        search: search,
+                                        searchLevel: searchLevel,
+                                        subExtension: subExtension,
+                                        ignore: ignore,
+                                        debug: debug,
+                                        exact: exact,
+                                        // NB: I think we just need to fill in everything in the recursion, right?
+                                        cancelRecursionOn: cancelRecursionOn,
+                                        includeFoldersWithResults: includeFoldersWithResults,
+                                        includeMetaData: includeMetaData,
+                                        includeStats: includeStats,
+                                        doNotExploreChildFolders: doNotExploreChildFolders,
+                                        doNotExploreMatch: doNotExploreMatch,
+                                    })];
+                            case 19:
+                                thisFolderResults = _h.sent();
+                                if (thisFolderResults.length > 0) {
+                                    results = results.concat(thisFolderResults);
+                                    if (includeFoldersWithResults) {
+                                        metaData = undefined;
+                                        folderResult = {
+                                            path: thisFolderPath,
+                                            metaData: metaData,
+                                            isFolder: true,
+                                        };
+                                        results.push(folderResult);
+                                    }
+                                }
+                                _h.label = 20;
+                            case 20: return [2 /*return*/, results];
+                            case 21: return [2 /*return*/, null];
+                        }
+                    });
+                }); });
+                return [4 /*yield*/, Promise.all(textJsonPromises)];
+            case 2:
+                allMatches = (_a.sent())
+                    .filter(js_util_1.notEmpty)
+                    .flat();
+                return [2 /*return*/, allMatches];
+        }
+    });
+}); };
+exports.findFilesRecursively = findFilesRecursively;
+exports.generatedFolders = ["node_modules", "build", ".next", ".git"];
+var findAllDotGitFolders = function (config) {
+    return (0, exports.explore)({
+        basePath: config === null || config === void 0 ? void 0 : config.basePath,
+        search: ".git",
+        exact: true,
+        searchLevel: "folder",
+        doNotExploreMatch: true,
+        // I guess we can assume there will never be git folders inside an operation on a deeper level, that would be strange... Therefore, these can be ignored
+        ignore: ["node_modules", "build", ".next", "src", "assets", "data"],
+    });
+};
+exports.findAllDotGitFolders = findAllDotGitFolders;
 /**
  find all active git folders (folders having `.git`)
  */
-var exploreGitRepoFolders=function(e){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(t){switch(t.label){case 0:return[4/*yield*/,(0,exports.findAllDotGitFolders)(e)];case 1:return[2/*return*/,t.sent().map((function(e){return e.path})).map((function(e){return fs_util_2.path.resolve(e,"..")}))]}}))}))};exports.exploreGitRepoFolders=exploreGitRepoFolders;var explorePreset=function(e,t){var n=null==t?void 0:t.basePath,r="packages"===e?[{basePath:n,search:"package.json",exact:!0,extension:"json",ignore:exports.generatedFolders}]:"markdown"===e?[{basePath:n,extension:["md","mdx"],ignore:exports.generatedFolders}]:"todo"===e?// finds all `*.todo.md`,` todo/**/*.md` and returns the path + content
-[{basePath:n,extension:["md","mdx"],search:"/todo/",searchLevel:"filePath",ignore:exports.generatedFolders},{basePath:n,extension:["md","mdx"],search:"todo.md",exact:!0,searchLevel:"fileName",ignore:exports.generatedFolders},{basePath:n,extension:["md","mdx"],subExtension:"todo",exact:!1,searchLevel:"fileName",ignore:exports.generatedFolders}]:"docs"===e?[{basePath:n,extension:["md","mdx"],search:"/docs/",searchLevel:"filePath",ignore:exports.generatedFolders},{basePath:n,extension:["md","mdx"],search:"readme.md",exact:!0,searchLevel:"fileName",ignore:exports.generatedFolders},{basePath:n,extension:["md","mdx"],subExtension:["readme"],exact:!1,searchLevel:"fileName",ignore:exports.generatedFolders}]:"src"===e?[{basePath:n,searchLevel:"folder",exact:!0,search:"src",doNotExploreMatch:!0,ignore:exports.generatedFolders}]:[];return(0,exports.exploreMultiple)(r)};exports.explorePreset=explorePreset;
+var exploreGitRepoFolders = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, exports.findAllDotGitFolders)(config)];
+            case 1: return [2 /*return*/, (_a.sent())
+                    .map(function (textJson) { return textJson.path; })
+                    .map(function (p) { return fs_util_2.path.resolve(p, ".."); })];
+        }
+    });
+}); };
+exports.exploreGitRepoFolders = exploreGitRepoFolders;
+var explorePreset = function (preset, config) {
+    var basePath = config === null || config === void 0 ? void 0 : config.basePath;
+    var searchConfigs = preset === "packages"
+        ? [
+            {
+                basePath: basePath,
+                search: "package.json",
+                exact: true,
+                extension: "json",
+                ignore: exports.generatedFolders,
+            },
+        ]
+        : preset === "markdown"
+            ? [
+                {
+                    basePath: basePath,
+                    extension: ["md", "mdx"],
+                    ignore: exports.generatedFolders,
+                },
+            ]
+            : preset === "todo"
+                ? // finds all `*.todo.md`,` todo/**/*.md` and returns the path + content
+                    [
+                        {
+                            basePath: basePath,
+                            extension: ["md", "mdx"],
+                            search: "/todo/",
+                            searchLevel: "filePath",
+                            ignore: exports.generatedFolders,
+                        },
+                        {
+                            basePath: basePath,
+                            extension: ["md", "mdx"],
+                            search: "todo.md",
+                            exact: true,
+                            searchLevel: "fileName",
+                            ignore: exports.generatedFolders,
+                        },
+                        {
+                            basePath: basePath,
+                            extension: ["md", "mdx"],
+                            subExtension: "todo",
+                            exact: false,
+                            searchLevel: "fileName",
+                            ignore: exports.generatedFolders,
+                        },
+                    ]
+                : preset === "docs"
+                    ? [
+                        {
+                            basePath: basePath,
+                            extension: ["md", "mdx"],
+                            search: "/docs/",
+                            searchLevel: "filePath",
+                            ignore: exports.generatedFolders,
+                        },
+                        {
+                            basePath: basePath,
+                            extension: ["md", "mdx"],
+                            search: "readme.md",
+                            exact: true,
+                            searchLevel: "fileName",
+                            ignore: exports.generatedFolders,
+                        },
+                        {
+                            basePath: basePath,
+                            extension: ["md", "mdx"],
+                            subExtension: ["readme"],
+                            exact: false,
+                            searchLevel: "fileName",
+                            ignore: exports.generatedFolders,
+                        },
+                    ]
+                    : preset === "src"
+                        ? [
+                            {
+                                basePath: basePath,
+                                searchLevel: "folder",
+                                exact: true,
+                                search: "src",
+                                doNotExploreMatch: true,
+                                ignore: exports.generatedFolders,
+                            },
+                        ]
+                        : [];
+    var textJsons = (0, exports.exploreMultiple)(searchConfigs);
+    return textJsons;
+};
+exports.explorePreset = explorePreset;
 /**
  * DEPRECATED: not sure if we still need it, look up usecases, can prob be replaced now
  */
-var exploreMultiple=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t;return __generator(this,(function(n){switch(n.label){case 0:return t=e.map((function(e){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(t){return[2/*return*/,(0,exports.explore)(e)]}))}))})),[4/*yield*/,Promise.all(t)];case 1:return[2/*return*/,n.sent().flat()]}}))}))};exports.exploreMultiple=exploreMultiple;
+var exploreMultiple = function (searchConfigs) { return __awaiter(void 0, void 0, void 0, function () {
+    var textJsonPromises;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                textJsonPromises = searchConfigs.map(function (config) { return __awaiter(void 0, void 0, void 0, function () {
+                    return __generator(this, function (_a) {
+                        return [2 /*return*/, (0, exports.explore)(config)];
+                    });
+                }); });
+                return [4 /*yield*/, Promise.all(textJsonPromises)];
+            case 1: return [2 /*return*/, (_a.sent()).flat()];
+        }
+    });
+}); };
+exports.exploreMultiple = exploreMultiple;
 //# sourceMappingURL=explore.js.map

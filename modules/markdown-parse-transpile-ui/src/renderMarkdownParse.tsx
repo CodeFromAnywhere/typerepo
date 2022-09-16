@@ -66,6 +66,13 @@ export const renderMarkdownContent = (
             {...props}
           />
         ),
+        a: ({ node, ...props }) => (
+          <a
+            className="text-blue-500"
+            style={{ color: "darkblue" }}
+            {...props}
+          />
+        ),
       }}
     >
       {content}

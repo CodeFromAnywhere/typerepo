@@ -19,4 +19,5 @@ __exportStar(require("./NestedMenuItem"), exports);
 __exportStar(require("./types"), exports);
 __exportStar(require("./util/nestedPathObjectToNestedMenu"), exports);
 __exportStar(require("./util/queryPathsArrayToNestedPathObject"), exports);
+__exportStar(require("./store"), exports);
 //# sourceMappingURL=index.js.map

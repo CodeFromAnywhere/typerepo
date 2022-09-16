@@ -70,12 +70,13 @@ var getDocsMarkdownReaderPages = function (config) { return __awaiter(void 0, vo
                 if (!projectRoot)
                     return [2 /*return*/];
                 docsPath = fs_util_1.path.join(projectRoot, "docs");
-                return [4 /*yield*/, (0, getPublicMarkdownFilePaths_1.getPublicMarkdownFilePaths)(docsPath)];
+                return [4 /*yield*/, (0, getPublicMarkdownFilePaths_1.getPublicMarkdownFilePaths)(docsPath, false)];
             case 1:
                 relativeDocsPages = (_b.sent()).map(function (x) {
-                    var filePath = (0, get_path_1.makeRelative)(x, projectRoot);
+                    var filePath = (0, get_path_1.makeRelative)(x.path, projectRoot);
                     var queryPath = (0, removeExtensionsFromPath_1.removeExtensionsFromPath)(filePath);
-                    return { queryPath: queryPath, filePath: filePath, isMenuItem: true };
+                    // NB: folders are no menu items because menu is built from paths recursively
+                    return { queryPath: queryPath, filePath: filePath, isMenuItem: !x.isFolder };
                 });
                 hasDocs = !!relativeDocsPages.find(function (x) { return x.queryPath.toLowerCase() === "docs/readme"; });
                 if (!hasDocs) {
@@ -93,25 +94,27 @@ var getDocsMarkdownReaderPages = function (config) { return __awaiter(void 0, vo
                 });
                 _a = js_util_1.mergeObjectsArray;
                 return [4 /*yield*/, Promise.all(operationBasePaths.map(function (basePath) { return __awaiter(void 0, void 0, void 0, function () {
-                        var projectRelativeBasePath, projectRelativeOperationPaths, pages;
+                        var folders, pages, projectRelativeBasePath;
                         var _a;
                         return __generator(this, function (_b) {
                             switch (_b.label) {
-                                case 0:
-                                    projectRelativeBasePath = (0, get_path_1.makeRelative)(basePath, projectRoot);
-                                    return [4 /*yield*/, (0, k_explore_1.exploreOperationFolders)({ basePath: basePath })];
+                                case 0: return [4 /*yield*/, (0, k_explore_1.exploreOperationFolders)({ basePath: basePath })];
                                 case 1:
-                                    projectRelativeOperationPaths = (_b.sent()).map(function (absolutePath) { return (0, get_path_1.makeRelative)(absolutePath, projectRoot); });
-                                    pages = projectRelativeOperationPaths.map(function (relativePath) {
-                                        var operationName = (0, fs_util_1.getLastFolder)(relativePath);
+                                    folders = (_b.sent()).map(function (result) { return ({
+                                        projectRelativePath: (0, get_path_1.makeRelative)(result, projectRoot),
+                                    }); });
+                                    console.log({ folders: folders });
+                                    pages = folders.map(function (folder) {
+                                        var folderName = (0, fs_util_1.getLastFolder)(folder.projectRelativePath);
                                         return {
-                                            queryPath: relativePath,
+                                            queryPath: folder.projectRelativePath,
                                             // operation filePath is README.md
-                                            filePath: fs_util_1.path.join(relativePath, "README.md"),
-                                            internalLinkWord: operationName,
+                                            filePath: fs_util_1.path.join(folder.projectRelativePath, "README.md"),
+                                            internalLinkWord: folderName,
                                             isMenuItem: true,
                                         };
                                     });
+                                    projectRelativeBasePath = (0, get_path_1.makeRelative)(basePath, projectRoot);
                                     return [2 /*return*/, (_a = {}, _a[projectRelativeBasePath] = pages, _a)];
                             }
                         });

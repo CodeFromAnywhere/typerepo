@@ -9,7 +9,7 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "npx tsc-watch --onSuccess 'yarn dev:tw'",
-    "dev:tw": "tailwindcss -o css.css",
+    "css": "tailwindcss -o css.css",
     "build": "tsc"
   },
   "author": "",

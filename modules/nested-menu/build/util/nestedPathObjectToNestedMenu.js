@@ -14,6 +14,7 @@ nestedPathObject,
  */
 pathStack) {
     if (pathStack === void 0) { pathStack = []; }
+    // base case
     if (!nestedPathObject)
         return;
     var menu = Object.keys(nestedPathObject).map(function (path) {
@@ -21,6 +22,7 @@ pathStack) {
         var fullPath = newPathStack.join("/");
         var children = (0, exports.nestedPathObjectToNestedMenuRecursive)(nestedPathObject[path], newPathStack);
         var menuItem = {
+            // NB: if there is no path, the title  of the page should be "home"
             title: path.length === 0 ? "Home" : path,
             href: fullPath,
             children: children,

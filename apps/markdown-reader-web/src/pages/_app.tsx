@@ -8,6 +8,7 @@ import {
   publicEnvironmentVariables,
   publicLocalEnvironmentVariables,
 } from "sdk-env-public";
+import { MenuStoreProvider } from "nested-menu";
 import "../globals.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-datetime/css/react-datetime.css";
@@ -19,6 +20,7 @@ import "markdown-parse-transpile-ui/css.css";
 
 import "react-with-native/css.css";
 import "react-with-native-router/css.css";
+import { MainPageProps } from "markdown-reader-ui";
 
 const progress = new ProgressBar();
 
@@ -30,8 +32,11 @@ Router.events.on("routeChangeError", progress.finish);
 const queryClient = new QueryClient();
 
 // Only holds serverRuntimeConfig and publicRuntimeConfig
+export type RealAppProps = Omit<AppProps, "pageProps"> & {
+  pageProps: MainPageProps;
+};
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: RealAppProps) {
   const siteName =
     publicLocalEnvironmentVariables.markdownReaderTitle ||
     publicEnvironmentVariables.markdownReaderTitle ||
@@ -50,7 +55,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       {/* @ts-ignore */}
-      <Component {...pageProps} />
+      <MenuStoreProvider>
+        <Component {...pageProps} />
+      </MenuStoreProvider>
     </QueryClientProvider>
   );
 }

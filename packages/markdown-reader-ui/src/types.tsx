@@ -12,6 +12,12 @@ export type MainPageProps = {
    * Title of the page
    */
   title?: string | null;
+  /**
+   * If path is not a markdownfile, will return all children here
+   */
+  children?: string[];
+  previousQueryPath?: string | null;
+  nextQueryPath?: string | null;
 };
 
 export type PageOptions = {

@@ -112,16 +112,6 @@ export declare const findFilesRecursively: (config: Omit<SearchConfig, "basePath
     basePath: string;
 }) => Promise<TextJson[]>;
 export declare const generatedFolders: string[];
-/**
- * Finds all package.json's everywhere. also in /tools, but this is to be expected.
- *
- * TODO: `stopRecursionAfterMatch` never worked, so I just removed it... the behavior now is that it also explores folders that are in a folder with a `package.json`, unless that foldername is ignored. For now it's fine, but this could easily create an ineficiency if there's a lot of data in an operation or something...
- *
- * TODO: We should be careful with ignoring all these folders... what if we use those folders outside of operations? This could have unexpected behavior. We either need to lint for these foldernames not to be used, or we need to make sure to only ignore it if we encounter a package.json
- */
-export declare const findAllPackages: (config?: {
-    basePath: string | string[] | undefined;
-}) => Promise<TextJson[]>;
 export declare const findAllDotGitFolders: (config: BaseConfig) => Promise<TextJson[]>;
 /**
  find all active git folders (folders having `.git`)

@@ -1,4 +1,7 @@
 import { MenuItemType } from "./types";
+export declare const useExpanded: (queryPath?: string) => [boolean, () => Promise<void>, () => Promise<void>, () => Promise<void>, {
+    hydrated: boolean;
+}];
 /**
  * General purpose NestedMenuItem
  *

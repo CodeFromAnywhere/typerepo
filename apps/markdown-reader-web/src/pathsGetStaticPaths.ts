@@ -8,11 +8,11 @@ Function that tells Next.js what the pages are that need to be statically genera
 export const pathsGetStaticPaths: GetStaticPaths = async (
   context: GetStaticPathsContext
 ) => {
-  const paths = await getMarkdownReaderQueryPaths();
+  const paths: string[] = []; //await getMarkdownReaderQueryPaths();
 
   // console.log({ paths });
   if (!paths) {
-    return { paths: [], fallback: false };
+    return { paths: [], fallback: "blocking" };
   }
 
   const staticPaths = paths
@@ -21,6 +21,6 @@ export const pathsGetStaticPaths: GetStaticPaths = async (
 
   return {
     paths: staticPaths,
-    fallback: false, // can also be true or 'blocking'
+    fallback: "blocking",
   };
 };

@@ -358,7 +358,10 @@ export declare const sdk: {
     getMarkdownReaderQueryPaths: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<string[] | undefined>;
-    getPublicMarkdownFilePaths: (baseFolderPath: string) => Promise<string[]>;
+    getPublicMarkdownFilePaths: (baseFolderPath: string, includeFoldersWithResults?: boolean | undefined) => Promise<{
+        path: string;
+        isFolder: boolean;
+    }[]>;
     removeExtensionsFromPath: (relativePath: string) => string;
     removeNumberPrefix: (fileOrFolderName: string) => string;
     cleanupTsDatabase: (operationName: string) => Promise<{

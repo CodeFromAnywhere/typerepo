@@ -1,8 +1,6 @@
 import { MenuType } from "./types";
 /**
  * General purpose nested menu component
- *
- * TODO: support for expanded items
  */
 export declare const NestedMenu: (props: {
     menu: MenuType;
