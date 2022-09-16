@@ -1,0 +1,55 @@
+{
+  "createdAt": 1663305033619,
+  "updatedAt": 1663305033618,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305033619,
+  "folderName": "write-to-assets",
+  "packageName": "write-to-assets",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "write-to-assets",
+  "slug": "write-to-assets",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "path",
+    "writeJsonToFile",
+    "writeStringToFile",
+    "findOperationBasePath",
+    "getOperationPath"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 44,
+      "characters": 1159,
+      "bytes": 1159
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 66,
+      "characters": 2376,
+      "bytes": 2376
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 44,
+      "characters": 551,
+      "bytes": 551
+    },
+    "size": {
+      "bytes": 4086,
+      "characters": 4086,
+      "lines": 154,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": false,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "azGaiLBnkkbyJpXf",
+  "language": "en"
+}

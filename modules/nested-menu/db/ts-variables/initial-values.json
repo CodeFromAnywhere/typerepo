@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663305540326,
+  "updatedAt": 1663305540326,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305540326,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "comments": [],
+  "name": "initialValues",
+  "slug": "initial-values",
+  "value": "{\n  expanded: {},\n}",
+  "type": {
+    "rawType": "StoreType",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "expanded": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "expanded"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "expanded",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "DWcfNKfecirKcjHS"
+}

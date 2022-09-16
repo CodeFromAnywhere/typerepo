@@ -1,20 +1,20 @@
 {
-  "createdAt": 1663147167009,
-  "updatedAt": 1663147167009,
+  "createdAt": 1663305610749,
+  "updatedAt": 1663305610749,
   "deletedAt": 0,
-  "createdFirstAt": 1663147167009,
+  "createdFirstAt": 1663305610749,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/array-modifications.ts",
   "commentsInside": [],
-  "rawText": " <T>(\n  array: T[],\n  items: T | T[],\n  /**\n   *\n   */\n  beforeIndex: number\n) => {\n  const itemsArray = Array.isArray(items) ? items : [items];\n\n  // NB: slice makes copies\n  const before = array.slice(0, beforeIndex);\n  const after = array.slice(beforeIndex);\n  return [...before, ...itemsArray, ...after];\n}",
+  "rawText": " <T>(\n  array: T[],\n  items: T | T[],\n  /**\n   *\n   */\n  beforeIndex: number\n): T[] => {\n  const itemsArray = Array.isArray(items) ? items : [items];\n\n  // NB: slice makes copies\n  const before = array.slice(0, beforeIndex);\n  const after = array.slice(beforeIndex);\n  return [...before, ...itemsArray, ...after];\n}",
   "name": "insertAt",
   "slug": "insert-at",
   "parameters": [],
   "description": "Insert an array or item inside of an array before a certain index\n\nExample:\n\n```ts\n\nconst testArray = [1, 2, 3, 4, 5];\nconst result = insertAt(testArray, [99, 100], 2);\nconsole.log({ testArray, result });\n\n```",
   "returnType": {
-    "rawType": "any[]",
+    "rawType": "T[]",
     "typeDefinition": {
       "optional": false,
       "type": "array",
@@ -41,13 +41,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 519,
+    "characters": 524,
     "lines": 25,
-    "bytes": 519,
+    "bytes": 524,
     "bytesPerCharacter": 1,
     "charactersPerLine": 21,
     "linesPerFile": 25,
     "numberOfFiles": 1
   },
-  "id": "HyyWFZNOFgPISwYS"
+  "id": "QRgYEveXmAODhEGd"
 }

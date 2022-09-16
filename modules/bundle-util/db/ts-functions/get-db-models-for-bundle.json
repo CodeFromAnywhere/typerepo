@@ -1,8 +1,8 @@
 {
-  "createdAt": 1663008990231,
-  "updatedAt": 1663008990231,
+  "createdAt": 1663305104225,
+  "updatedAt": 1663305104225,
   "deletedAt": 0,
-  "createdFirstAt": 1663008990231,
+  "createdFirstAt": 1663305104225,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -20,6 +20,83 @@
       "simplifiedSchema": {
         "description": "--- dbStorageMethod: jsonSingle\n---",
         "properties": [
+          {
+            "name": "isOffline",
+            "required": false,
+            "schema": {
+              "description": "if true, will not clone/pull/push and deploy. No internet is needed, will also not use any `.git` folder.",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "skipPull",
+            "required": false,
+            "schema": {
+              "description": "skips the step where it gets the new stuff from github",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "skipPush",
+            "required": false,
+            "schema": {
+              "description": "skips the step where it pushes the new bundle to remote",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "skipUpsert",
+            "required": false,
+            "schema": {
+              "description": "skips the step where it saves to the db",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "debug",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "description",
+            "required": false,
+            "schema": {
+              "description": "descriptioin for git commit, if pushing. Default is \"monorepo update\"",
+              "type": "string"
+            }
+          },
+          {
+            "name": "branchName",
+            "required": false,
+            "schema": {
+              "description": "optionally, specify a custom branch name to pull from / push to / checkout (default is \"main\")",
+              "type": "string"
+            }
+          },
+          {
+            "name": "gitRepoUrl",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gitUserEmail",
+            "required": false,
+            "schema": {
+              "description": "Configuration for your commit (needed for vercel deployment)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "gitUserName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
           {
             "name": "name",
             "required": true,
@@ -84,28 +161,6 @@
               ],
               "type": "array"
             }
-          },
-          {
-            "name": "gitRepoUrl",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "branchName",
-            "required": false,
-            "schema": {
-              "description": "specify the branch to use of your git repo (defaults to \"main\")",
-              "type": "string"
-            }
-          },
-          {
-            "name": "skipPush",
-            "required": false,
-            "schema": {
-              "type": "boolean"
-            }
           }
         ],
         "type": "object"
@@ -133,5 +188,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "XmKNZKmiFdzQwwAd"
+  "id": "knhgcXeNhsuhvhYX"
 }

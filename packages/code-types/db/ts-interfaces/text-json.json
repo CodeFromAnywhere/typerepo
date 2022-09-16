@@ -1,15 +1,15 @@
 {
-  "createdAt": 1663018207004,
-  "updatedAt": 1663018207004,
+  "createdAt": 1663305273600,
+  "updatedAt": 1663305273600,
   "deletedAt": 0,
-  "createdFirstAt": 1663018207004,
+  "createdFirstAt": 1663305273600,
   "id": "text-json",
   "name": "TextJson",
   "slug": "text-json",
   "operationRelativeTypescriptFilePath": "src/TextJson.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport interface TextJson {\n  /**\n   * only available if it's a json file\n   */\n  json?: any;\n  /**\n   * only available if it's a typescript file\n   */\n  typescriptJson?: unknown;\n  /**\n   * only available if it's a markdown file\n   */\n  markdownJson?: MarkdownParse;\n  /**\n   * full path to the file or folder\n   */\n  path: string;\n  /**\n   * DEPRECATED: to be replaced with metaData\n   *\n   * only returned if this is requested\n   */\n  stats?: Stats;\n  /**\n   * replaces stats. only returned if `includeMetaData` is set to true\n   */\n  metaData?: PathMetaData;\n  /** if true, this means this path is given back because it was the last opened base path that searching was canceled on because of the cancelRecursionOn prop */\n  isCancelRecursionResult?: boolean;\n}",
+  "rawText": "\n\nexport interface TextJson {\n  /**\n   * only available if it's a json file\n   */\n  json?: any;\n  /**\n   * only available if it's a typescript file\n   */\n  typescriptJson?: unknown;\n  /**\n   * only available if it's a markdown file\n   */\n  markdownJson?: MarkdownParse;\n  /**\n   * full path to the file or folder\n   */\n  path: string;\n  isFolder: boolean;\n  /**\n   * DEPRECATED: to be replaced with metaData\n   *\n   * only returned if this is requested\n   */\n  stats?: Stats;\n  /**\n   * replaces stats. only returned if `includeMetaData` is set to true\n   */\n  metaData?: PathMetaData;\n  /** if true, this means this path is given back because it was the last opened base path that searching was canceled on because of the cancelRecursionOn prop */\n  isCancelRecursionResult?: boolean;\n}",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -33,6 +33,9 @@
           "type": "string",
           "description": "full path to the file or folder"
         },
+        "isFolder": {
+          "type": "boolean"
+        },
         "stats": {
           "$ref": "#/definitions/Stats",
           "description": "DEPRECATED: to be replaced with metaData\n\nonly returned if this is requested"
@@ -47,7 +50,8 @@
         }
       },
       "required": [
-        "path"
+        "path",
+        "isFolder"
       ],
       "additionalProperties": false
     },
@@ -320,6 +324,13 @@
           "schema": {
             "description": "full path to the file or folder",
             "type": "string"
+          }
+        },
+        {
+          "name": "isFolder",
+          "required": true,
+          "schema": {
+            "type": "boolean"
           }
         },
         {

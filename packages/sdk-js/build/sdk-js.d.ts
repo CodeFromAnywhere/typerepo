@@ -20,6 +20,7 @@ export declare const sdk: {
     generateTime: () => number;
     isEmail: typeof isEmail;
     markdownModelTypeToMarkdownString: (markdownModelType: import("model-types").Storing<import("model-types").MarkdownModelType>) => string;
+    ClickableIcon: (button: import("clickable-icon").ClickableIconType) => JSX.Element;
     stripCommentEnd: (trimmedLine: string) => string;
     stripCommentStart: (trimmedLine: string) => string;
     stripComment: (rawCommentString: string) => string;

@@ -89,12 +89,15 @@ this is the safe and friendly version of findFilesRecursively: it
 
 ## findAllPackages
 
-Finds all package.json's everywhere. also in /tools, but this is to be expected.
+### Parameters (1)
 
-TODO: `stopRecursionAfterMatch` never worked, so I just removed it... the behavior now is that it also explores folders that are in a folder with a `package.json`, unless that foldername is ignored. For now it's fine, but this could easily create an ineficiency if there's a lot of data in an operation or something...
+#### Parameter 1: config (optional): object
 
-TODO: We should be careful with ignoring all these folders... what if we use those folders outside of operations? This could have unexpected behavior. We either need to lint for these foldernames not to be used, or we need to make sure to only ignore it if we encounter a package.json
+Properties: 
 
+ | Name | Type | Description |
+|---|---|---|
+| basePath (optional) | object |  |
 
 
 

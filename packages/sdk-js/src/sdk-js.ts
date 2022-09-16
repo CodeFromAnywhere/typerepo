@@ -10,6 +10,7 @@ import { generateRandomString } from "model-types";
 import { generateTime } from "model-types";
 import { isEmail } from "model-types";
 import { markdownModelTypeToMarkdownString } from "model-types";
+import { ClickableIcon } from "clickable-icon";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
 import { stripComment } from "comment-util";
@@ -179,6 +180,7 @@ generateRandomString,
 generateTime,
 isEmail,
 markdownModelTypeToMarkdownString,
+ClickableIcon,
 stripCommentEnd,
 stripCommentStart,
 stripComment,

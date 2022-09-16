@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663304939537,
+  "updatedAt": 1663304939537,
+  "deletedAt": 0,
+  "createdFirstAt": 1663304939537,
+  "id": "named-parameters-<typeof-has-project-root-file->",
+  "name": "NamedParameters<typeof hasProjectRootFile>",
+  "slug": "named-parameters-<typeof-has-project-root-file->",
+  "operationRelativeTypescriptFilePath": "src/getProjectRoot.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absolutePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absolutePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absolutePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof hasProjectRootFile>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

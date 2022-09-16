@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960568,
+    "updatedAt": 1663304960568,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960568,
     "name": "explore",
     "slug": "explore",
     "module": "./explore",
@@ -13,13 +13,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "vxYCEmmDPsEjluDQ"
+    "id": "ZzoynahWzFSHncOo"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960568,
+    "updatedAt": 1663304960568,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960568,
     "name": "Dirent",
     "slug": "dirent",
     "module": "fs-util",
@@ -29,13 +29,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ZJJvCfVaEYwmrpTn"
+    "id": "NhIiGCYjAZdYtwgL"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960568,
+    "updatedAt": 1663304960568,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960568,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -46,13 +46,47 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "NgYdWYmrljHfwFNL"
+    "id": "qMHaHSTARabrkmJd"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960568,
+    "updatedAt": 1663304960568,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960568,
+    "name": "getFileName",
+    "slug": "get-file-name",
+    "type": "value",
+    "module": "fs-util",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/explore.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "TeIAbJUycEwxlSUC"
+  },
+  {
+    "createdAt": 1663304960568,
+    "updatedAt": 1663304960568,
+    "deletedAt": 0,
+    "createdFirstAt": 1663304960568,
+    "name": "getLastFolder",
+    "slug": "get-last-folder",
+    "type": "value",
+    "module": "fs-util",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/explore.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "SDFYOFrqiusaAgVB"
+  },
+  {
+    "createdAt": 1663304960568,
+    "updatedAt": 1663304960568,
+    "deletedAt": 0,
+    "createdFirstAt": 1663304960568,
     "name": "readJsonFile",
     "slug": "read-json-file",
     "type": "value",
@@ -63,13 +97,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "yKcAMBWkdmCYzJwW"
+    "id": "FaHcTepUJDQnWjGG"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960568,
+    "updatedAt": 1663304960568,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960568,
     "name": "MarkdownParse",
     "slug": "markdown-parse",
     "type": "type",
@@ -81,13 +115,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "szXdQbsArJrqurEO"
+    "id": "HuUhMMGdDhKjqQZF"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960568,
+    "updatedAt": 1663304960568,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960568,
     "name": "TextJson",
     "slug": "text-json",
     "type": "type",
@@ -99,13 +133,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "NWcjCaKhQEtOTNTI"
+    "id": "RbywukBGoUPtGPUZ"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960569,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -116,13 +150,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qNsJEDXAnvVbfvVM"
+    "id": "UwHiogohOjUjkxJx"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960569,
     "name": "getFolder",
     "slug": "get-folder",
     "type": "value",
@@ -133,13 +167,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "MORJxkKStLmyIFRc"
+    "id": "SghhUSmcIPDKstWy"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960569,
     "name": "getExtension",
     "slug": "get-extension",
     "type": "value",
@@ -150,13 +184,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "EedFKaLMhOJueajq"
+    "id": "qnJuGVfUddzejQRe"
   },
   {
-    "createdAt": 1662914731141,
-    "updatedAt": 1662914731141,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731141,
+    "createdFirstAt": 1663304960569,
     "name": "getSubExtension",
     "slug": "get-sub-extension",
     "type": "value",
@@ -167,13 +201,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wEkwHhOeWGccytYr"
+    "id": "pyUIjZRejKjAFTbf"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "makeArray",
     "slug": "make-array",
     "type": "value",
@@ -184,13 +218,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pkSiZWcaOImOVAxt"
+    "id": "BNXaJGPWrhUtZTmG"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "notEmpty",
     "slug": "not-empty",
     "type": "value",
@@ -201,13 +235,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "iKWDIqJpHDkkExsx"
+    "id": "ejHzdvNYDbrOWflR"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "removeIndexFromArray",
     "slug": "remove-index-from-array",
     "type": "value",
@@ -218,13 +252,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "QmoZmOwOvACXAVMq"
+    "id": "cEsfsBlAwLfmNrGT"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "canRead",
     "slug": "can-read",
     "type": "value",
@@ -235,13 +269,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nfbQnpAxlUszETAY"
+    "id": "SqbjUzIdJzjRvfZh"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "canSee",
     "slug": "can-see",
     "type": "value",
@@ -252,13 +286,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gnVGihCQQnMJpgwZ"
+    "id": "cqTgBqzBfPZxcgFY"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "mdToJsonParse",
     "slug": "md-to-json-parse",
     "type": "value",
@@ -269,13 +303,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vGMViAAQNwVMGqul"
+    "id": "AvKeXcPtlLcwIPfV"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "getPathsWithOperations",
     "slug": "get-paths-with-operations",
     "type": "value",
@@ -286,13 +320,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "FgXVpOKDhFrMvsfW"
+    "id": "ledxcBHkUHpMzYlT"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -303,13 +337,46 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "iXbxOteTVlWAmvIv"
+    "id": "WWGCMYwOuTMuSzgq"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
+    "name": "writeToAssets",
+    "slug": "write-to-assets",
+    "type": "value",
+    "module": "write-to-assets",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/exploreOperationFolders.test.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "OMsScnkNEPYdHydc"
+  },
+  {
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
+    "deletedAt": 0,
+    "createdFirstAt": 1663304960569,
+    "name": "exploreOperationFolders",
+    "slug": "explore-operation-folders",
+    "module": "./exploreOperationFolders",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/exploreOperationFolders.test.ts",
+    "classification": "internal",
+    "isAbsolute": false,
+    "isModuleFromMonorepo": false,
+    "id": "GxYniuRzLftEwywN"
+  },
+  {
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
+    "deletedAt": 0,
+    "createdFirstAt": 1663304960569,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -320,13 +387,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "bshzeTrQOcIhtZqP"
+    "id": "gozKsHIbxCQHZbcm"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "getFolder",
     "slug": "get-folder",
     "type": "value",
@@ -337,13 +404,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "VOzwGmaBENANGxnO"
+    "id": "tfhJGOglEVIpouWA"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -354,13 +421,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "lSyjkCBJdUGxHRqR"
+    "id": "bauSmghIeHivWIYg"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960569,
+    "updatedAt": 1663304960569,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960569,
     "name": "BaseConfig",
     "slug": "base-config",
     "module": "./explore",
@@ -370,29 +437,78 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "cBZeKeaUbqzxQgKu"
+    "id": "QCMqpgmtgRdeGFMB"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960570,
+    "updatedAt": 1663304960570,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960570,
     "name": "findAllPackages",
     "slug": "find-all-packages",
-    "module": "./explore",
+    "module": "./findAllPackages",
     "isModuleResolved": true,
     "comments": [],
     "operationRelativeTypescriptFilePath": "src/exploreOperationFolders.ts",
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ZGuephcVFmwblbzh"
+    "id": "OCEHxhTSoezfeEbb"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960570,
+    "updatedAt": 1663304960570,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960570,
+    "name": "getPathsWithOperations",
+    "slug": "get-paths-with-operations",
+    "type": "value",
+    "module": "get-path",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/findAllPackages.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "dveGNGAiCdpllQix"
+  },
+  {
+    "createdAt": 1663304960570,
+    "updatedAt": 1663304960570,
+    "deletedAt": 0,
+    "createdFirstAt": 1663304960570,
+    "name": "explore",
+    "slug": "explore",
+    "module": "./explore",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/findAllPackages.ts",
+    "classification": "internal",
+    "isAbsolute": false,
+    "isModuleFromMonorepo": false,
+    "id": "akdvSUzkMFaorjjz"
+  },
+  {
+    "createdAt": 1663304960570,
+    "updatedAt": 1663304960570,
+    "deletedAt": 0,
+    "createdFirstAt": 1663304960570,
+    "name": "generatedFolders",
+    "slug": "generated-folders",
+    "module": "./explore",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/findAllPackages.ts",
+    "classification": "internal",
+    "isAbsolute": false,
+    "isModuleFromMonorepo": false,
+    "id": "saoOkJlPLdbTOMlc"
+  },
+  {
+    "createdAt": 1663304960570,
+    "updatedAt": 1663304960570,
+    "deletedAt": 0,
+    "createdFirstAt": 1663304960570,
     "name": "getPathsWithOperations",
     "slug": "get-paths-with-operations",
     "type": "value",
@@ -403,13 +519,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vkABdXKqfFjgHgCc"
+    "id": "WinHlwGjyQLyxMDo"
   },
   {
-    "createdAt": 1662914731142,
-    "updatedAt": 1662914731142,
+    "createdAt": 1663304960570,
+    "updatedAt": 1663304960570,
     "deletedAt": 0,
-    "createdFirstAt": 1662914731142,
+    "createdFirstAt": 1663304960570,
     "name": "exploreOperationFolders",
     "slug": "explore-operation-folders",
     "module": "./exploreOperationFolders",
@@ -419,6 +535,6 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "GsCFeKEbqTLzQUIb"
+    "id": "KMWNYtdsDQRGifWV"
   }
 ]

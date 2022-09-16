@@ -1,0 +1,53 @@
+{
+  "createdAt": 1663009361515,
+  "updatedAt": 1663009361515,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009361515,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/general.tsx",
+  "commentsInside": [],
+  "rawText": " (key: string, baseKey?: string) =>\n  baseKey ? `${baseKey}.${key}` : key",
+  "name": "getKey",
+  "slug": "get-key",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 73,
+    "lines": 2,
+    "bytes": 73,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 37,
+    "linesPerFile": 2,
+    "numberOfFiles": 1
+  },
+  "id": "fdJSuFtTHpwmDnXO"
+}

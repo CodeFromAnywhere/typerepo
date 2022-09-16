@@ -1,14 +1,14 @@
 {
-  "createdAt": 1663008993658,
-  "updatedAt": 1663008993658,
+  "createdAt": 1663305109349,
+  "updatedAt": 1663305109349,
   "deletedAt": 0,
-  "createdFirstAt": 1663008993658,
+  "createdFirstAt": 1663305109349,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getPublicMarkdownFilePaths.ts",
   "commentsInside": [],
-  "rawText": " async (baseFolderPath: string) => {\n  const publicMarkdownFilePaths: string[] = (\n    await explore({\n      basePath: baseFolderPath,\n      extension: \"md\",\n      readmeOnTop: true,\n    })\n  )\n    .map((x) => x.path)\n    .filter((x) => {\n      const markdownString = fs.readFileSync(x, \"utf8\");\n      const { parameters } = parseFrontmatterMarkdownString(markdownString);\n      if (!!Boolean(parameters.isDraft) || parameters.privacy === \"private\")\n        return false;\n      return true;\n    });\n\n  return publicMarkdownFilePaths;\n}",
+  "rawText": " async (\n  baseFolderPath: string,\n  includeFoldersWithResults?: boolean\n) => {\n  const publicMarkdownFilePaths: { path: string; isFolder: boolean }[] = (\n    await explore({\n      basePath: baseFolderPath,\n      extension: \"md\",\n      readmeOnTop: true,\n      includeFoldersWithResults,\n    })\n  )\n    .filter((x) => {\n      if (x.isFolder) return true;\n\n      // NB: we have a file\n      const markdownString = fs.readFileSync(x.path, \"utf8\");\n      const { parameters } = parseFrontmatterMarkdownString(markdownString);\n      if (!!Boolean(parameters.isDraft) || parameters.privacy === \"private\") {\n        return false;\n      }\n      return true;\n    })\n    .map(({ path, isFolder }) => ({ path, isFolder }));\n\n  return publicMarkdownFilePaths;\n}",
   "name": "getPublicMarkdownFilePaths",
   "slug": "get-public-markdown-file-paths",
   "parameters": [
@@ -21,6 +21,16 @@
         "type": "string"
       },
       "required": true
+    },
+    {
+      "name": "includeFoldersWithResults",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
     }
   ],
   "description": "Returns all absolute markdown file paths within a basePath which are not drafts and which are not marked private (through frontmatter)",
@@ -35,13 +45,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 669,
-    "lines": 19,
-    "bytes": 669,
+    "characters": 884,
+    "lines": 27,
+    "bytes": 884,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 35,
-    "linesPerFile": 19,
+    "charactersPerLine": 33,
+    "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "DjbKwRtHouoBtezN"
+  "id": "rlrUXzUxwsaRyLkT"
 }

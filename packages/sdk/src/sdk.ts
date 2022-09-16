@@ -200,6 +200,7 @@ import { readJsonFileSync } from "read-json-file";
 import { readJsonFile } from "read-json-file";
 import { tryParseJson } from "read-json-file";
 import { readKvmdFile } from "read-kvmd-file";
+import { omitUndefinedValues } from "read-markdown-file";
 import { readMarkdownFileToModel } from "read-markdown-file";
 import { readMarkdownFile } from "read-markdown-file";
 import { isEqualArray } from "rename-template-files";
@@ -217,6 +218,7 @@ import { watchFolders } from "watch-folders";
 import { exitIfOperationsChange } from "watch-operations";
 import { gitCommitAllCron } from "watch-operations";
 import { watchOperations } from "watch-operations";
+import { writeToAssets } from "write-to-assets";
 import { markdownParseToMarkdownModelType } from "code-types";
 import { parseMarkdownModelTimestamp } from "code-types";
 import { tryParseDate } from "code-types";
@@ -229,6 +231,7 @@ import { generateRandomString } from "model-types";
 import { generateTime } from "model-types";
 import { isEmail } from "model-types";
 import { markdownModelTypeToMarkdownString } from "model-types";
+import { ClickableIcon } from "clickable-icon";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
 import { stripComment } from "comment-util";
@@ -588,6 +591,7 @@ readJsonFileSync,
 readJsonFile,
 tryParseJson,
 readKvmdFile,
+omitUndefinedValues,
 readMarkdownFileToModel,
 readMarkdownFile,
 isEqualArray,
@@ -605,6 +609,7 @@ watchFolders,
 exitIfOperationsChange,
 gitCommitAllCron,
 watchOperations,
+writeToAssets,
 markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
@@ -617,6 +622,7 @@ generateRandomString,
 generateTime,
 isEmail,
 markdownModelTypeToMarkdownString,
+ClickableIcon,
 stripCommentEnd,
 stripCommentStart,
 stripComment,

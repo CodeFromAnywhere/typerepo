@@ -488,6 +488,9 @@ export declare const sdk: {
     readJsonFile: <T_9>(filePath: string | undefined) => Promise<T_9 | null>;
     tryParseJson: <T_10>(text: string, logParseError?: boolean | undefined) => T_10 | null;
     readKvmdFile: (filePath: string, dbFileLocation: import("model-types").DbFileLocation) => Promise<import("model-types").KeyValueMarkdownParse | null>;
+    omitUndefinedValues: <T_11 extends {
+        [key: string]: any;
+    }>(object: T_11) => T_11;
     readMarkdownFileToModel: (absoluteFilePath: string) => Promise<import("code-types").MarkdownFile | null>;
     readMarkdownFile: (filePath: string) => Promise<import("code-types").MarkdownParse | null>;
     isEqualArray: (array1: unknown[], array2: unknown[]) => boolean;
@@ -531,6 +534,7 @@ export declare const sdk: {
     watchOperations: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<void>;
+    writeToAssets: (filePath: string, data: any, assetsFileName?: string | undefined) => Promise<boolean | undefined>;
 };
 export declare type SdkType = typeof sdk;
 //# sourceMappingURL=sdk-api.d.ts.map

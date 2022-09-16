@@ -1,8 +1,8 @@
 {
-  "createdAt": 1663147174898,
-  "updatedAt": 1663147174898,
+  "createdAt": 1663305620209,
+  "updatedAt": 1663305620209,
   "deletedAt": 0,
-  "createdFirstAt": 1663147174898,
+  "createdFirstAt": 1663305620209,
   "id": "named-parameters-<typeof-merge-objects->",
   "name": "NamedParameters<typeof mergeObjects>",
   "slug": "named-parameters-<typeof-merge-objects->",
@@ -20,7 +20,15 @@
         "objects": {
           "type": "array",
           "items": {
-            "not": {}
+            "anyOf": [
+              {
+                "type": "object",
+                "additionalProperties": false
+              },
+              {
+                "not": {}
+              }
+            ]
           }
         }
       },

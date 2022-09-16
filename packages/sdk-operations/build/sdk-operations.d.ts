@@ -20,6 +20,7 @@ export declare const operations: {
     "bundle-types": string;
     "bundle-util": string;
     "cleanup-typescript-database": string;
+    "clickable-icon": string;
     "comment-util": string;
     "convert-case": string;
     "csv-util": string;
@@ -57,6 +58,7 @@ export declare const operations: {
     pluralize: string;
     "react-with-native": string;
     "react-with-native-router": string;
+    "react-with-native-store": string;
     "read-csv-file": string;
     "read-json-file": string;
     "read-kvmd-file": string;
@@ -69,5 +71,6 @@ export declare const operations: {
     "ts-morph-util": string;
     "watch-folders": string;
     "watch-operations": string;
+    "write-to-assets": string;
 };
 //# sourceMappingURL=sdk-operations.d.ts.map

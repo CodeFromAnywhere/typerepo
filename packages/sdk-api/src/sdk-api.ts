@@ -200,6 +200,7 @@ import { readJsonFileSync } from "read-json-file";
 import { readJsonFile } from "read-json-file";
 import { tryParseJson } from "read-json-file";
 import { readKvmdFile } from "read-kvmd-file";
+import { omitUndefinedValues } from "read-markdown-file";
 import { readMarkdownFileToModel } from "read-markdown-file";
 import { readMarkdownFile } from "read-markdown-file";
 import { isEqualArray } from "rename-template-files";
@@ -217,6 +218,7 @@ import { watchFolders } from "watch-folders";
 import { exitIfOperationsChange } from "watch-operations";
 import { gitCommitAllCron } from "watch-operations";
 import { watchOperations } from "watch-operations";
+import { writeToAssets } from "write-to-assets";
 
 export const sdk = { generateCsvInstance,
 generateJsonSingleInstance,
@@ -420,6 +422,7 @@ readJsonFileSync,
 readJsonFile,
 tryParseJson,
 readKvmdFile,
+omitUndefinedValues,
 readMarkdownFileToModel,
 readMarkdownFile,
 isEqualArray,
@@ -436,6 +439,7 @@ watchFoldersFs,
 watchFolders,
 exitIfOperationsChange,
 gitCommitAllCron,
-watchOperations};
+watchOperations,
+writeToAssets};
 
 export type SdkType = typeof sdk;

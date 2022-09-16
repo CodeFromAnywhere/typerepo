@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663305459466,
+  "updatedAt": 1663305459466,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305459466,
+  "id": "named-parameters-<typeof-get-one-folder-up-path->",
+  "name": "NamedParameters<typeof getOneFolderUpPath>",
+  "slug": "named-parameters-<typeof-get-one-folder-up-path->",
+  "operationRelativeTypescriptFilePath": "src/pathGetStaticProps.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "folderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "folderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "folderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOneFolderUpPath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,93 +1,10 @@
-"use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOperationClassification = exports.hasDependency = exports.getAllPackageJsonDependencies = void 0;
-var fs_util_1 = require("fs-util");
-var read_json_file_1 = require("read-json-file");
-var getAllPackageJsonDependencies = function (p) {
-    var dependencies = p.dependencies ? Object.keys(p.dependencies) : [];
-    var devDependencies = p.devDependencies
-        ? Object.keys(p.devDependencies)
-        : [];
-    var peerDependencies = p.peerDependencies
-        ? Object.keys(p.peerDependencies)
-        : [];
-    return __spreadArray(__spreadArray(__spreadArray([], dependencies, true), devDependencies, true), peerDependencies, true);
-};
-exports.getAllPackageJsonDependencies = getAllPackageJsonDependencies;
-var hasDependency = function (packageJson, dependency) {
-    return (0, exports.getAllPackageJsonDependencies)(packageJson).includes(dependency);
-};
-exports.hasDependency = hasDependency;
+"use strict";var __spreadArray=this&&this.__spreadArray||function(e,s,n){if(n||2===arguments.length)for(var t,r=0,i=s.length;r<i;r++)!t&&r in s||(t||(t=Array.prototype.slice.call(s,0,r)),t[r]=s[r]);return e.concat(t||Array.prototype.slice.call(s))};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getOperationClassification=exports.hasDependency=exports.getAllPackageJsonDependencies=void 0;var fs_util_1=require("fs-util"),read_json_file_1=require("read-json-file"),getAllPackageJsonDependencies=function(e){var s=e.dependencies?Object.keys(e.dependencies):[],n=e.devDependencies?Object.keys(e.devDependencies):[],t=e.peerDependencies?Object.keys(e.peerDependencies):[];return __spreadArray(__spreadArray(__spreadArray([],s,!0),n,!0),t,!0)};exports.getAllPackageJsonDependencies=getAllPackageJsonDependencies;var hasDependency=function(e,s){return(0,exports.getAllPackageJsonDependencies)(e).includes(s)};exports.hasDependency=hasDependency;
 /**
  * Returns OperationClassification if it's an operation, or undefined if it's not
  *
  * NB: don't confuse this with ProjectType or ImportClassification
  */
-var getOperationClassification = function (folderPath) {
-    if (folderPath === undefined) {
-        console.log("Incorrect type at getOperationClassification"
-        // getOperationClassification.caller
-        );
-        process.exit(1);
-    }
-    var packageJsonPath = fs_util_1.path.join(folderPath, "package.json");
-    var existsPackageJson = fs_util_1.fs.existsSync(packageJsonPath);
-    var tsConfigPath = fs_util_1.path.join(folderPath, "tsconfig.json");
-    var existsTsConfig = fs_util_1.fs.existsSync(tsConfigPath);
-    // NB: must have these two in order to be an operation at all
-    if (!existsPackageJson || !existsTsConfig) {
-        return;
-    }
-    var packageJson = (0, read_json_file_1.tryParseJson)(fs_util_1.fs.readFileSync(packageJsonPath, "utf8"));
-    if (!packageJson || packageJson.workspaces) {
-        return;
-    }
-    var nextConfigPath = fs_util_1.path.join(folderPath, "next.config.js");
-    var existsNextConfig = fs_util_1.fs.existsSync(nextConfigPath);
-    var isNextApp = existsNextConfig;
-    if (isNextApp)
-        return "web";
-    var appJsonPath = fs_util_1.path.join(folderPath, "app.json");
-    var existsAppJson = fs_util_1.fs.existsSync(appJsonPath);
-    var isReactNativeApp = existsAppJson;
-    if (isReactNativeApp)
-        return "app";
-    var mainEntryTypescriptSource = !!(packageJson === null || packageJson === void 0 ? void 0 : packageJson.main) &&
-        packageJson.main.startsWith("src/") &&
-        (packageJson.main.endsWith(".ts") || packageJson.main.endsWith(".tsx"));
-    var isReactPackage = !!packageJson &&
-        ((0, exports.hasDependency)(packageJson, "react") ||
-            (0, exports.hasDependency)(packageJson, "react-native") ||
-            (0, exports.hasDependency)(packageJson, "next") ||
-            (0, exports.hasDependency)(packageJson, "expo"));
-    if (isReactPackage) {
-        if (mainEntryTypescriptSource) {
-            return "ui-es6";
-        }
-        return "ui-es5";
-    }
-    var hasExpress = !!packageJson && (0, exports.hasDependency)(packageJson, "express");
-    var hasServer = !!packageJson && (0, exports.hasDependency)(packageJson, "server");
-    if (hasExpress || hasServer) {
-        return "server";
-    }
-    if (mainEntryTypescriptSource) {
-        return "ts";
-    }
-    var hasTypesNode = (0, exports.hasDependency)(packageJson, "@types/node");
-    if (hasTypesNode) {
-        return "node";
-    }
-    return "js";
-};
-exports.getOperationClassification = getOperationClassification;
+var getOperationClassification=function(e){void 0===e&&(console.log("Incorrect type at getOperationClassification"),process.exit(1));var s=fs_util_1.path.join(e,"package.json"),n=fs_util_1.fs.existsSync(s),t=fs_util_1.path.join(e,"tsconfig.json"),r=fs_util_1.fs.existsSync(t);
+// NB: must have these two in order to be an operation at all
+if(n&&r){var i=(0,read_json_file_1.tryParseJson)(fs_util_1.fs.readFileSync(s,"utf8"));if(i&&!i.workspaces){var a=fs_util_1.path.join(e,"next.config.js");if(fs_util_1.fs.existsSync(a))return"web";var p=fs_util_1.path.join(e,"app.json");if(fs_util_1.fs.existsSync(p))return"app";var o=!!(null==i?void 0:i.main)&&i.main.startsWith("src/")&&(i.main.endsWith(".ts")||i.main.endsWith(".tsx"));if(!!i&&((0,exports.hasDependency)(i,"react")||(0,exports.hasDependency)(i,"react-native")||(0,exports.hasDependency)(i,"next")||(0,exports.hasDependency)(i,"expo")))return o?"ui-es6":"ui-es5";var c=!!i&&(0,exports.hasDependency)(i,"express"),d=!!i&&(0,exports.hasDependency)(i,"server");return c||d?"server":o?"ts":(0,exports.hasDependency)(i,"@types/node")?"node":"js"}}};exports.getOperationClassification=getOperationClassification;
 //# sourceMappingURL=getOperationClassification.js.map

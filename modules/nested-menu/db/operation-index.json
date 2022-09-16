@@ -1,6 +1,6 @@
 {
   "createdAt": 1662726669521,
-  "updatedAt": 1662907318283,
+  "updatedAt": 1663305546681,
   "deletedAt": 0,
   "createdFirstAt": 1662726669521,
   "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/ui/react-with-native/recipes/nested-menu/src/types.ts. Error: Error: Unknown type \\\"function\\\"\"]",
@@ -21,33 +21,35 @@
     "Div",
     "Span",
     "useRouter",
-    "ALink"
+    "ALink",
+    "createStoreProvider",
+    "createUseStore"
   ],
   "packageDependencies": [],
   "size": {
     "codeSize": {
-      "numberOfFiles": 5,
-      "lines": 217,
-      "characters": 5665,
-      "bytes": 5665
+      "numberOfFiles": 6,
+      "lines": 297,
+      "characters": 7751,
+      "bytes": 7753
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 72,
-      "characters": 1553,
-      "bytes": 1553
+      "lines": 75,
+      "characters": 1612,
+      "bytes": 1612
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 119,
-      "characters": 1692,
-      "bytes": 1692
+      "lines": 124,
+      "characters": 1760,
+      "bytes": 1760
     },
     "size": {
-      "bytes": 8910,
-      "characters": 8910,
-      "lines": 408,
-      "numberOfFiles": 8
+      "bytes": 11125,
+      "characters": 11123,
+      "lines": 496,
+      "numberOfFiles": 9
     }
   }
 }

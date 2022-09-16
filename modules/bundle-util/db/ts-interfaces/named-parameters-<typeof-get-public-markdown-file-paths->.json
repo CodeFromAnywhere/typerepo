@@ -1,8 +1,8 @@
 {
-  "createdAt": 1663008993562,
-  "updatedAt": 1663008993562,
+  "createdAt": 1663305109242,
+  "updatedAt": 1663305109242,
   "deletedAt": 0,
-  "createdFirstAt": 1663008993562,
+  "createdFirstAt": 1663305109242,
   "id": "named-parameters-<typeof-get-public-markdown-file-paths->",
   "name": "NamedParameters<typeof getPublicMarkdownFilePaths>",
   "slug": "named-parameters-<typeof-get-public-markdown-file-paths->",
@@ -19,6 +19,9 @@
       "properties": {
         "baseFolderPath": {
           "type": "string"
+        },
+        "includeFoldersWithResults": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -33,6 +36,13 @@
           "required": true,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "includeFoldersWithResults",
+          "required": false,
+          "schema": {
+            "type": "boolean"
           }
         }
       ],

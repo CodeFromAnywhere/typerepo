@@ -8,6 +8,7 @@ read-markdown-file (node operation)
 
 ## Functions
 
+- [omitUndefinedValues](#omitUndefinedValues)
 - [readMarkdownFileToModel](#readMarkdownFileToModel)
 - [readMarkdownFile](#readMarkdownFile)
 
@@ -18,6 +19,8 @@ read-markdown-file (node operation)
 
 
 # Functions
+
+## omitUndefinedValues
 
 ## readMarkdownFileToModel
 

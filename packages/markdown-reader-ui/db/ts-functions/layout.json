@@ -1,32 +1,32 @@
 {
-  "createdAt": 1662906795746,
-  "updatedAt": 1662906795746,
+  "createdAt": 1663305425369,
+  "updatedAt": 1663305425369,
   "deletedAt": 0,
-  "createdFirstAt": 1662906795746,
+  "createdFirstAt": 1663305425369,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/components/Layout.tsx",
   "commentsInside": [],
-  "rawText": " ({\n  queryPaths,\n  children,\n}: {\n  queryPaths: string[];\n  children: any;\n}) => {\n  const nestedPathObject = queryPathsArrayToNestedPathObject(queryPaths);\n  const pathsMenu = nestedPathObjectToNestedMenuRecursive(nestedPathObject);\n\n  const homeMenu: MenuItemType = { title: \"Home\", href: \"/\" };\n  const menu: MenuType = pathsMenu ? [homeMenu, ...pathsMenu] : [homeMenu];\n  return (\n    <Div className=\"h-screen grid grid-rows-6\">\n      <Div className=\"row-span-6 grid grid-cols-5\">\n        <Div\n          className={`\n        col-span-4 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white`}\n          textClassName=\"dark:text-white\"\n        >\n          {children}\n        </Div>\n        <Span className=\"border-l col-span-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white border-l-gray-400\">\n          {menu ? <NestedMenu menu={menu} /> : \"Menu couldn't be found\"}\n        </Span>\n      </Div>\n    </Div>\n  );\n}",
+  "rawText": " ({\n  pages,\n  children,\n}: {\n  pages: MarkdownReaderPage[];\n  children: any;\n}) => {\n  const queryPaths = pages.filter((x) => x.isMenuItem).map((x) => x.queryPath);\n  const nestedPathObject = queryPathsArrayToNestedPathObject(queryPaths);\n  const menu = nestedPathObjectToNestedMenuRecursive(nestedPathObject);\n\n  return (\n    <Div className=\"h-screen grid grid-rows-6\">\n      <Div className=\"row-span-6 grid grid-cols-5\">\n        <Div\n          className={`\n        col-span-4 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white`}\n          textClassName=\"dark:text-white\"\n        >\n          {children}\n        </Div>\n        <Span className=\"border-l col-span-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white border-l-gray-400\">\n          {menu ? (\n            <NestedMenu menu={menu} headersClickable={true} />\n          ) : (\n            \"Menu couldn't be found\"\n          )}\n        </Span>\n      </Div>\n    </Div>\n  );\n}",
   "name": "Layout",
   "slug": "layout",
   "parameters": [
     {
-      "name": "{\n  queryPaths,\n  children,\n}",
+      "name": "{\n  pages,\n  children,\n}",
       "schema": {
         "type": "object",
         "properties": {
-          "queryPaths": {
+          "pages": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/definitions/MarkdownReaderPage"
             }
           },
           "children": {}
         },
         "required": [
-          "queryPaths",
+          "pages",
           "children"
         ],
         "additionalProperties": false
@@ -34,15 +34,49 @@
       "simplifiedSchema": {
         "properties": [
           {
-            "name": "queryPaths",
+            "name": "pages",
             "required": true,
             "schema": {
               "items": [
                 {
                   "schema": {
-                    "type": "string"
+                    "properties": [
+                      {
+                        "name": "queryPath",
+                        "required": true,
+                        "schema": {
+                          "description": "path to be used as the url",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "filePath",
+                        "required": false,
+                        "schema": {
+                          "description": "if given, the file md-file will be provided to the frontend",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "isMenuItem",
+                        "required": false,
+                        "schema": {
+                          "description": "if true, this item will be shown in the menu",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "internalLinkWord",
+                        "required": false,
+                        "schema": {
+                          "description": "If a string is given, every word in every document will automatically be matched against these values. Case sensitive. If there's a match, the word will link to the queryPath.\n\nUsed to link automatically to functionNames, InterfaceNames, operation-names, and words.",
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
                   },
-                  "name": null
+                  "name": "MarkdownReaderPage"
                 }
               ],
               "type": "array"
@@ -76,15 +110,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 5,
+  "maxIndentationDepth": 6,
   "size": {
-    "characters": 935,
-    "lines": 29,
-    "bytes": 935,
+    "characters": 949,
+    "lines": 32,
+    "bytes": 949,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 32,
-    "linesPerFile": 29,
+    "charactersPerLine": 30,
+    "linesPerFile": 32,
     "numberOfFiles": 1
   },
-  "id": "xyDJqcQZNKTiCuFN"
+  "id": "FCmySAsGHxPsgKSJ"
 }

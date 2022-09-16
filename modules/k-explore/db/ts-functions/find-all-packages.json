@@ -1,18 +1,55 @@
 {
-  "createdAt": 1662914653743,
-  "updatedAt": 1662914653743,
+  "createdAt": 1663304978462,
+  "updatedAt": 1663304978462,
   "deletedAt": 0,
-  "createdFirstAt": 1662914653743,
+  "createdFirstAt": 1663304978462,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/explore.ts",
+  "operationRelativeTypescriptFilePath": "src/findAllPackages.ts",
   "commentsInside": [],
   "rawText": " (config?: {\n  basePath: string | string[] | undefined;\n}) => {\n  return explore({\n    basePath: config?.basePath || getPathsWithOperations(),\n    search: \"package.json\",\n    exact: true,\n    extension: \"json\",\n    searchLevel: \"fileName\",\n    ignore: generatedFolders.concat([\"src\", \"assets\", \"data\"]),\n  });\n}",
   "name": "findAllPackages",
   "slug": "find-all-packages",
-  "parameters": [],
-  "description": "Finds all package.json's everywhere. also in /tools, but this is to be expected.\n\nTODO: `stopRecursionAfterMatch` never worked, so I just removed it... the behavior now is that it also explores folders that are in a folder with a `package.json`, unless that foldername is ignored. For now it's fine, but this could easily create an ineficiency if there's a lot of data in an operation or something...\n\nTODO: We should be careful with ignoring all these folders... what if we use those folders outside of operations? This could have unexpected behavior. We either need to lint for these foldernames not to be used, or we need to make sure to only ignore it if we encounter a package.json",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "basePath": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            ]
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "basePath",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
   "returnType": {
     "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TextJson\").TextJson[]>",
     "typeCoverage": 0,
@@ -24,13 +61,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 997,
-    "lines": 16,
-    "bytes": 997,
+    "characters": 311,
+    "lines": 12,
+    "bytes": 311,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 62,
-    "linesPerFile": 16,
+    "charactersPerLine": 26,
+    "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "AxCzCucYhhYVghow"
+  "id": "rqUhQezxWcRpQiLN"
 }

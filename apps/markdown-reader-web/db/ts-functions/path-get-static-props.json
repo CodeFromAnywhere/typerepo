@@ -1,17 +1,74 @@
 {
-  "createdAt": 1663009345148,
-  "updatedAt": 1663009345148,
+  "createdAt": 1663305459719,
+  "updatedAt": 1663305459719,
   "deletedAt": 0,
-  "createdFirstAt": 1663009345148,
+  "createdFirstAt": 1663305459719,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/pathGetStaticProps.ts",
   "commentsInside": [],
-  "rawText": " async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MainPageProps;\n}> => {\n  const pages = (await getDocsMarkdownReaderPages()) || [];\n  const queryPath = getQueryPath(context.params);\n\n  // definitions/statements/functions/interfaces/operations\n\n  const realPage = pages.find((x) => x.queryPath === queryPath);\n\n  if (!realPage) {\n    return { props: { pages } };\n  }\n\n  const markdownFile = realPage.filePath\n    ? await readMarkdownFileToModel(realPage.filePath)\n    : undefined;\n\n  return {\n    // Passed to the page component as props\n    props: { pages, markdownFile },\n  };\n}",
+  "rawText": " async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MainPageProps;\n}> => {\n  const pages = (await getDocsMarkdownReaderPages()) || [];\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { props: { pages } };\n  }\n\n  const queryPath = getQueryPath(context.params);\n\n  // definitions/statements/functions/interfaces/operations\n\n  const realPage = pages.find((x) => x.queryPath === queryPath);\n  const nestedPathObject = queryPathsArrayToNestedPathObject(\n    pages.filter((x) => x.isMenuItem).map((x) => x.queryPath)\n  );\n\n  if (!realPage) {\n    const children = getKeysAtObjectPath(nestedPathObject, queryPath);\n    const title = queryPath.split(\"/\").pop();\n    return { props: { pages, children, title } };\n  }\n\n  const oneFolderUp = getOneFolderUpPath(queryPath);\n  const siblings = getKeysAtObjectPath(nestedPathObject, oneFolderUp);\n  const meIndex = siblings.findIndex(\n    (sibling) => queryPath.split(\"/\").pop() === sibling\n  );\n\n  const previousFolder = siblings[meIndex - 1];\n  const previousQueryPath = previousFolder\n    ? `${oneFolderUp}/${previousFolder}`\n    : null;\n  const nextFolder = siblings[meIndex + 1];\n  const nextQueryPath = nextFolder ? `${oneFolderUp}/${nextFolder}` : null;\n\n  const absoluteMarkdownPath = realPage.filePath\n    ? path.join(projectRoot, realPage.filePath)\n    : undefined;\n\n  const title = realPage.internalLinkWord || null;\n  const markdownFile = absoluteMarkdownPath\n    ? await readMarkdownFileToModel(absoluteMarkdownPath)\n    : undefined;\n\n  return {\n    // Passed to the page component as props\n    props: { pages, markdownFile, title, nextQueryPath, previousQueryPath },\n  };\n}",
   "name": "pathGetStaticProps",
   "slug": "path-get-static-props",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "context",
+      "schema": {
+        "$ref": "#/definitions/GetStaticPropsContext"
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "preview",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "previewData",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locales",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "defaultLocale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "Promise<{ props: import(\"/Users/king/King/operations/tools/ui/markdown-reader/markdown-reader-ui/src/types\").MainPageProps; }>",
@@ -24,13 +81,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 594,
-    "lines": 25,
-    "bytes": 594,
+    "characters": 1659,
+    "lines": 53,
+    "bytes": 1659,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 24,
-    "linesPerFile": 25,
+    "charactersPerLine": 31,
+    "linesPerFile": 53,
     "numberOfFiles": 1
   },
-  "id": "ZJuLcyYhMKbCMsAK"
+  "id": "oQMgORfXEwwUnQFH"
 }

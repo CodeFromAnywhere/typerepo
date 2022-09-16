@@ -1,0 +1,49 @@
+{
+  "createdAt": 1663009364338,
+  "updatedAt": 1663009364338,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009364338,
+  "id": "named-parameters-<typeof-get-item->",
+  "name": "NamedParameters<typeof getItem>",
+  "slug": "named-parameters-<typeof-get-item->",
+  "operationRelativeTypescriptFilePath": "src/storage.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getItem>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

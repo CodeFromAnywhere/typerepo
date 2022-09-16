@@ -30,7 +30,7 @@ if the path doesn't exist: returns pathString witout last chunk (this would only
  */
 export declare const getFolder: (pathString: string) => string;
 /**
- * removes everything before the last slash to get folder path
+ * removes everything before the last slash to get file name
  */
 export declare const getFileName: (pathString: string) => string;
 /**

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1663147172175,
-  "updatedAt": 1663147172175,
+  "createdAt": 1663305617115,
+  "updatedAt": 1663305617115,
   "deletedAt": 0,
-  "createdFirstAt": 1663147172175,
+  "createdFirstAt": 1663305617115,
   "name": "worker",
   "slug": "worker",
   "apiAuthenticationStrategy": "admin",
@@ -32,5 +32,5 @@
   },
   "rawText": "\n\nasync function worker(\n  id: number,\n  generator: ArrayGenerator,\n  mapFn: MapFn<any, any>,\n  result: any[]\n) {\n  //console.time(`Worker ${id}`);\n  for (let [currentValue, index, array] of generator) {\n    //console.time(`Worker ${id} --- index ${index} item ${currentValue}`);\n\n    const mappedResult = await mapItem(mapFn, currentValue, index, array);\n\n    // NB: if mappedResult gets rejected, change nothing!\n    if (mappedResult.status === \"fulfilled\") {\n      result[index] = mappedResult.value;\n    }\n\n    //console.timeEnd(`Worker ${id} --- index ${index} item ${currentValue}`);\n  }\n  //console.timeEnd(`Worker ${id}`);\n}",
   "maxIndentationDepth": 3,
-  "id": "zjNoGUcVPmeFnDJp"
+  "id": "hVPcBvKLbklvFDHF"
 }

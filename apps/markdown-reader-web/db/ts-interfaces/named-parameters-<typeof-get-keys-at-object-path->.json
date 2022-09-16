@@ -1,0 +1,50 @@
+{
+  "createdAt": 1663305459466,
+  "updatedAt": 1663305459466,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305459466,
+  "id": "named-parameters-<typeof-get-keys-at-object-path->",
+  "name": "NamedParameters<typeof getKeysAtObjectPath>",
+  "slug": "named-parameters-<typeof-get-keys-at-object-path->",
+  "operationRelativeTypescriptFilePath": "src/pathGetStaticProps.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "objectPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "object",
+        "objectPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "objectPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getKeysAtObjectPath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662907315057,
-  "updatedAt": 1662907315057,
+  "createdAt": 1663305542477,
+  "updatedAt": 1663305542477,
   "deletedAt": 0,
-  "createdFirstAt": 1662907315057,
+  "createdFirstAt": 1663305542477,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/util/nestedPathObjectToNestedMenu.ts",
   "commentsInside": [],
-  "rawText": " (\n  /**\n   * your nested path object that you want to create a menu for\n   */\n  nestedPathObject: NestedPathObject | null,\n  /**\n   * used for recursion to get the final url (defaults to empty array)\n   */\n  pathStack: string[] = []\n): MenuType | undefined => {\n  if (!nestedPathObject) return;\n\n  const menu: MenuType = Object.keys(nestedPathObject).map((path) => {\n    const newPathStack = pathStack.concat(path);\n    const fullPath = newPathStack.join(\"/\");\n    const children = nestedPathObjectToNestedMenuRecursive(\n      nestedPathObject[path],\n      newPathStack\n    );\n\n    const menuItem: MenuItemType = {\n      title: path,\n      href: fullPath,\n      children,\n      showChildren: true,\n    };\n\n    return menuItem;\n  });\n\n  return menu;\n}",
+  "rawText": " (\n  /**\n   * your nested path object that you want to create a menu for\n   */\n  nestedPathObject: NestedPathObject | null,\n  /**\n   * used for recursion to get the final url (defaults to empty array)\n   */\n  pathStack: string[] = []\n): MenuType | undefined => {\n  // base case\n  if (!nestedPathObject) return;\n\n  const menu: MenuType = Object.keys(nestedPathObject).map((path) => {\n    const newPathStack = pathStack.concat(path);\n    const fullPath = newPathStack.join(\"/\");\n    const children = nestedPathObjectToNestedMenuRecursive(\n      nestedPathObject[path],\n      newPathStack\n    );\n\n    const menuItem: MenuItemType = {\n      // NB: if there is no path, the title  of the page should be \"home\"\n      title: path.length === 0 ? \"Home\" : path,\n      href: fullPath,\n      children,\n      showChildren: true,\n    };\n\n    return menuItem;\n  });\n\n  return menu;\n}",
   "name": "nestedPathObjectToNestedMenuRecursive",
   "slug": "nested-path-object-to-nested-menu-recursive",
   "parameters": [
@@ -68,13 +68,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 824,
-    "lines": 32,
-    "bytes": 824,
+    "characters": 942,
+    "lines": 34,
+    "bytes": 942,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
-    "linesPerFile": 32,
+    "charactersPerLine": 28,
+    "linesPerFile": 34,
     "numberOfFiles": 1
   },
-  "id": "rrUAbBwdHChvmmEb"
+  "id": "KpnoBImKjVomnKXA"
 }

@@ -1,0 +1,45 @@
+{
+  "createdAt": 1663009361516,
+  "updatedAt": 1663009361516,
+  "deletedAt": 0,
+  "createdFirstAt": 1663009361516,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.tsx",
+  "commentsInside": [],
+  "rawText": " <TStore extends object>(\n  config: StoreConfig<TStore>\n) => {\n  if (config.debug) {\n    debug = config.debug;\n  }\n  if (debug) {\n    console.log(\"Create StoreProvider\");\n  }\n\n  const keys = Object.keys(config.initialValues) as Keys<TStore>[];\n\n  contexts = keys.reduce((acc, key) => {\n    const Context = React.createContext(null);\n    return {\n      ...acc,\n      [contextKey(key)]: Context,\n    };\n  }, {});\n\n  const MainProvider = ({ children }: { children: any }) =>\n    keys.reduce((acc, key) => {\n      const context = contexts[contextKey(key)];\n      return (\n        <StoreContextProvider\n          config={config}\n          storeKey={key}\n          DynamicContext={context}\n        >\n          {acc}\n        </StoreContextProvider>\n      );\n    }, children);\n\n  return ({ children }: { children: any }) => {\n    return <MainProvider>{children}</MainProvider>;\n  };\n}",
+  "name": "createStoreProvider",
+  "slug": "create-store-provider",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "({ children }: { children: any; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 876,
+    "lines": 38,
+    "bytes": 876,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 38,
+    "numberOfFiles": 1
+  },
+  "id": "uqEdXFfAlNnWxlZh"
+}

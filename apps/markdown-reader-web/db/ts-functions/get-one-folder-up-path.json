@@ -1,0 +1,47 @@
+{
+  "createdAt": 1663305459719,
+  "updatedAt": 1663305459719,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305459719,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pathGetStaticProps.ts",
+  "commentsInside": [],
+  "rawText": " (folderPath: string) => {\n  const pathParts = folderPath.split(\"/\");\n  pathParts.pop();\n  return pathParts.join(\"/\");\n}",
+  "name": "getOneFolderUpPath",
+  "slug": "get-one-folder-up-path",
+  "parameters": [
+    {
+      "name": "folderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 120,
+    "lines": 5,
+    "bytes": 120,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "YUhTbRRIQhqqYIrC"
+}

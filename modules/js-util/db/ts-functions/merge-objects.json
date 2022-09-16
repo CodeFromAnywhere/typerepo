@@ -1,14 +1,14 @@
 {
-  "createdAt": 1663147175037,
-  "updatedAt": 1663147175037,
+  "createdAt": 1663305620354,
+  "updatedAt": 1663305620354,
   "deletedAt": 0,
-  "createdFirstAt": 1663147175037,
+  "createdFirstAt": 1663305620354,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/object-merge.ts",
   "commentsInside": [],
-  "rawText": " <T extends { [key: string]: any | undefined }>(\n  ...objects: (T | undefined)[]\n): T | undefined => {\n  if (objects.length === 0) return;\n\n  const firstObject = objects[0];\n\n  const mergedObject = objects.reduce((previous, current) => {\n    if (!current) return previous;\n\n    const newObject: T | undefined = !previous\n      ? current\n      : { ...previous, ...current };\n\n    return newObject;\n  }, firstObject);\n\n  return mergedObject;\n}",
+  "rawText": " <T extends { [key: string]: any | undefined }>(\n  ...objects: (Partial<T> | undefined)[]\n): T | undefined => {\n  if (objects.length === 0) return;\n\n  const firstObject = objects[0];\n\n  const mergedObject = objects.reduce((previous, current) => {\n    if (!current) return previous;\n\n    const newObject: Partial<T> | undefined = !previous\n      ? current\n      : { ...previous, ...current };\n\n    return newObject;\n    // NB: we cannot guarantee this based on the input!\n  }, firstObject) as T;\n\n  return mergedObject;\n}",
   "name": "mergeObjects",
   "slug": "merge-objects",
   "parameters": [
@@ -17,7 +17,15 @@
       "schema": {
         "type": "array",
         "items": {
-          "not": {}
+          "anyOf": [
+            {
+              "type": "object",
+              "additionalProperties": false
+            },
+            {
+              "not": {}
+            }
+          ]
         }
       },
       "simplifiedSchema": {
@@ -35,7 +43,7 @@
       "required": true
     }
   ],
-  "description": "merges multiple objects, overwriting the previous one with the next. Can be useful for configs where there are multiple layers of configs that overwrite each other.\n\nPlease note though, that only the root keys of the object are overwriting each other, so if there is nested datastructures, the last one with a specific key overwrites the previous ones copletely",
+  "description": "merges multiple objects, overwriting the previous one with the next. Can be useful for configs where there are multiple layers of configs that overwrite each other.\n\nPlease note though, that only the root keys of the object are overwriting each other, so if there is nested datastructures, the last one with a specific key overwrites the previous ones copletely\n\nPlease note that you can provide partial objects as well, as long as you are sure that the final object is full, the type interface is correct.",
   "returnType": {
     "rawType": "T | undefined",
     "typeCoverage": 0,
@@ -47,13 +55,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 802,
-    "lines": 21,
-    "bytes": 802,
+    "characters": 1026,
+    "lines": 24,
+    "bytes": 1026,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 38,
-    "linesPerFile": 21,
+    "charactersPerLine": 43,
+    "linesPerFile": 24,
     "numberOfFiles": 1
   },
-  "id": "IarHfNqvKBJrRhRk"
+  "id": "dllTFWeRKayZdfUD"
 }

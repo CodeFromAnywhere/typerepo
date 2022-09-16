@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662904761214,
-  "updatedAt": 1662904761214,
+  "createdAt": 1663304977386,
+  "updatedAt": 1663304977386,
   "deletedAt": 0,
-  "createdFirstAt": 1662904761214,
+  "createdFirstAt": 1663304977386,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/exploreOperationFolders.ts",
   "commentsInside": [],
-  "rawText": " async (\n  config: BaseConfig\n): Promise<string[]> => {\n  const folders = (await findAllPackages({ basePath: config?.basePath }))\n    .map((textJson) => textJson.path)\n    .map((p) => getFolder(p))\n    .filter((p) => fs.existsSync(path.join(p, \"tsconfig.json\")));\n\n  return folders;\n}",
+  "rawText": " async (\n  config: BaseConfig\n): Promise<string[]> => {\n  const folders = (\n    await findAllPackages({\n      basePath: config?.basePath,\n    })\n  )\n    .map((x) => x.path)\n    .map((p) => getFolder(p))\n    .filter((p) => {\n      const alsoTsConfig = fs.existsSync(path.join(p, \"tsconfig.json\"));\n      return alsoTsConfig;\n    });\n\n  return folders;\n}",
   "name": "exploreOperationFolders",
   "slug": "explore-operation-folders",
   "parameters": [
@@ -59,15 +59,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 3,
   "size": {
-    "characters": 394,
-    "lines": 12,
-    "bytes": 394,
+    "characters": 462,
+    "lines": 19,
+    "bytes": 462,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 33,
-    "linesPerFile": 12,
+    "charactersPerLine": 24,
+    "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "jAiPotyehvYEWvGY"
+  "id": "vXZYZhrvhIuVkMFW"
 }

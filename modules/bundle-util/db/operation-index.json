@@ -1,6 +1,6 @@
 {
   "createdAt": 1662921712951,
-  "updatedAt": 1663009820380,
+  "updatedAt": 1663305116404,
   "deletedAt": 0,
   "createdFirstAt": 1662921712951,
   "folderName": "bundle-util",
@@ -21,6 +21,7 @@
     "TsInterface",
     "getDbModelsFromOperations",
     "BundleConfig",
+    "writeToAssets",
     "fs",
     "getLastFolder",
     "path",
@@ -32,8 +33,8 @@
     "db",
     "mergeObjectsArray",
     "notEmpty",
+    "onlyUnique2",
     "exploreOperationFolders",
-    "Include",
     "fs",
     "explore",
     "parseFrontmatterMarkdownString",
@@ -43,28 +44,28 @@
   "packageDependencies": [],
   "size": {
     "codeSize": {
-      "numberOfFiles": 9,
-      "lines": 450,
-      "characters": 13963,
-      "bytes": 13963
+      "numberOfFiles": 10,
+      "lines": 471,
+      "characters": 14588,
+      "bytes": 14588
     },
     "dataSize": {
-      "numberOfFiles": 2,
-      "lines": 76,
-      "characters": 1625,
-      "bytes": 1625
+      "numberOfFiles": 4,
+      "lines": 29127,
+      "characters": 1154734,
+      "bytes": 1154734
     },
     "textSize": {
       "numberOfFiles": 1,
-      "lines": 330,
-      "characters": 20791,
-      "bytes": 20791
+      "lines": 353,
+      "characters": 22893,
+      "bytes": 22893
     },
     "size": {
-      "bytes": 36379,
-      "characters": 36379,
-      "lines": 856,
-      "numberOfFiles": 12
+      "bytes": 1192215,
+      "characters": 1192215,
+      "lines": 29951,
+      "numberOfFiles": 15
     }
   },
   "buildSucceeded": true,

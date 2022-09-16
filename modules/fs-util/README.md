@@ -223,7 +223,7 @@ NB: not sure, but could be nice to replace this with path.extname(pathString)
 
 ## getFileName
 
-removes everything before the last slash to get folder path
+removes everything before the last slash to get file name
 
 
 ### Returns: string

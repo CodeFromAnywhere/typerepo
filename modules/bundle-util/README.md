@@ -58,6 +58,16 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| isOffline (optional) | boolean | if true, will not clone/pull/push and deploy. No internet is needed, will also not use any `.git` folder. |
+| skipPull (optional) | boolean | skips the step where it gets the new stuff from github |
+| skipPush (optional) | boolean | skips the step where it pushes the new bundle to remote |
+| skipUpsert (optional) | boolean | skips the step where it saves to the db |
+| debug (optional) | boolean |  |
+| description (optional) | string | descriptioin for git commit, if pushing. Default is "monorepo update" |
+| branchName (optional) | string | optionally, specify a custom branch name to pull from / push to / checkout (default is "main") |
+| gitRepoUrl (optional) | string |  |
+| gitUserEmail (optional) | string | Configuration for your commit (needed for vercel deployment) |
+| gitUserName (optional) | string |  |
 | name  | string | Human readable name of the monorepo (A kebab-case version of this will be used as root foldername) |
 | operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
 | projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
@@ -65,9 +75,6 @@ Properties:
 | bundles  | array |  |
 | dependencies  | array | Generated, private by default. If they're already here, uses private/public setting as given.<br /><br />When generating, removes the ones that are not dependencies (of dependencies) of your standalone apps |
 | foldersFromRepo (optional) | array | if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated<br /><br />can be handy if you're working with someone else... |
-| gitRepoUrl (optional) | string |  |
-| branchName (optional) | string | specify the branch to use of your git repo (defaults to "main") |
-| skipPush (optional) | boolean |  |
 
 
 
@@ -88,6 +95,16 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| isOffline (optional) | boolean | if true, will not clone/pull/push and deploy. No internet is needed, will also not use any `.git` folder. |
+| skipPull (optional) | boolean | skips the step where it gets the new stuff from github |
+| skipPush (optional) | boolean | skips the step where it pushes the new bundle to remote |
+| skipUpsert (optional) | boolean | skips the step where it saves to the db |
+| debug (optional) | boolean |  |
+| description (optional) | string | descriptioin for git commit, if pushing. Default is "monorepo update" |
+| branchName (optional) | string | optionally, specify a custom branch name to pull from / push to / checkout (default is "main") |
+| gitRepoUrl (optional) | string |  |
+| gitUserEmail (optional) | string | Configuration for your commit (needed for vercel deployment) |
+| gitUserName (optional) | string |  |
 | name  | string | Human readable name of the monorepo (A kebab-case version of this will be used as root foldername) |
 | operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
 | projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
@@ -95,9 +112,6 @@ Properties:
 | bundles  | array |  |
 | dependencies  | array | Generated, private by default. If they're already here, uses private/public setting as given.<br /><br />When generating, removes the ones that are not dependencies (of dependencies) of your standalone apps |
 | foldersFromRepo (optional) | array | if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated<br /><br />can be handy if you're working with someone else... |
-| gitRepoUrl (optional) | string |  |
-| branchName (optional) | string | specify the branch to use of your git repo (defaults to "main") |
-| skipPush (optional) | boolean |  |
 
 
 
@@ -157,9 +171,11 @@ Returns all absolute markdown file paths within a basePath which are not drafts 
 
 
 
-### Parameters (1)
+### Parameters (2)
 
 #### Parameter 1: baseFolderPath: string
+
+#### Parameter 2: includeFoldersWithResults (optional): boolean
 
 ## removeExtensionsFromPath
 
@@ -199,6 +215,19 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| isOffline (optional) | boolean | if true, will not clone/pull/push and deploy. No internet is needed, will also not use any `.git` folder. |
+| skipPull (optional) | boolean | skips the step where it gets the new stuff from github |
+| skipPush (optional) | boolean | skips the step where it pushes the new bundle to remote |
+| skipUpsert (optional) | boolean | skips the step where it saves to the db |
+| debug (optional) | boolean |  |
+| description (optional) | string | descriptioin for git commit, if pushing. Default is "monorepo update" |
+| informationStrategy (optional) | string | push (default): take needed information from project and push to bundle (removing the existing info)<br /><br />pullReplace: pull bundle and keep its information intact, not taking anything new from the OS, replacing all the information we had from these models in the OS<br /><br />pullMerge: pull bundle and use its information in conjunction with the information we had in the OS. This option will merge both information sources, removing duplicate IDs<br /><br />NB: Later we may want to define this setting on a per-model basis! |
+| branchName (optional) | string | optionally, specify a custom branch name to pull from / push to / checkout (default is "main") |
+| gitRepoUrl (optional) | string |  |
+| publicEnvironmentVariables (optional) | object |  |
+| privateEnvironmentVariables (optional) | object |  |
+| gitUserEmail (optional) | string | Configuration for your commit (needed for vercel deployment) |
+| gitUserName (optional) | string |  |
 | slug  | string | use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example. |
 | name  | string | Human readable name of the monorepo (A kebab-case version of this will be used as root foldername) |
 | language  | string | all currently supported languages |
@@ -215,12 +244,6 @@ Properties:
 | docsRelativeFolderPath (optional) | string | later this could be known by the frontend so it will render a ui to select a folder<br /><br />We need to figure out how we can know all type types in between when getting the type definition schema, not only the final type. If I'm lucky there is a way to find it as a #ref in a consistent way. |
 | readmeRelativeFilePath (optional) | string |  |
 | foldersFromRepo (optional) | array | if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated<br /><br />can be handy if you're working with someone else... |
-| informationStrategy (optional) | string | push (default): take needed information from project and push to bundle (removing the existing info)<br /><br />pullReplace: pull bundle and keep its information intact, not taking anything new from the OS, replacing all the information we had from these models in the OS<br /><br />pullMerge: pull bundle and use its information in conjunction with the information we had in the OS. This option will merge both information sources, removing duplicate IDs<br /><br />NB: Later we may want to define this setting on a per-model basis! |
-| gitRepoUrl (optional) | string |  |
-| branchName (optional) | string | specify the branch to use of your git repo (defaults to "main") |
-| publicEnvironmentVariables (optional) | object |  |
-| privateEnvironmentVariables (optional) | object |  |
-| skipPush (optional) | boolean |  |
 
 
 

@@ -1,12 +1,12 @@
 {
-  "createdAt": 1663009817652,
-  "updatedAt": 1663009817652,
+  "createdAt": 1663305104065,
+  "updatedAt": 1663305104065,
   "deletedAt": 0,
-  "createdFirstAt": 1663009817652,
+  "createdFirstAt": 1663305104065,
   "id": "bundle-config",
   "name": "BundleConfig",
   "slug": "bundle-config",
-  "operationRelativeTypescriptFilePath": "src/getBundleSummary.ts",
+  "operationRelativeTypescriptFilePath": "src/getDbModelsForBundle.ts",
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
@@ -17,6 +17,52 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "isOffline": {
+          "type": "boolean",
+          "description": "if true, will not clone/pull/push and deploy. No internet is needed, will also not use any `.git` folder."
+        },
+        "skipPull": {
+          "type": "boolean",
+          "description": "skips the step where it gets the new stuff from github"
+        },
+        "skipPush": {
+          "type": "boolean",
+          "description": "skips the step where it pushes the new bundle to remote"
+        },
+        "skipUpsert": {
+          "type": "boolean",
+          "description": "skips the step where it saves to the db"
+        },
+        "debug": {
+          "type": "boolean"
+        },
+        "description": {
+          "type": "string",
+          "description": "descriptioin for git commit, if pushing. Default is \"monorepo update\""
+        },
+        "informationStrategy": {
+          "$ref": "#/definitions/InformationStrategy"
+        },
+        "branchName": {
+          "type": "string",
+          "description": "optionally, specify a custom branch name to pull from / push to / checkout (default is \"main\")"
+        },
+        "gitRepoUrl": {
+          "type": "string"
+        },
+        "publicEnvironmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariableObject"
+        },
+        "privateEnvironmentVariables": {
+          "$ref": "#/definitions/EnvironmentVariableObject"
+        },
+        "gitUserEmail": {
+          "type": "string",
+          "description": "Configuration for your commit (needed for vercel deployment)"
+        },
+        "gitUserName": {
+          "type": "string"
+        },
         "slug": {
           "$ref": "#/definitions/Slug",
           "description": "kebab-case of the name, should be unique"
@@ -86,25 +132,6 @@
             "type": "string"
           },
           "description": "if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n\ncan be handy if you're working with someone else..."
-        },
-        "informationStrategy": {
-          "$ref": "#/definitions/InformationStrategy"
-        },
-        "gitRepoUrl": {
-          "type": "string"
-        },
-        "branchName": {
-          "type": "string",
-          "description": "specify the branch to use of your git repo (defaults to \"main\")"
-        },
-        "publicEnvironmentVariables": {
-          "$ref": "#/definitions/EnvironmentVariableObject"
-        },
-        "privateEnvironmentVariables": {
-          "$ref": "#/definitions/EnvironmentVariableObject"
-        },
-        "skipPush": {
-          "type": "boolean"
         }
       },
       "required": [
@@ -136,6 +163,112 @@
     "simplifiedSchema": {
       "description": "--- dbStorageMethod: jsonSingle\n---",
       "properties": [
+        {
+          "name": "isOffline",
+          "required": false,
+          "schema": {
+            "description": "if true, will not clone/pull/push and deploy. No internet is needed, will also not use any `.git` folder.",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "skipPull",
+          "required": false,
+          "schema": {
+            "description": "skips the step where it gets the new stuff from github",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "skipPush",
+          "required": false,
+          "schema": {
+            "description": "skips the step where it pushes the new bundle to remote",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "skipUpsert",
+          "required": false,
+          "schema": {
+            "description": "skips the step where it saves to the db",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "debug",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "description",
+          "required": false,
+          "schema": {
+            "description": "descriptioin for git commit, if pushing. Default is \"monorepo update\"",
+            "type": "string"
+          }
+        },
+        {
+          "name": "informationStrategy",
+          "required": false,
+          "schema": {
+            "description": "push (default): take needed information from project and push to bundle (removing the existing info)\n\npullReplace: pull bundle and keep its information intact, not taking anything new from the OS, replacing all the information we had from these models in the OS\n\npullMerge: pull bundle and use its information in conjunction with the information we had in the OS. This option will merge both information sources, removing duplicate IDs\n\nNB: Later we may want to define this setting on a per-model basis!",
+            "enum": [
+              "push",
+              "pullReplace",
+              "pullMerge"
+            ],
+            "type": "string"
+          }
+        },
+        {
+          "name": "branchName",
+          "required": false,
+          "schema": {
+            "description": "optionally, specify a custom branch name to pull from / push to / checkout (default is \"main\")",
+            "type": "string"
+          }
+        },
+        {
+          "name": "gitRepoUrl",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "publicEnvironmentVariables",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "privateEnvironmentVariables",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "gitUserEmail",
+          "required": false,
+          "schema": {
+            "description": "Configuration for your commit (needed for vercel deployment)",
+            "type": "string"
+          }
+        },
+        {
+          "name": "gitUserName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
         {
           "name": "slug",
           "required": true,
@@ -419,57 +552,6 @@
               }
             ],
             "type": "array"
-          }
-        },
-        {
-          "name": "informationStrategy",
-          "required": false,
-          "schema": {
-            "description": "push (default): take needed information from project and push to bundle (removing the existing info)\n\npullReplace: pull bundle and keep its information intact, not taking anything new from the OS, replacing all the information we had from these models in the OS\n\npullMerge: pull bundle and use its information in conjunction with the information we had in the OS. This option will merge both information sources, removing duplicate IDs\n\nNB: Later we may want to define this setting on a per-model basis!",
-            "enum": [
-              "push",
-              "pullReplace",
-              "pullMerge"
-            ],
-            "type": "string"
-          }
-        },
-        {
-          "name": "gitRepoUrl",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "branchName",
-          "required": false,
-          "schema": {
-            "description": "specify the branch to use of your git repo (defaults to \"main\")",
-            "type": "string"
-          }
-        },
-        {
-          "name": "publicEnvironmentVariables",
-          "required": false,
-          "schema": {
-            "properties": [],
-            "type": "object"
-          }
-        },
-        {
-          "name": "privateEnvironmentVariables",
-          "required": false,
-          "schema": {
-            "properties": [],
-            "type": "object"
-          }
-        },
-        {
-          "name": "skipPush",
-          "required": false,
-          "schema": {
-            "type": "boolean"
           }
         }
       ],

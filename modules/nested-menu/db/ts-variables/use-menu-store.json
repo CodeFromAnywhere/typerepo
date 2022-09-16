@@ -1,0 +1,32 @@
+{
+  "createdAt": 1663305540326,
+  "updatedAt": 1663305540326,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305540326,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "comments": [],
+  "name": "useMenuStore",
+  "slug": "use-menu-store",
+  "value": "createUseStore(initialValues)",
+  "type": {
+    "rawType": "<K>(key: K) => [StoreType[K], (value: StoreType[K]) => Promise<void>, { hydrated: boolean; }]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "classification": "const",
+  "id": "FxMZKaeazjhUXhRz"
+}

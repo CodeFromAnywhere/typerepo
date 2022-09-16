@@ -1,8 +1,8 @@
 {
-  "createdAt": 1663008896672,
-  "updatedAt": 1663008896672,
+  "createdAt": 1663304898500,
+  "updatedAt": 1663304898500,
   "deletedAt": 0,
-  "createdFirstAt": 1663008896672,
+  "createdFirstAt": 1663304898500,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -23,7 +23,7 @@
       "required": true
     }
   ],
-  "description": "removes everything before the last slash to get folder path",
+  "description": "removes everything before the last slash to get file name",
   "returnType": {
     "rawType": "String",
     "typeDefinition": {
@@ -52,13 +52,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 123,
+    "characters": 121,
     "lines": 3,
-    "bytes": 123,
+    "bytes": 121,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 41,
+    "charactersPerLine": 40,
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "OtzYjWMfhZOMmGnI"
+  "id": "DArsKuEmqlEgyOQB"
 }

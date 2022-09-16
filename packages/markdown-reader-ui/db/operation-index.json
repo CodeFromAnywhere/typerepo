@@ -1,6 +1,6 @@
 {
   "createdAt": 1662726298599,
-  "updatedAt": 1662924107360,
+  "updatedAt": 1663305430964,
   "deletedAt": 0,
   "createdFirstAt": 1662726298599,
   "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/ui/markdown-reader/markdown-reader-ui/src/types.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\"]",
@@ -25,11 +25,15 @@
     "nestedPathObjectToNestedMenuRecursive",
     "MenuItemType",
     "MenuType",
+    "MarkdownReaderPage",
     "Div",
     "P",
     "mdToJsonParse",
     "renderMarkdownParse",
-    "useRouter"
+    "useRouter",
+    "ALink",
+    "ClickableIcon",
+    "MarkdownReaderPage"
   ],
   "packageDependencies": [
     "NativeStackNavigationOptions",
@@ -38,26 +42,26 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 4,
-      "lines": 125,
-      "characters": 3508,
-      "bytes": 3508
+      "lines": 139,
+      "characters": 3803,
+      "bytes": 3803
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 81,
-      "characters": 1925,
-      "bytes": 1925
+      "lines": 84,
+      "characters": 1981,
+      "bytes": 1981
     },
     "textSize": {
       "numberOfFiles": 6,
-      "lines": 161,
-      "characters": 4846,
-      "bytes": 4846
+      "lines": 179,
+      "characters": 7272,
+      "bytes": 7272
     },
     "size": {
-      "bytes": 10279,
-      "characters": 10279,
-      "lines": 367,
+      "bytes": 13056,
+      "characters": 13056,
+      "lines": 402,
       "numberOfFiles": 12
     }
   }

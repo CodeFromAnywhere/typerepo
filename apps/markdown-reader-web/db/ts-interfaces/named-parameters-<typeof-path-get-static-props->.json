@@ -1,0 +1,103 @@
+{
+  "createdAt": 1663305459466,
+  "updatedAt": 1663305459466,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305459466,
+  "id": "named-parameters-<typeof-path-get-static-props->",
+  "name": "NamedParameters<typeof pathGetStaticProps>",
+  "slug": "named-parameters-<typeof-path-get-static-props->",
+  "operationRelativeTypescriptFilePath": "src/pathGetStaticProps.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "$ref": "#/definitions/GetStaticPropsContext"
+        }
+      },
+      "required": [
+        "context"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "context",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "params",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "preview",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "previewData",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "locale",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "locales",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "defaultLocale",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof pathGetStaticProps>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

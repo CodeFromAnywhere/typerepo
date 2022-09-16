@@ -13,9 +13,11 @@ nested-menu (ui-es5 operation)
 - [nestedPathObjectToNestedMenuRecursive](#nestedPathObjectToNestedMenuRecursive)
 - [queryPathsArrayToNestedPathObject](#queryPathsArrayToNestedPathObject)
 - [reduceQueryPathsRecursively](#reduceQueryPathsRecursively)
+- [useExpanded](#useExpanded)
 
 ## Interfaces:
 
+- [ExpandedObject](#ExpandedObject)
 - [NestedPathObject](#NestedPathObject)
 
 
@@ -34,8 +36,6 @@ TODO: make style customizable
 ## NestedMenu
 
 General purpose nested menu component
-
-TODO: support for expanded items
 
 
 
@@ -104,7 +104,12 @@ Handy function to transform an array of querypaths into a nested menu, assuming 
 
 
 
+
+## useExpanded
+
 # Interfaces
+
+## ExpandedObject
 
 ## NestedPathObject
 

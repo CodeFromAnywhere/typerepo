@@ -1,0 +1,36 @@
+{
+  "createdAt": 1663305006346,
+  "updatedAt": 1663305006346,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305006346,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/readMarkdownFileToModel.ts",
+  "commentsInside": [],
+  "rawText": " <T extends { [key: string]: any }>(\n  object: T\n) => {\n  Object.keys(object).map((key) => {\n    const value = object[key];\n    if (value === undefined) {\n      delete object[key];\n    }\n  });\n\n  return object;\n}",
+  "name": "omitUndefinedValues",
+  "slug": "omit-undefined-values",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{ [key: string]: any; }",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 212,
+    "lines": 12,
+    "bytes": 212,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 18,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "ZUUyDwgrsgRbzVhC"
+}

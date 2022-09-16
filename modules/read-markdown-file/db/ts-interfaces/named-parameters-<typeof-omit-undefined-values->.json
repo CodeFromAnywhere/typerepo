@@ -1,0 +1,36 @@
+{
+  "createdAt": 1663305006177,
+  "updatedAt": 1663305006177,
+  "deletedAt": 0,
+  "createdFirstAt": 1663305006177,
+  "id": "named-parameters-<typeof-omit-undefined-values->",
+  "name": "NamedParameters<typeof omitUndefinedValues>",
+  "slug": "named-parameters-<typeof-omit-undefined-values->",
+  "operationRelativeTypescriptFilePath": "src/readMarkdownFileToModel.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "required": [
+        "object"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof omitUndefinedValues>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

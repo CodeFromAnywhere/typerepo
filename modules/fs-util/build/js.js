@@ -39,7 +39,7 @@ return e.pop(),e.join("/")}
 // NB: it's already a folder!
 return t};exports.getFolder=getFolder;
 /**
- * removes everything before the last slash to get folder path
+ * removes everything before the last slash to get file name
  */
 var getFileName=function(t){return path_1.path.basename(t)};exports.getFileName=getFileName;
 /**

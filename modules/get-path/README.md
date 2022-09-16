@@ -23,6 +23,7 @@ get-path (js operation)
 - [getRootPath](#getRootPath)
 - [getSrcRelativeFileId](#getSrcRelativeFileId)
 - [hasDependency](#hasDependency)
+- [hasProjectRootFile](#hasProjectRootFile)
 - [isSensibleProject](#isSensibleProject)
 - [isWorkspaceRoot](#isWorkspaceRoot)
 - [makeRelative](#makeRelative)
@@ -327,6 +328,14 @@ Properties:
 
 
 #### Parameter 2: dependency: string
+
+## hasProjectRootFile
+
+### Returns: boolean
+
+### Parameters (1)
+
+#### Parameter 1: absolutePath: string
 
 ## isSensibleProject
 
