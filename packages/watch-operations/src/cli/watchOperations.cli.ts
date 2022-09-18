@@ -3,7 +3,8 @@
 import { watchOperations } from "../watchOperations";
 
 const main = async () => {
-  watchOperations();
+  const [manualProjectRoot] = process.argv.slice(2);
+  watchOperations({ manualProjectRoot });
 };
 
 main();

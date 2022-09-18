@@ -1,14 +1,14 @@
 {
-  "createdAt": 1663008953692,
-  "updatedAt": 1663008953692,
+  "createdAt": 1663474358093,
+  "updatedAt": 1663474358093,
   "deletedAt": 0,
-  "createdFirstAt": 1663008953692,
+  "createdFirstAt": 1663474358093,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/watchOperations.ts",
   "commentsInside": [],
-  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  const allOperationSourcePaths = await getAllOperationSourcePaths({\n    manualProjectRoot,\n  });\n\n  exitIfOperationsChange(allOperationSourcePaths);\n  gitCommitAllCron();\n\n  log(`Watching 👁 👁  at ${projectRoot}`, { type: \"success\" });\n\n  watchFoldersFs({\n    folders: allOperationSourcePaths,\n    debug: true,\n    onChange: async ({ eventType, filePaths, operationBasePath }) => {\n      if (filePaths.length === 0) {\n        return;\n      }\n\n      log(\n        `OnChange triggered! ${filePaths\n          .map((f) => path.parse(f).name)\n          .join(\",\")}`,\n        {\n          type: \"warning\",\n        }\n      );\n\n      const filteredFilePaths = filePaths.filter(\n        (x) => !x.endsWith(\"/index.ts\")\n      );\n\n      if (filteredFilePaths.length === 0) {\n        return;\n      }\n      await rebuildOperation({\n        operationBasePath,\n        manualProjectRoot,\n        filePaths: filteredFilePaths,\n      });\n    },\n  });\n}",
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  const allOperationSourcePaths = await getAllOperationSourcePaths({\n    manualProjectRoot,\n  });\n\n  exitIfOperationsChange(allOperationSourcePaths);\n  gitCommitAllCron();\n\n  log(`Watching 👁 👁  at ${projectRoot}`, { type: \"success\" });\n\n  const watchFunction = pickWatcher();\n  watchFunction({\n    folders: allOperationSourcePaths,\n    debug: true,\n    onChange: async ({ eventType, filePaths, operationBasePath }) => {\n      if (filePaths.length === 0) {\n        return;\n      }\n\n      log(\n        `OnChange triggered! ${filePaths\n          .map((f) => path.parse(f).name)\n          .join(\",\")}`,\n        {\n          type: \"warning\",\n        }\n      );\n\n      const filteredFilePaths = filePaths.filter(\n        (x) => !x.endsWith(\"/index.ts\")\n      );\n\n      if (filteredFilePaths.length === 0) {\n        return;\n      }\n      await rebuildOperation({\n        operationBasePath,\n        manualProjectRoot,\n        filePaths: filteredFilePaths,\n      });\n    },\n  });\n}",
   "name": "watchOperations",
   "slug": "watch-operations",
   "parameters": [
@@ -38,7 +38,7 @@
       "required": false
     }
   ],
-  "description": "watches all operations and does much more",
+  "description": "watches all operations and does much more\n\n",
   "returnType": {
     "rawType": "any",
     "typeCoverage": 0,
@@ -50,13 +50,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1325,
-    "lines": 49,
-    "bytes": 1329,
-    "bytesPerCharacter": 1.0030188679245282,
-    "charactersPerLine": 27,
-    "linesPerFile": 49,
+    "characters": 1365,
+    "lines": 52,
+    "bytes": 1369,
+    "bytesPerCharacter": 1.002930402930403,
+    "charactersPerLine": 26,
+    "linesPerFile": 52,
     "numberOfFiles": 1
   },
-  "id": "SngtKJJOCWpnqpDf"
+  "id": "rQKWuvhdQkmOgshG"
 }

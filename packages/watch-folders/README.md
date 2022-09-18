@@ -15,6 +15,8 @@ watch-folders (node operation)
 - [isStillPending](#isStillPending)
 - [makeSubscription](#makeSubscription)
 - [noPending](#noPending)
+- [pickWatcher](#pickWatcher)
+- [watchFoldersChokidar](#watchFoldersChokidar)
 - [watchFoldersFs](#watchFoldersFs)
 - [watchFolders](#watchFolders)
 
@@ -38,8 +40,6 @@ Properties:
 
 ## getSubName
 
-### Returns: string
-
 ## initiateWatch
 
 ## isClientOk
@@ -62,7 +62,23 @@ this is a handy thing to have in util, but it can also probably be much more sim
 
 ## noPending
 
-### Returns: boolean
+### Returns: object
+
+## pickWatcher
+
+based on your os, pick either chokidar or fswatch
+
+
+### Returns: object
+
+## watchFoldersChokidar
+
+watches folder paths and executes a callback when something changes in one of them
+
+uses fs.watch
+
+
+
 
 ## watchFoldersFs
 

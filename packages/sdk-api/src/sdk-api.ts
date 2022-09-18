@@ -113,6 +113,8 @@ import { shouldSkip } from "rebuild-operation";
 import { yarnBuild } from "rebuild-operation";
 import { initiateWatch } from "watch-folders";
 import { makeSubscription } from "watch-folders";
+import { pickWatcher } from "watch-folders";
+import { watchFoldersChokidar } from "watch-folders";
 import { watchFoldersFs } from "watch-folders";
 import { watchFolders } from "watch-folders";
 import { exitIfOperationsChange } from "watch-operations";
@@ -337,6 +339,8 @@ shouldSkip,
 yarnBuild,
 initiateWatch,
 makeSubscription,
+pickWatcher,
+watchFoldersChokidar,
 watchFoldersFs,
 watchFolders,
 exitIfOperationsChange,

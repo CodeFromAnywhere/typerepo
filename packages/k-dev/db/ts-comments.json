@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1662907442180,
-    "updatedAt": 1662907442180,
+    "createdAt": 1663474382710,
+    "updatedAt": 1663474382710,
     "deletedAt": 0,
-    "createdFirstAt": 1662907442180,
+    "createdFirstAt": 1663474382710,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/dev.ts",
     "comment": "Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))",
-    "rawStatement": "export const dev = (\n  /**\n   * manual project root for finding the operations\n   */\n  manualProjectRoot?: string\n): void => {\n  const vars = manualProjectRoot ? [manualProjectRoot] : undefined;\n  nodemon(\"watch-operations\", \"watchOperations\", vars);\n};",
+    "rawStatement": "export const dev = (\n  /**\n   * manual project root for finding the operations\n   */\n  manualProjectRoot?: string\n): void => {\n  console.log(\"dev\", { manualProjectRoot });\n  const vars = manualProjectRoot ? [manualProjectRoot] : undefined;\n  nodemon(\"watch-operations\", \"watchOperations\", vars);\n};",
     "parameters": {},
     "types": [],
     "firstLine": 3,
     "lastLine": 5,
-    "id": "iumOHxdgGlMokUXv"
+    "id": "sOMIozaORizWsdNb"
   }
 ]

@@ -5,4 +5,14 @@ export declare type OnChangeDetected = ({ files, fullPath, relativePath, rootPat
     rootPath: string;
     files: FileType[];
 }) => void;
+/**
+ * file that is pending
+ */
+export declare type PendingItem = {
+    time: number;
+    /**
+     * TODO: rename to `srcRelativeFilePath`
+     */
+    filename: string;
+};
 //# sourceMappingURL=types.d.ts.map

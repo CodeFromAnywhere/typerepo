@@ -11,3 +11,14 @@ export type OnChangeDetected = ({
   rootPath: string;
   files: FileType[];
 }) => void;
+
+/**
+ * file that is pending
+ */
+export type PendingItem = {
+  time: number;
+  /**
+   * TODO: rename to `srcRelativeFilePath`
+   */
+  filename: string;
+};

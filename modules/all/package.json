@@ -42,5 +42,8 @@
     "removeAllFiles": "./build/cli/removeAllFiles.cli.js",
     "removeAllFolders": "./build/cli/removeAllFolders.cli.js",
     "runScriptEverywhere": "./build/cli/runScriptEverywhere.cli.js"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
   }
 }

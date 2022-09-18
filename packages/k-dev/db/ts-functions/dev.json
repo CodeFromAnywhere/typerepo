@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662907442025,
-  "updatedAt": 1662907442025,
+  "createdAt": 1663474382546,
+  "updatedAt": 1663474382546,
   "deletedAt": 0,
-  "createdFirstAt": 1662907442025,
+  "createdFirstAt": 1663474382546,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/dev.ts",
   "commentsInside": [],
-  "rawText": " (\n  /**\n   * manual project root for finding the operations\n   */\n  manualProjectRoot?: string\n): void => {\n  const vars = manualProjectRoot ? [manualProjectRoot] : undefined;\n  nodemon(\"watch-operations\", \"watchOperations\", vars);\n}",
+  "rawText": " (\n  /**\n   * manual project root for finding the operations\n   */\n  manualProjectRoot?: string\n): void => {\n  console.log(\"dev\", { manualProjectRoot });\n  const vars = manualProjectRoot ? [manualProjectRoot] : undefined;\n  nodemon(\"watch-operations\", \"watchOperations\", vars);\n}",
   "name": "dev",
   "slug": "dev",
   "parameters": [
@@ -37,13 +37,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 409,
-    "lines": 9,
-    "bytes": 409,
+    "characters": 454,
+    "lines": 10,
+    "bytes": 454,
     "bytesPerCharacter": 1,
     "charactersPerLine": 45,
-    "linesPerFile": 9,
+    "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "aitZQtXOIdQfzLpI"
+  "id": "GlQVZGGKdZLUKOln"
 }

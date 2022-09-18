@@ -182,6 +182,7 @@ export const getParamSchema = (
   if (nonNullableType.isArray()) {
     schema = handleExplicitValidation("array", schema, decorators);
     schema.type = "array";
+    // NB: recursion!
     schema.items =
       getParamSchema(nonNullableType.getArrayElementTypeOrThrow(), []) || {};
     Object.keys(schema.items).forEach(
@@ -220,7 +221,8 @@ export const getParamSchema = (
         ? require(importPath)[name]
         : undefined;
     if (importPath && !c) {
-      console.log(name + " not found type");
+      console.log(`not found type: ${name}`);
+      return schema;
     }
     // NB: we seem not to have it, see https://medium.com/jspoint/introduction-to-reflect-metadata-package-and-its-ecmascript-proposal-8798405d7d88
     // I installed reflect-metdata and added as require on top. Hope that works!

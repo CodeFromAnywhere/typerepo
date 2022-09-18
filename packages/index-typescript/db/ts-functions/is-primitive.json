@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662906275057,
-  "updatedAt": 1662906275057,
+  "createdAt": 1663472218146,
+  "updatedAt": 1663472218146,
   "deletedAt": 0,
-  "createdFirstAt": 1662906275057,
+  "createdFirstAt": 1663472218146,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -16,17 +16,19 @@
   "returnType": {
     "rawType": "{}",
     "typeDefinition": {
-      "optional": false,
-      "type": "boolean"
+      "type": "object",
+      "properties": {},
+      "optional": false
     },
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": false,
-    "isPrimitive": true,
+    "isObject": true,
+    "isPrimitive": false,
     "isEnumLiteral": false,
     "simplifiedSchema": {
-      "type": "boolean"
+      "properties": [],
+      "type": "object"
     }
   },
   "maxIndentationDepth": 1,
@@ -39,5 +41,5 @@
     "linesPerFile": 4,
     "numberOfFiles": 1
   },
-  "id": "LqHkyodZdBWJwRyC"
+  "id": "GHlXJZoCknwSVYvV"
 }

@@ -1,0 +1,45 @@
+{
+  "createdAt": 1663474335259,
+  "updatedAt": 1663474335259,
+  "deletedAt": 0,
+  "createdFirstAt": 1663474335259,
+  "apiAuthenticationStrategy": "admin",
+  "isApiExposed": true,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pickWatcher.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  if (os.platform() === \"linux\") return watchFoldersChokidar;\n  return watchFoldersFs;\n}",
+  "name": "pickWatcher",
+  "slug": "pick-watcher",
+  "parameters": [],
+  "description": "based on your os, pick either chokidar or fswatch",
+  "returnType": {
+    "rawType": "({ debug, folders, onChange, takeLatest, }: { debug?: boolean | undefined; folders: string[]; takeLatest?: boolean | undefined; onChange: (event: { eventType: \"rename\" | \"change\"; filePaths: string[]; operationBasePath: string; }) => Promise<void>; }) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 146,
+    "lines": 4,
+    "bytes": 146,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 37,
+    "linesPerFile": 4,
+    "numberOfFiles": 1
+  },
+  "id": "HMZUfDMsyBVBrGxr"
+}

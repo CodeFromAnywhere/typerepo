@@ -9,7 +9,7 @@ import { exitIfOperationsChange, gitCommitAllCron } from "./general";
 import { getProjectRoot } from "get-path";
 /**
  * watches all operations and does much more
- */
+ */ //
 export const watchOperations = async (config?: {
   manualProjectRoot?: string;
 }) => {
@@ -34,7 +34,7 @@ export const watchOperations = async (config?: {
     onChange: async ({ eventType, filePaths, operationBasePath }) => {
       if (filePaths.length === 0) {
         return;
-      }|
+      }
 
       log(
         `OnChange triggered! ${filePaths

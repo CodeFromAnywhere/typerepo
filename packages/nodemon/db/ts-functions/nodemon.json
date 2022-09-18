@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662907474643,
-  "updatedAt": 1662907474643,
+  "createdAt": 1663474399974,
+  "updatedAt": 1663474399974,
   "deletedAt": 0,
-  "createdFirstAt": 1662907474643,
+  "createdFirstAt": 1663474399974,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/nodemon.ts",
   "commentsInside": [],
-  "rawText": " async (\n  operationName: string,\n  /**\n   * name of the function that you want to run the cli from\n   *\n   * by convention, we are going to execute the `build/cli/[fnName].cli.js` file\n   */\n  cliFunctionName: string,\n  /**\n   * vars that need to be passed to the cli\n   */\n  vars?: string[],\n  /**\n   * manual project root for the operation to run\n   */\n  manualProjectRoot?: string\n): Promise<void> => {\n  const operationPath = await getOperationPath(operationName, {\n    manualProjectRoot,\n  });\n\n  if (!operationPath) {\n    console.log(`${operationName} not found`);\n    return;\n  }\n\n  const process = spawn(\n    `node build/cli/${cliFunctionName}.cli.js ${\n      vars ? ` ${vars.join(\" \")}` : \"\"\n    }`,\n    {\n      cwd: operationPath,\n      shell: true,\n      stdio: \"inherit\",\n    }\n  );\n  //\n  process\n    .on(\"exit\", (code) => {\n      log(\n        `Process ${cliFunctionName} has ended with code ${code}, restarting...`,\n        { type: \"important\" }\n      );\n\n      nodemon(operationName, cliFunctionName, vars, manualProjectRoot);\n    })\n    .on(\"data\", (message) => {\n      log(message);\n    })\n    .on(\"error\", (err) => {\n      log(`${err.name} Error: ${err.message}`, { type: \"error\" });\n    });\n}",
+  "rawText": " async (\n  operationName: string,\n  /**\n   * name of the function that you want to run the cli from\n   *\n   * by convention, we are going to execute the `build/cli/[fnName].cli.js` file\n   */\n  cliFunctionName: string,\n  /**\n   * vars that need to be passed to the cli\n   */\n  vars?: string[],\n  /**\n   * manual project root for the operation to run\n   */\n  manualProjectRoot?: string\n): Promise<void> => {\n  const operationPath = await getOperationPath(operationName, {\n    manualProjectRoot,\n  });\n\n  if (!operationPath) {\n    console.log(`${operationName} not found`);\n    return;\n  }\n\n  const cliPath = `build/cli/${cliFunctionName}.cli.js`;\n  const absoluteCliPath = path.join(operationPath, cliPath);\n\n  if (!fs.existsSync(absoluteCliPath)) {\n    log(`${absoluteCliPath} not found (nodemon)`, { type: \"error\" });\n    return;\n  }\n  const command = `node ${cliPath} ${vars ? ` ${vars.join(\" \")}` : \"\"}`;\n\n  const process = spawn(command, {\n    cwd: operationPath,\n    shell: true,\n    stdio: \"inherit\",\n  });\n  //\n  process\n    .on(\"exit\", (code) => {\n      log(\n        `Process ${cliFunctionName} has ended with code ${code}, restarting...`,\n        { type: \"important\" }\n      );\n\n      nodemon(operationName, cliFunctionName, vars, manualProjectRoot);\n    })\n    .on(\"data\", (message) => {\n      log(message);\n    })\n    .on(\"error\", (err) => {\n      log(`${err.name} Error: ${err.message}`, { type: \"error\" });\n    });\n}",
   "name": "nodemon",
   "slug": "nodemon",
   "parameters": [
@@ -82,13 +82,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 1212,
-    "lines": 53,
-    "bytes": 1212,
+    "characters": 1429,
+    "lines": 57,
+    "bytes": 1429,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 23,
-    "linesPerFile": 53,
+    "charactersPerLine": 25,
+    "linesPerFile": 57,
     "numberOfFiles": 1
   },
-  "id": "oenLNHxWzBEeJrRV"
+  "id": "jGcIVVcqWXaeanxg"
 }

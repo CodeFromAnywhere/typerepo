@@ -13,6 +13,7 @@ const noPending = () => pending.length === 0;
  *
  * this is a handy thing to have in util, but it can also probably be much more simple
  */
+
 const isStillPending = async () => {
   if (noPending()) return false;
   //
@@ -57,7 +58,6 @@ export const watchFoldersFs = async ({
       { recursive: true, encoding: "utf8" },
       async (eventType, filename) => {
         const alreadyPending = pending.filter((x) => x.filename === filename);
-
         const lastPending = alreadyPending.pop();
 
         // if a file was just triggered and within a second triggered again, ignore it

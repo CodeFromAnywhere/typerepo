@@ -204,6 +204,15 @@ assumes an indentation contains 2 spaces.
 
 ## getParametersFromInterfaces
 
+### Returns: array
+
+- null: object
+
+
+
+
+
+
 ### Parameters (2)
 
 #### Parameter 1: functionName: string
@@ -375,7 +384,7 @@ export const getDefinitions = () => definitions;
 export const getClass = (name) => allClasses[name];
 
 
-### Returns: boolean
+### Returns: object
 
 ## makeTsComment
 

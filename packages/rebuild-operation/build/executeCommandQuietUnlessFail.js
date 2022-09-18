@@ -1,5 +1,32 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.executeCommandQuietUnlessFail=void 0;var child_process_1=require("child_process"),executeCommandQuietUnlessFail=function(e){var o=e.command,t=e.cwd,c=e.description;c&&process.stdout.write("".concat(c," "));try{(0,child_process_1.execSync)(o,{cwd:t,encoding:"utf8",stdio:"pipe"});return c&&console.log("✅"),!0}catch(e){c&&console.log("❌");var s=e;return console.log("".concat(o," went wrong:"),null==s?void 0:s.stdout),!1}};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.executeCommandQuietUnlessFail = void 0;
+var child_process_1 = require("child_process");
 /**
  * Executes a command without showing the result, unless the command fails, then it will log the output.,
- */exports.executeCommandQuietUnlessFail=executeCommandQuietUnlessFail;
+ */
+var executeCommandQuietUnlessFail = function (config) {
+    var command = config.command, cwd = config.cwd, description = config.description;
+    if (description) {
+        process.stdout.write("".concat(description, " "));
+    }
+    try {
+        var result = (0, child_process_1.execSync)(command, {
+            cwd: cwd,
+            encoding: "utf8",
+            stdio: "pipe",
+        });
+        if (description)
+            console.log("✅");
+        return true;
+    }
+    catch (e) {
+        if (description)
+            console.log("❌");
+        var error = e;
+        console.log("".concat(command, " went wrong:"), error === null || error === void 0 ? void 0 : error.stdout);
+        return false;
+    }
+};
+exports.executeCommandQuietUnlessFail = executeCommandQuietUnlessFail;
 //# sourceMappingURL=executeCommandQuietUnlessFail.js.map

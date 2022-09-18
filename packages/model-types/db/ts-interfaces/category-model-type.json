@@ -1,8 +1,8 @@
 {
-  "createdAt": 1663009117895,
-  "updatedAt": 1663009117895,
+  "createdAt": 1663470833488,
+  "updatedAt": 1663470833488,
   "deletedAt": 0,
-  "createdFirstAt": 1663009117895,
+  "createdFirstAt": 1663470833488,
   "id": "category-model-type",
   "name": "CategoryModelType",
   "slug": "category-model-type",
@@ -67,7 +67,7 @@
         },
         "categoryStackCalculated": {
           "$ref": "#/definitions/CategoryStack",
-          "description": "calculated value that contains the slugs of all preceding categories to this item."
+          "description": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`"
         },
         "isHeaderCalculated": {
           "type": "boolean",

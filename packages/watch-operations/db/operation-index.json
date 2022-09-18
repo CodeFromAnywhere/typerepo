@@ -1,6 +1,6 @@
 {
   "createdAt": 1662719061247,
-  "updatedAt": 1663008956028,
+  "updatedAt": 1663474360523,
   "deletedAt": 0,
   "createdFirstAt": 1662719061247,
   "folderName": "watch-operations",
@@ -14,7 +14,7 @@
     "getAllOperationSourcePaths",
     "log",
     "getProjectRoot",
-    "watchFoldersFs",
+    "pickWatcher",
     "getAllOperationSourcePaths",
     "log",
     "rebuildOperation",
@@ -26,26 +26,26 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 3,
-      "lines": 153,
-      "characters": 3829,
-      "bytes": 3833
+      "lines": 155,
+      "characters": 3941,
+      "bytes": 3945
     },
     "dataSize": {
       "numberOfFiles": 2,
       "lines": 74,
-      "characters": 1601,
-      "bytes": 1601
+      "characters": 1679,
+      "bytes": 1679
     },
     "textSize": {
       "numberOfFiles": 2,
-      "lines": 134,
-      "characters": 1867,
-      "bytes": 1867
+      "lines": 136,
+      "characters": 1869,
+      "bytes": 1869
     },
     "size": {
-      "bytes": 7301,
-      "characters": 7297,
-      "lines": 361,
+      "bytes": 7493,
+      "characters": 7489,
+      "lines": 365,
       "numberOfFiles": 7
     }
   },

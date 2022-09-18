@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662906262255,
-  "updatedAt": 1662906262255,
+  "createdAt": 1663472205416,
+  "updatedAt": 1663472205416,
   "deletedAt": 0,
-  "createdFirstAt": 1662906262255,
+  "createdFirstAt": 1663472205416,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
@@ -40,12 +40,29 @@
   "description": "",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").FunctionParameter[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
     "typeCoverage": 0,
     "isArray": true,
     "isEnum": false,
     "isObject": true,
     "isPrimitive": false,
-    "isEnumLiteral": false
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
   },
   "maxIndentationDepth": 9,
   "size": {
@@ -57,5 +74,5 @@
     "linesPerFile": 51,
     "numberOfFiles": 1
   },
-  "id": "VghrdwMwjcDEgIrD"
+  "id": "rhcdKiMpjEcKGxui"
 }

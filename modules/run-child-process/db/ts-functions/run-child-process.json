@@ -1,14 +1,14 @@
 {
-  "createdAt": 1662907536845,
-  "updatedAt": 1662907536845,
+  "createdAt": 1663471059801,
+  "updatedAt": 1663471059801,
   "deletedAt": 0,
-  "createdFirstAt": 1662907536845,
+  "createdFirstAt": 1663471059801,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/runChildProcess.ts",
   "commentsInside": [],
-  "rawText": " async ({\n  operationFolderName,\n  scriptFileName,\n  args,\n}: {\n  operationFolderName: string;\n  /**\n   * the location of the script in the build folder\n   * NB: this must be a CLI that that actually executes the function!\n   */\n  scriptFileName: string;\n  args?: string[];\n}) => {\n  const childOperationPath = await getOperationPath(operationFolderName);\n  if (!childOperationPath) {\n    log(\"Couldn't find childPath\", { type: \"error\" });\n    return;\n  }\n  const scriptPath = path.join(\n    childOperationPath,\n    `build/${scriptFileName}.js`\n  );\n\n  if (!fs.existsSync(scriptPath)) {\n    log(\"Couldn't find scriptfile\", { type: \"error\" });\n    return;\n  }\n\n  const readable = await canRead(scriptPath);\n\n  if (!readable) {\n    log(`Can't read ${scriptPath}`, { type: \"error\" });\n    return;\n  }\n\n  const command = `node ${scriptPath} ${args?.join(\" \") || \"\"}`;\n\n  // log(`going to execute: ${command}`, { type: \"important\" });\n\n  const result = spawnSync(command, {\n    shell: true,\n    stdio: \"inherit\",\n    encoding: \"utf8\",\n  });\n\n  return result.output;\n}",
+  "rawText": " async ({\n  operationFolderName,\n  scriptFileName,\n  args,\n}: {\n  operationFolderName: string;\n  /**\n   * the location of the script in the build folder\n   * NB: this must be a CLI that that actually executes the function!\n   */\n  scriptFileName: string;\n  args?: string[];\n}) => {\n  const childOperationPath = await getOperationPath(operationFolderName);\n  if (!childOperationPath) {\n    log(\n      `Couldn't find childOperationPath for operation ${operationFolderName}`,\n      { type: \"error\" }\n    );\n    return;\n  }\n  const scriptPath = path.join(\n    childOperationPath,\n    `build/${scriptFileName}.js`\n  );\n\n  if (!fs.existsSync(scriptPath)) {\n    log(\n      `Couldn't find scriptFile ${scriptFileName} which should be at build/${scriptFileName}.js`,\n      { type: \"error\" }\n    );\n    return;\n  }\n\n  const readable = await canRead(scriptPath);\n\n  if (!readable) {\n    log(`Can't read ${scriptPath}`, { type: \"error\" });\n    return;\n  }\n\n  const command = `node ${scriptPath} ${args?.join(\" \") || \"\"}`;\n\n  // log(`going to execute: ${command}`, { type: \"important\" });\n\n  const result = spawnSync(command, {\n    shell: true,\n    stdio: \"inherit\",\n    encoding: \"utf8\",\n  });\n\n  return result.output;\n}",
   "name": "runChildProcess",
   "slug": "run-child-process",
   "parameters": [
@@ -85,15 +85,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 3,
   "size": {
-    "characters": 1123,
-    "lines": 47,
-    "bytes": 1123,
+    "characters": 1269,
+    "lines": 53,
+    "bytes": 1269,
     "bytesPerCharacter": 1,
     "charactersPerLine": 24,
-    "linesPerFile": 47,
+    "linesPerFile": 53,
     "numberOfFiles": 1
   },
-  "id": "NhqEiflYHOOreKle"
+  "id": "HsFRFAFKwMOMfoll"
 }

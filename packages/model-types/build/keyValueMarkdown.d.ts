@@ -19,6 +19,8 @@ export interface KeyValueMarkdownModelType extends AnyModelType, KvmdLine {
     id: string;
     /**
      * calculated value that contains the slugs of all preceding categories to this item.
+     *
+     * Will be present when fetching from the the db with `fs-orm`
      */
     categoryStackCalculated: CategoryStack;
     /**

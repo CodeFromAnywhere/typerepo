@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { spawn } from "child_process";
+import { fs, path } from "fs-util";
 import { getOperationPath } from "get-path";
 import { log } from "log";
 
@@ -29,16 +30,20 @@ export const nodemon = async (
     return;
   }
 
-  const process = spawn(
-    `node build/cli/${cliFunctionName}.cli.js ${
-      vars ? ` ${vars.join(" ")}` : ""
-    }`,
-    {
-      cwd: operationPath,
-      shell: true,
-      stdio: "inherit",
-    }
-  );
+  const cliPath = `build/cli/${cliFunctionName}.cli.js`;
+  const absoluteCliPath = path.join(operationPath, cliPath);
+
+  if (!fs.existsSync(absoluteCliPath)) {
+    log(`${absoluteCliPath} not found (nodemon)`, { type: "error" });
+    return;
+  }
+  const command = `node ${cliPath} ${vars ? ` ${vars.join(" ")}` : ""}`;
+
+  const process = spawn(command, {
+    cwd: operationPath,
+    shell: true,
+    stdio: "inherit",
+  });
   //
   process
     .on("exit", (code) => {

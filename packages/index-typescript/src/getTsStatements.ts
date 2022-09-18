@@ -120,6 +120,7 @@ export const getTsStatements = async (
         name,
         slug,
         value,
+        // NB: still using typeToSchema here, is there another way?
         type: getTypeInfo(variableDeclaration.getType()),
         classification,
       };
@@ -148,10 +149,10 @@ export const getTsStatements = async (
       const description = v.comments.join("\n\n");
       const name = v.names?.[0] || "no name";
 
-      const returnType = getTypeInfo(arrowFunction.getReturnType());
-
+      const returnType = getTypeInfo(
+        arrowFunction.getReturnType().getApparentType()
+      );
       const functionText = arrowFunction.getFullText();
-
       const fullText = functionText.concat(description);
 
       // TODO: make a convention for this

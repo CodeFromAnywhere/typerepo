@@ -274,6 +274,26 @@ export declare const sdk: {
         folderPath: string;
     }) => void;
     makeSubscription: typeof makeSubscription;
+    pickWatcher: () => ({ debug, folders, onChange, takeLatest, }: {
+        debug?: boolean | undefined;
+        folders: string[];
+        takeLatest?: boolean | undefined;
+        onChange: (event: {
+            eventType: "rename" | "change";
+            filePaths: string[];
+            operationBasePath: string;
+        }) => Promise<void>;
+    }) => Promise<void>;
+    watchFoldersChokidar: ({ debug, folders, onChange, takeLatest, }: {
+        debug?: boolean | undefined;
+        folders: string[];
+        takeLatest?: boolean | undefined;
+        onChange: (event: {
+            eventType: "rename" | "change";
+            filePaths: string[];
+            operationBasePath: string;
+        }) => Promise<void>;
+    }) => Promise<void>;
     watchFoldersFs: ({ debug, folders, onChange, takeLatest, }: {
         debug?: boolean | undefined;
         folders: string[];

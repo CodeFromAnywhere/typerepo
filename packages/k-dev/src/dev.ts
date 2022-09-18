@@ -9,6 +9,7 @@ export const dev = (
    */
   manualProjectRoot?: string
 ): void => {
+  console.log("dev", { manualProjectRoot });
   const vars = manualProjectRoot ? [manualProjectRoot] : undefined;
   nodemon("watch-operations", "watchOperations", vars);
 };

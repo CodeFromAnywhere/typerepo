@@ -1,6 +1,6 @@
 {
   "createdAt": 1662726872027,
-  "updatedAt": 1662907476637,
+  "updatedAt": 1663474402078,
   "deletedAt": 0,
   "createdFirstAt": 1662726872027,
   "folderName": "nodemon",
@@ -11,6 +11,8 @@
   "slug": "nodemon",
   "coreDependencies": [],
   "operationDependencies": [
+    "fs",
+    "path",
     "getOperationPath",
     "log"
   ],
@@ -20,15 +22,15 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 1,
-      "lines": 59,
-      "characters": 1368,
-      "bytes": 1368
+      "lines": 64,
+      "characters": 1621,
+      "bytes": 1621
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 76,
-      "characters": 1516,
-      "bytes": 1516
+      "lines": 79,
+      "characters": 1580,
+      "bytes": 1580
     },
     "textSize": {
       "numberOfFiles": 1,
@@ -37,9 +39,9 @@
       "bytes": 575
     },
     "size": {
-      "bytes": 3459,
-      "characters": 3459,
-      "lines": 180,
+      "bytes": 3776,
+      "characters": 3776,
+      "lines": 188,
       "numberOfFiles": 4
     }
   },

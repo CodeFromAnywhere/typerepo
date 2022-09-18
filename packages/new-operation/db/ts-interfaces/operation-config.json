@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662906320858,
-  "updatedAt": 1662906320858,
+  "createdAt": 1663472590574,
+  "updatedAt": 1663472590574,
   "deletedAt": 0,
-  "createdFirstAt": 1662906320858,
+  "createdFirstAt": 1663472590574,
   "id": "operation-config",
   "name": "OperationConfig",
   "slug": "operation-config",
@@ -99,6 +99,9 @@
       ],
       "additionalProperties": {
         "anyOf": [
+          {
+            "description": "This kind of overwrites frontmatter, but it is needed because there need to be models attached to the markdown model sometimes."
+          },
           {
             "not": {}
           },

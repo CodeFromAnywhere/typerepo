@@ -15,18 +15,24 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "@types/fb-watchman": "^2.0.1",
     "@types/node": "^18.0.1",
-    "typescript": "^4.7.2",
-    "@types/fb-watchman": "^2.0.1"
+    "typescript": "^4.7.2"
   },
   "dependencies": {
-    "fb-watchman": "^2.0.1",
+    "code-types": "0.0.1",
     "fs-util": "1.0.5",
-    "make-file-type": "0.0.1",
     "log": "0.0.1",
-    "code-types": "0.0.1"
+    "make-file-type": "0.0.1"
+  },
+  "optionalDependencies": {
+    "chokidar": "^3.5.3",
+    "fb-watchman": "^2.0.1"
   },
   "name": "watch-folders",
   "slug": "watch-folders",
-  "id": "RGfqpcRRDJboWKFJ"
+  "id": "RGfqpcRRDJboWKFJ",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
 }

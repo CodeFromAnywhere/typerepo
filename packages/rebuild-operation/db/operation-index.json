@@ -1,6 +1,6 @@
 {
   "createdAt": 1662891411777,
-  "updatedAt": 1663018132741,
+  "updatedAt": 1663473824351,
   "deletedAt": 0,
   "createdFirstAt": 1662891411777,
   "folderName": "rebuild-operation",
@@ -56,6 +56,7 @@
     "getLastFolder",
     "path",
     "buildFolderName",
+    "fs",
     "getLastFolder",
     "path",
     "log",
@@ -72,9 +73,9 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 16,
-      "lines": 789,
-      "characters": 22820,
-      "bytes": 22824
+      "lines": 794,
+      "characters": 22950,
+      "bytes": 22954
     },
     "dataSize": {
       "numberOfFiles": 3,
@@ -83,16 +84,16 @@
       "bytes": 2523
     },
     "textSize": {
-      "numberOfFiles": 3,
-      "lines": 347,
-      "characters": 9917,
-      "bytes": 9917
+      "numberOfFiles": 4,
+      "lines": 359,
+      "characters": 10418,
+      "bytes": 10418
     },
     "size": {
-      "bytes": 35264,
-      "characters": 35260,
-      "lines": 1243,
-      "numberOfFiles": 22
+      "bytes": 35895,
+      "characters": 35891,
+      "lines": 1260,
+      "numberOfFiles": 23
     }
   },
   "buildSucceeded": true,

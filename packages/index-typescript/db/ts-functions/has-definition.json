@@ -1,8 +1,8 @@
 {
-  "createdAt": 1662906256226,
-  "updatedAt": 1662906256226,
+  "createdAt": 1663472199843,
+  "updatedAt": 1663472199843,
   "deletedAt": 0,
-  "createdFirstAt": 1662906256226,
+  "createdFirstAt": 1663472199843,
   "name": "hasDefinition",
   "slug": "has-definition",
   "apiAuthenticationStrategy": "admin",
@@ -183,5 +183,5 @@
   },
   "rawText": "\n\nexport function hasDefinition(\n  maybeInterface: MaybeInteface\n): maybeInterface is TsInterface {\n  return maybeInterface.type.typeDefinition !== null;\n}",
   "maxIndentationDepth": 1,
-  "id": "RohYinGFuQDFRSKL"
+  "id": "pTMzhuPgJCzYgvGx"
 }

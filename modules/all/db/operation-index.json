@@ -1,6 +1,6 @@
 {
   "createdAt": 1662756755407,
-  "updatedAt": 1662904443344,
+  "updatedAt": 1663470631757,
   "deletedAt": 0,
   "createdFirstAt": 1662756755407,
   "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/all/src/renameAll.ts. Error: Error: Unknown type \\\"function\\\"\"]",
@@ -54,8 +54,7 @@
     "setJsonKey",
     "path",
     "getPathsWithOperations",
-    "makeTest",
-    "getProjectRoot"
+    "makeTest"
   ],
   "packageDependencies": [
     "execSync",
@@ -65,15 +64,15 @@
   "size": {
     "codeSize": {
       "numberOfFiles": 25,
-      "lines": 642,
-      "characters": 16354,
-      "bytes": 16354
+      "lines": 638,
+      "characters": 16210,
+      "bytes": 16210
     },
     "dataSize": {
       "numberOfFiles": 2,
-      "lines": 86,
-      "characters": 2157,
-      "bytes": 2157
+      "lines": 89,
+      "characters": 2216,
+      "bytes": 2216
     },
     "textSize": {
       "numberOfFiles": 1,
@@ -82,9 +81,9 @@
       "bytes": 3307
     },
     "size": {
-      "bytes": 21818,
-      "characters": 21818,
-      "lines": 920,
+      "bytes": 21733,
+      "characters": 21733,
+      "lines": 919,
       "numberOfFiles": 28
     }
   }

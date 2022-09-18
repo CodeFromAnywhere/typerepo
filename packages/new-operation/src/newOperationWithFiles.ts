@@ -71,10 +71,10 @@ export const newOperationWithFiles = async (
 
   const isSensible = isSensibleProject(projectRoot);
 
-  const destinationPath =
-    config?.destinationPath || isSensible
-      ? path.join(projectRoot, "packages")
-      : path.join(projectRoot, projectRelativeGeneratedOperationsFolder);
+  const defaultDestinationPath = isSensible
+    ? path.join(projectRoot, "packages")
+    : path.join(projectRoot, projectRelativeGeneratedOperationsFolder);
+  const destinationPath = config?.destinationPath || defaultDestinationPath;
 
   // 2. calculate simplest index.ts (no exposure of merged types object or tests)
   const indexFileContent = Object.keys(srcFileContentObject)
@@ -124,6 +124,11 @@ export const newOperationWithFiles = async (
     return;
   }
 
+  if (!fs.existsSync(actualBasePath)) {
+    log(`actualBasePath does not exist: ${actualBasePath}`, { type: "error" });
+    return;
+  }
+
   // The wished base path
   const wishedBasePath = path.join(destinationPath, operationConfig.name);
 
@@ -135,7 +140,9 @@ export const newOperationWithFiles = async (
         actualBasePath,
         operationRelativeTypescriptFilePath
       );
-      await fs.writeFile(srcPath, content, "utf8");
+
+      await writeStringToFile(srcPath, content);
+
       return;
     }
   );
@@ -151,7 +158,7 @@ export const newOperationWithFiles = async (
   const finalOperationBasePath = shouldOverwrite
     ? wishedBasePath
     : actualBasePath;
-  const finalName = getLastFolder(finalOperationBasePath);
+  const operationFolder = getLastFolder(finalOperationBasePath);
 
   // 6. yarn build there
 
@@ -197,19 +204,23 @@ export const newOperationWithFiles = async (
       value: operationConfig.name,
     });
 
-    //then remove the original operation
-    await fs.rm(wishedBasePath, { recursive: true });
+    if (fs.existsSync(wishedBasePath)) {
+      //then remove the original operation
+      await fs.rm(wishedBasePath, { recursive: true });
+    }
 
-    // then rename the new operation to the original operation path
-    await fs.rename(actualBasePath, wishedBasePath);
+    if (fs.existsSync(actualBasePath)) {
+      // then rename the new operation to the original operation path
+      await fs.rename(actualBasePath, wishedBasePath);
+    }
   }
 
   // NB: If the operation is new, make sure to push the operationconfig after it is created.
   if (isOperationNew) {
-    const newItem = { ...operationConfig, operationName: finalName };
+    const newItem = { ...operationConfig, operationName: operationFolder };
     //  @ts-ignore
     const result = await db.upsert("OperationConfig", newItem, {
-      operationName: finalName,
+      operationName: operationFolder,
       manualProjectRoot: projectRoot,
     });
 

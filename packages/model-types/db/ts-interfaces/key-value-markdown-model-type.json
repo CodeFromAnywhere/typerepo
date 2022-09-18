@@ -1,15 +1,15 @@
 {
-  "createdAt": 1663009117894,
-  "updatedAt": 1663009117894,
+  "createdAt": 1663470833488,
+  "updatedAt": 1663470833488,
   "deletedAt": 0,
-  "createdFirstAt": 1663009117894,
+  "createdFirstAt": 1663470833488,
   "id": "key-value-markdown-model-type",
   "name": "KeyValueMarkdownModelType",
   "slug": "key-value-markdown-model-type",
   "operationRelativeTypescriptFilePath": "src/keyValueMarkdown.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * handy model type for storing stuff in a KeyValue Markdown file.\n * empty lines are omitted\n *\n * all you need to specify in the kvmd is the key and the value, separated by \":\"\n *\n * NB: there can be a `parent_modelNameSlug` key exposed that should refer to the parent slug\n */\nexport interface KeyValueMarkdownModelType extends AnyModelType, KvmdLine {\n  /**\n   * same as slug\n   *\n   * used for compatibility with some general purpose functions\n   *\n   * NB: uniqueness is hard to enforce!\n   */\n  id: string;\n  /**\n   * calculated value that contains the slugs of all preceding categories to this item.\n   */\n  categoryStackCalculated: CategoryStack;\n  /**\n   * Calculated value indicating whether or not the item has children\n   */\n  isHeaderCalculated: boolean;\n}",
+  "rawText": "\n\n/**\n * handy model type for storing stuff in a KeyValue Markdown file.\n * empty lines are omitted\n *\n * all you need to specify in the kvmd is the key and the value, separated by \":\"\n *\n * NB: there can be a `parent_modelNameSlug` key exposed that should refer to the parent slug\n */\nexport interface KeyValueMarkdownModelType extends AnyModelType, KvmdLine {\n  /**\n   * same as slug\n   *\n   * used for compatibility with some general purpose functions\n   *\n   * NB: uniqueness is hard to enforce!\n   */\n  id: string;\n  /**\n   * calculated value that contains the slugs of all preceding categories to this item.\n   *\n   * Will be present when fetching from the the db with `fs-orm`\n   */\n  categoryStackCalculated: CategoryStack;\n  /**\n   * Calculated value indicating whether or not the item has children\n   */\n  isHeaderCalculated: boolean;\n}",
   "extensions": [
     "AnyModelType",
     "KvmdLine"
@@ -67,7 +67,7 @@
         },
         "categoryStackCalculated": {
           "$ref": "#/definitions/CategoryStack",
-          "description": "calculated value that contains the slugs of all preceding categories to this item."
+          "description": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`"
         },
         "isHeaderCalculated": {
           "type": "boolean",

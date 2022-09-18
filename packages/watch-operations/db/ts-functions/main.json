@@ -1,14 +1,14 @@
 {
-  "createdAt": 1663008951881,
-  "updatedAt": 1663008951881,
+  "createdAt": 1663474356210,
+  "updatedAt": 1663474356210,
   "deletedAt": 0,
-  "createdFirstAt": 1663008951881,
+  "createdFirstAt": 1663474356210,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": false,
   "operationRelativeTypescriptFilePath": "src/cli/watchOperations.cli.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  watchOperations();\n}",
+  "rawText": " async () => {\n  const [manualProjectRoot] = process.argv.slice(2);\n  watchOperations({ manualProjectRoot });\n}",
   "name": "main",
   "slug": "main",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 37,
-    "lines": 3,
-    "bytes": 37,
+    "characters": 111,
+    "lines": 4,
+    "bytes": 111,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 12,
-    "linesPerFile": 3,
+    "charactersPerLine": 28,
+    "linesPerFile": 4,
     "numberOfFiles": 1
   },
-  "id": "DsaOZlbcUlUqLpEL"
+  "id": "IUafBImpoqBGTTGN"
 }
