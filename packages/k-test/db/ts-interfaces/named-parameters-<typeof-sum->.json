@@ -1,0 +1,60 @@
+{
+  "createdAt": 1662906411848,
+  "updatedAt": 1662906411848,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906411848,
+  "id": "named-parameters-<typeof-sum->",
+  "name": "NamedParameters<typeof sum>",
+  "slug": "named-parameters-<typeof-sum->",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "a": {
+          "type": "number"
+        },
+        "b": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "a",
+        "b"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "a",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "b",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof sum>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

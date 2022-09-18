@@ -1,0 +1,54 @@
+{
+  "createdAt": 1662720947560,
+  "updatedAt": 1662906418314,
+  "deletedAt": 0,
+  "createdFirstAt": 1662720947560,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/testing/k-test/src/types.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+  "buildSucceeded": true,
+  "id": "AAhokDzICbWnJwPm",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "k-test",
+  "packageName": "k-test",
+  "relativeOperationLocationPath": "operations/tools/typescript/testing",
+  "classification": "node",
+  "name": "k-test",
+  "slug": "k-test",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "makeTest",
+    "isAllTrue",
+    "makeArray",
+    "getOperationPath",
+    "fs",
+    "path",
+    "log"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 135,
+      "characters": 3822,
+      "bytes": 3826
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 71,
+      "characters": 1467,
+      "bytes": 1467
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 72,
+      "characters": 1340,
+      "bytes": 1340
+    },
+    "size": {
+      "bytes": 6633,
+      "characters": 6629,
+      "lines": 278,
+      "numberOfFiles": 8
+    }
+  }
+}

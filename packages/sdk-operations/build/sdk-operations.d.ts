@@ -9,12 +9,15 @@ export declare const operations: {
     "get-imports-exports": string;
     "index-typescript": string;
     "k-dev": string;
+    "k-test": string;
     "markdown-reader-ui": string;
     "minify-build": string;
     "model-types": string;
     "new-operation": string;
     nodemon: string;
     "rebuild-operation": string;
+    "watch-folders": string;
+    "watch-operations": string;
     all: string;
     ask: string;
     "bundle-types": string;
@@ -69,8 +72,6 @@ export declare const operations: {
     search: string;
     "set-json-key": string;
     "ts-morph-util": string;
-    "watch-folders": string;
-    "watch-operations": string;
     "write-to-assets": string;
 };
 //# sourceMappingURL=sdk-operations.d.ts.map

@@ -91,6 +91,8 @@ import { schemaToTsInterface } from "index-typescript";
 import { tryCreateSchema } from "index-typescript";
 import { typeToSchema } from "index-typescript";
 import { dev } from "k-dev";
+import { runTestsForOperation } from "k-test";
+import { runTests } from "k-test";
 import { minifyBuild } from "minify-build";
 import { getAvailableOperationName } from "new-operation";
 import { getOperationConfig } from "new-operation";
@@ -109,6 +111,13 @@ import { rebuildAllOperations } from "rebuild-operation";
 import { rebuildOperation } from "rebuild-operation";
 import { shouldSkip } from "rebuild-operation";
 import { yarnBuild } from "rebuild-operation";
+import { initiateWatch } from "watch-folders";
+import { makeSubscription } from "watch-folders";
+import { watchFoldersFs } from "watch-folders";
+import { watchFolders } from "watch-folders";
+import { exitIfOperationsChange } from "watch-operations";
+import { gitCommitAllCron } from "watch-operations";
+import { watchOperations } from "watch-operations";
 import { allOperationsRemoveJsSrc } from "all";
 import { clearAllTsDatabases } from "all";
 import { codeAll } from "all";
@@ -211,13 +220,6 @@ import { setJsonKey } from "set-json-key";
 import { getAllTsMorphSourceFiles } from "ts-morph-util";
 import { getHasGeneric } from "ts-morph-util";
 import { getTsMorphProject } from "ts-morph-util";
-import { initiateWatch } from "watch-folders";
-import { makeSubscription } from "watch-folders";
-import { watchFoldersFs } from "watch-folders";
-import { watchFolders } from "watch-folders";
-import { exitIfOperationsChange } from "watch-operations";
-import { gitCommitAllCron } from "watch-operations";
-import { watchOperations } from "watch-operations";
 import { writeToAssets } from "write-to-assets";
 
 export const sdk = { generateCsvInstance,
@@ -313,6 +315,8 @@ schemaToTsInterface,
 tryCreateSchema,
 typeToSchema,
 dev,
+runTestsForOperation,
+runTests,
 minifyBuild,
 getAvailableOperationName,
 getOperationConfig,
@@ -331,6 +335,13 @@ rebuildAllOperations,
 rebuildOperation,
 shouldSkip,
 yarnBuild,
+initiateWatch,
+makeSubscription,
+watchFoldersFs,
+watchFolders,
+exitIfOperationsChange,
+gitCommitAllCron,
+watchOperations,
 allOperationsRemoveJsSrc,
 clearAllTsDatabases,
 codeAll,
@@ -433,13 +444,6 @@ setJsonKey,
 getAllTsMorphSourceFiles,
 getHasGeneric,
 getTsMorphProject,
-initiateWatch,
-makeSubscription,
-watchFoldersFs,
-watchFolders,
-exitIfOperationsChange,
-gitCommitAllCron,
-watchOperations,
 writeToAssets};
 
 export type SdkType = typeof sdk;

@@ -198,6 +198,8 @@ export declare const sdk: {
     };
     typeToSchema: (type: import("ts-morph").Type<import("@ts-morph/common/lib/typescript").Type>) => import("index-typescript").SimpleJsonSchema | undefined;
     dev: (manualProjectRoot?: string | undefined) => void;
+    runTestsForOperation: (operationName: string, writeResultsToIndex?: boolean | undefined, manualProjectRoot?: string | undefined) => Promise<boolean | undefined>;
+    runTests: (test: import("k-test").Test, operationName?: string | undefined) => Promise<boolean>;
     minifyBuild: ({ operationName, buildFolderPath, }: {
         operationName?: string | undefined;
         buildFolderPath?: string | undefined;
@@ -257,6 +259,32 @@ export declare const sdk: {
     yarnBuild: (operationBasePath: string, config?: {
         rmFirst?: boolean | undefined;
     } | undefined) => Promise<boolean>;
+    initiateWatch: ({ client, debug, folderPath, }: {
+        client: import("fb-watchman").Client;
+        debug: boolean;
+        folderPath: string;
+    }) => void;
+    makeSubscription: typeof makeSubscription;
+    watchFoldersFs: ({ debug, folders, onChange, takeLatest, }: {
+        debug?: boolean | undefined;
+        folders: string[];
+        takeLatest?: boolean | undefined;
+        onChange: (event: {
+            eventType: "rename" | "change";
+            filePaths: string[];
+            operationBasePath: string;
+        }) => Promise<void>;
+    }) => Promise<void>;
+    watchFolders: ({ debug, folders, onChange, }: {
+        debug?: boolean | undefined;
+        folders: string[];
+        onChange: import("watch-folders").OnChangeDetected;
+    }) => Promise<void>;
+    exitIfOperationsChange: (allOperationSourcePaths: string[]) => void;
+    gitCommitAllCron: () => void;
+    watchOperations: (config?: {
+        manualProjectRoot?: string | undefined;
+    } | undefined) => Promise<void>;
     allOperationsRemoveJsSrc: (debug?: boolean | undefined) => Promise<void>;
     clearAllTsDatabases: () => Promise<void>;
     codeAll: (search: string) => Promise<void>;
@@ -508,32 +536,6 @@ export declare const sdk: {
     getAllTsMorphSourceFiles: (operationBasePath: string) => Promise<import("ts-morph").SourceFile[] | undefined>;
     getHasGeneric: (type: import("ts-morph").TypeAliasDeclaration | import("ts-morph").InterfaceDeclaration) => boolean;
     getTsMorphProject: (operationFolderPath: string) => import("ts-morph").Project | undefined;
-    initiateWatch: ({ client, debug, folderPath, }: {
-        client: import("fb-watchman").Client;
-        debug: boolean;
-        folderPath: string;
-    }) => void;
-    makeSubscription: typeof makeSubscription;
-    watchFoldersFs: ({ debug, folders, onChange, takeLatest, }: {
-        debug?: boolean | undefined;
-        folders: string[];
-        takeLatest?: boolean | undefined;
-        onChange: (event: {
-            eventType: "rename" | "change";
-            filePaths: string[];
-            operationBasePath: string;
-        }) => Promise<void>;
-    }) => Promise<void>;
-    watchFolders: ({ debug, folders, onChange, }: {
-        debug?: boolean | undefined;
-        folders: string[];
-        onChange: import("watch-folders").OnChangeDetected;
-    }) => Promise<void>;
-    exitIfOperationsChange: (allOperationSourcePaths: string[]) => void;
-    gitCommitAllCron: () => void;
-    watchOperations: (config?: {
-        manualProjectRoot?: string | undefined;
-    } | undefined) => Promise<void>;
     writeToAssets: (filePath: string, data: any, assetsFileName?: string | undefined) => Promise<boolean | undefined>;
 };
 export declare type SdkType = typeof sdk;

@@ -1,0 +1,69 @@
+{
+  "createdAt": 1662906415287,
+  "updatedAt": 1662906415287,
+  "deletedAt": 0,
+  "createdFirstAt": 1662906415287,
+  "id": "named-parameters-<typeof-run-tests-for-operation->",
+  "name": "NamedParameters<typeof runTestsForOperation>",
+  "slug": "named-parameters-<typeof-run-tests-for-operation->",
+  "operationRelativeTypescriptFilePath": "src/runTestsForOperation.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        },
+        "writeResultsToIndex": {
+          "type": "boolean"
+        },
+        "manualProjectRoot": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "writeResultsToIndex",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof runTestsForOperation>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

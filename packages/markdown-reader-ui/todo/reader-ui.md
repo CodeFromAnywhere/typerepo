@@ -1,22 +1,22 @@
-# Monday
-
 ## markdown-reader-ui
 
-internallinks is toooooo slow. It should not do the whole markdown, and the internallinks array should be a mapped object
+Add statement and definition pages that also includes an overview (list) of all words, categorised
 
-Menu Collapsability
+InternalLinks is toooooo slow. It should not do the whole markdown, and the internallinks array should be a mapped object...
 
-Deploy typerepo and others, share on pendrive
+Make InternalLinks look for words wrapped with backticks or bold text.
 
-## Less important
+Figure out if I can still generate all pages statically. It needs to be damn fast for that, no realtime parsing. I need a better indexation strategy.
+
+Fix build errors `markdown-reader-web`
+
+Deploy typerepo and others....
+
+## Other UI things
 
 Add presentation-view (first extrahere that from operation-ui as a standalone component)
 
 Apply as much things from frontmatter (`MarkdownFile`) as possible. These things can make the UI much better.
-
-Add print button and apply basic html practices to create a good printable UI.
-
-Add share button that lets you share on different social networks
 
 Outline on bigger screens would be super nice
 
@@ -43,10 +43,8 @@ Apply these things in `operationToMarkdown`
 
 Every operation should have a description that shows at the top. Do this manually. `OPERATION.md` should have it, which should then be taken to generate a readme. Also `sdk-*` needs description.
 
-## DePLoY
+An operation emoji can be the first emoji found in the description, or a separate key `OperationConfig.emoji` if it's there
 
-re-index one more time!
+Folders also have a `PathMetaData`. It can also contain a description and emoji, in the same manner.
 
-run `npx generateAllBundles passionfruit` to generate and push all bundles except the one of passionfruit
-
-go over all docs and fill it where it misses things.
+These descriptions and emoji's must be used in the reader-ui.

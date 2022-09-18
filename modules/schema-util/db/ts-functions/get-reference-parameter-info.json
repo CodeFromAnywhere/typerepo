@@ -1,14 +1,14 @@
 {
-  "createdAt": 1663146881341,
-  "updatedAt": 1663146881341,
+  "createdAt": 1663341454309,
+  "updatedAt": 1663341454309,
   "deletedAt": 0,
-  "createdFirstAt": 1663146881341,
+  "createdFirstAt": 1663341454309,
   "apiAuthenticationStrategy": "admin",
   "isApiExposed": true,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getReferenceParameterInfo.ts",
   "commentsInside": [],
-  "rawText": " (\n  parameterName: string\n): ReferenceParameterInfo => {\n  const descriptorModelSplit = parameterName.split(\"_\");\n  const descriptor = parameterName.includes(\"_\")\n    ? descriptorModelSplit[0]\n    : undefined;\n  const rest = parameterName.includes(\"_\")\n    ? descriptorModelSplit[1]\n    : parameterName;\n\n  const wordArray = lowerCaseArray(rest);\n\n  const singleWord = wordArray.length === 1;\n\n  const parameterLastWord = wordArray.pop()!;\n\n  const isReferenceSingleParameter =\n    !singleWord && referenceParameterNames.includes(parameterLastWord);\n  const isReferenceMultipleParameter =\n    !singleWord && referencePluralParameterNames.includes(parameterLastWord);\n\n  const isReferenceParameter =\n    isReferenceSingleParameter || isReferenceMultipleParameter;\n\n  // NB: the last item has been removed now\n  const interfaceName = isReferenceParameter\n    ? pascalCase(wordArray.join(\"-\"))\n    : undefined;\n\n  // slug or id\n  const keyInModel = isReferenceParameter\n    ? singularize(parameterLastWord)\n    : undefined;\n\n  /**\n   * the reference keyword should be removed from the parameterName to receive the dataParameterName\n   *\n   * e.g. `weirdSluggyModelSlugs` becomes `weirdSluggyModels`\n   */\n  const dataParameterName =\n    isReferenceParameter && keyInModel\n      ? replaceLastOccurence(parameterName, keyInModel, \"\")\n      : undefined;\n\n  const referenceParameterInfo: ReferenceParameterInfo = {\n    descriptor,\n    keyInModel,\n    interfaceName,\n    isReferenceMultipleParameter,\n    isReferenceSingleParameter,\n    isReferenceParameter,\n    dataParameterName,\n    parameterName,\n  };\n\n  return referenceParameterInfo;\n}",
+  "rawText": " (\n  parameterName: string\n): ReferenceParameterInfo => {\n  const descriptorModelSplit = parameterName.split(\"_\");\n  const descriptor = parameterName.includes(\"_\")\n    ? descriptorModelSplit[0]\n    : undefined;\n  const rest = parameterName.includes(\"_\")\n    ? descriptorModelSplit[1]\n    : parameterName;\n\n  const wordArray = lowerCaseArray(rest);\n\n  const singleWord = wordArray.length === 1;\n\n  const parameterLastWord = wordArray.pop()!;\n\n  const isReferenceSingleParameter =\n    !singleWord && referenceParameterNames.includes(parameterLastWord);\n  const isReferenceMultipleParameter =\n    !singleWord && referencePluralParameterNames.includes(parameterLastWord);\n\n  const isReferenceParameter =\n    isReferenceSingleParameter || isReferenceMultipleParameter;\n\n  // NB: the last item has been removed now\n  const interfaceName = isReferenceParameter\n    ? pascalCase(wordArray.join(\"-\"))\n    : undefined;\n\n  // slug or id\n  const keyInModel = isReferenceParameter\n    ? singularize(parameterLastWord)\n    : undefined;\n\n  /**\n   * the reference keyword should be removed from the parameterName to receive the dataParameterName\n   *\n   * e.g. `weirdSluggyModelSlugs` becomes `weirdSluggyModels`\n   */\n  const dataParameterName =\n    isReferenceParameter && keyInModel\n      ? replaceLastOccurence(\n          parameterName,\n          capitaliseFirstLetter(keyInModel),\n          \"\"\n        )\n      : undefined;\n\n  console.log({ keyInModel, parameterName, dataParameterName });\n  const referenceParameterInfo: ReferenceParameterInfo = {\n    descriptor,\n    keyInModel,\n    interfaceName,\n    isReferenceMultipleParameter,\n    isReferenceSingleParameter,\n    isReferenceParameter,\n    dataParameterName,\n    parameterName,\n  };\n\n  return referenceParameterInfo;\n}",
   "name": "getReferenceParameterInfo",
   "slug": "get-reference-parameter-info",
   "parameters": [
@@ -180,15 +180,15 @@
       "type": "object"
     }
   },
-  "maxIndentationDepth": 3,
+  "maxIndentationDepth": 5,
   "size": {
-    "characters": 1941,
-    "lines": 62,
-    "bytes": 1941,
+    "characters": 2069,
+    "lines": 67,
+    "bytes": 2069,
     "bytesPerCharacter": 1,
     "charactersPerLine": 31,
-    "linesPerFile": 62,
+    "linesPerFile": 67,
     "numberOfFiles": 1
   },
-  "id": "UwNIozchJwXKzuNj"
+  "id": "cnrWRzPiNWTcOSLM"
 }
