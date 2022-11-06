@@ -52,7 +52,7 @@ var sdk_operations_1 = require("sdk-operations");
 var js_util_1 = require("js-util");
 var k_explore_1 = require("k-explore");
 var getOperationPages = function (projectRoot, bundleMarkdownReaderConfig) { return __awaiter(void 0, void 0, void 0, function () {
-    var isSensible, operationBasePaths, operationPagesPerType, _a, packages, apps, modules, operationsPages, operationPages;
+    var isSensible, operationBasePaths, operationPagesPerType, _a, operationsPages, operationPages;
     var _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -74,12 +74,24 @@ var getOperationPages = function (projectRoot, bundleMarkdownReaderConfig) { ret
                                     }); });
                                     pages = folders.map(function (folder) {
                                         var folderName = (0, fs_util_1.getLastFolder)(folder.projectRelativePath);
+                                        /**
+                                         * Sometimes the bundle states the menu items should not be shown. The pages still remain available though, otherwise it would cause lots of dead links!
+                                         */
+                                        var isMenuItem = folderName === "apps" && (bundleMarkdownReaderConfig === null || bundleMarkdownReaderConfig === void 0 ? void 0 : bundleMarkdownReaderConfig.omitAppsMenu)
+                                            ? false
+                                            : folderName === "packages" &&
+                                                (bundleMarkdownReaderConfig === null || bundleMarkdownReaderConfig === void 0 ? void 0 : bundleMarkdownReaderConfig.omitPackagesMenu)
+                                                ? false
+                                                : folderName === "modules" &&
+                                                    (bundleMarkdownReaderConfig === null || bundleMarkdownReaderConfig === void 0 ? void 0 : bundleMarkdownReaderConfig.omitModulesMenu)
+                                                    ? false
+                                                    : true;
                                         return {
                                             queryPath: folder.projectRelativePath,
                                             // operation filePath is README.md
                                             filePath: fs_util_1.path.join(folder.projectRelativePath, "README.md"),
                                             internalLinkWord: folderName,
-                                            isMenuItem: true,
+                                            isMenuItem: isMenuItem,
                                         };
                                     });
                                     projectRelativeBasePath = (0, get_path_1.makeRelative)(basePath, projectRoot);
@@ -89,15 +101,6 @@ var getOperationPages = function (projectRoot, bundleMarkdownReaderConfig) { ret
                     }); }))];
             case 1:
                 operationPagesPerType = _a.apply(void 0, [_c.sent()]);
-                packages = (bundleMarkdownReaderConfig === null || bundleMarkdownReaderConfig === void 0 ? void 0 : bundleMarkdownReaderConfig.omitPackagesMenu)
-                    ? []
-                    : operationPagesPerType.packages;
-                apps = (bundleMarkdownReaderConfig === null || bundleMarkdownReaderConfig === void 0 ? void 0 : bundleMarkdownReaderConfig.omitAppsMenu)
-                    ? []
-                    : operationPagesPerType.packages;
-                modules = (bundleMarkdownReaderConfig === null || bundleMarkdownReaderConfig === void 0 ? void 0 : bundleMarkdownReaderConfig.omitModulesMenu)
-                    ? []
-                    : operationPagesPerType.modules;
                 operationsPages = ((_b = bundleMarkdownReaderConfig === null || bundleMarkdownReaderConfig === void 0 ? void 0 : bundleMarkdownReaderConfig.customOperationNames) === null || _b === void 0 ? void 0 : _b.map(function (operationName) {
                     var projectRelativeOperationPath = sdk_operations_1.operations[operationName];
                     if (!projectRelativeOperationPath)
@@ -110,7 +113,7 @@ var getOperationPages = function (projectRoot, bundleMarkdownReaderConfig) { ret
                     return markdownReaderPage;
                 }).filter(js_util_1.notEmpty)) || [];
                 operationPages = isSensible
-                    ? __spreadArray(__spreadArray(__spreadArray(__spreadArray([], operationsPages, true), packages, true), apps, true), modules, true) : __spreadArray(__spreadArray(__spreadArray([], operationsPages, true), operationPagesPerType["operations/tools"], true), operationPagesPerType["operations/niches"], true);
+                    ? __spreadArray(__spreadArray(__spreadArray(__spreadArray([], operationsPages, true), operationPagesPerType.packages, true), operationPagesPerType.apps, true), operationPagesPerType.modules, true) : __spreadArray(__spreadArray(__spreadArray([], operationsPages, true), operationPagesPerType["operations/tools"], true), operationPagesPerType["operations/niches"], true);
                 return [2 /*return*/, operationPages];
         }
     });
