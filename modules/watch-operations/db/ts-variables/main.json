@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666264482142,
+  "updatedAt": 1666264482142,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264482142,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "main",
+  "slug": "main",
+  "operationRelativeTypescriptFilePath": "src/cli/watchOperations.cli.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const [manualProjectRoot] = process.argv.slice(2);\n  watchOperations({ manualProjectRoot });\n}",
+  "description": "",
+  "id": "oahdocrpmwctkvsnmfhnezhq"
+}

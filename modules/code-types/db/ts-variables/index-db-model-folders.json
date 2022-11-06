@@ -1,0 +1,24 @@
+{
+  "createdAt": 1667684687138,
+  "updatedAt": 1667684687138,
+  "deletedAt": 0,
+  "createdFirstAt": 1667684687138,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "indexDbModelFolders",
+  "slug": "index-db-model-folders",
+  "operationRelativeTypescriptFilePath": "src/TypescriptIndex.ts",
+  "type": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "value": "indexDbModels\n  .map(kebabCase)\n  .map((f) => `${f}s`)",
+  "description": "",
+  "id": "cbqrkkmlnqofuohvrconqftk"
+}

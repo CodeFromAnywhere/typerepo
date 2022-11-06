@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667379321306,
+  "updatedAt": 1667379321306,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379321306,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "checkAuthToken",
+  "slug": "check-auth-token",
+  "operationRelativeTypescriptFilePath": "src/checkAuthToken.ts",
+  "type": {
+    "rawType": "(password: string) => Promise<{ isSuccessful: boolean; message: string; authToken: string; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  password: string\n): Promise<{ isSuccessful: boolean; message: string; authToken: string }> => {\n  const pingResult = await apiWithConfig.ping({ authToken: password });\n\n  if (!pingResult.isSuccessful || pingResult.isUnauthorized) {\n    return {\n      isSuccessful: false,\n      message: pingResult.isNotConnected\n        ? \"Could not reach server. Ensure you have an internet connection and/or the server is running\"\n        : pingResult.isUnauthorized\n        ? \"Incorrect credientials\"\n        : pingResult.message || \"Something went wrong\",\n      authToken: password,\n    };\n  }\n\n  const result = await fetch(`${apiUrl}/login`, {\n    // To set a cookie with CORS you'll need to set the withCredentials flag when making the request.\n\n    // credentials: \"include\",\n    method: \"POST\",\n    headers: {\n      Accept: \"application/json\",\n      \"Content-Type\": \"application/json\",\n    },\n    body: JSON.stringify({ authToken: password }),\n  })\n    .then(async (res) => {\n      return res.json();\n    })\n    .catch((e) => {\n      return { isSuccessful: false, message: \"fetch failed\" };\n    });\n\n  return {\n    isSuccessful: result.isSuccessful,\n    message: result.message || \"Something went wrong\",\n    authToken: password,\n  };\n}",
+  "description": "",
+  "id": "zhswpgaswnrywffjijbweyhr"
+}

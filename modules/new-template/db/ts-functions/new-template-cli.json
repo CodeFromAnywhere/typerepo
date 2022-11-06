@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635795816,
+  "updatedAt": 1667635795816,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635795816,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/cli/newTemplate.cli.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const [type, destinationPath] = process.argv.slice(2);\n\n  newTemplate(type, destinationPath).then((basePath) => {\n    if (basePath) {\n      console.log(`Generated template`, { type });\n    } else {\n      console.log(\"Something went wrong\");\n    }\n  });\n}",
+  "name": "newTemplateCli",
+  "slug": "new-template-cli",
+  "parameters": [],
+  "description": "newTemplate can be used as CLI:\n\nArguments:\n- type (required): a folder from `new-template/assets/templates`\n- destinationPath (optional): path where the template should be copied to (uses `cwd` by default)",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 471,
+    "lines": 15,
+    "bytes": 471,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "wjqtbvlrtpucqcujdxjxlrlf"
+}

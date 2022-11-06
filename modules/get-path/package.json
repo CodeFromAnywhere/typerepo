@@ -1,0 +1,32 @@
+{
+  "createdAt": 1662709577328,
+  "updatedAt": 1662709577328,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577328,
+  "name": "get-path",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "license": "ISC",
+  "slug": "get-path",
+  "id": "dryPyPWnCUmLjarA",
+  "dependencies": {
+    "fs-util": "1.0.5",
+    "log": "0.0.1",
+    "code-types": "0.0.1",
+    "read-json-file": "0.0.1",
+    "k-explore": "0.0.2",
+    "filename-conventions": "0.0.1",
+    "try-parse-json": "0.0.1"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

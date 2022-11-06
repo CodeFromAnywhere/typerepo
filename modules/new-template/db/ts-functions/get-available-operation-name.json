@@ -1,0 +1,72 @@
+{
+  "createdAt": 1667635796935,
+  "updatedAt": 1667635796935,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635796935,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getAvailableOperationName.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  rootFolderPath: string,\n  preferredFolderName: string,\n  manualProjectRoot?: string\n): Promise<string> => {\n  //making sure we make a folder that doesn't exist yet:\n  let n = 0;\n  let availableFolderName = preferredFolderName;\n\n  while (true) {\n    const folderAlreadyExists = fs.existsSync(\n      path.join(rootFolderPath, availableFolderName)\n    );\n\n    const operationAlreadyExists =\n      (await getOperationPath(availableFolderName, {\n        manualProjectRoot,\n        notUseSdk: !!manualProjectRoot,\n      })) !== undefined;\n\n    if (!folderAlreadyExists && !operationAlreadyExists) break;\n\n    n++;\n    availableFolderName = `${preferredFolderName}${n}`;\n  }\n\n  return availableFolderName;\n}",
+  "name": "getAvailableOperationName",
+  "slug": "get-available-operation-name",
+  "parameters": [
+    {
+      "name": "rootFolderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "preferredFolderName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "manualProjectRoot",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "returns folder name\n\nfinds the first foldername that is available in this folder but also there is nowhere an operation already with this name\n\nthere is also getAvailableFolderPath for non-operation folders",
+  "returnType": {
+    "rawType": "Promise<string>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 917,
+    "lines": 32,
+    "bytes": 917,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 32,
+    "numberOfFiles": 1
+  },
+  "id": "sdshrtlmywyfkfzsxhfrhmgz"
+}

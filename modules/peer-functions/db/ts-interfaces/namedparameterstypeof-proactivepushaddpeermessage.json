@@ -1,0 +1,60 @@
+{
+  "createdAt": 1666262514683,
+  "updatedAt": 1666262514683,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262514683,
+  "id": "namedparameterstypeof-proactivepushaddpeermessage",
+  "name": "NamedParameters<typeof proactivePushAddPeerMessage>",
+  "slug": "namedparameterstypeof-proactivepushaddpeermessage",
+  "operationRelativeTypescriptFilePath": "src/proactivePushAddPeerMessage.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "peerSlug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "peerSlug"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "message",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "peerSlug",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof proactivePushAddPeerMessage>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

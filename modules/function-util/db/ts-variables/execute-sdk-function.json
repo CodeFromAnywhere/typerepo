@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260895275,
+  "updatedAt": 1666260895275,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260895275,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "executeSdkFunction",
+  "slug": "execute-sdk-function",
+  "operationRelativeTypescriptFilePath": "src/executeSdkFunction.ts",
+  "type": {
+    "rawType": "(operationString: string, parameters: string[] | undefined) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  operationString: string,\n  parameters: string[] | undefined\n) => {\n  const sdkOperation = operationString as keyof typeof sdk;\n  const operationFunction = sdk[sdkOperation];\n\n  if (typeof operationFunction === \"function\") {\n    const result = parameters\n      ? // @ts-ignore\n        operationFunction(...parameters)\n      : // @ts-ignore\n        operationFunction();\n\n    return result;\n  } else {\n    log(`Could not find ${operationString}`, { type: \"error\" });\n  }\n}",
+  "description": "",
+  "id": "rlhendvoaiebvvnoopdzwhpy"
+}

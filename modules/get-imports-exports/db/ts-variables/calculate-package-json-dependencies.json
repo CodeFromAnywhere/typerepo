@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635754815,
+  "updatedAt": 1667635754815,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635754815,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "calculatePackageJsonDependencies",
+  "slug": "calculate-package-json-dependencies",
+  "operationRelativeTypescriptFilePath": "src/calculatePackageJsonDependencies.ts",
+  "type": {
+    "rawType": "(dependencies: import(\"/Users/king/King/operations/tools/types/code-types/build/PackageJson\").PackageInfoObject | undefined, imports: any[], packageJsons: import(\"/Users/king/King/operations/tools/types/code-types/build/PackageJson\").PackageJson[], operationName: string) => { newDependencies: import(\"/Users/king/King/operations/tools/types/code-types/build/PackageJson\").PackageInfoObject; hasGeneratedDependencies: boolean; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  /**\n   * Current dependencies object in your operation\n   */\n  dependencies: PackageInfoObject | undefined,\n  /**\n   * All imports found in your operation\n   */\n  imports: Creation<TsImport>[],\n  /**\n   * All package-json's in your monorepo\n   */\n  packageJsons: PackageJson[],\n  operationName: string\n) => {\n  const dependencyImports = imports\n    // NB: imports of types are removed and need not to be installed for running this package\n    .filter((x) => x.type === \"value\")\n    .filter((x) => x.isAbsolute)\n    .filter((x) => !isAbsoluteImportBuiltin(x.module))\n    .filter((x) => !isImportFromOptionalFile(x))\n    .filter(onlyUnique2<Creation<TsImport>>((a, b) => a.module === b.module));\n\n  const monorepoImports = dependencyImports.filter(\n    (x) =>\n      operationName &&\n      x.isModuleFromMonorepo &&\n      !isGeneratedOperationName(operationName)\n  );\n\n  const hasGeneratedDependencies =\n    dependencyImports.filter(\n      (x) =>\n        x.operationName &&\n        x.isModuleFromMonorepo &&\n        isGeneratedOperationName(x.operationName)\n    ).length > 0;\n\n  const externalImports = dependencyImports.filter(\n    (x) => !x.isModuleFromMonorepo\n  );\n\n  const externalDependencyObject = mergeObjectsArray(\n    externalImports\n      .map((x) => {\n        const moduleName = getPackageNameFromAbsoluteImport(x.module);\n        if (!moduleName) return;\n        const already = dependencies?.[moduleName];\n        /**\n         * TODO: fetch this from monorepo\n         */\n        const calculatedVersion = \"*\";\n\n        /**\n         * NB: Minimize the use of \"*\"\n         */\n        const version =\n          already !== \"*\" && already !== undefined\n            ? already\n            : calculatedVersion;\n        return { [moduleName]: version };\n      })\n      .filter(notEmpty)\n  );\n\n  const monorepoDependencyObject = mergeObjectsArray(\n    monorepoImports\n      .map((x) => {\n        const moduleName = getPackageNameFromAbsoluteImport(x.module);\n        if (!moduleName) return;\n        const packageJson = packageJsons.find((x) => x.name === moduleName);\n        if (!packageJson) return;\n        const { version } = packageJson;\n        if (!version) return;\n        return { [moduleName]: version };\n      })\n      .filter(notEmpty)\n  );\n\n  // console.log({\n  //   imports: imports.length,\n  //   dependencyImports: dependencyImports,\n  //   dependencies,\n  //   monorepoImports,\n  //   monorepoDependencyObject,\n  //   externalDependencyObject,\n  // });\n\n  const newDependencies: PackageInfoObject = {\n    ...dependencies,\n    ...monorepoDependencyObject,\n    ...externalDependencyObject,\n  };\n\n  return { newDependencies, hasGeneratedDependencies };\n}",
+  "description": "Calculates new packageJson dependencies object based on imports found in the whole operation.\n\nFor monorepo modules, uses the version inside its packagejson (Uses the database to obtain the package.json)\n\nGenerated packages are not added to dependencies. Instead a sensible config prop is added to state that this operation only works within a monorepo since it has generated operation deps that are not on the npm registry\n\nFor external modules, uses the version that was already present in dependencies, or uses \"*\"\n\nAlso keeps the dependencies that were already there, nothing is removed.",
+  "id": "ghnaxjppnfitgbsdyskuolzj"
+}

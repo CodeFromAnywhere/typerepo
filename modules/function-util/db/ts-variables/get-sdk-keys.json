@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260900731,
+  "updatedAt": 1666260900731,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260900731,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getSdkKeys",
+  "slug": "get-sdk-keys",
+  "operationRelativeTypescriptFilePath": "src/getSdkKeys.ts",
+  "type": {
+    "rawType": "() => { success: boolean; response: any; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  return { success: true, response: Object.keys(sdk) };\n}",
+  "description": "",
+  "id": "cyhoonkaxrtrdnkccwqyaiud"
+}

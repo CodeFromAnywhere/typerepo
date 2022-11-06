@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667635986146,
+  "updatedAt": 1667635986146,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635986146,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pages/jeep-view.tsx",
+  "commentsInside": [],
+  "rawText": " (props: MainPageProps) => {\n  return (\n    <Layout pages={props.pages}>\n      <P>Jeep view (viewing a single jeep with driver contact info, etc)</P>\n    </Layout>\n  );\n}",
+  "name": "JeepView",
+  "slug": "jeep-view",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 170,
+    "lines": 7,
+    "bytes": 170,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "deuhkldjzzdqamkidjoypsvb"
+}

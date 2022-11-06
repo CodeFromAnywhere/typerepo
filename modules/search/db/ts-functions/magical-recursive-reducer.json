@@ -1,0 +1,58 @@
+{
+  "createdAt": 1666263168188,
+  "updatedAt": 1666263168188,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263168188,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/searchRecursiveObject.ts",
+  "commentsInside": [],
+  "rawText": " <T extends { children?: T[] } & Object>(\n  previous: T[],\n  current: T,\n  baseMatcher: (item: T) => boolean\n): T[] => {\n  // NB: copy!\n  const newCurrent = { ...current };\n\n  newCurrent.children = newCurrent.children\n    ? newCurrent.children.reduce(\n        (p, c) => magicalRecursiveReducer(p, c, baseMatcher),\n        [] as T[]\n      )\n    : undefined;\n\n  if (baseMatcher(newCurrent) || newCurrent.children?.length) {\n    previous.push(newCurrent);\n  }\n\n  return previous;\n}",
+  "name": "magicalRecursiveReducer",
+  "slug": "magical-recursive-reducer",
+  "parameters": [],
+  "description": "Reduces an object with children of its own type according to a baseMatcher.\n\nThe object only gets returned if the children have a match (or their children, etc) or if the object itself is a match. If the object itself is a match, its children will also be edited to filter out non-matching things\n\nNB: Not finished yet (see todo).\n\nAlso not sure if the final UX is really as great and performant as I wish, so it may be easier to simply have a separate search for files and global (just like vscode has)",
+  "returnType": {
+    "rawType": "T[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 981,
+    "lines": 27,
+    "bytes": 981,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 36,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "jdagegacgwshpeyygpqrckwd"
+}

@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667634585179,
+  "updatedAt": 1667634585179,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634585179,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pages/upsert.tsx",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const dbModelNames = await getDbModelNames();\n  const upsertProps: UpsertProps = { dbModelNames: dbModelNames || null };\n  return { props: upsertProps };\n}",
+  "name": "getStaticProps",
+  "slug": "get-static-props",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 172,
+    "lines": 5,
+    "bytes": 172,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 34,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "rkidrscqqrnrqpasklcudoux"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635524816,
+  "updatedAt": 1667635524816,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635524816,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "updatePostedStatistics",
+  "slug": "update-posted-statistics",
+  "operationRelativeTypescriptFilePath": "src/Postable.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {}",
+  "description": "This function keeps the `Posted` statistics up-to-date\n\nCan be executed with a cron for all recent posts",
+  "id": "spbkcyzvygllrjldshefgtzi"
+}

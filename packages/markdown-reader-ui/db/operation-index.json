@@ -1,0 +1,91 @@
+{
+  "createdAt": 1664527144457,
+  "updatedAt": 1667635260679,
+  "deletedAt": 0,
+  "createdFirstAt": 1664527144457,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/markdown-reader/markdown-reader-ui/src/types.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\\\" of kind \\\"ConstructorType\\\"\"]",
+  "buildSucceeded": true,
+  "id": "dgteszhcfwunftwujxallaus",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "markdown-reader-ui",
+  "packageName": "markdown-reader-ui",
+  "relativeOperationLocationPath": "operations/tools/markdown-reader",
+  "classification": "ui-es6",
+  "name": "markdown-reader-ui",
+  "slug": "markdown-reader-ui",
+  "coreDependencies": [
+    "useState",
+    "useEffect"
+  ],
+  "operationDependencies": [
+    "nestedMenuStoreInitialValues",
+    "createStore",
+    "ClickableIcon",
+    "getFolderJs",
+    "MappedObject",
+    "renderMarkdownContent",
+    "AugmentedWord",
+    "Div",
+    "P",
+    "isDev",
+    "Div",
+    "P",
+    "Span",
+    "NestedMenu",
+    "queryPathsArrayToNestedPathObject",
+    "nestedPathObjectToNestedMenuRecursive",
+    "SelectInput",
+    "AugmentedWord",
+    "MarkdownReaderPage",
+    "MarkdownReaderPageProps",
+    "MappedObject",
+    "Item",
+    "useRouter",
+    "ClickableIcon",
+    "ALink",
+    "Div",
+    "P",
+    "mdToJsonParse",
+    "humanCase",
+    "renderMarkdownContent",
+    "renderMarkdownParse",
+    "MarkdownView",
+    "ALink",
+    "ClickableIcon",
+    "useRouter",
+    "getFolderJs",
+    "isDev",
+    "MarkdownReaderPageProps",
+    "getQueryPath"
+  ],
+  "packageDependencies": [
+    "NativeStackNavigationOptions"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 0,
+      "characters": 8958,
+      "bytes": 8958
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2308,
+      "bytes": 2308
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 2639,
+      "bytes": 2639
+    },
+    "size": {
+      "bytes": 13905,
+      "characters": 13905,
+      "lines": 0,
+      "numberOfFiles": 8
+    }
+  }
+}

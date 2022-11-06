@@ -1,0 +1,56 @@
+{
+  "createdAt": 1664530439476,
+  "updatedAt": 1666264758457,
+  "deletedAt": 0,
+  "createdFirstAt": 1664530439476,
+  "folderName": "nodemon",
+  "packageName": "nodemon",
+  "relativeOperationLocationPath": "operations/tools/util",
+  "classification": "node",
+  "name": "nodemon",
+  "slug": "nodemon",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "getOperationPath",
+    "log"
+  ],
+  "packageDependencies": [
+    "spawn"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 1621,
+      "bytes": 1621
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1580,
+      "bytes": 1580
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 416,
+      "bytes": 416
+    },
+    "size": {
+      "bytes": 3617,
+      "characters": 3617,
+      "lines": 0,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "nwrkdzcwnflfanoviotrtdlv",
+  "language": "en"
+}

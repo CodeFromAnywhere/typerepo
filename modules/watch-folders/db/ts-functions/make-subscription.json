@@ -1,0 +1,45 @@
+{
+  "createdAt": 1666258845586,
+  "updatedAt": 1666258845586,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258845586,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "name": "makeSubscription",
+  "slug": "make-subscription",
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/watchman.ts",
+  "commentsInside": [],
+  "description": "",
+  "parameters": [],
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "size": {
+    "characters": 1232,
+    "lines": 48,
+    "bytes": 1232,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 48,
+    "numberOfFiles": 1
+  },
+  "rawText": "\n\n// `watch` is obtained from `resp.watch` in the `watch-project` response.\n// `relative_path` is obtained from `resp.relative_path` in the\n// `watch-project` response.\nexport function makeSubscription(\n  client: watchman.Client,\n  watchBaseFolder: string,\n  watchRelativePath: string,\n  debug: boolean\n) {\n  /**\n   * this can probably be optimised\n   */\n  const sub = {\n    // Match any `.js` file in the dir_of_interest\n    expression: [\"allof\", [\"match\", \"*.*\"]],\n    // Which fields we're interested in\n    fields: [\"name\", \"size\", \"mtime_ms\", \"exists\", \"type\"],\n    relative_root: undefined as undefined | string,\n    // add our time constraint\n  };\n\n  if (watchRelativePath) {\n    sub.relative_root = watchRelativePath;\n  }\n\n  const subName = getSubName(watchBaseFolder, watchRelativePath);\n\n  client.command(\n    [\"subscribe\", watchBaseFolder, subName, sub],\n    function (error, resp) {\n      if (error) {\n        // Probably an error in the subscription criteria\n        console.error(\"Failed to subscribe: \", error);\n        return;\n      }\n      if (debug) {\n        console.log(\n          \"New subscription:\",\n          \"subscription \" + resp.subscribe + \" established\"\n        );\n      }\n    }\n  );\n\n  return subName;\n}",
+  "maxIndentationDepth": 5,
+  "id": "wymwklmtnlbeojwzigblkisz"
+}

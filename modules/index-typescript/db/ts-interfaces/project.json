@@ -1,0 +1,35 @@
+{
+  "createdAt": 1666264102660,
+  "updatedAt": 1666264102660,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264102660,
+  "id": "project",
+  "name": "Project",
+  "slug": "project",
+  "operationRelativeTypescriptFilePath": "src/indexTypescriptFile.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "Project that holds source files.",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Project that holds source files."
+    },
+    "simplifiedSchema": {
+      "fullComment": "Project that holds source files.",
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "Project",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

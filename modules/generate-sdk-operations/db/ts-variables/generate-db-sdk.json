@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635703819,
+  "updatedAt": 1667635703819,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635703819,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "generateDbSdk",
+  "slug": "generate-db-sdk",
+  "operationRelativeTypescriptFilePath": "src/generateDbSdk.ts",
+  "type": {
+    "rawType": "(config?: { manualProjectRoot?: string | undefined; skipYarnInstall?: boolean | undefined; dryrun?: boolean | undefined; } | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  // const dependants = await findDependantsRecursively(\"sdk-db\");\n\n  const manualProjectRoot = config?.manualProjectRoot;\n  const skipYarnInstall = config?.skipYarnInstall;\n  const dryrun = config?.dryrun;\n\n  const allDbModels = await getAllDbModels(manualProjectRoot);\n  const typeImportsString = allDbModels\n    .map((tsInterface) => {\n      return `import type { ${tsInterface.name} } from \"${tsInterface.operationName}\";`;\n    })\n    .filter(notEmpty)\n    .join(\"\\n\")\n    .concat(\"\\n\");\n\n  const exportDbTypesString = `export type DbModels = { ${allDbModels\n    .map((x) => `${x.name}: ${x.name}`)\n    .join(\",\")} };\\n`;\n\n  const exportDbKeysString = `export const dbModelKeys = [ ${allDbModels\n    .map((x) => `\"${x.name}\"`)\n    .join(\",\")} ] as const;\\n`;\n\n  const exportDbModelEnumString =\n    \"export type DbModelEnum = typeof dbModelKeys[number];\\n\";\n\n  const exportModelQueryConfigString = `export const modelQueryConfig = {\n    ${allDbModels\n      ?.map((model) => {\n        if (!model.dbStorageMethod) return;\n        return `${model.name}: {\n          dbStorageMethod: \"${model.dbStorageMethod}\",\n          ${\n            model.operationStorageLocationRelativeFilePath\n              ? `operationRelativePath: \"${model.operationStorageLocationRelativeFilePath}\",`\n              : \"\"\n          }\n        }`;\n      })\n      .filter(notEmpty)\n      .join(\",\\n\")}\n  };`;\n\n  // console.log({ dbLength: allDbModels.length });\n  // PART 3) Aggreagating all scripts into one big string\n\n  const indexationString = \"// THIS FILE HAS BEEN GENERATED\\n\"\n    .concat(\"\\n\")\n    // all imports\n    .concat(typeImportsString)\n    .concat(\"\\n\\n\")\n    // all exports\n    .concat(exportDbTypesString)\n    .concat(exportDbKeysString)\n    .concat(exportDbModelEnumString)\n    .concat(exportModelQueryConfigString)\n    .concat(\"\\n\")\n    .concat(\"// THANK YOU\\n\");\n\n  const operationConfig = await getOperationConfig(\n    \"sdk-db\",\n    await getSdkDescription(\"sdk-db\")\n  );\n\n  await newOperationWithFiles(\n    operationConfig,\n    { \"src/sdk-db.ts\": indexationString },\n    { overwriteIfExists: true, skipYarnInstall, manualProjectRoot, dryrun }\n  );\n}",
+  "description": "",
+  "id": "zvwztqflsvmratxfqbjbytyy"
+}

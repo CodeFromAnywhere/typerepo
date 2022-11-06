@@ -1,0 +1,70 @@
+{
+  "createdAt": 1662709577328,
+  "updatedAt": 1662709577328,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577328,
+  "name": "rebuild-operation",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "operation": {
+    "indirectDependencies": [
+      "index-typescript",
+      "compile-typescript",
+      "get-imports-exports",
+      "k-test"
+    ]
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Code-From-Anywhere/setjsonkey/issues"
+  },
+  "homepage": "https://github.com/Code-From-Anywhere/setjsonkey#readme",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "database": "0.0.1",
+    "code-types": "0.0.1",
+    "get-path": "0.0.1",
+    "log": "0.0.1",
+    "one-by-one": "0.0.1",
+    "js-util": "0.0.1",
+    "fs-util": "1.0.5",
+    "k-explore": "0.0.2",
+    "filename-conventions": "0.0.1",
+    "run-child-process": "0.0.1",
+    "cleanup-typescript-database": "0.0.1",
+    "generate-index": "0.0.1",
+    "operation-util": "0.0.1",
+    "markdown-parsings": "0.0.1",
+    "get-package-source-paths": "0.0.1",
+    "lint": "0.0.1",
+    "get-imports-exports": "0.0.1",
+    "folder-get-updated-at": "0.0.1",
+    "minify-build": "0.0.1",
+    "rebuild-operation": "0.0.1",
+    "all": "0.0.1",
+    "read-json-file": "0.0.1",
+    "convert-case": "0.0.1",
+    "pluralize": "0.0.1",
+    "fs-orm": "1.0.1",
+    "fs-util-js": "0.0.1",
+    "get-package-json": "0.0.1"
+  },
+  "slug": "rebuild-operation",
+  "id": "BejGVIBFtLzwZoTB",
+  "bin": {
+    "rebuildOperation": "./build/cli/rebuildOperation.cli.js",
+    "clearTsDatabase": "./build/cli/clearTsDatabase.cli.js",
+    "rebuildAllOperations": "./build/cli/rebuildAllOperations.cli.js"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "createdAt": 1667635796783,
+  "updatedAt": 1667635796783,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635796783,
+  "id": "namedparameterstypeof-getavailableoperationname",
+  "name": "NamedParameters<typeof getAvailableOperationName>",
+  "slug": "namedparameterstypeof-getavailableoperationname",
+  "operationRelativeTypescriptFilePath": "src/getAvailableOperationName.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "rootFolderPath": {
+          "type": "string"
+        },
+        "preferredFolderName": {
+          "type": "string"
+        },
+        "manualProjectRoot": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "rootFolderPath",
+        "preferredFolderName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "rootFolderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "preferredFolderName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getAvailableOperationName>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

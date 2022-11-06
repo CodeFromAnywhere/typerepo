@@ -1,0 +1,102 @@
+{
+  "createdAt": 1667634504641,
+  "updatedAt": 1667634504641,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634504641,
+  "id": "namedparameterstypeof-modelcomponent",
+  "name": "NamedParameters<typeof ModelComponent>",
+  "slug": "namedparameterstypeof-modelcomponent",
+  "operationRelativeTypescriptFilePath": "src/components/ModelComponent.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "{\n  modelName,\n  highlight,\n}": {
+          "type": "object",
+          "properties": {
+            "modelName": {
+              "type": "string"
+            },
+            "highlight": {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "string"
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "highlight"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "{\n  modelName,\n  highlight,\n}"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "{\n  modelName,\n  highlight,\n}",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "modelName",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "highlight",
+                "required": true,
+                "schema": {
+                  "properties": [
+                    {
+                      "name": "slug",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "id",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof ModelComponent>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

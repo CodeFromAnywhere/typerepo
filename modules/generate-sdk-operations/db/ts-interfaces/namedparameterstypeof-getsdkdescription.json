@@ -1,0 +1,49 @@
+{
+  "createdAt": 1667635711920,
+  "updatedAt": 1667635711920,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635711920,
+  "id": "namedparameterstypeof-getsdkdescription",
+  "name": "NamedParameters<typeof getSdkDescription>",
+  "slug": "namedparameterstypeof-getsdkdescription",
+  "operationRelativeTypescriptFilePath": "src/getSdkDescription.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getSdkDescription>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

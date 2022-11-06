@@ -1,0 +1,49 @@
+{
+  "createdAt": 1667634822838,
+  "updatedAt": 1667634822838,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634822838,
+  "id": "namedparameterstypeof-gettsfunction",
+  "name": "NamedParameters<typeof getTsFunction>",
+  "slug": "namedparameterstypeof-gettsfunction",
+  "operationRelativeTypescriptFilePath": "src/getTsFunction.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "functionName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "functionName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "functionName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getTsFunction>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

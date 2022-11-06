@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262505225,
+  "updatedAt": 1666262505225,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262505225,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getPeers",
+  "slug": "get-peers",
+  "operationRelativeTypescriptFilePath": "src/getPeers.ts",
+  "type": {
+    "rawType": "() => Promise<{ success: boolean; peers: import(\"/Users/king/King/operations/tools/p2p/peer-types/build/Peer\").Peer[]; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (): Promise<{\n  success: boolean;\n  /**\n   * Peers including the person attached to it (if available)\n   */\n  peers: Peer[];\n}> => {\n  const peers = await db.get(\"Peer\", { include: { referenceKey: \"personId\" } });\n\n  const augmentedPeers: Peer[] = peers.map((peer) => {\n    const isOnlineCalculated = peer.lastOnlineAt > Date.now() - 300 * 1000;\n    const isLocalIpCalculated = peer.name.startsWith(\"192.168.\");\n\n    return { ...peer, isOnlineCalculated, isLocalIpCalculated };\n  });\n\n  const sortedPeers = augmentedPeers.sort((a, b) => {\n    if (a.isFavorite) return -1;\n    if (b.isFavorite) return 1;\n\n    if (a.isOnlineCalculated) return -1;\n    if (b.isOnlineCalculated) return 1;\n\n    return 1;\n  });\n\n  const peersWithApps: Peer[] = await Promise.all(\n    sortedPeers.map(async (peer) => {\n      const { result: appOperationsCalculated } =\n        await apiWithConfig.getAllAppOperations({\n          apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n          authToken: peer.authToken,\n          timeout: 1000,\n        });\n\n      const lastOnlineAt = Date.now();\n      if (!!appOperationsCalculated) {\n        db.update(\n          \"Peer\",\n          (p) => p.id === peer.id,\n          (p) => ({ ...p, lastOnlineAt })\n        );\n      }\n\n      return { ...peer, lastOnlineAt, appOperationsCalculated };\n    })\n  );\n\n  return { success: true, peers: peersWithApps };\n}",
+  "description": "Get peers with person relation and calculated values, sorted (first favorite, then online, then offline)",
+  "id": "nuxukksbzhelwfgalfwhemqc"
+}

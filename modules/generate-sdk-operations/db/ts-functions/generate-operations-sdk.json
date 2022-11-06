@@ -1,0 +1,87 @@
+{
+  "createdAt": 1667635709719,
+  "updatedAt": 1667635709719,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635709719,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateOperationsSdk.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const skipYarnInstall = config?.skipYarnInstall;\n  const dryrun = config?.dryrun;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const operationFolderPaths = await exploreOperationFolders({\n    basePath: getPathsWithOperations({ manualProjectRoot }),\n  });\n\n  const operationNamePathRows = operationFolderPaths.map(\n    (operationFolderPath) => {\n      const operationName = getLastFolder(operationFolderPath);\n\n      return `\"${operationName}\": \"${makeRelative(\n        operationFolderPath,\n        projectRoot\n      )}\"`;\n    }\n  );\n  const operationObjectString = `export const operations = { ${operationNamePathRows.join(\n    \",\\n\"\n  )} };`;\n\n  const operationConfig = await getOperationConfig(\n    \"sdk-operations\",\n    await getSdkDescription(\"sdk-operations\")\n  );\n\n  await newOperationWithFiles(\n    operationConfig,\n    { \"src/sdk-operations.ts\": operationObjectString },\n    { overwriteIfExists: true, skipYarnInstall, manualProjectRoot, dryrun }\n  );\n}",
+  "name": "generateOperationsSdk",
+  "slug": "generate-operations-sdk",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "skipYarnInstall": {
+            "type": "boolean"
+          },
+          "dryrun": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipYarnInstall",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "dryrun",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "`sdk-operations` indexes all operations and builds an object containing all operations.",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 1258,
+    "lines": 40,
+    "bytes": 1258,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 40,
+    "numberOfFiles": 1
+  },
+  "id": "drlxapbjdrtjuhypqgimpzlf"
+}

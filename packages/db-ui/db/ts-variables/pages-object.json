@@ -1,0 +1,285 @@
+{
+  "createdAt": 1667634534906,
+  "updatedAt": 1667634534906,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634534906,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "pagesObject",
+  "slug": "pages-object",
+  "operationRelativeTypescriptFilePath": "src/pages.ts",
+  "type": {
+    "rawType": "{ menu: import(\"/Users/king/King/operations/tools/database/db-ui/src/types\").RWNPage<{}>; index: import(\"/Users/king/King/operations/tools/database/db-ui/src/types\").RWNPage<{}>; db: import(\"/Users/king/King/operations/tools/database/db-ui/src/types\").RWNPage<{}>; upsert: import(\"/Users/king/King/operations/tools/database/db-ui/src/types\").RWNPage<import(\"/Users/king/King/operations/tools/database/db-ui/src/pages/upsert\").UpsertProps>; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "menu": {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "object",
+              "properties": {
+                "hideFromMenu": {
+                  "type": "boolean"
+                },
+                "title": {
+                  "type": "string",
+                  "allOf": [
+                    {
+                      "transform": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "minLength": 1
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "required": [
+            "options"
+          ]
+        },
+        "index": {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "object",
+              "properties": {
+                "hideFromMenu": {
+                  "type": "boolean"
+                },
+                "title": {
+                  "type": "string",
+                  "allOf": [
+                    {
+                      "transform": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "minLength": 1
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "required": [
+            "options"
+          ]
+        },
+        "db": {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "object",
+              "properties": {
+                "hideFromMenu": {
+                  "type": "boolean"
+                },
+                "title": {
+                  "type": "string",
+                  "allOf": [
+                    {
+                      "transform": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "minLength": 1
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "required": [
+            "options"
+          ]
+        },
+        "upsert": {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "object",
+              "properties": {
+                "hideFromMenu": {
+                  "type": "boolean"
+                },
+                "title": {
+                  "type": "string",
+                  "allOf": [
+                    {
+                      "transform": [
+                        "trim"
+                      ]
+                    },
+                    {
+                      "minLength": 1
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "required": [
+            "options"
+          ]
+        }
+      },
+      "required": [
+        "menu",
+        "index",
+        "db",
+        "upsert"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "menu",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "options",
+                "required": true,
+                "schema": {
+                  "properties": [
+                    {
+                      "name": "hideFromMenu",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "title",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "index",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "options",
+                "required": true,
+                "schema": {
+                  "properties": [
+                    {
+                      "name": "hideFromMenu",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "title",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "db",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "options",
+                "required": true,
+                "schema": {
+                  "properties": [
+                    {
+                      "name": "hideFromMenu",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "title",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "upsert",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "options",
+                "required": true,
+                "schema": {
+                  "properties": [
+                    {
+                      "name": "hideFromMenu",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "title",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  menu,\n  index,\n  db,\n  upsert,\n}",
+  "description": "",
+  "id": "fvnimqlhwkidwortkrqwymzn"
+}

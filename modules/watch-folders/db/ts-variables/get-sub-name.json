@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258846029,
+  "updatedAt": 1666258846029,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258846029,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "getSubName",
+  "slug": "get-sub-name",
+  "operationRelativeTypescriptFilePath": "src/watchman.ts",
+  "type": {
+    "rawType": "(watchBaseFolder: string, watchRelativePath?: string | undefined) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(watchBaseFolder: string, watchRelativePath?: string) =>\n  `${uniqueAppKey}:${watchBaseFolder}${\n    watchRelativePath ? `:${watchRelativePath}` : \"\"\n  }`",
+  "description": "",
+  "id": "gfqmlkvsishewdpafznnyqgk"
+}

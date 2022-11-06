@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666263168407,
+  "updatedAt": 1666263168407,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263168407,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "test",
+  "slug": "test",
+  "operationRelativeTypescriptFilePath": "src/searchRecursiveObject.ts",
+  "type": {
+    "rawType": "() => Promise<boolean>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "makeTest(\n  () =>\n    searchRecursiveObjectArray(example, (item) => item.name.includes(\"level\")),\n  (result) => result.length === 2\n)",
+  "description": "",
+  "id": "fwneqveiraqbaytpjgcymvpf"
+}

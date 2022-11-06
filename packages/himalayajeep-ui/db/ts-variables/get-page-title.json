@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635988094,
+  "updatedAt": 1667635988094,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635988094,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getPageTitle",
+  "slug": "get-page-title",
+  "operationRelativeTypescriptFilePath": "src/pages.ts",
+  "type": {
+    "rawType": "(page: import(\"/Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-ui/src/types\").PageType) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(page: PageType) =>\n  page.title || page.key.charAt(0).toUpperCase().concat(page.key.slice(1))",
+  "description": "utility function to get a title from a page",
+  "id": "xhscjqeudjgtjeynufolletp"
+}

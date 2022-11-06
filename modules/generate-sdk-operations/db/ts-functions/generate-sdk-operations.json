@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635710894,
+  "updatedAt": 1667635710894,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635710894,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateSdkOperations.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  /**\n   * if not provided, will not generate env-sdks\n   */\n  bundleConfig?: BundleConfig,\n  config?: {\n    /**\n     * If true, will try to run yarn install before and if it fails, does not continue.\n     */\n    yarnInstallBefore?: boolean;\n    /**\n     * if true, yarn install will be skipped when generating the sdks, but run one time afterwards\n     *\n     * useful if you are sure that there will be multiple yarn Installs needed otherwise\n     *\n     * for os installation (where all operations already exist, don't do this, yarn installs will probably not happen at all)\n     */\n    yarnInstallAfter?: boolean;\n    manualProjectRoot?: string;\n    dryrun?: boolean;\n  }\n): Promise<boolean> => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  const yarnInstallAfter = config?.yarnInstallAfter;\n  const yarnInstallBefore = config?.yarnInstallBefore;\n  const dryrun = config?.dryrun;\n\n  if (!projectRoot) {\n    return false;\n  }\n\n  // NB: install this first, otherwise sdk-operations cannot be found\n  await generateOperationsSdk({\n    manualProjectRoot,\n    dryrun,\n  });\n\n  await generateFunctionPathsSdk({\n    manualProjectRoot,\n    dryrun,\n  });\n\n  await generateDbSdk({\n    manualProjectRoot,\n    skipYarnInstall: yarnInstallAfter,\n    dryrun,\n  });\n\n  await generateFunctionSdks({\n    manualProjectRoot,\n    skipYarnInstall: yarnInstallAfter,\n    dryrun,\n  });\n  if (bundleConfig) {\n    await generateEnvSdks(bundleConfig, {\n      manualProjectRoot,\n      skipYarnInstall: yarnInstallAfter,\n      dryrun,\n    });\n  }\n\n  if (yarnInstallAfter) {\n    process.stdout.write(`Installing repo `);\n    try {\n      const result = execSync(\"yarn --prefer-offline\", {\n        cwd: projectRoot,\n        encoding: \"utf8\",\n        stdio: \"pipe\",\n      });\n\n      console.log(\"✅\");\n\n      return true;\n    } catch (e: any) {\n      console.log(\"❌\");\n      const error: {\n        status: number;\n        signal: any;\n        output: (string | null)[];\n        pid: number;\n        stdout: string;\n        stderr: string;\n      } = e;\n      console.log(`Could not install:`, error);\n\n      return false;\n    }\n  }\n\n  return true;\n}",
+  "name": "generateSdkOperations",
+  "slug": "generate-sdk-operations",
+  "parameters": [],
+  "description": "(re)generates all sdk operations for any project",
+  "returnType": {
+    "rawType": "Promise<boolean>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 2250,
+    "lines": 92,
+    "bytes": 2254,
+    "bytesPerCharacter": 1.0017777777777779,
+    "charactersPerLine": 24,
+    "linesPerFile": 92,
+    "numberOfFiles": 1
+  },
+  "id": "zfljrvmtdkrehedmkghgztem"
+}

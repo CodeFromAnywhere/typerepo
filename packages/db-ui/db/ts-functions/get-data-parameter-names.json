@@ -1,0 +1,80 @@
+{
+  "createdAt": 1667634504912,
+  "updatedAt": 1667634504912,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634504912,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/components/ModelComponent.tsx",
+  "commentsInside": [],
+  "rawText": " (properties: SchemaProperty[]) => {\n  const dataParameterNames = properties\n    .map((property) => {\n      const { dataParameterName } = getReferenceParameterInfo(property.name);\n\n      return dataParameterName;\n    })\n    .filter(notEmpty);\n\n  return dataParameterNames;\n}",
+  "name": "getDataParameterNames",
+  "slug": "get-data-parameter-names",
+  "parameters": [
+    {
+      "name": "properties",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/SchemaProperty"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "fullComment": "",
+              "properties": [
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "required",
+                  "required": true,
+                  "schema": {
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "SchemaProperty"
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 274,
+    "lines": 11,
+    "bytes": 274,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "ssrocyekqiswjrcztzthcgbv"
+}

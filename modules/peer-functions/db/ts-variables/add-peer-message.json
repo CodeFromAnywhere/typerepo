@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262497790,
+  "updatedAt": 1666262497790,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262497790,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "addPeerMessage",
+  "slug": "add-peer-message",
+  "operationRelativeTypescriptFilePath": "src/addPeerMessage.ts",
+  "type": {
+    "rawType": "(message: string, peerSlug: string) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (message: string, peerSlug: string) => {\n  // @ts-ignore\n  const upsertResult = await db.upsert(\"PeerMessage\", {\n    message,\n    peerSlug,\n  });\n\n  return upsertResult;\n}",
+  "description": "",
+  "id": "dcjahwqborvqbcksopuvwvjd"
+}

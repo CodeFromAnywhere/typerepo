@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378550165,
+  "updatedAt": 1667378550165,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378550165,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "removePersonAuthenticationMethod",
+  "slug": "remove-person-authentication-method",
+  "operationRelativeTypescriptFilePath": "src/removeAuthenticationMethod.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  //\n}",
+  "description": "removes an `authenticationMethod` from `Person`",
+  "id": "zczbqnpeaxdgsjezkbwnbfbg"
+}

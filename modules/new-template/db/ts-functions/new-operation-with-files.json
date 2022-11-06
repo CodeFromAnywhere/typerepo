@@ -1,0 +1,263 @@
+{
+  "createdAt": 1667635800512,
+  "updatedAt": 1667635800512,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635800512,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/newOperationWithFiles.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationConfig: OperationConfig,\n  /**\n   * NB: relative paths must be relative to OPERATION ROOT, not src root!\n   */\n  srcFileContentObject: {\n    [operationRelativeTypescriptFilePath: string]: string;\n  },\n  config?: {\n    manualProjectRoot?: string;\n    /**\n     * folder path without the folder name of the package to be created\n     *\n     * if given, will place it here, otherwise, will place it in the default location (tools/generated for os projects, packages for sensible projects)\n     */\n    destinationPath?: string;\n    /**\n     * if true, overwrites the operation if it already exists. It does this in a way that it does not break the OS very long, because it removes the old one only after the new one has been created. The removal and renaming the new one to this target name happens almost instantaneously\n     */\n    overwriteIfExists?: boolean;\n\n    /**\n     * if the operation did not exist before, `yarn install` will usually be ran.\n     *\n     * If you want to skip that, set this to `true`\n     *\n     */\n    skipYarnInstall?: boolean;\n\n    /**\n     * skips yarn build if `true`\n     */\n    skipYarnBuild?: boolean;\n    /**\n     * don't write anything, just return the files to create with the strings\n     */\n    dryrun?: boolean;\n  }\n): Promise<undefined | string> => {\n  // 1. calculates operation base path\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) {\n    log(\"Not found projectroot\", { type: \"error\" });\n    return;\n  }\n\n  const isSensible = isSensibleProject(projectRoot);\n\n  const defaultDestinationPath = isSensible\n    ? path.join(projectRoot, \"packages\", \"generated\")\n    : path.join(projectRoot, projectRelativeGeneratedOperationsFolder);\n  const destinationPath = config?.destinationPath || defaultDestinationPath;\n\n  // 2. calculate simplest index.ts (no exposure of merged types object or tests)\n  const indexFileContent = Object.keys(srcFileContentObject)\n    .map((operationRelativeTypescriptFilePath) => {\n      return `export * from \"./${getSrcRelativeFileId(\n        operationRelativeTypescriptFilePath\n      )}\";`;\n    })\n    .join(\"\\n\");\n\n  const srcFileContentObjectWithIndex: {\n    [operationRelativeTypescriptFilePath: string]: string;\n    \"src/index.ts\": string;\n  } = { ...srcFileContentObject, \"src/index.ts\": indexFileContent };\n\n  if (config?.dryrun) {\n    await Promise.all(\n      Object.keys(srcFileContentObject).map((operationRelativePath) => {\n        const assetsPath = path.join(\n          __dirname,\n          \"..\",\n          \"assets\",\n          \"generated\",\n          operationRelativePath\n        );\n\n        console.log(`written to ${assetsPath}`);\n\n        return writeStringToFile(\n          assetsPath,\n          srcFileContentObject[operationRelativePath]\n        );\n      })\n    );\n\n    return;\n  }\n  // 3. make new operation\n\n  const actualBasePath = await newOperation(operationConfig.name, {\n    destinationPath,\n    description: operationConfig.markdown,\n    manualProjectRoot: projectRoot,\n    operationConfig,\n  });\n\n  if (!actualBasePath) {\n    log(\"Failed creating new operation\", { type: \"error\" });\n    return;\n  }\n\n  if (!fs.existsSync(actualBasePath)) {\n    log(`actualBasePath does not exist: ${actualBasePath}`, { type: \"error\" });\n    return;\n  }\n\n  // The wished base path\n  const wishedBasePath = path.join(destinationPath, operationConfig.name);\n\n  // 4. write files to src\n  await objectMapAsync(\n    srcFileContentObjectWithIndex,\n    async (operationRelativeTypescriptFilePath, content) => {\n      const srcPath = path.join(\n        actualBasePath,\n        operationRelativeTypescriptFilePath\n      );\n\n      await writeStringToFile(srcPath, content);\n\n      return;\n    }\n  );\n\n  /** NB: if this is true, the operation is new and has a never-used name, this means it also needs to be installed before building! */\n  const isOperationNew = wishedBasePath !== actualBasePath;\n\n  const shouldOverwrite =\n    isOperationNew &&\n    config?.overwriteIfExists &&\n    fs.existsSync(wishedBasePath);\n\n  const finalOperationBasePath = shouldOverwrite\n    ? wishedBasePath\n    : actualBasePath;\n  const operationFolder = getLastFolder(finalOperationBasePath);\n\n  // 6. yarn build there\n\n  if (!config?.skipYarnInstall) {\n    // in case this operation didn't exist before, run `yarn --offline`\n    // NB: this assumes we already have node_modules and the new operation has no weird new dependencies\n    spawnSync(\"yarn --offline\", {\n      cwd: actualBasePath,\n      encoding: \"utf8\",\n      stdio: \"inherit\",\n      shell: true,\n    });\n  }\n\n  // NB: if skipYarnInstall is enabled, we will also not build\n  const noBuild = config?.skipYarnBuild; // || config?.skipYarnInstall;\n\n  if (!noBuild) {\n    const isSuccesful = await yarnBuild(actualBasePath);\n\n    if (!isSuccesful) {\n      log(\"Building failed\", { type: \"error\" });\n      return;\n    }\n  }\n\n  // remove operation if it's already there and rename new operation to that target name\n  if (shouldOverwrite) {\n    /**\n     * first set the name to the same as the to be removed folder.\n     * NB: there are now two packages with the same name, yarn install will error\n     */\n    const packageJsonPath = path.join(actualBasePath, \"package.json\");\n    const hasAvailablePackageJson =\n      fs.existsSync(packageJsonPath) && (await canRead(packageJsonPath));\n    if (!hasAvailablePackageJson) {\n      return;\n    }\n\n    await setJsonKey({\n      jsonPath: packageJsonPath,\n      keyLocation: \"name\",\n      value: operationConfig.name,\n    });\n\n    if (fs.existsSync(wishedBasePath)) {\n      //then remove the original operation\n      await fs.rm(wishedBasePath, { recursive: true });\n    }\n\n    if (fs.existsSync(actualBasePath)) {\n      // then rename the new operation to the original operation path\n      await fs.rename(actualBasePath, wishedBasePath);\n    }\n  }\n\n  // NB: If the operation is new, make sure to push the operationconfig after it is created.\n  if (isOperationNew) {\n    const newItem = { ...operationConfig, operationName: operationFolder };\n    //  @ts-ignore\n    const result = await db.upsert(\"OperationConfig\", newItem, {\n      operationName: operationFolder,\n      manualProjectRoot: projectRoot,\n    });\n\n    if (!result.isSuccesful) {\n      log(\"Something went wrong pushing the operationconfig\", {\n        type: \"warning\",\n      });\n      console.log({ result });\n    }\n  }\n\n  await db.upsert(\"OperationConfig\", operationConfig, {\n    manualProjectRoot: config?.manualProjectRoot,\n    operationName: operationFolder,\n  });\n\n  return finalOperationBasePath;\n}",
+  "name": "newOperationWithFiles",
+  "slug": "new-operation-with-files",
+  "parameters": [
+    {
+      "name": "operationConfig",
+      "schema": {
+        "$ref": "#/definitions/OperationConfig"
+      },
+      "simplifiedSchema": {
+        "fullComment": "--- operationRelativePath: OPERATION.md isOperationIndex: true\n---\n\nanything configurable about the operation.\n\nOf course we could make this live in operation.json or as a prop in package.json, but it would be better to make it work with a markdown file.\n\nLet's try to use OPERATION.md\n\nTODO: Make this work and make sure the operationconfig is parsed from this file using `db.get(\"OperationConfig\")` as per convention.",
+        "todo": "Make this work and make sure the operationconfig is parsed from this file using `db.get(\"OperationConfig\")` as per convention.",
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "fullComment": "filename (slugified)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "fullComment": "filename (slugified)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "markdown",
+            "required": true,
+            "schema": {
+              "fullComment": "Any descriptions in markdown format\n\n- Markdown description of what the operation does.\n- Installation instructions, if it is possible\n- Usage instructions (with example), if available\n\nThis is the main content of the markdown file",
+              "type": "string"
+            }
+          },
+          {
+            "name": "indirectDependencies",
+            "required": false,
+            "schema": {
+              "fullComment": "Sometimes you are using function in a UI, which cannot be inferred with imports because they are used indirectly via an api. Here you can specify which operations on the backend are needed for an operation (ui mostly)\n\nThis array is simply a list of operation names needed for this operation that are not imported.\n\nNB: no need to specify things here that you also import in this operation, because these are already automatically detected.",
+              "nb": "no need to specify things here that you also import in this operation, because these are already automatically detected.",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "authors",
+            "required": false,
+            "schema": {
+              "fullComment": "A list of authors\n\nShould be used to create bundle AUTHORS.md",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "contributors",
+            "required": false,
+            "schema": {
+              "fullComment": "A list of contributors\n\nCan be used to create bundle CONTRIBUTORS.md",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "shortDescriptionText",
+            "required": false,
+            "schema": {
+              "fullComment": "one-line explanation of what the operation does (no markdown)",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "srcFileContentObject",
+      "schema": {
+        "type": "object",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "description": "NB: relative paths must be relative to OPERATION ROOT, not src root!"
+      },
+      "simplifiedSchema": {
+        "fullComment": "NB: relative paths must be relative to OPERATION ROOT, not src root!",
+        "nb": "relative paths must be relative to OPERATION ROOT, not src root!",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "destinationPath": {
+            "type": "string",
+            "description": "folder path without the folder name of the package to be created\n\nif given, will place it here, otherwise, will place it in the default location (tools/generated for os projects, packages for sensible projects)"
+          },
+          "overwriteIfExists": {
+            "type": "boolean",
+            "description": "if true, overwrites the operation if it already exists. It does this in a way that it does not break the OS very long, because it removes the old one only after the new one has been created. The removal and renaming the new one to this target name happens almost instantaneously"
+          },
+          "skipYarnInstall": {
+            "type": "boolean",
+            "description": "if the operation did not exist before, `yarn install` will usually be ran.\n\nIf you want to skip that, set this to `true`"
+          },
+          "skipYarnBuild": {
+            "type": "boolean",
+            "description": "skips yarn build if `true`"
+          },
+          "dryrun": {
+            "type": "boolean",
+            "description": "don't write anything, just return the files to create with the strings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destinationPath",
+            "required": false,
+            "schema": {
+              "fullComment": "folder path without the folder name of the package to be created\n\nif given, will place it here, otherwise, will place it in the default location (tools/generated for os projects, packages for sensible projects)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "overwriteIfExists",
+            "required": false,
+            "schema": {
+              "fullComment": "if true, overwrites the operation if it already exists. It does this in a way that it does not break the OS very long, because it removes the old one only after the new one has been created. The removal and renaming the new one to this target name happens almost instantaneously",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "skipYarnInstall",
+            "required": false,
+            "schema": {
+              "fullComment": "if the operation did not exist before, `yarn install` will usually be ran.\n\nIf you want to skip that, set this to `true`",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "skipYarnBuild",
+            "required": false,
+            "schema": {
+              "fullComment": "skips yarn build if `true`",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "dryrun",
+            "required": false,
+            "schema": {
+              "fullComment": "don't write anything, just return the files to create with the strings",
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "Creates a new operation with files with content\n\nReturns the final operation base path (or undefined if something went wrong)\n\nNB: relative paths must be relative to OPERATION ROOT, not src root! They must also lead to files in src, this thing is still buggy otherwise!\n\nTODO: Remove the buggyness",
+  "returnType": {
+    "rawType": "Promise<string | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 6871,
+    "lines": 224,
+    "bytes": 6871,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 224,
+    "numberOfFiles": 1
+  },
+  "id": "incjtncxwbvxrvdzuttveyjv"
+}

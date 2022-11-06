@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667233164464,
+  "updatedAt": 1667233164464,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233164464,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/getFunctionIndex.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  if (functions.length) return functions;\n  functions = await db.get(\"TsFunction\");\n  return functions;\n}",
+  "name": "getCachedFunctions",
+  "slug": "get-cached-functions",
+  "parameters": [],
+  "description": "TODO: it would probably be good to create a more general purpose caching function",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 201,
+    "lines": 5,
+    "bytes": 201,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 40,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "hgtfeojohwwabfcidkuedukz"
+}

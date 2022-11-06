@@ -1,0 +1,61 @@
+{
+  "createdAt": 1667635797939,
+  "updatedAt": 1667635797939,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635797939,
+  "id": "namedparameterstypeof-getoperationconfig",
+  "name": "NamedParameters<typeof getOperationConfig>",
+  "slug": "namedparameterstypeof-getoperationconfig",
+  "operationRelativeTypescriptFilePath": "src/getOperationConfig.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "description": "If you want to create one, set a description here."
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "description",
+          "required": false,
+          "schema": {
+            "fullComment": "If you want to create one, set a description here.",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOperationConfig>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

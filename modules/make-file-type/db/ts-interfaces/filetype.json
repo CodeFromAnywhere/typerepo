@@ -1,0 +1,105 @@
+{
+  "createdAt": 1666258955132,
+  "updatedAt": 1666258955132,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258955132,
+  "id": "filetype",
+  "name": "FileType",
+  "slug": "filetype",
+  "operationRelativeTypescriptFilePath": "src/makeFileType.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type FileType = {\n  /**\n   * filename including extension\n   */\n  name: string;\n  /**\n   * size in bytes\n   */\n  size: number;\n  /**\n   * unix timestamp in ms\n   */\n  mtime_ms: number;\n  /**\n   * whether the file still exists\n   */\n  exists: boolean;\n  /**\n   * f stands for file, it seems, for the rest I don't know\n   */\n  type: string;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "filename including extension"
+        },
+        "size": {
+          "type": "number",
+          "description": "size in bytes"
+        },
+        "mtime_ms": {
+          "type": "number",
+          "description": "unix timestamp in ms"
+        },
+        "exists": {
+          "type": "boolean",
+          "description": "whether the file still exists"
+        },
+        "type": {
+          "type": "string",
+          "description": "f stands for file, it seems, for the rest I don't know"
+        }
+      },
+      "required": [
+        "name",
+        "size",
+        "mtime_ms",
+        "exists",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "name",
+          "required": true,
+          "schema": {
+            "fullComment": "filename including extension",
+            "type": "string"
+          }
+        },
+        {
+          "name": "size",
+          "required": true,
+          "schema": {
+            "fullComment": "size in bytes",
+            "type": "number"
+          }
+        },
+        {
+          "name": "mtime_ms",
+          "required": true,
+          "schema": {
+            "fullComment": "unix timestamp in ms",
+            "type": "number"
+          }
+        },
+        {
+          "name": "exists",
+          "required": true,
+          "schema": {
+            "fullComment": "whether the file still exists",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "type",
+          "required": true,
+          "schema": {
+            "fullComment": "f stands for file, it seems, for the rest I don't know",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "FileType",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

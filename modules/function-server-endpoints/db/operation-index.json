@@ -1,0 +1,93 @@
+{
+  "createdAt": 1664526158645,
+  "updatedAt": 1667634834963,
+  "deletedAt": 0,
+  "createdFirstAt": 1664526158645,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/api/function-server-endpoints/src/upsertDevice.ts. Error: Error: Unknown node \\\"this\\\" of kind \\\"ThisType\\\"\"]",
+  "buildSucceeded": false,
+  "id": "wedremijcqbyiuxvgejlndmi",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "function-server-endpoints",
+  "packageName": "function-server-endpoints",
+  "relativeOperationLocationPath": "operations/tools/interfaces/api",
+  "classification": "node",
+  "name": "function-server-endpoints",
+  "slug": "function-server-endpoints",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "slugify",
+    "generateRandomString",
+    "IPInfo",
+    "sdk",
+    "notEmpty",
+    "cacheLookup",
+    "validateInput",
+    "generateId",
+    "RealApiReturnType",
+    "PerformanceItem",
+    "sdk",
+    "functionApiKeys",
+    "sdk",
+    "getApiKeys",
+    "Authorization",
+    "TsFunction",
+    "Device",
+    "PerformanceItem",
+    "TsFunction",
+    "sdkFunctionPaths",
+    "getProjectRoot",
+    "path",
+    "readJsonFile",
+    "sdk",
+    "postApiKeys",
+    "FunctionExecution",
+    "PerformanceItem",
+    "TsFunction",
+    "db",
+    "Creation",
+    "Position",
+    "Creation",
+    "Device",
+    "IPInfo",
+    "PageVisit",
+    "db",
+    "Include"
+  ],
+  "packageDependencies": [
+    "IResult",
+    "Context",
+    "Middleware",
+    "Middleware",
+    "Context",
+    "Middleware",
+    "Context",
+    "Context"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 11,
+      "lines": 0,
+      "characters": 14276,
+      "bytes": 14276
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2010,
+      "bytes": 2010
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 5225,
+      "bytes": 5225
+    },
+    "size": {
+      "bytes": 21511,
+      "characters": 21511,
+      "lines": 0,
+      "numberOfFiles": 15
+    }
+  }
+}

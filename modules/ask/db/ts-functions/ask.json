@@ -1,0 +1,52 @@
+{
+  "createdAt": 1666260828005,
+  "updatedAt": 1666260828005,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260828005,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (question: string): Promise<string> => {\n  const rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout,\n    terminal: false,\n  });\n\n  return new Promise((resolve) => {\n    rl.question(question, (input) => {\n      resolve(input);\n      rl.close();\n    });\n  });\n}",
+  "name": "ask",
+  "slug": "ask",
+  "parameters": [
+    {
+      "name": "question",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<string>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 294,
+    "lines": 14,
+    "bytes": 294,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "bzgvescajwjszbipxtszkuoh"
+}

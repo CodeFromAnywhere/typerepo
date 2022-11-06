@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262508728,
+  "updatedAt": 1666262508728,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262508728,
+  "id": "namedparameterstypeof-getpublicpeers",
+  "name": "NamedParameters<typeof getPublicPeers>",
+  "slug": "namedparameterstypeof-getpublicpeers",
+  "operationRelativeTypescriptFilePath": "src/getPublicPeers.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPublicPeers>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

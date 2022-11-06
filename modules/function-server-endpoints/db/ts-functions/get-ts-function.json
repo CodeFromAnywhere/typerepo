@@ -1,0 +1,52 @@
+{
+  "createdAt": 1667634823003,
+  "updatedAt": 1667634823003,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634823003,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getTsFunction.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  functionName: string\n): Promise<TsFunction | null> => {\n  const tsFunctionPath: string | undefined =\n    sdkFunctionPaths[functionName as keyof typeof sdkFunctionPaths];\n  const projectRoot = getProjectRoot();\n  if (!tsFunctionPath || !projectRoot) {\n    return null;\n  }\n  const absoluteTsFunctionPath = path.join(projectRoot, tsFunctionPath);\n  const tsFunction = await readJsonFile<TsFunction>(absoluteTsFunctionPath);\n\n  return tsFunction;\n}",
+  "name": "getTsFunction",
+  "slug": "get-ts-function",
+  "parameters": [
+    {
+      "name": "functionName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "Uses the `sdk-function-paths` sdk to the indexation of any function in the project.",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction | null>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 539,
+    "lines": 14,
+    "bytes": 539,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 39,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "bwmttbnkojkfprquowagqpvs"
+}

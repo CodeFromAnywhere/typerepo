@@ -1,0 +1,212 @@
+{
+  "createdAt": 1666260891266,
+  "updatedAt": 1666260891266,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260891266,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/converse-extra.test.ts",
+  "commentsInside": [],
+  "rawText": " ({\n  instruction,\n  context,\n}: {\n  instruction: string;\n  /**\n   * should be in fifo order, so no push but unshift! the further in the array, the less important the context (forgetting)\n   */\n  context: Context[];\n}): { operation: string; input: any; certainty: number }[] => {\n  return [];\n}",
+  "name": "listen",
+  "slug": "listen",
+  "parameters": [
+    {
+      "name": "{\n  instruction,\n  context,\n}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "instruction": {
+            "type": "string"
+          },
+          "context": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "instruction": {
+                  "type": "string"
+                },
+                "output": {},
+                "references": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "instruction",
+                "output",
+                "references"
+              ],
+              "additionalProperties": false,
+              "description": "need to find a good way to save results of previous instructions"
+            },
+            "description": "should be in fifo order, so no push but unshift! the further in the array, the less important the context (forgetting)"
+          }
+        },
+        "required": [
+          "instruction",
+          "context"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "instruction",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "context",
+            "required": true,
+            "schema": {
+              "fullComment": "should be in fifo order, so no push but unshift! the further in the array, the less important the context (forgetting)",
+              "items": [
+                {
+                  "schema": {
+                    "fullComment": "need to find a good way to save results of previous instructions",
+                    "properties": [
+                      {
+                        "name": "instruction",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "output",
+                        "required": true,
+                        "schema": {
+                          "properties": [],
+                          "type": "object"
+                        }
+                      },
+                      {
+                        "name": "references",
+                        "required": true,
+                        "schema": {
+                          "items": [
+                            {
+                              "schema": {
+                                "type": "string"
+                              },
+                              "name": null
+                            }
+                          ],
+                          "type": "array"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "generates structured operations based on unstructured instructions\n\nThis is huge. we need to start somewhere though. Plan:\n\n- all operations can be formatted as a word[] with specified order\n- all words can have synonyms\n- some operations can have aliases or different word orders that would mean the exact same\n- speech to text is a prerequisite for speaking out instructions\n- text to speech is already there\n\nWith this in place, we can define a structured way to do things.\n\n1) find the right operation to apply\n2) every parameter needs to be filled in (or use default) or we need to use a preset (from previous input logs). this can be some sort of conversation\n3) the opo (operation output) can be added to context, if needed\n4) the opi (operation input) can be added to presets, if needed\n\nCan you imagine that? I am creating a script that runs all the time and listens and responds to anything I say. My own Siri, but much more powerful. It seems hard, but if you look at it, it's actually just a different UI for all the things I already have. Among other things, it will make it possible to work while doing anything.\n\nThe power lies in being able to recursively ask for all the parameters. if you provide a new operation instead of a value, it will ask for all its parameters in order to continue.\n\nThis conversation could actually be used to generate code! It's kind of `context.reverse().map(createTsLine);` In fact, if we can make that, we can maybe even reverse code into conversations as well! This is insanely powerful.",
+  "returnType": {
+    "rawType": "{ operation: string; input: any; certainty: number; }[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "input": {},
+          "certainty": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "operation",
+          "input",
+          "certainty"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "operation",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "input",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "certainty",
+                "required": true,
+                "schema": {
+                  "type": "number"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 1829,
+    "lines": 33,
+    "bytes": 1829,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 55,
+    "linesPerFile": 33,
+    "numberOfFiles": 1
+  },
+  "id": "dlkmwldcggejovbinyorifoq"
+}

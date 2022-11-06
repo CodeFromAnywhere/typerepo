@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667378998289,
+  "updatedAt": 1667378998289,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378998289,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/runFunctionServer.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const { header } = server.reply;\n  const cors = [\n    // see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin\n    // see https://stackoverflow.com/questions/18642828/origin-origin-is-not-allowed-by-access-control-allow-origin\n    // NB: cannot set \"*\" i.c.m. cookies\n    /* a better way to allow multiple origins is probably something like this:\n\n      const allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:8020', 'http://127.0.0.1:9000', 'http://localhost:9000'];\n  const origin = req.headers.origin;\n  if (allowedOrigins.includes(origin)) {\n       res.setHeader('Access-Control-Allow-Origin', origin);\n  }\n  */\n\n    () => header(\"Access-Control-Allow-Origin\", \"*\"),\n    () =>\n      header(\n        \"Access-Control-Allow-Headers\",\n        \"Origin, X-Requested-With, Content-Type, Accept, Authorization, Set-Cookie\" // not sure if * can be put here after the others...\n      ),\n    () =>\n      header(\n        \"Access-Control-Allow-Methods\",\n        \"GET, PUT, PATCH, POST, DELETE, HEAD\"\n      ),\n\n    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials\n    // NB: important for cookies!\n    () => header(\"Access-Control-Allow-Credentials\", \"true\"),\n    (ctx: Context) => (ctx.method.toLowerCase() === \"options\" ? 200 : false),\n  ];\n\n  const projectRoot = getProjectRoot();\n  const projectPublicFolder = projectRoot\n    ? path.join(projectRoot, \"public\")\n    : path.join(__dirname, \"..\", \"public\");\n\n  // @ts-ignore\n  server(\n    {\n      port,\n      public: projectPublicFolder,\n      security: { csrf: false },\n      parser: {\n        data: { maxFileSize: 1024 * 1024 * 1024 * 32 },\n        cookie: {\n          maxAge: 900000,\n          httpOnly: false,\n        },\n      },\n    },\n    // NB: afaik... it DOES NOT matter if you set the cookie before or after CORS!\n\n    cors,\n\n    // server.router.get(\"/test\", (ctx) => {\n    //   console.log((ctx as any).cookies);\n    //   return server.reply.cookie(\"TEST\", \"123tes\").send({ test: true });\n    // }),\n\n    // server.router.post(\"/login\", (ctx) => {\n    //   const authToken = ctx.data?.authToken;\n\n    //   const loginResult = {\n    //     isSuccessful: true,\n    //     message: \"Logged in\",\n    //   };\n\n    //   console.log(\"set set set vjajaja\", { authToken });\n\n    //   return server.reply\n    //     .cookie(\"authToken\", authToken, {\n    //       /**\n    //        * NB: VERY IMPORTANT In order to receive the cookie at other port or domain\n    //        */\n    //       sameSite: \"none\",\n    //       secure: true,\n    //       /**\n    //        * It turned out that Chrome won't set the cookie if the domain contains a port. Setting it for localhost (without port) is not a problem\n    //        */\n    //       domain: \"localhost\",\n    //     })\n    //     .send(loginResult);\n    // }),\n\n    // server.router.get(\"/login\", (ctx) => {\n    //   const authToken = ctx.query?.authToken;\n\n    //   const loginResult = {\n    //     isSuccessful: true,\n    //     message: \"Logged in\",\n    //   };\n\n    //   console.log(\"set set set\", { authToken });\n\n    //   return server.reply\n    //     .cookie(\"authToken\", takeFirst(authToken))\n    //     .send(loginResult);\n    // }),\n\n    // server.router.get(\"/test2\", (ctx) => {\n    //   console.log((ctx as any).cookies);\n    //   return server.reply.cookie(\"TESTAfter\", \"123tes\").send({ test: true });\n    // }),\n\n    ...getApiEndpoints,\n    ...postApiEndpoints,\n\n    functionEndpoints,\n\n    server.router.get(\"*\", async (ctx) => {\n      return {\n        success: false,\n        message: \"Endpoint does not exist, are you sure it's a GET endpoint?\",\n      };\n    })\n  ).then(async (context) => {\n    const tsFunctions = await db.get(\"TsFunction\");\n\n    if (\n      process.env.NODE_APP_INSTANCE === undefined ||\n      process.env.NODE_APP_INSTANCE === \"0\"\n    ) {\n      log(\"Scheduling CRON jobs\", { type: \"important\" });\n\n      getObjectKeysArray(scheduleObject).map((interval) => {\n        const cronExpression = scheduleObject[interval];\n        const functionsToExecute = tsFunctions.filter(\n          (x) => x.runEveryPeriod === interval\n        );\n        if (functionsToExecute.length > 0) {\n          schedule(\n            cronExpression,\n            () => {\n              oneByOne(functionsToExecute, executeFunction);\n            },\n            { name: interval }\n          );\n        }\n      });\n    }\n\n    console.log(\n      `Running on port ${port}. All node functions are now available through /function/[name] or through the \"api\" object...`\n    );\n  });\n}",
+  "name": "runFunctionServer",
+  "slug": "run-function-server",
+  "parameters": [],
+  "description": "runs sdk api server using \"server\" package.\n\nserver will be exposed on port 4201",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 4656,
+    "lines": 150,
+    "bytes": 4656,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 150,
+    "numberOfFiles": 1
+  },
+  "id": "pgtsniqnsfrkqorrkdvdwqfp"
+}

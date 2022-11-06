@@ -1,0 +1,122 @@
+{
+  "createdAt": 1667634506457,
+  "updatedAt": 1667634506457,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634506457,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/components/SimplifiedSchemaFormDebug.tsx",
+  "commentsInside": [],
+  "rawText": " ({\n  parameters,\n  values,\n}: {\n  parameters: FunctionParameter[] | undefined;\n  values: any[];\n}) => {\n  const [showParams, setShowParams] = useState(false);\n  return (\n    <Div>\n      <P>values</P>\n      {renderMarkdownContent(\n        createCodeblockMarkdown(JSON.stringify(values, null, 2), \"json\"),\n        // NB: since there won't be any assets in here, it doesn't matter where the md is made\n        {\n          projectRelativeBaseFolderPath: \"\",\n          projectRelativeMarkdownFilePath: \"\",\n        }\n      )}\n      <P\n        className=\"hover:underline cursor-pointer\"\n        onClick={() => setShowParams(!showParams)}\n      >\n        params (toggle)\n      </P>{\" \"}\n      {showParams\n        ? renderMarkdownContent(\n            createCodeblockMarkdown(\n              JSON.stringify(parameters, null, 2),\n              \"json\"\n            ),\n            // NB: since there won't be any assets in here, it doesn't matter where the md is made\n            {\n              projectRelativeBaseFolderPath: \"\",\n              projectRelativeMarkdownFilePath: \"\",\n            }\n          )\n        : null}\n    </Div>\n  );\n}",
+  "name": "SimplifiedSchemaFormDebug",
+  "slug": "simplified-schema-form-debug",
+  "parameters": [
+    {
+      "name": "{\n  parameters,\n  values,\n}",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "parameters": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/FunctionParameter"
+            }
+          },
+          "values": {
+            "type": "array",
+            "items": {}
+          }
+        },
+        "required": [
+          "values"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "parameters",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "fullComment": "",
+                    "properties": [
+                      {
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "required",
+                        "required": true,
+                        "schema": {
+                          "type": "boolean"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "name": "FunctionParameter"
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "values",
+            "required": true,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 1127,
+    "lines": 41,
+    "bytes": 1127,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 41,
+    "numberOfFiles": 1
+  },
+  "id": "ltennjycncoqtckonsqxqehy"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635701371,
+  "updatedAt": 1667635701371,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635701371,
+  "id": "namedparameterstypeof-generateoperationssdkcli",
+  "name": "NamedParameters<typeof generateOperationsSdkCli>",
+  "slug": "namedparameterstypeof-generateoperationssdkcli",
+  "operationRelativeTypescriptFilePath": "src/cli/generateOperationsSdk.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof generateOperationsSdkCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

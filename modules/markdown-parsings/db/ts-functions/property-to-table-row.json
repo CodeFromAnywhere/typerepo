@@ -1,0 +1,75 @@
+{
+  "createdAt": 1667635428330,
+  "updatedAt": 1667635428330,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635428330,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/util/propertyToTableRow.ts",
+  "commentsInside": [],
+  "rawText": " (\n  property: SimplifiedSchemaProperty\n): string => {\n  const requiredString = property.required ? \"\" : \"(optional)\";\n\n  const descriptionString = noNewlines(property.schema.description) || \"\";\n\n  // TODO: stack deeper objects and make sure to also print tables for those\n  return `| ${property.name} ${requiredString} | ${property.schema.type} | ${descriptionString} |`;\n}",
+  "name": "propertyToTableRow",
+  "slug": "property-to-table-row",
+  "parameters": [
+    {
+      "name": "property",
+      "schema": {
+        "$ref": "#/definitions/SimplifiedSchemaProperty"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "required",
+            "required": true,
+            "schema": {
+              "fullComment": "NB: can't we put this in the SimplifiedSchema itself?",
+              "nb": "can't we put this in the SimplifiedSchema itself?",
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 374,
+    "lines": 10,
+    "bytes": 374,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 37,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "uipecbrapflarhnfyzkjsmhp"
+}

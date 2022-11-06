@@ -1,0 +1,67 @@
+{
+  "createdAt": 1666258791772,
+  "updatedAt": 1666258791772,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258791772,
+  "id": "namedparameterstypeof-renametemplatefiles",
+  "name": "NamedParameters<typeof renameTemplateFiles>",
+  "slug": "namedparameterstypeof-renametemplatefiles",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "{ appDir }": {
+          "type": "object",
+          "properties": {
+            "appDir": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "appDir"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "{ appDir }"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "{ appDir }",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "appDir",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof renameTemplateFiles>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

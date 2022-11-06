@@ -1,0 +1,45 @@
+{
+  "createdAt": 1666258845586,
+  "updatedAt": 1666258845586,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258845586,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/watchman.ts",
+  "commentsInside": [],
+  "rawText": " (watchBaseFolder: string, watchRelativePath?: string) =>\n  `${uniqueAppKey}:${watchBaseFolder}${\n    watchRelativePath ? `:${watchRelativePath}` : \"\"\n  }`",
+  "name": "getSubName",
+  "slug": "get-sub-name",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 155,
+    "lines": 4,
+    "bytes": 155,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 39,
+    "linesPerFile": 4,
+    "numberOfFiles": 1
+  },
+  "id": "jkkwcdhxuucrrmdnrmbwldix"
+}

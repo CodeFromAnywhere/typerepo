@@ -1,0 +1,50 @@
+[
+  {
+    "createdAt": 1667635525012,
+    "updatedAt": 1667635525012,
+    "deletedAt": 0,
+    "createdFirstAt": 1667635525012,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/Postable.ts",
+    "comment": "",
+    "rawStatement": "export interface Postable extends MarkdownModelType {\n  title?: string;\n  markdown: string;\n  /**\n   * A way to store messagepresets in markdown. the headers are the different categories. If the first alinea is bolded, it will be parsed to be the title, and will be removed from the message.\n   */\n  isPreset?: boolean;\n  isPlanned?: boolean;\n  isDraft?: boolean;\n  // NB: optionally, connect the post to keep it in the system nearby a certain model instance....\n\n  tsInterfaceIds?: Id[];\n  tsInterfaces?: TsInterface[];\n  tsFunctionIds?: Id[];\n  tsFunctions?: TsFunction[];\n  bundleConfigSlugs?: Slug[];\n  bundleConfigs?: BundleConfig[];\n  operationIndexIds?: Id[];\n  operationIndexs?: OperationIndex[];\n  reference_assets: BackendAsset[];\n}",
+    "parameters": {},
+    "types": [],
+    "firstLine": 6,
+    "lastLine": 7,
+    "id": "gstzlsqhjkyawkupnngaewvs"
+  },
+  {
+    "createdAt": 1667635525012,
+    "updatedAt": 1667635525012,
+    "deletedAt": 0,
+    "createdFirstAt": 1667635525012,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/Postable.ts",
+    "comment": "This function finds a postable from the database and posts it on multiple channels\n\nThis can be executed with a CRON\n\n1. finds a postable that has no posted paired\n2. chooses the channels where this thing can be posted on\n3. for every channel, formats the post correctly\n4. for every channel, places the post",
+    "rawStatement": "export const findPostableToPost = () => {};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 31,
+    "lastLine": 40,
+    "id": "rurnjmahxwjuxulwlspwazmo"
+  },
+  {
+    "createdAt": 1667635525012,
+    "updatedAt": 1667635525012,
+    "deletedAt": 0,
+    "createdFirstAt": 1667635525012,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/Postable.ts",
+    "comment": "This function keeps the `Posted` statistics up-to-date\n\nCan be executed with a cron for all recent posts",
+    "rawStatement": "export const updatePostedStatistics = () => {};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 43,
+    "lastLine": 47,
+    "id": "qqvcgbzgyjkbnhibfhuxikli"
+  }
+]

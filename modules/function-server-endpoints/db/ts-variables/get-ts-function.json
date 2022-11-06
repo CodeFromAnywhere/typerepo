@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634823153,
+  "updatedAt": 1667634823153,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634823153,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getTsFunction",
+  "slug": "get-ts-function",
+  "operationRelativeTypescriptFilePath": "src/getTsFunction.ts",
+  "type": {
+    "rawType": "(functionName: string) => Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction | null>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  functionName: string\n): Promise<TsFunction | null> => {\n  const tsFunctionPath: string | undefined =\n    sdkFunctionPaths[functionName as keyof typeof sdkFunctionPaths];\n  const projectRoot = getProjectRoot();\n  if (!tsFunctionPath || !projectRoot) {\n    return null;\n  }\n  const absoluteTsFunctionPath = path.join(projectRoot, tsFunctionPath);\n  const tsFunction = await readJsonFile<TsFunction>(absoluteTsFunctionPath);\n\n  return tsFunction;\n}",
+  "description": "Uses the `sdk-function-paths` sdk to the indexation of any function in the project.",
+  "id": "jtpvnoxtgyikoufxnewfjjrc"
+}

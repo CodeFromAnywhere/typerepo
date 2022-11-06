@@ -1,0 +1,50 @@
+{
+  "createdAt": 1667378654522,
+  "updatedAt": 1667378654522,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378654522,
+  "id": "processassetconfig",
+  "name": "ProcessAssetConfig",
+  "slug": "processassetconfig",
+  "operationRelativeTypescriptFilePath": "src/processAsset.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\nexport type ProcessAssetConfig = {\n  /**\n   * PascalCase model name for database model\n   *\n   * Only needed for database files\n   */\n  modelName?: string;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "modelName": {
+          "type": "string",
+          "description": "PascalCase model name for database model\n\nOnly needed for database files"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "modelName",
+          "required": false,
+          "schema": {
+            "fullComment": "PascalCase model name for database model\n\nOnly needed for database files",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "ProcessAssetConfig",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "createdAt": 1667634819614,
+  "updatedAt": 1667634819614,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634819614,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getApiEndpoints",
+  "slug": "get-api-endpoints",
+  "operationRelativeTypescriptFilePath": "src/getApiEndpoints.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/node_modules/@types/server/typings/common\").Middleware[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "value": "getApiKeys\n  .map((key) => key as keyof typeof sdk)\n  .map((key) => {\n    const ending = \"GetApi\";\n    const apiPath = \"/\" + key.slice(0, key.length - ending.length);\n\n    return server.router.get(apiPath, async (ctx) => {\n      const result = await (sdk[key] as ContextFunction)(ctx);\n      return result;\n    });\n  })",
+  "description": "routes to post and execute operation functions",
+  "id": "wykvaoajdekteojbouooqjvv"
+}

@@ -1,0 +1,57 @@
+{
+  "createdAt": 1664526346465,
+  "updatedAt": 1667379089962,
+  "deletedAt": 0,
+  "createdFirstAt": 1664526346465,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/vui/function-form/src/FunctionForm.tsx. Error: TypeError: Cannot read properties of undefined (reading 'getId')\"]",
+  "buildSucceeded": true,
+  "id": "bpjxmpbfprghviyuhelneatq",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "function-form",
+  "packageName": "function-form",
+  "relativeOperationLocationPath": "operations/tools/interfaces/vui",
+  "classification": "js",
+  "name": "function-form",
+  "slug": "function-form",
+  "coreDependencies": [
+    "useState"
+  ],
+  "operationDependencies": [
+    "api",
+    "Div",
+    "P",
+    "SimplifiedSchemaForm",
+    "FormContainer",
+    "RealApiReturnType",
+    "WithoutPromise",
+    "TsFunction"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 3703,
+      "bytes": 3703
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2375,
+      "bytes": 2375
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1309,
+      "bytes": 1309
+    },
+    "size": {
+      "bytes": 7387,
+      "characters": 7387,
+      "lines": 0,
+      "numberOfFiles": 5
+    }
+  }
+}

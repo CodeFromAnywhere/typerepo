@@ -1,0 +1,46 @@
+{
+  "createdAt": 1666258901195,
+  "updatedAt": 1666258901195,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258901195,
+  "id": "namedparameterstypeof-alloperationsremovejssrc",
+  "name": "NamedParameters<typeof allOperationsRemoveJsSrc>",
+  "slug": "namedparameterstypeof-alloperationsremovejssrc",
+  "operationRelativeTypescriptFilePath": "src/allOperationsRemoveJsSrc.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "debug": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "debug",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof allOperationsRemoveJsSrc>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

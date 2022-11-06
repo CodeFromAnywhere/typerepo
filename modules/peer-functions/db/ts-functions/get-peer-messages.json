@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666262503686,
+  "updatedAt": 1666262503686,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262503686,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPeerMesssages.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const peerMessages = await db.get(\"PeerMessage\", {\n    include: { referenceKey: \"peerSlug\" },\n  });\n\n  const sortedPeerMessages = peerMessages\n    .sort((a, b) => {\n      return a.createdAt < b.createdAt ? 1 : -1;\n    })\n    .slice(0, 1000);\n\n  return sortedPeerMessages;\n}",
+  "name": "getPeerMessages",
+  "slug": "get-peer-messages",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 290,
+    "lines": 13,
+    "bytes": 290,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 13,
+    "numberOfFiles": 1
+  },
+  "id": "bzpxrmlrcmnxfwzsozfinsxa"
+}

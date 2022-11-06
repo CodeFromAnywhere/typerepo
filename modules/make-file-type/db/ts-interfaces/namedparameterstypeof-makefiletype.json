@@ -1,0 +1,49 @@
+{
+  "createdAt": 1666258955132,
+  "updatedAt": 1666258955132,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258955132,
+  "id": "namedparameterstypeof-makefiletype",
+  "name": "NamedParameters<typeof makeFileType>",
+  "slug": "namedparameterstypeof-makefiletype",
+  "operationRelativeTypescriptFilePath": "src/makeFileType.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "filePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "filePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "filePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof makeFileType>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

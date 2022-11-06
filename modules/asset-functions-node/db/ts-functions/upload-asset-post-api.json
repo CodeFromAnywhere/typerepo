@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667378658108,
+  "updatedAt": 1667378658108,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378658108,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": true,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/uploadAssetPostApi.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  ctx: Context\n): Promise<UploadAssetResult> => {\n  const authToken = ctx.data.authToken;\n\n  const isAuthed = functionAuthPlugin(\"uploadAsset\", authToken);\n  if (!isAuthed) {\n    return {\n      isSuccessful: false,\n      isUnauthorized: true,\n      message: \"You can only do this when authenticated\",\n    };\n  }\n\n  const file = ctx.files.file;\n  if (!file) {\n    return { isSuccessful: false, message: \"No file found\" };\n  }\n\n  const realFile = (Array.isArray(file)\n    ? file[0]\n    : file) as unknown as ReceivedFile;\n\n  const functionFile = {\n    size: realFile.size,\n    path: realFile.path,\n    name: realFile.name,\n    type: realFile.type,\n  };\n\n  const randomName = generateRandomString(32);\n\n  const temporaryAssetsFolderPath = getTemporaryAssetsFolderPath();\n\n  const extension = getPreferredExtensionFromType(realFile.type);\n\n  if (!extension) {\n    return {\n      isSuccessful: false,\n      message: \"couldn't figure out what you're trying to upload\",\n    };\n  }\n\n  const temporaryFileName = `${randomName}.${extension}`;\n  const absoluteTemporaryDestinationPath = path.join(\n    temporaryAssetsFolderPath,\n    temporaryFileName\n  );\n\n  if (!fs.existsSync(temporaryAssetsFolderPath)) {\n    await fs.mkdir(temporaryAssetsFolderPath, { recursive: true });\n  }\n\n  if (extension === \"mp3\") {\n    // Conversion needed!\n    const resultingPath = await convertToMp3(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else {\n    await fs.rename(functionFile.path, absoluteTemporaryDestinationPath);\n  }\n\n  return {\n    isSuccessful: true,\n    message: \"File received\",\n    temporaryDestination: temporaryFileName,\n  };\n}",
+  "name": "uploadAssetPostApi",
+  "slug": "upload-asset-post-api",
+  "parameters": [],
+  "description": "Uploads an asset to the server, and puts it in a temporary location in the assets folder of `function-server`. It returns the filename of the file in the temporary location.\n\nIt can only be accessed through that random name. This random name has 32 characters so cannot be easily guessed. This should be secure enough. The file should be moved to the final destination in the actual function that needs the file.",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/asset/asset-type/build/frontend-types\").UploadAssetResult>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 2069,
+    "lines": 71,
+    "bytes": 2069,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 71,
+    "numberOfFiles": 1
+  },
+  "id": "ojkgayfvrhuxyunhxzkwkibw"
+}

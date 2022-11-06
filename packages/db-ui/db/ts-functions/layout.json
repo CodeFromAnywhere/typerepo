@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667634499631,
+  "updatedAt": 1667634499631,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634499631,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/components/Layout.tsx",
+  "commentsInside": [],
+  "rawText": " ({\n  Component,\n  pageProps,\n}: {\n  Component: AppProps[\"Component\"];\n  pageProps: AppProps[\"pageProps\"];\n}) => {\n  const authTokenStore = useStore(\"api.authToken\");\n\n  const menu = (\n    <Span className=\"border-l col-span-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white border-l-gray-400\">\n      <pagesObject.menu />\n    </Span>\n  );\n  //\n  const mainPage = (\n    <Div\n      className={`\n        col-span-4 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white`}\n      textClassName=\"dark:text-white\"\n    >\n      <LoginWrapper\n        authTokenStore={authTokenStore}\n        title={`${title || \"Db Admin\"} Login`}\n      >\n        {/* @ts-ignore */}\n        <Component {...pageProps} />\n      </LoginWrapper>\n    </Div>\n  );\n\n  return (\n    <Div className=\"h-screen grid grid-rows-6\">\n      <Div className=\"row-span-6 grid grid-cols-5\">\n        {mainPage}\n        {menu}\n      </Div>\n    </Div>\n  );\n}",
+  "name": "Layout",
+  "slug": "layout",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 922,
+    "lines": 40,
+    "bytes": 922,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 40,
+    "numberOfFiles": 1
+  },
+  "id": "silqkcmxjgkjxvoquszxandi"
+}

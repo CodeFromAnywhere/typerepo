@@ -1,0 +1,94 @@
+{
+  "createdAt": 1666262496158,
+  "updatedAt": 1666262496158,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262496158,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/addPeer.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  ip: string,\n  authToken?: string,\n  peerName?: string,\n  /**\n   * If true, it does not validate the IP to see if it is online and it is authorized...\n   */\n  force?: boolean,\n  isMe?: boolean\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  // get new PeerMessages after last sync\n\n  const apiResult = await apiWithConfig.ping({\n    apiUrl: `http://${ip}:${ports[\"function-server\"]}`,\n    authToken,\n    timeout: 2000,\n  });\n\n  const isConnectionEstablished =\n    apiResult?.isSuccessful &&\n    !apiResult?.isUnauthorized &&\n    apiResult.result === true;\n\n  if (!force && !isConnectionEstablished) {\n    return {\n      isSuccesful: false,\n      message:\n        \"Peer connection could not be established. Are you sure the peer is online? Use force if you want to add your peer anyway. If you have a node version lower than v17, this will also fail.\",\n    };\n  }\n\n  const finalPeerName = peerName || ip;\n\n  const peerCreation: Creation<Peer> = {\n    peerName: finalPeerName,\n    lastOnlineAt: isConnectionEstablished ? Date.now() : 0,\n    lastSyncDatabaseAtObject: {},\n    name: ip,\n    authToken,\n    isMe,\n  };\n\n  // @ts-ignore\n  const upsertResult = await db.upsert(\"Peer\", peerCreation);\n\n  return {\n    isSuccesful: !!upsertResult.isSuccesful,\n    message: upsertResult.isSuccesful\n      ? \"Peer added\"\n      : `Something went wrong: ${upsertResult.message}`,\n  };\n}",
+  "name": "addPeer",
+  "slug": "add-peer",
+  "parameters": [
+    {
+      "name": "ip",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "authToken",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "name": "peerName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "name": "force",
+      "schema": {
+        "type": "boolean",
+        "description": "If true, it does not validate the IP to see if it is online and it is authorized..."
+      },
+      "simplifiedSchema": {
+        "fullComment": "If true, it does not validate the IP to see if it is online and it is authorized...",
+        "type": "boolean"
+      },
+      "required": false
+    },
+    {
+      "name": "isMe",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccesful: boolean; message: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 1394,
+    "lines": 52,
+    "bytes": 1394,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 52,
+    "numberOfFiles": 1
+  },
+  "id": "lkahpjbnwzzrjzrguvkvvigh"
+}

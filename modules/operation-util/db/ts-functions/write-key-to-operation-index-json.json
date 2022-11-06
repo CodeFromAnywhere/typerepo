@@ -1,0 +1,54 @@
+{
+  "createdAt": 1666259164298,
+  "updatedAt": 1666259164298,
+  "deletedAt": 0,
+  "createdFirstAt": 1666259164298,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/writeKeyToOperationIndexJson.ts",
+  "commentsInside": [],
+  "rawText": " async <\n  K extends keyof OperationIndex\n>(\n  /**\n   * can be a path to any file in the operation\n   */\n  absolutePath: string,\n  key: K,\n  value: OperationIndex[K]\n) => {\n  const operationBasePath = findOperationBasePath(absolutePath);\n  if (!operationBasePath) return;\n\n  const operationIndexJsonPath = path.join(\n    operationBasePath,\n    databaseFolderName,\n    \"operation-index.json\"\n  );\n  if (!fs.existsSync(operationIndexJsonPath)) {\n    const indexFolder = path.parse(operationIndexJsonPath).dir;\n    if (!fs.existsSync(indexFolder)) {\n      await fs.mkdir(indexFolder, { recursive: true });\n    }\n    await fs.writeFile(operationIndexJsonPath, \"{}\", \"utf8\");\n  }\n\n  setJsonKey({\n    jsonPath: operationIndexJsonPath,\n    keyLocation: key,\n    value: JSON.stringify(value),\n  });\n}",
+  "name": "writeKeyToOperationIndexJson",
+  "slug": "write-key-to-operation-index-json",
+  "parameters": [
+    {
+      "name": "absolutePath",
+      "schema": {
+        "type": "string",
+        "description": "can be a path to any file in the operation"
+      },
+      "simplifiedSchema": {
+        "fullComment": "can be a path to any file in the operation",
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 792,
+    "lines": 32,
+    "bytes": 792,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 32,
+    "numberOfFiles": 1
+  },
+  "id": "mugjuauivdttlcyfbxdugdqc"
+}

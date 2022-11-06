@@ -1,0 +1,75 @@
+{
+  "createdAt": 1664530590201,
+  "updatedAt": 1667635993994,
+  "deletedAt": 0,
+  "createdFirstAt": 1664530590201,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-ui/src/types.tsx. Error: Error: '\\\"code-types\\\"' has no exported member named 'MarkdownFile'. Did you mean 'WebMarkdownFile'?\"]",
+  "buildSucceeded": true,
+  "id": "ylrtlfngygdlsletljdhcyug",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "himalayajeep-ui",
+  "packageName": "himalayajeep-ui",
+  "relativeOperationLocationPath": "operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep",
+  "classification": "ui-es6",
+  "name": "himalayajeep-ui",
+  "slug": "himalayajeep-ui",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "createStore",
+    "MarkdownReaderPage",
+    "MarkdownFile",
+    "Div",
+    "Span",
+    "MarkdownReaderPage",
+    "useRouter",
+    "Div",
+    "P",
+    "P",
+    "P",
+    "useRouter",
+    "P",
+    "queries",
+    "api",
+    "FunctionForm",
+    "P",
+    "RealApiReturnType",
+    "useAlert",
+    "Div",
+    "P",
+    "useAlert",
+    "FunctionForm",
+    "RealApiReturnType",
+    "P"
+  ],
+  "packageDependencies": [
+    "NativeStackNavigationOptions",
+    "NextParsedUrlQuery"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 11,
+      "lines": 0,
+      "characters": 8513,
+      "bytes": 8513
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2106,
+      "bytes": 2106
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 3186,
+      "bytes": 3186
+    },
+    "size": {
+      "bytes": 13805,
+      "characters": 13805,
+      "lines": 0,
+      "numberOfFiles": 14
+    }
+  }
+}

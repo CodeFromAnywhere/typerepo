@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378537972,
+  "updatedAt": 1667378537972,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378537972,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "addAuthenticationMethod",
+  "slug": "add-authentication-method",
+  "operationRelativeTypescriptFilePath": "src/addAuthenticationMethod.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  //\n}",
+  "description": "core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`",
+  "id": "ovmrxksleypkppbvsmskijcb"
+}

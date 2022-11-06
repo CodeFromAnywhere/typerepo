@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260899355,
+  "updatedAt": 1666260899355,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260899355,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getSdkFunctionPaths",
+  "slug": "get-sdk-function-paths",
+  "operationRelativeTypescriptFilePath": "src/getSdkFunctionPaths.ts",
+  "type": {
+    "rawType": "() => Promise<false | import(\"/Users/king/King/operations/tools/interfaces/cli/function-util/src/getSdkFunctionPaths\").FnMatch[]>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (): Promise<false | FnMatch[]> => {\n  const menu = await getMenu();\n\n  if (!menu) {\n    return false;\n  }\n\n  const paths = Object.keys(menu).reduce((all, relativeOperationPath) => {\n    //@ts-ignore\n    const fnArray: TsFunction[] | undefined = menu[relativeOperationPath];\n\n    return fnArray && Array.isArray(fnArray)\n      ? all.concat(\n          fnArray.map((x) => {\n            return {\n              matcher: `${relativeOperationPath}/${x.name}`,\n              relativeOperationPath,\n              ...x,\n            };\n          })\n        )\n      : all;\n  }, [] as FnMatch[]);\n\n  return paths;\n}",
+  "description": "",
+  "id": "xctgogcejkvhowszvnltwgxh"
+}

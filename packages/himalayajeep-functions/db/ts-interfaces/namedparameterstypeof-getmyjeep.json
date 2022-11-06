@@ -1,0 +1,49 @@
+{
+  "createdAt": 1667402313976,
+  "updatedAt": 1667402313976,
+  "deletedAt": 0,
+  "createdFirstAt": 1667402313976,
+  "id": "namedparameterstypeof-getmyjeep",
+  "name": "NamedParameters<typeof getMyJeep>",
+  "slug": "namedparameterstypeof-getmyjeep",
+  "operationRelativeTypescriptFilePath": "src/getMyJeep.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "loginToken": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "loginToken"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "loginToken",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getMyJeep>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

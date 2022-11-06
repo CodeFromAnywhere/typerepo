@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634821949,
+  "updatedAt": 1667634821949,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634821949,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getNewPerformance",
+  "slug": "get-new-performance",
+  "operationRelativeTypescriptFilePath": "src/getNewPerformance.ts",
+  "type": {
+    "rawType": "(label: string, uniqueId: string, isNew?: boolean | undefined) => import(\"/Users/king/King/operations/tools/types/code-types/build/PerformanceItem\").PerformanceItem | undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  label: string,\n  uniqueId: string,\n  isNew?: boolean\n): PerformanceItem | undefined => {\n  const timePrevious = timer[uniqueId];\n  const timeNow = Date.now();\n  timer[uniqueId] = timeNow;\n\n  if (isNew) return;\n\n  const durationMs = timePrevious - timeNow;\n\n  return { label, durationMs };\n}",
+  "description": "",
+  "id": "zinbdqckwhwrnldjhgamxxzo"
+}

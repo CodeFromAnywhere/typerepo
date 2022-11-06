@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635411681,
+  "updatedAt": 1667635411681,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635411681,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getMergedMarkdownOutlineUrl",
+  "slug": "get-merged-markdown-outline-url",
+  "operationRelativeTypescriptFilePath": "src/operationToMarkdown.ts",
+  "type": {
+    "rawType": "(title: string) => { title: string; hashtagPath: string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(title: string) => {\n  return { title, hashtagPath: getImplicitId(title) };\n}",
+  "description": "",
+  "id": "bbeiaqsdetspbqtjumpcpiso"
+}

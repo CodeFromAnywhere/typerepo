@@ -1,0 +1,52 @@
+{
+  "createdAt": 1666262507563,
+  "updatedAt": 1666262507563,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262507563,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPublicFolderNestedPathObject.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  peerSlug: string\n): Promise<\n  | undefined\n  | { peerApiResult: RealApiReturnType<\"getPublicFolderNestedPathObject\"> }\n> => {\n  const peers = await db.get(\"Peer\");\n  const peer = peers.find((x) => x.slug === peerSlug);\n  const ip = peer?.name;\n  if (!ip) {\n    console.log(\"Peer not found\");\n    return;\n  }\n\n  console.log({ authToken: peer.authToken });\n\n  // call `getPublicFolderNestedPathObject` with api with other ip\n  const peerApiResult = await apiWithConfig.getPublicFolderNestedPathObject({\n    apiUrl: `http://${ip}:${ports[\"function-server\"]}`,\n    authToken: peer.authToken,\n    timeout: 5000,\n  });\n\n  return { peerApiResult };\n}",
+  "name": "getPublicFolderNestedPathObjectFromPeer",
+  "slug": "get-public-folder-nested-path-object-from-peer",
+  "parameters": [
+    {
+      "name": "peerSlug",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "Peer = {\nname: \"22.2.2.2.2.2\",\nslug: \"22-22-22-22\"\n}",
+  "returnType": {
+    "rawType": "Promise<{ peerApiResult: import(\"/Users/king/King/operations/tools/interfaces/api/api-types/build/api-types\").RealApiReturnType<\"getPublicFolderNestedPathObject\">; } | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 706,
+    "lines": 28,
+    "bytes": 706,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 28,
+    "numberOfFiles": 1
+  },
+  "id": "hnzzfbkcqxylklypdzoaojjk"
+}

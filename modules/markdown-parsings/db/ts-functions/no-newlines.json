@@ -1,0 +1,69 @@
+{
+  "createdAt": 1667635427106,
+  "updatedAt": 1667635427106,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635427106,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/util/noNewlines.ts",
+  "commentsInside": [],
+  "rawText": " (\n  markdown: string | undefined\n): string | undefined => {\n  return markdown?.replaceAll(\"\\n\", \"<br />\");\n}",
+  "name": "noNewlines",
+  "slug": "no-newlines",
+  "parameters": [
+    {
+      "name": "markdown",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "string | undefined",
+    "typeDefinition": {
+      "optional": true,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 109,
+    "lines": 5,
+    "bytes": 109,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "nqgpltqvmdozzjnponmkocww"
+}

@@ -1,0 +1,115 @@
+{
+  "createdAt": 1667635976970,
+  "updatedAt": 1667635976970,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635976970,
+  "id": "namedparameterstypeof-layout",
+  "name": "NamedParameters<typeof Layout>",
+  "slug": "namedparameterstypeof-layout",
+  "operationRelativeTypescriptFilePath": "src/components/Layout.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "{\n  pages,\n  children,\n}": {
+          "type": "object",
+          "properties": {
+            "pages": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/MarkdownReaderPage"
+              }
+            },
+            "children": {}
+          },
+          "required": [
+            "pages",
+            "children"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "{\n  pages,\n  children,\n}"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "{\n  pages,\n  children,\n}",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "pages",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "fullComment": "for markdown-reader-ui, the pages can be markdown files, but they can also be connected to models",
+                        "properties": [
+                          {
+                            "name": "queryPath",
+                            "required": true,
+                            "schema": {
+                              "fullComment": "path to be used as the url. no preceding slash",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "filePath",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "if given, the md-file will be provided to the frontend\n\nproject relative path",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "isMenuItem",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "if true, this item will be shown in the menu",
+                              "type": "boolean"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": "MarkdownReaderPage"
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "children",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof Layout>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

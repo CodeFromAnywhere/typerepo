@@ -1,0 +1,96 @@
+{
+  "createdAt": 1666264096691,
+  "updatedAt": 1666264096691,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264096691,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getTsStatements.ts",
+  "commentsInside": [],
+  "rawText": " (frontmatter: Frontmatter) => {\n  const isApiExposed = frontmatter.isApiExposed === true;\n\n  const runEveryPeriod = runEveryPeriodStringArray.includes(\n    String(frontmatter.runEveryPeriod)\n  )\n    ? (String(frontmatter.runEveryPeriod) as RunEveryPeriodEnum)\n    : undefined;\n\n  const publicAuthorizationFrontmatter = Array.isArray(\n    frontmatter.publicAuthorization\n  )\n    ? frontmatter.publicAuthorization\n        .map(String)\n        .filter((text) => authorizationLevelStringArray.includes(text))\n        .map((string) => string as AuthorizationLevel)\n    : undefined;\n\n  // NB: by default, users are authorized to search and read docs\n  const publicAuthorization: AuthorizationLevel[] =\n    publicAuthorizationFrontmatter\n      ? publicAuthorizationFrontmatter\n      : [\"read-docs\", \"search\"];\n\n  const result: {\n    runEveryPeriod: TsFunction[\"runEveryPeriod\"];\n    publicAuthorization: TsFunction[\"publicAuthorization\"];\n    isApiExposed: TsFunction[\"isApiExposed\"];\n  } = { runEveryPeriod, publicAuthorization, isApiExposed };\n\n  return result;\n}",
+  "name": "getFrontmatterFunctionParameters",
+  "slug": "get-frontmatter-function-parameters",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{ runEveryPeriod: any; publicAuthorization: any[]; isApiExposed: boolean; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "runEveryPeriod": {},
+        "publicAuthorization": {
+          "type": "array",
+          "items": {}
+        },
+        "isApiExposed": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "runEveryPeriod",
+        "publicAuthorization",
+        "isApiExposed"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "runEveryPeriod",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "publicAuthorization",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "isApiExposed",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 1059,
+    "lines": 32,
+    "bytes": 1059,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 32,
+    "numberOfFiles": 1
+  },
+  "id": "gspehvterotiriegqshzzknc"
+}

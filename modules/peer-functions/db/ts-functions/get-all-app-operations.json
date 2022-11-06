@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666262499000,
+  "updatedAt": 1666262499000,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262499000,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getAllAppOperations.ts",
+  "commentsInside": [],
+  "rawText": " async (): Promise<AppOperation[]> => {\n  const operationConfigs = await db.get(\"OperationConfig\");\n  const appOperations = (await db.get(\"PackageJson\"))\n    .filter((packageJson) => !!packageJson.sensible?.appPort)\n    .map((packageJson) => {\n      if (!packageJson.name || !packageJson.sensible?.appPort) return;\n\n      const operationConfig = operationConfigs.find(\n        (x) => x.operationName === packageJson.operationName\n      );\n      const description = operationConfig?.markdown || packageJson.description;\n      return {\n        name: packageJson.name,\n        port: packageJson.sensible?.appPort,\n        description,\n        emoji: getFirstEmoji(description),\n      };\n    })\n    .filter(notEmpty)\n    .sort((a, b) => {\n      if (a.port < b.port) return -1;\n      return 1;\n    });\n\n  const appOperationsWithOnline: AppOperation[] = await Promise.all(\n    appOperations.map(async (appOperation) => {\n      const isOnline = await isPortUsed(appOperation.port);\n      const newAppOperation: AppOperation = {\n        ...appOperation,\n        isOnline,\n      };\n      return newAppOperation;\n    })\n  );\n\n  return appOperationsWithOnline;\n}",
+  "name": "getAllAppOperations",
+  "slug": "get-all-app-operations",
+  "parameters": [],
+  "description": "Gets all app operations from all packageJsons from the database. Adds `isOnline` to it on the fly by checking if it can connect to the port or not",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/p2p/peer-types/build/AppOperation\").AppOperation[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 1297,
+    "lines": 37,
+    "bytes": 1297,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 37,
+    "numberOfFiles": 1
+  },
+  "id": "ltbpszvyfewvonwyxfbpbqju"
+}

@@ -1,0 +1,82 @@
+{
+  "createdAt": 1667635985087,
+  "updatedAt": 1667635985087,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635985087,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "JeepSignupPage",
+  "slug": "jeep-signup-page",
+  "operationRelativeTypescriptFilePath": "src/pages/jeep-signup.tsx",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-ui/src/types\").RWNPage",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "object",
+          "properties": {
+            "hideFromMenu": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "options",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "hideFromMenu",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "(props) => {\n  const alert = useAlert();\n\n  return (\n    <Layout pages={props.pages}>\n      <Div>\n        <P>Hello, please sign up here (drivers only)</P>\n\n        <FunctionForm\n          tsFunction={DriverSignupFunction}\n          withApiResult={(result: RealApiReturnType<\"driverSignup\">) => {\n            const title = result.result?.isSuccesful ? \"Signed up\" : \"Error\";\n            const message = result.result?.message || \"Something went wrong\";\n\n            alert?.(title, message);\n            result.result?.message;\n\n            console.log({ result });\n          }}\n          hideResult\n        />\n      </Div>\n    </Layout>\n  );\n}",
+  "description": "",
+  "id": "boepnekbonspopotzofuhygb"
+}

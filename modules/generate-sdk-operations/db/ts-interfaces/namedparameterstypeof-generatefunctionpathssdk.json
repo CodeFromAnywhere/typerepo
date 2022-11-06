@@ -1,0 +1,81 @@
+{
+  "createdAt": 1667635705962,
+  "updatedAt": 1667635705962,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635705962,
+  "id": "namedparameterstypeof-generatefunctionpathssdk",
+  "name": "NamedParameters<typeof generateFunctionPathsSdk>",
+  "slug": "namedparameterstypeof-generatefunctionpathssdk",
+  "operationRelativeTypescriptFilePath": "src/generateFunctionPathsSdk.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "manualProjectRoot": {
+              "type": "string"
+            },
+            "skipYarnInstall": {
+              "type": "boolean"
+            },
+            "dryrun": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "skipYarnInstall",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "dryrun",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof generateFunctionPathsSdk>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

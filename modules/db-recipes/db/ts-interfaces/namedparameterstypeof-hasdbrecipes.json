@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667233164150,
+  "updatedAt": 1667233164150,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233164150,
+  "id": "namedparameterstypeof-hasdbrecipes",
+  "name": "NamedParameters<typeof hasDbRecipes>",
+  "slug": "namedparameterstypeof-hasdbrecipes",
+  "operationRelativeTypescriptFilePath": "src/getFunctionIndex.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof hasDbRecipes>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

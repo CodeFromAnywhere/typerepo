@@ -1,0 +1,71 @@
+{
+  "createdAt": 1667378652428,
+  "updatedAt": 1667378652428,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378652428,
+  "id": "namedparameterstypeof-getstoragelocationinfo",
+  "name": "NamedParameters<typeof getStorageLocationInfo>",
+  "slug": "namedparameterstypeof-getstoragelocationinfo",
+  "operationRelativeTypescriptFilePath": "src/getStorageLocationInfo.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absoluteReferencingFilePath": {
+          "type": "string"
+        },
+        "config": {
+          "$ref": "#/definitions/ProcessAssetConfig"
+        }
+      },
+      "required": [
+        "absoluteReferencingFilePath",
+        "config"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absoluteReferencingFilePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "config",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "modelName",
+                "required": false,
+                "schema": {
+                  "fullComment": "PascalCase model name for database model\n\nOnly needed for database files",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getStorageLocationInfo>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

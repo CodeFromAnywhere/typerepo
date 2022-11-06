@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666263168407,
+  "updatedAt": 1666263168407,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263168407,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "magicalRecursiveReducer",
+  "slug": "magical-recursive-reducer",
+  "operationRelativeTypescriptFilePath": "src/searchRecursiveObject.ts",
+  "type": {
+    "rawType": "<T extends unknown>(previous: T[], current: T, baseMatcher: (item: T) => boolean) => T[]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<T extends { children?: T[] } & Object>(\n  previous: T[],\n  current: T,\n  baseMatcher: (item: T) => boolean\n): T[] => {\n  // NB: copy!\n  const newCurrent = { ...current };\n\n  newCurrent.children = newCurrent.children\n    ? newCurrent.children.reduce(\n        (p, c) => magicalRecursiveReducer(p, c, baseMatcher),\n        [] as T[]\n      )\n    : undefined;\n\n  if (baseMatcher(newCurrent) || newCurrent.children?.length) {\n    previous.push(newCurrent);\n  }\n\n  return previous;\n}",
+  "description": "Reduces an object with children of its own type according to a baseMatcher.\n\nThe object only gets returned if the children have a match (or their children, etc) or if the object itself is a match. If the object itself is a match, its children will also be edited to filter out non-matching things\n\nNB: Not finished yet (see todo).\n\nAlso not sure if the final UX is really as great and performant as I wish, so it may be easier to simply have a separate search for files and global (just like vscode has)",
+  "id": "jldfsjcmrjbhpkjqvsxpnrdq"
+}

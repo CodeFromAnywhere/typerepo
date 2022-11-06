@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635699219,
+  "updatedAt": 1667635699219,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635699219,
+  "id": "namedparameterstypeof-generateenvsdkscli",
+  "name": "NamedParameters<typeof generateEnvSdksCli>",
+  "slug": "namedparameterstypeof-generateenvsdkscli",
+  "operationRelativeTypescriptFilePath": "src/cli/generateEnvSdks.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof generateEnvSdksCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

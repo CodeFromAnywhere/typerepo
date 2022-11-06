@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262515000,
+  "updatedAt": 1666262515000,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262515000,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "proactivePushAddPeerMessage",
+  "slug": "proactive-push-add-peer-message",
+  "operationRelativeTypescriptFilePath": "src/proactivePushAddPeerMessage.ts",
+  "type": {
+    "rawType": "(message: string, peerSlug: string) => Promise<boolean>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  message: string,\n  peerSlug: string\n): Promise<boolean> => {\n  await addPeerMessage(message, peerSlug);\n\n  const peers = await db.get(\"Peer\", { include: { referenceKey: \"personId\" } });\n  await Promise.all(\n    peers.map(async (peer) => {\n      if (peer.isMe) return;\n      const apiResult = await apiWithConfig.addPeerMessage(\n        {\n          apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n          authToken: peer.authToken,\n          timeout: 2000,\n        },\n        message,\n        peerSlug\n      );\n\n      return apiResult;\n    })\n  );\n\n  return true;\n}",
+  "description": "Adds a message to your own peer messages database, but also to the db of all your peers that are online currently",
+  "id": "rahoqanmcdfinedppwpsqzfn"
+}

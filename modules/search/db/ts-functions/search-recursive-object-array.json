@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666263168188,
+  "updatedAt": 1666263168188,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263168188,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/searchRecursiveObject.ts",
+  "commentsInside": [],
+  "rawText": " <\n  T extends { children?: T[] } & Object\n>(\n  array: T[],\n  baseMatcher: (item: T) => boolean,\n  /**\n   * optionally, item can be mapped to add some info after match is found or not\n   */\n  afterMapper?: (item: T, isMatch: boolean, hasChildMatch: boolean) => T\n) => {\n  return array.reduce(\n    (previous, current) =>\n      magicalRecursiveReducer(previous, current, baseMatcher),\n    [] as T[]\n  );\n}",
+  "name": "searchRecursiveObjectArray",
+  "slug": "search-recursive-object-array",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 403,
+    "lines": 16,
+    "bytes": 403,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "dsocsicrchkhsxkzwortyffr"
+}

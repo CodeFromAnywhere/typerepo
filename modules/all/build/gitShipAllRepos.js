@@ -1,0 +1,3 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.gitShipAllRepos=void 0;var forAllFolders_1=require("./forAllFolders"),gitShipAllRepos=function(e){var l=e.basePath,o=e.callback,r=e.fileName,t=e.folderName,i=e.shell,s=void 0===i||i;return(0,forAllFolders_1.forAllFolders)({type:"git",command:'git add . && git commit -m "Improvements" && git push',basePath:l,callback:o,shell:s,fileName:r,folderName:t})};
+/* `gitShipAllPackages` Just ships code everywhere to github, wherever there's a git folder and there are changes.*/exports.gitShipAllRepos=gitShipAllRepos;
+//# sourceMappingURL=gitShipAllRepos.js.map

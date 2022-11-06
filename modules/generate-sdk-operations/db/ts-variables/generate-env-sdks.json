@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635705043,
+  "updatedAt": 1667635705043,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635705043,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "generateEnvSdks",
+  "slug": "generate-env-sdks",
+  "operationRelativeTypescriptFilePath": "src/generateEnvSdks.ts",
+  "type": {
+    "rawType": "(bundleConfig: import(\"/Users/king/King/operations/tools/types/bundle-types/build/BundleConfig\").BundleConfig, config?: { manualProjectRoot?: string | undefined; skipYarnInstall?: boolean | undefined; dryrun?: boolean | undefined; } | undefined) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  bundleConfig: BundleConfig,\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  const promises = [\n    newEnvSdk(bundleConfig, \"public\", config),\n    newEnvSdk(bundleConfig, \"private\", config),\n  ];\n\n  const results = await Promise.all(promises);\n\n  return results;\n}",
+  "description": "generates sdk-env-public and sdk-env-private\n\nreturns the paths of the geneated operations",
+  "id": "lrkqzbzxucgexdghvtwfurix"
+}

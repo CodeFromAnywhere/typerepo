@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635708272,
+  "updatedAt": 1667635708272,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635708272,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "newSdkOperation",
+  "slug": "new-sdk-operation",
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "type": {
+    "rawType": "(operationName: string, tsFunctions: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction[], config?: { manualProjectRoot?: string | undefined; skipYarnInstall?: boolean | undefined; dryrun?: boolean | undefined; } | undefined) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  operationName: string,\n  tsFunctions: TsFunction[],\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  log(`${operationName} should contain ${tsFunctions.length} functions`, {\n    type: \"debug\",\n  });\n  const skipYarnInstall = config?.skipYarnInstall;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const dryrun = config?.dryrun;\n  const importsString = tsFunctions\n    .map((fn) => `import { ${fn.name} } from \"${fn.operationName}\";`)\n    .join(\"\\n\");\n  const sdkConstString = `export const sdk = { ${tsFunctions\n    .map((fn) => `${fn.name}`)\n    .join(\",\\n\")}};`;\n\n  const sdkTypeString = `export type SdkType = typeof sdk;`;\n\n  const sdkTypescriptFileString = `${importsString}\\n\\n${sdkConstString}\\n\\n${sdkTypeString}`;\n\n  const description = await getSdkDescription(operationName);\n  const operationConfig = await getOperationConfig(operationName, description);\n\n  const filesObject = { [`src/${operationName}.ts`]: sdkTypescriptFileString };\n  const result = await newOperationWithFiles(operationConfig, filesObject, {\n    overwriteIfExists: true,\n    manualProjectRoot,\n    skipYarnInstall,\n    dryrun,\n  });\n\n  return result;\n}",
+  "description": "Uses an array of functions to create an operation that imports all those functions and exports an object where all those functions have been comprised",
+  "id": "tadptzexvopofczmloiipqkn"
+}

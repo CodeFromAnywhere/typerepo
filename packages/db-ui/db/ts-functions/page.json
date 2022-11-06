@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667634532840,
+  "updatedAt": 1667634532840,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634532840,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pages/upsert.tsx",
+  "commentsInside": [],
+  "rawText": " (props: UpsertProps) => {\n  const router = useRouter();\n\n  const [modelQuery] = useUrl(\"model\");\n\n  const query = mapValuesSync(router.query, (value) => takeFirst(value));\n  const model = useGetDbModelQuery(modelQuery as DbModelEnum);\n\n  const allItems = model?.data?.pages\n    ?.map((x) => x.result?.data)\n    .flat()\n    .filter(notEmpty) as AugmentedAnyModelType[];\n  const instance = allItems?.find((x) => x.id === query.id);\n  const index = model?.data?.pages[0]?.result?.index;\n\n  // NB: this is quite ugly, it's obviously not always the same location for every item... yet this is the best I can do for now, I guess...\n  const fileLocations = model?.data?.pages[0]?.result?.fileLocations;\n\n  const projectRelativeStorageFilePath =\n    instance?.projectRelativePath || fileLocations?.[0] || \"\";\n\n  const simplifiedSchema = index?.type?.simplifiedSchema;\n  const referencableModelNames = getReferencableModels(simplifiedSchema)\n    ?.map((x) => x.interfaceName)\n    .filter(notEmpty);\n\n  return (\n    <Div scroll className=\"py-4 px-8 lg:px-20\">\n      {model.isLoading || !simplifiedSchema ? null : (\n        <UpsertForm\n          projectRelativeStorageFilePath={projectRelativeStorageFilePath}\n          simplifiedSchema={simplifiedSchema}\n          instance={instance}\n          referencableModelNames={referencableModelNames}\n        />\n      )}\n    </Div>\n  );\n}",
+  "name": "Page",
+  "slug": "page",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1371,
+    "lines": 39,
+    "bytes": 1371,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 39,
+    "numberOfFiles": 1
+  },
+  "id": "ftsrecikydcnyrohldvsptns"
+}

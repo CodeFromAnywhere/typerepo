@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635524815,
+  "updatedAt": 1667635524815,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635524815,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findPostableToPost",
+  "slug": "find-postable-to-post",
+  "operationRelativeTypescriptFilePath": "src/Postable.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {}",
+  "description": "This function finds a postable from the database and posts it on multiple channels\n\nThis can be executed with a CRON\n\n1. finds a postable that has no posted paired\n2. chooses the channels where this thing can be posted on\n3. for every channel, formats the post correctly\n4. for every channel, places the post",
+  "id": "jcwfaotsgnzslztooyvjgycq"
+}

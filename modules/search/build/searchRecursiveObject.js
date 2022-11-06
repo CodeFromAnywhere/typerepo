@@ -1,0 +1,8 @@
+"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var n,r=1,t=arguments.length;r<t;r++)for(var c in n=arguments[r])Object.prototype.hasOwnProperty.call(n,c)&&(e[c]=n[c]);return e},__assign.apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0}),exports.test=exports.searchRecursiveObjectArray=void 0;var make_test_1=require("make-test"),example=[{name:"no match"},{name:"top level",children:[{name:"second level 1",children:[{name:"downlevel a"}]},{name:"second level 2",children:[{name:"downlevel b"}]}]},{name:"top level",children:[{name:"second level 1",children:[{name:"downlevel a"}]},{name:"second level 2",children:[{name:"downlevel b"},{name:"something else"}]},{name:"something else",children:[{name:"levels here!!!!"},{name:"something else"}]}]}],magicalRecursiveReducer=function(e,n,r){var t,c=__assign({},n);
+// NB: copy!
+return c.children=c.children?c.children.reduce((function(e,n){return magicalRecursiveReducer(e,n,r)}),[]):void 0,(r(c)||(null===(t=c.children)||void 0===t?void 0:t.length))&&e.push(c),e},searchRecursiveObjectArray=function(e,n,
+/**
+ * optionally, item can be mapped to add some info after match is found or not
+ */
+r){return e.reduce((function(e,r){return magicalRecursiveReducer(e,r,n)}),[])};exports.searchRecursiveObjectArray=searchRecursiveObjectArray,exports.test=(0,make_test_1.makeTest)((function(){return(0,exports.searchRecursiveObjectArray)(example,(function(e){return e.name.includes("level")}))}),(function(e){return 2===e.length}));
+//# sourceMappingURL=searchRecursiveObject.js.map

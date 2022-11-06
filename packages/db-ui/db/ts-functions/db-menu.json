@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667634501541,
+  "updatedAt": 1667634501541,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634501541,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/components/Menu/DbMenu.tsx",
+  "commentsInside": [],
+  "rawText": " (\n  menu: UseQueryResult<RealApiReturnType<\"getDatabaseMenu\">, unknown>\n) => {\n  const menuItems = menu.data?.result?.menu.map(\n    (modelInfo: ModelInfo, index: number) => {\n      const key = `menu${index}`;\n      const isSelected = false;\n      return (\n        <MenuItem\n          id={key}\n          canExpand={false}\n          isSelected={isSelected}\n          link={`db?model=${modelInfo.slug}`}\n          title={`${modelInfo.name}`}\n          key={key}\n        />\n      );\n    }\n  );\n  return (\n    <Div>\n      {!menu.data?.isSuccessful ? <Div>{menu.data?.message}</Div> : null}\n\n      <Ul className=\"w-full\">{menuItems}</Ul>\n    </Div>\n  );\n}",
+  "name": "DbMenu",
+  "slug": "db-menu",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 650,
+    "lines": 27,
+    "bytes": 650,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "zzwooqrbzgdswdingjykgqql"
+}

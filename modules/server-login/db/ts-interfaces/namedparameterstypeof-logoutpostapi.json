@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378548574,
+  "updatedAt": 1667378548574,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378548574,
+  "id": "namedparameterstypeof-logoutpostapi",
+  "name": "NamedParameters<typeof logoutPostApi>",
+  "slug": "namedparameterstypeof-logoutpostapi",
+  "operationRelativeTypescriptFilePath": "src/logoutPostApi.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof logoutPostApi>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

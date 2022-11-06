@@ -1,0 +1,50 @@
+[
+  {
+    "createdAt": 1667636024567,
+    "updatedAt": 1667636024567,
+    "deletedAt": 0,
+    "createdFirstAt": 1667636024567,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "/rwn",
+    "rawStatement": "import \"himalayajeep-ui/css.css\";",
+    "parameters": {},
+    "types": [],
+    "firstLine": 11,
+    "lastLine": 11,
+    "id": "hoauznbfjmzkdnfxgvvhzpcp"
+  },
+  {
+    "createdAt": 1667636024567,
+    "updatedAt": 1667636024567,
+    "deletedAt": 0,
+    "createdFirstAt": 1667636024567,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "Binding events.",
+    "rawStatement": "Router.events.on(\"routeChangeStart\", progress.start);",
+    "parameters": {},
+    "types": [],
+    "firstLine": 25,
+    "lastLine": 25,
+    "id": "iekzbyvgtbkjsrqflzqkxrbk"
+  },
+  {
+    "createdAt": 1667636024567,
+    "updatedAt": 1667636024567,
+    "deletedAt": 0,
+    "createdFirstAt": 1667636024567,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "Only holds serverRuntimeConfig and publicRuntimeConfig",
+    "rawStatement": "export type RealAppProps = Omit<AppProps, \"pageProps\"> & {\n  pageProps: MainPageProps;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 32,
+    "lastLine": 32,
+    "id": "yefadsruvudzeloizdkbywrz"
+  }
+]

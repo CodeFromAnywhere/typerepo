@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666263856943,
+  "updatedAt": 1666263856943,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263856943,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const imports = await db.get(\"TsImport\");\n\n  forAllFolders({\n    type: \"operations\",\n    callback: async (folderPath) => {\n      // console.log(folderPath);\n\n      const operationNames = [getLastFolder(folderPath)];\n\n      const x = await findAllDependencyOperations({ operationNames, imports });\n\n      console.log(folderPath, x);\n    },\n  });\n}",
+  "name": "test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 363,
+    "lines": 16,
+    "bytes": 363,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "qakefijmtajapxddajohxubs"
+}

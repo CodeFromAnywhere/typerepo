@@ -1,0 +1,70 @@
+{
+  "createdAt": 1666264483010,
+  "updatedAt": 1666264483010,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264483010,
+  "id": "namedparameterstypeof-exitifoperationschange",
+  "name": "NamedParameters<typeof exitIfOperationsChange>",
+  "slug": "namedparameterstypeof-exitifoperationschange",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "allOperationSourcePaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "manualProjectRoot": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allOperationSourcePaths"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "allOperationSourcePaths",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof exitIfOperationsChange>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

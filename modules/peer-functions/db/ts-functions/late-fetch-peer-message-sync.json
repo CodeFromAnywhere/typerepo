@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666262512408,
+  "updatedAt": 1666262512408,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262512408,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/lateFetchPeerMessageSync.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  // goes over all peers, and fetches all their messages since the last sync\n  const peers = await db.get(\"Peer\", { include: { referenceKey: \"personId\" } });\n\n  const result = await oneByOne(peers, async (peer) => {\n    const lastSyncedAt = peer.lastSyncDatabaseAtObject.PeerMessage;\n\n    // get new PeerMessages after last sync\n    const apiResult = await apiWithConfig.getDbModel(\n      {\n        apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n        authToken: peer.authToken,\n        timeout: 2000,\n      },\n      \"PeerMessage\",\n      {\n        dataFilters: [\n          {\n            objectParameterKey: \"peerSlug\",\n            operator: \"equal\",\n            value: peer.slug,\n          },\n          {\n            // updatedAt is better than createdAt because it can also work if the model can be updated and if the messages can be edited for example. The id stays the same so upsert will overwrite it\n            objectParameterKey: \"updatedAt\",\n            operator: \"gt\",\n            value: lastSyncedAt,\n          },\n        ],\n      }\n    );\n    const newPeerMessages = apiResult.result?.data as PeerMessage[] | undefined;\n\n    if (!newPeerMessages) {\n      // PEER is not online\n      return;\n    }\n\n    // TODO: this should be augmented I think\n    // @ts-ignore\n    const upsertResult = await db.upsert(\"PeerMessage\", newPeerMessages);\n\n    // Update peer to state that we have just synced (and the peer seems to be online)\n    const updatedResult = await db.update(\n      \"Peer\",\n      (p) => p.name === peer.name,\n      (p) => ({\n        ...p,\n        lastOnlineAt: Date.now(),\n        lastSyncDatabaseAtObject: {\n          ...p.lastSyncDatabaseAtObject,\n          PeerMessage: Date.now(),\n        },\n      })\n    );\n\n    return upsertResult;\n  });\n\n  const add = (previous: number, current: number) => previous + current;\n  const sum = result\n    .filter(notEmpty)\n    .map((x) => x.amountInserted)\n    .filter(notEmpty)\n    .reduce(add, 0);\n\n  return { newMessagesAmount: sum };\n}",
+  "name": "lateFetchPeerMessageSync",
+  "slug": "late-fetch-peer-message-sync",
+  "parameters": [],
+  "description": "Should sync messages from all peers that are online into your database",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 2094,
+    "lines": 68,
+    "bytes": 2094,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 68,
+    "numberOfFiles": 1
+  },
+  "id": "wkjtwxabpozzdhdvojfwnhko"
+}

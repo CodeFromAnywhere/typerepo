@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667635983319,
+  "updatedAt": 1667635983319,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635983319,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pages/jeep-login.tsx",
+  "commentsInside": [],
+  "rawText": " (props: MainPageProps) => {\n  const alert = useAlert();\n  const [loginToken, setLoginToken] = useStore(\"api.loginToken\");\n  return (\n    <Layout pages={props.pages}>\n      <P>Login page</P>\n\n      <FunctionForm\n        tsFunction={DriverLoginFunction}\n        withApiResult={(result: RealApiReturnType<\"driverLogin\">) => {\n          const title = result.result?.isSuccessful ? \"Logged in\" : \"Error\";\n          const message =\n            result.result?.message ||\n            \"Something went wrong (no message avaiable)\";\n\n          alert?.(title, message);\n          console.log({ result });\n\n          if (result.result?.loginToken) {\n            setLoginToken(result.result?.loginToken);\n          }\n        }}\n        hideResult\n      />\n    </Layout>\n  );\n}",
+  "name": "JeepLogin",
+  "slug": "jeep-login",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 763,
+    "lines": 27,
+    "bytes": 763,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "xpvqnwkksteuhiwtodlomccy"
+}

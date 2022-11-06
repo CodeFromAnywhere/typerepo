@@ -1,0 +1,21 @@
+"use strict";var __awaiter=this&&this.__awaiter||function(n,e,t,r){return new(t||(t=Promise))((function(i,o){function a(n){try{l(r.next(n))}catch(n){o(n)}}function u(n){try{l(r.throw(n))}catch(n){o(n)}}function l(n){var e;n.done?i(n.value):(e=n.value,e instanceof t?e:new t((function(n){n(e)}))).then(a,u)}l((r=r.apply(n,e||[])).next())}))},__generator=this&&this.__generator||function(n,e){var t,r,i,o,a={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return o={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function u(o){return function(u){return function(o){if(t)throw new TypeError("Generator is already executing.");for(;a;)try{if(t=1,r&&(i=2&o[0]?r.return:o[0]?r.throw||((i=r.return)&&i.call(r),0):r.next)&&!(i=i.call(r,o[1])).done)return i;switch(r=0,i&&(o=[2&o[0],i.value]),o[0]){case 0:case 1:i=o;break;case 4:return a.label++,{value:o[1],done:!1};case 5:a.label++,r=o[1],o=[0];continue;case 7:o=a.ops.pop(),a.trys.pop();continue;default:if(!(i=a.trys,(i=i.length>0&&i[i.length-1])||6!==o[0]&&2!==o[0])){a=0;continue}if(3===o[0]&&(!i||o[1]>i[0]&&o[1]<i[3])){a.label=o[1];break}if(6===o[0]&&a.label<i[1]){a.label=i[1],i=o;break}if(i&&a.label<i[2]){a.label=i[2],a.ops.push(o);break}i[2]&&a.ops.pop(),a.trys.pop();continue}o=e.call(n,a)}catch(n){o=[6,n],r=0}finally{t=i=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,u])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.watchFoldersChokidar=void 0;
+// import { watch } from "fs";
+var chokidar_1=require("chokidar"),fs_util_1=require("fs-util"),log_1=require("log"),pending=[],noPending=function(){return 0===pending.length},isStillPending=function(){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(n){switch(n.label){case 0:return noPending()?[2/*return*/,!1]:(
+console.log("awaiting pending",pending),[4/*yield*/,new Promise((function(n,e){
+// do this every 5 seconds
+setInterval((function(){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(e){return noPending()&&n(),[2/*return*/]}))}))}),5e3);
+}))]);case 1:return n.sent(),[2/*return*/]}}))}))},watchFoldersChokidar=function(n){n.debug;var e=n.folders,t=n.onChange;n.takeLatest;return __awaiter(void 0,void 0,void 0,(function(){var n;return __generator(this,(function(r){return n=Date.now(),e.map((function(e){(0,chokidar_1.watch)("".concat(e,"/*")).on("all",(function(r,i){return __awaiter(void 0,void 0,void 0,(function(){var o,a,u,l,c,s,f;return __generator(this,(function(d){switch(d.label){case 0:
+// NB: in the beginning , all folders/files are firing the "addDir" and "add" events, this hack prevents that this fires rebuilds for all folders.
+return Date.now()<n+1e3||"addDir"===r?[2/*return*/]:[4/*yield*/,fs_util_1.fs.stat(i)];
+// NB: addDir should not be firing anything
+case 1:
+// NB: ensure that the path is not a directory
+return d.sent().isDirectory()?[2/*return*/]:(
+// if a file was just triggered and within a second triggered again, ignore it
+// same file within a second
+o=i.substring(e.length+1),a=pending.filter((function(n){return n.filename===o})),(u=a.pop())&&Date.now()-u.time<5e3?((0,log_1.log)("double trigger of ".concat(o,", ignoring"),{type:"warning"}),[2/*return*/]):a.length>0?((0,log_1.log)("multiple pending of this file, ignoring",{type:"warning"}),[2/*return*/]):(l=Date.now(),pending.push({filename:o,time:l}),c=e,s=fs_util_1.path.join(c,".."),f=fs_util_1.path.join(e,o),[4/*yield*/,t({operationBasePath:s,eventType:"change",filePaths:[f]})]));case 2:
+// TODO: Somehow, it would be great if we could batch changes from multiple files together, so it will execute after there are no changes for more than 30 seconds (or if you press the 'e' button). This will make it more efficient.
+return d.sent(),
+// after it's done, remove from the array
+pending=pending.filter((function(n){return n.filename===i&&n.time===l})),[2/*return*/]}}))}))}))})),[2/*return*/]}))}))};exports.watchFoldersChokidar=watchFoldersChokidar;
+//# sourceMappingURL=chokidar.js.map

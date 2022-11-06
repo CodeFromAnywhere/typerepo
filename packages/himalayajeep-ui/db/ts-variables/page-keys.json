@@ -1,0 +1,66 @@
+{
+  "createdAt": 1667635988094,
+  "updatedAt": 1667635988094,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635988094,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "pageKeys",
+  "slug": "page-keys",
+  "operationRelativeTypescriptFilePath": "src/pages.ts",
+  "type": {
+    "rawType": "(\"JeepSignupPage\" | \"EditProfile\" | \"IndexPage\" | \"JeepList\" | \"JeepLogin\" | \"JeepView\")[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "enum": [
+          "JeepSignupPage",
+          "EditProfile",
+          "IndexPage",
+          "JeepList",
+          "JeepLogin",
+          "JeepView"
+        ],
+        "x-enumNames": [
+          "JeepSignupPage",
+          "EditProfile",
+          "IndexPage",
+          "JeepList",
+          "JeepLogin",
+          "JeepView"
+        ],
+        "type": "string"
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "enum": [
+              "JeepSignupPage",
+              "EditProfile",
+              "IndexPage",
+              "JeepList",
+              "JeepLogin",
+              "JeepView"
+            ],
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "value": "Object.keys(pagesObject) as PageKey[]",
+  "description": "",
+  "id": "omxmrcifubpmcgnrryfcniaq"
+}

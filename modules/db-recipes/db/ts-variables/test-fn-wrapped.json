@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667233173950,
+  "updatedAt": 1667233173950,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233173950,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "testFnWrapped",
+  "slug": "test-fn-wrapped",
+  "operationRelativeTypescriptFilePath": "src/wrapFunction.test.ts",
+  "type": {
+    "rawType": "(...parameters: Parameters<TFunc>) => ReturnType<TFunc>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "wrapFunction(testFn)",
+  "description": "",
+  "id": "ckvwutwbhnbtivxxvyarjita"
+}

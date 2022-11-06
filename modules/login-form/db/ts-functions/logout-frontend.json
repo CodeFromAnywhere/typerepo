@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667379322226,
+  "updatedAt": 1667379322226,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379322226,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/logoutFrontend.ts",
+  "commentsInside": [],
+  "rawText": " async (): Promise<void> => {\n  const logoutResult: LogoutResult = await fetch(`${apiUrl}/logout`, {\n    method: \"POST\",\n    headers: {\n      Accept: \"application/json\",\n      \"Content-Type\": \"application/json\",\n    },\n  })\n    .then((res) => res.json())\n    .catch((e) => {\n      return { isSuccessful: false, message: \"fetch failed\" };\n    });\n\n  if (!logoutResult.isSuccessful) {\n    return;\n  }\n}",
+  "name": "logoutFrontend",
+  "slug": "logout-frontend",
+  "parameters": [],
+  "description": "Ensures cookie is gone but also that the device is not logged into the `Person` anymore",
+  "returnType": {
+    "rawType": "Promise<void>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 487,
+    "lines": 17,
+    "bytes": 487,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "amgbdyczigmoafhcuhonlufs"
+}

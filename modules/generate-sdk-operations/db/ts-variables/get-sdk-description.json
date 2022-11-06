@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635712218,
+  "updatedAt": 1667635712218,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635712218,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getSdkDescription",
+  "slug": "get-sdk-description",
+  "operationRelativeTypescriptFilePath": "src/getSdkDescription.ts",
+  "type": {
+    "rawType": "(operationName: string) => Promise<string | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  operationName: string\n): Promise<string | undefined> => {\n  const descriptionPath = path.join(\n    __dirname,\n    \"..\",\n    \"assets\",\n    \"descriptions\",\n    `${operationName}.md`\n  );\n\n  if (!fs.existsSync(descriptionPath)) return;\n\n  const contents = await fs.readFile(descriptionPath, \"utf8\");\n\n  return contents;\n}",
+  "description": "Gets a description of any sdk operation from the assets",
+  "id": "gzogfgdimygvlfgexnqksuqh"
+}

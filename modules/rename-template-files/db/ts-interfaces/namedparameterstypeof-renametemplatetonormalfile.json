@@ -1,0 +1,49 @@
+{
+  "createdAt": 1666258791772,
+  "updatedAt": 1666258791772,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258791772,
+  "id": "namedparameterstypeof-renametemplatetonormalfile",
+  "name": "NamedParameters<typeof renameTemplateToNormalFile>",
+  "slug": "namedparameterstypeof-renametemplatetonormalfile",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fileName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "fileName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof renameTemplateToNormalFile>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

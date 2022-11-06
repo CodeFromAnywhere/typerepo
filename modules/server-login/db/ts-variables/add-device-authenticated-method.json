@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378539680,
+  "updatedAt": 1667378539680,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378539680,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "addDeviceAuthenticatedMethod",
+  "slug": "add-device-authenticated-method",
+  "operationRelativeTypescriptFilePath": "src/addDeviceAuthenticatedMethod.ts",
+  "type": {
+    "rawType": "(deviceId: string, method: import(\"/Users/king/King/operations/tools/p2p/peer-types/build/AuthenticationMethjod\").AuthenticationMethodMethod, handle: string, credential?: string | undefined) => Promise<{ isSuccessful: boolean; message: string; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  deviceId: string,\n  method: AuthenticationMethodMethod,\n  handle: AuthenticationMethod[\"handle\"],\n  credential?: string\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  if (method === \"email\") {\n    // send email to `handle`\n\n    if (!isEmail(handle)) {\n      return {\n        isSuccessful: false,\n        message: \"Please provide a correct email\",\n      };\n    }\n\n    const otp = Math.round(100000 + Math.random() * 900000);\n\n    const text = `Please verify your email with this code: ${otp}. You have 10 minutes.`;\n\n    const updateResult = await db.update(\n      \"Device\",\n      (item) => item.id === deviceId,\n      (old) => ({\n        ...old,\n        authenticationMethods: old.authenticationMethods.concat({\n          method: \"email\",\n          handle,\n          isAuthenticated: false,\n          otp,\n        }),\n      })\n    );\n    const mailResult = await sendMail({\n      to: handle,\n      subject: \"Verify your email\",\n    });\n\n    if (!mailResult) {\n      return { isSuccessful: false, message: \"Couldn't send email\" };\n    }\n\n    return { isSuccessful: true, message: \"Code sent, please verify.\" };\n  }\n\n  if (method === \"phoneNumber\") {\n    // send sms to `handle`\n\n    if (!isPhoneNumber(handle)) {\n      return {\n        isSuccessful: false,\n        message: \"Please provide a correct phone number\",\n      };\n    }\n\n    const otp = Math.round(100000 + Math.random() * 900000);\n    const body = `Please verify your phone number with this code: ${otp}. You have 10 minutes.`;\n\n    const updateResult = await db.update(\n      \"Device\",\n      (item) => item.id === deviceId,\n      (old) => ({\n        ...old,\n        authenticationMethods: old.authenticationMethods.concat({\n          method: \"phoneNumber\",\n          handle,\n          isAuthenticated: false,\n          otp,\n        }),\n      })\n    );\n    const smsResult = await sendSms({ to: handle, body });\n\n    if (!smsResult) {\n      return { isSuccessful: false, message: \"Couldn't send sms\" };\n    }\n\n    return { isSuccessful: true, message: \"Code sent, please verify.\" };\n  }\n\n  if (method === \"usernamePassword\") {\n    // add username and password to the authenticated methods\n\n    if (!credential || !isValidPassword(credential)) {\n      return {\n        isSuccessful: false,\n        message: \"Please provide a valid password\",\n      };\n    }\n\n    const encryptedCredential = await encryptPassword(credential);\n\n    const updateResult = await db.update(\n      \"Device\",\n      (item) => item.id === deviceId,\n      (old) => ({\n        ...old,\n        authenticationMethods: old.authenticationMethods.concat({\n          method: \"usernamePassword\",\n          handle,\n          encryptedCredential,\n          isAuthenticated: true,\n        }),\n      })\n    );\n\n    return { isSuccessful: true, message: \"Username/password has been set.\" };\n  }\n\n  return { isSuccessful: false, message: \"method not implemented yet\" };\n}",
+  "description": "sends an email or sms, or already confirms in case of emailPassword\n\n\nTODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.",
+  "id": "xgjfjbpfhdvhhexinzfqndps"
+}

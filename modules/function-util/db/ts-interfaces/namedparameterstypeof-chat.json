@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260891028,
+  "updatedAt": 1666260891028,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260891028,
+  "id": "namedparameterstypeof-chat",
+  "name": "NamedParameters<typeof chat>",
+  "slug": "namedparameterstypeof-chat",
+  "operationRelativeTypescriptFilePath": "src/converse-extra.test.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof chat>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

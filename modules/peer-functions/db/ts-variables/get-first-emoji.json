@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262500374,
+  "updatedAt": 1666262500374,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262500374,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getFirstEmoji",
+  "slug": "get-first-emoji",
+  "operationRelativeTypescriptFilePath": "src/getFirstEmoji.ts",
+  "type": {
+    "rawType": "(text?: string | undefined) => string | undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(text?: string): string | undefined => {\n  if (!text) return;\n  return text?.match(emojiRegex())?.[0];\n}",
+  "description": "",
+  "id": "tdvexpevizfxrnxtzuquzbdo"
+}

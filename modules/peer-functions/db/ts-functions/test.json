@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666262501347,
+  "updatedAt": 1666262501347,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262501347,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/getNestedPathObject.test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  const publicFolderPath = path.join(projectRoot, \"public\");\n\n  const nestedPathObject = await getNestedPathObject(publicFolderPath);\n\n  console.dir({ nestedPathObject }, { depth: 9999 });\n}",
+  "name": "test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 274,
+    "lines": 10,
+    "bytes": 274,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "meytsgzosabkzwhkkjnffpod"
+}

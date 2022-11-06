@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667379319435,
+  "updatedAt": 1667379319435,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379319435,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/LoginWrapper.tsx",
+  "commentsInside": [],
+  "rawText": " (props: {\n  title?: string;\n  children: JSX.Element;\n}) => {\n  const [authToken, setAuthToken, { hydrated }] = useStore(\"api.authToken\");\n  const showLogin = (!authToken || authToken.length === 0) && hydrated;\n\n  const pingApi = async () => {\n    const result = await api.ping();\n    if (\n      !result.isSuccessful ||\n      result.isUnauthorized ||\n      result.result !== true\n    ) {\n      logoutFrontend();\n    }\n  };\n\n  useEffect(() => {\n    if (!hydrated) return;\n\n    if (authToken.length === 0) {\n      setAuthToken(generateId());\n    }\n\n    pingApi();\n  }, [authToken, hydrated]);\n\n  return (\n    <Span className=\"h-screen\">\n      {showLogin ? <LoginForm title={props.title} /> : props.children}\n    </Span>\n  );\n}",
+  "name": "LoginWrapper",
+  "slug": "login-wrapper",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 724,
+    "lines": 34,
+    "bytes": 724,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 34,
+    "numberOfFiles": 1
+  },
+  "id": "zpfzokeuwkxqwgvlstkbxrrt"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667402312662,
+  "updatedAt": 1667402312662,
+  "deletedAt": 0,
+  "createdFirstAt": 1667402312662,
+  "id": "namedparameterstypeof-getpublicjeeps",
+  "name": "NamedParameters<typeof getPublicJeeps>",
+  "slug": "namedparameterstypeof-getpublicjeeps",
+  "operationRelativeTypescriptFilePath": "src/getJeeps.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPublicJeeps>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

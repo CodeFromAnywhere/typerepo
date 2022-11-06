@@ -1,0 +1,61 @@
+{
+  "createdAt": 1664527545799,
+  "updatedAt": 1667635488055,
+  "deletedAt": 0,
+  "createdFirstAt": 1664527545799,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/parsing/read-files/read-markdown-file/src/readMarkdownFileToModel.ts. Error: Error: Type '{ markdown: string; categoryStackCalculated: never[]; language: \\\"english\\\"; privacy: \\\"private\\\" | \\\"request\\\" | \\\"public\\\"; detectedLanguage: any; labels: any; createdAt: number; createdFirstAt: number; ... 13 more ...; operationRelativePath?: string | undefined; }' is missing the following properties from type 'WebMarkdownFile': author_personSlugs, interestSlugs, headerCta\"]",
+  "buildSucceeded": false,
+  "id": "ttxayfasdokercskhfuepfdn",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "read-markdown-file",
+  "packageName": "read-markdown-file",
+  "relativeOperationLocationPath": "operations/tools/parsing/read-files",
+  "classification": "node",
+  "name": "read-markdown-file",
+  "slug": "read-markdown-file",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "canRead",
+    "fs",
+    "path",
+    "Path",
+    "MarkdownParse",
+    "mdToJsonParse",
+    "WebMarkdownFile",
+    "getLastFolder",
+    "path",
+    "omitUndefinedValues",
+    "findOperationBasePath",
+    "getProjectRoot",
+    "makeRelative",
+    "ModelLocation"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 3512,
+      "bytes": 3512
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1565,
+      "bytes": 1565
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 900,
+      "bytes": 900
+    },
+    "size": {
+      "bytes": 5977,
+      "characters": 5977,
+      "lines": 0,
+      "numberOfFiles": 5
+    }
+  }
+}

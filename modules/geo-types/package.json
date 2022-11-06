@@ -1,0 +1,34 @@
+{
+  "createdAt": 1662709577329,
+  "updatedAt": 1662709577329,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577329,
+  "name": "geo-types",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "test": "node build/index.js",
+    "dev": "tsc -w",
+    "build": "tsc",
+    "up": "npm version patch -f",
+    "pub": "npm run up && npm publish"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  },
+  "slug": "geo-types",
+  "id": "zmZNhwbpZoNRTrBq",
+  "dependencies": {
+    "model-types": "0.0.1",
+    "key-value-markdown-js": "0.0.1",
+    "fs-util": "1.0.5",
+    "read-json-file": "0.0.1",
+    "convert-case": "0.0.1"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667635984937,
+  "updatedAt": 1667635984937,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635984937,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pages/jeep-signup.tsx",
+  "commentsInside": [],
+  "rawText": " (props) => {\n  const alert = useAlert();\n\n  return (\n    <Layout pages={props.pages}>\n      <Div>\n        <P>Hello, please sign up here (drivers only)</P>\n\n        <FunctionForm\n          tsFunction={DriverSignupFunction}\n          withApiResult={(result: RealApiReturnType<\"driverSignup\">) => {\n            const title = result.result?.isSuccesful ? \"Signed up\" : \"Error\";\n            const message = result.result?.message || \"Something went wrong\";\n\n            alert?.(title, message);\n            result.result?.message;\n\n            console.log({ result });\n          }}\n          hideResult\n        />\n      </Div>\n    </Layout>\n  );\n}",
+  "name": "JeepSignupPage",
+  "slug": "jeep-signup-page",
+  "parameters": [],
+  "description": "jeep driver needs to sign up",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 671,
+    "lines": 25,
+    "bytes": 671,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 25,
+    "numberOfFiles": 1
+  },
+  "id": "fyfjeourdgefosxllkntxixp"
+}

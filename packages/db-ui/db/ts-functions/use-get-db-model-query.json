@@ -1,0 +1,602 @@
+{
+  "createdAt": 1667634524424,
+  "updatedAt": 1667634524424,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634524424,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/hooks/useGetDbModelQuery.ts",
+  "commentsInside": [],
+  "rawText": " <KDbModel extends DbModelEnum>(\n  modelName: KDbModel | undefined\n) => {\n  const dependencies = [\"getDbModel\", modelName];\n\n  const hook = useInfiniteQuery(\n    dependencies,\n    (context) => {\n      const params = context.pageParam as PageParam | undefined;\n\n      // @ts-ignore\n      const result = getDbModel(modelName!, {\n        start: params?.start || 0,\n        limit: params?.limit || defaultLimit,\n      });\n      return result;\n    },\n    {\n      getNextPageParam: (lastPage, allPages) => {\n        const limit = lastPage.result?.limit || defaultLimit;\n        const oldStart = lastPage.result?.start || 0;\n        const pageParam: PageParam = {\n          start: oldStart + limit,\n          limit,\n        };\n\n        return pageParam;\n      },\n    }\n  );\n\n  return hook;\n}",
+  "name": "useGetDbModelQuery",
+  "slug": "use-get-db-model-query",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/node_modules/react-query/types/react/types\").UseInfiniteQueryResult<unknown, unknown>",
+    "typeDefinition": {
+      "optional": false,
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "data": {},
+            "error": {},
+            "isError": {},
+            "isIdle": {},
+            "isLoading": {},
+            "isLoadingError": {},
+            "isRefetchError": {},
+            "isSuccess": {},
+            "status": {},
+            "fetchNextPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "fetchPreviousPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "isFetchingNextPage": {
+              "type": "boolean"
+            },
+            "isFetchingPreviousPage": {
+              "type": "boolean"
+            },
+            "dataUpdatedAt": {
+              "type": "number"
+            },
+            "errorUpdatedAt": {
+              "type": "number"
+            },
+            "failureCount": {
+              "type": "number"
+            },
+            "errorUpdateCount": {
+              "type": "number"
+            },
+            "isFetched": {
+              "type": "boolean"
+            },
+            "isFetchedAfterMount": {
+              "type": "boolean"
+            },
+            "isFetching": {
+              "type": "boolean"
+            },
+            "isPlaceholderData": {
+              "type": "boolean"
+            },
+            "isPreviousData": {
+              "type": "boolean"
+            },
+            "isRefetching": {
+              "type": "boolean"
+            },
+            "isStale": {
+              "type": "boolean"
+            },
+            "refetch": {
+              "type": "object",
+              "properties": {}
+            },
+            "remove": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "required": [
+            "data",
+            "error",
+            "isError",
+            "isIdle",
+            "isLoading",
+            "isLoadingError",
+            "isRefetchError",
+            "isSuccess",
+            "status",
+            "fetchNextPage",
+            "fetchPreviousPage",
+            "isFetchingNextPage",
+            "isFetchingPreviousPage",
+            "dataUpdatedAt",
+            "errorUpdatedAt",
+            "failureCount",
+            "errorUpdateCount",
+            "isFetched",
+            "isFetchedAfterMount",
+            "isFetching",
+            "isPlaceholderData",
+            "isPreviousData",
+            "isRefetching",
+            "isStale",
+            "refetch",
+            "remove"
+          ],
+          "optional": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "data": {},
+            "error": {},
+            "isError": {},
+            "isIdle": {},
+            "isLoading": {},
+            "isLoadingError": {},
+            "isRefetchError": {},
+            "isSuccess": {},
+            "status": {},
+            "fetchNextPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "fetchPreviousPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "isFetchingNextPage": {
+              "type": "boolean"
+            },
+            "isFetchingPreviousPage": {
+              "type": "boolean"
+            },
+            "dataUpdatedAt": {
+              "type": "number"
+            },
+            "errorUpdatedAt": {
+              "type": "number"
+            },
+            "failureCount": {
+              "type": "number"
+            },
+            "errorUpdateCount": {
+              "type": "number"
+            },
+            "isFetched": {
+              "type": "boolean"
+            },
+            "isFetchedAfterMount": {
+              "type": "boolean"
+            },
+            "isFetching": {
+              "type": "boolean"
+            },
+            "isPlaceholderData": {
+              "type": "boolean"
+            },
+            "isPreviousData": {
+              "type": "boolean"
+            },
+            "isRefetching": {
+              "type": "boolean"
+            },
+            "isStale": {
+              "type": "boolean"
+            },
+            "refetch": {
+              "type": "object",
+              "properties": {}
+            },
+            "remove": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "required": [
+            "data",
+            "error",
+            "isError",
+            "isIdle",
+            "isLoading",
+            "isLoadingError",
+            "isRefetchError",
+            "isSuccess",
+            "status",
+            "fetchNextPage",
+            "fetchPreviousPage",
+            "isFetchingNextPage",
+            "isFetchingPreviousPage",
+            "dataUpdatedAt",
+            "errorUpdatedAt",
+            "failureCount",
+            "errorUpdateCount",
+            "isFetched",
+            "isFetchedAfterMount",
+            "isFetching",
+            "isPlaceholderData",
+            "isPreviousData",
+            "isRefetching",
+            "isStale",
+            "refetch",
+            "remove"
+          ],
+          "optional": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "data": {},
+            "error": {},
+            "isError": {},
+            "isIdle": {},
+            "isLoading": {},
+            "isLoadingError": {},
+            "isRefetchError": {},
+            "isSuccess": {},
+            "status": {},
+            "fetchNextPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "fetchPreviousPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "isFetchingNextPage": {
+              "type": "boolean"
+            },
+            "isFetchingPreviousPage": {
+              "type": "boolean"
+            },
+            "dataUpdatedAt": {
+              "type": "number"
+            },
+            "errorUpdatedAt": {
+              "type": "number"
+            },
+            "failureCount": {
+              "type": "number"
+            },
+            "errorUpdateCount": {
+              "type": "number"
+            },
+            "isFetched": {
+              "type": "boolean"
+            },
+            "isFetchedAfterMount": {
+              "type": "boolean"
+            },
+            "isFetching": {
+              "type": "boolean"
+            },
+            "isPlaceholderData": {
+              "type": "boolean"
+            },
+            "isPreviousData": {
+              "type": "boolean"
+            },
+            "isRefetching": {
+              "type": "boolean"
+            },
+            "isStale": {
+              "type": "boolean"
+            },
+            "refetch": {
+              "type": "object",
+              "properties": {}
+            },
+            "remove": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "required": [
+            "data",
+            "error",
+            "isError",
+            "isIdle",
+            "isLoading",
+            "isLoadingError",
+            "isRefetchError",
+            "isSuccess",
+            "status",
+            "fetchNextPage",
+            "fetchPreviousPage",
+            "isFetchingNextPage",
+            "isFetchingPreviousPage",
+            "dataUpdatedAt",
+            "errorUpdatedAt",
+            "failureCount",
+            "errorUpdateCount",
+            "isFetched",
+            "isFetchedAfterMount",
+            "isFetching",
+            "isPlaceholderData",
+            "isPreviousData",
+            "isRefetching",
+            "isStale",
+            "refetch",
+            "remove"
+          ],
+          "optional": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "pages": {
+                  "type": "array",
+                  "items": {}
+                },
+                "pageParams": {
+                  "type": "array",
+                  "items": {}
+                }
+              },
+              "required": [
+                "pages",
+                "pageParams"
+              ]
+            },
+            "error": {},
+            "isError": {},
+            "isIdle": {},
+            "isLoading": {},
+            "isLoadingError": {},
+            "isRefetchError": {},
+            "isSuccess": {},
+            "status": {},
+            "fetchNextPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "fetchPreviousPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "isFetchingNextPage": {
+              "type": "boolean"
+            },
+            "isFetchingPreviousPage": {
+              "type": "boolean"
+            },
+            "dataUpdatedAt": {
+              "type": "number"
+            },
+            "errorUpdatedAt": {
+              "type": "number"
+            },
+            "failureCount": {
+              "type": "number"
+            },
+            "errorUpdateCount": {
+              "type": "number"
+            },
+            "isFetched": {
+              "type": "boolean"
+            },
+            "isFetchedAfterMount": {
+              "type": "boolean"
+            },
+            "isFetching": {
+              "type": "boolean"
+            },
+            "isPlaceholderData": {
+              "type": "boolean"
+            },
+            "isPreviousData": {
+              "type": "boolean"
+            },
+            "isRefetching": {
+              "type": "boolean"
+            },
+            "isStale": {
+              "type": "boolean"
+            },
+            "refetch": {
+              "type": "object",
+              "properties": {}
+            },
+            "remove": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "required": [
+            "data",
+            "error",
+            "isError",
+            "isIdle",
+            "isLoading",
+            "isLoadingError",
+            "isRefetchError",
+            "isSuccess",
+            "status",
+            "fetchNextPage",
+            "fetchPreviousPage",
+            "isFetchingNextPage",
+            "isFetchingPreviousPage",
+            "dataUpdatedAt",
+            "errorUpdatedAt",
+            "failureCount",
+            "errorUpdateCount",
+            "isFetched",
+            "isFetchedAfterMount",
+            "isFetching",
+            "isPlaceholderData",
+            "isPreviousData",
+            "isRefetching",
+            "isStale",
+            "refetch",
+            "remove"
+          ],
+          "optional": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "pages": {
+                  "type": "array",
+                  "items": {}
+                },
+                "pageParams": {
+                  "type": "array",
+                  "items": {}
+                }
+              },
+              "required": [
+                "pages",
+                "pageParams"
+              ]
+            },
+            "error": {},
+            "isError": {},
+            "isIdle": {},
+            "isLoading": {},
+            "isLoadingError": {},
+            "isRefetchError": {},
+            "isSuccess": {},
+            "status": {},
+            "fetchNextPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "fetchPreviousPage": {
+              "type": "object",
+              "properties": {}
+            },
+            "hasNextPage": {
+              "type": "boolean"
+            },
+            "hasPreviousPage": {
+              "type": "boolean"
+            },
+            "isFetchingNextPage": {
+              "type": "boolean"
+            },
+            "isFetchingPreviousPage": {
+              "type": "boolean"
+            },
+            "dataUpdatedAt": {
+              "type": "number"
+            },
+            "errorUpdatedAt": {
+              "type": "number"
+            },
+            "failureCount": {
+              "type": "number"
+            },
+            "errorUpdateCount": {
+              "type": "number"
+            },
+            "isFetched": {
+              "type": "boolean"
+            },
+            "isFetchedAfterMount": {
+              "type": "boolean"
+            },
+            "isFetching": {
+              "type": "boolean"
+            },
+            "isPlaceholderData": {
+              "type": "boolean"
+            },
+            "isPreviousData": {
+              "type": "boolean"
+            },
+            "isRefetching": {
+              "type": "boolean"
+            },
+            "isStale": {
+              "type": "boolean"
+            },
+            "refetch": {
+              "type": "object",
+              "properties": {}
+            },
+            "remove": {
+              "type": "object",
+              "properties": {}
+            }
+          },
+          "required": [
+            "data",
+            "error",
+            "isError",
+            "isIdle",
+            "isLoading",
+            "isLoadingError",
+            "isRefetchError",
+            "isSuccess",
+            "status",
+            "fetchNextPage",
+            "fetchPreviousPage",
+            "isFetchingNextPage",
+            "isFetchingPreviousPage",
+            "dataUpdatedAt",
+            "errorUpdatedAt",
+            "failureCount",
+            "errorUpdateCount",
+            "isFetched",
+            "isFetchedAfterMount",
+            "isFetching",
+            "isPlaceholderData",
+            "isPreviousData",
+            "isRefetching",
+            "isStale",
+            "refetch",
+            "remove"
+          ],
+          "optional": false
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 784,
+    "lines": 33,
+    "bytes": 784,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 33,
+    "numberOfFiles": 1
+  },
+  "id": "vsqbnvnjfldjtardycfkqgmf"
+}

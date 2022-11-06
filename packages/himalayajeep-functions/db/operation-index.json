@@ -1,0 +1,63 @@
+{
+  "createdAt": 1664530535128,
+  "updatedAt": 1667402318090,
+  "deletedAt": 0,
+  "createdFirstAt": 1664530535128,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep-functions/src/driverSignup.ts. Error: Error: Argument of type '\\\"JeepType\\\"' is not assignable to parameter of type 'keyof DbModels'.\\n\\nProperty 'email' does not exist on type 'PeerMessage | Peer | SlugModelType | Platform | BundleConfig | MarkdownFileConfig | OperationConfig | ... 80 more ... | ValueChainPhase'.\\n  Property 'email' does not exist on type 'PeerMessage'.\\n\\nProperty 'phone' does not exist on type 'PeerMessage | Peer | SlugModelType | Platform | BundleConfig | MarkdownFileConfig | OperationConfig | ... 80 more ... | ValueChainPhase'.\\n  Property 'phone' does not exist on type 'PeerMessage'.\\n\\nExpression produces a union type that is too complex to represent.\\n\\nArgument of type '\\\"JeepType\\\"' is not assignable to parameter of type 'keyof DbModels'.\"]",
+  "buildSucceeded": true,
+  "id": "qeyyazezfuavhizonssrrcee",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "himalayajeep-functions",
+  "packageName": "himalayajeep-functions",
+  "relativeOperationLocationPath": "operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep",
+  "classification": "node",
+  "name": "himalayajeep-functions",
+  "slug": "himalayajeep-functions",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "db",
+    "encryptPassword",
+    "comparePassword",
+    "db",
+    "UpsertQueryConfig",
+    "JeepType",
+    "SignupJeepType",
+    "Creation",
+    "generateRandomString",
+    "isEmail",
+    "encryptPassword",
+    "isValidPassword",
+    "db",
+    "PublicJeepType",
+    "db",
+    "MyJeepType"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 4,
+      "lines": 0,
+      "characters": 5829,
+      "bytes": 5829
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2390,
+      "bytes": 2390
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 1461,
+      "bytes": 1461
+    },
+    "size": {
+      "bytes": 9680,
+      "characters": 9680,
+      "lines": 0,
+      "numberOfFiles": 7
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635978762,
+  "updatedAt": 1667635978762,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635978762,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "MenuItem",
+  "slug": "menu-item",
+  "operationRelativeTypescriptFilePath": "src/components/MenuItem.tsx",
+  "type": {
+    "rawType": "(props: { onClick: () => void; children: unknown; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { onClick: () => void; children: unknown }) => {\n  const { children, onClick } = props;\n\n  return (\n    <Div\n      className=\"cursor-pointer hover:bg-gray-200 py-4 pl-2\"\n      textClassName=\"hover:font-bold\"\n      onClick={onClick}\n    >\n      <P>{children}</P>\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "dpkfcpzbcouklpfhjdihybfx"
+}

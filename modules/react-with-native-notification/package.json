@@ -1,0 +1,49 @@
+{
+  "createdAt": 1662709577330,
+  "updatedAt": 1662709577330,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577330,
+  "name": "react-with-native-notification",
+  "version": "1.0.42",
+  "description": "",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "pub": "npm version patch --force && npm publish",
+    "build": "tsc",
+    "dev": "npx tsc-watch --onSuccess 'yarn dev:tw'",
+    "dev:tw": "tailwindcss -o css.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Code-From-Anywhere/react-with-native.git"
+  },
+  "keywords": [
+    "notification",
+    "component",
+    "react",
+    "with",
+    "native"
+  ],
+  "author": "Wijnand Karsens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Code-From-Anywhere/react-with-native/issues"
+  },
+  "homepage": "https://github.com/Code-From-Anywhere/react-with-native#readme",
+  "devDependencies": {
+    "expo-notifications": "^0.13.3",
+    "react-toastify": "^8.1.0",
+    "react-with-native": "*",
+    "tailwindcss": "^3.0.24"
+  },
+  "dependencies": {
+    "react": "17.0.2",
+    "@types/react-toastify": "^4.1.0"
+  },
+  "slug": "react-with-native-notification",
+  "id": "BpXbOAxWSlAaCPPy",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

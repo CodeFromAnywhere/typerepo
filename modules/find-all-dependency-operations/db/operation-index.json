@@ -1,0 +1,59 @@
+{
+  "createdAt": 1664527983873,
+  "updatedAt": 1666263861346,
+  "deletedAt": 0,
+  "createdFirstAt": 1664527983873,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/find-all-dependency-operations/src/findAllDependencyOperations.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+  "buildSucceeded": true,
+  "id": "illakmwstwzaqhuyeqiudpxb",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "find-all-dependency-operations",
+  "packageName": "find-all-dependency-operations",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "find-all-dependency-operations",
+  "slug": "find-all-dependency-operations",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "mergeObjectsArray",
+    "notEmpty",
+    "onlyUnique",
+    "onlyUnique2",
+    "db",
+    "exploreOperationFolders",
+    "getLastFolder",
+    "TsImport",
+    "oneByOne",
+    "forAllFolders",
+    "db",
+    "getLastFolder"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 7640,
+      "bytes": 7640
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1601,
+      "bytes": 1601
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 2958,
+      "bytes": 2958
+    },
+    "size": {
+      "bytes": 12199,
+      "characters": 12199,
+      "lines": 0,
+      "numberOfFiles": 5
+    }
+  }
+}

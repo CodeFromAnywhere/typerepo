@@ -1,0 +1,106 @@
+{
+  "createdAt": 1667233156367,
+  "updatedAt": 1667233156367,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233156367,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/cacheLookup.ts",
+  "commentsInside": [],
+  "rawText": " (\n  functionName: string,\n  parameters: undefined | any[]\n): CacheLookupResult => {\n  // TODO: think of a smart way to look in cache and make sure it works with as many functions as possible with a smart cache invalidation + cleanup strategy\n  return { hasValidCache: false };\n}",
+  "name": "cacheLookup",
+  "slug": "cache-lookup",
+  "parameters": [
+    {
+      "name": "functionName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "parameters",
+      "schema": {
+        "type": "array",
+        "items": {}
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [],
+              "type": "object"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
+  "description": "Wrapper function to cache any function and invalidate it, in some way\n\ncaching\nautomatic cache invalidation if data sources are updated\noptimistic caching after cache invalidation",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/database/db-recipes/src/cacheLookup\").CacheLookupResult",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "hasValidCache": {
+          "type": "boolean"
+        },
+        "result": {}
+      },
+      "required": [
+        "hasValidCache",
+        "result"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "hasValidCache",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "result",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 458,
+    "lines": 11,
+    "bytes": 458,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 42,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "xldablhvapknsrihyldltsgo"
+}

@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666260897748,
+  "updatedAt": 1666260897748,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260897748,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getMenu.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const operationFolders: string[] = await exploreOperationFolders({\n    basePath: getPathsWithOperations(),\n  });\n  const relativeOperationFolders = operationFolders.map((p) =>\n    p.slice(projectRoot.length)\n  );\n\n  const fns = await getCachedExportedFunctions();\n  const functionsPerOperation = relativeOperationFolders.map(\n    (relativeOperationFolder) => ({\n      [relativeOperationFolder.slice(1)]: fns.filter(\n        (fn) => fn.operationName === getLastFolder(relativeOperationFolder)\n      ),\n      // optionally, maybe I should just return the function names here.\n    })\n  );\n  return {\n    success: true,\n    response: \"Menu found\",\n    menu: mergeObjectsArray(functionsPerOperation),\n  };\n}",
+  "name": "getMenu",
+  "slug": "get-menu",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 787,
+    "lines": 25,
+    "bytes": 787,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 25,
+    "numberOfFiles": 1
+  },
+  "id": "usybvqwgenoamqrvjevmoiys"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635706271,
+  "updatedAt": 1667635706271,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635706271,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "generateFunctionPathsSdk",
+  "slug": "generate-function-paths-sdk",
+  "operationRelativeTypescriptFilePath": "src/generateFunctionPathsSdk.ts",
+  "type": {
+    "rawType": "(config?: { manualProjectRoot?: string | undefined; skipYarnInstall?: boolean | undefined; dryrun?: boolean | undefined; } | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const skipYarnInstall = config?.skipYarnInstall;\n  const dryrun = config?.dryrun;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  const functionPathsObject = mergeObjectsArray(\n    tsFunctions\n      .map((tsFunction) => {\n        const projectRelativePath = tsFunction.projectRelativePath;\n        const exists = fs.existsSync(\n          path.join(projectRoot, projectRelativePath)\n        );\n        if (!exists) return;\n        return { [tsFunction.name]: projectRelativePath };\n      })\n      .filter(notEmpty)\n  );\n\n  const operationObjectString = `export const sdkFunctionPaths = ${JSON.stringify(\n    functionPathsObject,\n    null,\n    2\n  )};`;\n\n  const operationConfig = await getOperationConfig(\n    \"sdk-function-paths\",\n    await getSdkDescription(\"sdk-function-paths\")\n  );\n\n  await newOperationWithFiles(\n    operationConfig,\n    { \"src/sdk-function-paths.ts\": operationObjectString },\n    { overwriteIfExists: true, skipYarnInstall, manualProjectRoot, dryrun }\n  );\n}",
+  "description": "`sdk-function-paths` indexes all operations and builds an object containing all operations.",
+  "id": "oitqwkaigushjgkikxlzbzxd"
+}

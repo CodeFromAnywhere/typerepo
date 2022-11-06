@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262516287,
+  "updatedAt": 1666262516287,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262516287,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "removePeer",
+  "slug": "remove-peer",
+  "operationRelativeTypescriptFilePath": "src/removePeer.ts",
+  "type": {
+    "rawType": "(slug: string) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  /**\n   * Slug of the peer (ip)\n   */\n  slug: string\n) => {\n  const removeResult = await db.remove(\"Peer\", (peer) => peer.slug === slug);\n  return removeResult;\n}",
+  "description": "",
+  "id": "jwexqiilfhiotjttiurrrutb"
+}

@@ -1,0 +1,45 @@
+{
+  "createdAt": 1662709577330,
+  "updatedAt": 1662709577330,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577330,
+  "name": "himalayajeep-ui",
+  "version": "0.0.0",
+  "description": "All frontend components can go here",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "css-watch": "tailwindcss -w -o css.css",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "markdown-parse-js": "0.0.1",
+    "nested-menu": "0.0.1",
+    "react-minimal-pie-chart": "^8.3.0",
+    "react-with-native": "1.4.9",
+    "react-with-native-router": "1.0.14",
+    "react-with-native-store": "2.0.40",
+    "rehype-highlight": "^5.0.2",
+    "api": "0.0.1",
+    "function-form": "0.0.1",
+    "react-with-native-alert": "1.0.33"
+  },
+  "devDependencies": {
+    "@headlessui/react": "^1.6.2",
+    "@react-navigation/native-stack": "^6.6.2",
+    "react-datepicker": "^4.8.0",
+    "react-datetime": "^3.1.1",
+    "react-native": "*",
+    "react-toastify": "^9.0.1",
+    "tailwindcss": "^3.0.24"
+  },
+  "slug": "himalayajeep-ui",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "id": "YStcNiLkDIJEUVTA"
+}

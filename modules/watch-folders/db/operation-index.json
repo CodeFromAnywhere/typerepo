@@ -1,0 +1,64 @@
+{
+  "createdAt": 1664525231707,
+  "updatedAt": 1666258850303,
+  "deletedAt": 0,
+  "createdFirstAt": 1664525231707,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/watch-folders/src/watchman.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+  "buildSucceeded": true,
+  "id": "vggbdybcvujbkiafupvsptjx",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "watch-folders",
+  "packageName": "watch-folders",
+  "relativeOperationLocationPath": "operations/tools/control-fs",
+  "classification": "node",
+  "name": "watch-folders",
+  "slug": "watch-folders",
+  "coreDependencies": [
+    "watch"
+  ],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "makeFileType",
+    "FileType",
+    "log",
+    "path",
+    "makeFileType",
+    "FileType",
+    "log",
+    "FileType",
+    "path",
+    "PackageJson",
+    "FileType"
+  ],
+  "packageDependencies": [
+    "watch"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 0,
+      "characters": 12382,
+      "bytes": 12382
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1646,
+      "bytes": 1646
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 3175,
+      "bytes": 3175
+    },
+    "size": {
+      "bytes": 17203,
+      "characters": 17203,
+      "lines": 0,
+      "numberOfFiles": 9
+    }
+  }
+}

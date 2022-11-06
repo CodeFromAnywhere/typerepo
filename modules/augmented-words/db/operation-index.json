@@ -1,0 +1,69 @@
+{
+  "createdAt": 1665141518894,
+  "updatedAt": 1667635097539,
+  "deletedAt": 0,
+  "createdFirstAt": 1665141518894,
+  "folderName": "augmented-words",
+  "packageName": "augmented-words",
+  "relativeOperationLocationPath": "operations/tools/markdown-reader",
+  "classification": "node",
+  "name": "augmented-words",
+  "slug": "augmented-words",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "path",
+    "findOperationBasePath",
+    "getProjectRoot",
+    "isSensibleProject",
+    "makeRelative",
+    "db",
+    "AugmentedWord",
+    "notEmpty",
+    "Include",
+    "getImplicitId",
+    "getProjectRoot",
+    "createMappedObject",
+    "MappedObject",
+    "omitUndefinedValues",
+    "AugmentedWord",
+    "db",
+    "AugmentedWord",
+    "DbModels",
+    "AugmentedAnyModelType"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 0,
+      "characters": 8947,
+      "bytes": 8947
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2518,
+      "bytes": 2518
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 1564,
+      "bytes": 1564
+    },
+    "size": {
+      "bytes": 13029,
+      "characters": 13029,
+      "lines": 0,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "fcfcfzgtaeglzyjaayveojhm",
+  "language": "en"
+}

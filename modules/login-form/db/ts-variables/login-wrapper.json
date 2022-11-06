@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667379319591,
+  "updatedAt": 1667379319591,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379319591,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "LoginWrapper",
+  "slug": "login-wrapper",
+  "operationRelativeTypescriptFilePath": "src/LoginWrapper.tsx",
+  "type": {
+    "rawType": "(props: { title?: string | undefined; children: JSX.Element; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  title?: string;\n  children: JSX.Element;\n}) => {\n  const [authToken, setAuthToken, { hydrated }] = useStore(\"api.authToken\");\n  const showLogin = (!authToken || authToken.length === 0) && hydrated;\n\n  const pingApi = async () => {\n    const result = await api.ping();\n    if (\n      !result.isSuccessful ||\n      result.isUnauthorized ||\n      result.result !== true\n    ) {\n      logoutFrontend();\n    }\n  };\n\n  useEffect(() => {\n    if (!hydrated) return;\n\n    if (authToken.length === 0) {\n      setAuthToken(generateId());\n    }\n\n    pingApi();\n  }, [authToken, hydrated]);\n\n  return (\n    <Span className=\"h-screen\">\n      {showLogin ? <LoginForm title={props.title} /> : props.children}\n    </Span>\n  );\n}",
+  "description": "",
+  "id": "rdpxnxxcxpifbwgmyycwsizs"
+}

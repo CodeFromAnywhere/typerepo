@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667379317909,
+  "updatedAt": 1667379317909,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379317909,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "LoginForm",
+  "slug": "login-form",
+  "operationRelativeTypescriptFilePath": "src/LoginForm.tsx",
+  "type": {
+    "rawType": "(props: { title?: string | undefined; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { title?: string }) => {\n  const [authToken, setAuthToken] = useStore(\"api.authToken\");\n  const router = useRouter();\n  return (\n    <Div className=\"flex flex-1 flex-row justify-center items-center\">\n      <Div className=\"w-96\">\n        <P className=\"text-4xl\">{props.title || \"King OS\"}</P>\n        <FunctionForm\n          tsFunction={Index}\n          submitFunction={checkAuthToken}\n          withResult={(result) => {\n            if (result.isSuccessful) {\n              setAuthToken(result.authToken);\n              router.push(\"/\");\n            }\n\n            toast({ title: \"\", body: result.message });\n          }}\n        />\n      </Div>\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "ijrjmztjujmzgdgmqnbdoazn"
+}

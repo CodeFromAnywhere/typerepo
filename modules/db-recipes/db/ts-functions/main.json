@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667233159754,
+  "updatedAt": 1667233159754,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233159754,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/getDatabaseMenu.test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const res = await getDatabaseMenu();\n\n  console.dir(res, { depth: 22 });\n}",
+  "name": "main",
+  "slug": "main",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 91,
+    "lines": 5,
+    "bytes": 91,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 18,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "cflxnlilnavcksufuypgsktd"
+}

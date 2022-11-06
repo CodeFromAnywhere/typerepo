@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634820809,
+  "updatedAt": 1667634820809,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634820809,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getHasAuthorization",
+  "slug": "get-has-authorization",
+  "operationRelativeTypescriptFilePath": "src/getHasAuthorization.ts",
+  "type": {
+    "rawType": "(device: import(\"/Users/king/King/operations/tools/p2p/peer-types/build/Device\").Device, tsFunction: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction) => boolean",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(device: Device, tsFunction: TsFunction) => {\n  const publicAuthorization: Authorization = {\n    authorizations: tsFunction?.publicAuthorization || [],\n    type: \"TsFunction\",\n    value: tsFunction.id,\n  };\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations = [\n    publicAuthorization,\n    ...(device?.person?.authorizations || []),\n    ...(device?.person?.groups?.map((group) => group.authorizations).flat() ||\n      []),\n  ];\n\n  const hasAuthorization = !!authorizations.find((auth) =>\n    !auth.authorizations.includes(\"execute\")\n      ? false\n      : auth.type === \"TsFunction\"\n      ? auth.value === tsFunction.name\n      : auth.type === \"operationName\"\n      ? auth.value === tsFunction?.operationName\n      : false\n  );\n\n  return hasAuthorization;\n}",
+  "description": "",
+  "id": "yliwbkilhuuevagahemqludl"
+}

@@ -1,0 +1,46 @@
+{
+  "createdAt": 1666262500047,
+  "updatedAt": 1666262500047,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262500047,
+  "id": "namedparameterstypeof-getfirstemoji",
+  "name": "NamedParameters<typeof getFirstEmoji>",
+  "slug": "namedparameterstypeof-getfirstemoji",
+  "operationRelativeTypescriptFilePath": "src/getFirstEmoji.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "text",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getFirstEmoji>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "createdAt": 1667635798093,
+  "updatedAt": 1667635798093,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635798093,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getOperationConfig.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string,\n  /**\n   * If you want to create one, set a description here.\n   */\n  description?: string\n): Promise<OperationConfig> => {\n  const sdkOperationConfig: OperationConfig | undefined = (\n    await db.get(\"OperationConfig\", { operationName })\n  )[0];\n\n  if (sdkOperationConfig) {\n    return sdkOperationConfig;\n  }\n\n  const now = Date.now();\n  // If we don't have an operation config yet, let's create it.\n  const newOperationConfig: OperationConfig = {\n    categoryStackCalculated: [],\n    id: generateId(),\n    createdAt: now,\n    updatedAt: now,\n    deletedAt: 0,\n    createdFirstAt: now,\n    markdown: description || \"Default description\",\n    operationName,\n    slug: operationName,\n    name: operationName,\n    // TODO: NB: we need a better way for this because this is unknown yet it needs to be defined.\n    projectRelativePath: \"\",\n    operationRelativePath: \"\",\n  };\n\n  return newOperationConfig;\n}",
+  "name": "getOperationConfig",
+  "slug": "get-operation-config",
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "description",
+      "schema": {
+        "type": "string",
+        "description": "If you want to create one, set a description here."
+      },
+      "simplifiedSchema": {
+        "fullComment": "If you want to create one, set a description here.",
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "Either finds the operation config in the database or creates a new one\n\nNB: it does not push it into the database yet because the operation might not exist yet",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/OperationConfig\").OperationConfig>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 1097,
+    "lines": 37,
+    "bytes": 1097,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 37,
+    "numberOfFiles": 1
+  },
+  "id": "eecxavsnhpwrxpjlxilntleb"
+}

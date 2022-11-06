@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378537365,
+  "updatedAt": 1667378537365,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378537365,
+  "id": "namedparameterstypeof-addauthenticationmethod",
+  "name": "NamedParameters<typeof addAuthenticationMethod>",
+  "slug": "namedparameterstypeof-addauthenticationmethod",
+  "operationRelativeTypescriptFilePath": "src/addAuthenticationMethod.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof addAuthenticationMethod>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

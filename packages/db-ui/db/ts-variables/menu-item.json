@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634502923,
+  "updatedAt": 1667634502923,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634502923,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "MenuItem",
+  "slug": "menu-item",
+  "operationRelativeTypescriptFilePath": "src/components/Menu/MenuItem.tsx",
+  "type": {
+    "rawType": "({ link, title, isSelected, type, id, children, onDoubleClick, canExpand, }: { title: string; link: string; id: string; canExpand: boolean; isHeader?: boolean | undefined; isSelected: boolean; type?: \"function\" | \"folder\" | \"operation\" | \"operationFolder\" | \"markdown\" | \"typescript\" | \"interface\" | \"variable\" | undefined; onDoubleClick?: (() => void) | undefined; children?: import(\"/Users/king/King/operations/tools/types/code-types/build/FolderExploration\").FolderExploration[] | undefined; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "({\n  link,\n  title,\n  isSelected,\n  type,\n  id,\n  children,\n  onDoubleClick,\n  canExpand,\n}: {\n  title: string;\n  link: string;\n  id: string;\n  canExpand: boolean;\n  isHeader?: boolean;\n  isSelected: boolean;\n  type?: FolderExploration[\"type\"];\n  onDoubleClick?: () => void;\n  children?: FolderExploration[];\n}) => {\n  const router = useRouter();\n\n  return (\n    <Span>\n      <Button\n        className={`${\n          isSelected ? \"bg-gray-200 \" : \"\"\n        }py-1 pr-2 hover:bg-gray-200  w-full flex flex-row items-center`}\n        textClassName=\"text-xs\"\n        onDoubleClick={onDoubleClick}\n        onClick={async () => {\n          router.push(link);\n        }}\n      >\n        <Span\n          textClassName={`line-clamp-1 truncate text-ellipsis ${\n            isSelected ? \"text-blue-500\" : \"\"\n          } hover:text-blue-800 `}\n        >\n          &nbsp;{title}\n        </Span>\n      </Button>\n    </Span>\n  );\n}",
+  "description": "",
+  "id": "lmpnpvagpvjnfxsiuweefvts"
+}

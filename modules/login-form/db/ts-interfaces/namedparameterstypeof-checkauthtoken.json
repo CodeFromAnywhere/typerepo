@@ -1,0 +1,49 @@
+{
+  "createdAt": 1667379320998,
+  "updatedAt": 1667379320998,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379320998,
+  "id": "namedparameterstypeof-checkauthtoken",
+  "name": "NamedParameters<typeof checkAuthToken>",
+  "slug": "namedparameterstypeof-checkauthtoken",
+  "operationRelativeTypescriptFilePath": "src/checkAuthToken.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "password"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "password",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof checkAuthToken>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

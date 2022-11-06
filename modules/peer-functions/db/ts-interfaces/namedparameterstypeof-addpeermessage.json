@@ -1,0 +1,60 @@
+{
+  "createdAt": 1666262497353,
+  "updatedAt": 1666262497353,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262497353,
+  "id": "namedparameterstypeof-addpeermessage",
+  "name": "NamedParameters<typeof addPeerMessage>",
+  "slug": "namedparameterstypeof-addpeermessage",
+  "operationRelativeTypescriptFilePath": "src/addPeerMessage.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        },
+        "peerSlug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "message",
+        "peerSlug"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "message",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "peerSlug",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof addPeerMessage>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

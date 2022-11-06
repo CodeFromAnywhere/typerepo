@@ -1,0 +1,24 @@
+{
+  "createdAt": 1666263168407,
+  "updatedAt": 1666263168407,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263168407,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "example",
+  "slug": "example",
+  "operationRelativeTypescriptFilePath": "src/searchRecursiveObject.ts",
+  "type": {
+    "rawType": "RecursiveDataStructure[]",
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "value": "[\n  {\n    name: \"no match\",\n  },\n  {\n    name: \"top level\",\n    children: [\n      {\n        name: \"second level 1\",\n        children: [\n          {\n            name: \"downlevel a\",\n          },\n        ],\n      },\n      {\n        name: \"second level 2\",\n        children: [\n          {\n            name: \"downlevel b\",\n          },\n        ],\n      },\n    ],\n  },\n  {\n    name: \"top level\",\n    children: [\n      {\n        name: \"second level 1\",\n        children: [\n          {\n            name: \"downlevel a\",\n          },\n        ],\n      },\n      {\n        name: \"second level 2\",\n        children: [\n          {\n            name: \"downlevel b\",\n          },\n          {\n            name: \"something else\",\n          },\n        ],\n      },\n\n      {\n        name: \"something else\",\n        children: [\n          {\n            name: \"levels here!!!!\",\n          },\n          {\n            name: \"something else\",\n          },\n        ],\n      },\n    ],\n  },\n]",
+  "description": "",
+  "id": "qidtmencvmxdwydwtaqoubwo"
+}

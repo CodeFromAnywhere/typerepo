@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260893537,
+  "updatedAt": 1666260893537,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260893537,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "converse",
+  "slug": "converse",
+  "operationRelativeTypescriptFilePath": "src/converse.ts",
+  "type": {
+    "rawType": "(searchMessage: string) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (searchMessage: string) => {\n  const sdkFunctionPaths = await getSdkFunctionPaths();\n  if (!sdkFunctionPaths) return false;\n  const sdkKeyMatches = findSentenceMatches(\n    searchMessage,\n    sdkFunctionPaths,\n    (x) => x.matcher.replaceAll(\"/\", \" \")\n  );\n\n  if (sdkKeyMatches.length === 0) {\n    log(\"Wut?\", { type: \"error\" });\n  } else if (sdkKeyMatches.length === 1) {\n    const match = sdkKeyMatches[0];\n    log(`Match: ${humanCase(match.name)}`, {\n      type: \"success\",\n    });\n\n    await getParametersAndExecute(match);\n  } else {\n    log(\n      `There are ${sdkKeyMatches.length} things we can do: \\n\\n${sdkKeyMatches\n        .map(\n          (match, index) =>\n            `${index}: ${match.name} (from ${match.relativeOperationPath})`\n        )\n        .join(\", \\n\")}`,\n      { type: \"important\" }\n    );\n\n    const n = await ask(\"Which number do you want?\");\n\n    if (isNaN(Number(n))) {\n      log(`That's not a number`, { type: \"error\" });\n      return;\n    }\n\n    const choice = sdkKeyMatches[Number(n)];\n\n    if (!choice) {\n      log(`That's not a function from the list`, { type: \"error\" });\n      return;\n    }\n\n    await getParametersAndExecute(choice);\n  }\n}",
+  "description": "this is the `yo` cli. takes a message",
+  "id": "mavrflotqjpoiqhyjpvrxtaq"
+}

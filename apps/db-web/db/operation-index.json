@@ -1,0 +1,66 @@
+{
+  "createdAt": 1664525784831,
+  "updatedAt": 1667634587423,
+  "deletedAt": 0,
+  "createdFirstAt": 1664525784831,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/database/db-web/src/pages/upsert.tsx. Error: Error: Type '{ children: Element; authTokenStore: UseStoreResult<string>; title: string; }' is not assignable to type 'IntrinsicAttributes & { title?: string | undefined; children: Element; }'.\\n  Property 'authTokenStore' does not exist on type 'IntrinsicAttributes & { title?: string | undefined; children: Element; }'.\\n\\nExpected 0 arguments, but got 1.\"]",
+  "buildSucceeded": true,
+  "id": "uuwsexaizozpxmttvhetgskr",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "db-web",
+  "packageName": "db-web",
+  "relativeOperationLocationPath": "operations/tools/database",
+  "classification": "web",
+  "name": "db-web",
+  "slug": "db-web",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "Layout",
+    "StoreProvider",
+    "pagesObject",
+    "pages",
+    "getPageTitle",
+    "AlertProvider",
+    "ModalProvider",
+    "useRouter",
+    "pagesObject",
+    "pagesObject",
+    "pagesObject",
+    "pagesObject",
+    "UpsertProps",
+    "getDbModelNames"
+  ],
+  "packageDependencies": [
+    "AppProps",
+    "QueryClient",
+    "QueryClientProvider",
+    "GetStaticProps"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 0,
+      "characters": 3416,
+      "bytes": 3416
+    },
+    "dataSize": {
+      "numberOfFiles": 11,
+      "lines": 0,
+      "characters": 17816,
+      "bytes": 17816
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 660,
+      "bytes": 660
+    },
+    "size": {
+      "bytes": 21892,
+      "characters": 21892,
+      "lines": 0,
+      "numberOfFiles": 18
+    }
+  }
+}

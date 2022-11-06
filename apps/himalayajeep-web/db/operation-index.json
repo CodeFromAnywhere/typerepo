@@ -1,0 +1,60 @@
+{
+  "createdAt": 1664530611185,
+  "updatedAt": 1667636035382,
+  "deletedAt": 0,
+  "createdFirstAt": 1664530611185,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-web/src/pages/login.ts. Error: Error: '\\\"code-types\\\"' has no exported member named 'MarkdownFile'. Did you mean 'WebMarkdownFile'?\"]",
+  "buildSucceeded": true,
+  "id": "iuvouenwarpvpbupwmjniplb",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "himalayajeep-web",
+  "packageName": "himalayajeep-web",
+  "relativeOperationLocationPath": "operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep",
+  "classification": "web",
+  "name": "himalayajeep-web",
+  "slug": "himalayajeep-web",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "AlertProvider",
+    "MainPageProps",
+    "StoreProvider",
+    "pagesObject",
+    "pagesObject",
+    "pagesObject",
+    "pagesObject",
+    "pagesObject",
+    "pagesObject"
+  ],
+  "packageDependencies": [
+    "AppProps",
+    "QueryClient",
+    "QueryClientProvider"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 7,
+      "lines": 0,
+      "characters": 2518,
+      "bytes": 2518
+    },
+    "dataSize": {
+      "numberOfFiles": 15,
+      "lines": 0,
+      "characters": 4008,
+      "bytes": 4008
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 274,
+      "bytes": 274
+    },
+    "size": {
+      "bytes": 6800,
+      "characters": 6800,
+      "lines": 0,
+      "numberOfFiles": 23
+    }
+  }
+}

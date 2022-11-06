@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635702738,
+  "updatedAt": 1667635702738,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635702738,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "generateSdkOperationsCli",
+  "slug": "generate-sdk-operations-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/generateSdkOperations.cli.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const [dryrunString, customProjectRoot] = process.argv.slice(2);\n\n  const dryrun = dryrunString ? Boolean(dryrunString) : undefined;\n\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  generateSdkOperations(undefined, {\n    dryrun,\n    yarnInstallAfter: true,\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n\n  if (dryrun) {\n    console.log(\"Check new-operation/assets\");\n  } else {\n    console.log(\"Check generated\");\n  }\n}",
+  "description": "",
+  "id": "kxefavdzhibyybbxbvdglnng"
+}

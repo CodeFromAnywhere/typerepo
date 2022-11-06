@@ -1,0 +1,84 @@
+{
+  "createdAt": 1666258845586,
+  "updatedAt": 1666258845586,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258845586,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/watchman.ts",
+  "commentsInside": [],
+  "rawText": " (subscriptionKey: string) => {\n  const [appKey, rootPath, relativePath] = subscriptionKey.split(\":\");\n\n  if (appKey !== uniqueAppKey) {\n    return;\n  }\n  if (!rootPath) {\n    console.log(\"No rootpath found\", subscriptionKey);\n    return;\n  }\n\n  const fullPath = relativePath ? path.join(rootPath, relativePath) : rootPath;\n\n  return {\n    fullPath,\n    relativePath,\n    rootPath,\n  };\n}",
+  "name": "getSubInfo",
+  "slug": "get-sub-info",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{ fullPath: any; relativePath: any; rootPath: any; } | undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "fullPath": {},
+        "relativePath": {},
+        "rootPath": {}
+      },
+      "required": [
+        "fullPath",
+        "relativePath",
+        "rootPath"
+      ],
+      "optional": true
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "fullPath",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "relativePath",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "rootPath",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 388,
+    "lines": 19,
+    "bytes": 388,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 19,
+    "numberOfFiles": 1
+  },
+  "id": "ljnytqweqgsoxrzstrgeuloi"
+}

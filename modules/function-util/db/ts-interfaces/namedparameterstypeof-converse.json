@@ -1,0 +1,49 @@
+{
+  "createdAt": 1666260892892,
+  "updatedAt": 1666260892892,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260892892,
+  "id": "namedparameterstypeof-converse",
+  "name": "NamedParameters<typeof converse>",
+  "slug": "namedparameterstypeof-converse",
+  "operationRelativeTypescriptFilePath": "src/converse.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "searchMessage": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "searchMessage"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "searchMessage",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof converse>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

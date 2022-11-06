@@ -1,0 +1,97 @@
+{
+  "createdAt": 1666264754329,
+  "updatedAt": 1666264754329,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264754329,
+  "id": "namedparameterstypeof-nodemon",
+  "name": "NamedParameters<typeof nodemon>",
+  "slug": "namedparameterstypeof-nodemon",
+  "operationRelativeTypescriptFilePath": "src/nodemon.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        },
+        "cliFunctionName": {
+          "type": "string",
+          "description": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file"
+        },
+        "vars": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "vars that need to be passed to the cli"
+        },
+        "manualProjectRoot": {
+          "type": "string",
+          "description": "manual project root for the operation to run"
+        }
+      },
+      "required": [
+        "operationName",
+        "cliFunctionName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "cliFunctionName",
+          "required": true,
+          "schema": {
+            "fullComment": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file",
+            "type": "string"
+          }
+        },
+        {
+          "name": "vars",
+          "required": false,
+          "schema": {
+            "fullComment": "vars that need to be passed to the cli",
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "fullComment": "manual project root for the operation to run",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof nodemon>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

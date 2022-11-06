@@ -1,0 +1,1 @@
+This operation is used to collect all typebase database models in the entire project, and export them, wrapped in a `DbModels` interface. This is needed for creating a function that can access the entire database (see `database` operation)

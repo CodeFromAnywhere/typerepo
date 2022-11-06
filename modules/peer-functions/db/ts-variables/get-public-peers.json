@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262509101,
+  "updatedAt": 1666262509101,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262509101,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getPublicPeers",
+  "slug": "get-public-peers",
+  "operationRelativeTypescriptFilePath": "src/getPublicPeers.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const publicPeers = (await db.get(\"Peer\")).filter((peer) => !peer.isPrivate);\n\n  return publicPeers;\n}",
+  "description": "",
+  "id": "rcodbchiwdpvvgfgmxuhgaxn"
+}

@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666264697751,
+  "updatedAt": 1666264697751,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264697751,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/cli/dev.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const [customManualProjectRoot] = process.argv.slice(2);\n\n  if (!customManualProjectRoot) return dev();\n\n  if (customManualProjectRoot.startsWith(\".\")) {\n    // relative path\n    const realProjectRootPath = path.join(\n      process.cwd(),\n      customManualProjectRoot\n    );\n\n    return dev(realProjectRootPath);\n  }\n\n  // absolute path\n  dev(customManualProjectRoot);\n}",
+  "name": "devCli",
+  "slug": "dev-cli",
+  "parameters": [],
+  "description": "The dev-cli runs the `dev` command which watches your operations with restarts\n\nYou can specify a customManualProjectRoot, which can be a relative or absolute path. If relative, it will use your cwd with the relative path to make an absolute path, that will in turn be passed to the `dev` function.",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 686,
+    "lines": 20,
+    "bytes": 686,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 34,
+    "linesPerFile": 20,
+    "numberOfFiles": 1
+  },
+  "id": "btozugduwvrkyigckpxjmgnx"
+}

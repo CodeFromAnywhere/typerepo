@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634526349,
+  "updatedAt": 1667634526349,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634526349,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useReferencableModelDataQuery",
+  "slug": "use-referencable-model-data-query",
+  "operationRelativeTypescriptFilePath": "src/hooks/useReferenceModelQuery.ts",
+  "type": {
+    "rawType": "(dbModelName: keyof import(\"/Users/king/King/operations/tools/generated/sdk-db/build/sdk-db\").DbModels) => import(\"/Users/king/King/operations/node_modules/react-query/types/react/types\").UseQueryResult<unknown, unknown>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(dbModelName: keyof DbModels) => {\n  return useQuery([\"getReferencableModelData\", dbModelName], async () => {\n    const { result } = await api.getReferencableModelData(dbModelName);\n    return result;\n  });\n}",
+  "description": "",
+  "id": "kywycvbyhuhcfcasoqfxdixi"
+}

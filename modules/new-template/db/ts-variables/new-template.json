@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635801847,
+  "updatedAt": 1667635801847,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635801847,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "newTemplate",
+  "slug": "new-template",
+  "operationRelativeTypescriptFilePath": "src/newTemplate.ts",
+  "type": {
+    "rawType": "(type: string, destinationPath?: string | undefined) => Promise<string | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  type: string,\n  destinationPath?: string\n): Promise<string | undefined> => {\n  const manualProjectRoot = getProjectRoot(destinationPath);\n\n  const source = path.resolve(__dirname, \"..\", \"assets\", \"templates\", type);\n  const templateExists = fs.existsSync(source);\n\n  if (!templateExists) {\n    log(\n      `${type} cannot be generated yet. Create a template in assets/templates/${type}`\n    );\n    return;\n  }\n\n  const basePath = destinationPath\n    ? destinationPath\n    : path.join(process.cwd(), type);\n  // const availableFolderName = await getAvailableOperationName(\n  //   rootFolderPath,\n  //   type,\n  //   manualProjectRoot\n  // );\n\n  // const basePath = path.join(rootFolderPath, availableFolderName);\n\n  // if (fs.existsSync(basePath)) {\n  //   log(`${basePath} already exists`);\n  //   return;\n  // }\n  // Make the non-existing folder\n  await fs.mkdir(basePath, { recursive: true });\n  // Copy the template inthere\n  await fs.cpAsync(source, basePath, { recursive: true });\n  // Rename templatefiles if needed\n  await renameTemplateFiles({ appDir: basePath });\n\n  return basePath;\n}",
+  "description": "Returns either the `basePath` of the created template, or undefined if something went wrong",
+  "id": "rcboppypcdmkcauwqigxvptd"
+}

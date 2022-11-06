@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666263769022,
+  "updatedAt": 1666263769022,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263769022,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "shouldDeleteTsModel",
+  "slug": "should-delete-ts-model",
+  "operationRelativeTypescriptFilePath": "src/cleanupTsDatabase.ts",
+  "type": {
+    "rawType": "(tsModel: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction | import(\"/Users/king/King/operations/tools/types/code-types/build/TsComment\").TsComment | import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface | import(\"/Users/king/King/operations/tools/types/code-types/build/TypescriptIndex\").TsBuildError | import(\"/Users/king/King/operations/tools/types/code-types/build/TypescriptIndex\").TsLintWarning | import(\"/Users/king/King/operations/tools/types/code-types/build/TsExport\").TsExport | import(\"/Users/king/King/operations/tools/types/code-types/build/TsImport\").TsImport | import(\"/Users/king/King/operations/tools/types/code-types/build/TsVariable\").TsVariable, operationName: string, operationRelativePaths: string[]) => boolean",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  tsModel:\n    | TsFunction\n    | TsComment\n    | TsInterface\n    | TsBuildError\n    | TsLintWarning\n    | TsExport\n    | TsImport\n    | TsVariable,\n  operationName: string,\n  operationRelativePaths: string[]\n) => {\n  if (!tsModel.operationName) return true;\n  if (tsModel.operationName !== operationName) return true;\n  if (!tsModel.operationRelativePath) return true;\n  if (\n    !operationRelativePaths.includes(\n      tsModel.operationRelativeTypescriptFilePath\n    )\n  ) {\n    return true;\n  }\n  return false;\n}",
+  "description": "",
+  "id": "rsfwrbdapnmmgnluhwijpnvr"
+}

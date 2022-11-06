@@ -1,0 +1,158 @@
+{
+  "createdAt": 1667635707865,
+  "updatedAt": 1667635707865,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635707865,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string,\n  keyVariables: {\n    variableName: string;\n    values: string[];\n  }[],\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  const keysConstString = keyVariables\n    .map((keyVariable) => {\n      return `export const ${keyVariable.variableName} = [ ${keyVariable.values\n        .map((value) => `\"${value}\"`)\n        .join(\",\\n\")} ];`;\n    })\n    .join(\"\\n\\n\");\n\n  const result = await newOperationWithFiles(\n    await getOperationConfig(operationName),\n    { [`src/${operationName}.ts`]: keysConstString },\n    { overwriteIfExists: true, ...config }\n  );\n\n  return result;\n}",
+  "name": "newSdkKeysOperation",
+  "slug": "new-sdk-keys-operation",
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "keyVariables",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "variableName": {
+              "type": "string"
+            },
+            "values": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "variableName",
+            "values"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [
+                {
+                  "name": "variableName",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "values",
+                  "required": true,
+                  "schema": {
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "skipYarnInstall": {
+            "type": "boolean"
+          },
+          "dryrun": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipYarnInstall",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "dryrun",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 667,
+    "lines": 28,
+    "bytes": 667,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 28,
+    "numberOfFiles": 1
+  },
+  "id": "hdnksdppmsstuooqvjxijtcv"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378998490,
+  "updatedAt": 1667378998490,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378998490,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "scheduleObject",
+  "slug": "schedule-object",
+  "operationRelativeTypescriptFilePath": "src/runFunctionServer.ts",
+  "type": {
+    "rawType": "{ [x: string]: string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "{\n  minute: \"* * * * *\",\n  \"5-minutes\": \"0,5,10,15,20,25,30,35,40,45,50,55 * * * *\",\n  \"quarter-hour\": \"0,15,30,45 * * * *\",\n  hour: \"0 * * * *\",\n  \"6-hours\": \"0 0,6,12,18 * * *\",\n  midnight: \"0 0 * * *\",\n  week: \"0 0 * * 1\",\n  month: \"0 0 1 * *\",\n  \"3-months\": \"0 0 1 1,4,7,10 *\",\n  year: \"0 0 1 1 *\",\n}",
+  "description": "For every `RunEveryPeriodEnum`, this object provides the interval `cronExpression` string for `node-cron`",
+  "id": "ijtguauujgnbgcybonczwxsw"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260886340,
+  "updatedAt": 1666260886340,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260886340,
+  "id": "namedparameterstypeof-docli",
+  "name": "NamedParameters<typeof doCli>",
+  "slug": "namedparameterstypeof-docli",
+  "operationRelativeTypescriptFilePath": "src/cli/do.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof doCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

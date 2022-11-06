@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.ToastContainer=exports.toast=void 0;var react_toastify_1=require("react-toastify"),react_toastify_2=require("react-toastify"),toast=function(t,o){(0,react_toastify_1.toast)(t.body,o)};exports.toast=toast,exports.ToastContainer=react_toastify_2.ToastContainer;
+//# sourceMappingURL=Notification.js.map

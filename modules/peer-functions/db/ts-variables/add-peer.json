@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262496340,
+  "updatedAt": 1666262496340,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262496340,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "addPeer",
+  "slug": "add-peer",
+  "operationRelativeTypescriptFilePath": "src/addPeer.ts",
+  "type": {
+    "rawType": "(ip: string, authToken?: string | undefined, peerName?: string | undefined, force?: boolean | undefined, isMe?: boolean | undefined) => Promise<{ isSuccesful: boolean; message: string; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  ip: string,\n  authToken?: string,\n  peerName?: string,\n  /**\n   * If true, it does not validate the IP to see if it is online and it is authorized...\n   */\n  force?: boolean,\n  isMe?: boolean\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  // get new PeerMessages after last sync\n\n  const apiResult = await apiWithConfig.ping({\n    apiUrl: `http://${ip}:${ports[\"function-server\"]}`,\n    authToken,\n    timeout: 2000,\n  });\n\n  const isConnectionEstablished =\n    apiResult?.isSuccessful &&\n    !apiResult?.isUnauthorized &&\n    apiResult.result === true;\n\n  if (!force && !isConnectionEstablished) {\n    return {\n      isSuccesful: false,\n      message:\n        \"Peer connection could not be established. Are you sure the peer is online? Use force if you want to add your peer anyway. If you have a node version lower than v17, this will also fail.\",\n    };\n  }\n\n  const finalPeerName = peerName || ip;\n\n  const peerCreation: Creation<Peer> = {\n    peerName: finalPeerName,\n    lastOnlineAt: isConnectionEstablished ? Date.now() : 0,\n    lastSyncDatabaseAtObject: {},\n    name: ip,\n    authToken,\n    isMe,\n  };\n\n  // @ts-ignore\n  const upsertResult = await db.upsert(\"Peer\", peerCreation);\n\n  return {\n    isSuccesful: !!upsertResult.isSuccesful,\n    message: upsertResult.isSuccesful\n      ? \"Peer added\"\n      : `Something went wrong: ${upsertResult.message}`,\n  };\n}",
+  "description": "",
+  "id": "siwzjkngvfdmvqaowoalxnui"
+}

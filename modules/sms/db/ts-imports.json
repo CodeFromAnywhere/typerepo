@@ -1,0 +1,51 @@
+[
+  {
+    "createdAt": 1667457809351,
+    "updatedAt": 1667457809351,
+    "deletedAt": 0,
+    "createdFirstAt": 1667457809351,
+    "name": "MessageInstance",
+    "slug": "message-instance",
+    "module": "twilio/lib/rest/api/v2010/account/message",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/sendSms.ts",
+    "classification": "package",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": false,
+    "id": "ouviqjypjehdjvnsxjhykpcw"
+  },
+  {
+    "createdAt": 1667457809352,
+    "updatedAt": 1667457809352,
+    "deletedAt": 0,
+    "createdFirstAt": 1667457809352,
+    "name": "MessageListInstanceCreateOptions",
+    "slug": "message-list-instance-create-options",
+    "module": "twilio/lib/rest/api/v2010/account/message",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/sendSms.ts",
+    "classification": "package",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": false,
+    "id": "kwkvzmfohobexcrgegxvgbnj"
+  },
+  {
+    "createdAt": 1667457809352,
+    "updatedAt": 1667457809352,
+    "deletedAt": 0,
+    "createdFirstAt": 1667457809352,
+    "name": "getPrimaryPersona",
+    "slug": "get-primary-persona",
+    "type": "value",
+    "module": "persona-functions-node",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/sendSms.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "seeejrqdjdiqvzldfnrhkjac"
+  }
+]

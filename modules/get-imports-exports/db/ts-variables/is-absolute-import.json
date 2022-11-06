@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635763380,
+  "updatedAt": 1667635763380,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635763380,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "isAbsoluteImport",
+  "slug": "is-absolute-import",
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "type": {
+    "rawType": "(moduleString: string | undefined) => boolean",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(moduleString: string | undefined) =>\n  moduleString ? !moduleString.startsWith(\".\") : false",
+  "description": "",
+  "id": "ixgsjidlkxcxuamfehceflln"
+}

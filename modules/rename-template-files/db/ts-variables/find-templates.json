@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258792723,
+  "updatedAt": 1666258792723,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258792723,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "findTemplates",
+  "slug": "find-templates",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "(basePath: string, doNotExploreChildFolders?: boolean | undefined) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  basePath: string,\n  doNotExploreChildFolders?: boolean\n) => {\n  return (\n    await explore({\n      basePath,\n      subExtension: [\"template\"],\n      searchLevel: \"fileName\",\n      doNotExploreChildFolders,\n    })\n  ).map((textJson) => textJson.path);\n}",
+  "description": "",
+  "id": "mqhizxfqrvwwnorpvvjzqayp"
+}

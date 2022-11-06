@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635988094,
+  "updatedAt": 1667635988094,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635988094,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "pages",
+  "slug": "pages",
+  "operationRelativeTypescriptFilePath": "src/pages.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-ui/src/types\").PageType[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "value": "pageKeys.map((pageKey) => ({\n  ...pagesObject[pageKey].options,\n  component: pagesObject[pageKey],\n  key: pageKey,\n}))",
+  "description": "",
+  "id": "wsbmnyegsprtsmhimyxvdxrd"
+}

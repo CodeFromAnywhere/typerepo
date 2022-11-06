@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635840464,
+  "updatedAt": 1667635840464,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635840464,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/cli/rebuildOperation.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const argumentsArray = process.argv.slice(2);\n\n  if (argumentsArray.length > 0) {\n    oneByOne(argumentsArray, async (operationNameOrRelativePath) => {\n      let operationBasePath: string | undefined;\n      let operationManualProjectRoot: string | undefined;\n      if (operationNameOrRelativePath.startsWith(\".\")) {\n        operationBasePath = path.join(\n          process.cwd(),\n          operationNameOrRelativePath\n        );\n\n        operationManualProjectRoot = getProjectRoot(operationBasePath);\n      } else {\n        operationBasePath = await getOperationPath(operationNameOrRelativePath);\n      }\n\n      if (!operationBasePath) {\n        log(\"couldn't find that operation\");\n        return;\n      }\n\n      // console.log({ operationNames, operationName });\n\n      const x = await rebuildOperation({\n        operationBasePath,\n        operationManualProjectRoot,\n        force: true,\n        debug: true,\n        noExit: true,\n      });\n    });\n  }\n}",
+  "name": "main",
+  "slug": "main",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 975,
+    "lines": 35,
+    "bytes": 975,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 35,
+    "numberOfFiles": 1
+  },
+  "id": "lrbarenppijwwtxfpegtptxt"
+}

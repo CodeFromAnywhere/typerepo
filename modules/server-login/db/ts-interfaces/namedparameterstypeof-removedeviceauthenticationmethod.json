@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378549698,
+  "updatedAt": 1667378549698,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378549698,
+  "id": "namedparameterstypeof-removedeviceauthenticationmethod",
+  "name": "NamedParameters<typeof removeDeviceAuthenticationMethod>",
+  "slug": "namedparameterstypeof-removedeviceauthenticationmethod",
+  "operationRelativeTypescriptFilePath": "src/removeAuthenticationMethod.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof removeDeviceAuthenticationMethod>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

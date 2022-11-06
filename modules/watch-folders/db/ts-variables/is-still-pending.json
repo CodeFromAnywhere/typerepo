@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258842147,
+  "updatedAt": 1666258842147,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258842147,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "isStillPending",
+  "slug": "is-still-pending",
+  "operationRelativeTypescriptFilePath": "src/fswatch.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  if (noPending()) return false;\n  //\n  console.log(\"awaiting pending\", pending);\n  //\n  await new Promise<void>((resolve, reject) => {\n    // do this every 5 seconds\n    setInterval(async () => {\n      if (noPending()) {\n        resolve();\n      } else {\n        //console.log(`still pending`, pending);\n      }\n    }, 5000); //\n  }); //\n\n  return;\n}",
+  "description": "checks if pending has items every 5 seconds, resolves after it hasnt\n\nthis is a handy thing to have in util, but it can also probably be much more simple",
+  "id": "fzkhkxsbgbabbbqmopedbhzr"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634536356,
+  "updatedAt": 1667634536356,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634536356,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useStore",
+  "slug": "use-store",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "type": {
+    "rawType": "<K>(key: K) => import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/react-with-native-store/build/general\").UseStoreResult<StoreType[K]>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "createUseStore(initialValues)",
+  "description": "",
+  "id": "dngghmenwngiabaghrnfwrnd"
+}

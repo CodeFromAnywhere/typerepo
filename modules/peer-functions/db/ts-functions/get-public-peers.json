@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666262508933,
+  "updatedAt": 1666262508933,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262508933,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPublicPeers.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const publicPeers = (await db.get(\"Peer\")).filter((peer) => !peer.isPrivate);\n\n  return publicPeers;\n}",
+  "name": "getPublicPeers",
+  "slug": "get-public-peers",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 119,
+    "lines": 5,
+    "bytes": 119,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "sdmkhdmtxnchqcwkissahcla"
+}

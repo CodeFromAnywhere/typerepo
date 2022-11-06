@@ -1,0 +1,48 @@
+{
+  "createdAt": 1666264698775,
+  "updatedAt": 1666264698775,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264698775,
+  "id": "namedparameterstypeof-dev",
+  "name": "NamedParameters<typeof dev>",
+  "slug": "namedparameterstypeof-dev",
+  "operationRelativeTypescriptFilePath": "src/dev.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "manualProjectRoot": {
+          "type": "string",
+          "description": "manual project root for finding the operations"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "fullComment": "manual project root for finding the operations",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof dev>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

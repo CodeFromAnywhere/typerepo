@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634529015,
+  "updatedAt": 1667634529015,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634529015,
+  "id": "namedparameterstypeof-page",
+  "name": "NamedParameters<typeof Page>",
+  "slug": "namedparameterstypeof-page",
+  "operationRelativeTypescriptFilePath": "src/pages/db.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof Page>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634814657,
+  "updatedAt": 1667634814657,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634814657,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "calculateDeviceName",
+  "slug": "calculate-device-name",
+  "operationRelativeTypescriptFilePath": "src/calculateDeviceName.ts",
+  "type": {
+    "rawType": "(ipInfo: import(\"/Users/king/King/operations/tools/p2p/peer-types/build/IPInfo\").IPInfo, userAgent: UAParser.IResult) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  ipInfo: IPInfo,\n  userAgent: IResult\n): string => {\n  const deviceName: string = slugify(\n    `${userAgent.os.name}-${userAgent.browser.name}-${ipInfo.country}-${\n      ipInfo.region\n    }-${ipInfo.city}-${ipInfo.ip}-${generateRandomString(4)}`\n  );\n\n  return deviceName;\n}",
+  "description": "",
+  "id": "whwlnlmxhqnipykkcuxjvuxv"
+}

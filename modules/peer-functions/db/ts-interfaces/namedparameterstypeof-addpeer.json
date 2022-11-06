@@ -1,0 +1,91 @@
+{
+  "createdAt": 1666262495700,
+  "updatedAt": 1666262495700,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262495700,
+  "id": "namedparameterstypeof-addpeer",
+  "name": "NamedParameters<typeof addPeer>",
+  "slug": "namedparameterstypeof-addpeer",
+  "operationRelativeTypescriptFilePath": "src/addPeer.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "ip": {
+          "type": "string"
+        },
+        "authToken": {
+          "type": "string"
+        },
+        "peerName": {
+          "type": "string"
+        },
+        "force": {
+          "type": "boolean",
+          "description": "If true, it does not validate the IP to see if it is online and it is authorized..."
+        },
+        "isMe": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "ip"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "ip",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "authToken",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "peerName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "force",
+          "required": false,
+          "schema": {
+            "fullComment": "If true, it does not validate the IP to see if it is online and it is authorized...",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isMe",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof addPeer>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

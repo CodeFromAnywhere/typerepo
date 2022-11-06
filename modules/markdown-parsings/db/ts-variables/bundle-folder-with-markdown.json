@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635396983,
+  "updatedAt": 1667635396983,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635396983,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "bundleFolderWithMarkdown",
+  "slug": "bundle-folder-with-markdown",
+  "operationRelativeTypescriptFilePath": "src/bundleFolderWithMarkdown.ts",
+  "type": {
+    "rawType": "(outlineTitle: string, absoluteFolderPath: string, fileName?: string | undefined) => Promise<{ markdownParse: import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse; outlineString: string; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  outlineTitle: string,\n\n  absoluteFolderPath: string,\n  /**\n   * filename to include in the final MarkdownParse\n   */\n  fileName?: string\n): Promise<{ markdownParse: MarkdownParse; outlineString: string }> => {\n  const mdPaths = (\n    await explore({ basePath: absoluteFolderPath, extension: \"md\" })\n  ).map((x) => x.path);\n\n  const markdownParses = (\n    await Promise.all(mdPaths.map((mdPath) => readMarkdownFile(mdPath)))\n  ).filter(notEmpty);\n\n  const { merged, outline } = mergeMarkdownParse(markdownParses, fileName);\n  const outlineString = makeOutlineMarkdownString(outlineTitle, outline);\n\n  return { markdownParse: merged, outlineString };\n}",
+  "description": "finds all md files in a folder and creates a single MarkdownParse\n\nhandy for creating a single documentation file or other things that have to include multiple markdown files in a structured way\n\nNB: it recursively structures the files and folders with headings",
+  "id": "zdtcopsncooqijlztppsloea"
+}

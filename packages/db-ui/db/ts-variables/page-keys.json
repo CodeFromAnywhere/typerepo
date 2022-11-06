@@ -1,0 +1,60 @@
+{
+  "createdAt": 1667634534906,
+  "updatedAt": 1667634534906,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634534906,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "pageKeys",
+  "slug": "page-keys",
+  "operationRelativeTypescriptFilePath": "src/pages.ts",
+  "type": {
+    "rawType": "(\"upsert\" | \"menu\" | \"index\" | \"db\")[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "enum": [
+          "upsert",
+          "menu",
+          "index",
+          "db"
+        ],
+        "x-enumNames": [
+          "upsert",
+          "menu",
+          "index",
+          "db"
+        ],
+        "type": "string"
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "enum": [
+              "upsert",
+              "menu",
+              "index",
+              "db"
+            ],
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "value": "Object.keys(pagesObject) as PageKey[]",
+  "description": "",
+  "id": "ouobuqjipfryfkwvcrmdbzce"
+}

@@ -1,0 +1,80 @@
+{
+  "createdAt": 1666260893252,
+  "updatedAt": 1666260893252,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260893252,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/converse.ts",
+  "commentsInside": [],
+  "rawText": " async (parameters?: FunctionParameter[]) => {\n  return parameters\n    ? oneByOne(parameters, async (parameter) => {\n        /** TODO: Walking:\n         * - if a parameter is a string, it's easy\n         * - if a parameter is a number or boolean, just cast string to that\n         * - if a parameter is an object, walk over all keys\n         * - if a parameter is/can be an array, just insert the first via the above way, but ask if you want to insert another entry after that\n         * - for every entry you can also enter '?'. This will look for all operations that return something that could be used as entry here.\n         */\n        const answer = await ask(`${parameter.name} (${parameter.required})`);\n        return answer;\n      })\n    : undefined;\n}",
+  "name": "getParameters",
+  "slug": "get-parameters",
+  "parameters": [
+    {
+      "name": "parameters",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/FunctionParameter"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "fullComment": "",
+              "properties": [
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "required",
+                  "required": true,
+                  "schema": {
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "FunctionParameter"
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 761,
+    "lines": 15,
+    "bytes": 761,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 51,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "unxmtosxuewgymovnjcuycab"
+}

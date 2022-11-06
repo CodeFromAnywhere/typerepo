@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378542221,
+  "updatedAt": 1667378542221,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378542221,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "addPersonAuthenticationMethod",
+  "slug": "add-person-authentication-method",
+  "operationRelativeTypescriptFilePath": "src/addPersonAuthenticationMethod.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  //\n}",
+  "description": "adds an `authenticationMethod` to `Person`\n\nrelies on `addAuthenticationMethod`\n\nTODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.",
+  "id": "dphwjbqknqfrfrsfsyqwpieu"
+}

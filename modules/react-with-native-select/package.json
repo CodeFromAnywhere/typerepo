@@ -1,0 +1,58 @@
+{
+  "createdAt": 1662709577330,
+  "updatedAt": 1662709577330,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577330,
+  "name": "react-with-native-select",
+  "version": "2.0.7",
+  "description": "",
+  "main": "build/index.js",
+  "source": "src/index.tsx",
+  "scripts": {
+    "pub": "npm version patch --force && npm publish",
+    "build": "tsc",
+    "dev": "npx tsc-watch --onSuccess 'yarn dev:tw'",
+    "dev:tw": "tailwindcss -o css.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Code-From-Anywhere/react-with-native.git"
+  },
+  "keywords": [
+    "react",
+    "with",
+    "native",
+    "select",
+    "component",
+    "cross",
+    "platform"
+  ],
+  "author": "Wijnand Karsens <wijnand@karsens.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Code-From-Anywhere/react-with-native/issues"
+  },
+  "homepage": "https://github.com/Code-From-Anywhere/react-with-native#readme",
+  "devDependencies": {
+    "@types/react": "17.0.30",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-native": "^0.66.9",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native": "*",
+    "react-with-native": "*",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.6.4"
+  },
+  "peerDependencies": {
+    "react-with-native": "*"
+  },
+  "slug": "react-with-native-select",
+  "id": "ikNZbbUMqkXxVJPs",
+  "dependencies": {
+    "react": "17.0.2"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

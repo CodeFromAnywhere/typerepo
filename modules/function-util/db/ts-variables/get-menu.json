@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260897915,
+  "updatedAt": 1666260897915,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260897915,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getMenu",
+  "slug": "get-menu",
+  "operationRelativeTypescriptFilePath": "src/getMenu.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const operationFolders: string[] = await exploreOperationFolders({\n    basePath: getPathsWithOperations(),\n  });\n  const relativeOperationFolders = operationFolders.map((p) =>\n    p.slice(projectRoot.length)\n  );\n\n  const fns = await getCachedExportedFunctions();\n  const functionsPerOperation = relativeOperationFolders.map(\n    (relativeOperationFolder) => ({\n      [relativeOperationFolder.slice(1)]: fns.filter(\n        (fn) => fn.operationName === getLastFolder(relativeOperationFolder)\n      ),\n      // optionally, maybe I should just return the function names here.\n    })\n  );\n  return {\n    success: true,\n    response: \"Menu found\",\n    menu: mergeObjectsArray(functionsPerOperation),\n  };\n}",
+  "description": "",
+  "id": "zspeyzekhykwpqhfrqfamrld"
+}

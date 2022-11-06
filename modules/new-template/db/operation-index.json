@@ -1,0 +1,85 @@
+{
+  "createdAt": 1664528243951,
+  "updatedAt": 1667635807859,
+  "deletedAt": 0,
+  "createdFirstAt": 1664528243951,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/new-template/src/cli/newTemplate.cli.ts. Error: Error: Unknown node \\\"(basePath) => {\\n  if (basePath) {\\n    console.log(`Generated template`, { type });\\n  } else {\\n    console.log(\\\"Something went wrong\\\");\\n  }\\n}\"]",
+  "buildSucceeded": true,
+  "id": "slettpipkibzyjolxjjhdypp",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "new-template",
+  "packageName": "new-template",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "new-template",
+  "slug": "new-template",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "getOperationPath",
+    "OperationConfig",
+    "generateId",
+    "db",
+    "canRead",
+    "path",
+    "fs",
+    "setJsonKey",
+    "renameTemplateFiles",
+    "kebabCase",
+    "log",
+    "OperationClassification",
+    "OperationConfig",
+    "OperationConfig",
+    "canRead",
+    "fs",
+    "getLastFolder",
+    "path",
+    "writeStringToFile",
+    "getProjectRoot",
+    "getSrcRelativeFileId",
+    "isSensibleProject",
+    "objectMapAsync",
+    "yarnBuild",
+    "setJsonKey",
+    "projectRelativeGeneratedOperationsFolder",
+    "db",
+    "log",
+    "path",
+    "fs",
+    "renameTemplateFiles",
+    "log",
+    "getProjectRoot",
+    "OperationClassification"
+  ],
+  "packageDependencies": [
+    "spawnSync"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 22,
+      "lines": 0,
+      "characters": 321234,
+      "bytes": 321234
+    },
+    "dataSize": {
+      "numberOfFiles": 15,
+      "lines": 0,
+      "characters": 12204,
+      "bytes": 12204
+    },
+    "textSize": {
+      "numberOfFiles": 7,
+      "lines": 0,
+      "characters": 9395,
+      "bytes": 9395
+    },
+    "size": {
+      "bytes": 342833,
+      "characters": 342833,
+      "lines": 0,
+      "numberOfFiles": 44
+    }
+  }
+}

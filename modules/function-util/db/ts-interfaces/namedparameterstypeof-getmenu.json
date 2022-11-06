@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260897584,
+  "updatedAt": 1666260897584,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260897584,
+  "id": "namedparameterstypeof-getmenu",
+  "name": "NamedParameters<typeof getMenu>",
+  "slug": "namedparameterstypeof-getmenu",
+  "operationRelativeTypescriptFilePath": "src/getMenu.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getMenu>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

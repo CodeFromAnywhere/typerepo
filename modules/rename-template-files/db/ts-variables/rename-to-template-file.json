@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258792723,
+  "updatedAt": 1666258792723,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258792723,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "renameToTemplateFile",
+  "slug": "rename-to-template-file",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "(fileName: string) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(fileName: string) => {\n  const extensionStartsAt = fileName.lastIndexOf(\".\");\n  const insertPosition =\n    extensionStartsAt === -1 ? fileName.length : extensionStartsAt;\n  const beforeExtension = fileName.substring(0, insertPosition);\n  const afterExtension = fileName.substring(insertPosition);\n\n  return `${beforeExtension}${templateExtension}${afterExtension}`;\n}",
+  "description": "",
+  "id": "spgivvknicmieerdtwljervb"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666259163292,
+  "updatedAt": 1666259163292,
+  "deletedAt": 0,
+  "createdFirstAt": 1666259163292,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "recalculateOperationIndexJson",
+  "slug": "recalculate-operation-index-json",
+  "operationRelativeTypescriptFilePath": "src/recalculateOperationIndexJson.ts",
+  "type": {
+    "rawType": "(operationBasePath: string, manualProjectRoot?: string | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  operationBasePath: string,\n  manualProjectRoot?: string\n) => {\n  const operationMetaData = await getOperationMetaData(operationBasePath);\n\n  if (!operationMetaData) {\n    log(`Operation on ${operationBasePath} doesn't have a basepath`, {\n      type: \"error\",\n    });\n    return;\n  }\n\n  const {\n    operationIndex,\n    operationFolderName,\n    operationName,\n    relativeOperationLocationPath,\n  } = operationMetaData;\n\n  if (!operationName || !relativeOperationLocationPath) {\n    log(\n      `Operation on ${operationBasePath} doesn't have a name or relativeOperationLocationPath`,\n      { type: \"error\" }\n    );\n    return;\n  }\n\n  const classification = getOperationClassification(operationBasePath)!; //NB: we know it's there because operationBasePath must be valid\n\n  const dependencies = await getDependenciesSummary(operationName);\n\n  const generalOperationIndex: GeneralOperationIndex = {\n    updatedAt: Date.now(),\n    folderName: operationFolderName,\n    packageName: operationName!,\n    relativeOperationLocationPath,\n    classification,\n    name: operationName!,\n    slug: operationName!,\n    ...dependencies,\n  };\n\n  const categories = await categorizeFiles({\n    basePath: operationBasePath,\n    ignoreIndexFiles: true,\n  });\n\n  const size = await getFolderSummary(categories);\n\n  const newOperationIndex: Creation<OperationIndex> = operationIndex\n    ? {\n        ...operationIndex,\n        ...generalOperationIndex,\n        size,\n        operationName,\n      }\n    : {\n        // new\n        deletedAt: 0,\n        createdFirstAt: Date.now(),\n        createdAt: Date.now(),\n        // calculated\n        ...generalOperationIndex,\n        size,\n\n        // NB: give default values for the ones that we didn't calculate yet\n        buildSucceeded: false,\n        dependenciesBuildsFailed: false,\n        indexErrors: [],\n        indexImportExportError: \"\",\n        indexInteracesErrors: [],\n        lintProblems: [],\n        id: generateId(),\n        language: \"en\",\n        operationName,\n      };\n\n  // @ts-ignore\n  await db.upsert(\"OperationIndex\", newOperationIndex, {\n    operationName,\n    manualProjectRoot,\n  });\n}",
+  "description": "relies on import index",
+  "id": "fujzbexisdfrdudyiroxuscl"
+}

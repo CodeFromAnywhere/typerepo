@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666263168407,
+  "updatedAt": 1666263168407,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263168407,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "searchRecursiveObjectArray",
+  "slug": "search-recursive-object-array",
+  "operationRelativeTypescriptFilePath": "src/searchRecursiveObject.ts",
+  "type": {
+    "rawType": "<T extends unknown>(array: T[], baseMatcher: (item: T) => boolean, afterMapper?: ((item: T, isMatch: boolean, hasChildMatch: boolean) => T) | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<\n  T extends { children?: T[] } & Object\n>(\n  array: T[],\n  baseMatcher: (item: T) => boolean,\n  /**\n   * optionally, item can be mapped to add some info after match is found or not\n   */\n  afterMapper?: (item: T, isMatch: boolean, hasChildMatch: boolean) => T\n) => {\n  return array.reduce(\n    (previous, current) =>\n      magicalRecursiveReducer(previous, current, baseMatcher),\n    [] as T[]\n  );\n}",
+  "description": "",
+  "id": "anxoktjwpspalohyryjutgdl"
+}

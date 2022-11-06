@@ -1,0 +1,110 @@
+{
+  "createdAt": 1667635853893,
+  "updatedAt": 1667635853893,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635853893,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/shouldSkip.ts",
+  "commentsInside": [],
+  "rawText": " async (config: {\n  operationBasePath: string;\n  debug?: boolean;\n  force?: boolean;\n  operationManualProjectRoot?: string;\n  rebuildUpdatedAt?: number;\n}) => {\n  const {\n    operationBasePath,\n    debug,\n    force,\n    rebuildUpdatedAt,\n    operationManualProjectRoot,\n  } = config;\n  const operationName = getLastFolder(operationBasePath);\n\n  if (force) {\n    console.log(\"Not skipping (force)\");\n    return false;\n  }\n\n  const operationIndex = (\n    await db.get(\"OperationIndex\", {\n      operationName,\n      manualProjectRoot: operationManualProjectRoot,\n    })\n  )[0];\n  if (!operationIndex) {\n    console.log(\"Not skipping because no operationIndex \");\n    return false;\n  }\n\n  if (\n    rebuildUpdatedAt &&\n    operationIndex &&\n    operationIndex.updatedAt <= rebuildUpdatedAt\n  ) {\n    console.log(\"Not skipping because rebuild updated\");\n    return false;\n  }\n\n  const srcPath = path.join(operationBasePath, \"src\");\n  const srcUpdatedAt = await folderGetUpdatedAt({ folderPath: srcPath });\n\n  if (operationIndex && operationIndex.updatedAt <= srcUpdatedAt) {\n    console.log(\"Not skipping because src updated\");\n    return false;\n  }\n\n  const hasIndexFolder = fs.existsSync(\n    path.join(operationBasePath, databaseFolderName)\n  );\n  if (!hasIndexFolder) {\n    console.log(\"Not skipping because has no db folder \");\n    return false;\n  }\n\n  const noBuildFolder = !fs.existsSync(\n    path.join(operationBasePath, buildFolderName)\n  );\n\n  const isBuildNeeded = isOperationBuildNeeded(operationBasePath);\n\n  if (noBuildFolder && isBuildNeeded) {\n    console.log(\"Not skipping because noBuildFolder\");\n    return false;\n  }\n\n  return true;\n}",
+  "name": "shouldSkip",
+  "slug": "should-skip",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "operationBasePath": {
+            "type": "string"
+          },
+          "debug": {
+            "type": "boolean"
+          },
+          "force": {
+            "type": "boolean"
+          },
+          "operationManualProjectRoot": {
+            "type": "string"
+          },
+          "rebuildUpdatedAt": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "operationBasePath"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "operationBasePath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "debug",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "force",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "operationManualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rebuildUpdatedAt",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "if you don't force it, there's an operation index, there's an index folder, the src has not been touched since hte last indexation, and there's a buildfolder (if needed), then the rebuildOperation can be skipped",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1859,
+    "lines": 70,
+    "bytes": 1859,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 70,
+    "numberOfFiles": 1
+  },
+  "id": "jrfibczemvzijzeqlewuphyn"
+}

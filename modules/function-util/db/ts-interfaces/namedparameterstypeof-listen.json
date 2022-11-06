@@ -1,0 +1,143 @@
+{
+  "createdAt": 1666260891028,
+  "updatedAt": 1666260891028,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260891028,
+  "id": "namedparameterstypeof-listen",
+  "name": "NamedParameters<typeof listen>",
+  "slug": "namedparameterstypeof-listen",
+  "operationRelativeTypescriptFilePath": "src/converse-extra.test.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "{\n  instruction,\n  context,\n}": {
+          "type": "object",
+          "properties": {
+            "instruction": {
+              "type": "string"
+            },
+            "context": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "instruction": {
+                    "type": "string"
+                  },
+                  "output": {},
+                  "references": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "instruction",
+                  "output",
+                  "references"
+                ],
+                "additionalProperties": false,
+                "description": "need to find a good way to save results of previous instructions"
+              },
+              "description": "should be in fifo order, so no push but unshift! the further in the array, the less important the context (forgetting)"
+            }
+          },
+          "required": [
+            "instruction",
+            "context"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "{\n  instruction,\n  context,\n}"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "{\n  instruction,\n  context,\n}",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "instruction",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "context",
+                "required": true,
+                "schema": {
+                  "fullComment": "should be in fifo order, so no push but unshift! the further in the array, the less important the context (forgetting)",
+                  "items": [
+                    {
+                      "schema": {
+                        "fullComment": "need to find a good way to save results of previous instructions",
+                        "properties": [
+                          {
+                            "name": "instruction",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "output",
+                            "required": true,
+                            "schema": {
+                              "properties": [],
+                              "type": "object"
+                            }
+                          },
+                          {
+                            "name": "references",
+                            "required": true,
+                            "schema": {
+                              "items": [
+                                {
+                                  "schema": {
+                                    "type": "string"
+                                  },
+                                  "name": null
+                                }
+                              ],
+                              "type": "array"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof listen>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

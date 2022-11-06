@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635700343,
+  "updatedAt": 1667635700343,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635700343,
+  "id": "namedparameterstypeof-generatefunctionsdkscli",
+  "name": "NamedParameters<typeof generateFunctionSdksCli>",
+  "slug": "namedparameterstypeof-generatefunctionsdkscli",
+  "operationRelativeTypescriptFilePath": "src/cli/generateFunctionSdks.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof generateFunctionSdksCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

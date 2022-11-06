@@ -1,0 +1,49 @@
+{
+  "createdAt": 1666262507347,
+  "updatedAt": 1666262507347,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262507347,
+  "id": "namedparameterstypeof-getpublicfoldernestedpathobjectfrompeer",
+  "name": "NamedParameters<typeof getPublicFolderNestedPathObjectFromPeer>",
+  "slug": "namedparameterstypeof-getpublicfoldernestedpathobjectfrompeer",
+  "operationRelativeTypescriptFilePath": "src/getPublicFolderNestedPathObject.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "peerSlug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "peerSlug"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "peerSlug",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPublicFolderNestedPathObjectFromPeer>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

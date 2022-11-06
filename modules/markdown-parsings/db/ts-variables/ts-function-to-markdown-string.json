@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635422719,
+  "updatedAt": 1667635422719,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635422719,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "tsFunctionToMarkdownString",
+  "slug": "ts-function-to-markdown-string",
+  "operationRelativeTypescriptFilePath": "src/tsFunctionToMarkdownString.ts",
+  "type": {
+    "rawType": "(tsFunction: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(tsFunction: TsFunction): string => {\n  const titleString = `# ${tsFunction.name}`;\n  const infoString = `${\n    tsFunction.codeSize?.lines ? `${tsFunction.codeSize.lines} LOC, ` : \"\"\n  }Max. indexation depth: ${tsFunction.maxIndentationDepth}, ${\n    tsFunction.cumulativeCodeSize?.lines\n      ? `${tsFunction.cumulativeCodeSize?.lines} Cumulative LOC`\n      : \"\"\n  }`;\n\n  const returnTypeString = tsFunction.returnType.simplifiedSchema\n    ? simplifiedSchemaToMarkdownString(\n        tsFunction.returnType.simplifiedSchema,\n        \"Returns\",\n        true,\n        2\n      )\n    : \"\";\n\n  const argumentStrings =\n    tsFunction.parameters && tsFunction.parameters.length > 0\n      ? `## Parameters (${\n          tsFunction.parameters.length\n        })\\n\\n${tsFunction.parameters\n          .map((x, i) =>\n            simplifiedSchemaToMarkdownString(\n              x.simplifiedSchema,\n              `Parameter ${i + 1}: ${x.name}`,\n              x.required,\n              3\n            )\n          )\n          .join(\"\\n\\n\")}`\n      : undefined;\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // infoString, // TODO: Maybe make it optional.\n    tsFunction.description,\n    returnTypeString,\n    argumentStrings,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "description": "TsFunction:\n- name and operation\n- size\n- description (doc-comment)\n- input, output",
+  "id": "zfxgrevwqukdlzevtvzeomrk"
+}

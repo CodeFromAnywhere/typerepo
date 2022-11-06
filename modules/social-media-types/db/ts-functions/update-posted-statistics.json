@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635524618,
+  "updatedAt": 1667635524618,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635524618,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/Postable.ts",
+  "commentsInside": [],
+  "rawText": " () => {}",
+  "name": "updatePostedStatistics",
+  "slug": "update-posted-statistics",
+  "parameters": [],
+  "description": "This function keeps the `Posted` statistics up-to-date\n\nCan be executed with a cron for all recent posts",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 113,
+    "lines": 3,
+    "bytes": 113,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 38,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "cjxadbqoibqiqxitwialqmzs"
+}

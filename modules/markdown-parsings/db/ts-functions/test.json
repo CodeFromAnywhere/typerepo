@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635410286,
+  "updatedAt": 1667635410286,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635410286,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/operationToMarkdown.test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const operationName = \"fs-orm\";\n  const result = (await operationToMarkdown({\n    operationName,\n    mergeDocsInline: true,\n    returnType: \"string\",\n  })) as string;\n  // console.dir({ result }, { depth: 99 });\n\n  writeToAssets(__filename, result, `${operationName}.md`);\n}",
+  "name": "test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 291,
+    "lines": 11,
+    "bytes": 291,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "qzpkdfzetvygzqbddhsbtqvl"
+}

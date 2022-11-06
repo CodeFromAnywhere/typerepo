@@ -1,0 +1,49 @@
+{
+  "createdAt": 1666262510848,
+  "updatedAt": 1666262510848,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262510848,
+  "id": "namedparameterstypeof-isportused",
+  "name": "NamedParameters<typeof isPortUsed>",
+  "slug": "namedparameterstypeof-isportused",
+  "operationRelativeTypescriptFilePath": "src/isPortUsed.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "port"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "port",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isPortUsed>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

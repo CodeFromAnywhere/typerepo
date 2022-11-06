@@ -1,0 +1,17 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": ["apps/**/*", "packages/**/*", "modules/**/*"],
+  "scripts": {},
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@1.22.17",
+  "sensible": {
+    "isSensibleProject": true
+  }
+}

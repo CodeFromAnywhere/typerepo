@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1666262517622,
+    "updatedAt": 1666262517622,
+    "deletedAt": 0,
+    "createdFirstAt": 1666262517622,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/updatePeer.ts",
+    "comment": "Update one of your peers",
+    "rawStatement": "export const updatePeer = async (\n  slug: string,\n  updatedValues: {\n    name?: string;\n    description?: string;\n    authToken?: string;\n    isFavorite?: boolean;\n    isMe?: boolean;\n  }\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  const updateResult = await db.update(\n    \"Peer\",\n    (peer) => {\n      return peer.slug === slug;\n    },\n    (peer) => {\n      return { ...peer, ...omitUndefinedValues(updatedValues) };\n    }\n  );\n\n  return {\n    isSuccesful: !!updateResult.isSuccesful,\n    message: updateResult.isSuccesful\n      ? \"Peer updated\"\n      : `Something went wrong: ${updateResult.message}`,\n  };\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 4,
+    "lastLine": 6,
+    "id": "liamsoaadtglrfxrlvvuutum"
+  }
+]

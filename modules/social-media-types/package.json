@@ -1,0 +1,28 @@
+{
+  "createdAt": 1662709577330,
+  "updatedAt": 1662709577330,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577330,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "description": "I want a type interface collection that is able to collect all data from all social networks and put them together.",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "name": "social-media-types",
+  "slug": "social-media-types",
+  "id": "SZLSdBVDzaXWYAEI",
+  "dependencies": {},
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

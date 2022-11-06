@@ -1,0 +1,82 @@
+{
+  "createdAt": 1667635986298,
+  "updatedAt": 1667635986298,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635986298,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "JeepView",
+  "slug": "jeep-view",
+  "operationRelativeTypescriptFilePath": "src/pages/jeep-view.tsx",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-ui/src/types\").RWNPage",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "object",
+          "properties": {
+            "hideFromMenu": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "options",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "hideFromMenu",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "(props: MainPageProps) => {\n  return (\n    <Layout pages={props.pages}>\n      <P>Jeep view (viewing a single jeep with driver contact info, etc)</P>\n    </Layout>\n  );\n}",
+  "description": "",
+  "id": "kudijdicmaboxoxjwzgujdbg"
+}

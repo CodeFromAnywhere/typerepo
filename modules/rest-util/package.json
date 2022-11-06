@@ -1,0 +1,26 @@
+{
+  "createdAt": 1662709577329,
+  "updatedAt": 1662709577329,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577329,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "license": "ISC",
+  "name": "rest-util",
+  "slug": "rest-util",
+  "id": "cOeSLUvQqLDlgLLO",
+  "dependencies": {
+    "js-util": "0.0.1"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

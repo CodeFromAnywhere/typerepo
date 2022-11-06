@@ -1,0 +1,28 @@
+{
+  "createdAt": 1663839541226,
+  "updatedAt": 1663839541226,
+  "deletedAt": 0,
+  "createdFirstAt": 1663839541226,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "css": "tailwindcss -o css.css",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "name": "function-form",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "dependencies": {},
+  "slug": "function-form",
+  "id": "cJEZBYPBhcdnfoHB"
+}

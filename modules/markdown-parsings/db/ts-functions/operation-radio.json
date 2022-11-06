@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635405546,
+  "updatedAt": 1667635405546,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635405546,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/expose/radio.ts",
+  "commentsInside": [],
+  "rawText": " () => {}",
+  "name": "operationRadio",
+  "slug": "operation-radio",
+  "parameters": [],
+  "description": "randomly plays mp3 summaries of operations on the project",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 66,
+    "lines": 1,
+    "bytes": 66,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 66,
+    "linesPerFile": 1,
+    "numberOfFiles": 1
+  },
+  "id": "xcjicktwasrhqvxuhzeysgry"
+}

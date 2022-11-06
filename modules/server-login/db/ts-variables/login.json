@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378547800,
+  "updatedAt": 1667378547800,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378547800,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "login",
+  "slug": "login",
+  "operationRelativeTypescriptFilePath": "src/login.ts",
+  "type": {
+    "rawType": "(deviceId: string) => Promise<{ isSuccessful: boolean; message: string; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  deviceId: string\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const device = (await db.get(\"Device\")).find((x) => x.id === deviceId);\n\n  if (!device) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't find that device\",\n    };\n  }\n\n  // NB: probably need to extrahere this part so I can use it to view the authentication status while logging in...\n  const person = (await db.get(\"Person\")).find((person) => {\n    const matchingMethods = person.authenticationMethods.filter(\n      (authenticationMethod) => {\n        // NB: finds the method with the same handle and credential\n        const matchingMethod = device.authenticationMethods.find(\n          (method) =>\n            method.method === authenticationMethod.method &&\n            method.handle === authenticationMethod.handle &&\n            method.encryptedCredential ===\n              authenticationMethod.encryptedCredential\n        );\n\n        return !!matchingMethod;\n      }\n    );\n\n    const hasEnoughMethods =\n      (person.amountAuthenticationMethodsRequired || 1) <=\n      matchingMethods.length;\n\n    const hasMissingMethod = !!person.requiredAuthenticationMethods?.find(\n      (method) => {\n        const isMethodMissing = !device.authenticationMethods.find(\n          (x) => x.method === method\n        );\n        return isMethodMissing;\n      }\n    );\n\n    if (hasEnoughMethods && !hasMissingMethod) {\n      // if you have authenticated with enough methods, and aren't missing a method\n      return true;\n    }\n\n    return false;\n  });\n\n  if (!person) {\n    return { isSuccessful: false, message: \"Couldn't login\" };\n  }\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => ({ ...old, personId: person.id })\n  );\n\n  const isSuccessful =\n    !!updateResult.isSuccesful && updateResult.amountUpdated === 1;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged in\"\n      : updateResult.message || \"Something went wrong\",\n  };\n}",
+  "description": "attaches the `Device` with `authToken` (`id`) to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.",
+  "id": "tzxyxhtjjmkxtpxxenxtldmt"
+}

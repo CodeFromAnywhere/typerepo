@@ -1,0 +1,52 @@
+{
+  "createdAt": 1667635712070,
+  "updatedAt": 1667635712070,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635712070,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getSdkDescription.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string\n): Promise<string | undefined> => {\n  const descriptionPath = path.join(\n    __dirname,\n    \"..\",\n    \"assets\",\n    \"descriptions\",\n    `${operationName}.md`\n  );\n\n  if (!fs.existsSync(descriptionPath)) return;\n\n  const contents = await fs.readFile(descriptionPath, \"utf8\");\n\n  return contents;\n}",
+  "name": "getSdkDescription",
+  "slug": "get-sdk-description",
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "Gets a description of any sdk operation from the assets",
+  "returnType": {
+    "rawType": "Promise<string | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 384,
+    "lines": 17,
+    "bytes": 384,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "xdhgmuiiobzkhmtfqeqrypca"
+}

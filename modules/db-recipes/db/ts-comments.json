@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1667233173074,
+    "updatedAt": 1667233173074,
+    "deletedAt": 0,
+    "createdFirstAt": 1667233173074,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/validateInput.ts",
+    "comment": "wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.",
+    "rawStatement": "export const validateInput = (\n  functionName: string,\n  parameters: undefined | any[],\n  tsFunction: TsFunction\n): ValidationResult => {\n  // TODO: make this validation function! It may be possible to do it with SimplifiedJson, otherwise just use JSONSchema7\n  return { isValid: true };\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 8,
+    "lastLine": 8,
+    "id": "yyrvggrbegmnolxaiwaxernb"
+  }
+]

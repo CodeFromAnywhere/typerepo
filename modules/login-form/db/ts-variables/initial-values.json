@@ -1,0 +1,58 @@
+{
+  "createdAt": 1667379323416,
+  "updatedAt": 1667379323416,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379323416,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "initialValues",
+  "slug": "initial-values",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "type": {
+    "rawType": "{ \"api.authToken\": string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "api.authToken": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "api.authToken"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "api.authToken",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  \"api.authToken\": \"\",\n}",
+  "description": "",
+  "id": "cfwkpxyiibyorohowhflrznz"
+}

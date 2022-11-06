@@ -1,0 +1,50 @@
+{
+  "createdAt": 1667634820595,
+  "updatedAt": 1667634820595,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634820595,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getHasAuthorization.ts",
+  "commentsInside": [],
+  "rawText": " (device: Device, tsFunction: TsFunction) => {\n  const publicAuthorization: Authorization = {\n    authorizations: tsFunction?.publicAuthorization || [],\n    type: \"TsFunction\",\n    value: tsFunction.id,\n  };\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations = [\n    publicAuthorization,\n    ...(device?.person?.authorizations || []),\n    ...(device?.person?.groups?.map((group) => group.authorizations).flat() ||\n      []),\n  ];\n\n  const hasAuthorization = !!authorizations.find((auth) =>\n    !auth.authorizations.includes(\"execute\")\n      ? false\n      : auth.type === \"TsFunction\"\n      ? auth.value === tsFunction.name\n      : auth.type === \"operationName\"\n      ? auth.value === tsFunction?.operationName\n      : false\n  );\n\n  return hasAuthorization;\n}",
+  "name": "getHasAuthorization",
+  "slug": "get-has-authorization",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 874,
+    "lines": 27,
+    "bytes": 874,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "tiloukgyojsukbfcpufqidrs"
+}

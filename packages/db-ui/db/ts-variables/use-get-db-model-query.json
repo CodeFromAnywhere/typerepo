@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634524575,
+  "updatedAt": 1667634524575,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634524575,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useGetDbModelQuery",
+  "slug": "use-get-db-model-query",
+  "operationRelativeTypescriptFilePath": "src/hooks/useGetDbModelQuery.ts",
+  "type": {
+    "rawType": "<KDbModel extends any>(modelName: KDbModel | undefined) => import(\"/Users/king/King/operations/node_modules/react-query/types/react/types\").UseInfiniteQueryResult<unknown, unknown>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<KDbModel extends DbModelEnum>(\n  modelName: KDbModel | undefined\n) => {\n  const dependencies = [\"getDbModel\", modelName];\n\n  const hook = useInfiniteQuery(\n    dependencies,\n    (context) => {\n      const params = context.pageParam as PageParam | undefined;\n\n      // @ts-ignore\n      const result = getDbModel(modelName!, {\n        start: params?.start || 0,\n        limit: params?.limit || defaultLimit,\n      });\n      return result;\n    },\n    {\n      getNextPageParam: (lastPage, allPages) => {\n        const limit = lastPage.result?.limit || defaultLimit;\n        const oldStart = lastPage.result?.start || 0;\n        const pageParam: PageParam = {\n          start: oldStart + limit,\n          limit,\n        };\n\n        return pageParam;\n      },\n    }\n  );\n\n  return hook;\n}",
+  "description": "",
+  "id": "oxlmzwrcuqrcafataeizcsuw"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260828361,
+  "updatedAt": 1666260828361,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260828361,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getArgumentOrAsk",
+  "slug": "get-argument-or-ask",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "(argumentPosition: number, question: string, isNonInteractive?: boolean | undefined) => Promise<string>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  argumentPosition: number,\n  question: string,\n  isNonInteractive?: boolean\n): Promise<string> => {\n  let argument = argumentsWithoutFlags[argumentPosition + 1];\n  if (argument && argument.length > 0) return argument;\n\n  if (isNonInteractive) {\n    return \"\";\n  }\n\n  return ask(question);\n}",
+  "description": "",
+  "id": "jilgbbuqdwyepsglluzclbci"
+}

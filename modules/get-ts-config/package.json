@@ -1,0 +1,28 @@
+{
+  "createdAt": 1662709577328,
+  "updatedAt": 1662709577328,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577328,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "name": "get-ts-config",
+  "license": "ISC",
+  "slug": "get-ts-config",
+  "id": "KDQDhuKmgVOmWJmD",
+  "dependencies": {
+    "read-json-file": "0.0.1",
+    "fs-util": "1.0.5",
+    "code-types": "0.0.1"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

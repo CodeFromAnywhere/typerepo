@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666263852024,
+  "updatedAt": 1666263852024,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263852024,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
+  "commentsInside": [],
+  "rawText": " async ({\n  operationName,\n  importName,\n  returnOperationName,\n}: {\n  operationName: string;\n  /**\n   * Optionally specify a specific import from an operation that you want to find the dependants for\n   */\n  importName?: string;\n  returnOperationName?: boolean;\n}) => {\n  const resultValueKey: keyof TsImport = returnOperationName\n    ? \"operationName\"\n    : \"projectRelativePath\";\n  const imports = await db.get(\"TsImport\");\n  const monorepoModules = imports\n    .filter((x) => x.module === operationName)\n    .filter((x) => (importName ? x.name === importName : true))\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved ? x[resultValueKey] : null\n    )\n    .filter(notEmpty)\n    .filter(onlyUnique);\n\n  return monorepoModules;\n}",
+  "name": "findDependants",
+  "slug": "find-dependants",
+  "parameters": [],
+  "description": "getDependencyTree([\"k-types\", \"fs-orm\"], []).then((res) =>\n\nconsole.dir(res, { depth: 999 })\n\n);\n\nfinds all dependants of an operation or a specific import from that operation\n\nnormally returns the files where the operation or function is used, unless you specify to return the operationNames only.",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1045,
+    "lines": 35,
+    "bytes": 1045,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 35,
+    "numberOfFiles": 1
+  },
+  "id": "iicuucnbmyfexpaotuyhjtpo"
+}

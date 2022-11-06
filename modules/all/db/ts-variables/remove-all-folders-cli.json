@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258912155,
+  "updatedAt": 1666258912155,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258912155,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "removeAllFoldersCli",
+  "slug": "remove-all-folders-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/removeAllFolders.cli.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  await removeAllFolders({\n    basePath,\n    folderNames: [folderName],\n  });\n\n  console.log(\"DONE\");\n}",
+  "description": "",
+  "id": "prjesmmamyykrnwhxluyhjgj"
+}

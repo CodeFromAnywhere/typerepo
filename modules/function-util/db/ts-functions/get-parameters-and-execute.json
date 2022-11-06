@@ -1,0 +1,49 @@
+{
+  "createdAt": 1666260893252,
+  "updatedAt": 1666260893252,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260893252,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/converse.ts",
+  "commentsInside": [],
+  "rawText": " async (fn: FnMatch) => {\n  console.log(`finding ${fn.name} as ${fn.matcher}`);\n\n  log(\n    `Fill in the parameters of this function (JSON or string) (Leave empty for no parameter)`\n  );\n  const parameters = await getParameters(fn.parameters);\n  await executeSdkFunction(fn.name, parameters);\n}",
+  "name": "getParametersAndExecute",
+  "slug": "get-parameters-and-execute",
+  "parameters": [
+    {
+      "name": "fn",
+      "schema": {
+        "$ref": "#/definitions/FnMatch"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 294,
+    "lines": 9,
+    "bytes": 294,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "exqdqboofavxmlbqzvjlyciy"
+}

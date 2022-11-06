@@ -1,0 +1,67 @@
+{
+  "createdAt": 1666259018973,
+  "updatedAt": 1666259018973,
+  "deletedAt": 0,
+  "createdFirstAt": 1666259018973,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getAllOperationSourcePaths.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const operationFolders: string[] = await exploreOperationFolders({\n    basePath: getPathsWithOperations({ manualProjectRoot }),\n  });\n\n  const operationSourceFolders = operationFolders.reduce(\n    (allSources, operationPath) => {\n      const srcPath = path.join(operationPath, \"src\");\n\n      if (!fs.existsSync(srcPath)) return allSources;\n\n      return allSources.concat(\n        [srcPath]\n        // TODO: this function would be great, but the inputs in tsconfig contain glob patterns and that doesn't work.\n        // getPackageSourcePaths({ packageFolder: operationPath })\n      );\n    },\n    [] as string[]\n  );\n\n  return operationSourceFolders;\n}",
+  "name": "getAllOperationSourcePaths",
+  "slug": "get-all-operation-source-paths",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "returns src folder paths of all operations",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 808,
+    "lines": 25,
+    "bytes": 808,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 25,
+    "numberOfFiles": 1
+  },
+  "id": "rtxoibynexgqtqjztyhwmpwf"
+}

@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667634816143,
+  "updatedAt": 1667634816143,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634816143,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  functionName: keyof typeof sdk,\n  authToken: string | undefined,\n  parameters: undefined | any[],\n  ctx: Context\n): Promise<RealApiReturnType<any>> => {\n  const executionId = generateId();\n\n  const performance: (PerformanceItem | undefined)[] = [];\n\n  performance.push(getNewPerformance(\"start\", executionId, true));\n\n  // 1) upsert device\n  // const device = await upsertDevice(ctx);\n  // if (false && !device) {\n  //   return {\n  //     isSuccessful: false,\n  //     message: \"Couldn't create device\",\n  //   };\n  // }\n  performance.push(getNewPerformance(\"upsertDevice\", executionId));\n\n  // 2) get ts function\n  const tsFunction = await getTsFunction(functionName);\n  if (!tsFunction) {\n    return {\n      isSuccessful: false,\n      message: \"TsFunction file could not be found\",\n    };\n  }\n  performance.push(getNewPerformance(\"getTsFunction\", executionId));\n\n  // const hasAuthorization = getHasAuthorization(device, tsFunction);\n\n  // // 3) auth\n  // if (false && !hasAuthorization) {\n  //   return {\n  //     isSuccessful: false,\n  //     isUnauthorized: true,\n  //     message:\n  //       \"You are not authorized to execute this function, you might need to login.\",\n  //   };\n  // }\n  performance.push(getNewPerformance(\"auth\", executionId));\n\n  // 4) cache lookup\n  const cacheLookupResult = cacheLookup(functionName, parameters);\n  if (cacheLookupResult.hasValidCache) {\n    return {\n      result: cacheLookupResult.result,\n      isSuccessful: true,\n      isCached: true,\n    };\n  }\n  performance.push(getNewPerformance(\"cacheLookup\", executionId));\n\n  // 5) validation\n  const validationResult = validateInput(functionName, parameters, tsFunction);\n\n  if (!validationResult.isValid) {\n    return {\n      isSuccessful: false,\n      errors: validationResult.errors,\n      message: \"Your input has some errors\",\n    };\n  }\n  performance.push(getNewPerformance(\"inputValidation\", executionId));\n\n  // 4) running function\n  const fn = sdk[functionName];\n  if (typeof fn !== \"function\") {\n    return {\n      isSuccessful: false,\n      message: \"Function not found\",\n    };\n  }\n  // @ts-ignore\n  const result = await fn(...parameters);\n  performance.push(getNewPerformance(\"function\", executionId));\n\n  // 6) store performance\n  storeFunctionExecution(\n    tsFunction,\n    parameters,\n    result,\n    performance.filter(notEmpty),\n    false\n  );\n\n  if (result === undefined) {\n    return {\n      isSuccessful: true,\n      isCached: false,\n      message: \"Function was executed but did not give any response\",\n      result: undefined,\n    };\n  }\n\n  return {\n    isSuccessful: true,\n    isCached: false,\n    result,\n  };\n}",
+  "name": "executeFunctionWithParameters",
+  "slug": "execute-function-with-parameters",
+  "parameters": [],
+  "description": "steps for someone to use the API\n\n1) auth\n2) cache lookup\n3) input validation\n4) running function\n5) store cache\n6) store performance\n7) returning result\n\nTODO: make it possible to return result BEFORE storing cache and performance. we probably need to use the server.reply for this, which makes this function unusable in any other setting than an api, so let's make it optional",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/interfaces/api/api-types/build/api-types\").RealApiReturnType<any>>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 3014,
+    "lines": 114,
+    "bytes": 3014,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 114,
+    "numberOfFiles": 1
+  },
+  "id": "myoafhtlwmmnvzoenqwmkzrd"
+}

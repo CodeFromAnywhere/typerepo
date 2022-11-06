@@ -1,0 +1,63 @@
+{
+  "createdAt": 1666264484393,
+  "updatedAt": 1666264484393,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264484393,
+  "id": "namedparameterstypeof-watchoperations",
+  "name": "NamedParameters<typeof watchOperations>",
+  "slug": "namedparameterstypeof-watchoperations",
+  "operationRelativeTypescriptFilePath": "src/watchOperations.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "manualProjectRoot": {
+              "type": "string",
+              "description": "manual project root where the operations to watch should be located"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "fullComment": "manual project root where the operations to watch should be located",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof watchOperations>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

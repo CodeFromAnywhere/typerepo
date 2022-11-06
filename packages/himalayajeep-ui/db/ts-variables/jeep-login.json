@@ -1,0 +1,82 @@
+{
+  "createdAt": 1667635983465,
+  "updatedAt": 1667635983465,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635983465,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "JeepLogin",
+  "slug": "jeep-login",
+  "operationRelativeTypescriptFilePath": "src/pages/jeep-login.tsx",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-ui/src/types\").RWNPage",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "object",
+          "properties": {
+            "hideFromMenu": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "options",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "hideFromMenu",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "(props: MainPageProps) => {\n  const alert = useAlert();\n  const [loginToken, setLoginToken] = useStore(\"api.loginToken\");\n  return (\n    <Layout pages={props.pages}>\n      <P>Login page</P>\n\n      <FunctionForm\n        tsFunction={DriverLoginFunction}\n        withApiResult={(result: RealApiReturnType<\"driverLogin\">) => {\n          const title = result.result?.isSuccessful ? \"Logged in\" : \"Error\";\n          const message =\n            result.result?.message ||\n            \"Something went wrong (no message avaiable)\";\n\n          alert?.(title, message);\n          console.log({ result });\n\n          if (result.result?.loginToken) {\n            setLoginToken(result.result?.loginToken);\n          }\n        }}\n        hideResult\n      />\n    </Layout>\n  );\n}",
+  "description": "",
+  "id": "weyjkkhafpgfowhvvdafjavx"
+}

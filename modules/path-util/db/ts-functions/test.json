@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666258764437,
+  "updatedAt": 1666258764437,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258764437,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const x = await categorizeFiles({\n    basePath: \"/Users/king/King/tools/cognition/app-controllers/sensible\",\n  });\n\n  const y = await getFolderSummary(x);\n  console.dir(y, { depth: 999 });\n}",
+  "name": "test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 207,
+    "lines": 8,
+    "bytes": 207,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "muhiuysmppznwjdcwmctyzum"
+}

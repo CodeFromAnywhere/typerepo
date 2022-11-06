@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1667635425207,
+    "updatedAt": 1667635425207,
+    "deletedAt": 0,
+    "createdFirstAt": 1667635425207,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/tsVariableToMarkdownString.ts",
+    "comment": "",
+    "rawStatement": "export const tsVariableToMarkdownString = (tsVariable: TsVariable): string => {\n  const titleString = `# ${tsVariable.name} (${\n    tsVariable.isExported ? \"exported\" : \"unexported\"\n  } ${tsVariable.classification})`;\n\n  const alineas: (string | undefined)[] = [titleString, tsVariable.description];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 4,
+    "lastLine": 5,
+    "id": "lfiibhjyzxidtlvkgybczkpy"
+  }
+]

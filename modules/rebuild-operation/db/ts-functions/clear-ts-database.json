@@ -1,0 +1,52 @@
+{
+  "createdAt": 1667635836231,
+  "updatedAt": 1667635836231,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635836231,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/clearTsDatabase.ts",
+  "commentsInside": [],
+  "rawText": " async (operationName: string | undefined) => {\n  const result = await Promise.all(\n    typescriptIndexModels.map((modelName) => {\n      return db.clear(modelName, { operationName });\n    })\n  );\n\n  await db.clear(\"OperationIndex\", { operationName });\n}",
+  "name": "clearTsDatabase",
+  "slug": "clear-ts-database",
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 253,
+    "lines": 9,
+    "bytes": 253,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "tireunhvgstiugrhaothuklv"
+}

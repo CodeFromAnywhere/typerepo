@@ -1,0 +1,115 @@
+{
+  "createdAt": 1666262517145,
+  "updatedAt": 1666262517145,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262517145,
+  "id": "namedparameterstypeof-updatepeer",
+  "name": "NamedParameters<typeof updatePeer>",
+  "slug": "namedparameterstypeof-updatepeer",
+  "operationRelativeTypescriptFilePath": "src/updatePeer.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "slug": {
+          "type": "string"
+        },
+        "updatedValues": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "authToken": {
+              "type": "string"
+            },
+            "isFavorite": {
+              "type": "boolean"
+            },
+            "isMe": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "slug",
+        "updatedValues"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "slug",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "updatedValues",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "name",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "description",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "authToken",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "isFavorite",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isMe",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof updatePeer>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

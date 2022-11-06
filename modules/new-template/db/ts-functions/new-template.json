@@ -1,0 +1,62 @@
+{
+  "createdAt": 1667635801701,
+  "updatedAt": 1667635801701,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635801701,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/newTemplate.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  type: string,\n  destinationPath?: string\n): Promise<string | undefined> => {\n  const manualProjectRoot = getProjectRoot(destinationPath);\n\n  const source = path.resolve(__dirname, \"..\", \"assets\", \"templates\", type);\n  const templateExists = fs.existsSync(source);\n\n  if (!templateExists) {\n    log(\n      `${type} cannot be generated yet. Create a template in assets/templates/${type}`\n    );\n    return;\n  }\n\n  const basePath = destinationPath\n    ? destinationPath\n    : path.join(process.cwd(), type);\n  // const availableFolderName = await getAvailableOperationName(\n  //   rootFolderPath,\n  //   type,\n  //   manualProjectRoot\n  // );\n\n  // const basePath = path.join(rootFolderPath, availableFolderName);\n\n  // if (fs.existsSync(basePath)) {\n  //   log(`${basePath} already exists`);\n  //   return;\n  // }\n  // Make the non-existing folder\n  await fs.mkdir(basePath, { recursive: true });\n  // Copy the template inthere\n  await fs.cpAsync(source, basePath, { recursive: true });\n  // Rename templatefiles if needed\n  await renameTemplateFiles({ appDir: basePath });\n\n  return basePath;\n}",
+  "name": "newTemplate",
+  "slug": "new-template",
+  "parameters": [
+    {
+      "name": "type",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "destinationPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "Returns either the `basePath` of the created template, or undefined if something went wrong",
+  "returnType": {
+    "rawType": "Promise<string | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1195,
+    "lines": 40,
+    "bytes": 1195,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 40,
+    "numberOfFiles": 1
+  },
+  "id": "jniesydwflgpqjgzvqnfcxqm"
+}

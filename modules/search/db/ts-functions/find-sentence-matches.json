@@ -1,0 +1,58 @@
+{
+  "createdAt": 1666263166896,
+  "updatedAt": 1666263166896,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263166896,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " <T>(\n  /**\n   * a message the user is searching for\n   */\n  searchMessage: string,\n  /**\n   * an array that should be filtered.\n   */\n  array: T[],\n  /**\n   * optionally, if the array doesn't contain strings of sentences already, you can provide a map function here that returns a sentence from an item in that array\n   */\n  getSentence?: (x: T) => string\n): T[] => {\n  const messageWords = lowerCaseArray(searchMessage);\n\n  const matches = array.filter((item) => {\n    const sentence = getSentence\n      ? getSentence(item)\n      : typeof item === \"string\"\n      ? item\n      : null;\n    if (!sentence) return false;\n\n    const sentenceWords = lowerCaseArray(sentence);\n    const sentenceIncludesMessage = messageWords.reduce(\n      (includesAll, messageWord) => {\n        // TODO: later we can use synonyms here\n        return includesAll && sentenceWords.includes(messageWord);\n      },\n      true\n    );\n\n    return sentenceIncludesMessage;\n  });\n\n  return matches;\n}",
+  "name": "findSentenceMatches",
+  "slug": "find-sentence-matches",
+  "parameters": [],
+  "description": "finds matches of a searchMessage in an array, looking at the individual words.\n\nif your search matches some words in a sentence, it's a match, as long as all your words you entered are also a word in the sentence\n\nNB: this could be augmented with things like synonyms and translation",
+  "returnType": {
+    "rawType": "T[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 1255,
+    "lines": 42,
+    "bytes": 1255,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 42,
+    "numberOfFiles": 1
+  },
+  "id": "fipmrfxwfnxnhmjhknwtphaa"
+}

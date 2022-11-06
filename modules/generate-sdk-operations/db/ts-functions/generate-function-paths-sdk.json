@@ -1,0 +1,87 @@
+{
+  "createdAt": 1667635706116,
+  "updatedAt": 1667635706116,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635706116,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateFunctionPathsSdk.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const skipYarnInstall = config?.skipYarnInstall;\n  const dryrun = config?.dryrun;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  const functionPathsObject = mergeObjectsArray(\n    tsFunctions\n      .map((tsFunction) => {\n        const projectRelativePath = tsFunction.projectRelativePath;\n        const exists = fs.existsSync(\n          path.join(projectRoot, projectRelativePath)\n        );\n        if (!exists) return;\n        return { [tsFunction.name]: projectRelativePath };\n      })\n      .filter(notEmpty)\n  );\n\n  const operationObjectString = `export const sdkFunctionPaths = ${JSON.stringify(\n    functionPathsObject,\n    null,\n    2\n  )};`;\n\n  const operationConfig = await getOperationConfig(\n    \"sdk-function-paths\",\n    await getSdkDescription(\"sdk-function-paths\")\n  );\n\n  await newOperationWithFiles(\n    operationConfig,\n    { \"src/sdk-function-paths.ts\": operationObjectString },\n    { overwriteIfExists: true, skipYarnInstall, manualProjectRoot, dryrun }\n  );\n}",
+  "name": "generateFunctionPathsSdk",
+  "slug": "generate-function-paths-sdk",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "skipYarnInstall": {
+            "type": "boolean"
+          },
+          "dryrun": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipYarnInstall",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "dryrun",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "`sdk-function-paths` indexes all operations and builds an object containing all operations.",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1330,
+    "lines": 43,
+    "bytes": 1330,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 43,
+    "numberOfFiles": 1
+  },
+  "id": "yojiruxmuovguebkfmhshrce"
+}

@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667233165937,
+  "updatedAt": 1667233165937,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233165937,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getNestedDatabaseMenu.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  // TODO: bundleconfig should still be able to be found. A bundle should contain its own bundleconfig in the database...\n  const bundles = await db.get(\"BundleConfig\");\n  const dbModels = (await db.get(\"TsInterface\")).filter((x) => x.isDbModel);\n\n  const nestedDatabaseMenu: NestedDatabaseMenu = mergeObjectsArray(\n    bundles.map((bundle) => {\n      const summary = getBundleSummary(bundle);\n\n      const appDbModels = dbModels\n        .filter(\n          (x) => x.operationName && summary.appNames.includes(x.operationName)\n        )\n        .map((x) => tsInterfaceToDbMenu(x, \"apps\"))\n        .filter(notEmpty);\n      const packageDbModels = dbModels\n        .filter(\n          (x) =>\n            x.operationName && summary.packageNames.includes(x.operationName)\n        )\n        .map((x) => tsInterfaceToDbMenu(x, \"packages\"))\n        .filter(notEmpty);\n\n      const moduleDbModels = dbModels\n        .filter(\n          (x) =>\n            x.operationName && summary.moduleNames.includes(x.operationName)\n        )\n        .map((x) => tsInterfaceToDbMenu(x, \"modules\"))\n        .filter(notEmpty);\n\n      const dbMenuModels = [\n        ...appDbModels,\n        ...packageDbModels,\n        ...moduleDbModels,\n      ];\n\n      const operationNames = dbMenuModels\n        .map((x) => x.operationName)\n        .filter(onlyUnique2());\n\n      const modelsPerOperationObject = mergeObjectsArray(\n        operationNames.map((name) => {\n          const folders = dbMenuModels\n            .filter((x) => x.operationName === name)\n            .map((x) => x.srcRelativeFolder)\n            .filter(onlyUnique2());\n\n          const dbModelsPerFolderObject = mergeObjectsArray(\n            folders.map((folder) => {\n              const folderKey = !folder ? \"src\" : folder;\n\n              const dbModelsObject = mergeObjectsArray(\n                dbMenuModels\n                  .filter(\n                    (x) =>\n                      x.operationName === name && x.srcRelativeFolder === folder\n                  )\n                  .map((x) => ({ [x.name]: null }))\n              );\n\n              return {\n                [folderKey]: dbModelsObject,\n              };\n            })\n          );\n\n          return { [name]: dbModelsPerFolderObject };\n        })\n      );\n\n      const nestedMenu = { [bundle.name]: modelsPerOperationObject };\n\n      return nestedMenu;\n    })\n  );\n\n  return nestedDatabaseMenu;\n}",
+  "name": "getNestedDatabaseMenu",
+  "slug": "get-nested-database-menu",
+  "parameters": [],
+  "description": "It's a very low-hanging fruit to be able to group the database models better... now it's kind of messy!\n\nIt would be great if it were a nested menu, just like the one in markdown-reader...\n\nWe can have a folder per bundle, and a folder per operation. In the operation we can also sort by folder the type was created in (`operationRelativeTypescriptFilePath`)\n\nIn a way you can see it at three levels\n\nbundle -> operation -> srcRelativeFolder\n\nThe complete OS can also be represented as a bundle\n\nIf we do this, and the menus are collapsible as well as searchible... we'll have a GREAT way to alter models.\n\n====================\n\nSUPER COOL\n\nlet's use this for db-admin..\n\nAny bundle will just see itself, but I will see this for every bundle. Also for the master-bundle, which is going to be super useful because then I'll be able to see the db-models for different operations and see the data they contain.",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 11,
+  "size": {
+    "characters": 3321,
+    "lines": 99,
+    "bytes": 3321,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 34,
+    "linesPerFile": 99,
+    "numberOfFiles": 1
+  },
+  "id": "gepkmkbrzovrabimfliwopwm"
+}

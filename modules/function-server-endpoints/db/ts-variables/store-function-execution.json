@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634825874,
+  "updatedAt": 1667634825874,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634825874,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "storeFunctionExecution",
+  "slug": "store-function-execution",
+  "operationRelativeTypescriptFilePath": "src/storeFunctionExecution.ts",
+  "type": {
+    "rawType": "(tsFunction: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction, inputParameters: any[] | undefined, output: any, performance: import(\"/Users/king/King/operations/tools/types/code-types/build/PerformanceItem\").PerformanceItem[], isResultFromCache: boolean) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  tsFunction: TsFunction,\n  inputParameters: any[] | undefined,\n  output: any,\n  performance: PerformanceItem[],\n  isResultFromCache: boolean\n) => {\n  // TODO: store using db (if useful)\n\n  const functionExecution: Creation<FunctionExecution> = {\n    functionName: tsFunction.name,\n    tsFunctionId: tsFunction.id,\n    inputParameters,\n    isExample: false,\n    isTest: false,\n    isResultFromCache,\n    output,\n    performance,\n  };\n\n  //@ts-ignore\n  const result = await db.upsert(\"FunctionExecution\", functionExecution, {\n    onlyInsert: true,\n  });\n  return;\n}",
+  "description": "wrapper function that stores execution-speed in an object with `FunctionPerformance` data-structure. Store this using `db.push` if it adds value\n.",
+  "id": "wypggktisgwicvqscjkqauup"
+}

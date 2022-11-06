@@ -1,0 +1,96 @@
+{
+  "createdAt": 1667378539529,
+  "updatedAt": 1667378539529,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378539529,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/addDeviceAuthenticatedMethod.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  deviceId: string,\n  method: AuthenticationMethodMethod,\n  handle: AuthenticationMethod[\"handle\"],\n  credential?: string\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  if (method === \"email\") {\n    // send email to `handle`\n\n    if (!isEmail(handle)) {\n      return {\n        isSuccessful: false,\n        message: \"Please provide a correct email\",\n      };\n    }\n\n    const otp = Math.round(100000 + Math.random() * 900000);\n\n    const text = `Please verify your email with this code: ${otp}. You have 10 minutes.`;\n\n    const updateResult = await db.update(\n      \"Device\",\n      (item) => item.id === deviceId,\n      (old) => ({\n        ...old,\n        authenticationMethods: old.authenticationMethods.concat({\n          method: \"email\",\n          handle,\n          isAuthenticated: false,\n          otp,\n        }),\n      })\n    );\n    const mailResult = await sendMail({\n      to: handle,\n      subject: \"Verify your email\",\n    });\n\n    if (!mailResult) {\n      return { isSuccessful: false, message: \"Couldn't send email\" };\n    }\n\n    return { isSuccessful: true, message: \"Code sent, please verify.\" };\n  }\n\n  if (method === \"phoneNumber\") {\n    // send sms to `handle`\n\n    if (!isPhoneNumber(handle)) {\n      return {\n        isSuccessful: false,\n        message: \"Please provide a correct phone number\",\n      };\n    }\n\n    const otp = Math.round(100000 + Math.random() * 900000);\n    const body = `Please verify your phone number with this code: ${otp}. You have 10 minutes.`;\n\n    const updateResult = await db.update(\n      \"Device\",\n      (item) => item.id === deviceId,\n      (old) => ({\n        ...old,\n        authenticationMethods: old.authenticationMethods.concat({\n          method: \"phoneNumber\",\n          handle,\n          isAuthenticated: false,\n          otp,\n        }),\n      })\n    );\n    const smsResult = await sendSms({ to: handle, body });\n\n    if (!smsResult) {\n      return { isSuccessful: false, message: \"Couldn't send sms\" };\n    }\n\n    return { isSuccessful: true, message: \"Code sent, please verify.\" };\n  }\n\n  if (method === \"usernamePassword\") {\n    // add username and password to the authenticated methods\n\n    if (!credential || !isValidPassword(credential)) {\n      return {\n        isSuccessful: false,\n        message: \"Please provide a valid password\",\n      };\n    }\n\n    const encryptedCredential = await encryptPassword(credential);\n\n    const updateResult = await db.update(\n      \"Device\",\n      (item) => item.id === deviceId,\n      (old) => ({\n        ...old,\n        authenticationMethods: old.authenticationMethods.concat({\n          method: \"usernamePassword\",\n          handle,\n          encryptedCredential,\n          isAuthenticated: true,\n        }),\n      })\n    );\n\n    return { isSuccessful: true, message: \"Username/password has been set.\" };\n  }\n\n  return { isSuccessful: false, message: \"method not implemented yet\" };\n}",
+  "name": "addDeviceAuthenticatedMethod",
+  "slug": "add-device-authenticated-method",
+  "parameters": [
+    {
+      "name": "deviceId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "method",
+      "schema": {
+        "$ref": "#/definitions/AuthenticationMethodMethod"
+      },
+      "simplifiedSchema": {
+        "enum": [
+          "usernamePassword",
+          "phoneNumber",
+          "email",
+          "apple",
+          "google",
+          "facebook",
+          "twitter",
+          "linkedin",
+          "github"
+        ],
+        "fullComment": "Username + password should be the default\n\nEmail OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods\n\nAll others can also act as authentication methods, but the token shouldn't be stored",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "handle",
+      "schema": {
+        "type": "string",
+        "description": "most of the time, this is a username, but can also be phone number or email or so"
+      },
+      "simplifiedSchema": {
+        "fullComment": "most of the time, this is a username, but can also be phone number or email or so",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "credential",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "sends an email or sms, or already confirms in case of emailPassword\n\n\nTODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 3069,
+    "lines": 114,
+    "bytes": 3069,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 114,
+    "numberOfFiles": 1
+  },
+  "id": "jfhesdrnfanysmyuovcqzegi"
+}

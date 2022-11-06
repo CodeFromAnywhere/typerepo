@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.ports=void 0,exports.ports={"peer-web":4200,"function-server":4201,"db-web":4202,"operation-web":4203,"markdown-reader-web":4204,"asset-demo-web":4205,"learn-toki-web":4206,"writer-web":4207,"himalayajeep-web":4208,"todo-web":4209,"social-media-web":4210};
+//# sourceMappingURL=port-conventions.js.map

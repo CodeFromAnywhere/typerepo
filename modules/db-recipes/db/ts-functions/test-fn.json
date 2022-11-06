@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667233173753,
+  "updatedAt": 1667233173753,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233173753,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/wrapFunction.test.ts",
+  "commentsInside": [],
+  "rawText": " (a: string) => {\n  return `${a}${a}`;\n}",
+  "name": "testFn",
+  "slug": "test-fn",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 40,
+    "lines": 3,
+    "bytes": 40,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 13,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "ndaiaoziawdzarnbgnezbkao"
+}

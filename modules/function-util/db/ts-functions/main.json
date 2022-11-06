@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666260888529,
+  "updatedAt": 1666260888529,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260888529,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/cli/please.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const [operationString, ...parameterStrings] = process.argv.slice(2);\n  if (!operationString) return;\n\n  const result = await executeSdkFunction(operationString, parameterStrings);\n\n  if (result) {\n    console.log(\"The result is:\", result);\n  }\n}",
+  "name": "main",
+  "slug": "main",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 263,
+    "lines": 10,
+    "bytes": 263,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "vwlywgqllmcoghcyexskcyjq"
+}

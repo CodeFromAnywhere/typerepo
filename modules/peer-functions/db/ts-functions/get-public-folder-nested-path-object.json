@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666262507563,
+  "updatedAt": 1666262507563,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262507563,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPublicFolderNestedPathObject.ts",
+  "commentsInside": [],
+  "rawText": " async (): Promise<\n  NestedPathObject | undefined\n> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  const publicFolderPath = path.join(projectRoot, \"public\");\n\n  const nestedPathObject = await getNestedPathObject(publicFolderPath);\n\n  return nestedPathObject;\n}",
+  "name": "getPublicFolderNestedPathObject",
+  "slug": "get-public-folder-nested-path-object",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/nested-menu/build/util/queryPathsArrayToNestedPathObject\").NestedPathObject | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 290,
+    "lines": 12,
+    "bytes": 290,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "wsvqywhmknuzxfspadowvsvm"
+}

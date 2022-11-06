@@ -1,0 +1,58 @@
+{
+  "createdAt": 1662709577330,
+  "updatedAt": 1662709577330,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577330,
+  "source": "src/index.ts",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "dev": "npx tsc-watch --onSuccess 'yarn dev:tw'",
+    "dev:tw": "tailwindcss -w -o css.css",
+    "pub": "npm version patch --force && npm publish"
+  },
+  "name": "react-with-native",
+  "version": "1.4.9",
+  "description": "HTML elements with React Native capabilities.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karsens/react-with-native.git"
+  },
+  "keywords": [
+    "react",
+    "react native",
+    "html",
+    "elements"
+  ],
+  "author": "Wijnand Karsens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karsens/react-with-native/issues"
+  },
+  "homepage": "https://github.com/Karsens/react-with-native#readme",
+  "dependencies": {
+    "@types/react-native": "~0.64.12"
+  },
+  "devDependencies": {
+    "@types/react": "17.0.30",
+    "@types/react-dom": "^17.0.11",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native": "^0.66.4",
+    "react-native-svg": "^12.1.1",
+    "tailwind-rn": "^4.1.0",
+    "tailwindcss": "^3.0.24",
+    "typescript": "^4.6.4"
+  },
+  "peerDependencies": {
+    "@types/react": "17.0.30",
+    "react": "^17.0.2",
+    "typescript": "^4.6.4"
+  },
+  "slug": "react-with-native",
+  "id": "LrYgJCZCgKRrjsKj",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

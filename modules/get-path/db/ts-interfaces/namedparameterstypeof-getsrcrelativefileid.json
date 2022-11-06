@@ -1,0 +1,49 @@
+{
+  "createdAt": 1667634414092,
+  "updatedAt": 1667634414092,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634414092,
+  "id": "namedparameterstypeof-getsrcrelativefileid",
+  "name": "NamedParameters<typeof getSrcRelativeFileId>",
+  "slug": "namedparameterstypeof-getsrcrelativefileid",
+  "operationRelativeTypescriptFilePath": "src/getSrcRelativeFileId.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationRelativePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationRelativePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getSrcRelativeFileId>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

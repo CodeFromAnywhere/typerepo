@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667634527338,
+  "updatedAt": 1667634527338,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634527338,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/hooks/useUrl.ts",
+  "commentsInside": [],
+  "rawText": " <T extends keyof typeof queryStore>(queryKey: T) => {\n  /**\n   * Here you can define your global storages that can be present in any URL\n   *\n   * Make sure you use the CustomUrlConfig type\n   */\n  const queryStore = {\n    typeIndexType: useCustomUrlStore<string | undefined>(\"typeIndexType\", {\n      type: \"string\",\n    }),\n\n    hasCommentTypes: useCustomUrlStore<string[]>(\"hasCommentTypes\", {\n      type: \"string\",\n      isArray: true,\n    }),\n    interfaceIsDbModel: useCustomUrlStore<boolean>(\"interfaceIsDbModel\", {\n      type: \"boolean\",\n    }),\n    path: useCustomUrlStore<string | undefined>(\"path\", { type: \"string\" }),\n    name: useCustomUrlStore<string | undefined>(\"name\", { type: \"string\" }),\n    type: useCustomUrlStore<string | undefined>(\"type\", { type: \"string\" }),\n\n    // for db page\n    slug: useCustomUrlStore<string | undefined>(\"slug\", { type: \"string\" }),\n    id: useCustomUrlStore<string | undefined>(\"id\", { type: \"string\" }),\n    model: useCustomUrlStore<string | undefined>(\"model\", { type: \"string\" }),\n  };\n\n  return queryStore[queryKey];\n}",
+  "name": "useUrl",
+  "slug": "use-url",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "[string | undefined, (newValue: string | undefined) => Promise<boolean>] | [string[], (newValue: string[] | undefined) => Promise<boolean>] | [boolean, (newValue: boolean | undefined) => Promise<boolean>]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1072,
+    "lines": 30,
+    "bytes": 1072,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 36,
+    "linesPerFile": 30,
+    "numberOfFiles": 1
+  },
+  "id": "qkbcqlzqeqsxfpgplmvtnorj"
+}

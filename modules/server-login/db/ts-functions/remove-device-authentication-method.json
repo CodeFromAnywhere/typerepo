@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667378549965,
+  "updatedAt": 1667378549965,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378549965,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/removeAuthenticationMethod.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  //\n}",
+  "name": "removeDeviceAuthenticationMethod",
+  "slug": "remove-device-authentication-method",
+  "parameters": [],
+  "description": "removes an `authenticatedMethod` from `Device`",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 61,
+    "lines": 3,
+    "bytes": 61,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "pdyfehstmiqcexgrkfzhhbab"
+}

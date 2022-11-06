@@ -1,0 +1,64 @@
+{
+  "createdAt": 1664526921053,
+  "updatedAt": 1667379327839,
+  "deletedAt": 0,
+  "createdFirstAt": 1664526921053,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/vui/vui-elements/login-form/src/LoginWrapper.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\\\" of kind \\\"ConstructorType\\\"\"]",
+  "buildSucceeded": true,
+  "id": "bddeqsfqesvrtizkeuhexvpo",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "login-form",
+  "packageName": "login-form",
+  "relativeOperationLocationPath": "operations/tools/interfaces/vui/vui-elements",
+  "classification": "js",
+  "name": "login-form",
+  "slug": "login-form",
+  "coreDependencies": [
+    "useEffect"
+  ],
+  "operationDependencies": [
+    "apiWithConfig",
+    "apiUrl",
+    "FunctionForm",
+    "toast",
+    "Div",
+    "P",
+    "api",
+    "generateId",
+    "generateRandomString",
+    "Span",
+    "apiUrl",
+    "LogoutResult",
+    "createStore"
+  ],
+  "packageDependencies": [
+    "useRouter"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 0,
+      "characters": 4248,
+      "bytes": 4248
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2363,
+      "bytes": 2363
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1834,
+      "bytes": 1834
+    },
+    "size": {
+      "bytes": 8445,
+      "characters": 8445,
+      "lines": 0,
+      "numberOfFiles": 9
+    }
+  }
+}

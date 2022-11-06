@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634818101,
+  "updatedAt": 1667634818101,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634818101,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "functionEndpoints",
+  "slug": "function-endpoints",
+  "operationRelativeTypescriptFilePath": "src/functionEndpoints.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/node_modules/@types/server/typings/common\").Middleware",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "server.router.post(\n  `/function/:functionName`,\n  async (ctx) => {\n    const authToken: string | undefined = ctx.data?.config?.authToken;\n    const functionName = ctx.params?.functionName;\n\n    if (!functionName || !functionApiKeys.includes(functionName)) {\n      return {\n        success: false,\n        message: `Endpoint not found: ${functionName}`,\n      };\n    }\n\n    const parameters: any[] | undefined = ctx.data?.parameters;\n\n    const result = await executeFunctionWithParameters(\n      functionName as keyof typeof sdk,\n      authToken,\n      parameters,\n      ctx\n    );\n\n    return result;\n  }\n)",
+  "description": "routes to post and execute operation functions",
+  "id": "cobvggebukqjujwyibxxmoxb"
+}

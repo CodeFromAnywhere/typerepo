@@ -1,0 +1,28 @@
+{
+  "createdAt": 1666351013871,
+  "updatedAt": 1666351013871,
+  "deletedAt": 0,
+  "createdFirstAt": 1666351013871,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "name": "server-login",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0"
+  },
+  "slug": "server-login",
+  "id": "figgjjgfvhincexqpsqtbnsl"
+}

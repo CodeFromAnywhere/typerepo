@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258792723,
+  "updatedAt": 1666258792723,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258792723,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "renameTemplateToNormalFile",
+  "slug": "rename-template-to-normal-file",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "(fileName: string) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(fileName: string) => {\n  return fileName.replace(\".template\", \"\");\n}",
+  "description": "",
+  "id": "tsvlcodbfnpouwpymecitzqd"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262517464,
+  "updatedAt": 1666262517464,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262517464,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "updatePeer",
+  "slug": "update-peer",
+  "operationRelativeTypescriptFilePath": "src/updatePeer.ts",
+  "type": {
+    "rawType": "(slug: string, updatedValues: { name?: string | undefined; description?: string | undefined; authToken?: string | undefined; isFavorite?: boolean | undefined; isMe?: boolean | undefined; }) => Promise<{ isSuccesful: boolean; message: string; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  slug: string,\n  updatedValues: {\n    name?: string;\n    description?: string;\n    authToken?: string;\n    isFavorite?: boolean;\n    isMe?: boolean;\n  }\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  const updateResult = await db.update(\n    \"Peer\",\n    (peer) => {\n      return peer.slug === slug;\n    },\n    (peer) => {\n      return { ...peer, ...omitUndefinedValues(updatedValues) };\n    }\n  );\n\n  return {\n    isSuccesful: !!updateResult.isSuccesful,\n    message: updateResult.isSuccesful\n      ? \"Peer updated\"\n      : `Something went wrong: ${updateResult.message}`,\n  };\n}",
+  "description": "Update one of your peers",
+  "id": "qwyzmcfjerlsiqqxizhoczry"
+}

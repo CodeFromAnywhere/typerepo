@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635708272,
+  "updatedAt": 1667635708272,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635708272,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "newSdkKeysOperation",
+  "slug": "new-sdk-keys-operation",
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "type": {
+    "rawType": "(operationName: string, keyVariables: { variableName: string; values: string[]; }[], config?: { manualProjectRoot?: string | undefined; skipYarnInstall?: boolean | undefined; dryrun?: boolean | undefined; } | undefined) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  operationName: string,\n  keyVariables: {\n    variableName: string;\n    values: string[];\n  }[],\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  const keysConstString = keyVariables\n    .map((keyVariable) => {\n      return `export const ${keyVariable.variableName} = [ ${keyVariable.values\n        .map((value) => `\"${value}\"`)\n        .join(\",\\n\")} ];`;\n    })\n    .join(\"\\n\\n\");\n\n  const result = await newOperationWithFiles(\n    await getOperationConfig(operationName),\n    { [`src/${operationName}.ts`]: keysConstString },\n    { overwriteIfExists: true, ...config }\n  );\n\n  return result;\n}",
+  "description": "",
+  "id": "mfanebsitctcarpedalwiagd"
+}

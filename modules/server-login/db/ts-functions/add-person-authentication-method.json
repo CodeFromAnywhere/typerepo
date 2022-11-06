@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667378542067,
+  "updatedAt": 1667378542067,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378542067,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/addPersonAuthenticationMethod.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  //\n}",
+  "name": "addPersonAuthenticationMethod",
+  "slug": "add-person-authentication-method",
+  "parameters": [],
+  "description": "adds an `authenticationMethod` to `Person`\n\nrelies on `addAuthenticationMethod`\n\nTODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 187,
+    "lines": 7,
+    "bytes": 187,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "ovvdohqvlavbtymuvjrenosg"
+}

@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635524618,
+  "updatedAt": 1667635524618,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635524618,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/Postable.ts",
+  "commentsInside": [],
+  "rawText": " () => {}",
+  "name": "findPostableToPost",
+  "slug": "find-postable-to-post",
+  "parameters": [],
+  "description": "This function finds a postable from the database and posts it on multiple channels\n\nThis can be executed with a CRON\n\n1. finds a postable that has no posted paired\n2. chooses the channels where this thing can be posted on\n3. for every channel, formats the post correctly\n4. for every channel, places the post",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 317,
+    "lines": 8,
+    "bytes": 317,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 40,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "cybosxpucpjaznwgfluibtfe"
+}

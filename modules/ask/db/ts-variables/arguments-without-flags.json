@@ -1,0 +1,24 @@
+{
+  "createdAt": 1666260828361,
+  "updatedAt": 1666260828361,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260828361,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "argumentsWithoutFlags",
+  "slug": "arguments-without-flags",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "value": "process.argv.filter((a) => !a.startsWith(\"--\"))",
+  "description": "",
+  "id": "rbohutfzmsgbflmgzqnokdiu"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258846029,
+  "updatedAt": 1666258846029,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258846029,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "getSubInfo",
+  "slug": "get-sub-info",
+  "operationRelativeTypescriptFilePath": "src/watchman.ts",
+  "type": {
+    "rawType": "(subscriptionKey: string) => { fullPath: any; relativePath: any; rootPath: any; } | undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(subscriptionKey: string) => {\n  const [appKey, rootPath, relativePath] = subscriptionKey.split(\":\");\n\n  if (appKey !== uniqueAppKey) {\n    return;\n  }\n  if (!rootPath) {\n    console.log(\"No rootpath found\", subscriptionKey);\n    return;\n  }\n\n  const fullPath = relativePath ? path.join(rootPath, relativePath) : rootPath;\n\n  return {\n    fullPath,\n    relativePath,\n    rootPath,\n  };\n}",
+  "description": "",
+  "id": "upbdpgudpfuxdfkfezccrzvq"
+}

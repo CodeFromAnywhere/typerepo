@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258843187,
+  "updatedAt": 1666258843187,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258843187,
+  "id": "namedparameterstypeof-pickwatcher",
+  "name": "NamedParameters<typeof pickWatcher>",
+  "slug": "namedparameterstypeof-pickwatcher",
+  "operationRelativeTypescriptFilePath": "src/pickWatcher.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof pickWatcher>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

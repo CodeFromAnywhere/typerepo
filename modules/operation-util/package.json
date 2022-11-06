@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662709577328,
+  "updatedAt": 1662709577328,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577328,
+  "name": "operation-util",
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "license": "ISC",
+  "slug": "operation-util",
+  "id": "ijohgpnKYOINMKGK",
+  "dependencies": {
+    "database": "0.0.1",
+    "get-path": "0.0.1",
+    "get-package-json": "0.0.1",
+    "js-util": "0.0.1",
+    "fs-util": "1.0.5",
+    "code-types": "0.0.1",
+    "log": "0.0.1",
+    "path-util": "0.0.1",
+    "model-types": "0.0.1",
+    "set-json-key": "1.0.9",
+    "filename-conventions": "0.0.1"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

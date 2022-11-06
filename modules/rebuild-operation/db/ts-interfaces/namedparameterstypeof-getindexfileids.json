@@ -1,0 +1,49 @@
+{
+  "createdAt": 1667635846933,
+  "updatedAt": 1667635846933,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635846933,
+  "id": "namedparameterstypeof-getindexfileids",
+  "name": "NamedParameters<typeof getIndexFileIds>",
+  "slug": "namedparameterstypeof-getindexfileids",
+  "operationRelativeTypescriptFilePath": "src/getIndexFileIds.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationFolderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationFolderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationFolderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getIndexFileIds>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

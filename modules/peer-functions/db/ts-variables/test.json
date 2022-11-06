@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262501556,
+  "updatedAt": 1666262501556,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262501556,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "test",
+  "slug": "test",
+  "operationRelativeTypescriptFilePath": "src/getNestedPathObject.test.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  const publicFolderPath = path.join(projectRoot, \"public\");\n\n  const nestedPathObject = await getNestedPathObject(publicFolderPath);\n\n  console.dir({ nestedPathObject }, { depth: 9999 });\n}",
+  "description": "",
+  "id": "jsbskamskylfvjvyqxzwofaw"
+}

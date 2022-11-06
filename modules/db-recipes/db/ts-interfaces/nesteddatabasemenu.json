@@ -1,0 +1,52 @@
+{
+  "createdAt": 1667233170276,
+  "updatedAt": 1667233170276,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233170276,
+  "id": "nesteddatabasemenu",
+  "name": "NestedDatabaseMenu",
+  "slug": "nesteddatabasemenu",
+  "operationRelativeTypescriptFilePath": "src/types.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * This is a simple overwrite of the `NestedPathObject` with a more specific key naming.\n *\n * I can use this directly to render a menu with many layers!\n *\n * SUPER COOL\n */\nexport interface NestedDatabaseMenu extends NestedPathObject {\n  [bundleName: string]: {\n    [operationName: string]: {\n      [folderName: string]: {\n        [dbModelName: string]: null;\n      };\n    };\n  };\n}",
+  "extensions": [
+    "NestedPathObject"
+  ],
+  "isOperationIndex": false,
+  "description": "This is a simple overwrite of the `NestedPathObject` with a more specific key naming.\n\nI can use this directly to render a menu with many layers!\n\nSUPER COOL",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/NestedObject"
+          },
+          {
+            "type": [
+              "object",
+              "null"
+            ]
+          }
+        ]
+      },
+      "properties": {},
+      "description": "This is a simple overwrite of the `NestedPathObject` with a more specific key naming.\n\nI can use this directly to render a menu with many layers!\n\nSUPER COOL"
+    },
+    "simplifiedSchema": {
+      "fullComment": "This is a simple overwrite of the `NestedPathObject` with a more specific key naming.\n\nI can use this directly to render a menu with many layers!\n\nSUPER COOL",
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NestedDatabaseMenu",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

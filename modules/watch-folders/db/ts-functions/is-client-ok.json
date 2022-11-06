@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666258845586,
+  "updatedAt": 1666258845586,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258845586,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/watchman.ts",
+  "commentsInside": [],
+  "rawText": " (client: watchman.Client, debug: boolean) => {\n  return new Promise<void>((resolve, reject) => {\n    client.capabilityCheck(\n      { optional: [], required: [\"relative_root\"] },\n      function (error: any, resp: any) {\n        if (error) {\n          // error will be an Error object if the watchman service is not\n          // installed, or if any of the names listed in the `required`\n          // array are not supported by the server\n          console.error(error);\n          client.end();\n          return reject();\n        }\n        if (debug) {\n          console.log(\"Watchman is ok\", resp);\n        }\n\n        resolve();\n      }\n    );\n  });\n}",
+  "name": "isClientOk",
+  "slug": "is-client-ok",
+  "parameters": [],
+  "description": "checks if watchman client is ok. ends client if it's not ok",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 710,
+    "lines": 22,
+    "bytes": 710,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 22,
+    "numberOfFiles": 1
+  },
+  "id": "tujzftpetxawhoqjkfriocuq"
+}

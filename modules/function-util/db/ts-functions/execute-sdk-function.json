@@ -1,0 +1,73 @@
+{
+  "createdAt": 1666260895106,
+  "updatedAt": 1666260895106,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260895106,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/executeSdkFunction.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationString: string,\n  parameters: string[] | undefined\n) => {\n  const sdkOperation = operationString as keyof typeof sdk;\n  const operationFunction = sdk[sdkOperation];\n\n  if (typeof operationFunction === \"function\") {\n    const result = parameters\n      ? // @ts-ignore\n        operationFunction(...parameters)\n      : // @ts-ignore\n        operationFunction();\n\n    return result;\n  } else {\n    log(`Could not find ${operationString}`, { type: \"error\" });\n  }\n}",
+  "name": "executeSdkFunction",
+  "slug": "execute-sdk-function",
+  "parameters": [
+    {
+      "name": "operationString",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "parameters",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 480,
+    "lines": 19,
+    "bytes": 480,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 19,
+    "numberOfFiles": 1
+  },
+  "id": "dyptdcrqttrwzmgkjxzzymer"
+}

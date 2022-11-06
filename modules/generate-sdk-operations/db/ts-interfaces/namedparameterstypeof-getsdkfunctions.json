@@ -1,0 +1,61 @@
+{
+  "createdAt": 1667635707239,
+  "updatedAt": 1667635707239,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635707239,
+  "id": "namedparameterstypeof-getsdkfunctions",
+  "name": "NamedParameters<typeof getSdkFunctions>",
+  "slug": "namedparameterstypeof-getsdkfunctions",
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "manualProjectRoot": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getSdkFunctions>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

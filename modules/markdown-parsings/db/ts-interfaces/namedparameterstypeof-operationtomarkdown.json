@@ -1,0 +1,123 @@
+{
+  "createdAt": 1667635411240,
+  "updatedAt": 1667635411240,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635411240,
+  "id": "namedparameterstypeof-operationtomarkdown",
+  "name": "NamedParameters<typeof operationToMarkdown>",
+  "slug": "namedparameterstypeof-operationtomarkdown",
+  "operationRelativeTypescriptFilePath": "src/operationToMarkdown.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "operationName": {
+              "type": "string"
+            },
+            "manualProjectRoot": {
+              "type": "string"
+            },
+            "isSummary": {
+              "type": "boolean",
+              "description": "if true, just returns the outline of the operation (function + interface names, size, deps)"
+            },
+            "mergeDocsInline": {
+              "type": "boolean",
+              "description": "if true, it will merge all docs into the readme, not linking to them (by default, docs will be linked to)"
+            },
+            "returnType": {
+              "type": "string",
+              "enum": [
+                "parse",
+                "string",
+                "save"
+              ],
+              "description": "save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n\nstring: returns the full markdown string\n\nparse: returns the markdownparse"
+            }
+          },
+          "required": [
+            "operationName"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "config"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "operationName",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "isSummary",
+                "required": false,
+                "schema": {
+                  "fullComment": "if true, just returns the outline of the operation (function + interface names, size, deps)",
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "mergeDocsInline",
+                "required": false,
+                "schema": {
+                  "fullComment": "if true, it will merge all docs into the readme, not linking to them (by default, docs will be linked to)",
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "returnType",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "parse",
+                    "string",
+                    "save"
+                  ],
+                  "fullComment": "save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n\nstring: returns the full markdown string\n\nparse: returns the markdownparse",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof operationToMarkdown>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

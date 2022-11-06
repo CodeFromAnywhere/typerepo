@@ -1,0 +1,52 @@
+{
+  "createdAt": 1667378547646,
+  "updatedAt": 1667378547646,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378547646,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/login.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  deviceId: string\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const device = (await db.get(\"Device\")).find((x) => x.id === deviceId);\n\n  if (!device) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't find that device\",\n    };\n  }\n\n  // NB: probably need to extrahere this part so I can use it to view the authentication status while logging in...\n  const person = (await db.get(\"Person\")).find((person) => {\n    const matchingMethods = person.authenticationMethods.filter(\n      (authenticationMethod) => {\n        // NB: finds the method with the same handle and credential\n        const matchingMethod = device.authenticationMethods.find(\n          (method) =>\n            method.method === authenticationMethod.method &&\n            method.handle === authenticationMethod.handle &&\n            method.encryptedCredential ===\n              authenticationMethod.encryptedCredential\n        );\n\n        return !!matchingMethod;\n      }\n    );\n\n    const hasEnoughMethods =\n      (person.amountAuthenticationMethodsRequired || 1) <=\n      matchingMethods.length;\n\n    const hasMissingMethod = !!person.requiredAuthenticationMethods?.find(\n      (method) => {\n        const isMethodMissing = !device.authenticationMethods.find(\n          (x) => x.method === method\n        );\n        return isMethodMissing;\n      }\n    );\n\n    if (hasEnoughMethods && !hasMissingMethod) {\n      // if you have authenticated with enough methods, and aren't missing a method\n      return true;\n    }\n\n    return false;\n  });\n\n  if (!person) {\n    return { isSuccessful: false, message: \"Couldn't login\" };\n  }\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => ({ ...old, personId: person.id })\n  );\n\n  const isSuccessful =\n    !!updateResult.isSuccesful && updateResult.amountUpdated === 1;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged in\"\n      : updateResult.message || \"Something went wrong\",\n  };\n}",
+  "name": "login",
+  "slug": "login",
+  "parameters": [
+    {
+      "name": "deviceId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "attaches the `Device` with `authToken` (`id`) to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 2255,
+    "lines": 70,
+    "bytes": 2255,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 70,
+    "numberOfFiles": 1
+  },
+  "id": "fopeimxxaxejypxydemhwfzs"
+}

@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1667379322532,
+    "updatedAt": 1667379322532,
+    "deletedAt": 0,
+    "createdFirstAt": 1667379322532,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/logoutFrontend.ts",
+    "comment": "Ensures cookie is gone but also that the device is not logged into the `Person` anymore",
+    "rawStatement": "export const logoutFrontend = async (): Promise<void> => {\n  const logoutResult: LogoutResult = await fetch(`${apiUrl}/logout`, {\n    method: \"POST\",\n    headers: {\n      Accept: \"application/json\",\n      \"Content-Type\": \"application/json\",\n    },\n  })\n    .then((res) => res.json())\n    .catch((e) => {\n      return { isSuccessful: false, message: \"fetch failed\" };\n    });\n\n  if (!logoutResult.isSuccessful) {\n    return;\n  }\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 4,
+    "lastLine": 6,
+    "id": "fvwlndayvmmcxknssonwugsh"
+  }
+]

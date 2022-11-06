@@ -1,0 +1,244 @@
+{
+  "createdAt": 1667635799289,
+  "updatedAt": 1667635799289,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635799289,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/newOperation.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  name?: string,\n  config?: NewOperationConfig\n): Promise<string | undefined> => {\n  // NB: if we don't specify the type, create a node operation by default\n  const type = config?.type || \"node\";\n\n  const description = config?.description;\n  const destinationPath = config?.destinationPath;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const folder = name ? kebabCase(name) : \"untitled-operation\";\n  const source = path.resolve(__dirname, \"..\", \"assets\", \"templates\", type);\n  const templateExists = fs.existsSync(source);\n\n  if (!templateExists) {\n    log(\n      `${type} operations cannot be generated yet. Create a template in assets/templates/${type}`\n    );\n    return;\n  }\n\n  const rootFolderPath = destinationPath ? destinationPath : process.cwd();\n  const availableFolderName = await getAvailableOperationName(\n    rootFolderPath,\n    folder,\n    manualProjectRoot\n  );\n\n  const operationBasePath = path.join(rootFolderPath, availableFolderName);\n\n  // Make the non-existing folder\n  await fs.mkdir(operationBasePath, { recursive: true });\n  // Copy the template inthere\n  await fs.cpAsync(source, operationBasePath, { recursive: true });\n  // Rename templatefiles if needed\n  await renameTemplateFiles({ appDir: operationBasePath });\n\n  const packageJsonPath = path.join(operationBasePath, \"package.json\");\n\n  const hasAvailablePackageJson =\n    fs.existsSync(packageJsonPath) && (await canRead(packageJsonPath));\n  if (!hasAvailablePackageJson) {\n    log(\"The template package.json was not copied succesfully\", {\n      type: \"error\",\n    });\n    return;\n  }\n\n  await setJsonKey({\n    jsonPath: packageJsonPath,\n    keyLocation: \"name\",\n    value: availableFolderName,\n  });\n\n  if (description) {\n    await setJsonKey({\n      jsonPath: packageJsonPath,\n      keyLocation: \"description\",\n      value: description,\n    });\n  }\n\n  return operationBasePath;\n}",
+  "name": "newOperation",
+  "slug": "new-operation",
+  "parameters": [
+    {
+      "name": "name",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/definitions/OperationClassification"
+          },
+          "operationConfig": {
+            "$ref": "#/definitions/OperationConfig",
+            "description": "If given, will put this in OPERAITON.md"
+          },
+          "description": {
+            "type": "string"
+          },
+          "destinationPath": {
+            "type": "string",
+            "description": "destinationPath without the operation folder itself\n\n\nIf not provided, uses the working directory from where the process was executed + an inferred foldername"
+          },
+          "manualProjectRoot": {
+            "type": "string",
+            "description": "folder path (including if given, uses this project root instead of the project root of the executed process"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "type",
+            "required": false,
+            "schema": {
+              "enum": [
+                "js",
+                "ts",
+                "node",
+                "server",
+                "web",
+                "app",
+                "ui-es6",
+                "ui-es5",
+                "ui-esm"
+              ],
+              "fullComment": "# Classification\n\nTODO: think about what the differences are and how we need to change processes to make it all work good\n\n## Possible values\n\njs: only js (no node) (well, ts of course, but it gets built into js)\n\nts: non-built ts code\n\nnode: includes other node packages, operations, core-imports, or globals.\n\nserver: exposes something on some port when it is ran and uses node code\n\nweb: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...\n\napp: uses react-native and exposes something on some port when it is ran\n\nDEPRECATED: ui-es6: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. highly discouraged, please use ui-es5, or, if needed, ui-esm)\n\nui-es5: ui which main entry points to javascript es5 files (this ui package can be built)\n\nui-esm: ui which builds to ESM module resolved Javascript",
+              "todo": "think about what the differences are and how we need to change processes to make it all work good",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationConfig",
+            "required": false,
+            "schema": {
+              "fullComment": "If given, will put this in OPERAITON.md\n\n--- operationRelativePath: OPERATION.md isOperationIndex: true\n---\n\nanything configurable about the operation.\n\nOf course we could make this live in operation.json or as a prop in package.json, but it would be better to make it work with a markdown file.\n\nLet's try to use OPERATION.md\n\nTODO: Make this work and make sure the operationconfig is parsed from this file using `db.get(\"OperationConfig\")` as per convention.",
+              "todo": "Make this work and make sure the operationconfig is parsed from this file using `db.get(\"OperationConfig\")` as per convention.",
+              "properties": [
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "filename (slugified)",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "slug",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "filename (slugified)",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "markdown",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Any descriptions in markdown format\n\n- Markdown description of what the operation does.\n- Installation instructions, if it is possible\n- Usage instructions (with example), if available\n\nThis is the main content of the markdown file",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "indirectDependencies",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Sometimes you are using function in a UI, which cannot be inferred with imports because they are used indirectly via an api. Here you can specify which operations on the backend are needed for an operation (ui mostly)\n\nThis array is simply a list of operation names needed for this operation that are not imported.\n\nNB: no need to specify things here that you also import in this operation, because these are already automatically detected.",
+                    "nb": "no need to specify things here that you also import in this operation, because these are already automatically detected.",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "authors",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "A list of authors\n\nShould be used to create bundle AUTHORS.md",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "contributors",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "A list of contributors\n\nCan be used to create bundle CONTRIBUTORS.md",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "shortDescriptionText",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "one-line explanation of what the operation does (no markdown)",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "description",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "destinationPath",
+            "required": false,
+            "schema": {
+              "fullComment": "destinationPath without the operation folder itself\n\n\nIf not provided, uses the working directory from where the process was executed + an inferred foldername",
+              "type": "string"
+            }
+          },
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "fullComment": "folder path (including if given, uses this project root instead of the project root of the executed process",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "# How to create a package/operation?\n\nThis cli creates the correct tsconfig.json, package.json, .gitignore, folder setup, so you can get started immedeately.\n\nReturns either the `operationBasePath` of the created operation, or undefined if something went wrong",
+  "returnType": {
+    "rawType": "Promise<string | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 2145,
+    "lines": 68,
+    "bytes": 2145,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 68,
+    "numberOfFiles": 1
+  },
+  "id": "bacoxwibdifaptcamwmabjlm"
+}

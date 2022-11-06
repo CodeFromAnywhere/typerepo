@@ -1,0 +1,50 @@
+[
+  {
+    "createdAt": 1667635296351,
+    "updatedAt": 1667635296351,
+    "deletedAt": 0,
+    "createdFirstAt": 1667635296351,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "/rwn",
+    "rawStatement": "import \"markdown-reader-ui/css.css\";",
+    "parameters": {},
+    "types": [],
+    "firstLine": 17,
+    "lastLine": 17,
+    "id": "lkmgsdfsriwnvubsshbtnuyu"
+  },
+  {
+    "createdAt": 1667635296351,
+    "updatedAt": 1667635296351,
+    "deletedAt": 0,
+    "createdFirstAt": 1667635296351,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "Binding events.",
+    "rawStatement": "Router.events.on(\"routeChangeStart\", progress.start);",
+    "parameters": {},
+    "types": [],
+    "firstLine": 28,
+    "lastLine": 28,
+    "id": "cdvecysyymactrltaazsgiua"
+  },
+  {
+    "createdAt": 1667635296351,
+    "updatedAt": 1667635296351,
+    "deletedAt": 0,
+    "createdFirstAt": 1667635296351,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "Only holds serverRuntimeConfig and publicRuntimeConfig",
+    "rawStatement": "export type RealAppProps = Omit<AppProps, \"pageProps\"> & {\n  pageProps: MarkdownReaderPageProps;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 35,
+    "lastLine": 35,
+    "id": "scxkuamjclstdjhjnrowkpdo"
+  }
+]

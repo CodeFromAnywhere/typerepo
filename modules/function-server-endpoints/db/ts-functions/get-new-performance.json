@@ -1,0 +1,117 @@
+{
+  "createdAt": 1667634821752,
+  "updatedAt": 1667634821752,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634821752,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getNewPerformance.ts",
+  "commentsInside": [],
+  "rawText": " (\n  label: string,\n  uniqueId: string,\n  isNew?: boolean\n): PerformanceItem | undefined => {\n  const timePrevious = timer[uniqueId];\n  const timeNow = Date.now();\n  timer[uniqueId] = timeNow;\n\n  if (isNew) return;\n\n  const durationMs = timePrevious - timeNow;\n\n  return { label, durationMs };\n}",
+  "name": "getNewPerformance",
+  "slug": "get-new-performance",
+  "parameters": [
+    {
+      "name": "label",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "uniqueId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "isNew",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/PerformanceItem\").PerformanceItem | undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "durationMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "label",
+        "durationMs"
+      ],
+      "optional": true
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "label",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "durationMs",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 295,
+    "lines": 15,
+    "bytes": 295,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "gvhnfjzwfqtdlrxsxxcnhesi"
+}

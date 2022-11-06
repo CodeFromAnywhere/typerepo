@@ -1,0 +1,34 @@
+{
+  "createdAt": 1662709577330,
+  "updatedAt": 1662709577330,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577330,
+  "version": "0.0.0",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.2"
+  },
+  "name": "get-imported-dependencies",
+  "bin": {
+    "get-imported-dependencies": "build/cli.js"
+  },
+  "dependencies": {
+    "ts-morph": "^15.0.0",
+    "ts-morph-util": "0.0.1"
+  },
+  "slug": "get-imported-dependencies",
+  "id": "AUtLmurLbrNUzJTU",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

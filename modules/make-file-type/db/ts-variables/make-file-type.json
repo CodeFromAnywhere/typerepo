@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258955682,
+  "updatedAt": 1666258955682,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258955682,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "makeFileType",
+  "slug": "make-file-type",
+  "operationRelativeTypescriptFilePath": "src/makeFileType.ts",
+  "type": {
+    "rawType": "(filePath: string) => Promise<import(\"/Users/king/King/operations/tools/control-project/deprecated/make-file-type/src/makeFileType\").FileType | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  filePath: string\n): Promise<FileType | undefined> => {\n  const exists = fs.existsSync(filePath);\n  const stats = exists ? await fs.stat(filePath) : null;\n  const mtime_ms = stats?.mtimeMs || 0;\n\n  const operationBasePath = findOperationBasePath(filePath);\n  if (!operationBasePath) return;\n  const operationSrcPath = path.join(operationBasePath, \"src\");\n  const relativePath = filePath.slice(operationSrcPath.length);\n  const name = relativePath;\n  // should not only be name, but also the relative path from src/*\n  // const parsedPath = path.parse(filePath);\n  //const name = `${parsedPath.name}${parsedPath.ext}`;\n\n  const size = stats?.size || 0;\n  const type = \"f\";\n  const file: FileType = { exists, mtime_ms, name, size, type };\n  return file;\n}",
+  "description": "",
+  "id": "wfwxacihqyspqmrcoskiukip"
+}

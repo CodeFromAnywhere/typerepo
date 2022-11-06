@@ -1,0 +1,50 @@
+{
+  "createdAt": 1666264109349,
+  "updatedAt": 1666264109349,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264109349,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/typeToSchema.ts",
+  "commentsInside": [],
+  "rawText": " (\n  keyword: \"min\" | \"max\",\n  type: string,\n  value: number\n) => {\n  const t = type.toLowerCase() as keyof typeof ajvMap;\n  return set({}, keyword + ajvMap[t], value);\n}",
+  "name": "getMinMaxValidation",
+  "slug": "get-min-max-validation",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 170,
+    "lines": 8,
+    "bytes": 170,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "agqnngxadrmbigxvzozilfno"
+}

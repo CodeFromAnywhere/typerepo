@@ -1,0 +1,38 @@
+{
+  "createdAt": 1662709577331,
+  "updatedAt": 1662709577331,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577331,
+  "name": "function-server-endpoints",
+  "description": "This operation wraps the sdk and creates a server-endpoint for every sdk function form the sdk package. It also adds raw context functions (both get and post) It can be included into any server so the endpoints can be exposed that way.",
+  "version": "0.0.0",
+  "main": "build/index.js",
+  "scripts": {
+    "dev:once": "node build/cli.js",
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@types/geoip-lite": "^1.4.1",
+    "db-recipes": "0.0.1",
+    "geoip-lite": "^1.4.6",
+    "js-util": "0.0.1",
+    "model-types": "0.0.1",
+    "ua-parser-js": "^1.0.32",
+    "convert-case": "0.0.1",
+    "get-path": "0.0.1",
+    "fs-util": "1.0.5",
+    "read-json-file": "0.0.1",
+    "database": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.31",
+    "@types/ua-parser-js": "^0.7.36"
+  },
+  "slug": "function-server-endpoints",
+  "id": "ngYzqrtHoOBkeAuZ",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

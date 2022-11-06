@@ -1,0 +1,49 @@
+{
+  "createdAt": 1666258678193,
+  "updatedAt": 1666258678193,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258678193,
+  "id": "namedparameterstypeof-getoperationpackagename",
+  "name": "NamedParameters<typeof getOperationPackageName>",
+  "slug": "namedparameterstypeof-getoperationpackagename",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationFolderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationFolderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationFolderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOperationPackageName>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

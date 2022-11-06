@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667634502761,
+  "updatedAt": 1667634502761,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634502761,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/components/Menu/MenuItem.tsx",
+  "commentsInside": [],
+  "rawText": " ({\n  link,\n  title,\n  isSelected,\n  type,\n  id,\n  children,\n  onDoubleClick,\n  canExpand,\n}: {\n  title: string;\n  link: string;\n  id: string;\n  canExpand: boolean;\n  isHeader?: boolean;\n  isSelected: boolean;\n  type?: FolderExploration[\"type\"];\n  onDoubleClick?: () => void;\n  children?: FolderExploration[];\n}) => {\n  const router = useRouter();\n\n  return (\n    <Span>\n      <Button\n        className={`${\n          isSelected ? \"bg-gray-200 \" : \"\"\n        }py-1 pr-2 hover:bg-gray-200  w-full flex flex-row items-center`}\n        textClassName=\"text-xs\"\n        onDoubleClick={onDoubleClick}\n        onClick={async () => {\n          router.push(link);\n        }}\n      >\n        <Span\n          textClassName={`line-clamp-1 truncate text-ellipsis ${\n            isSelected ? \"text-blue-500\" : \"\"\n          } hover:text-blue-800 `}\n        >\n          &nbsp;{title}\n        </Span>\n      </Button>\n    </Span>\n  );\n}",
+  "name": "MenuItem",
+  "slug": "menu-item",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 918,
+    "lines": 45,
+    "bytes": 918,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 45,
+    "numberOfFiles": 1
+  },
+  "id": "lpraojhanbqirxtklwnuqnhy"
+}

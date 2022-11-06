@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666260886798,
+  "updatedAt": 1666260886798,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260886798,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/cli/do.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const [cliNameString, ...parameterStrings] = process.argv.slice(2);\n  const cliPath = `src/cli/${cliNameString}.cli.ts`;\n  const tsFunction = (\n    await db.get(\"TsFunction\", {\n      filter: (fn) => fn.operationRelativeTypescriptFilePath === cliPath,\n    })\n  )[0];\n\n  if (!tsFunction || !tsFunction.operationName) {\n    console.log(\"not found\", cliPath);\n    return;\n  }\n\n  const fileId = getSrcRelativeFileId(\n    tsFunction.operationRelativeTypescriptFilePath\n  );\n\n  const operationPath = await getOperationPath(tsFunction.operationName);\n  if (!operationPath) return;\n  const jsPath = path.join(operationPath, \"build\", `${fileId}.js`);\n\n  execSync(`node ${jsPath} ${parameterStrings.join(\" \")}`, {\n    stdio: \"inherit\",\n  });\n}",
+  "name": "doCli",
+  "slug": "do-cli",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 749,
+    "lines": 26,
+    "bytes": 749,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 26,
+    "numberOfFiles": 1
+  },
+  "id": "jxhpwpeuqxaodjxmlhuikbww"
+}

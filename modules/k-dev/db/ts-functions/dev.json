@@ -1,0 +1,54 @@
+{
+  "createdAt": 1666264698944,
+  "updatedAt": 1666264698944,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264698944,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/dev.ts",
+  "commentsInside": [],
+  "rawText": " (\n  /**\n   * manual project root for finding the operations\n   */\n  manualProjectRoot?: string\n): void => {\n  if (manualProjectRoot && !fs.existsSync(manualProjectRoot)) {\n    console.log(\"Please enter a manualProjectRoot that exists\");\n    return;\n  }\n\n  const vars = manualProjectRoot ? [manualProjectRoot] : undefined;\n  nodemon(\"watch-operations\", \"watchOperations\", vars);\n}",
+  "name": "dev",
+  "slug": "dev",
+  "parameters": [
+    {
+      "name": "manualProjectRoot",
+      "schema": {
+        "type": "string",
+        "description": "manual project root for finding the operations"
+      },
+      "simplifiedSchema": {
+        "fullComment": "manual project root for finding the operations",
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 555,
+    "lines": 14,
+    "bytes": 555,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 40,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "eszqdytpcdqkuscgzizfueya"
+}

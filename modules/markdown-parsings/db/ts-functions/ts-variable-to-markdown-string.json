@@ -1,0 +1,158 @@
+{
+  "createdAt": 1667635424920,
+  "updatedAt": 1667635424920,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635424920,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/tsVariableToMarkdownString.ts",
+  "commentsInside": [],
+  "rawText": " (tsVariable: TsVariable): string => {\n  const titleString = `# ${tsVariable.name} (${\n    tsVariable.isExported ? \"exported\" : \"unexported\"\n  } ${tsVariable.classification})`;\n\n  const alineas: (string | undefined)[] = [titleString, tsVariable.description];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "name": "tsVariableToMarkdownString",
+  "slug": "ts-variable-to-markdown-string",
+  "parameters": [
+    {
+      "name": "tsVariable",
+      "schema": {
+        "$ref": "#/definitions/TsVariable"
+      },
+      "simplifiedSchema": {
+        "fullComment": "--- dbStorageMethod: jsonSingle\n---",
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "required": true,
+            "schema": {
+              "fullComment": "unique id of the model",
+              "type": "string"
+            }
+          },
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "fullComment": "name (identifier) of the model",
+              "type": "string"
+            }
+          },
+          {
+            "name": "slug",
+            "required": true,
+            "schema": {
+              "fullComment": "kebab-case variant of the name",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativeTypescriptFilePath",
+            "required": true,
+            "schema": {
+              "fullComment": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "required": false,
+            "schema": {
+              "fullComment": "if available , the parsed doccomment of the variable",
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "classification",
+            "required": true,
+            "schema": {
+              "enum": [
+                "const",
+                "var",
+                "let"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "isExported",
+            "required": true,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "comments",
+            "required": true,
+            "schema": {
+              "fullComment": "surrounding comments and comments inside of the variable",
+              "items": [],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 309,
+    "lines": 9,
+    "bytes": 309,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 34,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "bodfesraotkrvvezvbzeedxd"
+}

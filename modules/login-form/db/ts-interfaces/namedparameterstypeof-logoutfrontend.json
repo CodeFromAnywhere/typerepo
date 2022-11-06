@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667379322073,
+  "updatedAt": 1667379322073,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379322073,
+  "id": "namedparameterstypeof-logoutfrontend",
+  "name": "NamedParameters<typeof logoutFrontend>",
+  "slug": "namedparameterstypeof-logoutfrontend",
+  "operationRelativeTypescriptFilePath": "src/logoutFrontend.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof logoutFrontend>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

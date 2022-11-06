@@ -1,0 +1,158 @@
+{
+  "createdAt": 1666259812681,
+  "updatedAt": 1666259812681,
+  "deletedAt": 0,
+  "createdFirstAt": 1666259812681,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "ports",
+  "slug": "ports",
+  "operationRelativeTypescriptFilePath": "src/port-conventions.ts",
+  "type": {
+    "rawType": "{ \"peer-web\": number; \"function-server\": number; \"db-web\": number; \"operation-web\": number; \"markdown-reader-web\": number; \"asset-demo-web\": number; \"learn-toki-web\": number; \"writer-web\": number; \"himalayajeep-web\": number; \"todo-web\": number; \"social-media-web\": number; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "peer-web": {
+          "type": "number"
+        },
+        "function-server": {
+          "type": "number"
+        },
+        "db-web": {
+          "type": "number"
+        },
+        "operation-web": {
+          "type": "number"
+        },
+        "markdown-reader-web": {
+          "type": "number"
+        },
+        "asset-demo-web": {
+          "type": "number"
+        },
+        "learn-toki-web": {
+          "type": "number"
+        },
+        "writer-web": {
+          "type": "number"
+        },
+        "himalayajeep-web": {
+          "type": "number"
+        },
+        "todo-web": {
+          "type": "number"
+        },
+        "social-media-web": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "peer-web",
+        "function-server",
+        "db-web",
+        "operation-web",
+        "markdown-reader-web",
+        "asset-demo-web",
+        "learn-toki-web",
+        "writer-web",
+        "himalayajeep-web",
+        "todo-web",
+        "social-media-web"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "peer-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "function-server",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "db-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "operation-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "markdown-reader-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "asset-demo-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "learn-toki-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "writer-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "himalayajeep-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "todo-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "social-media-web",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  \"peer-web\": 4200,\n  \"function-server\": 4201,\n  \"db-web\": 4202,\n  \"operation-web\": 4203,\n  \"markdown-reader-web\": 4204,\n  \"asset-demo-web\": 4205,\n  \"learn-toki-web\": 4206,\n  \"writer-web\": 4207,\n  \"himalayajeep-web\": 4208,\n  \"todo-web\": 4209,\n  \"social-media-web\": 4210,\n}",
+  "description": "",
+  "id": "btvvnzqwyhioniuqtblwdntv"
+}

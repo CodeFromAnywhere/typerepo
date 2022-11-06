@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635708272,
+  "updatedAt": 1667635708272,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635708272,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "generateFunctionSdks",
+  "slug": "generate-function-sdks",
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "type": {
+    "rawType": "(config?: { manualProjectRoot?: string | undefined; skipYarnInstall?: boolean | undefined; dryrun?: boolean | undefined; } | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const functionsPerClassification = await getSdkFunctions({\n    manualProjectRoot,\n  });\n\n  if (!functionsPerClassification) return;\n  const sdkFunctions = functionsPerClassification.node\n    .concat(functionsPerClassification.js)\n    .filter(onlyUnique2<TsFunction>((a, b) => a.name === b.name));\n\n  const promises = [\n    // sdks\n    newSdkOperation(\"sdk\", sdkFunctions, config),\n    newSdkOperation(\"sdk-api\", functionsPerClassification.node, config),\n    newSdkOperation(\"sdk-js\", functionsPerClassification.js, config),\n    // sdk-keys\n    newSdkKeysOperation(\n      \"sdk-keys\",\n      [{ variableName: \"keys\", values: sdkFunctions.map((x) => x.name) }],\n      config\n    ),\n    newSdkKeysOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => !x.isGetApi && !x.isPostApi)\n            .map((x) => x.name),\n        },\n        {\n          variableName: \"getApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => x.isGetApi)\n            .map((x) => x.name),\n        },\n        {\n          variableName: \"postApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => x.isPostApi)\n            .map((x) => x.name),\n        },\n      ],\n      config\n    ),\n    newSdkKeysOperation(\n      \"sdk-js-keys\",\n      [\n        {\n          variableName: \"keys\",\n          values: functionsPerClassification.js.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
+  "description": "Creates\n- sdk\n- sdk-api (for just operations that have been determined to be exposed): add `export type { SdkApiType }`\n- sdk-js (functions that can be executed in the browser on the client side)\n- sdk-keys (all sdk keys)\n- sdk-api-keys\n- sdk-js-keys\n\nOverwrites them if they already exist with minimal interruption time of the system",
+  "id": "fdkqrgcwqbrxkecqxmxplymv"
+}

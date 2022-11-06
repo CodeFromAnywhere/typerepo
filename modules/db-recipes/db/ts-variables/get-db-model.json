@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667233162241,
+  "updatedAt": 1667233162241,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233162241,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getDbModel",
+  "slug": "get-db-model",
+  "operationRelativeTypescriptFilePath": "src/getDbModel.ts",
+  "type": {
+    "rawType": "<KInterface extends Extract<keyof import(\"/Users/king/King/operations/tools/generated/sdk-db/build/sdk-db\").DbModels, string>>(interfaceName: KInterface, config?: import(\"/Users/king/King/operations/tools/database/db-recipes/src/getDbModel\").GetDbModelConfig | undefined) => Promise<import(\"/Users/king/King/operations/tools/database/db-recipes/src/getDbModel\").GetDbModelResult<KInterface>>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async <\n  KInterface extends Extract<keyof DbModels, string>\n>(\n  /**\n   * the interfaceName you want to get\n   */\n  interfaceName: KInterface,\n  /**\n   * optionally, provide a configuration\n   */\n  config?: GetDbModelConfig\n): Promise<GetDbModelResult<KInterface>> => {\n  const indexes = (await db.get(\"TsInterface\")).filter(\n    (x) => x.name === interfaceName\n  );\n\n  const index = indexes[0];\n\n  // console.log({ index });\n  // console.log({ indexes: indexes.map((x) => x.relativePathFromProjectRoot) });\n\n  // console.dir(\n  //   {\n  //     interfaceName,\n  //     simplifiedSchema: index?.type?.simplifiedSchema?.properties?.map(\n  //       (x) => x.name\n  //     ),\n  //   },\n  //   { depth: 888 }\n  // );\n  // @ts-ignore\n  const data = await db.get(interfaceName);\n\n  // NB: slice the data, if needed\n  const slicedStartData = data.slice(config?.start);\n\n  const slicedLimitData = config?.limit\n    ? slicedStartData.slice(0, config.limit)\n    : slicedStartData;\n\n  const hasMore = slicedLimitData.length < slicedStartData.length;\n\n  // NB: filter the sliced data, if needed\n  const filteredData = config?.dataFilters?.length\n    ? config?.dataFilters.reduce((filteredData, dataFilter) => {\n        const newFilteredData = filteredData.filter((item) => {\n          const key = dataFilter.objectParameterKey as keyof typeof item;\n          const value = item[key];\n\n          if (dataFilter.operator === \"equal\") {\n            return (value as any) === dataFilter.value;\n          }\n          if (\n            dataFilter.operator === \"gt\" &&\n            dataFilter.value !== null &&\n            dataFilter.value !== undefined\n          ) {\n            return (value as unknown as number) > (dataFilter.value as number);\n          }\n\n          if (\n            dataFilter.operator === \"lt\" &&\n            dataFilter.value !== null &&\n            dataFilter.value !== undefined\n          ) {\n            return (value as unknown as number) < (dataFilter.value as number);\n          }\n\n          return true;\n        });\n\n        return newFilteredData;\n      }, slicedLimitData)\n    : slicedLimitData;\n\n  // NB: sort the filtered data, if needed\n\n  const sortedData =\n    config?.sortParameter && config?.sortDirection\n      ? filteredData.sort((a, b) => {\n          // @ts-ignore\n          const valueA = a[config.sortParameter];\n          // @ts-ignore\n          const valueB = b[config.sortParameter];\n\n          const directionMultiplier =\n            config.sortDirection === \"ascending\" ? 1 : -1;\n\n          return valueA < valueB\n            ? directionMultiplier\n            : directionMultiplier * -1;\n        })\n      : filteredData;\n  //\n  const mergedConfig: MergedQueryConfig = getMergedQueryConfig(interfaceName);\n  const fileLocations = (\n    await getDatabaseFiles(interfaceName, mergedConfig)\n  ).map((x) => x.projectRelativePath);\n\n  return {\n    start: config?.start,\n    limit: config?.limit,\n    data: sortedData,\n    index,\n    fileLocations,\n    hasMore,\n  };\n}",
+  "description": "gets all instances of an db data interface from the db in a typesafe way\n\nTODO: NB: there's a bug because it sometimes finds multiple instances of the TsInterface so sometimes it returns an old version of the TsInterface that was not re-indexed. This happens because all interfaces for db's also appear in sdk-db, but because the files there themselves don't change, that operation is not re-indexed. This leads to outdated indexations.\n\nI should find a fix for that.",
+  "id": "kmnyhzqqnogwbaxlyixyspvf"
+}

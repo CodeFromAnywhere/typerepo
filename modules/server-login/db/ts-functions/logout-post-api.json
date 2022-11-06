@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667378548730,
+  "updatedAt": 1667378548730,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378548730,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": true,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/logoutPostApi.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const logoutResult: LogoutResult = {\n    isSuccessful: true,\n    message: \"Logged out\",\n  };\n  //cookie(\"authToken\", \"\").\n  return reply.send(logoutResult);\n}",
+  "name": "logoutPostApi",
+  "slug": "logout-post-api",
+  "parameters": [],
+  "description": "Uses cookies (https://serverjs.io/documentation/reply/#cookie-) to logout\n\nNeeded for having `authToken` with GET as well in a safe manner (e.g. for images)",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 325,
+    "lines": 10,
+    "bytes": 325,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "rrdinskwyicrsxmizuohoklp"
+}

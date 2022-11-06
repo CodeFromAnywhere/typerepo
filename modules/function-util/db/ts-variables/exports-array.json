@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666260896538,
+  "updatedAt": 1666260896538,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260896538,
+  "classification": "let",
+  "comments": [],
+  "isExported": false,
+  "name": "exportsArray",
+  "slug": "exports-array",
+  "operationRelativeTypescriptFilePath": "src/getCachedExportedFunctions.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/TsExport\").TsExport[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {}
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "value": "[]",
+  "description": "",
+  "id": "droyuammvvwgnoovtnqyjiqx"
+}

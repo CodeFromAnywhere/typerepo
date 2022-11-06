@@ -1,0 +1,62 @@
+{
+  "createdAt": 1666262514841,
+  "updatedAt": 1666262514841,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262514841,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/proactivePushAddPeerMessage.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  message: string,\n  peerSlug: string\n): Promise<boolean> => {\n  await addPeerMessage(message, peerSlug);\n\n  const peers = await db.get(\"Peer\", { include: { referenceKey: \"personId\" } });\n  await Promise.all(\n    peers.map(async (peer) => {\n      if (peer.isMe) return;\n      const apiResult = await apiWithConfig.addPeerMessage(\n        {\n          apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n          authToken: peer.authToken,\n          timeout: 2000,\n        },\n        message,\n        peerSlug\n      );\n\n      return apiResult;\n    })\n  );\n\n  return true;\n}",
+  "name": "proactivePushAddPeerMessage",
+  "slug": "proactive-push-add-peer-message",
+  "parameters": [
+    {
+      "name": "message",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "peerSlug",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "Adds a message to your own peer messages database, but also to the db of all your peers that are online currently",
+  "returnType": {
+    "rawType": "Promise<boolean>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 701,
+    "lines": 26,
+    "bytes": 701,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 26,
+    "numberOfFiles": 1
+  },
+  "id": "vpbcqdrxfwavuiahedcilbgg"
+}

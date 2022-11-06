@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667635978610,
+  "updatedAt": 1667635978610,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635978610,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/components/MenuItem.tsx",
+  "commentsInside": [],
+  "rawText": " (props: { onClick: () => void; children: unknown }) => {\n  const { children, onClick } = props;\n\n  return (\n    <Div\n      className=\"cursor-pointer hover:bg-gray-200 py-4 pl-2\"\n      textClassName=\"hover:font-bold\"\n      onClick={onClick}\n    >\n      <P>{children}</P>\n    </Div>\n  );\n}",
+  "name": "MenuItem",
+  "slug": "menu-item",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 288,
+    "lines": 13,
+    "bytes": 288,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 13,
+    "numberOfFiles": 1
+  },
+  "id": "spxbpiktikjjqzgsbkljwrdk"
+}

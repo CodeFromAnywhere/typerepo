@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635711040,
+  "updatedAt": 1667635711040,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635711040,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "generateSdkOperations",
+  "slug": "generate-sdk-operations",
+  "operationRelativeTypescriptFilePath": "src/generateSdkOperations.ts",
+  "type": {
+    "rawType": "(bundleConfig?: import(\"/Users/king/King/operations/tools/types/bundle-types/build/BundleConfig\").BundleConfig | undefined, config?: { yarnInstallBefore?: boolean | undefined; yarnInstallAfter?: boolean | undefined; manualProjectRoot?: string | undefined; dryrun?: boolean | undefined; } | undefined) => Promise<boolean>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  /**\n   * if not provided, will not generate env-sdks\n   */\n  bundleConfig?: BundleConfig,\n  config?: {\n    /**\n     * If true, will try to run yarn install before and if it fails, does not continue.\n     */\n    yarnInstallBefore?: boolean;\n    /**\n     * if true, yarn install will be skipped when generating the sdks, but run one time afterwards\n     *\n     * useful if you are sure that there will be multiple yarn Installs needed otherwise\n     *\n     * for os installation (where all operations already exist, don't do this, yarn installs will probably not happen at all)\n     */\n    yarnInstallAfter?: boolean;\n    manualProjectRoot?: string;\n    dryrun?: boolean;\n  }\n): Promise<boolean> => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  const yarnInstallAfter = config?.yarnInstallAfter;\n  const yarnInstallBefore = config?.yarnInstallBefore;\n  const dryrun = config?.dryrun;\n\n  if (!projectRoot) {\n    return false;\n  }\n\n  // NB: install this first, otherwise sdk-operations cannot be found\n  await generateOperationsSdk({\n    manualProjectRoot,\n    dryrun,\n  });\n\n  await generateFunctionPathsSdk({\n    manualProjectRoot,\n    dryrun,\n  });\n\n  await generateDbSdk({\n    manualProjectRoot,\n    skipYarnInstall: yarnInstallAfter,\n    dryrun,\n  });\n\n  await generateFunctionSdks({\n    manualProjectRoot,\n    skipYarnInstall: yarnInstallAfter,\n    dryrun,\n  });\n  if (bundleConfig) {\n    await generateEnvSdks(bundleConfig, {\n      manualProjectRoot,\n      skipYarnInstall: yarnInstallAfter,\n      dryrun,\n    });\n  }\n\n  if (yarnInstallAfter) {\n    process.stdout.write(`Installing repo `);\n    try {\n      const result = execSync(\"yarn --prefer-offline\", {\n        cwd: projectRoot,\n        encoding: \"utf8\",\n        stdio: \"pipe\",\n      });\n\n      console.log(\"✅\");\n\n      return true;\n    } catch (e: any) {\n      console.log(\"❌\");\n      const error: {\n        status: number;\n        signal: any;\n        output: (string | null)[];\n        pid: number;\n        stdout: string;\n        stderr: string;\n      } = e;\n      console.log(`Could not install:`, error);\n\n      return false;\n    }\n  }\n\n  return true;\n}",
+  "description": "(re)generates all sdk operations for any project",
+  "id": "grocrcuwetkgtaganvnljixo"
+}

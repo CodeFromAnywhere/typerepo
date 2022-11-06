@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258846029,
+  "updatedAt": 1666258846029,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258846029,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "initiateWatch",
+  "slug": "initiate-watch",
+  "operationRelativeTypescriptFilePath": "src/watchman.ts",
+  "type": {
+    "rawType": "({ client, debug, folderPath, }: { client: import(\"/Users/king/King/operations/node_modules/@types/fb-watchman/index\").Client; debug: boolean; folderPath: string; }) => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "({\n  client,\n  debug,\n  folderPath,\n}: {\n  client: watchman.Client;\n  debug: boolean;\n  folderPath: string;\n}) => {\n  client.command([\"watch-project\", folderPath], function (error, resp) {\n    if (error) {\n      console.error(\"Error initiating watch:\", error);\n      return;\n    }\n\n    // It is considered to be best practice to show any 'warning' or\n    // 'error' information to the user, as it may suggest steps\n    // for remediation\n    if (\"warning\" in resp) {\n      console.log(\"Warning initiating watch: \", resp.warning);\n    }\n\n    // `watch-project` can consolidate the watch for your\n    // dir_of_interest with another watch at a higher level in the\n    // tree, so it is very important to record the `relative_path`\n    // returned in resp\n\n    if (debug) {\n      console.log(\n        \"New watch:\",\n        \"watch established on \",\n        resp.relative_path\n          ? path.join(resp.watch, resp.relative_path)\n          : resp.watch\n      );\n    }\n\n    makeSubscription(client, resp.watch, resp.relative_path, debug);\n  });\n}",
+  "description": "",
+  "id": "zrpnlstgfzpvdlhbhiultiuh"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666264483437,
+  "updatedAt": 1666264483437,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264483437,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "gitCommitAllCron",
+  "slug": "git-commit-all-cron",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "(manualProjectRoot?: string | undefined) => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(manualProjectRoot?: string) => {\n  setInterval(() => {\n    try {\n      // NB: This doesn't work well with nested .git folders!\n      execSync(\n        \"[[ `git status --porcelain .` ]] && git add . && git commit -m 'Automatic commit'\",\n        { cwd: manualProjectRoot, stdio: \"inherit\" }\n      );\n    } catch {}\n  }, 1000 * 3600);\n}",
+  "description": "",
+  "id": "udizkqfndqsrzdxlukrqdkmx"
+}

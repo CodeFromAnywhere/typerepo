@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666260896372,
+  "updatedAt": 1666260896372,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260896372,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getCachedExportedFunctions.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  if (functions.length) return functions;\n  functions = await db.get(\"TsFunction\");\n  exportsArray = await db.get(\"TsExport\");\n  const fnIsExported = (fn: TsFunction) =>\n    exportsArray.find(\n      (e) => e?.operationName === fn?.operationName && e.name === fn.name\n    );\n  return functions.filter(fnIsExported);\n}",
+  "name": "getCachedExportedFunctions",
+  "slug": "get-cached-exported-functions",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 331,
+    "lines": 10,
+    "bytes": 331,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "xwoslofrhykroataivygrxxn"
+}

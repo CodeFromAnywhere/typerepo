@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667635979861,
+  "updatedAt": 1667635979861,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635979861,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pages/edit-profile.tsx",
+  "commentsInside": [],
+  "rawText": " (props: MainPageProps) => {\n  return (\n    <Layout pages={props.pages}>\n      <P>Edit profile</P>\n    </Layout>\n  );\n}",
+  "name": "EditProfile",
+  "slug": "edit-profile",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 119,
+    "lines": 7,
+    "bytes": 119,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 17,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "fgaxkfsrdsiirwgremrbxgog"
+}

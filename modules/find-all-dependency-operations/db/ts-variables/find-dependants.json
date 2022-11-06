@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666263852526,
+  "updatedAt": 1666263852526,
+  "deletedAt": 0,
+  "createdFirstAt": 1666263852526,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findDependants",
+  "slug": "find-dependants",
+  "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
+  "type": {
+    "rawType": "({ operationName, importName, returnOperationName, }: { operationName: string; importName?: string | undefined; returnOperationName?: boolean | undefined; }) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async ({\n  operationName,\n  importName,\n  returnOperationName,\n}: {\n  operationName: string;\n  /**\n   * Optionally specify a specific import from an operation that you want to find the dependants for\n   */\n  importName?: string;\n  returnOperationName?: boolean;\n}) => {\n  const resultValueKey: keyof TsImport = returnOperationName\n    ? \"operationName\"\n    : \"projectRelativePath\";\n  const imports = await db.get(\"TsImport\");\n  const monorepoModules = imports\n    .filter((x) => x.module === operationName)\n    .filter((x) => (importName ? x.name === importName : true))\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved ? x[resultValueKey] : null\n    )\n    .filter(notEmpty)\n    .filter(onlyUnique);\n\n  return monorepoModules;\n}",
+  "description": "finds all dependants of an operation or a specific import from that operation\n\nnormally returns the files where the operation or function is used, unless you specify to return the operationNames only.",
+  "id": "gnqnqvxszikvoulvagdicive"
+}

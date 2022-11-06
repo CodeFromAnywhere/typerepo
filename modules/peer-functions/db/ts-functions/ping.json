@@ -1,0 +1,50 @@
+{
+  "createdAt": 1666262513554,
+  "updatedAt": 1666262513554,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262513554,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/ping.ts",
+  "commentsInside": [],
+  "rawText": " () => true",
+  "name": "ping",
+  "slug": "ping",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 11,
+    "lines": 1,
+    "bytes": 11,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 11,
+    "linesPerFile": 1,
+    "numberOfFiles": 1
+  },
+  "id": "binosfkbaogacmyjiopkjmns"
+}

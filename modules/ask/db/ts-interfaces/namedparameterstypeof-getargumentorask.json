@@ -1,0 +1,70 @@
+{
+  "createdAt": 1666260827481,
+  "updatedAt": 1666260827481,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260827481,
+  "id": "namedparameterstypeof-getargumentorask",
+  "name": "NamedParameters<typeof getArgumentOrAsk>",
+  "slug": "namedparameterstypeof-getargumentorask",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "argumentPosition": {
+          "type": "number"
+        },
+        "question": {
+          "type": "string"
+        },
+        "isNonInteractive": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "argumentPosition",
+        "question"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "argumentPosition",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "question",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isNonInteractive",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getArgumentOrAsk>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

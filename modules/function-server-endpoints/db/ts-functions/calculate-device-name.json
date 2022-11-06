@@ -1,0 +1,110 @@
+{
+  "createdAt": 1667634814510,
+  "updatedAt": 1667634814510,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634814510,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/calculateDeviceName.ts",
+  "commentsInside": [],
+  "rawText": " (\n  ipInfo: IPInfo,\n  userAgent: IResult\n): string => {\n  const deviceName: string = slugify(\n    `${userAgent.os.name}-${userAgent.browser.name}-${ipInfo.country}-${\n      ipInfo.region\n    }-${ipInfo.city}-${ipInfo.ip}-${generateRandomString(4)}`\n  );\n\n  return deviceName;\n}",
+  "name": "calculateDeviceName",
+  "slug": "calculate-device-name",
+  "parameters": [
+    {
+      "name": "ipInfo",
+      "schema": {
+        "$ref": "#/definitions/IPInfo"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Information that is inferred from an IP",
+        "properties": [
+          {
+            "name": "ip",
+            "required": true,
+            "schema": {
+              "fullComment": "The ip of the device. Can be a local IP or remote IP.\n\nNB: Port is not included",
+              "nb": "Port is not included",
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "positionRadiusKm",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "country",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timezone",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "userAgent",
+      "schema": {
+        "$ref": "#/definitions/UAParser.IResult"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 278,
+    "lines": 12,
+    "bytes": 278,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "glguugpuxegwazqvuoxpvwfg"
+}

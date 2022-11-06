@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262503849,
+  "updatedAt": 1666262503849,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262503849,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getPeerMessages",
+  "slug": "get-peer-messages",
+  "operationRelativeTypescriptFilePath": "src/getPeerMesssages.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const peerMessages = await db.get(\"PeerMessage\", {\n    include: { referenceKey: \"peerSlug\" },\n  });\n\n  const sortedPeerMessages = peerMessages\n    .sort((a, b) => {\n      return a.createdAt < b.createdAt ? 1 : -1;\n    })\n    .slice(0, 1000);\n\n  return sortedPeerMessages;\n}",
+  "description": "",
+  "id": "qdhtmmnqempdedbepqmmsvfo"
+}

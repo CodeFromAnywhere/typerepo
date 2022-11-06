@@ -1,0 +1,86 @@
+{
+  "createdAt": 1667635426083,
+  "updatedAt": 1667635426083,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635426083,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/util/makePropertiesTable.ts",
+  "commentsInside": [],
+  "rawText": " (\n  properties: SimplifiedSchemaProperty[] | undefined\n) => {\n  return properties && properties.length > 0\n    ? `Properties: \\n\\n | Name | Type | Description |\\n|---|---|---|\\n${properties\n        .map(propertyToTableRow)\n        .join(\"\\n\")}\\n`\n    : \"\";\n}",
+  "name": "makePropertiesTable",
+  "slug": "make-properties-table",
+  "parameters": [
+    {
+      "name": "properties",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/SimplifiedSchemaProperty"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "fullComment": "",
+              "properties": [
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "required",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "NB: can't we put this in the SimplifiedSchema itself?",
+                    "nb": "can't we put this in the SimplifiedSchema itself?",
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "SimplifiedSchemaProperty"
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 259,
+    "lines": 9,
+    "bytes": 259,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "jawyhdqxypblqxxvkbeexlds"
+}

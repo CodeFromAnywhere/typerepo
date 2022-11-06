@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262511162,
+  "updatedAt": 1666262511162,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262511162,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "isPortUsed",
+  "slug": "is-port-used",
+  "operationRelativeTypescriptFilePath": "src/isPortUsed.ts",
+  "type": {
+    "rawType": "(port: number) => Promise<boolean>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(port: number): Promise<boolean> => {\n  return new Promise<boolean>((resolve, reject) => {\n    const server = net.createServer();\n\n    server.once(\"error\", function (err) {\n      if ((err as any).code === \"EADDRINUSE\") {\n        resolve(true);\n      }\n    });\n\n    server.once(\"listening\", function () {\n      // close the server if listening doesn't fail\n      server.close();\n\n      resolve(false);\n    });\n\n    server.listen(port);\n  });\n}",
+  "description": "Checks if a port is used or not",
+  "id": "tqlitifaxqqvqzaghgzvojmh"
+}

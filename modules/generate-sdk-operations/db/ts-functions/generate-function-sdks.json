@@ -1,0 +1,87 @@
+{
+  "createdAt": 1667635707866,
+  "updatedAt": 1667635707866,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635707866,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const functionsPerClassification = await getSdkFunctions({\n    manualProjectRoot,\n  });\n\n  if (!functionsPerClassification) return;\n  const sdkFunctions = functionsPerClassification.node\n    .concat(functionsPerClassification.js)\n    .filter(onlyUnique2<TsFunction>((a, b) => a.name === b.name));\n\n  const promises = [\n    // sdks\n    newSdkOperation(\"sdk\", sdkFunctions, config),\n    newSdkOperation(\"sdk-api\", functionsPerClassification.node, config),\n    newSdkOperation(\"sdk-js\", functionsPerClassification.js, config),\n    // sdk-keys\n    newSdkKeysOperation(\n      \"sdk-keys\",\n      [{ variableName: \"keys\", values: sdkFunctions.map((x) => x.name) }],\n      config\n    ),\n    newSdkKeysOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => !x.isGetApi && !x.isPostApi)\n            .map((x) => x.name),\n        },\n        {\n          variableName: \"getApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => x.isGetApi)\n            .map((x) => x.name),\n        },\n        {\n          variableName: \"postApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => x.isPostApi)\n            .map((x) => x.name),\n        },\n      ],\n      config\n    ),\n    newSdkKeysOperation(\n      \"sdk-js-keys\",\n      [\n        {\n          variableName: \"keys\",\n          values: functionsPerClassification.js.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
+  "name": "generateFunctionSdks",
+  "slug": "generate-function-sdks",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "skipYarnInstall": {
+            "type": "boolean"
+          },
+          "dryrun": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipYarnInstall",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "dryrun",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "Creates\n- sdk\n- sdk-api (for just operations that have been determined to be exposed): add `export type { SdkApiType }`\n- sdk-js (functions that can be executed in the browser on the client side)\n- sdk-keys (all sdk keys)\n- sdk-api-keys\n- sdk-js-keys\n\nOverwrites them if they already exist with minimal interruption time of the system",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 2069,
+    "lines": 73,
+    "bytes": 2069,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 73,
+    "numberOfFiles": 1
+  },
+  "id": "jmlexcarsuutizvatitifuts"
+}

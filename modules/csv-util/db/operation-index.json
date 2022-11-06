@@ -1,0 +1,57 @@
+{
+  "createdAt": 1664527314653,
+  "updatedAt": 1667640021480,
+  "deletedAt": 0,
+  "createdFirstAt": 1664527314653,
+  "folderName": "csv-util",
+  "packageName": "csv-util",
+  "relativeOperationLocationPath": "operations/tools/parsing/file-conversion/csv",
+  "classification": "node",
+  "name": "csv-util",
+  "slug": "csv-util",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "makeTest",
+    "mergeObjectsArray",
+    "makeTest",
+    "parsePrimitive"
+  ],
+  "packageDependencies": [
+    "stringify",
+    "parse"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 0,
+      "characters": 3270,
+      "bytes": 3270
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1524,
+      "bytes": 1524
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 1155,
+      "bytes": 1155
+    },
+    "size": {
+      "bytes": 5949,
+      "characters": 5949,
+      "lines": 0,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/parsing/file-conversion/csv/csv-util/src/csvItemArrayToCsvString.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')\"]",
+  "lintProblems": [],
+  "id": "syqtigsuqgywtpvdnlkmjqst",
+  "language": "en"
+}

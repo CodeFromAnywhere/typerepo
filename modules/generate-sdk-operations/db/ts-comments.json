@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1667635712369,
+    "updatedAt": 1667635712369,
+    "deletedAt": 0,
+    "createdFirstAt": 1667635712369,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/getSdkDescription.ts",
+    "comment": "Gets a description of any sdk operation from the assets",
+    "rawStatement": "export const getSdkDescription = async (\n  operationName: string\n): Promise<string | undefined> => {\n  const descriptionPath = path.join(\n    __dirname,\n    \"..\",\n    \"assets\",\n    \"descriptions\",\n    `${operationName}.md`\n  );\n\n  if (!fs.existsSync(descriptionPath)) return;\n\n  const contents = await fs.readFile(descriptionPath, \"utf8\");\n\n  return contents;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 3,
+    "lastLine": 5,
+    "id": "psiiwunihjqqqcvjnhoptymb"
+  }
+]

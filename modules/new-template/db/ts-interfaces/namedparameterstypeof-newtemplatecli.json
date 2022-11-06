@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635795667,
+  "updatedAt": 1667635795667,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635795667,
+  "id": "namedparameterstypeof-newtemplatecli",
+  "name": "NamedParameters<typeof newTemplateCli>",
+  "slug": "namedparameterstypeof-newtemplatecli",
+  "operationRelativeTypescriptFilePath": "src/cli/newTemplate.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof newTemplateCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

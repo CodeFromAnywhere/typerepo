@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262506071,
+  "updatedAt": 1666262506071,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262506071,
+  "id": "namedparameterstypeof-getpeersfrompeersrecursively",
+  "name": "NamedParameters<typeof getPeersFromPeersRecursively>",
+  "slug": "namedparameterstypeof-getpeersfrompeersrecursively",
+  "operationRelativeTypescriptFilePath": "src/getPeersFromPeersRecursively.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPeersFromPeersRecursively>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

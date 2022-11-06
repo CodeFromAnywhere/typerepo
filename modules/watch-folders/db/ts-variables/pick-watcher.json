@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258843518,
+  "updatedAt": 1666258843518,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258843518,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "pickWatcher",
+  "slug": "pick-watcher",
+  "operationRelativeTypescriptFilePath": "src/pickWatcher.ts",
+  "type": {
+    "rawType": "() => ({ debug, folders, onChange, takeLatest, }: { debug?: boolean | undefined; folders: string[]; takeLatest?: boolean | undefined; onChange: (event: { eventType: \"rename\" | \"change\"; filePaths: string[]; operationBasePath: string; }) => Promise<void>; }) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  if (os.platform() === \"linux\") return watchFoldersChokidar;\n  return watchFoldersFs;\n}",
+  "description": "",
+  "id": "auckxpodfoqeedobvruqfayx"
+}

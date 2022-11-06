@@ -1,0 +1,58 @@
+{
+  "createdAt": 1667635989545,
+  "updatedAt": 1667635989545,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635989545,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "initialValues",
+  "slug": "initial-values",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "type": {
+    "rawType": "StoreType",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "api.loginToken": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "api.loginToken"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "api.loginToken",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  \"api.loginToken\": \"\",\n}",
+  "description": "",
+  "id": "wlsceusgfymudqpnvxjckgaa"
+}

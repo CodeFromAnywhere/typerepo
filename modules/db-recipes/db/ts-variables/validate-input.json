@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667233172928,
+  "updatedAt": 1667233172928,
+  "deletedAt": 0,
+  "createdFirstAt": 1667233172928,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "validateInput",
+  "slug": "validate-input",
+  "operationRelativeTypescriptFilePath": "src/validateInput.ts",
+  "type": {
+    "rawType": "(functionName: string, parameters: any[] | undefined, tsFunction: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction) => ValidationResult",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  functionName: string,\n  parameters: undefined | any[],\n  tsFunction: TsFunction\n): ValidationResult => {\n  // TODO: make this validation function! It may be possible to do it with SimplifiedJson, otherwise just use JSONSchema7\n  return { isValid: true };\n}",
+  "description": "wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.",
+  "id": "vqrvwykjmzpxzbvsiqjeejnq"
+}

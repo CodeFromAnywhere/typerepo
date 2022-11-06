@@ -1,0 +1,36 @@
+[
+  {
+    "createdAt": 1667634828436,
+    "updatedAt": 1667634828436,
+    "deletedAt": 0,
+    "createdFirstAt": 1667634828436,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
+    "comment": "To look up more info about an IP\n\nhttps://github.com/geoip-lite/node-geoip",
+    "rawStatement": "import geoip from \"geoip-lite\";",
+    "parameters": {},
+    "types": [],
+    "firstLine": 2,
+    "lastLine": 6,
+    "id": "tjeqrlwryuwqdqsmzqkzurco"
+  },
+  {
+    "createdAt": 1667634828436,
+    "updatedAt": 1667634828436,
+    "deletedAt": 0,
+    "createdFirstAt": 1667634828436,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
+    "comment": "Either finds the device and updates it according to the new request metadata, or creates a new device.\n\nShould never return `undefined` if the database functions...\n\n\nTODO: Use cookies (https://serverjs.io/documentation/reply/#cookie-) to login\n\nNeeded for having `authToken` with GET as well in a safe manner (e.g. for images)",
+    "rawStatement": "export const upsertDevice = async (\n  ctx: Context\n): Promise<Device | undefined> => {\n  const authToken: string | undefined = ctx.data?.config?.authToken;\n  const ip = ctx.ip;\n\n  if (!authToken) {\n    return;\n  }\n  // NB: range: [ <low bound of IP block>, <high bound of IP block> ], the rest is described in the type interface\n  const ipLookup = (geoip.lookup(ip) || {}) as Partial<geoip.Lookup>;\n  const {\n    city,\n    area: positionRadiusKm,\n    ll,\n    country,\n    region,\n    timezone,\n  } = ipLookup;\n\n  const position: Position | undefined =\n    !!ll?.[0] && !!ll?.[1] ? { latitude: ll[0], longitude: ll[1] } : undefined;\n\n  const userAgent = parseUserAgent(ctx.req.get(\"User-Agent\"));\n\n  const alreadyDevice = (\n    await db.get(\"Device\", { include: deviceInclude })\n  ).find((x) => x.id === authToken);\n\n  const ipInfo: IPInfo = {\n    ip,\n    city,\n    position,\n    positionRadiusKm,\n    country,\n    region,\n    timezone,\n  };\n\n  const origin = ctx.req.get(\"Origin\") as string;\n  const referer = ctx.req.get(\"Referrer\") as string;\n\n  const pageVisit: Creation<PageVisit> = { ipInfo, path: referer };\n\n  // @ts-ignore\n  await db.upsert(\"PageVisit\", pageVisit, { onlyInsert: true });\n\n  // server.reply\n  //   .cookie(\n  //     \"testje\",\n  //     authToken,\n\n  //     {\n  //       /**\n  //        * NB: VERY IMPORTANT In order to receive the cookie at other port or domain\n  //        */\n  //       sameSite: \"none\",\n  //       secure: true,\n  //       /**\n  //        * It turned out that Chrome won't set the cookie if the domain contains a port. Setting it for localhost (without port) is not a problem\n  //        */\n  //       domain: \"localhost\",\n  //     }\n  //   )\n\n  // NB: either a new device creation or updating an existing device\n  if (alreadyDevice) {\n    const currentIpInfo: IPInfo = {\n      ip: alreadyDevice.ip,\n      city: alreadyDevice.city,\n      position: alreadyDevice.position,\n      positionRadiusKm: alreadyDevice.positionRadiusKm,\n      country: alreadyDevice.country,\n      region: alreadyDevice.region,\n      timezone: alreadyDevice.timezone,\n    };\n\n    const previousIpsHasAlready =\n      !currentIpInfo.ip ||\n      alreadyDevice.previousIps.find((x) => x.ip === currentIpInfo.ip);\n    const newPreviousIps = previousIpsHasAlready\n      ? alreadyDevice.previousIps\n      : alreadyDevice.previousIps.concat(currentIpInfo);\n\n    const newIpStuff =\n      alreadyDevice.ip === ip ? {} : { ...ipInfo, previousIps: newPreviousIps };\n\n    const newOrigins = alreadyDevice.origins.includes(origin)\n      ? alreadyDevice.origins\n      : alreadyDevice.origins.concat(origin);\n\n    const updatedDevice: Device = {\n      ...alreadyDevice,\n      ...newIpStuff,\n      origins: newOrigins,\n      userAgent,\n      userAgentString: userAgent.ua,\n    };\n\n    await db.update(\n      \"Device\",\n      (item) => item.id === authToken,\n      () => updatedDevice\n    );\n\n    return updatedDevice;\n  } else {\n    const newDevice: Creation<Device> = {\n      authToken,\n      authenticationMethods: [],\n      ...ipInfo,\n      lastOnlineAt: 0,\n      lastSyncDatabaseAtObject: {},\n      name: calculateDeviceName(ipInfo, userAgent),\n      origins: [origin],\n      previousIps: [],\n      userAgent,\n      userAgentString: userAgent.ua,\n      hasPapi: false,\n    };\n\n    // Create new device\n    await db.upsert(\"Device\", newDevice, { onlyInsert: true });\n\n    const fullNewDevice = (\n      await db.get(\"Device\", { include: deviceInclude })\n    ).find((x) => x.id === authToken);\n\n    return fullNewDevice;\n  }\n};",
+    "parameters": {},
+    "types": [
+      "todo"
+    ],
+    "firstLine": 21,
+    "lastLine": 31,
+    "id": "frbikmugbtgvhacvhagictek"
+  }
+]

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260888701,
+  "updatedAt": 1666260888701,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260888701,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "main",
+  "slug": "main",
+  "operationRelativeTypescriptFilePath": "src/cli/please.cli.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const [operationString, ...parameterStrings] = process.argv.slice(2);\n  if (!operationString) return;\n\n  const result = await executeSdkFunction(operationString, parameterStrings);\n\n  if (result) {\n    console.log(\"The result is:\", result);\n  }\n}",
+  "description": "",
+  "id": "dkamcwygyvzurvynnaravjeg"
+}

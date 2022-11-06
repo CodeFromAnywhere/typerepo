@@ -1,0 +1,38 @@
+{
+  "createdAt": 1662709577328,
+  "updatedAt": 1662709577328,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577328,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/fb-watchman": "^2.0.1",
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "code-types": "0.0.1",
+    "fs-util": "1.0.5",
+    "log": "0.0.1",
+    "make-file-type": "0.0.1"
+  },
+  "optionalDependencies": {
+    "chokidar": "^3.5.3",
+    "fb-watchman": "^2.0.1"
+  },
+  "name": "watch-folders",
+  "slug": "watch-folders",
+  "id": "RGfqpcRRDJboWKFJ",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

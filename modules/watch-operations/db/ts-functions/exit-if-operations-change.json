@@ -1,0 +1,73 @@
+{
+  "createdAt": 1666264483225,
+  "updatedAt": 1666264483225,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264483225,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (\n  allOperationSourcePaths: string[],\n  manualProjectRoot?: string\n) => {\n  setInterval(async () => {\n    const newOperationSourcePaths = await getAllOperationSourcePaths({\n      manualProjectRoot,\n    });\n\n    const isSame = allOperationSourcePaths.reduce(\n      (same, p, i) => (newOperationSourcePaths[i] === p ? same : false),\n      true\n    );\n\n    //TODO: if you change a folder name, it's not detected now.\n    if (!isSame) {\n      log(\"👀 I detected a change in your operations, restarting\", {\n        type: \"warning\",\n      });\n      process.exit();\n    }\n  }, 5000);\n}",
+  "name": "exitIfOperationsChange",
+  "slug": "exit-if-operations-change",
+  "parameters": [
+    {
+      "name": "allOperationSourcePaths",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    },
+    {
+      "name": "manualProjectRoot",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "every 5 seconds compares if the operationsourcepaths have changed. If so, exits the process",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 671,
+    "lines": 23,
+    "bytes": 673,
+    "bytesPerCharacter": 1.0029806259314455,
+    "charactersPerLine": 29,
+    "linesPerFile": 23,
+    "numberOfFiles": 1
+  },
+  "id": "bhsrengjygjhzricnhppcbii"
+}

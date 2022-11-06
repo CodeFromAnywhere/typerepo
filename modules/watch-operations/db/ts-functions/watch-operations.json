@@ -1,0 +1,69 @@
+{
+  "createdAt": 1666264484561,
+  "updatedAt": 1666264484561,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264484561,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/watchOperations.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  /**\n   * manual project root where the operations to watch should be located\n   */\n  manualProjectRoot?: string;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  const allOperationSourcePaths = await getAllOperationSourcePaths({\n    manualProjectRoot,\n  });\n\n  exitIfOperationsChange(allOperationSourcePaths, projectRoot);\n\n  if (!manualProjectRoot) {\n    gitCommitAllCron(projectRoot);\n  }\n\n  log(\n    `Hi, I'm 👁 👁 Watching ${allOperationSourcePaths.length} operations at ${projectRoot}`,\n    { type: \"success\" }\n  );\n\n  const watchFunction = pickWatcher();\n\n  watchFunction({\n    folders: allOperationSourcePaths,\n    debug: true,\n    onChange: async ({ eventType, filePaths, operationBasePath }) => {\n      if (filePaths.length === 0) {\n        return;\n      }\n\n      const filteredFilePaths = filePaths.filter(\n        (x) => !x.endsWith(\"/index.ts\")\n      );\n\n      if (filteredFilePaths.length === 0) {\n        return;\n      }\n\n      log(\n        `OnChange triggered! ${filePaths\n          .map((f) => path.parse(f).name)\n          .join(\",\")}`,\n        {\n          type: \"warning\",\n        }\n      );\n\n      await rebuildOperation({\n        operationBasePath,\n        operationManualProjectRoot: manualProjectRoot,\n        typerepoManualProjectRoot: undefined,\n        filePaths: filteredFilePaths,\n      });\n    },\n  });\n}",
+  "name": "watchOperations",
+  "slug": "watch-operations",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string",
+            "description": "manual project root where the operations to watch should be located"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "fullComment": "manual project root where the operations to watch should be located",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "watches all operations and does much more",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1647,
+    "lines": 62,
+    "bytes": 1651,
+    "bytesPerCharacter": 1.002428658166363,
+    "charactersPerLine": 27,
+    "linesPerFile": 62,
+    "numberOfFiles": 1
+  },
+  "id": "kyqflztdnhvwiebjxcubsgsn"
+}

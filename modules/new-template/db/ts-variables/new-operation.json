@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635799439,
+  "updatedAt": 1667635799439,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635799439,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "newOperation",
+  "slug": "new-operation",
+  "operationRelativeTypescriptFilePath": "src/newOperation.ts",
+  "type": {
+    "rawType": "(name?: string | undefined, config?: NewOperationConfig | undefined) => Promise<string | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  name?: string,\n  config?: NewOperationConfig\n): Promise<string | undefined> => {\n  // NB: if we don't specify the type, create a node operation by default\n  const type = config?.type || \"node\";\n\n  const description = config?.description;\n  const destinationPath = config?.destinationPath;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const folder = name ? kebabCase(name) : \"untitled-operation\";\n  const source = path.resolve(__dirname, \"..\", \"assets\", \"templates\", type);\n  const templateExists = fs.existsSync(source);\n\n  if (!templateExists) {\n    log(\n      `${type} operations cannot be generated yet. Create a template in assets/templates/${type}`\n    );\n    return;\n  }\n\n  const rootFolderPath = destinationPath ? destinationPath : process.cwd();\n  const availableFolderName = await getAvailableOperationName(\n    rootFolderPath,\n    folder,\n    manualProjectRoot\n  );\n\n  const operationBasePath = path.join(rootFolderPath, availableFolderName);\n\n  // Make the non-existing folder\n  await fs.mkdir(operationBasePath, { recursive: true });\n  // Copy the template inthere\n  await fs.cpAsync(source, operationBasePath, { recursive: true });\n  // Rename templatefiles if needed\n  await renameTemplateFiles({ appDir: operationBasePath });\n\n  const packageJsonPath = path.join(operationBasePath, \"package.json\");\n\n  const hasAvailablePackageJson =\n    fs.existsSync(packageJsonPath) && (await canRead(packageJsonPath));\n  if (!hasAvailablePackageJson) {\n    log(\"The template package.json was not copied succesfully\", {\n      type: \"error\",\n    });\n    return;\n  }\n\n  await setJsonKey({\n    jsonPath: packageJsonPath,\n    keyLocation: \"name\",\n    value: availableFolderName,\n  });\n\n  if (description) {\n    await setJsonKey({\n      jsonPath: packageJsonPath,\n      keyLocation: \"description\",\n      value: description,\n    });\n  }\n\n  return operationBasePath;\n}",
+  "description": "# How to create a package/operation?\n\nThis cli creates the correct tsconfig.json, package.json, .gitignore, folder setup, so you can get started immedeately.\n\nReturns either the `operationBasePath` of the created operation, or undefined if something went wrong",
+  "id": "gehcmeaoufdtubbuwkkaozll"
+}

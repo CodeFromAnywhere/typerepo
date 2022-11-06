@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262498804,
+  "updatedAt": 1666262498804,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262498804,
+  "id": "namedparameterstypeof-getallappoperations",
+  "name": "NamedParameters<typeof getAllAppOperations>",
+  "slug": "namedparameterstypeof-getallappoperations",
+  "operationRelativeTypescriptFilePath": "src/getAllAppOperations.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getAllAppOperations>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

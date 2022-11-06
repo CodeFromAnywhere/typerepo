@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635977670,
+  "updatedAt": 1667635977670,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635977670,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "Layout",
+  "slug": "layout",
+  "operationRelativeTypescriptFilePath": "src/components/Layout.tsx",
+  "type": {
+    "rawType": "({ pages, children, }: { pages: import(\"/Users/king/King/operations/tools/markdown-reader/markdown-reader-types/build/MarkdownReaderPage\").MarkdownReaderPage[]; children: any; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "({\n  pages,\n  children,\n}: {\n  pages: MarkdownReaderPage[];\n  children: any;\n}) => {\n  const router = useRouter();\n  return (\n    <Div className=\"h-screen grid grid-rows-6\">\n      <Div className=\"row-span-6 grid grid-cols-5\">\n        <Div\n          className={`\n        col-span-4 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white`}\n          textClassName=\"dark:text-white\"\n        >\n          {children}\n        </Div>\n        <Span className=\"border-l col-span-1 overflow-y-auto bg-gray-50 dark:bg-gray-900 dark:text-white border-l-gray-400\">\n          <MenuItem onClick={() => router.push(\"/\")}>Home</MenuItem>\n          <MenuItem onClick={() => router.push(\"/driver-signup\")}>\n            Driver Signup\n          </MenuItem>\n          <MenuItem onClick={() => router.push(\"/jeep-list\")}>\n            Jeep list\n          </MenuItem>\n          <MenuItem onClick={() => router.push(\"/login\")}>\n            Driver Login\n          </MenuItem>\n          <MenuItem onClick={() => router.push(\"/edit-profile\")}>\n            Edit profile\n          </MenuItem>\n        </Span>\n      </Div>\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "deumkgluhfvamdgqyaqceswo"
+}

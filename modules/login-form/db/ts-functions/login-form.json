@@ -1,0 +1,71 @@
+{
+  "createdAt": 1667379317752,
+  "updatedAt": 1667379317752,
+  "deletedAt": 0,
+  "createdFirstAt": 1667379317752,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/LoginForm.tsx",
+  "commentsInside": [],
+  "rawText": " (props: { title?: string }) => {\n  const [authToken, setAuthToken] = useStore(\"api.authToken\");\n  const router = useRouter();\n  return (\n    <Div className=\"flex flex-1 flex-row justify-center items-center\">\n      <Div className=\"w-96\">\n        <P className=\"text-4xl\">{props.title || \"King OS\"}</P>\n        <FunctionForm\n          tsFunction={Index}\n          submitFunction={checkAuthToken}\n          withResult={(result) => {\n            if (result.isSuccessful) {\n              setAuthToken(result.authToken);\n              router.push(\"/\");\n            }\n\n            toast({ title: \"\", body: result.message });\n          }}\n        />\n      </Div>\n    </Div>\n  );\n}",
+  "name": "LoginForm",
+  "slug": "login-form",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "title",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 672,
+    "lines": 23,
+    "bytes": 672,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 23,
+    "numberOfFiles": 1
+  },
+  "id": "rkvptqcbdmrrhsjfcvtpfyfk"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666259164459,
+  "updatedAt": 1666259164459,
+  "deletedAt": 0,
+  "createdFirstAt": 1666259164459,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "writeKeyToOperationIndexJson",
+  "slug": "write-key-to-operation-index-json",
+  "operationRelativeTypescriptFilePath": "src/writeKeyToOperationIndexJson.ts",
+  "type": {
+    "rawType": "<K extends keyof import(\"/Users/king/King/operations/tools/types/code-types/build/OperationIndex\").OperationIndex>(absolutePath: string, key: K, value: import(\"/Users/king/King/operations/tools/types/code-types/build/OperationIndex\").OperationIndex[K]) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async <\n  K extends keyof OperationIndex\n>(\n  /**\n   * can be a path to any file in the operation\n   */\n  absolutePath: string,\n  key: K,\n  value: OperationIndex[K]\n) => {\n  const operationBasePath = findOperationBasePath(absolutePath);\n  if (!operationBasePath) return;\n\n  const operationIndexJsonPath = path.join(\n    operationBasePath,\n    databaseFolderName,\n    \"operation-index.json\"\n  );\n  if (!fs.existsSync(operationIndexJsonPath)) {\n    const indexFolder = path.parse(operationIndexJsonPath).dir;\n    if (!fs.existsSync(indexFolder)) {\n      await fs.mkdir(indexFolder, { recursive: true });\n    }\n    await fs.writeFile(operationIndexJsonPath, \"{}\", \"utf8\");\n  }\n\n  setJsonKey({\n    jsonPath: operationIndexJsonPath,\n    keyLocation: key,\n    value: JSON.stringify(value),\n  });\n}",
+  "description": "",
+  "id": "waovbiejiztwsshyiqhokqma"
+}

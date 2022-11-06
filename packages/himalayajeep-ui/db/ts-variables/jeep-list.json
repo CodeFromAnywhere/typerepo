@@ -1,0 +1,82 @@
+{
+  "createdAt": 1667635981658,
+  "updatedAt": 1667635981658,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635981658,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "JeepList",
+  "slug": "jeep-list",
+  "operationRelativeTypescriptFilePath": "src/pages/jeep-list.tsx",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-ui/src/types\").RWNPage",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "options": {
+          "type": "object",
+          "properties": {
+            "hideFromMenu": {
+              "type": "boolean"
+            },
+            "title": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "options"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "options",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "hideFromMenu",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "(props: MainPageProps) => {\n  const publicJeepsQuery = useGetPublicJeeps();\n\n  return (\n    <Layout pages={props.pages}>\n      <P>\n        list all the jeeps nearby within a certain radius (5km - 25km) sort on\n        proximity {JSON.stringify(publicJeepsQuery.data?.result?.publicJeeps)}\n      </P>\n    </Layout>\n  );\n}",
+  "description": "",
+  "id": "kbtpqzrmiagxyhewmzfgsjct"
+}

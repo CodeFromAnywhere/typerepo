@@ -1,0 +1,36 @@
+{
+  "createdAt": 1662709577330,
+  "updatedAt": 1662709577330,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577330,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish",
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "react": "17.0.2",
+    "react-with-native": "1.4.9",
+    "next-a-link": "0.0.1",
+    "js-util": "0.0.1",
+    "clickable-icon": "0.0.1",
+    "react-with-native-store": "2.0.40"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4",
+    "tailwindcss": "^3.0.24"
+  },
+  "name": "nested-menu",
+  "slug": "nested-menu",
+  "id": "UTkxpBtFXEwRtTqK",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

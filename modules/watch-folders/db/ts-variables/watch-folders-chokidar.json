@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666258840625,
+  "updatedAt": 1666258840625,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258840625,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "watchFoldersChokidar",
+  "slug": "watch-folders-chokidar",
+  "operationRelativeTypescriptFilePath": "src/chokidar.ts",
+  "type": {
+    "rawType": "({ debug, folders, onChange, takeLatest, }: { debug?: boolean | undefined; folders: string[]; takeLatest?: boolean | undefined; onChange: (event: { eventType: \"rename\" | \"change\"; filePaths: string[]; operationBasePath: string; }) => Promise<void>; }) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async ({\n  debug = false,\n  folders,\n  onChange,\n  takeLatest,\n}: {\n  debug?: boolean;\n  folders: string[];\n  takeLatest?: boolean;\n  onChange: (event: {\n    eventType: \"rename\" | \"change\";\n    filePaths: string[];\n    operationBasePath: string;\n  }) => Promise<void>;\n}) => {\n  const startTime = Date.now();\n  folders.map((absoluteFolderPath) => {\n    watch(`${absoluteFolderPath}/*`).on(\n      \"all\",\n      async (eventType, absolutePath) => {\n        // NB: in the beginning , all folders/files are firing the \"addDir\" and \"add\" events, this hack prevents that this fires rebuilds for all folders.\n        if (Date.now() < startTime + 1000) return;\n\n        // NB: addDir should not be firing anything\n        if (eventType === \"addDir\") return;\n\n        const stats = await fs.stat(absolutePath);\n        // NB: ensure that the path is not a directory\n        if (stats.isDirectory()) return;\n\n        const srcRelativeFilePath = absolutePath.substring(\n          absoluteFolderPath.length + 1\n        );\n\n        const alreadyPending = pending.filter(\n          (x) => x.filename === srcRelativeFilePath\n        );\n\n        const lastPending = alreadyPending.pop();\n\n        // if a file was just triggered and within a second triggered again, ignore it\n        // same file within a second\n        if (lastPending && Date.now() - lastPending.time < 5000) {\n          log(`double trigger of ${srcRelativeFilePath}, ignoring`, {\n            type: \"warning\",\n          });\n          return;\n        }\n\n        if (alreadyPending.length > 0) {\n          log(`multiple pending of this file, ignoring`, { type: \"warning\" });\n          return;\n        }\n\n        //  await isStillPending();\n\n        // NB: time is also the unique id together with filename\n        const time = Date.now();\n        pending.push({ filename: srcRelativeFilePath, time });\n\n        const basePath = absoluteFolderPath;\n        const operationBasePath = path.join(basePath, \"..\");\n\n        const fullPath = path.join(absoluteFolderPath, srcRelativeFilePath);\n        // TODO: Somehow, it would be great if we could batch changes from multiple files together, so it will execute after there are no changes for more than 30 seconds (or if you press the 'e' button). This will make it more efficient.\n\n        await onChange({\n          operationBasePath,\n          eventType: \"change\",\n          filePaths: [fullPath],\n        });\n\n        // after it's done, remove from the array\n        pending = pending.filter(\n          (p) => p.filename === absolutePath && p.time === time\n        );\n      }\n    );\n  });\n}",
+  "description": "watches folder paths and executes a callback when something changes in one of them\n\nuses fs.watch",
+  "id": "lkplqdzsyayhnpfjptuiintm"
+}

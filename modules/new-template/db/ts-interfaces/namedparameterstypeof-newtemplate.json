@@ -1,0 +1,59 @@
+{
+  "createdAt": 1667635801549,
+  "updatedAt": 1667635801549,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635801549,
+  "id": "namedparameterstypeof-newtemplate",
+  "name": "NamedParameters<typeof newTemplate>",
+  "slug": "namedparameterstypeof-newtemplate",
+  "operationRelativeTypescriptFilePath": "src/newTemplate.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string"
+        },
+        "destinationPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "type",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "destinationPath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof newTemplate>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

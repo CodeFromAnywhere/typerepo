@@ -1,0 +1,60 @@
+{
+  "createdAt": 1664528458746,
+  "updatedAt": 1666264488277,
+  "deletedAt": 0,
+  "createdFirstAt": 1664528458746,
+  "folderName": "watch-operations",
+  "packageName": "watch-operations",
+  "relativeOperationLocationPath": "operations/tools/typescript",
+  "classification": "node",
+  "name": "watch-operations",
+  "slug": "watch-operations",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getAllOperationSourcePaths",
+    "log",
+    "getProjectRoot",
+    "pickWatcher",
+    "getAllOperationSourcePaths",
+    "log",
+    "rebuildOperation",
+    "getProjectRoot"
+  ],
+  "packageDependencies": [
+    "execSync"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 0,
+      "characters": 4372,
+      "bytes": 4372
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1679,
+      "bytes": 1679
+    },
+    "textSize": {
+      "numberOfFiles": 3,
+      "lines": 0,
+      "characters": 2601,
+      "bytes": 2601
+    },
+    "size": {
+      "bytes": 8652,
+      "characters": 8652,
+      "lines": 0,
+      "numberOfFiles": 8
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "dgmezpcyawavjlejxqewxxbk",
+  "language": "en"
+}

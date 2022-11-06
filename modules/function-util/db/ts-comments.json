@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1666260893824,
+    "updatedAt": 1666260893824,
+    "deletedAt": 0,
+    "createdFirstAt": 1666260893824,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/converse.ts",
+    "comment": "this is the `yo` cli. takes a message",
+    "rawStatement": "export const converse = async (searchMessage: string) => {\n  const sdkFunctionPaths = await getSdkFunctionPaths();\n  if (!sdkFunctionPaths) return false;\n  const sdkKeyMatches = findSentenceMatches(\n    searchMessage,\n    sdkFunctionPaths,\n    (x) => x.matcher.replaceAll(\"/\", \" \")\n  );\n\n  if (sdkKeyMatches.length === 0) {\n    log(\"Wut?\", { type: \"error\" });\n  } else if (sdkKeyMatches.length === 1) {\n    const match = sdkKeyMatches[0];\n    log(`Match: ${humanCase(match.name)}`, {\n      type: \"success\",\n    });\n\n    await getParametersAndExecute(match);\n  } else {\n    log(\n      `There are ${sdkKeyMatches.length} things we can do: \\n\\n${sdkKeyMatches\n        .map(\n          (match, index) =>\n            `${index}: ${match.name} (from ${match.relativeOperationPath})`\n        )\n        .join(\", \\n\")}`,\n      { type: \"important\" }\n    );\n\n    const n = await ask(\"Which number do you want?\");\n\n    if (isNaN(Number(n))) {\n      log(`That's not a number`, { type: \"error\" });\n      return;\n    }\n\n    const choice = sdkKeyMatches[Number(n)];\n\n    if (!choice) {\n      log(`That's not a function from the list`, { type: \"error\" });\n      return;\n    }\n\n    await getParametersAndExecute(choice);\n  }\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 36,
+    "lastLine": 38,
+    "id": "vteqhtsolpiqqngcengqccmp"
+  }
+]

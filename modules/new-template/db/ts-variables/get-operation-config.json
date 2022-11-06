@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635798240,
+  "updatedAt": 1667635798240,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635798240,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getOperationConfig",
+  "slug": "get-operation-config",
+  "operationRelativeTypescriptFilePath": "src/getOperationConfig.ts",
+  "type": {
+    "rawType": "(operationName: string, description?: string | undefined) => Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/OperationConfig\").OperationConfig>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  operationName: string,\n  /**\n   * If you want to create one, set a description here.\n   */\n  description?: string\n): Promise<OperationConfig> => {\n  const sdkOperationConfig: OperationConfig | undefined = (\n    await db.get(\"OperationConfig\", { operationName })\n  )[0];\n\n  if (sdkOperationConfig) {\n    return sdkOperationConfig;\n  }\n\n  const now = Date.now();\n  // If we don't have an operation config yet, let's create it.\n  const newOperationConfig: OperationConfig = {\n    categoryStackCalculated: [],\n    id: generateId(),\n    createdAt: now,\n    updatedAt: now,\n    deletedAt: 0,\n    createdFirstAt: now,\n    markdown: description || \"Default description\",\n    operationName,\n    slug: operationName,\n    name: operationName,\n    // TODO: NB: we need a better way for this because this is unknown yet it needs to be defined.\n    projectRelativePath: \"\",\n    operationRelativePath: \"\",\n  };\n\n  return newOperationConfig;\n}",
+  "description": "Either finds the operation config in the database or creates a new one\n\nNB: it does not push it into the database yet because the operation might not exist yet",
+  "id": "hchyrxchqwzqczjrzhflxzis"
+}

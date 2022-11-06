@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667634527491,
+  "updatedAt": 1667634527491,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634527491,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useUrl",
+  "slug": "use-url",
+  "operationRelativeTypescriptFilePath": "src/hooks/useUrl.ts",
+  "type": {
+    "rawType": "<T extends \"type\" | \"id\" | \"typeIndexType\" | \"hasCommentTypes\" | \"interfaceIsDbModel\" | \"path\" | \"name\" | \"slug\" | \"model\">(queryKey: T) => { typeIndexType: [string | undefined, (newValue: string | undefined) => Promise<boolean>]; hasCommentTypes: [string[], (newValue: string[] | undefined) => Promise<boolean>]; interfaceIsDbModel: [boolean, (newValue: boolean | undefined) => Promise<boolean>]; path: [string | undefined, (newValue: string | undefined) => Promise<boolean>]; name: [string | undefined, (newValue: string | undefined) => Promise<boolean>]; type: [string | undefined, (newValue: string | undefined) => Promise<boolean>]; slug: [string | undefined, (newValue: string | undefined) => Promise<boolean>]; id: [string | undefined, (newValue: string | undefined) => Promise<boolean>]; model: [string | undefined, (newValue: string | undefined) => Promise<boolean>]; }[T]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<T extends keyof typeof queryStore>(queryKey: T) => {\n  /**\n   * Here you can define your global storages that can be present in any URL\n   *\n   * Make sure you use the CustomUrlConfig type\n   */\n  const queryStore = {\n    typeIndexType: useCustomUrlStore<string | undefined>(\"typeIndexType\", {\n      type: \"string\",\n    }),\n\n    hasCommentTypes: useCustomUrlStore<string[]>(\"hasCommentTypes\", {\n      type: \"string\",\n      isArray: true,\n    }),\n    interfaceIsDbModel: useCustomUrlStore<boolean>(\"interfaceIsDbModel\", {\n      type: \"boolean\",\n    }),\n    path: useCustomUrlStore<string | undefined>(\"path\", { type: \"string\" }),\n    name: useCustomUrlStore<string | undefined>(\"name\", { type: \"string\" }),\n    type: useCustomUrlStore<string | undefined>(\"type\", { type: \"string\" }),\n\n    // for db page\n    slug: useCustomUrlStore<string | undefined>(\"slug\", { type: \"string\" }),\n    id: useCustomUrlStore<string | undefined>(\"id\", { type: \"string\" }),\n    model: useCustomUrlStore<string | undefined>(\"model\", { type: \"string\" }),\n  };\n\n  return queryStore[queryKey];\n}",
+  "description": "",
+  "id": "pxfbmiidfpcakwrxkijiebhh"
+}

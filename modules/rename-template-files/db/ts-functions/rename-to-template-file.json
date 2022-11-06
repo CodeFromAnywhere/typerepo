@@ -1,0 +1,56 @@
+{
+  "createdAt": 1666258792343,
+  "updatedAt": 1666258792343,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258792343,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (fileName: string) => {\n  const extensionStartsAt = fileName.lastIndexOf(\".\");\n  const insertPosition =\n    extensionStartsAt === -1 ? fileName.length : extensionStartsAt;\n  const beforeExtension = fileName.substring(0, insertPosition);\n  const afterExtension = fileName.substring(insertPosition);\n\n  return `${beforeExtension}${templateExtension}${afterExtension}`;\n}",
+  "name": "renameToTemplateFile",
+  "slug": "rename-to-template-file",
+  "parameters": [
+    {
+      "name": "fileName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 369,
+    "lines": 9,
+    "bytes": 369,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 41,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "ntcheybjtkdquchpstkybzvr"
+}

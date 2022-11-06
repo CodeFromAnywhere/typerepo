@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635836374,
+  "updatedAt": 1667635836374,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635836374,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "clearTsDatabase",
+  "slug": "clear-ts-database",
+  "operationRelativeTypescriptFilePath": "src/clearTsDatabase.ts",
+  "type": {
+    "rawType": "(operationName: string | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (operationName: string | undefined) => {\n  const result = await Promise.all(\n    typescriptIndexModels.map((modelName) => {\n      return db.clear(modelName, { operationName });\n    })\n  );\n\n  await db.clear(\"OperationIndex\", { operationName });\n}",
+  "description": "",
+  "id": "emmixsneuzcmhkzekbopppus"
+}

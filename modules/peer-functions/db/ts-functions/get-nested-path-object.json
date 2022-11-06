@@ -1,0 +1,52 @@
+{
+  "createdAt": 1666262502524,
+  "updatedAt": 1666262502524,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262502524,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getNestedPathObject.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  baseFolderPath: string\n): Promise<NestedPathObject> => {\n  // 1 - explore\n\n  const exploreResult = await explore({\n    basePath: baseFolderPath,\n    includeFoldersWithResults: true,\n  });\n  // 2 - get file and folder paths from explore result\n  const explorePaths = exploreResult.map((textJson) => textJson.path);\n  const relativeExplorePaths = explorePaths.map((explorePath) => {\n    const baseFolderRelativeExplorePath = makeRelative(\n      explorePath,\n      baseFolderPath\n    );\n\n    return baseFolderRelativeExplorePath;\n  });\n\n  // 3- convert file/folder paths array into `NestedPathObject`\n  const nestedPathObject =\n    queryPathsArrayToNestedPathObject(relativeExplorePaths);\n\n  // 4 - return that\n  return nestedPathObject;\n}",
+  "name": "getNestedPathObject",
+  "slug": "get-nested-path-object",
+  "parameters": [
+    {
+      "name": "baseFolderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/nested-menu/build/util/queryPathsArrayToNestedPathObject\").NestedPathObject>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 747,
+    "lines": 27,
+    "bytes": 747,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "fdamgxjbxtbqfppkfiquyjsc"
+}

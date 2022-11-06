@@ -1,0 +1,41 @@
+{
+  "createdAt": 1666262506228,
+  "updatedAt": 1666262506228,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262506228,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPeersFromPeersRecursively.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  // TODO: should get the peers from all peers recursively. This is a RECURSIVE API lol!\n}",
+  "name": "getPeersFromPeersRecursively",
+  "slug": "get-peers-from-peers-recursively",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 99,
+    "lines": 3,
+    "bytes": 99,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "lilfkghzyhbktlvijswjjfpr"
+}

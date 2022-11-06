@@ -1,0 +1,80 @@
+{
+  "createdAt": 1666258842147,
+  "updatedAt": 1666258842147,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258842147,
+  "classification": "let",
+  "comments": [],
+  "isExported": false,
+  "name": "pending",
+  "slug": "pending",
+  "operationRelativeTypescriptFilePath": "src/fswatch.ts",
+  "type": {
+    "rawType": "PendingItem[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time": {
+            "type": "number"
+          },
+          "filename": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          }
+        },
+        "required": [
+          "time",
+          "filename"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "time",
+                "required": true,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "filename",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "value": "[]",
+  "description": "",
+  "id": "iekdttefieogwffuzimznjtn"
+}

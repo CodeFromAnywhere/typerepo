@@ -1,0 +1,54 @@
+{
+  "createdAt": 1664525338421,
+  "updatedAt": 1666259022506,
+  "deletedAt": 0,
+  "createdFirstAt": 1664525338421,
+  "folderName": "get-all-operation-source-paths",
+  "packageName": "get-all-operation-source-paths",
+  "relativeOperationLocationPath": "operations/tools/control-project",
+  "classification": "node",
+  "name": "get-all-operation-source-paths",
+  "slug": "get-all-operation-source-paths",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "exploreOperationFolders",
+    "path",
+    "fs",
+    "getPathsWithOperations"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 1023,
+      "bytes": 1023
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1530,
+      "bytes": 1530
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 703,
+      "bytes": 703
+    },
+    "size": {
+      "bytes": 3256,
+      "characters": 3256,
+      "lines": 0,
+      "numberOfFiles": 5
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "oacudtarpvxfwczjvcjzjxfl",
+  "language": "en"
+}

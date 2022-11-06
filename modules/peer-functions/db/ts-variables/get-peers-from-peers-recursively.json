@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262506387,
+  "updatedAt": 1666262506387,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262506387,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getPeersFromPeersRecursively",
+  "slug": "get-peers-from-peers-recursively",
+  "operationRelativeTypescriptFilePath": "src/getPeersFromPeersRecursively.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  // TODO: should get the peers from all peers recursively. This is a RECURSIVE API lol!\n}",
+  "description": "",
+  "id": "ycgwfpydjxzwdayungynuzhx"
+}

@@ -1,0 +1,49 @@
+{
+  "createdAt": 1666259160098,
+  "updatedAt": 1666259160098,
+  "deletedAt": 0,
+  "createdFirstAt": 1666259160098,
+  "id": "namedparameterstypeof-getdependenciessummary",
+  "name": "NamedParameters<typeof getDependenciesSummary>",
+  "slug": "namedparameterstypeof-getdependenciessummary",
+  "operationRelativeTypescriptFilePath": "src/getDependenciesSummary.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getDependenciesSummary>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

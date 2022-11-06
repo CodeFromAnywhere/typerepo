@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262513708,
+  "updatedAt": 1666262513708,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262513708,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "ping",
+  "slug": "ping",
+  "operationRelativeTypescriptFilePath": "src/ping.ts",
+  "type": {
+    "rawType": "() => boolean",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => true",
+  "description": "",
+  "id": "vqugfnxxidudctxcfhkezpml"
+}

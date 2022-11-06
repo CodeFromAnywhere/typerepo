@@ -1,0 +1,46 @@
+{
+  "createdAt": 1666264483010,
+  "updatedAt": 1666264483010,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264483010,
+  "id": "namedparameterstypeof-gitcommitallcron",
+  "name": "NamedParameters<typeof gitCommitAllCron>",
+  "slug": "namedparameterstypeof-gitcommitallcron",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "manualProjectRoot": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "manualProjectRoot",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof gitCommitAllCron>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

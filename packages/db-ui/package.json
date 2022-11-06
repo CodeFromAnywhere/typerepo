@@ -1,0 +1,62 @@
+{
+  "createdAt": 1662709577330,
+  "updatedAt": 1662709577330,
+  "deletedAt": 0,
+  "createdFirstAt": 1662709577330,
+  "name": "db-ui",
+  "operation": {
+    "indirectDependencies": [
+      "peer-functions",
+      "db-recipes"
+    ]
+  },
+  "version": "0.0.0",
+  "description": "All frontend components can go here",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tailwindcss -w -o css.css",
+    "css": "tailwindcss -o css.css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.0",
+    "react-minimal-pie-chart": "^8.3.0",
+    "rehype-highlight": "^5.0.2",
+    "js-util": "0.0.1",
+    "react-with-native-store": "2.0.40",
+    "react-with-native": "1.4.9",
+    "react-with-native-router": "1.0.14",
+    "react-with-native-table": "0.0.1",
+    "convert-case": "0.0.1",
+    "schema-util": "0.0.1",
+    "react-with-native-alert": "1.0.33",
+    "api": "0.0.1",
+    "use-url-store": "0.0.1",
+    "react-with-native-form-inputs": "1.0.15",
+    "model-types": "0.0.1",
+    "react": "17.0.2",
+    "ui-util": "0.0.1",
+    "simplified-schema-form": "0.0.1",
+    "labeled-button": "0.0.1",
+    "login-form": "0.0.1",
+    "fancy-loader": "0.0.1",
+    "name-conventions": "0.0.1",
+    "markdown": "1.0.0",
+    "clickable-icon": "0.0.1"
+  },
+  "devDependencies": {
+    "@headlessui/react": "^1.6.2",
+    "@react-navigation/native-stack": "^6.6.2",
+    "react-datepicker": "^4.8.0",
+    "react-datetime": "^3.1.1",
+    "react-native": "*",
+    "react-toastify": "^9.0.1",
+    "tailwindcss": "^3.0.24"
+  },
+  "slug": "db-ui",
+  "id": "TceIXMYIrjyzOMcO",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  }
+}

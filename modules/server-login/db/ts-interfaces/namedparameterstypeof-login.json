@@ -1,0 +1,49 @@
+{
+  "createdAt": 1667378547487,
+  "updatedAt": 1667378547487,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378547487,
+  "id": "namedparameterstypeof-login",
+  "name": "NamedParameters<typeof login>",
+  "slug": "namedparameterstypeof-login",
+  "operationRelativeTypescriptFilePath": "src/login.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "deviceId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "deviceId"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "deviceId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof login>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

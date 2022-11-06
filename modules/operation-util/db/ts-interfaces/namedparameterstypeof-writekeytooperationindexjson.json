@@ -1,0 +1,53 @@
+{
+  "createdAt": 1666259164132,
+  "updatedAt": 1666259164132,
+  "deletedAt": 0,
+  "createdFirstAt": 1666259164132,
+  "id": "namedparameterstypeof-writekeytooperationindexjson",
+  "name": "NamedParameters<typeof writeKeyToOperationIndexJson>",
+  "slug": "namedparameterstypeof-writekeytooperationindexjson",
+  "operationRelativeTypescriptFilePath": "src/writeKeyToOperationIndexJson.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absolutePath": {
+          "type": "string",
+          "description": "can be a path to any file in the operation"
+        }
+      },
+      "required": [
+        "absolutePath",
+        "key",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absolutePath",
+          "required": true,
+          "schema": {
+            "fullComment": "can be a path to any file in the operation",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof writeKeyToOperationIndexJson>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

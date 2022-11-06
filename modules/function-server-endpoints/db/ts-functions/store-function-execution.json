@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667634825723,
+  "updatedAt": 1667634825723,
+  "deletedAt": 0,
+  "createdFirstAt": 1667634825723,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/storeFunctionExecution.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  tsFunction: TsFunction,\n  inputParameters: any[] | undefined,\n  output: any,\n  performance: PerformanceItem[],\n  isResultFromCache: boolean\n) => {\n  // TODO: store using db (if useful)\n\n  const functionExecution: Creation<FunctionExecution> = {\n    functionName: tsFunction.name,\n    tsFunctionId: tsFunction.id,\n    inputParameters,\n    isExample: false,\n    isTest: false,\n    isResultFromCache,\n    output,\n    performance,\n  };\n\n  //@ts-ignore\n  const result = await db.upsert(\"FunctionExecution\", functionExecution, {\n    onlyInsert: true,\n  });\n  return;\n}",
+  "name": "storeFunctionExecution",
+  "slug": "store-function-execution",
+  "parameters": [],
+  "description": "wrapper function that stores execution-speed in an object with `FunctionPerformance` data-structure. Store this using `db.push` if it adds value\n.",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 719,
+    "lines": 27,
+    "bytes": 719,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "jostbajfrpmsjkgpuoqsnzec"
+}

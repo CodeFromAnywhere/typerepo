@@ -1,0 +1,75 @@
+{
+  "createdAt": 1666260900569,
+  "updatedAt": 1666260900569,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260900569,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getSdkKeys.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  return { success: true, response: Object.keys(sdk) };\n}",
+  "name": "getSdkKeys",
+  "slug": "get-sdk-keys",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{ success: boolean; response: any; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "success": {
+          "type": "boolean"
+        },
+        "response": {}
+      },
+      "required": [
+        "success",
+        "response"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "success",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "response",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 66,
+    "lines": 3,
+    "bytes": 66,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "nhlapbpgrezxqsibdcjbtiyy"
+}

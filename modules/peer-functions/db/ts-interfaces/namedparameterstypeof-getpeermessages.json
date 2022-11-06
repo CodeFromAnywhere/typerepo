@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262503526,
+  "updatedAt": 1666262503526,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262503526,
+  "id": "namedparameterstypeof-getpeermessages",
+  "name": "NamedParameters<typeof getPeerMessages>",
+  "slug": "namedparameterstypeof-getpeermessages",
+  "operationRelativeTypescriptFilePath": "src/getPeerMesssages.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPeerMessages>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

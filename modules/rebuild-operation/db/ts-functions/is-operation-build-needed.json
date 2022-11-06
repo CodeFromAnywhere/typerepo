@@ -1,0 +1,52 @@
+{
+  "createdAt": 1667635849302,
+  "updatedAt": 1667635849302,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635849302,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/isOperationBuildNeeded.ts",
+  "commentsInside": [],
+  "rawText": " (operationBasePath: string) => {\n  const classification = getOperationClassification(operationBasePath)!;\n\n  console.log(`${getLastFolder(operationBasePath)}: ${classification}`);\n\n  // NB: server, web, app and ui-es6 have different ways to keep the build up-to-date\n  const buildNeededOperatons: OperationClassification[] = [\n    \"js\",\n    \"node\",\n    \"ui-es5\",\n  ];\n  const isBuildNeeded = buildNeededOperatons.includes(classification);\n\n  return isBuildNeeded;\n}",
+  "name": "isOperationBuildNeeded",
+  "slug": "is-operation-build-needed",
+  "parameters": [
+    {
+      "name": "operationBasePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "returns a boolean indicating whether or not the operation should be able to be built, based on the OperationClassification",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 588,
+    "lines": 15,
+    "bytes": 588,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 39,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "eiyommylwlfrhkjohlcvlrox"
+}

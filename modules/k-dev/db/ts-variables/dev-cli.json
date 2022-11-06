@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666264697922,
+  "updatedAt": 1666264697922,
+  "deletedAt": 0,
+  "createdFirstAt": 1666264697922,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "devCli",
+  "slug": "dev-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/dev.cli.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const [customManualProjectRoot] = process.argv.slice(2);\n\n  if (!customManualProjectRoot) return dev();\n\n  if (customManualProjectRoot.startsWith(\".\")) {\n    // relative path\n    const realProjectRootPath = path.join(\n      process.cwd(),\n      customManualProjectRoot\n    );\n\n    return dev(realProjectRootPath);\n  }\n\n  // absolute path\n  dev(customManualProjectRoot);\n}",
+  "description": "The dev-cli runs the `dev` command which watches your operations with restarts\n\nYou can specify a customManualProjectRoot, which can be a relative or absolute path. If relative, it will use your cwd with the relative path to make an absolute path, that will in turn be passed to the `dev` function.",
+  "id": "hnbheutjkwxlyhkeuyeowlml"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667378654995,
+  "updatedAt": 1667378654995,
+  "deletedAt": 0,
+  "createdFirstAt": 1667378654995,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "processAsset",
+  "slug": "process-asset",
+  "operationRelativeTypescriptFilePath": "src/processAsset.ts",
+  "type": {
+    "rawType": "(backendAsset: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").BackendAsset, absoluteReferencingFilePath: string, config: import(\"/Users/king/King/operations/tools/asset/asset-functions-node/src/processAsset\").ProcessAssetConfig) => Promise<import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").BackendAsset | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  /**\n   * The backendAsset that may need processing\n   */\n  backendAsset: BackendAsset,\n  /**\n   * Location of the\n   * - markdown file (or folder where it is located)\n   * - typescript file (or folder where it is located)\n   * - database file (or folder where it is located)\n   */\n  absoluteReferencingFilePath: string,\n  /**\n   * Extra configuration may somethimes be needed\n   */\n  config: ProcessAssetConfig\n): Promise<undefined | BackendAsset> => {\n  const { alt, name, relativePath, temporaryDestination } = backendAsset;\n\n  // console.log(\"processing asset\", { backendAsset });\n  const slugifiedName = slugify(name && name.length > 0 ? name : \"untitled\");\n\n  if (!relativePath && !temporaryDestination) {\n    log(\"no relativePath, no temporaryDestination\", { type: \"warning\" });\n    // NB: we must have either a relativePath or a temporaryDestination, otherwise this is an invalid input\n    return undefined;\n  }\n\n  const absoluteTemporaryDestination = temporaryDestination\n    ? path.join(getTemporaryAssetsFolderPath(), temporaryDestination)\n    : undefined;\n\n  // NB: If a `temporaryDestination` is given, if it doesn't exist, we return nothing, this is an invalid input.\n  if (absoluteTemporaryDestination) {\n    if (!fs.existsSync(absoluteTemporaryDestination)) {\n      log(\"absoluteTemporaryDestination does not exist\", { type: \"warning\" });\n\n      return undefined;\n    }\n  }\n\n  const oldAssetStoragePath = relativePath\n    ? path.join(path.parse(absoluteReferencingFilePath).dir, relativePath)\n    : undefined;\n\n  // NB: if a relativePath is provided without a temporaryDestination, it means the file should already be there. If it's not there, we return nothing, invalid input.\n  if (oldAssetStoragePath && !temporaryDestination) {\n    if (!fs.existsSync(oldAssetStoragePath)) {\n      log(`oldAssetStoragePath does not exist (${oldAssetStoragePath})`, {\n        type: \"warning\",\n      });\n\n      return undefined;\n    }\n  }\n\n  // Now we can assume the extension of the temporarydestination is correct, because it gets put there from upload\n  const extension = temporaryDestination\n    ? temporaryDestination.split(\".\").pop()\n    : relativePath?.split(\".\").pop();\n\n  if (!extension) {\n    log(\"could not create extension\", { type: \"warning\" });\n\n    // NB: extension must exist now.\n    return undefined;\n  }\n\n  /*\n   */\n\n  const storageLocationInfo = getStorageLocationInfo(\n    absoluteReferencingFilePath,\n    config\n  );\n\n  const finalAssetStoragePath = path.join(\n    storageLocationInfo.absoluteAssetBaseFolderPath,\n    `${slugifiedName}.${extension}`\n  );\n\n  let finalAvailableStoragePath: string = finalAssetStoragePath;\n\n  if (absoluteTemporaryDestination) {\n    finalAvailableStoragePath = getFirstAvailableFilename(\n      finalAssetStoragePath\n    );\n\n    await renameAndCreate(\n      absoluteTemporaryDestination,\n      finalAvailableStoragePath\n    );\n  } else if (oldAssetStoragePath) {\n    if (oldAssetStoragePath !== finalAssetStoragePath) {\n      finalAvailableStoragePath = getFirstAvailableFilename(\n        finalAssetStoragePath\n      );\n\n      // the name has changed\n      await renameAndCreate(oldAssetStoragePath, finalAvailableStoragePath);\n    }\n  }\n\n  const newRelativePath = getRelativeLinkPath(\n    absoluteReferencingFilePath,\n    finalAvailableStoragePath\n  );\n\n  //({ newRelativePath });\n\n  return { alt, relativePath: newRelativePath };\n}",
+  "description": "Processes an asset by moving the file in the right location, if needed...\n\n- Alt is kept, nothing to do with it\n- Giving a different name will change the new path\n- relativePath is checked if it exists (if temporaryDestination is undefined). It is used to obtain the extension.\n- temporaryDestination must be checked. if it exists, must replace the file on relativePath calculated from name\n\nAfter processing, this function should return a `BackendAsset` without the non-storable parameters",
+  "id": "zgknberoxniyexhpvdkmhcji"
+}

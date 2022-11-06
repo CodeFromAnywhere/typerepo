@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1666264410193,
+    "updatedAt": 1666264410193,
+    "deletedAt": 0,
+    "createdFirstAt": 1666264410193,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/types.ts",
+    "comment": "an exported test can be a single callback, or multiple callbacks that promise to tell you whether the test has passed or not",
+    "rawStatement": "export type Test = (() => Promise<boolean>) | (() => Promise<boolean>)[];",
+    "parameters": {},
+    "types": [],
+    "firstLine": 1,
+    "lastLine": 3,
+    "id": "yxdtkimxmidaqdermylnjskc"
+  }
+]

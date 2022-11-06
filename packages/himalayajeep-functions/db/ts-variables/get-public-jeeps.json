@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667402313077,
+  "updatedAt": 1667402313077,
+  "deletedAt": 0,
+  "createdFirstAt": 1667402313077,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getPublicJeeps",
+  "slug": "get-public-jeeps",
+  "operationRelativeTypescriptFilePath": "src/getJeeps.ts",
+  "type": {
+    "rawType": "() => Promise<{ publicJeeps: import(\"/Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-types/build/types\").PublicJeepType[]; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (): Promise<{\n  publicJeeps: PublicJeepType[];\n}> => {\n  const jeeps = await db.get(\"JeepType\");\n\n  const publicJeeps = jeeps.map((jeep) => {\n    const {\n      amountLuggageUnitsLeft,\n      amountSeatsLeft,\n      createdAt,\n      id,\n      name,\n      note,\n      updatedAt,\n      email,\n      locationsCalculated,\n      phone,\n    } = jeep;\n\n    const publicJeep: PublicJeepType = {\n      amountLuggageUnitsLeft,\n      amountSeatsLeft,\n      createdAt,\n      id,\n      name,\n      note,\n      updatedAt,\n      email,\n      locationsCalculated,\n      phone,\n    };\n\n    return publicJeep;\n  });\n\n  return {\n    publicJeeps,\n  };\n}",
+  "description": "",
+  "id": "xeyecdnlyywwdwomozqwogps"
+}

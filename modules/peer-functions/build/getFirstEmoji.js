@@ -1,0 +1,2 @@
+"use strict";var __importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getFirstEmoji=void 0;var emoji_regex_1=__importDefault(require("emoji-regex")),getFirstEmoji=function(e){var t;if(e)return null===(t=null==e?void 0:e.match((0,emoji_regex_1.default)()))||void 0===t?void 0:t[0]};exports.getFirstEmoji=getFirstEmoji;
+//# sourceMappingURL=getFirstEmoji.js.map

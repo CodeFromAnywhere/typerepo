@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635708272,
+  "updatedAt": 1667635708272,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635708272,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "isTsFunctionIndexable",
+  "slug": "is-ts-function-indexable",
+  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "type": {
+    "rawType": "(tsFunction: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction) => boolean",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(tsFunction: TsFunction) => {\n  const fileId = getSrcRelativeFileId(\n    tsFunction.operationRelativeTypescriptFilePath\n  );\n  return isIndexableFileId(fileId);\n}",
+  "description": "The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!",
+  "id": "zcfohzjbldxpaufwntyndmxn"
+}

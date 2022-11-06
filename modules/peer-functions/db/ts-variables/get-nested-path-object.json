@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666262502683,
+  "updatedAt": 1666262502683,
+  "deletedAt": 0,
+  "createdFirstAt": 1666262502683,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getNestedPathObject",
+  "slug": "get-nested-path-object",
+  "operationRelativeTypescriptFilePath": "src/getNestedPathObject.ts",
+  "type": {
+    "rawType": "(baseFolderPath: string) => Promise<import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/nested-menu/build/util/queryPathsArrayToNestedPathObject\").NestedPathObject>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  baseFolderPath: string\n): Promise<NestedPathObject> => {\n  // 1 - explore\n\n  const exploreResult = await explore({\n    basePath: baseFolderPath,\n    includeFoldersWithResults: true,\n  });\n  // 2 - get file and folder paths from explore result\n  const explorePaths = exploreResult.map((textJson) => textJson.path);\n  const relativeExplorePaths = explorePaths.map((explorePath) => {\n    const baseFolderRelativeExplorePath = makeRelative(\n      explorePath,\n      baseFolderPath\n    );\n\n    return baseFolderRelativeExplorePath;\n  });\n\n  // 3- convert file/folder paths array into `NestedPathObject`\n  const nestedPathObject =\n    queryPathsArrayToNestedPathObject(relativeExplorePaths);\n\n  // 4 - return that\n  return nestedPathObject;\n}",
+  "description": "",
+  "id": "vjpiuxvsfftwwiowmshztxev"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635155819,
+  "updatedAt": 1667635155819,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635155819,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "main",
+  "slug": "main",
+  "operationRelativeTypescriptFilePath": "src/getMarkdownReaderQueryPaths.test.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  writeToAssets(\n    __filename,\n    await getMarkdownReaderQueryPaths(),\n    \"getMarkdownReaderQueryPaths.json\"\n  );\n}",
+  "description": "",
+  "id": "bsvzauaaedvjruxlshwowayf"
+}

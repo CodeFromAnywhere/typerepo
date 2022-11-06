@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1666264699280,
+    "updatedAt": 1666264699280,
+    "deletedAt": 0,
+    "createdFirstAt": 1666264699280,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/dev.ts",
+    "comment": "Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))",
+    "rawStatement": "export const dev = (\n  /**\n   * manual project root for finding the operations\n   */\n  manualProjectRoot?: string\n): void => {\n  if (manualProjectRoot && !fs.existsSync(manualProjectRoot)) {\n    console.log(\"Please enter a manualProjectRoot that exists\");\n    return;\n  }\n\n  const vars = manualProjectRoot ? [manualProjectRoot] : undefined;\n  nodemon(\"watch-operations\", \"watchOperations\", vars);\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 4,
+    "lastLine": 6,
+    "id": "kkkwytyhftvjzodanhjjgiqz"
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "createdAt": 1667314187037,
+  "updatedAt": 1667314187037,
+  "deletedAt": 0,
+  "createdFirstAt": 1667314187037,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "@types/twilio": "^3.19.3",
+    "typescript": "^4.7.4"
+  },
+  "name": "sms",
+  "dependencies": {
+    "twilio": "^3.83.1"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "slug": "sms",
+  "id": "ffbdkbtmgfrxvlldvgddegzq"
+}

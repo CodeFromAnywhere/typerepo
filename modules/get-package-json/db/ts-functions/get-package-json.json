@@ -1,0 +1,70 @@
+{
+  "createdAt": 1666258679925,
+  "updatedAt": 1666258679925,
+  "deletedAt": 0,
+  "createdFirstAt": 1666258679925,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getPackageJson.ts",
+  "commentsInside": [],
+  "rawText": " async (config: {\n  operationFolderPath: string;\n}) => {\n  const { operationFolderPath } = config;\n  const packageJsonPath = path.join(operationFolderPath, \"package.json\");\n  const packageJson = readJsonFile<PackageJson>(packageJsonPath);\n  return packageJson;\n}",
+  "name": "getPackageJson",
+  "slug": "get-package-json",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "operationFolderPath": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "operationFolderPath"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "operationFolderPath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 262,
+    "lines": 8,
+    "bytes": 262,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "fiiguqxqyjrqtpgwghapftcy"
+}

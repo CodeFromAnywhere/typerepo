@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667635705043,
+  "updatedAt": 1667635705043,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635705043,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "newEnvSdk",
+  "slug": "new-env-sdk",
+  "operationRelativeTypescriptFilePath": "src/generateEnvSdks.ts",
+  "type": {
+    "rawType": "(bundleConfig: import(\"/Users/king/King/operations/tools/types/bundle-types/build/BundleConfig\").BundleConfig, type: \"public\" | \"private\", config?: { manualProjectRoot?: string | undefined; skipYarnInstall?: boolean | undefined; dryrun?: boolean | undefined; } | undefined) => Promise<string | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  /**\n   * NB: if this is not a bundle, a more general purpose bundle config should be used\n   */\n  bundleConfig: BundleConfig,\n  type: \"public\" | \"private\",\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n): Promise<string | undefined> => {\n  // 1. gets env from bundle\n  const operationName = `sdk-env-${type}`;\n  const description = await getSdkDescription(operationName);\n\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const skipYarnInstall = config?.skipYarnInstall;\n  const dryrun = config?.dryrun;\n  const envVariables =\n    bundleConfig.customisableBundleConfig[`${type}EnvironmentVariables`];\n  const realEnv =\n    envVariables && typeof envVariables === \"object\" ? envVariables : {};\n\n  // 2. creates [type].ts and [type]-local.ts that adheres a type interface\n\n  const typescriptFileString = `export const ${type}EnvironmentVariables = ${JSON.stringify(\n    realEnv,\n    null,\n    2\n  )};`;\n\n  const localComment =\n    \"Optionally, overwrite some of your environent variables locally here. Only applied in development. NB: When working in a team, it may be useful to .gitignore this file!\";\n\n  const localTypescriptFileString = `import { ${type}EnvironmentVariables } from \"./${type}\";\\n// ${localComment}\\nexport const ${type}LocalEnvironmentVariables: Partial<typeof ${type}EnvironmentVariables> = {};`;\n\n  const srcFileContentObject = {\n    [`src/${type}-local.ts`]: localTypescriptFileString,\n    [`src/${type}.ts`]: typescriptFileString,\n  };\n\n  // keep the same operationconfig as the os project, or make a new one if not found\n  const operationConfig = await getOperationConfig(operationName, description);\n\n  const operationBasePath = await newOperationWithFiles(\n    operationConfig,\n    srcFileContentObject,\n    { manualProjectRoot: projectRoot, skipYarnInstall, dryrun }\n  );\n  return operationBasePath;\n}",
+  "description": "# Environment variables\n\nAs a full stack app we need a good solution for environment variables that need to be accessible anywhere and can be customized, some `.gitignore'd`, some not. Some public, some only in the backend.\n\nsensible-config:\n- public (local, remote) = sdk-env-public\n- private (local, remote) = sdk-env-private\n\nThis information will be fetched from the bundleconfig",
+  "id": "wkrfpoblvnjtdrzgfjdczyul"
+}

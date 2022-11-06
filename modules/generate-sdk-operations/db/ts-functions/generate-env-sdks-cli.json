@@ -1,0 +1,41 @@
+{
+  "createdAt": 1667635699371,
+  "updatedAt": 1667635699371,
+  "deletedAt": 0,
+  "createdFirstAt": 1667635699371,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": false,
+  "operationRelativeTypescriptFilePath": "src/cli/generateEnvSdks.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const bundleConfig = (await db.get(\"BundleConfig\"))[0];\n\n  if (!bundleConfig) {\n    console.log(\"DIDNT WORK\");\n    return;\n  }\n\n  const [customProjectRoot] = process.argv.slice(2);\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  await generateEnvSdks(bundleConfig, {\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n}",
+  "name": "generateEnvSdksCli",
+  "slug": "generate-env-sdks-cli",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 370,
+    "lines": 15,
+    "bytes": 370,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "rwaffdsfkxotpnwwcdjrnmdz"
+}

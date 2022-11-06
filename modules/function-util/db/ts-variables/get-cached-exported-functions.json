@@ -1,0 +1,33 @@
+{
+  "createdAt": 1666260896538,
+  "updatedAt": 1666260896538,
+  "deletedAt": 0,
+  "createdFirstAt": 1666260896538,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getCachedExportedFunctions",
+  "slug": "get-cached-exported-functions",
+  "operationRelativeTypescriptFilePath": "src/getCachedExportedFunctions.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  if (functions.length) return functions;\n  functions = await db.get(\"TsFunction\");\n  exportsArray = await db.get(\"TsExport\");\n  const fnIsExported = (fn: TsFunction) =>\n    exportsArray.find(\n      (e) => e?.operationName === fn?.operationName && e.name === fn.name\n    );\n  return functions.filter(fnIsExported);\n}",
+  "description": "",
+  "id": "tygovveobtsjwsafdywphjun"
+}
