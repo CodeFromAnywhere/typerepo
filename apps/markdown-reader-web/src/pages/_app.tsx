@@ -56,6 +56,7 @@ function MyApp({ Component, pageProps }: RealAppProps) {
         />
       </Head>
       <StoreProvider>
+        {/* @ts-ignore */}
         <Component {...pageProps} />
       </StoreProvider>
     </QueryClientProvider>

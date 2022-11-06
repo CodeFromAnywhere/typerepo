@@ -621,7 +621,7 @@ export declare const sdk: {
     getMarkdownReaderQueryPaths: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<string[] | undefined>;
-    getOperationPages: (projectRoot: string) => Promise<import("markdown-reader-types").MarkdownReaderPage[]>;
+    getOperationPages: (projectRoot: string, bundleMarkdownReaderConfig?: import("bundle-types").BundleMarkdownReaderConfig | undefined) => Promise<import("markdown-reader-types").MarkdownReaderPage[]>;
     getPublicMarkdownFilePaths: (baseFolderPath: string, includeFoldersWithResults?: boolean | undefined) => Promise<{
         path: string;
         isFolder: boolean;
