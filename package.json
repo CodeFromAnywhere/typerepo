@@ -1,7 +1,11 @@
 {
   "version": "0.0.0",
   "private": true,
-  "workspaces": ["apps/**/*", "packages/**/*", "modules/**/*"],
+  "workspaces": [
+    "apps/**/*",
+    "packages/**/*",
+    "modules/**/*"
+  ],
   "scripts": {},
   "devDependencies": {
     "prettier": "^2.5.1"
@@ -13,5 +17,11 @@
   "packageManager": "yarn@1.22.17",
   "sensible": {
     "isSensibleProject": true
-  }
+  },
+  "description": "The new way to dev",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeFromAnywhere/typerepo"
+  },
+  "homepage": "https://github.com/CodeFromAnywhere/typerepo"
 }
