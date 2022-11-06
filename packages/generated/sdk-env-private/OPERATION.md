@@ -1,10 +1,10 @@
 ---
-createdAt: 1667749866067
-updatedAt: 1667749866067
+createdAt: 1667752279066
+updatedAt: 1667752279066
 deletedAt: 0
-createdFirstAt: 1667749866067
+createdFirstAt: 1667752279066
 categoryStackCalculated: 
-id: gsbhlxgdhdigjlctwutoeswt
+id: ygkgcxwyldgpslwyikashntx
 slug: sdk-env-private
 name: sdk-env-private
 ---

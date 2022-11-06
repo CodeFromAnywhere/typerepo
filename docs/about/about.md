@@ -26,4 +26,4 @@ Curious? Just run `npx sensible` and see the magic, or check out the [demo](http
 
 3. **Smart Codebase** Codebase Introspection and Automatic Documentation Generation would be a big help in decreasing chronic technical debt and maximising learnability.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PulTxo5Cgc8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+https://www.youtube.com/watch?v=PulTxo5Cgc8

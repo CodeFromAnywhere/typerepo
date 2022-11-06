@@ -61,9 +61,12 @@ var getTodoPages = function (projectRoot) { return __awaiter(void 0, void 0, voi
                         projectRoot: projectRoot,
                         basePaths: todoFolderPaths,
                         mapQueryPath: function (queryPath) {
-                            return queryPath
+                            var almostPath = queryPath
                                 .replaceAll("todo/", "")
                                 .replace("operations/", "todo/");
+                            return almostPath.startsWith("todo/")
+                                ? almostPath
+                                : "todo/" + almostPath;
                         },
                     })];
             case 2:

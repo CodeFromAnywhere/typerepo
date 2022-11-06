@@ -53,7 +53,7 @@ export declare type CreateBundleConfig = {
      *
      * When generating, removes the ones that are not dependencies (of dependencies) of your standalone apps
      */
-    dependencies: OperationPrivacy[];
+    dependencies?: OperationPrivacy[];
     /**
      * optional. Could also find the main file from here and use that as README.md
      *

@@ -9,7 +9,6 @@ import { pagesObject, pages, getPageTitle } from "db-ui";
 import { AlertProvider } from "react-with-native-alert";
 import { ModalProvider } from "react-with-native-modal";
 import { useRouter } from "react-with-native-router";
-import ReactTooltip from "react-tooltip";
 
 import getConfig from "next/config";
 
