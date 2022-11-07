@@ -22,7 +22,7 @@ get-imported-dependencies (node operation)
 
 # Functions
 
-## getImportedDependencies
+## getImportedDependencies()
 
 DEPRECATED: should use generated index files with imports instead!
 
@@ -31,45 +31,41 @@ doesn't take into account the fact that someone can set up a rule for absolute i
 this assumes that any absolute package comes from node_modules.
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: {  operationFolderPath,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationFolderPath  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  operationFolderPath,
+} | { operationFolderPath: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## getPackage
+## getPackage()
 
 only the first part
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| absoluteModuleString | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: absoluteModuleString: string
-
-## isAbsoluteImport
+## isAbsoluteImport()
 
 if it doesn't start with a dot it must be an absolute import so most likely a package that needs to be installed
 
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| moduleString | string |  |
+| **Output** | {  }   |    |
 
-### Parameters (1)
-
-#### Parameter 1: moduleString: string
 
 # Variables
 
-## getImportedDependencies (exported const)
+## 📄 getImportedDependencies (exported const)
 
 DEPRECATED: should use generated index files with imports instead!
 
@@ -78,12 +74,12 @@ doesn't take into account the fact that someone can set up a rule for absolute i
 this assumes that any absolute package comes from node_modules.
 
 
-## getPackage (exported const)
+## 📄 getPackage (exported const)
 
 only the first part
 
 
-## isAbsoluteImport (exported const)
+## 📄 isAbsoluteImport (exported const)
 
 if it doesn't start with a dot it must be an absolute import so most likely a package that needs to be installed
 

@@ -18,12 +18,6 @@ Gets insightful information about any file or folder (path)
 - [getPathMainComment](#getPathMainComment)
 - [getSizeSummary](#getSizeSummary)
 - [sumSizeSummary](#sumSizeSummary)
-- [test](#test)
-
-## Interfaces
-
-- [CategorizedFilePaths](#categorizedfilepaths)
-- [CategorizedFilePaths](#categorizedfilepaths)
 
 ## Variables
 
@@ -33,80 +27,67 @@ Gets insightful information about any file or folder (path)
 - [getPathMainComment](#getpathmaincomment)
 - [getSizeSummary](#getsizesummary)
 - [sumSizeSummary](#sumsizesummary)
-- [test](#test)
 
 
 
 # Functions
 
-## byteCount
+## byteCount()
 
 /**
  * This function will return the byte size of any UTF-8 string you pass to it.
  */
 
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| s | string |  |
+| **Output** | {  }   |    |
 
-### Parameters (1)
 
-#### Parameter 1: s: string
 
-## calculatePathMetaData
+## calculatePathMetaData()
 
 for folders: finds all files used for calculation and uses sumPathMetaData to create a new PathMetaData.
 for files: just calculates the path metadata
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| absolutePath | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: absolutePath: string
-
-## categorizeFiles
+## categorizeFiles()
 
 explores files in an operation within a specified location or from a specified type
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: {  basePath,  type,  ignoreIndexFiles,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| basePath  | object |  |
-| ignoreIndexFiles (optional) | boolean |  |
-| type (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  basePath,
+  type,
+  ignoreIndexFiles,
+} | { basePath: {  }, <br />ignoreIndexFiles?: boolean, <br />type?: code / data / text, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## getFolderSummary
+## getFolderSummary()
 
 calculates folder summary from a categorized file paths object
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: categorizedFiles: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| code  | array |  |
-| data  | array |  |
-| text  | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| categorizedFiles | `CategorizedFilePaths` |  |
+| **Output** |    |    |
 
 
 
-## getPathMainComment
+## getPathMainComment()
 
 export const sumFolderSummary = (
 firstFolderSummary: FolderSummary,
@@ -160,104 +141,54 @@ return sum;
 };
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| absolutePath | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: absolutePath: string
-
-## getSizeSummary
+## getSizeSummary()
 
 gets a size summary for a file path
 
 Does not calculate this for files that are too big (bigger than 1MB)
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: filePath: string
-
-## sumSizeSummary
-
-### Parameters (1)
-
-#### Parameter 1: filePaths: array
-
-- null: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| filePath | string |  |
+| **Output** |    |    |
 
 
 
+## sumSizeSummary()
 
-
-
-## test
-
-# Interfaces
-
-## CategorizedFilePaths
-
-filepaths categorized based on the filetype. With king os there are only these filetypes:
-
-- code: ts, tsx
-- data: json
-- text: md, mdx
-
-
-
-> filepaths categorized based on the filetype. With king os there are only these filetypes:<br /><br />- code: ts, tsx<br />- data: json<br />- text: md, mdx
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| code  | array |  |
-| data  | array |  |
-| text  | array |  |
-
-
-
-## CategorizedFilePaths
-
-filepaths categorized based on the filetype. With king os there are only these filetypes:
-
-- code: ts, tsx
-- data: json
-- text: md, mdx
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| code  | array |  |
-| data  | array |  |
-| text  | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| filePaths | string[] |  |
+| **Output** |    |    |
 
 
 # Variables
 
-## calculatePathMetaData (exported const)
+## 📄 calculatePathMetaData (exported const)
 
 for folders: finds all files used for calculation and uses sumPathMetaData to create a new PathMetaData.
 for files: just calculates the path metadata
 
 
-## categorizeFiles (exported const)
+## 📄 categorizeFiles (exported const)
 
 explores files in an operation within a specified location or from a specified type
 
 
-## getFolderSummary (exported const)
+## 📄 getFolderSummary (exported const)
 
 calculates folder summary from a categorized file paths object
 
 
-## getPathMainComment (exported const)
+## 📄 getPathMainComment (exported const)
 
 export const sumFolderSummary = (
 firstFolderSummary: FolderSummary,
@@ -311,14 +242,12 @@ return sum;
 };
 
 
-## getSizeSummary (exported const)
+## 📄 getSizeSummary (exported const)
 
 gets a size summary for a file path
 
 Does not calculate this for files that are too big (bigger than 1MB)
 
 
-## sumSizeSummary (exported const)
-
-## test (unexported const)
+## 📄 sumSizeSummary (exported const)
 

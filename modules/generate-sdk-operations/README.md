@@ -17,16 +17,11 @@ Ensure to apply all King OS conventions when generating these operations, becaus
 
 ## Functions
 
-- [generateDbSdkCli](#generateDbSdkCli)
 - [generateDbSdk](#generateDbSdk)
-- [generateEnvSdksCli](#generateEnvSdksCli)
 - [generateEnvSdks](#generateEnvSdks)
 - [generateFunctionPathsSdk](#generateFunctionPathsSdk)
-- [generateFunctionSdksCli](#generateFunctionSdksCli)
 - [generateFunctionSdks](#generateFunctionSdks)
-- [generateOperationsSdkCli](#generateOperationsSdkCli)
 - [generateOperationsSdk](#generateOperationsSdk)
-- [generateSdkOperationsCli](#generateSdkOperationsCli)
 - [generateSdkOperations](#generateSdkOperations)
 - [getSdkDescription](#getSdkDescription)
 - [getSdkFunctions](#getSdkFunctions)
@@ -34,29 +29,20 @@ Ensure to apply all King OS conventions when generating these operations, becaus
 - [newEnvSdk](#newEnvSdk)
 - [newSdkKeysOperation](#newSdkKeysOperation)
 - [newSdkOperation](#newSdkOperation)
-- [test](#test)
 - [tsFunctionIsSdkable](#tsFunctionIsSdkable)
 
 ## Interfaces
 
-- [BundleConfig](#bundleconfig)
 - [FunctionsPerClassification](#functionsperclassification)
-- [OperationClassification](#operationclassification)
 - [OperationClassificationObject](#operationclassificationobject)
-- [TsFunction](#tsfunction)
 
 ## Variables
 
-- [generateDbSdkCli](#generatedbsdkcli)
 - [generateDbSdk](#generatedbsdk)
-- [generateEnvSdksCli](#generateenvsdkscli)
 - [generateEnvSdks](#generateenvsdks)
 - [generateFunctionPathsSdk](#generatefunctionpathssdk)
-- [generateFunctionSdksCli](#generatefunctionsdkscli)
 - [generateFunctionSdks](#generatefunctionsdks)
-- [generateOperationsSdkCli](#generateoperationssdkcli)
 - [generateOperationsSdk](#generateoperationssdk)
-- [generateSdkOperationsCli](#generatesdkoperationscli)
 - [generateSdkOperations](#generatesdkoperations)
 - [getSdkDescription](#getsdkdescription)
 - [getSdkFunctions](#getsdkfunctions)
@@ -64,7 +50,6 @@ Ensure to apply all King OS conventions when generating these operations, becaus
 - [newEnvSdk](#newenvsdk)
 - [newSdkKeysOperation](#newsdkkeysoperation)
 - [newSdkOperation](#newsdkoperation)
-- [test](#test)
 - [tsFunctionIsSdkable](#tsfunctionissdkable)
 
 
@@ -78,77 +63,42 @@ The functions in this package helps you to automate the dull task of generating 
 
 # Functions
 
-## generateDbSdkCli
+## generateDbSdk()
 
-## generateDbSdk
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
-## generateEnvSdksCli
 
-## generateEnvSdks
+
+## generateEnvSdks()
 
 generates sdk-env-public and sdk-env-private
 
 returns the paths of the geneated operations
 
 
-
-
-### Parameters (2)
-
-#### Parameter 1: bundleConfig: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| description (optional) | string |  |
-| emoji (optional) | string |  |
-| primaryColor (optional) | string |  |
-| gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | boolean |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| bundleConfig | `BundleConfig` |  |,| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
-#### Parameter 2: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
-| skipYarnInstall (optional) | boolean |  |
-| dryrun (optional) | boolean |  |
-
-
-
-## generateFunctionPathsSdk
+## generateFunctionPathsSdk()
 
 `sdk-function-paths` indexes all operations and builds an object containing all operations.
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
-| skipYarnInstall (optional) | boolean |  |
-| dryrun (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## generateFunctionSdksCli
-
-## generateFunctionSdks
+## generateFunctionSdks()
 
 Creates
 - sdk
@@ -161,121 +111,74 @@ Creates
 Overwrites them if they already exist with minimal interruption time of the system
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
-| skipYarnInstall (optional) | boolean |  |
-| dryrun (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## generateOperationsSdkCli
-
-## generateOperationsSdk
+## generateOperationsSdk()
 
 `sdk-operations` indexes all operations and builds an object containing all operations.
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
-| skipYarnInstall (optional) | boolean |  |
-| dryrun (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## generateSdkOperationsCli
-
-## generateSdkOperations
+## generateSdkOperations()
 
 (re)generates all sdk operations for any project
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getSdkDescription
+
+## getSdkDescription()
 
 Gets a description of any sdk operation from the assets
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationName | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: operationName: string
-
-## getSdkFunctions
+## getSdkFunctions()
 
 returns all sdk functions grouped by operation classification
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { manualProjectRoot?: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## isTsFunctionIndexable
+## isTsFunctionIndexable()
 
 The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!
 
 
-### Returns: object
-
-### Parameters (1)
-
-#### Parameter 1: tsFunction: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
-| isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| rawText (optional) | string |  |
-| commentsInside  | array |  |
-| parameters (optional) | array |  |
-| maxIndentationDepth  | number |  |
-| dependantFiles (optional) | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsFunction | `TsFunction` |  |
+| **Output** | {  }   |    |
 
 
 
-## newEnvSdk
+## newEnvSdk()
 
 ## Environment variables
 
@@ -288,180 +191,45 @@ sensible-config:
 This information will be fetched from the bundleconfig
 
 
-
-
-### Parameters (3)
-
-#### Parameter 1: bundleConfig: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| description (optional) | string |  |
-| emoji (optional) | string |  |
-| primaryColor (optional) | string |  |
-| gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | boolean |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| bundleConfig | `BundleConfig` | NB: if this is not a bundle, a more general purpose bundle config should be used |,| type | public / private |  |,| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
-#### Parameter 2: type: string(Enum: public | private)
+## newSdkKeysOperation()
 
-#### Parameter 3: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
-| skipYarnInstall (optional) | boolean |  |
-| dryrun (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationName | string |  |,| keyVariables | { variableName: string, <br />values: string[], <br /> }[] |  |,| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## newSdkKeysOperation
-
-### Parameters (3)
-
-#### Parameter 1: operationName: string
-
-#### Parameter 2: keyVariables: array
-
-- null: object
-
-
-
-
-
-
-#### Parameter 3: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
-| skipYarnInstall (optional) | boolean |  |
-| dryrun (optional) | boolean |  |
-
-
-
-## newSdkOperation
+## newSdkOperation()
 
 Uses an array of functions to create an operation that imports all those functions and exports an object where all those functions have been comprised
 
 
-
-
-### Parameters (3)
-
-#### Parameter 1: operationName: string
-
-#### Parameter 2: tsFunctions: array
-
-- TsFunction: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationName | string |  |,| tsFunctions | `TsFunction`[] |  |,| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
+## tsFunctionIsSdkable()
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsFunction | `TsFunction` |  |,| operationClassificationObject | `OperationClassificationObject` |  |,| operationClassification | `OperationClassification` |  |
+| **Output** | {  }   |    |
 
-
-#### Parameter 3: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
-| skipYarnInstall (optional) | boolean |  |
-| dryrun (optional) | boolean |  |
-
-
-
-## test
-
-## tsFunctionIsSdkable
-
-### Returns: object
-
-### Parameters (3)
-
-#### Parameter 1: tsFunction: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
-| isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| rawText (optional) | string |  |
-| commentsInside  | array |  |
-| parameters (optional) | array |  |
-| maxIndentationDepth  | number |  |
-| dependantFiles (optional) | array |  |
-
-
-
-#### Parameter 2: operationClassificationObject: object
-
-#### Parameter 3: operationClassification: string(Enum: js | ts | node | server | web | app | ui-es6 | ui-es5 | ui-esm)
 
 # Interfaces
 
-## BundleConfig
-
-Configuration options for bundles. Used with `generateBundle`
-
-Everything in this model will be copied over to the created bundle, except for `createBundleConfig` and `customisableBundleConfig`.
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| description (optional) | string |  |
-| emoji (optional) | string |  |
-| primaryColor (optional) | string |  |
-| gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | boolean |  |
-| bundleMarkdownReaderConfig (optional) | object |  |
-| slug  | string |  |
-| language  | string |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| customisableBundleConfig  | object |  |
-| createBundleConfig  | object |  |
-
-
-
-## FunctionsPerClassification
+## 🔷 FunctionsPerClassification
 
 relative
 
@@ -485,106 +253,25 @@ Properties:
 
 
 
-## OperationClassification
-
-## Classification
-
-TODO: think about what the differences are and how we need to change processes to make it all work good
-
-
-### Possible values
-
-js: only js (no node) (well, ts of course, but it gets built into js)
-
-ts: non-built ts code
-
-node: includes other node packages, operations, core-imports, or globals.
-
-server: exposes something on some port when it is ran and uses node code
-
-web: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...
-
-app: uses react-native and exposes something on some port when it is ran
-
-DEPRECATED: ui-es6: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. highly discouraged, please use ui-es5, or, if needed, ui-esm)
-
-ui-es5: ui which main entry points to javascript es5 files (this ui package can be built)
-
-ui-esm: ui which builds to ESM module resolved Javascript
-
-
-
-
-
-
-
-
-## OperationClassificationObject
-
-## TsFunction
-
-Interface for arrow functions and normal functions
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
-| isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| runEveryPeriod (optional) | string |  |
-| description (optional) | string |  |
-| rawText (optional) | string |  |
-| commentsInside  | array |  |
-| returnType  | object |  |
-| parameters (optional) | array |  |
-| size  | object |  |
-| commentSize (optional) | object |  |
-| codeSize (optional) | object |  |
-| cumulativeSize (optional) | object |  |
-| cumulativeCommentSize (optional) | object |  |
-| cumulativeCodeSize (optional) | object |  |
-| maxIndentationDepth  | number |  |
-| dependantFiles (optional) | array |  |
-
+## 🔷 OperationClassificationObject
 
 # Variables
 
-## generateDbSdkCli (unexported const)
+## 📄 generateDbSdk (exported const)
 
-## generateDbSdk (exported const)
-
-## generateEnvSdksCli (unexported const)
-
-## generateEnvSdks (exported const)
+## 📄 generateEnvSdks (exported const)
 
 generates sdk-env-public and sdk-env-private
 
 returns the paths of the geneated operations
 
 
-## generateFunctionPathsSdk (exported const)
+## 📄 generateFunctionPathsSdk (exported const)
 
 `sdk-function-paths` indexes all operations and builds an object containing all operations.
 
 
-## generateFunctionSdksCli (unexported const)
-
-## generateFunctionSdks (exported const)
+## 📄 generateFunctionSdks (exported const)
 
 Creates
 - sdk
@@ -597,36 +284,32 @@ Creates
 Overwrites them if they already exist with minimal interruption time of the system
 
 
-## generateOperationsSdkCli (unexported const)
-
-## generateOperationsSdk (exported const)
+## 📄 generateOperationsSdk (exported const)
 
 `sdk-operations` indexes all operations and builds an object containing all operations.
 
 
-## generateSdkOperationsCli (unexported const)
-
-## generateSdkOperations (exported const)
+## 📄 generateSdkOperations (exported const)
 
 (re)generates all sdk operations for any project
 
 
-## getSdkDescription (exported const)
+## 📄 getSdkDescription (exported const)
 
 Gets a description of any sdk operation from the assets
 
 
-## getSdkFunctions (exported const)
+## 📄 getSdkFunctions (exported const)
 
 returns all sdk functions grouped by operation classification
 
 
-## isTsFunctionIndexable (exported const)
+## 📄 isTsFunctionIndexable (exported const)
 
 The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!
 
 
-## newEnvSdk (exported const)
+## 📄 newEnvSdk (exported const)
 
 ## Environment variables
 
@@ -639,14 +322,12 @@ sensible-config:
 This information will be fetched from the bundleconfig
 
 
-## newSdkKeysOperation (exported const)
+## 📄 newSdkKeysOperation (exported const)
 
-## newSdkOperation (exported const)
+## 📄 newSdkOperation (exported const)
 
 Uses an array of functions to create an operation that imports all those functions and exports an object where all those functions have been comprised
 
 
-## test (unexported const)
-
-## tsFunctionIsSdkable (exported const)
+## 📄 tsFunctionIsSdkable (exported const)
 

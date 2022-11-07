@@ -21,7 +21,7 @@ Returns an array of absolute file paths of (typescript) files in the src of your
 
 # Functions
 
-## getPackageSourcePaths
+## getPackageSourcePaths()
 
 Returns an array of absolute file paths of (typescript) files in the src of your operation
 
@@ -29,24 +29,19 @@ TODO: we need a way to explore these glob patterns inside of tsConfig.include.
 until then, just assume we use "src" as the only folder
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: {  operationBasePath,  ignoreIndexFiles,  allTypes,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationBasePath  | string |  |
-| ignoreIndexFiles (optional) | boolean |  |
-| allTypes (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  operationBasePath,
+  ignoreIndexFiles,
+  allTypes,
+} | { operationBasePath: string, <br />ignoreIndexFiles?: boolean, <br />allTypes?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 # Variables
 
-## getPackageSourcePaths (exported const)
+## 📄 getPackageSourcePaths (exported const)
 
 Returns an array of absolute file paths of (typescript) files in the src of your operation
 

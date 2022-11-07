@@ -1,4 +1,13 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.tsVariableToMarkdownString=void 0;var js_util_1=require("js-util"),tsVariableToMarkdownString=function(t){return["# ".concat(t.name," (").concat(t.isExported?"exported":"unexported"," ").concat(t.classification,")"),t.description].filter(js_util_1.notEmpty).join("\n\n")};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.tsVariableToMarkdownString = void 0;
+var js_util_1 = require("js-util");
 /**
- */exports.tsVariableToMarkdownString=tsVariableToMarkdownString;
+ */
+var tsVariableToMarkdownString = function (tsVariable) {
+    var titleString = "# \uD83D\uDCC4 ".concat(tsVariable.name, " (").concat(tsVariable.isExported ? "exported" : "unexported", " ").concat(tsVariable.classification, ")");
+    var alineas = [titleString, tsVariable.description];
+    return alineas.filter(js_util_1.notEmpty).join("\n\n");
+};
+exports.tsVariableToMarkdownString = tsVariableToMarkdownString;
 //# sourceMappingURL=tsVariableToMarkdownString.js.map

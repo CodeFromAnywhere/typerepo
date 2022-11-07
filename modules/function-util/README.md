@@ -11,115 +11,90 @@ Exposes clis that make it possible to interact with all King OS functions throug
 
 ## Functions
 
-- [chat](#chat)
 - [converse](#converse)
-- [doCli](#doCli)
 - [executeSdkFunction](#executeSdkFunction)
 - [getCachedExportedFunctions](#getCachedExportedFunctions)
 - [getMenu](#getMenu)
-- [getParametersAndExecute](#getParametersAndExecute)
-- [getParameters](#getParameters)
 - [getSdkFunctionPaths](#getSdkFunctionPaths)
 - [getSdkKeys](#getSdkKeys)
 - [listen](#listen)
-- [main](#main)
 
 ## Interfaces
 
 - [FnMatch](#fnmatch)
-- [FunctionParameter](#functionparameter)
-- [TsFunction](#tsfunction)
 
 ## Variables
 
-- [chat](#chat)
 - [converse](#converse)
-- [doCli](#docli)
 - [executeSdkFunction](#executesdkfunction)
-- [exportsArray](#exportsarray)
-- [functions](#functions)
 - [getCachedExportedFunctions](#getcachedexportedfunctions)
 - [getMenu](#getmenu)
-- [getParametersAndExecute](#getparametersandexecute)
-- [getParameters](#getparameters)
 - [getSdkFunctionPaths](#getsdkfunctionpaths)
 - [getSdkKeys](#getsdkkeys)
 - [listen](#listen)
-- [main](#main)
-- [message](#message)
-- [wordArray](#wordarray)
 
 
 
 # Functions
 
-## chat
-
-## converse
+## converse()
 
 this is the `yo` cli. takes a message
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: searchMessage: string
-
-## doCli
-
-## executeSdkFunction
-
-### Parameters (2)
-
-#### Parameter 1: operationString: string
-
-#### Parameter 2: parameters (optional): array
-
-- null: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| searchMessage | string |  |
+| **Output** |    |    |
 
 
 
+## executeSdkFunction()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationString | string |  |,| parameters (optional) | string[] |  |
+| **Output** |    |    |
 
 
 
-## getCachedExportedFunctions
+## getCachedExportedFunctions()
 
-## getMenu
-
-## getParametersAndExecute
-
-### Parameters (1)
-
-## getParameters
-
-### Parameters (1)
-
-#### Parameter 1: parameters (optional): array
-
-- FunctionParameter: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
+## getMenu()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
-## getSdkFunctionPaths
+## getSdkFunctionPaths()
 
-## getSdkKeys
-
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| success  | boolean |  |
-| response  | object |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
-## listen
+## getSdkKeys()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | { success: boolean, <br />response: {  }, <br /> }   |    |
+
+
+
+## listen()
 
 generates structured operations based on unstructured instructions
 
@@ -145,33 +120,18 @@ The power lies in being able to recursively ask for all the parameters. if you p
 This conversation could actually be used to generate code! It's kind of `context.reverse().map(createTsLine);` In fact, if we can make that, we can maybe even reverse code into conversations as well! This is insanely powerful.
 
 
-### Returns: array
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  instruction,
+  context,
+} | { instruction: string, <br />context: { instruction: string, <br />output: {  }, <br />references: string[], <br /> }[], <br /> } |  |
+| **Output** | { operation: string, <br />input: {  }, <br />certainty: number, <br /> }[]   |    |
 
-- null: object
-
-
-
-
-
-
-### Parameters (1)
-
-#### Parameter 1: {  instruction,  context,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| instruction  | string |  |
-| context  | array |  |
-
-
-
-## main
 
 # Interfaces
 
-## FnMatch
+## 🔷 FnMatch
 
 Properties: 
 
@@ -207,90 +167,24 @@ Properties:
 | relativeOperationPath  | string |  |
 
 
-
-## FunctionParameter
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| schema (optional) | object |  |
-| simplifiedSchema (optional) | object |  |
-| required  | boolean |  |
-
-
-
-## TsFunction
-
-Interface for arrow functions and normal functions
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
-| isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| runEveryPeriod (optional) | string |  |
-| description (optional) | string |  |
-| rawText (optional) | string |  |
-| commentsInside  | array |  |
-| returnType  | object |  |
-| parameters (optional) | array |  |
-| size  | object |  |
-| commentSize (optional) | object |  |
-| codeSize (optional) | object |  |
-| cumulativeSize (optional) | object |  |
-| cumulativeCommentSize (optional) | object |  |
-| cumulativeCodeSize (optional) | object |  |
-| maxIndentationDepth  | number |  |
-| dependantFiles (optional) | array |  |
-
-
 # Variables
 
-## chat (unexported const)
-
-## converse (exported const)
+## 📄 converse (exported const)
 
 this is the `yo` cli. takes a message
 
 
-## doCli (unexported const)
+## 📄 executeSdkFunction (exported const)
 
-## executeSdkFunction (exported const)
+## 📄 getCachedExportedFunctions (exported const)
 
-## exportsArray (unexported let)
+## 📄 getMenu (exported const)
 
-## functions (unexported let)
+## 📄 getSdkFunctionPaths (exported const)
 
-## getCachedExportedFunctions (exported const)
+## 📄 getSdkKeys (exported const)
 
-## getMenu (exported const)
-
-## getParametersAndExecute (unexported const)
-
-## getParameters (unexported const)
-
-## getSdkFunctionPaths (exported const)
-
-## getSdkKeys (exported const)
-
-## listen (exported const)
+## 📄 listen (exported const)
 
 generates structured operations based on unstructured instructions
 
@@ -314,11 +208,4 @@ Can you imagine that? I am creating a script that runs all the time and listens 
 The power lies in being able to recursively ask for all the parameters. if you provide a new operation instead of a value, it will ask for all its parameters in order to continue.
 
 This conversation could actually be used to generate code! It's kind of `context.reverse().map(createTsLine);` In fact, if we can make that, we can maybe even reverse code into conversations as well! This is insanely powerful.
-
-
-## main (unexported const)
-
-## message (unexported const)
-
-## wordArray (unexported const)
 

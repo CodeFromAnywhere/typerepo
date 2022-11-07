@@ -23,7 +23,6 @@ This operation contains a lot of different functions that can help you to execut
 - [minifyAllOperations](#minifyAllOperations)
 - [publishAllOperations](#publishAllOperations)
 - [removeAllFiles](#removeAllFiles)
-- [removeAllFoldersCli](#removeAllFoldersCli)
 - [removeAllFolders](#removeAllFolders)
 - [removeAll](#removeAll)
 - [renameAll](#renameAll)
@@ -36,8 +35,6 @@ This operation contains a lot of different functions that can help you to execut
 - [allOperationsToMarkdown](#alloperationstomarkdown)
 - [clearAllTsDatabases](#clearalltsdatabases)
 - [codeAll](#codeall)
-- [[debug]](#debug)
-- [[folderName, basePath]](#foldername-basepath)
 - [forAllFiles](#forallfiles)
 - [forAllFolders](#forallfolders)
 - [getAllOperationClassifications](#getalloperationclassifications)
@@ -46,267 +43,286 @@ This operation contains a lot of different functions that can help you to execut
 - [minifyAllOperations](#minifyalloperations)
 - [publishAllOperations](#publishalloperations)
 - [removeAllFiles](#removeallfiles)
-- [removeAllFoldersCli](#removeallfolderscli)
 - [removeAllFolders](#removeallfolders)
 - [removeAll](#removeall)
 - [renameAll](#renameall)
 - [runScriptEverywhere](#runscripteverywhere)
-- [[script, startIndex]](#script-startindex)
-- [[search]](#search)
 - [setScriptEverywhere](#setscripteverywhere)
 - [test](#test)
-- [[type, command, fileName, basePath, folderName, shellString]](#type-command-filename-basepath-foldername-shellstring)
 
 
 
 # Functions
 
-## allOperationsRemoveJsSrc
+## allOperationsRemoveJsSrc()
 
 BEWARE! This removes all .d.ts, .js, and .d.ts.map files in your source folder!
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| debug (optional) | boolean |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: debug (optional): boolean
+## allOperationsToMarkdown()
 
-## allOperationsToMarkdown
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
-## clearAllTsDatabases
 
-## codeAll
+
+## clearAllTsDatabases()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## codeAll()
 
 opens all files in vscode
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| search | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: search: string
-
-## forAllFiles
+## forAllFiles()
 
 executes a command or callback for every file
 
 in commands, $LOCATION is provided as env variable, and command is executed in the dir of the file
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## forAllFolders
+
+## forAllFolders()
 
 executes a command or callback in every folder of a certain type. Supports git repos and operations now
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getAllOperationClassifications
 
-## gitShipAllRepos
+## getAllOperationClassifications()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## gitShipAllRepos()
 
 `gitShipAllPackages` Just ships code everywhere to github, wherever there's a git folder and there are changes.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## mdAllOperations
 
-### Parameters (1)
+## mdAllOperations()
 
-#### Parameter 1: debug (optional): boolean
+| Input      |    |    |
+| ---------- | -- | -- |
+| debug (optional) | boolean |  |
+| **Output** |    |    |
 
-## minifyAllOperations
+
+
+## minifyAllOperations()
 
 minify all operations everywhere. optionally:
 - enable the shell
 - specify a basepath (tools by default)
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| basePath (optional) | object |  |
-| onlyRoot (optional) | boolean |  |
-| shell (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { basePath?: {  }, <br />onlyRoot?: boolean, <br />shell?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## publishAllOperations
+## publishAllOperations()
 
 Script to publish all packages everywhere (that also runs prepublish). Only src in git, only build in npm.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## removeAllFiles
+
+## removeAllFiles()
 
 removes all files that have an exact match of the location (folders not because we use rm without -rf)
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: search: string
-
-## removeAllFoldersCli
-
-## removeAllFolders
-
-### Parameters (1)
-
-#### Parameter 1: config: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| basePath  | string |  |
-| folderNames  | array |  |
-| ignore (optional) | object |  |
-| onlyRoot (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| search | string |  |
+| **Output** |    |    |
 
 
 
-## removeAll
+## removeAllFolders()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { basePath: string, <br />folderNames: string[], <br />ignore?: {  }, <br />onlyRoot?: boolean, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## removeAll()
 
 removes all xyz for a folder
 
 make sure to specify which type you want.... folder or file most likely
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## renameAll
+
+## renameAll()
 
 renames all files to a new name (optionally a func, based on the old path)
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## runScriptEverywhere
+
+## runScriptEverywhere()
 
 runs a package script in all tools operations
 
 NB: uses npm insead of yarn, but for scripts this shouldn't matter
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| script | string |  |,| startIndex (optional) | number |  |
+| **Output** |    |    |
 
 
-### Parameters (2)
 
-#### Parameter 1: script: string
-
-#### Parameter 2: startIndex (optional): number
-
-## setScriptEverywhere
+## setScriptEverywhere()
 
 set package.json script to another value in all operations in tools folder
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| script | string |  |,| value | string |  |
+| **Output** |    |    |
 
-
-### Parameters (2)
-
-#### Parameter 1: script: string
-
-#### Parameter 2: value: string
 
 # Variables
 
-## allOperationsRemoveJsSrc (exported const)
+## 📄 allOperationsRemoveJsSrc (exported const)
 
 BEWARE! This removes all .d.ts, .js, and .d.ts.map files in your source folder!
 
 
-## allOperationsToMarkdown (exported const)
+## 📄 allOperationsToMarkdown (exported const)
 
-## clearAllTsDatabases (exported const)
+## 📄 clearAllTsDatabases (exported const)
 
-## codeAll (exported const)
+## 📄 codeAll (exported const)
 
 opens all files in vscode
 
 
-## [debug] (unexported const)
-
-## [folderName, basePath] (unexported const)
-
-## forAllFiles (exported const)
+## 📄 forAllFiles (exported const)
 
 executes a command or callback for every file
 
 in commands, $LOCATION is provided as env variable, and command is executed in the dir of the file
 
 
-## forAllFolders (exported const)
+## 📄 forAllFolders (exported const)
 
 executes a command or callback in every folder of a certain type. Supports git repos and operations now
 
 
-## getAllOperationClassifications (exported const)
+## 📄 getAllOperationClassifications (exported const)
 
-## gitShipAllRepos (exported const)
+## 📄 gitShipAllRepos (exported const)
 
-## mdAllOperations (exported const)
+## 📄 mdAllOperations (exported const)
 
-## minifyAllOperations (exported const)
+## 📄 minifyAllOperations (exported const)
 
 minify all operations everywhere. optionally:
 - enable the shell
 - specify a basepath (tools by default)
 
 
-## publishAllOperations (exported const)
+## 📄 publishAllOperations (exported const)
 
-## removeAllFiles (exported const)
+## 📄 removeAllFiles (exported const)
 
 removes all files that have an exact match of the location (folders not because we use rm without -rf)
 
 
-## removeAllFoldersCli (unexported const)
+## 📄 removeAllFolders (exported const)
 
-## removeAllFolders (exported const)
-
-## removeAll (exported const)
+## 📄 removeAll (exported const)
 
 removes all xyz for a folder
 
 make sure to specify which type you want.... folder or file most likely
 
 
-## renameAll (exported const)
+## 📄 renameAll (exported const)
 
 renames all files to a new name (optionally a func, based on the old path)
 
 
-## runScriptEverywhere (exported const)
+## 📄 runScriptEverywhere (exported const)
 
 runs a package script in all tools operations
 
 NB: uses npm insead of yarn, but for scripts this shouldn't matter
 
 
-## [script, startIndex] (unexported const)
-
-## [search] (unexported const)
-
-## setScriptEverywhere (exported const)
+## 📄 setScriptEverywhere (exported const)
 
 set package.json script to another value in all operations in tools folder
 
 
-## test (exported const)
-
-## [type, command, fileName, basePath, folderName, shellString] (unexported const)
+## 📄 test (exported const)
 

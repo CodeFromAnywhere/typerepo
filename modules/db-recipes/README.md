@@ -16,7 +16,6 @@ TODO: should probably be split up further to differentiate between db-ui functio
 - [cacheLookup](#cacheLookup)
 - [calculateOperatingSystemBundle](#calculateOperatingSystemBundle)
 - [deleteDbModel](#deleteDbModel)
-- [getCachedFunctions](#getCachedFunctions)
 - [getDatabaseMenu](#getDatabaseMenu)
 - [getDbModelNames](#getDbModelNames)
 - [getDbModel](#getDbModel)
@@ -24,9 +23,7 @@ TODO: should probably be split up further to differentiate between db-ui functio
 - [getNestedDatabaseMenu](#getNestedDatabaseMenu)
 - [getReferencableModelData](#getReferencableModelData)
 - [hasDbRecipes](#hasDbRecipes)
-- [main](#main)
 - [makeSrcRelativeFolder](#makeSrcRelativeFolder)
-- [testFn](#testFn)
 - [tsInterfaceToDbMenu](#tsInterfaceToDbMenu)
 - [upsertDbModel](#upsertDbModel)
 - [validateInput](#validateInput)
@@ -36,16 +33,12 @@ TODO: should probably be split up further to differentiate between db-ui functio
 
 - [CacheLookupResult](#cachelookupresult)
 - [NestedDatabaseMenu](#nesteddatabasemenu)
-- [TsFunction](#tsfunction)
-- [TsInterface](#tsinterface)
 
 ## Variables
 
 - [cacheLookup](#cachelookup)
 - [calculateOperatingSystemBundle](#calculateoperatingsystembundle)
 - [deleteDbModel](#deletedbmodel)
-- [functions](#functions)
-- [getCachedFunctions](#getcachedfunctions)
 - [getDatabaseMenu](#getdatabasemenu)
 - [getDbModelNames](#getdbmodelnames)
 - [getDbModel](#getdbmodel)
@@ -53,10 +46,7 @@ TODO: should probably be split up further to differentiate between db-ui functio
 - [getNestedDatabaseMenu](#getnesteddatabasemenu)
 - [getReferencableModelData](#getreferencablemodeldata)
 - [hasDbRecipes](#hasdbrecipes)
-- [main](#main)
 - [makeSrcRelativeFolder](#makesrcrelativefolder)
-- [testFnWrapped](#testfnwrapped)
-- [testFn](#testfn)
 - [tsInterfaceToDbMenu](#tsinterfacetodbmenu)
 - [upsertDbModel](#upsertdbmodel)
 - [validateInput](#validateinput)
@@ -66,7 +56,7 @@ TODO: should probably be split up further to differentiate between db-ui functio
 
 # Functions
 
-## cacheLookup
+## cacheLookup()
 
 Wrapper function to cache any function and invalidate it, in some way
 
@@ -75,58 +65,40 @@ automatic cache invalidation if data sources are updated
 optimistic caching after cache invalidation
 
 
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| hasValidCache  | boolean |  |
-| result  | object |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionName | string |  |,| parameters (optional) | {  }[] |  |
+| **Output** | { hasValidCache: boolean, <br />result: {  }, <br /> }   |    |
 
 
 
-### Parameters (2)
-
-#### Parameter 1: functionName: string
-
-#### Parameter 2: parameters (optional): array
-
-- null: object
-
-
-
-
-
-
-## calculateOperatingSystemBundle
+## calculateOperatingSystemBundle()
 
 This function should calculate a giant bundle for the whole operating system. This should include everything, public.
 
 Used to show the whole os as a bundle.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| manualProjectRoot (optional) | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: manualProjectRoot (optional): string
-
-## deleteDbModel
+## deleteDbModel()
 
 deletes an instance of an db data interface from the db in a typesafe way
 
 
-
-
-## getCachedFunctions
-
-TODO: it would probably be good to create a more general purpose caching function
-
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
-## getDatabaseMenu
+## getDatabaseMenu()
 
 Finds all relevant Db models to show in the menu
 
@@ -137,35 +109,23 @@ Finds all relevant Db models to show in the menu
 TODO: NB: the first and the second are not the same, so this needs to be cleaned up.
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| bundleId (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { bundleId?: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## getDbModelNames
+## getDbModelNames()
 
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| bundleId (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { bundleId?: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## getDbModel
+## getDbModel()
 
 gets all instances of an db data interface from the db in a typesafe way
 
@@ -174,30 +134,30 @@ TODO: NB: there's a bug because it sometimes finds multiple instances of the TsI
 I should find a fix for that.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getFunctionIndex
+
+## getFunctionIndex()
 
 finds function indexation from database
 
 TODO: this should be used!
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: {  functionName,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| functionName  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  functionName,
+} | { functionName: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## getNestedDatabaseMenu
+## getNestedDatabaseMenu()
 
 It's a very low-hanging fruit to be able to group the database models better... now it's kind of messy!
 
@@ -222,9 +182,14 @@ let's use this for db-admin..
 Any bundle will just see itself, but I will see this for every bundle. Also for the master-bundle, which is going to be super useful because then I'll be able to see the db-models for different operations and see the data they contain.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getReferencableModelData
+
+## getReferencableModelData()
 
 Get referencableModelData for a single DbModel.
 
@@ -233,147 +198,81 @@ NB: this does not get the items that can be referenced in that model!
 For getting all required `ReferencableModelData` for the prop in `SimplifiedSchemaForm`, use `useReferencableModelData`.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| dbModelName | Device / Group / PageVisit / PeerMessage / Person / PersonInformation / PersonInformationValue / PersonPlatformConnection / Platform / Interest / MediaChannel / MediaCredentail / MediaPost / Postable / BundleConfig / FunctionExecution / MarkdownFileConfig / OperationConfig / OperationIndex / PackageJson / SocialMediaCallToAction / TsBuildError / TsComment / TsConfig / TsExport / TsFunction / TsImport / TsInterface / TsLintWarning / TsVariable / WebsiteCallToAction / Address / Area / City / Country / Location / KvmdWord / MarkdownWord / NepaliEnglishTranslationMatrix / Statement / TokiPonaMatrix / Translation / Word / WordCategory / WordMatrix / SlugModelType / AppDeveloper / Assignment / Bag / Calendar / DataPoint / Deliverable / Diary / Feeling / FeelingLog / Folder / Host / Inventory / Item / ItemCategory / KvmdShortcut / Label / Light / Listing / LoginCredential / Material / MessagePreset / ProgressReport / Question / Reservation / Resource / Shit / ShitLog / ShoppingList / Shortcut / Student / Student2 / TaskError / Thing / TodoFile / Trackable / User / UserCredential / JeepType / LocationType / Activity / CompanyRequirement / CompanySize / CompanyType / Company / ContactInformation / Contribution / EsgMetric / ProductCategory / Product / ProofState / Proof / SustainabilityPlan / ValueChainPhase |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: dbModelName: string(Enum: Device | Group | PageVisit | PeerMessage | Person | PersonInformation | PersonInformationValue | PersonPlatformConnection | Platform | Interest | MediaChannel | MediaCredentail | MediaPost | Postable | BundleConfig | FunctionExecution | MarkdownFileConfig | OperationConfig | OperationIndex | PackageJson | SocialMediaCallToAction | TsBuildError | TsComment | TsConfig | TsExport | TsFunction | TsImport | TsInterface | TsLintWarning | TsVariable | WebsiteCallToAction | Address | Area | City | Country | Location | KvmdWord | MarkdownWord | NepaliEnglishTranslationMatrix | Statement | TokiPonaMatrix | Translation | Word | WordCategory | WordMatrix | SlugModelType | AppDeveloper | Assignment | Bag | Calendar | DataPoint | Deliverable | Diary | Feeling | FeelingLog | Folder | Host | Inventory | Item | ItemCategory | KvmdShortcut | Label | Light | Listing | LoginCredential | Material | MessagePreset | ProgressReport | Question | Reservation | Resource | Shit | ShitLog | ShoppingList | Shortcut | Student | Student2 | TaskError | Thing | TodoFile | Trackable | User | UserCredential | JeepType | LocationType | Activity | CompanyRequirement | CompanySize | CompanyType | Company | ContactInformation | Contribution | EsgMetric | ProductCategory | Product | ProofState | Proof | SustainabilityPlan | ValueChainPhase)
-
-## hasDbRecipes
+## hasDbRecipes()
 
 Simple function to test whether or not the DbRecipes endpoints are available. If it returns true through the api, the other ones are also available.
 
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
 
-## main
 
-## makeSrcRelativeFolder
+
+## makeSrcRelativeFolder()
 
 gets a src relative folder path (so maybe "" for a file `src/util.ts` or "util" for a file `src/util/thing.ts`)
 
 
-### Returns: string
-
-### Parameters (1)
-
-#### Parameter 1: operationRelativeTypescriptFilePath: string
-
-## testFn
-
-## tsInterfaceToDbMenu
-
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| operationName  | string |  |
-| type  | string |  |
-| srcRelativeFolder (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationRelativeTypescriptFilePath | string |  |
+| **Output** | string   |    |
 
 
 
-### Parameters (2)
+## tsInterfaceToDbMenu()
 
-#### Parameter 1: tsInterface: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| commentsInside  | array |  |
-| isExported  | boolean |  |
-| hasGeneric  | boolean |  |
-| rawText (optional) | string |  |
-| extensions (optional) | array |  |
-| isDbModel  | boolean |  |
-| isOperationIndex  | boolean |  |
-| operationStorageLocationRelativeFilePath (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsInterface | `TsInterface` |  |,| type | string |  |
+| **Output** | { name: string, <br />operationName: string, <br />type: string, <br />srcRelativeFolder?: string, <br /> }   |    |
 
 
 
-#### Parameter 2: type: string
-
-## upsertDbModel
+## upsertDbModel()
 
 upserts an instance of an db data interface from the db in a typesafe way
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## validateInput
+
+## validateInput()
 
 wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
 
 
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| isValid  | boolean |  |
-| errors (optional) | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionName | string |  |,| parameters (optional) | {  }[] |  |,| tsFunction | `TsFunction` |  |
+| **Output** | { isValid: boolean, <br />errors?: { fieldStack: string[], <br />error: string, <br /> }[], <br /> }   |    |
 
 
 
-### Parameters (3)
+## wrapFunction()
 
-#### Parameter 1: functionName: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
 
-#### Parameter 2: parameters (optional): array
-
-- null: object
-
-
-
-
-
-
-#### Parameter 3: tsFunction: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
-| isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| rawText (optional) | string |  |
-| commentsInside  | array |  |
-| parameters (optional) | array |  |
-| maxIndentationDepth  | number |  |
-| dependantFiles (optional) | array |  |
-
-
-
-## wrapFunction
-
-### Returns: object
 
 # Interfaces
 
-## CacheLookupResult
+## 🔷 CacheLookupResult
 
 Properties: 
 
@@ -384,7 +283,7 @@ Properties:
 
 
 
-## NestedDatabaseMenu
+## 🔷 NestedDatabaseMenu
 
 This is a simple overwrite of the `NestedPathObject` with a more specific key naming.
 
@@ -398,84 +297,9 @@ SUPER COOL
 
 
 
-
-## TsFunction
-
-Interface for arrow functions and normal functions
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
-| isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| runEveryPeriod (optional) | string |  |
-| description (optional) | string |  |
-| rawText (optional) | string |  |
-| commentsInside  | array |  |
-| returnType  | object |  |
-| parameters (optional) | array |  |
-| size  | object |  |
-| commentSize (optional) | object |  |
-| codeSize (optional) | object |  |
-| cumulativeSize (optional) | object |  |
-| cumulativeCommentSize (optional) | object |  |
-| cumulativeCodeSize (optional) | object |  |
-| maxIndentationDepth  | number |  |
-| dependantFiles (optional) | array |  |
-
-
-
-## TsInterface
-
-TODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| type  | object |  |
-| description (optional) | string |  |
-| commentsInside  | array |  |
-| isExported  | boolean |  |
-| hasGeneric  | boolean |  |
-| rawText (optional) | string |  |
-| extensions (optional) | array |  |
-| isDbModel  | boolean |  |
-| isOperationIndex  | boolean |  |
-| operationStorageLocationRelativeFilePath (optional) | string |  |
-| dbStorageMethod (optional) | string |  |
-
-
 # Variables
 
-## cacheLookup (exported const)
+## 📄 cacheLookup (exported const)
 
 Wrapper function to cache any function and invalidate it, in some way
 
@@ -484,23 +308,19 @@ automatic cache invalidation if data sources are updated
 optimistic caching after cache invalidation
 
 
-## calculateOperatingSystemBundle (exported const)
+## 📄 calculateOperatingSystemBundle (exported const)
 
 This function should calculate a giant bundle for the whole operating system. This should include everything, public.
 
 Used to show the whole os as a bundle.
 
 
-## deleteDbModel (exported const)
+## 📄 deleteDbModel (exported const)
 
 deletes an instance of an db data interface from the db in a typesafe way
 
 
-## functions (unexported let)
-
-## getCachedFunctions (unexported const)
-
-## getDatabaseMenu (exported const)
+## 📄 getDatabaseMenu (exported const)
 
 Finds all relevant Db models to show in the menu
 
@@ -511,9 +331,9 @@ Finds all relevant Db models to show in the menu
 TODO: NB: the first and the second are not the same, so this needs to be cleaned up.
 
 
-## getDbModelNames (exported const)
+## 📄 getDbModelNames (exported const)
 
-## getDbModel (exported const)
+## 📄 getDbModel (exported const)
 
 gets all instances of an db data interface from the db in a typesafe way
 
@@ -522,14 +342,14 @@ TODO: NB: there's a bug because it sometimes finds multiple instances of the TsI
 I should find a fix for that.
 
 
-## getFunctionIndex (exported const)
+## 📄 getFunctionIndex (exported const)
 
 finds function indexation from database
 
 TODO: this should be used!
 
 
-## getNestedDatabaseMenu (exported const)
+## 📄 getNestedDatabaseMenu (exported const)
 
 It's a very low-hanging fruit to be able to group the database models better... now it's kind of messy!
 
@@ -554,7 +374,7 @@ let's use this for db-admin..
 Any bundle will just see itself, but I will see this for every bundle. Also for the master-bundle, which is going to be super useful because then I'll be able to see the db-models for different operations and see the data they contain.
 
 
-## getReferencableModelData (exported const)
+## 📄 getReferencableModelData (exported const)
 
 Get referencableModelData for a single DbModel.
 
@@ -563,33 +383,27 @@ NB: this does not get the items that can be referenced in that model!
 For getting all required `ReferencableModelData` for the prop in `SimplifiedSchemaForm`, use `useReferencableModelData`.
 
 
-## hasDbRecipes (exported const)
+## 📄 hasDbRecipes (exported const)
 
 Simple function to test whether or not the DbRecipes endpoints are available. If it returns true through the api, the other ones are also available.
 
 
-## main (unexported const)
-
-## makeSrcRelativeFolder (exported const)
+## 📄 makeSrcRelativeFolder (exported const)
 
 gets a src relative folder path (so maybe "" for a file `src/util.ts` or "util" for a file `src/util/thing.ts`)
 
 
-## testFnWrapped (unexported const)
+## 📄 tsInterfaceToDbMenu (exported const)
 
-## testFn (unexported const)
-
-## tsInterfaceToDbMenu (exported const)
-
-## upsertDbModel (exported const)
+## 📄 upsertDbModel (exported const)
 
 upserts an instance of an db data interface from the db in a typesafe way
 
 
-## validateInput (exported const)
+## 📄 validateInput (exported const)
 
 wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
 
 
-## wrapFunction (exported const)
+## 📄 wrapFunction (exported const)
 

@@ -21,27 +21,22 @@ Get last updated file updatedAt time in whole folder, recursively
 
 # Functions
 
-## folderGetUpdatedAt
+## folderGetUpdatedAt()
 
 get last updated file updatedAt time in whole folder, recursively
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: {  folderPath,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| folderPath  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  folderPath,
+} | { folderPath: string, <br /> } |  |
+| **Output** |    |    |
 
 
 # Variables
 
-## folderGetUpdatedAt (exported const)
+## 📄 folderGetUpdatedAt (exported const)
 
 get last updated file updatedAt time in whole folder, recursively
 

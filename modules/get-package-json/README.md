@@ -22,44 +22,43 @@ get-package-json (node operation)
 
 # Functions
 
-## getOperationBins
+## getOperationBins()
 
 returns array of bins. by convention, these bins should also be exported from operation index file
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationFolderPath | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: operationFolderPath: string
+## getOperationPackageName()
 
-## getOperationPackageName
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationFolderPath | string |  |
+| **Output** |    |    |
 
-### Parameters (1)
 
-#### Parameter 1: operationFolderPath: string
 
-## getPackageJson
+## getPackageJson()
 
-### Parameters (1)
-
-#### Parameter 1: config: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationFolderPath  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { operationFolderPath: string, <br /> } |  |
+| **Output** |    |    |
 
 
 # Variables
 
-## getOperationBins (exported const)
+## 📄 getOperationBins (exported const)
 
 returns array of bins. by convention, these bins should also be exported from operation index file
 
 
-## getOperationPackageName (exported const)
+## 📄 getOperationPackageName (exported const)
 
-## getPackageJson (exported const)
+## 📄 getPackageJson (exported const)
 

@@ -24,25 +24,15 @@ peer-types (js operation)
 - [AppOperation](#appoperation)
 - [AuthenticationMethod](#authenticationmethod)
 - [AuthenticationMethodMethod](#authenticationmethodmethod)
-- [Authorization](#authorization)
-- [BackendAsset](#backendasset)
 - [HandleObject](#handleobject)
-- [Id](#id)
-- [Interest](#interest)
 - [IPInfo](#ipinfo)
-- [Language](#language)
-- [Location](#location)
-- [MediaCredentail](#mediacredentail)
 - [PersonSocialMedia](#personsocialmedia)
-- [Position](#position)
-- [Slug](#slug)
-- [SlugModelType](#slugmodeltype)
 
 
 
 # Models
 
-## Device
+## 🔷 Device
 
 jsonMultiple model
 
@@ -98,7 +88,7 @@ Properties:
 
 
 
-## Group
+## 🔷 Group
 
 jsonMultiple model
 
@@ -138,7 +128,7 @@ Properties:
 
 
 
-## PageVisit
+## 🔷 PageVisit
 
 jsonMultiple model
 
@@ -171,7 +161,7 @@ Properties:
 
 
 
-## PeerMessage
+## 🔷 PeerMessage
 
 jsonMultiple model
 
@@ -201,7 +191,7 @@ Properties:
 
 
 
-## Person
+## 🔷 Person
 
 jsonMultiple model
 
@@ -248,7 +238,7 @@ Properties:
 
 
 
-## Persona
+## 🔷 Persona
 
 jsonMultiple model
 
@@ -307,7 +297,7 @@ Properties:
 
 
 
-## PersonInformation
+## 🔷 PersonInformation
 
 keyValueMarkdown model
 
@@ -341,7 +331,7 @@ Properties:
 
 
 
-## PersonInformationValue
+## 🔷 PersonInformationValue
 
 jsonMultiple model
 
@@ -396,7 +386,7 @@ Properties:
 
 
 
-## PersonPlatformConnection
+## 🔷 PersonPlatformConnection
 
 jsonMultiple model
 
@@ -434,7 +424,7 @@ Properties:
 
 
 
-## Platform
+## 🔷 Platform
 
 jsonMultiple model
 
@@ -470,7 +460,7 @@ Properties:
 
 # Interfaces
 
-## AppOperation
+## 🔷 AppOperation
 
 Properties: 
 
@@ -484,7 +474,7 @@ Properties:
 
 
 
-## AuthenticationMethod
+## 🔷 AuthenticationMethod
 
 Properties: 
 
@@ -498,7 +488,7 @@ Properties:
 
 
 
-## AuthenticationMethodMethod
+## 🔷 AuthenticationMethodMethod
 
 Username + password should be the default
 
@@ -513,40 +503,7 @@ All others can also act as authentication methods, but the token shouldn't be st
 
 
 
-## Authorization
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| type  | string |  |
-| value  | string |  |
-| authorizations  | array |  |
-
-
-
-## BackendAsset
-
-Part of the asset that should be sent to the backend. The rest should frontend-only
-
-Some values are stored, some are not
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| alt (optional) | string |  |
-| relativePath (optional) | string |  |
-| name (optional) | string |  |
-| temporaryDestination (optional) | string |  |
-
-
-
-## HandleObject
+## 🔷 HandleObject
 
 can be used on multiple models.
 
@@ -557,61 +514,7 @@ can be used on multiple models.
 
 
 
-## Id
-
-Should be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.
-
-
-## Background Info
-
-azAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.
-
-the advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.
-
-the change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter
-
-An Id with 12 characters would provide 3.22e21 combinations.
-
-What is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.
-
-Why make an id short? I don't know if there's an important reason.
-
-All in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.
-
-An id would look like this:
-
-``` { "id": "sk2EcW9AkZpksk2EcW9AkZpk" } ```
-
-Looks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.
-
-
-
-
-
-
-
-
-## Interest
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| value (optional) | string |  |
-| comment  | string |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
-| isHeaderCalculated  | boolean |  |
-| parent_interestSlug  | string |  |
-
-
-
-## IPInfo
+## 🔷 IPInfo
 
 Information that is inferred from an IP
 
@@ -633,71 +536,7 @@ Properties:
 
 
 
-## Language
-
-all currently supported languages
-
-
-
-
-
-
-
-
-## Location
-
-locations are hierarchically categorized pieces of information.
-
-a city can refer to the area, the area can refer the the country, the country to the continent, etc.
-
-there are multiple ways to categorize it, but this depends on the application.
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| value (optional) | string |  |
-| comment  | string |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
-| isHeaderCalculated  | boolean |  |
-| parent_locationSlug (optional) | string |  |
-
-
-
-## MediaCredentail
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| mediaType  | string |  |
-| email (optional) | string |  |
-| password  | string |  |
-| username (optional) | string |  |
-| phoneNumber (optional) | string |  |
-
-
-
-## PersonSocialMedia
+## 🔷 PersonSocialMedia
 
 media (mediums) that a person uses, e.g. linkedin, twitter, whatsapp, sms, calling, and irl
 
@@ -714,54 +553,5 @@ Properties:
 | isPremium  | boolean |  |
 | tagline (optional) | string |  |
 | bio (optional) | string |  |
-
-
-
-## Position
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| latitude  | number |  |
-| longitude  | number |  |
-
-
-
-## Slug
-
-use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.
-
-
-
-
-
-
-
-
-## SlugModelType
-
-use this model for things with a name that have an unique slug that can be used to identify the model
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| slug  | string |  |
-| name  | string |  |
-| language  | string |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
 
 

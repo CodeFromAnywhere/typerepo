@@ -12,7 +12,6 @@ index-typescript (node operation)
 
 ## Functions
 
-- [cli](#cli)
 - [findAndUpsertTsInterfaces](#findAndUpsertTsInterfaces)
 - [findCommentTypes](#findCommentTypes)
 - [generateSchema](#generateSchema)
@@ -24,7 +23,6 @@ index-typescript (node operation)
 - [getMaxIndentationDepth](#getMaxIndentationDepth)
 - [getMinMaxValidation](#getMinMaxValidation)
 - [getNumberOfLines](#getNumberOfLines)
-- [getObjectSchema](#getObjectSchema)
 - [getParamSchema](#getParamSchema)
 - [getParametersFromInterfaces](#getParametersFromInterfaces)
 - [getPossibleRefs](#getPossibleRefs)
@@ -33,37 +31,22 @@ index-typescript (node operation)
 - [getTsStatements](#getTsStatements)
 - [getTypeInfo](#getTypeInfo)
 - [getValidatedOperationPathParse](#getValidatedOperationPathParse)
-- [handleExplicitValidation](#handleExplicitValidation)
 - [hasDefinition](#hasDefinition)
 - [indexTypescriptFile](#indexTypescriptFile)
 - [indexTypescript](#indexTypescript)
 - [isPrimitive](#isPrimitive)
 - [makeTsComment](#makeTsComment)
 - [schemaToTsInterface](#schemaToTsInterface)
-- [test](#test)
-- [toSnack](#toSnack)
 - [tryCreateSchema](#tryCreateSchema)
 - [typeToSchema](#typeToSchema)
 
 ## Interfaces
 
-- [CommentRange](#commentrange)
 - [CompleteOperationPathParse](#completeoperationpathparse)
-- [Config](#config)
-- [Frontmatter](#frontmatter)
-- [JSONSchema7](#jsonschema7)
-- [MaybeInteface](#maybeinteface)
 - [MorphInterfaceInfo](#morphinterfaceinfo)
-- [OperationPathParse](#operationpathparse)
-- [Project](#project)
-- [Schema](#schema)
-- [TsInterface](#tsinterface)
 
 ## Variables
 
-- [ajvMap](#ajvmap)
-- [cli](#cli)
-- [definitions](#definitions)
 - [findAndUpsertTsInterfaces](#findandupserttsinterfaces)
 - [findCommentTypes](#findcommenttypes)
 - [generateSchema](#generateschema)
@@ -75,7 +58,6 @@ index-typescript (node operation)
 - [getMaxIndentationDepth](#getmaxindentationdepth)
 - [getMinMaxValidation](#getminmaxvalidation)
 - [getNumberOfLines](#getnumberoflines)
-- [getObjectSchema](#getobjectschema)
 - [getParamSchema](#getparamschema)
 - [getParametersFromInterfaces](#getparametersfrominterfaces)
 - [getPossibleRefs](#getpossiblerefs)
@@ -90,8 +72,6 @@ index-typescript (node operation)
 - [makeTsComment](#maketscomment)
 - [schemaToTsInterface](#schematotsinterface)
 - [symbols](#symbols)
-- [test](#test)
-- [toSnack](#tosnack)
 - [tryCreateSchema](#trycreateschema)
 - [typeToSchema](#typetoschema)
 
@@ -103,9 +83,9 @@ index-typescript (node operation)
 
 In order to sort the indexed types well, you need to know that:
 
-1. Interfaces first index all extensded types and interfaces, then the interface itself. The last extended type/inteface comes first, then the previous one, etc.
+1. Interfaces first index all extended types and interfaces, then the interface itself. The last extended type/inteface comes first, then the previous one, etc.
 
-2. If you define an intersection type (e.g. `type X = A & { someObject: string } & B;`), the last intersected item comes first, the first item comes last in the order. This gives you more flexibility because in an interface the extended things always come b efore, but with a type they can also come in the middle.
+2. If you define an intersection type (e.g. `type X = A & { someObject: string } & B;`), the last intersected item comes first, the first item comes last in the order. This gives you more flexibility because in an interface the extended things always come b efore, but with a type they can also come in the middle. If you do this for a model, be sure to add the `dbStorageMethod` in frontmatter manually
 
 ## Example:
 
@@ -127,29 +107,28 @@ This way the `SlugModelType` properties come first in the indexation, then the u
 
 # Functions
 
-## cli
+## findAndUpsertTsInterfaces()
 
-## findAndUpsertTsInterfaces
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
-## findCommentTypes
+
+
+## findCommentTypes()
 
 returns all types that are found as start of a line in the comment (capitalised, with a ":" behind)
 
 
-### Returns: array
-
-- null: object
-
-
-
+| Input      |    |    |
+| ---------- | -- | -- |
+| commentWithoutFrontmatter | string |  |
+| **Output** | {  }[]   |    |
 
 
 
-### Parameters (1)
-
-#### Parameter 1: commentWithoutFrontmatter: string
-
-## generateSchema
+## generateSchema()
 
 If existing schema is not stale, just require it.
 Otherwise, generate it for a file
@@ -157,38 +136,26 @@ Otherwise, generate it for a file
 NB: The `createGenerator` function finds also imported TsInterfaces, which leads to duplicate TsInterfaces. With pushing the interfaces to the slug filename, this is no problem though, there should not be any duplication!
 
 
-
-
-### Parameters (3)
-
-#### Parameter 1: filePath: string
-
-#### Parameter 2: morphInterfaceInfo: array
-
-#### Parameter 3: namedAbsoluteImportNames: array
-
-- null: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| filePath | string |  |,| morphInterfaceInfo | `MorphInterfaceInfo`[] |  |,| namedAbsoluteImportNames | string[] |  |
+| **Output** |    |    |
 
 
 
-
-
-
-## getAllComments
+## getAllComments()
 
 gets all leading comments and trailing comments raw text, put together, separated with newlines
 
 
-### Returns: array
-
-- null: object
-
-
-
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }[]   |    |
 
 
 
-## getDbStorageMethod
+## getDbStorageMethod()
 
 Gets db storage method for indexation
 
@@ -197,56 +164,48 @@ Gets db storage method for indexation
 3)
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: {  typeName,  frontmatter,  extensions,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| typeName  | string |  |
-| frontmatter  | object |  |
-| extensions (optional) | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  typeName,
+  frontmatter,
+  extensions,
+} | { typeName: string, <br />frontmatter: `Frontmatter`, <br />extensions?: string[], <br /> } |  |
+| **Output** |    |    |
 
 
 
-## getFrontmatterDbStorageMethod
+## getFrontmatterDbStorageMethod()
 
 if isDbModel is specifically set to false, this will return null (which means this should overwrite other things)
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: parameters: object
-
-## getFrontmatterFunctionParameters
-
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| runEveryPeriod  | object |  |
-| publicAuthorization  | array |  |
-| isApiExposed  | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| parameters | {  } |  |
+| **Output** |    |    |
 
 
 
-## getIndexId
+## getFrontmatterFunctionParameters()
 
-### Parameters (2)
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | { runEveryPeriod: {  }, <br />publicAuthorization: {  }[], <br />isApiExposed: boolean, <br /> }   |    |
 
-#### Parameter 1: filePath: string
 
-#### Parameter 2: name: string
 
-## getMaxIndentationDepth
+## getIndexId()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| filePath | string |  |,| name | string |  |
+| **Output** |    |    |
+
+
+
+## getMaxIndentationDepth()
 
 gets the maximum indentation depth of any piece of code
 
@@ -255,182 +214,138 @@ does this simply by splitting up the piece of code into lines and checking the i
 assumes an indentation contains 2 spaces.
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: functionText: string
-
-## getMinMaxValidation
-
-### Returns: object
-
-## getNumberOfLines
-
-### Parameters (1)
-
-#### Parameter 1: string: string
-
-## getObjectSchema
-
-## getParamSchema
-
-## getParametersFromInterfaces
-
-### Returns: array
-
-- null: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionText | string |  |
+| **Output** |    |    |
 
 
 
+## getMinMaxValidation()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
 
 
 
-### Parameters (2)
+## getNumberOfLines()
 
-#### Parameter 1: functionName: string
-
-#### Parameter 2: interfaces: array
-
-## getPossibleRefs
-
-### Returns: array
-
-- null: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| string | string |  |
+| **Output** |    |    |
 
 
 
+## getParamSchema()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
-### Parameters (1)
+## getParametersFromInterfaces()
 
-#### Parameter 1: interfaces: array
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionName | string |  |,| interfaces | `Creation<TsInterface>`[] |  |
+| **Output** | {  }[]   |    |
 
-## getSizeSummary
+
+
+## getPossibleRefs()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| interfaces | `Creation<TsInterface>`[] |  |
+| **Output** | { name: string, <br />schema: {  }, <br /> }[]   |    |
+
+
+
+## getSizeSummary()
 
 takes a string and simply returns the amount of characters, the amount of lines and the amount of bytes
 
 TODO: this is not the right place for this function
 
 
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| numberOfFiles (optional) | number |  |
-| characters  | number |  |
-| lines  | number |  |
-| bytes  | number |  |
-| linesPerFile  | number |  |
-| charactersPerLine  | number |  |
-| bytesPerCharacter  | number |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| string | string |  |
+| **Output** | { numberOfFiles?: number, <br />characters: number, <br />lines: number, <br />bytes: number, <br />linesPerFile: number, <br />charactersPerLine: number, <br />bytesPerCharacter: number, <br /> }   |    |
 
 
 
-### Parameters (1)
-
-#### Parameter 1: string: string
-
-## getSpecialExtensionDbStorageMethod
+## getSpecialExtensionDbStorageMethod()
 
 returns undefined if there is not a special extension. if there is, it returns the dbStorageMethod
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: extensions (optional): array
-
-- null: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| extensions (optional) | string[] |  |
+| **Output** |    |    |
 
 
 
-
-
-
-## getTsStatements
+## getTsStatements()
 
 Gets functions and variables from a tsmorph sourcefile
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getTypeInfo
+
+## getTypeInfo()
 
 takes a ts morph type and returns all info about it
 
 if available, a schema should be provided about the type because it's hard to infer it (probably buggy)
 
 
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| typeDefinition (optional) | object |  |
-| simplifiedSchema (optional) | object |  |
-| isObject  | boolean |  |
-| isArray  | boolean |  |
-| isPrimitive  | boolean |  |
-| isEnum  | boolean |  |
-| isEnumLiteral  | boolean |  |
-| typeCoverage  | number |  |
-| rawType  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | { typeDefinition?: {  }, <br />simplifiedSchema?: {  }, <br />isObject: boolean, <br />isArray: boolean, <br />isPrimitive: boolean, <br />isEnum: boolean, <br />isEnumLiteral: boolean, <br />typeCoverage: number, <br />rawType: string, <br /> }   |    |
 
 
 
-## getValidatedOperationPathParse
+## getValidatedOperationPathParse()
 
-### Parameters (1)
-
-#### Parameter 1: filePath: string
-
-## handleExplicitValidation
-
-## hasDefinition
-
-### Returns: object
-
-### Parameters (1)
-
-#### Parameter 1: maybeInterface: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| commentsInside  | array |  |
-| isExported  | boolean |  |
-| hasGeneric  | boolean |  |
-| rawText (optional) | string |  |
-| extensions (optional) | array |  |
-| isDbModel  | boolean |  |
-| isOperationIndex  | boolean |  |
-| operationStorageLocationRelativeFilePath (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| filePath | string |  |
+| **Output** |    |    |
 
 
 
-## indexTypescriptFile
+## hasDefinition()
 
-### Parameters (3)
+| Input      |    |    |
+| ---------- | -- | -- |
+| maybeInterface | `MaybeInteface` |  |
+| **Output** | {  }   |    |
 
-#### Parameter 1: project: object
 
-#### Parameter 3: projectRoot: string
 
-## indexTypescript
+## indexTypescriptFile()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| project | `Project` |  |,| file | `CompleteOperationPathParse` |  |,| projectRoot | string |  |
+| **Output** |    |    |
+
+
+
+## indexTypescript()
 
 Creates a typescript file index in 3 steps
 1) Introspects the file
@@ -444,114 +359,69 @@ NB: I don't think this is super efficient, because the project is taken to just 
 TODO: if a typescript file starst with a comment before any statements (but possibly after the `#!/usr/bin/env xyz` statement), this should be indexed as the main file comment... This can be shown when opening the file in the admin... It should also check if there is an associated md file for that in src, so that can also be added in the index.
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: {  filePaths,  manualProjectRoot,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| filePaths  | array |  |
-| manualProjectRoot  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  filePaths,
+  manualProjectRoot,
+} | { filePaths: string[], <br />manualProjectRoot: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## isPrimitive
+## isPrimitive()
 
 export const getDefinitions = () => definitions;
 
 export const getClass = (name) => allClasses[name];
 
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
 
-## makeTsComment
+
+
+## makeTsComment()
 
 this is actually a fundamental part of the OS. How should comments be structured?
 
 I think, in general, that we should make it look as much as possible at markdown, because it should always be able to have markdown anyway.
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationRelativeTypescriptFilePath  | string |  |
-| commentRange  | object |  |
-| statementName (optional) | string |  |
-| rawStatement  | string |  |
-| fileContent  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { operationRelativeTypescriptFilePath: string, <br />commentRange: `CommentRange`, <br />statementName?: string, <br />rawStatement: string, <br />fileContent: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## schemaToTsInterface
+## schemaToTsInterface()
 
 make a tsInterface from a schema generated from the file
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| filePath | string |  |,| typeName | string |  |,| schema | `Schema` |  |,| morphInterfaceInfo (optional) | `MorphInterfaceInfo` |  |
+| **Output** |    |    |
 
 
-### Parameters (4)
 
-#### Parameter 1: filePath: string
-
-#### Parameter 2: typeName: string
-
-## test
-
-## toSnack
-
-## tryCreateSchema
+## tryCreateSchema()
 
 Try because sometimes generateSchema fails
 
 
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| schema (optional) | object |  |
-| error (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | `Config` |  |
+| **Output** | { schema?: {  }, <br />error?: string, <br /> }   |    |
 
 
 
-### Parameters (1)
-
-#### Parameter 1: config: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| path (optional) | string |  |
-| type (optional) | string |  |
-| minify (optional) | boolean |  |
-| schemaId (optional) | string |  |
-| tsconfig (optional) | string |  |
-| expose (optional) | string |  |
-| topRef (optional) | boolean |  |
-| jsDoc (optional) | string |  |
-| sortProps (optional) | boolean |  |
-| strictTuples (optional) | boolean |  |
-| skipTypeCheck (optional) | boolean |  |
-| encodeRefs (optional) | boolean |  |
-| extraTags (optional) | array |  |
-| additionalProperties (optional) | boolean |  |
-
-
-
-## typeToSchema
+## typeToSchema()
 
 calculates the schema of a type
 
@@ -562,12 +432,15 @@ NB: this method throws sometimes if it can't find some stuff, so make sure to tr
 TODO: Test and improve this one
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
 
 # Interfaces
 
-## CommentRange
-
-## CompleteOperationPathParse
+## 🔷 CompleteOperationPathParse
 
 Properties: 
 
@@ -583,138 +456,7 @@ Properties:
 
 
 
-## Config
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| path (optional) | string |  |
-| type (optional) | string |  |
-| minify (optional) | boolean |  |
-| schemaId (optional) | string |  |
-| tsconfig (optional) | string |  |
-| expose (optional) | string |  |
-| topRef (optional) | boolean |  |
-| jsDoc (optional) | string |  |
-| sortProps (optional) | boolean |  |
-| strictTuples (optional) | boolean |  |
-| skipTypeCheck (optional) | boolean |  |
-| encodeRefs (optional) | boolean |  |
-| extraTags (optional) | array |  |
-| additionalProperties (optional) | boolean |  |
-
-
-
-## Frontmatter
-
-Our version of frontmatter is a bit simpler than regular frontmatter
-
-Not sure if this is a good idea, but it keeps it simple for our OS
-
-all values parse in a similar way to csv
-
-make sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array
-
-NB: string arrays are comma separated values, where you can put values with special characters in between quotes
-
-
-
-
-
-
-
-
-## JSONSchema7
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| $id (optional) | string |  |
-| $ref (optional) | string |  |
-| $schema (optional) | string |  |
-| $comment (optional) | string |  |
-| $defs (optional) | object |  |
-| type (optional) | object |  |
-| enum (optional) | array |  |
-| const (optional) | object |  |
-| multipleOf (optional) | number |  |
-| maximum (optional) | number |  |
-| exclusiveMaximum (optional) | number |  |
-| minimum (optional) | number |  |
-| exclusiveMinimum (optional) | number |  |
-| maxLength (optional) | number |  |
-| minLength (optional) | number |  |
-| pattern (optional) | string |  |
-| items (optional) | object |  |
-| additionalItems (optional) | object |  |
-| maxItems (optional) | number |  |
-| minItems (optional) | number |  |
-| uniqueItems (optional) | boolean |  |
-| contains (optional) | object |  |
-| maxProperties (optional) | number |  |
-| minProperties (optional) | number |  |
-| required (optional) | array |  |
-| properties (optional) | object |  |
-| patternProperties (optional) | object |  |
-| additionalProperties (optional) | object |  |
-| dependencies (optional) | object |  |
-| propertyNames (optional) | object |  |
-| if (optional) | object |  |
-| then (optional) | object |  |
-| else (optional) | object |  |
-| allOf (optional) | array |  |
-| anyOf (optional) | array |  |
-| oneOf (optional) | array |  |
-| not (optional) | object |  |
-| format (optional) | string |  |
-| contentMediaType (optional) | string |  |
-| contentEncoding (optional) | string |  |
-| definitions (optional) | object |  |
-| title (optional) | string |  |
-| description (optional) | string |  |
-| default (optional) | object |  |
-| readOnly (optional) | boolean |  |
-| writeOnly (optional) | boolean |  |
-| examples (optional) | object |  |
-
-
-
-## MaybeInteface
-
-at some point in processing we need this interface where definition can also be null
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| type  | object |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| description (optional) | string |  |
-| commentsInside  | array |  |
-| isExported  | boolean |  |
-| hasGeneric  | boolean |  |
-| rawText (optional) | string |  |
-| extensions (optional) | array |  |
-| isDbModel  | boolean |  |
-| isOperationIndex  | boolean |  |
-| operationStorageLocationRelativeFilePath (optional) | string |  |
-| dbStorageMethod (optional) | string |  |
-
-
-
-## MorphInterfaceInfo
+## 🔷 MorphInterfaceInfo
 
 Properties: 
 
@@ -728,137 +470,16 @@ Properties:
 | hasGeneric  | boolean |  |
 
 
-
-## OperationPathParse
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| relativeOperationBasePathFromProjectRoot  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| srcFileId  | string |  |
-| operationName (optional) | string |  |
-| operationFolderName  | string |  |
-| relativePathFromProjectRoot  | string |  |
-
-
-
-## Project
-
-Project that holds source files.
-
-
-
-
-
-
-
-
-## Schema
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| $id (optional) | string |  |
-| $ref (optional) | string |  |
-| $schema (optional) | string |  |
-| $comment (optional) | string |  |
-| $defs (optional) | object |  |
-| type (optional) | object |  |
-| enum (optional) | array |  |
-| const (optional) | object |  |
-| multipleOf (optional) | number |  |
-| maximum (optional) | number |  |
-| exclusiveMaximum (optional) | number |  |
-| minimum (optional) | number |  |
-| exclusiveMinimum (optional) | number |  |
-| maxLength (optional) | number |  |
-| minLength (optional) | number |  |
-| pattern (optional) | string |  |
-| items (optional) | object |  |
-| additionalItems (optional) | object |  |
-| maxItems (optional) | number |  |
-| minItems (optional) | number |  |
-| uniqueItems (optional) | boolean |  |
-| contains (optional) | object |  |
-| maxProperties (optional) | number |  |
-| minProperties (optional) | number |  |
-| required (optional) | array |  |
-| properties (optional) | object |  |
-| patternProperties (optional) | object |  |
-| additionalProperties (optional) | object |  |
-| dependencies (optional) | object |  |
-| propertyNames (optional) | object |  |
-| if (optional) | object |  |
-| then (optional) | object |  |
-| else (optional) | object |  |
-| allOf (optional) | array |  |
-| anyOf (optional) | array |  |
-| oneOf (optional) | array |  |
-| not (optional) | object |  |
-| format (optional) | string |  |
-| contentMediaType (optional) | string |  |
-| contentEncoding (optional) | string |  |
-| definitions (optional) | object |  |
-| title (optional) | string |  |
-| description (optional) | string |  |
-| default (optional) | object |  |
-| readOnly (optional) | boolean |  |
-| writeOnly (optional) | boolean |  |
-| examples (optional) | object |  |
-
-
-
-## TsInterface
-
-TODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| type  | object |  |
-| description (optional) | string |  |
-| commentsInside  | array |  |
-| isExported  | boolean |  |
-| hasGeneric  | boolean |  |
-| rawText (optional) | string |  |
-| extensions (optional) | array |  |
-| isDbModel  | boolean |  |
-| isOperationIndex  | boolean |  |
-| operationStorageLocationRelativeFilePath (optional) | string |  |
-| dbStorageMethod (optional) | string |  |
-
-
 # Variables
 
-## ajvMap (unexported const)
+## 📄 findAndUpsertTsInterfaces (exported const)
 
-## cli (unexported const)
-
-## definitions (unexported const)
-
-## findAndUpsertTsInterfaces (exported const)
-
-## findCommentTypes (exported const)
+## 📄 findCommentTypes (exported const)
 
 returns all types that are found as start of a line in the comment (capitalised, with a ":" behind)
 
 
-## generateSchema (exported const)
+## 📄 generateSchema (exported const)
 
 If existing schema is not stale, just require it.
 Otherwise, generate it for a file
@@ -866,12 +487,12 @@ Otherwise, generate it for a file
 NB: The `createGenerator` function finds also imported TsInterfaces, which leads to duplicate TsInterfaces. With pushing the interfaces to the slug filename, this is no problem though, there should not be any duplication!
 
 
-## getAllComments (exported const)
+## 📄 getAllComments (exported const)
 
 gets all leading comments and trailing comments raw text, put together, separated with newlines
 
 
-## getDbStorageMethod (exported const)
+## 📄 getDbStorageMethod (exported const)
 
 Gets db storage method for indexation
 
@@ -880,16 +501,16 @@ Gets db storage method for indexation
 3)
 
 
-## getFrontmatterDbStorageMethod (exported const)
+## 📄 getFrontmatterDbStorageMethod (exported const)
 
 if isDbModel is specifically set to false, this will return null (which means this should overwrite other things)
 
 
-## getFrontmatterFunctionParameters (exported const)
+## 📄 getFrontmatterFunctionParameters (exported const)
 
-## getIndexId (exported const)
+## 📄 getIndexId (exported const)
 
-## getMaxIndentationDepth (exported const)
+## 📄 getMaxIndentationDepth (exported const)
 
 gets the maximum indentation depth of any piece of code
 
@@ -898,47 +519,45 @@ does this simply by splitting up the piece of code into lines and checking the i
 assumes an indentation contains 2 spaces.
 
 
-## getMinMaxValidation (exported const)
+## 📄 getMinMaxValidation (exported const)
 
-## getNumberOfLines (exported const)
+## 📄 getNumberOfLines (exported const)
 
-## getObjectSchema (unexported const)
+## 📄 getParamSchema (exported const)
 
-## getParamSchema (exported const)
+## 📄 getParametersFromInterfaces (exported const)
 
-## getParametersFromInterfaces (exported const)
+## 📄 getPossibleRefs (exported const)
 
-## getPossibleRefs (exported const)
-
-## getSizeSummary (exported const)
+## 📄 getSizeSummary (exported const)
 
 takes a string and simply returns the amount of characters, the amount of lines and the amount of bytes
 
 TODO: this is not the right place for this function
 
 
-## getSpecialExtensionDbStorageMethod (exported const)
+## 📄 getSpecialExtensionDbStorageMethod (exported const)
 
 returns undefined if there is not a special extension. if there is, it returns the dbStorageMethod
 
 
-## getTsStatements (exported const)
+## 📄 getTsStatements (exported const)
 
 Gets functions and variables from a tsmorph sourcefile
 
 
-## getTypeInfo (exported const)
+## 📄 getTypeInfo (exported const)
 
 takes a ts morph type and returns all info about it
 
 if available, a schema should be provided about the type because it's hard to infer it (probably buggy)
 
 
-## getValidatedOperationPathParse (exported const)
+## 📄 getValidatedOperationPathParse (exported const)
 
-## indexTypescriptFile (exported const)
+## 📄 indexTypescriptFile (exported const)
 
-## indexTypescript (exported const)
+## 📄 indexTypescript (exported const)
 
 Creates a typescript file index in 3 steps
 1) Introspects the file
@@ -952,32 +571,28 @@ NB: I don't think this is super efficient, because the project is taken to just 
 TODO: if a typescript file starst with a comment before any statements (but possibly after the `#!/usr/bin/env xyz` statement), this should be indexed as the main file comment... This can be shown when opening the file in the admin... It should also check if there is an associated md file for that in src, so that can also be added in the index.
 
 
-## isPrimitive (exported const)
+## 📄 isPrimitive (exported const)
 
-## makeTsComment (exported const)
+## 📄 makeTsComment (exported const)
 
 this is actually a fundamental part of the OS. How should comments be structured?
 
 I think, in general, that we should make it look as much as possible at markdown, because it should always be able to have markdown anyway.
 
 
-## schemaToTsInterface (exported const)
+## 📄 schemaToTsInterface (exported const)
 
 make a tsInterface from a schema generated from the file
 
 
-## symbols (exported const)
+## 📄 symbols (exported const)
 
-## test (unexported const)
-
-## toSnack (unexported const)
-
-## tryCreateSchema (exported const)
+## 📄 tryCreateSchema (exported const)
 
 Try because sometimes generateSchema fails
 
 
-## typeToSchema (exported const)
+## 📄 typeToSchema (exported const)
 
 calculates the schema of a type
 

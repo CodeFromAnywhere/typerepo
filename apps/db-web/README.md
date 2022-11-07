@@ -20,25 +20,29 @@ Wraps `db-ui` to expose it on a next.js react website for in the browser.
 ## Variables
 
 - [getStaticProps](#getstaticprops)
-- [progress](#progress)
-- [{ publicRuntimeConfig }](#publicruntimeconfig)
-- [queryClient](#queryclient)
 
 
 
 # Functions
 
-## getStaticProps
+## getStaticProps()
 
-## MyApp
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## <MyApp />
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
 
 # Variables
 
-## getStaticProps (exported const)
-
-## progress (unexported const)
-
-## { publicRuntimeConfig } (unexported const)
-
-## queryClient (unexported const)
+## 📄 getStaticProps (exported const)
 

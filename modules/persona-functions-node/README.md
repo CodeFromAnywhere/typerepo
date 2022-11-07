@@ -1,6 +1,6 @@
 # Persona functions node
 
-persona-functions-node (undefined operation)
+persona-functions-node (node operation)
 
 
 
@@ -18,9 +18,15 @@ persona-functions-node (undefined operation)
 
 # Functions
 
-## getPrimaryPersona
+## getPrimaryPersona()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
 
 # Variables
 
-## getPrimaryPersona (exported const)
+## 📄 getPrimaryPersona (exported const)
 

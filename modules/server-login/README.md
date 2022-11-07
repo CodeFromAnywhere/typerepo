@@ -29,7 +29,6 @@ This thing is far from finished, see `todo/` for what needs to be done.
 
 ## Interfaces
 
-- [AuthenticationMethodMethod](#authenticationmethodmethod)
 - [LoginResult](#loginresult)
 - [LogoutResult](#logoutresult)
 
@@ -53,14 +52,19 @@ This thing is far from finished, see `todo/` for what needs to be done.
 
 # Functions
 
-## addAuthenticationMethod
+## addAuthenticationMethod()
 
 core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## addDeviceAuthenticatedMethod
+
+## addDeviceAuthenticatedMethod()
 
 sends an email or sms, or already confirms in case of emailPassword
 
@@ -68,19 +72,14 @@ sends an email or sms, or already confirms in case of emailPassword
 TODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| deviceId | string |  |,| method | `AuthenticationMethodMethod` |  |,| handle | string | most of the time, this is a username, but can also be phone number or email or so |,| credential (optional) | string |  |
+| **Output** |    |    |
 
 
-### Parameters (4)
 
-#### Parameter 1: deviceId: string
-
-#### Parameter 2: method: string(Enum: usernamePassword | phoneNumber | email | apple | google | facebook | twitter | linkedin | github)
-
-#### Parameter 3: handle: string
-
-#### Parameter 4: credential (optional): string
-
-## addDeviceAuthenticationMethodConfirm
+## addDeviceAuthenticationMethodConfirm()
 
 adds an `authenticatedMethod` to `Device` after the OTP is correct
 
@@ -89,17 +88,14 @@ For now, only handles methods `phoneNumber` and `email`
 TODO: extrahere the core into `addAuthenticationMethodConfirm` and use it in this one and make also `addPersonAuthenticationMethodConfirm`
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| deviceId | string | device id |,| method | `AuthenticationMethodMethod` |  |,| otp | number | one time password |
+| **Output** |    |    |
 
 
-### Parameters (3)
 
-#### Parameter 1: deviceId: string
-
-#### Parameter 2: method: string(Enum: usernamePassword | phoneNumber | email | apple | google | facebook | twitter | linkedin | github)
-
-#### Parameter 3: otp: number
-
-## addPersonAuthenticationMethod
+## addPersonAuthenticationMethod()
 
 adds an `authenticationMethod` to `Person`
 
@@ -108,86 +104,109 @@ relies on `addAuthenticationMethod`
 TODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## comparePassword
+
+## comparePassword()
 
 Method to check if a raw password should be the same as the encrypted variant. Uses `bcrypt`
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| rawPassword | string |  |,| encryptedPassword | string |  |
+| **Output** |    |    |
 
 
-### Parameters (2)
 
-#### Parameter 1: rawPassword: string
-
-#### Parameter 2: encryptedPassword: string
-
-## encryptPassword
+## encryptPassword()
 
 Method to encrypt any password. Uses `bcrypt`
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| rawPassword | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: rawPassword: string
-
-## isPhoneNumber
+## isPhoneNumber()
 
 TODO: Implement this
 
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| phoneNumber | string |  |
+| **Output** | {  }   |    |
 
-### Parameters (1)
 
-#### Parameter 1: phoneNumber: string
 
-## isValidPassword
+## isValidPassword()
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| password | string |  |
+| **Output** | {  }   |    |
 
-### Parameters (1)
 
-#### Parameter 1: password: string
 
-## login
+## login()
 
 attaches the `Device` with `authToken` (`id`) to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| deviceId | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: deviceId: string
-
-## logoutPostApi
+## logoutPostApi()
 
 Uses cookies (https://serverjs.io/documentation/reply/#cookie-) to logout
 
 Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## removeDeviceAuthenticationMethod
+
+## removeDeviceAuthenticationMethod()
 
 removes an `authenticatedMethod` from `Device`
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## removePersonAuthenticationMethod
+
+## removePersonAuthenticationMethod()
 
 removes an `authenticationMethod` from `Person`
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## signup
+
+## signup()
 
 Creates a new `Person` for a `Device`. Adds that person to the `Device`.
 
@@ -196,48 +215,15 @@ Creates a new `Person` for a `Device`. Adds that person to the `Device`.
 - Function is wrappable
 
 
-
-
-### Parameters (2)
-
-#### Parameter 1: deviceId: string
-
-#### Parameter 2: personData: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| authorizations  | array |  |
-| credits  | number |  |
-| dataEntries  | array |  |
-| interestSlugs  | array |  |
-| media  | array |  |
-| name  | string |  |
-| slug  | string |  |
-| groupSlugs (optional) | array |  |
-| requiredAuthenticationMethods (optional) | array |  |
-| amountAuthenticationMethodsRequired (optional) | number |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| deviceId | string |  |,| personData | { authorizations: `Authorization`[], <br />credits: number, <br />dataEntries: `PersonInformationValue`[], <br />interestSlugs: `Slug`[], <br />media: `PersonSocialMedia`[], <br />name: string, <br />slug: string, <br />pictureImage: `BackendAsset`, <br />groupSlugs?: `Slug`[], <br />requiredAuthenticationMethods?: `AuthenticationMethodMethod`[], <br />amountAuthenticationMethodsRequired?: number, <br /> } | Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically |
+| **Output** |    |    |
 
 
 # Interfaces
 
-## AuthenticationMethodMethod
-
-Username + password should be the default
-
-Email OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods
-
-All others can also act as authentication methods, but the token shouldn't be stored
-
-
-
-
-
-
-
-
-## LoginResult
+## 🔷 LoginResult
 
 Properties: 
 
@@ -248,7 +234,7 @@ Properties:
 
 
 
-## LogoutResult
+## 🔷 LogoutResult
 
 Properties: 
 
@@ -260,12 +246,12 @@ Properties:
 
 # Variables
 
-## addAuthenticationMethod (exported const)
+## 📄 addAuthenticationMethod (exported const)
 
 core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
 
 
-## addDeviceAuthenticatedMethod (exported const)
+## 📄 addDeviceAuthenticatedMethod (exported const)
 
 sends an email or sms, or already confirms in case of emailPassword
 
@@ -273,7 +259,7 @@ sends an email or sms, or already confirms in case of emailPassword
 TODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.
 
 
-## addDeviceAuthenticationMethodConfirm (exported const)
+## 📄 addDeviceAuthenticationMethodConfirm (exported const)
 
 adds an `authenticatedMethod` to `Device` after the OTP is correct
 
@@ -282,7 +268,7 @@ For now, only handles methods `phoneNumber` and `email`
 TODO: extrahere the core into `addAuthenticationMethodConfirm` and use it in this one and make also `addPersonAuthenticationMethodConfirm`
 
 
-## addPersonAuthenticationMethod (exported const)
+## 📄 addPersonAuthenticationMethod (exported const)
 
 adds an `authenticationMethod` to `Person`
 
@@ -291,46 +277,46 @@ relies on `addAuthenticationMethod`
 TODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.
 
 
-## comparePassword (exported const)
+## 📄 comparePassword (exported const)
 
 Method to check if a raw password should be the same as the encrypted variant. Uses `bcrypt`
 
 
-## encryptPassword (exported const)
+## 📄 encryptPassword (exported const)
 
 Method to encrypt any password. Uses `bcrypt`
 
 
-## isPhoneNumber (exported const)
+## 📄 isPhoneNumber (exported const)
 
 TODO: Implement this
 
 
-## isValidPassword (exported const)
+## 📄 isValidPassword (exported const)
 
-## login (exported const)
+## 📄 login (exported const)
 
 attaches the `Device` with `authToken` (`id`) to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.
 
 
-## logoutPostApi (exported const)
+## 📄 logoutPostApi (exported const)
 
 Uses cookies (https://serverjs.io/documentation/reply/#cookie-) to logout
 
 Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
 
 
-## removeDeviceAuthenticationMethod (exported const)
+## 📄 removeDeviceAuthenticationMethod (exported const)
 
 removes an `authenticatedMethod` from `Device`
 
 
-## removePersonAuthenticationMethod (exported const)
+## 📄 removePersonAuthenticationMethod (exported const)
 
 removes an `authenticationMethod` from `Person`
 
 
-## signup (exported const)
+## 📄 signup (exported const)
 
 Creates a new `Person` for a `Device`. Adds that person to the `Device`.
 

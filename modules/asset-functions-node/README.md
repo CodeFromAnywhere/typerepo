@@ -30,16 +30,11 @@ asset-functions-node (node operation)
 - [processItemAssets](#processItemAssets)
 - [removeOldTemporaryAssets](#removeOldTemporaryAssets)
 - [serverDownloadReply](#serverDownloadReply)
-- [test](#test)
 - [uploadAssetPostApi](#uploadAssetPostApi)
 
 ## Interfaces
 
-- [AssetInputType](#assetinputtype)
 - [AssetParameter](#assetparameter)
-- [BackendAsset](#backendasset)
-- [CompressionConfig](#compressionconfig)
-- [CompressionConfig](#compressionconfig)
 - [ProcessAssetConfig](#processassetconfig)
 
 ## Variables
@@ -60,7 +55,6 @@ asset-functions-node (node operation)
 - [processItemAssets](#processitemassets)
 - [removeOldTemporaryAssets](#removeoldtemporaryassets)
 - [serverDownloadReply](#serverdownloadreply)
-- [test](#test)
 - [uploadAssetPostApi](#uploadassetpostapi)
 
 
@@ -87,9 +81,14 @@ This allows us to easily delete assets without concequences and also if the user
 This function should be executed using a daily CRON
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## serverDownloadReply
+
+## serverDownloadReply()
 
 Returns a `server.reply.download` or `server.reply.file` but also sets the `Content-Disposition` header correctly and the `Content-Type`
 
@@ -105,38 +104,29 @@ See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Dispositio
 NB: ensure to return the result of this function in your endpoint, otherwise it won't work
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| absoluteAssetPath | string |  |,| isDownload | boolean |  |
+| **Output** |    |    |
 
 
-### Parameters (2)
 
-#### Parameter 1: absoluteAssetPath: string
-
-#### Parameter 2: isDownload: boolean
-
-## test
-
-## uploadAssetPostApi
+## uploadAssetPostApi()
 
 Uploads an asset to the server, and puts it in a temporary location in the assets folder of `function-server`. It returns the filename of the file in the temporary location.
 
 It can only be accessed through that random name. This random name has 32 characters so cannot be easily guessed. This should be secure enough. The file should be moved to the final destination in the actual function that needs the file.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
 
 # Interfaces
 
-## AssetInputType
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| type  | string |  |
-| isMultiple  | boolean |  |
-
-
-
-## AssetParameter
+## 🔷 AssetParameter
 
 Properties: 
 
@@ -148,54 +138,7 @@ Properties:
 
 
 
-## BackendAsset
-
-Part of the asset that should be sent to the backend. The rest should frontend-only
-
-Some values are stored, some are not
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| alt (optional) | string |  |
-| relativePath (optional) | string |  |
-| name (optional) | string |  |
-| temporaryDestination (optional) | string |  |
-
-
-
-## CompressionConfig
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| bitrate (optional) | number | used for audio |
-| fps (optional) | number | Frames per second. Used for video |
-| resolution (optional) | object | Set the resolution. Will not upscale.<br /><br />Used for video and images |
-| shouldOverwrite (optional) | boolean | if true, will overwrite the original file |
-
-
-
-## CompressionConfig
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| bitrate (optional) | number |  |
-| fps (optional) | number |  |
-| resolution (optional) | object |  |
-| shouldOverwrite (optional) | boolean |  |
-
-
-
-## ProcessAssetConfig
+## 🔷 ProcessAssetConfig
 
 Properties: 
 
@@ -213,7 +156,7 @@ This allows us to easily delete assets without concequences and also if the user
 This function should be executed using a daily CRON
 
 
-## serverDownloadReply (exported const)
+## 📄 serverDownloadReply (exported const)
 
 Returns a `server.reply.download` or `server.reply.file` but also sets the `Content-Disposition` header correctly and the `Content-Type`
 
@@ -229,9 +172,7 @@ See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Dispositio
 NB: ensure to return the result of this function in your endpoint, otherwise it won't work
 
 
-## test (unexported const)
-
-## uploadAssetPostApi (exported const)
+## 📄 uploadAssetPostApi (exported const)
 
 Uploads an asset to the server, and puts it in a temporary location in the assets folder of `function-server`. It returns the filename of the file in the temporary location.
 

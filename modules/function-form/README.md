@@ -21,7 +21,7 @@ Component that lets you easily create a frontend form for any function in your p
 
 # Functions
 
-## FunctionForm
+## <FunctionForm />
 
 FunctionForm is a very easy way to create a frontend component that is connected with an api that is connected with a function on your backend (that can do anything)
 
@@ -32,10 +32,15 @@ This component only works if your `api` is up-to-date and your function is succe
 @see TsFunction
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
 
 # Variables
 
-## FunctionForm (exported const)
+## 📄 FunctionForm (exported const)
 
 FunctionForm is a very easy way to create a frontend component that is connected with an api that is connected with a function on your backend (that can do anything)
 

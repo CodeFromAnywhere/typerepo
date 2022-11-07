@@ -22,7 +22,7 @@ Useful functions to alter JSON files (can be used both with node or with a CLI)
 
 # Functions
 
-## setJsonKey
+## setJsonKey()
 
 npx setjsonkey [json-path] key1.key2.[index/latest/push].key3 "value"
 
@@ -34,34 +34,27 @@ make sure it works with arrays too
 convert value string (arg3) to number, boolean if they seem to be like that
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: {  jsonPath,  keyLocation,  value,  debug,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| jsonPath  | string |  |
-| keyLocation  | string |  |
-| value  | string |  |
-| debug (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  jsonPath,
+  keyLocation,
+  value,
+  debug,
+} | { jsonPath: string, <br />keyLocation: string, <br />value: string, <br />debug?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 
-## setKeyAtLocation
+## setKeyAtLocation()
 
-### Parameters (3)
+| Input      |    |    |
+| ---------- | -- | -- |
+| path | string |  |,| value | {  } |  |,| object | {  } |  |
+| **Output** |    |    |
 
-#### Parameter 1: path: string
-
-#### Parameter 2: value: object
-
-#### Parameter 3: object: object
 
 # Variables
 
-## setJsonKey (exported const)
+## 📄 setJsonKey (exported const)
 

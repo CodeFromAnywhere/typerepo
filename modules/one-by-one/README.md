@@ -18,16 +18,21 @@ one-by-one (js operation)
 
 # Functions
 
-## oneByOne
+## oneByOne()
 
 for every item in an array, executes an async callback, one by one.
 promises an array of the results of every callback once it's done
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
 
 # Variables
 
-## oneByOne (exported const)
+## 📄 oneByOne (exported const)
 
 for every item in an array, executes an async callback, one by one.
 promises an array of the results of every callback once it's done

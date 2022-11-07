@@ -17,7 +17,6 @@ CLI helpers to ask for input parameters (instead of providing as part of the cli
 
 ## Variables
 
-- [argumentsWithoutFlags](#argumentswithoutflags)
 - [askOk](#askok)
 - [ask](#ask)
 - [getArgumentOrAsk](#getargumentorask)
@@ -26,35 +25,37 @@ CLI helpers to ask for input parameters (instead of providing as part of the cli
 
 # Functions
 
-## askOk
+## askOk()
 
-### Parameters (1)
+| Input      |    |    |
+| ---------- | -- | -- |
+| question | string |  |
+| **Output** |    |    |
 
-#### Parameter 1: question: string
 
-## ask
 
-### Parameters (1)
+## ask()
 
-#### Parameter 1: question: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| question | string |  |
+| **Output** |    |    |
 
-## getArgumentOrAsk
 
-### Parameters (3)
 
-#### Parameter 1: argumentPosition: number
+## getArgumentOrAsk()
 
-#### Parameter 2: question: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| argumentPosition | number |  |,| question | string |  |,| isNonInteractive (optional) | boolean |  |
+| **Output** |    |    |
 
-#### Parameter 3: isNonInteractive (optional): boolean
 
 # Variables
 
-## argumentsWithoutFlags (unexported const)
+## 📄 askOk (exported const)
 
-## askOk (exported const)
+## 📄 ask (exported const)
 
-## ask (exported const)
-
-## getArgumentOrAsk (exported const)
+## 📄 getArgumentOrAsk (exported const)
 

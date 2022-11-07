@@ -19,17 +19,10 @@ Server that exposes all typerepo api functions wrapped into easily accessible en
 - [executeFunction](#executeFunction)
 - [runFunctionServer](#runFunctionServer)
 
-## Interfaces
-
-- [RunEveryPeriodEnum](#runeveryperiodenum)
-- [TsFunction](#tsfunction)
-
 ## Variables
 
 - [executeFunction](#executefunction)
-- [port](#port)
 - [runFunctionServer](#runfunctionserver)
-- [scheduleObject](#scheduleobject)
 
 
 
@@ -70,127 +63,35 @@ Nevertheless, server.js works fine and most things are documented.
 
 # Functions
 
-## executeFunction
+## executeFunction()
 
-### Parameters (1)
-
-#### Parameter 1: tsFunction: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
-| isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| runEveryPeriod (optional) | string |  |
-| rawText (optional) | string |  |
-| commentsInside  | array |  |
-| parameters (optional) | array |  |
-| maxIndentationDepth  | number |  |
-| dependantFiles (optional) | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsFunction | `TsFunction` |  |
+| **Output** |    |    |
 
 
 
-## runFunctionServer
+## runFunctionServer()
 
 runs sdk api server using "server" package.
 
 server will be exposed on port 4201
 
 
-
-# Interfaces
-
-## RunEveryPeriodEnum
-
-Used to specify functions that need to run every time with a specific interval
-
-All times are at at the server timezone time
-
-- `minute`: every minute at 0 seconds
-- `5-mintues`: every 5 minutes, starting at the first minute of the hour
-- `quarter-hour`: every 15 minutes, starting at the first minute of the hour
-- `hour`: every hour, starting at the first minute of the hour
-- `6-hours`: every 6 hours, starting at midnight
-- `midnight`: every midnight (00:00:00)
-- `week`: every week at sundaynight (sunday, 1 second after 23:59:59 PM)
-- `month`: at the first second of the first day of the month (0:00:00)
-- `3-months`: every start of the quarter: january 1st (0:00:00), april 1st, july 1st, october 1st
-- `year`: every new year at january 1st at 0:00:00
-
-
-
-
-
-
-
-
-## TsFunction
-
-Interface for arrow functions and normal functions
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
-| isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| runEveryPeriod (optional) | string |  |
-| description (optional) | string |  |
-| rawText (optional) | string |  |
-| commentsInside  | array |  |
-| returnType  | object |  |
-| parameters (optional) | array |  |
-| size  | object |  |
-| commentSize (optional) | object |  |
-| codeSize (optional) | object |  |
-| cumulativeSize (optional) | object |  |
-| cumulativeCommentSize (optional) | object |  |
-| cumulativeCodeSize (optional) | object |  |
-| maxIndentationDepth  | number |  |
-| dependantFiles (optional) | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 # Variables
 
-## executeFunction (exported const)
+## 📄 executeFunction (exported const)
 
-## port (unexported const)
-
-## runFunctionServer (exported const)
+## 📄 runFunctionServer (exported const)
 
 runs sdk api server using "server" package.
 
 server will be exposed on port 4201
-
-
-## scheduleObject (unexported const)
-
-For every `RunEveryPeriodEnum`, this object provides the interval `cronExpression` string for `node-cron`
 

@@ -13,7 +13,6 @@ bundle-util (node operation)
 
 ## Interfaces
 
-- [BundleConfig](#bundleconfig)
 - [BundleSummary](#bundlesummary)
 
 ## Variables
@@ -25,109 +24,32 @@ bundle-util (node operation)
 
 # Functions
 
-## getBundleSummary
+## getBundleSummary()
 
 Summarizes a bundle config so it can be used easily in things like explore project
 
 
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| packageNames  | array |  |
-| moduleNames  | array |  |
-| appNames  | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| bundleConfig | `BundleConfig` |  |
+| **Output** | { packageNames: string[], <br />moduleNames: string[], <br />appNames: string[], <br /> }   |    |
 
 
 
-### Parameters (1)
-
-#### Parameter 1: bundleConfig: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| description (optional) | string |  |
-| emoji (optional) | string |  |
-| primaryColor (optional) | string |  |
-| gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | boolean |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-
-
-
-## getDbModelsForBundle
+## getDbModelsForBundle()
 
 Gets all TsInterface's that are used in a bundle according to a BundleConfig
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: bundleConfig: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| description (optional) | string |  |
-| emoji (optional) | string |  |
-| primaryColor (optional) | string |  |
-| gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | boolean |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| bundleConfig | `BundleConfig` |  |
+| **Output** |    |    |
 
 
 # Interfaces
 
-## BundleConfig
-
-Configuration options for bundles. Used with `generateBundle`
-
-Everything in this model will be copied over to the created bundle, except for `createBundleConfig` and `customisableBundleConfig`.
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| description (optional) | string |  |
-| emoji (optional) | string |  |
-| primaryColor (optional) | string |  |
-| gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | boolean |  |
-| bundleMarkdownReaderConfig (optional) | object |  |
-| slug  | string |  |
-| language  | string |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| customisableBundleConfig  | object |  |
-| createBundleConfig  | object |  |
-
-
-
-## BundleSummary
+## 🔷 BundleSummary
 
 Properties: 
 
@@ -140,12 +62,12 @@ Properties:
 
 # Variables
 
-## getBundleSummary (exported const)
+## 📄 getBundleSummary (exported const)
 
 Summarizes a bundle config so it can be used easily in things like explore project
 
 
-## getDbModelsForBundle (exported const)
+## 📄 getDbModelsForBundle (exported const)
 
 Gets all TsInterface's that are used in a bundle according to a BundleConfig
 

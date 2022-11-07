@@ -37,48 +37,58 @@ Ensure you have `react-with-native-notification` setup in your project, includin
 
 # Functions
 
-## checkAuthToken
+## checkAuthToken()
 
-### Parameters (1)
-
-#### Parameter 1: password: string
-
-## LoginForm
-
-### Parameters (1)
-
-#### Parameter 1: props: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| title (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| password | string |  |
+| **Output** |    |    |
 
 
 
-## LoginWrapper
+## <LoginForm />
 
-## logoutFrontend
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { title?: string, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## <LoginWrapper />
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## logoutFrontend()
 
 Ensures cookie is gone but also that the device is not logged into the `Person` anymore
 
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 # Variables
 
-## checkAuthToken (exported const)
+## 📄 checkAuthToken (exported const)
 
-## initialValues (exported const)
+## 📄 initialValues (exported const)
 
-## LoginForm (exported const)
+## 📄 LoginForm (exported const)
 
-## LoginWrapper (exported const)
+## 📄 LoginWrapper (exported const)
 
-## logoutFrontend (exported const)
+## 📄 logoutFrontend (exported const)
 
 Ensures cookie is gone but also that the device is not logged into the `Person` anymore
 
 
-## { StoreProvider, useStore } (exported const)
+## 📄 { StoreProvider, useStore } (exported const)
 

@@ -13,10 +13,6 @@ himalayajeep-functions (node operation)
 - [getMyJeep](#getMyJeep)
 - [getPublicJeeps](#getPublicJeeps)
 
-## Interfaces
-
-- [SignupJeepType](#signupjeeptype)
-
 ## Variables
 
 - [driverLogin](#driverlogin)
@@ -28,84 +24,60 @@ himalayajeep-functions (node operation)
 
 # Functions
 
-## driverLogin
+## driverLogin()
 
 login form for the driver to login
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| emailOrPhone | string |  |,| password | string |  |
+| **Output** |    |    |
 
 
-### Parameters (2)
 
-#### Parameter 1: emailOrPhone: string
-
-#### Parameter 2: password: string
-
-## driverSignup
+## driverSignup()
 
 Driver signup
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: driverInfo: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| email (optional) | string |  |
-| phone (optional) | string |  |
-| password  | string |  |
-| repeatPassword  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| driverInfo | `SignupJeepType` |  |
+| **Output** |    |    |
 
 
 
-## getMyJeep
+## getMyJeep()
 
-### Parameters (1)
-
-#### Parameter 1: loginToken: string
-
-## getPublicJeeps
-
-# Interfaces
-
-## SignupJeepType
-
-Jeep driver signup FORM (not part of the model)
+| Input      |    |    |
+| ---------- | -- | -- |
+| loginToken | string |  |
+| **Output** |    |    |
 
 
 
+## getPublicJeeps()
 
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| email (optional) | string |  |
-| phone (optional) | string |  |
-| password  | string |  |
-| repeatPassword  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 # Variables
 
-## driverLogin (exported const)
+## 📄 driverLogin (exported const)
 
 login form for the driver to login
 
 
-## driverSignup (exported const)
+## 📄 driverSignup (exported const)
 
 Driver signup
 
 
-## getMyJeep (exported const)
+## 📄 getMyJeep (exported const)
 
-## getPublicJeeps (exported const)
+## 📄 getPublicJeeps (exported const)
 

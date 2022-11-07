@@ -20,15 +20,10 @@ Wraps all functions found in `sdk-api` and creates `server` endpoints for them. 
 - [storeFunctionExecution](#storeFunctionExecution)
 - [upsertDevice](#upsertDevice)
 
-## Interfaces
-
-- [IPInfo](#ipinfo)
-
 ## Variables
 
 - [calculateDeviceName](#calculatedevicename)
 - [cleanupTimer](#cleanuptimer)
-- [deviceInclude](#deviceinclude)
 - [executeFunctionWithParameters](#executefunctionwithparameters)
 - [functionEndpoints](#functionendpoints)
 - [getApiEndpoints](#getapiendpoints)
@@ -37,41 +32,31 @@ Wraps all functions found in `sdk-api` and creates `server` endpoints for them. 
 - [getTsFunction](#gettsfunction)
 - [postApiEndpoints](#postapiendpoints)
 - [storeFunctionExecution](#storefunctionexecution)
-- [timer](#timer)
 - [upsertDevice](#upsertdevice)
 
 
 
 # Functions
 
-## calculateDeviceName
+## calculateDeviceName()
 
-### Parameters (2)
-
-#### Parameter 1: ipInfo: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| ip  | string |  |
-| city (optional) | string |  |
-| positionRadiusKm (optional) | number |  |
-| country (optional) | string |  |
-| region (optional) | string |  |
-| timezone (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| ipInfo | `IPInfo` |  |,| userAgent | `UAParser.IResult` |  |
+| **Output** | `String`   |    |
 
 
 
+## cleanupTimer()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| uniqueId | string |  |
+| **Output** |    |    |
 
 
-## cleanupTimer
 
-### Parameters (1)
-
-#### Parameter 1: uniqueId: string
-
-## executeFunctionWithParameters
+## executeFunctionWithParameters()
 
 steps for someone to use the API
 
@@ -86,53 +71,57 @@ steps for someone to use the API
 TODO: make it possible to return result BEFORE storing cache and performance. we probably need to use the server.reply for this, which makes this function unusable in any other setting than an api, so let's make it optional
 
 
-
-
-## getHasAuthorization
-
-### Returns: object
-
-## getNewPerformance
-
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| label  | string |  |
-| durationMs  | number |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
-### Parameters (3)
+## getHasAuthorization()
 
-#### Parameter 1: label: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
 
-#### Parameter 2: uniqueId: string
 
-#### Parameter 3: isNew (optional): boolean
 
-## getTsFunction
+## getNewPerformance()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| label | string |  |,| uniqueId | string |  |,| isNew (optional) | boolean |  |
+| **Output** | { label: string, <br />durationMs: number, <br /> }   |    |
+
+
+
+## getTsFunction()
 
 Uses the `sdk-function-paths` sdk to the indexation of any function in the project.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionName | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: functionName: string
-
-## storeFunctionExecution
+## storeFunctionExecution()
 
 wrapper function that stores execution-speed in an object with `FunctionPerformance` data-structure. Store this using `db.push` if it adds value
 .
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## upsertDevice
+
+## upsertDevice()
 
 Either finds the device and updates it according to the new request metadata, or creates a new device.
 
@@ -144,39 +133,19 @@ TODO: Use cookies (https://serverjs.io/documentation/reply/#cookie-) to login
 Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
 
 
-
-# Interfaces
-
-## IPInfo
-
-Information that is inferred from an IP
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| ip  | string |  |
-| city (optional) | string |  |
-| position (optional) | object |  |
-| positionRadiusKm (optional) | number |  |
-| country (optional) | string |  |
-| region (optional) | string |  |
-| timezone (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 # Variables
 
-## calculateDeviceName (exported const)
+## 📄 calculateDeviceName (exported const)
 
-## cleanupTimer (exported const)
+## 📄 cleanupTimer (exported const)
 
-## deviceInclude (unexported const)
-
-## executeFunctionWithParameters (exported const)
+## 📄 executeFunctionWithParameters (exported const)
 
 steps for someone to use the API
 
@@ -191,39 +160,37 @@ steps for someone to use the API
 TODO: make it possible to return result BEFORE storing cache and performance. we probably need to use the server.reply for this, which makes this function unusable in any other setting than an api, so let's make it optional
 
 
-## functionEndpoints (exported const)
+## 📄 functionEndpoints (exported const)
 
 routes to post and execute operation functions
 
 
-## getApiEndpoints (exported const)
+## 📄 getApiEndpoints (exported const)
 
 routes to post and execute operation functions
 
 
-## getHasAuthorization (exported const)
+## 📄 getHasAuthorization (exported const)
 
-## getNewPerformance (exported const)
+## 📄 getNewPerformance (exported const)
 
-## getTsFunction (exported const)
+## 📄 getTsFunction (exported const)
 
 Uses the `sdk-function-paths` sdk to the indexation of any function in the project.
 
 
-## postApiEndpoints (exported const)
+## 📄 postApiEndpoints (exported const)
 
 routes to post and execute operation functions
 
 
-## storeFunctionExecution (exported const)
+## 📄 storeFunctionExecution (exported const)
 
 wrapper function that stores execution-speed in an object with `FunctionPerformance` data-structure. Store this using `db.push` if it adds value
 .
 
 
-## timer (unexported let)
-
-## upsertDevice (exported const)
+## 📄 upsertDevice (exported const)
 
 Either finds the device and updates it according to the new request metadata, or creates a new device.
 

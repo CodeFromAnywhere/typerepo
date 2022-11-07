@@ -13,7 +13,6 @@ Useful when you want to apply a template to create a new starting point for some
 
 ## Functions
 
-- [findTemplates](#findTemplates)
 - [isEqualArray](#isEqualArray)
 - [renameTemplateFiles](#renameTemplateFiles)
 - [renameTemplateToNormalFile](#renameTemplateToNormalFile)
@@ -21,27 +20,17 @@ Useful when you want to apply a template to create a new starting point for some
 
 ## Variables
 
-- [findTemplates](#findtemplates)
 - [isEqualArray](#isequalarray)
 - [renameTemplateFiles](#renametemplatefiles)
 - [renameTemplateToNormalFile](#renametemplatetonormalfile)
 - [renameToTemplateFile](#renametotemplatefile)
-- [templateExtension](#templateextension)
 - [test](#test)
 
 
 
 # Functions
 
-## findTemplates
-
-### Parameters (2)
-
-#### Parameter 1: basePath: string
-
-#### Parameter 2: doNotExploreChildFolders (optional): boolean
-
-## isEqualArray
+## isEqualArray()
 
 As long as there are no .template files present in the template folder that DONT need to be changed, it is fine.
 If there are, we should warn people.
@@ -60,67 +49,48 @@ return appTemplateFiles
 };
 
 
-
-
-### Parameters (2)
-
-#### Parameter 1: array1: array
-
-- null: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| array1 | {  }[] |  |,| array2 | {  }[] |  |
+| **Output** |    |    |
 
 
 
+## renameTemplateFiles()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| { appDir } | { appDir: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
-#### Parameter 2: array2: array
+## renameTemplateToNormalFile()
 
-- null: object
-
-
-
-
-
-
-## renameTemplateFiles
-
-### Parameters (1)
-
-#### Parameter 1: { appDir }: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| appDir  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| fileName | string |  |
+| **Output** |    |    |
 
 
 
-## renameTemplateToNormalFile
+## renameToTemplateFile()
 
-### Parameters (1)
+| Input      |    |    |
+| ---------- | -- | -- |
+| fileName | string |  |
+| **Output** | `String`   |    |
 
-#### Parameter 1: fileName: string
-
-## renameToTemplateFile
-
-### Parameters (1)
-
-#### Parameter 1: fileName: string
 
 # Variables
 
-## findTemplates (unexported const)
+## 📄 isEqualArray (exported const)
 
-## isEqualArray (exported const)
+## 📄 renameTemplateFiles (exported const)
 
-## renameTemplateFiles (exported const)
+## 📄 renameTemplateToNormalFile (exported const)
 
-## renameTemplateToNormalFile (exported const)
+## 📄 renameToTemplateFile (exported const)
 
-## renameToTemplateFile (exported const)
-
-## templateExtension (unexported const)
-
-## test (exported const)
+## 📄 test (exported const)
 

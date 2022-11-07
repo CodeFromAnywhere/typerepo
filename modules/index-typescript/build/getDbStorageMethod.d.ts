@@ -5,9 +5,9 @@ import { Frontmatter } from "matter-types";
  *
  * 1) Frontmatter overrules everything
  * 2) Special extensions are looked at
- * 3)
+ *
  */
-export declare const getDbStorageMethod: ({ typeName, frontmatter, extensions, }: {
+export declare const getDbStorageMethod: (config: {
     typeName: string;
     frontmatter: Frontmatter;
     extensions?: string[] | undefined;

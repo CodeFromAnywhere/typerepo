@@ -21,13 +21,15 @@ Gets the TsConfig given a path to an operation
 
 # Functions
 
-## getTsConfig
+## getTsConfig()
 
-### Parameters (1)
+| Input      |    |    |
+| ---------- | -- | -- |
+| packageFolder | string |  |
+| **Output** |    |    |
 
-#### Parameter 1: packageFolder: string
 
 # Variables
 
-## getTsConfig (exported const)
+## 📄 getTsConfig (exported const)
 

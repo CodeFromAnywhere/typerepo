@@ -1,4 +1,35 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,r=1,i=arguments.length;r<i;r++)for(var a in t=arguments[r])Object.prototype.hasOwnProperty.call(t,a)&&(e[a]=t[a]);return e},__assign.apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getParamSchema=exports.typeToSchema=exports.getMinMaxValidation=exports.isPrimitive=exports.symbols=void 0;var lodash_1=require("lodash");require("reflect-metadata");var ts_morph_1=require("ts-morph"),ajvMap={number:"imum",string:"Length",array:"Items",object:"Properties"};exports.symbols={controller:Symbol(),route:Symbol(),basePath:Symbol(),validations:Symbol()};var toSnack=function(e){return e.replace(/([A-Z])/g,(function(e){return"-"+e.toLowerCase()})).replace(/^-/,"")},definitions={},isPrimitive=function(e){return e.isBoolean()||e.isNumber()||e.isString()};
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getParamSchema = exports.typeToSchema = exports.getMinMaxValidation = exports.isPrimitive = exports.symbols = void 0;
+var lodash_1 = require("lodash");
+require("reflect-metadata");
+var ts_morph_1 = require("ts-morph");
+var ajvMap = {
+    number: "imum",
+    string: "Length",
+    array: "Items",
+    object: "Properties",
+};
+exports.symbols = {
+    controller: Symbol(),
+    route: Symbol(),
+    basePath: Symbol(),
+    validations: Symbol(),
+};
+var toSnack = function (key) {
+    return key.replace(/([A-Z])/g, function ($1) { return "-" + $1.toLowerCase(); }).replace(/^-/, "");
+};
 // const project = new Project({
 //   tsConfigFilePath: process.cwd() + "/tsconfig.json",
 // });
@@ -9,9 +40,89 @@
 //     allClasses[c.getName() as string] = c;
 //   });
 // });
-exports.isPrimitive=isPrimitive;var getMinMaxValidation=function(e,t,r){var i=t.toLowerCase();return(0,lodash_1.set)({},e+ajvMap[i],r)};function handleExplicitValidation(e,t,r){return void 0===r&&(r=[]),r.forEach((function(r){var i=r.getName();switch(i){case"min":case"max":var a=+r.getArguments()[0].getText();t=(0,lodash_1.merge)(t,(0,exports.getMinMaxValidation)(i,e,a));break;case"time":case"date":case"dateTime":case"duration":case"uri":case"uriReference":case"uriTemplate":case"email":case"hostname":case"ipv4":case"ipv6":case"uuid":case"jsonPointer":case"relativeJsonPointer":t=(0,lodash_1.merge)(t,{format:toSnack(i)})}})),t}exports.getMinMaxValidation=getMinMaxValidation;var getObjectSchema=function(e,t,r){void 0===r&&(r={});var i={
-// schema = {} handleExplicitValidation("object", schema, decorators);
-type:"object",properties:{}};i.required=i.required||[];var a=e.getText(),n=e.getNonNullableType().getText();return i.optional=n!==a,e.getNonNullableType().getProperties().forEach((function(e){var t,a=e.getName(),n=e.hasFlags(ts_morph_1.SymbolFlags.GetAccessor);if(!["request","reply"].includes(a)&&!n){var o=e.getValueDeclarationOrThrow(),s=o.getDecorators?o.getDecorators():[];i.properties[a]=__assign(__assign({},(0,exports.getParamSchema)(o.getType(),s,e)||{}),r[a]||{}),i.properties[a]||(console.warn("missing type for - "+a),i.properties[a]={type:"object"}),!0!==i.properties[a].optional&&(null===(t=i.required)||void 0===t||t.push(a)),delete i.properties[a].optional}})),i.required.length||delete i.required,i},typeToSchema=function(e){return(0,exports.getParamSchema)(e)};
+var definitions = {};
+// export const getDefinitions = () => definitions;
+// export const getClass = (name) => allClasses[name];
+var isPrimitive = function (type) {
+    return type.isBoolean() || type.isNumber() || type.isString();
+};
+exports.isPrimitive = isPrimitive;
+var getMinMaxValidation = function (keyword, type, value) {
+    var t = type.toLowerCase();
+    return (0, lodash_1.set)({}, keyword + ajvMap[t], value);
+};
+exports.getMinMaxValidation = getMinMaxValidation;
+function handleExplicitValidation(type, schema, decorators) {
+    if (decorators === void 0) { decorators = []; }
+    decorators.forEach(function (d) {
+        var dName = d.getName();
+        switch (dName) {
+            case "min":
+            case "max": {
+                var firstArgumentTextNumber = +d.getArguments()[0].getText();
+                schema = (0, lodash_1.merge)(schema, (0, exports.getMinMaxValidation)(dName, type, firstArgumentTextNumber));
+                break;
+            }
+            case "time":
+            case "date":
+            case "dateTime":
+            case "duration":
+            case "uri":
+            case "uriReference":
+            case "uriTemplate":
+            case "email":
+            case "hostname":
+            case "ipv4":
+            case "ipv6":
+            case "uuid":
+            case "jsonPointer":
+            case "relativeJsonPointer": {
+                schema = (0, lodash_1.merge)(schema, { format: toSnack(dName) });
+                break;
+            }
+        }
+    });
+    return schema;
+}
+var getObjectSchema = function (type, decorators, schemaProps) {
+    if (schemaProps === void 0) { schemaProps = {}; }
+    var schema = {};
+    // schema = {} handleExplicitValidation("object", schema, decorators);
+    schema.type = "object";
+    schema.properties = {};
+    schema.required = schema.required || [];
+    var typeText = type.getText();
+    var nonNullableType = type.getNonNullableType();
+    var nonNullableTypeText = nonNullableType.getText();
+    schema.optional = nonNullableTypeText !== typeText;
+    type
+        .getNonNullableType()
+        .getProperties()
+        .forEach(function (prop) {
+        var _a;
+        var key = prop.getName();
+        var isGetter = prop.hasFlags(ts_morph_1.SymbolFlags.GetAccessor);
+        if (["request", "reply"].includes(key) || isGetter)
+            return;
+        var valueDeclaration = prop.getValueDeclarationOrThrow();
+        var decorators = valueDeclaration.getDecorators
+            ? valueDeclaration.getDecorators()
+            : [];
+        schema.properties[key] = __assign(__assign({}, ((0, exports.getParamSchema)(valueDeclaration.getType(), decorators, prop) || {})), (schemaProps[key] || {}));
+        if (!schema.properties[key]) {
+            console.warn("missing type for - " + key);
+            schema.properties[key] = { type: "object" };
+        }
+        if (schema.properties[key].optional !== true) {
+            (_a = schema.required) === null || _a === void 0 ? void 0 : _a.push(key);
+        }
+        delete schema.properties[key].optional;
+    });
+    if (!schema.required.length) {
+        delete schema.required;
+    }
+    return schema;
+};
 /**
  * calculates the schema of a type
  *
@@ -20,17 +131,113 @@ type:"object",properties:{}};i.required=i.required||[];var a=e.getText(),n=e.get
  * NB: this method throws sometimes if it can't find some stuff, so make sure to try/catch it.
  *
  * TODO: Test and improve this one
- */exports.typeToSchema=typeToSchema;var getParamSchema=function(e,t,r){var i,a,n,o;void 0===t&&(t=[]),void 0===r&&(r=void 0);var s=e.getText(),l=e.getNonNullableType(),u=l.getText(),p={};if(p.optional=u!==s,l.isArray())return(p=handleExplicitValidation("array",p,t)).type="array",
-// NB: recursion!
-p.items=(0,exports.getParamSchema)(l.getArrayElementTypeOrThrow(),[])||{},Object.keys(p.items).forEach((function(e){return delete p.items[e].optional})),delete p.items.optional,p;if("Date"===l.getText())return p.type="string",p.format="date-time",p;if((0,exports.isPrimitive)(l))return p.type=s.replace(" | undefined",""),"string"===p.type&&(p.allOf=[{transform:["trim"]},{minLength:1}]),p=handleExplicitValidation(l.getText(),p,t);if(l.isClass()||l.isInterface()){var c=l.getText().split(").")[1]||l.getText(),m=s.split('").')[0].split('import("')[1];if(m&&m.includes("/node_modules/"))return p;
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-var d=m&&!(null==m?void 0:m.includes("/node_modules/"))?require(m)[c]:void 0;if(m&&!d)return console.log("not found type: ".concat(c)),p;
-// NB: we seem not to have it, see https://medium.com/jspoint/introduction-to-reflect-metadata-package-and-its-ecmascript-proposal-8798405d7d88
-// I installed reflect-metdata and added as require on top. Hope that works!
-var g=d&&// @ts-ignore
-Reflect.getMetaData(exports.symbols.validations,d.prototype)||{};return p.$ref="#/definitions/"+c,definitions[c]||(definitions[c]=getObjectSchema(e,t,g)),p}if(l.isObject())return p=getObjectSchema(e,t);
-// enum --------------------------------------
-if(l.isEnumLiteral()&&r){c=r.getName();var f=null===(a=null===(i=null==r?void 0:r.getValueDeclarationOrThrow())||void 0===i?void 0:i.getSourceFile().getEnum((function(e){return e.getName()===l.getText()})))||void 0===a?void 0:a.getMembers();return(v={}).enum=null==f?void 0:f.map((function(e){return e.getName()})),v["x-enumNames"]=null==f?void 0:f.map((function(e){return e.getValue()})),v.type=(null===(n=v.enum)||void 0===n?void 0:n[0])?typeof(null===(o=v.enum)||void 0===o?void 0:o[0]):void 0,definitions[c]=v,p.$ref="#/definitions/"+c,p}if(l.isEnum()){var v;c=(0,lodash_1.last)(l.getText().split("."));return(v={}).enum=l.getUnionTypes().map((function(e){return e.getLiteralValueOrThrow()})),v["x-enumNames"]=l.getUnionTypes().map((function(e){return(0,lodash_1.last)(e.getText().split("."))})),v.type=typeof v.enum[0],definitions[c]=v,p.$ref="#/definitions/"+c,p}var h=e.getUnionTypes().filter((function(e){return!e.isUndefined()}));return h.length>1?(p.oneOf=h.map((function(e){return(0,exports.getParamSchema)(e,t)})),p.oneOf[0]||(delete p.oneOf,p.enum=h.map((function(e){return e.getText().slice(1,-1)})),p["x-enumNames"]=h.map((function(e){return e.getText().slice(1,-1)})),p.type=typeof p.enum[0]),p):void 0};exports.getParamSchema=getParamSchema;
+ */
+var typeToSchema = function (type) { return (0, exports.getParamSchema)(type); };
+exports.typeToSchema = typeToSchema;
+var getParamSchema = function (type, decorators, prop) {
+    var _a, _b, _c, _d;
+    if (decorators === void 0) { decorators = []; }
+    if (prop === void 0) { prop = undefined; }
+    var typeText = type.getText();
+    var nonNullableType = type.getNonNullableType();
+    var nonNullableTypeText = nonNullableType.getText();
+    var schema = {};
+    schema.optional = nonNullableTypeText !== typeText;
+    if (nonNullableType.isArray()) {
+        schema = handleExplicitValidation("array", schema, decorators);
+        schema.type = "array";
+        // NB: recursion!
+        schema.items =
+            (0, exports.getParamSchema)(nonNullableType.getArrayElementTypeOrThrow(), []) || {};
+        Object.keys(schema.items).forEach(function (key) { return delete schema.items[key].optional; });
+        delete schema.items.optional;
+        return schema;
+    }
+    if (nonNullableType.getText() === "Date") {
+        schema.type = "string";
+        schema.format = "date-time";
+        return schema;
+    }
+    if ((0, exports.isPrimitive)(nonNullableType)) {
+        schema.type = typeText.replace(" | undefined", "");
+        if (schema.type === "string") {
+            schema["allOf"] = [{ transform: ["trim"] }, { minLength: 1 }];
+        }
+        schema = handleExplicitValidation(nonNullableType.getText(), schema, decorators);
+        return schema;
+    }
+    if (nonNullableType.isClass() || nonNullableType.isInterface()) {
+        var name = nonNullableType.getText().split(").")[1] || nonNullableType.getText();
+        var importPath = typeText.split('").')[0].split('import("')[1];
+        if (importPath && importPath.includes("/node_modules/"))
+            return schema;
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
+        var c = importPath && !(importPath === null || importPath === void 0 ? void 0 : importPath.includes("/node_modules/"))
+            ? require(importPath)[name]
+            : undefined;
+        if (importPath && !c) {
+            console.log("not found type: ".concat(name));
+            return schema;
+        }
+        // NB: we seem not to have it, see https://medium.com/jspoint/introduction-to-reflect-metadata-package-and-its-ecmascript-proposal-8798405d7d88
+        // I installed reflect-metdata and added as require on top. Hope that works!
+        var classSchema = c
+            ? // @ts-ignore
+                Reflect.getMetaData(exports.symbols.validations, c.prototype) || {}
+            : {};
+        schema["$ref"] = "#/definitions/" + name;
+        if (!definitions[name]) {
+            definitions[name] = getObjectSchema(type, decorators, classSchema);
+        }
+        return schema;
+    }
+    if (nonNullableType.isObject()) {
+        schema = getObjectSchema(type, decorators);
+        return schema;
+    }
+    // enum --------------------------------------
+    if (nonNullableType.isEnumLiteral() && prop) {
+        var name = prop.getName();
+        var enumMembers = (_b = (_a = prop === null || prop === void 0 ? void 0 : prop.getValueDeclarationOrThrow()) === null || _a === void 0 ? void 0 : _a.getSourceFile().getEnum(function (e) { return e.getName() === nonNullableType.getText(); })) === null || _b === void 0 ? void 0 : _b.getMembers();
+        var enumSchema = {};
+        enumSchema.enum = enumMembers === null || enumMembers === void 0 ? void 0 : enumMembers.map(function (m) { return m.getName(); });
+        enumSchema["x-enumNames"] = enumMembers === null || enumMembers === void 0 ? void 0 : enumMembers.map(function (m) { return m.getValue(); });
+        enumSchema.type = ((_c = enumSchema.enum) === null || _c === void 0 ? void 0 : _c[0])
+            ? typeof ((_d = enumSchema.enum) === null || _d === void 0 ? void 0 : _d[0])
+            : undefined;
+        definitions[name] = enumSchema;
+        schema["$ref"] = "#/definitions/" + name;
+        return schema;
+    }
+    if (nonNullableType.isEnum()) {
+        var name = (0, lodash_1.last)(nonNullableType.getText().split("."));
+        var enumSchema = {};
+        enumSchema.enum = nonNullableType
+            .getUnionTypes()
+            .map(function (t) { return t.getLiteralValueOrThrow(); });
+        enumSchema["x-enumNames"] = nonNullableType
+            .getUnionTypes()
+            .map(function (t) { return (0, lodash_1.last)(t.getText().split(".")); });
+        enumSchema.type = typeof enumSchema.enum[0];
+        definitions[name] = enumSchema;
+        schema["$ref"] = "#/definitions/" + name;
+        return schema;
+    }
+    var unionTypes = type.getUnionTypes().filter(function (t) { return !t.isUndefined(); });
+    if (unionTypes.length > 1) {
+        schema.oneOf = unionTypes.map(function (t) {
+            return (0, exports.getParamSchema)(t, decorators);
+        });
+        if (!schema.oneOf[0]) {
+            delete schema.oneOf;
+            schema.enum = unionTypes.map(function (t) { return t.getText().slice(1, -1); });
+            schema["x-enumNames"] = unionTypes.map(function (t) { return t.getText().slice(1, -1); });
+            schema.type = typeof schema.enum[0];
+        }
+        return schema;
+    }
+};
+exports.getParamSchema = getParamSchema;
 // export const getMethodSchema = (c, m) => {
 //   const method = allClasses[c.name]?.getMethodOrThrow(m);
 //   const description = method?.getJsDocs()[0]?.getDescription();

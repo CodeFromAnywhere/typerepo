@@ -22,24 +22,22 @@ mail (node operation)
 
 # Functions
 
-## sendMail
+## sendMail()
 
 Sends email(s) using sendgrid
 
 Ensure your OS config is there
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| mailData | {  } |  |,| isMultiple (optional) | boolean |  |
+| **Output** |    |    |
 
-
-### Parameters (2)
-
-#### Parameter 1: mailData: object
-
-#### Parameter 2: isMultiple (optional): boolean
 
 # Interfaces
 
-## MailDataFromOptional
+## 🔷 MailDataFromOptional
 
 From is optional for sending an email because it will be filled in by the OsConfig default.
 
@@ -84,7 +82,7 @@ Properties:
 
 # Variables
 
-## sendMail (exported const)
+## 📄 sendMail (exported const)
 
 Sends email(s) using sendgrid
 

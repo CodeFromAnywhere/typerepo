@@ -21,11 +21,9 @@ peer-functions (node operation)
 - [getPublicPeers](#getPublicPeers)
 - [isPortUsed](#isPortUsed)
 - [lateFetchPeerMessageSync](#lateFetchPeerMessageSync)
-- [main](#main)
 - [ping](#ping)
 - [proactivePushAddPeerMessage](#proactivePushAddPeerMessage)
 - [removePeer](#removePeer)
-- [test](#test)
 - [updatePeer](#updatePeer)
 
 ## Variables
@@ -43,72 +41,94 @@ peer-functions (node operation)
 - [getPublicPeers](#getpublicpeers)
 - [isPortUsed](#isportused)
 - [lateFetchPeerMessageSync](#latefetchpeermessagesync)
-- [main](#main)
 - [ping](#ping)
 - [proactivePushAddPeerMessage](#proactivepushaddpeermessage)
 - [removePeer](#removepeer)
-- [test](#test)
 - [updatePeer](#updatepeer)
 
 
 
 # Functions
 
-## addPeerMessage
+## addPeerMessage()
 
-### Parameters (2)
+| Input      |    |    |
+| ---------- | -- | -- |
+| message | string |  |,| peerSlug | string |  |
+| **Output** |    |    |
 
-#### Parameter 1: message: string
 
-#### Parameter 2: peerSlug: string
 
-## addPeer
+## addPeer()
 
-### Parameters (5)
+| Input      |    |    |
+| ---------- | -- | -- |
+| ip | string |  |,| authToken (optional) | string |  |,| peerName (optional) | string |  |,| force (optional) | boolean | If true, it does not validate the IP to see if it is online and it is authorized... |,| isMe (optional) | boolean |  |
+| **Output** |    |    |
 
-#### Parameter 1: ip: string
 
-#### Parameter 2: authToken (optional): string
 
-#### Parameter 3: peerName (optional): string
-
-#### Parameter 4: force (optional): boolean
-
-#### Parameter 5: isMe (optional): boolean
-
-## getAllAppOperations
+## getAllAppOperations()
 
 Gets all app operations from all packageJsons from the database. Adds `isOnline` to it on the fly by checking if it can connect to the port or not
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getFirstEmoji
 
-### Returns: string
+## getFirstEmoji()
 
-### Parameters (1)
+| Input      |    |    |
+| ---------- | -- | -- |
+| text (optional) | string |  |
+| **Output** | string   |    |
 
-#### Parameter 1: text (optional): string
 
-## getNestedPathObject
 
-### Parameters (1)
+## getNestedPathObject()
 
-#### Parameter 1: baseFolderPath: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| baseFolderPath | string |  |
+| **Output** |    |    |
 
-## getPeerMessages
 
-## getPeersFromPeersRecursively
 
-## getPeers
+## getPeerMessages()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## getPeersFromPeersRecursively()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## getPeers()
 
 Get peers with person relation and calculated values, sorted (first favorite, then online, then offline)
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getPublicFolderNestedPathObjectFromPeer
+
+## getPublicFolderNestedPathObjectFromPeer()
 
 Peer = {
 name: "22.2.2.2.2.2",
@@ -116,110 +136,121 @@ slug: "22-22-22-22"
 }
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| peerSlug | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: peerSlug: string
+## getPublicFolderNestedPathObject()
 
-## getPublicFolderNestedPathObject
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
-## getPublicPeers
 
-## isPortUsed
+
+## getPublicPeers()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## isPortUsed()
 
 Checks if a port is used or not
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| port | number |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: port: number
-
-## lateFetchPeerMessageSync
+## lateFetchPeerMessageSync()
 
 Should sync messages from all peers that are online into your database
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## main
 
-## ping
+## ping()
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
 
-## proactivePushAddPeerMessage
+
+
+## proactivePushAddPeerMessage()
 
 Adds a message to your own peer messages database, but also to the db of all your peers that are online currently
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| message | string |  |,| peerSlug | string |  |
+| **Output** |    |    |
 
 
-### Parameters (2)
 
-#### Parameter 1: message: string
+## removePeer()
 
-#### Parameter 2: peerSlug: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| slug | string | Slug of the peer (ip) |
+| **Output** |    |    |
 
-## removePeer
 
-### Parameters (1)
 
-#### Parameter 1: slug: string
-
-## test
-
-## updatePeer
+## updatePeer()
 
 Update one of your peers
 
 
-
-
-### Parameters (2)
-
-#### Parameter 1: slug: string
-
-#### Parameter 2: updatedValues: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name (optional) | string |  |
-| description (optional) | string |  |
-| authToken (optional) | string |  |
-| isFavorite (optional) | boolean |  |
-| isMe (optional) | boolean |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| slug | string |  |,| updatedValues | { name?: string, <br />description?: string, <br />authToken?: string, <br />isFavorite?: boolean, <br />isMe?: boolean, <br /> } |  |
+| **Output** |    |    |
 
 
 # Variables
 
-## addPeerMessage (exported const)
+## 📄 addPeerMessage (exported const)
 
-## addPeer (exported const)
+## 📄 addPeer (exported const)
 
-## getAllAppOperations (exported const)
+## 📄 getAllAppOperations (exported const)
 
 Gets all app operations from all packageJsons from the database. Adds `isOnline` to it on the fly by checking if it can connect to the port or not
 
 
-## getFirstEmoji (exported const)
+## 📄 getFirstEmoji (exported const)
 
-## getNestedPathObject (exported const)
+## 📄 getNestedPathObject (exported const)
 
-## getPeerMessages (exported const)
+## 📄 getPeerMessages (exported const)
 
-## getPeersFromPeersRecursively (exported const)
+## 📄 getPeersFromPeersRecursively (exported const)
 
-## getPeers (exported const)
+## 📄 getPeers (exported const)
 
 Get peers with person relation and calculated values, sorted (first favorite, then online, then offline)
 
 
-## getPublicFolderNestedPathObjectFromPeer (exported const)
+## 📄 getPublicFolderNestedPathObjectFromPeer (exported const)
 
 Peer = {
 name: "22.2.2.2.2.2",
@@ -227,34 +258,30 @@ slug: "22-22-22-22"
 }
 
 
-## getPublicFolderNestedPathObject (exported const)
+## 📄 getPublicFolderNestedPathObject (exported const)
 
-## getPublicPeers (exported const)
+## 📄 getPublicPeers (exported const)
 
-## isPortUsed (exported const)
+## 📄 isPortUsed (exported const)
 
 Checks if a port is used or not
 
 
-## lateFetchPeerMessageSync (exported const)
+## 📄 lateFetchPeerMessageSync (exported const)
 
 Should sync messages from all peers that are online into your database
 
 
-## main (unexported const)
+## 📄 ping (exported const)
 
-## ping (exported const)
-
-## proactivePushAddPeerMessage (exported const)
+## 📄 proactivePushAddPeerMessage (exported const)
 
 Adds a message to your own peer messages database, but also to the db of all your peers that are online currently
 
 
-## removePeer (exported const)
+## 📄 removePeer (exported const)
 
-## test (unexported const)
-
-## updatePeer (exported const)
+## 📄 updatePeer (exported const)
 
 Update one of your peers
 

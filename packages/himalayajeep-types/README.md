@@ -13,7 +13,6 @@ himalayajeep-types (node operation)
 
 ## Interfaces
 
-- [DefaultModelType](#defaultmodeltype)
 - [MyJeepType](#myjeeptype)
 - [PublicJeepType](#publicjeeptype)
 - [SignupJeepType](#signupjeeptype)
@@ -22,7 +21,7 @@ himalayajeep-types (node operation)
 
 # Models
 
-## JeepType
+## 🔷 JeepType
 
 jsonMultiple model
 
@@ -63,7 +62,7 @@ Properties:
 
 
 
-## LocationType
+## 🔷 LocationType
 
 jsonMultiple model
 
@@ -96,31 +95,7 @@ Properties:
 
 # Interfaces
 
-## DefaultModelType
-
-Use this model by default
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-
-
-
-## MyJeepType
+## 🔷 MyJeepType
 
 Driver login jeep info
 
@@ -151,7 +126,7 @@ Properties:
 
 
 
-## PublicJeepType
+## 🔷 PublicJeepType
 
 Passenger public jeep overview
 
@@ -176,7 +151,7 @@ Properties:
 
 
 
-## SignupJeepType
+## 🔷 SignupJeepType
 
 Jeep driver signup FORM (not part of the model)
 

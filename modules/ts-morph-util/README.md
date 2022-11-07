@@ -22,40 +22,48 @@ ts-morph-util (node operation)
 
 # Functions
 
-## getAllTsMorphSourceFiles
+## getAllTsMorphSourceFiles()
 
-### Parameters (1)
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationBasePath | string |  |
+| **Output** |    |    |
 
-#### Parameter 1: operationBasePath: string
 
-## getHasGeneric
+
+## getHasGeneric()
 
 returns a boolean indicating whether an interface or type has one or more generic arguments
 
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
 
-## getTsMorphProject
+
+
+## getTsMorphProject()
 
 returns a ts-morph Project given a operationFolderPath, if a tsconfig.json can be found
 
 
-### Returns: object
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationFolderPath | string |  |
+| **Output** | {  }   |    |
 
-### Parameters (1)
-
-#### Parameter 1: operationFolderPath: string
 
 # Variables
 
-## getAllTsMorphSourceFiles (exported const)
+## 📄 getAllTsMorphSourceFiles (exported const)
 
-## getHasGeneric (exported const)
+## 📄 getHasGeneric (exported const)
 
 returns a boolean indicating whether an interface or type has one or more generic arguments
 
 
-## getTsMorphProject (exported const)
+## 📄 getTsMorphProject (exported const)
 
 returns a ts-morph Project given a operationFolderPath, if a tsconfig.json can be found
 

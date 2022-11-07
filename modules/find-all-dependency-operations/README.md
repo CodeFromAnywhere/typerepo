@@ -9,45 +9,42 @@ find-all-dependency-operations (node operation)
 ## Functions
 
 - [findAllDependencyOperations](#findAllDependencyOperations)
-- [findDependantsRecursivelyTest](#findDependantsRecursivelyTest)
 - [findDependantsRecursively](#findDependantsRecursively)
 - [findDependants](#findDependants)
 - [findDependenciesRecursively](#findDependenciesRecursively)
 - [findMonorepoModules](#findMonorepoModules)
 - [getDependencyObject](#getDependencyObject)
 - [getDependencyTree](#getDependencyTree)
-- [test2](#test2)
-- [test](#test)
 
 ## Variables
 
 - [findAllDependencyOperations](#findalldependencyoperations)
-- [findDependantsRecursivelyTest](#finddependantsrecursivelytest)
 - [findDependantsRecursively](#finddependantsrecursively)
 - [findDependants](#finddependants)
 - [findDependenciesRecursively](#finddependenciesrecursively)
 - [findMonorepoModules](#findmonorepomodules)
 - [getDependencyObject](#getdependencyobject)
 - [getDependencyTree](#getdependencytree)
-- [test2](#test2)
-- [test](#test)
 
 
 
 # Functions
 
-## findAllDependencyOperations
+## findAllDependencyOperations()
 
 to be used when you need to know all dependencies for multiple operation names at once
 
 TODO: NB: this breaks with circular dependencies
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## findDependantsRecursivelyTest
 
-## findDependantsRecursively
+## findDependantsRecursively()
 
 findDependants({
 
@@ -60,9 +57,14 @@ returnOperationName: false,
 }).then(console.log);
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## findDependants
+
+## findDependants()
 
 getDependencyTree(["k-types", "fs-orm"], []).then((res) =>
 
@@ -75,23 +77,38 @@ finds all dependants of an operation or a specific import from that operation
 normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
 
 
-
-
-## findDependenciesRecursively
-
-finds all dependencies of an operation name
-
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
-## findMonorepoModules
+## findDependenciesRecursively()
 
 finds all dependencies of an operation name
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getDependencyObject
+
+## findMonorepoModules()
+
+finds all dependencies of an operation name
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## getDependencyObject()
 
 findAllDependencyOperations(["fs-orm"]).then(console.log);
 
@@ -106,49 +123,50 @@ const x = {
 }
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
-## getDependencyTree
 
-## test2
+## getDependencyTree()
 
-## test
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
 
 # Variables
 
-## findAllDependencyOperations (exported const)
+## 📄 findAllDependencyOperations (exported const)
 
 to be used when you need to know all dependencies for multiple operation names at once
 
 TODO: NB: this breaks with circular dependencies
 
 
-## findDependantsRecursivelyTest (unexported const)
+## 📄 findDependantsRecursively (exported const)
 
-## findDependantsRecursively (exported const)
-
-## findDependants (exported const)
+## 📄 findDependants (exported const)
 
 finds all dependants of an operation or a specific import from that operation
 
 normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
 
 
-## findDependenciesRecursively (exported const)
+## 📄 findDependenciesRecursively (exported const)
 
 finds all dependencies of an operation name
 
 
-## findMonorepoModules (exported const)
+## 📄 findMonorepoModules (exported const)
 
 finds all dependencies of an operation name
 
 
-## getDependencyObject (exported const)
+## 📄 getDependencyObject (exported const)
 
-## getDependencyTree (exported const)
-
-## test2 (unexported const)
-
-## test (unexported const)
+## 📄 getDependencyTree (exported const)
 

@@ -21,27 +21,20 @@ returns src folder paths of all operations
 
 # Functions
 
-## getAllOperationSourcePaths
+## getAllOperationSourcePaths()
 
 returns src folder paths of all operations
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { manualProjectRoot?: string, <br /> } |  |
+| **Output** |    |    |
 
 
 # Variables
 
-## getAllOperationSourcePaths (exported const)
+## 📄 getAllOperationSourcePaths (exported const)
 
 returns src folder paths of all operations
 

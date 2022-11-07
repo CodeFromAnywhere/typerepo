@@ -25,15 +25,17 @@ exposes `makeFileType`, a function that helped turning a path into a specific ty
 
 # Functions
 
-## makeFileType
+## makeFileType()
 
-### Parameters (1)
+| Input      |    |    |
+| ---------- | -- | -- |
+| filePath | string |  |
+| **Output** |    |    |
 
-#### Parameter 1: filePath: string
 
 # Interfaces
 
-## FileType
+## 🔷 FileType
 
 Properties: 
 
@@ -48,5 +50,5 @@ Properties:
 
 # Variables
 
-## makeFileType (exported const)
+## 📄 makeFileType (exported const)
 

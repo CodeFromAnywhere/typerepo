@@ -20,11 +20,9 @@ export declare const operationToMarkdown: (config: {
      */
     mergeDocsInline?: boolean | undefined;
     /**
-     * save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files
-     *
-     * string: returns the full markdown string
-     *
-     * parse: returns the markdownparse
+     * - save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files
+     * - string: returns the full markdown string
+     * - parse: returns the `MarkdownParse`
      */
     returnType?: "string" | "parse" | "save" | undefined;
 }) => Promise<string | MarkdownParse | undefined>;

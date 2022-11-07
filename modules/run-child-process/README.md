@@ -8,48 +8,30 @@ run-child-process (js operation)
 
 ## Functions
 
-- [main](#main)
 - [runChildProcess](#runChildProcess)
 
 ## Variables
 
-- [[argument]](#argument)
-- [main](#main)
 - [runChildProcess](#runchildprocess)
 
 
 
 # Functions
 
-## main
-
-## runChildProcess
+## runChildProcess()
 
 spawns a child process and returns its output after it's done
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationFolderName  | string |  |
-| scriptFileName  | string |  |
-| args (optional) | array |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { operationFolderName: string, <br />scriptFileName: string, <br />args?: {  }[], <br /> } |  |
+| **Output** |    |    |
 
 
 # Variables
 
-## [argument] (unexported const)
-
-## main (unexported const)
-
-## runChildProcess (exported const)
+## 📄 runChildProcess (exported const)
 
 spawns a child process and returns its output after it's done
 

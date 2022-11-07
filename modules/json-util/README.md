@@ -22,24 +22,24 @@ json-util (js operation)
 
 # Functions
 
-## getSimpleJsonString
+## getSimpleJsonString()
 
 stringifies simple json things if the json is one of them, otherwise returns undefined
 
 
-### Returns: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| json | `Json` |  |
+| **Output** | string   |    |
 
-### Parameters (1)
-
-#### Parameter 1: json: object
 
 # Interfaces
 
-## Json
+## 🔷 Json
 
 # Variables
 
-## getSimpleJsonString (exported const)
+## 📄 getSimpleJsonString (exported const)
 
 stringifies simple json things if the json is one of them, otherwise returns undefined
 

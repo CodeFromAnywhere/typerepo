@@ -13,7 +13,6 @@ comment-util (js operation)
 - [stripComment](#stripComment)
 - [stripSlashes](#stripSlashes)
 - [stripStar](#stripStar)
-- [trimSurroundingNewlines](#trimSurroundingNewlines)
 - [trim](#trim)
 
 ## Variables
@@ -23,31 +22,34 @@ comment-util (js operation)
 - [stripComment](#stripcomment)
 - [stripSlashes](#stripslashes)
 - [stripStar](#stripstar)
-- [trimSurroundingNewlines](#trimsurroundingnewlines)
 - [trim](#trim)
 
 
 
 # Functions
 
-## stripCommentEnd
+## stripCommentEnd()
 
 only strip slahes for single-line comments
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| trimmedLine | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: trimmedLine: string
+## stripCommentStart()
 
-## stripCommentStart
+| Input      |    |    |
+| ---------- | -- | -- |
+| trimmedLine | string |  |
+| **Output** |    |    |
 
-### Parameters (1)
 
-#### Parameter 1: trimmedLine: string
 
-## stripComment
+## stripComment()
 
 parses comments (single line, multiline and doc) and removes the comment syntax
 
@@ -73,52 +75,46 @@ comment
 ```
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: rawCommentString: string
-
-## stripSlashes
-
-### Parameters (1)
-
-#### Parameter 1: trimmedLine: string
-
-## stripStar
-
-### Parameters (1)
-
-#### Parameter 1: trimmedLine: string
-
-## trimSurroundingNewlines
-
-removes new lines at beginning and end
-
-NB: This function uses a small recursion! I don't know if this is very efficient, but shouldn't be too deep!
-
-NB: it should be noted that a newline apparently seems to be counting as a single character! Strange.
+| Input      |    |    |
+| ---------- | -- | -- |
+| rawCommentString | string |  |
+| **Output** | `String`   |    |
 
 
 
+## stripSlashes()
 
-### Parameters (1)
+| Input      |    |    |
+| ---------- | -- | -- |
+| trimmedLine | string |  |
+| **Output** |    |    |
 
-#### Parameter 1: string: string
 
-## trim
 
-### Parameters (1)
+## stripStar()
 
-#### Parameter 1: string: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| trimmedLine | string |  |
+| **Output** |    |    |
+
+
+
+## trim()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| string | string |  |
+| **Output** |    |    |
+
 
 # Variables
 
-## stripCommentEnd (exported const)
+## 📄 stripCommentEnd (exported const)
 
-## stripCommentStart (exported const)
+## 📄 stripCommentStart (exported const)
 
-## stripComment (exported const)
+## 📄 stripComment (exported const)
 
 parses comments (single line, multiline and doc) and removes the comment syntax
 
@@ -144,18 +140,9 @@ comment
 ```
 
 
-## stripSlashes (exported const)
+## 📄 stripSlashes (exported const)
 
-## stripStar (exported const)
+## 📄 stripStar (exported const)
 
-## trimSurroundingNewlines (unexported const)
-
-removes new lines at beginning and end
-
-NB: This function uses a small recursion! I don't know if this is very efficient, but shouldn't be too deep!
-
-NB: it should be noted that a newline apparently seems to be counting as a single character! Strange.
-
-
-## trim (exported const)
+## 📄 trim (exported const)
 

@@ -17,14 +17,12 @@ Calls rebuildOperation for every filechange in every operation watched
 
 - [exitIfOperationsChange](#exitIfOperationsChange)
 - [gitCommitAllCron](#gitCommitAllCron)
-- [main](#main)
 - [watchOperations](#watchOperations)
 
 ## Variables
 
 - [exitIfOperationsChange](#exitifoperationschange)
 - [gitCommitAllCron](#gitcommitallcron)
-- [main](#main)
 - [watchOperations](#watchoperations)
 
 
@@ -46,27 +44,19 @@ If you don't have these cli's, make sure to install them first.
 
 # Functions
 
-## exitIfOperationsChange
+## exitIfOperationsChange()
 
 every 5 seconds compares if the operationsourcepaths have changed. If so, exits the process
 
 
-
-
-### Parameters (2)
-
-#### Parameter 1: allOperationSourcePaths: array
-
-- null: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| allOperationSourcePaths | string[] |  |,| manualProjectRoot (optional) | string |  |
+| **Output** |    |    |
 
 
 
-
-
-
-#### Parameter 2: manualProjectRoot (optional): string
-
-## gitCommitAllCron
+## gitCommitAllCron()
 
 const pushPosition = async () => {
 const position = await getLocation();
@@ -111,44 +101,34 @@ pushLight();
 };
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| manualProjectRoot (optional) | string |  |
+| **Output** |    |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: manualProjectRoot (optional): string
-
-## main
-
-## watchOperations
+## watchOperations()
 
 watches all operations and does much more
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: config (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| manualProjectRoot (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { manualProjectRoot?: string, <br /> } |  |
+| **Output** |    |    |
 
 
 # Variables
 
-## exitIfOperationsChange (exported const)
+## 📄 exitIfOperationsChange (exported const)
 
 every 5 seconds compares if the operationsourcepaths have changed. If so, exits the process
 
 
-## gitCommitAllCron (exported const)
+## 📄 gitCommitAllCron (exported const)
 
-## main (unexported const)
-
-## watchOperations (exported const)
+## 📄 watchOperations (exported const)
 
 watches all operations and does much more
 

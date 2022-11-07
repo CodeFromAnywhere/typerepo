@@ -452,7 +452,7 @@ export declare const sdk: {
     findCommentTypes: (commentWithoutFrontmatter: string) => ("description" | "todo" | "discussion" | "idea" | "later" | "nb" | "title" | "section")[];
     generateSchema: (filePath: string, morphInterfaceInfo: import("index-typescript").MorphInterfaceInfo[], namedAbsoluteImportNames: string[]) => Promise<import("model-types").Creation<import("code-types").TsInterface>[]>;
     getAllComments: (tsMorphNode: import("ts-morph").VariableDeclaration | import("ts-morph").Statement<import("@ts-morph/common/lib/typescript").Statement> | import("ts-morph").Expression<import("@ts-morph/common/lib/typescript").Expression>, fileContent: string, operationRelativeTypescriptFilePath: string) => import("model-types").Creation<import("code-types").TsComment>[];
-    getDbStorageMethod: ({ typeName, frontmatter, extensions, }: {
+    getDbStorageMethod: (config: {
         typeName: string;
         frontmatter: import("matter-types").Frontmatter;
         extensions?: string[] | undefined;
@@ -610,7 +610,7 @@ export declare const sdk: {
     getAllMarkdownReaderPages: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<import("markdown-reader-types").MarkdownReaderPage[] | undefined>;
-    getFolderExplorationInfo: (nestedPathObject: import("nested-menu").NestedPathObject, queryPath: string, projectRoot: string) => Promise<{
+    getFolderExplorationInfo: (nestedPathObject: NestedPathObject, queryPath: string, projectRoot: string) => Promise<{
         title: string | undefined;
         description: string | null;
         descriptionProjectRelativeMarkdownPath: string | null;
@@ -622,7 +622,7 @@ export declare const sdk: {
         }[];
     }>;
     getMarkdownModelPages: (projectRoot: string) => Promise<import("markdown-reader-types").MarkdownReaderPage[]>;
-    getMarkdownPageInfo: (projectRoot: string, nestedPathObject: import("nested-menu").NestedPathObject, queryPath: string, contentPage: import("markdown-reader-types").MarkdownReaderPage) => Promise<{
+    getMarkdownPageInfo: (projectRoot: string, nestedPathObject: NestedPathObject, queryPath: string, contentPage: import("markdown-reader-types").MarkdownReaderPage) => Promise<{
         markdownFile: import("code-types").WebMarkdownFile | null;
         nextQueryPath: string | null;
         previousQueryPath: string | null;
@@ -681,7 +681,7 @@ export declare const sdk: {
     }>;
     getAllAppOperations: () => Promise<import("peer-types").AppOperation[]>;
     getFirstEmoji: (text?: string | undefined) => string | undefined;
-    getNestedPathObject: (baseFolderPath: string) => Promise<import("nested-menu").NestedPathObject>;
+    getNestedPathObject: (baseFolderPath: string) => Promise<NestedPathObject>;
     getPeerMessages: () => Promise<import("peer-types").PeerMessage[]>;
     getPeersFromPeersRecursively: () => void;
     getPeers: () => Promise<{
@@ -691,7 +691,7 @@ export declare const sdk: {
     getPublicFolderNestedPathObjectFromPeer: (peerSlug: string) => Promise<{
         peerApiResult: import("api-types").RealApiReturnType<"getPublicFolderNestedPathObject">;
     } | undefined>;
-    getPublicFolderNestedPathObject: () => Promise<import("nested-menu").NestedPathObject | undefined>;
+    getPublicFolderNestedPathObject: () => Promise<any>;
     getPublicPeers: () => Promise<any[]>;
     isPortUsed: (port: number) => Promise<boolean>;
     lateFetchPeerMessageSync: () => Promise<{

@@ -1,4 +1,5 @@
 import { TsFunction } from "code-types";
+export declare const isUpperCase: (text: string) => boolean;
 /**
  TsFunction:
  - name and operation

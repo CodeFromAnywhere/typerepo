@@ -18,26 +18,17 @@ nodemon (node operation)
 
 # Functions
 
-## nodemon
+## nodemon()
 
-### Parameters (4)
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationName | string |  |,| cliFunctionName | string | name of the function that you want to run the cli from
 
-#### Parameter 1: operationName: string
+by convention, we are going to execute the `build/cli/[fnName].cli.js` file |,| vars (optional) | string[] | vars that need to be passed to the cli |,| manualProjectRoot (optional) | string | manual project root for the operation to run |
+| **Output** |    |    |
 
-#### Parameter 2: cliFunctionName: string
-
-#### Parameter 3: vars (optional): array
-
-- null: string
-
-
-
-
-
-
-#### Parameter 4: manualProjectRoot (optional): string
 
 # Variables
 
-## nodemon (exported const)
+## 📄 nodemon (exported const)
 

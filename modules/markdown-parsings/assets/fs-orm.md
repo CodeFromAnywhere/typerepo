@@ -42,10 +42,13 @@ ORM that lets you create a database with models that are stored on the file syst
 - [getDatabaseRootFolder](#getDatabaseRootFolder)
 - [getDbFileLocation](#getDbFileLocation)
 - [getDbStorageMethodExtension](#getDbStorageMethodExtension)
+- [getDefaultLocationPattern](#getDefaultLocationPattern)
 - [getItemModelLocation](#getItemModelLocation)
 - [getLength](#getLength)
 - [getLocationPattern](#getLocationPattern)
+- [getMergedConfigOperationPath](#getMergedConfigOperationPath)
 - [getParentSlug](#getParentSlug)
+- [getRootFolders](#getRootFolders)
 - [getWildcardDbFileLocations__OLD](#getWildcardDbFileLocations__OLD)
 - [getWildcardDbFileLocations](#getWildcardDbFileLocations)
 - [groupByFile](#groupByFile)
@@ -58,50 +61,89 @@ ORM that lets you create a database with models that are stored on the file syst
 - [upsertKeyValueMarkdown](#upsertKeyValueMarkdown)
 - [upsert](#upsert)
 
-## Interfaces:
+## Interfaces
 
-- [AnyModelObject](#AnyModelObject)
-- [AnyModelType](#AnyModelType)
-- [AnyModelObject](#AnyModelObject)
-- [AnyModelType](#AnyModelType)
-- [AugmentedAnyModelType](#AugmentedAnyModelType)
-- [AugmentedAnyModelType](#AugmentedAnyModelType)
-- [CategoryStack](#CategoryStack)
-- [CategoryStack](#CategoryStack)
-- [CustomQueryConfig](#CustomQueryConfig)
-- [CustomQueryConfig](#CustomQueryConfig)
-- [DbFileLocation](#DbFileLocation)
-- [DbQueryResult](#DbQueryResult)
-- [DbStorageMethod](#DbStorageMethod)
-- [DbFileLocation](#DbFileLocation)
-- [DbQueryResult](#DbQueryResult)
-- [DbStorageMethod](#DbStorageMethod)
-- [Frontmatter](#Frontmatter)
-- [IncludeConfig](#IncludeConfig)
-- [IncludeDataObject](#IncludeDataObject)
-- [Include](#Include)
-- [IncludeConfig](#IncludeConfig)
-- [IncludeDataObject](#IncludeDataObject)
-- [KeyValueMarkdownModelType](#KeyValueMarkdownModelType)
-- [KeyValueMarkdownModelType](#KeyValueMarkdownModelType)
-- [MergedQueryConfig](#MergedQueryConfig)
-- [MergedQueryConfig](#MergedQueryConfig)
-- [ModelLocation](#ModelLocation)
-- [ModelLocation](#ModelLocation)
-- [QueryConfig](#QueryConfig)
-- [QueryConfig](#QueryConfig)
-- [RootDbFolder](#RootDbFolder)
-- [RootDbFolder](#RootDbFolder)
-- [UpsertKeyValueMarkdownItem](#UpsertKeyValueMarkdownItem)
-- [UpsertQueryConfig](#UpsertQueryConfig)
-- [UpsertKeyValueMarkdownItem](#UpsertKeyValueMarkdownItem)
-- [UpsertQueryConfig](#UpsertQueryConfig)
+- [AnyModelObject](#anymodelobject)
+- [AnyModelType](#anymodeltype)
+- [AnyModelObject](#anymodelobject)
+- [AnyModelType](#anymodeltype)
+- [AugmentedAnyModelType](#augmentedanymodeltype)
+- [AugmentedAnyModelType](#augmentedanymodeltype)
+- [CategoryStack](#categorystack)
+- [CategoryStack](#categorystack)
+- [CustomQueryConfig](#customqueryconfig)
+- [CustomQueryConfig](#customqueryconfig)
+- [DbFileLocation](#dbfilelocation)
+- [DbQueryResult](#dbqueryresult)
+- [DbStorageMethod](#dbstoragemethod)
+- [DbFileLocation](#dbfilelocation)
+- [DbQueryResult](#dbqueryresult)
+- [DbStorageMethod](#dbstoragemethod)
+- [Frontmatter](#frontmatter)
+- [IncludeConfig](#includeconfig)
+- [IncludeDataObject](#includedataobject)
+- [Include](#include)
+- [IncludeConfig](#includeconfig)
+- [IncludeDataObject](#includedataobject)
+- [KeyValueMarkdownModelType](#keyvaluemarkdownmodeltype)
+- [KeyValueMarkdownModelType](#keyvaluemarkdownmodeltype)
+- [MergedQueryConfig](#mergedqueryconfig)
+- [MergedQueryConfig](#mergedqueryconfig)
+- [ModelLocation](#modellocation)
+- [ModelLocation](#modellocation)
+- [QueryConfig](#queryconfig)
+- [QueryConfig](#queryconfig)
+- [RootDbFolder](#rootdbfolder)
+- [RootDbFolder](#rootdbfolder)
+- [UpsertKeyValueMarkdownItem](#upsertkeyvaluemarkdownitem)
+- [UpsertQueryConfig](#upsertqueryconfig)
+- [UpsertKeyValueMarkdownItem](#upsertkeyvaluemarkdownitem)
+- [UpsertQueryConfig](#upsertqueryconfig)
+
+## Variables
+
+- [addDefaultValues](#adddefaultvalues)
+- [alterAny](#alterany)
+- [alterCsv](#altercsv)
+- [alterJsonMultiple](#alterjsonmultiple)
+- [alterJsonSingle](#alterjsonsingle)
+- [alterKeyValueMarkdown](#alterkeyvaluemarkdown)
+- [alterMarkdown](#altermarkdown)
+- [augmentItemWithReferencedDataRecursively](#augmentitemwithreferenceddatarecursively)
+- [calculateOperationsObject](#calculateoperationsobject)
+- [categoryStackCalculated](#categorystackcalculated)
+- [createDb](#createdb)
+- [findParent](#findparent)
+- [getAugmentedData](#getaugmenteddata)
+- [getDatabaseFiles](#getdatabasefiles)
+- [getDatabaseRootFolder](#getdatabaserootfolder)
+- [getDbFileLocation](#getdbfilelocation)
+- [getDbStorageMethodExtension](#getdbstoragemethodextension)
+- [getDefaultLocationPattern](#getdefaultlocationpattern)
+- [getItemModelLocation](#getitemmodellocation)
+- [getLength](#getlength)
+- [getLocationPattern](#getlocationpattern)
+- [getMergedConfigOperationPath](#getmergedconfigoperationpath)
+- [getParentSlug](#getparentslug)
+- [getRootFolders](#getrootfolders)
+- [getWildcardDbFileLocations__OLD](#getwildcarddbfilelocations-old)
+- [getWildcardDbFileLocations](#getwildcarddbfilelocations)
+- [groupByFile](#groupbyfile)
+- [makeStoringItem](#makestoringitem)
+- [maxConcurrency](#maxconcurrency)
+- [mergeConfigs](#mergeconfigs)
+- [removeKeyValueMarkdown](#removekeyvaluemarkdown)
+- [removeMultiple](#removemultiple)
+- [test](#test)
+- [upsertItems](#upsertitems)
+- [upsertKeyValueMarkdown](#upsertkeyvaluemarkdown)
+- [upsert](#upsert)
 
 
 
 # Docs
 
-## 1 making a model
+## Making a model
 
 In order to add a new model to your typebase, you need to add it to your `sdk-db`.
 
@@ -402,7 +444,7 @@ const upsertTodos = async () => {
 
 # Functions
 
-## addDefaultValues
+## addDefaultValues()
 
 Adds timestamps, id, and a slug IF these things are not already present
 
@@ -414,152 +456,146 @@ NB: for kvmd storage, id will be set to a kebab-case of the name
 NB: does not add the ModelLocation parameters
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| bareItem | `Creation%3CAugmentedAnyModelType%3E` |  |,| isKvmdStorage (optional) | boolean |  |
+| **Output** | ?   |    |
 
 
-## alterAny
+
+## alterAny()
 
 low level function that alters data from any storage method at a certain location
 
 comprises all dbStorageMethods
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
 
 
-## alterCsv
+
+## alterCsv()
 
 Alters a csv
 
 
-
-
-## alterJsonMultiple
-
-Alters a json single file
-
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
 
 
 
-## alterJsonSingle
+## alterJsonMultiple()
 
 Alters a json single file
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
 
 
-## alterKeyValueMarkdown
 
-## alterMarkdown
+## alterJsonSingle()
+
+Alters a json single file
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
+
+
+
+## alterKeyValueMarkdown()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
+
+
+
+## alterMarkdown()
 
 Alters a markdown file
 
 
-
-
-## augmentItemWithReferencedDataRecursively
-
-### Parameters (3)
-
-#### Parameter 1: item: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| operationRelativePath (optional) | string | path to db file<br /><br />- relatively from the operation root folder (without slash at start)<br />- calculated value (not stored in database)<br />- can be `undefined` if the db file does not belong to an operation<br />- can be `undefined` when you are creating an item, because then it can be set for you |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
 
 
 
-#### Parameter 2: includeArray: array
+## augmentItemWithReferencedDataRecursively()
 
-## calculateOperationsObject
+| Input      |    |    |
+| ---------- | -- | -- |
+| item | `AugmentedAnyModelType` |  |,| includeArray | `Include`[] |  |,| includeData | `IncludeDataObject` | Final includeData object to take items from |
+| **Output** | ?   |    |
+
+
+
+## calculateOperationsObject()
 
 Needed in case of manual project root, otherwise use SDK!
 
 Returns project relative operation base paths
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| manualProjectRoot | string |  |
+| **Output** | ?   |    |
 
 
-### Parameters (1)
 
-#### Parameter 1: manualProjectRoot: string
-
-## createDb
+## createDb()
 
 Create your database by passing your models as a generic and some optional configuration
 
 
-### Returns: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| get  | object |  |
-| getByFile  | object |  |
-| set  | object |  |
-| remove  | object |  |
-| update  | object |  |
-| clear  | object |  |
-| upsert  | object |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| dbConfig (optional) | `DbConfig%3C%3E` |  |
+| **Output** | object   |    |
 
 
 
-## findParent
+## findParent()
 
 this location matches any category that equals the categorystack
 
 
-### Returns: object
-
-### Parameters (2)
-
-#### Parameter 2: newCategoryStack: array
-
-- null: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| arrayItem | `Storing%3CKeyValueMarkdownModelType%3E` |  |,| newCategoryStack | `CategoryStack` |  |
+| **Output** | object   |    |
 
 
 
-
-
-
-## getAugmentedData
+## getAugmentedData()
 
 Gets the stored data from any file with any storage method, and augments the modelLocation onto it...
 
 Also augments the `name`, `slug` and `categoryStackCalculated` onto this if the `dbStorageMethod` is `markdown` or `jsonSingle` and if `operationRelativePath` is not set
 
 
-
-
-### Parameters (2)
-
-#### Parameter 1: dbFileLocation: object
-
-> Object used to hand over all information about the location of a db-file in a structured way
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| absolutePath  | string |  |
-| modelName  | string |  |
-| operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| operationRelativePath (optional) | string | path to db file<br /><br />- relatively from the operation root folder (without slash at start)<br />- calculated value (not stored in database)<br />- can be `undefined` if the db file does not belong to an operation<br />- can be `undefined` when you are creating an item, because then it can be set for you |
+| Input      |    |    |
+| ---------- | -- | -- |
+| dbFileLocation | `DbFileLocation` |  |,| dbStorageMethod | `DbStorageMethod` |  |
+| **Output** | ?   |    |
 
 
 
-#### Parameter 2: dbStorageMethod: string(Enum: jsonMultiple | jsonSingle | markdown | keyValueMarkdown | csv)
-
-> The following strategies are available to store the data.<br /><br />- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`<br /><br />- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`<br /><br />- **markdown**: stores the data in a markdown file. Takes "markdown" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`<br /><br />- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`<br /><br />- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`<br /><br />## Definitions:<br /><br />- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`<br />- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used
-
-
-
-
-## getDatabaseFiles
+## getDatabaseFiles()
 
 This function gets the files that the data can be stored, by convention, based on the model and the config
 
@@ -577,13 +613,14 @@ In these folders, `fs-orm` will search for files based on your storage method.
 Returns not only the file paths, but also where they were found (`operationName, projectRelativePath, operationRelativePath`)
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| modelName | string |  |,| mergedConfig | `MergedQueryConfig` |  |
+| **Output** | ?   |    |
 
 
-### Parameters (2)
 
-#### Parameter 1: modelName: string
-
-## getDatabaseRootFolder
+## getDatabaseRootFolder()
 
 Tries to get the root folder where the database folder can be found.
 
@@ -591,15 +628,14 @@ If an operationName is specified, this will be the operation base path
 If not, this will be the project root.
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationName (optional) | string |  |,| manualProjectRoot (optional) | string |  |
+| **Output** | ?   |    |
 
 
-### Parameters (2)
 
-#### Parameter 1: operationName (optional): string
-
-#### Parameter 2: manualProjectRoot (optional): string
-
-## getDbFileLocation
+## getDbFileLocation()
 
 Used by `groupByFile`, which is used for `set` (and thus, also `update`) and `upsert`: determines the new file location.
 
@@ -616,51 +652,62 @@ Besides the absolute path, the operationName, projectRelativePath and operationR
 NB: currently, the item's `operationName`, `operationRelativePath` or `projectRelativePath` is not taken into account. It will simply look at the convention to see where it should be saved, and apply the MergedQueryConfig...
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| storedItem | `Storing%3CAugmentedAnyModelType%3E` | The ModelLocation properties in the item are completely ignored.
 
+Only the ID, slug and categoryStackCalculated are used to determine the exact file the item should be stored in.
 
-### Parameters (4)
+NB: storedItem MUST have a slug or ID, but this should probably be generated before this funciton |,| operationName | null | Should be the operationName from the modellocation of the actual item.
 
-#### Parameter 2: itemModelLocation: object
-
-> Parameters that tell you about the location an instance of a model. Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| operationRelativePath (optional) | string | path to db file<br /><br />- relatively from the operation root folder (without slash at start)<br />- calculated value (not stored in database)<br />- can be `undefined` if the db file does not belong to an operation<br />- can be `undefined` when you are creating an item, because then it can be set for you |
+If it is given, this will take priority over the merged query config. |,| mergedConfig | `MergedQueryConfig` |  |,| modelName | string |  |
+| **Output** | ?   |    |
 
 
 
+## getDbStorageMethodExtension()
 
-
-#### Parameter 4: modelName: string
-
-## getDbStorageMethodExtension
-
-### Parameters (1)
-
-#### Parameter 1: dbStorageMethod: string(Enum: jsonMultiple | jsonSingle | markdown | keyValueMarkdown | csv)
-
-> The following strategies are available to store the data.<br /><br />- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`<br /><br />- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`<br /><br />- **markdown**: stores the data in a markdown file. Takes "markdown" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`<br /><br />- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`<br /><br />- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`<br /><br />## Definitions:<br /><br />- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`<br />- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used
+| Input      |    |    |
+| ---------- | -- | -- |
+| dbStorageMethod | `DbStorageMethod` |  |
+| **Output** | ?   |    |
 
 
 
+## getDefaultLocationPattern()
 
-## getItemModelLocation
+DB main storage convention
 
-### Returns: object
 
-## getLength
+| Input      |    |    |
+| ---------- | -- | -- |
+| dbStorageMethod | `DbStorageMethod` |  |,| modelName | string |  |
+| **Output** | string   |    |
+
+
+
+## getItemModelLocation()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | object   |    |
+
+
+
+## getLength()
 
 Safely gets the length of something
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
 
 
-## getLocationPattern
+
+## getLocationPattern()
 
 Returns the pattern or an exact relative path that the file(s) should be stored at.
 
@@ -669,113 +716,142 @@ If a pattern contains a star at the place of the filename, it will search the fo
 Returning relative path has no preceding slash
 
 
-### Returns: string
-
-### Parameters (3)
-
-#### Parameter 1: dbStorageMethod: string(Enum: jsonMultiple | jsonSingle | markdown | keyValueMarkdown | csv)
-
-> The following strategies are available to store the data.<br /><br />- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`<br /><br />- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`<br /><br />- **markdown**: stores the data in a markdown file. Takes "markdown" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`<br /><br />- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`<br /><br />- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`<br /><br />## Definitions:<br /><br />- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`<br />- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used
+| Input      |    |    |
+| ---------- | -- | -- |
+| dbStorageMethod | `DbStorageMethod` |  |,| modelName | string |  |,| mergedConfig | `MergedQueryConfig` |  |
+| **Output** | string   |    |
 
 
 
+## getMergedConfigOperationPath()
 
-#### Parameter 2: modelName: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| mergedConfig | `MergedQueryConfig` |  |,| manualProjectRoot (optional) | string |  |
+| **Output** | ?   |    |
 
-## getParentSlug
+
+
+## getParentSlug()
 
 get a parent slug without the parent_xxxSlug reference (uses the categoryStackCalculated)
 
 can be undefined if the item has no parent
 
 
-### Returns: string
+| Input      |    |    |
+| ---------- | -- | -- |
+| item | `Storing%3CKeyValueMarkdownModelType%3E` |  |
+| **Output** | string   |    |
 
-### Parameters (1)
 
-## getWildcardDbFileLocations__OLD
+
+## getRootFolders()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { manualProjectRoot?: string, projectRoot: string, mergedConfig: `MergedQueryConfig`, operationPath: {  } } |  |
+| **Output** | ?   |    |
+
+
+
+## getWildcardDbFileLocations__OLD()
 
 If it all seems good, I can delete this. This is the old method of looking just in the folder itself, it's replaced by looking in all subfolders as well, recursively.
 
 
-
-
-### Parameters (1)
-
-#### Parameter 1: options: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| modelName  | string |  |
-| operationName  | string |  |
-| projectRoot  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| options | { modelName: string, parsedPath: `path.ParsedPath`, operationName: string, projectRoot: string, rootFolder: `RootDbFolder` } |  |
+| **Output** | ?   |    |
 
 
 
-## getWildcardDbFileLocations
+## getWildcardDbFileLocations()
 
-### Parameters (1)
-
-#### Parameter 1: options: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| modelName  | string |  |
-| operationName  | string |  |
-| projectRoot  | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| options | { modelName: string, parsedPath: `path.ParsedPath`, operationName: string, projectRoot: string, rootFolder: `RootDbFolder` } |  |
+| **Output** | ?   |    |
 
 
 
-## groupByFile
+## groupByFile()
 
 Used for `set` and `upsert`. Groups creation items into an object where keys are file paths and values are items that need to be stored
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
 
 
-## makeStoringItem
 
-## mergeConfigs
+## makeStoringItem()
 
-## removeKeyValueMarkdown
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
+
+
+
+## mergeConfigs()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
+
+
+
+## removeKeyValueMarkdown()
 
 Takes stored data and a slug to remove
 
 
-
-
-### Parameters (2)
-
-#### Parameter 1: storedData: array
-
-#### Parameter 2: slug: string
-
-> slug to remove
+| Input      |    |    |
+| ---------- | -- | -- |
+| storedData | `Storing%3CKeyValueMarkdownModelType%3E`[] |  |,| slug | string | slug to remove |
+| **Output** | ?   |    |
 
 
 
-
-## removeMultiple
+## removeMultiple()
 
 Function that lets you remove items from one specific file, for any storage method
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
 
 
-## test
 
-## upsertItems
+## test()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
+
+
+
+## upsertItems()
 
 upsert an item into storage in any storage method
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | ?   |    |
 
 
-## upsertKeyValueMarkdown
+
+## upsertKeyValueMarkdown()
 
 Takes stored data and an item
 
@@ -789,13 +865,14 @@ BEWARE:
 - you cannot insert a header, always insert an item with `isHeaderCalculated:false`
 
 
+| Input      |    |    |
+| ---------- | -- | -- |
+| storedData | `Storing%3CKeyValueMarkdownModelType%3E`[] |  |,| storingItem | `Storing%3CKeyValueMarkdownModelType%3E` |  |
+| **Output** | ?   |    |
 
 
-### Parameters (2)
 
-#### Parameter 1: storedData: array
-
-## upsert
+## upsert()
 
 Takes stored data and an item
 
@@ -805,60 +882,17 @@ Takes stored data and an item
 NB: this function works for any storage method except for key value markdown
 
 
-
-
-### Parameters (3)
-
-#### Parameter 1: storedData: array
-
-> The items that were already there
-
-
-
-
-#### Parameter 2: storingItems: object
-
-> The items that need to be overwritten or inserted
-
-
-
-
-#### Parameter 3: onlyInsert (optional): boolean
-
-> If true, the upserting will fail if there are occuring items with equal slugs/ids
-
+| Input      |    |    |
+| ---------- | -- | -- |
+| storedData | `Storing%3CAugmentedAnyModelType%3E`[] | The items that were already there |,| storingItems | {  } | The items that need to be overwritten or inserted |,| onlyInsert (optional) | boolean | If true, the upserting will fail if there are occuring items with equal slugs/ids |
+| **Output** | ?   |    |
 
 
 # Interfaces
 
-## AnyModelObject
+## 🔷 AnyModelObject
 
-## AnyModelType
-
-Parameters that every model will always have.
-
-NB: TimeTypes (createdAt, updatedAt, etc.) are not always included because the kvmd-model doesn't have them.
-
-NB: RelationTypes are also not always included for the same reason
-
-
-
-> Parameters that every model will always have.<br /><br />NB: TimeTypes (createdAt, updatedAt, etc.) are not always included because the kvmd-model doesn't have them.<br /><br />NB: RelationTypes are also not always included for the same reason
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| operationRelativePath (optional) | string | path to db file<br /><br />- relatively from the operation root folder (without slash at start)<br />- calculated value (not stored in database)<br />- can be `undefined` if the db file does not belong to an operation<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| id  | string | Should be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.<br /><br /># Background Info<br /><br />azAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.<br /><br />the advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.<br /><br />the change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter<br /><br />An Id with 12 characters would provide 3.22e21 combinations.<br /><br />What is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.<br /><br />Why make an id short? I don't know if there's an important reason.<br /><br />All in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.<br /><br />An id would look like this:<br /><br />``` { "id": "sk2EcW9AkZpksk2EcW9AkZpk" } ```<br /><br />Looks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this. |
-
-
-
-## AnyModelObject
-
-## AnyModelType
+## 🔷 AnyModelType
 
 Parameters that every model will always have.
 
@@ -881,7 +915,32 @@ Properties:
 
 
 
-## AugmentedAnyModelType
+## 🔷 AnyModelObject
+
+## 🔷 AnyModelType
+
+Parameters that every model will always have.
+
+NB: TimeTypes (createdAt, updatedAt, etc.) are not always included because the kvmd-model doesn't have them.
+
+NB: RelationTypes are also not always included for the same reason
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+
+
+
+## 🔷 AugmentedAnyModelType
 
 Properties: 
 
@@ -894,29 +953,20 @@ Properties:
 
 
 
-## AugmentedAnyModelType
+## 🔷 AugmentedAnyModelType
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| operationRelativePath (optional) | string | path to db file<br /><br />- relatively from the operation root folder (without slash at start)<br />- calculated value (not stored in database)<br />- can be `undefined` if the db file does not belong to an operation<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| id  | string | Should be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.<br /><br /># Background Info<br /><br />azAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.<br /><br />the advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.<br /><br />the change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter<br /><br />An Id with 12 characters would provide 3.22e21 combinations.<br /><br />What is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.<br /><br />Why make an id short? I don't know if there's an important reason.<br /><br />All in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.<br /><br />An id would look like this:<br /><br />``` { "id": "sk2EcW9AkZpksk2EcW9AkZpk" } ```<br /><br />Looks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this. |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
 
 
 
-## CategoryStack
-
-- null: string
-
-
-
-
-
-
-## CategoryStack
+## 🔷 CategoryStack
 
 - null: string
 
@@ -925,7 +975,16 @@ Properties:
 
 
 
-## CustomQueryConfig
+## 🔷 CategoryStack
+
+- null: string
+
+
+
+
+
+
+## 🔷 CustomQueryConfig
 
 NB: the dbStorageMethod cannot be specified here because this is a static configuration per db-model and cannot be specified on a per-query basis.
 
@@ -944,7 +1003,7 @@ Properties:
 
 
 
-## CustomQueryConfig
+## 🔷 CustomQueryConfig
 
 NB: the dbStorageMethod cannot be specified here because this is a static configuration per db-model and cannot be specified on a per-query basis.
 
@@ -952,18 +1011,18 @@ Also you can't specify projectRelativePath and operationRelativePath. It should 
 
 
 
-> NB: the dbStorageMethod cannot be specified here because this is a static configuration per db-model and cannot be specified on a per-query basis.<br /><br />Also you can't specify projectRelativePath and operationRelativePath. It should not be needed, you should specify the db storage locations in the createDb config.
+
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| manualProjectRoot (optional) | string | if specified, this will be used as the root path to find your data in<br /><br />if not specified, uses the db folder in your project root and in any operation<br /><br />NB: If you set this, the model interfaces of your current project are applied on another project! Make sure they are the same there before you run such queries. |
-| operationName (optional) | string | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
+| manualProjectRoot (optional) | string |  |
+| operationName (optional) | string |  |
 
 
 
-## DbFileLocation
+## 🔷 DbFileLocation
 
 Object used to hand over all information about the location of a db-file in a structured way
 
@@ -983,7 +1042,7 @@ Properties:
 
 
 
-## DbQueryResult
+## 🔷 DbQueryResult
 
 TODO: return the inserted id or other reference
 
@@ -1006,7 +1065,7 @@ Properties:
 
 
 
-## DbStorageMethod
+## 🔷 DbStorageMethod
 
 The following strategies are available to store the data.
 
@@ -1033,13 +1092,13 @@ The following strategies are available to store the data.
 
 
 
-## DbFileLocation
+## 🔷 DbFileLocation
 
 Object used to hand over all information about the location of a db-file in a structured way
 
 
 
-> Object used to hand over all information about the location of a db-file in a structured way
+
 
 Properties: 
 
@@ -1047,13 +1106,13 @@ Properties:
 |---|---|---|
 | absolutePath  | string |  |
 | modelName  | string |  |
-| operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| operationRelativePath (optional) | string | path to db file<br /><br />- relatively from the operation root folder (without slash at start)<br />- calculated value (not stored in database)<br />- can be `undefined` if the db file does not belong to an operation<br />- can be `undefined` when you are creating an item, because then it can be set for you |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
 
 
 
-## DbQueryResult
+## 🔷 DbQueryResult
 
 TODO: return the inserted id or other reference
 
@@ -1061,7 +1120,7 @@ Result of any query except `get`. Will not always provide all parameters (depend
 
 
 
-> TODO: return the inserted id or other reference<br /><br />Result of any query except `get`. Will not always provide all parameters (depends on the type of query you do)
+
 
 Properties: 
 
@@ -1076,7 +1135,7 @@ Properties:
 
 
 
-## DbStorageMethod
+## 🔷 DbStorageMethod
 
 The following strategies are available to store the data.
 
@@ -1098,12 +1157,12 @@ The following strategies are available to store the data.
 
 
 
-> The following strategies are available to store the data.<br /><br />- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`<br /><br />- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`<br /><br />- **markdown**: stores the data in a markdown file. Takes "markdown" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`<br /><br />- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`<br /><br />- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`<br /><br />## Definitions:<br /><br />- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`<br />- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used
 
 
 
 
-## Frontmatter
+
+## 🔷 Frontmatter
 
 Our version of frontmatter is a bit simpler than regular frontmatter
 
@@ -1117,12 +1176,12 @@ NB: string arrays are comma separated values, where you can put values with spec
 
 
 
-> Our version of frontmatter is a bit simpler than regular frontmatter<br /><br />Not sure if this is a good idea, but it keeps it simple for our OS<br /><br />all values parse in a similar way to csv<br /><br />make sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array<br /><br />NB: string arrays are comma separated values, where you can put values with special characters in between quotes
 
 
 
 
-## IncludeConfig
+
+## 🔷 IncludeConfig
 
 All possible ways to include items from references into a get query
 
@@ -1133,34 +1192,34 @@ All possible ways to include items from references into a get query
 
 
 
-## IncludeDataObject
+## 🔷 IncludeDataObject
 
-## Include
+## 🔷 Include
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| referenceKey (optional) | string | The key that contains a reference. The name of this key should follow the convention, e.g. `xxxSlug`. If this is given, `xxx` will be filled with the item of the referenced model. |
-| items (optional) | array | If provided, the items will be filled from this array. If not provided, the required model will first be fetched using get. It is often more efficient to provide it yourself if you have already fetched it anyway. Nonetheless, `fs-orm` will try and reuse the fetched data to minimize amount of reads to the file system. |
-| include (optional) | object | Optionally, you can provide another include config for this model |
+| referenceKey (optional) | string |  |
+| items (optional) | array |  |
+| include (optional) | object |  |
 
 
 
-## IncludeConfig
+## 🔷 IncludeConfig
 
 All possible ways to include items from references into a get query
 
 
 
-> All possible ways to include items from references into a get query
 
 
 
 
-## IncludeDataObject
 
-## KeyValueMarkdownModelType
+## 🔷 IncludeDataObject
+
+## 🔷 KeyValueMarkdownModelType
 
 handy model type for storing stuff in a KeyValue Markdown file. empty lines are omitted
 
@@ -1189,7 +1248,7 @@ Properties:
 
 
 
-## KeyValueMarkdownModelType
+## 🔷 KeyValueMarkdownModelType
 
 handy model type for storing stuff in a KeyValue Markdown file. empty lines are omitted
 
@@ -1199,40 +1258,26 @@ NB: there can be a `parent_modelNameSlug` key exposed that should refer to the p
 
 
 
-> handy model type for storing stuff in a KeyValue Markdown file. empty lines are omitted<br /><br />all you need to specify in the kvmd is the key and the value, separated by ":"<br /><br />NB: there can be a `parent_modelNameSlug` key exposed that should refer to the parent slug
+
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| id  | string | same as slug<br /><br />used for compatibility with some general purpose functions<br /><br />NB: uniqueness is hard to enforce! |
-| name  | string | key<br /><br />should be english because it's kind of part of the codebase! |
-| slug  | string | calculated: slug for this key (kebab case form of the name) |
-| value (optional) | string | value behind the semicolom (:). If not given, will be undefined.<br /><br />If possible, will be parsed to a number, boolean, null or undefined... otherwise it's a string<br /><br />can be any language that we can detect |
-| comment  | string | comment in html syntax. if not given, will be null |
-| operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| operationRelativePath (optional) | string | path to db file<br /><br />- relatively from the operation root folder (without slash at start)<br />- calculated value (not stored in database)<br />- can be `undefined` if the db file does not belong to an operation<br />- can be `undefined` when you are creating an item, because then it can be set for you |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| value (optional) | string |  |
+| comment  | string |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
 | categoryStackCalculated  | array |  |
-| isHeaderCalculated  | boolean | Calculated value indicating whether or not the item has children |
+| isHeaderCalculated  | boolean |  |
 
 
 
-## MergedQueryConfig
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| dbStorageMethod  | string | The following strategies are available to store the data.<br /><br />- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`<br /><br />- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`<br /><br />- **markdown**: stores the data in a markdown file. Takes "markdown" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`<br /><br />- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`<br /><br />- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`<br /><br />## Definitions:<br /><br />- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`<br />- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used |
-| manualProjectRoot  | string | if specified, this will be used as the root path to find your data in<br /><br />if not specified, uses the db folder in your project root and in any operation<br /><br />NB: If you set this, the model interfaces of your current project are applied on another project! Make sure they are the same there before you run such queries. |
-| operationName (optional) | string | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath (optional) | string | if specified, only this location will be used |
-| operationRelativePath (optional) | string | if specified, only this location will be used (also need an `operationName`) |
-
-
-
-## MergedQueryConfig
+## 🔷 MergedQueryConfig
 
 Properties: 
 
@@ -1246,7 +1291,21 @@ Properties:
 
 
 
-## ModelLocation
+## 🔷 MergedQueryConfig
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| dbStorageMethod  | string |  |
+| manualProjectRoot  | string |  |
+| operationName (optional) | string |  |
+| projectRelativePath (optional) | string |  |
+| operationRelativePath (optional) | string |  |
+
+
+
+## 🔷 ModelLocation
 
 Parameters that tell you about the location an instance of a model. Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.
 
@@ -1264,25 +1323,25 @@ Properties:
 
 
 
-## ModelLocation
+## 🔷 ModelLocation
 
 Parameters that tell you about the location an instance of a model. Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.
 
 
 
-> Parameters that tell you about the location an instance of a model. Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.
+
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| operationName  | null | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath  | string | path to dbfile<br /><br />- calculated value (not stored in database)<br />- relatively from the project (without slash at start)<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| operationRelativePath (optional) | string | path to db file<br /><br />- relatively from the operation root folder (without slash at start)<br />- calculated value (not stored in database)<br />- can be `undefined` if the db file does not belong to an operation<br />- can be `undefined` when you are creating an item, because then it can be set for you |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
 
 
 
-## QueryConfig
+## 🔷 QueryConfig
 
 QueryConfig is set on 4 levels, which have increasing priority
 
@@ -1309,7 +1368,7 @@ Properties:
 
 
 
-## QueryConfig
+## 🔷 QueryConfig
 
 QueryConfig is set on 4 levels, which have increasing priority
 
@@ -1322,32 +1381,21 @@ Not all options are available when running a query.
 
 
 
-> QueryConfig is set on 4 levels, which have increasing priority<br /><br />- hardcoded in `fs-orm`<br />- when calling `createDb`, setting `defaultQueryConfig`<br />- when calling `createDb`, setting `modelQueryConfig`<br />- when running a query<br /><br />Not all options are available when running a query.
+
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| operationName (optional) | string | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
-| projectRelativePath (optional) | string | if specified, only this location will be used |
-| operationRelativePath (optional) | string | if specified, only this location will be used (also need an `operationName`) |
-| dbStorageMethod (optional) | string | The following strategies are available to store the data.<br /><br />- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`<br /><br />- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`<br /><br />- **markdown**: stores the data in a markdown file. Takes "markdown" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`<br /><br />- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`<br /><br />- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`<br /><br />## Definitions:<br /><br />- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`<br />- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used |
-| manualProjectRoot (optional) | string | if specified, this will be used as the root path to find your data in<br /><br />if not specified, uses the db folder in your project root and in any operation<br /><br />NB: If you set this, the model interfaces of your current project are applied on another project! Make sure they are the same there before you run such queries. |
+| operationName (optional) | string |  |
+| projectRelativePath (optional) | string |  |
+| operationRelativePath (optional) | string |  |
+| dbStorageMethod (optional) | string |  |
+| manualProjectRoot (optional) | string |  |
 
 
 
-## RootDbFolder
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| basePath  | string | is an operation Base path in case of operationName is not null |
-| operationName  | string |  |
-
-
-
-## RootDbFolder
+## 🔷 RootDbFolder
 
 Properties: 
 
@@ -1358,7 +1406,18 @@ Properties:
 
 
 
-## UpsertKeyValueMarkdownItem
+## 🔷 RootDbFolder
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| basePath  | string |  |
+| operationName  | string |  |
+
+
+
+## 🔷 UpsertKeyValueMarkdownItem
 
 Properties: 
 
@@ -1369,7 +1428,7 @@ Properties:
 
 
 
-## UpsertQueryConfig
+## 🔷 UpsertQueryConfig
 
 Properties: 
 
@@ -1382,26 +1441,232 @@ Properties:
 
 
 
-## UpsertKeyValueMarkdownItem
+## 🔷 UpsertKeyValueMarkdownItem
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
 | parameters  | object |  |
-| item  | object | handy model type for storing stuff in a KeyValue Markdown file. empty lines are omitted<br /><br />all you need to specify in the kvmd is the key and the value, separated by ":"<br /><br />NB: there can be a `parent_modelNameSlug` key exposed that should refer to the parent slug |
+| item  | object |  |
 
 
 
-## UpsertQueryConfig
+## 🔷 UpsertQueryConfig
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| removeUntouched (optional) | boolean | Special config for upsert. If you set this to true, all items in the databasefiles that were altered that you didn't specify in the items, will be removed. |
-| onlyInsert (optional) | boolean | If true, the query will fail if the slug or id already exists (normally this means upsert will update that value)<br /><br />NB: not supported for keyValueMarkdown |
-| manualProjectRoot (optional) | string | if specified, this will be used as the root path to find your data in<br /><br />if not specified, uses the db folder in your project root and in any operation<br /><br />NB: If you set this, the model interfaces of your current project are applied on another project! Make sure they are the same there before you run such queries. |
-| operationName (optional) | string | name of operation the model belongs to<br /><br />- calculated value (not stored in database)<br />- can be `null` or an actual operationName that it was saved at<br />- can be `undefined` when you are creating an item, because then it can be set for you |
+| removeUntouched (optional) | boolean |  |
+| onlyInsert (optional) | boolean |  |
+| manualProjectRoot (optional) | string |  |
+| operationName (optional) | string |  |
 
+
+# Variables
+
+## 📄 addDefaultValues (exported const)
+
+Adds timestamps, id, and a slug IF these things are not already present
+
+NB: slugs will be slugified here!
+NB: if there is a name present, slug will be added here!
+
+NB: for kvmd storage, id will be set to a kebab-case of the name
+
+NB: does not add the ModelLocation parameters
+
+
+## 📄 alterAny (exported const)
+
+low level function that alters data from any storage method at a certain location
+
+comprises all dbStorageMethods
+
+
+## 📄 alterCsv (exported const)
+
+Alters a csv
+
+
+## 📄 alterJsonMultiple (exported const)
+
+Alters a json single file
+
+
+## 📄 alterJsonSingle (exported const)
+
+Alters a json single file
+
+
+## 📄 alterKeyValueMarkdown (exported const)
+
+## 📄 alterMarkdown (exported const)
+
+Alters a markdown file
+
+
+## 📄 augmentItemWithReferencedDataRecursively (exported const)
+
+## 📄 calculateOperationsObject (exported const)
+
+Needed in case of manual project root, otherwise use SDK!
+
+Returns project relative operation base paths
+
+
+## 📄 categoryStackCalculated (unexported const)
+
+## 📄 createDb (exported const)
+
+Create your database by passing your models as a generic and some optional configuration
+
+
+## 📄 findParent (exported const)
+
+this location matches any category that equals the categorystack
+
+
+## 📄 getAugmentedData (exported const)
+
+Gets the stored data from any file with any storage method, and augments the modelLocation onto it...
+
+Also augments the `name`, `slug` and `categoryStackCalculated` onto this if the `dbStorageMethod` is `markdown` or `jsonSingle` and if `operationRelativePath` is not set
+
+
+## 📄 getDatabaseFiles (exported const)
+
+This function gets the files that the data can be stored, by convention, based on the model and the config
+
+Only returns the file paths that actually exist.
+
+CONVENTION:
+
+When searching for data, `fs-orm` will look in:
+- `db/` in your project root
+- `db/` in any operation
+
+In these folders, `fs-orm` will search for files based on your storage method.
+@see DbStorageMethod for more info
+
+Returns not only the file paths, but also where they were found (`operationName, projectRelativePath, operationRelativePath`)
+
+
+## 📄 getDatabaseRootFolder (exported const)
+
+Tries to get the root folder where the database folder can be found.
+
+If an operationName is specified, this will be the operation base path
+If not, this will be the project root.
+
+
+## 📄 getDbFileLocation (exported const)
+
+Used by `groupByFile`, which is used for `set` (and thus, also `update`) and `upsert`: determines the new file location.
+
+Applies the convention to get the db-file-location of an item
+
+Based on the merged config:
+
+- if `operationRelativePath` is specified, gets a filePath in the operation
+- if `projectRelativePath` is specified, gets a filepath in the project
+- otherwise gets the pattern and replaces "*" with the slug (or id if slug is not available)
+
+Besides the absolute path, the operationName, projectRelativePath and operationRelativePath are also supplied.
+
+NB: currently, the item's `operationName`, `operationRelativePath` or `projectRelativePath` is not taken into account. It will simply look at the convention to see where it should be saved, and apply the MergedQueryConfig...
+
+
+## 📄 getDbStorageMethodExtension (exported const)
+
+## 📄 getDefaultLocationPattern (exported const)
+
+DB main storage convention
+
+
+## 📄 getItemModelLocation (exported const)
+
+## 📄 getLength (exported const)
+
+Safely gets the length of something
+
+
+## 📄 getLocationPattern (exported const)
+
+Returns the pattern or an exact relative path that the file(s) should be stored at.
+
+If a pattern contains a star at the place of the filename, it will search the folder recursively for all files with the extension in the pattern.
+
+Returning relative path has no preceding slash
+
+
+## 📄 getMergedConfigOperationPath (exported const)
+
+## 📄 getParentSlug (exported const)
+
+get a parent slug without the parent_xxxSlug reference (uses the categoryStackCalculated)
+
+can be undefined if the item has no parent
+
+
+## 📄 getRootFolders (exported const)
+
+## 📄 getWildcardDbFileLocations__OLD (exported const)
+
+If it all seems good, I can delete this. This is the old method of looking just in the folder itself, it's replaced by looking in all subfolders as well, recursively.
+
+
+## 📄 getWildcardDbFileLocations (exported const)
+
+## 📄 groupByFile (exported const)
+
+Used for `set` and `upsert`. Groups creation items into an object where keys are file paths and values are items that need to be stored
+
+
+## 📄 makeStoringItem (exported const)
+
+## 📄 maxConcurrency (unexported const)
+
+## 📄 mergeConfigs (exported const)
+
+## 📄 removeKeyValueMarkdown (exported const)
+
+Takes stored data and a slug to remove
+
+
+## 📄 removeMultiple (exported const)
+
+Function that lets you remove items from one specific file, for any storage method
+
+
+## 📄 test (unexported const)
+
+## 📄 upsertItems (exported const)
+
+upsert an item into storage in any storage method
+
+
+## 📄 upsertKeyValueMarkdown (exported const)
+
+Takes stored data and an item
+
+- updates the data and sets some rows to "item" if the item is found (through the slug). this works almost the same as the regular upsert function
+
+- otherwise inserts, at the right category, in the right place in the array
+
+BEWARE:
+
+- the categoryStackCalculated must be existing in the markdownfile.
+- you cannot insert a header, always insert an item with `isHeaderCalculated:false`
+
+
+## 📄 upsert (exported const)
+
+Takes stored data and an item
+
+- updates the data and sets some rows to "item" if the item is found (through the id or slug)
+- otherwise inserts
+
+NB: this function works for any storage method except for key value markdown
 

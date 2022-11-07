@@ -115,9 +115,10 @@ var getAllMarkdownReaderPages = function (config) { return __awaiter(void 0, voi
                             ? function (old) {
                                 return old.startsWith("docs/")
                                     ? old.slice("docs/".length)
-                                    : old === "docs"
-                                        ? ""
-                                        : old;
+                                    : // NB: "docs/README.md" becomes "docs", which should, in turn, become "" in this case...
+                                        old === "docs"
+                                            ? ""
+                                            : old;
                             }
                             : undefined,
                     })];

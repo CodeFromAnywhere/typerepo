@@ -118,10 +118,10 @@ export var renderMarkdownContent = function (content, config) {
                         foundWord.spoiler.length > 0 ? (React.createElement("span", null,
                         React.createElement("a", __assign({ href: "/".concat(foundWord === null || foundWord === void 0 ? void 0 : foundWord.queryPath), style: { color: "darkred" }, onMouseEnter: openTooltip, onMouseLeave: closeTooltip, ref: btnRef }, props), children),
                         React.createElement("span", { className: (popoverShow ? "" : "hidden ") +
-                                "bg-black border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg", ref: popoverRef },
+                                "bg-gray-200 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg", ref: popoverRef },
                             React.createElement("div", null,
-                                React.createElement("div", { className: "bg-black text-white opacity-75 font-semibold p-3 mb-0 border-b border-solid border-blueGray-100 uppercase rounded-t-lg" }, foundWord.word),
-                                React.createElement("div", { className: "p-3 text-white" }, renderMarkdownContent(foundWord.spoiler, {
+                                React.createElement("div", { className: "bg-gray-200 text-black opacity-75 font-semibold px-3 mb-0 border-b border-solid border-blueGray-100 uppercase rounded-t-lg" }, foundWord.word),
+                                React.createElement("div", { className: "px-3 text-gray-800" }, renderMarkdownContent(foundWord.spoiler, {
                                     projectRelativeBaseFolderPath: getFolderJs(foundWord.projectRelativeMarkdownSourcePath),
                                     projectRelativeMarkdownFilePath: foundWord.projectRelativeMarkdownSourcePath,
                                 })))))) : (React.createElement("code", __assign({ className: "dark:bg-gray-700", style: { color: "darkcyan" } }, props), children));

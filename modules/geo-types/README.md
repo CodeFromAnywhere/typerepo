@@ -18,19 +18,15 @@ geo-types (js operation)
 
 - [Circle](#circle)
 - [DistantObject](#distantobject)
-- [KeyValueMarkdownModelType](#keyvaluemarkdownmodeltype)
-- [Markdown](#markdown)
 - [Polygon](#polygon)
 - [Position](#position)
-- [Slug](#slug)
-- [SlugModelType](#slugmodeltype)
 - [SpacePosition](#spaceposition)
 
 
 
 # Models
 
-## Address
+## 🔷 Address
 
 jsonMultiple model
 
@@ -75,7 +71,7 @@ Properties:
 
 
 
-## Area
+## 🔷 Area
 
 jsonMultiple model
 
@@ -109,7 +105,7 @@ Properties:
 
 
 
-## City
+## 🔷 City
 
 jsonMultiple model
 
@@ -144,7 +140,7 @@ Properties:
 
 
 
-## Country
+## 🔷 Country
 
 jsonMultiple model
 
@@ -180,7 +176,7 @@ Properties:
 
 
 
-## Location
+## 🔷 Location
 
 keyValueMarkdown model
 
@@ -215,7 +211,7 @@ Properties:
 
 # Interfaces
 
-## Circle
+## 🔷 Circle
 
 Properties: 
 
@@ -226,7 +222,7 @@ Properties:
 
 
 
-## DistantObject
+## 🔷 DistantObject
 
 Properties: 
 
@@ -237,47 +233,7 @@ Properties:
 
 
 
-## KeyValueMarkdownModelType
-
-handy model type for storing stuff in a KeyValue Markdown file. empty lines are omitted
-
-all you need to specify in the kvmd is the key and the value, separated by ":"
-
-NB: there can be a `parent_modelNameSlug` key exposed that should refer to the parent slug
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| value (optional) | string |  |
-| comment  | string |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
-| isHeaderCalculated  | boolean |  |
-
-
-
-## Markdown
-
-a string that is known to contain markdown.
-
-
-
-
-
-
-
-
-## Polygon
+## 🔷 Polygon
 
 - Position: object
 
@@ -286,7 +242,7 @@ a string that is known to contain markdown.
 
 
 
-## Position
+## 🔷 Position
 
 Properties: 
 
@@ -297,45 +253,7 @@ Properties:
 
 
 
-## Slug
-
-use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.
-
-
-
-
-
-
-
-
-## SlugModelType
-
-use this model for things with a name that have an unique slug that can be used to identify the model
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| slug  | string |  |
-| name  | string |  |
-| language  | string |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-
-
-
-## SpacePosition
+## 🔷 SpacePosition
 
 IDK HOW TO DO DIS :(
 

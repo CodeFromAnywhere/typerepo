@@ -18,11 +18,6 @@ himalayajeep-ui (ui-es6 operation)
 - [Layout](#Layout)
 - [MenuItem](#MenuItem)
 
-## Interfaces
-
-- [MarkdownReaderPage](#markdownreaderpage)
-- [NextParsedUrlQuery](#nextparsedurlquery)
-
 ## Variables
 
 - [EditProfile](#editprofile)
@@ -35,146 +30,131 @@ himalayajeep-ui (ui-es6 operation)
 - [JeepView](#jeepview)
 - [Layout](#layout)
 - [MenuItem](#menuitem)
-- [pageKeys](#pagekeys)
 - [pagesObject](#pagesobject)
 - [pages](#pages)
-- [{ useGetPublicJeeps }](#usegetpublicjeeps)
 - [{ useStore, StoreProvider }](#usestore-storeprovider)
 
 
 
 # Functions
 
-## EditProfile
+## <EditProfile />
 
-## getPageTitle
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## getPageTitle()
 
 utility function to get a title from a page
 
 
-
-
-## getQueryPath
-
-### Parameters (1)
-
-#### Parameter 1: parsedUrlQuery (optional): object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| amp (optional) | string |  |
-| __nextNotFoundSrcPage (optional) | string |  |
-| __nextDefaultLocale (optional) | string |  |
-| __nextFallback (optional) | string |  |
-| __nextLocale (optional) | string |  |
-| __nextSsgPath (optional) | string |  |
-| _nextBubbleNoFallback (optional) | string |  |
-| __nextDataReq (optional) | string |  |
-| __nextCustomErrorRender (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
-## JeepList
+## getQueryPath()
 
-## JeepLogin
+| Input      |    |    |
+| ---------- | -- | -- |
+| parsedUrlQuery (optional) | `NextParsedUrlQuery` |  |
+| **Output** |    |    |
 
-## JeepSignupPage
+
+
+## <JeepList />
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## <JeepLogin />
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## <JeepSignupPage />
 
 jeep driver needs to sign up
 
 
-
-
-## JeepView
-
-## Layout
-
-### Parameters (1)
-
-#### Parameter 1: {  pages,  children,}: object
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| pages  | array |  |
-| children  | object |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
 
 
 
-## MenuItem
+## <JeepView />
 
-# Interfaces
-
-## MarkdownReaderPage
-
-for markdown-reader-ui, the pages can be markdown files, but they can also be connected to models
-
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
 
 
 
+## <Layout />
 
-Properties: 
+| Input      |    |    |
+| ---------- | -- | -- |
+| {
+  pages,
+  children,
+} | { pages: `MarkdownReaderPage`[], <br />children: {  }, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
 
- | Name | Type | Description |
-|---|---|---|
-| queryPath  | string |  |
-| filePath (optional) | string |  |
-| isMenuItem (optional) | boolean |  |
 
 
+## <MenuItem />
 
-## NextParsedUrlQuery
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| amp (optional) | string |  |
-| __nextNotFoundSrcPage (optional) | string |  |
-| __nextDefaultLocale (optional) | string |  |
-| __nextFallback (optional) | string |  |
-| __nextLocale (optional) | string |  |
-| __nextSsgPath (optional) | string |  |
-| _nextBubbleNoFallback (optional) | string |  |
-| __nextDataReq (optional) | string |  |
-| __nextCustomErrorRender (optional) | string |  |
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
 
 
 # Variables
 
-## EditProfile (exported const)
+## 📄 EditProfile (exported const)
 
-## getPageTitle (exported const)
+## 📄 getPageTitle (exported const)
 
 utility function to get a title from a page
 
 
-## getQueryPath (exported const)
+## 📄 getQueryPath (exported const)
 
-## initialValues (exported const)
+## 📄 initialValues (exported const)
 
-## JeepList (exported const)
+## 📄 JeepList (exported const)
 
-## JeepLogin (exported const)
+## 📄 JeepLogin (exported const)
 
-## JeepSignupPage (exported const)
+## 📄 JeepSignupPage (exported const)
 
-## JeepView (exported const)
+## 📄 JeepView (exported const)
 
-## Layout (exported const)
+## 📄 Layout (exported const)
 
-## MenuItem (exported const)
+## 📄 MenuItem (exported const)
 
-## pageKeys (unexported const)
+## 📄 pagesObject (exported const)
 
-## pagesObject (exported const)
+## 📄 pages (exported const)
 
-## pages (exported const)
-
-## { useGetPublicJeeps } (unexported const)
-
-## { useStore, StoreProvider } (exported const)
+## 📄 { useStore, StoreProvider } (exported const)
 

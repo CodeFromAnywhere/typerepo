@@ -1,6 +1,6 @@
 In order to sort the indexed types well, you need to know that:
 
-1. Interfaces first index all extensded types and interfaces, then the interface itself. The last extended type/inteface comes first, then the previous one, etc.
+1. Interfaces first index all extended types and interfaces, then the interface itself. The last extended type/inteface comes first, then the previous one, etc.
 
 2. If you define an intersection type (e.g. `type X = A & { someObject: string } & B;`), the last intersected item comes first, the first item comes last in the order. This gives you more flexibility because in an interface the extended things always come b efore, but with a type they can also come in the middle. If you do this for a model, be sure to add the `dbStorageMethod` in frontmatter manually
 
