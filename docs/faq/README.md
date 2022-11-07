@@ -1,4 +1,6 @@
-### Do you support JavaScript?
+# FAQ
+
+## Do you support JavaScript?
 
 No, Typerepo is TypeScript only. Go learn it!
 
