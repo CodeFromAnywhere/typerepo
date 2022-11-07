@@ -303,17 +303,6 @@ import { tsFunctionToMarkdownString } from "markdown-parsings";
 import { tsInterfaceToMarkdownString } from "markdown-parsings";
 import { tsVariableToMarkdownString } from "markdown-parsings";
 import { upMarkdownChunkLevelRecursively } from "markdown-parsings";
-import { createFolder } from "markdown-translator";
-import { getAllMarkdownFiles } from "markdown-translator";
-import { getFileInfo } from "markdown-translator";
-import { getTranslatedWord } from "markdown-translator";
-import { markdownStoreAndRecord } from "markdown-translator";
-import { parseMarkdownWordByWord } from "markdown-translator";
-import { recordMdFile } from "markdown-translator";
-import { startMarkdownTranslator } from "markdown-translator";
-import { startTranslation } from "markdown-translator";
-import { translatedArrayToKeyValue } from "markdown-translator";
-import { watchMdFile } from "markdown-translator";
 import { readCsvFileSync } from "read-csv-file";
 import { readCsvFile } from "read-csv-file";
 import { readJsonFileSync } from "read-json-file";
@@ -325,17 +314,6 @@ import { getFolderTypescriptIndex } from "read-typescript-file";
 import { readTypescriptFile } from "read-typescript-file";
 import { getLocation } from "get-location";
 import { getLight } from "get-light";
-import { addSocialMediaCredential } from "social-media-controller";
-import { contentParser } from "social-media-controller";
-import { devtoCotentAnalyzer } from "social-media-controller";
-import { facebookContentAnalyzer } from "social-media-controller";
-import { facebookContentParser } from "social-media-controller";
-import { getSocialMediaCredentials } from "social-media-controller";
-import { mediumCotentAnalyzer } from "social-media-controller";
-import { redditContentAnalyzer } from "social-media-controller";
-import { socialMediaPostPlanner } from "social-media-controller";
-import { startSocialMediaController } from "social-media-controller";
-import { twitterContentAnalyzer } from "social-media-controller";
 import { getPostableFrontmatterSchema } from "social-media-functions";
 import { cleanupTsDatabase } from "cleanup-typescript-database";
 import { shouldDeleteTsModel } from "cleanup-typescript-database";
@@ -455,6 +433,62 @@ import { newFile } from "writer-functions";
 import { newFolder } from "writer-functions";
 import { renameFilename } from "writer-functions";
 import { saveFileContents } from "writer-functions";
+import { loginToDevto } from "dev-to-controller";
+import { publishBlogOnDevTo } from "dev-to-controller";
+import { typeIntoTheField } from "dev-to-controller";
+import { facebookPostOnTheGroup } from "facebook-controller";
+import { facebookPost } from "facebook-controller";
+import { facebookTimeLinePost } from "facebook-controller";
+import { sendFacebookMessage } from "facebook-controller";
+import { searchAndDownloadGifs } from "gif-controller";
+import { buildQuery } from "google-translate-controller";
+import { errArrayLenZero } from "google-translate-controller";
+import { errFileSize } from "google-translate-controller";
+import { errFileType } from "google-translate-controller";
+import { errInvalidType } from "google-translate-controller";
+import { errTextLenZero } from "google-translate-controller";
+import { errTextOverflow } from "google-translate-controller";
+import { generateArrayFromJson } from "google-translate-controller";
+import { getStringForTranslation } from "google-translate-controller";
+import { launch } from "google-translate-controller";
+import { startTranslation } from "google-translate-controller";
+import { storeResult } from "google-translate-controller";
+import { translateText } from "google-translate-controller";
+import { publishBlogOnMedium } from "medium-controller";
+import { publishBlogOnReddit } from "reddit-controller";
+import { addSocialMediaCredential } from "social-media-controller";
+import { canBePosted } from "social-media-controller";
+import { createAllSocialMediaPost } from "social-media-controller";
+import { createSocialMediaPost } from "social-media-controller";
+import { devtoCotentAnalyzer } from "social-media-controller";
+import { facebookContentAnalyzer } from "social-media-controller";
+import { getSocialMediaCredentials } from "social-media-controller";
+import { mediumCotentAnalyzer } from "social-media-controller";
+import { postSocialMediaPostToDevto } from "social-media-controller";
+import { postSocialMediaPostToFacebook } from "social-media-controller";
+import { postSocialMediaPostToMedium } from "social-media-controller";
+import { postSocialMediaPostToReddit } from "social-media-controller";
+import { postSocialMediaPostToTwitter } from "social-media-controller";
+import { redditContentAnalyzer } from "social-media-controller";
+import { socialMediaPostPlanner } from "social-media-controller";
+import { startSocialMediaController } from "social-media-controller";
+import { twitterContentAnalyzer } from "social-media-controller";
+import { updateSocialMediaPost } from "social-media-controller";
+import { postTweetOnTwitter } from "twitter-controller";
+import { youtubeSearchAndDownload } from "youtube-controller";
+import { youtubeSearch } from "youtube-controller";
+import { youtubeToMp3 } from "youtube-controller";
+import { youtubeToMp4 } from "youtube-controller";
+import { createFolder } from "markdown-translator";
+import { getAllMarkdownFiles } from "markdown-translator";
+import { getFileInfo } from "markdown-translator";
+import { getTranslatedWord } from "markdown-translator";
+import { markdownStoreAndRecord } from "markdown-translator";
+import { parseMarkdownWordByWord } from "markdown-translator";
+import { recordMdFile } from "markdown-translator";
+import { startMarkdownTranslator } from "markdown-translator";
+import { translatedArrayToKeyValue } from "markdown-translator";
+import { watchMdFile } from "markdown-translator";
 import { makeExercises } from "course-basics";
 import { driverLogin } from "himalayajeep-functions";
 import { driverSignup } from "himalayajeep-functions";
@@ -789,17 +823,6 @@ tsFunctionToMarkdownString,
 tsInterfaceToMarkdownString,
 tsVariableToMarkdownString,
 upMarkdownChunkLevelRecursively,
-createFolder,
-getAllMarkdownFiles,
-getFileInfo,
-getTranslatedWord,
-markdownStoreAndRecord,
-parseMarkdownWordByWord,
-recordMdFile,
-startMarkdownTranslator,
-startTranslation,
-translatedArrayToKeyValue,
-watchMdFile,
 readCsvFileSync,
 readCsvFile,
 readJsonFileSync,
@@ -811,17 +834,6 @@ getFolderTypescriptIndex,
 readTypescriptFile,
 getLocation,
 getLight,
-addSocialMediaCredential,
-contentParser,
-devtoCotentAnalyzer,
-facebookContentAnalyzer,
-facebookContentParser,
-getSocialMediaCredentials,
-mediumCotentAnalyzer,
-redditContentAnalyzer,
-socialMediaPostPlanner,
-startSocialMediaController,
-twitterContentAnalyzer,
 getPostableFrontmatterSchema,
 cleanupTsDatabase,
 shouldDeleteTsModel,
@@ -941,6 +953,62 @@ newFile,
 newFolder,
 renameFilename,
 saveFileContents,
+loginToDevto,
+publishBlogOnDevTo,
+typeIntoTheField,
+facebookPostOnTheGroup,
+facebookPost,
+facebookTimeLinePost,
+sendFacebookMessage,
+searchAndDownloadGifs,
+buildQuery,
+errArrayLenZero,
+errFileSize,
+errFileType,
+errInvalidType,
+errTextLenZero,
+errTextOverflow,
+generateArrayFromJson,
+getStringForTranslation,
+launch,
+startTranslation,
+storeResult,
+translateText,
+publishBlogOnMedium,
+publishBlogOnReddit,
+addSocialMediaCredential,
+canBePosted,
+createAllSocialMediaPost,
+createSocialMediaPost,
+devtoCotentAnalyzer,
+facebookContentAnalyzer,
+getSocialMediaCredentials,
+mediumCotentAnalyzer,
+postSocialMediaPostToDevto,
+postSocialMediaPostToFacebook,
+postSocialMediaPostToMedium,
+postSocialMediaPostToReddit,
+postSocialMediaPostToTwitter,
+redditContentAnalyzer,
+socialMediaPostPlanner,
+startSocialMediaController,
+twitterContentAnalyzer,
+updateSocialMediaPost,
+postTweetOnTwitter,
+youtubeSearchAndDownload,
+youtubeSearch,
+youtubeToMp3,
+youtubeToMp4,
+createFolder,
+getAllMarkdownFiles,
+getFileInfo,
+getTranslatedWord,
+markdownStoreAndRecord,
+parseMarkdownWordByWord,
+recordMdFile,
+startMarkdownTranslator,
+translatedArrayToKeyValue,
+watchMdFile,
 makeExercises,
 driverLogin,
 driverSignup,

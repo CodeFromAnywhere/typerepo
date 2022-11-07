@@ -29,6 +29,7 @@ markdown-reader-functions (node operation)
 
 ## Interfaces
 
+- [BundleMarkdownReaderConfig](#bundlemarkdownreaderconfig)
 - [Frontmatter](#frontmatter)
 - [GetStaticPathsContext](#getstaticpathscontext)
 - [GetStaticPropsContext](#getstaticpropscontext)
@@ -246,9 +247,25 @@ Properties:
 
 ## getOperationPages
 
-### Parameters (1)
+### Parameters (2)
 
 #### Parameter 1: projectRoot: string
+
+#### Parameter 2: bundleMarkdownReaderConfig (optional): object
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| docsInRoot (optional) | boolean |  |
+| showTodos (optional) | boolean |  |
+| omitModulesMenu (optional) | boolean |  |
+| omitAppsMenu (optional) | boolean |  |
+| omitDictionaryMenu (optional) | boolean |  |
+| omitPackagesMenu (optional) | boolean |  |
+| customOperationNames (optional) | array |  |
+
+
 
 ## getPublicMarkdownFilePaths
 
@@ -358,6 +375,22 @@ defaults to untitled if the file or folder has no name after removing numbers.
 ## test
 
 # Interfaces
+
+## BundleMarkdownReaderConfig
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| docsInRoot (optional) | boolean |  |
+| showTodos (optional) | boolean |  |
+| omitModulesMenu (optional) | boolean |  |
+| omitAppsMenu (optional) | boolean |  |
+| omitDictionaryMenu (optional) | boolean |  |
+| omitPackagesMenu (optional) | boolean |  |
+| customOperationNames (optional) | array |  |
+
+
 
 ## Frontmatter
 

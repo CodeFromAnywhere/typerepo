@@ -23,6 +23,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { getRealSrc } from "./util/getRealSrc.js";
 import { Span } from "react-with-native";
@@ -34,7 +35,7 @@ import { getFolderJs } from "fs-util-js";
 export var renderMarkdownContent = function (content, config) {
     // console.log("Need to render:", content);
     return (React.createElement(Span, null,
-        React.createElement(ReactMarkdown, { className: (config === null || config === void 0 ? void 0 : config.big) ? "max-w-lg" : undefined, rehypePlugins: [rehypeHighlight, remarkGfm], components: {
+        React.createElement(ReactMarkdown, { className: (config === null || config === void 0 ? void 0 : config.big) ? "max-w-lg" : undefined, rehypePlugins: [rehypeHighlight, remarkGfm, rehypeRaw], components: {
                 img: function (_a) {
                     var node = _a.node, src = _a.src, props = __rest(_a, ["node", "src"]);
                     var realSrc = getRealSrc(src, config);
@@ -47,18 +48,20 @@ export var renderMarkdownContent = function (content, config) {
                     // @ts-ignore
                     React.createElement("br", __assign({}, props)));
                 },
-                details: function (_a) {
-                    var node = _a.node, props = __rest(_a, ["node"]);
-                    return (
-                    // @ts-ignore
-                    React.createElement("details", __assign({}, props)));
-                },
-                summary: function (_a) {
-                    var node = _a.node, props = __rest(_a, ["node"]);
-                    return (
-                    // @ts-ignore
-                    React.createElement("summary", __assign({}, props)));
-                },
+                // details: ({ node, ...props }: any) => {
+                //   console.log("DETAILS DETECTED");
+                //   return (
+                //     // @ts-ignore
+                //     <details {...props} />
+                //   );
+                // },
+                // summary: ({ node, ...props }: any) => {
+                //   console.log("SUMMARY DETECTED");
+                //   return (
+                //     // @ts-ignore
+                //     <summary {...props} />
+                //   );
+                // },
                 td: function (_a) {
                     var node = _a.node, children = _a.children, props = __rest(_a, ["node", "children"]);
                     return (
