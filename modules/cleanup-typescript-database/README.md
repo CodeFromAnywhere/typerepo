@@ -7,21 +7,7 @@ Collection of functions to cleanup the typescript database (all typescript relat
 
 
 
-# Outline
-
-## Functions
-
-- [cleanupTsDatabase](#cleanupTsDatabase)
-- [shouldDeleteTsModel](#shouldDeleteTsModel)
-
-## Variables
-
-- [cleanupTsDatabase](#cleanuptsdatabase)
-- [shouldDeleteTsModel](#shoulddeletetsmodel)
-
-
-
-# Functions
+# Api reference
 
 ## cleanupTsDatabase()
 
@@ -35,20 +21,7 @@ From all Ts Index Models, removes the instances that refer to a ts file that doe
 
 
 
-## shouldDeleteTsModel()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| tsModel | {  } |  |,| operationName | string |  |,| operationRelativePaths | string[] |  |
-| **Output** | {  }   |    |
-
-
-# Variables
-
 ## 📄 cleanupTsDatabase (exported const)
 
 From all Ts Index Models, removes the instances that refer to a ts file that doesn't exist anymore in the operation.
-
-
-## 📄 shouldDeleteTsModel (exported const)
 

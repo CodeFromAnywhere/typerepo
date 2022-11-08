@@ -4,19 +4,7 @@ minify-build (node operation)
 
 
 
-# Outline
-
-## Functions
-
-- [minifyBuild](#minifyBuild)
-
-## Variables
-
-- [minifyBuild](#minifybuild)
-
-
-
-# Functions
+# Api reference
 
 ## minifyBuild()
 
@@ -32,7 +20,6 @@ takes an operation name or build folder path, then explores all ts files in src 
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 minifyBuild (exported const)
 

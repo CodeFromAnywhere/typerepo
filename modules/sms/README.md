@@ -4,19 +4,7 @@ sms (node operation)
 
 
 
-# Outline
-
-## Functions
-
-- [sendSms](#sendSms)
-
-## Variables
-
-- [sendSms](#sendsms)
-
-
-
-# Functions
+# Api reference
 
 ## sendSms()
 
@@ -35,7 +23,6 @@ Reqruired options: `to` and `body`
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 sendSms (exported const)
 

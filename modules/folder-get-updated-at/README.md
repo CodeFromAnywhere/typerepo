@@ -7,19 +7,7 @@ Get last updated file updatedAt time in whole folder, recursively
 
 
 
-# Outline
-
-## Functions
-
-- [folderGetUpdatedAt](#folderGetUpdatedAt)
-
-## Variables
-
-- [folderGetUpdatedAt](#foldergetupdatedat)
-
-
-
-# Functions
+# Api reference
 
 ## folderGetUpdatedAt()
 
@@ -34,7 +22,6 @@ get last updated file updatedAt time in whole folder, recursively
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 folderGetUpdatedAt (exported const)
 

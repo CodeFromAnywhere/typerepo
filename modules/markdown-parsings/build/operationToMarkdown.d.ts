@@ -1,7 +1,16 @@
-import { MarkdownParse } from "code-types";
+import { MarkdownParse, TsFunction, TsInterface, TsVariable } from "code-types";
 export declare const getMergedMarkdownOutlineUrl: (title: string) => {
     title: string;
     hashtagPath: string;
+};
+/**
+ * interface that lets us count the amount of dependant files in different item types
+ */
+export declare type DependantCountObject = {
+    tsFunction?: TsFunction;
+    tsInterface?: TsInterface;
+    tsVariable?: TsVariable;
+    externalDependantFiles: string[];
 };
 /**
  * converts an operation and all its contents into a flat markdown file that contains the needed information. configurable.

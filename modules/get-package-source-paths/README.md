@@ -7,19 +7,7 @@ Returns an array of absolute file paths of (typescript) files in the src of your
 
 
 
-# Outline
-
-## Functions
-
-- [getPackageSourcePaths](#getPackageSourcePaths)
-
-## Variables
-
-- [getPackageSourcePaths](#getpackagesourcepaths)
-
-
-
-# Functions
+# Api reference
 
 ## getPackageSourcePaths()
 
@@ -39,7 +27,6 @@ until then, just assume we use "src" as the only folder
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 getPackageSourcePaths (exported const)
 

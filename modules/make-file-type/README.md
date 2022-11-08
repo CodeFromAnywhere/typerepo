@@ -7,23 +7,7 @@ exposes `makeFileType`, a function that helped turning a path into a specific ty
 
 
 
-# Outline
-
-## Functions
-
-- [makeFileType](#makeFileType)
-
-## Interfaces
-
-- [FileType](#filetype)
-
-## Variables
-
-- [makeFileType](#makefiletype)
-
-
-
-# Functions
+# Api reference
 
 ## makeFileType()
 
@@ -33,9 +17,8 @@ exposes `makeFileType`, a function that helped turning a path into a specific ty
 | **Output** |    |    |
 
 
-# Interfaces
 
-## 🔷 FileType
+## 🔹 FileType
 
 Properties: 
 
@@ -48,7 +31,6 @@ Properties:
 | type  | string |  |
 
 
-# Variables
 
 ## 📄 makeFileType (exported const)
 

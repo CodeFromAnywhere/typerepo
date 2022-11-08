@@ -12,15 +12,9 @@ Reserve a jeepride with the best drivers of the Himal
 
 
 
-# Outline
-
 ## Docs
 
 - [Videos](#videos)
-
-## Functions
-
-- [MyApp](#MyApp)
 
 
 
@@ -51,13 +45,5 @@ https://youtu.be/Qsul1SGzgWY
 https://youtu.be/XH0M9OJ8330
 
 
-# Functions
-
-## <MyApp />
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `JSX.Element`   |    |
-
+# Api reference
 

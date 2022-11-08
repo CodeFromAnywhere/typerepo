@@ -24,7 +24,6 @@ __exportStar(require("./expose/pdf"), exports);
 __exportStar(require("./expose/print"), exports);
 __exportStar(require("./expose/radio"), exports);
 __exportStar(require("./expose/sayablesToMp3"), exports);
-__exportStar(require("./getFunctionsInfo"), exports);
 __exportStar(require("./operationToMarkdown"), exports);
 __exportStar(require("./parsing/markdownToSayable"), exports);
 __exportStar(require("./parsing/merge"), exports);

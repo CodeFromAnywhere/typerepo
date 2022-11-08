@@ -7,19 +7,7 @@ Component that lets you easily create a frontend form for any function in your p
 
 
 
-# Outline
-
-## Functions
-
-- [FunctionForm](#FunctionForm)
-
-## Variables
-
-- [FunctionForm](#functionform)
-
-
-
-# Functions
+# Api reference
 
 ## <FunctionForm />
 
@@ -38,7 +26,6 @@ This component only works if your `api` is up-to-date and your function is succe
 | **Output** | `JSX.Element`   |    |
 
 
-# Variables
 
 ## 📄 FunctionForm (exported const)
 

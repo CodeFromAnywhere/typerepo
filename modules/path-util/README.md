@@ -7,30 +7,26 @@ Gets insightful information about any file or folder (path)
 
 
 
-# Outline
+# Api reference
 
-## Functions
+## calculatePathMetaData()
 
-- [byteCount](#byteCount)
-- [calculatePathMetaData](#calculatePathMetaData)
-- [categorizeFiles](#categorizeFiles)
-- [getFolderSummary](#getFolderSummary)
-- [getPathMainComment](#getPathMainComment)
-- [getSizeSummary](#getSizeSummary)
-- [sumSizeSummary](#sumSizeSummary)
+for folders: finds all files used for calculation and uses sumPathMetaData to create a new PathMetaData.
+for files: just calculates the path metadata
 
-## Variables
 
-- [calculatePathMetaData](#calculatepathmetadata)
-- [categorizeFiles](#categorizefiles)
-- [getFolderSummary](#getfoldersummary)
-- [getPathMainComment](#getpathmaincomment)
-- [getSizeSummary](#getsizesummary)
-- [sumSizeSummary](#sumsizesummary)
+| Input      |    |    |
+| ---------- | -- | -- |
+| absolutePath | string |  |
+| **Output** |    |    |
 
 
 
-# Functions
+## 📄 calculatePathMetaData (exported const)
+
+for folders: finds all files used for calculation and uses sumPathMetaData to create a new PathMetaData.
+for files: just calculates the path metadata
+
 
 ## byteCount()
 
@@ -43,19 +39,6 @@ Gets insightful information about any file or folder (path)
 | ---------- | -- | -- |
 | s | string |  |
 | **Output** | {  }   |    |
-
-
-
-## calculatePathMetaData()
-
-for folders: finds all files used for calculation and uses sumPathMetaData to create a new PathMetaData.
-for files: just calculates the path metadata
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| absolutePath | string |  |
-| **Output** |    |    |
 
 
 
@@ -87,97 +70,6 @@ calculates folder summary from a categorized file paths object
 
 
 
-## getPathMainComment()
-
-export const sumFolderSummary = (
-firstFolderSummary: FolderSummary,
-secondFolderSummary: FolderSummary
-): FolderSummary => {
-const folderSummaryKeys = Object.keys(
-firstFolderSummary
-) as (keyof FolderSummary)[];
-const sum = mergeObjectsArray(
-folderSummaryKeys.map((keyName) => {
-return {
-[keyName]: sumAllKeys([
-firstFolderSummary[keyName],
-secondFolderSummary[keyName],
-],["bytes","characters","lines","numberOfFiles"]),
-};
-})
-) as FolderSummary;
-
-return sum;
-};
-
-
-takes all PathMetaData of an array that contains all child files, and merges them, taking the newest update date, the earliest created-date, and summing size
-
-export const sumFileGeneralMetaData = async (
-childrenMetaDataArray: PathGeneralMetaData[]
-): Promise<PathGeneralMetaData | null> => {
-const sum = childrenMetaDataArray.reduce(
-(sumMetaData, pathMetaData: PathGeneralMetaData) => {
-const newPathMetaData: PathGeneralMetaData = {
-createdAt:
-!sumMetaData || pathMetaData.createdAt < sumMetaData.createdAt
-? pathMetaData.createdAt
-: sumMetaData.createdAt,
-updatedAt:
-!sumMetaData || pathMetaData.updatedAt > sumMetaData.updatedAt
-? pathMetaData.updatedAt
-: sumMetaData.updatedAt,
-sizes: !sumMetaData
-? pathMetaData.sizes
-: sumFolderSummary(sumMetaData.sizes, pathMetaData.sizes),
-};
-
-return newPathMetaData;
-},
-null as PathGeneralMetaData | null
-);
-
-return sum;
-};
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| absolutePath | string |  |
-| **Output** |    |    |
-
-
-
-## getSizeSummary()
-
-gets a size summary for a file path
-
-Does not calculate this for files that are too big (bigger than 1MB)
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| filePath | string |  |
-| **Output** |    |    |
-
-
-
-## sumSizeSummary()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| filePaths | string[] |  |
-| **Output** |    |    |
-
-
-# Variables
-
-## 📄 calculatePathMetaData (exported const)
-
-for folders: finds all files used for calculation and uses sumPathMetaData to create a new PathMetaData.
-for files: just calculates the path metadata
-
-
 ## 📄 categorizeFiles (exported const)
 
 explores files in an operation within a specified location or from a specified type
@@ -186,68 +78,4 @@ explores files in an operation within a specified location or from a specified t
 ## 📄 getFolderSummary (exported const)
 
 calculates folder summary from a categorized file paths object
-
-
-## 📄 getPathMainComment (exported const)
-
-export const sumFolderSummary = (
-firstFolderSummary: FolderSummary,
-secondFolderSummary: FolderSummary
-): FolderSummary => {
-const folderSummaryKeys = Object.keys(
-firstFolderSummary
-) as (keyof FolderSummary)[];
-const sum = mergeObjectsArray(
-folderSummaryKeys.map((keyName) => {
-return {
-[keyName]: sumAllKeys([
-firstFolderSummary[keyName],
-secondFolderSummary[keyName],
-],["bytes","characters","lines","numberOfFiles"]),
-};
-})
-) as FolderSummary;
-
-return sum;
-};
-
-
-takes all PathMetaData of an array that contains all child files, and merges them, taking the newest update date, the earliest created-date, and summing size
-
-export const sumFileGeneralMetaData = async (
-childrenMetaDataArray: PathGeneralMetaData[]
-): Promise<PathGeneralMetaData | null> => {
-const sum = childrenMetaDataArray.reduce(
-(sumMetaData, pathMetaData: PathGeneralMetaData) => {
-const newPathMetaData: PathGeneralMetaData = {
-createdAt:
-!sumMetaData || pathMetaData.createdAt < sumMetaData.createdAt
-? pathMetaData.createdAt
-: sumMetaData.createdAt,
-updatedAt:
-!sumMetaData || pathMetaData.updatedAt > sumMetaData.updatedAt
-? pathMetaData.updatedAt
-: sumMetaData.updatedAt,
-sizes: !sumMetaData
-? pathMetaData.sizes
-: sumFolderSummary(sumMetaData.sizes, pathMetaData.sizes),
-};
-
-return newPathMetaData;
-},
-null as PathGeneralMetaData | null
-);
-
-return sum;
-};
-
-
-## 📄 getSizeSummary (exported const)
-
-gets a size summary for a file path
-
-Does not calculate this for files that are too big (bigger than 1MB)
-
-
-## 📄 sumSizeSummary (exported const)
 

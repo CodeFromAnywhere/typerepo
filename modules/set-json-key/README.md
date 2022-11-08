@@ -7,20 +7,7 @@ Useful functions to alter JSON files (can be used both with node or with a CLI)
 
 
 
-# Outline
-
-## Functions
-
-- [setJsonKey](#setJsonKey)
-- [setKeyAtLocation](#setKeyAtLocation)
-
-## Variables
-
-- [setJsonKey](#setjsonkey)
-
-
-
-# Functions
+# Api reference
 
 ## setJsonKey()
 
@@ -46,6 +33,8 @@ convert value string (arg3) to number, boolean if they seem to be like that
 
 
 
+## 📄 setJsonKey (exported const)
+
 ## setKeyAtLocation()
 
 | Input      |    |    |
@@ -53,8 +42,4 @@ convert value string (arg3) to number, boolean if they seem to be like that
 | path | string |  |,| value | {  } |  |,| object | {  } |  |
 | **Output** |    |    |
 
-
-# Variables
-
-## 📄 setJsonKey (exported const)
 

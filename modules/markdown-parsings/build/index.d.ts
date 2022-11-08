@@ -8,7 +8,6 @@ export * from "./expose/pdf";
 export * from "./expose/print";
 export * from "./expose/radio";
 export * from "./expose/sayablesToMp3";
-export * from "./getFunctionsInfo";
 export * from "./operationToMarkdown";
 export * from "./parsing/markdownToSayable";
 export * from "./parsing/merge";

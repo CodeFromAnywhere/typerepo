@@ -7,46 +7,10 @@ Operation that makes it possible to rebuild an operation (re-index, re-build, et
 
 
 
-# Outline
-
 ## Docs
 
 - [README](#readme)
 - [Operation build steps](#operation-build-steps)
-
-## Functions
-
-- [clearTsDatabase](#clearTsDatabase)
-- [executeCommandQuietUnlessFail](#executeCommandQuietUnlessFail)
-- [exitIfProcessDependenciesChanged](#exitIfProcessDependenciesChanged)
-- [generateJsonSchemas](#generateJsonSchemas)
-- [getAllDbModels](#getAllDbModels)
-- [getFileIds](#getFileIds)
-- [getIndexFileIds](#getIndexFileIds)
-- [getSrcIds](#getSrcIds)
-- [isOperationBuildNeeded](#isOperationBuildNeeded)
-- [isSdkOperation](#isSdkOperation)
-- [rebuildAllOperations](#rebuildAllOperations)
-- [rebuildOperation](#rebuildOperation)
-- [shouldSkip](#shouldSkip)
-- [yarnBuild](#yarnBuild)
-
-## Variables
-
-- [clearTsDatabase](#cleartsdatabase)
-- [executeCommandQuietUnlessFail](#executecommandquietunlessfail)
-- [exitIfProcessDependenciesChanged](#exitifprocessdependencieschanged)
-- [generateJsonSchemas](#generatejsonschemas)
-- [getAllDbModels](#getalldbmodels)
-- [getFileIds](#getfileids)
-- [getIndexFileIds](#getindexfileids)
-- [getSrcIds](#getsrcids)
-- [isOperationBuildNeeded](#isoperationbuildneeded)
-- [isSdkOperation](#issdkoperation)
-- [rebuildAllOperations](#rebuildalloperations)
-- [rebuildOperation](#rebuildoperation)
-- [shouldSkip](#shouldskip)
-- [yarnBuild](#yarnbuild)
 
 
 
@@ -115,157 +79,7 @@ It can still fail if the above step fails, but normally shouldn't.
 If everything succeded, we can store the `updatedAt` time into our `operation-index.json` here
 
 
-# Functions
-
-## clearTsDatabase()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationName (optional) | string |  |
-| **Output** |    |    |
-
-
-
-## executeCommandQuietUnlessFail()
-
-Executes a command without showing the result, unless the command fails, then it will log the output.,
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| config | { command: string, <br />cwd?: string, <br />description?: string, <br /> } |  |
-| **Output** | {  }   |    |
-
-
-
-## exitIfProcessDependenciesChanged()
-
-exits the process if our own dependencies change
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationName | string |  |,| manualProjectRoot (optional) | string |  |
-| **Output** |    |    |
-
-
-
-## generateJsonSchemas()
-
-generates schemas for db models
-
-Is done every time you run `rebuildOperation` and `generateSdkOperations`
-
-TODO: there are some problems with references that cannot be found with references to generic types... This can probably be solved, but it's not going to be easy!
-
-IDEA:
-
-1) find all referencing definitions in the main schema
-2) find those in all other interfaces
-3) recursively find references in those as well
-4) if you can't find the reference, remove the reference and replace type to "any" (add WARNING to description "reference not found")
-
-This will result in a valid schema that has no unresolved references
-
-TODO: apply Storage<X> to db-models
-
-TODO: apply Array<X> to db-models with json-multiple
-
-TODO: apply special config conventions (MergedDbConfig) like tsconfig.json and package.json
-
-TODO: Make a validator that validates the whole database to this schema.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| manualProjectRoot (optional) | string |  |,| operationName (optional) | string | If given, does it just for a single operation |
-| **Output** |    |    |
-
-
-
-## getAllDbModels()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| manualProjectRoot (optional) | string |  |,| operationName (optional) | string |  |
-| **Output** |    |    |
-
-
-
-## getFileIds()
-
-gets all identifiers of files, which are the relative path to a file without the extension
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| {
-  operationFolderPath,
-  pathSuffix,
-  extension,
-} | { operationFolderPath: string, <br />extension?: {  }, <br />pathSuffix: string, <br /> } |  |
-| **Output** |    |    |
-
-
-
-## getIndexFileIds()
-
-gets identifiers of ts and tsx files, which are the relative path to a file without the extension
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationFolderPath | string |  |
-| **Output** |    |    |
-
-
-
-## getSrcIds()
-
-gets identifiers of ts and tsx files, which are the relative path to a file without the extension
-
-in order for them to be unique, we assume here that there's never a file with the ts extension when there's also a tsx file in the same folder with the same name. This would create duplicate ids.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationFolderPath | string |  |
-| **Output** |    |    |
-
-
-
-## isOperationBuildNeeded()
-
-returns a boolean indicating whether or not the operation should be able to be built, based on the OperationClassification
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationBasePath | string |  |
-| **Output** |    |    |
-
-
-
-## isSdkOperation()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationBasePath | string |  |
-| **Output** | {  }   |    |
-
-
-
-## rebuildAllOperations()
-
-Rebuilds all operations that are needed to be rebuilt
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| isRebuildingProcessUpdated (optional) | boolean | If true, you are indicating that the rebuilding process has changed and all operations should be rebuilt after this date. |,| manualProjectRoot (optional) | string |  |
-| **Output** |    |    |
-
-
+# Api reference
 
 ## rebuildOperation()
 
@@ -279,14 +93,16 @@ This function rebuilds an operation and re-indexes (part of) its files.
 
 
 
-## shouldSkip()
+## 📄 rebuildOperation (exported const)
 
-if you don't force it, there's an operation index, there's an index folder, the src has not been touched since hte last indexation, and there's a buildfolder (if needed), then the rebuildOperation can be skipped
+This function rebuilds an operation and re-indexes (part of) its files.
 
+
+## clearTsDatabase()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| config | { operationBasePath: string, <br />debug?: boolean, <br />force?: boolean, <br />operationManualProjectRoot?: string, <br />rebuildUpdatedAt?: number, <br /> } |  |
+| operationName (optional) | string |  |
 | **Output** |    |    |
 
 
@@ -302,86 +118,8 @@ Builds and minifies the src
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 clearTsDatabase (exported const)
-
-## 📄 executeCommandQuietUnlessFail (exported const)
-
-Executes a command without showing the result, unless the command fails, then it will log the output.,
-
-
-## 📄 exitIfProcessDependenciesChanged (exported const)
-
-exits the process if our own dependencies change
-
-
-## 📄 generateJsonSchemas (exported const)
-
-generates schemas for db models
-
-Is done every time you run `rebuildOperation` and `generateSdkOperations`
-
-TODO: there are some problems with references that cannot be found with references to generic types... This can probably be solved, but it's not going to be easy!
-
-IDEA:
-
-1) find all referencing definitions in the main schema
-2) find those in all other interfaces
-3) recursively find references in those as well
-4) if you can't find the reference, remove the reference and replace type to "any" (add WARNING to description "reference not found")
-
-This will result in a valid schema that has no unresolved references
-
-TODO: apply Storage<X> to db-models
-
-TODO: apply Array<X> to db-models with json-multiple
-
-TODO: apply special config conventions (MergedDbConfig) like tsconfig.json and package.json
-
-TODO: Make a validator that validates the whole database to this schema.
-
-
-## 📄 getAllDbModels (exported const)
-
-## 📄 getFileIds (exported const)
-
-gets all identifiers of files, which are the relative path to a file without the extension
-
-
-## 📄 getIndexFileIds (exported const)
-
-gets identifiers of ts and tsx files, which are the relative path to a file without the extension
-
-
-## 📄 getSrcIds (exported const)
-
-gets identifiers of ts and tsx files, which are the relative path to a file without the extension
-
-in order for them to be unique, we assume here that there's never a file with the ts extension when there's also a tsx file in the same folder with the same name. This would create duplicate ids.
-
-
-## 📄 isOperationBuildNeeded (exported const)
-
-returns a boolean indicating whether or not the operation should be able to be built, based on the OperationClassification
-
-
-## 📄 isSdkOperation (exported const)
-
-## 📄 rebuildAllOperations (exported const)
-
-Rebuilds all operations that are needed to be rebuilt
-
-
-## 📄 rebuildOperation (exported const)
-
-This function rebuilds an operation and re-indexes (part of) its files.
-
-
-## 📄 shouldSkip (exported const)
-
-if you don't force it, there's an operation index, there's an index folder, the src has not been touched since hte last indexation, and there's a buildfolder (if needed), then the rebuildOperation can be skipped
-
 
 ## 📄 yarnBuild (exported const)
 

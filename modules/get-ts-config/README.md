@@ -7,19 +7,7 @@ Gets the TsConfig given a path to an operation
 
 
 
-# Outline
-
-## Functions
-
-- [getTsConfig](#getTsConfig)
-
-## Variables
-
-- [getTsConfig](#gettsconfig)
-
-
-
-# Functions
+# Api reference
 
 ## getTsConfig()
 
@@ -29,7 +17,6 @@ Gets the TsConfig given a path to an operation
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 getTsConfig (exported const)
 

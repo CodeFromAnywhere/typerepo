@@ -7,22 +7,10 @@ Server that exposes all typerepo api functions wrapped into easily accessible en
 
 
 
-# Outline
-
 ## Docs
 
 - [Setup](#setup)
 - [Why serverjs](#why-serverjs)
-
-## Functions
-
-- [executeFunction](#executeFunction)
-- [runFunctionServer](#runFunctionServer)
-
-## Variables
-
-- [executeFunction](#executefunction)
-- [runFunctionServer](#runfunctionserver)
 
 
 
@@ -61,37 +49,5 @@ Please note: Typerepo might revert back to something like express.js later, as i
 Nevertheless, server.js works fine and most things are documented.
 
 
-# Functions
-
-## executeFunction()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| tsFunction | `TsFunction` |  |
-| **Output** |    |    |
-
-
-
-## runFunctionServer()
-
-runs sdk api server using "server" package.
-
-server will be exposed on port 4201
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-# Variables
-
-## 📄 executeFunction (exported const)
-
-## 📄 runFunctionServer (exported const)
-
-runs sdk api server using "server" package.
-
-server will be exposed on port 4201
+# Api reference
 

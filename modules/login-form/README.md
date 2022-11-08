@@ -15,45 +15,7 @@ Ensure you have `react-with-native-notification` setup in your project, includin
 
 
 
-# Outline
-
-## Functions
-
-- [checkAuthToken](#checkAuthToken)
-- [LoginForm](#LoginForm)
-- [LoginWrapper](#LoginWrapper)
-- [logoutFrontend](#logoutFrontend)
-
-## Variables
-
-- [checkAuthToken](#checkauthtoken)
-- [initialValues](#initialvalues)
-- [LoginForm](#loginform)
-- [LoginWrapper](#loginwrapper)
-- [logoutFrontend](#logoutfrontend)
-- [{ StoreProvider, useStore }](#storeprovider-usestore)
-
-
-
-# Functions
-
-## checkAuthToken()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| password | string |  |
-| **Output** |    |    |
-
-
-
-## <LoginForm />
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | { title?: string, <br /> } |  |
-| **Output** | `JSX.Element`   |    |
-
-
+# Api reference
 
 ## <LoginWrapper />
 
@@ -75,20 +37,10 @@ Ensures cookie is gone but also that the device is not logged into the `Person` 
 | **Output** |    |    |
 
 
-# Variables
-
-## 📄 checkAuthToken (exported const)
-
-## 📄 initialValues (exported const)
-
-## 📄 LoginForm (exported const)
 
 ## 📄 LoginWrapper (exported const)
 
 ## 📄 logoutFrontend (exported const)
 
 Ensures cookie is gone but also that the device is not logged into the `Person` anymore
-
-
-## 📄 { StoreProvider, useStore } (exported const)
 

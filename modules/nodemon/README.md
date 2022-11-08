@@ -4,19 +4,7 @@ nodemon (node operation)
 
 
 
-# Outline
-
-## Functions
-
-- [nodemon](#nodemon)
-
-## Variables
-
-- [nodemon](#nodemon)
-
-
-
-# Functions
+# Api reference
 
 ## nodemon()
 
@@ -28,7 +16,6 @@ by convention, we are going to execute the `build/cli/[fnName].cli.js` file |,| 
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 nodemon (exported const)
 

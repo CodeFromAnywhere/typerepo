@@ -4,29 +4,9 @@ new-template (node operation)
 
 
 
-# Outline
-
 ## Docs
 
 - [README](#readme)
-
-## Functions
-
-- [getAvailableOperationName](#getAvailableOperationName)
-- [getOperationConfig](#getOperationConfig)
-- [main](#main)
-- [newOperationWithFiles](#newOperationWithFiles)
-- [newOperation](#newOperation)
-- [newTemplate](#newTemplate)
-
-## Variables
-
-- [getAvailableOperationName](#getavailableoperationname)
-- [getOperationConfig](#getoperationconfig)
-- [main](#main)
-- [newOperationWithFiles](#newoperationwithfiles)
-- [newOperation](#newoperation)
-- [newTemplate](#newtemplate)
 
 
 
@@ -39,23 +19,7 @@ new-template (node operation)
 Please note you can't add `package.json` and `.gitignore` files to templates! Call them `package.template.json` and `.gitignore.template` repectively in order for everything to function as expected (they will be renamed on installation)
 
 
-# Functions
-
-## getAvailableOperationName()
-
-returns folder name
-
-finds the first foldername that is available in this folder but also there is nowhere an operation already with this name
-
-there is also getAvailableFolderPath for non-operation folders
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| rootFolderPath | string |  |,| preferredFolderName | string |  |,| manualProjectRoot (optional) | string |  |
-| **Output** |    |    |
-
-
+# Api reference
 
 ## getOperationConfig()
 
@@ -67,15 +31,6 @@ NB: it does not push it into the database yet because the operation might not ex
 | Input      |    |    |
 | ---------- | -- | -- |
 | operationName | string |  |,| description (optional) | string | If you want to create one, set a description here. |
-| **Output** |    |    |
-
-
-
-## main()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
 | **Output** |    |    |
 
 
@@ -98,22 +53,6 @@ TODO: Remove the buggyness
 
 
 
-## newOperation()
-
-## How to create a package/operation?
-
-This cli creates the correct tsconfig.json, package.json, .gitignore, folder setup, so you can get started immedeately.
-
-Returns either the `operationBasePath` of the created operation, or undefined if something went wrong
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| name (optional) | string |  |,| config (optional) | { type?: `OperationClassification`, <br />operationConfig?: `OperationConfig`, <br />description?: string, <br />destinationPath?: string, <br />manualProjectRoot?: string, <br /> } |  |
-| **Output** |    |    |
-
-
-
 ## newTemplate()
 
 Returns either the `basePath` of the created template, or undefined if something went wrong
@@ -125,16 +64,6 @@ Returns either the `basePath` of the created template, or undefined if something
 | **Output** |    |    |
 
 
-# Variables
-
-## 📄 getAvailableOperationName (exported const)
-
-returns folder name
-
-finds the first foldername that is available in this folder but also there is nowhere an operation already with this name
-
-there is also getAvailableFolderPath for non-operation folders
-
 
 ## 📄 getOperationConfig (exported const)
 
@@ -142,8 +71,6 @@ Either finds the operation config in the database or creates a new one
 
 NB: it does not push it into the database yet because the operation might not exist yet
 
-
-## 📄 main (exported const)
 
 ## 📄 newOperationWithFiles (exported const)
 
@@ -154,15 +81,6 @@ Returns the final operation base path (or undefined if something went wrong)
 NB: relative paths must be relative to OPERATION ROOT, not src root! They must also lead to files in src, this thing is still buggy otherwise!
 
 TODO: Remove the buggyness
-
-
-## 📄 newOperation (exported const)
-
-## How to create a package/operation?
-
-This cli creates the correct tsconfig.json, package.json, .gitignore, folder setup, so you can get started immedeately.
-
-Returns either the `operationBasePath` of the created operation, or undefined if something went wrong
 
 
 ## 📄 newTemplate (exported const)

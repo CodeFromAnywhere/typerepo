@@ -7,15 +7,7 @@ Any functions and variables related to port conventions
 
 
 
-# Outline
-
-## Variables
-
-- [ports](#ports)
-
-
-
-# Variables
+# Api reference
 
 ## 📄 ports (exported const)
 

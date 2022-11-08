@@ -35,13 +35,21 @@ export declare const getDependencyTree: (operationNames: string[], stack: string
  *
  * normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
  */
-export declare const findDependants: ({ operationName, importName, returnOperationName, }: {
+export declare const findDependants: (config: {
     operationName: string;
     /**
      * Optionally specify a specific import from an operation that you want to find the dependants for
      */
     importName?: string | undefined;
     returnOperationName?: boolean | undefined;
+    /**
+     * For efficiency reasons you can provide precalculated imports
+     */
+    imports?: TsImport[] | undefined;
+    /**
+     * If true, only external imports are found
+     */
+    onlyExternal?: boolean | undefined;
 }) => Promise<string[]>;
 export declare const findDependantsRecursively: (operationName: string, already?: string[]) => Promise<string[]>;
 //# sourceMappingURL=findAllDependencyOperations.d.ts.map

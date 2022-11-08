@@ -43,6 +43,7 @@ var database_1 = require("database");
 var js_util_1 = require("js-util");
 var filename_conventions_1 = require("filename-conventions");
 var markdown_parse_js_1 = require("markdown-parse-js");
+var find_all_dependency_operations_1 = require("find-all-dependency-operations");
 var fs_util_1 = require("fs-util");
 var get_package_json_1 = require("get-package-json");
 var read_json_file_1 = require("read-json-file");
@@ -50,22 +51,51 @@ var read_json_file_1 = require("read-json-file");
 var merge_1 = require("./parsing/merge");
 var bundleFolderWithMarkdown_1 = require("./bundleFolderWithMarkdown");
 var tsInterfaceToMarkdownString_1 = require("./tsInterfaceToMarkdownString");
-var getFunctionsInfo_1 = require("./getFunctionsInfo");
 var tsVariableToMarkdownString_1 = require("./tsVariableToMarkdownString");
+var tsFunctionToMarkdownString_1 = require("./tsFunctionToMarkdownString");
 var getMergedMarkdownOutlineUrl = function (title) {
     return { title: title, hashtagPath: (0, markdown_parse_js_1.getImplicitId)(title) };
 };
 exports.getMergedMarkdownOutlineUrl = getMergedMarkdownOutlineUrl;
+/** Double arrow function to get the count for the item */
+var addDependantCount = function (type, imports) {
+    return function (item) { return __awaiter(void 0, void 0, void 0, function () {
+        var _a;
+        var _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    _b = {},
+                        _b[type] = item;
+                    if (!item.operationName) return [3 /*break*/, 2];
+                    return [4 /*yield*/, (0, find_all_dependency_operations_1.findDependants)({
+                            operationName: item.operationName,
+                            importName: item.name,
+                            imports: imports,
+                            onlyExternal: true,
+                        })];
+                case 1:
+                    _a = _c.sent();
+                    return [3 /*break*/, 3];
+                case 2:
+                    _a = [];
+                    _c.label = 3;
+                case 3: return [2 /*return*/, (_b.externalDependantFiles = _a,
+                        _b)];
+            }
+        });
+    }); };
+};
 /**
  * converts an operation and all its contents into a flat markdown file that contains the needed information. configurable.
  *
  * markdown for reading (so there are no links)
  */
 var operationToMarkdown = function (config) { return __awaiter(void 0, void 0, void 0, function () {
-    var isSummary, manualProjectRoot, operationName, mergeDocsInline, returnType, projectRoot, operationFolderPath, operationConfig, description, packageJson, operationIndexPath, operationIndex, sizeString, coreDependencies, operationDependencies, packageDependencies, operationInfoMd, operationInfoMarkdownParse, docsPath, hasDocs, docs, _a, docsMarkdownParse, docsOutline, _b, functionsMarkdownParse, functionsOutline, models, interfaces, variables, modelsMarkdownString, interfacesMarkdownString, variablesMarkdownString, modelsMarkdownParse, interfacesMarkdownParse, variablesMarkdownParse, modelsOutline, interfacesOutline, variablesOutline, completeOutlineMarkdownParse, merged, returnString, shouldSave, returnValue;
-    var _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-    return __generator(this, function (_o) {
-        switch (_o.label) {
+    var isSummary, manualProjectRoot, operationName, mergeDocsInline, returnType, projectRoot, operationFolderPath, operationConfig, description, packageJson, operationIndexPath, operationIndex, sizeString, coreDependencies, operationDependencies, packageDependencies, operationInfoMd, operationInfoMarkdownParse, docsPath, hasDocs, docs, _a, imports, tsFunctions, variables, interfaces, dependantTsFunctions, dependantTsInterfaces, dependantTsVariables, sortedDependantCountArray, needInternal, externalItems, internalItems, externalMarkdownString, apiReference, merged, returnString, shouldSave, returnValue;
+    var _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
+    return __generator(this, function (_m) {
+        switch (_m.label) {
             case 0:
                 isSummary = config.isSummary, manualProjectRoot = config.manualProjectRoot, operationName = config.operationName, mergeDocsInline = config.mergeDocsInline, returnType = config.returnType;
                 projectRoot = manualProjectRoot || (0, get_path_1.getProjectRoot)();
@@ -77,26 +107,26 @@ var operationToMarkdown = function (config) { return __awaiter(void 0, void 0, v
                         manualProjectRoot: projectRoot,
                     })];
             case 1:
-                operationFolderPath = _o.sent();
+                operationFolderPath = _m.sent();
                 if (!operationFolderPath) {
                     (0, log_1.log)("Operation not found", { type: "error" });
                     return [2 /*return*/];
                 }
                 return [4 /*yield*/, database_1.db.get("OperationConfig", { operationName: operationName })];
             case 2:
-                operationConfig = (_o.sent())[0];
+                operationConfig = (_m.sent())[0];
                 description = operationConfig === null || operationConfig === void 0 ? void 0 : operationConfig.markdown;
                 return [4 /*yield*/, (0, get_package_json_1.getPackageJson)({ operationFolderPath: operationFolderPath })];
             case 3:
-                packageJson = _o.sent();
+                packageJson = _m.sent();
                 operationIndexPath = fs_util_1.path.join(operationFolderPath, filename_conventions_1.databaseFolderName, "operation-index.json");
                 return [4 /*yield*/, (0, read_json_file_1.readJsonFile)(operationIndexPath)];
             case 4:
-                operationIndex = _o.sent();
-                sizeString = "Size: ".concat((_d = (_c = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _c === void 0 ? void 0 : _c.codeSize) === null || _d === void 0 ? void 0 : _d.lines, " LOC, ").concat(((_f = (_e = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _e === void 0 ? void 0 : _e.dataSize) === null || _f === void 0 ? void 0 : _f.characters) !== undefined
-                    ? "".concat((_h = (_g = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _g === void 0 ? void 0 : _g.dataSize) === null || _h === void 0 ? void 0 : _h.characters, " data characters, ")
-                    : "").concat(((_k = (_j = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _j === void 0 ? void 0 : _j.textSize) === null || _k === void 0 ? void 0 : _k.characters) !== undefined
-                    ? "".concat((_m = (_l = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _l === void 0 ? void 0 : _l.textSize) === null || _m === void 0 ? void 0 : _m.characters, " text characters, ")
+                operationIndex = _m.sent();
+                sizeString = "Size: ".concat((_c = (_b = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _b === void 0 ? void 0 : _b.codeSize) === null || _c === void 0 ? void 0 : _c.lines, " LOC, ").concat(((_e = (_d = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _d === void 0 ? void 0 : _d.dataSize) === null || _e === void 0 ? void 0 : _e.characters) !== undefined
+                    ? "".concat((_g = (_f = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _f === void 0 ? void 0 : _f.dataSize) === null || _g === void 0 ? void 0 : _g.characters, " data characters, ")
+                    : "").concat(((_j = (_h = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _h === void 0 ? void 0 : _h.textSize) === null || _j === void 0 ? void 0 : _j.characters) !== undefined
+                    ? "".concat((_l = (_k = operationIndex === null || operationIndex === void 0 ? void 0 : operationIndex.size) === null || _k === void 0 ? void 0 : _k.textSize) === null || _l === void 0 ? void 0 : _l.characters, " text characters, ")
                     : "");
                 coreDependencies = operationIndex &&
                     operationIndex.coreDependencies &&
@@ -120,73 +150,82 @@ var operationToMarkdown = function (config) { return __awaiter(void 0, void 0, v
                 if (!hasDocs) return [3 /*break*/, 6];
                 return [4 /*yield*/, (0, bundleFolderWithMarkdown_1.bundleFolderWithMarkdown)("Docs", docsPath, "docs")];
             case 5:
-                _a = _o.sent();
+                _a = _m.sent();
                 return [3 /*break*/, 7];
             case 6:
                 _a = undefined;
-                _o.label = 7;
+                _m.label = 7;
             case 7:
                 docs = _a;
-                docsMarkdownParse = docs === null || docs === void 0 ? void 0 : docs.markdownParse;
-                docsOutline = (docs === null || docs === void 0 ? void 0 : docs.outlineString) || "";
-                return [4 /*yield*/, (0, getFunctionsInfo_1.getFunctionsInfo)(operationName)];
+                return [4 /*yield*/, database_1.db.get("TsImport")];
             case 8:
-                _b = _o.sent(), functionsMarkdownParse = _b.functionsMarkdownParse, functionsOutline = _b.functionsOutline;
-                return [4 /*yield*/, database_1.db.get("TsInterface", { operationName: operationName })];
+                imports = (_m.sent()).filter(function (x) { return x.operationName !== operationName; });
+                return [4 /*yield*/, database_1.db.get("TsFunction", { operationName: operationName })];
             case 9:
-                models = (_o.sent())
-                    .filter(function (x) { return x.isDbModel; })
-                    .filter(function (x) { return x.isExported; });
-                return [4 /*yield*/, database_1.db.get("TsInterface", { operationName: operationName })];
-            case 10:
-                interfaces = (_o.sent())
-                    .filter(function (x) { return !x.isDbModel && !x.name.startsWith("NamedParameters<"); })
+                tsFunctions = (_m.sent())
+                    .filter((0, js_util_1.onlyUnique2)(function (a, b) { return a.name === b.name; }))
                     .filter(function (x) { return x.isExported; });
                 return [4 /*yield*/, database_1.db.get("TsVariable", { operationName: operationName })];
+            case 10:
+                variables = (_m.sent()).filter(function (x) { return x.isExported; });
+                return [4 /*yield*/, database_1.db.get("TsInterface", { operationName: operationName })];
             case 11:
-                variables = (_o.sent()).filter(function (x) { return x.isExported; });
-                modelsMarkdownString = models.length > 0
-                    ? models.map(tsInterfaceToMarkdownString_1.tsInterfaceToMarkdownString).join("\n\n")
-                    : undefined;
-                interfacesMarkdownString = interfaces.length > 0
-                    ? interfaces.map(tsInterfaceToMarkdownString_1.tsInterfaceToMarkdownString).join("\n\n")
-                    : undefined;
-                variablesMarkdownString = variables.length > 0
-                    ? variables.map(tsVariableToMarkdownString_1.tsVariableToMarkdownString).join("\n\n")
-                    : undefined;
-                modelsMarkdownParse = modelsMarkdownString
-                    ? (0, markdown_parse_js_1.mdToJsonParse)(modelsMarkdownString, "models")
-                    : undefined;
-                interfacesMarkdownParse = interfacesMarkdownString
-                    ? (0, markdown_parse_js_1.mdToJsonParse)(interfacesMarkdownString, "interfaces")
-                    : undefined;
-                variablesMarkdownParse = variablesMarkdownString
-                    ? (0, markdown_parse_js_1.mdToJsonParse)(variablesMarkdownString, "variables")
-                    : undefined;
-                modelsOutline = (0, bundleFolderWithMarkdown_1.makeOutlineMarkdownString)("Models", models.map(function (x) { return (0, exports.getMergedMarkdownOutlineUrl)(x.name); }));
-                interfacesOutline = (0, bundleFolderWithMarkdown_1.makeOutlineMarkdownString)("Interfaces", interfaces.map(function (x) { return (0, exports.getMergedMarkdownOutlineUrl)(x.name); }));
-                variablesOutline = (0, bundleFolderWithMarkdown_1.makeOutlineMarkdownString)("Variables", variables.map(function (x) { return (0, exports.getMergedMarkdownOutlineUrl)(x.name); }));
-                completeOutlineMarkdownParse = (0, markdown_parse_js_1.mdToJsonParse)("".concat(docsOutline).concat(functionsOutline).concat(modelsOutline).concat(interfacesOutline).concat(variablesOutline), "outline");
+                interfaces = (_m.sent())
+                    .filter(function (x) { return !x.name.startsWith("NamedParameters<"); })
+                    .filter(function (x) { return x.isExported; });
+                return [4 /*yield*/, Promise.all(tsFunctions.map(addDependantCount("tsFunction", imports)))];
+            case 12:
+                dependantTsFunctions = _m.sent();
+                return [4 /*yield*/, Promise.all(interfaces.map(addDependantCount("tsInterface", imports)))];
+            case 13:
+                dependantTsInterfaces = _m.sent();
+                return [4 /*yield*/, Promise.all(variables.map(addDependantCount("tsVariable", imports)))];
+            case 14:
+                dependantTsVariables = _m.sent();
+                sortedDependantCountArray = [
+                    dependantTsFunctions,
+                    dependantTsInterfaces,
+                    dependantTsVariables,
+                ]
+                    .flat()
+                    .sort(function (a, b) {
+                    return a.externalDependantFiles.length > b.externalDependantFiles.length ? -1 : 1;
+                });
+                needInternal = false;
+                externalItems = sortedDependantCountArray.filter(function (x) { return x.externalDependantFiles.length > 0; });
+                internalItems = sortedDependantCountArray.filter(function (x) { return x.externalDependantFiles.length === 0; });
+                externalMarkdownString = externalItems
+                    .map(function (dependantCountObject) {
+                    if (dependantCountObject.tsFunction) {
+                        return (0, tsFunctionToMarkdownString_1.tsFunctionToMarkdownString)(dependantCountObject.tsFunction);
+                    }
+                    if (dependantCountObject.tsInterface) {
+                        return (0, tsInterfaceToMarkdownString_1.tsInterfaceToMarkdownString)(dependantCountObject.tsInterface);
+                    }
+                    if (dependantCountObject.tsVariable) {
+                        return (0, tsVariableToMarkdownString_1.tsVariableToMarkdownString)(dependantCountObject.tsVariable);
+                    }
+                })
+                    .filter(js_util_1.notEmpty)
+                    .join("\n\n");
+                apiReference = (0, markdown_parse_js_1.mdToJsonParse)(externalMarkdownString, "api-reference");
                 merged = (0, merge_1.mergeMarkdownParse)([
                     operationInfoMarkdownParse,
-                    completeOutlineMarkdownParse,
-                    docsMarkdownParse,
-                    functionsMarkdownParse,
-                    modelsMarkdownParse,
-                    interfacesMarkdownParse,
-                    variablesMarkdownParse,
+                    (0, markdown_parse_js_1.mdToJsonParse)((docs === null || docs === void 0 ? void 0 : docs.outlineString) || ""),
+                    docs === null || docs === void 0 ? void 0 : docs.markdownParse,
+                    apiReference,
                 ].filter(js_util_1.notEmpty)).merged;
                 returnString = undefined;
                 if (returnType !== "parse") {
                     returnString = (0, markdown_parse_js_1.markdownParseToMarkdownString)(merged);
                 }
                 shouldSave = returnType === "save" || !returnType;
-                if (!(shouldSave && returnString)) return [3 /*break*/, 13];
+                if (!(shouldSave && returnString)) return [3 /*break*/, 16];
                 return [4 /*yield*/, fs_util_1.fs.writeFile(fs_util_1.path.join(operationFolderPath, "README.md"), returnString, "utf8")];
-            case 12:
-                _o.sent();
-                _o.label = 13;
-            case 13:
+            case 15:
+                _m.sent();
+                _m.label = 16;
+            case 16:
                 returnValue = returnType === "parse"
                     ? merged
                     : returnType === "string"

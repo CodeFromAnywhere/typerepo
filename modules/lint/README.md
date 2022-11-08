@@ -4,19 +4,7 @@ lint (node operation)
 
 
 
-# Outline
-
-## Functions
-
-- [preIndexLint](#preIndexLint)
-
-## Variables
-
-- [preIndexLint](#preindexlint)
-
-
-
-# Functions
+# Api reference
 
 ## preIndexLint()
 
@@ -38,7 +26,6 @@ this lint can be done before indexation
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 preIndexLint (exported const)
 

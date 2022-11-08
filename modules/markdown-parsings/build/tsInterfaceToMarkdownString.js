@@ -9,7 +9,8 @@ var simplifiedSchemaToMarkdownString_1 = require("./simplifiedSchemaToMarkdownSt
  * use simplifiedJsonSchema, but split up nested things into multiple tables (ive written a thing for splitting up nested objects before, use that)
  */
 var tsInterfaceToMarkdownString = function (tsInterface) {
-    var titleString = "# \uD83D\uDD37 ".concat(tsInterface.name);
+    var icon = tsInterface.isDbModel ? "🔸" : "🔹";
+    var titleString = "# ".concat(icon, " ").concat(tsInterface.name);
     var storageMethodString = tsInterface.dbStorageMethod
         ? "".concat(tsInterface.dbStorageMethod, " model\n\n")
         : undefined;

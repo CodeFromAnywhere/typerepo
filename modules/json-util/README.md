@@ -4,23 +4,9 @@ json-util (js operation)
 
 
 
-# Outline
+# Api reference
 
-## Functions
-
-- [getSimpleJsonString](#getSimpleJsonString)
-
-## Interfaces
-
-- [Json](#json)
-
-## Variables
-
-- [getSimpleJsonString](#getsimplejsonstring)
-
-
-
-# Functions
+## 🔹 Json
 
 ## getSimpleJsonString()
 
@@ -33,11 +19,6 @@ stringifies simple json things if the json is one of them, otherwise returns und
 | **Output** | string   |    |
 
 
-# Interfaces
-
-## 🔷 Json
-
-# Variables
 
 ## 📄 getSimpleJsonString (exported const)
 

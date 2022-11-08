@@ -231,32 +231,38 @@ exports.getDependencyTree = getDependencyTree;
  *
  * normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
  */
-var findDependants = function (_a) {
-    var operationName = _a.operationName, importName = _a.importName, returnOperationName = _a.returnOperationName;
-    return __awaiter(void 0, void 0, void 0, function () {
-        var resultValueKey, imports, monorepoModules;
-        return __generator(this, function (_b) {
-            switch (_b.label) {
-                case 0:
-                    resultValueKey = returnOperationName
-                        ? "operationName"
-                        : "projectRelativePath";
-                    return [4 /*yield*/, database_1.db.get("TsImport")];
-                case 1:
-                    imports = _b.sent();
-                    monorepoModules = imports
-                        .filter(function (x) { return x.module === operationName; })
-                        .filter(function (x) { return (importName ? x.name === importName : true); })
-                        .map(function (x) {
-                        return x.isModuleFromMonorepo && x.isModuleResolved ? x[resultValueKey] : null;
-                    })
-                        .filter(js_util_1.notEmpty)
-                        .filter(js_util_1.onlyUnique);
-                    return [2 /*return*/, monorepoModules];
-            }
-        });
+var findDependants = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var operationName, importName, returnOperationName, imports, onlyExternal, resultValueKey, theImports, _a, monorepoModules;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                operationName = config.operationName, importName = config.importName, returnOperationName = config.returnOperationName, imports = config.imports, onlyExternal = config.onlyExternal;
+                resultValueKey = returnOperationName
+                    ? "operationName"
+                    : "projectRelativePath";
+                _a = imports;
+                if (_a) return [3 /*break*/, 2];
+                return [4 /*yield*/, database_1.db.get("TsImport")];
+            case 1:
+                _a = (_b.sent());
+                _b.label = 2;
+            case 2:
+                theImports = _a;
+                monorepoModules = theImports
+                    .filter(function (x) { return x.module === operationName; })
+                    .filter(function (x) { return (importName ? x.name === importName : true); })
+                    .filter(function (x) {
+                    return onlyExternal ? x.isAbsolute && x.operationName !== operationName : true;
+                })
+                    .map(function (x) {
+                    return x.isModuleFromMonorepo && x.isModuleResolved ? x[resultValueKey] : null;
+                })
+                    .filter(js_util_1.notEmpty)
+                    .filter(js_util_1.onlyUnique);
+                return [2 /*return*/, monorepoModules];
+        }
     });
-};
+}); };
 exports.findDependants = findDependants;
 // findDependants({
 //   operationName: "js-util",

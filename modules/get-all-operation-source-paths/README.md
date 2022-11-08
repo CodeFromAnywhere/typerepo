@@ -7,19 +7,7 @@ returns src folder paths of all operations
 
 
 
-# Outline
-
-## Functions
-
-- [getAllOperationSourcePaths](#getAllOperationSourcePaths)
-
-## Variables
-
-- [getAllOperationSourcePaths](#getalloperationsourcepaths)
-
-
-
-# Functions
+# Api reference
 
 ## getAllOperationSourcePaths()
 
@@ -32,7 +20,6 @@ returns src folder paths of all operations
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 getAllOperationSourcePaths (exported const)
 

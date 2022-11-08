@@ -7,20 +7,10 @@ CLI that starts a watcher that watches all your operations for changes and rebui
 
 
 
-# Outline
-
 ## Docs
 
 - [README](#readme)
 - [Use on monorepo](#use-on-monorepo)
-
-## Functions
-
-- [dev](#dev)
-
-## Variables
-
-- [dev](#dev)
 
 
 
@@ -62,22 +52,5 @@ If you want to use the typerepo functions on your own monorepo, you can use the 
 If you wish to do so, simply start a new monorepo with the same convention as the monorepo of `typerepo`. Maybe you already have one, otherwise you can just copy paste `typerepo` and remove all `packages`, `apps`, and `modules` (or just remove the ones you wish only)
 
 
-# Functions
-
-## dev()
-
-Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| manualProjectRoot (optional) | string | manual project root for finding the operations |
-| **Output** |    |    |
-
-
-# Variables
-
-## 📄 dev (exported const)
-
-Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))
+# Api reference
 

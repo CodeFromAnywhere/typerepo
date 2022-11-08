@@ -43,7 +43,7 @@ var test = function () { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                operationName = "operation-ui";
+                operationName = "database";
                 return [4 /*yield*/, (0, operationToMarkdown_1.operationToMarkdown)({
                         operationName: operationName,
                         mergeDocsInline: true,

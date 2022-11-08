@@ -4,148 +4,33 @@ social-media-types (js operation)
 
 
 
-# Outline
+# Api reference
 
-## Functions
-
-- [findPostableToPost](#findPostableToPost)
-- [updatePostedStatistics](#updatePostedStatistics)
-
-## Models
-
-- [Interest](#interest)
-- [MediaChannel](#mediachannel)
-- [MediaCredentail](#mediacredentail)
-- [MediaPost](#mediapost)
-- [Postable](#postable)
-
-## Interfaces
-
-- [MediaPlatformEnum](#mediaplatformenum)
-- [SocialMediaPostTypeReturnType](#socialmediaposttypereturntype)
-- [SocialMediaPostTypeReturnType](#socialmediaposttypereturntype)
-
-## Variables
-
-- [findPostableToPost](#findpostabletopost)
-- [updatePostedStatistics](#updatepostedstatistics)
-
-
-
-# Functions
-
-## findPostableToPost()
-
-This function finds a postable from the database and posts it on multiple channels
-
-This can be executed with a CRON
-
-1. finds a postable that has no posted paired
-2. chooses the channels where this thing can be posted on
-3. for every channel, formats the post correctly
-4. for every channel, places the post
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## updatePostedStatistics()
-
-This function keeps the `Posted` statistics up-to-date
-
-Can be executed with a cron for all recent posts
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-# Models
-
-## 🔷 Interest
-
-keyValueMarkdown model
-
-
-
-
-
-
-
-
+## 🔹 SocialMediaPostTypeReturnType
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| value (optional) | string |  |
-| comment  | string |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
-| isHeaderCalculated  | boolean |  |
-| parent_interestSlug  | string |  |
+| isSuccess  | boolean |  |
+| message  | string |  |
+| postUrl (optional) | string |  |
 
 
 
-## 🔷 MediaChannel
-
-jsonMultiple model
-
-
-
-channel where messages can be posted to
-
-examples:
-- facebook group
-- slack channel
-- whatsapp pm
-- facebook pm
-
-
-
-
+## 🔹 SocialMediaPostTypeReturnType
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| platformSlug  | string |  |
-| platformChannelId  | string |  |
-| url (optional) | string |  |
-| name  | string |  |
-| slug  | string |  |
-| description (optional) | string |  |
-| isGroup (optional) | boolean |  |
-| memberPersonIds (optional) | array |  |
-| interestSlugs (optional) | array |  |
-| locationSlug (optional) | string |  |
-| language  | string |  |
-| mediaCredentialId (optional) | string |  |
-| myLastPostAt  | number |  |
+| isSuccess  | boolean |  |
+| message  | string |  |
+| postUrl (optional) | string |  |
 
 
 
-## 🔷 MediaCredentail
+## 🔸 MediaCredentail
 
 jsonMultiple model
 
@@ -178,7 +63,39 @@ Properties:
 
 
 
-## 🔷 MediaPost
+## 🔹 MediaPlatformEnum
+
+## 🔸 Interest
+
+keyValueMarkdown model
+
+
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| value (optional) | string |  |
+| comment  | string |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| categoryStackCalculated  | array |  |
+| isHeaderCalculated  | boolean |  |
+| parent_interestSlug  | string |  |
+
+
+
+## 🔸 MediaPost
 
 jsonMultiple model
 
@@ -218,7 +135,7 @@ Properties:
 
 
 
-## 🔷 Postable
+## 🔸 Postable
 
 markdown model
 
@@ -256,51 +173,4 @@ Properties:
 | operationIndexIds (optional) | array |  |
 | reference_assets  | array |  |
 
-
-# Interfaces
-
-## 🔷 MediaPlatformEnum
-
-## 🔷 SocialMediaPostTypeReturnType
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| isSuccess  | boolean |  |
-| message  | string |  |
-| postUrl (optional) | string |  |
-
-
-
-## 🔷 SocialMediaPostTypeReturnType
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| isSuccess  | boolean |  |
-| message  | string |  |
-| postUrl (optional) | string |  |
-
-
-# Variables
-
-## 📄 findPostableToPost (exported const)
-
-This function finds a postable from the database and posts it on multiple channels
-
-This can be executed with a CRON
-
-1. finds a postable that has no posted paired
-2. chooses the channels where this thing can be posted on
-3. for every channel, formats the post correctly
-4. for every channel, places the post
-
-
-## 📄 updatePostedStatistics (exported const)
-
-This function keeps the `Posted` statistics up-to-date
-
-Can be executed with a cron for all recent posts
 

@@ -7,23 +7,7 @@ CLI helpers to ask for input parameters (instead of providing as part of the cli
 
 
 
-# Outline
-
-## Functions
-
-- [askOk](#askOk)
-- [ask](#ask)
-- [getArgumentOrAsk](#getArgumentOrAsk)
-
-## Variables
-
-- [askOk](#askok)
-- [ask](#ask)
-- [getArgumentOrAsk](#getargumentorask)
-
-
-
-# Functions
+# Api reference
 
 ## askOk()
 
@@ -43,6 +27,10 @@ CLI helpers to ask for input parameters (instead of providing as part of the cli
 
 
 
+## 📄 askOk (exported const)
+
+## 📄 ask (exported const)
+
 ## getArgumentOrAsk()
 
 | Input      |    |    |
@@ -51,11 +39,6 @@ CLI helpers to ask for input parameters (instead of providing as part of the cli
 | **Output** |    |    |
 
 
-# Variables
-
-## 📄 askOk (exported const)
-
-## 📄 ask (exported const)
 
 ## 📄 getArgumentOrAsk (exported const)
 

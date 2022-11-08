@@ -4,19 +4,7 @@ run-child-process (js operation)
 
 
 
-# Outline
-
-## Functions
-
-- [runChildProcess](#runChildProcess)
-
-## Variables
-
-- [runChildProcess](#runchildprocess)
-
-
-
-# Functions
+# Api reference
 
 ## runChildProcess()
 
@@ -29,7 +17,6 @@ spawns a child process and returns its output after it's done
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 runChildProcess (exported const)
 

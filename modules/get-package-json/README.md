@@ -4,35 +4,18 @@ get-package-json (node operation)
 
 
 
-# Outline
+# Api reference
 
-## Functions
-
-- [getOperationBins](#getOperationBins)
-- [getOperationPackageName](#getOperationPackageName)
-- [getPackageJson](#getPackageJson)
-
-## Variables
-
-- [getOperationBins](#getoperationbins)
-- [getOperationPackageName](#getoperationpackagename)
-- [getPackageJson](#getpackagejson)
-
-
-
-# Functions
-
-## getOperationBins()
-
-returns array of bins. by convention, these bins should also be exported from operation index file
-
+## getPackageJson()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| operationFolderPath | string |  |
+| config | { operationFolderPath: string, <br /> } |  |
 | **Output** |    |    |
 
 
+
+## 📄 getPackageJson (exported const)
 
 ## getOperationPackageName()
 
@@ -43,22 +26,5 @@ returns array of bins. by convention, these bins should also be exported from op
 
 
 
-## getPackageJson()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| config | { operationFolderPath: string, <br /> } |  |
-| **Output** |    |    |
-
-
-# Variables
-
-## 📄 getOperationBins (exported const)
-
-returns array of bins. by convention, these bins should also be exported from operation index file
-
-
 ## 📄 getOperationPackageName (exported const)
-
-## 📄 getPackageJson (exported const)
 

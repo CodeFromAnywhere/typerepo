@@ -4,19 +4,7 @@ one-by-one (js operation)
 
 
 
-# Outline
-
-## Functions
-
-- [oneByOne](#oneByOne)
-
-## Variables
-
-- [oneByOne](#onebyone)
-
-
-
-# Functions
+# Api reference
 
 ## oneByOne()
 
@@ -30,7 +18,6 @@ promises an array of the results of every callback once it's done
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 oneByOne (exported const)
 

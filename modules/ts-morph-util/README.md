@@ -4,31 +4,23 @@ ts-morph-util (node operation)
 
 
 
-# Outline
+# Api reference
 
-## Functions
+## getTsMorphProject()
 
-- [getAllTsMorphSourceFiles](#getAllTsMorphSourceFiles)
-- [getHasGeneric](#getHasGeneric)
-- [getTsMorphProject](#getTsMorphProject)
+returns a ts-morph Project given a operationFolderPath, if a tsconfig.json can be found
 
-## Variables
-
-- [getAllTsMorphSourceFiles](#getalltsmorphsourcefiles)
-- [getHasGeneric](#gethasgeneric)
-- [getTsMorphProject](#gettsmorphproject)
-
-
-
-# Functions
-
-## getAllTsMorphSourceFiles()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| operationBasePath | string |  |
-| **Output** |    |    |
+| operationFolderPath | string |  |
+| **Output** | {  }   |    |
 
+
+
+## 📄 getTsMorphProject (exported const)
+
+returns a ts-morph Project given a operationFolderPath, if a tsconfig.json can be found
 
 
 ## getHasGeneric()
@@ -43,27 +35,19 @@ returns a boolean indicating whether an interface or type has one or more generi
 
 
 
-## getTsMorphProject()
-
-returns a ts-morph Project given a operationFolderPath, if a tsconfig.json can be found
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationFolderPath | string |  |
-| **Output** | {  }   |    |
-
-
-# Variables
-
-## 📄 getAllTsMorphSourceFiles (exported const)
-
 ## 📄 getHasGeneric (exported const)
 
 returns a boolean indicating whether an interface or type has one or more generic arguments
 
 
-## 📄 getTsMorphProject (exported const)
+## getAllTsMorphSourceFiles()
 
-returns a ts-morph Project given a operationFolderPath, if a tsconfig.json can be found
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationBasePath | string |  |
+| **Output** |    |    |
+
+
+
+## 📄 getAllTsMorphSourceFiles (exported const)
 

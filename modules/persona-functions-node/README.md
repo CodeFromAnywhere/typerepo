@@ -4,19 +4,7 @@ persona-functions-node (node operation)
 
 
 
-# Outline
-
-## Functions
-
-- [getPrimaryPersona](#getPrimaryPersona)
-
-## Variables
-
-- [getPrimaryPersona](#getprimarypersona)
-
-
-
-# Functions
+# Api reference
 
 ## getPrimaryPersona()
 
@@ -26,7 +14,6 @@ persona-functions-node (node operation)
 | **Output** |    |    |
 
 
-# Variables
 
 ## 📄 getPrimaryPersona (exported const)
 

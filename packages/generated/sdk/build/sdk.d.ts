@@ -231,10 +231,12 @@ export declare const sdk: {
         ignoreFilter?: ((operationName: string) => boolean) | undefined;
     }) => Promise<string[]>;
     findDependantsRecursively: (operationName: string, already?: string[] | undefined) => Promise<string[]>;
-    findDependants: ({ operationName, importName, returnOperationName, }: {
+    findDependants: (config: {
         operationName: string;
         importName?: string | undefined;
         returnOperationName?: boolean | undefined;
+        imports?: import("code-types").TsImport[] | undefined;
+        onlyExternal?: boolean | undefined;
     }) => Promise<string[]>;
     findDependenciesRecursively: (imports: import("code-types").TsImport[], packageJsons: import("code-types").PackageJson[], operationName: string, already: string[], ignore?: string[] | undefined, ignoreFilter?: ((operationName: string) => boolean) | undefined) => Promise<string[]>;
     findMonorepoModules: (operationName: string) => Promise<string[]>;
@@ -547,11 +549,7 @@ export declare const sdk: {
         singlePage?: boolean | undefined;
         projectRelativeMdFilePath?: string | undefined;
     }) => void;
-    getFunctionsInfo: (operationName: string) => Promise<{
-        functionsOutline: string;
-        functionsMarkdownParse: import("code-types").MarkdownParse | undefined;
-        functionsMarkdownString: string | undefined;
-    }>;
+    getFunctionsInfo: any;
     getMergedMarkdownOutlineUrl: (title: string) => {
         title: string;
         hashtagPath: string;
