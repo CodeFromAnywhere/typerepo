@@ -30,3 +30,25 @@ if your search matches some words in a sentence, it's a match, as long as all yo
 
 NB: this could be augmented with things like synonyms and translation
 
+# Internal
+
+<details><summary>Show internal (3)</summary>
+  
+  # searchRecursiveObjectArray()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 searchRecursiveObjectArray (exported const)
+
+## 📄 test (exported const)
+
+  </details>
+

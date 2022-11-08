@@ -19,3 +19,10 @@ by convention, we are going to execute the `build/cli/[fnName].cli.js` file |,| 
 
 ## 📄 nodemon (exported const)
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

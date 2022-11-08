@@ -64,3 +64,67 @@ multiline
 comment
 ```
 
+# Internal
+
+<details><summary>Show internal (10)</summary>
+  
+  # stripCommentEnd()
+
+only strip slahes for single-line comments
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| trimmedLine | string |  |
+| **Output** |    |    |
+
+
+
+## stripCommentStart()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| trimmedLine | string |  |
+| **Output** |    |    |
+
+
+
+## stripSlashes()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| trimmedLine | string |  |
+| **Output** |    |    |
+
+
+
+## stripStar()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| trimmedLine | string |  |
+| **Output** |    |    |
+
+
+
+## trim()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| string | string |  |
+| **Output** |    |    |
+
+
+
+## 📄 stripCommentEnd (exported const)
+
+## 📄 stripCommentStart (exported const)
+
+## 📄 stripSlashes (exported const)
+
+## 📄 stripStar (exported const)
+
+## 📄 trim (exported const)
+
+  </details>
+

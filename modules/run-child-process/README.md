@@ -22,3 +22,10 @@ spawns a child process and returns its output after it's done
 
 spawns a child process and returns its output after it's done
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

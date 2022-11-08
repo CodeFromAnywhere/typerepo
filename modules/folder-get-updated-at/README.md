@@ -27,3 +27,10 @@ get last updated file updatedAt time in whole folder, recursively
 
 get last updated file updatedAt time in whole folder, recursively
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

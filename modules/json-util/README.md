@@ -24,3 +24,10 @@ stringifies simple json things if the json is one of them, otherwise returns und
 
 stringifies simple json things if the json is one of them, otherwise returns undefined
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

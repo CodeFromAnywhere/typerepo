@@ -47,3 +47,19 @@ https://youtu.be/XH0M9OJ8330
 
 # Api reference
 
+# Internal
+
+<details><summary>Show internal (1)</summary>
+  
+  # <MyApp />
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+  </details>
+

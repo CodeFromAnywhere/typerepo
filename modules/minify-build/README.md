@@ -25,3 +25,10 @@ takes an operation name or build folder path, then explores all ts files in src 
 
 takes an operation name or build folder path, then explores all ts files in src folder, finds the matching js file in the build folder, and executes terser from dependency, not from cli
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

@@ -43,3 +43,10 @@ convert value string (arg3) to number, boolean if they seem to be like that
 | **Output** |    |    |
 
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

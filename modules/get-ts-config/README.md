@@ -20,3 +20,10 @@ Gets the TsConfig given a path to an operation
 
 ## 📄 getTsConfig (exported const)
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

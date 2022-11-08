@@ -122,3 +122,39 @@ Properties:
 | repeatPassword  | string |  |
 
 
+# Internal
+
+<details><summary>Show internal (1)</summary>
+  
+  # 🔸 LocationType
+
+jsonMultiple model
+
+
+
+Jeep location
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| jeepId  | string |  |
+| latitude  | number |  |
+| longitude  | number |  |
+| nearbyVillage  | string |  |
+
+  </details>
+

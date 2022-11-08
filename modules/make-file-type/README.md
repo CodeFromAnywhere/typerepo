@@ -34,3 +34,10 @@ Properties:
 
 ## 📄 makeFileType (exported const)
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

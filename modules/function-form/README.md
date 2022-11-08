@@ -37,3 +37,10 @@ This component only works if your `api` is up-to-date and your function is succe
 
 @see TsFunction
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

@@ -25,3 +25,23 @@ From all Ts Index Models, removes the instances that refer to a ts file that doe
 
 From all Ts Index Models, removes the instances that refer to a ts file that doesn't exist anymore in the operation.
 
+# Internal
+
+<details><summary>Show internal (2)</summary>
+  
+  # shouldDeleteTsModel()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsModel | {  } |  |,| operationName | string |  |,| operationRelativePaths | string[] |  |
+| **Output** | {  }   |    |
+
+
+
+## 📄 shouldDeleteTsModel (exported const)
+
+  </details>
+

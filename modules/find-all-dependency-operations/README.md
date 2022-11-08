@@ -75,3 +75,78 @@ finds all dependants of an operation or a specific import from that operation
 
 normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
 
+# Internal
+
+<details><summary>Show internal (8)</summary>
+  
+  # findDependenciesRecursively()
+
+finds all dependencies of an operation name
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## findMonorepoModules()
+
+finds all dependencies of an operation name
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## getDependencyObject()
+
+findAllDependencyOperations(["fs-orm"]).then(console.log);
+
+how do I get a format like this?
+
+const x = {
+
+"fs-orm": ["js-util"],
+
+"js-util": [],
+
+}
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## getDependencyTree()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 findDependenciesRecursively (exported const)
+
+finds all dependencies of an operation name
+
+
+## 📄 findMonorepoModules (exported const)
+
+finds all dependencies of an operation name
+
+
+## 📄 getDependencyObject (exported const)
+
+## 📄 getDependencyTree (exported const)
+
+  </details>
+

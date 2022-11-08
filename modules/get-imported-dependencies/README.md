@@ -49,3 +49,24 @@ this assumes that any absolute package comes from node_modules.
 
 if it doesn't start with a dot it must be an absolute import so most likely a package that needs to be installed
 
+# Internal
+
+<details><summary>Show internal (2)</summary>
+  
+  # getPackage()
+
+only the first part
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| absoluteModuleString | string |  |
+| **Output** |    |    |
+
+
+
+## 📄 getPackage (exported const)
+
+only the first part
+  </details>
+

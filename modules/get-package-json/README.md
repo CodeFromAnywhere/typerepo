@@ -28,3 +28,24 @@ get-package-json (node operation)
 
 ## 📄 getOperationPackageName (exported const)
 
+# Internal
+
+<details><summary>Show internal (2)</summary>
+  
+  # getOperationBins()
+
+returns array of bins. by convention, these bins should also be exported from operation index file
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationFolderPath | string |  |
+| **Output** |    |    |
+
+
+
+## 📄 getOperationBins (exported const)
+
+returns array of bins. by convention, these bins should also be exported from operation index file
+  </details>
+

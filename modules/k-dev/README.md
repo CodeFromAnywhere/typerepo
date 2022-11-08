@@ -54,3 +54,24 @@ If you wish to do so, simply start a new monorepo with the same convention as th
 
 # Api reference
 
+# Internal
+
+<details><summary>Show internal (2)</summary>
+  
+  # dev()
+
+Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| manualProjectRoot (optional) | string | manual project root for finding the operations |
+| **Output** |    |    |
+
+
+
+## 📄 dev (exported const)
+
+Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))
+  </details>
+

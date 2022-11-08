@@ -11,3 +11,10 @@ Any functions and variables related to port conventions
 
 ## 📄 ports (exported const)
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

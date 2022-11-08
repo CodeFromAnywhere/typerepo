@@ -24,3 +24,10 @@ promises an array of the results of every callback once it's done
 for every item in an array, executes an async callback, one by one.
 promises an array of the results of every callback once it's done
 
+# Internal
+
+<details><summary>Show internal (0)</summary>
+  
+  
+  </details>
+

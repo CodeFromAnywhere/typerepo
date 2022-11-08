@@ -87,3 +87,68 @@ TODO: Remove the buggyness
 
 Returns either the `basePath` of the created template, or undefined if something went wrong
 
+# Internal
+
+<details><summary>Show internal (6)</summary>
+  
+  # getAvailableOperationName()
+
+returns folder name
+
+finds the first foldername that is available in this folder but also there is nowhere an operation already with this name
+
+there is also getAvailableFolderPath for non-operation folders
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| rootFolderPath | string |  |,| preferredFolderName | string |  |,| manualProjectRoot (optional) | string |  |
+| **Output** |    |    |
+
+
+
+## main()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## newOperation()
+
+## How to create a package/operation?
+
+This cli creates the correct tsconfig.json, package.json, .gitignore, folder setup, so you can get started immedeately.
+
+Returns either the `operationBasePath` of the created operation, or undefined if something went wrong
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| name (optional) | string |  |,| config (optional) | { type?: `OperationClassification`, <br />operationConfig?: `OperationConfig`, <br />description?: string, <br />destinationPath?: string, <br />manualProjectRoot?: string, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## 📄 getAvailableOperationName (exported const)
+
+returns folder name
+
+finds the first foldername that is available in this folder but also there is nowhere an operation already with this name
+
+there is also getAvailableFolderPath for non-operation folders
+
+
+## 📄 main (exported const)
+
+## 📄 newOperation (exported const)
+
+## How to create a package/operation?
+
+This cli creates the correct tsconfig.json, package.json, .gitignore, folder setup, so you can get started immedeately.
+
+Returns either the `operationBasePath` of the created operation, or undefined if something went wrong
+  </details>
+

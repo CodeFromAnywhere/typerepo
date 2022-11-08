@@ -51,3 +51,42 @@ Nevertheless, server.js works fine and most things are documented.
 
 # Api reference
 
+# Internal
+
+<details><summary>Show internal (4)</summary>
+  
+  # executeFunction()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsFunction | `TsFunction` |  |
+| **Output** |    |    |
+
+
+
+## runFunctionServer()
+
+runs sdk api server using "server" package.
+
+server will be exposed on port 4201
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 executeFunction (exported const)
+
+## 📄 runFunctionServer (exported const)
+
+runs sdk api server using "server" package.
+
+server will be exposed on port 4201
+  </details>
+
