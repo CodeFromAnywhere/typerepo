@@ -1,9 +1,9 @@
 # Typerepo
 
-Welcome to typerepo. Although the project is currently in closed beta, we are allowing everyone to read our docs and api.
+Typerepo is a collection of tools, conventions and a large SDK that brings together the well-known frameworks such as Node.js, Expo.dev and Next.js under 1 bigger whole. By clever use of Typescript and bundle techniques, we have managed to share a lot of code between different frontends (app, web, extensions, electron) and also the front and backend. Besides this, our framework features automatic documentation, a CLI to get started in no-time, and a huge library of useful integrations.
+
+The project is now in alpha, we are looking for developers trying to build startups and need a custom SaaS solution, to validate Typerepo.
 
 Please see the [docs here](docs)
 
-The most important docs can be found in the individual packages as well. Please read carefully. You can do this by running `yarn dev` inside of `apps/markdown-reader-web` and opening up your browser at `http://localhost:3000`. Start with `k-dev`, `rebuild-operation`
-
-In case you are curious and would like to use this, please request a demo by emailing [info@codefromanywhere.com](info@codefromanywhere.com). We are still allowing more beta-users into the closed beta.
+If you want a demo, you can reach me at typerepo@karsens.com.
