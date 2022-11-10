@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635421432,
-  "updatedAt": 1667635421432,
+  "createdAt": 1667976879614,
+  "updatedAt": 1667976879614,
   "deletedAt": 0,
-  "createdFirstAt": 1667635421432,
+  "createdFirstAt": 1667976879614,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/simplifiedSchemaToMarkdownString.ts",
   "commentsInside": [],
-  "rawText": " (\n  simplifiedSchema: SimplifiedSchema | undefined,\n  /**\n   * if not given, no title is printed\n   */\n  name: string | undefined,\n  isRequired: boolean,\n  /** the headers level, defaults to 1 */\n  level?: number\n): string => {\n  if (!simplifiedSchema) return \"\";\n\n  const refLinkString = simplifiedSchema.circularRefName\n    ? `[${simplifiedSchema.circularRefName}](#${kebabCase(\n        simplifiedSchema.circularRefName\n      )})`\n    : \"\";\n\n  const enumString = simplifiedSchema.enum\n    ? `(Enum: ${simplifiedSchema.enum.map(String).join(\" | \")}) `\n    : \"\";\n\n  const optionalSubtitle = `${isRequired ? \"\" : \" (optional)\"}`;\n\n  const nameWithoutNewlines = name ? name.replaceAll(\"\\n\", \"\") : undefined;\n  const type = `${simplifiedSchema.type}${enumString}${refLinkString}`;\n  const title = name\n    ? `${\"#\".repeat(\n        level || 1\n      )} ${nameWithoutNewlines}${optionalSubtitle}: ${type}`\n    : undefined;\n\n  const arrayString = simplifiedSchema.items\n    ? simplifiedSchema.items\n        .map((item) => {\n          const itemString = `- ${item.name}: ${item.schema.type}`;\n          return itemString;\n        })\n        .join(\"\\n\")\n    : \"\";\n\n  const description = simplifiedSchema.description\n    ? `> ${noNewlines(simplifiedSchema.description)}`\n    : \"\";\n\n  const objectString = makePropertiesTable(simplifiedSchema.properties);\n  const togetherString = [title, arrayString, description, objectString]\n    .filter(notEmpty)\n    .join(\"\\n\\n\");\n\n  return togetherString;\n}",
+  "rawText": " (\n  simplifiedSchema: SimplifiedSchema | undefined,\n  /**\n   * if not given, no title is printed\n   */\n  name: string | undefined,\n  isRequired: boolean,\n  /** the headers level, defaults to 1 */\n  level?: number\n): string => {\n  if (!simplifiedSchema) return \"\";\n\n  const refLinkString = simplifiedSchema.circularRefName\n    ? `[${simplifiedSchema.circularRefName}](#${getImplicitId(\n        simplifiedSchema.circularRefName\n      )})`\n    : \"\";\n\n  const enumString = simplifiedSchema.enum\n    ? `(Enum: ${simplifiedSchema.enum.map(String).join(\" | \")}) `\n    : \"\";\n\n  const optionalSubtitle = `${isRequired ? \"\" : \" (optional)\"}`;\n\n  const nameWithoutNewlines = name ? name.replaceAll(\"\\n\", \"\") : undefined;\n  const type = `${simplifiedSchema.type}${enumString}${refLinkString}`;\n  const title = name\n    ? `${\"#\".repeat(\n        level || 1\n      )} ${nameWithoutNewlines}${optionalSubtitle}: ${type}`\n    : undefined;\n\n  const arrayString = simplifiedSchema.items\n    ? simplifiedSchema.items\n        .map((item) => {\n          const itemString = `- ${item.name}: ${item.schema.type}`;\n          return itemString;\n        })\n        .join(\"\\n\")\n    : \"\";\n\n  const description = simplifiedSchema.description\n    ? `> ${noNewlines(simplifiedSchema.description)}`\n    : \"\";\n\n  const objectString = makePropertiesTable(simplifiedSchema.properties);\n  const togetherString = [title, arrayString, description, objectString]\n    .filter(notEmpty)\n    .join(\"\\n\\n\");\n\n  return togetherString;\n}",
   "name": "simplifiedSchemaToMarkdownString",
   "slug": "simplified-schema-to-markdown-string",
   "parameters": [
@@ -181,13 +181,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1576,
+    "characters": 1580,
     "lines": 52,
-    "bytes": 1576,
+    "bytes": 1580,
     "bytesPerCharacter": 1,
     "charactersPerLine": 30,
     "linesPerFile": 52,
     "numberOfFiles": 1
   },
-  "id": "jlezoogsrpfsfmmmfwmoccoe"
+  "id": "ortedwqynikjpqtoulsqevoy"
 }

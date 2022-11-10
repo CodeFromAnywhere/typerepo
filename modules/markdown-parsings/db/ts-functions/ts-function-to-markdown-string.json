@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635422571,
-  "updatedAt": 1667635422571,
+  "createdAt": 1667976881075,
+  "updatedAt": 1667976881075,
   "deletedAt": 0,
-  "createdFirstAt": 1667635422571,
+  "createdFirstAt": 1667976881075,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/tsFunctionToMarkdownString.ts",
   "commentsInside": [],
-  "rawText": " (tsFunction: TsFunction): string => {\n  const titleString = `# ${tsFunction.name}`;\n  const infoString = `${\n    tsFunction.codeSize?.lines ? `${tsFunction.codeSize.lines} LOC, ` : \"\"\n  }Max. indexation depth: ${tsFunction.maxIndentationDepth}, ${\n    tsFunction.cumulativeCodeSize?.lines\n      ? `${tsFunction.cumulativeCodeSize?.lines} Cumulative LOC`\n      : \"\"\n  }`;\n\n  const returnTypeString = tsFunction.returnType.simplifiedSchema\n    ? simplifiedSchemaToMarkdownString(\n        tsFunction.returnType.simplifiedSchema,\n        \"Returns\",\n        true,\n        2\n      )\n    : \"\";\n\n  const argumentStrings =\n    tsFunction.parameters && tsFunction.parameters.length > 0\n      ? `## Parameters (${\n          tsFunction.parameters.length\n        })\\n\\n${tsFunction.parameters\n          .map((x, i) =>\n            simplifiedSchemaToMarkdownString(\n              x.simplifiedSchema,\n              `Parameter ${i + 1}: ${x.name}`,\n              x.required,\n              3\n            )\n          )\n          .join(\"\\n\\n\")}`\n      : undefined;\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // infoString, // TODO: Maybe make it optional.\n    tsFunction.description,\n    returnTypeString,\n    argumentStrings,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "rawText": " (tsFunction: TsFunction): string => {\n  const isComponent =\n    tsFunction.operationRelativeTypescriptFilePath.endsWith(\".tsx\") &&\n    isUpperCase(tsFunction.name.charAt(0));\n\n  const titleString = `# ${\n    isComponent ? `<${tsFunction.name} />` : `${tsFunction.name}()`\n  }`;\n\n  const infoString = `${\n    tsFunction.codeSize?.lines ? `${tsFunction.codeSize.lines} LOC, ` : \"\"\n  }Max. indexation depth: ${tsFunction.maxIndentationDepth}, ${\n    tsFunction.cumulativeCodeSize?.lines\n      ? `${tsFunction.cumulativeCodeSize?.lines} Cumulative LOC`\n      : \"\"\n  }`;\n\n  const returnString = tsFunction.returnType.simplifiedSchema\n    ? simplifiedSchemaToMarkdownString(\n        tsFunction.returnType.simplifiedSchema,\n        \"Returns\",\n        true,\n        2\n      )\n    : \"\";\n\n  /*\n\n| Input      |        |     |\n| ---------- | ------ | --- |\n| fileId     | string |     |\n| **Output** |        |     |\n| object     |        |     |\n\n\n    */\n\n  const paramaterTableRows =\n    tsFunction.parameters && tsFunction.parameters.length > 0\n      ? tsFunction.parameters.map((parameter) => {\n          const summary = getJsonSchemaSummary(parameter.schema, true);\n          return `| ${parameter.name}${\n            parameter.required ? \"\" : \" (optional)\"\n          } | ${summary?.typeDescriptor || \"\"} | ${\n            summary?.description || \"\"\n          } |`;\n        })\n      : \"| - | | |\";\n\n  // const argumentStrings =\n  // tsFunction.parameters && tsFunction.parameters.length > 0\n  //   ? `## Parameters (${\n  //       tsFunction.parameters.length\n  //     })\\n\\n${tsFunction.parameters\n  //       .map((x, i) =>\n  //         simplifiedSchemaToMarkdownString(\n  //           x.simplifiedSchema,\n  //           `Parameter ${i + 1}: ${x.name}`,\n  //           x.required,\n  //           3\n  //         )\n  //       )\n  //       .join(\"\\n\\n\")}`\n  //   : undefined;\n\n  const returnTypeMarkdownString = tsFunction.returnType.typeDefinition\n    ? getTypeDescriptorRecursive(tsFunction.returnType.typeDefinition, true)\n    : \"\";\n\n  const outputRow = `| **Output** | ${returnTypeMarkdownString}   | ${\n    tsFunction.returnType.typeDefinition?.description || \"\"\n  }   |`;\n  const tableString = `\n| Input      |    |    |\n| ---------- | -- | -- |\n${paramaterTableRows}\n${outputRow}\n`;\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // infoString, // TODO: Maybe make it optional.\n    tsFunction.description,\n    // returnTypeString,\n    tableString,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
   "name": "tsFunctionToMarkdownString",
   "slug": "ts-function-to-markdown-string",
   "parameters": [
@@ -180,6 +180,14 @@
               ],
               "type": "array"
             }
+          },
+          {
+            "name": "price",
+            "required": false,
+            "schema": {
+              "fullComment": "Indexed from frontmatter `price`",
+              "type": "number"
+            }
           }
         ],
         "type": "object"
@@ -201,15 +209,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 7,
+  "maxIndentationDepth": 6,
   "size": {
-    "characters": 1369,
-    "lines": 49,
-    "bytes": 1369,
+    "characters": 2602,
+    "lines": 93,
+    "bytes": 2602,
     "bytesPerCharacter": 1,
     "charactersPerLine": 28,
-    "linesPerFile": 49,
+    "linesPerFile": 93,
     "numberOfFiles": 1
   },
-  "id": "rdviatnabojriilunkbfecep"
+  "id": "zqgevjqfgkcixgfckpwwxuyn"
 }

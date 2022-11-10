@@ -1,12 +1,12 @@
 {
-  "createdAt": 1667635409041,
-  "updatedAt": 1667635409041,
+  "createdAt": 1667976880778,
+  "updatedAt": 1667976880778,
   "deletedAt": 0,
-  "createdFirstAt": 1667635409041,
-  "id": "namedparameterstypeof-getfunctionsinfo",
-  "name": "NamedParameters<typeof getFunctionsInfo>",
-  "slug": "namedparameterstypeof-getfunctionsinfo",
-  "operationRelativeTypescriptFilePath": "src/getFunctionsInfo.ts",
+  "createdFirstAt": 1667976880778,
+  "id": "namedparameterstypeof-isuppercase",
+  "name": "NamedParameters<typeof isUpperCase>",
+  "slug": "namedparameterstypeof-isuppercase",
+  "operationRelativeTypescriptFilePath": "src/tsFunctionToMarkdownString.ts",
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
@@ -17,19 +17,19 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
-        "operationName": {
+        "text": {
           "type": "string"
         }
       },
       "required": [
-        "operationName"
+        "text"
       ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
-          "name": "operationName",
+          "name": "text",
           "required": true,
           "schema": {
             "type": "string"
@@ -39,7 +39,7 @@
       "type": "object"
     },
     "typeCoverage": 0,
-    "rawType": "NamedParameters<typeof getFunctionsInfo>",
+    "rawType": "NamedParameters<typeof isUpperCase>",
     "isArray": false,
     "isEnum": false,
     "isEnumLiteral": false,

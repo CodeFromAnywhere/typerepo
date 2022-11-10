@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635414867,
-  "updatedAt": 1667635414867,
+  "createdAt": 1667976872659,
+  "updatedAt": 1667976872659,
   "deletedAt": 0,
-  "createdFirstAt": 1667635414867,
+  "createdFirstAt": 1667976872659,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/parsing/merge.ts",
   "commentsInside": [],
-  "rawText": " (\n  markdownParses: MarkdownParse[],\n  fileName?: string\n): { merged: MarkdownParse; outline: MergedMarkdownOutlineUrl[] } => {\n  const allParameters = mergeObjectsArray(\n    markdownParses.map((x) => x.parameters)\n  );\n\n  const allMarkdownChunks = markdownParses.map((x) => {\n    const newMarkodwnChunk: MarkdownChunk = {\n      children: upMarkdownChunkLevelRecursively(x.content),\n      level: 1,\n      content: undefined,\n      title: x.fileName ? humanCase(x.fileName) : undefined,\n    };\n\n    return newMarkodwnChunk;\n  });\n\n  const newMarkdownParse: MarkdownParse = {\n    parameters: allParameters,\n    raw: markdownChunksToMarkdownStringRecursive(allMarkdownChunks),\n    content: allMarkdownChunks,\n    fileName,\n  };\n\n  const outline: MergedMarkdownOutlineUrl[] = markdownParses\n    .map((markdownParse) => {\n      if (!markdownParse.fileName) return;\n\n      const title = humanCase(markdownParse.fileName);\n\n      const implicitId = getImplicitId(title);\n      return {\n        title,\n        // NB: because the title in the markdownparse is humancase, we need to slugify that to get the hashtagpath\n        hashtagPath: implicitId,\n      };\n    })\n    .filter(notEmpty);\n\n  return { merged: newMarkdownParse, outline };\n}",
+  "rawText": " (\n  markdownParses: MarkdownParse[],\n  fileName?: string\n): { merged: MarkdownParse; outline: MergedMarkdownOutlineUrl[] } => {\n  const allParameters = mergeObjectsArray(\n    markdownParses.map((x) => x.parameters)\n  );\n\n  const allMarkdownChunks = markdownParses.map((x) => {\n    const newMarkodwnChunk: MarkdownChunk = {\n      children: upMarkdownChunkLevelRecursively(x.content),\n      level: 1,\n      content: undefined,\n      title: x.fileName\n        ? humanCase(removeExtensionsFromPath(x.fileName))\n        : undefined,\n    };\n\n    return newMarkodwnChunk;\n  });\n\n  const newMarkdownParse: MarkdownParse = {\n    parameters: allParameters,\n    raw: markdownChunksToMarkdownStringRecursive(allMarkdownChunks),\n    content: allMarkdownChunks,\n    fileName,\n  };\n\n  const outline: MergedMarkdownOutlineUrl[] = markdownParses\n    .map((markdownParse) => {\n      if (!markdownParse.fileName) return;\n\n      const title = humanCase(markdownParse.fileName);\n\n      const implicitId = getImplicitId(title);\n      return {\n        title,\n        // NB: because the title in the markdownparse is humancase, we need to slugify that to get the hashtagpath\n        hashtagPath: implicitId,\n      };\n    })\n    .filter(notEmpty);\n\n  return { merged: newMarkdownParse, outline };\n}",
   "name": "mergeMarkdownParse",
   "slug": "merge-markdown-parse",
   "parameters": [
@@ -168,13 +168,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 1294,
-    "lines": 43,
-    "bytes": 1294,
+    "characters": 1336,
+    "lines": 45,
+    "bytes": 1336,
     "bytesPerCharacter": 1,
     "charactersPerLine": 30,
-    "linesPerFile": 43,
+    "linesPerFile": 45,
     "numberOfFiles": 1
   },
-  "id": "avtjtsuzkibjregarxrtnhff"
+  "id": "olwrbsogydvvipwlznhajtwy"
 }

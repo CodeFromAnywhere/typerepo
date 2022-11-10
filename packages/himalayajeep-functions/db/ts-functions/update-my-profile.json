@@ -1,0 +1,161 @@
+{
+  "createdAt": 1668005997548,
+  "updatedAt": 1668005997548,
+  "deletedAt": 0,
+  "createdFirstAt": 1668005997548,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/updateMyProfile.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  loginToken: string,\n  myJeep: Omit<\n    MyJeepType,\n    \"id\" | \"createdAt\" | \"updatedAt\" | keyof MyJeepAdminTypes\n  >\n): Promise<{\n  isSuccesful: boolean;\n  message: string;\n}> => {\n  const jeeps = await db.get(\"JeepType\");\n  const jeep = jeeps.find((x) => x.loginToken === loginToken);\n\n  if (!jeep) {\n    return {\n      isSuccesful: false,\n      message: \"Can't find that jeep\",\n    };\n  }\n\n  const { isSuccesful, message } = await db.update(\n    \"JeepType\",\n    (item) => item.id === jeep.id,\n    (old) => {\n      const newJeep: JeepType = { ...old, ...myJeep };\n      return newJeep;\n    }\n  );\n\n  return {\n    isSuccesful: isSuccesful || false,\n    message: isSuccesful\n      ? \"You've updated your profile\"\n      : message || \"Something went wrong\",\n  };\n}",
+  "name": "updateMyProfile",
+  "slug": "update-my-profile",
+  "parameters": [
+    {
+      "name": "loginToken",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "myJeep",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "citizenshipImage": {
+            "$ref": "#/definitions/BackendAsset"
+          },
+          "driverLicenseImage": {
+            "$ref": "#/definitions/BackendAsset"
+          },
+          "amountSeatsLeft": {
+            "type": "number",
+            "description": "passenger seats left inside the jeep"
+          },
+          "amountLuggageUnitsLeft": {
+            "type": "number",
+            "description": "m3 of luggage left"
+          },
+          "note": {
+            "type": "string",
+            "description": "note that the driver can set"
+          },
+          "locationsCalculated": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/LocationType"
+            }
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string",
+            "description": "mobile phone number"
+          }
+        },
+        "required": [
+          "amountSeatsLeft",
+          "amountLuggageUnitsLeft",
+          "note",
+          "name"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "amountSeatsLeft",
+            "required": true,
+            "schema": {
+              "fullComment": "passenger seats left inside the jeep",
+              "type": "number"
+            }
+          },
+          {
+            "name": "amountLuggageUnitsLeft",
+            "required": true,
+            "schema": {
+              "fullComment": "m3 of luggage left",
+              "type": "number"
+            }
+          },
+          {
+            "name": "note",
+            "required": true,
+            "schema": {
+              "fullComment": "note that the driver can set",
+              "type": "string"
+            }
+          },
+          {
+            "name": "locationsCalculated",
+            "required": false,
+            "schema": {
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "phone",
+            "required": false,
+            "schema": {
+              "fullComment": "mobile phone number",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccesful: boolean; message: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 773,
+    "lines": 36,
+    "bytes": 773,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 36,
+    "numberOfFiles": 1
+  },
+  "id": "agfcgotmmlbqifenzmnjuukz"
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635425065,
-  "updatedAt": 1667635425065,
+  "createdAt": 1667976884039,
+  "updatedAt": 1667976884039,
   "deletedAt": 0,
-  "createdFirstAt": 1667635425065,
+  "createdFirstAt": 1667976884039,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(tsVariable: TsVariable): string => {\n  const titleString = `# ${tsVariable.name} (${\n    tsVariable.isExported ? \"exported\" : \"unexported\"\n  } ${tsVariable.classification})`;\n\n  const alineas: (string | undefined)[] = [titleString, tsVariable.description];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "value": "(tsVariable: TsVariable): string => {\n  const titleString = `# 📄 ${tsVariable.name} (${\n    tsVariable.isExported ? \"exported\" : \"unexported\"\n  } ${tsVariable.classification})`;\n\n  const alineas: (string | undefined)[] = [titleString, tsVariable.description];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
   "description": "",
-  "id": "wmdhyjdlznzgkdgmwwbnnott"
+  "id": "djwyvpjarnbhbfljcqbstlrh"
 }

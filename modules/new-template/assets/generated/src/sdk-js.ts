@@ -257,6 +257,22 @@ import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
 import { runChildProcess } from "run-child-process";
+import { clickOnSpanTag } from "dt-utils";
+import { facebookLogin } from "dt-utils";
+import { foundOrNotXpath } from "dt-utils";
+import { foundOrNot } from "dt-utils";
+import { getChromeExecutablePath } from "dt-utils";
+import { gmailLogin } from "dt-utils";
+import { logConsoleIfDebug } from "dt-utils";
+import { retryClickAndWaitSelector } from "dt-utils";
+import { retryWaitSelector } from "dt-utils";
+import { setInnerHtml } from "dt-utils";
+import { setInputValue } from "dt-utils";
+import { trueClick } from "dt-utils";
+import { twitterLogin } from "dt-utils";
+import { typeInTheInputField } from "dt-utils";
+import { typeOnTheTargetWithXpathSelector } from "dt-utils";
+import { waitMilliseconds } from "dt-utils";
 import { getFileType } from "file-icons";
 import { MatchingText } from "file-search";
 import { PathSearchResults } from "file-search";
@@ -278,22 +294,12 @@ import { useHotkeys } from "hotkeys";
 import { getFullPath } from "next-paths";
 import { getLastPathsChunk } from "next-paths";
 import { usePath } from "next-paths";
-import { clickOnSpanTag } from "dt-utils";
-import { facebookLogin } from "dt-utils";
-import { foundOrNotXpath } from "dt-utils";
-import { foundOrNot } from "dt-utils";
-import { getChromeExecutablePath } from "dt-utils";
-import { gmailLogin } from "dt-utils";
-import { logConsoleIfDebug } from "dt-utils";
-import { retryClickAndWaitSelector } from "dt-utils";
-import { retryWaitSelector } from "dt-utils";
-import { setInnerHtml } from "dt-utils";
-import { setInputValue } from "dt-utils";
-import { trueClick } from "dt-utils";
-import { twitterLogin } from "dt-utils";
-import { typeInTheInputField } from "dt-utils";
-import { typeOnTheTargetWithXpathSelector } from "dt-utils";
-import { waitMilliseconds } from "dt-utils";
+import { createPost } from "linkedin-controller";
+import { linkedinPost } from "linkedin-controller";
+import { loginLinkedin } from "linkedin-controller";
+import { scrapeConnections } from "linkedin-controller";
+import { sendMessageLinkedin } from "linkedin-controller";
+import { signUpLinkedin } from "linkedin-controller";
 
 export const sdk = { addToken,
 ensureToken,
@@ -554,6 +560,22 @@ isSingular,
 pluralize,
 singularize,
 runChildProcess,
+clickOnSpanTag,
+facebookLogin,
+foundOrNotXpath,
+foundOrNot,
+getChromeExecutablePath,
+gmailLogin,
+logConsoleIfDebug,
+retryClickAndWaitSelector,
+retryWaitSelector,
+setInnerHtml,
+setInputValue,
+trueClick,
+twitterLogin,
+typeInTheInputField,
+typeOnTheTargetWithXpathSelector,
+waitMilliseconds,
 getFileType,
 MatchingText,
 PathSearchResults,
@@ -575,21 +597,11 @@ useHotkeys,
 getFullPath,
 getLastPathsChunk,
 usePath,
-clickOnSpanTag,
-facebookLogin,
-foundOrNotXpath,
-foundOrNot,
-getChromeExecutablePath,
-gmailLogin,
-logConsoleIfDebug,
-retryClickAndWaitSelector,
-retryWaitSelector,
-setInnerHtml,
-setInputValue,
-trueClick,
-twitterLogin,
-typeInTheInputField,
-typeOnTheTargetWithXpathSelector,
-waitMilliseconds};
+createPost,
+linkedinPost,
+loginLinkedin,
+scrapeConnections,
+sendMessageLinkedin,
+signUpLinkedin};
 
 export type SdkType = typeof sdk;

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667402311569,
-  "updatedAt": 1667402311569,
+  "createdAt": 1668005993174,
+  "updatedAt": 1668005993174,
   "deletedAt": 0,
-  "createdFirstAt": 1667402311569,
+  "createdFirstAt": 1668005993174,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  driverInfo: SignupJeepType\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  const loginToken = generateRandomString(32);\n\n  const { email, name, phone, password, repeatPassword } = driverInfo;\n\n  if (!name || name.length < 3) {\n    return {\n      isSuccesful: false,\n      message: \"Please enter a name (at least 3 characters)\",\n    };\n  }\n\n  if (!email && !phone) {\n    return {\n      isSuccesful: false,\n      message: \"Please enter a phone or email\",\n    };\n  }\n\n  if (phone && phone.length < 10) {\n    return {\n      isSuccesful: false,\n      message: \"Please enter a correct phone number\",\n    };\n  }\n\n  if (email && !isEmail(email)) {\n    return {\n      isSuccesful: false,\n      message: \"Please enter a correct email\",\n    };\n  }\n\n  if (password !== repeatPassword) {\n    return {\n      isSuccesful: false,\n      message: \"Those passwords do not match\",\n    };\n  }\n\n  if (!password || !isValidPassword(password)) {\n    return {\n      isSuccesful: false,\n      message: \"Please provide a safer password (min. 6 characters)\",\n    };\n  }\n\n  const encrypedPassword = await encryptPassword(password);\n\n  const allCurrentJeeps = await db.get(\"JeepType\");\n\n  const foundEmailJeep = allCurrentJeeps.find((jeep) => jeep.email === email);\n  const isEmailCorrect = !email || !foundEmailJeep;\n\n  if (!isEmailCorrect) {\n    return {\n      isSuccesful: false,\n      message:\n        \"There is already a driver with that email. Please try logging in, or sign up with a different phone or email.\",\n    };\n  }\n\n  const foundPhoneJeep = allCurrentJeeps.find((jeep) => jeep.phone === phone);\n  const isPhoneCorrect = !phone || !foundPhoneJeep;\n\n  if (!isPhoneCorrect) {\n    return {\n      isSuccesful: false,\n      message:\n        \"There is already a driver with that phone number. Please try logging in, or sign up with a different phone or email.\",\n    };\n  }\n\n  const data: Creation<JeepType> | Creation<JeepType>[] = {\n    phone,\n    name,\n    email,\n    note: \"\",\n    amountLuggageUnitsLeft: 0,\n    amountSeatsLeft: 0,\n    isVerified: false,\n    loginToken,\n    encrypedPassword,\n  };\n  const config: UpsertQueryConfig | undefined = undefined;\n\n  //@ts-ignore\n  const upsertResult = await db.upsert(\"JeepType\", data, config);\n\n  if (upsertResult.isSuccesful === false) {\n    console.log({ upsertResult });\n    return { isSuccesful: false, message: \"Something went wrong\" };\n  }\n\n  return {\n    isSuccesful: true,\n    message:\n      \"You have succesfully registered. Your account now needs to be verified before your jeep will appear on the app. Please hang on and drive safely.\",\n  };\n}",
   "description": "Driver signup",
-  "id": "btikxrfoshehxcvcrxgxfsub"
+  "id": "amoqbmxqwbnauclchqymxktd"
 }

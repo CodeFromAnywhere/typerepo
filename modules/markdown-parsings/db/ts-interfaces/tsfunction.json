@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635422368,
-  "updatedAt": 1667635422368,
+  "createdAt": 1667976880778,
+  "updatedAt": 1667976880778,
   "deletedAt": 0,
-  "createdFirstAt": 1667635422368,
+  "createdFirstAt": 1667976880778,
   "id": "tsfunction",
   "name": "TsFunction",
   "slug": "tsfunction",
@@ -137,6 +137,10 @@
             "type": "string"
           },
           "description": "finds all files that import this function\n\nNB: this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly."
+        },
+        "price": {
+          "type": "number",
+          "description": "Indexed from frontmatter `price`"
         }
       },
       "required": [
@@ -2218,6 +2222,14 @@
               }
             ],
             "type": "array"
+          }
+        },
+        {
+          "name": "price",
+          "required": false,
+          "schema": {
+            "fullComment": "Indexed from frontmatter `price`",
+            "type": "number"
           }
         }
       ],

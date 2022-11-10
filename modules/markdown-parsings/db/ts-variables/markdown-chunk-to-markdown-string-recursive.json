@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635419013,
-  "updatedAt": 1667635419013,
+  "createdAt": 1667976877079,
+  "updatedAt": 1667976877079,
   "deletedAt": 0,
-  "createdFirstAt": 1667635419013,
+  "createdFirstAt": 1667976877079,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdownChunk: MarkdownChunk\n): string => {\n  const title =\n    markdownChunk.title && markdownChunk.level !== 0\n      ? `${\"#\".repeat(markdownChunk.level)} ${markdownChunk.title}`\n      : undefined;\n\n  const content = markdownChunk.content;\n\n  const children = markdownChunk.children\n    ? markdownChunksToMarkdownStringRecursive(markdownChunk.children)\n    : \"\";\n\n  return `${title ? `${title}\\n\\n` : \"\"}${\n    content ? `${content}\\n\\n` : \"\"\n  }${children}`;\n}",
   "description": "",
-  "id": "krviahjmbmwtttdheplzuzwe"
+  "id": "kcbeeirlnonbsnukdznncpdd"
 }

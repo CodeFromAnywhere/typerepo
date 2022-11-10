@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635421580,
-  "updatedAt": 1667635421580,
+  "createdAt": 1667976879782,
+  "updatedAt": 1667976879782,
   "deletedAt": 0,
-  "createdFirstAt": 1667635421580,
+  "createdFirstAt": 1667976879782,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  simplifiedSchema: SimplifiedSchema | undefined,\n  /**\n   * if not given, no title is printed\n   */\n  name: string | undefined,\n  isRequired: boolean,\n  /** the headers level, defaults to 1 */\n  level?: number\n): string => {\n  if (!simplifiedSchema) return \"\";\n\n  const refLinkString = simplifiedSchema.circularRefName\n    ? `[${simplifiedSchema.circularRefName}](#${kebabCase(\n        simplifiedSchema.circularRefName\n      )})`\n    : \"\";\n\n  const enumString = simplifiedSchema.enum\n    ? `(Enum: ${simplifiedSchema.enum.map(String).join(\" | \")}) `\n    : \"\";\n\n  const optionalSubtitle = `${isRequired ? \"\" : \" (optional)\"}`;\n\n  const nameWithoutNewlines = name ? name.replaceAll(\"\\n\", \"\") : undefined;\n  const type = `${simplifiedSchema.type}${enumString}${refLinkString}`;\n  const title = name\n    ? `${\"#\".repeat(\n        level || 1\n      )} ${nameWithoutNewlines}${optionalSubtitle}: ${type}`\n    : undefined;\n\n  const arrayString = simplifiedSchema.items\n    ? simplifiedSchema.items\n        .map((item) => {\n          const itemString = `- ${item.name}: ${item.schema.type}`;\n          return itemString;\n        })\n        .join(\"\\n\")\n    : \"\";\n\n  const description = simplifiedSchema.description\n    ? `> ${noNewlines(simplifiedSchema.description)}`\n    : \"\";\n\n  const objectString = makePropertiesTable(simplifiedSchema.properties);\n  const togetherString = [title, arrayString, description, objectString]\n    .filter(notEmpty)\n    .join(\"\\n\\n\");\n\n  return togetherString;\n}",
+  "value": "(\n  simplifiedSchema: SimplifiedSchema | undefined,\n  /**\n   * if not given, no title is printed\n   */\n  name: string | undefined,\n  isRequired: boolean,\n  /** the headers level, defaults to 1 */\n  level?: number\n): string => {\n  if (!simplifiedSchema) return \"\";\n\n  const refLinkString = simplifiedSchema.circularRefName\n    ? `[${simplifiedSchema.circularRefName}](#${getImplicitId(\n        simplifiedSchema.circularRefName\n      )})`\n    : \"\";\n\n  const enumString = simplifiedSchema.enum\n    ? `(Enum: ${simplifiedSchema.enum.map(String).join(\" | \")}) `\n    : \"\";\n\n  const optionalSubtitle = `${isRequired ? \"\" : \" (optional)\"}`;\n\n  const nameWithoutNewlines = name ? name.replaceAll(\"\\n\", \"\") : undefined;\n  const type = `${simplifiedSchema.type}${enumString}${refLinkString}`;\n  const title = name\n    ? `${\"#\".repeat(\n        level || 1\n      )} ${nameWithoutNewlines}${optionalSubtitle}: ${type}`\n    : undefined;\n\n  const arrayString = simplifiedSchema.items\n    ? simplifiedSchema.items\n        .map((item) => {\n          const itemString = `- ${item.name}: ${item.schema.type}`;\n          return itemString;\n        })\n        .join(\"\\n\")\n    : \"\";\n\n  const description = simplifiedSchema.description\n    ? `> ${noNewlines(simplifiedSchema.description)}`\n    : \"\";\n\n  const objectString = makePropertiesTable(simplifiedSchema.properties);\n  const togetherString = [title, arrayString, description, objectString]\n    .filter(notEmpty)\n    .join(\"\\n\\n\");\n\n  return togetherString;\n}",
   "description": "Should render a string with one or more markdown tables to represent the simplifiedSchema",
-  "id": "rmuhnxpvhneodkknqgjklqfk"
+  "id": "wisivqkxxmsqkbucieqletpv"
 }

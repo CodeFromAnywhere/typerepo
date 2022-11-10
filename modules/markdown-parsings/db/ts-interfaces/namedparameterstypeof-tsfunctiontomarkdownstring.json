@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635422368,
-  "updatedAt": 1667635422368,
+  "createdAt": 1667976880778,
+  "updatedAt": 1667976880778,
   "deletedAt": 0,
-  "createdFirstAt": 1667635422368,
+  "createdFirstAt": 1667976880778,
   "id": "namedparameterstypeof-tsfunctiontomarkdownstring",
   "name": "NamedParameters<typeof tsFunctionToMarkdownString>",
   "slug": "namedparameterstypeof-tsfunctiontomarkdownstring",
@@ -2092,6 +2092,14 @@
                     }
                   ],
                   "type": "array"
+                }
+              },
+              {
+                "name": "price",
+                "required": false,
+                "schema": {
+                  "fullComment": "Indexed from frontmatter `price`",
+                  "type": "number"
                 }
               }
             ],

@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635423726,
-  "updatedAt": 1667635423726,
+  "createdAt": 1667976882525,
+  "updatedAt": 1667976882525,
   "deletedAt": 0,
-  "createdFirstAt": 1667635423726,
+  "createdFirstAt": 1667976882525,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/tsInterfaceToMarkdownString.ts",
   "commentsInside": [],
-  "rawText": " (\n  tsInterface: TsInterface\n): string => {\n  const titleString = `# ${tsInterface.name}`;\n  const storageMethodString = tsInterface.dbStorageMethod\n    ? `${tsInterface.dbStorageMethod} model\\n\\n`\n    : undefined;\n\n  // const operationName = tsInterface.operationName\n  //   ? `(from: \\`${tsInterface.operationName}\\`)`\n  //   : undefined;\n\n  // const interfaceText = `\\`\\`\\`ts\\n${tsInterface.rawText}\\n\\`\\`\\``;\n\n  const interfaceText = simplifiedSchemaToMarkdownString(\n    tsInterface.type.simplifiedSchema,\n    undefined,\n    true,\n    2\n  );\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // operationName,\n    storageMethodString,\n    tsInterface.description,\n    interfaceText,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "rawText": " (\n  tsInterface: TsInterface\n): string => {\n  const icon = tsInterface.isDbModel ? \"🔸\" : \"🔹\";\n\n  const titleString = `# ${icon} ${tsInterface.name}`;\n  const storageMethodString = tsInterface.dbStorageMethod\n    ? `${tsInterface.dbStorageMethod} model\\n\\n`\n    : undefined;\n\n  // const operationName = tsInterface.operationName\n  //   ? `(from: \\`${tsInterface.operationName}\\`)`\n  //   : undefined;\n\n  // const interfaceText = `\\`\\`\\`ts\\n${tsInterface.rawText}\\n\\`\\`\\``;\n\n  const interfaceText = simplifiedSchemaToMarkdownString(\n    tsInterface.type.simplifiedSchema,\n    undefined,\n    true,\n    2\n  );\n\n  const alineas: (string | undefined)[] = [\n    titleString,\n    // operationName,\n    storageMethodString,\n    tsInterface.description,\n    interfaceText,\n  ];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
   "name": "tsInterfaceToMarkdownString",
   "slug": "ts-interface-to-markdown-string",
   "parameters": [
@@ -177,13 +177,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 951,
-    "lines": 33,
-    "bytes": 951,
-    "bytesPerCharacter": 1,
+    "characters": 1012,
+    "lines": 35,
+    "bytes": 1016,
+    "bytesPerCharacter": 1.0039525691699605,
     "charactersPerLine": 29,
-    "linesPerFile": 33,
+    "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "kkxksabojhhvsfrcogzithnn"
+  "id": "hfgitntvmxfgjewifiqxebox"
 }

@@ -1,6 +1,6 @@
 {
   "createdAt": 1664530552981,
-  "updatedAt": 1667399183773,
+  "updatedAt": 1668005847901,
   "deletedAt": 0,
   "createdFirstAt": 1664530552981,
   "folderName": "himalayajeep-types",
@@ -11,15 +11,16 @@
   "slug": "himalayajeep-types",
   "coreDependencies": [],
   "operationDependencies": [
-    "DefaultModelType"
+    "DefaultModelType",
+    "BackendAsset"
   ],
   "packageDependencies": [],
   "size": {
     "codeSize": {
       "numberOfFiles": 1,
       "lines": 0,
-      "characters": 1696,
-      "bytes": 1696
+      "characters": 1874,
+      "bytes": 1874
     },
     "dataSize": {
       "numberOfFiles": 2,
@@ -30,12 +31,12 @@
     "textSize": {
       "numberOfFiles": 1,
       "lines": 0,
-      "characters": 3464,
-      "bytes": 3464
+      "characters": 3346,
+      "bytes": 3346
     },
     "size": {
-      "bytes": 7542,
-      "characters": 7542,
+      "bytes": 7602,
+      "characters": 7602,
       "lines": 0,
       "numberOfFiles": 4
     }

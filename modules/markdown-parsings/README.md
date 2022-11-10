@@ -28,7 +28,7 @@ markdown for reading (so there are no links)
 
 # Internal
 
-<details><summary>Show internal (64)</summary>
+<details><summary>Show internal (69)</summary>
   
   # bundleFolderWithMarkdown()
 
@@ -124,12 +124,15 @@ because it is static, the markdown can be in the frontend assets and there is no
 
 
 
-## getFunctionsInfo()
+## getJsonSchemaSummary()
+
+Generates short markdown summary
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| operationName | string |  |
-| **Output** |    |    |
+| schema (optional) | `JSONSchema7` |  |,| isMarkdown | boolean |  |
+| **Output** | { typeDescriptor: string, <br />description?: string, <br /> }   |    |
 
 
 
@@ -165,6 +168,27 @@ helper function to get a nested array of the titles and its subtitles
 | ---------- | -- | -- |
 | chunk | `MarkdownChunk` |  |
 | **Output** |    |    |
+
+
+
+## getTypeDescriptorRecursive()
+
+Returns a single line descriptor of the type of a json schema. Can be used in markdown tables.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| schema | `JSONSchema7` |  |,| isMarkdown | boolean | If true, references will be links, otherwise, just the name of the referred interface |
+| **Output** | `String`   |    |
+
+
+
+## isUpperCase()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| text | string |  |
+| **Output** | {  }   |    |
 
 
 
@@ -253,6 +277,9 @@ Merges multiple markdown parses to create a new markdown parse
 
 
 ## noNewlines()
+
+Replaces newlines with a <br />
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -416,6 +443,25 @@ Can be useful for merging multiple markdown sources
 
 
 
+## 🔹 DependantCountObject
+
+interface that lets us count the amount of dependant files in different item types
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| tsFunction (optional) | object |  |
+| tsInterface (optional) | object |  |
+| tsVariable (optional) | object |  |
+| externalDependantFiles  | array |  |
+
+
+
 ## 🔹 JsonPart
 
 Properties: 
@@ -497,7 +543,10 @@ uses next.js
 because it is static, the markdown can be in the frontend assets and there is no need for a backend
 
 
-## 📄 getFunctionsInfo (exported const)
+## 📄 getJsonSchemaSummary (exported const)
+
+Generates short markdown summary
+
 
 ## 📄 getMergedMarkdownOutlineUrl (exported const)
 
@@ -512,6 +561,13 @@ NB: with books usually the pages are referred in the outline. Since that depends
 
 helper function to get a nested array of the titles and its subtitles
 
+
+## 📄 getTypeDescriptorRecursive (exported const)
+
+Returns a single line descriptor of the type of a json schema. Can be used in markdown tables.
+
+
+## 📄 isUpperCase (exported const)
 
 ## 📄 makeOutlineMarkdownString (exported const)
 
@@ -541,6 +597,9 @@ Merges multiple markdown parses to create a new markdown parse
 
 
 ## 📄 noNewlines (exported const)
+
+Replaces newlines with a <br />
+
 
 ## 📄 operationRadio (exported const)
 

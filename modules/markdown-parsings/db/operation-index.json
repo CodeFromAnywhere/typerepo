@@ -1,6 +1,6 @@
 {
   "createdAt": 1664527460208,
-  "updatedAt": 1667635433226,
+  "updatedAt": 1667976893488,
   "deletedAt": 0,
   "createdFirstAt": 1664527460208,
   "folderName": "markdown-parsings",
@@ -22,14 +22,11 @@
     "getBundleSummary",
     "MarkdownParse",
     "notEmpty",
-    "path",
-    "writeJsonToFile",
-    "writeStringToFile",
-    "MarkdownParse",
-    "TsFunction",
-    "db",
-    "onlyUnique2",
-    "mdToJsonParse",
+    "getImplicitId",
+    "getProperties",
+    "getRefLink",
+    "getSchema",
+    "getSchemaItems",
     "path",
     "writeStringToFile",
     "writeToAssets",
@@ -38,19 +35,27 @@
     "log",
     "db",
     "notEmpty",
+    "onlyUnique2",
     "databaseFolderName",
     "getImplicitId",
     "markdownParseToMarkdownString",
     "mdToJsonParse",
+    "findDependants",
     "fs",
     "path",
     "MarkdownParse",
     "OperationIndex",
+    "TsFunction",
+    "TsImport",
+    "TsInterface",
+    "TsVariable",
     "getPackageJson",
     "readJsonFile",
+    "writeToAssets",
     "SimplifiedSchema",
     "kebabCase",
     "notEmpty",
+    "getImplicitId",
     "TsFunction",
     "notEmpty",
     "TsInterface",
@@ -66,6 +71,7 @@
     "notEmpty",
     "humanCase",
     "slugify",
+    "removeExtensionsFromPath",
     "getImplicitId",
     "MarkdownChunk",
     "MarkdownParse",
@@ -73,31 +79,34 @@
     "SimplifiedSchemaProperty",
     "SimplifiedSchemaProperty"
   ],
-  "packageDependencies": [],
+  "packageDependencies": [
+    "JSONSchema7",
+    "JSONSchema7"
+  ],
   "size": {
     "codeSize": {
       "numberOfFiles": 26,
       "lines": 0,
-      "characters": 29771,
-      "bytes": 29771
+      "characters": 33360,
+      "bytes": 33360
     },
     "dataSize": {
-      "numberOfFiles": 3,
+      "numberOfFiles": 4,
       "lines": 0,
-      "characters": 47749,
-      "bytes": 47749
+      "characters": 247379,
+      "bytes": 247379
     },
     "textSize": {
-      "numberOfFiles": 5,
+      "numberOfFiles": 7,
       "lines": 0,
-      "characters": 118632,
-      "bytes": 118632
+      "characters": 61521,
+      "bytes": 61521
     },
     "size": {
-      "bytes": 196152,
-      "characters": 196152,
+      "bytes": 342260,
+      "characters": 342260,
       "lines": 0,
-      "numberOfFiles": 34
+      "numberOfFiles": 37
     }
   },
   "buildSucceeded": true,

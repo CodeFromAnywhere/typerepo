@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667402314330,
-  "updatedAt": 1667402314330,
+  "createdAt": 1668005996135,
+  "updatedAt": 1668005996135,
   "deletedAt": 0,
-  "createdFirstAt": 1667402314330,
+  "createdFirstAt": 1668005996135,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  loginToken: string\n): Promise<{\n  isSuccessful: boolean;\n  message?: string;\n  myJeep?: MyJeepType;\n}> => {\n  const jeeps = await db.get(\"JeepType\");\n  const jeep = jeeps.find((x) => x.loginToken === loginToken);\n\n  if (!jeep) {\n    return {\n      isSuccessful: false,\n      message: \"Can't find that jeep\",\n    };\n  }\n\n  const {\n    amountLuggageUnitsLeft,\n    amountSeatsLeft,\n    createdAt,\n    id,\n    isVerified,\n    name,\n    note,\n    updatedAt,\n    citizenshipId,\n    email,\n    lisenceId,\n    locationsCalculated,\n    numberPlate,\n    phone,\n  } = jeep;\n\n  const myJeep: MyJeepType = {\n    amountLuggageUnitsLeft,\n    amountSeatsLeft,\n    createdAt,\n    id,\n    isVerified,\n    name,\n    note,\n    updatedAt,\n    citizenshipId,\n    email,\n    lisenceId,\n    locationsCalculated,\n    numberPlate,\n    phone,\n  };\n\n  return {\n    isSuccessful: true,\n    myJeep,\n  };\n}",
+  "value": "async (\n  loginToken: string\n): Promise<{\n  isSuccessful: boolean;\n  message?: string;\n  myJeep?: MyJeepType;\n}> => {\n  const jeeps = await db.get(\"JeepType\");\n  const jeep = jeeps.find((x) => x.loginToken === loginToken);\n\n  if (!jeep) {\n    return {\n      isSuccessful: false,\n      message: \"Can't find that jeep\",\n    };\n  }\n\n  const {\n    amountLuggageUnitsLeft,\n    amountSeatsLeft,\n    createdAt,\n    id,\n    isVerified,\n    name,\n    note,\n    updatedAt,\n    citizenshipNumber,\n    email,\n    licenseNumber,\n    locationsCalculated,\n    numberPlate,\n    phone,\n  } = jeep;\n\n  const myJeep: MyJeepType = {\n    amountLuggageUnitsLeft,\n    amountSeatsLeft,\n    createdAt,\n    id,\n    isVerified,\n    name,\n    note,\n    updatedAt,\n    citizenshipNumber,\n    email,\n    licenseNumber,\n    locationsCalculated,\n    numberPlate,\n    phone,\n  };\n\n  return {\n    isSuccessful: true,\n    myJeep,\n  };\n}",
   "description": "",
-  "id": "klnkeuxzhjanlfrojceywfek"
+  "id": "lzuwmqivuxykcdhanunbeoxq"
 }

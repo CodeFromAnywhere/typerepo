@@ -1,13 +1,12 @@
 ---
-createdAt: 1667821320416
-updatedAt: 1667821320416
+createdAt: 1668063966242
+updatedAt: 1668063966242
 deletedAt: 0
-createdFirstAt: 1667821320416
+createdFirstAt: 1668063966242
 categoryStackCalculated: 
-id: cvrryljexpilbbmbjoncfulm
+id: iwbhgoivuepagwjdimhcdrkp
 slug: sdk-api-keys
 name: sdk-api-keys
 ---
-
 
 Default description

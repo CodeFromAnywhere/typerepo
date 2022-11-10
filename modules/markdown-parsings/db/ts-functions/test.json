@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635410286,
-  "updatedAt": 1667635410286,
+  "createdAt": 1667976867051,
+  "updatedAt": 1667976867051,
   "deletedAt": 0,
-  "createdFirstAt": 1667635410286,
+  "createdFirstAt": 1667976867051,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": false,
   "operationRelativeTypescriptFilePath": "src/operationToMarkdown.test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const operationName = \"fs-orm\";\n  const result = (await operationToMarkdown({\n    operationName,\n    mergeDocsInline: true,\n    returnType: \"string\",\n  })) as string;\n  // console.dir({ result }, { depth: 99 });\n\n  writeToAssets(__filename, result, `${operationName}.md`);\n}",
+  "rawText": " async () => {\n  const operationName = \"database\";\n  const result = (await operationToMarkdown({\n    operationName,\n    mergeDocsInline: true,\n    returnType: \"string\",\n  })) as string;\n  // console.dir({ result }, { depth: 99 });\n\n  writeToAssets(__filename, result, `${operationName}.md`);\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -29,13 +29,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 291,
+    "characters": 293,
     "lines": 11,
-    "bytes": 291,
+    "bytes": 293,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
+    "charactersPerLine": 27,
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "qzpkdfzetvygzqbddhsbtqvl"
+  "id": "odqlruqpiofcnmiuckawcmtz"
 }

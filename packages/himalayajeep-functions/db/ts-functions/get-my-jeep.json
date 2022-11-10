@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667402314153,
-  "updatedAt": 1667402314153,
+  "createdAt": 1668005995930,
+  "updatedAt": 1668005995930,
   "deletedAt": 0,
-  "createdFirstAt": 1667402314153,
+  "createdFirstAt": 1668005995930,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getMyJeep.ts",
   "commentsInside": [],
-  "rawText": " async (\n  loginToken: string\n): Promise<{\n  isSuccessful: boolean;\n  message?: string;\n  myJeep?: MyJeepType;\n}> => {\n  const jeeps = await db.get(\"JeepType\");\n  const jeep = jeeps.find((x) => x.loginToken === loginToken);\n\n  if (!jeep) {\n    return {\n      isSuccessful: false,\n      message: \"Can't find that jeep\",\n    };\n  }\n\n  const {\n    amountLuggageUnitsLeft,\n    amountSeatsLeft,\n    createdAt,\n    id,\n    isVerified,\n    name,\n    note,\n    updatedAt,\n    citizenshipId,\n    email,\n    lisenceId,\n    locationsCalculated,\n    numberPlate,\n    phone,\n  } = jeep;\n\n  const myJeep: MyJeepType = {\n    amountLuggageUnitsLeft,\n    amountSeatsLeft,\n    createdAt,\n    id,\n    isVerified,\n    name,\n    note,\n    updatedAt,\n    citizenshipId,\n    email,\n    lisenceId,\n    locationsCalculated,\n    numberPlate,\n    phone,\n  };\n\n  return {\n    isSuccessful: true,\n    myJeep,\n  };\n}",
+  "rawText": " async (\n  loginToken: string\n): Promise<{\n  isSuccessful: boolean;\n  message?: string;\n  myJeep?: MyJeepType;\n}> => {\n  const jeeps = await db.get(\"JeepType\");\n  const jeep = jeeps.find((x) => x.loginToken === loginToken);\n\n  if (!jeep) {\n    return {\n      isSuccessful: false,\n      message: \"Can't find that jeep\",\n    };\n  }\n\n  const {\n    amountLuggageUnitsLeft,\n    amountSeatsLeft,\n    createdAt,\n    id,\n    isVerified,\n    name,\n    note,\n    updatedAt,\n    citizenshipNumber,\n    email,\n    licenseNumber,\n    locationsCalculated,\n    numberPlate,\n    phone,\n  } = jeep;\n\n  const myJeep: MyJeepType = {\n    amountLuggageUnitsLeft,\n    amountSeatsLeft,\n    createdAt,\n    id,\n    isVerified,\n    name,\n    note,\n    updatedAt,\n    citizenshipNumber,\n    email,\n    licenseNumber,\n    locationsCalculated,\n    numberPlate,\n    phone,\n  };\n\n  return {\n    isSuccessful: true,\n    myJeep,\n  };\n}",
   "name": "getMyJeep",
   "slug": "get-my-jeep",
   "parameters": [
@@ -40,13 +40,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 886,
+    "characters": 902,
     "lines": 56,
-    "bytes": 886,
+    "bytes": 902,
     "bytesPerCharacter": 1,
     "charactersPerLine": 16,
     "linesPerFile": 56,
     "numberOfFiles": 1
   },
-  "id": "spzjtjyevuhwbdbqihpowkls"
+  "id": "lycqgddbfxtvwnhnxjkmlhie"
 }

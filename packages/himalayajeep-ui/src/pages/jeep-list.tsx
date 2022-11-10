@@ -1,7 +1,7 @@
-import { P } from "react-with-native";
 import { queries, api } from "api";
 import { Layout } from "../components/Layout";
 import { MainPageProps, RWNPage } from "../types";
+import { PublicJeep } from "../components/PublicJeep";
 
 const { useGetPublicJeeps } = queries;
 export const JeepList: RWNPage = (props: MainPageProps) => {
@@ -9,10 +9,9 @@ export const JeepList: RWNPage = (props: MainPageProps) => {
 
   return (
     <Layout pages={props.pages}>
-      <P>
-        list all the jeeps nearby within a certain radius (5km - 25km) sort on
-        proximity {JSON.stringify(publicJeepsQuery.data?.result?.publicJeeps)}
-      </P>
+      {publicJeepsQuery.data?.result?.publicJeeps.map((item) => {
+        return <PublicJeep key={item.id} item={item} />;
+      })}
     </Layout>
   );
 };

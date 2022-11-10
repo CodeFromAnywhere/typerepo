@@ -8,7 +8,7 @@ himalayajeep-functions (node operation)
 
 # Internal
 
-<details><summary>Show internal (8)</summary>
+<details><summary>Show internal (10)</summary>
   
   # driverLogin()
 
@@ -52,6 +52,15 @@ Driver signup
 
 
 
+## updateMyProfile()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| loginToken | string |  |,| myJeep | { citizenshipImage?: `BackendAsset`, <br />driverLicenseImage?: `BackendAsset`, <br />amountSeatsLeft: number, <br />amountLuggageUnitsLeft: number, <br />note: string, <br />locationsCalculated?: `LocationType`[], <br />name: string, <br />email?: string, <br />phone?: string, <br /> } |  |
+| **Output** |    |    |
+
+
+
 ## 📄 driverLogin (exported const)
 
 login form for the driver to login
@@ -65,6 +74,8 @@ Driver signup
 ## 📄 getMyJeep (exported const)
 
 ## 📄 getPublicJeeps (exported const)
+
+## 📄 updateMyProfile (exported const)
 
   </details>
 

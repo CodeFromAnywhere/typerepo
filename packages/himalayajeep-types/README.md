@@ -39,11 +39,26 @@ Properties:
 | email (optional) | string |  |
 | phone (optional) | string |  |
 | numberPlate (optional) | string |  |
-| lisenceId (optional) | string |  |
-| citizenshipId (optional) | string |  |
+| licenseNumber (optional) | string |  |
+| citizenshipNumber (optional) | string |  |
 | isVerified  | boolean |  |
+| citizenshipImage (optional) | object |  |
+| driverLicenseImage (optional) | object |  |
 | loginToken  | string |  |
 | encrypedPassword  | string |  |
+
+
+
+## 🔹 MyJeepAdminTypes
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| numberPlate (optional) | string |  |
+| licenseNumber (optional) | string |  |
+| citizenshipNumber (optional) | string |  |
+| isVerified  | boolean |  |
 
 
 
@@ -61,6 +76,10 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| numberPlate (optional) | string |  |
+| licenseNumber (optional) | string |  |
+| citizenshipNumber (optional) | string |  |
+| isVerified  | boolean |  |
 | id  | string |  |
 | amountSeatsLeft  | number |  |
 | amountLuggageUnitsLeft  | number |  |
@@ -71,10 +90,8 @@ Properties:
 | phone (optional) | string |  |
 | createdAt  | number |  |
 | updatedAt  | number |  |
-| numberPlate (optional) | string |  |
-| lisenceId (optional) | string |  |
-| citizenshipId (optional) | string |  |
-| isVerified  | boolean |  |
+| citizenshipImage (optional) | object |  |
+| driverLicenseImage (optional) | object |  |
 
 
 

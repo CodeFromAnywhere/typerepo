@@ -7,11 +7,14 @@ export declare const getMergedMarkdownOutlineUrl: (title: string) => {
  * interface that lets us count the amount of dependant files in different item types
  */
 export declare type DependantCountObject = {
+    externalDependantFiles: string[];
+} & StatementItem;
+export declare type StatementItem = {
     tsFunction?: TsFunction;
     tsInterface?: TsInterface;
     tsVariable?: TsVariable;
-    externalDependantFiles: string[];
 };
+export declare const statementItemToMarkdown: (statementItem: StatementItem) => string | undefined;
 /**
  * converts an operation and all its contents into a flat markdown file that contains the needed information. configurable.
  *

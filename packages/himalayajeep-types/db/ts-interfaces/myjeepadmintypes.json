@@ -1,0 +1,89 @@
+{
+  "createdAt": 1668005840966,
+  "updatedAt": 1668005840966,
+  "deletedAt": 0,
+  "createdFirstAt": 1668005840966,
+  "id": "myjeepadmintypes",
+  "name": "MyJeepAdminTypes",
+  "slug": "myjeepadmintypes",
+  "operationRelativeTypescriptFilePath": "src/types.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type MyJeepAdminTypes = {\n  /**\n   * inputted by admin\n   */\n  numberPlate?: string;\n\n  /**\n   * inputted by admin\n   * \n   (verify that the jeep is real)\n   */\n  licenseNumber?: string;\n  /**\n   * inputted by admin\n   */\n  citizenshipNumber?: string;\n  /**\n   * inputted by admin\n   */\n  isVerified: boolean;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "numberPlate": {
+          "type": "string",
+          "description": "inputted by admin"
+        },
+        "licenseNumber": {
+          "type": "string",
+          "description": "inputted by admin\n\n(verify that the jeep is real)"
+        },
+        "citizenshipNumber": {
+          "type": "string",
+          "description": "inputted by admin"
+        },
+        "isVerified": {
+          "type": "boolean",
+          "description": "inputted by admin"
+        }
+      },
+      "required": [
+        "isVerified"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "numberPlate",
+          "required": false,
+          "schema": {
+            "fullComment": "inputted by admin",
+            "type": "string"
+          }
+        },
+        {
+          "name": "licenseNumber",
+          "required": false,
+          "schema": {
+            "fullComment": "inputted by admin\n\n(verify that the jeep is real)",
+            "type": "string"
+          }
+        },
+        {
+          "name": "citizenshipNumber",
+          "required": false,
+          "schema": {
+            "fullComment": "inputted by admin",
+            "type": "string"
+          }
+        },
+        {
+          "name": "isVerified",
+          "required": true,
+          "schema": {
+            "fullComment": "inputted by admin",
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "MyJeepAdminTypes",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

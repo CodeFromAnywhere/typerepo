@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635410439,
-  "updatedAt": 1667635410439,
+  "createdAt": 1667976867217,
+  "updatedAt": 1667976867217,
   "deletedAt": 0,
-  "createdFirstAt": 1667635410439,
+  "createdFirstAt": 1667976867217,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  const operationName = \"fs-orm\";\n  const result = (await operationToMarkdown({\n    operationName,\n    mergeDocsInline: true,\n    returnType: \"string\",\n  })) as string;\n  // console.dir({ result }, { depth: 99 });\n\n  writeToAssets(__filename, result, `${operationName}.md`);\n}",
+  "value": "async () => {\n  const operationName = \"database\";\n  const result = (await operationToMarkdown({\n    operationName,\n    mergeDocsInline: true,\n    returnType: \"string\",\n  })) as string;\n  // console.dir({ result }, { depth: 99 });\n\n  writeToAssets(__filename, result, `${operationName}.md`);\n}",
   "description": "",
-  "id": "pzohlgerothkzxtbxqpjpqpo"
+  "id": "hehjjawqwyespqeffwpzuvsi"
 }

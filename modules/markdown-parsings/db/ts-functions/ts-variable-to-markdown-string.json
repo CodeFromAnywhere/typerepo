@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635424920,
-  "updatedAt": 1667635424920,
+  "createdAt": 1667976883867,
+  "updatedAt": 1667976883867,
   "deletedAt": 0,
-  "createdFirstAt": 1667635424920,
+  "createdFirstAt": 1667976883867,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/tsVariableToMarkdownString.ts",
   "commentsInside": [],
-  "rawText": " (tsVariable: TsVariable): string => {\n  const titleString = `# ${tsVariable.name} (${\n    tsVariable.isExported ? \"exported\" : \"unexported\"\n  } ${tsVariable.classification})`;\n\n  const alineas: (string | undefined)[] = [titleString, tsVariable.description];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
+  "rawText": " (tsVariable: TsVariable): string => {\n  const titleString = `# 📄 ${tsVariable.name} (${\n    tsVariable.isExported ? \"exported\" : \"unexported\"\n  } ${tsVariable.classification})`;\n\n  const alineas: (string | undefined)[] = [titleString, tsVariable.description];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
   "name": "tsVariableToMarkdownString",
   "slug": "ts-variable-to-markdown-string",
   "parameters": [
@@ -146,13 +146,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 309,
+    "characters": 312,
     "lines": 9,
-    "bytes": 309,
-    "bytesPerCharacter": 1,
-    "charactersPerLine": 34,
+    "bytes": 314,
+    "bytesPerCharacter": 1.0064102564102564,
+    "charactersPerLine": 35,
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "bodfesraotkrvvezvbzeedxd"
+  "id": "tytnnutilagiuagyzcrergqu"
 }

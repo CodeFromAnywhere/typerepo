@@ -1,15 +1,15 @@
 {
-  "createdAt": 1667399179749,
-  "updatedAt": 1667399179749,
+  "createdAt": 1668005840965,
+  "updatedAt": 1668005840965,
   "deletedAt": 0,
-  "createdFirstAt": 1667399179749,
+  "createdFirstAt": 1668005840965,
   "id": "locationtype",
   "name": "LocationType",
   "slug": "locationtype",
   "operationRelativeTypescriptFilePath": "src/types.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * Jeep location\n */\nexport interface LocationType extends DefaultModelType {\n  jeepId: string;\n\n  latitude: number;\n  longitude: number;\n  /**\n   * calculate the most nearby village based on the hardcoded village location data we have for all villages in nepal.\n   *\n   */\n  nearbyVillage: string;\n}",
+  "rawText": "\n/**\n * Jeep location\n */\nexport interface LocationType extends DefaultModelType {\n  jeepId: string;\n\n  latitude: number;\n  longitude: number;\n  /**\n   * calculate the most nearby village based on the hardcoded village location data we have for all villages in nepal.\n   *\n   */\n  nearbyVillage: string;\n}",
   "extensions": [
     "DefaultModelType"
   ],

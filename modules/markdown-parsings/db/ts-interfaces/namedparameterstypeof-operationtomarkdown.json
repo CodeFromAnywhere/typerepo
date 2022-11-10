@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635411240,
-  "updatedAt": 1667635411240,
+  "createdAt": 1667976868227,
+  "updatedAt": 1667976868227,
   "deletedAt": 0,
-  "createdFirstAt": 1667635411240,
+  "createdFirstAt": 1667976868227,
   "id": "namedparameterstypeof-operationtomarkdown",
   "name": "NamedParameters<typeof operationToMarkdown>",
   "slug": "namedparameterstypeof-operationtomarkdown",
@@ -41,7 +41,7 @@
                 "string",
                 "save"
               ],
-              "description": "save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n\nstring: returns the full markdown string\n\nparse: returns the markdownparse"
+              "description": "- save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n- string: returns the full markdown string\n- parse: returns the `MarkdownParse`"
             }
           },
           "required": [
@@ -101,7 +101,7 @@
                     "string",
                     "save"
                   ],
-                  "fullComment": "save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n\nstring: returns the full markdown string\n\nparse: returns the markdownparse",
+                  "fullComment": "- save: saves the result in the operation `README.md` and `CONTRIBUTING.md` and other default md files\n- string: returns the full markdown string\n- parse: returns the `MarkdownParse`",
                   "type": "string"
                 }
               }

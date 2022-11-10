@@ -1,9 +1,9 @@
 {
   "createdAt": 1664530535128,
-  "updatedAt": 1667402318090,
+  "updatedAt": 1668006002445,
   "deletedAt": 0,
   "createdFirstAt": 1664530535128,
-  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep-functions/src/driverSignup.ts. Error: Error: Argument of type '\\\"JeepType\\\"' is not assignable to parameter of type 'keyof DbModels'.\\n\\nProperty 'email' does not exist on type 'PeerMessage | Peer | SlugModelType | Platform | BundleConfig | MarkdownFileConfig | OperationConfig | ... 80 more ... | ValueChainPhase'.\\n  Property 'email' does not exist on type 'PeerMessage'.\\n\\nProperty 'phone' does not exist on type 'PeerMessage | Peer | SlugModelType | Platform | BundleConfig | MarkdownFileConfig | OperationConfig | ... 80 more ... | ValueChainPhase'.\\n  Property 'phone' does not exist on type 'PeerMessage'.\\n\\nExpression produces a union type that is too complex to represent.\\n\\nArgument of type '\\\"JeepType\\\"' is not assignable to parameter of type 'keyof DbModels'.\"]",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep/himalayajeep-functions/src/getMyJeep.ts. Error: Error: Type '{ amountLuggageUnitsLeft: number; amountSeatsLeft: number; createdAt: number; id: string; isVerified: boolean; name: string; note: string; updatedAt: number; citizenshipId: string | undefined; ... 4 more ...; phone: string | undefined; }' is not assignable to type 'MyJeepType'.\\n  Object literal may only specify known properties, but 'citizenshipId' does not exist in type 'MyJeepType'. Did you mean to write 'citizenshipImage'?\"]",
   "buildSucceeded": true,
   "id": "qeyyazezfuavhizonssrrcee",
   "indexImportExportError": "",
@@ -31,33 +31,37 @@
     "db",
     "PublicJeepType",
     "db",
-    "MyJeepType"
+    "MyJeepType",
+    "db",
+    "JeepType",
+    "MyJeepType",
+    "MyJeepAdminTypes"
   ],
   "packageDependencies": [],
   "size": {
     "codeSize": {
-      "numberOfFiles": 4,
+      "numberOfFiles": 5,
       "lines": 0,
-      "characters": 5829,
-      "bytes": 5829
+      "characters": 6759,
+      "bytes": 6759
     },
     "dataSize": {
       "numberOfFiles": 2,
       "lines": 0,
-      "characters": 2390,
-      "bytes": 2390
+      "characters": 2474,
+      "bytes": 2474
     },
     "textSize": {
       "numberOfFiles": 1,
       "lines": 0,
-      "characters": 1461,
-      "bytes": 1461
+      "characters": 1410,
+      "bytes": 1410
     },
     "size": {
-      "bytes": 9680,
-      "characters": 9680,
+      "bytes": 10643,
+      "characters": 10643,
       "lines": 0,
-      "numberOfFiles": 7
+      "numberOfFiles": 8
     }
   }
 }

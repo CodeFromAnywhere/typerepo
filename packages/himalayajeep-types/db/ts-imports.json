@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1667399171839,
-    "updatedAt": 1667399171839,
+    "createdAt": 1668005829500,
+    "updatedAt": 1668005829500,
     "deletedAt": 0,
-    "createdFirstAt": 1667399171839,
+    "createdFirstAt": 1668005829500,
     "name": "DefaultModelType",
     "slug": "default-model-type",
     "type": "type",
@@ -15,6 +15,24 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ydsykjnvwoamyseqcxcgcebu"
+    "id": "kofhmjquqkktmmiqwkflkjnr"
+  },
+  {
+    "createdAt": 1668005829500,
+    "updatedAt": 1668005829500,
+    "deletedAt": 0,
+    "createdFirstAt": 1668005829500,
+    "name": "BackendAsset",
+    "slug": "backend-asset",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "asset-type",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/types.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "ihrotdgmteldrzumrkjrwzdh"
   }
 ]

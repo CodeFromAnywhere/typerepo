@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667402313077,
-  "updatedAt": 1667402313077,
+  "createdAt": 1668005994649,
+  "updatedAt": 1668005994649,
   "deletedAt": 0,
-  "createdFirstAt": 1667402313077,
+  "createdFirstAt": 1668005994649,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (): Promise<{\n  publicJeeps: PublicJeepType[];\n}> => {\n  const jeeps = await db.get(\"JeepType\");\n\n  const publicJeeps = jeeps.map((jeep) => {\n    const {\n      amountLuggageUnitsLeft,\n      amountSeatsLeft,\n      createdAt,\n      id,\n      name,\n      note,\n      updatedAt,\n      email,\n      locationsCalculated,\n      phone,\n    } = jeep;\n\n    const publicJeep: PublicJeepType = {\n      amountLuggageUnitsLeft,\n      amountSeatsLeft,\n      createdAt,\n      id,\n      name,\n      note,\n      updatedAt,\n      email,\n      locationsCalculated,\n      phone,\n    };\n\n    return publicJeep;\n  });\n\n  return {\n    publicJeeps,\n  };\n}",
   "description": "",
-  "id": "xeyecdnlyywwdwomozqwogps"
+  "id": "hazcretjahtbvjycszjhnbxg"
 }

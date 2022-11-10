@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.1.8 | MIT License | https://tailwindcss.com
+! tailwindcss v3.2.1 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -410,6 +410,12 @@ video {
   height: auto;
 }
 
+/* Make elements with the HTML hidden attribute stay hidden by default */
+
+[hidden] {
+  display: none;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -563,6 +569,10 @@ video {
   grid-row: span 6 / span 6;
 }
 
+.m-2 {
+  margin: 0.5rem;
+}
+
 .grid {
   display: grid;
 }
@@ -591,8 +601,17 @@ video {
   overflow-y: auto;
 }
 
+.border {
+  border-width: 1px;
+}
+
 .border-l {
   border-left-width: 1px;
+}
+
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 
 .border-l-gray-400 {
@@ -603,6 +622,10 @@ video {
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .py-4 {

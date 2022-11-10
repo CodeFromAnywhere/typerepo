@@ -1,5 +1,5 @@
 import { Authorization } from "auth-types";
-import { DefaultModelType, Slug } from "model-types";
+import { Credit, DefaultModelType, Slug } from "model-types";
 import { BackendAsset } from "asset-type";
 import { AuthenticationMethod, AuthenticationMethodMethod } from "./AuthenticationMethjod";
 import { Device } from "./Device";
@@ -68,12 +68,16 @@ export interface Person extends DefaultModelType {
      */
     requiredAuthenticationMethods?: AuthenticationMethodMethod[];
     /**
+     * For now this can be a stripe token, stored for this "customer". Handy to connect the customer to the Person. Later this can become an array of multiple credentials, for example if you want to add multiple creditcards.
+     */
+    paymentAuthToken?: string;
+    /**
      * Actions by the `Person` can create changes in the amount of credits
      *
      * The exact meaning of the number of credits is determined by the OS settings. Can for example be 1:1 to euro, 1:1 to bitcoin, or a custom credit system. Transferability is also customisable.
      *
      * Insufficient credit can limit the persons possibilities within the OS
      */
-    credits: number;
+    credit: Credit;
 }
 //# sourceMappingURL=Person.d.ts.map

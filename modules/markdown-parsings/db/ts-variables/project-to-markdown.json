@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635420358,
-  "updatedAt": 1667635420358,
+  "createdAt": 1667976878511,
+  "updatedAt": 1667976878511,
   "deletedAt": 0,
-  "createdFirstAt": 1667635420358,
+  "createdFirstAt": 1667976878511,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "({\n  includeTodo,\n}: {\n  includeTodo?: boolean;\n  includeOperationDetails?: boolean;\n}): string => {\n  /**\n    \n     - the folder structure should be the outline\n     - hierarchically delve into folders with all its content (md and operations)\n  \n     */\n  return \"\";\n}",
   "description": "summarizes the whole OS project into a markdown string",
-  "id": "ynegbkftkxyiqyqnlkfptvth"
+  "id": "cchwhgrvfuxbpaynwvdkiwfx"
 }

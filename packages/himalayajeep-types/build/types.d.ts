@@ -1,4 +1,5 @@
 import { DefaultModelType } from "model-types";
+import { BackendAsset } from "asset-type";
 /**
  * Jeep location
  */
@@ -57,7 +58,11 @@ export interface PublicJeepType {
  *
  * will be returned when you request your own information (when logged in)
  */
-export interface MyJeepType extends PublicJeepType {
+export interface MyJeepType extends PublicJeepType, MyJeepAdminTypes {
+    citizenshipImage?: BackendAsset;
+    driverLicenseImage?: BackendAsset;
+}
+export declare type MyJeepAdminTypes = {
     /**
      * inputted by admin
      */
@@ -67,16 +72,16 @@ export interface MyJeepType extends PublicJeepType {
      *
      (verify that the jeep is real)
      */
-    lisenceId?: string;
+    licenseNumber?: string;
     /**
      * inputted by admin
      */
-    citizenshipId?: string;
+    citizenshipNumber?: string;
     /**
      * inputted by admin
      */
     isVerified: boolean;
-}
+};
 /**
  * Everyting about the jeep, in the model...
  */

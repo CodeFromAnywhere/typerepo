@@ -34,8 +34,12 @@ export declare const sdk: {
         message?: string | undefined;
         myJeep?: import("himalayajeep-types").MyJeepType | undefined;
     }>;
-    getPublicJeeps: () => Promise<{
+    getPublicJeeps: (position?: import("geo-types").Position | undefined) => Promise<{
         publicJeeps: import("himalayajeep-types").PublicJeepType[];
+    }>;
+    updateMyProfile: (loginToken: string, myJeep: Omit<import("himalayajeep-types").MyJeepType, "id" | "createdAt" | "updatedAt" | keyof import("himalayajeep-types").MyJeepAdminTypes>) => Promise<{
+        isSuccesful: boolean;
+        message: string;
     }>;
     allOperationsRemoveJsSrc: (debug?: boolean | undefined) => Promise<void>;
     allOperationsToMarkdown: () => Promise<void>;
@@ -324,7 +328,7 @@ export declare const sdk: {
         newStoredData: import("model-types").Storing<import("model-types").AugmentedAnyModelType>[];
     };
     getExtension: (fileNameOrPath: string) => string;
-    getFolderJs: <T_6 extends string | undefined>(filePath: T_6) => string | undefined;
+    getFolderJs: <T_6 extends string | undefined>(filePath: T_6) => T_6;
     getSubExtension: (fileName: string) => string | undefined;
     isPathRelative: (path: string) => boolean;
     removeTrailingSlash: (p: string) => string;
@@ -549,13 +553,18 @@ export declare const sdk: {
         singlePage?: boolean | undefined;
         projectRelativeMdFilePath?: string | undefined;
     }) => void;
-    getFunctionsInfo: any;
+    getJsonSchemaSummary: (schema: import("json-schema").JSONSchema7 | undefined, isMarkdown: boolean) => {
+        typeDescriptor: string;
+        description: string | undefined;
+    } | undefined;
     getMergedMarkdownOutlineUrl: (title: string) => {
         title: string;
         hashtagPath: string;
     };
     getOutline: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
     getTitlesRecursively: (chunk: import("code-types").MarkdownChunk) => import("markdown-parsings").NestedTitle[];
+    getTypeDescriptorRecursive: (schema: import("json-schema").JSONSchema7, isMarkdown: boolean) => string;
+    isUpperCase: (text: string) => boolean;
     makeOutlineMarkdownString: (title: string, urls: import("markdown-parsings").MergedMarkdownOutlineUrl[]) => string;
     makePropertiesTable: (properties: import("code-types").SimplifiedSchemaProperty[] | undefined) => string;
     markdownChunkToMarkdownStringRecursive: (markdownChunk: import("code-types").MarkdownChunk) => string;
@@ -608,7 +617,7 @@ export declare const sdk: {
     getAllMarkdownReaderPages: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<import("markdown-reader-types").MarkdownReaderPage[] | undefined>;
-    getFolderExplorationInfo: (nestedPathObject: NestedPathObject, queryPath: string, projectRoot: string) => Promise<{
+    getFolderExplorationInfo: (nestedPathObject: import("nested-menu").NestedPathObject, queryPath: string, projectRoot: string) => Promise<{
         title: string | undefined;
         description: string | null;
         descriptionProjectRelativeMarkdownPath: string | null;
@@ -620,7 +629,7 @@ export declare const sdk: {
         }[];
     }>;
     getMarkdownModelPages: (projectRoot: string) => Promise<import("markdown-reader-types").MarkdownReaderPage[]>;
-    getMarkdownPageInfo: (projectRoot: string, nestedPathObject: NestedPathObject, queryPath: string, contentPage: import("markdown-reader-types").MarkdownReaderPage) => Promise<{
+    getMarkdownPageInfo: (projectRoot: string, nestedPathObject: import("nested-menu").NestedPathObject, queryPath: string, contentPage: import("markdown-reader-types").MarkdownReaderPage) => Promise<{
         markdownFile: import("code-types").WebMarkdownFile | null;
         nextQueryPath: string | null;
         previousQueryPath: string | null;
@@ -679,7 +688,7 @@ export declare const sdk: {
     }>;
     getAllAppOperations: () => Promise<import("peer-types").AppOperation[]>;
     getFirstEmoji: (text?: string | undefined) => string | undefined;
-    getNestedPathObject: (baseFolderPath: string) => Promise<NestedPathObject>;
+    getNestedPathObject: (baseFolderPath: string) => Promise<import("nested-menu").NestedPathObject>;
     getPeerMessages: () => Promise<import("peer-types").PeerMessage[]>;
     getPeersFromPeersRecursively: () => void;
     getPeers: () => Promise<{
@@ -689,7 +698,7 @@ export declare const sdk: {
     getPublicFolderNestedPathObjectFromPeer: (peerSlug: string) => Promise<{
         peerApiResult: import("api-types").RealApiReturnType<"getPublicFolderNestedPathObject">;
     } | undefined>;
-    getPublicFolderNestedPathObject: () => Promise<any>;
+    getPublicFolderNestedPathObject: () => Promise<import("nested-menu").NestedPathObject | undefined>;
     getPublicPeers: () => Promise<any[]>;
     isPortUsed: (port: number) => Promise<boolean>;
     lateFetchPeerMessageSync: () => Promise<{

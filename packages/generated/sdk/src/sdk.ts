@@ -2,6 +2,7 @@ import { driverLogin } from "himalayajeep-functions";
 import { driverSignup } from "himalayajeep-functions";
 import { getMyJeep } from "himalayajeep-functions";
 import { getPublicJeeps } from "himalayajeep-functions";
+import { updateMyProfile } from "himalayajeep-functions";
 import { allOperationsRemoveJsSrc } from "all";
 import { allOperationsToMarkdown } from "all";
 import { clearAllTsDatabases } from "all";
@@ -215,10 +216,12 @@ import { bundleToMarkdown } from "markdown-parsings";
 import { deployToVercel } from "markdown-parsings";
 import { emailMarkdownParse } from "markdown-parsings";
 import { generateStaticSite } from "markdown-parsings";
-import { getFunctionsInfo } from "markdown-parsings";
+import { getJsonSchemaSummary } from "markdown-parsings";
 import { getMergedMarkdownOutlineUrl } from "markdown-parsings";
 import { getOutline } from "markdown-parsings";
 import { getTitlesRecursively } from "markdown-parsings";
+import { getTypeDescriptorRecursive } from "markdown-parsings";
+import { isUpperCase } from "markdown-parsings";
 import { makeOutlineMarkdownString } from "markdown-parsings";
 import { makePropertiesTable } from "markdown-parsings";
 import { markdownChunkToMarkdownStringRecursive } from "markdown-parsings";
@@ -592,6 +595,7 @@ export const sdk = { driverLogin,
 driverSignup,
 getMyJeep,
 getPublicJeeps,
+updateMyProfile,
 allOperationsRemoveJsSrc,
 allOperationsToMarkdown,
 clearAllTsDatabases,
@@ -805,10 +809,12 @@ bundleToMarkdown,
 deployToVercel,
 emailMarkdownParse,
 generateStaticSite,
-getFunctionsInfo,
+getJsonSchemaSummary,
 getMergedMarkdownOutlineUrl,
 getOutline,
 getTitlesRecursively,
+getTypeDescriptorRecursive,
+isUpperCase,
 makeOutlineMarkdownString,
 makePropertiesTable,
 markdownChunkToMarkdownStringRecursive,

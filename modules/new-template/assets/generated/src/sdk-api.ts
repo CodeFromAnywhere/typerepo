@@ -278,10 +278,12 @@ import { bundleToMarkdown } from "markdown-parsings";
 import { deployToVercel } from "markdown-parsings";
 import { emailMarkdownParse } from "markdown-parsings";
 import { generateStaticSite } from "markdown-parsings";
-import { getFunctionsInfo } from "markdown-parsings";
+import { getJsonSchemaSummary } from "markdown-parsings";
 import { getMergedMarkdownOutlineUrl } from "markdown-parsings";
 import { getOutline } from "markdown-parsings";
 import { getTitlesRecursively } from "markdown-parsings";
+import { getTypeDescriptorRecursive } from "markdown-parsings";
+import { isUpperCase } from "markdown-parsings";
 import { makeOutlineMarkdownString } from "markdown-parsings";
 import { makePropertiesTable } from "markdown-parsings";
 import { markdownChunkToMarkdownStringRecursive } from "markdown-parsings";
@@ -426,19 +428,13 @@ import { fetchWithTimeout } from "is-online";
 import { isOnline } from "is-online";
 import { dev } from "k-dev";
 import { nodemon } from "nodemon";
-import { getFileContents } from "writer-functions";
-import { getFrontmatterSchema } from "writer-functions";
-import { moveFile } from "writer-functions";
-import { newFile } from "writer-functions";
-import { newFolder } from "writer-functions";
-import { renameFilename } from "writer-functions";
-import { saveFileContents } from "writer-functions";
 import { loginToDevto } from "dev-to-controller";
 import { publishBlogOnDevTo } from "dev-to-controller";
 import { typeIntoTheField } from "dev-to-controller";
 import { facebookPostOnTheGroup } from "facebook-controller";
 import { facebookPost } from "facebook-controller";
 import { facebookTimeLinePost } from "facebook-controller";
+import { getLatestFacebookPostUrl } from "facebook-controller";
 import { sendFacebookMessage } from "facebook-controller";
 import { searchAndDownloadGifs } from "gif-controller";
 import { buildQuery } from "google-translate-controller";
@@ -474,6 +470,7 @@ import { socialMediaPostPlanner } from "social-media-controller";
 import { startSocialMediaController } from "social-media-controller";
 import { twitterContentAnalyzer } from "social-media-controller";
 import { updateSocialMediaPost } from "social-media-controller";
+import { getTwitterPostUrl } from "twitter-controller";
 import { postTweetOnTwitter } from "twitter-controller";
 import { youtubeSearchAndDownload } from "youtube-controller";
 import { youtubeSearch } from "youtube-controller";
@@ -489,6 +486,13 @@ import { recordMdFile } from "markdown-translator";
 import { startMarkdownTranslator } from "markdown-translator";
 import { translatedArrayToKeyValue } from "markdown-translator";
 import { watchMdFile } from "markdown-translator";
+import { getFileContents } from "writer-functions";
+import { getFrontmatterSchema } from "writer-functions";
+import { moveFile } from "writer-functions";
+import { newFile } from "writer-functions";
+import { newFolder } from "writer-functions";
+import { renameFilename } from "writer-functions";
+import { saveFileContents } from "writer-functions";
 import { makeExercises } from "course-basics";
 import { driverLogin } from "himalayajeep-functions";
 import { driverSignup } from "himalayajeep-functions";
@@ -798,10 +802,12 @@ bundleToMarkdown,
 deployToVercel,
 emailMarkdownParse,
 generateStaticSite,
-getFunctionsInfo,
+getJsonSchemaSummary,
 getMergedMarkdownOutlineUrl,
 getOutline,
 getTitlesRecursively,
+getTypeDescriptorRecursive,
+isUpperCase,
 makeOutlineMarkdownString,
 makePropertiesTable,
 markdownChunkToMarkdownStringRecursive,
@@ -946,19 +952,13 @@ fetchWithTimeout,
 isOnline,
 dev,
 nodemon,
-getFileContents,
-getFrontmatterSchema,
-moveFile,
-newFile,
-newFolder,
-renameFilename,
-saveFileContents,
 loginToDevto,
 publishBlogOnDevTo,
 typeIntoTheField,
 facebookPostOnTheGroup,
 facebookPost,
 facebookTimeLinePost,
+getLatestFacebookPostUrl,
 sendFacebookMessage,
 searchAndDownloadGifs,
 buildQuery,
@@ -994,6 +994,7 @@ socialMediaPostPlanner,
 startSocialMediaController,
 twitterContentAnalyzer,
 updateSocialMediaPost,
+getTwitterPostUrl,
 postTweetOnTwitter,
 youtubeSearchAndDownload,
 youtubeSearch,
@@ -1009,6 +1010,13 @@ recordMdFile,
 startMarkdownTranslator,
 translatedArrayToKeyValue,
 watchMdFile,
+getFileContents,
+getFrontmatterSchema,
+moveFile,
+newFile,
+newFolder,
+renameFilename,
+saveFileContents,
 makeExercises,
 driverLogin,
 driverSignup,

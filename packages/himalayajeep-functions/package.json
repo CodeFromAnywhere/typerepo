@@ -22,7 +22,11 @@
   "sensible": {
     "hasGeneratedDependencies": false
   },
-  "dependencies": {},
+  "dependencies": {
+    "database": "0.0.1",
+    "server-login": "0.0.1",
+    "model-types": "0.0.1"
+  },
   "slug": "himalayajeep-functions",
   "id": "fYjPUhJLjJssnZTc"
 }

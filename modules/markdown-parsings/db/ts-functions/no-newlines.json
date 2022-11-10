@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635427106,
-  "updatedAt": 1667635427106,
+  "createdAt": 1667976886394,
+  "updatedAt": 1667976886394,
   "deletedAt": 0,
-  "createdFirstAt": 1667635427106,
+  "createdFirstAt": 1667976886394,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -28,7 +28,7 @@
       "required": false
     }
   ],
-  "description": "",
+  "description": "Replaces newlines with a <br />",
   "returnType": {
     "rawType": "string | undefined",
     "typeDefinition": {
@@ -57,13 +57,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 109,
+    "characters": 140,
     "lines": 5,
-    "bytes": 109,
+    "bytes": 140,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 22,
+    "charactersPerLine": 28,
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "nqgpltqvmdozzjnponmkocww"
+  "id": "afbdlwughxlksvqrftgnnczq"
 }

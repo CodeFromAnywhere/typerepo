@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1667399180369,
-    "updatedAt": 1667399180369,
+    "createdAt": 1668005841812,
+    "updatedAt": 1668005841812,
     "deletedAt": 0,
-    "createdFirstAt": 1667399180369,
+    "createdFirstAt": 1668005841812,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -13,13 +13,13 @@
     "types": [],
     "firstLine": 3,
     "lastLine": 5,
-    "id": "yfddjrsvjcgvavrwkgloqthn"
+    "id": "uhdagxaodvpqbgsptmgfeihl"
   },
   {
-    "createdAt": 1667399180369,
-    "updatedAt": 1667399180369,
+    "createdAt": 1668005841812,
+    "updatedAt": 1668005841812,
     "deletedAt": 0,
-    "createdFirstAt": 1667399180369,
+    "createdFirstAt": 1668005841812,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -29,13 +29,13 @@
     "types": [],
     "firstLine": 18,
     "lastLine": 20,
-    "id": "jqsofewtpdepvrnbxfuaiosv"
+    "id": "ukhuwhpwbkhgrhuyutzahtyz"
   },
   {
-    "createdAt": 1667399180369,
-    "updatedAt": 1667399180369,
+    "createdAt": 1668005841812,
+    "updatedAt": 1668005841812,
     "deletedAt": 0,
-    "createdFirstAt": 1667399180369,
+    "createdFirstAt": 1668005841812,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -45,29 +45,29 @@
     "types": [],
     "firstLine": 32,
     "lastLine": 34,
-    "id": "jozrmansuuxgmlvpycsvagmv"
+    "id": "smjdwycgzgyyrliigtzjmmbx"
   },
   {
-    "createdAt": 1667399180369,
-    "updatedAt": 1667399180369,
+    "createdAt": 1668005841812,
+    "updatedAt": 1668005841812,
     "deletedAt": 0,
-    "createdFirstAt": 1667399180369,
+    "createdFirstAt": 1668005841812,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
     "comment": "Driver login jeep info\n\nwill be returned when you request your own information (when logged in)",
-    "rawStatement": "export interface MyJeepType extends PublicJeepType {\n  /**\n   * inputted by admin\n   */\n  numberPlate?: string;\n  /**\n   * inputted by admin\n   * \n   (verify that the jeep is real)\n   */\n  lisenceId?: string;\n  /**\n   * inputted by admin\n   */\n  citizenshipId?: string;\n  /**\n   * inputted by admin\n   */\n  isVerified: boolean;\n}",
+    "rawStatement": "export interface MyJeepType extends PublicJeepType, MyJeepAdminTypes {\n  citizenshipImage?: BackendAsset;\n  driverLicenseImage?: BackendAsset;\n}",
     "parameters": {},
     "types": [],
     "firstLine": 64,
     "lastLine": 68,
-    "id": "aphwnqovjpazgxmkbdofgqec"
+    "id": "bthnbxaeouoqecwcdhxmgybm"
   },
   {
-    "createdAt": 1667399180370,
-    "updatedAt": 1667399180370,
+    "createdAt": 1668005841812,
+    "updatedAt": 1668005841812,
     "deletedAt": 0,
-    "createdFirstAt": 1667399180370,
+    "createdFirstAt": 1668005841812,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -75,8 +75,8 @@
     "rawStatement": "export interface JeepType extends MyJeepType, PublicJeepType, DefaultModelType {\n  loginToken: string;\n  encrypedPassword: string;\n}",
     "parameters": {},
     "types": [],
-    "firstLine": 90,
-    "lastLine": 92,
-    "id": "ptowwxvxvlgpccsgvxftwiap"
+    "firstLine": 96,
+    "lastLine": 98,
+    "id": "owpfzwqtnxozefsisdrpwyvq"
   }
 ]

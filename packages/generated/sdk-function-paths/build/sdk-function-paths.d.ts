@@ -20,6 +20,7 @@ export declare const sdkFunctionPaths: {
     driverSignup: string;
     getMyJeep: string;
     getPublicJeeps: string;
+    updateMyProfile: string;
     EditProfile: string;
     getQueryPath: string;
     JeepList: string;
@@ -497,15 +498,18 @@ export declare const sdkFunctionPaths: {
     parseMarkdownParagraph: string;
     parseMdToChunks: string;
     removeHeaderPrefix: string;
+    addDependantCount: string;
     bundleFolderWithMarkdown: string;
     bundleToBookMarkdown: string;
     bundleToMarkdown: string;
     deployToVercel: string;
     emailMarkdownParse: string;
     generateStaticSite: string;
-    getFunctionsInfo: string;
+    getJsonSchemaSummary: string;
     getMergedMarkdownOutlineUrl: string;
     getTitlesRecursively: string;
+    getTypeDescriptorRecursive: string;
+    isUpperCase: string;
     makeOutlineMarkdownString: string;
     makePropertiesTable: string;
     markdownChunkToMarkdownStringRecursive: string;

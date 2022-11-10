@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1667635425207,
-    "updatedAt": 1667635425207,
+    "createdAt": 1667976886730,
+    "updatedAt": 1667976886730,
     "deletedAt": 0,
-    "createdFirstAt": 1667635425207,
+    "createdFirstAt": 1667976886730,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/tsVariableToMarkdownString.ts",
-    "comment": "",
-    "rawStatement": "export const tsVariableToMarkdownString = (tsVariable: TsVariable): string => {\n  const titleString = `# ${tsVariable.name} (${\n    tsVariable.isExported ? \"exported\" : \"unexported\"\n  } ${tsVariable.classification})`;\n\n  const alineas: (string | undefined)[] = [titleString, tsVariable.description];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n};",
+    "operationRelativeTypescriptFilePath": "src/util/noNewlines.ts",
+    "comment": "Replaces newlines with a <br />",
+    "rawStatement": "export const noNewlines = (\n  markdown: string | undefined\n): string | undefined => {\n  return markdown?.replaceAll(\"\\n\", \"<br />\");\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 4,
-    "lastLine": 5,
-    "id": "lfiibhjyzxidtlvkgybczkpy"
+    "firstLine": 1,
+    "lastLine": 3,
+    "id": "igwdkjcmaqhmypkbgqpmhjue"
   }
 ]
