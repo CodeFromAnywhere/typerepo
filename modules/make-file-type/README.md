@@ -1,6 +1,6 @@
 # Make file type
 
-make-file-type (js operation)
+make-file-type (`OperationClassification` js)
 
 exposes `makeFileType`, a function that helped turning a path into a specific type. Was previously used for things like watching, but this is probably not needed anymore.
 
@@ -33,11 +33,4 @@ Properties:
 
 
 ## 📄 makeFileType (exported const)
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

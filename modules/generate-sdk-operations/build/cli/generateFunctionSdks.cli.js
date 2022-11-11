@@ -1,14 +1,3 @@
 #!/usr/bin/env node
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var get_path_1 = require("get-path");
-var generateFunctionSdks_1 = require("../generateFunctionSdks");
-var generateFunctionSdksCli = function () {
-    var customProjectRoot = process.argv.slice(2)[0];
-    var defaultProjectRoot = (0, get_path_1.getProjectRoot)(process.cwd());
-    (0, generateFunctionSdks_1.generateFunctionSdks)({
-        manualProjectRoot: customProjectRoot || defaultProjectRoot,
-    });
-};
-generateFunctionSdksCli();
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var get_path_1=require("get-path"),generateFunctionSdks_1=require("../generateFunctionSdks"),generateFunctionSdksCli=function(){var e=process.argv.slice(2)[0],t=(0,get_path_1.getProjectRoot)(process.cwd());(0,generateFunctionSdks_1.generateFunctionSdks)({manualProjectRoot:e||t})};generateFunctionSdksCli();
 //# sourceMappingURL=generateFunctionSdks.cli.js.map

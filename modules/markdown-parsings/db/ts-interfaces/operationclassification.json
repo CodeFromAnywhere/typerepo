@@ -1,0 +1,56 @@
+{
+  "createdAt": 1668154786049,
+  "updatedAt": 1668154786049,
+  "deletedAt": 0,
+  "createdFirstAt": 1668154786049,
+  "id": "operationclassification",
+  "name": "OperationClassification",
+  "slug": "operationclassification",
+  "operationRelativeTypescriptFilePath": "src/OperationSummary.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "# Classification\n\nTODO: think about what the differences are and how we need to change processes to make it all work good\n\n## Possible values\n\n- js: only js (no node) (well, ts of course, but it gets built into js)\n\n- ts: non-built ts code\n\n- node: includes other node packages, operations, core-imports, or globals.\n\n- server: exposes something on some port when it is ran and uses node code\n\n- web: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...\n\n- app: uses react-native and exposes something on some port when it is ran\n\n- DEPRECATED: ui-es6: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. highly discouraged, please use ui-es5, or, if needed, ui-esm)\n\n- ui-es5: ui which main entry points to javascript es5 files (this ui package can be built). don't import ESM packages in here, this won't work.\n\n- ui-esm: ui which builds to ESM module resolved Javascript. All packages that use ui-esm packages, need to be `ui-esm`, `ui-es6`, or `web` in order to work properly.",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "js",
+        "ts",
+        "node",
+        "server",
+        "web",
+        "app",
+        "ui-es6",
+        "ui-es5",
+        "ui-esm"
+      ],
+      "description": "# Classification\n\nTODO: think about what the differences are and how we need to change processes to make it all work good\n\n## Possible values\n\n- js: only js (no node) (well, ts of course, but it gets built into js)\n\n- ts: non-built ts code\n\n- node: includes other node packages, operations, core-imports, or globals.\n\n- server: exposes something on some port when it is ran and uses node code\n\n- web: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...\n\n- app: uses react-native and exposes something on some port when it is ran\n\n- DEPRECATED: ui-es6: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. highly discouraged, please use ui-es5, or, if needed, ui-esm)\n\n- ui-es5: ui which main entry points to javascript es5 files (this ui package can be built). don't import ESM packages in here, this won't work.\n\n- ui-esm: ui which builds to ESM module resolved Javascript. All packages that use ui-esm packages, need to be `ui-esm`, `ui-es6`, or `web` in order to work properly."
+    },
+    "simplifiedSchema": {
+      "enum": [
+        "js",
+        "ts",
+        "node",
+        "server",
+        "web",
+        "app",
+        "ui-es6",
+        "ui-es5",
+        "ui-esm"
+      ],
+      "fullComment": "# Classification\n\nTODO: think about what the differences are and how we need to change processes to make it all work good\n\n## Possible values\n\n- js: only js (no node) (well, ts of course, but it gets built into js)\n\n- ts: non-built ts code\n\n- node: includes other node packages, operations, core-imports, or globals.\n\n- server: exposes something on some port when it is ran and uses node code\n\n- web: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...\n\n- app: uses react-native and exposes something on some port when it is ran\n\n- DEPRECATED: ui-es6: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. highly discouraged, please use ui-es5, or, if needed, ui-esm)\n\n- ui-es5: ui which main entry points to javascript es5 files (this ui package can be built). don't import ESM packages in here, this won't work.\n\n- ui-esm: ui which builds to ESM module resolved Javascript. All packages that use ui-esm packages, need to be `ui-esm`, `ui-es6`, or `web` in order to work properly.",
+      "todo": "think about what the differences are and how we need to change processes to make it all work good",
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "OperationClassification",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

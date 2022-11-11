@@ -1,6 +1,6 @@
 # Generate index
 
-generate-index (node operation)
+generate-index (`OperationClassification` node)
 
 
 
@@ -33,10 +33,19 @@ NB: This overwrites the indexfile of the operation in the src folder! Make sure 
 
 Should be ran every time an operation changes
 
+# CLI
+
+<details><summary>Show CLI information (1)</summary>
+    
+  # 📄 [operationName] (unexported const)
+
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (7)</summary>
-  
+    
   # generateNamedIndex()
 
 Generates an index.ts file based on named statements in the operation. Also generates test array. Not used currently.

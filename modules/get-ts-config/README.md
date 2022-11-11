@@ -1,6 +1,6 @@
 # Get ts config
 
-get-ts-config (js operation)
+get-ts-config (`OperationClassification` js)
 
 Gets the TsConfig given a path to an operation
 
@@ -19,11 +19,4 @@ Gets the TsConfig given a path to an operation
 
 
 ## 📄 getTsConfig (exported const)
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

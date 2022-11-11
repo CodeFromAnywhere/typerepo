@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666264085973,
-  "updatedAt": 1666264085973,
+  "createdAt": 1668150710529,
+  "updatedAt": 1668150710529,
   "deletedAt": 0,
-  "createdFirstAt": 1666264085973,
+  "createdFirstAt": 1668150710529,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,12 +13,12 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getDbStorageMethod.ts",
   "commentsInside": [],
-  "rawText": " ({\n  typeName,\n  frontmatter,\n  extensions,\n}: {\n  typeName: string;\n  frontmatter: Frontmatter;\n  extensions?: string[];\n}): DbStorageMethod | undefined => {\n  const frontmatterResult = getFrontmatterDbStorageMethod(frontmatter);\n\n  // NB: can also become null if isDbModel is specifically set to false!\n  if (frontmatterResult !== undefined) return frontmatterResult || undefined;\n\n  const specialExtensionStorageMethod =\n    getSpecialExtensionDbStorageMethod(extensions);\n\n  if (specialExtensionStorageMethod) {\n    return specialExtensionStorageMethod;\n  }\n\n  const typeWords = lowerCaseArray(typeName);\n  const isModelTypeName =\n    typeWords.length >= 2 && [\"model\", \"db\"].includes(typeWords.pop()!);\n\n  const dbStorageMethodFromModelTypeName = isModelTypeName\n    ? \"jsonMultiple\"\n    : null;\n\n  if (dbStorageMethodFromModelTypeName) {\n    return dbStorageMethodFromModelTypeName;\n  }\n\n  return;\n}",
+  "rawText": " (config: {\n  typeName: string;\n  frontmatter: Frontmatter;\n  extensions?: string[];\n}): DbStorageMethod | undefined => {\n  const { typeName, frontmatter, extensions } = config;\n  const frontmatterResult = getFrontmatterDbStorageMethod(frontmatter);\n\n  // NB: can also become null if isDbModel is specifically set to false!\n  if (frontmatterResult !== undefined) return frontmatterResult || undefined;\n\n  const specialExtensionStorageMethod =\n    getSpecialExtensionDbStorageMethod(extensions);\n\n  if (specialExtensionStorageMethod) {\n    return specialExtensionStorageMethod;\n  }\n\n  const typeWords = lowerCaseArray(typeName);\n  const isModelTypeName =\n    typeWords.length >= 2 && [\"model\", \"db\"].includes(typeWords.pop()!);\n\n  const dbStorageMethodFromModelTypeName = isModelTypeName\n    ? \"jsonMultiple\"\n    : null;\n\n  if (dbStorageMethodFromModelTypeName) {\n    return dbStorageMethodFromModelTypeName;\n  }\n\n  return;\n}",
   "name": "getDbStorageMethod",
   "slug": "get-db-storage-method",
   "parameters": [
     {
-      "name": "{\n  typeName,\n  frontmatter,\n  extensions,\n}",
+      "name": "config",
       "schema": {
         "type": "object",
         "properties": {
@@ -81,7 +81,7 @@
       "required": true
     }
   ],
-  "description": "Gets db storage method for indexation\n\n1) Frontmatter overrules everything\n2) Special extensions are looked at\n3)",
+  "description": "Gets db storage method for indexation\n\n1) Frontmatter overrules everything\n2) Special extensions are looked at",
   "returnType": {
     "rawType": "any",
     "typeCoverage": 0,
@@ -93,13 +93,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 1019,
-    "lines": 39,
-    "bytes": 1019,
+    "characters": 1034,
+    "lines": 35,
+    "bytes": 1034,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
-    "linesPerFile": 39,
+    "charactersPerLine": 30,
+    "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "hvmqfrshywyynzixkfseoabs"
+  "id": "folgcbwjbhbnjpuhhfqxzjpr"
 }

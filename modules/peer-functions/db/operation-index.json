@@ -1,10 +1,10 @@
 {
   "createdAt": 1664527201566,
-  "updatedAt": 1666262521625,
+  "updatedAt": 1668149701365,
   "deletedAt": 0,
   "createdFirstAt": 1664527201566,
-  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/p2p/peer-functions/src/addPeer.ts. Error: Error: Type '{ description: string; lastOnlineAt: number; lastSyncDatabaseAtObject: {}; name: string; authToken: string | undefined; isMe: boolean | undefined; }' is not assignable to type 'Creation<Peer>'.\\n  Object literal may only specify known properties, and 'description' does not exist in type 'Creation<Peer>'.\"]",
-  "buildSucceeded": true,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/p2p/peer-functions/src/updatePeer.ts. Error: Error: Argument of type '\\\"Peer\\\"' is not assignable to parameter of type 'keyof DbModels'.\\n\\nProperty 'slug' does not exist on type 'Device | Group | SlugModelType | PageVisit | PeerMessage | Person | Persona | PersonInformation | ... 92 more ... | ValueChainPhase'.\\n  Property 'slug' does not exist on type 'Device'.\"]",
+  "buildSucceeded": false,
   "id": "kscbdihjyoxjitsmblzbgxay",
   "indexImportExportError": "",
   "lintProblems": [],
@@ -24,6 +24,7 @@
     "db",
     "db",
     "notEmpty",
+    "ports",
     "AppOperation",
     "path",
     "getProjectRoot",
@@ -62,24 +63,24 @@
     "codeSize": {
       "numberOfFiles": 18,
       "lines": 0,
-      "characters": 13758,
-      "bytes": 13758
+      "characters": 13777,
+      "bytes": 13777
     },
     "dataSize": {
       "numberOfFiles": 2,
       "lines": 0,
-      "characters": 2374,
-      "bytes": 2374
+      "characters": 2608,
+      "bytes": 2608
     },
     "textSize": {
       "numberOfFiles": 1,
       "lines": 0,
-      "characters": 4955,
-      "bytes": 4955
+      "characters": 4378,
+      "bytes": 4378
     },
     "size": {
-      "bytes": 21087,
-      "characters": 21087,
+      "bytes": 20763,
+      "characters": 20763,
       "lines": 0,
       "numberOfFiles": 21
     }

@@ -170,7 +170,7 @@ export declare const sdk: {
     testOperationModels: () => Promise<boolean>;
     cacheLookup: (functionName: string, parameters: any[] | undefined) => import("db-recipes").CacheLookupResult;
     calculateOperatingSystemBundle: (manualProjectRoot?: string | undefined) => Promise<void>;
-    deleteDbModel: <KInterface extends "OperationConfig" | "TsConfig" | "PackageJson" | "OperationIndex" | "Device" | "Group" | "PageVisit" | "PeerMessage" | "Person" | "PersonInformation" | "PersonInformationValue" | "PersonPlatformConnection" | "Platform" | "Interest" | "MediaChannel" | "MediaCredentail" | "MediaPost" | "Postable" | "BundleConfig" | "FunctionExecution" | "MarkdownFileConfig" | "SocialMediaCallToAction" | "TsBuildError" | "TsComment" | "TsExport" | "TsFunction" | "TsImport" | "TsInterface" | "TsLintWarning" | "TsVariable" | "WebsiteCallToAction" | "Address" | "Area" | "City" | "Country" | "Location" | "KvmdWord" | "MarkdownWord" | "NepaliEnglishTranslationMatrix" | "Statement" | "TokiPonaMatrix" | "Translation" | "Word" | "WordCategory" | "WordMatrix" | "SlugModelType" | "AppDeveloper" | "Assignment" | "Bag" | "Calendar" | "DataPoint" | "Deliverable" | "Diary" | "Feeling" | "FeelingLog" | "Folder" | "Host" | "Inventory" | "Item" | "ItemCategory" | "KvmdShortcut" | "Label" | "Light" | "Listing" | "LoginCredential" | "Material" | "MessagePreset" | "ProgressReport" | "Question" | "Reservation" | "Resource" | "Shit" | "ShitLog" | "ShoppingList" | "Shortcut" | "Student" | "Student2" | "TaskError" | "Thing" | "TodoFile" | "Trackable" | "User" | "UserCredential" | "JeepType" | "LocationType" | "Activity" | "CompanyRequirement" | "CompanySize" | "CompanyType" | "Company" | "ContactInformation" | "Contribution" | "EsgMetric" | "ProductCategory" | "Product" | "ProofState" | "Proof" | "SustainabilityPlan" | "ValueChainPhase">(interfaceName: KInterface, id: string) => Promise<import("fs-orm").DbQueryResult>;
+    deleteDbModel: <KInterface extends "OperationConfig" | "TsConfig" | "PackageJson" | "OperationIndex" | "Device" | "Group" | "PageVisit" | "PeerMessage" | "Person" | "Persona" | "PersonInformation" | "PersonInformationValue" | "PersonPlatformConnection" | "Platform" | "Interest" | "MediaChannel" | "MediaCredentail" | "MediaPost" | "Postable" | "BundleConfig" | "Dataset" | "FunctionExecution" | "SocialMediaCallToAction" | "TsBuildError" | "TsComment" | "TsExport" | "TsFunction" | "TsImport" | "TsInterface" | "TsLintWarning" | "TsVariable" | "WebMarkdownFile" | "WebsiteCallToAction" | "Address" | "Area" | "City" | "Country" | "Location" | "KvmdWord" | "MarkdownWord" | "NepaliEnglishTranslationMatrix" | "Statement" | "TokiPonaMatrix" | "Translation" | "Word" | "WordCategory" | "WordMatrix" | "SlugModelType" | "AppDeveloper" | "Assignment" | "Bag" | "Calendar" | "DataPoint" | "Deliverable" | "Diary" | "Feeling" | "FeelingLog" | "Folder" | "Host" | "Inventory" | "Item" | "ItemCategory" | "KvmdShortcut" | "Label" | "Light" | "Listing" | "LoginCredential" | "Material" | "MessagePreset" | "ProgressReport" | "Question" | "Reservation" | "Resource" | "Shit" | "ShitLog" | "ShoppingList" | "Shortcut" | "Student" | "Student2" | "TaskError" | "Thing" | "Trackable" | "User" | "UserCredential" | "Todo" | "JeepType" | "LocationType" | "Activity" | "CompanyRequirement" | "CompanySize" | "CompanyType" | "Company" | "ContactInformation" | "Contribution" | "EsgMetric" | "ProductCategory" | "Product" | "ProofState" | "Proof" | "SustainabilityPlan" | "ValueChainPhase">(interfaceName: KInterface, id: string) => Promise<import("fs-orm").DbQueryResult>;
     getDatabaseMenu: (config?: {
         bundleId?: string | undefined;
     } | undefined) => Promise<{
@@ -517,7 +517,8 @@ export declare const sdk: {
         operationFolderPath: string;
     }) => Promise<string[]>;
     sendMail: (mailData: import("mail").MailDataFromOptional | import("mail").MailDataFromOptional[], isMultiple?: boolean | undefined) => Promise<import("@sendgrid/mail").ClientResponse | undefined>;
-    bundleFolderWithMarkdown: (outlineTitle: string, absoluteFolderPath: string, fileName?: string | undefined) => Promise<{
+    addDependantCount: (type: "tsFunction" | "tsVariable" | "tsInterface", imports: import("code-types").TsImport[]) => (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable) => Promise<import("markdown-parsings").DependantCountObject>;
+    bundleFolderWithMarkdown: (outlineTitle: string, markdownStrings: string[], resultFileName?: string | undefined) => Promise<{
         markdownParse: import("code-types").MarkdownParse;
         outlineString: string;
     }>;
@@ -532,8 +533,11 @@ export declare const sdk: {
         bundleConfigId: string;
         includeModules?: boolean | undefined;
     }) => string;
+    createMinimizedSectionMarkdown: (markdown: string, expandTitle: string) => string;
+    createMinimizedSection: (markdown: string | undefined, title: string, expandTitle: string) => import("code-types").MarkdownParse | undefined;
     deployToVercel: () => void;
     emailMarkdownParse: () => void;
+    flattenNestedObject: <T_7>(nestedObject: import("nested-menu").NestedObject<T_7>, isLeaf?: ((content: T_7 | import("nested-menu").NestedObject<T_7> | undefined) => boolean) | undefined) => void;
     generateStaticSite: ({ projectRelativeMdFilePath, singlePage, }: {
         singlePage?: boolean | undefined;
         projectRelativeMdFilePath?: string | undefined;
@@ -542,13 +546,23 @@ export declare const sdk: {
         typeDescriptor: string;
         description: string | undefined;
     } | undefined;
+    getMarkdownContents: (absoluteFolderPath: string) => Promise<{
+        content: string;
+        relativePath: string;
+    }[] | undefined>;
     getMergedMarkdownOutlineUrl: (title: string) => {
         title: string;
         hashtagPath: string;
     };
+    getOperationSummary: (config: {
+        operationName: string;
+        manualProjectRoot?: string | undefined;
+    }) => Promise<import("markdown-parsings").OperationSummary | undefined>;
     getOutline: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
+    getPublicMarkdownNestedPathObject: (absoluteFolderPath: string) => Promise<import("nested-menu").NestedObject<string>>;
     getTitlesRecursively: (chunk: import("code-types").MarkdownChunk) => import("markdown-parsings").NestedTitle[];
     getTypeDescriptorRecursive: (schema: import("json-schema").JSONSchema7, isMarkdown: boolean) => string;
+    isConventionFileStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, conventionFile: "test" | "cli") => boolean;
     isUpperCase: (text: string) => boolean;
     makeOutlineMarkdownString: (title: string, urls: import("markdown-parsings").MergedMarkdownOutlineUrl[]) => string;
     makePropertiesTable: (properties: import("code-types").SimplifiedSchemaProperty[] | undefined) => string;
@@ -571,10 +585,7 @@ export declare const sdk: {
     noNewlines: (markdown: string | undefined) => string | undefined;
     operationRadio: () => void;
     operationToMarkdown: (config: {
-        operationName: string;
-        manualProjectRoot?: string | undefined;
-        isSummary?: boolean | undefined;
-        mergeDocsInline?: boolean | undefined;
+        operationSummary: import("markdown-parsings").OperationSummary;
         returnType?: "string" | "parse" | "save" | undefined;
     }) => Promise<string | import("code-types").MarkdownParse | undefined>;
     printNestedTitles: (nestedTitles: import("markdown-parsings").NestedTitle[] | undefined, depth?: number | undefined) => string | undefined;
@@ -592,6 +603,7 @@ export declare const sdk: {
     }) => void;
     selectRandomOperation: (baseFolderPath?: string | undefined) => Promise<string>;
     simplifiedSchemaToMarkdownString: (simplifiedSchema: import("code-types").SimplifiedSchema | undefined, name: string | undefined, isRequired: boolean, level?: number | undefined) => string;
+    statementItemToMarkdown: (statementItem: import("markdown-parsings").StatementItem) => string | undefined;
     tsFunctionToMarkdownString: (tsFunction: import("code-types").TsFunction) => string;
     tsInterfaceToMarkdownString: (tsInterface: import("code-types").TsInterface) => string;
     tsVariableToMarkdownString: (tsVariable: import("code-types").TsVariable) => string;
@@ -638,9 +650,14 @@ export declare const sdk: {
     markdownReaderGetStaticProps: (context: import("next").GetStaticPropsContext<import("querystring").ParsedUrlQuery, import("next").PreviewData>) => Promise<{
         props: import("markdown-reader-types").MarkdownReaderPageProps;
     }>;
+    putReadmeOnTop: <T_8 extends {
+        path: string;
+        isFolder: boolean;
+    }>(items: T_8[]) => T_8[];
     removeExtensionsFromPath: (relativePath: string) => string;
     removeNumberPrefix: (fileOrFolderName: string) => string;
     shouldExposeMarkdownFile: (parameters: import("matter-types").Frontmatter) => boolean;
+    stripReadmeFromFolder: (filePath: string) => string;
     minifyBuild: ({ operationName, buildFolderPath, }: {
         operationName?: string | undefined;
         buildFolderPath?: string | undefined;
@@ -703,10 +720,10 @@ export declare const sdk: {
         message: string;
     }>;
     getPrimaryPersona: () => Promise<import("peer-types").Persona>;
-    readCsvFileSync: <T_7 extends import("csv-util").CsvItemType>(filePath: string) => T_7[] | null;
-    readCsvFile: <T_8 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_8[] | null>;
-    readJsonFileSync: <T_9>(filePath: string) => T_9 | null;
-    readJsonFile: <T_10>(filePath: string | undefined) => Promise<T_10 | null>;
+    readCsvFileSync: <T_9 extends import("csv-util").CsvItemType>(filePath: string) => T_9[] | null;
+    readCsvFile: <T_10 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_10[] | null>;
+    readJsonFileSync: <T_11>(filePath: string) => T_11 | null;
+    readJsonFile: <T_12>(filePath: string | undefined) => Promise<T_12 | null>;
     readKvmdFile: (filePath: string, dbFileLocation: import("model-types").DbFileLocation) => Promise<import("model-types").KeyValueMarkdownParse | null>;
     readMarkdownFileToModel: (absoluteFilePath: string) => Promise<import("code-types").WebMarkdownFile | null>;
     readMarkdownFile: (filePath: string) => Promise<import("code-types").MarkdownParse | null>;

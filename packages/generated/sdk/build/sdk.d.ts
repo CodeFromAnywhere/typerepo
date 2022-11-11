@@ -185,7 +185,7 @@ export declare const sdk: {
     testOperationModels: () => Promise<boolean>;
     cacheLookup: (functionName: string, parameters: any[] | undefined) => import("db-recipes").CacheLookupResult;
     calculateOperatingSystemBundle: (manualProjectRoot?: string | undefined) => Promise<void>;
-    deleteDbModel: <KInterface extends "OperationConfig" | "TsConfig" | "PackageJson" | "OperationIndex" | "Device" | "Group" | "PageVisit" | "PeerMessage" | "Person" | "PersonInformation" | "PersonInformationValue" | "PersonPlatformConnection" | "Platform" | "Interest" | "MediaChannel" | "MediaCredentail" | "MediaPost" | "Postable" | "BundleConfig" | "FunctionExecution" | "MarkdownFileConfig" | "SocialMediaCallToAction" | "TsBuildError" | "TsComment" | "TsExport" | "TsFunction" | "TsImport" | "TsInterface" | "TsLintWarning" | "TsVariable" | "WebsiteCallToAction" | "Address" | "Area" | "City" | "Country" | "Location" | "KvmdWord" | "MarkdownWord" | "NepaliEnglishTranslationMatrix" | "Statement" | "TokiPonaMatrix" | "Translation" | "Word" | "WordCategory" | "WordMatrix" | "SlugModelType" | "AppDeveloper" | "Assignment" | "Bag" | "Calendar" | "DataPoint" | "Deliverable" | "Diary" | "Feeling" | "FeelingLog" | "Folder" | "Host" | "Inventory" | "Item" | "ItemCategory" | "KvmdShortcut" | "Label" | "Light" | "Listing" | "LoginCredential" | "Material" | "MessagePreset" | "ProgressReport" | "Question" | "Reservation" | "Resource" | "Shit" | "ShitLog" | "ShoppingList" | "Shortcut" | "Student" | "Student2" | "TaskError" | "Thing" | "TodoFile" | "Trackable" | "User" | "UserCredential" | "JeepType" | "LocationType" | "Activity" | "CompanyRequirement" | "CompanySize" | "CompanyType" | "Company" | "ContactInformation" | "Contribution" | "EsgMetric" | "ProductCategory" | "Product" | "ProofState" | "Proof" | "SustainabilityPlan" | "ValueChainPhase">(interfaceName: KInterface, id: string) => Promise<import("fs-orm").DbQueryResult>;
+    deleteDbModel: <KInterface extends "OperationConfig" | "TsConfig" | "PackageJson" | "OperationIndex" | "Device" | "Group" | "PageVisit" | "PeerMessage" | "Person" | "Persona" | "PersonInformation" | "PersonInformationValue" | "PersonPlatformConnection" | "Platform" | "Interest" | "MediaChannel" | "MediaCredentail" | "MediaPost" | "Postable" | "BundleConfig" | "Dataset" | "FunctionExecution" | "SocialMediaCallToAction" | "TsBuildError" | "TsComment" | "TsExport" | "TsFunction" | "TsImport" | "TsInterface" | "TsLintWarning" | "TsVariable" | "WebMarkdownFile" | "WebsiteCallToAction" | "Address" | "Area" | "City" | "Country" | "Location" | "KvmdWord" | "MarkdownWord" | "NepaliEnglishTranslationMatrix" | "Statement" | "TokiPonaMatrix" | "Translation" | "Word" | "WordCategory" | "WordMatrix" | "SlugModelType" | "AppDeveloper" | "Assignment" | "Bag" | "Calendar" | "DataPoint" | "Deliverable" | "Diary" | "Feeling" | "FeelingLog" | "Folder" | "Host" | "Inventory" | "Item" | "ItemCategory" | "KvmdShortcut" | "Label" | "Light" | "Listing" | "LoginCredential" | "Material" | "MessagePreset" | "ProgressReport" | "Question" | "Reservation" | "Resource" | "Shit" | "ShitLog" | "ShoppingList" | "Shortcut" | "Student" | "Student2" | "TaskError" | "Thing" | "Trackable" | "User" | "UserCredential" | "Todo" | "JeepType" | "LocationType" | "Activity" | "CompanyRequirement" | "CompanySize" | "CompanyType" | "Company" | "ContactInformation" | "Contribution" | "EsgMetric" | "ProductCategory" | "Product" | "ProofState" | "Proof" | "SustainabilityPlan" | "ValueChainPhase">(interfaceName: KInterface, id: string) => Promise<import("fs-orm").DbQueryResult>;
     getDatabaseMenu: (config?: {
         bundleId?: string | undefined;
     } | undefined) => Promise<{
@@ -532,7 +532,8 @@ export declare const sdk: {
         operationFolderPath: string;
     }) => Promise<string[]>;
     sendMail: (mailData: import("mail").MailDataFromOptional | import("mail").MailDataFromOptional[], isMultiple?: boolean | undefined) => Promise<import("@sendgrid/mail").ClientResponse | undefined>;
-    bundleFolderWithMarkdown: (outlineTitle: string, absoluteFolderPath: string, fileName?: string | undefined) => Promise<{
+    addDependantCount: (type: "tsFunction" | "tsVariable" | "tsInterface", imports: import("code-types").TsImport[]) => (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable) => Promise<import("markdown-parsings").DependantCountObject>;
+    bundleFolderWithMarkdown: (outlineTitle: string, markdownStrings: string[], resultFileName?: string | undefined) => Promise<{
         markdownParse: import("code-types").MarkdownParse;
         outlineString: string;
     }>;
@@ -547,8 +548,11 @@ export declare const sdk: {
         bundleConfigId: string;
         includeModules?: boolean | undefined;
     }) => string;
+    createMinimizedSectionMarkdown: (markdown: string, expandTitle: string) => string;
+    createMinimizedSection: (markdown: string | undefined, title: string, expandTitle: string) => import("code-types").MarkdownParse | undefined;
     deployToVercel: () => void;
     emailMarkdownParse: () => void;
+    flattenNestedObject: <T_7>(nestedObject: import("nested-menu").NestedObject<T_7>, isLeaf?: ((content: T_7 | import("nested-menu").NestedObject<T_7> | undefined) => boolean) | undefined) => void;
     generateStaticSite: ({ projectRelativeMdFilePath, singlePage, }: {
         singlePage?: boolean | undefined;
         projectRelativeMdFilePath?: string | undefined;
@@ -557,13 +561,23 @@ export declare const sdk: {
         typeDescriptor: string;
         description: string | undefined;
     } | undefined;
+    getMarkdownContents: (absoluteFolderPath: string) => Promise<{
+        content: string;
+        relativePath: string;
+    }[] | undefined>;
     getMergedMarkdownOutlineUrl: (title: string) => {
         title: string;
         hashtagPath: string;
     };
+    getOperationSummary: (config: {
+        operationName: string;
+        manualProjectRoot?: string | undefined;
+    }) => Promise<import("markdown-parsings").OperationSummary | undefined>;
     getOutline: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
+    getPublicMarkdownNestedPathObject: (absoluteFolderPath: string) => Promise<import("nested-menu").NestedObject<string>>;
     getTitlesRecursively: (chunk: import("code-types").MarkdownChunk) => import("markdown-parsings").NestedTitle[];
     getTypeDescriptorRecursive: (schema: import("json-schema").JSONSchema7, isMarkdown: boolean) => string;
+    isConventionFileStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, conventionFile: "test" | "cli") => boolean;
     isUpperCase: (text: string) => boolean;
     makeOutlineMarkdownString: (title: string, urls: import("markdown-parsings").MergedMarkdownOutlineUrl[]) => string;
     makePropertiesTable: (properties: import("code-types").SimplifiedSchemaProperty[] | undefined) => string;
@@ -586,10 +600,7 @@ export declare const sdk: {
     noNewlines: (markdown: string | undefined) => string | undefined;
     operationRadio: () => void;
     operationToMarkdown: (config: {
-        operationName: string;
-        manualProjectRoot?: string | undefined;
-        isSummary?: boolean | undefined;
-        mergeDocsInline?: boolean | undefined;
+        operationSummary: import("markdown-parsings").OperationSummary;
         returnType?: "string" | "parse" | "save" | undefined;
     }) => Promise<string | import("code-types").MarkdownParse | undefined>;
     printNestedTitles: (nestedTitles: import("markdown-parsings").NestedTitle[] | undefined, depth?: number | undefined) => string | undefined;
@@ -607,6 +618,7 @@ export declare const sdk: {
     }) => void;
     selectRandomOperation: (baseFolderPath?: string | undefined) => Promise<string>;
     simplifiedSchemaToMarkdownString: (simplifiedSchema: import("code-types").SimplifiedSchema | undefined, name: string | undefined, isRequired: boolean, level?: number | undefined) => string;
+    statementItemToMarkdown: (statementItem: import("markdown-parsings").StatementItem) => string | undefined;
     tsFunctionToMarkdownString: (tsFunction: import("code-types").TsFunction) => string;
     tsInterfaceToMarkdownString: (tsInterface: import("code-types").TsInterface) => string;
     tsVariableToMarkdownString: (tsVariable: import("code-types").TsVariable) => string;
@@ -653,9 +665,14 @@ export declare const sdk: {
     markdownReaderGetStaticProps: (context: import("next").GetStaticPropsContext<import("querystring").ParsedUrlQuery, import("next").PreviewData>) => Promise<{
         props: import("markdown-reader-types").MarkdownReaderPageProps;
     }>;
+    putReadmeOnTop: <T_8 extends {
+        path: string;
+        isFolder: boolean;
+    }>(items: T_8[]) => T_8[];
     removeExtensionsFromPath: (relativePath: string) => string;
     removeNumberPrefix: (fileOrFolderName: string) => string;
     shouldExposeMarkdownFile: (parameters: import("matter-types").Frontmatter) => boolean;
+    stripReadmeFromFolder: (filePath: string) => string;
     minifyBuild: ({ operationName, buildFolderPath, }: {
         operationName?: string | undefined;
         buildFolderPath?: string | undefined;
@@ -718,10 +735,10 @@ export declare const sdk: {
         message: string;
     }>;
     getPrimaryPersona: () => Promise<import("peer-types").Persona>;
-    readCsvFileSync: <T_7 extends import("csv-util").CsvItemType>(filePath: string) => T_7[] | null;
-    readCsvFile: <T_8 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_8[] | null>;
-    readJsonFileSync: <T_9>(filePath: string) => T_9 | null;
-    readJsonFile: <T_10>(filePath: string | undefined) => Promise<T_10 | null>;
+    readCsvFileSync: <T_9 extends import("csv-util").CsvItemType>(filePath: string) => T_9[] | null;
+    readCsvFile: <T_10 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_10[] | null>;
+    readJsonFileSync: <T_11>(filePath: string) => T_11 | null;
+    readJsonFile: <T_12>(filePath: string | undefined) => Promise<T_12 | null>;
     readKvmdFile: (filePath: string, dbFileLocation: import("model-types").DbFileLocation) => Promise<import("model-types").KeyValueMarkdownParse | null>;
     readMarkdownFileToModel: (absoluteFilePath: string) => Promise<import("code-types").WebMarkdownFile | null>;
     readMarkdownFile: (filePath: string) => Promise<import("code-types").MarkdownParse | null>;
@@ -983,12 +1000,12 @@ export declare const sdk: {
     getLastFolder: (pathString: string) => string;
     getOneFolderUpPath: (folderPath: string) => string;
     getPathCombinations: (...chunksSegments: (string | string[])[]) => string[];
-    importFromFiles: <T_11>({ files, importStrategy, list, guard, }: {
+    importFromFiles: <T_13>({ files, importStrategy, list, guard, }: {
         files: string[];
         importStrategy?: "fileName" | "default" | "list" | undefined;
         list?: string[] | undefined;
         guard?: ((moduleExports: any) => boolean) | undefined;
-    }) => T_11[];
+    }) => T_13[];
     isArrayGuard: (moduleExports: any) => boolean;
     oneUp: (filename: string) => string;
     parseMd: (mdFilePath: string) => import("fs-util").Markdown;
@@ -1000,22 +1017,22 @@ export declare const sdk: {
         removed: boolean;
     }[]>;
     renameAndCreate: (oldPath: string, newPath: string) => Promise<void>;
-    writeJsonToFile: <T_12>(p: string, data: T_12) => Promise<boolean>;
+    writeJsonToFile: <T_14>(p: string, data: T_14) => Promise<boolean>;
     writeStringToFile: (p: string, data: string) => Promise<boolean>;
     writeToFiles: (fileObject: {
         [filePath: string]: any;
     }) => Promise<void>;
-    FunctionForm: <T_13 extends (...params: any[]) => any>(props: {
+    FunctionForm: <T_15 extends (...params: any[]) => any>(props: {
         tsFunction: any;
-        submitFunction?: T_13 | undefined;
-        withResult?: ((result: import("api-types").WithoutPromise<ReturnType<T_13>>) => void) | undefined;
+        submitFunction?: T_15 | undefined;
+        withResult?: ((result: import("api-types").WithoutPromise<ReturnType<T_15>>) => void) | undefined;
         withApiResult?: ((result: any) => void) | undefined;
         initialValues?: any[] | undefined;
         hideResult?: boolean | undefined;
     }) => JSX.Element;
-    findFolderWhereMatch: <T_14>(fullSourcePath: string, matchFunction: (folderPath: string) => T_14) => {
+    findFolderWhereMatch: <T_16>(fullSourcePath: string, matchFunction: (folderPath: string) => T_16) => {
         folderPath: string;
-        matchResult: T_14;
+        matchResult: T_16;
     } | undefined;
     findOperationBasePathWithClassification: (startPath: string) => {
         folderPath: string;
@@ -1061,53 +1078,54 @@ export declare const sdk: {
     isCtrlSpace: (keyboardEvent: KeyboardEvent) => boolean;
     useHotkey: (isRightKey: (keyboardEvent: KeyboardEvent) => boolean, callback: () => void, dependencies: any[]) => void;
     useHotkeys: (dependencies: any[], callback: (keyboardEvent: KeyboardEvent) => void) => void;
-    apply: <T_15>(functions: ((input: T_15) => T_15)[], value: T_15) => T_15;
-    createEnum: <T_16 extends readonly string[]>(array: T_16) => { [K in T_16[number]]: K; };
-    createMappedObject: <T_17 extends {
+    apply: <T_17>(functions: ((input: T_17) => T_17)[], value: T_17) => T_17;
+    createEnum: <T_18 extends readonly string[]>(array: T_18) => { [K in T_18[number]]: K; };
+    createMappedObject: <T_19 extends {
         [key: string]: any;
-    }>(array: T_17[], mapKey: keyof T_17) => import("js-util").MappedObject<T_17>;
-    findLastIndex: <T_18>(array: T_18[], findFn: (item: T_18) => boolean) => number | undefined;
+    }>(array: T_19[], mapKey: keyof T_19) => import("js-util").MappedObject<T_19>;
+    findLastIndex: <T_20>(array: T_20[], findFn: (item: T_20) => boolean) => number | undefined;
     getObjectFromParamsString: (paramsString: string) => {
         [x: string]: string;
     };
     getObjectKeysArray: <TObject extends {
         [key: string]: any;
     }>(object: TObject) => Extract<keyof TObject, string>[];
-    getParameterAtLocation: <T_19 = any>(object: {
+    getParameterAtLocation: <T_21 = any>(object: {
         [key: string]: any;
-    }, location: string[]) => T_19;
-    getSubsetFromObject: <T_20>(object: {
-        [key: string]: T_20;
+    }, location: string[]) => T_21;
+    getSubsetFromObject: <T_22>(object: {
+        [key: string]: T_22;
     }, keys: string[]) => {
-        [key: string]: T_20;
+        [key: string]: T_22;
     };
-    groupByKey: <T_21 extends {
+    groupByKey: <T_23 extends {
         [key: string]: any;
-    }>(array: T_21[], key: keyof T_21) => {
-        [key: string]: T_21[];
+    }>(array: T_23[], key: keyof T_23) => {
+        [key: string]: T_23[];
     };
-    insertAt: <T_22>(array: T_22[], items: T_22 | T_22[], beforeIndex: number) => T_22[];
+    insertAt: <T_24>(array: T_24[], items: T_24 | T_24[], beforeIndex: number) => T_24[];
     isAllTrue: (array: boolean[]) => boolean;
-    makeArray: <T_23>(...arrayOrNotArray: (T_23 | T_23[] | undefined)[]) => T_23[];
-    mapAsync: <T_24, U>(array: T_24[], callback: (value: T_24, index: number, array: T_24[]) => Promise<U>) => Promise<Awaited<U>[]>;
+    makeArray: <T_25>(...arrayOrNotArray: (T_25 | T_25[] | undefined)[]) => T_25[];
+    mapAsync: <T_26, U>(array: T_26[], callback: (value: T_26, index: number, array: T_26[]) => Promise<U>) => Promise<Awaited<U>[]>;
     mapKeys: (object: {
         [key: string]: any;
     }, mapFn: (key: string) => string | Promise<string> | undefined) => Promise<{
         [x: string]: any;
     }>;
-    mapMany: <T_25, U_1>(array: T_25[], mapFn: (item: T_25, index: number, array: T_25[]) => Promise<U_1>, limit?: number | undefined) => Promise<U_1[]>;
-    mapValuesSync: <T_26, U_2>(object: {
-        [key: string]: T_26;
-    }, mapFn: (value: T_26) => U_2) => {
+    mapMany: <T_27, U_1>(array: T_27[], mapFn: (item: T_27, index: number, array: T_27[]) => Promise<U_1>, limit?: number | undefined) => Promise<U_1[]>;
+    mapValuesSync: <T_28, U_2>(object: {
+        [key: string]: T_28;
+    }, mapFn: (value: T_28) => U_2) => {
         [x: string]: U_2;
     };
-    mergeObjectParameters: <T_27>(config: T_27 | undefined, defaults: T_27 | undefined) => Partial<T_27>;
-    mergeObjectsArray: <T_28 extends {
+    mergeObjectParameters: <T_29>(config: T_29 | undefined, defaults: T_29 | undefined) => Partial<T_29>;
+    mergeObjectsArray: <T_30 extends {
         [key: string]: any;
-    }>(objectsArray: T_28[]) => T_28;
-    mergeObjects: <T_29 extends {
+    }>(objectsArray: T_30[]) => T_30;
+    mergeObjects: <T_31 extends {
         [key: string]: any;
-    }>(...objects: (Partial<T_29> | undefined)[]) => T_29 | undefined;
+    }>(...objects: (Partial<T_31> | undefined)[]) => T_31 | undefined;
+    noEmptyString: (input: string | undefined) => string | undefined;
     notEmpty: typeof notEmpty;
     objectMapAsync: <TObject_1 extends {
         [key: string]: any;
@@ -1115,40 +1133,41 @@ export declare const sdk: {
     objectMapSync: <TObject_2 extends {
         [key: string]: any;
     }, TMapResult, TResultObject_1 extends { [key_1 in keyof TObject_2]: TMapResult; }>(object: TObject_2, mapFn: (key: keyof TObject_2, value: TObject_2[keyof TObject_2]) => TMapResult) => TResultObject_1;
-    objectValuesMap: <T_30 extends {
-        [key: string]: T_30[string];
-    }, U_3 extends unknown>(object: T_30, mapFn: (key: string, value: T_30[string]) => U_3) => {
+    objectValuesMap: <T_32 extends {
+        [key: string]: T_32[string];
+    }, U_3 extends unknown>(object: T_32, mapFn: (key: string, value: T_32[string]) => U_3) => {
         [key: string]: U_3;
     };
-    omitUndefinedValues: <T_31 extends {
+    omitUndefinedValues: <T_33 extends {
         [key: string]: any;
-    }>(object: T_31) => T_31;
-    onlyUnique2: <U_4>(isEqualFn?: ((a: U_4, b: U_4) => boolean) | undefined) => <T_32 extends U_4>(value: T_32, index: number, self: T_32[]) => boolean;
+    }>(object: T_33) => T_33;
+    onlyUnique2: <U_4>(isEqualFn?: ((a: U_4, b: U_4) => boolean) | undefined) => <T_34 extends U_4>(value: T_34, index: number, self: T_34[]) => boolean;
     onlyUnique: typeof onlyUnique;
-    removeIndexFromArray: <T_33>(array: T_33[], index: number) => T_33[];
+    putIndexAtIndex: <T_35>(array: T_35[], index: number, toIndex: number) => T_35[];
+    removeIndexFromArray: <T_36>(array: T_36[], index: number) => T_36[];
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
-    sumAllKeys: <T_34 extends {
+    sumAllKeys: <T_37 extends {
         [key: string]: number | undefined;
-    }>(objectArray: T_34[], keys: (keyof T_34)[]) => T_34;
+    }>(objectArray: T_37[], keys: (keyof T_37)[]) => T_37;
     sumObjectParameters: <TObject_3 extends {
         [key: string]: number;
     }>(object1: TObject_3, object2: TObject_3) => TObject_3;
     sum: (items: number[]) => number;
-    takeFirst: <T_35>(arrayOrNot: T_35 | T_35[]) => T_35;
+    takeFirst: <T_38>(arrayOrNot: T_38 | T_38[]) => T_38;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
     flattenMarkdownChunks: (markdownChunks: import("code-types").MarkdownChunk[]) => import("code-types").MarkdownParagraph[];
     getKvmdItemsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
     getParagraphsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("code-types").MarkdownParagraph[];
-    kvmdDataMap: <T_36 extends {
+    kvmdDataMap: <T_39 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {
         keyName?: string | undefined;
         valueName?: string | undefined;
         commentName?: string | undefined;
         categoryStackCalculatedName?: string | undefined;
-    }) => T_36[];
+    }) => T_39[];
     kvmdDataToString: (kvmdData: import("model-types").KeyValueMarkdownModelType, previous: import("model-types").KeyValueMarkdownModelType | undefined) => string;
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
@@ -1224,7 +1243,7 @@ export declare const sdk: {
         native?: import("react-native").TextProps | undefined;
         textClassName?: string | undefined;
     }) => JSX.Element;
-    oneByOne: <T_37, U_5>(array: T_37[], callback: (instance: T_37, index: number) => Promise<U_5>) => Promise<U_5[]>;
+    oneByOne: <T_40, U_5>(array: T_40[], callback: (instance: T_40, index: number) => Promise<U_5>) => Promise<U_5[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
         operationDependencies: string[];
@@ -1277,10 +1296,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_38>(searchMessage: string, array: T_38[], getSentence?: ((x: T_38) => string) | undefined) => T_38[];
-    searchRecursiveObjectArray: <T_39 extends {
-        children?: T_39[] | undefined;
-    } & Object>(array: T_39[], baseMatcher: (item: T_39) => boolean, afterMapper?: ((item: T_39, isMatch: boolean, hasChildMatch: boolean) => T_39) | undefined) => T_39[];
+    findSentenceMatches: <T_41>(searchMessage: string, array: T_41[], getSentence?: ((x: T_41) => string) | undefined) => T_41[];
+    searchRecursiveObjectArray: <T_42 extends {
+        children?: T_42[] | undefined;
+    } & Object>(array: T_42[], baseMatcher: (item: T_42) => boolean, afterMapper?: ((item: T_42, isMatch: boolean, hasChildMatch: boolean) => T_42) | undefined) => T_42[];
     findPostableToPost: () => void;
     updatePostedStatistics: () => void;
     objectStringToJson: (string: string) => {
@@ -1292,9 +1311,9 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_40>(text: string, logParseError?: boolean | undefined) => T_40 | null;
+    tryParseJson: <T_43>(text: string, logParseError?: boolean | undefined) => T_43 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_41 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_41, (newValue: T_41 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_44 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_44, (newValue: T_44 | undefined) => Promise<boolean>];
 };
 export declare type SdkType = typeof sdk;
 //# sourceMappingURL=sdk.d.ts.map

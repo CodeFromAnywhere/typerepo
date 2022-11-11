@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263852525,
-  "updatedAt": 1666263852525,
+  "createdAt": 1668150464363,
+  "updatedAt": 1668150464363,
   "deletedAt": 0,
-  "createdFirstAt": 1666263852525,
+  "createdFirstAt": 1668150464363,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (operationName: string) => {\n  const imports = await db.get(\"TsImport\", { operationName });\n  const monorepoModules = imports\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved ? x.module : null\n    )\n    .filter(notEmpty)\n    .filter(onlyUnique);\n\n  return monorepoModules;\n}",
   "description": "finds all dependencies of an operation name",
-  "id": "uaixlooumitisureuukitvoi"
+  "id": "yeyiipvxxokvbfaecthqbetp"
 }

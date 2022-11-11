@@ -1,6 +1,6 @@
 # Geo types
 
-geo-types (js operation)
+geo-types (`OperationClassification` js)
 
 
 
@@ -98,7 +98,7 @@ Properties:
 # Internal
 
 <details><summary>Show internal (6)</summary>
-  
+    
   # 🔸 Address
 
 jsonMultiple model

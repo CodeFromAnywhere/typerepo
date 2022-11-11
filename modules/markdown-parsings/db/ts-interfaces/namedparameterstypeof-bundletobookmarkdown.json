@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976852034,
-  "updatedAt": 1667976852034,
+  "createdAt": 1668154792142,
+  "updatedAt": 1668154792142,
   "deletedAt": 0,
-  "createdFirstAt": 1667976852034,
+  "createdFirstAt": 1668154792142,
   "id": "namedparameterstypeof-bundletobookmarkdown",
   "name": "NamedParameters<typeof bundleToBookMarkdown>",
   "slug": "namedparameterstypeof-bundletobookmarkdown",
@@ -676,6 +676,13 @@
                           }
                         ],
                         "type": "object"
+                      }
+                    },
+                    {
+                      "name": "paymentPlanId",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
                       }
                     }
                   ],

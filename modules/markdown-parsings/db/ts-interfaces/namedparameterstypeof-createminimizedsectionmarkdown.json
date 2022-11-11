@@ -1,0 +1,60 @@
+{
+  "createdAt": 1668154794729,
+  "updatedAt": 1668154794729,
+  "deletedAt": 0,
+  "createdFirstAt": 1668154794729,
+  "id": "namedparameterstypeof-createminimizedsectionmarkdown",
+  "name": "NamedParameters<typeof createMinimizedSectionMarkdown>",
+  "slug": "namedparameterstypeof-createminimizedsectionmarkdown",
+  "operationRelativeTypescriptFilePath": "src/createMinimisedSection.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "markdown": {
+          "type": "string"
+        },
+        "expandTitle": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "markdown",
+        "expandTitle"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "markdown",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "expandTitle",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof createMinimizedSectionMarkdown>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

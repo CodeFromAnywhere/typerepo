@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264078348,
-  "updatedAt": 1666264078348,
+  "createdAt": 1668150702802,
+  "updatedAt": 1668150702802,
   "deletedAt": 0,
-  "createdFirstAt": 1666264078348,
+  "createdFirstAt": 1668150702802,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const [filePath] = process.argv.slice(2);\n\n  const operationBasePath = findOperationBasePath(filePath);\n  if (!operationBasePath) {\n    console.log(\"Please provide a filePath that is part of an operation\");\n    return;\n  }\n  const operationName = getLastFolder(operationBasePath);\n\n  // NB: last argument has been removed, which should be the manualProjectRoot\n  await findAndUpsertTsInterfaces({ filePath, operationName });\n}",
   "description": "",
-  "id": "dcpazbssilazyetdvwykzgpf"
+  "id": "bbxioqjsqmpnfbbnqthvjncs"
 }

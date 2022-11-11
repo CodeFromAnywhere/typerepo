@@ -1,6 +1,6 @@
 # Markdown parsings
 
-markdown-parsings (node operation)
+markdown-parsings (`OperationClassification` node)
 
 
 
@@ -15,7 +15,7 @@ markdown for reading (so there are no links)
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| config | { operationName: string, <br />manualProjectRoot?: string, <br />isSummary?: boolean, <br />mergeDocsInline?: boolean, <br />returnType?: parse / string / save, <br /> } |  |
+| config | { operationSummary: `OperationSummary`, <br />returnType?: parse / string / save, <br /> } |  |
 | **Output** |    |    |
 
 
@@ -26,13 +26,45 @@ converts an operation and all its contents into a flat markdown file that contai
 
 markdown for reading (so there are no links)
 
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # test()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 test (unexported const)
+
+  </details>
+
 # Internal
 
-<details><summary>Show internal (69)</summary>
-  
-  # bundleFolderWithMarkdown()
+<details><summary>Show internal (89)</summary>
+    
+  # addDependantCount()
 
-finds all md files in a folder and creates a single MarkdownParse
+Double arrow function to get the count for the item
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| type | tsFunction / tsVariable / tsInterface |  |,| imports | `TsImport`[] |  |
+| **Output** | {  }   |    |
+
+
+
+## bundleFolderWithMarkdown()
+
+Finds all md files in a folder and creates a single MarkdownParse
 
 handy for creating a single documentation file or other things that have to include multiple markdown files in a structured way
 
@@ -41,7 +73,7 @@ NB: it recursively structures the files and folders with headings
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| outlineTitle | string |  |,| absoluteFolderPath | string |  |,| fileName (optional) | string | filename to include in the final MarkdownParse |
+| outlineTitle | string |  |,| markdownStrings | string[] | content of every markdown |,| resultFileName (optional) | string | filename to include in the final MarkdownParse |
 | **Output** |    |    |
 
 
@@ -77,6 +109,24 @@ NB: Related to `bundleToBookMd`
 
 
 
+## createMinimizedSectionMarkdown()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| markdown | string |  |,| expandTitle | string |  |
+| **Output** | `String`   |    |
+
+
+
+## createMinimizedSection()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| markdown (optional) | string |  |,| title | string |  |,| expandTitle | string |  |
+| **Output** |    |    |
+
+
+
 ## deployToVercel()
 
 NB: Obviously, this is not the right place for this function, but none of these functions are properly located yet...
@@ -96,6 +146,20 @@ should return an url where the project will be served and the estimated time whe
 ## emailMarkdownParse()
 
 should email a markdown parse to some email (or multiple)
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## flattenNestedObject()
+
+Flattens a nested object by returning an object that hasa the nested path as the key and the leaf as the value
+
+TODO: Finish, if needed. seems hard!
 
 
 | Input      |    |    |
@@ -136,12 +200,33 @@ Generates short markdown summary
 
 
 
+## getMarkdownContents()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| absoluteFolderPath | string |  |
+| **Output** |    |    |
+
+
+
 ## getMergedMarkdownOutlineUrl()
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | title | string |  |
 | **Output** | { title: string, <br />hashtagPath: string, <br /> }   |    |
+
+
+
+## getOperationSummary()
+
+Summarises operation into useful information about it. Especially useful for generating docs.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { operationName: string, <br />manualProjectRoot?: string, <br /> } |  |
+| **Output** |    |    |
 
 
 
@@ -156,6 +241,30 @@ NB: with books usually the pages are referred in the outline. Since that depends
 | ---------- | -- | -- |
 | markdownParse | `MarkdownParse` |  |
 | **Output** | string   |    |
+
+
+
+## getPublicMarkdownNestedPathObject()
+
+Recursively searches a folder for public markdown files, and returns a `NestedObject` with the keys being the file or folder names, and the leafs being the absolute file paths.
+
+File and folder names are stripped (number prefixes are removed, )
+
+example:
+```json
+{
+"README": "path/path/README.md"
+"folder1":{
+"README": "path/path/folder1/REAMDE.md"
+"file1": "path/path/folder1/file1.md",
+}
+}
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| absoluteFolderPath | string |  |
+| **Output** |    |    |
 
 
 
@@ -180,6 +289,15 @@ Returns a single line descriptor of the type of a json schema. Can be used in ma
 | ---------- | -- | -- |
 | schema | `JSONSchema7` |  |,| isMarkdown | boolean | If true, references will be links, otherwise, just the name of the referred interface |
 | **Output** | `String`   |    |
+
+
+
+## isConventionFileStatement()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| item | {  } |  |,| conventionFile | test / cli |  |
+| **Output** | {  }   |    |
 
 
 
@@ -390,6 +508,15 @@ Should render a string with one or more markdown tables to represent the simplif
 
 
 
+## statementItemToMarkdown()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| statementItem | `StatementItem` |  |
+| **Output** | string   |    |
+
+
+
 ## tsFunctionToMarkdownString()
 
 TsFunction:
@@ -486,6 +613,28 @@ Properties:
 
 ## 🔹 NestedTitle
 
+## 🔹 OperationSummary
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationFolderPath  | string |  |
+| operationName  | string |  |
+| classification (optional) | string |  |
+| description (optional) | string |  |
+| size (optional) | object |  |
+| coreDependenciesString  | string |  |
+| operationDependenciesString  | string |  |
+| packageDependenciesString  | string |  |
+| cliItems  | array |  |
+| testItems  | array |  |
+| internalItems  | array |  |
+| externalItems  | array |  |
+| docs (optional) | array |  |
+
+
+
 ## 🔹 Sayable
 
 Properties: 
@@ -497,9 +646,26 @@ Properties:
 
 
 
+## 🔹 StatementItem
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| tsFunction (optional) | object |  |
+| tsInterface (optional) | object |  |
+| tsVariable (optional) | object |  |
+
+
+
+## 📄 addDependantCount (exported const)
+
+Double arrow function to get the count for the item
+
+
 ## 📄 bundleFolderWithMarkdown (exported const)
 
-finds all md files in a folder and creates a single MarkdownParse
+Finds all md files in a folder and creates a single MarkdownParse
 
 handy for creating a single documentation file or other things that have to include multiple markdown files in a structured way
 
@@ -520,6 +686,10 @@ creates a summary for a whole bundle
 NB: Related to `bundleToBookMd`
 
 
+## 📄 createMinimizedSectionMarkdown (exported const)
+
+## 📄 createMinimizedSection (exported const)
+
 ## 📄 deployToVercel (exported const)
 
 NB: Obviously, this is not the right place for this function, but none of these functions are properly located yet...
@@ -532,6 +702,13 @@ should return an url where the project will be served and the estimated time whe
 ## 📄 emailMarkdownParse (exported const)
 
 should email a markdown parse to some email (or multiple)
+
+
+## 📄 flattenNestedObject (exported const)
+
+Flattens a nested object by returning an object that hasa the nested path as the key and the leaf as the value
+
+TODO: Finish, if needed. seems hard!
 
 
 ## 📄 generateStaticSite (exported const)
@@ -548,13 +725,37 @@ because it is static, the markdown can be in the frontend assets and there is no
 Generates short markdown summary
 
 
+## 📄 getMarkdownContents (exported const)
+
 ## 📄 getMergedMarkdownOutlineUrl (exported const)
+
+## 📄 getOperationSummary (exported const)
+
+Summarises operation into useful information about it. Especially useful for generating docs.
+
 
 ## 📄 getOutline (exported const)
 
 low-level function that gets the outline for MarkdownParse
 
 NB: with books usually the pages are referred in the outline. Since that depends on the font size and dimensions, this cannot be done straight from the markdown parse. Eventually we probably need to check the made pdf for its content, maybe there is even a pdf feature that creates an outline for you. There must be more people having this problem.
+
+
+## 📄 getPublicMarkdownNestedPathObject (exported const)
+
+Recursively searches a folder for public markdown files, and returns a `NestedObject` with the keys being the file or folder names, and the leafs being the absolute file paths.
+
+File and folder names are stripped (number prefixes are removed, )
+
+example:
+```json
+{
+"README": "path/path/README.md"
+"folder1":{
+"README": "path/path/folder1/REAMDE.md"
+"file1": "path/path/folder1/file1.md",
+}
+}
 
 
 ## 📄 getTitlesRecursively (exported const)
@@ -566,6 +767,8 @@ helper function to get a nested array of the titles and its subtitles
 
 Returns a single line descriptor of the type of a json schema. Can be used in markdown tables.
 
+
+## 📄 isConventionFileStatement (exported const)
 
 ## 📄 isUpperCase (exported const)
 
@@ -641,6 +844,8 @@ selects a random operation
 
 Should render a string with one or more markdown tables to represent the simplifiedSchema
 
+
+## 📄 statementItemToMarkdown (exported const)
 
 ## 📄 tsFunctionToMarkdownString (exported const)
 

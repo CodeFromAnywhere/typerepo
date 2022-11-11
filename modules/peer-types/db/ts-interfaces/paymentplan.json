@@ -1,0 +1,288 @@
+{
+  "createdAt": 1668149747420,
+  "updatedAt": 1668149747420,
+  "deletedAt": 0,
+  "createdFirstAt": 1668149747420,
+  "id": "paymentplan",
+  "name": "PaymentPlan",
+  "slug": "paymentplan",
+  "operationRelativeTypescriptFilePath": "src/Payment.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n/**\n *\n */\nexport interface PaymentPlan extends MarkdownModelType {\n  /**\n   * If there's a one-time price, it should be filled in here.\n   */\n  oneTimePrice?: Price;\n  intervalPrice?: Price;\n  /**\n   * When does the payment occur?\n   *\n   * Leave undefined for one-time payments\n   */\n  paymentInterval?: RunEveryPeriodEnum;\n\n  /**\n   * How many credit are received?\n   */\n  credit?: Credit;\n\n  /**\n   * Description of the plan\n   */\n  markdown: string;\n}",
+  "extensions": [
+    "MarkdownModelType"
+  ],
+  "isOperationIndex": false,
+  "description": "",
+  "dbStorageMethod": "markdown",
+  "isDbModel": true,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "$ref": "#/definitions/CreatedAt"
+        },
+        "updatedAt": {
+          "$ref": "#/definitions/UpdatedAt"
+        },
+        "deletedAt": {
+          "$ref": "#/definitions/DeletedAt"
+        },
+        "createdFirstAt": {
+          "$ref": "#/definitions/CreatedFirstAt"
+        },
+        "operationName": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you"
+        },
+        "projectRelativePath": {
+          "type": "string",
+          "description": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you"
+        },
+        "operationRelativePath": {
+          "type": "string",
+          "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you"
+        },
+        "id": {
+          "$ref": "#/definitions/Id"
+        },
+        "name": {
+          "type": "string",
+          "description": "filename (slugified)"
+        },
+        "slug": {
+          "type": "string",
+          "description": "filename (slugified)"
+        },
+        "markdown": {
+          "type": "string",
+          "description": "Description of the plan"
+        },
+        "categoryStackCalculated": {
+          "$ref": "#/definitions/CategoryStack",
+          "description": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!"
+        },
+        "oneTimePrice": {
+          "$ref": "#/definitions/Price",
+          "description": "If there's a one-time price, it should be filled in here."
+        },
+        "intervalPrice": {
+          "$ref": "#/definitions/Price"
+        },
+        "paymentInterval": {
+          "$ref": "#/definitions/RunEveryPeriodEnum",
+          "description": "When does the payment occur?\n\nLeave undefined for one-time payments"
+        },
+        "credit": {
+          "$ref": "#/definitions/Credit",
+          "description": "How many credit are received?"
+        }
+      },
+      "required": [
+        "categoryStackCalculated",
+        "createdAt",
+        "createdFirstAt",
+        "deletedAt",
+        "id",
+        "markdown",
+        "name",
+        "operationName",
+        "projectRelativePath",
+        "slug",
+        "updatedAt"
+      ],
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "description": "This kind of overwrites frontmatter, but it is needed because there need to be models attached to the markdown model sometimes."
+          },
+          {
+            "not": {}
+          },
+          {
+            "$ref": "#/definitions/Id"
+          },
+          {
+            "not": {}
+          },
+          {
+            "type": [
+              "string",
+              "number",
+              "null",
+              "boolean",
+              "array"
+            ]
+          }
+        ]
+      }
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "createdAt",
+          "required": true,
+          "schema": {
+            "fullComment": "Time\n\nTime can be stored in various ways but in my experience it is, again, best to keep it simple and just have one way to store time. I can think about this for hours, but my intuition goes towards using the same format as Date.now() because it is a very small format and is easy to read.\n\nIt is the amount of ms since 1970.\n\nI could argue to store it in seconds since 1970 since there are few applications of doing ms, but maybe we do, and it's just 30% bigger. No problem.\n\nTherefore, let's store all time values in the format Date.now()",
+            "type": "number"
+          }
+        },
+        {
+          "name": "updatedAt",
+          "required": true,
+          "schema": {
+            "fullComment": "Time\n\nTime can be stored in various ways but in my experience it is, again, best to keep it simple and just have one way to store time. I can think about this for hours, but my intuition goes towards using the same format as Date.now() because it is a very small format and is easy to read.\n\nIt is the amount of ms since 1970.\n\nI could argue to store it in seconds since 1970 since there are few applications of doing ms, but maybe we do, and it's just 30% bigger. No problem.\n\nTherefore, let's store all time values in the format Date.now()",
+            "type": "number"
+          }
+        },
+        {
+          "name": "deletedAt",
+          "required": true,
+          "schema": {
+            "fullComment": "Time\n\nTime can be stored in various ways but in my experience it is, again, best to keep it simple and just have one way to store time. I can think about this for hours, but my intuition goes towards using the same format as Date.now() because it is a very small format and is easy to read.\n\nIt is the amount of ms since 1970.\n\nI could argue to store it in seconds since 1970 since there are few applications of doing ms, but maybe we do, and it's just 30% bigger. No problem.\n\nTherefore, let's store all time values in the format Date.now()",
+            "type": "number"
+          }
+        },
+        {
+          "name": "createdFirstAt",
+          "required": true,
+          "schema": {
+            "fullComment": "in some cases, data can be created before it was created in our system. In this case, use CreatedFirstAt if this information is important.\n\nTime\n\nTime can be stored in various ways but in my experience it is, again, best to keep it simple and just have one way to store time. I can think about this for hours, but my intuition goes towards using the same format as Date.now() because it is a very small format and is easy to read.\n\nIt is the amount of ms since 1970.\n\nI could argue to store it in seconds since 1970 since there are few applications of doing ms, but maybe we do, and it's just 30% bigger. No problem.\n\nTherefore, let's store all time values in the format Date.now()",
+            "type": "number"
+          }
+        },
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+            "type": "null"
+          }
+        },
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+            "type": "string"
+          }
+        },
+        {
+          "name": "operationRelativePath",
+          "required": false,
+          "schema": {
+            "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+            "type": "string"
+          }
+        },
+        {
+          "name": "id",
+          "required": true,
+          "schema": {
+            "fullComment": "Should be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
+            "type": "string"
+          }
+        },
+        {
+          "name": "name",
+          "required": true,
+          "schema": {
+            "fullComment": "filename (slugified)",
+            "type": "string"
+          }
+        },
+        {
+          "name": "slug",
+          "required": true,
+          "schema": {
+            "fullComment": "filename (slugified)",
+            "type": "string"
+          }
+        },
+        {
+          "name": "markdown",
+          "required": true,
+          "schema": {
+            "fullComment": "Description of the plan",
+            "type": "string"
+          }
+        },
+        {
+          "name": "categoryStackCalculated",
+          "required": true,
+          "schema": {
+            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\n",
+            "nb": "Changing this value when updating/upserting, changes where the item is located!",
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "oneTimePrice",
+          "required": false,
+          "schema": {
+            "fullComment": "If there's a one-time price, it should be filled in here.\n\nTLDR;EUROS\n\nA price is a number indicating the relative cost. Absolute cost is calculated by many other factors\n\nFor now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.\n\nLater we can add all kinds of extra conversion:\n\n- currency support\n- king os currency\n- lower cost for poorer people\n\netc...\n\nFirst we need to start making sales before we can add such complexity.\n\n",
+            "type": "number"
+          }
+        },
+        {
+          "name": "intervalPrice",
+          "required": false,
+          "schema": {
+            "fullComment": "TLDR;EUROS\n\nA price is a number indicating the relative cost. Absolute cost is calculated by many other factors\n\nFor now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.\n\nLater we can add all kinds of extra conversion:\n\n- currency support\n- king os currency\n- lower cost for poorer people\n\netc...\n\nFirst we need to start making sales before we can add such complexity.\n\n",
+            "type": "number"
+          }
+        },
+        {
+          "name": "paymentInterval",
+          "required": false,
+          "schema": {
+            "enum": [
+              "minute",
+              "5-minutes",
+              "quarter-hour",
+              "hour",
+              "6-hours",
+              "midnight",
+              "week",
+              "month",
+              "3-months",
+              "year"
+            ],
+            "fullComment": "When does the payment occur?\n\nLeave undefined for one-time payments\n\nUsed to specify functions that need to run every time with a specific interval\n\nAll times are at at the server timezone time\n\n- `minute`: every minute at 0 seconds\n- `5-mintues`: every 5 minutes, starting at the first minute of the hour\n- `quarter-hour`: every 15 minutes, starting at the first minute of the hour\n- `hour`: every hour, starting at the first minute of the hour\n- `6-hours`: every 6 hours, starting at midnight\n- `midnight`: every midnight (00:00:00)\n- `week`: every week at sundaynight (sunday, 1 second after 23:59:59 PM)\n- `month`: at the first second of the first day of the month (0:00:00)\n- `3-months`: every start of the quarter: january 1st (0:00:00), april 1st, july 1st, october 1st\n- `year`: every new year at january 1st at 0:00:00",
+            "type": "string"
+          }
+        },
+        {
+          "name": "credit",
+          "required": false,
+          "schema": {
+            "fullComment": "How many credit are received?\n\n",
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "PaymentPlan",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264085645,
-  "updatedAt": 1666264085645,
+  "createdAt": 1668150710297,
+  "updatedAt": 1668150710297,
   "deletedAt": 0,
-  "createdFirstAt": 1666264085645,
+  "createdFirstAt": 1668150710297,
   "id": "namedparameterstypeof-getdbstoragemethod",
   "name": "NamedParameters<typeof getDbStorageMethod>",
   "slug": "namedparameterstypeof-getdbstoragemethod",
@@ -17,7 +17,7 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
-        "{\n  typeName,\n  frontmatter,\n  extensions,\n}": {
+        "config": {
           "type": "object",
           "properties": {
             "typeName": {
@@ -41,14 +41,14 @@
         }
       },
       "required": [
-        "{\n  typeName,\n  frontmatter,\n  extensions,\n}"
+        "config"
       ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
-          "name": "{\n  typeName,\n  frontmatter,\n  extensions,\n}",
+          "name": "config",
           "required": true,
           "schema": {
             "properties": [

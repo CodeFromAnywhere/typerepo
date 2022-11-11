@@ -1,2 +1,90 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,n,i,t){return new(i||(i=Promise))((function(r,o){function l(e){try{a(t.next(e))}catch(e){o(e)}}function u(e){try{a(t.throw(e))}catch(e){o(e)}}function a(e){var n;e.done?r(e.value):(n=e.value,n instanceof i?n:new i((function(e){e(n)}))).then(l,u)}a((t=t.apply(e,n||[])).next())}))},__generator=this&&this.__generator||function(e,n){var i,t,r,o,l={label:0,sent:function(){if(1&r[0])throw r[1];return r[1]},trys:[],ops:[]};return o={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function u(o){return function(u){return function(o){if(i)throw new TypeError("Generator is already executing.");for(;l;)try{if(i=1,t&&(r=2&o[0]?t.return:o[0]?t.throw||((r=t.return)&&r.call(t),0):t.next)&&!(r=r.call(t,o[1])).done)return r;switch(t=0,r&&(o=[2&o[0],r.value]),o[0]){case 0:case 1:r=o;break;case 4:return l.label++,{value:o[1],done:!1};case 5:l.label++,t=o[1],o=[0];continue;case 7:o=l.ops.pop(),l.trys.pop();continue;default:if(!(r=l.trys,(r=r.length>0&&r[r.length-1])||6!==o[0]&&2!==o[0])){l=0;continue}if(3===o[0]&&(!r||o[1]>r[0]&&o[1]<r[3])){l.label=o[1];break}if(6===o[0]&&l.label<r[1]){l.label=r[1],r=o;break}if(r&&l.label<r[2]){l.label=r[2],l.ops.push(o);break}r[2]&&l.ops.pop(),l.trys.pop();continue}o=n.call(e,l)}catch(e){o=[6,e],t=0}finally{i=r=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,u])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.yarnBuild=void 0;var child_process_1=require("child_process"),filename_conventions_1=require("filename-conventions"),fs_util_1=require("fs-util"),log_1=require("log"),minify_build_1=require("minify-build"),executeCommandQuietUnlessFail_1=require("./executeCommandQuietUnlessFail"),yarnBuild=function(e,n){return __awaiter(void 0,void 0,void 0,(function(){var i;return __generator(this,(function(t){switch(t.label){case 0:return(null==n?void 0:n.rmFirst)&&fs_util_1.fs.existsSync(fs_util_1.path.join(e,"build"))&&(0,child_process_1.spawnSync)("rm -rf build",{cwd:e,encoding:"utf8",stdio:"inherit",shell:!0}),fs_util_1.fs.existsSync(e)?(i=(0,executeCommandQuietUnlessFail_1.executeCommandQuietUnlessFail)({command:"yarn build",cwd:e,description:"Compiling source ".concat(e)}))?(null==n?void 0:n.skipMinify)?(console.log("SKIPPING MINIFY"),[2/*return*/,i]):[4/*yield*/,(0,minify_build_1.minifyBuild)({buildFolderPath:fs_util_1.path.join(e,filename_conventions_1.buildFolderName)})]:((0,log_1.log)("Build failed for ".concat((0,fs_util_1.getLastFolder)(e)),{type:"error"}),[2/*return*/,!1]):[2/*return*/,!1];case 1:return[2/*return*/,t.sent()||!1]}}))}))};exports.yarnBuild=yarnBuild;
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.yarnBuild = void 0;
+var child_process_1 = require("child_process");
+var filename_conventions_1 = require("filename-conventions");
+var fs_util_1 = require("fs-util");
+var log_1 = require("log");
+var minify_build_1 = require("minify-build");
+var executeCommandQuietUnlessFail_1 = require("./executeCommandQuietUnlessFail");
+/**
+ * Builds and minifies the src
+ */
+var yarnBuild = function (operationBasePath, config) { return __awaiter(void 0, void 0, void 0, function () {
+    var removed, success, minified;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if ((config === null || config === void 0 ? void 0 : config.rmFirst) && fs_util_1.fs.existsSync(fs_util_1.path.join(operationBasePath, "build"))) {
+                    removed = (0, child_process_1.spawnSync)("rm -rf build", {
+                        cwd: operationBasePath,
+                        encoding: "utf8",
+                        stdio: "inherit",
+                        shell: true,
+                    });
+                }
+                if (!fs_util_1.fs.existsSync(operationBasePath)) {
+                    return [2 /*return*/, false];
+                }
+                success = (0, executeCommandQuietUnlessFail_1.executeCommandQuietUnlessFail)({
+                    command: "yarn build",
+                    cwd: operationBasePath,
+                    description: "Compiling source ".concat(operationBasePath),
+                });
+                if (!success) {
+                    (0, log_1.log)("Build failed for ".concat((0, fs_util_1.getLastFolder)(operationBasePath)), {
+                        type: "error",
+                    });
+                    return [2 /*return*/, false];
+                } //
+                if (config === null || config === void 0 ? void 0 : config.skipMinify) {
+                    console.log("SKIPPING MINIFY");
+                    return [2 /*return*/, success];
+                }
+                return [4 /*yield*/, (0, minify_build_1.minifyBuild)({
+                        buildFolderPath: fs_util_1.path.join(operationBasePath, filename_conventions_1.buildFolderName),
+                    })];
+            case 1:
+                minified = _a.sent();
+                return [2 /*return*/, minified || false];
+        }
+    });
+}); };
+exports.yarnBuild = yarnBuild;
 //# sourceMappingURL=yarnBuild.js.map

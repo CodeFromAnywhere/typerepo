@@ -1,6 +1,6 @@
 # Ts morph util
 
-ts-morph-util (node operation)
+ts-morph-util (`OperationClassification` node)
 
 
 
@@ -50,11 +50,4 @@ returns a boolean indicating whether an interface or type has one or more generi
 
 
 ## 📄 getAllTsMorphSourceFiles (exported const)
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

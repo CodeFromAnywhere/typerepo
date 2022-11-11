@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976852034,
-  "updatedAt": 1667976852034,
+  "createdAt": 1668154792142,
+  "updatedAt": 1668154792142,
   "deletedAt": 0,
-  "createdFirstAt": 1667976852034,
+  "createdFirstAt": 1668154792142,
   "id": "bundleconfig",
   "name": "BundleConfig",
   "slug": "bundleconfig",
@@ -91,6 +91,9 @@
         "createBundleConfig": {
           "$ref": "#/definitions/CreateBundleConfig",
           "description": "Config needed for creating the bundle, not for the bundle itself\n\nNB: NOT Copied to the bundle itself"
+        },
+        "paymentPlanId": {
+          "type": "string"
         }
       },
       "required": [
@@ -738,6 +741,13 @@
               }
             ],
             "type": "object"
+          }
+        },
+        {
+          "name": "paymentPlanId",
+          "required": false,
+          "schema": {
+            "type": "string"
           }
         }
       ],

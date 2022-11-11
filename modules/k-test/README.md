@@ -1,15 +1,24 @@
 # K test
 
-k-test (node operation)
+k-test (`OperationClassification` node)
 
 
 
 # Api reference
 
+# CLI
+
+<details><summary>Show CLI information (1)</summary>
+    
+  # 📄 [operationName, manualProjectRoot] (unexported const)
+
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (5)</summary>
-  
+    
   # runTestsForOperation()
 
 runTestsForOperation(operationName) runs all tests that can be found in an operation. nicely logs and returns which funtions are working or not and why

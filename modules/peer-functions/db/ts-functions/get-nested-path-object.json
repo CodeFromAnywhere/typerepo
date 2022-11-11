@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666262502524,
-  "updatedAt": 1666262502524,
+  "createdAt": 1668149678564,
+  "updatedAt": 1668149678564,
   "deletedAt": 0,
-  "createdFirstAt": 1666262502524,
+  "createdFirstAt": 1668149678564,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -30,7 +30,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/nested-menu/build/util/queryPathsArrayToNestedPathObject\").NestedPathObject>",
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/nested-menu/build/NestedPathObject\").NestedPathObject>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -48,5 +48,5 @@
     "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "fdamgxjbxtbqfppkfiquyjsc"
+  "id": "khivlpkhzedqdtwddgrppzhy"
 }

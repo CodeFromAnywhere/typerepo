@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634820809,
-  "updatedAt": 1667634820809,
+  "createdAt": 1668149088626,
+  "updatedAt": 1668149088626,
   "deletedAt": 0,
-  "createdFirstAt": 1667634820809,
+  "createdFirstAt": 1668149088626,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(device: Device, tsFunction: TsFunction) => {\n  const publicAuthorization: Authorization = {\n    authorizations: tsFunction?.publicAuthorization || [],\n    type: \"TsFunction\",\n    value: tsFunction.id,\n  };\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations = [\n    publicAuthorization,\n    ...(device?.person?.authorizations || []),\n    ...(device?.person?.groups?.map((group) => group.authorizations).flat() ||\n      []),\n  ];\n\n  const hasAuthorization = !!authorizations.find((auth) =>\n    !auth.authorizations.includes(\"execute\")\n      ? false\n      : auth.type === \"TsFunction\"\n      ? auth.value === tsFunction.name\n      : auth.type === \"operationName\"\n      ? auth.value === tsFunction?.operationName\n      : false\n  );\n\n  return hasAuthorization;\n}",
+  "value": "(device: Device, tsFunction: TsFunction) => {\n  const publicAuthorization: Authorization = {\n    authorizations: tsFunction?.publicAuthorization || [],\n    type: \"TsFunction\",\n    value: tsFunction.id,\n  };\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations = [\n    publicAuthorization,\n    ...(device?.persons?.map((x) => x.authorizations).flat() || []),\n    ...(device?.persons\n      ?.map((x) => x.groups)\n      .flat()\n      .filter(notEmpty)\n      ?.map((group) => group.authorizations)\n      .flat() || []),\n  ];\n\n  const hasAuthorization = !!authorizations.find((auth) =>\n    !auth.authorizations.includes(\"execute\")\n      ? false\n      : auth.type === \"TsFunction\"\n      ? auth.value === tsFunction.name\n      : auth.type === \"operationName\"\n      ? auth.value === tsFunction?.operationName\n      : false\n  );\n\n  return hasAuthorization;\n}",
   "description": "",
-  "id": "yliwbkilhuuevagahemqludl"
+  "id": "mcxdbegzslerjthouhiohceg"
 }

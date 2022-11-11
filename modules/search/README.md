@@ -1,6 +1,6 @@
 # Search
 
-search (js operation)
+search (`OperationClassification` js)
 
 
 
@@ -33,7 +33,7 @@ NB: this could be augmented with things like synonyms and translation
 # Internal
 
 <details><summary>Show internal (3)</summary>
-  
+    
   # searchRecursiveObjectArray()
 
 

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634585335,
-  "updatedAt": 1667634585335,
+  "createdAt": 1668148776728,
+  "updatedAt": 1668148776728,
   "deletedAt": 0,
-  "createdFirstAt": 1667634585335,
+  "createdFirstAt": 1668148776728,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const dbModelNames = await getDbModelNames();\n  const upsertProps: UpsertProps = { dbModelNames: dbModelNames || null };\n  return { props: upsertProps };\n}",
   "description": "",
-  "id": "xoxjyljmzdjhbnahsizkhygx"
+  "id": "nemfjaziluttwdnbgjbioudd"
 }

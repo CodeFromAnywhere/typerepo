@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634702947,
-  "updatedAt": 1667634702947,
+  "createdAt": 1668148902975,
+  "updatedAt": 1668148902975,
   "deletedAt": 0,
-  "createdFirstAt": 1667634702947,
+  "createdFirstAt": 1668148902975,
   "id": "namedparameterstypeof-getbundlesummary",
   "name": "NamedParameters<typeof getBundleSummary>",
   "slug": "namedparameterstypeof-getbundlesummary",
@@ -86,6 +86,14 @@
                 "schema": {
                   "fullComment": "configurate your markdown reader\n\n",
                   "properties": [
+                    {
+                      "name": "docsInRoot",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "When set to `true`, docs are not shown in docs folder but in the root menu of the site",
+                        "type": "boolean"
+                      }
+                    },
                     {
                       "name": "showTodos",
                       "required": false,
@@ -372,7 +380,8 @@
                 "name": "createBundleConfig",
                 "required": true,
                 "schema": {
-                  "fullComment": "Config needed for creating the bundle, not for the bundle itself NB: NOT Copied to the bundle itself\n\n",
+                  "fullComment": "Config needed for creating the bundle, not for the bundle itself\n\nNB: NOT Copied to the bundle itself\n\n",
+                  "nb": "NOT Copied to the bundle itself",
                   "properties": [
                     {
                       "name": "keepStructure",
@@ -387,13 +396,56 @@
                       "required": false,
                       "schema": {
                         "enum": [
+                          "ignore",
                           "push",
                           "pullReplace",
                           "pullMerge"
                         ],
-                        "fullComment": "push (default): take needed information from project and push to bundle (removing the existing info)\n\npullReplace: pull bundle and keep its information intact, not taking anything new from the OS, replacing all the information we had from these models in the OS\n\npullMerge: pull bundle and use its information in conjunction with the information we had in the OS. This option will merge both information sources, removing duplicate IDs\n\nNB: Later we may want to define this setting on a per-model basis!",
-                        "nb": "Later we may want to define this setting on a per-model basis!",
+                        "fullComment": "Default information strategy\n\npush (default): take needed information from project and push to bundle (removing the existing info)\n\npullReplace: pull bundle and keep its information intact, not taking anything new from the OS, replacing all the information we had from these models in the OS\n\npullMerge: pull bundle and use its information in conjunction with the information we had in the OS. This option will merge both information sources, removing duplicate IDs\n\nignore: don't put any data in the bundle!",
                         "type": "string"
+                      }
+                    },
+                    {
+                      "name": "modelInformationStrategy",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Information strategy per model\n\nFor example, this would ensure your diaries are not copied over to the bundle:\n\n```json { \"Diary\": \"ignore\" } ```\n\nIf you want to be certain something isn't included, instead of putting it into the model specific information strategy, you can also just put it in an operation that isn't required in the bundle.\n\nThis parameter is especially useful if you want to change a information stategy for one model in specific.",
+                        "properties": [],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "name": "additional_datasetSlugs",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "After applying the `informationStrategy`, and `modelInformationStrategy`, these datasets will be added or overwriting the data",
+                        "items": [
+                          {
+                            "schema": {
+                              "fullComment": "use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
+                              "type": "string"
+                            },
+                            "name": "Slug"
+                          }
+                        ],
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "filter_datasetSlugs",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "After applying the `informationStrategy`, and `modelInformationStrategy`, these datasets will be found in the then available data in the bundle, and will be filtered out.",
+                        "items": [
+                          {
+                            "schema": {
+                              "fullComment": "use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
+                              "type": "string"
+                            },
+                            "name": "Slug"
+                          }
+                        ],
+                        "type": "array"
                       }
                     },
                     {
@@ -527,7 +579,7 @@
                     },
                     {
                       "name": "dependencies",
-                      "required": true,
+                      "required": false,
                       "schema": {
                         "fullComment": "Generated, private by default. If they're already here, uses private/public setting as given.\n\nWhen generating, removes the ones that are not dependencies (of dependencies) of your standalone apps",
                         "items": [

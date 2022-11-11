@@ -1,6 +1,6 @@
 {
   "createdAt": 1664527223461,
-  "updatedAt": 1667456164428,
+  "updatedAt": 1668149785338,
   "deletedAt": 0,
   "createdFirstAt": 1664527223461,
   "folderName": "peer-types",
@@ -17,9 +17,18 @@
     "Authorization",
     "Position",
     "DefaultModelType",
-    "Authorization",
+    "RunEveryPeriodEnum",
     "DefaultModelType",
     "Id",
+    "MarkdownModelType",
+    "Price",
+    "Slug",
+    "Credit",
+    "Authorization",
+    "Credit",
+    "DefaultModelType",
+    "Id",
+    "Price",
     "Slug",
     "BackendAsset",
     "BackendAsset",
@@ -47,10 +56,10 @@
   ],
   "size": {
     "codeSize": {
-      "numberOfFiles": 14,
+      "numberOfFiles": 15,
       "lines": 0,
-      "characters": 17389,
-      "bytes": 17389
+      "characters": 19333,
+      "bytes": 19333
     },
     "dataSize": {
       "numberOfFiles": 2,
@@ -61,14 +70,14 @@
     "textSize": {
       "numberOfFiles": 1,
       "lines": 0,
-      "characters": 17638,
-      "bytes": 17638
+      "characters": 14663,
+      "bytes": 14663
     },
     "size": {
-      "bytes": 37363,
-      "characters": 37363,
+      "bytes": 36332,
+      "characters": 36332,
       "lines": 0,
-      "numberOfFiles": 17
+      "numberOfFiles": 18
     }
   },
   "buildSucceeded": true,

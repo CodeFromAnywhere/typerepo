@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666263856943,
-  "updatedAt": 1666263856943,
+  "createdAt": 1668150468904,
+  "updatedAt": 1668150468904,
   "deletedAt": 0,
-  "createdFirstAt": 1666263856943,
+  "createdFirstAt": 1668150468904,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": false,
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const imports = await db.get(\"TsImport\");\n\n  forAllFolders({\n    type: \"operations\",\n    callback: async (folderPath) => {\n      // console.log(folderPath);\n\n      const operationNames = [getLastFolder(folderPath)];\n\n      const x = await findAllDependencyOperations({ operationNames, imports });\n\n      console.log(folderPath, x);\n    },\n  });\n}",
+  "rawText": " async () => {\n  const imports = await db.get(\"TsImport\");\n  const packageJsons = await db.get(\"PackageJson\");\n\n  forAllFolders({\n    type: \"operations\",\n    callback: async (folderPath) => {\n      // console.log(folderPath);\n\n      const operationNames = [getLastFolder(folderPath)];\n\n      const x = await findAllDependencyOperations({\n        operationNames,\n        packageJsons,\n        imports,\n      });\n\n      console.log(folderPath, x);\n    },\n  });\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -27,15 +27,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 3,
+  "maxIndentationDepth": 4,
   "size": {
-    "characters": 363,
-    "lines": 16,
-    "bytes": 363,
+    "characters": 460,
+    "lines": 21,
+    "bytes": 460,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 23,
-    "linesPerFile": 16,
+    "charactersPerLine": 22,
+    "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "qakefijmtajapxddajohxubs"
+  "id": "inexhgxcvqhjqqqkkmjpbeox"
 }

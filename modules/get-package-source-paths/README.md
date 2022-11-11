@@ -1,6 +1,6 @@
 # Get package source paths
 
-get-package-source-paths (node operation)
+get-package-source-paths (`OperationClassification` node)
 
 Returns an array of absolute file paths of (typescript) files in the src of your operation
 
@@ -34,11 +34,4 @@ Returns an array of absolute file paths of (typescript) files in the src of your
 
 TODO: we need a way to explore these glob patterns inside of tsConfig.include.
 until then, just assume we use "src" as the only folder
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

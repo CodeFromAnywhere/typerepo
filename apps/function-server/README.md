@@ -1,24 +1,17 @@
 # Function server
 
-function-server (server operation)
+function-server (`OperationClassification` server)
 
 Server that exposes all typerepo api functions wrapped into easily accessible endpoints.
 
 
 
 
-## Docs
-
-- [Setup](#setup)
-- [Why serverjs](#why-serverjs)
-
-
-
 # Docs
 
-## Setup
-
-### Setup
+<details><summary>setup.md</summary>
+    
+  # Setup
 
 `function-server` is the main way to create API endpoints for your `typerepo` project.
 
@@ -37,10 +30,11 @@ For now, every endpoint is behind a single administrator authorsation token, whi
 
 More authentication methods are coming soon!
 
+  </details>
 
-## Why serverjs
-
-[Server.js](https://serverjs.io) is used because it has many great plugins out of the box and doesn't require another middleware for every little thing. I am aware that it is a less common server to use, but it's great, not only because it presents the developer with all required things in a clear way, but also because it keeps the endpoints clean.
+<details><summary>why-serverjs.md</summary>
+    
+  [Server.js](https://serverjs.io) is used because it has many great plugins out of the box and doesn't require another middleware for every little thing. I am aware that it is a less common server to use, but it's great, not only because it presents the developer with all required things in a clear way, but also because it keeps the endpoints clean.
 
 With normal [express.js](https://expressjs.com) we are required to return our endpoint response through a function like `res.send`. In `server.js` this is not needed, you can simply return it from the function and put it in the server as an endpoint. This makes it super easy to reuse functions, for example internally (without api), as CLI, and as server endpoint.
 
@@ -48,13 +42,14 @@ Please note: Typerepo might revert back to something like express.js later, as i
 
 Nevertheless, server.js works fine and most things are documented.
 
+  </details>
 
 # Api reference
 
 # Internal
 
 <details><summary>Show internal (4)</summary>
-  
+    
   # executeFunction()
 
 

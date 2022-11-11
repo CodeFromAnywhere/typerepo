@@ -6,8 +6,9 @@ import {
   getApiEndpoints,
   postApiEndpoints,
 } from "function-server-endpoints";
+
 import { log } from "log";
-import { publicEnvironmentVariables } from "sdk-env-public";
+import { ports } from "port-conventions";
 import { sdk } from "sdk-api";
 import { getProjectRoot } from "get-path";
 import { path } from "fs-util";
@@ -15,8 +16,6 @@ import { schedule } from "node-cron";
 import { db } from "database";
 import { RunEveryPeriodEnum, TsFunction } from "code-types";
 import { getObjectKeysArray, takeFirst } from "js-util";
-
-const port = publicEnvironmentVariables.serverPort;
 
 export const executeFunction = async (tsFunction: TsFunction) => {
   //@ts-ignore
@@ -85,7 +84,7 @@ export const runFunctionServer = () => {
   // @ts-ignore
   server(
     {
-      port,
+      port: ports["function-server"],
       public: projectPublicFolder,
       security: { csrf: false },
       parser: {
@@ -188,7 +187,7 @@ export const runFunctionServer = () => {
     }
 
     console.log(
-      `Running on port ${port}. All node functions are now available through /function/[name] or through the "api" object...`
+      `Running on port ${ports["function-server"]}. All node functions are now available through /function/[name] or through the "api" object...`
     );
   });
 };

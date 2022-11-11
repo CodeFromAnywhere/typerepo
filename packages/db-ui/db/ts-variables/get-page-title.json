@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634534906,
-  "updatedAt": 1667634534906,
+  "createdAt": 1668148719561,
+  "updatedAt": 1668148719561,
   "deletedAt": 0,
-  "createdFirstAt": 1667634534906,
+  "createdFirstAt": 1668148719561,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(page: PageType) =>\n  page.title || page.key.charAt(0).toUpperCase().concat(page.key.slice(1))",
   "description": "utility function to get a title from a page",
-  "id": "boxqxingkxarmtonbefeiofy"
+  "id": "elujfegprkhaqxrntcxvtoys"
 }

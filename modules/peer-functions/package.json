@@ -22,7 +22,17 @@
   "sensible": {
     "hasGeneratedDependencies": false
   },
-  "dependencies": {},
+  "dependencies": {
+    "api": "0.0.1",
+    "database": "0.0.1",
+    "port-conventions": "0.0.1",
+    "js-util": "0.0.1",
+    "fs-util": "1.0.5",
+    "get-path": "0.0.1",
+    "nested-menu": "0.0.1",
+    "k-explore": "0.0.2",
+    "one-by-one": "0.0.1"
+  },
   "slug": "peer-functions",
   "id": "STZJGyqPOGISGkCo"
 }

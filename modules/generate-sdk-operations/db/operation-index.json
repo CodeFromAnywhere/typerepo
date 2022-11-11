@@ -1,6 +1,6 @@
 {
   "createdAt": 1664528039961,
-  "updatedAt": 1667635717709,
+  "updatedAt": 1668150589010,
   "deletedAt": 0,
   "createdFirstAt": 1664528039961,
   "folderName": "generate-sdk-operations",
@@ -11,12 +11,10 @@
   "slug": "generate-sdk-operations",
   "coreDependencies": [],
   "operationDependencies": [
-    "db",
     "notEmpty",
-    "onlyUnique2",
-    "TsInterface",
     "newOperationWithFiles",
     "getOperationConfig",
+    "getAllDbModels",
     "BundleConfig",
     "getProjectRoot",
     "newOperationWithFiles",
@@ -76,29 +74,29 @@
     "codeSize": {
       "numberOfFiles": 13,
       "lines": 0,
-      "characters": 23760,
-      "bytes": 23760
+      "characters": 23906,
+      "bytes": 23906
     },
     "dataSize": {
       "numberOfFiles": 2,
       "lines": 0,
-      "characters": 2137,
-      "bytes": 2137
+      "characters": 2171,
+      "bytes": 2171
     },
     "textSize": {
       "numberOfFiles": 14,
       "lines": 0,
-      "characters": 18038,
-      "bytes": 18038
+      "characters": 12010,
+      "bytes": 12010
     },
     "size": {
-      "bytes": 43935,
-      "characters": 43935,
+      "bytes": 38087,
+      "characters": 38087,
       "lines": 0,
       "numberOfFiles": 29
     }
   },
-  "buildSucceeded": false,
+  "buildSucceeded": true,
   "dependenciesBuildsFailed": false,
   "indexErrors": [],
   "indexImportExportError": "",

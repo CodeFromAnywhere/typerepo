@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666264082857,
-  "updatedAt": 1666264082857,
+  "createdAt": 1668150707311,
+  "updatedAt": 1668150707311,
   "deletedAt": 0,
-  "createdFirstAt": 1666264082857,
+  "createdFirstAt": 1668150707311,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -189,5 +189,5 @@
   },
   "rawText": "\n\nexport function hasDefinition(\n  maybeInterface: MaybeInteface\n): maybeInterface is TsInterface {\n  return maybeInterface.type.typeDefinition !== null;\n}",
   "maxIndentationDepth": 1,
-  "id": "lssnznrzgehrqqbkvaugqrpu"
+  "id": "ygkylbzjpawlrctcmmksjnnc"
 }

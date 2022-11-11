@@ -1,6 +1,6 @@
 # Path util
 
-path-util (js operation)
+path-util (`OperationClassification` js)
 
 Gets insightful information about any file or folder (path)
 
@@ -79,10 +79,30 @@ explores files in an operation within a specified location or from a specified t
 
 calculates folder summary from a categorized file paths object
 
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # test()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 test (unexported const)
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (6)</summary>
-  
+    
   # getPathMainComment()
 
 export const sumFolderSummary = (

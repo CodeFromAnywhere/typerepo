@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666262516075,
-  "updatedAt": 1666262516075,
+  "createdAt": 1668149694488,
+  "updatedAt": 1668149694488,
   "deletedAt": 0,
-  "createdFirstAt": 1666262516075,
+  "createdFirstAt": 1668149694488,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -16,20 +16,7 @@
   "rawText": " async (\n  /**\n   * Slug of the peer (ip)\n   */\n  slug: string\n) => {\n  const removeResult = await db.remove(\"Peer\", (peer) => peer.slug === slug);\n  return removeResult;\n}",
   "name": "removePeer",
   "slug": "remove-peer",
-  "parameters": [
-    {
-      "name": "slug",
-      "schema": {
-        "type": "string",
-        "description": "Slug of the peer (ip)"
-      },
-      "simplifiedSchema": {
-        "fullComment": "Slug of the peer (ip)",
-        "type": "string"
-      },
-      "required": true
-    }
-  ],
+  "parameters": [],
   "description": "",
   "returnType": {
     "rawType": "unknown",
@@ -50,5 +37,5 @@
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "yxjfvwqvhkqiurzqzfknpcha"
+  "id": "tzhtdsfevgwupehvvacujmds"
 }

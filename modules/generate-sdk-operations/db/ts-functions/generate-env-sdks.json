@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635704842,
-  "updatedAt": 1667635704842,
+  "createdAt": 1668150572526,
+  "updatedAt": 1668150572526,
   "deletedAt": 0,
-  "createdFirstAt": 1667635704842,
+  "createdFirstAt": 1668150572526,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -94,6 +94,13 @@
               "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
               "type": "string"
             }
+          },
+          {
+            "name": "paymentPlanId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "type": "object"
@@ -166,5 +173,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "qlltctbbrsdbgfhpmngpizfm"
+  "id": "hyabjldemopqfkstmyvlkbah"
 }

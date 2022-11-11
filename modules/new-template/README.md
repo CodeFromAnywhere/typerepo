@@ -1,23 +1,18 @@
 # New template
 
-new-template (node operation)
-
-
-
-## Docs
-
-- [README](#readme)
+new-template (`OperationClassification` node)
 
 
 
 # Docs
 
-## README
-
-## Creating an app template
+<details><summary>README.md</summary>
+    
+  ## Creating an app template
 
 Please note you can't add `package.json` and `.gitignore` files to templates! Call them `package.template.json` and `.gitignore.template` repectively in order for everything to function as expected (they will be renamed on installation)
 
+  </details>
 
 # Api reference
 
@@ -87,10 +82,92 @@ TODO: Remove the buggyness
 
 Returns either the `basePath` of the created template, or undefined if something went wrong
 
+# CLI
+
+<details><summary>Show CLI information (4)</summary>
+    
+  # newOperationCli()
+
+newOperation also works as CLI
+
+example: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation (js, node, ui-es5, ui-es6, web) as the second argument of the CLI
+
+Arguments (all optional):
+- name: string
+- type: `OperationClassification`
+- description: string
+- destinationPath: string
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## newTemplateCli()
+
+newTemplate can be used as CLI:
+
+Arguments:
+- type (required): a folder from `new-template/assets/templates`
+- destinationPath (optional): path where the template should be copied to (uses `cwd` by default)
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 newOperationCli (unexported const)
+
+newOperation also works as CLI
+
+example: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation (js, node, ui-es5, ui-es6, web) as the second argument of the CLI
+
+Arguments (all optional):
+- name: string
+- type: `OperationClassification`
+- description: string
+- destinationPath: string
+
+
+## 📄 newTemplateCli (unexported const)
+
+newTemplate can be used as CLI:
+
+Arguments:
+- type (required): a folder from `new-template/assets/templates`
+- destinationPath (optional): path where the template should be copied to (uses `cwd` by default)
+  </details>
+
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # main()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 main (exported const)
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (6)</summary>
-  
+    
   # getAvailableOperationName()
 
 returns folder name

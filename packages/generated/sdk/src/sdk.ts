@@ -210,17 +210,25 @@ import { runTestsForOperation } from "k-test";
 import { runTests } from "k-test";
 import { preIndexLint } from "lint";
 import { sendMail } from "mail";
+import { addDependantCount } from "markdown-parsings";
 import { bundleFolderWithMarkdown } from "markdown-parsings";
 import { bundleToBookMarkdown } from "markdown-parsings";
 import { bundleToMarkdown } from "markdown-parsings";
+import { createMinimizedSectionMarkdown } from "markdown-parsings";
+import { createMinimizedSection } from "markdown-parsings";
 import { deployToVercel } from "markdown-parsings";
 import { emailMarkdownParse } from "markdown-parsings";
+import { flattenNestedObject } from "markdown-parsings";
 import { generateStaticSite } from "markdown-parsings";
 import { getJsonSchemaSummary } from "markdown-parsings";
+import { getMarkdownContents } from "markdown-parsings";
 import { getMergedMarkdownOutlineUrl } from "markdown-parsings";
+import { getOperationSummary } from "markdown-parsings";
 import { getOutline } from "markdown-parsings";
+import { getPublicMarkdownNestedPathObject } from "markdown-parsings";
 import { getTitlesRecursively } from "markdown-parsings";
 import { getTypeDescriptorRecursive } from "markdown-parsings";
+import { isConventionFileStatement } from "markdown-parsings";
 import { isUpperCase } from "markdown-parsings";
 import { makeOutlineMarkdownString } from "markdown-parsings";
 import { makePropertiesTable } from "markdown-parsings";
@@ -239,6 +247,7 @@ import { propertyToTableRow } from "markdown-parsings";
 import { sayablesToMp3 } from "markdown-parsings";
 import { selectRandomOperation } from "markdown-parsings";
 import { simplifiedSchemaToMarkdownString } from "markdown-parsings";
+import { statementItemToMarkdown } from "markdown-parsings";
 import { tsFunctionToMarkdownString } from "markdown-parsings";
 import { tsInterfaceToMarkdownString } from "markdown-parsings";
 import { tsVariableToMarkdownString } from "markdown-parsings";
@@ -255,9 +264,11 @@ import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
 import { getTodoPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
 import { markdownReaderGetStaticProps } from "markdown-reader-functions";
+import { putReadmeOnTop } from "markdown-reader-functions";
 import { removeExtensionsFromPath } from "markdown-reader-functions";
 import { removeNumberPrefix } from "markdown-reader-functions";
 import { shouldExposeMarkdownFile } from "markdown-reader-functions";
+import { stripReadmeFromFolder } from "markdown-reader-functions";
 import { minifyBuild } from "minify-build";
 import { getAvailableOperationName } from "new-template";
 import { getOperationConfig } from "new-template";
@@ -479,6 +490,7 @@ import { mapValuesSync } from "js-util";
 import { mergeObjectParameters } from "js-util";
 import { mergeObjectsArray } from "js-util";
 import { mergeObjects } from "js-util";
+import { noEmptyString } from "js-util";
 import { notEmpty } from "js-util";
 import { objectMapAsync } from "js-util";
 import { objectMapSync } from "js-util";
@@ -486,6 +498,7 @@ import { objectValuesMap } from "js-util";
 import { omitUndefinedValues } from "js-util";
 import { onlyUnique2 } from "js-util";
 import { onlyUnique } from "js-util";
+import { putIndexAtIndex } from "js-util";
 import { removeIndexFromArray } from "js-util";
 import { replaceLastOccurence } from "js-util";
 import { reverseString } from "js-util";
@@ -803,17 +816,25 @@ runTestsForOperation,
 runTests,
 preIndexLint,
 sendMail,
+addDependantCount,
 bundleFolderWithMarkdown,
 bundleToBookMarkdown,
 bundleToMarkdown,
+createMinimizedSectionMarkdown,
+createMinimizedSection,
 deployToVercel,
 emailMarkdownParse,
+flattenNestedObject,
 generateStaticSite,
 getJsonSchemaSummary,
+getMarkdownContents,
 getMergedMarkdownOutlineUrl,
+getOperationSummary,
 getOutline,
+getPublicMarkdownNestedPathObject,
 getTitlesRecursively,
 getTypeDescriptorRecursive,
+isConventionFileStatement,
 isUpperCase,
 makeOutlineMarkdownString,
 makePropertiesTable,
@@ -832,6 +853,7 @@ propertyToTableRow,
 sayablesToMp3,
 selectRandomOperation,
 simplifiedSchemaToMarkdownString,
+statementItemToMarkdown,
 tsFunctionToMarkdownString,
 tsInterfaceToMarkdownString,
 tsVariableToMarkdownString,
@@ -848,9 +870,11 @@ getPublicMarkdownFilePaths,
 getTodoPages,
 markdownReaderGetStaticPaths,
 markdownReaderGetStaticProps,
+putReadmeOnTop,
 removeExtensionsFromPath,
 removeNumberPrefix,
 shouldExposeMarkdownFile,
+stripReadmeFromFolder,
 minifyBuild,
 getAvailableOperationName,
 getOperationConfig,
@@ -1072,6 +1096,7 @@ mapValuesSync,
 mergeObjectParameters,
 mergeObjectsArray,
 mergeObjects,
+noEmptyString,
 notEmpty,
 objectMapAsync,
 objectMapSync,
@@ -1079,6 +1104,7 @@ objectValuesMap,
 omitUndefinedValues,
 onlyUnique2,
 onlyUnique,
+putIndexAtIndex,
 removeIndexFromArray,
 replaceLastOccurence,
 reverseString,

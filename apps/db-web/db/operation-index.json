@@ -1,9 +1,9 @@
 {
   "createdAt": 1664525784831,
-  "updatedAt": 1667634587423,
+  "updatedAt": 1668148779389,
   "deletedAt": 0,
   "createdFirstAt": 1664525784831,
-  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/database/db-web/src/pages/upsert.tsx. Error: Error: Type '{ children: Element; authTokenStore: UseStoreResult<string>; title: string; }' is not assignable to type 'IntrinsicAttributes & { title?: string | undefined; children: Element; }'.\\n  Property 'authTokenStore' does not exist on type 'IntrinsicAttributes & { title?: string | undefined; children: Element; }'.\\n\\nExpected 0 arguments, but got 1.\"]",
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/database/db-web/src/pages/upsert.tsx. Error: Error: Type '{ children: Element; authTokenStore: UseStoreResult<string>; title: string; }' is not assignable to type 'IntrinsicAttributes & { title?: string | undefined; children: Element; }'.\\n  Property 'authTokenStore' does not exist on type 'IntrinsicAttributes & { title?: string | undefined; children: Element; }'.\"]",
   "buildSucceeded": true,
   "id": "uuwsexaizozpxmttvhetgskr",
   "indexImportExportError": "",
@@ -41,24 +41,24 @@
     "codeSize": {
       "numberOfFiles": 5,
       "lines": 0,
-      "characters": 3416,
-      "bytes": 3416
+      "characters": 3374,
+      "bytes": 3374
     },
     "dataSize": {
       "numberOfFiles": 11,
       "lines": 0,
-      "characters": 17816,
-      "bytes": 17816
+      "characters": 17713,
+      "bytes": 17713
     },
     "textSize": {
       "numberOfFiles": 2,
       "lines": 0,
-      "characters": 660,
-      "bytes": 660
+      "characters": 579,
+      "bytes": 579
     },
     "size": {
-      "bytes": 21892,
-      "characters": 21892,
+      "bytes": 21666,
+      "characters": 21666,
       "lines": 0,
       "numberOfFiles": 18
     }

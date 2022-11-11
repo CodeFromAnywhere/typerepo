@@ -1,6 +1,6 @@
 # Get package json
 
-get-package-json (node operation)
+get-package-json (`OperationClassification` node)
 
 
 
@@ -31,7 +31,7 @@ get-package-json (node operation)
 # Internal
 
 <details><summary>Show internal (2)</summary>
-  
+    
   # getOperationBins()
 
 returns array of bins. by convention, these bins should also be exported from operation index file

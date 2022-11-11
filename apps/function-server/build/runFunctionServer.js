@@ -53,14 +53,13 @@ var server_1 = __importDefault(require("server"));
 var one_by_one_1 = require("one-by-one");
 var function_server_endpoints_1 = require("function-server-endpoints");
 var log_1 = require("log");
-var sdk_env_public_1 = require("sdk-env-public");
+var port_conventions_1 = require("port-conventions");
 var sdk_api_1 = require("sdk-api");
 var get_path_1 = require("get-path");
 var fs_util_1 = require("fs-util");
 var node_cron_1 = require("node-cron");
 var database_1 = require("database");
 var js_util_1 = require("js-util");
-var port = sdk_env_public_1.publicEnvironmentVariables.serverPort;
 var executeFunction = function (tsFunction) { return __awaiter(void 0, void 0, void 0, function () {
     var _a;
     return __generator(this, function (_b) {
@@ -123,7 +122,7 @@ var runFunctionServer = function () {
         : fs_util_1.path.join(__dirname, "..", "public");
     // @ts-ignore
     server_1.default.apply(void 0, __spreadArray(__spreadArray(__spreadArray([{
-            port: port,
+            port: port_conventions_1.ports["function-server"],
             public: projectPublicFolder,
             security: { csrf: false },
             parser: {
@@ -163,7 +162,7 @@ var runFunctionServer = function () {
                             }
                         });
                     }
-                    console.log("Running on port ".concat(port, ". All node functions are now available through /function/[name] or through the \"api\" object..."));
+                    console.log("Running on port ".concat(port_conventions_1.ports["function-server"], ". All node functions are now available through /function/[name] or through the \"api\" object..."));
                     return [2 /*return*/];
             }
         });

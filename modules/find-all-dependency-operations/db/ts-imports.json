@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1666263835602,
-    "updatedAt": 1666263835602,
+    "createdAt": 1668150439534,
+    "updatedAt": 1668150439534,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835602,
+    "createdFirstAt": 1668150439534,
     "name": "mergeObjectsArray",
     "slug": "merge-objects-array",
     "type": "value",
@@ -14,13 +14,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pgdmqewvlastttnkwnbchqbr"
+    "id": "sekvpgatjvmzlznmomtbgwos"
   },
   {
-    "createdAt": 1666263835602,
-    "updatedAt": 1666263835602,
+    "createdAt": 1668150439534,
+    "updatedAt": 1668150439534,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835602,
+    "createdFirstAt": 1668150439534,
     "name": "notEmpty",
     "slug": "not-empty",
     "type": "value",
@@ -31,13 +31,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "bhsyzxhdfwzteflzssltlcva"
+    "id": "iymbzjgtbqlvjbipggojauuq"
   },
   {
-    "createdAt": 1666263835602,
-    "updatedAt": 1666263835602,
+    "createdAt": 1668150439534,
+    "updatedAt": 1668150439534,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835602,
+    "createdFirstAt": 1668150439534,
     "name": "onlyUnique",
     "slug": "only-unique",
     "type": "value",
@@ -48,13 +48,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "smknyyycyecskkatkenldyrz"
+    "id": "kvepmjcfqsxavcsqxkfeaqst"
   },
   {
-    "createdAt": 1666263835602,
-    "updatedAt": 1666263835602,
+    "createdAt": 1668150439534,
+    "updatedAt": 1668150439534,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835602,
+    "createdFirstAt": 1668150439534,
     "name": "onlyUnique2",
     "slug": "only-unique-2",
     "type": "value",
@@ -65,13 +65,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "insbbpdsngtvjoyaksstxcvf"
+    "id": "orobzpsabzsxafbzpggeecrw"
   },
   {
-    "createdAt": 1666263835602,
-    "updatedAt": 1666263835602,
+    "createdAt": 1668150439534,
+    "updatedAt": 1668150439534,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835602,
+    "createdFirstAt": 1668150439534,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -82,13 +82,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "psszxokrgwyoufbblwhrjcqo"
+    "id": "lukasiyxkpypclfpkueenrqk"
   },
   {
-    "createdAt": 1666263835602,
-    "updatedAt": 1666263835602,
+    "createdAt": 1668150439534,
+    "updatedAt": 1668150439534,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835602,
+    "createdFirstAt": 1668150439534,
     "name": "exploreOperationFolders",
     "slug": "explore-operation-folders",
     "type": "value",
@@ -99,13 +99,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "lsuvpmgbwcvlptlhiaykvyyi"
+    "id": "osechnlutvutkmztrbpspcxi"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439534,
+    "updatedAt": 1668150439534,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439534,
     "name": "getLastFolder",
     "slug": "get-last-folder",
     "type": "value",
@@ -116,13 +116,48 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pyiyvlfowhcovgmfgpvbrkda"
+    "id": "ayqdmhoucycfppvulkzwczgu"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439534,
+    "updatedAt": 1668150439534,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439534,
+    "name": "path",
+    "slug": "path",
+    "type": "value",
+    "module": "fs-util",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "cywcqcrexdjytwzzbwzdvfwv"
+  },
+  {
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
+    "deletedAt": 0,
+    "createdFirstAt": 1668150439535,
+    "name": "PackageJson",
+    "slug": "package-json",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "code-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "uchxhfqaakcsawazcxaamgnd"
+  },
+  {
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
+    "deletedAt": 0,
+    "createdFirstAt": 1668150439535,
     "name": "TsImport",
     "slug": "ts-import",
     "type": "type",
@@ -134,13 +169,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pjozgqzqyiqdnjedyusjaejb"
+    "id": "nyxfkzbzxuuoojqxavjgzrrh"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439535,
     "name": "oneByOne",
     "slug": "one-by-one",
     "type": "value",
@@ -151,13 +186,30 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "kstnakgsfaynlfyosnpnwbrl"
+    "id": "jskotsxzgcelhaborrhqkvuu"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439535,
+    "name": "operations",
+    "slug": "operations",
+    "type": "value",
+    "module": "sdk-operations",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "hwgkdeignucfhlhoilpmmsau"
+  },
+  {
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
+    "deletedAt": 0,
+    "createdFirstAt": 1668150439535,
     "name": "forAllFolders",
     "slug": "for-all-folders",
     "type": "value",
@@ -168,13 +220,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wfiyfltpextwhzgjfqvfisur"
+    "id": "lyjpxeanpxqynmdakjwgawbe"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439535,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -185,13 +237,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wrncqzsjdswfrbwffpmcvizk"
+    "id": "ryfckihucgzfhmqdornnpuoj"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439535,
     "name": "getLastFolder",
     "slug": "get-last-folder",
     "type": "value",
@@ -202,13 +254,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "grtmitolmstdxbiyjskxqtea"
+    "id": "bgyhnkxeaqfnojovkzosqnbo"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439535,
     "name": "findAllDependencyOperations",
     "slug": "find-all-dependency-operations",
     "module": "./findAllDependencyOperations",
@@ -218,13 +270,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "kswbdihtxgkvfhqgycougbox"
+    "id": "brjgdlockacdsltldiqvcyjr"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439535,
     "name": "findDependantsRecursively",
     "slug": "find-dependants-recursively",
     "module": "./findAllDependencyOperations",
@@ -234,13 +286,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "jvhvngimsuvimfaunzofgsyr"
+    "id": "hzsjbnwcejcrnzpifepudnjh"
   },
   {
-    "createdAt": 1666263835603,
-    "updatedAt": 1666263835603,
+    "createdAt": 1668150439535,
+    "updatedAt": 1668150439535,
     "deletedAt": 0,
-    "createdFirstAt": 1666263835603,
+    "createdFirstAt": 1668150439535,
     "name": "findDependenciesRecursively",
     "slug": "find-dependencies-recursively",
     "module": "./findAllDependencyOperations",
@@ -250,6 +302,6 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "vfykvsdkfumlywpdsirndtse"
+    "id": "pdzahwttdbbfmonsgbxpfhsu"
   }
 ]

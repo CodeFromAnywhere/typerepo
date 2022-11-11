@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666262516287,
-  "updatedAt": 1666262516287,
+  "createdAt": 1668149694684,
+  "updatedAt": 1668149694684,
   "deletedAt": 0,
-  "createdFirstAt": 1666262516287,
+  "createdFirstAt": 1668149694684,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  /**\n   * Slug of the peer (ip)\n   */\n  slug: string\n) => {\n  const removeResult = await db.remove(\"Peer\", (peer) => peer.slug === slug);\n  return removeResult;\n}",
   "description": "",
-  "id": "jwexqiilfhiotjttiurrrutb"
+  "id": "gcxjxpmurudmpabxsrypxjin"
 }

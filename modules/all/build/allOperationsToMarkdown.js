@@ -1,2 +1,79 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,r,t,n){return new(t||(t=Promise))((function(o,a){function i(e){try{s(n.next(e))}catch(e){a(e)}}function l(e){try{s(n.throw(e))}catch(e){a(e)}}function s(e){var r;e.done?o(e.value):(r=e.value,r instanceof t?r:new t((function(e){e(r)}))).then(i,l)}s((n=n.apply(e,r||[])).next())}))},__generator=this&&this.__generator||function(e,r){var t,n,o,a,i={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:l(0),throw:l(1),return:l(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function l(a){return function(l){return function(a){if(t)throw new TypeError("Generator is already executing.");for(;i;)try{if(t=1,n&&(o=2&a[0]?n.return:a[0]?n.throw||((o=n.return)&&o.call(n),0):n.next)&&!(o=o.call(n,a[1])).done)return o;switch(n=0,o&&(a=[2&a[0],o.value]),a[0]){case 0:case 1:o=a;break;case 4:return i.label++,{value:a[1],done:!1};case 5:i.label++,n=a[1],a=[0];continue;case 7:a=i.ops.pop(),i.trys.pop();continue;default:if(!(o=i.trys,(o=o.length>0&&o[o.length-1])||6!==a[0]&&2!==a[0])){i=0;continue}if(3===a[0]&&(!o||a[1]>o[0]&&a[1]<o[3])){i.label=a[1];break}if(6===a[0]&&i.label<o[1]){i.label=o[1],o=a;break}if(o&&i.label<o[2]){i.label=o[2],i.ops.push(a);break}o[2]&&i.ops.pop(),i.trys.pop();continue}a=r.call(e,i)}catch(e){a=[6,e],n=0}finally{t=o=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,l])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.allOperationsToMarkdown=void 0;var get_path_1=require("get-path"),forAllFolders_1=require("./forAllFolders"),log_1=require("log"),markdown_parsings_1=require("markdown-parsings"),fs_util_1=require("fs-util"),allOperationsToMarkdown=function(){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(e){return(0,forAllFolders_1.forAllFolders)({type:"operations",basePath:(0,get_path_1.getPathsWithOperations)(),callback:function(e,r){return __awaiter(void 0,void 0,void 0,(function(){var t;return __generator(this,(function(n){switch(n.label){case 0:return t=(0,fs_util_1.getLastFolder)(e),(0,log_1.log)("#".concat(r,": Making new README for ").concat(t),{type:"success"}),[4/*yield*/,(0,markdown_parsings_1.operationToMarkdown)({operationName:t,returnType:"save",mergeDocsInline:!0})];case 1:return n.sent(),[2/*return*/]}}))}))}}),[2/*return*/]}))}))};exports.allOperationsToMarkdown=allOperationsToMarkdown;
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.allOperationsToMarkdown = void 0;
+var get_path_1 = require("get-path");
+var forAllFolders_1 = require("./forAllFolders");
+var log_1 = require("log");
+var markdown_parsings_1 = require("markdown-parsings");
+var fs_util_1 = require("fs-util");
+var allOperationsToMarkdown = function () { return __awaiter(void 0, void 0, void 0, function () {
+    return __generator(this, function (_a) {
+        (0, forAllFolders_1.forAllFolders)({
+            type: "operations",
+            basePath: (0, get_path_1.getPathsWithOperations)(),
+            callback: function (folderPath, index) { return __awaiter(void 0, void 0, void 0, function () {
+                var operationName, operationSummary;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            operationName = (0, fs_util_1.getLastFolder)(folderPath);
+                            (0, log_1.log)("#".concat(index, ": Making new README for ").concat(operationName), {
+                                type: "success",
+                            });
+                            return [4 /*yield*/, (0, markdown_parsings_1.getOperationSummary)({ operationName: operationName })];
+                        case 1:
+                            operationSummary = _a.sent();
+                            if (!operationSummary)
+                                return [2 /*return*/];
+                            return [4 /*yield*/, (0, markdown_parsings_1.operationToMarkdown)({
+                                    operationSummary: operationSummary,
+                                    returnType: "save",
+                                })];
+                        case 2:
+                            _a.sent();
+                            return [2 /*return*/];
+                    }
+                });
+            }); },
+        });
+        return [2 /*return*/];
+    });
+}); };
+exports.allOperationsToMarkdown = allOperationsToMarkdown;
 //# sourceMappingURL=allOperationsToMarkdown.js.map

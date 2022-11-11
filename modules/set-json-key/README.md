@@ -1,6 +1,6 @@
 # Set json key
 
-set-json-key (node operation)
+set-json-key (`OperationClassification` node)
 
 Useful functions to alter JSON files (can be used both with node or with a CLI)
 
@@ -42,11 +42,4 @@ convert value string (arg3) to number, boolean if they seem to be like that
 | path | string |  |,| value | {  } |  |,| object | {  } |  |
 | **Output** |    |    |
 
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

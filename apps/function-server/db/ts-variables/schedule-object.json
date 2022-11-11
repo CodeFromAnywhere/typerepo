@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667378998490,
-  "updatedAt": 1667378998490,
+  "createdAt": 1668149026628,
+  "updatedAt": 1668149026628,
   "deletedAt": 0,
-  "createdFirstAt": 1667378998490,
+  "createdFirstAt": 1668149026628,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "{\n  minute: \"* * * * *\",\n  \"5-minutes\": \"0,5,10,15,20,25,30,35,40,45,50,55 * * * *\",\n  \"quarter-hour\": \"0,15,30,45 * * * *\",\n  hour: \"0 * * * *\",\n  \"6-hours\": \"0 0,6,12,18 * * *\",\n  midnight: \"0 0 * * *\",\n  week: \"0 0 * * 1\",\n  month: \"0 0 1 * *\",\n  \"3-months\": \"0 0 1 1,4,7,10 *\",\n  year: \"0 0 1 1 *\",\n}",
   "description": "For every `RunEveryPeriodEnum`, this object provides the interval `cronExpression` string for `node-cron`",
-  "id": "ijtguauujgnbgcybonczwxsw"
+  "id": "aciaflqozitgfrmnoimoaqdf"
 }

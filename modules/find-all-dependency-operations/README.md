@@ -1,10 +1,37 @@
 # Find all dependency operations
 
-find-all-dependency-operations (node operation)
+find-all-dependency-operations (`OperationClassification` node)
 
 
 
 # Api reference
+
+## findDependants()
+
+getDependencyTree(["k-types", "fs-orm"], []).then((res) =>
+
+console.dir(res, { depth: 999 })
+
+);
+
+finds all dependants of an operation or a specific import from that operation
+
+normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 findDependants (exported const)
+
+finds all dependants of an operation or a specific import from that operation
+
+normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
+
 
 ## findAllDependencyOperations()
 
@@ -40,26 +67,6 @@ returnOperationName: false,
 
 
 
-## findDependants()
-
-getDependencyTree(["k-types", "fs-orm"], []).then((res) =>
-
-console.dir(res, { depth: 999 })
-
-);
-
-finds all dependants of an operation or a specific import from that operation
-
-normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
 ## 📄 findAllDependencyOperations (exported const)
 
 to be used when you need to know all dependencies for multiple operation names at once
@@ -69,16 +76,52 @@ TODO: NB: this breaks with circular dependencies
 
 ## 📄 findDependantsRecursively (exported const)
 
-## 📄 findDependants (exported const)
+# Tests
 
-finds all dependants of an operation or a specific import from that operation
+<details><summary>Show test information(6)</summary>
+    
+  # findDependantsRecursivelyTest()
 
-normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## test2()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## test()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 findDependantsRecursivelyTest (unexported const)
+
+## 📄 test2 (unexported const)
+
+## 📄 test (unexported const)
+
+  </details>
 
 # Internal
 
 <details><summary>Show internal (8)</summary>
-  
+    
   # findDependenciesRecursively()
 
 finds all dependencies of an operation name

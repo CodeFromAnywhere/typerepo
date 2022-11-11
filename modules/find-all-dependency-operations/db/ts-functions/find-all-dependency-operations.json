@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666263852024,
-  "updatedAt": 1666263852024,
+  "createdAt": 1668150463841,
+  "updatedAt": 1668150463841,
   "deletedAt": 0,
-  "createdFirstAt": 1666263852024,
+  "createdFirstAt": 1668150463841,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
   "commentsInside": [],
-  "rawText": " async ({\n  imports,\n  operationNames,\n  ignoreOperationNames,\n  ignoreFilter,\n}: {\n  /**\n   * All imports\n   */\n  imports: TsImport[];\n  operationNames: string[];\n  ignoreOperationNames?: string[];\n  ignoreFilter?: (operationName: string) => boolean;\n}) => {\n  const dependencies = (\n    await oneByOne(operationNames, async (operationName) => {\n      process.stdout.write(`${operationName} ... `);\n\n      return findDependenciesRecursively(\n        imports,\n        operationName,\n        operationNames,\n        ignoreOperationNames,\n        ignoreFilter\n      );\n    })\n  ).flat();\n\n  return dependencies.filter(onlyUnique);\n}",
+  "rawText": " async ({\n  imports,\n  packageJsons,\n  operationNames,\n  ignoreOperationNames,\n  ignoreFilter,\n}: {\n  /**\n   * All imports\n   */\n  imports: TsImport[];\n  packageJsons: PackageJson[];\n  operationNames: string[];\n  ignoreOperationNames?: string[];\n  ignoreFilter?: (operationName: string) => boolean;\n}) => {\n  const dependencies = (\n    await oneByOne(operationNames, async (operationName) => {\n      process.stdout.write(`${operationName} ... `);\n\n      return findDependenciesRecursively(\n        imports,\n        packageJsons,\n        operationName,\n        operationNames,\n        ignoreOperationNames,\n        ignoreFilter\n      );\n    })\n  ).flat();\n\n  return dependencies.filter(onlyUnique);\n}",
   "name": "findAllDependencyOperations",
   "slug": "find-all-dependency-operations",
   "parameters": [],
@@ -29,13 +29,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 766,
-    "lines": 32,
-    "bytes": 766,
+    "characters": 835,
+    "lines": 35,
+    "bytes": 835,
     "bytesPerCharacter": 1,
     "charactersPerLine": 24,
-    "linesPerFile": 32,
+    "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "lbmcksybuururqmquzqqltgd"
+  "id": "xlrmjaihakgwefvkstgzqvce"
 }

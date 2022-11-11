@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666260888701,
-  "updatedAt": 1666260888701,
+  "createdAt": 1668149185308,
+  "updatedAt": 1668149185308,
   "deletedAt": 0,
-  "createdFirstAt": 1666260888701,
+  "createdFirstAt": 1668149185308,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const [operationString, ...parameterStrings] = process.argv.slice(2);\n  if (!operationString) return;\n\n  const result = await executeSdkFunction(operationString, parameterStrings);\n\n  if (result) {\n    console.log(\"The result is:\", result);\n  }\n}",
   "description": "",
-  "id": "dkamcwygyvzurvynnaravjeg"
+  "id": "ghypbxkutuyppmhwkjztjpzw"
 }

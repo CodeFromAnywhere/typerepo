@@ -1,6 +1,6 @@
 # Sms
 
-sms (node operation)
+sms (`OperationClassification` node)
 
 
 
@@ -33,11 +33,4 @@ Requires OS Config to have Twilio sid and auth token.
 Reqruired options: `to` and `body`
 
 `to` is not required, but will overwrite the one you specified in your `OsConfig`
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

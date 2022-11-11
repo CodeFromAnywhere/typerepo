@@ -32,7 +32,14 @@
     "sequelize": "^6.19.0",
     "sequelize-typescript": "^2.1.3",
     "server": "^1.0.37",
-    "typescript": "^4.6.4"
+    "typescript": "^4.6.4",
+    "one-by-one": "0.0.1",
+    "log": "0.0.1",
+    "port-conventions": "0.0.1",
+    "get-path": "0.0.1",
+    "fs-util": "1.0.5",
+    "database": "0.0.1",
+    "js-util": "0.0.1"
   },
   "devDependencies": {
     "@types/multer": "^1.4.7",
@@ -48,7 +55,6 @@
   "id": "mWmyXwGmxjHGDraW",
   "slug": "function-server",
   "sensible": {
-    "hasGeneratedDependencies": false,
-    "appPort": 4201
+    "hasGeneratedDependencies": false
   }
 }

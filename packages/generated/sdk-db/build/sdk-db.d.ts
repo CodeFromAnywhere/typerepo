@@ -31,11 +31,16 @@ import type { TokiPonaMatrix } from "language-types";
 import type { Translation } from "language-types";
 import type { Word } from "language-types";
 import type { WordCategory } from "language-types";
+import type { WordCombination } from "language-types";
 import type { WordMatrix } from "language-types";
 import type { SlugModelType } from "model-types";
 import type { Device } from "peer-types";
 import type { Group } from "peer-types";
 import type { PageVisit } from "peer-types";
+import type { PaymentCoupon } from "peer-types";
+import type { PaymentEvent } from "peer-types";
+import type { PaymentPlan } from "peer-types";
+import type { PaymentSubscription } from "peer-types";
 import type { PeerMessage } from "peer-types";
 import type { Person } from "peer-types";
 import type { Persona } from "peer-types";
@@ -82,11 +87,16 @@ export declare type DbModels = {
     Translation: Translation;
     Word: Word;
     WordCategory: WordCategory;
+    WordCombination: WordCombination;
     WordMatrix: WordMatrix;
     SlugModelType: SlugModelType;
     Device: Device;
     Group: Group;
     PageVisit: PageVisit;
+    PaymentCoupon: PaymentCoupon;
+    PaymentEvent: PaymentEvent;
+    PaymentPlan: PaymentPlan;
+    PaymentSubscription: PaymentSubscription;
     PeerMessage: PeerMessage;
     Person: Person;
     Persona: Persona;
@@ -100,7 +110,7 @@ export declare type DbModels = {
     MediaPost: MediaPost;
     Postable: Postable;
 };
-export declare const dbModelKeys: readonly ["JeepType", "LocationType", "BundleConfig", "Dataset", "FunctionExecution", "OperationConfig", "OperationIndex", "PackageJson", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable"];
+export declare const dbModelKeys: readonly ["JeepType", "LocationType", "BundleConfig", "Dataset", "FunctionExecution", "OperationConfig", "OperationIndex", "PackageJson", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PaymentCoupon", "PaymentEvent", "PaymentPlan", "PaymentSubscription", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
     JeepType: {
@@ -206,6 +216,9 @@ export declare const modelQueryConfig: {
     WordCategory: {
         dbStorageMethod: string;
     };
+    WordCombination: {
+        dbStorageMethod: string;
+    };
     WordMatrix: {
         dbStorageMethod: string;
     };
@@ -219,6 +232,18 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     PageVisit: {
+        dbStorageMethod: string;
+    };
+    PaymentCoupon: {
+        dbStorageMethod: string;
+    };
+    PaymentEvent: {
+        dbStorageMethod: string;
+    };
+    PaymentPlan: {
+        dbStorageMethod: string;
+    };
+    PaymentSubscription: {
         dbStorageMethod: string;
     };
     PeerMessage: {

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264097016,
-  "updatedAt": 1666264097016,
+  "createdAt": 1668150721133,
+  "updatedAt": 1668150721133,
   "deletedAt": 0,
-  "createdFirstAt": 1666264097016,
+  "createdFirstAt": 1668150721133,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(frontmatter: Frontmatter) => {\n  const isApiExposed = frontmatter.isApiExposed === true;\n\n  const runEveryPeriod = runEveryPeriodStringArray.includes(\n    String(frontmatter.runEveryPeriod)\n  )\n    ? (String(frontmatter.runEveryPeriod) as RunEveryPeriodEnum)\n    : undefined;\n\n  const publicAuthorizationFrontmatter = Array.isArray(\n    frontmatter.publicAuthorization\n  )\n    ? frontmatter.publicAuthorization\n        .map(String)\n        .filter((text) => authorizationLevelStringArray.includes(text))\n        .map((string) => string as AuthorizationLevel)\n    : undefined;\n\n  // NB: by default, users are authorized to search and read docs\n  const publicAuthorization: AuthorizationLevel[] =\n    publicAuthorizationFrontmatter\n      ? publicAuthorizationFrontmatter\n      : [\"read-docs\", \"search\"];\n\n  const result: {\n    runEveryPeriod: TsFunction[\"runEveryPeriod\"];\n    publicAuthorization: TsFunction[\"publicAuthorization\"];\n    isApiExposed: TsFunction[\"isApiExposed\"];\n  } = { runEveryPeriod, publicAuthorization, isApiExposed };\n\n  return result;\n}",
+  "value": "(frontmatter: Frontmatter) => {\n  const isApiExposed = frontmatter.isApiExposed === true;\n\n  const runEveryPeriod = runEveryPeriodStringArray.includes(\n    String(frontmatter.runEveryPeriod)\n  )\n    ? (String(frontmatter.runEveryPeriod) as RunEveryPeriodEnum)\n    : undefined;\n\n  const publicAuthorizationFrontmatter = Array.isArray(\n    frontmatter.publicAuthorization\n  )\n    ? frontmatter.publicAuthorization\n        .map(String)\n        .filter((text) => authorizationLevelStringArray.includes(text))\n        .map((string) => string as AuthorizationLevel)\n    : undefined;\n\n  // NB: by default, users are authorized to search and read docs\n  const publicAuthorization: AuthorizationLevel[] =\n    publicAuthorizationFrontmatter\n      ? publicAuthorizationFrontmatter\n      : [\"read\", \"search\"];\n\n  const result: {\n    runEveryPeriod: TsFunction[\"runEveryPeriod\"];\n    publicAuthorization: TsFunction[\"publicAuthorization\"];\n    isApiExposed: TsFunction[\"isApiExposed\"];\n  } = { runEveryPeriod, publicAuthorization, isApiExposed };\n\n  return result;\n}",
   "description": "",
-  "id": "evvkdplfwiomldfjcyvrdvax"
+  "id": "ffsgtxlercqusssbkxvscpup"
 }

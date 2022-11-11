@@ -1,6 +1,6 @@
 # Run child process
 
-run-child-process (js operation)
+run-child-process (`OperationClassification` js)
 
 
 
@@ -22,10 +22,25 @@ spawns a child process and returns its output after it's done
 
 spawns a child process and returns its output after it's done
 
-# Internal
+# Tests
 
-<details><summary>Show internal (0)</summary>
-  
-  
+<details><summary>Show test information(3)</summary>
+    
+  # main()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 [argument] (unexported const)
+
+## 📄 main (unexported const)
+
   </details>
 

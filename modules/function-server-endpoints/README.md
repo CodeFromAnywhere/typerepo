@@ -1,6 +1,6 @@
 # Function server endpoints
 
-function-server-endpoints (node operation)
+function-server-endpoints (`OperationClassification` node)
 
 Wraps all functions found in `sdk-api` and creates `server` endpoints for them. Besides simply wrapping them into an endpoint, it also adds some extra layers to every function.
 
@@ -26,7 +26,7 @@ routes to post and execute operation functions
 # Internal
 
 <details><summary>Show internal (16)</summary>
-  
+    
   # calculateDeviceName()
 
 
@@ -74,7 +74,7 @@ TODO: make it possible to return result BEFORE storing cache and performance. we
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| device | `Device` |  |,| tsFunction | `TsFunction` |  |
 | **Output** | {  }   |    |
 
 

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666262507777,
-  "updatedAt": 1666262507777,
+  "createdAt": 1668149684608,
+  "updatedAt": 1668149684608,
   "deletedAt": 0,
-  "createdFirstAt": 1666262507777,
+  "createdFirstAt": 1668149684608,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-public-folder-nested-path-object",
   "operationRelativeTypescriptFilePath": "src/getPublicFolderNestedPathObject.ts",
   "type": {
-    "rawType": "() => Promise<import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/nested-menu/build/util/queryPathsArrayToNestedPathObject\").NestedPathObject | undefined>",
+    "rawType": "() => Promise<import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/nested-menu/build/NestedPathObject\").NestedPathObject | undefined>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (): Promise<\n  NestedPathObject | undefined\n> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  const publicFolderPath = path.join(projectRoot, \"public\");\n\n  const nestedPathObject = await getNestedPathObject(publicFolderPath);\n\n  return nestedPathObject;\n}",
   "description": "",
-  "id": "xpimxujjcnxpblznwhnnwjrl"
+  "id": "rktuyirmazznshsokvqegtkc"
 }

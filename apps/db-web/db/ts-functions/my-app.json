@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667634579763,
-  "updatedAt": 1667634579763,
+  "createdAt": 1668148769925,
+  "updatedAt": 1668148769925,
   "deletedAt": 0,
-  "createdFirstAt": 1667634579763,
+  "createdFirstAt": 1668148769925,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -41,5 +41,5 @@
   },
   "rawText": "\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  const router = useRouter();\n  const path = router.route.slice(1);\n  const pageKey = (path === \"\" ? \"index\" : path) as keyof typeof pagesObject;\n  const page = pages.find((x) => x.key === pageKey);\n  const title = page ? `${getPageTitle(page)} - Admin` : \"Admin\";\n\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>{title}</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      {/* <ToastContainer /> */}\n      <AlertProvider>\n        <ModalProvider>\n          <StoreProvider>\n            <Layout Component={Component} pageProps={pageProps} />\n          </StoreProvider>\n        </ModalProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
   "maxIndentationDepth": 6,
-  "id": "dhjuaadfeiohocsudiepydss"
+  "id": "mzfrwhxiaxygeldqewwvlzqn"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976849889,
-  "updatedAt": 1667976849889,
+  "createdAt": 1668154790585,
+  "updatedAt": 1668154790585,
   "deletedAt": 0,
-  "createdFirstAt": 1667976849889,
+  "createdFirstAt": 1668154790585,
   "id": "namedparameterstypeof-bundlefolderwithmarkdown",
   "name": "NamedParameters<typeof bundleFolderWithMarkdown>",
   "slug": "namedparameterstypeof-bundlefolderwithmarkdown",
@@ -20,17 +20,21 @@
         "outlineTitle": {
           "type": "string"
         },
-        "absoluteFolderPath": {
-          "type": "string"
+        "markdownStrings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "content of every markdown"
         },
-        "fileName": {
+        "resultFileName": {
           "type": "string",
           "description": "filename to include in the final MarkdownParse"
         }
       },
       "required": [
         "outlineTitle",
-        "absoluteFolderPath"
+        "markdownStrings"
       ],
       "additionalProperties": false
     },
@@ -44,14 +48,23 @@
           }
         },
         {
-          "name": "absoluteFolderPath",
+          "name": "markdownStrings",
           "required": true,
           "schema": {
-            "type": "string"
+            "fullComment": "content of every markdown",
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
           }
         },
         {
-          "name": "fileName",
+          "name": "resultFileName",
           "required": false,
           "schema": {
             "fullComment": "filename to include in the final MarkdownParse",

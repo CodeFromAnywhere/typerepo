@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635763380,
-  "updatedAt": 1667635763380,
+  "createdAt": 1668150643821,
+  "updatedAt": 1668150643821,
   "deletedAt": 0,
-  "createdFirstAt": 1667635763380,
+  "createdFirstAt": 1668150643821,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(moduleString: string | undefined) =>\n  moduleString ? !moduleString.startsWith(\".\") : false",
   "description": "",
-  "id": "ixgsjidlkxcxuamfehceflln"
+  "id": "mvdsodvspoipdgrkqjwrfvgw"
 }

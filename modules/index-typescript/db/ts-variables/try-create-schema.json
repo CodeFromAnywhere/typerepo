@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264083180,
-  "updatedAt": 1666264083180,
+  "createdAt": 1668150707646,
+  "updatedAt": 1668150707646,
   "deletedAt": 0,
-  "createdFirstAt": 1666264083180,
+  "createdFirstAt": 1668150707646,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  config: Config\n): { schema?: Schema; error?: string } => {\n  try {\n    const generator = createGenerator(config);\n    const schema: Schema = generator.createSchema(config.type);\n    return { schema };\n  } catch (e) {\n    return { error: String(e) };\n  }\n}",
   "description": "Try because sometimes generateSchema fails",
-  "id": "iyroiajzumkooxxnmniwphoc"
+  "id": "cufhiburptjtaercklfkveej"
 }

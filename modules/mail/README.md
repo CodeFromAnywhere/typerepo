@@ -1,6 +1,6 @@
 # Mail
 
-mail (node operation)
+mail (`OperationClassification` node)
 
 
 
@@ -29,7 +29,7 @@ Ensure your OS config is there
 # Internal
 
 <details><summary>Show internal (1)</summary>
-  
+    
   # 🔹 MailDataFromOptional
 
 From is optional for sending an email because it will be filled in by the OsConfig default.

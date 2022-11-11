@@ -1,6 +1,6 @@
 # Get imported dependencies
 
-get-imported-dependencies (node operation)
+get-imported-dependencies (`OperationClassification` node)
 
 
 
@@ -52,7 +52,7 @@ if it doesn't start with a dot it must be an absolute import so most likely a pa
 # Internal
 
 <details><summary>Show internal (2)</summary>
-  
+    
   # getPackage()
 
 only the first part

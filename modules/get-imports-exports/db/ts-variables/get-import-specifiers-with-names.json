@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635763380,
-  "updatedAt": 1667635763380,
+  "createdAt": 1668150643821,
+  "updatedAt": 1668150643821,
   "deletedAt": 0,
-  "createdFirstAt": 1667635763380,
+  "createdFirstAt": 1668150643821,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  sourceFile: SourceFile,\n  names: string[]\n) => {\n  return sourceFile\n    .getImportDeclarations()\n    .map((x) => x.getNamedImports())\n    .flat()\n    .filter((x) => names.includes(x.getName()));\n}",
   "description": "get the ImportSpecifier(s) of with a certain name.",
-  "id": "fchdghyohbzkopeowgjqevnp"
+  "id": "wzpauopknmxkwwwszquydevt"
 }

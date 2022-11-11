@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976850481,
-  "updatedAt": 1667976850481,
+  "createdAt": 1668154790884,
+  "updatedAt": 1668154790884,
   "deletedAt": 0,
-  "createdFirstAt": 1667976850481,
+  "createdFirstAt": 1668154790884,
   "publicAuthorization": [
     "read",
     "search"
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/bundleFolderWithMarkdown.ts",
   "commentsInside": [],
-  "rawText": " async (\n  outlineTitle: string,\n\n  absoluteFolderPath: string,\n  /**\n   * filename to include in the final MarkdownParse\n   */\n  fileName?: string\n): Promise<{ markdownParse: MarkdownParse; outlineString: string }> => {\n  const mdPaths = (\n    await explore({ basePath: absoluteFolderPath, extension: \"md\" })\n  ).map((x) => x.path);\n\n  const markdownParses = (\n    await Promise.all(mdPaths.map((mdPath) => readMarkdownFile(mdPath)))\n  ).filter(notEmpty);\n\n  const { merged, outline } = mergeMarkdownParse(markdownParses, fileName);\n  const outlineString = makeOutlineMarkdownString(outlineTitle, outline);\n\n  return { markdownParse: merged, outlineString };\n}",
+  "rawText": " async (\n  outlineTitle: string,\n  /**\n   * content of every markdown\n   */\n  markdownStrings: string[],\n  /**\n   * filename to include in the final MarkdownParse\n   */\n  resultFileName?: string\n): Promise<{ markdownParse: MarkdownParse; outlineString: string }> => {\n  // TODO: Optionally, wrap in `details` for every docs page\n\n  const markdownParses = markdownStrings.map((content) =>\n    mdToJsonParse(content)\n  );\n  const { merged, outline } = mergeMarkdownParse(\n    markdownParses,\n    resultFileName\n  );\n\n  // BUSY HERE\n\n  const outlineString = makeOutlineMarkdownString(outlineTitle, outline);\n\n  return { markdownParse: merged, outlineString };\n}",
   "name": "bundleFolderWithMarkdown",
   "slug": "bundle-folder-with-markdown",
   "parameters": [
@@ -28,17 +28,30 @@
       "required": true
     },
     {
-      "name": "absoluteFolderPath",
+      "name": "markdownStrings",
       "schema": {
-        "type": "string"
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "content of every markdown"
       },
       "simplifiedSchema": {
-        "type": "string"
+        "fullComment": "content of every markdown",
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
       },
       "required": true
     },
     {
-      "name": "fileName",
+      "name": "resultFileName",
       "schema": {
         "type": "string",
         "description": "filename to include in the final MarkdownParse"
@@ -50,7 +63,7 @@
       "required": false
     }
   ],
-  "description": "finds all md files in a folder and creates a single MarkdownParse\n\nhandy for creating a single documentation file or other things that have to include multiple markdown files in a structured way\n\nNB: it recursively structures the files and folders with headings",
+  "description": "Finds all md files in a folder and creates a single MarkdownParse\n\nhandy for creating a single documentation file or other things that have to include multiple markdown files in a structured way\n\nNB: it recursively structures the files and folders with headings",
   "returnType": {
     "rawType": "Promise<{ markdownParse: import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse; outlineString: string; }>",
     "typeCoverage": 0,
@@ -62,13 +75,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 922,
-    "lines": 26,
-    "bytes": 922,
+    "characters": 919,
+    "lines": 31,
+    "bytes": 919,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 35,
-    "linesPerFile": 26,
+    "charactersPerLine": 30,
+    "linesPerFile": 31,
     "numberOfFiles": 1
   },
-  "id": "nhedsvnyxznmayscjikyhxtu"
+  "id": "gibbcuppgesaqwowfiywcuwg"
 }

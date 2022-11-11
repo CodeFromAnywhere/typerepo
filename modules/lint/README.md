@@ -1,6 +1,6 @@
 # Lint
 
-lint (node operation)
+lint (`OperationClassification` node)
 
 
 
@@ -37,11 +37,4 @@ Plan:
 2) later integrate this into vscode, i'm sure this is how it's done
 
 this lint can be done before indexation
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

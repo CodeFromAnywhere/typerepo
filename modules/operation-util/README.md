@@ -1,6 +1,6 @@
 # Operation util
 
-operation-util (js operation)
+operation-util (`OperationClassification` js)
 
 Operation with utility functions to calculate things about operations and alter operation-index.
 
@@ -40,7 +40,7 @@ relies on import index
 # Internal
 
 <details><summary>Show internal (5)</summary>
-  
+    
   # getDependenciesSummary()
 
 

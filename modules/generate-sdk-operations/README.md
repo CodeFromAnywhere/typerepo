@@ -1,6 +1,6 @@
 # Generate sdk operations
 
-generate-sdk-operations (node operation)
+generate-sdk-operations (`OperationClassification` node)
 
 This operation contains different functions to generate all possible sdk operations according to the King OS convention.
 
@@ -9,18 +9,13 @@ Ensure to apply all King OS conventions when generating these operations, becaus
 
 
 
-## Docs
-
-- [README](#readme)
-
-
-
 # Docs
 
-## README
+<details><summary>README.md</summary>
+    
+  The functions in this package helps you to automate the dull task of generating your SDK files and operation. Every time you create a function or interface (or something else), you can update the SDK's by running `generateSdkOperations`. It's in the bin, just run `npx generateSdkOperations`
 
-The functions in this package helps you to automate the dull task of generating your SDK files and operation. Every time you create a function or interface (or something else), you can update the SDK's by running `generateSdkOperations`. It's in the bin, just run `npx generateSdkOperations`
-
+  </details>
 
 # Api reference
 
@@ -31,7 +26,7 @@ The functions in this package helps you to automate the dull task of generating 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| bundleConfig (optional) | `BundleConfig` | if not provided, will not generate env-sdks |,| config (optional) | { yarnInstallBefore?: boolean, <br />yarnInstallAfter?: boolean, <br />manualProjectRoot?: string, <br />dryrun?: boolean, <br /> } |  |
 | **Output** |    |    |
 
 
@@ -40,11 +35,11 @@ The functions in this package helps you to automate the dull task of generating 
 
 (re)generates all sdk operations for any project
 
-# Internal
+# CLI
 
-<details><summary>Show internal (26)</summary>
-  
-  # generateDbSdk()
+<details><summary>Show CLI information (10)</summary>
+    
+  # generateDbSdkCli()
 
 
 
@@ -52,6 +47,90 @@ The functions in this package helps you to automate the dull task of generating 
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
+| **Output** |    |    |
+
+
+
+## generateEnvSdksCli()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## generateFunctionSdksCli()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## generateOperationsSdkCli()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## generateSdkOperationsCli()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 generateDbSdkCli (unexported const)
+
+## 📄 generateEnvSdksCli (unexported const)
+
+## 📄 generateFunctionSdksCli (unexported const)
+
+## 📄 generateOperationsSdkCli (unexported const)
+
+## 📄 generateSdkOperationsCli (unexported const)
+
+  </details>
+
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # test()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 test (unexported const)
+
+  </details>
+
+# Internal
+
+<details><summary>Show internal (26)</summary>
+    
+  # generateDbSdk()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
 | **Output** |    |    |
 
 

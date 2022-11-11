@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666260895275,
-  "updatedAt": 1666260895275,
+  "createdAt": 1668149193510,
+  "updatedAt": 1668149193510,
   "deletedAt": 0,
-  "createdFirstAt": 1666260895275,
+  "createdFirstAt": 1668149193510,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  operationString: string,\n  parameters: string[] | undefined\n) => {\n  const sdkOperation = operationString as keyof typeof sdk;\n  const operationFunction = sdk[sdkOperation];\n\n  if (typeof operationFunction === \"function\") {\n    const result = parameters\n      ? // @ts-ignore\n        operationFunction(...parameters)\n      : // @ts-ignore\n        operationFunction();\n\n    return result;\n  } else {\n    log(`Could not find ${operationString}`, { type: \"error\" });\n  }\n}",
   "description": "",
-  "id": "rlhendvoaiebvvnoopdzwhpy"
+  "id": "jbrefrijbvgyaixlzkfxxfbl"
 }

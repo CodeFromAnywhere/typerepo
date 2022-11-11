@@ -1,15 +1,15 @@
 {
-  "createdAt": 1667976868227,
-  "updatedAt": 1667976868227,
+  "createdAt": 1668154784664,
+  "updatedAt": 1668154784664,
   "deletedAt": 0,
-  "createdFirstAt": 1667976868227,
+  "createdFirstAt": 1668154784664,
   "id": "dependantcountobject",
   "name": "DependantCountObject",
   "slug": "dependantcountobject",
-  "operationRelativeTypescriptFilePath": "src/operationToMarkdown.ts",
+  "operationRelativeTypescriptFilePath": "src/DependantCountObject.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * interface that lets us count the amount of dependant files in different item types\n */\nexport type DependantCountObject = {\n  tsFunction?: TsFunction;\n  tsInterface?: TsInterface;\n  tsVariable?: TsVariable;\n  externalDependantFiles: string[];\n};",
+  "rawText": "\n\n/**\n * interface that lets us count the amount of dependant files in different item types\n */\nexport type DependantCountObject = {\n  externalDependantFiles: string[];\n} & StatementItem;",
   "extensions": [],
   "isOperationIndex": false,
   "description": "interface that lets us count the amount of dependant files in different item types",
@@ -18,6 +18,7 @@
   "type": {
     "typeDefinition": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "tsFunction": {
           "$ref": "#/definitions/TsFunction"
@@ -38,7 +39,6 @@
       "required": [
         "externalDependantFiles"
       ],
-      "additionalProperties": false,
       "description": "interface that lets us count the amount of dependant files in different item types"
     },
     "simplifiedSchema": {
@@ -2114,7 +2114,7 @@
                 "name": "price",
                 "required": false,
                 "schema": {
-                  "fullComment": "Indexed from frontmatter `price`",
+                  "fullComment": "Indexed from frontmatter `price`\n\nTLDR;EUROS\n\nA price is a number indicating the relative cost. Absolute cost is calculated by many other factors\n\nFor now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.\n\nLater we can add all kinds of extra conversion:\n\n- currency support\n- king os currency\n- lower cost for poorer people\n\netc...\n\nFirst we need to start making sales before we can add such complexity.\n\n",
                   "type": "number"
                 }
               }

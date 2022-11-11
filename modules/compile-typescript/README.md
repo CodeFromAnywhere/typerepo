@@ -1,15 +1,28 @@
 # Compile typescript
 
-compile-typescript (js operation)
+compile-typescript (`OperationClassification` js)
 
 
 
 # Api reference
 
+# CLI
+
+<details><summary>Show CLI information (1)</summary>
+    
+  # 📄 [
+  operationBasePath,
+  operationManualProjectRoot,
+  typerepoManualProjectRoot,
+] (unexported const)
+
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (5)</summary>
-  
+    
   # getCompileErrors()
 
 gets compileErrors of an operation. if it has no errors, it also check all dependants to see if they have errors, possibly because we changed this one

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666262499187,
-  "updatedAt": 1666262499187,
+  "createdAt": 1668149675123,
+  "updatedAt": 1668149675123,
   "deletedAt": 0,
-  "createdFirstAt": 1666262499187,
+  "createdFirstAt": 1668149675123,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (): Promise<AppOperation[]> => {\n  const operationConfigs = await db.get(\"OperationConfig\");\n  const appOperations = (await db.get(\"PackageJson\"))\n    .filter((packageJson) => !!packageJson.sensible?.appPort)\n    .map((packageJson) => {\n      if (!packageJson.name || !packageJson.sensible?.appPort) return;\n\n      const operationConfig = operationConfigs.find(\n        (x) => x.operationName === packageJson.operationName\n      );\n      const description = operationConfig?.markdown || packageJson.description;\n      return {\n        name: packageJson.name,\n        port: packageJson.sensible?.appPort,\n        description,\n        emoji: getFirstEmoji(description),\n      };\n    })\n    .filter(notEmpty)\n    .sort((a, b) => {\n      if (a.port < b.port) return -1;\n      return 1;\n    });\n\n  const appOperationsWithOnline: AppOperation[] = await Promise.all(\n    appOperations.map(async (appOperation) => {\n      const isOnline = await isPortUsed(appOperation.port);\n      const newAppOperation: AppOperation = {\n        ...appOperation,\n        isOnline,\n      };\n      return newAppOperation;\n    })\n  );\n\n  return appOperationsWithOnline;\n}",
+  "value": "async (): Promise<AppOperation[]> => {\n  const operationConfigs = await db.get(\"OperationConfig\");\n  const appOperations = (await db.get(\"PackageJson\"))\n    .filter(\n      (packageJson) =>\n        packageJson.name && Object.keys(ports).includes(packageJson.name)\n    )\n    .map((packageJson) => {\n      const operationConfig = operationConfigs.find(\n        (x) => x.operationName === packageJson.operationName\n      );\n      const description = operationConfig?.markdown || packageJson.description;\n      return {\n        name: packageJson.name!,\n        port: ports[packageJson.name as keyof typeof ports],\n        description,\n        emoji: getFirstEmoji(description),\n      };\n    })\n    .sort((a, b) => {\n      if (a.port < b.port) return -1;\n      return 1;\n    });\n\n  const appOperationsWithOnline: AppOperation[] = await Promise.all(\n    appOperations.map(async (appOperation) => {\n      const isOnline = await isPortUsed(appOperation.port);\n      const newAppOperation: AppOperation = {\n        ...appOperation,\n        isOnline,\n      };\n      return newAppOperation;\n    })\n  );\n\n  return appOperationsWithOnline;\n}",
   "description": "Gets all app operations from all packageJsons from the database. Adds `isOnline` to it on the fly by checking if it can connect to the port or not",
-  "id": "dlauvxkvqrxokmpscbykpyum"
+  "id": "dqneaeadjbwvknwgmjluwtjc"
 }

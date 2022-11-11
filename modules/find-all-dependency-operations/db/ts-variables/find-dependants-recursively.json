@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263852526,
-  "updatedAt": 1666263852526,
+  "createdAt": 1668150464363,
+  "updatedAt": 1668150464363,
   "deletedAt": 0,
-  "createdFirstAt": 1666263852526,
+  "createdFirstAt": 1668150464363,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  operationName: string,\n  already?: string[]\n): Promise<string[]> => {\n  const dependantOperationNames = await findDependants({\n    returnOperationName: true,\n    operationName,\n  });\n\n  const dependantsUntilNow = [\n    operationName,\n    ...dependantOperationNames,\n    ...(already || []),\n  ];\n\n  const recursedDependants: string[] =\n    dependantOperationNames.length > 0\n      ? (\n          await Promise.all(\n            dependantOperationNames.map((name) =>\n              findDependantsRecursively(name, dependantsUntilNow)\n            )\n          )\n        ).flat()\n      : [];\n\n  return [...dependantsUntilNow, ...recursedDependants].filter(onlyUnique2());\n}",
   "description": "",
-  "id": "moxnbgwrimzqjzwehlmjrpwh"
+  "id": "dyvqocrzoatkhdcutwzxdehq"
 }

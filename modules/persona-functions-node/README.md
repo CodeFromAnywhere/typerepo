@@ -1,6 +1,6 @@
 # Persona functions node
 
-persona-functions-node (node operation)
+persona-functions-node (`OperationClassification` node)
 
 
 
@@ -16,11 +16,4 @@ persona-functions-node (node operation)
 
 
 ## 📄 getPrimaryPersona (exported const)
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

@@ -1,6 +1,6 @@
 # Himalayajeep types
 
-himalayajeep-types (node operation)
+himalayajeep-types (`OperationClassification` node)
 
 
 
@@ -142,7 +142,7 @@ Properties:
 # Internal
 
 <details><summary>Show internal (1)</summary>
-  
+    
   # 🔸 LocationType
 
 jsonMultiple model

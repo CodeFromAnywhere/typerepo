@@ -1,6 +1,6 @@
 # Function form
 
-function-form (js operation)
+function-form (`OperationClassification` js)
 
 Component that lets you easily create a frontend form for any function in your project (both backend and frontend functions)
 
@@ -9,7 +9,7 @@ Component that lets you easily create a frontend form for any function in your p
 
 # Api reference
 
-## <FunctionForm />
+## `<FunctionForm />`
 
 FunctionForm is a very easy way to create a frontend component that is connected with an api that is connected with a function on your backend (that can do anything)
 
@@ -36,11 +36,4 @@ All you need to provide is a `TsFunction`
 This component only works if your `api` is up-to-date and your function is succesfully indexed using `typerepo`. For authentication, the `api` convention is used. See the `api` docs.
 
 @see TsFunction
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

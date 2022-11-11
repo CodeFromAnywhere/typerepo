@@ -1,6 +1,6 @@
 {
   "createdAt": 1664526158645,
-  "updatedAt": 1667634834963,
+  "updatedAt": 1668149104538,
   "deletedAt": 0,
   "createdFirstAt": 1664526158645,
   "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/api/function-server-endpoints/src/upsertDevice.ts. Error: Error: Unknown node \\\"this\\\" of kind \\\"ThisType\\\"\"]",
@@ -32,6 +32,7 @@
     "getApiKeys",
     "Authorization",
     "TsFunction",
+    "notEmpty",
     "Device",
     "PerformanceItem",
     "TsFunction",
@@ -68,24 +69,24 @@
     "codeSize": {
       "numberOfFiles": 11,
       "lines": 0,
-      "characters": 14276,
-      "bytes": 14276
+      "characters": 14465,
+      "bytes": 14465
     },
     "dataSize": {
       "numberOfFiles": 2,
       "lines": 0,
-      "characters": 2010,
-      "bytes": 2010
+      "characters": 1922,
+      "bytes": 1922
     },
     "textSize": {
       "numberOfFiles": 2,
       "lines": 0,
-      "characters": 5225,
-      "bytes": 5225
+      "characters": 4224,
+      "bytes": 4224
     },
     "size": {
-      "bytes": 21511,
-      "characters": 21511,
+      "bytes": 20611,
+      "characters": 20611,
       "lines": 0,
       "numberOfFiles": 15
     }

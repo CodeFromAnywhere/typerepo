@@ -33,11 +33,16 @@ import type { TokiPonaMatrix } from "language-types";
 import type { Translation } from "language-types";
 import type { Word } from "language-types";
 import type { WordCategory } from "language-types";
+import type { WordCombination } from "language-types";
 import type { WordMatrix } from "language-types";
 import type { SlugModelType } from "model-types";
 import type { Device } from "peer-types";
 import type { Group } from "peer-types";
 import type { PageVisit } from "peer-types";
+import type { PaymentCoupon } from "peer-types";
+import type { PaymentEvent } from "peer-types";
+import type { PaymentPlan } from "peer-types";
+import type { PaymentSubscription } from "peer-types";
 import type { PeerMessage } from "peer-types";
 import type { Person } from "peer-types";
 import type { Persona } from "peer-types";
@@ -52,8 +57,8 @@ import type { MediaPost } from "social-media-types";
 import type { Postable } from "social-media-types";
 
 
-export type DbModels = { JeepType: JeepType,LocationType: LocationType,BundleConfig: BundleConfig,Dataset: Dataset,FunctionExecution: FunctionExecution,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,SocialMediaCallToAction: SocialMediaCallToAction,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,WebMarkdownFile: WebMarkdownFile,WebsiteCallToAction: WebsiteCallToAction,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordMatrix: WordMatrix,SlugModelType: SlugModelType,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,Postable: Postable };
-export const dbModelKeys = [ "JeepType","LocationType","BundleConfig","Dataset","FunctionExecution","OperationConfig","OperationIndex","PackageJson","SocialMediaCallToAction","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","WebMarkdownFile","WebsiteCallToAction","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordMatrix","SlugModelType","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","Interest","MediaChannel","MediaCredentail","MediaPost","Postable" ] as const;
+export type DbModels = { JeepType: JeepType,LocationType: LocationType,BundleConfig: BundleConfig,Dataset: Dataset,FunctionExecution: FunctionExecution,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,SocialMediaCallToAction: SocialMediaCallToAction,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,WebMarkdownFile: WebMarkdownFile,WebsiteCallToAction: WebsiteCallToAction,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,SlugModelType: SlugModelType,Device: Device,Group: Group,PageVisit: PageVisit,PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentSubscription: PaymentSubscription,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,Postable: Postable };
+export const dbModelKeys = [ "JeepType","LocationType","BundleConfig","Dataset","FunctionExecution","OperationConfig","OperationIndex","PackageJson","SocialMediaCallToAction","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","WebMarkdownFile","WebsiteCallToAction","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","SlugModelType","Device","Group","PageVisit","PaymentCoupon","PaymentEvent","PaymentPlan","PaymentSubscription","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","Interest","MediaChannel","MediaCredentail","MediaPost","Postable" ] as const;
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
     JeepType: {
@@ -188,6 +193,10 @@ WordCategory: {
           dbStorageMethod: "jsonMultiple",
           
         },
+WordCombination: {
+          dbStorageMethod: "jsonMultiple",
+          
+        },
 WordMatrix: {
           dbStorageMethod: "jsonMultiple",
           
@@ -205,6 +214,22 @@ Group: {
           
         },
 PageVisit: {
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+PaymentCoupon: {
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+PaymentEvent: {
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+PaymentPlan: {
+          dbStorageMethod: "markdown",
+          
+        },
+PaymentSubscription: {
           dbStorageMethod: "jsonMultiple",
           
         },

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667378998490,
-  "updatedAt": 1667378998490,
+  "createdAt": 1668149026628,
+  "updatedAt": 1668149026628,
   "deletedAt": 0,
-  "createdFirstAt": 1667378998490,
+  "createdFirstAt": 1668149026628,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (tsFunction: TsFunction) => {\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n}",
   "description": "",
-  "id": "mdnqkbxsoghtxyhfzbromzad"
+  "id": "tauzhbvkwbomqwmckwretfsb"
 }

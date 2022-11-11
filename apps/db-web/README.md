@@ -1,6 +1,6 @@
 # Db web
 
-db-web (web operation)
+db-web (`OperationClassification` web)
 
 
 ## 🗄 db-web
@@ -15,7 +15,7 @@ Wraps `db-ui` to expose it on a next.js react website for in the browser.
 # Internal
 
 <details><summary>Show internal (3)</summary>
-  
+    
   # getStaticProps()
 
 
@@ -28,7 +28,7 @@ Wraps `db-ui` to expose it on a next.js react website for in the browser.
 
 
 
-## <MyApp />
+## `<MyApp />`
 
 | Input      |    |    |
 | ---------- | -- | -- |

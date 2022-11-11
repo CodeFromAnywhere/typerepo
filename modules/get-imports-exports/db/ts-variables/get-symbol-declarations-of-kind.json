@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635763380,
-  "updatedAt": 1667635763380,
+  "createdAt": 1668150643821,
+  "updatedAt": 1668150643821,
   "deletedAt": 0,
-  "createdFirstAt": 1667635763380,
+  "createdFirstAt": 1668150643821,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "<T>(symbol: Symbol, kind: SyntaxKind) => {\n  const declarations = symbol\n    .getDeclarations()\n    .filter((x) => x.getKind() === kind)\n    .map((x) => x.asKind(kind))\n    .filter(notEmpty) as unknown as T[];\n\n  return declarations;\n}",
   "description": "",
-  "id": "onpnxnzlnmqlpjqcoatotoeg"
+  "id": "cuuczgvzxzydvjxzxadmplaj"
 }

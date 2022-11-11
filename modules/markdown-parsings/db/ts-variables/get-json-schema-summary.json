@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976864446,
-  "updatedAt": 1667976864446,
+  "createdAt": 1668154807483,
+  "updatedAt": 1668154807483,
   "deletedAt": 0,
-  "createdFirstAt": 1667976864446,
+  "createdFirstAt": 1668154807483,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  schema: JSONSchema7 | undefined,\n  isMarkdown: boolean\n) => {\n  if (!schema) return;\n\n  const typeDescriptor = getTypeDescriptorRecursive(schema, isMarkdown);\n\n  return {\n    typeDescriptor,\n    description: schema.description,\n  };\n}",
   "description": "Generates short markdown summary",
-  "id": "vuaypbakklaetjnrrzqipadl"
+  "id": "tnnsksfhzbsuvcdnsqjuhzpd"
 }

@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667634703399,
-  "updatedAt": 1667634703399,
+  "createdAt": 1668148903480,
+  "updatedAt": 1668148903480,
   "deletedAt": 0,
-  "createdFirstAt": 1667634703399,
+  "createdFirstAt": 1668148903480,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getBundleSummary.ts",
   "commentsInside": [],
-  "rawText": " (bundleConfig: BundleConfig): BundleSummary => {\n  const operationsPath = getRootPath(\"operations\");\n  const bundlesPath = operationsPath\n    ? path.join(operationsPath, \"niches\")\n    : undefined;\n\n  const foldersFromRepo = bundlesPath\n    ? bundleConfig.createBundleConfig.foldersFromRepo?.map((x) =>\n        path.join(bundlesPath, kebabCase(bundleConfig.name), x)\n      )\n    : undefined;\n\n  // const filesAndFoldersToInclude = [\n  //   // ...(foldersFromRepo || []),\n  //   bundleConfig.readmeRelativeFilePath,\n  //   bundleConfig.docsRelativeFolderPath,\n  // ].filter(notEmpty);\n\n  const appNames = bundleConfig.createBundleConfig.bundles\n    .map((x) => {\n      const frontendOperationNames = makeArray(\n        x.appShellOperationNames,\n        x.serverOperationName\n      );\n\n      return frontendOperationNames;\n    })\n    .flat()\n    .filter(onlyUnique2());\n\n  const uiOperationNames = makeArray(\n    bundleConfig.createBundleConfig.bundles\n      .map((x) => x.uiOperationName)\n      .filter(notEmpty)\n  );\n\n  const bundlePublicOperationNames = bundleConfig.createBundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"public\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n  const bundlePrivateOperationNames = bundleConfig.createBundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"private\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n\n  const packageNames = bundleConfig.createBundleConfig.dependencies\n    .filter((x) => x.privacy === \"public\")\n    .map((x) => x.operationName)\n    .concat(uiOperationNames)\n    .concat(bundlePublicOperationNames)\n    .filter(onlyUnique2());\n\n  const moduleNames = bundleConfig.createBundleConfig.dependencies\n    .filter((x) => x.privacy === \"private\")\n    .map((x) => x.operationName)\n    .concat(bundlePrivateOperationNames)\n    .filter(onlyUnique2());\n\n  const summary: BundleSummary = {\n    // filesAndFoldersToInclude,\n    packageNames,\n    moduleNames,\n    appNames,\n  };\n\n  // console.dir({ summary, bundleConfig }, { depth: 999 });\n\n  return summary;\n}",
+  "rawText": " (bundleConfig: BundleConfig): BundleSummary => {\n  const operationsPath = getRootPath(\"operations\");\n  const bundlesPath = operationsPath\n    ? path.join(operationsPath, \"niches\")\n    : undefined;\n\n  const foldersFromRepo = bundlesPath\n    ? bundleConfig.createBundleConfig.foldersFromRepo?.map((x) =>\n        path.join(bundlesPath, kebabCase(bundleConfig.name), x)\n      )\n    : undefined;\n\n  // const filesAndFoldersToInclude = [\n  //   // ...(foldersFromRepo || []),\n  //   bundleConfig.readmeRelativeFilePath,\n  //   bundleConfig.docsRelativeFolderPath,\n  // ].filter(notEmpty);\n\n  const appNames = bundleConfig.createBundleConfig.bundles\n    .map((x) => {\n      const frontendOperationNames = makeArray(\n        x.appShellOperationNames,\n        x.serverOperationName\n      );\n\n      return frontendOperationNames;\n    })\n    .flat()\n    .filter(onlyUnique2());\n\n  const uiOperationNames = makeArray(\n    bundleConfig.createBundleConfig.bundles\n      .map((x) => x.uiOperationName)\n      .filter(notEmpty)\n  );\n\n  const bundlePublicOperationNames = bundleConfig.createBundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"public\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n  const bundlePrivateOperationNames = bundleConfig.createBundleConfig.bundles\n    .map(\n      (x) =>\n        x.operations\n          ?.filter((x) => x.privacy === \"private\")\n          .map((x) => x.operationName) || []\n    )\n    .flat();\n\n  const packageNames =\n    bundleConfig.createBundleConfig.dependencies\n      ?.filter((x) => x.privacy === \"public\")\n      .map((x) => x.operationName)\n      .concat(uiOperationNames)\n      .concat(bundlePublicOperationNames)\n      .filter(onlyUnique2()) || [];\n\n  const moduleNames =\n    bundleConfig.createBundleConfig.dependencies\n      ?.filter((x) => x.privacy === \"private\")\n      .map((x) => x.operationName)\n      .concat(bundlePrivateOperationNames)\n      .filter(onlyUnique2()) || [];\n\n  const summary: BundleSummary = {\n    // filesAndFoldersToInclude,\n    packageNames,\n    moduleNames,\n    appNames,\n  };\n\n  // console.dir({ summary, bundleConfig }, { depth: 999 });\n\n  return summary;\n}",
   "name": "getBundleSummary",
   "slug": "get-bundle-summary",
   "parameters": [
@@ -222,13 +222,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 2234,
-    "lines": 77,
-    "bytes": 2234,
+    "characters": 2274,
+    "lines": 79,
+    "bytes": 2274,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
-    "linesPerFile": 77,
+    "linesPerFile": 79,
     "numberOfFiles": 1
   },
-  "id": "fpymkukyckuryhzrtpfxtbtl"
+  "id": "ovegrgxcghnhtsolbzorhpox"
 }

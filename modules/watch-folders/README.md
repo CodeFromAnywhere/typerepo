@@ -1,6 +1,6 @@
 # Watch folders
 
-watch-folders (node operation)
+watch-folders (`OperationClassification` node)
 
 General purpose functions to watch folder(s) for changes on any operating system
 
@@ -26,7 +26,7 @@ based on your os, pick either chokidar or fswatch
 # Internal
 
 <details><summary>Show internal (9)</summary>
-  
+    
   # initiateWatch()
 
 

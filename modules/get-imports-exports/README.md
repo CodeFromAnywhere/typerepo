@@ -1,15 +1,55 @@
 # Get imports exports
 
-get-imports-exports (node operation)
+get-imports-exports (`OperationClassification` node)
 
 
 
 # Api reference
 
+# CLI
+
+<details><summary>Show CLI information (1)</summary>
+    
+  # 📄 [operationBasePath, manualProjectRoot] (unexported const)
+
+
+  </details>
+
+# Tests
+
+<details><summary>Show test information(4)</summary>
+    
+  # getImportsExportsTest()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## test()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 getImportsExportsTest (exported const)
+
+## 📄 test (exported const)
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (31)</summary>
-  
+    
   # calculatePackageJsonDependencies()
 
 Calculates new packageJson dependencies object based on imports found in the whole operation.

@@ -1,6 +1,6 @@
 # All
 
-all (node operation)
+all (`OperationClassification` node)
 
 This operation contains a lot of different functions that can help you to execute different things on all operations.
 
@@ -37,10 +37,49 @@ executes a command or callback in every folder of a certain type. Supports git r
 
 ## 📄 removeAllFolders (exported const)
 
+# CLI
+
+<details><summary>Show CLI information (7)</summary>
+    
+  # removeAllFoldersCli()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 [debug] (unexported const)
+
+## 📄 [folderName, basePath] (unexported const)
+
+## 📄 removeAllFoldersCli (unexported const)
+
+## 📄 [script, startIndex] (unexported const)
+
+## 📄 [search] (unexported const)
+
+## 📄 [type, command, fileName, basePath, folderName, shellString] (unexported const)
+
+  </details>
+
+# Tests
+
+<details><summary>Show test information(1)</summary>
+    
+  # 📄 test (exported const)
+
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (31)</summary>
-  
+    
   # allOperationsRemoveJsSrc()
 
 BEWARE! This removes all .d.ts, .js, and .d.ts.map files in your source folder!

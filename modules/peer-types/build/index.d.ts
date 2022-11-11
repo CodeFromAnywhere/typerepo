@@ -4,6 +4,7 @@ export * from "./Device";
 export * from "./Group";
 export * from "./IPInfo";
 export * from "./PageVisit";
+export * from "./Payment";
 export * from "./Person";
 export * from "./PersonInformation";
 export * from "./PersonInformationValue";

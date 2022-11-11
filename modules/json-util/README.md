@@ -1,6 +1,6 @@
 # Json util
 
-json-util (js operation)
+json-util (`OperationClassification` js)
 
 
 
@@ -23,11 +23,4 @@ stringifies simple json things if the json is one of them, otherwise returns und
 ## 📄 getSimpleJsonString (exported const)
 
 stringifies simple json things if the json is one of them, otherwise returns undefined
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

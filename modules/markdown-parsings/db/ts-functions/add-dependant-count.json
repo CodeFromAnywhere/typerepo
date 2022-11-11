@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976868826,
-  "updatedAt": 1667976868826,
+  "createdAt": 1668154789421,
+  "updatedAt": 1668154789421,
   "deletedAt": 0,
-  "createdFirstAt": 1667976868826,
+  "createdFirstAt": 1668154789421,
   "publicAuthorization": [
     "read",
     "search"
@@ -10,8 +10,8 @@
   "isApiExposed": false,
   "isPostApi": false,
   "isGetApi": false,
-  "isExported": false,
-  "operationRelativeTypescriptFilePath": "src/operationToMarkdown.ts",
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/addDependantCount.ts",
   "commentsInside": [],
   "rawText": "\n  (type: \"tsFunction\" | \"tsVariable\" | \"tsInterface\", imports: TsImport[]) =>\n  async (\n    item: TsFunction | TsVariable | TsInterface\n  ): Promise<DependantCountObject> => {\n    return {\n      [type]: item,\n      externalDependantFiles: item.operationName\n        ? await findDependants({\n            operationName: item.operationName,\n            importName: item.name,\n            imports,\n            onlyExternal: true,\n          })\n        : [],\n    } as DependantCountObject;\n  }",
   "name": "addDependantCount",
@@ -186,7 +186,7 @@
   ],
   "description": "Double arrow function to get the count for the item",
   "returnType": {
-    "rawType": "(item: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction | import(\"/Users/king/King/operations/tools/types/code-types/build/TsVariable\").TsVariable | import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface) => Promise<import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/markdown-parsings/src/operationToMarkdown\").DependantCountObject>",
+    "rawType": "(item: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction | import(\"/Users/king/King/operations/tools/types/code-types/build/TsVariable\").TsVariable | import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface) => Promise<import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/markdown-parsings/src/DependantCountObject\").DependantCountObject>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -213,5 +213,5 @@
     "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "ptjvkdtyxnxsngsuqpoanrbj"
+  "id": "rwljdsvmkhhaeposfupcfwmr"
 }

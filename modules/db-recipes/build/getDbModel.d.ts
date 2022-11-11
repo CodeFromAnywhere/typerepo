@@ -1,5 +1,8 @@
 import { DbModels, DbModelEnum } from "sdk-db";
 import { TsInterface } from "code-types";
+/**
+ * Can be better, see https://www.w3schools.com/js/js_comparisons.asp
+ */
 export declare type DataFilter = {
     objectParameterKey: string;
     value: string | number | boolean | null | undefined;

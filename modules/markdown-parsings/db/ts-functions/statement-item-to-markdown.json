@@ -1,0 +1,66 @@
+{
+  "createdAt": 1668154830884,
+  "updatedAt": 1668154830884,
+  "deletedAt": 0,
+  "createdFirstAt": 1668154830884,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/statementItemToMarkdown.ts",
+  "commentsInside": [],
+  "rawText": " (\n  statementItem: StatementItem\n): string | undefined => {\n  if (statementItem.tsFunction) {\n    return tsFunctionToMarkdownString(statementItem.tsFunction);\n  }\n\n  if (statementItem.tsInterface) {\n    return tsInterfaceToMarkdownString(statementItem.tsInterface);\n  }\n\n  if (statementItem.tsVariable) {\n    return tsVariableToMarkdownString(statementItem.tsVariable);\n  }\n}",
+  "name": "statementItemToMarkdown",
+  "slug": "statement-item-to-markdown",
+  "parameters": [
+    {
+      "name": "statementItem",
+      "schema": {
+        "$ref": "#/definitions/StatementItem"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "string | undefined",
+    "typeDefinition": {
+      "optional": true,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 376,
+    "lines": 15,
+    "bytes": 376,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "vuofjfgmaxeapqgeooqppcnr"
+}

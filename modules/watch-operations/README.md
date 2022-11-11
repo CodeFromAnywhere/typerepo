@@ -1,23 +1,17 @@
 # Watch operations
 
-watch-operations (node operation)
+watch-operations (`OperationClassification` node)
 
 Calls rebuildOperation for every filechange in every operation watched
 
 
 
 
-## Docs
-
-- [Cleanup](#cleanup)
-
-
-
 # Docs
 
-## Cleanup
-
-### Cleanup
+<details><summary>cleanup.md</summary>
+    
+  # Cleanup
 
 If you want to clean up your operations, you can do the following:
 
@@ -27,13 +21,34 @@ If you want to clean up your operations, you can do the following:
 
 If you don't have these cli's, make sure to install them first.
 
+  </details>
 
 # Api reference
+
+# CLI
+
+<details><summary>Show CLI information (2)</summary>
+    
+  # main()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 main (unexported const)
+
+  </details>
 
 # Internal
 
 <details><summary>Show internal (6)</summary>
-  
+    
   # exitIfOperationsChange()
 
 every 5 seconds compares if the operationsourcepaths have changed. If so, exits the process

@@ -1,6 +1,6 @@
 # Minify build
 
-minify-build (node operation)
+minify-build (`OperationClassification` node)
 
 
 
@@ -25,10 +25,12 @@ takes an operation name or build folder path, then explores all ts files in src 
 
 takes an operation name or build folder path, then explores all ts files in src folder, finds the matching js file in the build folder, and executes terser from dependency, not from cli
 
-# Internal
+# CLI
 
-<details><summary>Show internal (0)</summary>
-  
-  
+<details><summary>Show CLI information (1)</summary>
+    
+  # 📄 [operationName] (unexported const)
+
+
   </details>
 

@@ -1,6 +1,6 @@
 # Db recipes
 
-db-recipes (node operation)
+db-recipes (`OperationClassification` node)
 
 Useful library of functions that wrap the `fs-orm` database.
 
@@ -63,10 +63,54 @@ optimistic caching after cache invalidation
 
 wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
 
+# Tests
+
+<details><summary>Show test information(7)</summary>
+    
+  # main()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## testFn()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `String`   |    |
+
+
+
+## wrapFunction()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
+## 📄 main (unexported const)
+
+## 📄 testFnWrapped (unexported const)
+
+## 📄 testFn (unexported const)
+
+## 📄 wrapFunction (exported const)
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (26)</summary>
-  
+    
   # calculateOperatingSystemBundle()
 
 This function should calculate a giant bundle for the whole operating system. This should include everything, public.
@@ -186,7 +230,7 @@ For getting all required `ReferencableModelData` for the prop in `SimplifiedSche
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| dbModelName | Device / Group / PageVisit / PeerMessage / Person / PersonInformation / PersonInformationValue / PersonPlatformConnection / Platform / Interest / MediaChannel / MediaCredentail / MediaPost / Postable / BundleConfig / FunctionExecution / MarkdownFileConfig / OperationConfig / OperationIndex / PackageJson / SocialMediaCallToAction / TsBuildError / TsComment / TsConfig / TsExport / TsFunction / TsImport / TsInterface / TsLintWarning / TsVariable / WebsiteCallToAction / Address / Area / City / Country / Location / KvmdWord / MarkdownWord / NepaliEnglishTranslationMatrix / Statement / TokiPonaMatrix / Translation / Word / WordCategory / WordMatrix / SlugModelType / AppDeveloper / Assignment / Bag / Calendar / DataPoint / Deliverable / Diary / Feeling / FeelingLog / Folder / Host / Inventory / Item / ItemCategory / KvmdShortcut / Label / Light / Listing / LoginCredential / Material / MessagePreset / ProgressReport / Question / Reservation / Resource / Shit / ShitLog / ShoppingList / Shortcut / Student / Student2 / TaskError / Thing / TodoFile / Trackable / User / UserCredential / JeepType / LocationType / Activity / CompanyRequirement / CompanySize / CompanyType / Company / ContactInformation / Contribution / EsgMetric / ProductCategory / Product / ProofState / Proof / SustainabilityPlan / ValueChainPhase |  |
+| - | | |
 | **Output** |    |    |
 
 

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666260897915,
-  "updatedAt": 1666260897915,
+  "createdAt": 1668149196681,
+  "updatedAt": 1668149196681,
   "deletedAt": 0,
-  "createdFirstAt": 1666260897915,
+  "createdFirstAt": 1668149196681,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const operationFolders: string[] = await exploreOperationFolders({\n    basePath: getPathsWithOperations(),\n  });\n  const relativeOperationFolders = operationFolders.map((p) =>\n    p.slice(projectRoot.length)\n  );\n\n  const fns = await getCachedExportedFunctions();\n  const functionsPerOperation = relativeOperationFolders.map(\n    (relativeOperationFolder) => ({\n      [relativeOperationFolder.slice(1)]: fns.filter(\n        (fn) => fn.operationName === getLastFolder(relativeOperationFolder)\n      ),\n      // optionally, maybe I should just return the function names here.\n    })\n  );\n  return {\n    success: true,\n    response: \"Menu found\",\n    menu: mergeObjectsArray(functionsPerOperation),\n  };\n}",
   "description": "",
-  "id": "zspeyzekhykwpqhfrqfamrld"
+  "id": "dsxskqkrtcxadmpxgtqpolkq"
 }

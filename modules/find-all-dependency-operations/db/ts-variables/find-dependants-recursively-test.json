@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263857223,
-  "updatedAt": 1666263857223,
+  "createdAt": 1668150469198,
+  "updatedAt": 1668150469198,
   "deletedAt": 0,
-  "createdFirstAt": 1666263857223,
+  "createdFirstAt": 1668150469198,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const sdkDependants = await findDependantsRecursively(\"sdk\");\n\n  console.log({ sdkDependants });\n}",
   "description": "",
-  "id": "zjjzzzalzmljkdopmcdtbhrc"
+  "id": "ymlidaiwnyguykwicvtdlday"
 }

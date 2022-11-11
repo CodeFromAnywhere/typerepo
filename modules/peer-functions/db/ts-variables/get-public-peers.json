@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666262509101,
-  "updatedAt": 1666262509101,
+  "createdAt": 1668149686050,
+  "updatedAt": 1668149686050,
   "deletedAt": 0,
-  "createdFirstAt": 1666262509101,
+  "createdFirstAt": 1668149686050,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const publicPeers = (await db.get(\"Peer\")).filter((peer) => !peer.isPrivate);\n\n  return publicPeers;\n}",
   "description": "",
-  "id": "rcodbchiwdpvvgfgmxuhgaxn"
+  "id": "llcqpqwrfrlhqhxruepvcbui"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667233170276,
-  "updatedAt": 1667233170276,
+  "createdAt": 1668148595314,
+  "updatedAt": 1668148595314,
   "deletedAt": 0,
-  "createdFirstAt": 1667233170276,
+  "createdFirstAt": 1668148595314,
   "id": "nesteddatabasemenu",
   "name": "NestedDatabaseMenu",
   "slug": "nesteddatabasemenu",
@@ -23,7 +23,7 @@
       "additionalProperties": {
         "anyOf": [
           {
-            "$ref": "#/definitions/NestedObject"
+            "$ref": "#/definitions/NestedObject%3Cnull%3E"
           },
           {
             "type": [

@@ -1,10 +1,148 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,r,t,n){return new(t||(t=Promise))((function(o,a){function l(e){try{s(n.next(e))}catch(e){a(e)}}function i(e){try{s(n.throw(e))}catch(e){a(e)}}function s(e){var r;e.done?o(e.value):(r=e.value,r instanceof t?r:new t((function(e){e(r)}))).then(l,i)}s((n=n.apply(e,r||[])).next())}))},__generator=this&&this.__generator||function(e,r){var t,n,o,a,l={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:i(0),throw:i(1),return:i(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function i(a){return function(i){return function(a){if(t)throw new TypeError("Generator is already executing.");for(;l;)try{if(t=1,n&&(o=2&a[0]?n.return:a[0]?n.throw||((o=n.return)&&o.call(n),0):n.next)&&!(o=o.call(n,a[1])).done)return o;switch(n=0,o&&(a=[2&a[0],o.value]),a[0]){case 0:case 1:o=a;break;case 4:return l.label++,{value:a[1],done:!1};case 5:l.label++,n=a[1],a=[0];continue;case 7:a=l.ops.pop(),l.trys.pop();continue;default:if(!(o=l.trys,(o=o.length>0&&o[o.length-1])||6!==a[0]&&2!==a[0])){l=0;continue}if(3===a[0]&&(!o||a[1]>o[0]&&a[1]<o[3])){l.label=a[1];break}if(6===a[0]&&l.label<o[1]){l.label=o[1],o=a;break}if(o&&l.label<o[2]){l.label=o[2],l.ops.push(a);break}o[2]&&l.ops.pop(),l.trys.pop();continue}a=r.call(e,l)}catch(e){a=[6,e],n=0}finally{t=o=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,i])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.forAllFolders=void 0;var fs_util_1=require("fs-util"),k_explore_1=require("k-explore"),one_by_one_1=require("one-by-one"),child_process_1=require("child_process"),forAllFolders=function(e){var r=e.type,t=e.callback,n=e.basePath,o=e.onlyRoot,a=e.command,l=(e.shell,e.fileName),i=e.folderName,s=e.ignore;return __awaiter(void 0,void 0,void 0,(function(){var e,c,u,f,p;return __generator(this,(function(_){switch(_.label){case 0:return"git"!==r?[3/*break*/,2]:[4/*yield*/,(0,k_explore_1.exploreGitRepoFolders)({basePath:n})];case 1:return c=_.sent(),[3/*break*/,12];case 2:return"operations"!==r?[3/*break*/,4]:[4/*yield*/,(0,k_explore_1.exploreOperationFolders)({basePath:n})];case 3:return u=_.sent(),[3/*break*/,11];case 4:return"folder"===r&&i?[4/*yield*/,(0,k_explore_1.explore)({basePath:n,exact:!0,doNotExploreChildFolders:o,searchLevel:"folder",doNotExploreMatch:!0,
-// should be able to ignore stuff
-ignore:s,search:i})]:[3/*break*/,6];case 5:return f=_.sent().map((function(e){return e.path})),[3/*break*/,10];case 6:return"file"!==r?[3/*break*/,8]:[4/*yield*/,(0,k_explore_1.explore)({basePath:n,exact:!0,searchLevel:"fileName",search:l})];case 7:return p=_.sent().map((function(e){return e.path})),[3/*break*/,9];case 8:p=[],_.label=9;case 9:f=p,_.label=10;case 10:u=f,_.label=11;case 11:c=u,_.label=12;case 12:return 0===(e=c).length?[2/*return*/]:(
-// console.log({ locations: locations.length });
-l&&"file"!==r&&(e=e.map((function(e){return fs_util_1.path.join(e,l)}))),[4/*yield*/,(0,one_by_one_1.oneByOne)(e,(function(e,r){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(n){switch(n.label){case 0:
-// console.log({ location });
-return a&&(0,child_process_1.execSync)(a,{env:{LOCATION:e},cwd:(0,fs_util_1.getFolder)(e),encoding:"utf8",stdio:"inherit"}),t?[4/*yield*/,t(e,r)]:[3/*break*/,2];case 1:n.sent(),n.label=2;case 2:return[2/*return*/]}}))}))}))]);case 13:
-// console.log({ locations });
-return _.sent(),[2/*return*/]}}))}))};exports.forAllFolders=forAllFolders;
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.forAllFolders = void 0;
+var fs_util_1 = require("fs-util");
+var k_explore_1 = require("k-explore");
+var one_by_one_1 = require("one-by-one");
+var child_process_1 = require("child_process");
+/**
+ * executes a command or callback in every folder of a certain type. Supports git repos and operations now
+ */
+var forAllFolders = function (_a) {
+    var type = _a.type, callback = _a.callback, basePath = _a.basePath, onlyRoot = _a.onlyRoot, command = _a.command, shell = _a.shell, fileName = _a.fileName, folderName = _a.folderName, ignore = _a.ignore;
+    return __awaiter(void 0, void 0, void 0, function () {
+        var locations, _b, _c, _d, _e;
+        return __generator(this, function (_f) {
+            switch (_f.label) {
+                case 0:
+                    if (!(type === "git")) return [3 /*break*/, 2];
+                    return [4 /*yield*/, (0, k_explore_1.exploreGitRepoFolders)({ basePath: basePath })];
+                case 1:
+                    _b = _f.sent();
+                    return [3 /*break*/, 12];
+                case 2:
+                    if (!(type === "operations")) return [3 /*break*/, 4];
+                    return [4 /*yield*/, (0, k_explore_1.exploreOperationFolders)({ basePath: basePath })];
+                case 3:
+                    _c = _f.sent();
+                    return [3 /*break*/, 11];
+                case 4:
+                    if (!(type === "folder" && folderName)) return [3 /*break*/, 6];
+                    return [4 /*yield*/, (0, k_explore_1.explore)({
+                            basePath: basePath,
+                            exact: true,
+                            doNotExploreChildFolders: onlyRoot,
+                            searchLevel: "folder",
+                            doNotExploreMatch: true,
+                            // should be able to ignore stuff
+                            ignore: ignore,
+                            search: folderName,
+                        })];
+                case 5:
+                    _d = (_f.sent()).map(function (x) { return x.path; });
+                    return [3 /*break*/, 10];
+                case 6:
+                    if (!(type === "file")) return [3 /*break*/, 8];
+                    return [4 /*yield*/, (0, k_explore_1.explore)({
+                            basePath: basePath,
+                            exact: true,
+                            searchLevel: "fileName",
+                            search: fileName,
+                        })];
+                case 7:
+                    _e = (_f.sent()).map(function (x) { return x.path; });
+                    return [3 /*break*/, 9];
+                case 8:
+                    _e = [];
+                    _f.label = 9;
+                case 9:
+                    _d = _e;
+                    _f.label = 10;
+                case 10:
+                    _c = _d;
+                    _f.label = 11;
+                case 11:
+                    _b = _c;
+                    _f.label = 12;
+                case 12:
+                    locations = _b;
+                    if (locations.length === 0) {
+                        // console.log("Nothing found");
+                        return [2 /*return*/];
+                    }
+                    // console.log({ locations: locations.length });
+                    if (fileName && type !== "file") {
+                        locations = locations.map(function (f) { return fs_util_1.path.join(f, fileName); });
+                    }
+                    // console.log({ locations });
+                    return [4 /*yield*/, (0, one_by_one_1.oneByOne)(locations, function (location, index) { return __awaiter(void 0, void 0, void 0, function () {
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0:
+                                        // console.log({ location });
+                                        if (command) {
+                                            (0, child_process_1.execSync)(command, {
+                                                env: {
+                                                    LOCATION: location,
+                                                },
+                                                cwd: (0, fs_util_1.getFolder)(location),
+                                                encoding: "utf8",
+                                                stdio: "inherit",
+                                                // shell,
+                                            });
+                                        }
+                                        if (!callback) return [3 /*break*/, 2];
+                                        return [4 /*yield*/, callback(location, index)];
+                                    case 1:
+                                        _a.sent();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
+                                }
+                            });
+                        }); })];
+                case 13:
+                    // console.log({ locations });
+                    _f.sent();
+                    return [2 /*return*/];
+            }
+        });
+    });
+};
+exports.forAllFolders = forAllFolders;
 //# sourceMappingURL=forAllFolders.js.map

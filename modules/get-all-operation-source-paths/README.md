@@ -1,6 +1,6 @@
 # Get all operation source paths
 
-get-all-operation-source-paths (node operation)
+get-all-operation-source-paths (`OperationClassification` node)
 
 returns src folder paths of all operations
 
@@ -24,11 +24,4 @@ returns src folder paths of all operations
 ## 📄 getAllOperationSourcePaths (exported const)
 
 returns src folder paths of all operations
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

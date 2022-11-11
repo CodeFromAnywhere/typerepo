@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634818101,
-  "updatedAt": 1667634818101,
+  "createdAt": 1668149085192,
+  "updatedAt": 1668149085192,
   "deletedAt": 0,
-  "createdFirstAt": 1667634818101,
+  "createdFirstAt": 1668149085192,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "server.router.post(\n  `/function/:functionName`,\n  async (ctx) => {\n    const authToken: string | undefined = ctx.data?.config?.authToken;\n    const functionName = ctx.params?.functionName;\n\n    if (!functionName || !functionApiKeys.includes(functionName)) {\n      return {\n        success: false,\n        message: `Endpoint not found: ${functionName}`,\n      };\n    }\n\n    const parameters: any[] | undefined = ctx.data?.parameters;\n\n    const result = await executeFunctionWithParameters(\n      functionName as keyof typeof sdk,\n      authToken,\n      parameters,\n      ctx\n    );\n\n    return result;\n  }\n)",
   "description": "routes to post and execute operation functions",
-  "id": "cobvggebukqjujwyibxxmoxb"
+  "id": "eqlwbpxeifsqfzxnxlyynhfj"
 }

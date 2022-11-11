@@ -266,6 +266,7 @@ export declare const sdk: {
     mergeObjects: <T_18 extends {
         [key: string]: any;
     }>(...objects: (Partial<T_18> | undefined)[]) => T_18 | undefined;
+    noEmptyString: (input: string | undefined) => string | undefined;
     notEmpty: typeof notEmpty;
     objectMapAsync: <TObject_1 extends {
         [key: string]: any;
@@ -283,30 +284,31 @@ export declare const sdk: {
     }>(object: T_20) => T_20;
     onlyUnique2: <U_4>(isEqualFn?: ((a: U_4, b: U_4) => boolean) | undefined) => <T_21 extends U_4>(value: T_21, index: number, self: T_21[]) => boolean;
     onlyUnique: typeof onlyUnique;
-    removeIndexFromArray: <T_22>(array: T_22[], index: number) => T_22[];
+    putIndexAtIndex: <T_22>(array: T_22[], index: number, toIndex: number) => T_22[];
+    removeIndexFromArray: <T_23>(array: T_23[], index: number) => T_23[];
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
-    sumAllKeys: <T_23 extends {
+    sumAllKeys: <T_24 extends {
         [key: string]: number | undefined;
-    }>(objectArray: T_23[], keys: (keyof T_23)[]) => T_23;
+    }>(objectArray: T_24[], keys: (keyof T_24)[]) => T_24;
     sumObjectParameters: <TObject_3 extends {
         [key: string]: number;
     }>(object1: TObject_3, object2: TObject_3) => TObject_3;
     sum: (items: number[]) => number;
-    takeFirst: <T_24>(arrayOrNot: T_24 | T_24[]) => T_24;
+    takeFirst: <T_25>(arrayOrNot: T_25 | T_25[]) => T_25;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
     flattenMarkdownChunks: (markdownChunks: import("code-types").MarkdownChunk[]) => import("code-types").MarkdownParagraph[];
     getKvmdItemsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
     getParagraphsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("code-types").MarkdownParagraph[];
-    kvmdDataMap: <T_25 extends {
+    kvmdDataMap: <T_26 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {
         keyName?: string | undefined;
         valueName?: string | undefined;
         commentName?: string | undefined;
         categoryStackCalculatedName?: string | undefined;
-    }) => T_25[];
+    }) => T_26[];
     kvmdDataToString: (kvmdData: import("model-types").KeyValueMarkdownModelType, previous: import("model-types").KeyValueMarkdownModelType | undefined) => string;
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
@@ -382,7 +384,7 @@ export declare const sdk: {
         native?: import("react-native").TextProps | undefined;
         textClassName?: string | undefined;
     }) => JSX.Element;
-    oneByOne: <T_26, U_5>(array: T_26[], callback: (instance: T_26, index: number) => Promise<U_5>) => Promise<U_5[]>;
+    oneByOne: <T_27, U_5>(array: T_27[], callback: (instance: T_27, index: number) => Promise<U_5>) => Promise<U_5[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
         operationDependencies: string[];
@@ -435,10 +437,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_27>(searchMessage: string, array: T_27[], getSentence?: ((x: T_27) => string) | undefined) => T_27[];
-    searchRecursiveObjectArray: <T_28 extends {
-        children?: T_28[] | undefined;
-    } & Object>(array: T_28[], baseMatcher: (item: T_28) => boolean, afterMapper?: ((item: T_28, isMatch: boolean, hasChildMatch: boolean) => T_28) | undefined) => T_28[];
+    findSentenceMatches: <T_28>(searchMessage: string, array: T_28[], getSentence?: ((x: T_28) => string) | undefined) => T_28[];
+    searchRecursiveObjectArray: <T_29 extends {
+        children?: T_29[] | undefined;
+    } & Object>(array: T_29[], baseMatcher: (item: T_29) => boolean, afterMapper?: ((item: T_29, isMatch: boolean, hasChildMatch: boolean) => T_29) | undefined) => T_29[];
     findPostableToPost: () => void;
     updatePostedStatistics: () => void;
     objectStringToJson: (string: string) => {
@@ -450,9 +452,9 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_29>(text: string, logParseError?: boolean | undefined) => T_29 | null;
+    tryParseJson: <T_30>(text: string, logParseError?: boolean | undefined) => T_30 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_30 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_30, (newValue: T_30 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_31 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_31, (newValue: T_31 | undefined) => Promise<boolean>];
 };
 export declare type SdkType = typeof sdk;
 //# sourceMappingURL=sdk-js.d.ts.map

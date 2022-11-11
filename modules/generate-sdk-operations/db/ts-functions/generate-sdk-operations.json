@@ -1,10 +1,10 @@
 {
-  "createdAt": 1667635710894,
-  "updatedAt": 1667635710894,
+  "createdAt": 1668150580955,
+  "updatedAt": 1668150580955,
   "deletedAt": 0,
-  "createdFirstAt": 1667635710894,
+  "createdFirstAt": 1668150580955,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,10 +13,161 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/generateSdkOperations.ts",
   "commentsInside": [],
-  "rawText": " async (\n  /**\n   * if not provided, will not generate env-sdks\n   */\n  bundleConfig?: BundleConfig,\n  config?: {\n    /**\n     * If true, will try to run yarn install before and if it fails, does not continue.\n     */\n    yarnInstallBefore?: boolean;\n    /**\n     * if true, yarn install will be skipped when generating the sdks, but run one time afterwards\n     *\n     * useful if you are sure that there will be multiple yarn Installs needed otherwise\n     *\n     * for os installation (where all operations already exist, don't do this, yarn installs will probably not happen at all)\n     */\n    yarnInstallAfter?: boolean;\n    manualProjectRoot?: string;\n    dryrun?: boolean;\n  }\n): Promise<boolean> => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  const yarnInstallAfter = config?.yarnInstallAfter;\n  const yarnInstallBefore = config?.yarnInstallBefore;\n  const dryrun = config?.dryrun;\n\n  if (!projectRoot) {\n    return false;\n  }\n\n  // NB: install this first, otherwise sdk-operations cannot be found\n  await generateOperationsSdk({\n    manualProjectRoot,\n    dryrun,\n  });\n\n  await generateFunctionPathsSdk({\n    manualProjectRoot,\n    dryrun,\n  });\n\n  await generateDbSdk({\n    manualProjectRoot,\n    skipYarnInstall: yarnInstallAfter,\n    dryrun,\n  });\n\n  await generateFunctionSdks({\n    manualProjectRoot,\n    skipYarnInstall: yarnInstallAfter,\n    dryrun,\n  });\n  if (bundleConfig) {\n    await generateEnvSdks(bundleConfig, {\n      manualProjectRoot,\n      skipYarnInstall: yarnInstallAfter,\n      dryrun,\n    });\n  }\n\n  if (yarnInstallAfter) {\n    process.stdout.write(`Installing repo `);\n    try {\n      const result = execSync(\"yarn --prefer-offline\", {\n        cwd: projectRoot,\n        encoding: \"utf8\",\n        stdio: \"pipe\",\n      });\n\n      console.log(\"✅\");\n\n      return true;\n    } catch (e: any) {\n      console.log(\"❌\");\n      const error: {\n        status: number;\n        signal: any;\n        output: (string | null)[];\n        pid: number;\n        stdout: string;\n        stderr: string;\n      } = e;\n      console.log(`Could not install:`, error);\n\n      return false;\n    }\n  }\n\n  return true;\n}",
+  "rawText": " async (\n  /**\n   * if not provided, will not generate env-sdks\n   */\n  bundleConfig?: BundleConfig,\n  config?: {\n    /**\n     * If true, will try to run yarn install before and if it fails, does not continue.\n     */\n    yarnInstallBefore?: boolean;\n    /**\n     * if true, yarn install will be skipped when generating the sdks, but run one time afterwards\n     *\n     * useful if you are sure that there will be multiple yarn Installs needed otherwise\n     *\n     * for os installation (where all operations already exist, don't do this, yarn installs will probably not happen at all)\n     */\n    yarnInstallAfter?: boolean;\n    manualProjectRoot?: string;\n    dryrun?: boolean;\n  }\n): Promise<boolean> => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  const yarnInstallAfter = config?.yarnInstallAfter;\n  const yarnInstallBefore = config?.yarnInstallBefore;\n  const dryrun = config?.dryrun;\n\n  if (!projectRoot) {\n    return false;\n  }\n\n  // NB: install this first, otherwise sdk-operations cannot be found\n  await generateOperationsSdk({\n    manualProjectRoot,\n    dryrun,\n  });\n\n  await generateFunctionPathsSdk({\n    manualProjectRoot,\n    dryrun,\n  });\n\n  await generateDbSdk({\n    manualProjectRoot,\n    skipYarnInstall: yarnInstallAfter,\n    dryrun,\n  });\n\n  await generateFunctionSdks({\n    manualProjectRoot,\n    skipYarnInstall: yarnInstallAfter,\n    dryrun,\n  });\n  if (bundleConfig) {\n    await generateEnvSdks(bundleConfig, {\n      manualProjectRoot,\n      skipYarnInstall: yarnInstallAfter,\n      dryrun,\n    });\n  }\n\n  if (yarnInstallAfter) {\n    process.stdout.write(`Installing repo `);\n    try {\n      // NB: I got an engine error which seemed to break it, so to fix it I ignore engines now https://stackoverflow.com/questions/56617209/the-engine-node-is-incompatible-with-this-module\n\n      const result = execSync(\"yarn --prefer-offline --ignore-engines\", {\n        cwd: projectRoot,\n        encoding: \"utf8\",\n        stdio: \"pipe\",\n      });\n\n      console.log(\"✅\");\n\n      return true;\n    } catch (e: any) {\n      console.log(\"❌\");\n      const error: {\n        status: number;\n        signal: any;\n        output: (string | null)[];\n        pid: number;\n        stdout: string;\n        stderr: string;\n      } = e;\n      console.log(`Could not install:`, error);\n\n      return false;\n    }\n  }\n\n  return true;\n}",
   "name": "generateSdkOperations",
   "slug": "generate-sdk-operations",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "bundleConfig",
+      "schema": {
+        "$ref": "#/definitions/BundleConfig",
+        "description": "if not provided, will not generate env-sdks"
+      },
+      "simplifiedSchema": {
+        "fullComment": "if not provided, will not generate env-sdks\n\n--- dbStorageMethod: jsonSingle\n---\n\nConfiguration options for bundles. Used with `generateBundle`\n\nEverything in this model will be copied over to the created bundle, except for `createBundleConfig` and `customisableBundleConfig`.",
+        "properties": [
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "required": false,
+            "schema": {
+              "fullComment": "a description about this bundle",
+              "type": "string"
+            }
+          },
+          {
+            "name": "emoji",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "primaryColor",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gitRepoUrl",
+            "required": false,
+            "schema": {
+              "fullComment": "NB: later we may also want to automate the server and frontend deployment setup. for that we need credentials and automation",
+              "nb": "later we may also want to automate the server and frontend deployment setup. for that we need credentials and automation",
+              "type": "string"
+            }
+          },
+          {
+            "name": "isGitRepoPublic",
+            "required": false,
+            "schema": {
+              "fullComment": "if true, your gitrepo is marked as pubilc and thus users will be linked to it sometimes",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "paymentPlanId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "yarnInstallBefore": {
+            "type": "boolean",
+            "description": "If true, will try to run yarn install before and if it fails, does not continue."
+          },
+          "yarnInstallAfter": {
+            "type": "boolean",
+            "description": "if true, yarn install will be skipped when generating the sdks, but run one time afterwards\n\nuseful if you are sure that there will be multiple yarn Installs needed otherwise\n\nfor os installation (where all operations already exist, don't do this, yarn installs will probably not happen at all)"
+          },
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "dryrun": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "yarnInstallBefore",
+            "required": false,
+            "schema": {
+              "fullComment": "If true, will try to run yarn install before and if it fails, does not continue.",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "yarnInstallAfter",
+            "required": false,
+            "schema": {
+              "fullComment": "if true, yarn install will be skipped when generating the sdks, but run one time afterwards\n\nuseful if you are sure that there will be multiple yarn Installs needed otherwise\n\nfor os installation (where all operations already exist, don't do this, yarn installs will probably not happen at all)",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "dryrun",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
   "description": "(re)generates all sdk operations for any project",
   "returnType": {
     "rawType": "Promise<boolean>",
@@ -29,13 +180,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 2250,
-    "lines": 92,
-    "bytes": 2254,
-    "bytesPerCharacter": 1.0017777777777779,
-    "charactersPerLine": 24,
-    "linesPerFile": 92,
+    "characters": 2457,
+    "lines": 94,
+    "bytes": 2461,
+    "bytesPerCharacter": 1.0016280016280017,
+    "charactersPerLine": 26,
+    "linesPerFile": 94,
     "numberOfFiles": 1
   },
-  "id": "zfljrvmtdkrehedmkghgztem"
+  "id": "yfseooloewzpehazksxgkkiz"
 }

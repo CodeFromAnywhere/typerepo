@@ -1,15 +1,46 @@
 # Peer functions
 
-peer-functions (node operation)
+peer-functions (`OperationClassification` node)
 
 
 
 # Api reference
 
+# Tests
+
+<details><summary>Show test information(4)</summary>
+    
+  # main()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## test()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 main (unexported const)
+
+## 📄 test (unexported const)
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (34)</summary>
-  
+    
   # addPeerMessage()
 
 
@@ -26,7 +57,7 @@ peer-functions (node operation)
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| ip | string |  |,| authToken (optional) | string |  |,| peerName (optional) | string |  |,| force (optional) | boolean | If true, it does not validate the IP to see if it is online and it is authorized... |,| isMe (optional) | boolean |  |
+| - | | |
 | **Output** |    |    |
 
 
@@ -101,7 +132,7 @@ slug: "22-22-22-22"
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| peerSlug | string |  |
+| - | | |
 | **Output** |    |    |
 
 
@@ -164,7 +195,7 @@ Adds a message to your own peer messages database, but also to the db of all you
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| message | string |  |,| peerSlug | string |  |
+| - | | |
 | **Output** |    |    |
 
 
@@ -173,7 +204,7 @@ Adds a message to your own peer messages database, but also to the db of all you
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| slug | string | Slug of the peer (ip) |
+| - | | |
 | **Output** |    |    |
 
 
@@ -185,7 +216,7 @@ Update one of your peers
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| slug | string |  |,| updatedValues | { name?: string, <br />description?: string, <br />authToken?: string, <br />isFavorite?: boolean, <br />isMe?: boolean, <br /> } |  |
+| - | | |
 | **Output** |    |    |
 
 

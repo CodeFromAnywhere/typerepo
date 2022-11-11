@@ -1,31 +1,25 @@
 # Rebuild operation
 
-rebuild-operation (node operation)
+rebuild-operation (`OperationClassification` node)
 
 Operation that makes it possible to rebuild an operation (re-index, re-build, etc.)
 
 
 
 
-## Docs
-
-- [README](#readme)
-- [Operation build steps](#operation-build-steps)
-
-
-
 # Docs
 
-## README
-
-Please use `rebuidOperation [operation-name]` and `rebuildAllOperations` to rebuild your operations after you changed things in case you were not running the `k-dev` `dev`-command.
+<details><summary>README.md</summary>
+    
+  Please use `rebuidOperation [operation-name]` and `rebuildAllOperations` to rebuild your operations after you changed things in case you were not running the `k-dev` `dev`-command.
 
 They can be found in the bin: `npx [function-name]`
 
+  </details>
 
-## Operation build steps
-
-Rebuilding an operation consists of these steps
+<details><summary>operation-build-steps.md</summary>
+    
+  Rebuilding an operation consists of these steps
 
 
 ### Install
@@ -78,6 +72,7 @@ It can still fail if the above step fails, but normally shouldn't.
 
 If everything succeded, we can store the `updatedAt` time into our `operation-index.json` here
 
+  </details>
 
 # Api reference
 
@@ -107,6 +102,15 @@ This function rebuilds an operation and re-indexes (part of) its files.
 
 
 
+## getAllDbModels()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| manualProjectRoot (optional) | string |  |,| operationName (optional) | string |  |
+| **Output** |    |    |
+
+
+
 ## yarnBuild()
 
 Builds and minifies the src
@@ -121,14 +125,64 @@ Builds and minifies the src
 
 ## 📄 clearTsDatabase (exported const)
 
+## 📄 getAllDbModels (exported const)
+
 ## 📄 yarnBuild (exported const)
 
 Builds and minifies the src
 
+# CLI
+
+<details><summary>Show CLI information (6)</summary>
+    
+  # main()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 isRebuildingProcessUpdated (unexported const)
+
+## 📄 [isUpdatedString] (unexported const)
+
+## 📄 main (unexported const)
+
+## 📄 manualProjectRoot (unexported const)
+
+## 📄 [operationName] (unexported const)
+
+  </details>
+
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # test()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 test (unexported const)
+
+  </details>
+
 # Internal
 
-<details><summary>Show internal (22)</summary>
-  
+<details><summary>Show internal (20)</summary>
+    
   # executeCommandQuietUnlessFail()
 
 Executes a command without showing the result, unless the command fails, then it will log the output.,
@@ -182,15 +236,6 @@ TODO: Make a validator that validates the whole database to this schema.
 | Input      |    |    |
 | ---------- | -- | -- |
 | manualProjectRoot (optional) | string |  |,| operationName (optional) | string | If given, does it just for a single operation |
-| **Output** |    |    |
-
-
-
-## getAllDbModels()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| manualProjectRoot (optional) | string |  |,| operationName (optional) | string |  |
 | **Output** |    |    |
 
 
@@ -317,8 +362,6 @@ TODO: apply special config conventions (MergedDbConfig) like tsconfig.json and p
 
 TODO: Make a validator that validates the whole database to this schema.
 
-
-## 📄 getAllDbModels (exported const)
 
 ## 📄 getFileIds (exported const)
 

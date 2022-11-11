@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666260896538,
-  "updatedAt": 1666260896538,
+  "createdAt": 1668149195102,
+  "updatedAt": 1668149195102,
   "deletedAt": 0,
-  "createdFirstAt": 1666260896538,
+  "createdFirstAt": 1668149195102,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  if (functions.length) return functions;\n  functions = await db.get(\"TsFunction\");\n  exportsArray = await db.get(\"TsExport\");\n  const fnIsExported = (fn: TsFunction) =>\n    exportsArray.find(\n      (e) => e?.operationName === fn?.operationName && e.name === fn.name\n    );\n  return functions.filter(fnIsExported);\n}",
   "description": "",
-  "id": "tygovveobtsjwsafdywphjun"
+  "id": "acsosfqkalxwbkqxjtbtcsog"
 }

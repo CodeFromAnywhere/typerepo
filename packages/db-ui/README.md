@@ -1,6 +1,6 @@
 # Db ui
 
-db-ui (ui-es6 operation)
+db-ui (`OperationClassification` ui-es6)
 
 Visual user interface for interacting with all available data in the typebase fs-orm database.
 
@@ -21,7 +21,7 @@ utility function to get a title from a page
 
 
 
-## <Layout />
+## `<Layout />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -46,8 +46,8 @@ utility function to get a title from a page
 # Internal
 
 <details><summary>Show internal (23)</summary>
-  
-  # <DbMenu />
+    
+  # `<DbMenu />`
 
 
 
@@ -68,7 +68,7 @@ utility function to get a title from a page
 
 
 
-## <IndexInstanceContainer />
+## `<IndexInstanceContainer />`
 
 container for any index instance that needs to be rendered in the explore page
 
@@ -80,7 +80,7 @@ container for any index instance that needs to be rendered in the explore page
 
 
 
-## <MenuItem />
+## `<MenuItem />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -89,7 +89,7 @@ container for any index instance that needs to be rendered in the explore page
 
 
 
-## <ModelComponent />
+## `<ModelComponent />`
 
 In the table headings, all xxxSlug, xxxId etc should be called xxx.
 
@@ -108,7 +108,7 @@ It has to be possible to navigate to an id or slug using `#[id] or #[slug]` in t
 
 
 
-## <Page />
+## `<Page />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -117,7 +117,7 @@ It has to be possible to navigate to an id or slug using `#[id] or #[slug]` in t
 
 
 
-## <SimplifiedSchemaFormDebug />
+## `<SimplifiedSchemaFormDebug />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -129,7 +129,7 @@ It has to be possible to navigate to an id or slug using `#[id] or #[slug]` in t
 
 
 
-## <UpsertForm />
+## `<UpsertForm />`
 
 TODO: Provide all the fetched data with `hasMore` and `fetchAll` to the `SimplifiedJsonForm`
 

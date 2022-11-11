@@ -1,6 +1,6 @@
 # Login form
 
-login-form (js operation)
+login-form (`OperationClassification` js)
 
 
 ## 🔐 Login Form
@@ -17,7 +17,7 @@ Ensure you have `react-with-native-notification` setup in your project, includin
 
 # Api reference
 
-## <LoginWrapper />
+## `<LoginWrapper />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -47,7 +47,7 @@ Ensures cookie is gone but also that the device is not logged into the `Person` 
 # Internal
 
 <details><summary>Show internal (6)</summary>
-  
+    
   # checkAuthToken()
 
 
@@ -60,7 +60,7 @@ Ensures cookie is gone but also that the device is not logged into the `Person` 
 
 
 
-## <LoginForm />
+## `<LoginForm />`
 
 | Input      |    |    |
 | ---------- | -- | -- |

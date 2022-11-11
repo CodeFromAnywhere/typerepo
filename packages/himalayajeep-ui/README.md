@@ -1,6 +1,6 @@
 # Himalayajeep ui
 
-himalayajeep-ui (ui-es6 operation)
+himalayajeep-ui (`OperationClassification` ui-es6)
 
 
 
@@ -11,8 +11,8 @@ himalayajeep-ui (ui-es6 operation)
 # Internal
 
 <details><summary>Show internal (21)</summary>
-  
-  # <EditProfile />
+    
+  # `<EditProfile />`
 
 
 
@@ -45,7 +45,7 @@ utility function to get a title from a page
 
 
 
-## <JeepList />
+## `<JeepList />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -54,7 +54,7 @@ utility function to get a title from a page
 
 
 
-## <JeepLogin />
+## `<JeepLogin />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -63,7 +63,7 @@ utility function to get a title from a page
 
 
 
-## <JeepSignupPage />
+## `<JeepSignupPage />`
 
 jeep driver needs to sign up
 
@@ -75,7 +75,7 @@ jeep driver needs to sign up
 
 
 
-## <JeepView />
+## `<JeepView />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -84,7 +84,7 @@ jeep driver needs to sign up
 
 
 
-## <Layout />
+## `<Layout />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -96,7 +96,7 @@ jeep driver needs to sign up
 
 
 
-## <MenuItem />
+## `<MenuItem />`
 
 | Input      |    |    |
 | ---------- | -- | -- |

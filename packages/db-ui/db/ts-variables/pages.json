@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634534906,
-  "updatedAt": 1667634534906,
+  "createdAt": 1668148719561,
+  "updatedAt": 1668148719561,
   "deletedAt": 0,
-  "createdFirstAt": 1667634534906,
+  "createdFirstAt": 1668148719561,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -37,5 +37,5 @@
   },
   "value": "pageKeys.map((pageKey) => ({\n  ...pagesObject[pageKey].options,\n  component: pagesObject[pageKey],\n  key: pageKey,\n}))",
   "description": "",
-  "id": "oaaxseicjpnejjxkntrfntfg"
+  "id": "idkugubiljarotembsaeejcw"
 }

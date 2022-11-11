@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635763380,
-  "updatedAt": 1667635763380,
+  "createdAt": 1668150643821,
+  "updatedAt": 1668150643821,
   "deletedAt": 0,
-  "createdFirstAt": 1667635763380,
+  "createdFirstAt": 1668150643821,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  symbol: Symbol,\n  debug?: boolean\n): TypeSpecifier => {\n  if (debug) {\n    console.log({\n      kinds: symbol\n        .getDeclarations()\n        .map((x) => ({ kind: x.getKindName(), name: x.getText() })),\n    });\n  }\n  const symbolTypeDeclarations = getSymbolTypeDeclarations(symbol);\n\n  const type = symbolTypeDeclarations.length > 0 ? \"type\" : \"value\";\n  /**\n   * checks whether the symbol contains a type declaration which has a generic parameter\n   */\n  const hasGeneric =\n    type === \"type\"\n      ? !!symbolTypeDeclarations.find(\n          // NB: type parameters gets the generics\n          (declaration) => getHasGeneric(declaration)\n        )\n      : undefined;\n\n  return { type, hasGeneric };\n}",
   "description": "gets type of a symbol and if the type has a generic, without recursing.",
-  "id": "tpntdwpjhrhrhynkwilgiwpe"
+  "id": "deajyhgrqtaechbakcviwwkh"
 }

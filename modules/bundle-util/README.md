@@ -1,6 +1,6 @@
 # Bundle util
 
-bundle-util (node operation)
+bundle-util (`OperationClassification` node)
 
 
 
@@ -50,11 +50,4 @@ Properties:
 | moduleNames  | array |  |
 | appNames  | array |  |
 
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

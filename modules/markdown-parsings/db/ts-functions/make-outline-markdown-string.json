@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976850481,
-  "updatedAt": 1667976850481,
+  "createdAt": 1668154816484,
+  "updatedAt": 1668154816484,
   "deletedAt": 0,
-  "createdFirstAt": 1667976850481,
+  "createdFirstAt": 1668154816484,
   "publicAuthorization": [
     "read",
     "search"
@@ -11,7 +11,7 @@
   "isPostApi": false,
   "isGetApi": false,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/bundleFolderWithMarkdown.ts",
+  "operationRelativeTypescriptFilePath": "src/makeOutlineMarkdownString.ts",
   "commentsInside": [],
   "rawText": " (\n  title: string,\n  urls: MergedMarkdownOutlineUrl[]\n): string => {\n  const outlineString =\n    urls.length > 0\n      ? `## ${title}\\n\\n${urls\n          .map((url) => {\n            return `- [${url.title}](#${url.hashtagPath})`;\n          })\n          .join(\"\\n\")}\\n\\n`\n      : \"\";\n\n  return outlineString;\n}",
   "name": "makeOutlineMarkdownString",
@@ -66,5 +66,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "tphluqytuimulbcwjutlnhew"
+  "id": "phttoxnicpjherakplpjriou"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976857465,
-  "updatedAt": 1667976857465,
+  "createdAt": 1668154799443,
+  "updatedAt": 1668154799443,
   "deletedAt": 0,
-  "createdFirstAt": 1667976857465,
+  "createdFirstAt": 1668154799443,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "({\n  projectRelativeMdFilePath,\n  singlePage,\n}: {\n  singlePage?: boolean;\n  projectRelativeMdFilePath?: string;\n}) => {\n  //\n}",
   "description": "generates static site from a markdown file, with a menu on the right by default\n\nuses next.js\n\nbecause it is static, the markdown can be in the frontend assets and there is no need for a backend",
-  "id": "lbplumksltcoauuacumlqanj"
+  "id": "kcezhfvoeirwekhalpbctkcc"
 }

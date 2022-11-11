@@ -1,6 +1,6 @@
 # Folder get updated at
 
-folder-get-updated-at (node operation)
+folder-get-updated-at (`OperationClassification` node)
 
 Get last updated file updatedAt time in whole folder, recursively
 
@@ -26,11 +26,4 @@ get last updated file updatedAt time in whole folder, recursively
 ## 📄 folderGetUpdatedAt (exported const)
 
 get last updated file updatedAt time in whole folder, recursively
-
-# Internal
-
-<details><summary>Show internal (0)</summary>
-  
-  
-  </details>
 

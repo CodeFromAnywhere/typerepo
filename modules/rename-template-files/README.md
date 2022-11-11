@@ -1,6 +1,6 @@
 # Rename template files
 
-rename-template-files (node operation)
+rename-template-files (`OperationClassification` node)
 
 Rename template files to their original name
 
@@ -22,10 +22,19 @@ Useful when you want to apply a template to create a new starting point for some
 
 ## 📄 renameTemplateFiles (exported const)
 
+# Tests
+
+<details><summary>Show test information(1)</summary>
+    
+  # 📄 test (exported const)
+
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (7)</summary>
-  
+    
   # isEqualArray()
 
 As long as there are no .template files present in the template folder that DONT need to be changed, it is fine.

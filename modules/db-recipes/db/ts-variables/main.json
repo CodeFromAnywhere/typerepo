@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667233159906,
-  "updatedAt": 1667233159906,
+  "createdAt": 1668148583203,
+  "updatedAt": 1668148583203,
   "deletedAt": 0,
-  "createdFirstAt": 1667233159906,
+  "createdFirstAt": 1668148583203,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const res = await getDatabaseMenu();\n\n  console.dir(res, { depth: 22 });\n}",
   "description": "",
-  "id": "chbsejeoirpzveyrdfkuxxof"
+  "id": "hjwbjvaestjcqwecumbvwxto"
 }

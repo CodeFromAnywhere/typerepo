@@ -1,6 +1,6 @@
 # Social media types
 
-social-media-types (js operation)
+social-media-types (`OperationClassification` js)
 
 
 
@@ -177,7 +177,7 @@ Properties:
 # Internal
 
 <details><summary>Show internal (5)</summary>
-  
+    
   # findPostableToPost()
 
 This function finds a postable from the database and posts it on multiple channels

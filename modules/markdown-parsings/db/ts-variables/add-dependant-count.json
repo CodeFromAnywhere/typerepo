@@ -1,16 +1,16 @@
 {
-  "createdAt": 1667976869128,
-  "updatedAt": 1667976869128,
+  "createdAt": 1668154789594,
+  "updatedAt": 1668154789594,
   "deletedAt": 0,
-  "createdFirstAt": 1667976869128,
+  "createdFirstAt": 1668154789594,
   "classification": "const",
   "comments": [],
-  "isExported": false,
+  "isExported": true,
   "name": "addDependantCount",
   "slug": "add-dependant-count",
-  "operationRelativeTypescriptFilePath": "src/operationToMarkdown.ts",
+  "operationRelativeTypescriptFilePath": "src/addDependantCount.ts",
   "type": {
-    "rawType": "(type: \"tsFunction\" | \"tsVariable\" | \"tsInterface\", imports: import(\"/Users/king/King/operations/tools/types/code-types/build/TsImport\").TsImport[]) => (item: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction | import(\"/Users/king/King/operations/tools/types/code-types/build/TsVariable\").TsVariable | import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface) => Promise<import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/markdown-parsings/src/operationToMarkdown\").DependantCountObject>",
+    "rawType": "(type: \"tsFunction\" | \"tsVariable\" | \"tsInterface\", imports: import(\"/Users/king/King/operations/tools/types/code-types/build/TsImport\").TsImport[]) => (item: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction | import(\"/Users/king/King/operations/tools/types/code-types/build/TsVariable\").TsVariable | import(\"/Users/king/King/operations/tools/types/code-types/build/TsInterface\").TsInterface) => Promise<import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/markdown-parsings/src/DependantCountObject\").DependantCountObject>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "(type: \"tsFunction\" | \"tsVariable\" | \"tsInterface\", imports: TsImport[]) =>\n  async (\n    item: TsFunction | TsVariable | TsInterface\n  ): Promise<DependantCountObject> => {\n    return {\n      [type]: item,\n      externalDependantFiles: item.operationName\n        ? await findDependants({\n            operationName: item.operationName,\n            importName: item.name,\n            imports,\n            onlyExternal: true,\n          })\n        : [],\n    } as DependantCountObject;\n  }",
   "description": "Double arrow function to get the count for the item",
-  "id": "wodybbfmdkwzomvcjwqjfmmo"
+  "id": "nhsgddjsnpdumrftegmbxdhw"
 }

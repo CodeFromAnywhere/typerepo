@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263857222,
-  "updatedAt": 1666263857222,
+  "createdAt": 1668150469198,
+  "updatedAt": 1668150469198,
   "deletedAt": 0,
-  "createdFirstAt": 1666263857222,
+  "createdFirstAt": 1668150469198,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  const imports = await db.get(\"TsImport\");\n\n  forAllFolders({\n    type: \"operations\",\n    callback: async (folderPath) => {\n      // console.log(folderPath);\n\n      const operationNames = [getLastFolder(folderPath)];\n\n      const x = await findAllDependencyOperations({ operationNames, imports });\n\n      console.log(folderPath, x);\n    },\n  });\n}",
+  "value": "async () => {\n  const imports = await db.get(\"TsImport\");\n  const packageJsons = await db.get(\"PackageJson\");\n\n  forAllFolders({\n    type: \"operations\",\n    callback: async (folderPath) => {\n      // console.log(folderPath);\n\n      const operationNames = [getLastFolder(folderPath)];\n\n      const x = await findAllDependencyOperations({\n        operationNames,\n        packageJsons,\n        imports,\n      });\n\n      console.log(folderPath, x);\n    },\n  });\n}",
   "description": "",
-  "id": "jkxjokscwtzkydoeprbdziqh"
+  "id": "mlolkpchmxtavtsmsqvbyoeo"
 }

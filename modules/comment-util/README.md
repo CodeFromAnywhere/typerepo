@@ -1,6 +1,6 @@
 # Comment util
 
-comment-util (js operation)
+comment-util (`OperationClassification` js)
 
 
 
@@ -67,7 +67,7 @@ comment
 # Internal
 
 <details><summary>Show internal (10)</summary>
-  
+    
   # stripCommentEnd()
 
 only strip slahes for single-line comments

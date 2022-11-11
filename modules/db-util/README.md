@@ -1,6 +1,6 @@
 # Db util
 
-db-util (node operation)
+db-util (`OperationClassification` node)
 
 
 
@@ -20,7 +20,7 @@ db-util (node operation)
 # Internal
 
 <details><summary>Show internal (2)</summary>
-  
+    
   # filterInterfacesFromOperationNames()
 
 

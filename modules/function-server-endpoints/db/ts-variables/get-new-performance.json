@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634821949,
-  "updatedAt": 1667634821949,
+  "createdAt": 1668149090071,
+  "updatedAt": 1668149090071,
   "deletedAt": 0,
-  "createdFirstAt": 1667634821949,
+  "createdFirstAt": 1668149090071,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  label: string,\n  uniqueId: string,\n  isNew?: boolean\n): PerformanceItem | undefined => {\n  const timePrevious = timer[uniqueId];\n  const timeNow = Date.now();\n  timer[uniqueId] = timeNow;\n\n  if (isNew) return;\n\n  const durationMs = timePrevious - timeNow;\n\n  return { label, durationMs };\n}",
   "description": "",
-  "id": "zinbdqckwhwrnldjhgamxxzo"
+  "id": "kbwwvbkgmvrosjdrwydilowb"
 }

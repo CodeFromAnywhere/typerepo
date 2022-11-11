@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666262505050,
-  "updatedAt": 1666262505050,
+  "createdAt": 1668149681494,
+  "updatedAt": 1668149681494,
   "deletedAt": 0,
-  "createdFirstAt": 1666262505050,
+  "createdFirstAt": 1668149681494,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -19,7 +19,7 @@
   "parameters": [],
   "description": "Get peers with person relation and calculated values, sorted (first favorite, then online, then offline)",
   "returnType": {
-    "rawType": "Promise<{ success: boolean; peers: import(\"/Users/king/King/operations/tools/p2p/peer-types/build/Peer\").Peer[]; }>",
+    "rawType": "Promise<{ success: boolean; peers: Peer[]; }>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -37,5 +37,5 @@
     "linesPerFile": 50,
     "numberOfFiles": 1
   },
-  "id": "wwxwezflidbfrxrqyvhrqcph"
+  "id": "ocylsmtoksixfbjafaffcfbx"
 }

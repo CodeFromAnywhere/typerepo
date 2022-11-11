@@ -1,6 +1,6 @@
 # Cleanup typescript database
 
-cleanup-typescript-database (node operation)
+cleanup-typescript-database (`OperationClassification` node)
 
 Collection of functions to cleanup the typescript database (all typescript related models)
 
@@ -28,7 +28,7 @@ From all Ts Index Models, removes the instances that refer to a ts file that doe
 # Internal
 
 <details><summary>Show internal (2)</summary>
-  
+    
   # shouldDeleteTsModel()
 
 

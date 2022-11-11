@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264087554,
-  "updatedAt": 1666264087554,
+  "createdAt": 1668150712051,
+  "updatedAt": 1668150712051,
   "deletedAt": 0,
-  "createdFirstAt": 1666264087554,
+  "createdFirstAt": 1668150712051,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  parameters: null | Frontmatter\n): DbStorageMethod | null | undefined => {\n  if (!parameters) return;\n\n  const dbStorageMethod =\n    parameters.dbStorageMethod &&\n    typeof parameters.dbStorageMethod === \"string\" &&\n    dbStorageMethods.includes(parameters.dbStorageMethod)\n      ? (parameters.dbStorageMethod as DbStorageMethod)\n      : undefined;\n\n  if (dbStorageMethod) return dbStorageMethod;\n\n  const isDbModel = parameters.isDbModel;\n\n  if (isDbModel === true) return \"jsonMultiple\";\n\n  if (isDbModel === false) return null;\n}",
   "description": "if isDbModel is specifically set to false, this will return null (which means this should overwrite other things)",
-  "id": "herhmbvldnkqbpkcuxwxzzrx"
+  "id": "tyshdalcqyvphylbgdfkbsxn"
 }

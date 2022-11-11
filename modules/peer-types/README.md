@@ -1,6 +1,6 @@
 # Peer types
 
-peer-types (js operation)
+peer-types (`OperationClassification` js)
 
 
 
@@ -233,13 +233,14 @@ Properties:
 | authorizations  | array |  |
 | amountAuthenticationMethodsRequired (optional) | number |  |
 | requiredAuthenticationMethods (optional) | array |  |
-| credits  | number |  |
+| paymentAuthToken (optional) | string |  |
+| credit  | number |  |
 
 
 # Internal
 
-<details><summary>Show internal (8)</summary>
-  
+<details><summary>Show internal (12)</summary>
+    
   # 🔸 Group
 
 jsonMultiple model
@@ -288,6 +289,139 @@ can be used on multiple models.
 
 
 
+
+
+
+## 🔸 PaymentCoupon
+
+jsonMultiple model
+
+
+
+Model for one-time coupons with invalidation
+
+Can be filled in for any `PaymentPlan` with initial cost.
+
+Will not pay for the subscription cost.
+
+Later, this can be extended
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| couponCode  | string |  |
+| maximumPrice  | number |  |
+| validUntilAt  | number |  |
+
+
+
+## 🔸 PaymentEvent
+
+jsonMultiple model
+
+
+
+An actual payment that is being initiated, processed or happened
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| personId (optional) | string |  |
+| price  | number |  |
+| status  | object |  |
+
+
+
+## 🔸 PaymentPlan
+
+markdown model
+
+
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| markdown  | string |  |
+| categoryStackCalculated  | array |  |
+| oneTimePrice (optional) | number |  |
+| intervalPrice (optional) | number |  |
+| paymentInterval (optional) | string |  |
+| credit (optional) | number |  |
+
+
+
+## 🔸 PaymentSubscription
+
+jsonMultiple model
+
+
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| personId (optional) | string |  |
+| paymentPlanSlug  | string |  |
 
 
 

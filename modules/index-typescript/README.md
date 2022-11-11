@@ -1,20 +1,14 @@
 # Index typescript
 
-index-typescript (node operation)
-
-
-
-## Docs
-
-- [Sorting types](#sorting-types)
+index-typescript (`OperationClassification` node)
 
 
 
 # Docs
 
-## Sorting types
-
-In order to sort the indexed types well, you need to know that:
+<details><summary>sorting-types.md</summary>
+    
+  In order to sort the indexed types well, you need to know that:
 
 1. Interfaces first index all extended types and interfaces, then the interface itself. The last extended type/inteface comes first, then the previous one, etc.
 
@@ -37,6 +31,7 @@ This way the `SlugModelType` properties come first in the indexation, then the u
 
 **Conclusion**: If you're making a type that extends multiple things, but the order should be more custom, use a `type` instead of an `interface`.
 
+  </details>
 
 # Api reference
 
@@ -79,10 +74,50 @@ returns all types that are found as start of a line in the comment (capitalised,
 
 ## 📄 getNumberOfLines (exported const)
 
+# CLI
+
+<details><summary>Show CLI information (2)</summary>
+    
+  # cli()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 cli (unexported const)
+
+  </details>
+
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # test()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 test (unexported const)
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (50)</summary>
-  
+    
   # findAndUpsertTsInterfaces()
 
 
@@ -128,16 +163,11 @@ Gets db storage method for indexation
 
 1) Frontmatter overrules everything
 2) Special extensions are looked at
-3)
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| {
-  typeName,
-  frontmatter,
-  extensions,
-} | { typeName: string, <br />frontmatter: `Frontmatter`, <br />extensions?: string[], <br /> } |  |
+| config | { typeName: string, <br />frontmatter: `Frontmatter`, <br />extensions?: string[], <br /> } |  |
 | **Output** |    |    |
 
 
@@ -440,7 +470,6 @@ Gets db storage method for indexation
 
 1) Frontmatter overrules everything
 2) Special extensions are looked at
-3)
 
 
 ## 📄 getFrontmatterDbStorageMethod (exported const)

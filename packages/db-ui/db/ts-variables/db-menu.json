@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634501705,
-  "updatedAt": 1667634501705,
+  "createdAt": 1668148679857,
+  "updatedAt": 1668148679857,
   "deletedAt": 0,
-  "createdFirstAt": 1667634501705,
+  "createdFirstAt": 1668148679857,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  menu: UseQueryResult<RealApiReturnType<\"getDatabaseMenu\">, unknown>\n) => {\n  const menuItems = menu.data?.result?.menu.map(\n    (modelInfo: ModelInfo, index: number) => {\n      const key = `menu${index}`;\n      const isSelected = false;\n      return (\n        <MenuItem\n          id={key}\n          canExpand={false}\n          isSelected={isSelected}\n          link={`db?model=${modelInfo.slug}`}\n          title={`${modelInfo.name}`}\n          key={key}\n        />\n      );\n    }\n  );\n  return (\n    <Div>\n      {!menu.data?.isSuccessful ? <Div>{menu.data?.message}</Div> : null}\n\n      <Ul className=\"w-full\">{menuItems}</Ul>\n    </Div>\n  );\n}",
   "description": "",
-  "id": "pbdqkcxvbriufotllasfplpa"
+  "id": "pirpvecjkuzluooipqjjimwv"
 }

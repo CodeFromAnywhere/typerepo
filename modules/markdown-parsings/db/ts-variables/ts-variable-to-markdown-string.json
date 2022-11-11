@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667976884039,
-  "updatedAt": 1667976884039,
+  "createdAt": 1668154835187,
+  "updatedAt": 1668154835187,
   "deletedAt": 0,
-  "createdFirstAt": 1667976884039,
+  "createdFirstAt": 1668154835187,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(tsVariable: TsVariable): string => {\n  const titleString = `# 📄 ${tsVariable.name} (${\n    tsVariable.isExported ? \"exported\" : \"unexported\"\n  } ${tsVariable.classification})`;\n\n  const alineas: (string | undefined)[] = [titleString, tsVariable.description];\n\n  return alineas.filter(notEmpty).join(\"\\n\\n\");\n}",
   "description": "",
-  "id": "djwyvpjarnbhbfljcqbstlrh"
+  "id": "atatgkzybesfzizlnctcqrdq"
 }

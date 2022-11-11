@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634825874,
-  "updatedAt": 1667634825874,
+  "createdAt": 1668149094598,
+  "updatedAt": 1668149094598,
   "deletedAt": 0,
-  "createdFirstAt": 1667634825874,
+  "createdFirstAt": 1668149094598,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  tsFunction: TsFunction,\n  inputParameters: any[] | undefined,\n  output: any,\n  performance: PerformanceItem[],\n  isResultFromCache: boolean\n) => {\n  // TODO: store using db (if useful)\n\n  const functionExecution: Creation<FunctionExecution> = {\n    functionName: tsFunction.name,\n    tsFunctionId: tsFunction.id,\n    inputParameters,\n    isExample: false,\n    isTest: false,\n    isResultFromCache,\n    output,\n    performance,\n  };\n\n  //@ts-ignore\n  const result = await db.upsert(\"FunctionExecution\", functionExecution, {\n    onlyInsert: true,\n  });\n  return;\n}",
+  "value": "async (\n  tsFunction: TsFunction,\n  inputParameters: any[] | undefined,\n  output: any,\n  performance: PerformanceItem[],\n  isResultFromCache: boolean\n) => {\n  // TODO: store using db (if useful)\n\n  const functionExecution: Creation<FunctionExecution> = {\n    functionName: tsFunction.name,\n    tsFunctionId: tsFunction.id,\n    inputParameters,\n    isExample: false,\n    isTest: false,\n    isResultFromCache,\n    output,\n    performance,\n  };\n\n  //@ts-ignore\n  const result = await db.upsert(\"FunctionExecution\", functionExecution, {\n    onlyInsert: true,\n    operationName: tsFunction.operationName,\n  });\n  return;\n}",
   "description": "wrapper function that stores execution-speed in an object with `FunctionPerformance` data-structure. Store this using `db.push` if it adds value\n.",
-  "id": "wypggktisgwicvqscjkqauup"
+  "id": "ofjwhbzmevpmdufvlboksxdh"
 }

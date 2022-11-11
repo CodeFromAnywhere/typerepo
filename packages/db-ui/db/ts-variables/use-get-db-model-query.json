@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667634524575,
-  "updatedAt": 1667634524575,
+  "createdAt": 1668148708029,
+  "updatedAt": 1668148708029,
   "deletedAt": 0,
-  "createdFirstAt": 1667634524575,
+  "createdFirstAt": 1668148708029,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<KDbModel extends DbModelEnum>(\n  modelName: KDbModel | undefined\n) => {\n  const dependencies = [\"getDbModel\", modelName];\n\n  const hook = useInfiniteQuery(\n    dependencies,\n    (context) => {\n      const params = context.pageParam as PageParam | undefined;\n\n      // @ts-ignore\n      const result = getDbModel(modelName!, {\n        start: params?.start || 0,\n        limit: params?.limit || defaultLimit,\n      });\n      return result;\n    },\n    {\n      getNextPageParam: (lastPage, allPages) => {\n        const limit = lastPage.result?.limit || defaultLimit;\n        const oldStart = lastPage.result?.start || 0;\n        const pageParam: PageParam = {\n          start: oldStart + limit,\n          limit,\n        };\n\n        return pageParam;\n      },\n    }\n  );\n\n  return hook;\n}",
   "description": "",
-  "id": "oxlmzwrcuqrcafataeizcsuw"
+  "id": "zvpmzekeulcuteodheztegbw"
 }
