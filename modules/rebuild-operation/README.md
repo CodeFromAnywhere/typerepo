@@ -135,9 +135,19 @@ Builds and minifies the src
 
 <details><summary>Show CLI information (6)</summary>
     
-  # main()
+  # rebuildOperationCli()
 
+`rebuildOperation` CLI syntax:
 
+`rebuildOperation [...operations]`
+
+Operations can be a list of differnt operation names you want to rebuild. It's also possible to specify a relative path instead of an operation name.
+
+for example:
+
+`rebuildOperation ./packages/operation-x` would rebuild `operation-x` in your packages folder
+
+another handy one is `rebuildOperation .` because it will rebuild the operation in your current folder.
 
 
 | Input      |    |    |
@@ -151,12 +161,23 @@ Builds and minifies the src
 
 ## 📄 [isUpdatedString] (unexported const)
 
-## 📄 main (unexported const)
-
 ## 📄 manualProjectRoot (unexported const)
 
 ## 📄 [operationName] (unexported const)
 
+## 📄 rebuildOperationCli (unexported const)
+
+`rebuildOperation` CLI syntax:
+
+`rebuildOperation [...operations]`
+
+Operations can be a list of differnt operation names you want to rebuild. It's also possible to specify a relative path instead of an operation name.
+
+for example:
+
+`rebuildOperation ./packages/operation-x` would rebuild `operation-x` in your packages folder
+
+another handy one is `rebuildOperation .` because it will rebuild the operation in your current folder.
   </details>
 
 # Tests

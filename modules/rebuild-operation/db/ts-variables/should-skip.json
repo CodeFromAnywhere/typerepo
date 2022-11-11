@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635854039,
-  "updatedAt": 1667635854039,
+  "createdAt": 1668157078632,
+  "updatedAt": 1668157078632,
   "deletedAt": 0,
-  "createdFirstAt": 1667635854039,
+  "createdFirstAt": 1668157078632,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (config: {\n  operationBasePath: string;\n  debug?: boolean;\n  force?: boolean;\n  operationManualProjectRoot?: string;\n  rebuildUpdatedAt?: number;\n}) => {\n  const {\n    operationBasePath,\n    debug,\n    force,\n    rebuildUpdatedAt,\n    operationManualProjectRoot,\n  } = config;\n  const operationName = getLastFolder(operationBasePath);\n\n  if (force) {\n    console.log(\"Not skipping (force)\");\n    return false;\n  }\n\n  const operationIndex = (\n    await db.get(\"OperationIndex\", {\n      operationName,\n      manualProjectRoot: operationManualProjectRoot,\n    })\n  )[0];\n  if (!operationIndex) {\n    console.log(\"Not skipping because no operationIndex \");\n    return false;\n  }\n\n  if (\n    rebuildUpdatedAt &&\n    operationIndex &&\n    operationIndex.updatedAt <= rebuildUpdatedAt\n  ) {\n    console.log(\"Not skipping because rebuild updated\");\n    return false;\n  }\n\n  const srcPath = path.join(operationBasePath, \"src\");\n  const srcUpdatedAt = await folderGetUpdatedAt({ folderPath: srcPath });\n\n  if (operationIndex && operationIndex.updatedAt <= srcUpdatedAt) {\n    console.log(\"Not skipping because src updated\");\n    return false;\n  }\n\n  const hasIndexFolder = fs.existsSync(\n    path.join(operationBasePath, databaseFolderName)\n  );\n  if (!hasIndexFolder) {\n    console.log(\"Not skipping because has no db folder \");\n    return false;\n  }\n\n  const noBuildFolder = !fs.existsSync(\n    path.join(operationBasePath, buildFolderName)\n  );\n\n  const isBuildNeeded = isOperationBuildNeeded(operationBasePath);\n\n  if (noBuildFolder && isBuildNeeded) {\n    console.log(\"Not skipping because noBuildFolder\");\n    return false;\n  }\n\n  return true;\n}",
   "description": "if you don't force it, there's an operation index, there's an index folder, the src has not been touched since hte last indexation, and there's a buildfolder (if needed), then the rebuildOperation can be skipped",
-  "id": "epkrbbaoobzurzzgwvpioobf"
+  "id": "aecpaagjzfpycqzcykxbuwys"
 }

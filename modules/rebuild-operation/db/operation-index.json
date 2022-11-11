@@ -1,6 +1,6 @@
 {
   "createdAt": 1664528321129,
-  "updatedAt": 1667635861717,
+  "updatedAt": 1668157088039,
   "deletedAt": 0,
   "createdFirstAt": 1664528321129,
   "folderName": "rebuild-operation",
@@ -56,6 +56,7 @@
     "notEmpty",
     "onlyUnique",
     "recalculateOperationIndexJson",
+    "getOperationSummary",
     "operationToMarkdown",
     "oneByOne",
     "getPackageSourcePaths",
@@ -93,24 +94,24 @@
     "codeSize": {
       "numberOfFiles": 19,
       "lines": 0,
-      "characters": 31873,
-      "bytes": 31873
+      "characters": 32457,
+      "bytes": 32457
     },
     "dataSize": {
       "numberOfFiles": 3,
       "lines": 0,
-      "characters": 2661,
-      "bytes": 2661
+      "characters": 2677,
+      "bytes": 2677
     },
     "textSize": {
       "numberOfFiles": 6,
       "lines": 0,
-      "characters": 15806,
-      "bytes": 15806
+      "characters": 15924,
+      "bytes": 15924
     },
     "size": {
-      "bytes": 50340,
-      "characters": 50340,
+      "bytes": 51058,
+      "characters": 51058,
       "lines": 0,
       "numberOfFiles": 28
     }

@@ -732,6 +732,7 @@ export declare const sdkFunctionPaths: {
     isOperationBuildNeeded: string;
     isSdkOperation: string;
     rebuildAllOperations: string;
+    rebuildOperationCli: string;
     rebuildOperation: string;
     shouldSkip: string;
     yarnBuild: string;

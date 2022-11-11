@@ -732,6 +732,7 @@ export const sdkFunctionPaths = {
   "isOperationBuildNeeded": "/modules/rebuild-operation/db/ts-functions/is-operation-build-needed.json",
   "isSdkOperation": "/modules/rebuild-operation/db/ts-functions/is-sdk-operation.json",
   "rebuildAllOperations": "/modules/rebuild-operation/db/ts-functions/rebuild-all-operations.json",
+  "rebuildOperationCli": "/modules/rebuild-operation/db/ts-functions/rebuild-operation-cli.json",
   "rebuildOperation": "/modules/rebuild-operation/db/ts-functions/rebuild-operation.json",
   "shouldSkip": "/modules/rebuild-operation/db/ts-functions/should-skip.json",
   "yarnBuild": "/modules/rebuild-operation/db/ts-functions/yarn-build.json",

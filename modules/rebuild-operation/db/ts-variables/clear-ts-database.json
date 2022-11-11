@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635836374,
-  "updatedAt": 1667635836374,
+  "createdAt": 1668157057591,
+  "updatedAt": 1668157057591,
   "deletedAt": 0,
-  "createdFirstAt": 1667635836374,
+  "createdFirstAt": 1668157057591,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (operationName: string | undefined) => {\n  const result = await Promise.all(\n    typescriptIndexModels.map((modelName) => {\n      return db.clear(modelName, { operationName });\n    })\n  );\n\n  await db.clear(\"OperationIndex\", { operationName });\n}",
   "description": "",
-  "id": "emmixsneuzcmhkzekbopppus"
+  "id": "ahpeirpysyrpotcxmneekogt"
 }
