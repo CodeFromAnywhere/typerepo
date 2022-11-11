@@ -10,6 +10,9 @@ import {
   publicLocalEnvironmentVariables,
 } from "sdk-env-public";
 
+// import { Raleway } from "@next/font/google";
+// const font = Raleway();
+
 // CSS
 import "../globals.css";
 import "react-toastify/dist/ReactToastify.css";
@@ -48,6 +51,17 @@ function MyApp({ Component, pageProps }: RealAppProps) {
       <Head>
         <title>{title}</title>
 
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+          rel="stylesheet"
+        />
+
         {/* NB: for CODE syntax highlighting of "markdown" markdown-parser */}
         <link
           rel="stylesheet"
@@ -55,8 +69,10 @@ function MyApp({ Component, pageProps }: RealAppProps) {
         />
       </Head>
       <StoreProvider>
+        {/* <main className={font.className}> */}
         {/* @ts-ignore */}
         <Component {...pageProps} />
+        {/* </main> */}
       </StoreProvider>
     </QueryClientProvider>
   );
