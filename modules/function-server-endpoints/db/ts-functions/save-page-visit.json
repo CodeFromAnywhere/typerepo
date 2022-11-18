@@ -1,0 +1,115 @@
+{
+  "createdAt": 1668775524297,
+  "updatedAt": 1668775524297,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775524297,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/savePageVisit.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  deviceId: Id,\n  ipInfo: IPInfo,\n  referer: string\n) => {\n  const pageVisit: Creation<PageVisit> = { ipInfo, path: referer, deviceId };\n\n  await db.upsert(\"PageVisit\", pageVisit, { onlyInsert: true });\n}",
+  "name": "savePageVisit",
+  "slug": "save-page-visit",
+  "parameters": [
+    {
+      "name": "deviceId",
+      "schema": {
+        "$ref": "#/definitions/Id"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Should be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "ipInfo",
+      "schema": {
+        "$ref": "#/definitions/IPInfo"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Information that is inferred from an IP",
+        "properties": [
+          {
+            "name": "ip",
+            "required": true,
+            "schema": {
+              "fullComment": "The ip of the device. Can be a local IP or remote IP.\n\nNB: Port is not included",
+              "nb": "Port is not included",
+              "type": "string"
+            }
+          },
+          {
+            "name": "city",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "positionRadiusKm",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "country",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "region",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "timezone",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "referer",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 213,
+    "lines": 9,
+    "bytes": 213,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "rhemozogdsdwxyurxzonjrfn"
+}

@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var get_path_1=require("get-path"),path_sdks_1=require("../path-sdks"),generateInterfacePathsSdkCli=function(){var e=process.argv.slice(2),t=e[0],r=e[1],a="true"===t,s=(0,get_path_1.getProjectRoot)(process.cwd()),c=r||s;(0,path_sdks_1.generateInterfacePathsSdk)({dryrun:a,manualProjectRoot:c})};generateInterfacePathsSdkCli();
+//# sourceMappingURL=generateInterfacePathsSdk.cli.js.map

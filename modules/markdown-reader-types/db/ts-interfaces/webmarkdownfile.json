@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635203932,
-  "updatedAt": 1667635203932,
+  "createdAt": 1668551856624,
+  "updatedAt": 1668551856624,
   "deletedAt": 0,
-  "createdFirstAt": 1667635203932,
+  "createdFirstAt": 1668551856624,
   "id": "webmarkdownfile",
   "name": "WebMarkdownFile",
   "slug": "webmarkdownfile",
@@ -74,8 +74,7 @@
           "description": "the content of the markdown"
         },
         "categoryStackCalculated": {
-          "$ref": "#/definitions/CategoryStack",
-          "description": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!"
+          "$ref": "#/definitions/CategoryStack"
         },
         "isDraft": {
           "type": "boolean",
@@ -130,20 +129,18 @@
             "$ref": "#/definitions/Slug"
           },
           "description": "Labels referring to interests"
+        },
+        "price": {
+          "$ref": "#/definitions/Price",
+          "description": "Price for this file\n\nNB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE."
         }
       },
       "required": [
-        "author_personSlugs",
         "categoryStackCalculated",
         "createdAt",
         "createdFirstAt",
         "deletedAt",
-        "headerCta",
-        "headerImage",
-        "headerSubTitle",
-        "headerTitle",
         "id",
-        "interestSlugs",
         "language",
         "markdown",
         "name",
@@ -186,7 +183,7 @@
       "properties": [
         {
           "name": "headerImage",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Part of the asset that should be sent to the backend. The rest should frontend-only\n\nSome values are stored, some are not",
             "properties": [
@@ -229,21 +226,21 @@
         },
         {
           "name": "headerTitle",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
         },
         {
           "name": "headerSubTitle",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
         },
         {
           "name": "headerCta",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Anything in the format `[alt](href)`\n\nIt needs to be clear how this works. There is a convention for this, and I should implement that as good as possible, and document it here",
             "properties": [
@@ -375,7 +372,7 @@
           "name": "categoryStackCalculated",
           "required": true,
           "schema": {
-            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\n",
+            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
             "nb": "Changing this value when updating/upserting, changes where the item is located!",
             "items": [
               {
@@ -486,7 +483,7 @@
         },
         {
           "name": "author_personSlugs",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Author, reference to persons",
             "items": [
@@ -503,7 +500,7 @@
         },
         {
           "name": "interestSlugs",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Labels referring to interests",
             "items": [
@@ -516,6 +513,15 @@
               }
             ],
             "type": "array"
+          }
+        },
+        {
+          "name": "price",
+          "required": false,
+          "schema": {
+            "fullComment": "Price for this file\n\nNB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.\n\nTLDR;EUROS\n\nA price is a number indicating the relative cost. Absolute cost is calculated by many other factors\n\nFor now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.\n\nLater we can add all kinds of extra conversion:\n\n- currency support\n- king os currency\n- lower cost for poorer people\n\netc...\n\nFirst we need to start making sales before we can add such complexity.\n\n",
+            "nb": "in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.",
+            "type": "number"
           }
         }
       ],

@@ -1,0 +1,150 @@
+{
+  "createdAt": 1668752302860,
+  "updatedAt": 1668752302860,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752302860,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/updateMeWithContext.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  functionContext: FunctionContext,\n  details: PersonProfileDetails\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const person = functionContext.device.currentPersonCalculated;\n\n  if (!person) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't find you, are you logged in?\",\n    };\n  }\n\n  const { isSuccesful, message, amountUpdated } = await db.update(\n    \"Person\",\n    (item) => item.id === person.id,\n    (old) => ({ ...old, ...details })\n  );\n\n  const isReallySuccessful = (isSuccesful && amountUpdated === 1) || false;\n\n  return {\n    isSuccessful: isReallySuccessful,\n    message: isReallySuccessful\n      ? \"Updated your profile details\"\n      : message || \"Something went wrong (no message)\",\n  };\n}",
+  "name": "updateMeWithContext",
+  "slug": "update-me-with-context",
+  "parameters": [
+    {
+      "name": "functionContext",
+      "schema": {
+        "$ref": "#/definitions/FunctionContext"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Should be attached as first argument of the function, if the name of the function is in the format of:\n\n- `xyzWithContext`: attaches all context\n- `xyzWithContextRaw`: attaches all context, api returns just the result of the function without wrapping it in the `RealApiReturnType`. Needed in case you have a different server.js `server.reply`\n\nFor more info see `apiConvention`",
+        "properties": [
+          {
+            "name": "authorizations",
+            "required": false,
+            "schema": {
+              "fullComment": "Authorizations accumulated of the person(s), the group(s), and public authorizations.\n\nNB: This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "nb": "This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "groups",
+            "required": false,
+            "schema": {
+              "fullComment": "Groups the person(s) of the device belong to",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "hasAuthorization",
+            "required": true,
+            "schema": {
+              "fullComment": "Device has authorization to the function",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "authToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serverContext",
+            "required": false,
+            "schema": {
+              "fullComment": "Original context coming from server.js\n\nNB: due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:\n\n`import { Context } from \"server/typings/common\";`",
+              "nb": "due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:",
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "details",
+      "schema": {
+        "$ref": "#/definitions/PersonProfileDetails"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Things the user can fill in about themselves on their profile",
+        "properties": [
+          {
+            "name": "name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "interestSlugs",
+            "required": false,
+            "schema": {
+              "fullComment": "slugs of interest categories that this person should be notified about.\n\nSince this is a hierarchical model, parent interests will ensure all children are also applied.",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "media",
+            "required": false,
+            "schema": {
+              "fullComment": "Media that is attached to this person.\n\nNB: not used to authenticate! Can be filled in by King OS, might be erroneous",
+              "nb": "not used to authenticate! Can be filled in by King OS, might be erroneous",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "amountAuthenticationMethodsRequired",
+            "required": false,
+            "schema": {
+              "fullComment": "By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one",
+              "type": "number"
+            }
+          },
+          {
+            "name": "requiredAuthenticationMethods",
+            "required": false,
+            "schema": {
+              "fullComment": "Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device",
+              "items": [],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 749,
+    "lines": 28,
+    "bytes": 749,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 28,
+    "numberOfFiles": 1
+  },
+  "id": "cwicmejnvgvuritloybmqllt"
+}

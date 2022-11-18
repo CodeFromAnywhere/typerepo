@@ -1,14 +1,3 @@
 #!/usr/bin/env node
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var newOperation_1=require("../newOperation"),newOperationCli=function(){var e=process.argv.slice(2),n=e[0],t=e[1],i=e[2],o=e[3];(0,newOperation_1.newOperation)(n,{type:t,description:i,destinationPath:o}),console.log("Generated operation",{name:n,type:t,description:i,destinationPath:o})};
-/**
- * newOperation also works as CLI
- *
- * example: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation (js, node, ui-es5, ui-es6, web) as the second argument of the CLI
- *
- * Arguments (all optional):
- * - name: string
- * - type: `OperationClassification`
- * - description: string
- * - destinationPath: string
- */newOperationCli();
+"use strict";var __awaiter=this&&this.__awaiter||function(e,t,n,r){return new(n||(n=Promise))((function(o,i){function a(e){try{l(r.next(e))}catch(e){i(e)}}function c(e){try{l(r.throw(e))}catch(e){i(e)}}function l(e){var t;e.done?o(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(a,c)}l((r=r.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,r,o,i,a={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return i={next:c(0),throw:c(1),return:c(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function c(i){return function(c){return function(i){if(n)throw new TypeError("Generator is already executing.");for(;a;)try{if(n=1,r&&(o=2&i[0]?r.return:i[0]?r.throw||((o=r.return)&&o.call(r),0):r.next)&&!(o=o.call(r,i[1])).done)return o;switch(r=0,o&&(i=[2&i[0],o.value]),i[0]){case 0:case 1:o=i;break;case 4:return a.label++,{value:i[1],done:!1};case 5:a.label++,r=i[1],i=[0];continue;case 7:i=a.ops.pop(),a.trys.pop();continue;default:if(!(o=a.trys,(o=o.length>0&&o[o.length-1])||6!==i[0]&&2!==i[0])){a=0;continue}if(3===i[0]&&(!o||i[1]>o[0]&&i[1]<o[3])){a.label=i[1];break}if(6===i[0]&&a.label<o[1]){a.label=o[1],o=i;break}if(o&&a.label<o[2]){a.label=o[2],a.ops.push(i);break}o[2]&&a.ops.pop(),a.trys.pop();continue}i=t.call(e,a)}catch(e){i=[6,e],r=0}finally{n=o=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,c])}}};Object.defineProperty(exports,"__esModule",{value:!0});var code_types_1=require("code-types"),log_1=require("log"),newOperation_1=require("../newOperation"),newOperationCli=function(){return __awaiter(void 0,void 0,void 0,(function(){var e,t,n,r,o;return __generator(this,(function(i){switch(i.label){case 0:return e=process.argv.slice(2),t=e[0],n=e[1],r=e[2],o=e[3],(0,log_1.log)("Let's make a ".concat(n||"node-cjs"," operation called ").concat(t),{type:"important"}),console.log("All types possible:",code_types_1.operationClassificationConst.join(", ")),[4/*yield*/,(0,newOperation_1.newOperation)(t,{type:n,description:r,destinationPath:o})];case 1:return i.sent(),console.log("Generated operation",{name:t,type:n,description:r,destinationPath:o}),[2/*return*/]}}))}))};newOperationCli();
 //# sourceMappingURL=newOperation.cli.js.map

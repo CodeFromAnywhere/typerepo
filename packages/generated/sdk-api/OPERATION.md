@@ -1,12 +1,3 @@
----
-createdAt: 1668158851496
-updatedAt: 1668158851496
-deletedAt: 0
-createdFirstAt: 1668158851496
-categoryStackCalculated: 
-id: rjrbxidebpeszvqibffrkdjg
-slug: sdk-api
-name: sdk-api
----
+# ❌ No description set yet
 
-Default description
+Please set a description for this operation in OPERATION.md

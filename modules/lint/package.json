@@ -1,11 +1,22 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328734314,
+  "updatedAt": 1668328734314,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328734314,
+  "id": "FbqlLZAgfQkcdjcs",
+  "bin": {
+    "lint": "build/cli.js"
+  },
+  "dependencies": {
+    "fs-util": "1.0.5",
+    "get-package-json": "0.0.1",
+    "get-ts-config": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.2"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,23 +24,59 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "lint",
-  "bin": {
-    "lint": "build/cli.js"
-  },
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.2"
-  },
+  "language": "english",
   "slug": "lint",
-  "id": "FbqlLZAgfQkcdjcs",
-  "dependencies": {
-    "fs-util": "1.0.5",
-    "get-package-json": "0.0.1",
-    "get-ts-config": "0.0.1"
-  },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "lint",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668336046709,
+    "operationDependenciesIndexed": [
+      "getLastFolder",
+      "getPackageJson",
+      "getTsConfig"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/typescript",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 54,
+        "characters": 1513,
+        "bytes": 1513
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 122,
+        "characters": 2734,
+        "bytes": 2734
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 41,
+        "characters": 1147,
+        "bytes": 1147
+      },
+      "size": {
+        "bytes": 5394,
+        "characters": 5394,
+        "lines": 217,
+        "numberOfFiles": 4
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

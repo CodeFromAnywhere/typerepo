@@ -12,7 +12,6 @@
   "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
   "id": "kskoqvkjdmei8vusdkwovopwksjs",
   "language": "en",
-  "categoryStackCalculated": [],
   "bundleMarkdownReaderConfig": {
     "customOperationNames": [
       "k-dev",
@@ -20,8 +19,7 @@
       "generate-sdk-operations",
       "rebuild-operation",
       "markdown-reader-web",
-      "db-web",
-      "himalayajeep-web"
+      "db-web"
     ],
     "omitAppsMenu": true,
     "omitModulesMenu": true,
@@ -30,5 +28,6 @@
     "omitDictionaryMenu": false
   },
   "operationName": null,
-  "projectRelativePath": "/db/bundle-configs/typerepo.json"
+  "projectRelativePath": "/db/bundle-configs/typerepo.json",
+  "categoryStackCalculated": []
 }

@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.tsFunctionIsIndexable=void 0;var filename_conventions_1=require("filename-conventions"),get_path_1=require("get-path"),tsFunctionIsIndexable=function(e){var t=(0,get_path_1.getSrcRelativeFileId)(e.operationRelativeTypescriptFilePath);return(0,filename_conventions_1.isIndexableFileId)(t)};exports.tsFunctionIsIndexable=tsFunctionIsIndexable;
+//# sourceMappingURL=tsFunctionIsIndexable.js.map

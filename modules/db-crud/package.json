@@ -1,0 +1,168 @@
+{
+  "createdAt": 1668513736618,
+  "updatedAt": 1668513736618,
+  "deletedAt": 0,
+  "createdFirstAt": 1668513736618,
+  "version": "0.0.0",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "dependencies": {
+    "react-with-native": "1.4.9",
+    "labeled-button": "0.0.1",
+    "react-with-native-router": "1.0.14",
+    "react-with-native-table": "0.0.1",
+    "js-util": "0.0.1",
+    "convert-case": "0.0.1",
+    "schema-util": "0.0.1",
+    "react-with-native-alert": "1.0.33",
+    "fancy-loader": "0.0.1",
+    "api": "0.0.1",
+    "name-conventions": "0.0.1",
+    "code-types": "0.0.1",
+    "ui-util": "0.0.1",
+    "markdown": "1.0.0",
+    "simplified-schema-form": "0.0.1",
+    "model-types": "0.0.1",
+    "clickable-icon": "0.0.1",
+    "use-url-store": "0.0.1",
+    "react": "*",
+    "react-query": "*",
+    "fs-util-js": "0.0.1"
+  },
+  "name": "db-crud",
+  "operation": {
+    "indirectDependencies": [
+      "db-recipes"
+    ],
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/db-crud/src/useUrl.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
+      ]
+    },
+    "lastRebuildAt": 1668775654374,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 9,
+        "lines": 616,
+        "characters": 19055,
+        "bytes": 19055
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 203,
+        "characters": 5668,
+        "bytes": 5668
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 168,
+        "characters": 3485,
+        "bytes": 3485
+      },
+      "size": {
+        "bytes": 28208,
+        "characters": 28208,
+        "lines": 987,
+        "numberOfFiles": 13
+      }
+    },
+    "folderNameIndexed": "db-crud",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [
+      "useState",
+      "useState",
+      "useState"
+    ],
+    "operationDependenciesIndexed": [
+      "makeArray",
+      "Div",
+      "useRouter",
+      "LabeledButton",
+      "LabeledButtonType",
+      "Button",
+      "Div",
+      "P",
+      "Svg",
+      "api",
+      "queries",
+      "humanCase",
+      "FancyLoader",
+      "getFolderJs",
+      "notEmpty",
+      "sum",
+      "LabeledButton",
+      "renderMarkdownContent",
+      "getAssetInputType",
+      "isCalculatedParameter",
+      "Div",
+      "P",
+      "useAlert",
+      "useRouter",
+      "ColumnType",
+      "Table",
+      "getProperties",
+      "getReferenceParameterInfo",
+      "SchemaProperty",
+      "DbModelEnum",
+      "FunctionParameter",
+      "Div",
+      "P",
+      "createCodeblockMarkdown",
+      "renderMarkdownContent",
+      "Div",
+      "P",
+      "Span",
+      "SimplifiedSchemaForm",
+      "FormContainer",
+      "RenderableFunctionParameter",
+      "useReferencableModelData",
+      "useRouter",
+      "SimplifiedSchema",
+      "generateId",
+      "ClickableIcon",
+      "DbModelEnum",
+      "useAlert",
+      "api",
+      "queries",
+      "humanCase",
+      "LabeledButtonType",
+      "Div",
+      "useRouter",
+      "makeArray",
+      "mapValuesSync",
+      "notEmpty",
+      "takeFirst",
+      "DbModelEnum",
+      "DbModels",
+      "AugmentedAnyModelType",
+      "getReferencableModels",
+      "api",
+      "DbModelEnum",
+      "makeArray",
+      "useRouter",
+      "useCustomUrlStore"
+    ],
+    "packageDependenciesIndexed": [
+      "useInfiniteQuery"
+    ]
+  },
+  "slug": "db-crud",
+  "id": "lirieiteddugaafnaaeyjbds"
+}

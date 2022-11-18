@@ -1,6 +1,6 @@
 # Generate sdk operations
 
-generate-sdk-operations (`OperationClassification` node)
+generate-sdk-operations (`OperationClassification` node-cjs)
 
 This operation contains different functions to generate all possible sdk operations according to the King OS convention.
 
@@ -37,7 +37,7 @@ Ensure to apply all King OS conventions when generating these operations, becaus
 
 # CLI
 
-<details><summary>Show CLI information (10)</summary>
+<details><summary>Show CLI information (12)</summary>
     
   # generateDbSdkCli()
 
@@ -61,6 +61,15 @@ Ensure to apply all King OS conventions when generating these operations, becaus
 
 
 ## generateFunctionSdksCli()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## generateInterfacePathsSdkCli()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -93,6 +102,8 @@ Ensure to apply all King OS conventions when generating these operations, becaus
 
 ## 📄 generateFunctionSdksCli (unexported const)
 
+## 📄 generateInterfacePathsSdkCli (unexported const)
+
 ## 📄 generateOperationsSdkCli (unexported const)
 
 ## 📄 generateSdkOperationsCli (unexported const)
@@ -121,7 +132,7 @@ Ensure to apply all King OS conventions when generating these operations, becaus
 
 # Internal
 
-<details><summary>Show internal (26)</summary>
+<details><summary>Show internal (29)</summary>
     
   # generateDbSdk()
 
@@ -151,9 +162,6 @@ returns the paths of the geneated operations
 
 ## generateFunctionPathsSdk()
 
-`sdk-function-paths` indexes all operations and builds an object containing all operations.
-
-
 | Input      |    |    |
 | ---------- | -- | -- |
 | config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
@@ -164,14 +172,24 @@ returns the paths of the geneated operations
 ## generateFunctionSdks()
 
 Creates
-- sdk
-- sdk-api (for just operations that have been determined to be exposed): add `export type { SdkApiType }`
-- sdk-js (functions that can be executed in the browser on the client side)
-- sdk-keys (all sdk keys)
-- sdk-api-keys
-- sdk-js-keys
+
+- sdk-api + sdk-api-keys (for all exposed functions)
+- sdk-js (functions that can be executed anywhere)
+- sdk-ui (functions that use JSX)
 
 Overwrites them if they already exist with minimal interruption time of the system
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { manualProjectRoot?: string, <br />skipYarnInstall?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## generateInterfacePathsSdk()
+
+`sdk-function-paths` indexes all operations and builds an object containing all operations.
 
 
 | Input      |    |    |
@@ -205,7 +223,7 @@ Gets a description of any sdk operation from the assets
 
 
 
-## getSdkFunctions()
+## getSdkFunctionsPerClassification()
 
 returns all sdk functions grouped by operation classification
 
@@ -217,25 +235,13 @@ returns all sdk functions grouped by operation classification
 
 
 
-## isTsFunctionIndexable()
-
-The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| tsFunction | `TsFunction` |  |
-| **Output** | {  }   |    |
-
-
-
 ## newEnvSdk()
 
 ## Environment variables
 
 As a full stack app we need a good solution for environment variables that need to be accessible anywhere and can be customized, some `.gitignore'd`, some not. Some public, some only in the backend.
 
-sensible-config:
+conifg:
 - public (local, remote) = sdk-env-public
 - private (local, remote) = sdk-env-private
 
@@ -249,7 +255,7 @@ This information will be fetched from the bundleconfig
 
 
 
-## newSdkKeysOperation()
+## newFunctionKeysSdkOperation()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -258,7 +264,7 @@ This information will be fetched from the bundleconfig
 
 
 
-## newSdkOperation()
+## newFunctionSdkOperation()
 
 Uses an array of functions to create an operation that imports all those functions and exports an object where all those functions have been comprised
 
@@ -270,12 +276,33 @@ Uses an array of functions to create an operation that imports all those functio
 
 
 
+## tsFunctionIsIndexable()
+
+The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsFunction | `TsFunction` |  |
+| **Output** | {  }   |    |
+
+
+
 ## tsFunctionIsSdkable()
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | tsFunction | `TsFunction` |  |,| operationClassificationObject | `OperationClassificationObject` |  |,| operationClassification | `OperationClassification` |  |
 | **Output** | {  }   |    |
+
+
+
+## updateClassifications()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
@@ -291,19 +318,20 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| js  | array |  |
+| cjs  | array |  |
 | ts  | array |  |
-| node  | array |  |
-| server  | array |  |
-| web  | array |  |
-| app  | array |  |
-| ui-es6  | array |  |
-| ui-es5  | array |  |
+| esm  | array |  |
+| node-cjs  | array |  |
+| node-esm  | array |  |
+| node-ts  | array |  |
+| server-cjs  | array |  |
+| ui-web  | array |  |
+| ui-app  | array |  |
+| ui-ts  | array |  |
+| ui-cjs  | array |  |
 | ui-esm  | array |  |
 
 
-
-## 🔹 OperationClassificationObject
 
 ## 📄 generateDbSdk (exported const)
 
@@ -316,20 +344,20 @@ returns the paths of the geneated operations
 
 ## 📄 generateFunctionPathsSdk (exported const)
 
-`sdk-function-paths` indexes all operations and builds an object containing all operations.
-
-
 ## 📄 generateFunctionSdks (exported const)
 
 Creates
-- sdk
-- sdk-api (for just operations that have been determined to be exposed): add `export type { SdkApiType }`
-- sdk-js (functions that can be executed in the browser on the client side)
-- sdk-keys (all sdk keys)
-- sdk-api-keys
-- sdk-js-keys
+
+- sdk-api + sdk-api-keys (for all exposed functions)
+- sdk-js (functions that can be executed anywhere)
+- sdk-ui (functions that use JSX)
 
 Overwrites them if they already exist with minimal interruption time of the system
+
+
+## 📄 generateInterfacePathsSdk (exported const)
+
+`sdk-function-paths` indexes all operations and builds an object containing all operations.
 
 
 ## 📄 generateOperationsSdk (exported const)
@@ -342,14 +370,9 @@ Overwrites them if they already exist with minimal interruption time of the syst
 Gets a description of any sdk operation from the assets
 
 
-## 📄 getSdkFunctions (exported const)
+## 📄 getSdkFunctionsPerClassification (exported const)
 
 returns all sdk functions grouped by operation classification
-
-
-## 📄 isTsFunctionIndexable (exported const)
-
-The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!
 
 
 ## 📄 newEnvSdk (exported const)
@@ -358,21 +381,28 @@ The path of the function should be indexed by `generateSimpleIndex`, otherwise w
 
 As a full stack app we need a good solution for environment variables that need to be accessible anywhere and can be customized, some `.gitignore'd`, some not. Some public, some only in the backend.
 
-sensible-config:
+conifg:
 - public (local, remote) = sdk-env-public
 - private (local, remote) = sdk-env-private
 
 This information will be fetched from the bundleconfig
 
 
-## 📄 newSdkKeysOperation (exported const)
+## 📄 newFunctionKeysSdkOperation (exported const)
 
-## 📄 newSdkOperation (exported const)
+## 📄 newFunctionSdkOperation (exported const)
 
 Uses an array of functions to create an operation that imports all those functions and exports an object where all those functions have been comprised
 
 
+## 📄 tsFunctionIsIndexable (exported const)
+
+The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!
+
+
 ## 📄 tsFunctionIsSdkable (exported const)
+
+## 📄 updateClassifications (exported const)
 
   </details>
 

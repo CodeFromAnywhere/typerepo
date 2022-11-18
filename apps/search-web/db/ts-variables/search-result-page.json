@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668774458060,
+  "updatedAt": 1668774458060,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774458060,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "SearchResultPage",
+  "slug": "search-result-page",
+  "operationRelativeTypescriptFilePath": "src/components/SearchResultPage.tsx",
+  "type": {
+    "rawType": "(props: import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").QueryPageProps) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: QueryPageProps) => {\n  const { query, searchResults } = props;\n  const router = useRouter();\n  return (\n    <Div>\n      <Div className=\"flex w-full justify-between\">\n        <Div\n          className=\"text-3xl p-2 cursor-pointer\"\n          onClick={() => router.push(\"/\")}\n        >\n          🏠\n        </Div>\n        <SearchBar initialValue={query || undefined} />\n        <Div />\n      </Div>\n      <a\n        className=\"text-blue-500\"\n        href={`https://www.google.nl/search?q=${query}`}\n      >\n        {query}\n      </a>\n      {searchResults?.map((searchResult, index) => {\n        return (\n          <SearchResultComponent\n            key={`s${index}`}\n            index={index}\n            searchResult={searchResult}\n          />\n        );\n      })}\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "txkpiascjccilcoggilkxicj"
+}

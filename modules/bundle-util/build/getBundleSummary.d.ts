@@ -1,5 +1,6 @@
 import { BundleConfig } from "bundle-types";
 export declare type BundleSummary = {
+    slug: string;
     /**
      * Haven't found a good usecase for this yet
      */

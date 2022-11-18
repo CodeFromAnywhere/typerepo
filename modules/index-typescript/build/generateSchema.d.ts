@@ -17,6 +17,7 @@ https://github.com/vega/ts-json-schema-generator/issues/98
 https://github.com/vega/ts-json-schema-generator/issues/104
 
 Until this is solved, it will be difficult to get types of nested functions (other option would be to try and do it with ts-morph)
+
 */
 import { Config, Schema } from "ts-json-schema-generator";
 import { TsInterface, MaybeInteface } from "code-types";

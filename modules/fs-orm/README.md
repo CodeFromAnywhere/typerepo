@@ -1,6 +1,6 @@
 # Fs orm
 
-fs-orm (`OperationClassification` node)
+fs-orm (`OperationClassification` node-cjs)
 
 ORM that lets you create a database with models that are stored on the file system in multiple formats that are easy to understand and well structured.
 
@@ -267,6 +267,21 @@ const mapFn = (todo: Todo): Todo => {
 const updatedResult = await db.get("Todo", filterFunction, mapFunction);
 ```
 
+
+### Advanced: Example with `mergeNestedObject`
+
+`mergeNestedObject` lets you easily update deeply nested objects without having to write out too much code... It works like this:
+
+```ts
+const updatedResult = await db.get(
+  "SuperDeepModel",
+  () => true,
+  (old) => mergeNestedObject(old, { a: { b: { c: { d: undefined, e: 1 } } } })
+);
+```
+
+If you ever have todo many updates in a deeply nested model, you might find this useful!
+
   </details>
 
 <details><summary>upsert.md</summary>
@@ -337,6 +352,18 @@ Properties:
 
 
 
+## 🔹 Include
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| referenceKey (optional) | string |  |
+| items (optional) | array |  |
+| include (optional) | object |  |
+
+
+
 ## getDatabaseFiles()
 
 This function gets the files that the data can be stored, by convention, based on the model and the config
@@ -359,18 +386,6 @@ Returns not only the file paths, but also where they were found (`operationName,
 | ---------- | -- | -- |
 | modelName | string |  |,| mergedConfig | `MergedQueryConfig` |  |
 | **Output** |    |    |
-
-
-
-## 🔹 Include
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| referenceKey (optional) | string |  |
-| items (optional) | array |  |
-| include (optional) | object |  |
 
 
 
@@ -468,6 +483,7 @@ Properties:
 | amountInserted (optional) | number |  |
 | amountUpdated (optional) | number |  |
 | amountRemoved (optional) | number |  |
+| allRemoved (optional) | boolean |  |
 
 
 
@@ -664,7 +680,7 @@ Alters a csv
 
 ## alterJsonMultiple()
 
-Alters a json single file
+Alters a json multiple file
 
 
 | Input      |    |    |
@@ -717,6 +733,8 @@ Alters a markdown file
 
 
 ## calculateOperationsObject()
+
+relative
 
 Needed in case of manual project root, otherwise use SDK!
 
@@ -914,6 +932,13 @@ Used for `set` and `upsert`. Groups creation items into an object where keys are
 
 ## makeStoringItem()
 
+Three things need to happen in order to store an item
+
+1) keys that can be inferred from the file path are omitted
+2) referenced data is omitted
+3) calculated data is omitted
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
@@ -1095,7 +1120,7 @@ Alters a csv
 
 ## 📄 alterJsonMultiple (exported const)
 
-Alters a json single file
+Alters a json multiple file
 
 
 ## 📄 alterJsonSingle (exported const)
@@ -1198,6 +1223,13 @@ Used for `set` and `upsert`. Groups creation items into an object where keys are
 
 
 ## 📄 makeStoringItem (exported const)
+
+Three things need to happen in order to store an item
+
+1) keys that can be inferred from the file path are omitted
+2) referenced data is omitted
+3) calculated data is omitted
+
 
 ## 📄 removeKeyValueMarkdown (exported const)
 

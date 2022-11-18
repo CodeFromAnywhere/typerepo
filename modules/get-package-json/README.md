@@ -1,6 +1,6 @@
 # Get package json
 
-get-package-json (`OperationClassification` node)
+get-package-json (`OperationClassification` node-cjs)
 
 
 

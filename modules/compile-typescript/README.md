@@ -1,6 +1,6 @@
 # Compile typescript
 
-compile-typescript (`OperationClassification` js)
+compile-typescript (`OperationClassification` cjs)
 
 
 

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258763068,
-  "updatedAt": 1666258763068,
+  "createdAt": 1668331941076,
+  "updatedAt": 1668331941076,
   "deletedAt": 0,
-  "createdFirstAt": 1666258763068,
+  "createdFirstAt": 1668331941076,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  filePaths: string[]\n): Promise<SizeSummary> => {\n  const sizeSummaries = await Promise.all(filePaths.map(getSizeSummary));\n  const summed = sumAllKeys(sizeSummaries, [\n    \"numberOfFiles\",\n    \"lines\",\n    \"characters\",\n    \"bytes\",\n  ]);\n  return summed;\n}",
   "description": "",
-  "id": "bqixgvkjxgmfiguhkcjzqvyf"
+  "id": "pyerkkzspghmovebgfioblqj"
 }

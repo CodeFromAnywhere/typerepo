@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149191387,
-  "updatedAt": 1668149191387,
+  "createdAt": 1668448617983,
+  "updatedAt": 1668448617983,
   "deletedAt": 0,
-  "createdFirstAt": 1668149191387,
+  "createdFirstAt": 1668448617983,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async (fn: FnMatch) => {\n  console.log(`finding ${fn.name} as ${fn.matcher}`);\n\n  log(\n    `Fill in the parameters of this function (JSON or string) (Leave empty for no parameter)`\n  );\n  const parameters = await getParameters(fn.parameters);\n  await executeSdkFunction(fn.name, parameters);\n}",
   "description": "",
-  "id": "yosdirbrznmtxqoiojijmhjm"
+  "id": "xdblhggwkerdnuadhlgmrxdq"
 }

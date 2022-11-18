@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264404092,
-  "updatedAt": 1666264404092,
+  "createdAt": 1668336222610,
+  "updatedAt": 1668336222610,
   "deletedAt": 0,
-  "createdFirstAt": 1666264404092,
+  "createdFirstAt": 1668336222610,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -42,5 +42,5 @@
   },
   "value": "[\n  makeTest(\n    () => sum(1, 2),\n    (result) => result === 3\n  ),\n  makeTest(\n    () => sum(0, 0),\n    (result) => result === 0\n  ),\n\n  makeTest(\n    () => sum(5, 5),\n    (result) => result === 10\n  ),\n]",
   "description": "test for example function",
-  "id": "ciuvfgpswbxrwhtnanvwwngm"
+  "id": "deyrvkmhshlvatozcfxygnht"
 }

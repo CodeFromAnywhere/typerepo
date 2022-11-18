@@ -16,12 +16,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./calculateDeviceName"), exports);
 __exportStar(require("./executeFunctionWithParameters"), exports);
-__exportStar(require("./functionEndpoints"), exports);
-__exportStar(require("./getApiEndpoints"), exports);
-__exportStar(require("./getHasAuthorization"), exports);
-__exportStar(require("./getNewPerformance"), exports);
+__exportStar(require("./functionGetEndpoints"), exports);
+__exportStar(require("./functionPostEndpoints"), exports);
+__exportStar(require("./getAuthorizationInfo"), exports);
 __exportStar(require("./getTsFunction"), exports);
-__exportStar(require("./postApiEndpoints"), exports);
+__exportStar(require("./isGetEndpoint"), exports);
+__exportStar(require("./savePageVisit"), exports);
 __exportStar(require("./storeFunctionExecution"), exports);
 __exportStar(require("./types"), exports);
 __exportStar(require("./upsertDevice"), exports);

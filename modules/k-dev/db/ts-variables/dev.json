@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264699110,
-  "updatedAt": 1666264699110,
+  "createdAt": 1668336470070,
+  "updatedAt": 1668336470070,
   "deletedAt": 0,
-  "createdFirstAt": 1666264699110,
+  "createdFirstAt": 1668336470070,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  /**\n   * manual project root for finding the operations\n   */\n  manualProjectRoot?: string\n): void => {\n  if (manualProjectRoot && !fs.existsSync(manualProjectRoot)) {\n    console.log(\"Please enter a manualProjectRoot that exists\");\n    return;\n  }\n\n  const vars = manualProjectRoot ? [manualProjectRoot] : undefined;\n  nodemon(\"watch-operations\", \"watchOperations\", vars);\n}",
   "description": "Running this function will start a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))",
-  "id": "xwhxjjieljnzxjcrhhebavel"
+  "id": "zdbixkhvvrychqdaqbfbbuvl"
 }

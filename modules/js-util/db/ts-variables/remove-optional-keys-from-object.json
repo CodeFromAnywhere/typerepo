@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668775937628,
+  "updatedAt": 1668775937628,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775937628,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "removeOptionalKeysFromObject",
+  "slug": "remove-optional-keys-from-object",
+  "operationRelativeTypescriptFilePath": "src/removeOptionalKeysFromObject.ts",
+  "type": {
+    "rawType": "<TObject extends import(\"/Users/king/King/operations/tools/util/js-util/src/NestedPartial\").O>(object: TObject, keys: Exclude<keyof T, Exclude<import(\"/Users/king/King/operations/tools/util/js-util/src/types\").KeysOfType<T, Exclude<T[keyof T], undefined>>, undefined>>[]) => TObject",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<TObject extends O>(\n  object: TObject,\n  keys: OptionalKeys<TObject>[]\n): TObject => {\n  const newObject = keys.reduce((objectNow, key) => {\n    return {\n      ...objectNow,\n      [key]: undefined,\n    };\n  }, object);\n\n  return newObject;\n}",
+  "description": "",
+  "id": "znoxknzctuojzdgqhvehmfzp"
+}

@@ -1,0 +1,50 @@
+{
+  "createdAt": 1668752110682,
+  "updatedAt": 1668752110682,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752110682,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "removeTypescriptIndex",
+  "slug": "remove-typescript-index",
+  "operationRelativeTypescriptFilePath": "src/removeTypescriptIndex.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/control-project/watch-types/build/ProjectWatcher\").ProjectWatcher",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "filter"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "filter",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "(eventName, path) => {\n  console.log(\n    eventName,\n    path,\n    \"Should remove all indexations we had on this path\",\n    path\n  );\n}",
+  "description": "",
+  "id": "iwusrgmyzxrczpwpdevmljlv"
+}

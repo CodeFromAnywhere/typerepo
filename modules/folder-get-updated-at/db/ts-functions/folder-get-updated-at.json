@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666258523628,
-  "updatedAt": 1666258523628,
+  "createdAt": 1668331773543,
+  "updatedAt": 1668331773543,
   "deletedAt": 0,
-  "createdFirstAt": 1666258523628,
+  "createdFirstAt": 1668331773543,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/folderGetUpdatedAt.ts",
   "commentsInside": [],
-  "rawText": " async ({\n  folderPath,\n}: {\n  folderPath: string;\n}): Promise<number> => {\n  return (\n    await explore({\n      basePath: folderPath,\n      includeStats: true,\n      extension: [\"ts\", \"tsx\"],\n      ignore: \"index.ts\",\n    })\n  ).reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.mtimeMs;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n}",
+  "rawText": " async ({\n  folderPath,\n}: {\n  folderPath: string;\n}): Promise<number> => {\n  return (\n    await explore({\n      basePath: folderPath,\n      includeStats: true,\n      extension: [\"ts\", \"tsx\"],\n      ignore: \"index.ts\",\n    })\n  ).reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.updatedAt;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n}",
   "name": "folderGetUpdatedAt",
   "slug": "folder-get-updated-at",
   "parameters": [
@@ -58,13 +58,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 503,
+    "characters": 505,
     "lines": 19,
-    "bytes": 503,
+    "bytes": 505,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
+    "charactersPerLine": 27,
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "gqyxacgoyosidexkxvrypjwn"
+  "id": "mpvgiurhvjmzqsaermsazbjf"
 }

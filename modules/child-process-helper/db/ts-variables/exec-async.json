@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336325367,
+  "updatedAt": 1668336325367,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336325367,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "execAsync",
+  "slug": "exec-async",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "(command: string) => Promise<{ success: boolean; response: string; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  command: string\n): Promise<{ success: boolean; response: string }> => {\n  return new Promise((resolve) => {\n    exec(command, (error, stdout, stderr) => {\n      if (error) {\n        console.log(error);\n        resolve({ success: false, response: stderr });\n      } else {\n        resolve({ success: true, response: stdout });\n      }\n    });\n  });\n}",
+  "description": "promises to exec something with response and success as result (Promised)",
+  "id": "setpzzzumfeuhqgmshvwihwu"
+}

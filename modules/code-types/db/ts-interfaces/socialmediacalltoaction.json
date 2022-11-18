@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150114430,
-  "updatedAt": 1668150114430,
+  "createdAt": 1668775171249,
+  "updatedAt": 1668775171249,
   "deletedAt": 0,
-  "createdFirstAt": 1668150114430,
+  "createdFirstAt": 1668775171249,
   "id": "socialmediacalltoaction",
   "name": "SocialMediaCallToAction",
   "slug": "socialmediacalltoaction",
@@ -90,8 +90,7 @@
           "description": "the content of the markdown"
         },
         "categoryStackCalculated": {
-          "$ref": "#/definitions/CategoryStack",
-          "description": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!"
+          "$ref": "#/definitions/CategoryStack"
         }
       },
       "required": [
@@ -204,7 +203,7 @@
           "name": "categoryStackCalculated",
           "required": true,
           "schema": {
-            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\n",
+            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
             "nb": "Changing this value when updating/upserting, changes where the item is located!",
             "items": [
               {

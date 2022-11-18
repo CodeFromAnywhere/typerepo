@@ -1,0 +1,209 @@
+{
+  "createdAt": 1668774379083,
+  "updatedAt": 1668774379083,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774379083,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getFunctionQueryPaths.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  tsFunctions?: TsFunction[]\n): Promise<string[]> => {\n  // if you don't provide it, overwrite it from the db\n  tsFunctions =\n    tsFunctions || (await db.get(\"TsFunction\")).filter((x) => x.isExported);\n\n  // TODO: use the `functionQueryPaths` and add the needed ones to main project and every bundle available\n  const bundles = await db.get(\"BundleConfig\");\n\n  // console.log({ tsFunctions });\n\n  const functionQueryPaths: string[] = tsFunctions\n    .map((tsFunction) => {\n      if (!tsFunction.operationName) {\n        console.log(`no name`);\n        return;\n      }\n\n      // part 1: relative path from project root until operation name\n      const operationPath =\n        operations[tsFunction.operationName as keyof typeof operations];\n\n      if (!operationPath) return;\n\n      // part 2: src relative folder path (without file)\n\n      const srcRelativeFolderPath = getSrcRelativeFolderPath(\n        tsFunction.operationRelativeTypescriptFilePath\n      );\n\n      // part 3: name of the function\n      const name = tsFunction.name;\n\n      const queryPath = srcRelativeFolderPath\n        ? `${operationPath}/${srcRelativeFolderPath}/${name}`\n        : `${operationPath}/${name}`;\n\n      return queryPath;\n    })\n    .filter(notEmpty)\n    .sort((a, b) => {\n      if (a < b) return -1;\n      return 1;\n    });\n\n  return functionQueryPaths;\n}",
+  "name": "getFunctionQueryPaths",
+  "slug": "get-function-query-paths",
+  "parameters": [
+    {
+      "name": "tsFunctions",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/TsFunction"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nInterface for arrow functions and normal functions",
+              "properties": [
+                {
+                  "name": "explicitTypeName",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If you give a function a type explicitly on its declaration, this type will be set here.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "isExported",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "The function is immediately exported upon creation. If the os dev tools are being used, this means it is also exported from the operation",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "rawText",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "raw text of the function",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "commentsInside",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "all comments found in a function and the node that they belong to",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "parameters",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "parameters the function takes as its arguments, if any",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "maxIndentationDepth",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "maximum amount of times indedented in this function\n\ngood for determining the complexity and finding code that can be simplified/destructured into smaller pieces",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "dependantFiles",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "finds all files that import this function\n\nNB: this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly.",
+                    "nb": "this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly.",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "groupAuthorization",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Other keys in frontmatter that are group names, can be added here",
+                    "properties": [],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "isApiExposed",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "for all exported functions in node operations, true by default false for others\n\ncan be overwritten using frontmatter",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "canCache",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "whether or not the function can be cached (relies on cache invalidation)",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "id",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "unique id of the model",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name (identifier) of the model",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "slug",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "kebab-case variant of the name",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativeTypescriptFilePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "TsFunction"
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
+  "description": "Calculate all required query paths for the function UI menu...\n\n- bundles + main project as root folders (`[\"main project\", ...bundleNames]`)\n- per folder all operations it contains, nested, in the project relative folder where it should be ending up\n- per operation all functions it contains, nested, relative to the src folder. not file, only folders should become menu\n\nExample:\n\n- main\n- modules\n- packages\n- db-ui\n- components\n- `<IndexInstanceContainer>`\n- `<Layout>`\n- `<UpsertForm>`\n- hooks\n- `useGetDbModelQuery`\n- `useReferencableModelDataQuery`\n- pages\n- Page\n- Page\n- Page\n- getPageTitle\n- generated\n- himalayajeep-functions\n- apps\n- bundle A\n- bundle B\n\nNB: if possible, rename the menu items if the items in a folder are not unique (use file-name to replace item name if this happens)",
+  "returnType": {
+    "rawType": "Promise<string[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 2149,
+    "lines": 78,
+    "bytes": 2149,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 78,
+    "numberOfFiles": 1
+  },
+  "id": "ruvkfhptsjixqgiexxobwkpz"
+}

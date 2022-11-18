@@ -1,27 +1,9 @@
 {
-  "createdAt": 1663668089475,
-  "updatedAt": 1663668089475,
+  "createdAt": 1668328718128,
+  "updatedAt": 1668328718128,
   "deletedAt": 0,
-  "createdFirstAt": 1663668089475,
-  "version": "0.0.1",
-  "main": "build/index.js",
-  "source": "src/index.ts",
-  "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
-    "test": "node ./build/cli.js",
-    "up": "npm version patch -f",
-    "pub": "yarn up && npm publish"
-  },
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.4"
-  },
-  "name": "peer-functions",
-  "sensible": {
-    "hasGeneratedDependencies": false
-  },
+  "createdFirstAt": 1668328718128,
+  "id": "STZJGyqPOGISGkCo",
   "dependencies": {
     "api": "0.0.1",
     "database": "0.0.1",
@@ -31,8 +13,119 @@
     "get-path": "0.0.1",
     "nested-menu": "0.0.1",
     "k-explore": "0.0.2",
-    "one-by-one": "0.0.1"
+    "one-by-one": "0.0.1",
+    "model-types": "0.0.1",
+    "peer-types": "0.0.1",
+    "api-types": "0.0.1"
   },
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "peer-functions",
+  "language": "english",
   "slug": "peer-functions",
-  "id": "STZJGyqPOGISGkCo"
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/p2p/peer-functions/src/updatePeer.ts. Error: Error: Argument of type '\\\"Peer\\\"' is not assignable to parameter of type 'keyof DbModels'.\\n\\nProperty 'slug' does not exist on type 'Device | Group | SlugModelType | PageVisit | PeerMessage | Person | Persona | PersonInformation | ... 92 more ... | ValueChainPhase'.\\n  Property 'slug' does not exist on type 'Device'.\"]",
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "peer-functions",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668334507538,
+    "operationDependenciesIndexed": [
+      "apiWithConfig",
+      "db",
+      "Creation",
+      "Device",
+      "ports",
+      "db",
+      "Device",
+      "apiWithConfig",
+      "db",
+      "Device",
+      "ports",
+      "db",
+      "ports",
+      "AppOperation",
+      "db",
+      "destructureOptionalObject",
+      "Device",
+      "Person",
+      "path",
+      "getProjectRoot",
+      "NestedPathObject",
+      "queryPathsArrayToNestedPathObject",
+      "explore",
+      "makeRelative",
+      "db",
+      "db",
+      "Person",
+      "db",
+      "path",
+      "getProjectRoot",
+      "apiWithConfig",
+      "ports",
+      "RealApiReturnType",
+      "NestedPathObject",
+      "db",
+      "db",
+      "apiWithConfig",
+      "PeerMessage",
+      "notEmpty",
+      "ports",
+      "oneByOne",
+      "apiWithConfig",
+      "db",
+      "ports",
+      "db",
+      "Device",
+      "db",
+      "omitUndefinedValues"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/p2p",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 22,
+        "lines": 567,
+        "characters": 14877,
+        "bytes": 14877
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 162,
+        "characters": 4955,
+        "bytes": 4955
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 282,
+        "characters": 4449,
+        "bytes": 4449
+      },
+      "size": {
+        "bytes": 24281,
+        "characters": 24281,
+        "lines": 1011,
+        "numberOfFiles": 25
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
 }

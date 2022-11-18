@@ -1,6 +1,6 @@
 # K test
 
-k-test (`OperationClassification` node)
+k-test (`OperationClassification` node-cjs)
 
 
 

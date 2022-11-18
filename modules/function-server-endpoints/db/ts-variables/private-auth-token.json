@@ -1,0 +1,24 @@
+{
+  "createdAt": 1668775511059,
+  "updatedAt": 1668775511059,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775511059,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "privateAuthToken",
+  "slug": "private-auth-token",
+  "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
+  "type": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "value": "privateLocalEnvironmentVariables.authToken ||\n  privateEnvironmentVariables.authToken",
+  "description": "",
+  "id": "cctgmgcphlrwfackqtiwhxko"
+}

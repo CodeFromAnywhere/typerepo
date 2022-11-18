@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668149094422,
-  "updatedAt": 1668149094422,
+  "createdAt": 1668775526367,
+  "updatedAt": 1668775526367,
   "deletedAt": 0,
-  "createdFirstAt": 1668149094422,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775526367,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/storeFunctionExecution.ts",
   "commentsInside": [],
   "rawText": " async (\n  tsFunction: TsFunction,\n  inputParameters: any[] | undefined,\n  output: any,\n  performance: PerformanceItem[],\n  isResultFromCache: boolean\n) => {\n  // TODO: store using db (if useful)\n\n  const functionExecution: Creation<FunctionExecution> = {\n    functionName: tsFunction.name,\n    tsFunctionId: tsFunction.id,\n    inputParameters,\n    isExample: false,\n    isTest: false,\n    isResultFromCache,\n    output,\n    performance,\n  };\n\n  //@ts-ignore\n  const result = await db.upsert(\"FunctionExecution\", functionExecution, {\n    onlyInsert: true,\n    operationName: tsFunction.operationName,\n  });\n  return;\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "jxddqppmvlvzjzvifwtbybtg"
+  "id": "vcywirjqhlwovbnxqeekqkdj"
 }

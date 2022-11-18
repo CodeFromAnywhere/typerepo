@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1668332392562,
+    "updatedAt": 1668332392562,
+    "deletedAt": 0,
+    "createdFirstAt": 1668332392562,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/vscodeOpen.ts",
+    "comment": "opens a file in vscode through the \"code\" cli",
+    "rawStatement": "export const vscodeOpen = async (config: {\n  /**\n  Files to open. Either use a projectRelativePath or an operationName combined with an operationRelativePath.\n  \n  can optionally have the line and character specified as well after the file with [file-path]:[line]:[character]\n   */\n  files?: OpenableFile[];\n}): Promise<undefined | { success: boolean; response: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  if (!config.files) {\n    const command = `code --goto ${projectRoot}`;\n    execSync(command);\n    return { success: true, response: \"Opened the project root\" };\n  }\n\n  await Promise.all(\n    config.files.map(async (file) => {\n      const absolutePath = await getOpenableFilePath(file);\n\n      if (!absolutePath || !fs.existsSync(absolutePath)) {\n        return { success: false, response: \"This path doesn't exist\" };\n      }\n\n      const fullPathWithLine = file.line\n        ? `${absolutePath}:${file.line}`\n        : absolutePath;\n\n      const command = `code --goto ${fullPathWithLine}`;\n\n      execSync(command);\n\n      return { success: true, response: \"Opened the file\" };\n    })\n  );\n\n  return { success: true, response: \"Opened the file(s)\" };\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 40,
+    "lastLine": 42,
+    "id": "opnbkiiqrolxdztfazssfveq"
+  }
+]

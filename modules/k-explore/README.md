@@ -1,6 +1,6 @@
 # K explore
 
-k-explore (`OperationClassification` node)
+k-explore (`OperationClassification` node-cjs)
 
 exploration functions for exploring files within King OS
 

@@ -1,0 +1,50 @@
+[
+  {
+    "createdAt": 1668774425176,
+    "updatedAt": 1668774425176,
+    "deletedAt": 0,
+    "createdFirstAt": 1668774425176,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "/rwn",
+    "rawStatement": "import \"simplified-schema-form/css.css\";",
+    "parameters": {},
+    "types": [],
+    "firstLine": 20,
+    "lastLine": 20,
+    "id": "kkeqrnlrolcaabinbznihgdx"
+  },
+  {
+    "createdAt": 1668774425176,
+    "updatedAt": 1668774425176,
+    "deletedAt": 0,
+    "createdFirstAt": 1668774425176,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "Binding events.",
+    "rawStatement": "Router.events.on(\"routeChangeStart\", progress.start);",
+    "parameters": {},
+    "types": [],
+    "firstLine": 42,
+    "lastLine": 42,
+    "id": "jtfpgumvigjnoxlotcrxpkhy"
+  },
+  {
+    "createdAt": 1668774425176,
+    "updatedAt": 1668774425176,
+    "deletedAt": 0,
+    "createdFirstAt": 1668774425176,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
+    "comment": "Only holds serverRuntimeConfig and publicRuntimeConfig",
+    "rawStatement": "function MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>Function Admin</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <ModalProvider>\n          <StoreProvider>\n            <MyLayout pageProps={pageProps} nextPage={Component} />\n          </StoreProvider>\n        </ModalProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
+    "parameters": {},
+    "types": [],
+    "firstLine": 49,
+    "lastLine": 49,
+    "id": "llketufitskpfgserdjwyaup"
+  }
+]

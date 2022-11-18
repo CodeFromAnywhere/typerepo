@@ -1,24 +1,9 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328736453,
+  "updatedAt": 1668328736453,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "version": "0.0.1",
-  "description": "It's hard to work with them if you don't know what means what. In this operation I'll summarize everything and give examples.",
-  "main": "build/index.js",
-  "source": "src/index.ts",
-  "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
-    "test": "node ./build/cli.js",
-    "up": "npm version patch -f",
-    "pub": "yarn up && npm publish"
-  },
-  "license": "ISC",
-  "name": "schema-util",
-  "devDependencies": {
-    "typescript": "^4.7.2"
-  },
+  "createdFirstAt": 1668328736453,
+  "id": "vqDgdVlYDPjQItuA",
   "dependencies": {
     "code-types": "0.0.1",
     "convert-case": "0.0.1",
@@ -26,11 +11,100 @@
     "js-util": "0.0.1",
     "log": "0.0.1",
     "json-schema": "*",
-    "name-conventions": "0.0.1"
+    "name-conventions": "0.0.1",
+    "model-types": "0.0.1"
   },
+  "description": "It's hard to work with them if you don't know what means what. In this operation I'll summarize everything and give examples.",
+  "devDependencies": {
+    "typescript": "^4.7.2"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "schema-util",
+  "language": "english",
   "slug": "schema-util",
-  "id": "vqDgdVlYDPjQItuA",
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "schema-util",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668449140920,
+    "operationDependenciesIndexed": [
+      "CommentTypeObject",
+      "commentTypes",
+      "mergeObjectsArray",
+      "notEmpty",
+      "notEmpty",
+      "AugmentedAnyModelType",
+      "SimplifiedSchema",
+      "referenceParameterNames",
+      "referencePluralParameterNames",
+      "camelCase",
+      "lowerCaseArray",
+      "pascalCase",
+      "capitaliseFirstLetter",
+      "isPlural",
+      "singularize",
+      "replaceLastOccurence",
+      "makeArray",
+      "notEmpty",
+      "TsInterface",
+      "SimplifiedSchema",
+      "log",
+      "notEmpty",
+      "SimplifiedSchema",
+      "SimplifiedSchemaProperty",
+      "SimplifiedSchemaItem"
+    ],
+    "packageDependenciesIndexed": [
+      "JSONSchema7Definition",
+      "JSONSchema7",
+      "JSONSchema7"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/typescript",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 9,
+        "lines": 569,
+        "characters": 15880,
+        "bytes": 15880
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 148,
+        "characters": 3542,
+        "bytes": 3542
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 337,
+        "characters": 8150,
+        "bytes": 8150
+      },
+      "size": {
+        "bytes": 27572,
+        "characters": 27572,
+        "lines": 1054,
+        "numberOfFiles": 12
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

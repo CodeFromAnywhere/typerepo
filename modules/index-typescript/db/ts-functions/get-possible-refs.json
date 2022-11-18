@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150716943,
-  "updatedAt": 1668150716943,
+  "createdAt": 1668752098622,
+  "updatedAt": 1668752098622,
   "deletedAt": 0,
-  "createdFirstAt": 1668150716943,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752098622,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getPossibleRefs.ts",
   "commentsInside": [],
   "rawText": " (\n  interfaces: Creation<TsInterface>[]\n): { name: string; schema: JSONSchema7 }[] => {\n  const possibleRefs = interfaces\n    .map((tsInterface) => {\n      return tsInterface.type.typeDefinition\n        ? {\n            name: tsInterface.name,\n            schema: tsInterface.type.typeDefinition,\n          }\n        : null;\n    })\n    .filter(notEmpty);\n\n  return possibleRefs;\n}",
@@ -107,5 +102,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "bmnwwmlvjvmhjkzvhtsqfpuh"
+  "id": "sikgmgsauvhtqcidubeukptd"
 }

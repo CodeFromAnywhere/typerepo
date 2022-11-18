@@ -1,20 +1,32 @@
 # Nested menu
 
-nested-menu (`OperationClassification` ui-es5)
+nested-menu (`OperationClassification` ui-cjs)
 
 
 
 # Api reference
 
-## nestedPathObjectToNestedMenuRecursive()
+## 📄 nestedMenuStoreInitialValues (exported const)
 
-Transform a nested path object into a nested menu (MenuType), recursively
+## 🔹 NestedPathObject
+
+A different way to represent a path array in a nested object of folders
+
+{
+"folderName": {
+"file1": null,
+"file2": null
+},
+"folderName2": {
+"file1": null,
+"file2": null
+}
+}
 
 
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
+
+
+
 
 
 
@@ -44,11 +56,6 @@ Output:
 | queryPaths | string[] |  |
 | **Output** |    |    |
 
-
-
-## 📄 nestedPathObjectToNestedMenuRecursive (exported const)
-
-Transform a nested path object into a nested menu (MenuType), recursively
 
 
 ## 📄 queryPathsArrayToNestedPathObject (exported const)
@@ -86,7 +93,17 @@ Please make sure that you also wrap your app with `MenuStoreProvider`, or this w
 
 
 
-## 📄 nestedMenuStoreInitialValues (exported const)
+## nestedPathObjectToNestedMenuRecursive()
+
+Transform a nested path object into a nested menu (MenuType), recursively
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
 
 ## 📄 NestedMenu (exported const)
 
@@ -95,26 +112,9 @@ General purpose nested menu component
 Please make sure that you also wrap your app with `MenuStoreProvider`, or this will crash...!
 
 
-## 🔹 NestedPathObject
+## 📄 nestedPathObjectToNestedMenuRecursive (exported const)
 
-A different way to represent a path array in a nested object of folders
-
-{
-"folderName": {
-"file1": null,
-"file2": null
-},
-"folderName2": {
-"file1": null,
-"file2": null
-}
-}
-
-
-
-
-
-
+Transform a nested path object into a nested menu (MenuType), recursively
 
 
 ## getKeysAtPathFromNestedObject()
@@ -143,9 +143,21 @@ The reduce is a bit vague, I need to  test this function further to make sure it
 
 # Internal
 
-<details><summary>Show internal (8)</summary>
+<details><summary>Show internal (10)</summary>
     
-  # `<NestedMenuItem />`
+  # getRealItemRecursive()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## `<NestedMenuItem />`
 
 General purpose NestedMenuItem
 
@@ -178,6 +190,8 @@ TODO: make style customizable
 
 
 ## 🔹 ExpandedObject
+
+## 📄 getRealItemRecursive (exported const)
 
 ## 📄 NestedMenuItem (exported const)
 

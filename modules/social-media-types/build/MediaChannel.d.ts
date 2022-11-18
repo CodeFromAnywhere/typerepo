@@ -12,7 +12,10 @@ import { Interest } from "./Interest";
  */
 export interface MediaChannel extends DefaultModelType {
     platformSlug: Slug;
-    /** way to identify the channel on the platform */
+    /** way to identify the channel on the platform
+     *
+     * e.g. on slack we can say `xyz/meet` for the `#meet` channel on the `xyz` slack
+     */
     platformChannelId: string;
     url?: string;
     name: string;

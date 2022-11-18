@@ -1,0 +1,55 @@
+{
+  "createdAt": 1664528476666,
+  "updatedAt": 1666264508803,
+  "deletedAt": 0,
+  "createdFirstAt": 1664528476666,
+  "folderName": "child-process-helper",
+  "packageName": "child-process-helper",
+  "relativeOperationLocationPath": "operations/tools/util",
+  "classification": "node",
+  "name": "child-process-helper",
+  "slug": "child-process-helper",
+  "coreDependencies": [],
+  "operationDependencies": [],
+  "packageDependencies": [
+    "exec",
+    "spawn",
+    "SpawnOptionsWithoutStdio",
+    "execSync",
+    "spawnSync"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 1390,
+      "bytes": 1390
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1433,
+      "bytes": 1433
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 1885,
+      "bytes": 1885
+    },
+    "size": {
+      "bytes": 4708,
+      "characters": 4708,
+      "lines": 0,
+      "numberOfFiles": 4
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "rdfidvdqvpmvgpinjdfwbubn",
+  "language": "en"
+}

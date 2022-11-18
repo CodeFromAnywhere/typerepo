@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150710529,
-  "updatedAt": 1668150710529,
+  "createdAt": 1668752093046,
+  "updatedAt": 1668752093046,
   "deletedAt": 0,
-  "createdFirstAt": 1668150710529,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752093046,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getDbStorageMethod.ts",
   "commentsInside": [],
   "rawText": " (config: {\n  typeName: string;\n  frontmatter: Frontmatter;\n  extensions?: string[];\n}): DbStorageMethod | undefined => {\n  const { typeName, frontmatter, extensions } = config;\n  const frontmatterResult = getFrontmatterDbStorageMethod(frontmatter);\n\n  // NB: can also become null if isDbModel is specifically set to false!\n  if (frontmatterResult !== undefined) return frontmatterResult || undefined;\n\n  const specialExtensionStorageMethod =\n    getSpecialExtensionDbStorageMethod(extensions);\n\n  if (specialExtensionStorageMethod) {\n    return specialExtensionStorageMethod;\n  }\n\n  const typeWords = lowerCaseArray(typeName);\n  const isModelTypeName =\n    typeWords.length >= 2 && [\"model\", \"db\"].includes(typeWords.pop()!);\n\n  const dbStorageMethodFromModelTypeName = isModelTypeName\n    ? \"jsonMultiple\"\n    : null;\n\n  if (dbStorageMethodFromModelTypeName) {\n    return dbStorageMethodFromModelTypeName;\n  }\n\n  return;\n}",
@@ -101,5 +96,5 @@
     "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "folgcbwjbhbnjpuhhfqxzjpr"
+  "id": "iwufgjywdgkdgkobcatrqkpf"
 }

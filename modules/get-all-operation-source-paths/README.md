@@ -1,6 +1,6 @@
 # Get all operation source paths
 
-get-all-operation-source-paths (`OperationClassification` node)
+get-all-operation-source-paths (`OperationClassification` node-cjs)
 
 returns src folder paths of all operations
 

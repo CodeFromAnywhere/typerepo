@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668774408370,
+  "updatedAt": 1668774408370,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774408370,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "MyLayout",
+  "slug": "my-layout",
+  "operationRelativeTypescriptFilePath": "src/MyLayout.tsx",
+  "type": {
+    "rawType": "(props: { pageProps: any; nextPage: any; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n\n  const queryPathsQuery = queries.useGetFunctionQueryPaths();\n\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        queryPaths: queryPathsQuery.data?.result,\n        isLoading: queryPathsQuery.isLoading,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
+  "description": "",
+  "id": "xvbflahwzeifgzijnfwilgwt"
+}

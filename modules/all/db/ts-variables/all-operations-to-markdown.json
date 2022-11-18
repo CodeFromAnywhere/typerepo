@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258902990,
-  "updatedAt": 1666258902990,
+  "createdAt": 1668332051843,
+  "updatedAt": 1668332051843,
   "deletedAt": 0,
-  "createdFirstAt": 1666258902990,
+  "createdFirstAt": 1668332051843,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    callback: async (folderPath, index) => {\n      const operationName = getLastFolder(folderPath);\n      log(`#${index}: Making new README for ${operationName}`, {\n        type: \"success\",\n      });\n      await operationToMarkdown({\n        operationName,\n        returnType: \"save\",\n        mergeDocsInline: true,\n      });\n      return;\n    },\n  });\n}",
+  "value": "async () => {\n  forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    callback: async (folderPath, index) => {\n      const operationName = getLastFolder(folderPath);\n      log(`#${index}: Making new README for ${operationName}`, {\n        type: \"success\",\n      });\n\n      const operationSummary = await getOperationSummary({ operationName });\n      if (!operationSummary) return;\n      await operationToMarkdown({\n        operationSummary,\n        returnType: \"save\",\n      });\n      return;\n    },\n  });\n}",
   "description": "",
-  "id": "omhhfxkncqnyasbpphrxulvi"
+  "id": "juyhspuodfrpqkcmwdviawgz"
 }

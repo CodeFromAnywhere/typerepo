@@ -1,11 +1,7 @@
 #!/usr/bin/env node
-import { OperationClassification, OperationConfig } from "code-types";
+import { OperationClassification } from "code-types";
 declare type NewOperationConfig = {
     type?: OperationClassification;
-    /**
-     * If given, will put this in OPERAITON.md
-     */
-    operationConfig?: OperationConfig;
     description?: string;
     /**
      * destinationPath without the operation folder itself

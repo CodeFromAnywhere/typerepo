@@ -1,20 +1,10 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328716583,
+  "updatedAt": 1668328716583,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "name": "markdown-reader-ui",
-  "version": "0.0.0",
-  "description": "All frontend components can go here",
-  "main": "src/index.ts",
-  "scripts": {
-    "dev": "npx tsc-watch --onSuccess 'yarn css'",
-    "wcss": "tailwindcss -w -o css.css",
-    "css": "tailwindcss -o css.css",
-    "build": "tsc"
-  },
+  "createdFirstAt": 1668328716583,
+  "id": "PGsMbfMrhmBRzEpu",
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.0",
     "react-minimal-pie-chart": "^8.3.0",
@@ -32,8 +22,17 @@
     "next-a-link": "0.0.1",
     "convert-case": "0.0.1",
     "writer-input": "1.0.0",
-    "markdown-reader-functions-js": "0.0.1"
+    "markdown-reader-functions-js": "0.0.1",
+    "js-util": "0.0.1",
+    "markdown-reader-types": "0.0.1",
+    "react-with-native-select": "2.0.7",
+    "@react-navigation/native-stack": "*",
+    "react": "*",
+    "augmented-word-types": "0.0.1",
+    "menu": "0.0.0",
+    "layout": "0.0.0"
   },
+  "description": "All frontend components can go here",
   "devDependencies": {
     "@headlessui/react": "^1.6.2",
     "@react-navigation/native-stack": "^6.6.2",
@@ -43,9 +42,102 @@
     "react-toastify": "^9.0.1",
     "tailwindcss": "^3.0.24"
   },
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "wcss": "tailwindcss -w -o css.css",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "version": "0.0.0",
+  "name": "markdown-reader-ui",
+  "language": "english",
   "slug": "markdown-reader-ui",
-  "id": "PGsMbfMrhmBRzEpu",
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/reader/markdown-reader-ui/src/types.tsx. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+      ],
+      "lintProblems": []
+    },
+    "classificationIndexed": "ui-ts",
+    "coreDependenciesIndexed": [
+      "useState",
+      "useEffect"
+    ],
+    "folderNameIndexed": "markdown-reader-ui",
+    "hasGeneratedDependenciesIndexed": true,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668751773873,
+    "operationDependenciesIndexed": [
+      "nestedMenuStoreInitialValues",
+      "createStore",
+      "ClickableIcon",
+      "getFolderJs",
+      "MappedObject",
+      "renderMarkdownContent",
+      "AugmentedWord",
+      "Div",
+      "P",
+      "isDev",
+      "Div",
+      "P",
+      "MarkdownReaderPage",
+      "MarkdownReaderPageProps",
+      "LayoutGrid",
+      "publicEnvironmentVariables",
+      "publicLocalEnvironmentVariables",
+      "MappedObject",
+      "ALink",
+      "AugmentedWord",
+      "ClickableIcon",
+      "Div",
+      "P",
+      "mdToJsonParse",
+      "humanCase",
+      "renderMarkdownContent",
+      "renderMarkdownParse",
+      "MarkdownView",
+      "ALink",
+      "ClickableIcon",
+      "useRouter",
+      "getFolderJs",
+      "isDev",
+      "MarkdownReaderPageProps",
+      "getQueryPath"
+    ],
+    "packageDependenciesIndexed": [
+      "NativeStackNavigationOptions"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/reader",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 5,
+        "lines": 260,
+        "characters": 7387,
+        "bytes": 7387
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 185,
+        "characters": 4701,
+        "bytes": 4701
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 85,
+        "characters": 1582,
+        "bytes": 1582
+      },
+      "size": {
+        "bytes": 13670,
+        "characters": 13670,
+        "lines": 530,
+        "numberOfFiles": 8
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

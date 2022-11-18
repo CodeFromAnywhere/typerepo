@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668148590481,
-  "updatedAt": 1668148590481,
+  "createdAt": 1668774225048,
+  "updatedAt": 1668774225048,
   "deletedAt": 0,
-  "createdFirstAt": 1668148590481,
+  "createdFirstAt": 1668774225048,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-nested-database-menu",
   "operationRelativeTypescriptFilePath": "src/getNestedDatabaseMenu.ts",
   "type": {
-    "rawType": "() => unknown",
+    "rawType": "(config?: { noOperationPath?: boolean | undefined; noOperationName?: boolean | undefined; noSrcRelativeFolder?: boolean | undefined; noPrefix?: boolean | undefined; } | undefined) => unknown",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  // TODO: bundleconfig should still be able to be found. A bundle should contain its own bundleconfig in the database...\n  const bundles = await db.get(\"BundleConfig\");\n  const dbModels = (await db.get(\"TsInterface\")).filter((x) => x.isDbModel);\n\n  const nestedDatabaseMenu: NestedDatabaseMenu = mergeObjectsArray(\n    bundles.map((bundle) => {\n      const summary = getBundleSummary(bundle);\n\n      const appDbModels = dbModels\n        .filter(\n          (x) => x.operationName && summary.appNames.includes(x.operationName)\n        )\n        .map((x) => tsInterfaceToDbMenu(x, \"apps\"))\n        .filter(notEmpty);\n      const packageDbModels = dbModels\n        .filter(\n          (x) =>\n            x.operationName && summary.packageNames.includes(x.operationName)\n        )\n        .map((x) => tsInterfaceToDbMenu(x, \"packages\"))\n        .filter(notEmpty);\n\n      const moduleDbModels = dbModels\n        .filter(\n          (x) =>\n            x.operationName && summary.moduleNames.includes(x.operationName)\n        )\n        .map((x) => tsInterfaceToDbMenu(x, \"modules\"))\n        .filter(notEmpty);\n\n      const dbMenuModels = [\n        ...appDbModels,\n        ...packageDbModels,\n        ...moduleDbModels,\n      ];\n\n      const operationNames = dbMenuModels\n        .map((x) => x.operationName)\n        .filter(onlyUnique2());\n\n      const modelsPerOperationObject = mergeObjectsArray(\n        operationNames.map((name) => {\n          const folders = dbMenuModels\n            .filter((x) => x.operationName === name)\n            .map((x) => x.srcRelativeFolder)\n            .filter(onlyUnique2());\n\n          const dbModelsPerFolderObject = mergeObjectsArray(\n            folders.map((folder) => {\n              const folderKey = !folder ? \"src\" : folder;\n\n              const dbModelsObject = mergeObjectsArray(\n                dbMenuModels\n                  .filter(\n                    (x) =>\n                      x.operationName === name && x.srcRelativeFolder === folder\n                  )\n                  .map((x) => ({ [x.name]: null }))\n              );\n\n              return {\n                [folderKey]: dbModelsObject,\n              };\n            })\n          );\n\n          return { [name]: dbModelsPerFolderObject };\n        })\n      );\n\n      const nestedMenu = { [bundle.name]: modelsPerOperationObject };\n\n      return nestedMenu;\n    })\n  );\n\n  return nestedDatabaseMenu;\n}",
-  "description": "It's a very low-hanging fruit to be able to group the database models better... now it's kind of messy!\n\nIt would be great if it were a nested menu, just like the one in markdown-reader...\n\nWe can have a folder per bundle, and a folder per operation. In the operation we can also sort by folder the type was created in (`operationRelativeTypescriptFilePath`)\n\nIn a way you can see it at three levels\n\nbundle -> operation -> srcRelativeFolder\n\nThe complete OS can also be represented as a bundle\n\nIf we do this, and the menus are collapsible as well as searchible... we'll have a GREAT way to alter models.\n\n====================\n\nSUPER COOL\n\nlet's use this for db-admin..\n\nAny bundle will just see itself, but I will see this for every bundle. Also for the master-bundle, which is going to be super useful because then I'll be able to see the db-models for different operations and see the data they contain.",
-  "id": "mewmircbqhmlgifcoydhfydw"
+  "value": "async (config?: {\n  noOperationPath?: boolean;\n  noOperationName?: boolean;\n  noSrcRelativeFolder?: boolean;\n  noPrefix?: boolean;\n}) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return [];\n  const { noOperationPath, noOperationName, noSrcRelativeFolder, noPrefix } =\n    destructureOptionalObject(config);\n  const dbModels = (await db.get(\"TsInterface\")).filter((x) => x.isDbModel);\n\n  const queryPaths = dbModels.map((dbModel) => {\n    const projectRelativeOperationPath =\n      operations[dbModel.operationName as keyof typeof operations];\n\n    const slicedProjectRelativeOperationPath = projectRelativeOperationPath\n      .split(\"/\")\n      // in bundles, we still want to make the distinction between modules and packages, so this is great.\n      .slice(isBundle(projectRoot) ? 0 : 2)\n      .join(\"/\");\n    const operationPart = noOperationName\n      ? \"\"\n      : noOperationPath\n      ? dbModel.operationName + \"/\"\n      : slicedProjectRelativeOperationPath + \"/\";\n\n    const folder = getFolder(\n      dbModel.operationRelativeTypescriptFilePath.slice(\"src/\".length)\n    );\n    const folderPart = noSrcRelativeFolder\n      ? \"\"\n      : folder.length === 0\n      ? \"\"\n      : folder + \"/\";\n\n    const prefixPart = noPrefix ? \"\" : \"db/\";\n    const url = `${prefixPart}${operationPart}${folderPart}${dbModel.name}`;\n\n    return url;\n  });\n\n  return queryPaths;\n}",
+  "description": "TODO: support search for bundles (but this can be augmented word based)",
+  "id": "ryhovewxusrcsyzlwiqqtbhc"
 }

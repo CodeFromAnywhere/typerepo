@@ -1,0 +1,49 @@
+{
+  "createdAt": 1668773980395,
+  "updatedAt": 1668773980395,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773980395,
+  "id": "namedparameterstypeof-restartapp",
+  "name": "NamedParameters<typeof restartApp>",
+  "slug": "namedparameterstypeof-restartapp",
+  "operationRelativeTypescriptFilePath": "src/restartApp.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof restartApp>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

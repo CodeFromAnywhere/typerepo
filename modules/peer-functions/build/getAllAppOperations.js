@@ -56,24 +56,21 @@ var isPortUsed_1 = require("./isPortUsed");
  * Gets all app operations from all packageJsons from the database. Adds `isOnline` to it on the fly by checking if it can connect to the port or not
  */
 var getAllAppOperations = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var operationConfigs, appOperations, appOperationsWithOnline;
+    var appOperations, appOperationsWithOnline;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, database_1.db.get("OperationConfig")];
+            case 0: return [4 /*yield*/, database_1.db.get("Operation")];
             case 1:
-                operationConfigs = _a.sent();
-                return [4 /*yield*/, database_1.db.get("PackageJson")];
-            case 2:
                 appOperations = (_a.sent())
-                    .filter(function (packageJson) {
-                    return packageJson.name && Object.keys(port_conventions_1.ports).includes(packageJson.name);
+                    .filter(function (operation) {
+                    return operation.name && Object.keys(port_conventions_1.ports).includes(operation.name);
                 })
-                    .map(function (packageJson) {
-                    var operationConfig = operationConfigs.find(function (x) { return x.operationName === packageJson.operationName; });
-                    var description = (operationConfig === null || operationConfig === void 0 ? void 0 : operationConfig.markdown) || packageJson.description;
+                    .map(function (operation) {
+                    var operationConfig = operation.operation;
+                    var description = (operationConfig === null || operationConfig === void 0 ? void 0 : operationConfig.markdown) || operation.description;
                     return {
-                        name: packageJson.name,
-                        port: port_conventions_1.ports[packageJson.name],
+                        name: operation.name,
+                        port: port_conventions_1.ports[operation.name],
                         description: description,
                         emoji: (0, getFirstEmoji_1.getFirstEmoji)(description),
                     };
@@ -95,7 +92,7 @@ var getAllAppOperations = function () { return __awaiter(void 0, void 0, void 0,
                             }
                         });
                     }); }))];
-            case 3:
+            case 2:
                 appOperationsWithOnline = _a.sent();
                 return [2 /*return*/, appOperationsWithOnline];
         }

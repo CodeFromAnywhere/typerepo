@@ -1,0 +1,77 @@
+{
+  "createdAt": 1668507723380,
+  "updatedAt": 1668507723380,
+  "deletedAt": 0,
+  "createdFirstAt": 1668507723380,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "devcss": "tailwindcss -w -o css.css",
+    "css": "tailwindcss -o css.css"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "name": "tabs",
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "dependencies": {
+    "react-with-native-store": "2.0.40",
+    "react-with-native": "1.4.9",
+    "labeled-button": "0.0.1"
+  },
+  "slug": "tabs",
+  "id": "igcpkjecedylbmppjpdavgzk",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1668552402329,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 49,
+        "characters": 1315,
+        "bytes": 1315
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 76,
+        "characters": 2603,
+        "bytes": 2603
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 9,
+        "characters": 71,
+        "bytes": 71
+      },
+      "size": {
+        "bytes": 3989,
+        "characters": 3989,
+        "lines": 134,
+        "numberOfFiles": 5
+      }
+    },
+    "folderNameIndexed": "tabs",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/dumb",
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "createStore",
+      "Div",
+      "P",
+      "LabeledButton",
+      "LabeledButtonType"
+    ],
+    "packageDependenciesIndexed": []
+  }
+}

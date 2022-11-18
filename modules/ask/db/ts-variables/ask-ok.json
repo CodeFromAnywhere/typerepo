@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666260828361,
-  "updatedAt": 1666260828361,
+  "createdAt": 1668333193625,
+  "updatedAt": 1668333193625,
   "deletedAt": 0,
-  "createdFirstAt": 1666260828361,
+  "createdFirstAt": 1668333193625,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (question: string): Promise<boolean> => {\n  const answer = await ask(question);\n  return [\"yes\", \"y\", \"\"].includes(answer);\n}",
   "description": "",
-  "id": "hooalemnvgfbtggtkqcaxvkf"
+  "id": "tdfskqqyvncygqgxjshqecda"
 }

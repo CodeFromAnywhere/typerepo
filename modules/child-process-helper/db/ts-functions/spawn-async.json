@@ -1,0 +1,164 @@
+{
+  "createdAt": 1668336325158,
+  "updatedAt": 1668336325158,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336325158,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (\n  command: string,\n  options: SpawnOptionsWithoutStdio\n): Promise<{ success: boolean; response: string; data?: string[] }> => {\n  return new Promise((resolve) => {\n    const spawned = spawn(command, options);\n\n    const data: string[] = [];\n    spawned\n      .on(\"exit\", (code) => {\n        resolve({ response: String(code), success: false, data });\n      })\n      .on(\"message\", (message) => {\n        //not sure if this does anything\n      })\n      .on(\"data\", (message) => {\n        //not sure if this does anything\n        data.push(message);\n      })\n      .on(\"error\", (err) => {\n        resolve({ response: String(err), success: false, data });\n      });\n  });\n}",
+  "name": "spawnAsync",
+  "slug": "spawn-async",
+  "parameters": [
+    {
+      "name": "command",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "options",
+      "schema": {
+        "$ref": "#/definitions/SpawnOptionsWithoutStdio"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "signal",
+            "required": false,
+            "schema": {
+              "fullComment": "When provided the corresponding `AbortController` can be used to cancel an asynchronous action.",
+              "properties": [
+                {
+                  "name": "aborted",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Returns true if this AbortSignal's AbortController has signaled to abort, and false otherwise.",
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "killSignal",
+            "required": false,
+            "schema": {
+              "fullComment": "The signal value to be used when the spawned process will be killed by the abort signal.",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "timeout",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "uid",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "gid",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "cwd",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "windowsHide",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "argv0",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "stdio",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "shell",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "windowsVerbatimArguments",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "detached",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "i don't know if this is ever useful...",
+  "returnType": {
+    "rawType": "Promise<{ success: boolean; response: string; data?: string[] | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 710,
+    "lines": 24,
+    "bytes": 710,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 24,
+    "numberOfFiles": 1
+  },
+  "id": "clwslmzqdluhmlfacjsgqgec"
+}

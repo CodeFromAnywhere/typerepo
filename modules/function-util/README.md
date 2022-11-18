@@ -1,6 +1,6 @@
 # Function util
 
-function-util (`OperationClassification` js)
+function-util (`OperationClassification` ui-cjs)
 
 Exposes clis that make it possible to interact with all King OS functions through the CLI in different ways
 
@@ -126,7 +126,7 @@ This conversation could actually be used to generate code! It's kind of `context
 
 # Internal
 
-<details><summary>Show internal (15)</summary>
+<details><summary>Show internal (13)</summary>
     
   # converse()
 
@@ -173,15 +173,6 @@ this is the `yo` cli. takes a message
 | ---------- | -- | -- |
 | - | | |
 | **Output** |    |    |
-
-
-
-## getSdkKeys()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | { success: boolean, <br />response: {  }, <br /> }   |    |
 
 
 
@@ -235,8 +226,6 @@ Properties:
 | slug  | string |  |
 | operationRelativeTypescriptFilePath  | string |  |
 | canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
 | isExported  | boolean |  |
 | isApiExposed  | boolean |  |
 | publicAuthorization  | array |  |
@@ -272,8 +261,6 @@ this is the `yo` cli. takes a message
 ## 📄 getMenu (exported const)
 
 ## 📄 getSdkFunctionPaths (exported const)
-
-## 📄 getSdkKeys (exported const)
 
 ## 📄 listen (exported const)
 

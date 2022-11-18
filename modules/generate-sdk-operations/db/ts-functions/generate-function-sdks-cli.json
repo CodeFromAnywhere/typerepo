@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668150566665,
-  "updatedAt": 1668150566665,
+  "createdAt": 1668775396362,
+  "updatedAt": 1668775396362,
   "deletedAt": 0,
-  "createdFirstAt": 1668150566665,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775396362,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/cli/generateFunctionSdks.cli.ts",
   "commentsInside": [],
-  "rawText": " () => {\n  const [customProjectRoot] = process.argv.slice(2);\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n  generateFunctionSdks({\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n}",
+  "rawText": " () => {\n  const [dryrunString, customProjectRoot] = process.argv.slice(2);\n  const dryrun = dryrunString === \"true\";\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n  generateFunctionSdks({\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n    dryrun,\n  });\n}",
   "name": "generateFunctionSdksCli",
   "slug": "generate-function-sdks-cli",
   "parameters": [],
@@ -29,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 218,
-    "lines": 7,
-    "bytes": 218,
+    "characters": 286,
+    "lines": 9,
+    "bytes": 286,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 31,
-    "linesPerFile": 7,
+    "charactersPerLine": 32,
+    "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "lvmivnicsvpmkmhvwgunlilo"
+  "id": "uclfnjwhfrxjuszeyolhtgyd"
 }

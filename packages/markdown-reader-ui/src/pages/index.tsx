@@ -234,7 +234,7 @@ const Page: RWNPage = (props: MarkdownReaderPageProps) => {
           word={word}
         />
       ) : (
-        <Div className="pb-4 px-4 w-full" scroll>
+        <Div className="pb-4 px-4">
           {props.children ? renderNav() : renderPage()}
         </Div>
       )}

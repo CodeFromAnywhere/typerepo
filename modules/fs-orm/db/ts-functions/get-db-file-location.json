@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668148849092,
-  "updatedAt": 1668148849092,
+  "createdAt": 1668774329168,
+  "updatedAt": 1668774329168,
   "deletedAt": 0,
-  "createdFirstAt": 1668148849092,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668774329168,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/convention/getDbFileLocation.ts",
   "commentsInside": [],
   "rawText": " async (\n  /**\n   * The ModelLocation properties in the item are completely ignored.\n   *\n   * Only the ID, slug and categoryStackCalculated are used to determine the exact file the item should be stored in.\n   *\n   * NB: storedItem MUST have a slug or ID, but this should probably be generated before this funciton\n   */\n  storedItem: Storing<AugmentedAnyModelType>,\n  /**\n   * Should be the operationName from the modellocation of the actual item.\n   *\n   * If it is given, this will take priority over the merged query config.\n   */\n  operationName: null | string,\n  mergedConfig: MergedQueryConfig,\n  modelName: string\n): Promise<DbFileLocation | undefined> => {\n  if (!mergedConfig.manualProjectRoot) {\n    log(\"No project root\", { type: \"error\" });\n    return;\n  }\n  const realOperationName = operationName || mergedConfig.operationName;\n\n  const rootFolder = await getDatabaseRootFolder(\n    realOperationName,\n    mergedConfig.manualProjectRoot\n  );\n\n  if (!rootFolder) return;\n\n  const isSingleItemStorageMethod =\n    mergedConfig.dbStorageMethod === \"jsonSingle\" ||\n    mergedConfig.dbStorageMethod === \"markdown\";\n\n  const filename = storedItem.slug || storedItem.id;\n\n  const relativeFolder: string | undefined =\n    storedItem.categoryStackCalculated?.join?.(\"/\");\n  const dbModelFolderRelativeLocation: string =\n    isSingleItemStorageMethod && relativeFolder\n      ? path.join(relativeFolder, filename)\n      : filename;\n\n  const pattern = getLocationPattern(\n    mergedConfig.dbStorageMethod,\n    modelName,\n    mergedConfig\n  );\n  if (!pattern) return;\n\n  const absolutePath = path.join(\n    rootFolder,\n    pattern.replace(\"*\", dbModelFolderRelativeLocation)\n  );\n  if (!absolutePath) return;\n\n  const operationRelativePath = makeRelative(absolutePath, rootFolder);\n  const projectRelativePath = makeRelative(\n    absolutePath,\n    mergedConfig.manualProjectRoot\n  );\n\n  const dbFileLocation: DbFileLocation = {\n    modelName,\n    absolutePath,\n    operationName: realOperationName || null,\n    projectRelativePath,\n    operationRelativePath,\n  };\n\n  return dbFileLocation;\n}",
@@ -78,5 +73,5 @@
     "linesPerFile": 85,
     "numberOfFiles": 1
   },
-  "id": "wjfnvskmargcrwfyugkaowel"
+  "id": "wemqlrzlxaggevgomzpjjypo"
 }

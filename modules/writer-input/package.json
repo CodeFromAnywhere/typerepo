@@ -1,34 +1,9 @@
 {
-  "createdAt": 1667587110049,
-  "updatedAt": 1667587110049,
+  "createdAt": 1668328745080,
+  "updatedAt": 1668328745080,
   "deletedAt": 0,
-  "createdFirstAt": 1667587110049,
-  "name": "writer-input",
-  "version": "1.0.0",
-  "main": "./build/esm/index.js",
-  "types": "./build/esm/index.d.ts",
-  "files": [
-    "/build"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "@types/marked": "^4.0.7",
-    "@types/react": "^17.0.33",
-    "@types/react-dom": "^17.0.10",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "typescript": "^4.8.4"
-  },
-  "peerDependencies": {
-    "react": "17.0.2",
-    "react-dom": "17.0.2"
-  },
-  "scripts": {
-    "build": "tsc",
-    "css-watch": "tailwindcss -w -o css.css",
-    "dev": "echo 'not sure if this works' && npx tsc-watch --onSuccess 'yarn css'",
-    "css": "tailwindcss -o css.css"
-  },
+  "createdFirstAt": 1668328745080,
+  "id": "cogvbrxlirmddlfvbnrhrdha",
   "dependencies": {
     "api": "0.0.1",
     "breadcrumbs": "0.0.1",
@@ -47,11 +22,183 @@
     "react-with-native-store": "2.0.40",
     "server-api-url": "0.0.1",
     "simplified-schema-form": "0.0.1",
-    "try-parse-json": "0.0.1"
+    "try-parse-json": "0.0.1",
+    "code-types": "0.0.1",
+    "markdown-reader-types": "0.0.1",
+    "writer-types": "0.0.1",
+    "react": "*",
+    "augmented-word-types": "0.0.1"
   },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "devDependencies": {
+    "@types/marked": "^4.0.7",
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "typescript": "^4.8.4"
   },
+  "main": "./build/esm/index.js",
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "css-watch": "tailwindcss -w -o css.css",
+    "dev": "echo 'not sure if this works' && npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css"
+  },
+  "version": "1.0.0",
+  "name": "writer-input",
+  "language": "english",
   "slug": "writer-input",
-  "id": "cogvbrxlirmddlfvbnrhrdha"
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/writer/writer-input/src/types.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+      "lintProblems": []
+    },
+    "classificationIndexed": "ui-esm",
+    "coreDependenciesIndexed": [
+      "useState",
+      "useState",
+      "useEffect",
+      "useEffect",
+      "useRef",
+      "useEffect",
+      "useEffect",
+      "useRef"
+    ],
+    "folderNameIndexed": "writer-input",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668551957446,
+    "operationDependenciesIndexed": [
+      "MarkdownParse",
+      "SimplifiedSchema",
+      "markdownParseToMarkdownString",
+      "SimplifiedSchemaForm",
+      "useReferencableModelData",
+      "Div",
+      "P",
+      "isDev",
+      "MarkdownParse",
+      "renderMarkdownContent",
+      "renderBreadCrumbs",
+      "ClickableIcon",
+      "ClickableIconType",
+      "MappedObject",
+      "AugmentedWord",
+      "flattenMarkdownChunks",
+      "Div",
+      "MarkdownParse",
+      "createStore",
+      "SubtextConfig",
+      "SubwordConfig",
+      "WriterViewEnum",
+      "LabeledButton",
+      "LabeledButtonType",
+      "Div",
+      "P",
+      "WriterType",
+      "MappedObject",
+      "AugmentedWord",
+      "Div",
+      "MarkdownParseRenderConfig",
+      "FancyLoader",
+      "api",
+      "queries",
+      "getWriterType",
+      "WriterType",
+      "MappedObject",
+      "AugmentedWord",
+      "getFolderJs",
+      "DbModels",
+      "mdToJsonParse",
+      "isDev",
+      "WriterViewEnum",
+      "SubtextConfig",
+      "SubwordConfig",
+      "Div",
+      "SimplifiedSchemaForm",
+      "SimplifiedSchema",
+      "SubtextConfig",
+      "SubwordConfig",
+      "getFolderJs",
+      "MappedObject",
+      "renderMarkdownContent",
+      "AugmentedWord",
+      "Div",
+      "P",
+      "isDev",
+      "notEmpty",
+      "Div",
+      "FinalDivType",
+      "MarkdownParseRenderConfig",
+      "SubtextConfig",
+      "SubwordConfig",
+      "SubtextConfig",
+      "getRealSrc",
+      "MarkdownParseRenderConfig",
+      "SubtextConfig",
+      "SubwordConfig",
+      "Div",
+      "WriterType",
+      "MarkdownParseRenderConfig",
+      "SubtextConfig",
+      "SubwordConfig",
+      "SubtextConfig",
+      "SubwordConfig",
+      "SubtextConfig",
+      "SubwordConfig",
+      "MarkdownParseRenderConfig",
+      "MarkdownParseRenderConfig",
+      "SubtextConfig",
+      "SubwordConfig",
+      "useHotkeys",
+      "Div",
+      "WriterType",
+      "tryParseJson"
+    ],
+    "packageDependenciesIndexed": [
+      "MarkdownParseRenderConfig",
+      "renderMarkdownParse",
+      "marked",
+      "marked",
+      "marked",
+      "marked",
+      "marked",
+      "marked"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/writer",
+    "markdown": "# Writer Input\n\ncomponent to create a writer input\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 29,
+        "lines": 2145,
+        "characters": 60649,
+        "bytes": 60649
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 229,
+        "characters": 5939,
+        "bytes": 5939
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 578,
+        "characters": 16604,
+        "bytes": 16604
+      },
+      "size": {
+        "bytes": 83192,
+        "characters": 83192,
+        "lines": 2952,
+        "numberOfFiles": 33
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
 }

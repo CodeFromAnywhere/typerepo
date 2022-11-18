@@ -1,11 +1,22 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328739834,
+  "updatedAt": 1668328739834,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328739834,
+  "id": "UWnbXcZjuZVykeJY",
+  "bin": {
+    "dev": "./build/cli/dev.cli.js"
+  },
+  "dependencies": {
+    "nodemon": "0.0.1",
+    "fs-util": "1.0.5",
+    "read-json-file": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,28 +24,63 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "k-dev",
+  "language": "english",
+  "slug": "k-dev",
   "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "k-dev",
+    "hasGeneratedDependenciesIndexed": false,
     "indirectDependencies": [
       "watch-operations"
-    ]
-  },
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.4"
-  },
-  "bin": {
-    "dev": "./build/cli/dev.cli.js"
-  },
-  "name": "k-dev",
-  "slug": "k-dev",
-  "id": "UWnbXcZjuZVykeJY",
-  "dependencies": {
-    "nodemon": "0.0.1",
-    "fs-util": "1.0.5",
-    "read-json-file": "0.0.1"
-  },
-  "sensible": {
-    "hasGeneratedDependencies": false
+    ],
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668336473376,
+    "operationDependenciesIndexed": [
+      "fs",
+      "nodemon",
+      "path"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/util",
+    "markdown": "CLI that starts a watcher that watches all your operations for changes and rebuilds the operation on every change (compiling and indexing the altered file(s))\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 51,
+        "characters": 1466,
+        "bytes": 1466
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 123,
+        "characters": 2968,
+        "bytes": 2968
+      },
+      "textSize": {
+        "numberOfFiles": 5,
+        "lines": 136,
+        "characters": 4854,
+        "bytes": 4854
+      },
+      "size": {
+        "bytes": 9288,
+        "characters": 9288,
+        "lines": 310,
+        "numberOfFiles": 9
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

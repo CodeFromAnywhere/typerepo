@@ -1,0 +1,49 @@
+{
+  "createdAt": 1668775522261,
+  "updatedAt": 1668775522261,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775522261,
+  "id": "namedparameterstypeof-isgetendpoint",
+  "name": "NamedParameters<typeof isGetEndpoint>",
+  "slug": "namedparameterstypeof-isgetendpoint",
+  "operationRelativeTypescriptFilePath": "src/isGetEndpoint.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "functionName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "functionName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "functionName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isGetEndpoint>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

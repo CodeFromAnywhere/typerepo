@@ -38,14 +38,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addPeer = void 0;
 var api_1 = require("api");
-var database_1 = require("database");
 var port_conventions_1 = require("port-conventions");
+/**
+ * TODO:
+ */
 var addPeer = function (ip, authToken, peerName, 
 /**
  * If true, it does not validate the IP to see if it is online and it is authorized...
  */
 force, isMe) { return __awaiter(void 0, void 0, void 0, function () {
-    var apiResult, isConnectionEstablished, finalPeerName, peerCreation, upsertResult;
+    var apiResult, isConnectionEstablished;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, api_1.apiWithConfig.ping({
@@ -64,24 +66,7 @@ force, isMe) { return __awaiter(void 0, void 0, void 0, function () {
                             message: "Peer connection could not be established. Are you sure the peer is online? Use force if you want to add your peer anyway. If you have a node version lower than v17, this will also fail.",
                         }];
                 }
-                finalPeerName = peerName || ip;
-                peerCreation = {
-                    peerName: finalPeerName,
-                    lastOnlineAt: isConnectionEstablished ? Date.now() : 0,
-                    lastSyncDatabaseAtObject: {},
-                    name: ip,
-                    authToken: authToken,
-                    isMe: isMe,
-                };
-                return [4 /*yield*/, database_1.db.upsert("Peer", peerCreation)];
-            case 2:
-                upsertResult = _a.sent();
-                return [2 /*return*/, {
-                        isSuccesful: !!upsertResult.isSuccesful,
-                        message: upsertResult.isSuccesful
-                            ? "Peer added"
-                            : "Something went wrong: ".concat(upsertResult.message),
-                    }];
+                return [2 /*return*/];
         }
     });
 }); };

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668154795784,
-  "updatedAt": 1668154795784,
+  "createdAt": 1668334887766,
+  "updatedAt": 1668334887766,
   "deletedAt": 0,
-  "createdFirstAt": 1668154795784,
+  "createdFirstAt": 1668334887766,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdown: string | undefined,\n  title: string,\n  expandTitle: string\n): MarkdownParse | undefined => {\n  if (!markdown) return;\n  return mdToJsonParse(\n    createMinimizedSectionMarkdown(markdown, expandTitle),\n    title\n  );\n}",
   "description": "",
-  "id": "tpqxlsglaoqoknwroymcbhdb"
+  "id": "xaggornrcuuocyvzqsbsrrtj"
 }

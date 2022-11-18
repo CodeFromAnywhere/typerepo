@@ -1,0 +1,40 @@
+{
+  "createdAt": 1668754552716,
+  "updatedAt": 1668754552716,
+  "deletedAt": 0,
+  "createdFirstAt": 1668754552716,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/LayoutGrid.tsx",
+  "commentsInside": [],
+  "rawText": " (props: {\n  children: React.ReactNode;\n  header: React.ReactNode;\n  /**\n   * Menu is only rendered if you pass it here\n   */\n  menu?: MenuProps;\n}) => {\n  const { children, header, menu } = props;\n\n  const [isMobileMenuEnabled] = useStore(\"menu.isMobileMenuEnabled\");\n\n  const renderMenu = () => {\n    return menu ? <Menu {...menu} message={undefined} /> : null;\n  };\n\n  return (\n    <main className=\"dark:bg-zinc-900 dark:text-white relative\">\n      {/* mobile layout */}\n      <Div className=\"lg:invisible absolute overflow-y-scroll top-0 left-0 w-screen h-screen\">\n        {header}\n        {isMobileMenuEnabled ? <Div>{renderMenu()}</Div> : children}\n      </Div>\n\n      {/* Big screen layout */}\n      <Div\n        className={`w-screen h-screen flex flex-1 invisible lg:visible flex-col`}\n      >\n        {header}\n\n        <Div\n          className={`h-full overflow-hidden flex-1 flex ${\n            menu?.menuPosition === \"left\" ? \"flex-row-reverse\" : \"flex-row\"\n          }`}\n        >\n          <Div className=\"min-h-0 overflow-y-scroll w-full h-full inline-block\">\n            {children}\n          </Div>\n          {menu ? (\n            <Div className=\"inline-block min-h-0 overflow-y-scroll h-full w-80\">\n              {renderMenu()}\n            </Div>\n          ) : null}\n        </Div>\n      </Div>\n    </main>\n  );\n}",
+  "name": "LayoutGrid",
+  "slug": "layout-grid",
+  "parameters": [],
+  "description": "Style for creating a grid for the layout that is mobile friendly and has menu support",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 1414,
+    "lines": 48,
+    "bytes": 1414,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 48,
+    "numberOfFiles": 1
+  },
+  "id": "scdqrzslancfsadmdystowvw"
+}

@@ -1,6 +1,6 @@
 # Json util
 
-json-util (`OperationClassification` js)
+json-util (`OperationClassification` cjs)
 
 
 

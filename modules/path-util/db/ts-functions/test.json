@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666258764437,
-  "updatedAt": 1666258764437,
+  "createdAt": 1668331942435,
+  "updatedAt": 1668331942435,
   "deletedAt": 0,
-  "createdFirstAt": 1666258764437,
+  "createdFirstAt": 1668331942435,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": false,
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const x = await categorizeFiles({\n    basePath: \"/Users/king/King/tools/cognition/app-controllers/sensible\",\n  });\n\n  const y = await getFolderSummary(x);\n  console.dir(y, { depth: 999 });\n}",
+  "rawText": " async () => {\n  const x = await categorizeFiles({\n    basePath: \"/Users/king/King/tools/cognition/app-controllers\",\n  });\n\n  const y = await getFolderSummary(x);\n  console.dir(y, { depth: 999 });\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -29,13 +29,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 207,
+    "characters": 198,
     "lines": 8,
-    "bytes": 207,
+    "bytes": 198,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
+    "charactersPerLine": 25,
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "muhiuysmppznwjdcwmctyzum"
+  "id": "mqvqdchrmkvukyccbejckgbw"
 }

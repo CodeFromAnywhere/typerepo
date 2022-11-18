@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667111116735,
-  "updatedAt": 1667111116735,
+  "createdAt": 1668773846052,
+  "updatedAt": 1668773846052,
   "deletedAt": 0,
-  "createdFirstAt": 1667111116735,
+  "createdFirstAt": 1668773846052,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(asset: Asset) => {\n  const extensionFromType =\n    asset.type === \"audio\"\n      ? `mp3`\n      : asset.type === \"image\"\n      ? `jpeg`\n      : asset.type === \"video\"\n      ? `mp4`\n      : undefined;\n\n  const extension = extensionFromType\n    ? extensionFromType\n    : asset.originalFilename\n    ? getExtension(asset.originalFilename)\n    : undefined;\n\n  return extension;\n}",
   "description": "Returns a preliminary filename, based on the `Asset`",
-  "id": "pacndvzllabvxgrxqjvnpchp"
+  "id": "zuiewgtmoccibzggjfiugrgw"
 }

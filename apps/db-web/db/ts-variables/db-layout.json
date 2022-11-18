@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668774258860,
+  "updatedAt": 1668774258860,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774258860,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "DbLayout",
+  "slug": "db-layout",
+  "operationRelativeTypescriptFilePath": "src/DbLayout.tsx",
+  "type": {
+    "rawType": "(props: { pageProps: any; nextPage: any; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { pageProps: any; nextPage: any }) => {\n  const [menuType, setMenuType] = useState<string>(menuTypes[0][\"type\"]);\n  const dbMenuQuery = queries.useGetNestedDatabaseMenu({\n    noOperationName: menuType === \"flat\",\n    noOperationPath: menuType !== \"deep\",\n    noSrcRelativeFolder: menuType !== \"deep\",\n    noPrefix: true,\n  });\n\n  const dbQueryPaths = dbMenuQuery.data?.result as any as string[];\n\n  const { nextPage, pageProps } = props;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        menuType,\n        setMenuType,\n        menuTypes,\n        queryPaths: dbQueryPaths,\n        isLoading: dbMenuQuery.isLoading,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
+  "description": "",
+  "id": "fxojbjscbueznagcmlwphdhn"
+}

@@ -1,6 +1,6 @@
 # React with native form asset input
 
-react-with-native-form-asset-input (`OperationClassification` js)
+react-with-native-form-asset-input (`OperationClassification` cjs)
 
 
 ## ❌ No description set yet

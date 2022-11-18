@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668148855996,
-  "updatedAt": 1668148855996,
+  "createdAt": 1668774338581,
+  "updatedAt": 1668774338581,
   "deletedAt": 0,
-  "createdFirstAt": 1668148855996,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668774338581,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/convention/mergeConfigs.ts",
   "commentsInside": [],
   "rawText": " <TModels extends AnyModelObject>(\n  modelName: Keys<TModels>,\n  dbConfig?: DbConfig<TModels>,\n  config?: CustomQueryConfig | GetQueryConfig<TModels[keyof TModels]>\n) => {\n  const hardcodedDefaultQueryConfig: QueryConfig = {\n    dbStorageMethod: \"jsonMultiple\",\n    manualProjectRoot: getProjectRoot(),\n  };\n\n  const modelConfig = dbConfig?.modelQueryConfig?.[modelName];\n\n  const mergedQueryConfig = mergeObjects<QueryConfig>(\n    hardcodedDefaultQueryConfig,\n    dbConfig?.defaultQueryConfig,\n    modelConfig,\n    config\n  )!;\n\n  // NB: dbStorageMethod is now always set\n  const merged = mergedQueryConfig as MergedQueryConfig;\n  return merged;\n}",
@@ -19,7 +14,7 @@
   "parameters": [],
   "description": "",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/database/fs-orm/src/types\").QueryConfig & { dbStorageMethod: any; manualProjectRoot: string; }",
+    "rawType": "import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/database/fs-orm/src/types\").QueryConfig & { dbStorageMethod: any; manualProjectRoot: string; }",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -37,5 +32,5 @@
     "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "gfknawlcyucniepwlkdvotrr"
+  "id": "mjnaulkslnntqqpyztlnwmws"
 }

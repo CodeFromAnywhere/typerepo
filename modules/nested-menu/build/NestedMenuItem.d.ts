@@ -1,11 +1,17 @@
-import { MenuItemType } from "./types";
+import { MenuItemType, MouseEventCallbacks } from "./types";
+export declare const getRealItemRecursive: (item: MenuItemType) => MenuItemType;
 /**
  * General purpose NestedMenuItem
  *
  * TODO: make style customizable
  */
-export declare const NestedMenuItem: (props: MenuItemType & {
+export declare const NestedMenuItem: (props: {
+    item: MenuItemType;
+    /**
+     * If true, items with a single child will be merged into the parent
+     */
+    mergeSingleChilds?: boolean | undefined;
     headersClickable?: boolean | undefined;
     level?: number | undefined;
-}) => JSX.Element;
+} & MouseEventCallbacks) => JSX.Element;
 //# sourceMappingURL=NestedMenuItem.d.ts.map

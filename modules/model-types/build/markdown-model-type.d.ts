@@ -28,11 +28,6 @@ export interface MarkdownModelType extends AnyModelType, Frontmatter, TimeTypes,
      * the content of the markdown
      */
     markdown: string;
-    /**
-     * Taken from the location in the folder of the db-model.
-     *
-     * NB: Changing this value when updating/upserting, changes where the item is located!
-     */
     categoryStackCalculated: CategoryStack;
     /**
      * This kind of overwrites frontmatter, but it is needed because there need to be models attached to the markdown model sometimes.

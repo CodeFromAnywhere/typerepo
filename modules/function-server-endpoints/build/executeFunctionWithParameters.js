@@ -40,11 +40,18 @@ exports.executeFunctionWithParameters = void 0;
 // NB: uses SDK-api!
 var sdk_api_1 = require("sdk-api");
 var js_util_1 = require("js-util");
+var sdk_env_private_1 = require("sdk-env-private");
 var db_recipes_1 = require("db-recipes");
 var model_types_1 = require("model-types");
-var getNewPerformance_1 = require("./getNewPerformance");
+var api_types_1 = require("api-types");
+var upsertDevice_1 = require("./upsertDevice");
+var measure_performance_1 = require("measure-performance");
 var getTsFunction_1 = require("./getTsFunction");
+var getAuthorizationInfo_1 = require("./getAuthorizationInfo");
 var storeFunctionExecution_1 = require("./storeFunctionExecution");
+var isGetEndpoint_1 = require("./isGetEndpoint");
+var privateAuthToken = sdk_env_private_1.privateLocalEnvironmentVariables.authToken ||
+    sdk_env_private_1.privateEnvironmentVariables.authToken;
 /**
 steps for someone to use the API
 
@@ -57,37 +64,46 @@ steps for someone to use the API
 7) returning result
 
 TODO: make it possible to return result BEFORE storing cache and performance. we probably need to use the server.reply for this, which makes this function unusable in any other setting than an api, so let's make it optional
+
 */
-var executeFunctionWithParameters = function (functionName, authToken, parameters, ctx) { return __awaiter(void 0, void 0, void 0, function () {
-    var executionId, performance, tsFunction, cacheLookupResult, validationResult, fn, result;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+var executeFunctionWithParameters = function (functionName, parameters, serverContext) { return __awaiter(void 0, void 0, void 0, function () {
+    var executionId, result_1, performance, device, tsFunction, _a, hasAuthorization, authorizations, groups, cacheLookupResult, validationResult, fn, needsReturnRaw, needsFunctionContext, functionContext, parametersWithContext, result;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
                 executionId = (0, model_types_1.generateId)();
-                performance = [];
-                performance.push((0, getNewPerformance_1.getNewPerformance)("start", executionId, true));
-                // 1) upsert device
-                // const device = await upsertDevice(ctx);
-                // if (false && !device) {
-                //   return {
-                //     isSuccessful: false,
-                //     message: "Couldn't create device",
-                //   };
-                // }
-                performance.push((0, getNewPerformance_1.getNewPerformance)("upsertDevice", executionId));
-                return [4 /*yield*/, (0, getTsFunction_1.getTsFunction)(functionName)];
+                if (!(0, isGetEndpoint_1.isGetEndpoint)(functionName)) return [3 /*break*/, 2];
+                return [4 /*yield*/, sdk_api_1.sdk[functionName](serverContext)];
             case 1:
-                tsFunction = _a.sent();
+                result_1 = _b.sent();
+                return [2 /*return*/, result_1];
+            case 2:
+                performance = [];
+                performance.push((0, measure_performance_1.getNewPerformance)("start", executionId, true));
+                return [4 /*yield*/, (0, upsertDevice_1.upsertDevice)(serverContext)];
+            case 3:
+                device = _b.sent();
+                if (!device) {
+                    return [2 /*return*/, {
+                            isSuccessful: false,
+                            message: "Couldn't create device",
+                        }];
+                }
+                performance.push((0, measure_performance_1.getNewPerformance)("upsertDevice", executionId));
+                return [4 /*yield*/, (0, getTsFunction_1.getTsFunction)(functionName)];
+            case 4:
+                tsFunction = _b.sent();
                 if (!tsFunction) {
                     return [2 /*return*/, {
                             isSuccessful: false,
-                            message: "TsFunction file could not be found (".concat(functionName, ")"),
+                            message: "TsFunction file could not be found (".concat(functionName, "). Maybe you need to rebuild your operation and update your SDK?"),
                         }];
                 }
-                performance.push((0, getNewPerformance_1.getNewPerformance)("getTsFunction", executionId));
-                // const hasAuthorization = getHasAuthorization(device, tsFunction);
+                performance.push((0, measure_performance_1.getNewPerformance)("getTsFunction", executionId));
+                _a = (0, getAuthorizationInfo_1.getAuthorizationInfo)(device, tsFunction), hasAuthorization = _a.hasAuthorization, authorizations = _a.authorizations, groups = _a.groups;
                 // // 3) auth
-                // if (false && !hasAuthorization) {
+                //OLD way: privateAuthToken !== authToken
+                // if (!hasAuthorization) {
                 //   return {
                 //     isSuccessful: false,
                 //     isUnauthorized: true,
@@ -95,7 +111,7 @@ var executeFunctionWithParameters = function (functionName, authToken, parameter
                 //       "You are not authorized to execute this function, you might need to login.",
                 //   };
                 // }
-                performance.push((0, getNewPerformance_1.getNewPerformance)("auth", executionId));
+                performance.push((0, measure_performance_1.getNewPerformance)("auth", executionId));
                 cacheLookupResult = (0, db_recipes_1.cacheLookup)(functionName, parameters);
                 if (cacheLookupResult.hasValidCache) {
                     return [2 /*return*/, {
@@ -104,29 +120,48 @@ var executeFunctionWithParameters = function (functionName, authToken, parameter
                             isCached: true,
                         }];
                 }
-                performance.push((0, getNewPerformance_1.getNewPerformance)("cacheLookup", executionId));
+                performance.push((0, measure_performance_1.getNewPerformance)("cacheLookup", executionId));
                 validationResult = (0, db_recipes_1.validateInput)(functionName, parameters, tsFunction);
                 if (!validationResult.isValid) {
                     return [2 /*return*/, {
                             isSuccessful: false,
                             errors: validationResult.errors,
-                            message: "Your input has some errors",
+                            message: "Your input has some errors. Input ".concat(JSON.stringify(parameters), "."),
                         }];
                 }
-                performance.push((0, getNewPerformance_1.getNewPerformance)("inputValidation", executionId));
+                performance.push((0, measure_performance_1.getNewPerformance)("inputValidation", executionId));
                 fn = sdk_api_1.sdk[functionName];
                 if (typeof fn !== "function") {
                     return [2 /*return*/, {
                             isSuccessful: false,
-                            message: "Function not found",
+                            message: "Function not found in the api-sdk: ".concat(functionName),
                         }];
                 }
-                return [4 /*yield*/, fn.apply(void 0, parameters)];
-            case 2:
-                result = _a.sent();
-                performance.push((0, getNewPerformance_1.getNewPerformance)("function", executionId));
+                needsReturnRaw = functionName.endsWith(api_types_1.apiConventions.rawFunctionConventionSuffix) ||
+                    functionName.endsWith(api_types_1.apiConventions.getFunctionConventionSuffix);
+                needsFunctionContext = functionName.endsWith(api_types_1.apiConventions.contextFunctionConventionSuffix) ||
+                    needsReturnRaw;
+                functionContext = {
+                    tsFunction: tsFunction,
+                    authorizations: authorizations,
+                    device: device,
+                    groups: groups,
+                    hasAuthorization: hasAuthorization,
+                    authToken: device.authToken,
+                    serverContext: serverContext,
+                };
+                parametersWithContext = needsFunctionContext
+                    ? [functionContext].concat(parameters || [])
+                    : parameters;
+                return [4 /*yield*/, fn.apply(void 0, parametersWithContext)];
+            case 5:
+                result = _b.sent();
+                performance.push((0, measure_performance_1.getNewPerformance)("function", executionId));
                 // 6) store performance
                 (0, storeFunctionExecution_1.storeFunctionExecution)(tsFunction, parameters, result, performance.filter(js_util_1.notEmpty), false);
+                // need to return this immediately without the surrounding object, because it might do stuff with that server context that needs to be returned
+                if (needsReturnRaw)
+                    return [2 /*return*/, result];
                 if (result === undefined) {
                     return [2 /*return*/, {
                             isSuccessful: true,

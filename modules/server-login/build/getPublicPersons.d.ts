@@ -1,0 +1,2 @@
+export declare const getPublicPersons: () => Promise<Pick<import("peer-types").Person, "name" | "slug" | "pictureImage" | "interestSlugs" | "media" | "preferredContactMedium" | "groupSlugs" | "id">[]>;
+//# sourceMappingURL=getPublicPersons.d.ts.map

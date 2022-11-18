@@ -1,0 +1,52 @@
+{
+  "createdAt": 1668336325158,
+  "updatedAt": 1668336325158,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336325158,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": " (\n  command: string\n): Promise<{ success: boolean; response: string }> => {\n  return new Promise((resolve) => {\n    exec(command, (error, stdout, stderr) => {\n      if (error) {\n        console.log(error);\n        resolve({ success: false, response: stderr });\n      } else {\n        resolve({ success: true, response: stdout });\n      }\n    });\n  });\n}",
+  "name": "execAsync",
+  "slug": "exec-async",
+  "parameters": [
+    {
+      "name": "command",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "promises to exec something with response and success as result (Promised)",
+  "returnType": {
+    "rawType": "Promise<{ success: boolean; response: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 427,
+    "lines": 14,
+    "bytes": 427,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "kyqbaqxbguyiinjcnfnahuds"
+}

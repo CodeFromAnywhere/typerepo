@@ -1,0 +1,50 @@
+{
+  "createdAt": 1668774261059,
+  "updatedAt": 1668774261059,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774261059,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/pages/[...paths].tsx",
+  "commentsInside": [],
+  "rawText": " () => {\n  const router = useRouter();\n  const paths = router.asPath.slice(1);\n  const modelNameWithQuery = paths.split(\"/\").pop()!;\n  const modelName = modelNameWithQuery.split(\"?\")[0];\n  const modelNames = [...dbModelKeys] as string[];\n\n  if (!modelNames.includes(modelName) || !modelName || modelName === \"\") {\n    return \"Please select a model on the right\";\n  }\n\n  if (paths.startsWith(\"upsert/\")) {\n    return <UpsertPage />;\n  }\n\n  return <DbPage />;\n}",
+  "name": "DbAndUpsert",
+  "slug": "db-and-upsert",
+  "parameters": [],
+  "description": "This should catch all dbQueryPaths because those aren't default ones",
+  "returnType": {
+    "rawType": "JSX.Element | \"Please select a model on the right\"",
+    "typeDefinition": {
+      "optional": false,
+      "oneOf": [
+        {
+          "optional": false,
+          "$ref": "#/definitions/JSX.Element"
+        },
+        null
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 527,
+    "lines": 17,
+    "bytes": 527,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "jdhhluuvbbegevfhrhredwyr"
+}

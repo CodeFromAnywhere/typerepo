@@ -1,4 +1,4 @@
-import { DbModels } from "sdk-db";
+import type { DbModels } from "sdk-db";
 import { CustomQueryConfig } from "fs-orm";
 import { AugmentedAnyModelType } from "model-types";
 /**

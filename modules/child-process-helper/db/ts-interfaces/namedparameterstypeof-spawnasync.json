@@ -1,0 +1,192 @@
+{
+  "createdAt": 1668336324714,
+  "updatedAt": 1668336324714,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336324714,
+  "id": "namedparameterstypeof-spawnasync",
+  "name": "NamedParameters<typeof spawnAsync>",
+  "slug": "namedparameterstypeof-spawnasync",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "command": {
+          "type": "string"
+        },
+        "options": {
+          "$ref": "#/definitions/SpawnOptionsWithoutStdio"
+        }
+      },
+      "required": [
+        "command",
+        "options"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "command",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "options",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "signal",
+                "required": false,
+                "schema": {
+                  "fullComment": "When provided the corresponding `AbortController` can be used to cancel an asynchronous action.",
+                  "properties": [
+                    {
+                      "name": "aborted",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "Returns true if this AbortSignal's AbortController has signaled to abort, and false otherwise.",
+                        "type": "boolean"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "serialization",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "json",
+                    "advanced"
+                  ],
+                  "fullComment": "Specify the kind of serialization used for sending messages between processes.\n\n",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "killSignal",
+                "required": false,
+                "schema": {
+                  "fullComment": "The signal value to be used when the spawned process will be killed by the abort signal.",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "timeout",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "uid",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "gid",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "cwd",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "env",
+                "required": false,
+                "schema": {
+                  "fullComment": "",
+                  "properties": [
+                    {
+                      "name": "TZ",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Can be used to change the default timezone at runtime",
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "windowsHide",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "argv0",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "stdio",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "shell",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "windowsVerbatimArguments",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "detached",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof spawnAsync>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

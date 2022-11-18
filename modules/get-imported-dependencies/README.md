@@ -1,6 +1,6 @@
 # Get imported dependencies
 
-get-imported-dependencies (`OperationClassification` node)
+get-imported-dependencies (`OperationClassification` node-cjs)
 
 
 

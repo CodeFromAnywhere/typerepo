@@ -1,0 +1,83 @@
+{
+  "createdAt": 1668332392129,
+  "updatedAt": 1668332392129,
+  "deletedAt": 0,
+  "createdFirstAt": 1668332392129,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/vscodeOpen.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  file: OpenableFile\n): Promise<string | undefined> => {\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) return;\n\n  if (file.projectRelativePath)\n    return path.join(projectRoot, file.projectRelativePath);\n\n  if (!file.operationName || !file.operationRelativeFilePath) return;\n\n  const operationBasePath = await getOperationPath(file.operationName);\n  if (!operationBasePath) return;\n\n  const openableFilePath = nodePath.join(\n    operationBasePath,\n    file.operationRelativeFilePath\n  );\n\n  return openableFilePath;\n}",
+  "name": "getOpenableFilePath",
+  "slug": "get-openable-file-path",
+  "parameters": [
+    {
+      "name": "file",
+      "schema": {
+        "$ref": "#/definitions/OpenableFile"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "projectRelativePath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationName",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativeFilePath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "line",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<string | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 542,
+    "lines": 22,
+    "bytes": 542,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 22,
+    "numberOfFiles": 1
+  },
+  "id": "osogznachxnvbvxswduvfxyl"
+}

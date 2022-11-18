@@ -1,0 +1,47 @@
+{
+  "createdAt": 1668773974958,
+  "updatedAt": 1668773974958,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773974958,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/deleteApp.ts",
+  "commentsInside": [],
+  "rawText": " (operationName: string) => {\n  return pm2ConnectDisconnect((resolve) => {\n    pm2.delete(`${appPrefix}${operationName}`, (error, proc) => {\n      resolve({ isSuccessful: !error, error, proc });\n    });\n  });\n}",
+  "name": "deleteApp",
+  "slug": "delete-app",
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "Deletes an app from the pm2\n\nTODO: for some reason it says `error: Error: process or namespace not found` even though it certainly exists. I can't figure out why it's not working.",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 389,
+    "lines": 9,
+    "bytes": 389,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 43,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "ouezjoxacwkwbiwaliysmksk"
+}

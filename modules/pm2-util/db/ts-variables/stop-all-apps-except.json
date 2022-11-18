@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773983648,
+  "updatedAt": 1668773983648,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773983648,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "stopAllAppsExcept",
+  "slug": "stop-all-apps-except",
+  "operationRelativeTypescriptFilePath": "src/stopAllAppsExcept.ts",
+  "type": {
+    "rawType": "(ignore?: string[]) => Promise<void>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  ignore: string[] = []\n): Promise<void> => {\n  const apps = await listApps();\n\n  console.dir({ appsLength: apps.apps?.length, apps: apps }, { depth: 200 });\n  if (!apps.isSuccessful || !apps.apps) {\n    log(`something is wrong with listApps`, { type: \"error\" });\n    return;\n  }\n\n  const appsToQuit = apps.apps\n    .filter((app) => {\n      if (!app.operationName) return;\n\n      return !ignore.includes(app.operationName);\n    })\n    .map((x) => x.operationName);\n\n  await stopApps(appsToQuit);\n\n  log(`Stopped ${appsToQuit.length} apps`, { type: \"success\" });\n}",
+  "description": "Stops all apps except some specified ones",
+  "id": "mmuuvpejrgjcthpzinoqupoq"
+}

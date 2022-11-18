@@ -2,7 +2,7 @@ import { ClickableIcon } from "clickable-icon";
 import { getFolderJs } from "fs-util-js";
 import { MappedObject } from "js-util";
 import { renderMarkdownContent } from "markdown";
-import { AugmentedWord } from "markdown-reader-types";
+import { AugmentedWord } from "augmented-word-types";
 import { Div, P } from "react-with-native";
 import { isDev } from "server-api-url";
 import { useStore } from "../store";

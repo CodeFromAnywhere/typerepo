@@ -1,6 +1,6 @@
 # Schema util
 
-schema-util (`OperationClassification` js)
+schema-util (`OperationClassification` cjs)
 
 
 
@@ -31,23 +31,6 @@ Takes a parameterName and returns information about it according to the conventi
 - modelName should refer to a database model
 
 
-## getSchema()
-
-parses a JSONSchema7Definition to JSONSchema7|undefined so we can use it
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| maybeSchema (optional) | `JSONSchema7Definition` |  |
-| **Output** | {  }   |    |
-
-
-
-## 📄 getSchema (exported const)
-
-parses a JSONSchema7Definition to JSONSchema7|undefined so we can use it
-
-
 ## getProperties()
 
 Gets all the properties of a schema
@@ -74,6 +57,18 @@ based on the object properties in SimplifiedSchema, returns the model names that
 
 
 
+## getSchema()
+
+parses a JSONSchema7Definition to JSONSchema7|undefined so we can use it
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| maybeSchema (optional) | `JSONSchema7Definition` |  |
+| **Output** | {  }   |    |
+
+
+
 ## 📄 getProperties (exported const)
 
 Gets all the properties of a schema
@@ -82,6 +77,23 @@ Gets all the properties of a schema
 ## 📄 getReferencableModels (exported const)
 
 based on the object properties in SimplifiedSchema, returns the model names that can be referenced
+
+
+## 📄 getSchema (exported const)
+
+parses a JSONSchema7Definition to JSONSchema7|undefined so we can use it
+
+
+## getDataParameterNames()
+
+Finds all the data parameter names that might be there on an item, based on the item object keys and the convention
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| item | `AugmentedAnyModelType` |  |
+| **Output** | string[]   |    |
+
 
 
 ## getPossibleReferenceParameterNames()
@@ -203,6 +215,11 @@ Properties:
 | schema  | object |  |
 | required  | boolean |  |
 
+
+
+## 📄 getDataParameterNames (exported const)
+
+Finds all the data parameter names that might be there on an item, based on the item object keys and the convention
 
 
 ## 📄 getPossibleReferenceParameterNames (exported const)

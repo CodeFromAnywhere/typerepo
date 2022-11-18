@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150733141,
-  "updatedAt": 1668150733141,
+  "createdAt": 1668752116191,
+  "updatedAt": 1668752116191,
   "deletedAt": 0,
-  "createdFirstAt": 1668150733141,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752116191,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/typeToSchema.ts",
   "commentsInside": [],
   "rawText": " (\n  keyword: \"min\" | \"max\",\n  type: string,\n  value: number\n) => {\n  const t = type.toLowerCase() as keyof typeof ajvMap;\n  return set({}, keyword + ajvMap[t], value);\n}",
@@ -46,5 +41,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "smcgdtkyoutwraajteesjfvn"
+  "id": "mvhylphnxrwcjebkyvelzyzg"
 }

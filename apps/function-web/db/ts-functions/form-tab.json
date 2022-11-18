@@ -1,0 +1,220 @@
+{
+  "createdAt": 1668774413979,
+  "updatedAt": 1668774413979,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774413979,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/FormTab.tsx",
+  "commentsInside": [],
+  "rawText": " (props: { tsFunction: TsFunction }) => {\n  const { tsFunction } = props;\n  const [executionId] = useStore(\"executionId\");\n  const [initialValues] = useStore(\"initialValues\");\n  const [resultJson, setResultJson] = useState<{\n    [key: string]: RealApiReturnType<any> | undefined | string;\n  }>({});\n\n  const jsonCodeblock =\n    resultJson[executionId] === undefined\n      ? null\n      : renderMarkdownContent(\n          createCodeblockMarkdown(JSON.stringify(resultJson, null, 2), \"json\"),\n          // NB: since there won't be any assets in here, it doesn't matter where the md is made\n          {\n            projectRelativeBaseFolderPath: \"\",\n            projectRelativeMarkdownFilePath: \"\",\n          }\n        );\n\n  return (\n    <Div>\n      <FunctionForm\n        key={executionId}\n        tsFunction={tsFunction}\n        initialValues={initialValues}\n        hideResult\n        submitFunction={\n          undefined\n          // provide this later, for js functions\n        }\n        withApiResult={(result: RealApiReturnType<any> | undefined) => {\n          setResultJson({ ...resultJson, [executionId]: result });\n          if (\n            !result ||\n            typeof result !== \"object\" ||\n            Array.isArray(result) ||\n            result.isSuccessful === undefined\n          ) {\n            infoToast(\"We got no satisfactory result to show you anything\");\n            return;\n          }\n\n          if (result.isSuccessful === false || result.isUnauthorized === true) {\n            errorToast(result.message);\n            return;\n          }\n\n          if (!result.result) {\n            successToast(\n              \"Seems to have gone well, but we don't know how it went\"\n            );\n            return;\n          }\n\n          if (\n            result.result &&\n            typeof result.result === \"object\" &&\n            !Array.isArray(result.result)\n          ) {\n            const maybeSuccessIndicator = result.result.isSuccessful;\n\n            if (maybeSuccessIndicator !== undefined) {\n              const rightToast =\n                maybeSuccessIndicator === true ? successToast : errorToast;\n\n              rightToast(result.result.message);\n\n              return;\n            }\n          }\n\n          return successToast(\"We got a response\");\n        }}\n      />\n      {jsonCodeblock}\n    </Div>\n  );\n}",
+  "name": "FormTab",
+  "slug": "form-tab",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "tsFunction": {
+            "$ref": "#/definitions/TsFunction"
+          }
+        },
+        "required": [
+          "tsFunction"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "tsFunction",
+            "required": true,
+            "schema": {
+              "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nInterface for arrow functions and normal functions",
+              "properties": [
+                {
+                  "name": "explicitTypeName",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If you give a function a type explicitly on its declaration, this type will be set here.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "isExported",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "The function is immediately exported upon creation. If the os dev tools are being used, this means it is also exported from the operation",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "rawText",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "raw text of the function",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "commentsInside",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "all comments found in a function and the node that they belong to",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "parameters",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "parameters the function takes as its arguments, if any",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "maxIndentationDepth",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "maximum amount of times indedented in this function\n\ngood for determining the complexity and finding code that can be simplified/destructured into smaller pieces",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "dependantFiles",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "finds all files that import this function\n\nNB: this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly.",
+                    "nb": "this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly.",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "groupAuthorization",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Other keys in frontmatter that are group names, can be added here",
+                    "properties": [],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "isApiExposed",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "for all exported functions in node operations, true by default false for others\n\ncan be overwritten using frontmatter",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "canCache",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "whether or not the function can be cached (relies on cache invalidation)",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "id",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "unique id of the model",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name (identifier) of the model",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "slug",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "kebab-case variant of the name",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativeTypescriptFilePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "### Tab 1: Function Form\n\nUses `<FunctionForm>` component\n\nExecutes the function directly or through API (depending on whether or not it is a node-only-function or bare JS)\n\nDon't show this tab for JSX components",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 8,
+  "size": {
+    "characters": 2545,
+    "lines": 85,
+    "bytes": 2545,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 85,
+    "numberOfFiles": 1
+  },
+  "id": "euemdnbrfaftwuvotounfrua"
+}

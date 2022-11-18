@@ -1,6 +1,6 @@
 # Read markdown file
 
-read-markdown-file (`OperationClassification` node)
+read-markdown-file (`OperationClassification` node-cjs)
 
 
 
@@ -30,7 +30,7 @@ Reads a markdown absolute path to a `MarkdownFile` model
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| absoluteFilePath | string |  |
 | **Output** |    |    |
 
 

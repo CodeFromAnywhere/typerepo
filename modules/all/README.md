@@ -1,6 +1,6 @@
 # All
 
-all (`OperationClassification` node)
+all (`OperationClassification` node-cjs)
 
 This operation contains a lot of different functions that can help you to execute different things on all operations.
 
@@ -21,6 +21,11 @@ executes a command or callback in every folder of a certain type. Supports git r
 
 
 
+## 📄 forAllFolders (exported const)
+
+executes a command or callback in every folder of a certain type. Supports git repos and operations now
+
+
 ## removeAllFolders()
 
 | Input      |    |    |
@@ -28,11 +33,6 @@ executes a command or callback in every folder of a certain type. Supports git r
 | config | { basePath: string, <br />folderNames: string[], <br />ignore?: {  }, <br />onlyRoot?: boolean, <br /> } |  |
 | **Output** |    |    |
 
-
-
-## 📄 forAllFolders (exported const)
-
-executes a command or callback in every folder of a certain type. Supports git repos and operations now
 
 
 ## 📄 removeAllFolders (exported const)

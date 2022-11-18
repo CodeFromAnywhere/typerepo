@@ -1,11 +1,21 @@
 {
-  "createdAt": 1662709577329,
-  "updatedAt": 1662709577329,
+  "createdAt": 1668328722164,
+  "updatedAt": 1668328722164,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577329,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328722164,
+  "id": "MAgsnxSMgHQFmLwQ",
+  "dependencies": {
+    "code-types": "0.0.1",
+    "make-test": "0.0.1",
+    "matter-types": "0.0.1",
+    "js-util": "0.0.1",
+    "parse-primitive": "0.0.1",
+    "convert-case": "0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,21 +23,80 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "markdown-parse-js",
-  "devDependencies": {
-    "typescript": "^4.7.4"
-  },
+  "language": "english",
   "slug": "markdown-parse-js",
-  "id": "MAgsnxSMgHQFmLwQ",
-  "dependencies": {
-    "code-types": "0.0.1",
-    "make-test": "0.0.1",
-    "matter-types": "0.0.1",
-    "js-util": "0.0.1",
-    "parse-primitive": "0.0.1"
-  },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "markdown-parse-js",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668334847715,
+    "operationDependenciesIndexed": [
+      "MarkdownChunk",
+      "MarkdownParse",
+      "notEmpty",
+      "slugify",
+      "MarkdownParse",
+      "MarkdownParse",
+      "notEmpty",
+      "MarkdownParse",
+      "makeTest",
+      "frontmatterParseToString",
+      "MarkdownChunk",
+      "makeTest",
+      "MarkdownParse",
+      "SimplifiedSchema",
+      "MarkdownParse",
+      "Frontmatter",
+      "mergeObjectsArray",
+      "makeTest",
+      "parsePrimitive",
+      "MarkdownChunk",
+      "makeTest",
+      "makeTest",
+      "SimplifiedSchema"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion/md",
+    "markdown": "js-only operation containing all kinds of functions that help parsing markdown\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 18,
+        "lines": 511,
+        "characters": 14568,
+        "bytes": 14568
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 142,
+        "characters": 3339,
+        "bytes": 3339
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 311,
+        "characters": 7829,
+        "bytes": 7829
+      },
+      "size": {
+        "bytes": 25736,
+        "characters": 25736,
+        "lines": 964,
+        "numberOfFiles": 22
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

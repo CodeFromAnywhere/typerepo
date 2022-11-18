@@ -1,6 +1,6 @@
 # Nodemon
 
-nodemon (`OperationClassification` node)
+nodemon (`OperationClassification` node-cjs)
 
 
 

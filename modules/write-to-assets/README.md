@@ -1,6 +1,6 @@
 # Write to assets
 
-write-to-assets (`OperationClassification` node)
+write-to-assets (`OperationClassification` node-cjs)
 
 Function to write anything to assets.
 

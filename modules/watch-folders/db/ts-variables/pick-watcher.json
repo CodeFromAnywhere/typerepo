@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258843518,
-  "updatedAt": 1666258843518,
+  "createdAt": 1668750105114,
+  "updatedAt": 1668750105114,
   "deletedAt": 0,
-  "createdFirstAt": 1666258843518,
+  "createdFirstAt": 1668750105114,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  if (os.platform() === \"linux\") return watchFoldersChokidar;\n  return watchFoldersFs;\n}",
   "description": "",
-  "id": "auckxpodfoqeedobvruqfayx"
+  "id": "jbowxmkpqdyvfyjvhdojlomw"
 }

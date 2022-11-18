@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263769022,
-  "updatedAt": 1666263769022,
+  "createdAt": 1668335750800,
+  "updatedAt": 1668335750800,
   "deletedAt": 0,
-  "createdFirstAt": 1666263769022,
+  "createdFirstAt": 1668335750800,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  tsModel:\n    | TsFunction\n    | TsComment\n    | TsInterface\n    | TsBuildError\n    | TsLintWarning\n    | TsExport\n    | TsImport\n    | TsVariable,\n  operationName: string,\n  operationRelativePaths: string[]\n) => {\n  if (!tsModel.operationName) return true;\n  if (tsModel.operationName !== operationName) return true;\n  if (!tsModel.operationRelativePath) return true;\n  if (\n    !operationRelativePaths.includes(\n      tsModel.operationRelativeTypescriptFilePath\n    )\n  ) {\n    return true;\n  }\n  return false;\n}",
   "description": "",
-  "id": "rsfwrbdapnmmgnluhwijpnvr"
+  "id": "iidrinlzqqaobnhsuagqvtfn"
 }

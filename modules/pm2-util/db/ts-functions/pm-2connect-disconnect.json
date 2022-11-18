@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668773979463,
+  "updatedAt": 1668773979463,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773979463,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/pm2ConnectDisconnect.ts",
+  "commentsInside": [],
+  "rawText": " async <\n  TResult extends {\n    isSuccessful: boolean;\n    error?: Error;\n    proc?: pm2.Proc;\n    [key: string]: any;\n  }\n>(\n  action: (resolve: (value: TResult) => void) => void\n) => {\n  const result = await new Promise<{\n    isSuccessful: boolean;\n    error?: Error;\n    proc?: pm2.Proc;\n  }>(async (resolve) => {\n    const { error } = await pm2Connect();\n    if (error) resolve({ isSuccessful: false, error });\n    action((value: TResult) => {\n      resolve(value);\n      pm2.disconnect();\n    });\n  });\n\n  return result;\n}",
+  "name": "pm2ConnectDisconnect",
+  "slug": "pm-2connect-disconnect",
+  "parameters": [],
+  "description": "Function that lets you connect, execute a pm2 action, and disconnect after",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 602,
+    "lines": 25,
+    "bytes": 602,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 25,
+    "numberOfFiles": 1
+  },
+  "id": "skkujxkwlmxpgdqgluijbwhu"
+}

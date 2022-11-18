@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668774464934,
+  "updatedAt": 1668774464934,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774464934,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "searchGetStaticProps",
+  "slug": "search-get-static-props",
+  "operationRelativeTypescriptFilePath": "src/util/searchGetStaticProps.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").GetStaticProps<import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").QueryPageProps, import(\"querystring\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").PreviewData>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  context\n) => {\n  const query = takeFirst(context.params?.query) || null;\n\n  const imagePaths = await fs.readdir(\n    path.join(__dirname, \"../../..\", \"public\")\n  );\n  const searchResults = getAllSearchResults(query) || null;\n\n  const timelineItems: {\n    comment: string;\n    filePath: string | undefined;\n    line: number;\n  }[] = []; // = await getTimelineItems();\n\n  const props: QueryPageProps = {\n    query,\n    searchResults,\n    imagePaths,\n    timelineItems,\n  };\n\n  return {\n    props,\n  };\n}",
+  "description": "",
+  "id": "zbbkjhtltxlcdswbouapwemo"
+}

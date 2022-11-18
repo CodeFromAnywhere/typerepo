@@ -1,40 +1,30 @@
 {
-  "createdAt": 1668150720894,
-  "updatedAt": 1668150720894,
+  "createdAt": 1668752102270,
+  "updatedAt": 1668752102270,
   "deletedAt": 0,
-  "createdFirstAt": 1668150720894,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752102270,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getTsStatements.ts",
   "commentsInside": [],
-  "rawText": " (frontmatter: Frontmatter) => {\n  const isApiExposed = frontmatter.isApiExposed === true;\n\n  const runEveryPeriod = runEveryPeriodStringArray.includes(\n    String(frontmatter.runEveryPeriod)\n  )\n    ? (String(frontmatter.runEveryPeriod) as RunEveryPeriodEnum)\n    : undefined;\n\n  const publicAuthorizationFrontmatter = Array.isArray(\n    frontmatter.publicAuthorization\n  )\n    ? frontmatter.publicAuthorization\n        .map(String)\n        .filter((text) => authorizationLevelStringArray.includes(text))\n        .map((string) => string as AuthorizationLevel)\n    : undefined;\n\n  // NB: by default, users are authorized to search and read docs\n  const publicAuthorization: AuthorizationLevel[] =\n    publicAuthorizationFrontmatter\n      ? publicAuthorizationFrontmatter\n      : [\"read\", \"search\"];\n\n  const result: {\n    runEveryPeriod: TsFunction[\"runEveryPeriod\"];\n    publicAuthorization: TsFunction[\"publicAuthorization\"];\n    isApiExposed: TsFunction[\"isApiExposed\"];\n  } = { runEveryPeriod, publicAuthorization, isApiExposed };\n\n  return result;\n}",
+  "rawText": " (frontmatter: Frontmatter) => {\n  const isApiExposed = frontmatter.isApiExposed === true;\n\n  const runEveryPeriod = runEveryPeriodStringArray.includes(\n    String(frontmatter.runEveryPeriod)\n  )\n    ? (String(frontmatter.runEveryPeriod) as RunEveryPeriodEnum)\n    : undefined;\n\n  const publicAuthorizationArray = frontmatter.publicAuthorization\n    ? String(frontmatter.publicAuthorization)\n        ?.split(\",\")\n        .map((x) => x.trim())\n    : undefined;\n\n  // const publicAuthorizationFrontmatter = publicAuthorizationArray\n  //   ?.filter((text) => authorizationLevelStringArray.includes(text))\n  //   .map((string) => string as AuthorizationLevel);\n\n  // NB: by default, users are authorized to search and read docs\n  // const publicAuthorization: AuthorizationLevel[] =\n  //   publicAuthorizationFrontmatter || [\"read\", \"search\"];\n\n  const result: {\n    runEveryPeriod: TsFunction[\"runEveryPeriod\"];\n    isApiExposed: TsFunction[\"isApiExposed\"];\n  } = { runEveryPeriod, isApiExposed };\n\n  return result;\n}",
   "name": "getFrontmatterFunctionParameters",
   "slug": "get-frontmatter-function-parameters",
   "parameters": [],
   "description": "",
   "returnType": {
-    "rawType": "{ runEveryPeriod: any; publicAuthorization: any[]; isApiExposed: boolean; }",
+    "rawType": "{ runEveryPeriod: any; isApiExposed: boolean; }",
     "typeDefinition": {
       "type": "object",
       "properties": {
         "runEveryPeriod": {},
-        "publicAuthorization": {
-          "type": "array",
-          "items": {}
-        },
         "isApiExposed": {
           "type": "boolean"
         }
       },
       "required": [
         "runEveryPeriod",
-        "publicAuthorization",
         "isApiExposed"
       ],
       "optional": false
@@ -56,22 +46,6 @@
           }
         },
         {
-          "name": "publicAuthorization",
-          "required": true,
-          "schema": {
-            "items": [
-              {
-                "schema": {
-                  "properties": [],
-                  "type": "object"
-                },
-                "name": null
-              }
-            ],
-            "type": "array"
-          }
-        },
-        {
           "name": "isApiExposed",
           "required": true,
           "schema": {
@@ -84,13 +58,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 1054,
-    "lines": 32,
-    "bytes": 1054,
+    "characters": 1014,
+    "lines": 30,
+    "bytes": 1014,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 33,
-    "linesPerFile": 32,
+    "charactersPerLine": 34,
+    "linesPerFile": 30,
     "numberOfFiles": 1
   },
-  "id": "upiwejftogcdweggfwyxdqcy"
+  "id": "igqbssohewrtvtvemxknherm"
 }

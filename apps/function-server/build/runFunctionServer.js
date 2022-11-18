@@ -35,67 +35,44 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.runFunctionServer = exports.executeFunction = void 0;
+exports.runFunctionServer = void 0;
 var server_1 = __importDefault(require("server"));
-var one_by_one_1 = require("one-by-one");
 var function_server_endpoints_1 = require("function-server-endpoints");
-var log_1 = require("log");
 var port_conventions_1 = require("port-conventions");
-var sdk_api_1 = require("sdk-api");
 var get_path_1 = require("get-path");
 var fs_util_1 = require("fs-util");
-var node_cron_1 = require("node-cron");
-var database_1 = require("database");
-var js_util_1 = require("js-util");
-var executeFunction = function (tsFunction) { return __awaiter(void 0, void 0, void 0, function () {
-    var _a;
-    return __generator(this, function (_b) {
-        //@ts-ignore
-        (_a = sdk_api_1.sdk[tsFunction.name]) === null || _a === void 0 ? void 0 : _a.call(sdk_api_1.sdk);
-        return [2 /*return*/];
-    });
-}); };
-exports.executeFunction = executeFunction;
-/**
- * For every `RunEveryPeriodEnum`, this object provides the interval `cronExpression` string for `node-cron`
- */
-var scheduleObject = {
-    minute: "* * * * *",
-    "5-minutes": "0,5,10,15,20,25,30,35,40,45,50,55 * * * *",
-    "quarter-hour": "0,15,30,45 * * * *",
-    hour: "0 * * * *",
-    "6-hours": "0 0,6,12,18 * * *",
-    midnight: "0 0 * * *",
-    week: "0 0 * * 1",
-    month: "0 0 1 * *",
-    "3-months": "0 0 1 1,4,7,10 *",
-    year: "0 0 1 1 *",
-};
+var child_process_helper_1 = require("child-process-helper");
+var log_1 = require("log");
+var pm2_util_1 = require("pm2-util");
+var scheduleCronJobs_1 = require("./scheduleCronJobs");
 /**
  * runs sdk api server using "server" package.
  *
- * server will be exposed on port 4201
+ * server will be exposed on port 42000
  */
 var runFunctionServer = function () {
     var header = server_1.default.reply.header;
+    (0, pm2_util_1.startApp)("search-web", true).then(function (result) {
+        if (!(result === null || result === void 0 ? void 0 : result.isSuccessful)) {
+            (0, log_1.log)("Something went wrong starting \"search-web\". Maybe you don't have it?", { type: "error" });
+            return;
+        }
+        setTimeout(function () {
+            (0, child_process_helper_1.execSync)("open http://localhost:42001");
+            (0, log_1.log)("Opened the homepage in your browser", { type: "success" });
+        }, 1000);
+    });
     var cors = [
-        // see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
-        // see https://stackoverflow.com/questions/18642828/origin-origin-is-not-allowed-by-access-control-allow-origin
-        // NB: cannot set "*" i.c.m. cookies
-        /* a better way to allow multiple origins is probably something like this:
+        /*
+         see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
+        see https://stackoverflow.com/questions/18642828/origin-origin-is-not-allowed-by-access-control-allow-origin
+        NB: cannot set "*" i.c.m. cookies
+    
+        a better way to allow multiple origins is probably something like this:
     
           const allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:8020', 'http://127.0.0.1:9000', 'http://localhost:9000'];
       const origin = req.headers.origin;
@@ -120,51 +97,32 @@ var runFunctionServer = function () {
     var projectPublicFolder = projectRoot
         ? fs_util_1.path.join(projectRoot, "public")
         : fs_util_1.path.join(__dirname, "..", "public");
-    // @ts-ignore
-    server_1.default.apply(void 0, __spreadArray(__spreadArray(__spreadArray([{
-            port: port_conventions_1.ports["function-server"],
-            public: projectPublicFolder,
-            security: { csrf: false },
-            parser: {
-                data: { maxFileSize: 1024 * 1024 * 1024 * 32 },
-                cookie: {
-                    maxAge: 900000,
-                    httpOnly: false,
-                },
-            },
+    var serverOptions = {
+        port: port_conventions_1.ports["function-server"],
+        public: projectPublicFolder,
+        security: { csrf: false },
+        parser: {
+            // NB: seems the server.js types are not 100% correct
+            data: { maxFileSize: 1024 * 1024 * 1024 * 32 },
+            cookie: { maxAge: 900000, httpOnly: false },
         },
-        // NB: afaik... it DOES NOT matter if you set the cookie before or after CORS!
-        cors], function_server_endpoints_1.getApiEndpoints, false), function_server_endpoints_1.postApiEndpoints, false), [function_server_endpoints_1.functionEndpoints,
-        server_1.default.router.get("*", function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
-            return __generator(this, function (_a) {
-                return [2 /*return*/, {
-                        success: false,
-                        message: "Endpoint does not exist, are you sure it's a GET endpoint?",
-                    }];
-            });
-        }); })], false)).then(function (context) { return __awaiter(void 0, void 0, void 0, function () {
-        var tsFunctions;
+    };
+    // @ts-ignore
+    (0, server_1.default)(serverOptions, cors, function_server_endpoints_1.functionPostEndpoints, function_server_endpoints_1.functionGetEndpoints, server_1.default.router.get("*", function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, database_1.db.get("TsFunction")];
-                case 1:
-                    tsFunctions = _a.sent();
-                    if (process.env.NODE_APP_INSTANCE === undefined ||
-                        process.env.NODE_APP_INSTANCE === "0") {
-                        (0, log_1.log)("Scheduling CRON jobs", { type: "important" });
-                        (0, js_util_1.getObjectKeysArray)(scheduleObject).map(function (interval) {
-                            var cronExpression = scheduleObject[interval];
-                            var functionsToExecute = tsFunctions.filter(function (x) { return x.runEveryPeriod === interval; });
-                            if (functionsToExecute.length > 0) {
-                                (0, node_cron_1.schedule)(cronExpression, function () {
-                                    (0, one_by_one_1.oneByOne)(functionsToExecute, exports.executeFunction);
-                                }, { name: interval });
-                            }
-                        });
-                    }
-                    console.log("Running on port ".concat(port_conventions_1.ports["function-server"], ". All node functions are now available through /function/[name] or through the \"api\" object..."));
-                    return [2 /*return*/];
+            return [2 /*return*/, {
+                    success: false,
+                    message: "Endpoint does not exist, are you sure it's a GET endpoint?",
+                }];
+        });
+    }); })).then(function (context) { return __awaiter(void 0, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+            if (process.env.NODE_APP_INSTANCE === undefined ||
+                process.env.NODE_APP_INSTANCE === "0") {
+                (0, scheduleCronJobs_1.scheduleCronJobs)();
             }
+            console.log("Running on port ".concat(port_conventions_1.ports["function-server"], ". All node functions are now available through /function/[name] or through the \"api\" object..."));
+            return [2 /*return*/];
         });
     }); });
 };

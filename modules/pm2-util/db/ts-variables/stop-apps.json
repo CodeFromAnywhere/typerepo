@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773984723,
+  "updatedAt": 1668773984723,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773984723,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "stopApps",
+  "slug": "stop-apps",
+  "operationRelativeTypescriptFilePath": "src/stopApps.ts",
+  "type": {
+    "rawType": "(operationNames: string[]) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (operationNames: string[]) => {\n  return pm2ConnectDisconnect((resolve) => {\n    operationNames.map((operationName) => {\n      stop(`${appPrefix}${operationName}`, (error, proc) => {});\n    });\n\n    resolve({ isSuccessful: true });\n  });\n}",
+  "description": "Stops an app with pm2\n\nTODO: for some reason i'm getting `TypeError: Cannot read properties of undefined (reading '_operate')` and I can't find why because all other commands mostly work and I'm doing it the same way.",
+  "id": "jtlyjxlkenkejhshycqwvlga"
+}

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378660248,
-  "updatedAt": 1667378660248,
+  "createdAt": 1668773899662,
+  "updatedAt": 1668773899662,
   "deletedAt": 0,
-  "createdFirstAt": 1667378660248,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668773899662,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util/serverDownloadReply.ts",
   "commentsInside": [],
   "rawText": " (\n  absoluteAssetPath: string,\n  isDownload: boolean\n) => {\n  const parsedAsset = path.parse(absoluteAssetPath);\n\n  if (isDownload) {\n    return server.reply.download(absoluteAssetPath, parsedAsset.base);\n  }\n  return (\n    server.reply\n      // @ts-ignore NB: TODO: why doesn't server.js has the right types???\n      .file(absoluteAssetPath)\n  );\n}",
@@ -58,5 +53,5 @@
     "linesPerFile": 26,
     "numberOfFiles": 1
   },
-  "id": "oojvkrfjooiqbrjowvsvryge"
+  "id": "yxqowvgyzkogmaicjkksjero"
 }

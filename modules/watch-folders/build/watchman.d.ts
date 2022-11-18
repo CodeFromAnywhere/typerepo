@@ -3,9 +3,9 @@
  * not using this anymore!
  */
 import watchman from "fb-watchman";
-import { PackageJson } from "code-types";
 import { OnChangeDetected } from "./types";
 import { FileType } from "make-file-type";
+import { Operation } from "code-types";
 /**
  * type from watchman
  */
@@ -15,7 +15,7 @@ export declare type SubscriptionResponse = {
     files: FileType[];
 };
 export declare type WatchSource = {
-    packageInfo: PackageJson;
+    packageInfo: Operation;
     folderPath: string;
     dependencyName: string;
 };

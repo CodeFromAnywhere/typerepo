@@ -1,6 +1,6 @@
 # New template
 
-new-template (`OperationClassification` node)
+new-template (`OperationClassification` node-cjs)
 
 
 
@@ -16,20 +16,6 @@ Please note you can't add `package.json` and `.gitignore` files to templates! Ca
 
 # Api reference
 
-## getOperationConfig()
-
-Either finds the operation config in the database or creates a new one
-
-NB: it does not push it into the database yet because the operation might not exist yet
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationName | string |  |,| description (optional) | string | If you want to create one, set a description here. |
-| **Output** |    |    |
-
-
-
 ## newOperationWithFiles()
 
 Creates a new operation with files with content
@@ -43,9 +29,20 @@ TODO: Remove the buggyness
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| operationConfig | `OperationConfig` |  |,| srcFileContentObject | { [key: string]: string } | NB: relative paths must be relative to OPERATION ROOT, not src root! |,| config (optional) | { manualProjectRoot?: string, <br />destinationPath?: string, <br />overwriteIfExists?: boolean, <br />skipYarnInstall?: boolean, <br />skipYarnBuild?: boolean, <br />dryrun?: boolean, <br /> } |  |
+| name | string |  |,| description (optional) | string |  |,| srcFileContentObject | { [key: string]: string } | NB: relative paths must be relative to OPERATION ROOT, not src root! |,| config (optional) | { manualProjectRoot?: string, <br />destinationPath?: string, <br />overwriteIfExists?: boolean, <br />overwriteCurrentOperationIfExists?: boolean, <br />skipYarnInstall?: boolean, <br />skipYarnBuild?: boolean, <br />dryrun?: boolean, <br /> } |  |
 | **Output** |    |    |
 
+
+
+## 📄 newOperationWithFiles (exported const)
+
+Creates a new operation with files with content
+
+Returns the final operation base path (or undefined if something went wrong)
+
+NB: relative paths must be relative to OPERATION ROOT, not src root! They must also lead to files in src, this thing is still buggy otherwise!
+
+TODO: Remove the buggyness
 
 
 ## newTemplate()
@@ -60,24 +57,6 @@ Returns either the `basePath` of the created template, or undefined if something
 
 
 
-## 📄 getOperationConfig (exported const)
-
-Either finds the operation config in the database or creates a new one
-
-NB: it does not push it into the database yet because the operation might not exist yet
-
-
-## 📄 newOperationWithFiles (exported const)
-
-Creates a new operation with files with content
-
-Returns the final operation base path (or undefined if something went wrong)
-
-NB: relative paths must be relative to OPERATION ROOT, not src root! They must also lead to files in src, this thing is still buggy otherwise!
-
-TODO: Remove the buggyness
-
-
 ## 📄 newTemplate (exported const)
 
 Returns either the `basePath` of the created template, or undefined if something went wrong
@@ -90,7 +69,7 @@ Returns either the `basePath` of the created template, or undefined if something
 
 newOperation also works as CLI
 
-example: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation (js, node, ui-es5, ui-es6, web) as the second argument of the CLI
+example: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation as the second argument of the CLI
 
 Arguments (all optional):
 - name: string
@@ -126,7 +105,7 @@ Arguments:
 
 newOperation also works as CLI
 
-example: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation (js, node, ui-es5, ui-es6, web) as the second argument of the CLI
+example: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation as the second argument of the CLI
 
 Arguments (all optional):
 - name: string
@@ -204,7 +183,7 @@ Returns either the `operationBasePath` of the created operation, or undefined if
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| name (optional) | string |  |,| config (optional) | { type?: `OperationClassification`, <br />operationConfig?: `OperationConfig`, <br />description?: string, <br />destinationPath?: string, <br />manualProjectRoot?: string, <br /> } |  |
+| name (optional) | string |  |,| config (optional) | { type?: `OperationClassification`, <br />description?: string, <br />destinationPath?: string, <br />manualProjectRoot?: string, <br /> } |  |
 | **Output** |    |    |
 
 

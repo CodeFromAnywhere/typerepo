@@ -1,6 +1,6 @@
 # React with native select
 
-react-with-native-select (`OperationClassification` ui-es5)
+react-with-native-select (`OperationClassification` ui-cjs)
 
 
 

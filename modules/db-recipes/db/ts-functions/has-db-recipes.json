@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668148588567,
-  "updatedAt": 1668148588567,
+  "createdAt": 1668774223372,
+  "updatedAt": 1668774223372,
   "deletedAt": 0,
-  "createdFirstAt": 1668148588567,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668774223372,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFunctionIndex.ts",
   "commentsInside": [],
   "rawText": " () => true",
@@ -46,5 +41,5 @@
     "linesPerFile": 1,
     "numberOfFiles": 1
   },
-  "id": "xzdsyikpjufegeqbyqatmhyj"
+  "id": "kzkjtykpcxlbmmueblrketsv"
 }

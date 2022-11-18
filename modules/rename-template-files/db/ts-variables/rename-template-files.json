@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258792723,
-  "updatedAt": 1666258792723,
+  "createdAt": 1668331958841,
+  "updatedAt": 1668331958841,
   "deletedAt": 0,
-  "createdFirstAt": 1666258792723,
+  "createdFirstAt": 1668331958841,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async ({ appDir }: { appDir: string }) => {\n  const templateFiles = await findTemplates(appDir);\n  const renameables = templateFiles.map((path) => ({\n    oldPath: path,\n    newPath: renameTemplateToNormalFile(path),\n  }));\n\n  await oneByOne(renameables, async (oldNew) =>\n    fs.rename(oldNew.oldPath, oldNew.newPath)\n  );\n\n  return;\n}",
   "description": "",
-  "id": "plyabokrqewaexysfdwdynmb"
+  "id": "edlaudrfpdlpfytoidxauerx"
 }

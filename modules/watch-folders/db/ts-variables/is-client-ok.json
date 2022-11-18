@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258846029,
-  "updatedAt": 1666258846029,
+  "createdAt": 1668750107567,
+  "updatedAt": 1668750107567,
   "deletedAt": 0,
-  "createdFirstAt": 1666258846029,
+  "createdFirstAt": 1668750107567,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "(client: watchman.Client, debug: boolean) => {\n  return new Promise<void>((resolve, reject) => {\n    client.capabilityCheck(\n      { optional: [], required: [\"relative_root\"] },\n      function (error: any, resp: any) {\n        if (error) {\n          // error will be an Error object if the watchman service is not\n          // installed, or if any of the names listed in the `required`\n          // array are not supported by the server\n          console.error(error);\n          client.end();\n          return reject();\n        }\n        if (debug) {\n          console.log(\"Watchman is ok\", resp);\n        }\n\n        resolve();\n      }\n    );\n  });\n}",
   "description": "checks if watchman client is ok. ends client if it's not ok",
-  "id": "ylatqqroalfirijfhvgnahhm"
+  "id": "ntbipbyoyyoetwbcsqaqoalc"
 }

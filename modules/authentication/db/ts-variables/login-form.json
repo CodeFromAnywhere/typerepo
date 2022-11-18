@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668777486036,
+  "updatedAt": 1668777486036,
+  "deletedAt": 0,
+  "createdFirstAt": 1668777486036,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "LoginForm",
+  "slug": "login-form",
+  "operationRelativeTypescriptFilePath": "src/LoginForm.tsx",
+  "type": {
+    "rawType": "() => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const router = useRouter();\n  const meQuery = queries.useGetMeWithContext();\n\n  return (\n    <Div className=\"flex flex-1 flex-col mx-10\">\n      <P className=\"text-4xl\">Login</P>\n      <FunctionForm\n        hideResult\n        tsFunction={Index}\n        withApiResult={(\n          result: RealApiReturnType<\"loginWithPasswordWithContext\">\n        ) => {\n          if (result.isSuccessful && result.result?.isSuccessful) {\n            router.push(\"/\");\n          }\n          meQuery.refetch();\n          successToast(\n            result.result?.message || result.message || \"No message\"\n          );\n        }}\n      />\n      <ALink href=\"/signup\">Or click here to sign up</ALink>\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "pjhyotkhbfdkckqptxlxspkx"
+}

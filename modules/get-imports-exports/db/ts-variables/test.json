@@ -1,16 +1,16 @@
 {
-  "createdAt": 1668150641983,
-  "updatedAt": 1668150641983,
+  "createdAt": 1668449028283,
+  "updatedAt": 1668449028283,
   "deletedAt": 0,
-  "createdFirstAt": 1668150641983,
+  "createdFirstAt": 1668449028283,
   "classification": "const",
   "comments": [],
-  "isExported": true,
+  "isExported": false,
   "name": "test",
   "slug": "test",
-  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "operationRelativeTypescriptFilePath": "src/findAndWriteImportsExports.test.ts",
   "type": {
-    "rawType": "() => Promise<boolean>",
+    "rawType": "() => any",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "makeTest(getImportsExportsTest)",
+  "value": "async () => {\n  const operationBasePath = await getOperationPath(\"rebuild-operation\");\n  if (!operationBasePath) {\n    console.log(\"Couldn't find that path\");\n    return;\n  }\n  await findAndWriteImportsExports(operationBasePath);\n  console.log(\"DONE\");\n}",
   "description": "",
-  "id": "paxplzygxzhmbjgkkrytzyre"
+  "id": "wiqkbeastrnxntfvbwmzkkbl"
 }

@@ -18,6 +18,6 @@ __exportStar(require("./components/Dictionary"), exports);
 __exportStar(require("./components/Layout"), exports);
 __exportStar(require("./pages/index"), exports);
 __exportStar(require("./pages"), exports);
-__exportStar(require("./types"), exports);
 __exportStar(require("./store"), exports);
+__exportStar(require("./types"), exports);
 //# sourceMappingURL=index.js.map

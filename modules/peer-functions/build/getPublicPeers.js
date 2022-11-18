@@ -42,7 +42,7 @@ var getPublicPeers = function () { return __awaiter(void 0, void 0, void 0, func
     var publicPeers;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, database_1.db.get("Peer")];
+            case 0: return [4 /*yield*/, database_1.db.get("Device")];
             case 1:
                 publicPeers = (_a.sent()).filter(function (peer) { return !peer.isPrivate; });
                 return [2 /*return*/, publicPeers];

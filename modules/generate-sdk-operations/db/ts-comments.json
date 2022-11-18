@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1668150582929,
-    "updatedAt": 1668150582929,
+    "createdAt": 1668775415499,
+    "updatedAt": 1668775415499,
     "deletedAt": 0,
-    "createdFirstAt": 1668150582929,
+    "createdFirstAt": 1668775415499,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/getSdkDescription.ts",
-    "comment": "Gets a description of any sdk operation from the assets",
-    "rawStatement": "export const getSdkDescription = async (\n  operationName: string\n): Promise<string | undefined> => {\n  const descriptionPath = path.join(\n    __dirname,\n    \"..\",\n    \"assets\",\n    \"descriptions\",\n    `${operationName}.md`\n  );\n\n  if (!fs.existsSync(descriptionPath)) return;\n\n  const contents = await fs.readFile(descriptionPath, \"utf8\");\n\n  return contents;\n};",
+    "operationRelativeTypescriptFilePath": "src/tsFunctionIsIndexable.ts",
+    "comment": "The path of the function should be indexed by `generateSimpleIndex`, otherwise we can't import it either!",
+    "rawStatement": "export const tsFunctionIsIndexable = (tsFunction: TsFunction) => {\n  const fileId = getSrcRelativeFileId(\n    tsFunction.operationRelativeTypescriptFilePath\n  );\n  return isIndexableFileId(fileId);\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 3,
-    "lastLine": 5,
-    "id": "gdjkbfyqvamuelhgrjdomoyp"
+    "firstLine": 5,
+    "lastLine": 7,
+    "id": "pdvviddzwqcfftssmweygbiv"
   }
 ]

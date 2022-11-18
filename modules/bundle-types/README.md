@@ -1,6 +1,6 @@
 # Bundle types
 
-bundle-types (`OperationClassification` js)
+bundle-types (`OperationClassification` cjs)
 
 
 
@@ -65,6 +65,28 @@ Properties:
 
 
 
+## 🔹 CreateBundleConfig
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| inheritFrom_bundleConfigSlugs (optional) | array |  |
+| keepStructure (optional) | boolean |  |
+| informationStrategy (optional) | string |  |
+| modelInformationStrategy (optional) | object |  |
+| additional_datasetSlugs (optional) | array |  |
+| filter_datasetSlugs (optional) | array |  |
+| isDraft (optional) | boolean |  |
+| keepTodos (optional) | boolean |  |
+| bundles  | array |  |
+| dependencies (optional) | array |  |
+| docsRelativeFolderPath (optional) | object |  |
+| readmeRelativeFilePath (optional) | string |  |
+| foldersFromRepo (optional) | array |  |
+
+
+
 ## 🔹 CustomisableBundleConfig
 
 configuration that can be applied when generating a new bundle
@@ -111,15 +133,15 @@ Properties:
 | updatedAt  | number |  |
 | deletedAt  | number |  |
 | createdFirstAt  | number |  |
-| slug (optional) | string |  |
-| name (optional) | string |  |
-| language (optional) | string |  |
+| slug  | string |  |
+| name  | string |  |
+| language  | string |  |
 | description (optional) | string |  |
 | emoji (optional) | string |  |
 | primaryColor (optional) | string |  |
 | gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | string |  |
-| bundleMarkdownReaderConfig (optional) | string |  |
+| isGitRepoPublic (optional) | boolean |  |
+| bundleMarkdownReaderConfig (optional) | object |  |
 
 
 
@@ -137,6 +159,7 @@ Properties:
 |---|---|---|
 | informationStrategy (optional) | string |  |
 | foldersFromRepo (optional) | array |  |
+| inheritFrom_bundleConfigSlugs (optional) | array |  |
 | keepStructure (optional) | boolean |  |
 | modelInformationStrategy (optional) | object |  |
 | additional_datasetSlugs (optional) | array |  |
@@ -182,7 +205,7 @@ Properties:
 
 # Internal
 
-<details><summary>Show internal (10)</summary>
+<details><summary>Show internal (9)</summary>
     
   # 🔹 AppShell
 
@@ -192,27 +215,6 @@ Properties:
 
 
 
-
-
-
-## 🔹 CreateBundleConfig
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| keepStructure (optional) | boolean |  |
-| informationStrategy (optional) | string |  |
-| modelInformationStrategy (optional) | object |  |
-| additional_datasetSlugs (optional) | array |  |
-| filter_datasetSlugs (optional) | array |  |
-| isDraft (optional) | boolean |  |
-| keepTodos (optional) | boolean |  |
-| bundles  | array |  |
-| dependencies (optional) | array |  |
-| docsRelativeFolderPath (optional) | object |  |
-| readmeRelativeFilePath (optional) | string |  |
-| foldersFromRepo (optional) | array |  |
 
 
 

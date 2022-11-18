@@ -1,0 +1,54 @@
+{
+  "createdAt": 1664525431877,
+  "updatedAt": 1666259193818,
+  "deletedAt": 0,
+  "createdFirstAt": 1664525431877,
+  "folderName": "pm2-util",
+  "packageName": "pm2-util",
+  "relativeOperationLocationPath": "operations/tools/control-project",
+  "classification": "node",
+  "name": "pm2-util",
+  "slug": "pm2-util",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "getOperationPath",
+    "getPackageJson"
+  ],
+  "packageDependencies": [
+    "start"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 755,
+      "bytes": 755
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2386,
+      "bytes": 2386
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 543,
+      "bytes": 543
+    },
+    "size": {
+      "bytes": 3684,
+      "characters": 3684,
+      "lines": 0,
+      "numberOfFiles": 6
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "nkneiffvchmbmpyjcodszhpi",
+  "language": "en"
+}

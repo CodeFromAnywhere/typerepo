@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773970062,
+  "updatedAt": 1668773970062,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773970062,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "restartAppCli",
+  "slug": "restart-app-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/restartApp.cli.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const [operationName] = process.argv.slice(2);\n  const { error, proc } = await restartApp(operationName);\n  console.table(logTableObject(takeFirst(proc) || error));\n}",
+  "description": "Arguments\n- Operation Name",
+  "id": "vrtirnkruqwwtnccawnuykho"
+}

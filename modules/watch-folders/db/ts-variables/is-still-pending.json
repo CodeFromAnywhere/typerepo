@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258842147,
-  "updatedAt": 1666258842147,
+  "createdAt": 1668750103873,
+  "updatedAt": 1668750103873,
   "deletedAt": 0,
-  "createdFirstAt": 1666258842147,
+  "createdFirstAt": 1668750103873,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  if (noPending()) return false;\n  //\n  console.log(\"awaiting pending\", pending);\n  //\n  await new Promise<void>((resolve, reject) => {\n    // do this every 5 seconds\n    setInterval(async () => {\n      if (noPending()) {\n        resolve();\n      } else {\n        //console.log(`still pending`, pending);\n      }\n    }, 5000); //\n  }); //\n\n  return;\n}",
   "description": "checks if pending has items every 5 seconds, resolves after it hasnt\n\nthis is a handy thing to have in util, but it can also probably be much more simple",
-  "id": "fzkhkxsbgbabbbqmopedbhzr"
+  "id": "embzskfvzfximwiukfhdxczb"
 }

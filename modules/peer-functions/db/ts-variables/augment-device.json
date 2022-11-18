@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668334492641,
+  "updatedAt": 1668334492641,
+  "deletedAt": 0,
+  "createdFirstAt": 1668334492641,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "augmentDevice",
+  "slug": "augment-device",
+  "operationRelativeTypescriptFilePath": "src/augmentDevice.ts",
+  "type": {
+    "rawType": "(x: import(\"/Users/king/King/operations/tools/p2p/peer-types/build/Device\").Device) => import(\"/Users/king/King/operations/tools/p2p/peer-types/build/Device\").Device",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(x: Device) => {\n  const isOnlineCalculated = x.lastOnlineAt > Date.now() - 300 * 1000;\n  const isLocalIpCalculated = x.ip.startsWith(\"192.168.\");\n\n  const newDevice: Device = {\n    ...x,\n    isOnlineCalculated,\n    isLocalIpCalculated,\n  };\n  return newDevice;\n}",
+  "description": "",
+  "id": "diivgkdctgcazzrracowsuwl"
+}

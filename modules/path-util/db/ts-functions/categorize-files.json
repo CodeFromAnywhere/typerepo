@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666258761311,
-  "updatedAt": 1666258761311,
+  "createdAt": 1668331939169,
+  "updatedAt": 1668331939169,
   "deletedAt": 0,
-  "createdFirstAt": 1666258761311,
+  "createdFirstAt": 1668331939169,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -93,7 +93,7 @@
   ],
   "description": "explores files in an operation within a specified location or from a specified type",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/OperationIndex\").CategorizedFilePaths>",
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/Operation\").CategorizedFilePaths>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -111,5 +111,5 @@
     "linesPerFile": 40,
     "numberOfFiles": 1
   },
-  "id": "fdqhibfepzwloxualetqvkmr"
+  "id": "bjdyjbqmlzyvvlcqdbupcnew"
 }

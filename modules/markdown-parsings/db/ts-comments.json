@@ -1,18 +1,34 @@
 [
   {
-    "createdAt": 1668154837855,
-    "updatedAt": 1668154837855,
+    "createdAt": 1668334896063,
+    "updatedAt": 1668334896063,
     "deletedAt": 0,
-    "createdFirstAt": 1668154837855,
+    "createdFirstAt": 1668334896063,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/util/noNewlines.ts",
-    "comment": "Replaces newlines with a <br />",
-    "rawStatement": "export const noNewlines = (\n  markdown: string | undefined\n): string | undefined => {\n  return markdown?.replaceAll(\"\\n\", \"<br />\");\n};",
+    "operationRelativeTypescriptFilePath": "src/expose/sayablesToMp3.ts",
+    "comment": "GOAL:\n- distribute read only (and audio only) material of my codebase\n- it is also a fundament for other applications in the future",
+    "rawStatement": "import { MarkdownParse } from \"code-types\";",
     "parameters": {},
     "types": [],
     "firstLine": 1,
-    "lastLine": 3,
-    "id": "jmtdhsmpofgapkuopnovcvcd"
+    "lastLine": 5,
+    "id": "jiinivmmgizzywcotiginsgc"
+  },
+  {
+    "createdAt": 1668334896063,
+    "updatedAt": 1668334896063,
+    "deletedAt": 0,
+    "createdFirstAt": 1668334896063,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/expose/sayablesToMp3.ts",
+    "comment": "Creates a single audiofile of a Sayable[] and stores that in a configured location",
+    "rawStatement": "export const sayablesToMp3 = ({\n  sayables,\n  destinationAbsoluteFilePath,\n}: {\n  destinationAbsoluteFilePath: string;\n  sayables: Sayable[];\n}) => {\n  /**\n  \n  \n  \n   */\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 14,
+    "lastLine": 16,
+    "id": "rytafbfwhkihmkuogdlaiysu"
   }
 ]

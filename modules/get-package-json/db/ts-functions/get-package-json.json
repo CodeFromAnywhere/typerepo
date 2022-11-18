@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666258679925,
-  "updatedAt": 1666258679925,
+  "createdAt": 1668331889920,
+  "updatedAt": 1668331889920,
   "deletedAt": 0,
-  "createdFirstAt": 1666258679925,
+  "createdFirstAt": 1668331889920,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getPackageJson.ts",
   "commentsInside": [],
-  "rawText": " async (config: {\n  operationFolderPath: string;\n}) => {\n  const { operationFolderPath } = config;\n  const packageJsonPath = path.join(operationFolderPath, \"package.json\");\n  const packageJson = readJsonFile<PackageJson>(packageJsonPath);\n  return packageJson;\n}",
+  "rawText": " async (config: {\n  operationFolderPath: string;\n}): Promise<Operation | null> => {\n  const { operationFolderPath } = config;\n  const packageJsonPath = path.join(operationFolderPath, \"package.json\");\n  const packageJson = readJsonFile<Operation>(packageJsonPath);\n  return packageJson;\n}",
   "name": "getPackageJson",
   "slug": "get-package-json",
   "parameters": [
@@ -48,7 +48,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "unknown",
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/Operation\").Operation | null>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -58,13 +58,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 262,
+    "characters": 287,
     "lines": 8,
-    "bytes": 262,
+    "bytes": 287,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 33,
+    "charactersPerLine": 36,
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "fiiguqxqyjrqtpgwghapftcy"
+  "id": "mqaajejudabrmygjvnhhotma"
 }

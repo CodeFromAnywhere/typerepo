@@ -1,0 +1,73 @@
+{
+  "createdAt": 1668774456627,
+  "updatedAt": 1668774456627,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774456627,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/SearchResultComponent.tsx",
+  "commentsInside": [],
+  "rawText": " (props: {\n  searchResult: SearchResult;\n  index: number;\n}) => {\n  const { index, searchResult } = props;\n  return <Div key={`searchhit${index}`}>hit {index}</Div>;\n}",
+  "name": "SearchResultComponent",
+  "slug": "search-result-component",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "searchResult": {
+            "$ref": "#/definitions/SearchResult"
+          },
+          "index": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "searchResult",
+          "index"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "index",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "If you click on a site that up and running, it should startup via pm2 before being redirected there",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 266,
+    "lines": 7,
+    "bytes": 266,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 38,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "ivsibyidvzwxikdjiasgciqa"
+}

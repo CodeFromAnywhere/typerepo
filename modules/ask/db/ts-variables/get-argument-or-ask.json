@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666260828361,
-  "updatedAt": 1666260828361,
+  "createdAt": 1668333193625,
+  "updatedAt": 1668333193625,
   "deletedAt": 0,
-  "createdFirstAt": 1666260828361,
+  "createdFirstAt": 1668333193625,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  argumentPosition: number,\n  question: string,\n  isNonInteractive?: boolean\n): Promise<string> => {\n  let argument = argumentsWithoutFlags[argumentPosition + 1];\n  if (argument && argument.length > 0) return argument;\n\n  if (isNonInteractive) {\n    return \"\";\n  }\n\n  return ask(question);\n}",
   "description": "",
-  "id": "jilgbbuqdwyepsglluzclbci"
+  "id": "dhanzamhadglxycjytgedazx"
 }

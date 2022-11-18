@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var runFunctionServer_1 = require("./runFunctionServer");

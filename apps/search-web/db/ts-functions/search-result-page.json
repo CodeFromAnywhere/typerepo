@@ -1,0 +1,48 @@
+{
+  "createdAt": 1668774457904,
+  "updatedAt": 1668774457904,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774457904,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/SearchResultPage.tsx",
+  "commentsInside": [],
+  "rawText": " (props: QueryPageProps) => {\n  const { query, searchResults } = props;\n  const router = useRouter();\n  return (\n    <Div>\n      <Div className=\"flex w-full justify-between\">\n        <Div\n          className=\"text-3xl p-2 cursor-pointer\"\n          onClick={() => router.push(\"/\")}\n        >\n          🏠\n        </Div>\n        <SearchBar initialValue={query || undefined} />\n        <Div />\n      </Div>\n      <a\n        className=\"text-blue-500\"\n        href={`https://www.google.nl/search?q=${query}`}\n      >\n        {query}\n      </a>\n      {searchResults?.map((searchResult, index) => {\n        return (\n          <SearchResultComponent\n            key={`s${index}`}\n            index={index}\n            searchResult={searchResult}\n          />\n        );\n      })}\n    </Div>\n  );\n}",
+  "name": "SearchResultPage",
+  "slug": "search-result-page",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "$ref": "#/definitions/QueryPageProps"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 789,
+    "lines": 33,
+    "bytes": 791,
+    "bytesPerCharacter": 1.002534854245881,
+    "charactersPerLine": 24,
+    "linesPerFile": 33,
+    "numberOfFiles": 1
+  },
+  "id": "htcitzminnpelzyzibslfngi"
+}

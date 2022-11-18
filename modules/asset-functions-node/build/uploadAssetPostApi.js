@@ -37,7 +37,6 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.uploadAssetPostApi = void 0;
-var db_recipes_1 = require("db-recipes");
 var fs_util_1 = require("fs-util");
 var model_types_1 = require("model-types");
 var getTemporaryAssetsFolderPath_1 = require("./getTemporaryAssetsFolderPath");
@@ -49,19 +48,11 @@ var convertToMp3_1 = require("./convertToMp3");
  * It can only be accessed through that random name. This random name has 32 characters so cannot be easily guessed. This should be secure enough. The file should be moved to the final destination in the actual function that needs the file.
  */
 var uploadAssetPostApi = function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
-    var authToken, isAuthed, file, realFile, functionFile, randomName, temporaryAssetsFolderPath, extension, temporaryFileName, absoluteTemporaryDestinationPath, resultingPath;
+    var authToken, file, realFile, functionFile, randomName, temporaryAssetsFolderPath, extension, temporaryFileName, absoluteTemporaryDestinationPath, resultingPath;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 authToken = ctx.data.authToken;
-                isAuthed = (0, db_recipes_1.functionAuthPlugin)("uploadAsset", authToken);
-                if (!isAuthed) {
-                    return [2 /*return*/, {
-                            isSuccessful: false,
-                            isUnauthorized: true,
-                            message: "You can only do this when authenticated",
-                        }];
-                }
                 file = ctx.files.file;
                 if (!file) {
                     return [2 /*return*/, { isSuccessful: false, message: "No file found" }];

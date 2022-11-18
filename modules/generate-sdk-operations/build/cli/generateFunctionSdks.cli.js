@@ -1,3 +1,3 @@
 #!/usr/bin/env node
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var get_path_1=require("get-path"),generateFunctionSdks_1=require("../generateFunctionSdks"),generateFunctionSdksCli=function(){var e=process.argv.slice(2)[0],t=(0,get_path_1.getProjectRoot)(process.cwd());(0,generateFunctionSdks_1.generateFunctionSdks)({manualProjectRoot:e||t})};generateFunctionSdksCli();
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var get_path_1=require("get-path"),generateFunctionSdks_1=require("../generateFunctionSdks"),generateFunctionSdksCli=function(){var e=process.argv.slice(2),t=e[0],r=e[1],n="true"===t,o=(0,get_path_1.getProjectRoot)(process.cwd());(0,generateFunctionSdks_1.generateFunctionSdks)({manualProjectRoot:r||o,dryrun:n})};generateFunctionSdksCli();
 //# sourceMappingURL=generateFunctionSdks.cli.js.map

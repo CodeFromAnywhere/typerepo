@@ -1,13 +1,10 @@
 // THIS FILE HAS BEEN GENERATED
 
-import type { JeepType } from "himalayajeep-types";
-import type { LocationType } from "himalayajeep-types";
+import type { AuthorizationModel } from "auth-types";
 import type { BundleConfig } from "bundle-types";
 import type { Dataset } from "code-types";
 import type { FunctionExecution } from "code-types";
-import type { OperationConfig } from "code-types";
-import type { OperationIndex } from "code-types";
-import type { PackageJson } from "code-types";
+import type { Operation } from "code-types";
 import type { SocialMediaCallToAction } from "code-types";
 import type { TsBuildError } from "code-types";
 import type { TsComment } from "code-types";
@@ -18,6 +15,7 @@ import type { TsImport } from "code-types";
 import type { TsInterface } from "code-types";
 import type { TsLintWarning } from "code-types";
 import type { TsVariable } from "code-types";
+import type { TypescriptFile } from "code-types";
 import type { WebMarkdownFile } from "code-types";
 import type { WebsiteCallToAction } from "code-types";
 import type { Address } from "geo-types";
@@ -25,6 +23,8 @@ import type { Area } from "geo-types";
 import type { City } from "geo-types";
 import type { Country } from "geo-types";
 import type { Location } from "geo-types";
+import type { JeepType } from "himalayajeep-types";
+import type { LocationType } from "himalayajeep-types";
 import type { KvmdWord } from "language-types";
 import type { MarkdownWord } from "language-types";
 import type { NepaliEnglishTranslationMatrix } from "language-types";
@@ -57,15 +57,11 @@ import type { MediaPost } from "social-media-types";
 import type { Postable } from "social-media-types";
 
 
-export type DbModels = { JeepType: JeepType,LocationType: LocationType,BundleConfig: BundleConfig,Dataset: Dataset,FunctionExecution: FunctionExecution,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,SocialMediaCallToAction: SocialMediaCallToAction,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,WebMarkdownFile: WebMarkdownFile,WebsiteCallToAction: WebsiteCallToAction,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,SlugModelType: SlugModelType,Device: Device,Group: Group,PageVisit: PageVisit,PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentSubscription: PaymentSubscription,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,Postable: Postable };
-export const dbModelKeys = [ "JeepType","LocationType","BundleConfig","Dataset","FunctionExecution","OperationConfig","OperationIndex","PackageJson","SocialMediaCallToAction","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","WebMarkdownFile","WebsiteCallToAction","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","SlugModelType","Device","Group","PageVisit","PaymentCoupon","PaymentEvent","PaymentPlan","PaymentSubscription","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","Interest","MediaChannel","MediaCredentail","MediaPost","Postable" ] as const;
+export type DbModels = { AuthorizationModel: AuthorizationModel,BundleConfig: BundleConfig,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,SocialMediaCallToAction: SocialMediaCallToAction,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,WebMarkdownFile: WebMarkdownFile,WebsiteCallToAction: WebsiteCallToAction,Address: Address,Area: Area,City: City,Country: Country,Location: Location,JeepType: JeepType,LocationType: LocationType,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,SlugModelType: SlugModelType,Device: Device,Group: Group,PageVisit: PageVisit,PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentSubscription: PaymentSubscription,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,Postable: Postable };
+export const dbModelKeys = [ "AuthorizationModel","BundleConfig","Dataset","FunctionExecution","Operation","SocialMediaCallToAction","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","WebMarkdownFile","WebsiteCallToAction","Address","Area","City","Country","Location","JeepType","LocationType","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","SlugModelType","Device","Group","PageVisit","PaymentCoupon","PaymentEvent","PaymentPlan","PaymentSubscription","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","Interest","MediaChannel","MediaCredentail","MediaPost","Postable" ] as const;
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
-    JeepType: {
-          dbStorageMethod: "jsonMultiple",
-          
-        },
-LocationType: {
+    AuthorizationModel: {
           dbStorageMethod: "jsonMultiple",
           
         },
@@ -81,15 +77,7 @@ FunctionExecution: {
           dbStorageMethod: "jsonMultiple",
           
         },
-OperationConfig: {
-          dbStorageMethod: "markdown",
-          operationRelativePath: "OPERATION.md",
-        },
-OperationIndex: {
-          dbStorageMethod: "jsonSingle",
-          operationRelativePath: "db/operation-index.json",
-        },
-PackageJson: {
+Operation: {
           dbStorageMethod: "jsonSingle",
           operationRelativePath: "package.json",
         },
@@ -133,6 +121,10 @@ TsVariable: {
           dbStorageMethod: "jsonSingle",
           
         },
+TypescriptFile: {
+          dbStorageMethod: "jsonMultiple",
+          
+        },
 WebMarkdownFile: {
           dbStorageMethod: "markdown",
           
@@ -159,6 +151,14 @@ Country: {
         },
 Location: {
           dbStorageMethod: "keyValueMarkdown",
+          
+        },
+JeepType: {
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+LocationType: {
+          dbStorageMethod: "jsonMultiple",
           
         },
 KvmdWord: {

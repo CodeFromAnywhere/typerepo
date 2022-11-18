@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668157074147,
-  "updatedAt": 1668157074147,
+  "createdAt": 1668336155605,
+  "updatedAt": 1668336155605,
   "deletedAt": 0,
-  "createdFirstAt": 1668157074147,
+  "createdFirstAt": 1668336155605,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(operationBasePath: string) => {\n  const operationName = getLastFolder(operationBasePath);\n\n  return operationName.split(\"-\")[0] === \"sdk\";\n}",
   "description": "",
-  "id": "hznajnavruxyzwpnespqyqyw"
+  "id": "jkodjyrjwtdxorganmuzfzsu"
 }

@@ -1,17 +1,12 @@
 {
-  "createdAt": 1667378540864,
-  "updatedAt": 1667378540864,
+  "createdAt": 1668752280714,
+  "updatedAt": 1668752280714,
   "deletedAt": 0,
-  "createdFirstAt": 1667378540864,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752280714,
+  "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/addDeviceAuthenticationMethodConfirm.ts",
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/confirmAuthenticationMethod.ts",
   "commentsInside": [],
   "rawText": " async (\n  /** device id */\n  deviceId: string,\n  method: AuthenticationMethodMethod,\n  /** one time password */\n  otp: number\n) => {\n  /////\n\n  const device = (await db.get(\"Device\")).find((x) => x.id === deviceId);\n\n  if (!device) {\n    return { isSuccessful: false, message: \"Couldn't find device\" };\n  }\n\n  const authenticatedMethod = device.authenticationMethods.find(\n    (m) => m.method === method\n  );\n\n  if (authenticatedMethod?.isAuthenticated) {\n    return {\n      isSuccessful: false,\n      message:\n        \"You already authenticated with this method, please delete it first before you add another one.\",\n    };\n  }\n\n  if (!authenticatedMethod) {\n    return { isSuccessful: false, message: \"Can't find method\" };\n  }\n\n  if ([\"email\", \"phoneNumber\"].includes(method)) {\n    const isSuccessful = otp === authenticatedMethod.otp;\n\n    if (isSuccessful) {\n      // add isAuthenticated to device's authenticationMethods\n\n      const newAuthenticatedMethod: AuthenticationMethod = {\n        ...authenticatedMethod,\n        otp: undefined,\n        isAuthenticated: true,\n      };\n\n      const newauthenticationMethods = device.authenticationMethods.map((x) =>\n        x.method === method && x.otp === otp ? newAuthenticatedMethod : x\n      );\n\n      await db.update(\n        \"Device\",\n        (item) => item.id === deviceId,\n        (old) => ({ ...old, authenticationMethods: newauthenticationMethods })\n      );\n    }\n    return {\n      isSuccessful,\n      message: isSuccessful ? \"Successful\" : \"Incorrect code\",\n    };\n  }\n}",
   "name": "addDeviceAuthenticationMethodConfirm",
@@ -84,5 +79,5 @@
     "linesPerFile": 63,
     "numberOfFiles": 1
   },
-  "id": "mkhrpslpgtztpkscsiddkmdr"
+  "id": "xzcbhcowzxrgyjhclshemeca"
 }

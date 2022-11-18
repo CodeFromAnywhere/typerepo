@@ -1,0 +1,264 @@
+{
+  "createdAt": 1668775411543,
+  "updatedAt": 1668775411543,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775411543,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/newFunctionSdkOperation.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string,\n  tsFunctions: TsFunction[],\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  log(`${operationName} should contain ${tsFunctions.length} functions`, {\n    type: \"debug\",\n  });\n  const skipYarnInstall = config?.skipYarnInstall;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const dryrun = config?.dryrun;\n  const importsString = tsFunctions\n    .map((fn) => `import { ${fn.name} } from \"${fn.operationName}\";`)\n    .join(\"\\n\");\n  const sdkConstString = `export const sdk = { ${tsFunctions\n    .map((fn) => `${fn.name}`)\n    .join(\",\\n\")}};`;\n\n  const sdkTypeString = `export type SdkType = typeof sdk;`;\n\n  const sdkTypescriptFileString = `${importsString}\\n\\n${sdkConstString}\\n\\n${sdkTypeString}`;\n\n  const description = await getSdkDescription(operationName);\n\n  const filesObject = { [`src/${operationName}.ts`]: sdkTypescriptFileString };\n  const result = await newOperationWithFiles(\n    operationName,\n    description,\n    filesObject,\n    {\n      overwriteIfExists: true,\n      manualProjectRoot,\n      skipYarnInstall,\n      dryrun,\n    }\n  );\n\n  return result;\n}",
+  "name": "newFunctionSdkOperation",
+  "slug": "new-function-sdk-operation",
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "tsFunctions",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/TsFunction"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nInterface for arrow functions and normal functions",
+              "properties": [
+                {
+                  "name": "explicitTypeName",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If you give a function a type explicitly on its declaration, this type will be set here.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "isExported",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "The function is immediately exported upon creation. If the os dev tools are being used, this means it is also exported from the operation",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "rawText",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "raw text of the function",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "commentsInside",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "all comments found in a function and the node that they belong to",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "parameters",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "parameters the function takes as its arguments, if any",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "maxIndentationDepth",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "maximum amount of times indedented in this function\n\ngood for determining the complexity and finding code that can be simplified/destructured into smaller pieces",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "dependantFiles",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "finds all files that import this function\n\nNB: this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly.",
+                    "nb": "this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly.",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "groupAuthorization",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Other keys in frontmatter that are group names, can be added here",
+                    "properties": [],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "isApiExposed",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "for all exported functions in node operations, true by default false for others\n\ncan be overwritten using frontmatter",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "canCache",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "whether or not the function can be cached (relies on cache invalidation)",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "id",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "unique id of the model",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name (identifier) of the model",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "slug",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "kebab-case variant of the name",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativeTypescriptFilePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "TsFunction"
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "skipYarnInstall": {
+            "type": "boolean"
+          },
+          "dryrun": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipYarnInstall",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "dryrun",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "Uses an array of functions to create an operation that imports all those functions and exports an object where all those functions have been comprised",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1328,
+    "lines": 43,
+    "bytes": 1328,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 43,
+    "numberOfFiles": 1
+  },
+  "id": "ruobamepqnrjtefbpmhurfnq"
+}

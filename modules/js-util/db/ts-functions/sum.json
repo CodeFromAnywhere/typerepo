@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150835598,
-  "updatedAt": 1668150835598,
+  "createdAt": 1668775917476,
+  "updatedAt": 1668775917476,
   "deletedAt": 0,
-  "createdFirstAt": 1668150835598,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775917476,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
   "rawText": " (items: number[]) => {\n  const total = items.reduce((total, num) => {\n    if (typeof num !== \"number\") {\n      console.log(\"WTF\", num);\n    }\n    return total + num;\n  }, 0);\n\n  return total;\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "vqbgkdxpiazarbnoidetddlf"
+  "id": "qfiphchthhsaxvlvodlhxqze"
 }

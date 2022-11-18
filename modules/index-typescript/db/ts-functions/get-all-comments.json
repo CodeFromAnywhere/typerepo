@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150708988,
-  "updatedAt": 1668150708988,
+  "createdAt": 1668752091812,
+  "updatedAt": 1668752091812,
   "deletedAt": 0,
-  "createdFirstAt": 1668150708988,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752091812,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getAllComments.ts",
   "commentsInside": [],
   "rawText": " (\n  tsMorphNode: VariableDeclaration | Statement | Expression,\n  fileContent: string,\n  operationRelativeTypescriptFilePath: string\n): Creation<TsComment>[] => {\n  const statementName = tsMorphNode\n    .asKind(SyntaxKind.VariableDeclaration)\n    ?.getName();\n  const rawStatement = tsMorphNode.getText();\n  const leadingComments = tsMorphNode\n    .getLeadingCommentRanges()\n    .map((commentRange) =>\n      makeTsComment({\n        operationRelativeTypescriptFilePath,\n        commentRange,\n        rawStatement,\n        statementName,\n        fileContent,\n      })\n    );\n  const trailingComments = tsMorphNode\n    .getTrailingCommentRanges()\n    .map((commentRange) =>\n      makeTsComment({\n        operationRelativeTypescriptFilePath,\n        commentRange,\n        rawStatement,\n        statementName,\n        fileContent,\n      })\n    );\n\n  const all = leadingComments.concat(trailingComments);\n  return all;\n}",
@@ -54,5 +49,5 @@
     "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "ecwtjswlgftzbqbhiwmmuzjk"
+  "id": "qoetdjokeozrrbqptvkewyqa"
 }

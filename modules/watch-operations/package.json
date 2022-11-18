@@ -1,29 +1,12 @@
 {
-  "createdAt": 1662709577328,
-  "updatedAt": 1662709577328,
+  "createdAt": 1668328737705,
+  "updatedAt": 1668328737705,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577328,
-  "version": "0.0.1",
-  "main": "build/index.js",
-  "source": "src/index.ts",
+  "createdFirstAt": 1668328737705,
+  "id": "WXrwkTFdfBDyGtaH",
   "bin": {
     "watch-operations": "./build/cli/watchOperations.cli.js"
   },
-  "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
-    "test": "node ./build/cli.js",
-    "up": "npm version patch -f",
-    "pub": "yarn up && npm publish"
-  },
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.2"
-  },
-  "name": "watch-operations",
-  "slug": "watch-operations",
-  "id": "WXrwkTFdfBDyGtaH",
   "dependencies": {
     "watch-folders": "0.0.1",
     "get-all-operation-source-paths": "0.0.1",
@@ -31,7 +14,79 @@
     "rebuild-operation": "0.0.1",
     "get-path": "0.0.1"
   },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.2"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "watch-operations",
+  "language": "english",
+  "slug": "watch-operations",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "watch-operations",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668336313790,
+    "operationDependenciesIndexed": [
+      "getAllOperationSourcePaths",
+      "log",
+      "getProjectRoot",
+      "pickWatcher",
+      "getAllOperationSourcePaths",
+      "log",
+      "rebuildOperation",
+      "getProjectRoot"
+    ],
+    "packageDependenciesIndexed": [
+      "execSync"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/typescript",
+    "markdown": "Calls rebuildOperation for every filechange in every operation watched\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 3,
+        "lines": 174,
+        "characters": 4372,
+        "bytes": 4372
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 129,
+        "characters": 3131,
+        "bytes": 3131
+      },
+      "textSize": {
+        "numberOfFiles": 3,
+        "lines": 152,
+        "characters": 2598,
+        "bytes": 2598
+      },
+      "size": {
+        "bytes": 10101,
+        "characters": 10101,
+        "lines": 455,
+        "numberOfFiles": 8
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773975137,
+  "updatedAt": 1668773975137,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773975137,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "deleteApp",
+  "slug": "delete-app",
+  "operationRelativeTypescriptFilePath": "src/deleteApp.ts",
+  "type": {
+    "rawType": "(operationName: string) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(operationName: string) => {\n  return pm2ConnectDisconnect((resolve) => {\n    pm2.delete(`${appPrefix}${operationName}`, (error, proc) => {\n      resolve({ isSuccessful: !error, error, proc });\n    });\n  });\n}",
+  "description": "Deletes an app from the pm2\n\nTODO: for some reason it says `error: Error: process or namespace not found` even though it certainly exists. I can't figure out why it's not working.",
+  "id": "nbrlhuegmsmlgfxfocgxgaod"
+}

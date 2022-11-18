@@ -1,4 +1,4 @@
-import { PackageInfoObject, PackageJson, TsImport } from "code-types";
+import { Operation, PackageInfoObject, TsImport } from "code-types";
 import { Creation } from "model-types";
 /**
  * parses the absolute import name into the actual package name
@@ -21,7 +21,7 @@ export declare const isImportFromOptionalFile: (tsImport: Creation<TsImport>) =>
  *
  * For monorepo modules, uses the version inside its packagejson (Uses the database to obtain the package.json)
  *
- * Generated packages are not added to dependencies. Instead a sensible config prop is added to state that this operation only works within a monorepo since it has generated operation deps that are not on the npm registry
+ * Generated packages are not added to dependencies. Instead a config is added saying this operation only works within a monorepo since it has generated operation deps that are not on the npm registry
  *
  * For external modules, uses the version that was already present in dependencies, or uses "*"
  *
@@ -29,8 +29,8 @@ export declare const isImportFromOptionalFile: (tsImport: Creation<TsImport>) =>
  *
  *
  */
-export declare const calculatePackageJsonDependencies: (dependencies: PackageInfoObject | undefined, imports: Creation<TsImport>[], packageJsons: PackageJson[], operationName: string) => {
+export declare const calculatePackageJsonDependencies: (dependencies: PackageInfoObject | undefined, imports: Creation<TsImport>[], operations: Operation[], operationName: string) => {
     newDependencies: PackageInfoObject;
-    hasGeneratedDependencies: boolean;
+    hasGeneratedDependenciesIndexed: boolean;
 };
 //# sourceMappingURL=calculatePackageJsonDependencies.d.ts.map

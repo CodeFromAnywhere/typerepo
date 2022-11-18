@@ -1,6 +1,6 @@
 # Get package source paths
 
-get-package-source-paths (`OperationClassification` node)
+get-package-source-paths (`OperationClassification` node-cjs)
 
 Returns an array of absolute file paths of (typescript) files in the src of your operation
 

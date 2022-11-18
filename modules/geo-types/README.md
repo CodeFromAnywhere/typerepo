@@ -1,6 +1,6 @@
 # Geo types
 
-geo-types (`OperationClassification` js)
+geo-types (`OperationClassification` cjs)
 
 
 

@@ -1,9 +1,9 @@
 # Db web
 
-db-web (`OperationClassification` web)
+db-web (`OperationClassification` ui-web)
 
 
-## 🗄 db-web
+## 🗄 database
 
 Wraps `db-ui` to expose it on a next.js react website for in the browser.
 
@@ -14,17 +14,26 @@ Wraps `db-ui` to expose it on a next.js react website for in the browser.
 
 # Internal
 
-<details><summary>Show internal (3)</summary>
+<details><summary>Show internal (5)</summary>
     
-  # getStaticProps()
+  # `<DbAndUpsert />`
 
-
+This should catch all dbQueryPaths because those aren't default ones
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** |    |    |
+| **Output** | {  }   |    |
+
+
+
+## `<DbLayout />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { pageProps: {  }, <br />nextPage: {  }, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
 
 
 
@@ -37,7 +46,9 @@ Wraps `db-ui` to expose it on a next.js react website for in the browser.
 
 
 
-## 📄 getStaticProps (exported const)
+## 📄 DbLayout (exported const)
+
+## 📄 { StoreProvider, useStore } (exported const)
 
   </details>
 

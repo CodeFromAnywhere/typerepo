@@ -1,0 +1,105 @@
+{
+  "createdAt": 1668449128618,
+  "updatedAt": 1668449128618,
+  "deletedAt": 0,
+  "createdFirstAt": 1668449128618,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getDataParameterNames.ts",
+  "commentsInside": [],
+  "rawText": " (\n  item: AugmentedAnyModelType\n): string[] => {\n  const dataParameterNames = Object.keys(item)\n    .map((key) => {\n      const { dataParameterName } = getReferenceParameterInfo(key);\n\n      return dataParameterName;\n    })\n    .filter(notEmpty);\n\n  return dataParameterNames;\n}",
+  "name": "getDataParameterNames",
+  "slug": "get-data-parameter-names",
+  "parameters": [
+    {
+      "name": "item",
+      "schema": {
+        "$ref": "#/definitions/AugmentedAnyModelType"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "null"
+            }
+          },
+          {
+            "name": "projectRelativePath",
+            "required": true,
+            "schema": {
+              "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          },
+          {
+            "name": "operationRelativePath",
+            "required": false,
+            "schema": {
+              "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Finds all the data parameter names that might be there on an item, based on the item object keys and the convention",
+  "returnType": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 394,
+    "lines": 13,
+    "bytes": 394,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 13,
+    "numberOfFiles": 1
+  },
+  "id": "rhgkftmiyinctbjxkhvdlgyr"
+}

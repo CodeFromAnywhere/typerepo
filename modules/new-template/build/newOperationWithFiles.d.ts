@@ -1,4 +1,3 @@
-import { OperationConfig } from "code-types";
 /**
  * Creates a new operation with files with content
  *
@@ -8,20 +7,21 @@ import { OperationConfig } from "code-types";
  *
  * TODO: Remove the buggyness
  */
-export declare const newOperationWithFiles: (operationConfig: OperationConfig, srcFileContentObject: {
+export declare const newOperationWithFiles: (name: string, description: string | undefined, srcFileContentObject: {
     [operationRelativeTypescriptFilePath: string]: string;
 }, config?: {
     manualProjectRoot?: string | undefined;
     /**
      * folder path without the folder name of the package to be created
      *
-     * if given, will place it here, otherwise, will place it in the default location (tools/generated for os projects, packages for sensible projects)
+     * if given, will place it here, otherwise, will place it in the default location (tools/generated for os projects, packages for bundled projects)
      */
     destinationPath?: string | undefined;
     /**
      * if true, overwrites the operation if it already exists. It does this in a way that it does not break the OS very long, because it removes the old one only after the new one has been created. The removal and renaming the new one to this target name happens almost instantaneously
      */
     overwriteIfExists?: boolean | undefined;
+    overwriteCurrentOperationIfExists?: boolean | undefined;
     /**
      * if the operation did not exist before, `yarn install` will usually be ran.
      *

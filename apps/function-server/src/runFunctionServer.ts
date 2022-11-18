@@ -1,55 +1,47 @@
 import server from "server";
-import { oneByOne } from "one-by-one";
+import { Options } from "server/typings/options";
 import { Context } from "server/typings/common";
 import {
-  functionEndpoints,
-  getApiEndpoints,
-  postApiEndpoints,
+  functionPostEndpoints,
+  functionGetEndpoints,
 } from "function-server-endpoints";
-
-import { log } from "log";
 import { ports } from "port-conventions";
-import { sdk } from "sdk-api";
 import { getProjectRoot } from "get-path";
 import { path } from "fs-util";
-import { schedule } from "node-cron";
-import { db } from "database";
-import { RunEveryPeriodEnum, TsFunction } from "code-types";
-import { getObjectKeysArray, takeFirst } from "js-util";
-
-export const executeFunction = async (tsFunction: TsFunction) => {
-  //@ts-ignore
-  sdk[tsFunction.name]?.();
-};
-
-/**
- * For every `RunEveryPeriodEnum`, this object provides the interval `cronExpression` string for `node-cron`
- */
-const scheduleObject: { [interval in RunEveryPeriodEnum]: string } = {
-  minute: "* * * * *",
-  "5-minutes": "0,5,10,15,20,25,30,35,40,45,50,55 * * * *",
-  "quarter-hour": "0,15,30,45 * * * *",
-  hour: "0 * * * *",
-  "6-hours": "0 0,6,12,18 * * *",
-  midnight: "0 0 * * *",
-  week: "0 0 * * 1",
-  month: "0 0 1 * *",
-  "3-months": "0 0 1 1,4,7,10 *",
-  year: "0 0 1 1 *",
-};
+import { execSync } from "child-process-helper";
+import { log } from "log";
+import { startApp } from "pm2-util";
+import { scheduleCronJobs } from "./scheduleCronJobs";
 
 /**
  * runs sdk api server using "server" package.
  *
- * server will be exposed on port 4201
+ * server will be exposed on port 42000
  */
 export const runFunctionServer = () => {
   const { header } = server.reply;
+
+  startApp("search-web", true).then((result) => {
+    if (!result?.isSuccessful) {
+      log(
+        `Something went wrong starting "search-web". Maybe you don't have it?`,
+        { type: "error" }
+      );
+      return;
+    }
+
+    setTimeout(() => {
+      execSync(`open http://localhost:42001`);
+      log(`Opened the homepage in your browser`, { type: "success" });
+    }, 1000);
+  });
   const cors = [
-    // see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
-    // see https://stackoverflow.com/questions/18642828/origin-origin-is-not-allowed-by-access-control-allow-origin
-    // NB: cannot set "*" i.c.m. cookies
-    /* a better way to allow multiple origins is probably something like this:
+    /* 
+     see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
+    see https://stackoverflow.com/questions/18642828/origin-origin-is-not-allowed-by-access-control-allow-origin
+    NB: cannot set "*" i.c.m. cookies
+
+    a better way to allow multiple origins is probably something like this:
 
       const allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:8020', 'http://127.0.0.1:9000', 'http://localhost:9000'];
   const origin = req.headers.origin;
@@ -81,79 +73,22 @@ export const runFunctionServer = () => {
     ? path.join(projectRoot, "public")
     : path.join(__dirname, "..", "public");
 
+  const serverOptions: Options = {
+    port: ports["function-server"],
+    public: projectPublicFolder,
+    security: { csrf: false },
+    parser: {
+      // NB: seems the server.js types are not 100% correct
+      data: { maxFileSize: 1024 * 1024 * 1024 * 32 } as any,
+      cookie: { maxAge: 900000, httpOnly: false },
+    },
+  };
   // @ts-ignore
   server(
-    {
-      port: ports["function-server"],
-      public: projectPublicFolder,
-      security: { csrf: false },
-      parser: {
-        data: { maxFileSize: 1024 * 1024 * 1024 * 32 },
-        cookie: {
-          maxAge: 900000,
-          httpOnly: false,
-        },
-      },
-    },
-    // NB: afaik... it DOES NOT matter if you set the cookie before or after CORS!
-
+    serverOptions,
     cors,
-
-    // server.router.get("/test", (ctx) => {
-    //   console.log((ctx as any).cookies);
-    //   return server.reply.cookie("TEST", "123tes").send({ test: true });
-    // }),
-
-    // server.router.post("/login", (ctx) => {
-    //   const authToken = ctx.data?.authToken;
-
-    //   const loginResult = {
-    //     isSuccessful: true,
-    //     message: "Logged in",
-    //   };
-
-    //   console.log("set set set vjajaja", { authToken });
-
-    //   return server.reply
-    //     .cookie("authToken", authToken, {
-    //       /**
-    //        * NB: VERY IMPORTANT In order to receive the cookie at other port or domain
-    //        */
-    //       sameSite: "none",
-    //       secure: true,
-    //       /**
-    //        * It turned out that Chrome won't set the cookie if the domain contains a port. Setting it for localhost (without port) is not a problem
-    //        */
-    //       domain: "localhost",
-    //     })
-    //     .send(loginResult);
-    // }),
-
-    // server.router.get("/login", (ctx) => {
-    //   const authToken = ctx.query?.authToken;
-
-    //   const loginResult = {
-    //     isSuccessful: true,
-    //     message: "Logged in",
-    //   };
-
-    //   console.log("set set set", { authToken });
-
-    //   return server.reply
-    //     .cookie("authToken", takeFirst(authToken))
-    //     .send(loginResult);
-    // }),
-
-    // server.router.get("/test2", (ctx) => {
-    //   console.log((ctx as any).cookies);
-    //   return server.reply.cookie("TESTAfter", "123tes").send({ test: true });
-    // }),
-
-    ...getApiEndpoints,
-    ...postApiEndpoints,
-
-    functionEndpoints,
-
+    functionPostEndpoints,
+    functionGetEndpoints,
     server.router.get("*", async (ctx) => {
       return {
         success: false,
@@ -161,29 +96,11 @@ export const runFunctionServer = () => {
       };
     })
   ).then(async (context) => {
-    const tsFunctions = await db.get("TsFunction");
-
     if (
       process.env.NODE_APP_INSTANCE === undefined ||
       process.env.NODE_APP_INSTANCE === "0"
     ) {
-      log("Scheduling CRON jobs", { type: "important" });
-
-      getObjectKeysArray(scheduleObject).map((interval) => {
-        const cronExpression = scheduleObject[interval];
-        const functionsToExecute = tsFunctions.filter(
-          (x) => x.runEveryPeriod === interval
-        );
-        if (functionsToExecute.length > 0) {
-          schedule(
-            cronExpression,
-            () => {
-              oneByOne(functionsToExecute, executeFunction);
-            },
-            { name: interval }
-          );
-        }
-      });
+      scheduleCronJobs();
     }
 
     console.log(

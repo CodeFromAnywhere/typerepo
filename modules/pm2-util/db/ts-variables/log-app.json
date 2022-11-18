@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773977334,
+  "updatedAt": 1668773977334,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773977334,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "logApp",
+  "slug": "log-app",
+  "operationRelativeTypescriptFilePath": "src/logApp.ts",
+  "type": {
+    "rawType": "(operationName: string) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (operationName: string) => {}",
+  "description": "",
+  "id": "pxiguipimyqcmbxmxdogotbe"
+}

@@ -1,6 +1,6 @@
 # Asset functions js
 
-asset-functions-js (`OperationClassification` js)
+asset-functions-js (`OperationClassification` cjs)
 
 
 ## ❌ No description set yet
@@ -47,6 +47,15 @@ Remove the token (if present), then add it again
 | name | string |  |,| newToken (optional) | string | if given, is used for generating new token
 
 if already present, token is used from the name instead of this one |,| attachTokenToFilename (optional) | boolean |  |
+| **Output** | `String`   |    |
+
+
+
+## getAssetDirectlyApiUrl()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| projectRelativeAssetPath | string |  |
 | **Output** | `String`   |    |
 
 
@@ -130,6 +139,8 @@ If previousToken is not present, will be generated randomly
 Remove the token (if present), then add it again
 
 
+## 📄 getAssetDirectlyApiUrl (exported const)
+
 ## 📄 getExtensionFromAsset (exported const)
 
 Returns a preliminary filename, based on the `Asset`
@@ -159,21 +170,12 @@ NB: we also need to convert the file itself in case of mp3
 
 # Internal
 
-<details><summary>Show internal (5)</summary>
+<details><summary>Show internal (3)</summary>
     
-  # getAssetDirectlyApiUrl()
+  # getNameFromRelativePath()
 
 
 
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| apiUrl | string |  |,| projectRelativeAssetPath | string |  |
-| **Output** | `String`   |    |
-
-
-
-## getNameFromRelativePath()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -181,8 +183,6 @@ NB: we also need to convert the file itself in case of mp3
 | **Output** | `String`   |    |
 
 
-
-## 📄 getAssetDirectlyApiUrl (exported const)
 
 ## 📄 getNameFromRelativePath (exported const)
 

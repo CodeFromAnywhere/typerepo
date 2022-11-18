@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668332392350,
+  "updatedAt": 1668332392350,
+  "deletedAt": 0,
+  "createdFirstAt": 1668332392350,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getOpenableFilePath",
+  "slug": "get-openable-file-path",
+  "operationRelativeTypescriptFilePath": "src/vscodeOpen.ts",
+  "type": {
+    "rawType": "(file: import(\"/Users/king/King/operations/tools/control-system/vscode-open/src/vscodeOpen\").OpenableFile) => Promise<string | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  file: OpenableFile\n): Promise<string | undefined> => {\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) return;\n\n  if (file.projectRelativePath)\n    return path.join(projectRoot, file.projectRelativePath);\n\n  if (!file.operationName || !file.operationRelativeFilePath) return;\n\n  const operationBasePath = await getOperationPath(file.operationName);\n  if (!operationBasePath) return;\n\n  const openableFilePath = nodePath.join(\n    operationBasePath,\n    file.operationRelativeFilePath\n  );\n\n  return openableFilePath;\n}",
+  "description": "",
+  "id": "lahwqvygcythufjwmkwpasns"
+}

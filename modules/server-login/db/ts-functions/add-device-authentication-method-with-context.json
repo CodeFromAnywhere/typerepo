@@ -1,0 +1,136 @@
+{
+  "createdAt": 1668752277576,
+  "updatedAt": 1668752277576,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752277576,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/addDeviceAuthenticationMethodWithContext.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  functionContext: FunctionContext,\n  method: AuthenticationMethodMethod,\n  handle: string,\n  credential?: string\n): Promise<{\n  isSuccessful?: boolean;\n  message?: string;\n  functionContext?: FunctionContext;\n  authenticationMethod?: AuthenticationMethod;\n}> => {\n  const { isSuccessful, message, authenticationMethod } =\n    await addAuthenticationMethod(method, handle, false, credential);\n  if (!isSuccessful || !authenticationMethod) {\n    return { isSuccessful, message };\n  }\n\n  const newAuthenticationMethods = functionContext.device.authenticationMethods\n    .filter((x) => x.method !== authenticationMethod.method)\n    .concat(authenticationMethod);\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.authToken === functionContext.authToken,\n    (old) => {\n      return {\n        ...old,\n        authenticationMethods: newAuthenticationMethods,\n      };\n    }\n  );\n\n  const newFunctionContext = mergeNestedObject(functionContext, {\n    device: {\n      authenticationMethods: newAuthenticationMethods,\n    },\n  });\n\n  return {\n    isSuccessful: updateResult.isSuccesful,\n    message: \"Method added\",\n    functionContext: newFunctionContext,\n    authenticationMethod,\n  };\n}",
+  "name": "addDeviceAuthenticationMethodWithContext",
+  "slug": "add-device-authentication-method-with-context",
+  "parameters": [
+    {
+      "name": "functionContext",
+      "schema": {
+        "$ref": "#/definitions/FunctionContext"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Should be attached as first argument of the function, if the name of the function is in the format of:\n\n- `xyzWithContext`: attaches all context\n- `xyzWithContextRaw`: attaches all context, api returns just the result of the function without wrapping it in the `RealApiReturnType`. Needed in case you have a different server.js `server.reply`\n\nFor more info see `apiConvention`",
+        "properties": [
+          {
+            "name": "authorizations",
+            "required": false,
+            "schema": {
+              "fullComment": "Authorizations accumulated of the person(s), the group(s), and public authorizations.\n\nNB: This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "nb": "This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "groups",
+            "required": false,
+            "schema": {
+              "fullComment": "Groups the person(s) of the device belong to",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "hasAuthorization",
+            "required": true,
+            "schema": {
+              "fullComment": "Device has authorization to the function",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "authToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serverContext",
+            "required": false,
+            "schema": {
+              "fullComment": "Original context coming from server.js\n\nNB: due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:\n\n`import { Context } from \"server/typings/common\";`",
+              "nb": "due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:",
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "method",
+      "schema": {
+        "$ref": "#/definitions/AuthenticationMethodMethod"
+      },
+      "simplifiedSchema": {
+        "enum": [
+          "usernamePassword",
+          "phoneNumber",
+          "email",
+          "apple",
+          "google",
+          "facebook",
+          "twitter",
+          "linkedin",
+          "github"
+        ],
+        "fullComment": "Username + password should be the default\n\nEmail OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods\n\nAll others can also act as authentication methods, but the token shouldn't be stored",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "handle",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "credential",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "returns new function context with added authenticationmethod",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful?: boolean | undefined; message?: string | undefined; functionContext?: import(\"/Users/king/King/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext | undefined; authenticationMethod?: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/AuthenticationMethjod\").AuthenticationMethod | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 1274,
+    "lines": 45,
+    "bytes": 1274,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 45,
+    "numberOfFiles": 1
+  },
+  "id": "tqxtqklwazsfoqyitdwohsmm"
+}

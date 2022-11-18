@@ -1,0 +1,92 @@
+{
+  "createdAt": 1668328725940,
+  "updatedAt": 1668328725940,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328725940,
+  "id": "bswaoubjnbnemdsmavjukrzk",
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4"
+  },
+  "main": "./build/esm/index.js",
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "scripts": {
+    "css": "tailwindcss -o css.css",
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "version": "1.0.0",
+  "name": "timeline",
+  "language": "english",
+  "slug": "timeline",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668335168172,
+    "markdown": "# ⏰ Timeline\n\n- find statements in markdown (`> xxx`)\n- find functions, interfaces, variables and show them\n- find todos inside (doc) comments and the file around it\n- find type build errors from typescript and the file around it\n- show the above in a tik-tok kinda timeline that you can swipe (or click to enter the codebase)\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
+    "hasGeneratedDependenciesIndexed": false,
+    "hasGeneratedImportsIndexed": false,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 79,
+        "characters": 2243,
+        "bytes": 2243
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 116,
+        "characters": 3312,
+        "bytes": 3312
+      },
+      "textSize": {
+        "numberOfFiles": 3,
+        "lines": 57,
+        "characters": 2514,
+        "bytes": 2514
+      },
+      "size": {
+        "bytes": 8069,
+        "characters": 8069,
+        "lines": 252,
+        "numberOfFiles": 7
+      }
+    },
+    "folderNameIndexed": "timeline",
+    "relativeOperationLocationPathIndexed": "operations/tools/search",
+    "classificationIndexed": "ui-esm",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "pickRandomArrayItem",
+      "Div",
+      "MarkdownCodeblock",
+      "api",
+      "AugmentedAnyModelType",
+      "Person",
+      "MediaPost",
+      "Postable",
+      "OpenableFile"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "dependencies": {
+    "js-util": "0.0.1",
+    "react-with-native": "1.4.9",
+    "markdown": "1.0.0",
+    "api": "0.0.1",
+    "model-types": "0.0.1",
+    "peer-types": "0.0.1",
+    "social-media-types": "0.0.1",
+    "vscode-open": "0.0.1"
+  }
+}

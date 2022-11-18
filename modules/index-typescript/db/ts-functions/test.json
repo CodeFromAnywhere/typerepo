@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150731442,
-  "updatedAt": 1668150731442,
+  "createdAt": 1668752114327,
+  "updatedAt": 1668752114327,
   "deletedAt": 0,
-  "createdFirstAt": 1668150731442,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752114327,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const files = {\n    interfaces:\n      \"/Users/king/King/tools/types/code-types/src/code/TypescriptIndex.ts\",\n    interfaces2:\n      \"/Users/king/King/tools/types/code-types/src/code/TsComment.ts\",\n    interfaces3:\n      \"/Users/king/King/tools/types/code-types/src/code/TsInterface.ts\",\n    interfaces4: \"/Users/king/King/tools/types/code-types/src/code/TypeInfo.ts\",\n    interfaces5:\n      \"/Users/king/King/tools/types/code-types/src/code/TsFunction.ts\",\n    interfaces6:\n      \"/Users/king/King/tools/types/foodchain-types/src/FoodChain.ts\",\n    functions:\n      \"/Users/king/King/tools/control-fs/explore-project/src/getFolderExplorationDetails.ts\",\n  };\n\n  const fileReasons = Object.keys(files) as (keyof typeof files)[];\n  oneByOne(fileReasons, async (reason) => {\n    const filePath = files[reason];\n\n    console.log({ filePath });\n\n    await indexTypescript({ filePaths: [filePath], manualProjectRoot: null });\n\n    return;\n  });\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "vruvfbrsoegfvtwjzifntfjz"
+  "id": "qarmdpcoyromgnxvobseixft"
 }

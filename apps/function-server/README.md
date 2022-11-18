@@ -1,6 +1,6 @@
 # Function server
 
-function-server (`OperationClassification` server)
+function-server (`OperationClassification` server-cjs)
 
 Server that exposes all typerepo api functions wrapped into easily accessible endpoints.
 
@@ -46,13 +46,45 @@ Nevertheless, server.js works fine and most things are documented.
 
 # Api reference
 
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # cloc()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 cloc (exported const)
+
+  </details>
+
 # Internal
 
-<details><summary>Show internal (4)</summary>
+<details><summary>Show internal (9)</summary>
     
-  # executeFunction()
+  # cloc()
 
 
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## executeCronFunction()
+
+NB: cron functions cannot have parameters
 
 
 | Input      |    |    |
@@ -66,7 +98,7 @@ Nevertheless, server.js works fine and most things are documented.
 
 runs sdk api server using "server" package.
 
-server will be exposed on port 4201
+server will be exposed on port 42000
 
 
 | Input      |    |    |
@@ -76,12 +108,33 @@ server will be exposed on port 4201
 
 
 
-## 📄 executeFunction (exported const)
+## scheduleCronJobs()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 cloc (exported const)
+
+## 📄 executeCronFunction (exported const)
+
+NB: cron functions cannot have parameters
+
 
 ## 📄 runFunctionServer (exported const)
 
 runs sdk api server using "server" package.
 
-server will be exposed on port 4201
+server will be exposed on port 42000
+
+
+## 📄 scheduleCronJobs (exported const)
+
+## 📄 scheduleObject (exported const)
+
+For every `RunEveryPeriodEnum`, this object provides the interval `cronExpression` string for `node-cron`
   </details>
 

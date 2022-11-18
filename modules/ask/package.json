@@ -1,11 +1,18 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328703123,
+  "updatedAt": 1668328703123,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328703123,
+  "id": "kaVSSsxzjMippmUd",
+  "bin": {
+    "ask": "build/cli.js"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.2"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,19 +20,56 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "ask",
-  "bin": {
-    "ask": "build/cli.js"
-  },
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.2"
-  },
+  "language": "english",
   "slug": "ask",
-  "id": "kaVSSsxzjMippmUd",
-  "dependencies": {},
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "ask",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668333198505,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/interfaces/cli",
+    "markdown": "CLI helpers to ask for input parameters (instead of providing as part of the cli command itself)\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 40,
+        "characters": 937,
+        "bytes": 937
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 115,
+        "characters": 2687,
+        "bytes": 2687
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 56,
+        "characters": 882,
+        "bytes": 882
+      },
+      "size": {
+        "bytes": 4506,
+        "characters": 4506,
+        "lines": 211,
+        "numberOfFiles": 5
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

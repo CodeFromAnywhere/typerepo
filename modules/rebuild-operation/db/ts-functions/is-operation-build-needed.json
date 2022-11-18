@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668157072787,
-  "updatedAt": 1668157072787,
+  "createdAt": 1668336154327,
+  "updatedAt": 1668336154327,
   "deletedAt": 0,
-  "createdFirstAt": 1668157072787,
+  "createdFirstAt": 1668336154327,
   "publicAuthorization": [
     "read",
     "search"
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/isOperationBuildNeeded.ts",
   "commentsInside": [],
-  "rawText": " (operationBasePath: string) => {\n  const classification = getOperationClassification(operationBasePath)!;\n\n  console.log(`${getLastFolder(operationBasePath)}: ${classification}`);\n\n  // NB: server, web, app and ui-es6 have different ways to keep the build up-to-date\n  const buildNeededOperatons: OperationClassification[] = [\n    \"js\",\n    \"node\",\n    \"ui-es5\",\n  ];\n  const isBuildNeeded = buildNeededOperatons.includes(classification);\n\n  return isBuildNeeded;\n}",
+  "rawText": " (operationBasePath: string) => {\n  const classification = getOperationClassification(operationBasePath)!;\n\n  console.log(`${getLastFolder(operationBasePath)}: ${classification}`);\n\n  // NB: server, web, app and ui-es6 have different ways to keep the build up-to-date\n  // NB: esm can't be minified with current thing\n  const buildNeededOperatons: OperationClassification[] = [\n    \"cjs\",\n    // \"esm\",\n    \"node-cjs\",\n    // \"node-esm\",\n    \"ui-cjs\",\n    // \"ui-esm\",\n  ];\n  const isBuildNeeded = buildNeededOperatons.includes(classification);\n\n  return isBuildNeeded;\n}",
   "name": "isOperationBuildNeeded",
   "slug": "is-operation-build-needed",
   "parameters": [
@@ -40,13 +40,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 588,
-    "lines": 15,
-    "bytes": 588,
+    "characters": 693,
+    "lines": 19,
+    "bytes": 693,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 39,
-    "linesPerFile": 15,
+    "charactersPerLine": 36,
+    "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "dghogljhcxkxfobtziisfqhi"
+  "id": "tqbuahvlcvehmoonfuwknhvh"
 }

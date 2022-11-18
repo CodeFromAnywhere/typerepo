@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150713156,
-  "updatedAt": 1668150713156,
+  "createdAt": 1668752095416,
+  "updatedAt": 1668752095416,
   "deletedAt": 0,
-  "createdFirstAt": 1668150713156,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752095416,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getIndexId.ts",
   "commentsInside": [],
   "rawText": " async (\n  filePath: string,\n  name: string\n): Promise<TsIndexModelType | undefined> => {\n  const operationPathParse = getOperationPathParse(filePath);\n  if (!operationPathParse) return;\n  const operationBasePath = findOperationBasePath(filePath);\n  if (!operationBasePath) return;\n\n  const { operationRelativeTypescriptFilePath, relativePathFromProjectRoot } =\n    operationPathParse;\n\n  // TODO: not sure if the projectRelativepath is correc,t that is probably needs to be a path to the db file!\n  const tsIndexModelType: TsIndexModelType = {\n    operationName: operationPathParse.operationName || null,\n    operationRelativeTypescriptFilePath,\n    // TODO: FIX\n    projectRelativePath: relativePathFromProjectRoot,\n    // operationName: \"\",\n    // operationRelativePath: \"\",\n    // projectRelativePath: \"\",\n    // operationRelativeTypescriptFilePath: \"\",\n    // srcFileId: \"\",\n\n    id: generateId(),\n    name,\n    slug: kebabCase(name),\n  };\n\n  return tsIndexModelType;\n}",
@@ -58,5 +53,5 @@
     "linesPerFile": 31,
     "numberOfFiles": 1
   },
-  "id": "pulrbyyzaxxhduofixptexnv"
+  "id": "gjoyklainyfrihjzbyimyrix"
 }

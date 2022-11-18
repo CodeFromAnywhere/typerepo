@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635327833,
-  "updatedAt": 1667635327833,
+  "createdAt": 1668334621949,
+  "updatedAt": 1668334621949,
   "deletedAt": 0,
-  "createdFirstAt": 1667635327833,
+  "createdFirstAt": 1668334621949,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const personas = await db.get(\"Persona\");\n\n  const primary = personas.find((x) => x.isPrimary) || personas[0];\n\n  if (!primary) {\n    console.log(\"No primary persona found\");\n  }\n\n  return primary;\n}",
   "description": "",
-  "id": "iqpyqgsmnchgfwsdbbffvesz"
+  "id": "ckkhiuzztsojfveaxhbbsozh"
 }

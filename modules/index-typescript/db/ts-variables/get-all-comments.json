@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150709199,
-  "updatedAt": 1668150709199,
+  "createdAt": 1668752091976,
+  "updatedAt": 1668752091976,
   "deletedAt": 0,
-  "createdFirstAt": 1668150709199,
+  "createdFirstAt": 1668752091976,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  tsMorphNode: VariableDeclaration | Statement | Expression,\n  fileContent: string,\n  operationRelativeTypescriptFilePath: string\n): Creation<TsComment>[] => {\n  const statementName = tsMorphNode\n    .asKind(SyntaxKind.VariableDeclaration)\n    ?.getName();\n  const rawStatement = tsMorphNode.getText();\n  const leadingComments = tsMorphNode\n    .getLeadingCommentRanges()\n    .map((commentRange) =>\n      makeTsComment({\n        operationRelativeTypescriptFilePath,\n        commentRange,\n        rawStatement,\n        statementName,\n        fileContent,\n      })\n    );\n  const trailingComments = tsMorphNode\n    .getTrailingCommentRanges()\n    .map((commentRange) =>\n      makeTsComment({\n        operationRelativeTypescriptFilePath,\n        commentRange,\n        rawStatement,\n        statementName,\n        fileContent,\n      })\n    );\n\n  const all = leadingComments.concat(trailingComments);\n  return all;\n}",
   "description": "gets all leading comments and trailing comments raw text, put together, separated with newlines",
-  "id": "vrtgarcfdgglohengnjmcytq"
+  "id": "cjxvyxqwxiutqmyweiprgnkc"
 }

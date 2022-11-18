@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773972996,
+  "updatedAt": 1668773972996,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773972996,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "stopAllAppsExceptCli",
+  "slug": "stop-all-apps-except-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/stopAllAppsExcept.cli.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const operationNames = process.argv.slice(2);\n  stopAllAppsExcept(operationNames);\n}",
+  "description": "Arguments: operation names that you don't want to stop",
+  "id": "arejdzlwlqaxlqyywblyykbd"
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668148590142,
-  "updatedAt": 1668148590142,
+  "createdAt": 1668774224748,
+  "updatedAt": 1668774224748,
   "deletedAt": 0,
-  "createdFirstAt": 1668148590142,
+  "createdFirstAt": 1668774224748,
   "id": "namedparameterstypeof-getnesteddatabasemenu",
   "name": "NamedParameters<typeof getNestedDatabaseMenu>",
   "slug": "namedparameterstypeof-getnesteddatabasemenu",
@@ -16,10 +16,68 @@
   "type": {
     "typeDefinition": {
       "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "noOperationPath": {
+              "type": "boolean"
+            },
+            "noOperationName": {
+              "type": "boolean"
+            },
+            "noSrcRelativeFolder": {
+              "type": "boolean"
+            },
+            "noPrefix": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
       "additionalProperties": false
     },
     "simplifiedSchema": {
-      "properties": [],
+      "properties": [
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "noOperationPath",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "noOperationName",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "noSrcRelativeFolder",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "noPrefix",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
       "type": "object"
     },
     "typeCoverage": 0,

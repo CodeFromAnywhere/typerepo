@@ -1,21 +1,10 @@
 {
-  "createdAt": 1662709577328,
-  "updatedAt": 1662709577328,
+  "createdAt": 1668328687226,
+  "updatedAt": 1668328687226,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577328,
-  "name": "k-explore",
-  "version": "0.0.2",
-  "description": "",
-  "main": "build/index.js",
-  "source": "src/index.ts",
-  "scripts": {
-    "initpub": "npm publish --access public",
-    "pub": "npm version patch --force && npm publish",
-    "build": "tsc",
-    "dev": "tsc -w"
-  },
+  "createdFirstAt": 1668328687226,
+  "id": "CjtxcuPobvSETpNJ",
   "author": "",
-  "license": "ISC",
   "dependencies": {
     "gray-matter": "^4.0.3",
     "fs-util": "1.0.5",
@@ -29,13 +18,103 @@
     "filename-conventions": "0.0.1",
     "write-to-assets": "0.0.1"
   },
+  "description": "",
   "devDependencies": {
     "@types/node": "^18.0.1",
     "typescript": "^4.6.4"
   },
+  "main": "build/index.js",
+  "scripts": {
+    "initpub": "npm publish --access public",
+    "pub": "npm version patch --force && npm publish",
+    "build": "tsc",
+    "dev": "tsc -w"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.2",
+  "name": "k-explore",
+  "language": "english",
   "slug": "k-explore",
-  "id": "CjtxcuPobvSETpNJ",
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-project/k-explore/src/explore.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "k-explore",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668332228094,
+    "operationDependenciesIndexed": [
+      "Dirent",
+      "fs",
+      "path",
+      "canRead",
+      "canSee",
+      "readJsonFile",
+      "MarkdownParse",
+      "TextJson",
+      "getExtension",
+      "getSubExtension",
+      "makeArray",
+      "notEmpty",
+      "removeIndexFromArray",
+      "mdToJsonParse",
+      "generatedFolders",
+      "getProjectRoot",
+      "SearchableExtension",
+      "allowedSearchContentExtensions",
+      "fileTypes",
+      "extensions",
+      "markdownExtensions",
+      "SearchLevel",
+      "jsonExtensions",
+      "typescriptExtensions",
+      "writeToAssets",
+      "fs",
+      "getFolder",
+      "path",
+      "generatedFolders",
+      "getProjectRoot",
+      "getRootPath",
+      "isBundle",
+      "getPathsWithOperations",
+      "generatedFolders",
+      "getPathsWithOperations",
+      "path"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/control-project",
+    "markdown": "exploration functions for exploring files within King OS\n\nCurrently has a thin dependency on `get-path`, but this can probably be removed to make this operation more general purpose (and work outside of King OS too)\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 8,
+        "lines": 731,
+        "characters": 21405,
+        "bytes": 21405
+      },
+      "dataSize": {
+        "numberOfFiles": 3,
+        "lines": 327,
+        "characters": 15184,
+        "bytes": 15184
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 283,
+        "characters": 5415,
+        "bytes": 5415
+      },
+      "size": {
+        "bytes": 42004,
+        "characters": 42004,
+        "lines": 1341,
+        "numberOfFiles": 13
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

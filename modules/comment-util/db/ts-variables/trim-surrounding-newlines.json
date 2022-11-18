@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263789842,
-  "updatedAt": 1666263789842,
+  "createdAt": 1668335766858,
+  "updatedAt": 1668335766858,
   "deletedAt": 0,
-  "createdFirstAt": 1666263789842,
+  "createdFirstAt": 1668335766858,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "(string: string): string => {\n  return string.startsWith(\"\\n\")\n    ? trimSurroundingNewlines(string.substring(1))\n    : string.endsWith(\"\\n\")\n    ? trimSurroundingNewlines(string.substring(0, string.length - 1))\n    : string;\n}",
   "description": "removes new lines at beginning and end\n\nNB: This function uses a small recursion! I don't know if this is very efficient, but shouldn't be too deep!\n\nNB: it should be noted that a newline apparently seems to be counting as a single character! Strange.",
-  "id": "fxvimqntymsefcukfvmcwcab"
+  "id": "ecxaudzzmzxwqkgjrkobazea"
 }

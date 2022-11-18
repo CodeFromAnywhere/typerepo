@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150718263,
-  "updatedAt": 1668150718263,
+  "createdAt": 1668752099721,
+  "updatedAt": 1668752099721,
   "deletedAt": 0,
-  "createdFirstAt": 1668150718263,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752099721,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getSizeSummary.ts",
   "commentsInside": [],
   "rawText": " (string: string): SizeSummary => {\n  const characters = string.length;\n  const lines = string.split(\"\\n\").length;\n  const bytes = byteCount(string);\n  return {\n    characters,\n    lines,\n    bytes,\n    bytesPerCharacter: bytes / characters,\n    charactersPerLine: Math.round(characters / lines),\n    linesPerFile: lines,\n    numberOfFiles: 1,\n  };\n}",
@@ -137,5 +132,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "vmxoasixsakkmemywwdbfpjd"
+  "id": "gihgbmjhvqdrwiovymiyuowq"
 }

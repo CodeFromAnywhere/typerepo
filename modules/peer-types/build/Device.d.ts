@@ -1,7 +1,7 @@
+import { IResult } from "ua-parser-js";
 import { DefaultModelType, Id } from "model-types";
 import { Person } from "./Person";
 import { AppOperation } from "./AppOperation";
-import { IResult } from "ua-parser-js";
 import { IPInfo } from "./IPInfo";
 import { AuthenticationMethod } from "./AuthenticationMethjod";
 /**
@@ -91,6 +91,12 @@ export interface Device extends DefaultModelType, IPInfo {
      * A device can switch between persons, by changing this value
      */
     currentPersonId?: Id;
+    /**
+     * If you have a currentPersonId, it is calculated and provided by selecting it from the persons array
+     *
+     * For now, only provided by functioncontext
+     */
+    currentPersonCalculated?: Person;
     /**
      * Calculated all operations that can be exposed as apps. This is taken from `getAllAppOperations` function
      */

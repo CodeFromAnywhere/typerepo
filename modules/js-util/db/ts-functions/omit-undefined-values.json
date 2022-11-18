@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150851274,
-  "updatedAt": 1668150851274,
+  "createdAt": 1668775935105,
+  "updatedAt": 1668775935105,
   "deletedAt": 0,
-  "createdFirstAt": 1668150851274,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775935105,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/omitUndefinedValues.ts",
   "commentsInside": [],
   "rawText": " <T extends { [key: string]: any }>(\n  object: T\n) => {\n  Object.keys(object).map((key) => {\n    const value = object[key];\n    if (value === undefined) {\n      delete object[key];\n    }\n  });\n\n  return object;\n}",
@@ -46,5 +41,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "qiuekqihedrvedxtoohiutth"
+  "id": "wibvmuljgqzowaqehhuxvgip"
 }

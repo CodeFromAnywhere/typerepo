@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378719725,
-  "updatedAt": 1667378719725,
+  "createdAt": 1668750035559,
+  "updatedAt": 1668750035559,
   "deletedAt": 0,
-  "createdFirstAt": 1667378719725,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668750035559,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/select-media/SelectMedia.tsx",
   "commentsInside": [],
   "rawText": " (props: {\n  /**\n   * NB: please don't change the source after initialisation!\n   */\n  source: MediaSourceEnum;\n}) => {\n  // make an api for all different sources\n  const { source } = props;\n\n  // get the right media from api\n\n  // show the results using\n  return <Div>A picker for media from {props.source} should come here</Div>;\n}",
@@ -63,5 +58,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "jtsvnueexcgfhtoskonwiqym"
+  "id": "qvrxjooqcznrzdoeowjiovqt"
 }

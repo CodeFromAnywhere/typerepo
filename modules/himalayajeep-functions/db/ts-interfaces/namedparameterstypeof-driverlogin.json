@@ -1,0 +1,60 @@
+{
+  "createdAt": 1668337452811,
+  "updatedAt": 1668337452811,
+  "deletedAt": 0,
+  "createdFirstAt": 1668337452811,
+  "id": "namedparameterstypeof-driverlogin",
+  "name": "NamedParameters<typeof driverLogin>",
+  "slug": "namedparameterstypeof-driverlogin",
+  "operationRelativeTypescriptFilePath": "src/driverLogin.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "emailOrPhone": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "emailOrPhone",
+        "password"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "emailOrPhone",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "password",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof driverLogin>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

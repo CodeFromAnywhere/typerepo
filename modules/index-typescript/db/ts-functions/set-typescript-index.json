@@ -1,0 +1,37 @@
+{
+  "createdAt": 1668752113048,
+  "updatedAt": 1668752113048,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752113048,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "explicitTypeName": "ProjectWatcher",
+  "operationRelativeTypescriptFilePath": "src/setTypescriptIndex.ts",
+  "commentsInside": [],
+  "rawText": " (eventName, path) => {\n  console.log(\"Should index this typescript file\", path);\n}",
+  "name": "setTypescriptIndex",
+  "slug": "set-typescript-index",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 83,
+    "lines": 3,
+    "bytes": 83,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "xieopdvxmfnugtqnwwjtajci"
+}

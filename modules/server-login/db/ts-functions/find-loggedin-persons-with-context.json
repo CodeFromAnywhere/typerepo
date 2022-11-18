@@ -1,0 +1,452 @@
+{
+  "createdAt": 1668752283618,
+  "updatedAt": 1668752283618,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752283618,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/findLoggedInPersonsWithContext.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  functionContext: FunctionContext\n): Promise<{\n  isSuccessful: boolean;\n  persons?: Person[];\n  message?: string;\n}> => {\n  const { device } = functionContext;\n\n  if (!device) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't find that device\",\n    };\n  }\n\n  // NB: probably need to extrahere this part so I can use it to view the authentication status while logging in...\n\n  const persons = (await db.get(\"Person\")).filter((person) => {\n    const matchingMethods = person.authenticationMethods.filter(\n      (authenticationMethod) => {\n        // NB: finds the method with the same handle and credential\n        const matchingMethod = device.authenticationMethods.find(\n          (method) =>\n            method.method === authenticationMethod.method &&\n            method.handle === authenticationMethod.handle &&\n            method.encryptedCredential ===\n              authenticationMethod.encryptedCredential\n        );\n\n        return !!matchingMethod;\n      }\n    );\n\n    const hasEnoughMethods =\n      (person.amountAuthenticationMethodsRequired || 1) <=\n      matchingMethods.length;\n\n    const hasMissingMethod = !!person.requiredAuthenticationMethods?.find(\n      (method) => {\n        const isMethodMissing = !device.authenticationMethods.find(\n          (x) => x.method === method\n        );\n        return isMethodMissing;\n      }\n    );\n\n    if (hasEnoughMethods && !hasMissingMethod) {\n      // if you have authenticated with enough methods, and aren't missing a method\n      return true;\n    }\n\n    return false;\n  });\n\n  if (!persons) {\n    return { isSuccessful: false, message: \"Couldn't login\" };\n  }\n\n  return { isSuccessful: true, persons };\n}",
+  "name": "findLoggedinPersonsWithContext",
+  "slug": "find-loggedin-persons-with-context",
+  "parameters": [
+    {
+      "name": "functionContext",
+      "schema": {
+        "$ref": "#/definitions/FunctionContext"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Should be attached as first argument of the function, if the name of the function is in the format of:\n\n- `xyzWithContext`: attaches all context\n- `xyzWithContextRaw`: attaches all context, api returns just the result of the function without wrapping it in the `RealApiReturnType`. Needed in case you have a different server.js `server.reply`\n\nFor more info see `apiConvention`",
+        "properties": [
+          {
+            "name": "authorizations",
+            "required": false,
+            "schema": {
+              "fullComment": "Authorizations accumulated of the person(s), the group(s), and public authorizations.\n\nNB: This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "nb": "This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "device",
+            "required": true,
+            "schema": {
+              "fullComment": "Device from authToken\n\nA Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
+              "properties": [
+                {
+                  "name": "ip",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "The ip of the device. Can be a local IP or remote IP.\n\nNB: Port is not included",
+                    "nb": "Port is not included",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "city",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "positionRadiusKm",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "country",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "region",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "timezone",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "authToken",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "userAgentString",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Raw `User-Agent` header.\n\nNOT used to identify the device, since the device can already be connected to a person!",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Name of the device, calculated based on metadata like location, os, and ip\n\nCan be edited by the user",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "previousIps",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "the root IPInfo is from the latest IP the device had. All previous IPs are added to this array",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "origins",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Domains the Device has visited\n\nThe Origin request header indicates the origin (scheme, hostname, and port) that caused the request",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "hasPapi",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Is set to true if the devices IP is pinged and seems to have something that resembles a King OS PAPI.",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isOnlineCalculated",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Returning `true` or `false` indicating whether or not the IP is giving a response",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "lastOnlineAt",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Whenever the peer is online, this should update",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "isLocalIpCalculated",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "if true, the above IP is a local one, meaning it cannot be accessed from outside of this network\n\nThis is easy to determine: local IP's must start with \"192.168\"",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isFavorite",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "if `true`, this device will show on top",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isPrivate",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If true, this peer should not be shared",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "lastSyncDatabaseAtObject",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "last sync of any model\n\nUseful for example for a p2p messaging",
+                    "properties": [],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "personIds",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If the device is authenticated, this should be set.\n\nCan be unset by the person",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "currentPersonCalculated",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If you have a currentPersonId, it is calculated and provided by selecting it from the persons array\n\nFor now, only provided by functioncontext\n\nModel to describe a human person. This model gathers and stores all persons around the world, except for yourself. Kind of a user-like model...\n\n\nThe data inside this model is coming from the `Person` itself but also from the owner of the OS server. It should be possible for the person to automatically push information into any of their instances on any server, but the OS owner can augment this.\n\nNB: This is a `DefaultModelType`, which means name and slug need not to be unique, but it is highly preferred.",
+                    "nb": "This is a `DefaultModelType`, which means name and slug need not to be unique, but it is highly preferred.",
+                    "properties": [
+                      {
+                        "name": "operationName",
+                        "required": true,
+                        "schema": {
+                          "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                          "type": "null"
+                        }
+                      },
+                      {
+                        "name": "projectRelativePath",
+                        "required": true,
+                        "schema": {
+                          "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "operationRelativePath",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "slug",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "interestSlugs",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "slugs of interest categories that this person should be notified about.\n\nSince this is a hierarchical model, parent interests will ensure all children are also applied.",
+                          "items": [],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "media",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "Media that is attached to this person.\n\nNB: not used to authenticate! Can be filled in by King OS, might be erroneous",
+                          "nb": "not used to authenticate! Can be filled in by King OS, might be erroneous",
+                          "items": [],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "dataEntries",
+                        "required": false,
+                        "schema": {
+                          "items": [],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "devicesCalculated",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "Devices can be attached to a person by looking in the device model and finding the devices that refer to this person\n\nAmong other things, this can be used to determine the `Person` location",
+                          "items": [
+                            {
+                              "schema": {
+                                "circularRefName": "Device",
+                                "properties": [],
+                                "type": "object"
+                              },
+                              "name": "Device"
+                            }
+                          ],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "authenticationMethods",
+                        "required": true,
+                        "schema": {
+                          "fullComment": "Methods that can be used to identify yourself as being this user\n\nShould be set up by the user either when registering, or in settings, to provide more methods.\n\nNB: It's important to note that a `Person` should not be able to add credentials that are already added by another person. This means that, when adding such a method, all `Person`s need to be searched!",
+                          "nb": "It's important to note that a `Person` should not be able to add credentials that are already added by another person. This means that, when adding such a method, all `Person`s need to be searched!",
+                          "items": [],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "groupSlugs",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "To which groups does this person belong?\n\nThis determines additional authorizations\n\nCan be set on signup, but can always be edited by admin",
+                          "items": [],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "authorizations",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "Which custom authorizations does this `Person` have?",
+                          "items": [],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "amountAuthenticationMethodsRequired",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one",
+                          "type": "number"
+                        }
+                      },
+                      {
+                        "name": "requiredAuthenticationMethods",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device",
+                          "items": [],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "paymentAuthToken",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "For now this can be a stripe token, stored for this \"customer\". Handy to connect the customer to the Person. Later this can become an array of multiple credentials, for example if you want to add multiple creditcards.",
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "appOperationsCalculated",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Calculated all operations that can be exposed as apps. This is taken from `getAllAppOperations` function",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "authenticationMethods",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "If the `Device` is not identified as a person yet, this can be configured to authenticate with different methods. Once it matches to a person, this can be cleared and `personId` can be attached.",
+                    "items": [],
+                    "type": "array"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "groups",
+            "required": false,
+            "schema": {
+              "fullComment": "Groups the person(s) of the device belong to",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "hasAuthorization",
+            "required": true,
+            "schema": {
+              "fullComment": "Device has authorization to the function",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "authToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serverContext",
+            "required": false,
+            "schema": {
+              "fullComment": "Original context coming from server.js\n\nNB: due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:\n\n`import { Context } from \"server/typings/common\";`",
+              "nb": "due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:",
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "This finds all persons you should be logged in as according to all your device's Authentication Methods.\n\nDoes not update your device to add the found persons.",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; persons?: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Person\").Person[] | undefined; message?: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 1851,
+    "lines": 63,
+    "bytes": 1851,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 63,
+    "numberOfFiles": 1
+  },
+  "id": "qlavgsiowvqmngivvkiodyzv"
+}

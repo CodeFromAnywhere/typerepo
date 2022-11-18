@@ -1,6 +1,6 @@
 # Asset view
 
-asset-view (`OperationClassification` js)
+asset-view (`OperationClassification` ui-cjs)
 
 
 ## 📁 AssetView
@@ -40,7 +40,7 @@ shows an `Asset` with interactivity
 
 # Internal
 
-<details><summary>Show internal (3)</summary>
+<details><summary>Show internal (7)</summary>
     
   # `<AssetView />`
 
@@ -54,9 +54,37 @@ shows an `Asset` with interactivity
 
 
 
+## itemGetBackendAssetUrl()
+
+Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { item: `AugmentedAnyModelType`, <br />backendAsset: `BackendAsset`, <br />isDownload?: boolean, <br /> } |  |
+| **Output** | string   |    |
+
+
+
+## `<ModelItemAssetView />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## 📄 AssetView (exported const)
 
 ## 📄 defaultClassName (exported const)
+
+## 📄 itemGetBackendAssetUrl (exported const)
+
+Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.
+
+
+## 📄 ModelItemAssetView (exported const)
 
   </details>
 

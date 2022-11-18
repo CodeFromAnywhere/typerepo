@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263961201,
-  "updatedAt": 1666263961201,
+  "createdAt": 1668335927377,
+  "updatedAt": 1668335927377,
   "deletedAt": 0,
-  "createdFirstAt": 1666263961201,
+  "createdFirstAt": 1668335927377,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(moduleString: string) =>\n  !moduleString.startsWith(\".\")",
   "description": "if it doesn't start with a dot it must be an absolute import so most likely a package that needs to be installed",
-  "id": "djwafeyeoypzxkphjrnqhdsn"
+  "id": "fftviocuqzvgkuwgkmflxepb"
 }

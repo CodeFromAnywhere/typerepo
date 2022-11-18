@@ -1,8 +1,86 @@
-"use strict";var __spreadArray=this&&this.__spreadArray||function(e,s,n){if(n||2===arguments.length)for(var r,t=0,i=s.length;t<i;t++)!r&&t in s||(r||(r=Array.prototype.slice.call(s,0,t)),r[t]=s[t]);return e.concat(r||Array.prototype.slice.call(s))};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getOperationClassification=exports.hasDependency=exports.getAllPackageJsonDependencies=void 0;var fs_util_1=require("fs-util"),code_types_1=require("code-types"),try_parse_json_1=require("try-parse-json"),isOperation_1=require("./isOperation"),read_json_file_1=require("read-json-file"),getAllPackageJsonDependencies=function(e){var s=e.dependencies?Object.keys(e.dependencies):[],n=e.devDependencies?Object.keys(e.devDependencies):[],r=e.peerDependencies?Object.keys(e.peerDependencies):[];return __spreadArray(__spreadArray(__spreadArray([],s,!0),n,!0),r,!0)};exports.getAllPackageJsonDependencies=getAllPackageJsonDependencies;var hasDependency=function(e,s){return(0,exports.getAllPackageJsonDependencies)(e).includes(s)};exports.hasDependency=hasDependency;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getOperationClassification = exports.isUiOperation = exports.tsconfigCompilesEsm = exports.packageCompilesTs = void 0;
+var code_types_1 = require("code-types");
+var fs_util_1 = require("fs-util");
+var read_json_file_1 = require("read-json-file");
+var try_parse_json_1 = require("try-parse-json");
+var hasDependency_1 = require("./hasDependency");
+var isOperation_1 = require("./isOperation");
+var packageCompilesTs = function (packageJson) {
+    return (!!(packageJson === null || packageJson === void 0 ? void 0 : packageJson.main) &&
+        packageJson.main.startsWith("src/") &&
+        (packageJson.main.endsWith(".ts") || packageJson.main.endsWith(".tsx")));
+};
+exports.packageCompilesTs = packageCompilesTs;
+var tsconfigCompilesEsm = function (tsconfig) {
+    return (!!tsconfig.compilerOptions.module &&
+        !!tsconfig.compilerOptions.moduleResolution &&
+        tsconfig.compilerOptions.module !== code_types_1.ModuleKind.CommonJS &&
+        tsconfig.compilerOptions.moduleResolution !== code_types_1.ModuleResolutionKind.Classic);
+};
+exports.tsconfigCompilesEsm = tsconfigCompilesEsm;
+var isUiOperation = function (tsconfig, packageJson) {
+    var _a;
+    var isReactPackage = !!packageJson &&
+        ((0, hasDependency_1.hasDependency)(packageJson, "react") ||
+            (0, hasDependency_1.hasDependency)(packageJson, "react-native") ||
+            (0, hasDependency_1.hasDependency)(packageJson, "next") ||
+            (0, hasDependency_1.hasDependency)(packageJson, "expo"));
+    var usesJsx = !!((_a = tsconfig === null || tsconfig === void 0 ? void 0 : tsconfig.compilerOptions) === null || _a === void 0 ? void 0 : _a.jsx);
+    return isReactPackage || usesJsx;
+};
+exports.isUiOperation = isUiOperation;
 /**
- * Returns OperationClassification if it's an operation, or undefined if it's not
+ * Returns `OperationClassification` if it's an operation, or undefined if it's not
  *
- * NB: don't confuse this with ProjectType or ImportClassification
+ * NB: don't confuse this with `ImportClassification`
  */
-var getOperationClassification=function(e){if(void 0===e&&(console.log("Incorrect type at getOperationClassification"),process.exit(1)),(0,isOperation_1.isOperation)(e)){var s=fs_util_1.path.join(e,"package.json"),n=(0,try_parse_json_1.tryParseJson)(fs_util_1.fs.readFileSync(s,"utf8")),r=fs_util_1.path.join(e,"tsconfig.json"),t=(0,read_json_file_1.readJsonFileSync)(r);if(t&&n&&!n.workspaces){var i=fs_util_1.path.join(e,"next.config.js");if(fs_util_1.fs.existsSync(i))return"web";var o=fs_util_1.path.join(e,"app.json");if(fs_util_1.fs.existsSync(o))return"app";var a=!!(null==n?void 0:n.main)&&n.main.startsWith("src/")&&(n.main.endsWith(".ts")||n.main.endsWith(".tsx"));if(!!n&&((0,exports.hasDependency)(n,"react")||(0,exports.hasDependency)(n,"react-native")||(0,exports.hasDependency)(n,"next")||(0,exports.hasDependency)(n,"expo")))return t.compilerOptions.module&&t.compilerOptions.moduleResolution&&t.compilerOptions.module!==code_types_1.ModuleKind.CommonJS&&t.compilerOptions.moduleResolution!==code_types_1.ModuleResolutionKind.Classic?"ui-esm":a?"ui-es6":"ui-es5";var p=!!n&&(0,exports.hasDependency)(n,"express"),c=!!n&&(0,exports.hasDependency)(n,"server");return p||c?"server":a?"ts":(0,exports.hasDependency)(n,"@types/node")?"node":"js"}}};exports.getOperationClassification=getOperationClassification;
+var getOperationClassification = function (folderPath) {
+    var _a;
+    if (folderPath === undefined) {
+        console.log("Incorrect type at getOperationClassification"
+        // getOperationClassification.caller
+        );
+        process.exit(1);
+    }
+    if (!(0, isOperation_1.isOperation)(folderPath)) {
+        return;
+    }
+    var packageJsonPath = fs_util_1.path.join(folderPath, "package.json");
+    var packageJson = (0, try_parse_json_1.tryParseJson)(fs_util_1.fs.readFileSync(packageJsonPath, "utf8"));
+    var tsconfigPath = fs_util_1.path.join(folderPath, "tsconfig.json");
+    var tsconfig = (0, read_json_file_1.readJsonFileSync)(tsconfigPath);
+    if (!tsconfig)
+        return;
+    if (!packageJson || packageJson.workspaces) {
+        return;
+    }
+    var nextConfigPath = fs_util_1.path.join(folderPath, "next.config.js");
+    var existsNextConfig = fs_util_1.fs.existsSync(nextConfigPath);
+    var isNextApp = existsNextConfig;
+    if (isNextApp)
+        return "ui-web";
+    var appJsonPath = fs_util_1.path.join(folderPath, "app.json");
+    var existsAppJson = fs_util_1.fs.existsSync(appJsonPath);
+    var isReactNativeApp = existsAppJson;
+    if (isReactNativeApp)
+        return "ui-app";
+    var isTs = (0, exports.packageCompilesTs)(packageJson);
+    var isEsm = (0, exports.tsconfigCompilesEsm)(tsconfig);
+    var isUi = (0, exports.isUiOperation)(tsconfig, packageJson);
+    var compileType = isEsm ? "esm" : isTs ? "ts" : "cjs";
+    if (isUi) {
+        return "ui-".concat(compileType);
+    }
+    var hasTypesNode = (0, hasDependency_1.hasDependency)(packageJson, "@types/node");
+    if (hasTypesNode) {
+        if ((_a = packageJson.operation) === null || _a === void 0 ? void 0 : _a.isNodeServer) {
+            return "server-cjs";
+        }
+        return "node-".concat(compileType);
+    }
+    return compileType;
+};
+exports.getOperationClassification = getOperationClassification;
 //# sourceMappingURL=getOperationClassification.js.map

@@ -1,11 +1,18 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328729670,
+  "updatedAt": 1668328729670,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328729670,
+  "id": "zmHiKRECDSMTZFZJ",
+  "dependencies": {
+    "make-test": "0.0.1",
+    "js-util": "0.0.1",
+    "log": "0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,19 +20,59 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^4.7.4"
-  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "matter-types",
+  "language": "english",
   "slug": "matter-types",
-  "id": "zmHiKRECDSMTZFZJ",
-  "dependencies": {
-    "make-test": "0.0.1",
-    "js-util": "0.0.1",
-    "log": "0.0.1"
-  },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "matter-types",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668335553324,
+    "operationDependenciesIndexed": [
+      "makeTest",
+      "notEmpty",
+      "log"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/types",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 110,
+        "characters": 3150,
+        "bytes": 3150
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 118,
+        "characters": 2639,
+        "bytes": 2639
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 106,
+        "characters": 2021,
+        "bytes": 2021
+      },
+      "size": {
+        "bytes": 7810,
+        "characters": 7810,
+        "lines": 334,
+        "numberOfFiles": 5
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

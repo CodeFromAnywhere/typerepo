@@ -1,11 +1,22 @@
 {
-  "createdAt": 1662709577328,
-  "updatedAt": 1662709577328,
+  "createdAt": 1668328685072,
+  "updatedAt": 1668328685072,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577328,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328685072,
+  "id": "RGfqpcRRDJboWKFJ",
+  "dependencies": {
+    "code-types": "0.0.1",
+    "fs-util": "1.0.5",
+    "log": "0.0.1",
+    "make-file-type": "0.0.1",
+    "chokidar": "*"
+  },
+  "devDependencies": {
+    "@types/fb-watchman": "^2.0.1",
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.2"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,26 +24,70 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "@types/fb-watchman": "^2.0.1",
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.2"
-  },
-  "dependencies": {
-    "code-types": "0.0.1",
-    "fs-util": "1.0.5",
-    "log": "0.0.1",
-    "make-file-type": "0.0.1"
-  },
-  "optionalDependencies": {
-    "chokidar": "^3.5.3",
-    "fb-watchman": "^2.0.1"
-  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "watch-folders",
+  "language": "english",
   "slug": "watch-folders",
-  "id": "RGfqpcRRDJboWKFJ",
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/watch-folders/src/watchman.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [
+      "watch"
+    ],
+    "folderNameIndexed": "watch-folders",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668750112403,
+    "operationDependenciesIndexed": [
+      "fs",
+      "path",
+      "makeFileType",
+      "FileType",
+      "log",
+      "path",
+      "log",
+      "FileType",
+      "path",
+      "FileType",
+      "Operation"
+    ],
+    "packageDependenciesIndexed": [
+      "watch"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/control-fs",
+    "markdown": "General purpose functions to watch folder(s) for changes on any operating system\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 5,
+        "lines": 455,
+        "characters": 12321,
+        "bytes": 12321
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 135,
+        "characters": 3192,
+        "bytes": 3192
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 118,
+        "characters": 2086,
+        "bytes": 2086
+      },
+      "size": {
+        "bytes": 17599,
+        "characters": 17599,
+        "lines": 708,
+        "numberOfFiles": 9
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

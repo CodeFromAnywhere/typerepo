@@ -1,0 +1,48 @@
+{
+  "createdAt": 1668773986841,
+  "updatedAt": 1668773986841,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773986841,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "commentsInside": [],
+  "rawText": " (object: { [key: string]: any } | undefined) => {\n  if (!object) return;\n\n  const table = Object.keys(object).map((key) => {\n    return { property: key, value: object[key] };\n  });\n\n  return table;\n}",
+  "name": "logTableObject",
+  "slug": "log-table-object",
+  "parameters": [
+    {
+      "name": "object",
+      "schema": {
+        "type": "object"
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 200,
+    "lines": 9,
+    "bytes": 200,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "yvaffvmcgvgjrlbuetnjminj"
+}

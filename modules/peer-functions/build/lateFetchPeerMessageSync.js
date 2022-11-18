@@ -60,7 +60,9 @@ var lateFetchPeerMessageSync = function () { return __awaiter(void 0, void 0, vo
     var peers, result, add, sum;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, database_1.db.get("Peer", { include: { referenceKey: "personId" } })];
+            case 0: return [4 /*yield*/, database_1.db.get("Device", {
+                    include: { referenceKey: "personId" },
+                })];
             case 1:
                 peers = _a.sent();
                 return [4 /*yield*/, (0, one_by_one_1.oneByOne)(peers, function (peer) { return __awaiter(void 0, void 0, void 0, function () {
@@ -76,11 +78,11 @@ var lateFetchPeerMessageSync = function () { return __awaiter(void 0, void 0, vo
                                             timeout: 2000,
                                         }, "PeerMessage", {
                                             dataFilters: [
-                                                {
-                                                    objectParameterKey: "peerSlug",
-                                                    operator: "equal",
-                                                    value: peer.slug,
-                                                },
+                                                // {
+                                                //   objectParameterKey: "peerSlug",
+                                                //   operator: "equal",
+                                                //   value: peer.,
+                                                // },
                                                 {
                                                     // updatedAt is better than createdAt because it can also work if the model can be updated and if the messages can be edited for example. The id stays the same so upsert will overwrite it
                                                     objectParameterKey: "updatedAt",
@@ -99,7 +101,7 @@ var lateFetchPeerMessageSync = function () { return __awaiter(void 0, void 0, vo
                                     return [4 /*yield*/, database_1.db.upsert("PeerMessage", newPeerMessages)];
                                 case 2:
                                     upsertResult = _b.sent();
-                                    return [4 /*yield*/, database_1.db.update("Peer", function (p) { return p.name === peer.name; }, function (p) { return (__assign(__assign({}, p), { lastOnlineAt: Date.now(), lastSyncDatabaseAtObject: __assign(__assign({}, p.lastSyncDatabaseAtObject), { PeerMessage: Date.now() }) })); })];
+                                    return [4 /*yield*/, database_1.db.update("Device", function (p) { return p.name === peer.name; }, function (p) { return (__assign(__assign({}, p), { lastOnlineAt: Date.now(), lastSyncDatabaseAtObject: __assign(__assign({}, p.lastSyncDatabaseAtObject), { PeerMessage: Date.now() }) })); })];
                                 case 3:
                                     updatedResult = _b.sent();
                                     return [2 /*return*/, upsertResult];

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668149091355,
-  "updatedAt": 1668149091355,
+  "createdAt": 1668775520343,
+  "updatedAt": 1668775520343,
   "deletedAt": 0,
-  "createdFirstAt": 1668149091355,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775520343,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getTsFunction.ts",
   "commentsInside": [],
   "rawText": " async (\n  functionName: string\n): Promise<TsFunction | null> => {\n  const tsFunctionPath: string | undefined =\n    sdkFunctionPaths[functionName as keyof typeof sdkFunctionPaths];\n  const projectRoot = getProjectRoot();\n  if (!tsFunctionPath || !projectRoot) {\n    return null;\n  }\n  const absoluteTsFunctionPath = path.join(projectRoot, tsFunctionPath);\n  const tsFunction = await readJsonFile<TsFunction>(absoluteTsFunctionPath);\n\n  return tsFunction;\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "kvtotpqvvhlqsdmbbcrzfoab"
+  "id": "cifmljvcijyrnzvtvuhuesss"
 }

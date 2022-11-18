@@ -1,0 +1,49 @@
+{
+  "createdAt": 1668773977004,
+  "updatedAt": 1668773977004,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773977004,
+  "id": "namedparameterstypeof-logapp",
+  "name": "NamedParameters<typeof logApp>",
+  "slug": "namedparameterstypeof-logapp",
+  "operationRelativeTypescriptFilePath": "src/logApp.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof logApp>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,16 +1,16 @@
 {
-  "createdAt": 1668150577303,
-  "updatedAt": 1668150577303,
+  "createdAt": 1668775416729,
+  "updatedAt": 1668775416729,
   "deletedAt": 0,
-  "createdFirstAt": 1668150577303,
+  "createdFirstAt": 1668775416729,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "tsFunctionIsSdkable",
   "slug": "ts-function-is-sdkable",
-  "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
+  "operationRelativeTypescriptFilePath": "src/tsFunctionIsSdkable.ts",
   "type": {
-    "rawType": "(tsFunction: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction, operationClassificationObject: import(\"/Users/king/King/operations/tools/typescript/generate-sdk-operations/src/generateFunctionSdks\").OperationClassificationObject, operationClassification: any) => boolean",
+    "rawType": "(tsFunction: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction, operationClassificationObject: import(\"/Users/king/King/operations/tools/control-project/get-path/build/getOperationClassificationObject\").OperationClassificationObject, operationClassification: any) => boolean",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  tsFunction: TsFunction,\n  operationClassificationObject: OperationClassificationObject,\n  operationClassification: OperationClassification\n) => {\n  const { operationName } = tsFunction;\n  if (!operationName) return false;\n\n  tsFunction.projectRelativePath;\n\n  const functionClassification = operationClassificationObject[operationName];\n\n  const isSdkable = functionClassification === operationClassification;\n\n  return isSdkable;\n}",
+  "value": "(\n  tsFunction: TsFunction,\n  operationClassificationObject: OperationClassificationObject,\n  operationClassification: OperationClassification\n) => {\n  const { operationName } = tsFunction;\n  if (!operationName) return false;\n\n  const functionClassification = operationClassificationObject[operationName];\n\n  const isSdkable = functionClassification === operationClassification;\n\n  return isSdkable;\n}",
   "description": "",
-  "id": "lejdhmvufxcvrxtqzcslkkqt"
+  "id": "bvzahiljsnkrsymfuaegxvlg"
 }

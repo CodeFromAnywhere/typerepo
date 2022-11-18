@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667378642634,
-  "updatedAt": 1667378642634,
+  "createdAt": 1668773880956,
+  "updatedAt": 1668773880956,
   "deletedAt": 0,
-  "createdFirstAt": 1667378642634,
+  "createdFirstAt": 1668773880956,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -28,6 +28,6 @@
     }
   },
   "value": "async (\n  absolutePath: string,\n  compressionConfig: CompressionConfig\n): Promise<string> => {\n  return absolutePath;\n}",
-  "description": "Audio, image, video can be compressed. This should be done to sensible defaults, can be turned off, or can be specifically set to other dimensions using a doc-comment on the model.\n\n- audio: bitrate\n- video: fps and resolution\n- image: resolution\n\nReturns the new absolute path of the compressed asset (which can be the same as the initial path)",
-  "id": "zqfhlsvlnmnjmsnnxhzuhilf"
+  "description": "Audio, image, video can be compressed. This should be done to logical defaults, can be turned off, or can be specifically set to other dimensions using a doc-comment on the model.\n\n- audio: bitrate\n- video: fps and resolution\n- image: resolution\n\nReturns the new absolute path of the compressed asset (which can be the same as the initial path)",
+  "id": "mrxbukuejpoeegmtqsjizjxe"
 }

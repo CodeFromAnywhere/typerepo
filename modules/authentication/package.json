@@ -1,0 +1,145 @@
+{
+  "createdAt": 1668614134491,
+  "updatedAt": 1668614134491,
+  "deletedAt": 0,
+  "createdFirstAt": 1668614134491,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "peerDependencies": {
+    "react": "17.0.2"
+  },
+  "dependencies": {
+    "asset-type": "0.0.1",
+    "server-api-url": "0.0.1",
+    "function-form": "0.0.1",
+    "react-with-native-notification": "1.0.42",
+    "react-with-native": "1.4.9",
+    "api-types": "0.0.1",
+    "model-types": "0.0.1",
+    "api": "0.0.1",
+    "js-util": "0.0.1",
+    "peer-types": "0.0.1",
+    "react-with-native-alert": "1.0.33",
+    "react-with-native-store": "2.0.40",
+    "api-store": "0.0.1",
+    "next": "*",
+    "react": "*",
+    "next-a-link": "0.0.1",
+    "react-with-native-router": "1.0.14",
+    "fancy-loader": "0.0.1",
+    "asset-functions-js": "0.0.1",
+    "cool-toast": "0.0.0",
+    "asset-view": "0.0.0"
+  },
+  "name": "authentication",
+  "operation": {
+    "indirectDependencies": [
+      "server-login"
+    ],
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/authentication/src/PictureWithInfoDropdown.tsx. Error: Error: Unknown type \"function\""
+      ]
+    },
+    "lastRebuildAt": 1668777503782,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 9,
+        "lines": 362,
+        "characters": 10944,
+        "bytes": 10944
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 182,
+        "characters": 5168,
+        "bytes": 5168
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 130,
+        "characters": 2690,
+        "bytes": 2690
+      },
+      "size": {
+        "bytes": 18802,
+        "characters": 18802,
+        "lines": 674,
+        "numberOfFiles": 13
+      }
+    },
+    "folderNameIndexed": "authentication",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [
+      "useEffect",
+      "useState"
+    ],
+    "operationDependenciesIndexed": [
+      "FunctionForm",
+      "toast",
+      "Div",
+      "P",
+      "RealApiReturnType",
+      "queries",
+      "successToast",
+      "ALink",
+      "generateId",
+      "api",
+      "queries",
+      "destructureOptionalObject",
+      "Person",
+      "useAlert",
+      "toast",
+      "successToast",
+      "itemGetBackendAssetUrl",
+      "Device",
+      "Div",
+      "P",
+      "Image",
+      "useRouter",
+      "FancyLoader",
+      "getAssetDirectlyApiUrl",
+      "FunctionForm",
+      "ALink",
+      "Div",
+      "P",
+      "RealApiReturnType",
+      "queries",
+      "successToast",
+      "createStore",
+      "apiStoreInitialValues",
+      "FunctionForm",
+      "toast",
+      "Div",
+      "P",
+      "RealApiReturnType",
+      "successToast"
+    ],
+    "packageDependenciesIndexed": [
+      "useRouter",
+      "useRouter",
+      "useRouter",
+      "useRouter"
+    ]
+  },
+  "slug": "authentication",
+  "id": "hdvslqxxvwqpttxpqpdouyxc"
+}

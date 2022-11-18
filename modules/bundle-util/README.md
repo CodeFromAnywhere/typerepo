@@ -1,6 +1,6 @@
 # Bundle util
 
-bundle-util (`OperationClassification` node)
+bundle-util (`OperationClassification` node-cjs)
 
 
 
@@ -14,7 +14,7 @@ Summarizes a bundle config so it can be used easily in things like explore proje
 | Input      |    |    |
 | ---------- | -- | -- |
 | bundleConfig | `BundleConfig` |  |
-| **Output** | { packageNames: string[], <br />moduleNames: string[], <br />appNames: string[], <br /> }   |    |
+| **Output** | { slug: string, <br />packageNames: string[], <br />moduleNames: string[], <br />appNames: string[], <br /> }   |    |
 
 
 
@@ -46,6 +46,7 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| slug  | string |  |
 | packageNames  | array |  |
 | moduleNames  | array |  |
 | appNames  | array |  |

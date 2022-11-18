@@ -1,0 +1,820 @@
+{
+  "createdAt": 1668774426601,
+  "updatedAt": 1668774426601,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774426601,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "initialValues",
+  "slug": "initial-values",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "type": {
+    "rawType": "{ executionId: string; initialValues: any[] | undefined; \"tabs.currentTab\": number; writerView: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").WriterViewEnum; subtextConfig: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").SubtextConfig; subwordConfig: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").SubwordConfig; \"menu.expanded\": import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/nested-menu/build/store\").ExpandedObject; \"menu.showMenu\": boolean; \"menu.isMobileMenuEnabled\": boolean; \"api.authToken\": string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "executionId": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "initialValues": {
+          "type": "array",
+          "items": {}
+        },
+        "tabs.currentTab": {
+          "type": "number"
+        },
+        "writerView": {
+          "enum": [
+            "config",
+            "view",
+            "edit",
+            "presentation",
+            "frontmatter"
+          ],
+          "x-enumNames": [
+            "config",
+            "view",
+            "edit",
+            "presentation",
+            "frontmatter"
+          ],
+          "type": "string"
+        },
+        "subtextConfig": {
+          "type": "object",
+          "properties": {
+            "isEnabled": {
+              "type": "boolean"
+            },
+            "translations": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "language": {
+                    "enum": [
+                      "english",
+                      "dutch",
+                      "nepali",
+                      "portuguese",
+                      "brazilian",
+                      "german",
+                      "french",
+                      "spanish",
+                      "italian",
+                      "norwegian",
+                      "swedish",
+                      "danish",
+                      "vietnamese",
+                      "indonesian",
+                      "southAfrican",
+                      "tokiPona",
+                      "hindi",
+                      "mandarin",
+                      "arabic",
+                      "bengali",
+                      "urdu",
+                      "japanese",
+                      "swahili"
+                    ],
+                    "x-enumNames": [
+                      "english",
+                      "dutch",
+                      "nepali",
+                      "portuguese",
+                      "brazilian",
+                      "german",
+                      "french",
+                      "spanish",
+                      "italian",
+                      "norwegian",
+                      "swedish",
+                      "danish",
+                      "vietnamese",
+                      "indonesian",
+                      "southAfrican",
+                      "tokiPona",
+                      "hindi",
+                      "mandarin",
+                      "arabic",
+                      "bengali",
+                      "urdu",
+                      "japanese",
+                      "swahili"
+                    ],
+                    "type": "string"
+                  },
+                  "showAlternative": {
+                    "type": "boolean"
+                  },
+                  "showPhonetic": {
+                    "type": "boolean"
+                  },
+                  "showLatin": {
+                    "type": "boolean"
+                  },
+                  "showTokiPona": {
+                    "type": "boolean"
+                  },
+                  "showCommon": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "language"
+                ]
+              }
+            },
+            "showEmojiTranslation": {
+              "type": "boolean"
+            },
+            "showDefinitionsWithPriority": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "medium",
+                  "critical",
+                  "high",
+                  "low"
+                ],
+                "x-enumNames": [
+                  "medium",
+                  "critical",
+                  "high",
+                  "low"
+                ],
+                "type": "string"
+              }
+            },
+            "showRelated": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "enum": [
+                      "image",
+                      "asset",
+                      "pages",
+                      "data",
+                      "code"
+                    ],
+                    "x-enumNames": [
+                      "image",
+                      "asset",
+                      "pages",
+                      "data",
+                      "code"
+                    ],
+                    "type": "string"
+                  },
+                  "quantity": {
+                    "enum": [
+                      "all",
+                      "single",
+                      "short"
+                    ],
+                    "x-enumNames": [
+                      "all",
+                      "single",
+                      "short"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "type",
+                  "quantity"
+                ]
+              }
+            }
+          }
+        },
+        "subwordConfig": {
+          "type": "object",
+          "properties": {
+            "isEnabled": {
+              "type": "boolean"
+            },
+            "subwordSize": {
+              "enum": [
+                "normal",
+                "mini",
+                "micro"
+              ],
+              "x-enumNames": [
+                "normal",
+                "mini",
+                "micro"
+              ],
+              "type": "string"
+            },
+            "translations": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "english",
+                  "dutch",
+                  "nepali",
+                  "portuguese",
+                  "brazilian",
+                  "german",
+                  "french",
+                  "spanish",
+                  "italian",
+                  "norwegian",
+                  "swedish",
+                  "danish",
+                  "vietnamese",
+                  "indonesian",
+                  "southAfrican",
+                  "tokiPona",
+                  "hindi",
+                  "mandarin",
+                  "arabic",
+                  "bengali",
+                  "urdu",
+                  "japanese",
+                  "swahili"
+                ],
+                "x-enumNames": [
+                  "english",
+                  "dutch",
+                  "nepali",
+                  "portuguese",
+                  "brazilian",
+                  "german",
+                  "french",
+                  "spanish",
+                  "italian",
+                  "norwegian",
+                  "swedish",
+                  "danish",
+                  "vietnamese",
+                  "indonesian",
+                  "southAfrican",
+                  "tokiPona",
+                  "hindi",
+                  "mandarin",
+                  "arabic",
+                  "bengali",
+                  "urdu",
+                  "japanese",
+                  "swahili"
+                ],
+                "type": "string"
+              }
+            },
+            "translationsViewMode": {
+              "enum": [
+                "tooltip",
+                "disabled",
+                "context",
+                "subword"
+              ],
+              "x-enumNames": [
+                "tooltip",
+                "disabled",
+                "context",
+                "subword"
+              ],
+              "type": "string"
+            },
+            "showDefinition": {
+              "type": "boolean"
+            },
+            "occurenceAmountViewMode": {
+              "enum": [
+                "tooltip",
+                "disabled",
+                "context",
+                "subword"
+              ],
+              "x-enumNames": [
+                "tooltip",
+                "disabled",
+                "context",
+                "subword"
+              ],
+              "type": "string"
+            },
+            "blurMode": {
+              "enum": [
+                "disabled",
+                "special"
+              ],
+              "x-enumNames": [
+                "disabled",
+                "special"
+              ],
+              "type": "string"
+            },
+            "audioMode": {
+              "enum": [
+                "tooltip",
+                "disabled",
+                "context",
+                "subword"
+              ],
+              "x-enumNames": [
+                "tooltip",
+                "disabled",
+                "context",
+                "subword"
+              ],
+              "type": "string"
+            },
+            "replaceWordMode": {
+              "enum": [
+                "disabled",
+                "tokiPona",
+                "translate",
+                "alternative",
+                "phonetic",
+                "emoji"
+              ],
+              "x-enumNames": [
+                "disabled",
+                "tokiPona",
+                "translate",
+                "alternative",
+                "phonetic",
+                "emoji"
+              ],
+              "type": "string"
+            },
+            "heatmapMode": {
+              "enum": [
+                "disabled",
+                "projectFrequency",
+                "englishFrequency"
+              ],
+              "x-enumNames": [
+                "disabled",
+                "projectFrequency",
+                "englishFrequency"
+              ],
+              "type": "string"
+            }
+          }
+        },
+        "menu.expanded": {
+          "type": "object",
+          "properties": {}
+        },
+        "menu.showMenu": {
+          "type": "boolean"
+        },
+        "menu.isMobileMenuEnabled": {
+          "type": "boolean"
+        },
+        "api.authToken": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "executionId",
+        "tabs.currentTab",
+        "writerView",
+        "subtextConfig",
+        "subwordConfig",
+        "menu.expanded",
+        "menu.showMenu",
+        "menu.isMobileMenuEnabled",
+        "api.authToken"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "executionId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "initialValues",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "tabs.currentTab",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "writerView",
+          "required": true,
+          "schema": {
+            "enum": [
+              "config",
+              "view",
+              "edit",
+              "presentation",
+              "frontmatter"
+            ],
+            "type": "string"
+          }
+        },
+        {
+          "name": "subtextConfig",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "isEnabled",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "translations",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "properties": [
+                          {
+                            "name": "language",
+                            "required": true,
+                            "schema": {
+                              "enum": [
+                                "english",
+                                "dutch",
+                                "nepali",
+                                "portuguese",
+                                "brazilian",
+                                "german",
+                                "french",
+                                "spanish",
+                                "italian",
+                                "norwegian",
+                                "swedish",
+                                "danish",
+                                "vietnamese",
+                                "indonesian",
+                                "southAfrican",
+                                "tokiPona",
+                                "hindi",
+                                "mandarin",
+                                "arabic",
+                                "bengali",
+                                "urdu",
+                                "japanese",
+                                "swahili"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "showAlternative",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          },
+                          {
+                            "name": "showPhonetic",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          },
+                          {
+                            "name": "showLatin",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          },
+                          {
+                            "name": "showTokiPona",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          },
+                          {
+                            "name": "showCommon",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "showEmojiTranslation",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "showDefinitionsWithPriority",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "enum": [
+                          "medium",
+                          "critical",
+                          "high",
+                          "low"
+                        ],
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "showRelated",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "properties": [
+                          {
+                            "name": "type",
+                            "required": true,
+                            "schema": {
+                              "enum": [
+                                "image",
+                                "asset",
+                                "pages",
+                                "data",
+                                "code"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "quantity",
+                            "required": true,
+                            "schema": {
+                              "enum": [
+                                "all",
+                                "single",
+                                "short"
+                              ],
+                              "type": "string"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "subwordConfig",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "isEnabled",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "subwordSize",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "normal",
+                    "mini",
+                    "micro"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "translations",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "enum": [
+                          "english",
+                          "dutch",
+                          "nepali",
+                          "portuguese",
+                          "brazilian",
+                          "german",
+                          "french",
+                          "spanish",
+                          "italian",
+                          "norwegian",
+                          "swedish",
+                          "danish",
+                          "vietnamese",
+                          "indonesian",
+                          "southAfrican",
+                          "tokiPona",
+                          "hindi",
+                          "mandarin",
+                          "arabic",
+                          "bengali",
+                          "urdu",
+                          "japanese",
+                          "swahili"
+                        ],
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "translationsViewMode",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "tooltip",
+                    "disabled",
+                    "context",
+                    "subword"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "showDefinition",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "occurenceAmountViewMode",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "tooltip",
+                    "disabled",
+                    "context",
+                    "subword"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "blurMode",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "disabled",
+                    "special"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "audioMode",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "tooltip",
+                    "disabled",
+                    "context",
+                    "subword"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "replaceWordMode",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "disabled",
+                    "tokiPona",
+                    "translate",
+                    "alternative",
+                    "phonetic",
+                    "emoji"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "heatmapMode",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "disabled",
+                    "projectFrequency",
+                    "englishFrequency"
+                  ],
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "menu.expanded",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "menu.showMenu",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "menu.isMobileMenuEnabled",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "api.authToken",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  ...apiStoreInitialValues,\n  ...nestedMenuStoreInitialValues,\n  ...writerInitialValues,\n  ...tabsStoreInitialValues,\n  ...functionWebInitialValues,\n}",
+  "description": "",
+  "id": "maelfohkmomvqoteivbobjnb"
+}

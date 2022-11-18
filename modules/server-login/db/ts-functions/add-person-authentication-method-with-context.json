@@ -1,0 +1,421 @@
+{
+  "createdAt": 1668752279477,
+  "updatedAt": 1668752279477,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752279477,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/addPersonAuthenticationMethodWithContext.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  functionContext: FunctionContext,\n  personId: string,\n  method: AuthenticationMethodMethod,\n  handle: AuthenticationMethod[\"handle\"],\n  credential?: string\n) => {\n  if (!functionContext.device.personIds?.includes(personId)) {\n    return { isSuccessful: false, message: \"Incorrect credentials\" };\n  }\n\n  const { isSuccessful, message, authenticationMethod } =\n    await addAuthenticationMethod(method, handle, true, credential);\n\n  if (!isSuccessful || !authenticationMethod) {\n    return { isSuccessful, message };\n  }\n\n  const updateResult = await db.update(\n    \"Person\",\n    (item) => item.id === personId,\n    (old) => ({\n      ...old,\n      authenticationMethods:\n        old.authenticationMethods.concat(authenticationMethod),\n    })\n  );\n\n  return { isSuccessful: updateResult.isSuccesful, message: \"Method added\" };\n}",
+  "name": "addPersonAuthenticationMethodWithContext",
+  "slug": "add-person-authentication-method-with-context",
+  "parameters": [
+    {
+      "name": "functionContext",
+      "schema": {
+        "$ref": "#/definitions/FunctionContext"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Should be attached as first argument of the function, if the name of the function is in the format of:\n\n- `xyzWithContext`: attaches all context\n- `xyzWithContextRaw`: attaches all context, api returns just the result of the function without wrapping it in the `RealApiReturnType`. Needed in case you have a different server.js `server.reply`\n\nFor more info see `apiConvention`",
+        "properties": [
+          {
+            "name": "authorizations",
+            "required": false,
+            "schema": {
+              "fullComment": "Authorizations accumulated of the person(s), the group(s), and public authorizations.\n\nNB: This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "nb": "This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "device",
+            "required": true,
+            "schema": {
+              "fullComment": "Device from authToken\n\nA Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
+              "properties": [
+                {
+                  "name": "ip",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "The ip of the device. Can be a local IP or remote IP.\n\nNB: Port is not included",
+                    "nb": "Port is not included",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "city",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "positionRadiusKm",
+                  "required": false,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "country",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "region",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "timezone",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "authToken",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "userAgentString",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Raw `User-Agent` header.\n\nNOT used to identify the device, since the device can already be connected to a person!",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Name of the device, calculated based on metadata like location, os, and ip\n\nCan be edited by the user",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "previousIps",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "the root IPInfo is from the latest IP the device had. All previous IPs are added to this array",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "origins",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Domains the Device has visited\n\nThe Origin request header indicates the origin (scheme, hostname, and port) that caused the request",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "hasPapi",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Is set to true if the devices IP is pinged and seems to have something that resembles a King OS PAPI.",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isOnlineCalculated",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Returning `true` or `false` indicating whether or not the IP is giving a response",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "lastOnlineAt",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Whenever the peer is online, this should update",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "isLocalIpCalculated",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "if true, the above IP is a local one, meaning it cannot be accessed from outside of this network\n\nThis is easy to determine: local IP's must start with \"192.168\"",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isFavorite",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "if `true`, this device will show on top",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isPrivate",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If true, this peer should not be shared",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "lastSyncDatabaseAtObject",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "last sync of any model\n\nUseful for example for a p2p messaging",
+                    "properties": [],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "personIds",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If the device is authenticated, this should be set.\n\nCan be unset by the person",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "appOperationsCalculated",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Calculated all operations that can be exposed as apps. This is taken from `getAllAppOperations` function",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "authenticationMethods",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "If the `Device` is not identified as a person yet, this can be configured to authenticate with different methods. Once it matches to a person, this can be cleared and `personId` can be attached.",
+                    "items": [
+                      {
+                        "schema": {
+                          "fullComment": "",
+                          "properties": [
+                            {
+                              "name": "method",
+                              "required": true,
+                              "schema": {
+                                "enum": [
+                                  "usernamePassword",
+                                  "phoneNumber",
+                                  "email",
+                                  "apple",
+                                  "google",
+                                  "facebook",
+                                  "twitter",
+                                  "linkedin",
+                                  "github"
+                                ],
+                                "fullComment": "NB: Not all are supported yet\n\nUsername + password should be the default\n\nEmail OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods\n\nAll others can also act as authentication methods, but the token shouldn't be stored",
+                                "nb": "Not all are supported yet",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "handle",
+                              "required": true,
+                              "schema": {
+                                "fullComment": "most of the time, this is a username, but can also be phone number or email or so",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "encryptedCredential",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "This can be a password or token, depending on the method.\n\nIn case of OTP, this isn't required (e.g. for `phoneNumber`)",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "otp",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "one time password code, that will be sent to email or sms (or in the future other ways)",
+                                "type": "number"
+                              }
+                            },
+                            {
+                              "name": "isAuthenticated",
+                              "required": true,
+                              "schema": {
+                                "fullComment": "If OTP is not filled in yet, will be false, otherwise true",
+                                "type": "boolean"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        },
+                        "name": "AuthenticationMethod"
+                      }
+                    ],
+                    "type": "array"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "groups",
+            "required": false,
+            "schema": {
+              "fullComment": "Groups the person(s) of the device belong to",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "hasAuthorization",
+            "required": true,
+            "schema": {
+              "fullComment": "Device has authorization to the function",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "authToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serverContext",
+            "required": false,
+            "schema": {
+              "fullComment": "Original context coming from server.js\n\nNB: due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:\n\n`import { Context } from \"server/typings/common\";`",
+              "nb": "due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:",
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "personId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "method",
+      "schema": {
+        "$ref": "#/definitions/AuthenticationMethodMethod"
+      },
+      "simplifiedSchema": {
+        "enum": [
+          "usernamePassword",
+          "phoneNumber",
+          "email",
+          "apple",
+          "google",
+          "facebook",
+          "twitter",
+          "linkedin",
+          "github"
+        ],
+        "fullComment": "Username + password should be the default\n\nEmail OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods\n\nAll others can also act as authentication methods, but the token shouldn't be stored",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "handle",
+      "schema": {
+        "type": "string",
+        "description": "most of the time, this is a username, but can also be phone number or email or so"
+      },
+      "simplifiedSchema": {
+        "fullComment": "most of the time, this is a username, but can also be phone number or email or so",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "credential",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 836,
+    "lines": 30,
+    "bytes": 836,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 30,
+    "numberOfFiles": 1
+  },
+  "id": "xckfubgcrjlsidygymiwcwqa"
+}

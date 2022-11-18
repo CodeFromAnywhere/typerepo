@@ -1,0 +1,92 @@
+{
+  "createdAt": 1668774459801,
+  "updatedAt": 1668774459801,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774459801,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "explicitTypeName": "GetStaticPaths",
+  "operationRelativeTypescriptFilePath": "src/pages/[...query].tsx",
+  "commentsInside": [],
+  "rawText": " () => {\n  return { fallback: \"blocking\", paths: [] };\n}",
+  "name": "getStaticPaths",
+  "slug": "get-static-paths",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "{ fallback: string; paths: never[]; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "fallback": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "paths": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "fallback",
+        "paths"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "fallback",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "paths",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 56,
+    "lines": 3,
+    "bytes": 56,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 19,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "lbjfwwbbgdnxzctjbihclegg"
+}

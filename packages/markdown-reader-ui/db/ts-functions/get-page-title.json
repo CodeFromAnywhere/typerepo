@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668149582270,
-  "updatedAt": 1668149582270,
+  "createdAt": 1668751768650,
+  "updatedAt": 1668751768650,
   "deletedAt": 0,
-  "createdFirstAt": 1668149582270,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668751768650,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/pages.ts",
   "commentsInside": [],
   "rawText": " (page: PageType) =>\n  page.title || page.key.charAt(0).toUpperCase().concat(page.key.slice(1))",
@@ -37,5 +32,5 @@
     "linesPerFile": 2,
     "numberOfFiles": 1
   },
-  "id": "guvbozfxzdpuutgfdkzuojrj"
+  "id": "lqmkfliuxlqzzevnudzjzxqj"
 }

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668752287515,
+  "updatedAt": 1668752287515,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752287515,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getPublicPersons.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const publicPersons = (await db.get(\"Person\")).map((item) =>\n    getSubsetFromObject(item, publicPersonKeys)\n  );\n  return publicPersons;\n}",
+  "name": "getPublicPersons",
+  "slug": "get-public-persons",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 156,
+    "lines": 6,
+    "bytes": 156,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 6,
+    "numberOfFiles": 1
+  },
+  "id": "bmeuofjqabyjhclzplyurmev"
+}

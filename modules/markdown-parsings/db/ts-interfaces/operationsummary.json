@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668154786048,
-  "updatedAt": 1668154786048,
+  "createdAt": 1668334879225,
+  "updatedAt": 1668334879225,
   "deletedAt": 0,
-  "createdFirstAt": 1668154786048,
+  "createdFirstAt": 1668334879225,
   "id": "operationsummary",
   "name": "OperationSummary",
   "slug": "operationsummary",
@@ -121,18 +121,20 @@
           "required": false,
           "schema": {
             "enum": [
-              "js",
+              "cjs",
               "ts",
-              "node",
-              "server",
-              "web",
-              "app",
-              "ui-es6",
-              "ui-es5",
+              "esm",
+              "node-cjs",
+              "node-esm",
+              "server-cjs",
+              "ui-web",
+              "ui-app",
+              "ui-ts",
+              "ui-cjs",
               "ui-esm"
             ],
-            "fullComment": "# Classification\n\nTODO: think about what the differences are and how we need to change processes to make it all work good\n\n## Possible values\n\n- js: only js (no node) (well, ts of course, but it gets built into js)\n\n- ts: non-built ts code\n\n- node: includes other node packages, operations, core-imports, or globals.\n\n- server: exposes something on some port when it is ran and uses node code\n\n- web: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...\n\n- app: uses react-native and exposes something on some port when it is ran\n\n- DEPRECATED: ui-es6: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. highly discouraged, please use ui-es5, or, if needed, ui-esm)\n\n- ui-es5: ui which main entry points to javascript es5 files (this ui package can be built). don't import ESM packages in here, this won't work.\n\n- ui-esm: ui which builds to ESM module resolved Javascript. All packages that use ui-esm packages, need to be `ui-esm`, `ui-es6`, or `web` in order to work properly.",
-            "todo": "think about what the differences are and how we need to change processes to make it all work good",
+            "fullComment": "`OperationClassification` tells you to what kind of environment the operation can be exposed to. It tells you things about how it will be built. There are three categories: Full stack, frontend only, and backend only. The aim is to do as much as possible in the full stack realm so it can be reused anywhere. If that is not possible, `ui-esm` is preferred for the frontend, or `node-esm` for things that require backend.\n\nTODO: It would be great to learn more about this topic and see if I can make more cross-environment packages. A great use case would be to create a wrapper around the current `fs-orm` to enable using it at the frontend too.\n\n# Possible values\n\nFULL STACK\n\n- `cjs`: only js (no node) (well, ts of course, but it gets built into common js)\n\n- `ts`: non-built typescript code (needs to be transpiled, not recommended)\n\nTODO: `esm`: builds to ESM module resolved Javascript\n\nFRONTEND ONLY (cannot be used within backend-only operations)\n\n- `ui-web`: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...\n\n- `ui-app`: uses react-native and exposes something on some port when it is ran\n\n- `ui-ts`: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. Primarily used for big ui libraries tied to a `ui-web` and `ui-app` for convenience. For other things, it is highly discouraged, please use `ui-cjs` or `ui-esm`)\n\n- `ui-cjs`: ui which main entry points to javascript es5 files (this ui package can be built). don't import ESM packages in here, this may give problems.\n\n- `ui-esm`: ui which builds to ESM module resolved Javascript. All packages that use `ui-esm` packages, need to be `ui-esm`, `ui-es6`, `ui-web`, or `ui-app` in order to work properly. It seems to have difficulties using this in `ui-cjs`\n\nBACKEND ONLY (cannot be used within frontend-only operations)\n\n- `node-cjs`: includes other node packages, operations, core-imports, and globals.\n\nTODO: `node-esm`: Typescript package that is built to ESM Javascript which also includes all node packages, operations, core-imports and globals.\n\n- `server-cjs`: exposes something on some port when it is ran and uses node code",
+            "todo": "It would be great to learn more about this topic and see if I can make more cross-environment packages. A great use case would be to create a wrapper around the current `fs-orm` to enable using it at the frontend too.",
             "type": "string"
           }
         },

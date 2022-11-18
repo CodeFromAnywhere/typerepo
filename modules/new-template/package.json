@@ -1,32 +1,14 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328734925,
+  "updatedAt": 1668328734925,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "version": "1.0.2",
-  "main": "build/index.js",
-  "source": "src/index.ts",
-  "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
-    "test": "node ./build/cli.js",
-    "up": "npm version patch -f",
-    "pub": "yarn up && npm publish"
-  },
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.6.4"
-  },
-  "name": "new-template",
-  "description": "Package to create a new King OS template (template or some other boilerplate)",
+  "createdFirstAt": 1668328734925,
+  "id": "WmtmpZUgcnRixKhs",
   "author": "Wijnand Karsens",
   "bin": {
     "newTemplate": "./build/cli/newTemplate.cli.js",
     "newOperation": "./build/cli/newOperation.cli.js"
   },
-  "slug": "new-template",
-  "id": "WmtmpZUgcnRixKhs",
   "dependencies": {
     "fs-util": "1.0.5",
     "get-path": "0.0.1",
@@ -41,7 +23,101 @@
     "rebuild-operation": "0.0.1",
     "filename-conventions": "0.0.1"
   },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "description": "Package to create a new King OS template (template or some other boilerplate)",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.6.4"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "source": "src/index.ts",
+  "version": "1.0.2",
+  "name": "new-template",
+  "language": "english",
+  "slug": "new-template",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/new-template/src/cli/newTemplate.cli.ts. Error: Error: Unknown node \\\"(basePath) => {\\n  if (basePath) {\\n    console.log(`Generated template`, { type });\\n  } else {\\n    console.log(\\\"Something went wrong\\\");\\n  }\\n}\"]",
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "new-template",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668752156628,
+    "operationDependenciesIndexed": [
+      "fs",
+      "path",
+      "getOperationPath",
+      "operationClassificationConst",
+      "canRead",
+      "path",
+      "fs",
+      "setJsonKey",
+      "renameTemplateFiles",
+      "kebabCase",
+      "log",
+      "OperationClassification",
+      "canRead",
+      "fs",
+      "path",
+      "writeStringToFile",
+      "getProjectRoot",
+      "getSrcRelativeFileId",
+      "isBundle",
+      "objectMapAsync",
+      "yarnBuild",
+      "setJsonKey",
+      "projectRelativeGeneratedOperationsFolder",
+      "log",
+      "path",
+      "fs",
+      "renameTemplateFiles",
+      "log",
+      "getProjectRoot",
+      "OperationClassification",
+      "operationClassificationConst",
+      "log"
+    ],
+    "packageDependenciesIndexed": [
+      "spawnSync"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/typescript",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 21,
+        "lines": 5703,
+        "characters": 284734,
+        "bytes": 284734
+      },
+      "dataSize": {
+        "numberOfFiles": 16,
+        "lines": 557,
+        "characters": 15334,
+        "bytes": 15334
+      },
+      "textSize": {
+        "numberOfFiles": 9,
+        "lines": 263,
+        "characters": 7680,
+        "bytes": 7680
+      },
+      "size": {
+        "bytes": 307748,
+        "characters": 307748,
+        "lines": 6523,
+        "numberOfFiles": 46
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

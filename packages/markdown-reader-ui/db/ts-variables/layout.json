@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149580355,
-  "updatedAt": 1668149580355,
+  "createdAt": 1668751767074,
+  "updatedAt": 1668751767074,
   "deletedAt": 0,
-  "createdFirstAt": 1668149580355,
+  "createdFirstAt": 1668751767074,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "layout",
   "operationRelativeTypescriptFilePath": "src/components/Layout.tsx",
   "type": {
-    "rawType": "(props: { publicBundleConfig: any; pages: import(\"/Users/king/King/operations/tools/markdown-reader/markdown-reader-types/build/MarkdownReaderPage\").MarkdownReaderPage[]; children: any; augmentedWordObject?: import(\"/Users/king/King/operations/tools/util/js-util/build/createMappedObject\").MappedObject<import(\"/Users/king/King/operations/tools/markdown-reader/markdown-reader-types/build/AugmentedWord\").AugmentedWord> | undefined; }) => JSX.Element",
+    "rawType": "(props: { publicBundleConfig: any; pages: import(\"/Users/king/King/operations/tools/purpose/reader/markdown-reader-types/build/MarkdownReaderPage\").MarkdownReaderPage[]; children: any; augmentedWordObject?: import(\"/Users/king/King/operations/tools/util/js-util/build/createMappedObject\").MappedObject<import(\"/Users/king/King/operations/tools/purpose/reader/augmented-word-types/build/AugmentedWord\").AugmentedWord> | undefined; }) => JSX.Element",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: {\n  publicBundleConfig: MarkdownReaderPageProps[\"publicBundleConfig\"];\n  pages: MarkdownReaderPage[];\n  children: any;\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n}) => {\n  const { pages, children, augmentedWordObject, publicBundleConfig } = props;\n\n  const queryPaths = pages.filter((x) => x.isMenuItem).map((x) => x.queryPath);\n  const nestedPathObject = queryPathsArrayToNestedPathObject(queryPaths);\n  const menu = nestedPathObjectToNestedMenuRecursive(nestedPathObject);\n\n  return (\n    <Div>\n      <Header publicBundleConfig={publicBundleConfig} />\n\n      <MenuWrapper augmentedWordObject={augmentedWordObject} menu={menu}>\n        {children}\n      </MenuWrapper>\n    </Div>\n  );\n}",
+  "value": "(props: {\n  publicBundleConfig: MarkdownReaderPageProps[\"publicBundleConfig\"];\n  pages: MarkdownReaderPage[];\n  children: any;\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n}) => {\n  const { pages, children, augmentedWordObject, publicBundleConfig } = props;\n\n  const queryPaths = pages.filter((x) => x.isMenuItem).map((x) => x.queryPath);\n\n  return (\n    <LayoutGrid\n      menu={{\n        augmentedWords: Object.values(augmentedWordObject || {}),\n        queryPaths,\n        isLoading: false,\n      }}\n      header={<Header publicBundleConfig={publicBundleConfig} />}\n    >\n      {children}\n    </LayoutGrid>\n  );\n}",
   "description": "",
-  "id": "lllrvifgiehgxxzdyupxceov"
+  "id": "jbbwwlceguutdxpxapwbrbit"
 }

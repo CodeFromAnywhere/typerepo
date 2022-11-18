@@ -31,18 +31,6 @@ renders a markdown striing (without frontmatter)
 renders a markdown striing (without frontmatter)
 
 
-## getRealSrc()
-
-Based on markdown info, gest the real source for an image
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| src (optional) | string |  |,| config | `MarkdownParseRenderConfig` |  |
-| **Output** | string   |    |
-
-
-
 ## `<MarkdownCodeblock />`
 
 Renders a markdown codeblock with a text as content and an optional extension
@@ -52,6 +40,23 @@ Renders a markdown codeblock with a text as content and an optional extension
 | ---------- | -- | -- |
 | props | { text: string, <br />extension?: string, <br />minimalMode?: `CodeblockMode`, <br />expandedMode?: `CodeblockMode`, <br />isInitiallyExpanded?: boolean, <br />isModeStatic?: boolean, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
+
+
+
+## 📄 MarkdownCodeblock (exported const)
+
+Renders a markdown codeblock with a text as content and an optional extension
+
+
+## getRealSrc()
+
+Based on markdown info, gest the real source for an image
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| src (optional) | string |  |,| config | `MarkdownParseRenderConfig` |  |
+| **Output** | string   |    |
 
 
 
@@ -85,11 +90,6 @@ Properties:
 ## 📄 getRealSrc (exported const)
 
 Based on markdown info, gest the real source for an image
-
-
-## 📄 MarkdownCodeblock (exported const)
-
-Renders a markdown codeblock with a text as content and an optional extension
 
 
 ## 📄 renderMarkdownParse (exported const)

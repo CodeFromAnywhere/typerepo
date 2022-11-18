@@ -1,0 +1,57 @@
+{
+  "createdAt": 1668151984260,
+  "updatedAt": 1668151985802,
+  "deletedAt": 0,
+  "createdFirstAt": 1668151984260,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/search/search-web/src/pages/_app.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\\\" of kind \\\"ConstructorType\\\"\"]",
+  "buildSucceeded": true,
+  "id": "bzgcidqsgdnfzpygymviatjw",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "search-web",
+  "packageName": "search-web",
+  "relativeOperationLocationPath": "operations/tools/search",
+  "classification": "web",
+  "name": "search-web",
+  "slug": "search-web",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "AlertProvider",
+    "ModalProvider",
+    "useRouter",
+    "Div",
+    "createStoreProvider",
+    "createUseStore"
+  ],
+  "packageDependencies": [
+    "AppProps",
+    "QueryClient",
+    "QueryClientProvider"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 5,
+      "lines": 0,
+      "characters": 4850,
+      "bytes": 4850
+    },
+    "dataSize": {
+      "numberOfFiles": 11,
+      "lines": 0,
+      "characters": 3669,
+      "bytes": 3669
+    },
+    "textSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 2327,
+      "bytes": 2327
+    },
+    "size": {
+      "bytes": 10846,
+      "characters": 10846,
+      "lines": 0,
+      "numberOfFiles": 17
+    }
+  }
+}

@@ -1,0 +1,4 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.useGetDbModelQuery=void 0;var api_1=require("api"),getDbModel=api_1.api.getDbModel,react_query_1=require("react-query"),defaultLimit=30,useGetDbModelQuery=function(e){var t=["getDbModel",e];return(0,react_query_1.useInfiniteQuery)(t,(function(t){var r=t.pageParam;
+// @ts-ignore
+return getDbModel(e,{start:(null==r?void 0:r.start)||0,limit:(null==r?void 0:r.limit)||defaultLimit})}),{getNextPageParam:function(e,t){var r,i,u=(null===(r=e.result)||void 0===r?void 0:r.limit)||defaultLimit;return{start:((null===(i=e.result)||void 0===i?void 0:i.start)||0)+u,limit:u}}})};exports.useGetDbModelQuery=useGetDbModelQuery;
+//# sourceMappingURL=useGetDbModelQuery.js.map

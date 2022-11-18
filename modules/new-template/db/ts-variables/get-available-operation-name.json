@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635797080,
-  "updatedAt": 1667635797080,
+  "createdAt": 1668752146551,
+  "updatedAt": 1668752146551,
   "deletedAt": 0,
-  "createdFirstAt": 1667635797080,
+  "createdFirstAt": 1668752146551,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  rootFolderPath: string,\n  preferredFolderName: string,\n  manualProjectRoot?: string\n): Promise<string> => {\n  //making sure we make a folder that doesn't exist yet:\n  let n = 0;\n  let availableFolderName = preferredFolderName;\n\n  while (true) {\n    const folderAlreadyExists = fs.existsSync(\n      path.join(rootFolderPath, availableFolderName)\n    );\n\n    const operationAlreadyExists =\n      (await getOperationPath(availableFolderName, {\n        manualProjectRoot,\n        notUseSdk: !!manualProjectRoot,\n      })) !== undefined;\n\n    if (!folderAlreadyExists && !operationAlreadyExists) break;\n\n    n++;\n    availableFolderName = `${preferredFolderName}${n}`;\n  }\n\n  return availableFolderName;\n}",
   "description": "returns folder name\n\nfinds the first foldername that is available in this folder but also there is nowhere an operation already with this name\n\nthere is also getAvailableFolderPath for non-operation folders",
-  "id": "ooyzrzdfittcdqfadfcmjqog"
+  "id": "szovthvjnqepsllemcgoovek"
 }

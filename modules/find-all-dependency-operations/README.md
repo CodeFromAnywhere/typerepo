@@ -1,6 +1,6 @@
 # Find all dependency operations
 
-find-all-dependency-operations (`OperationClassification` node)
+find-all-dependency-operations (`OperationClassification` node-cjs)
 
 
 

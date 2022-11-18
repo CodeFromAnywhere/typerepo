@@ -1,6 +1,6 @@
 # Path util
 
-path-util (`OperationClassification` js)
+path-util (`OperationClassification` cjs)
 
 Gets insightful information about any file or folder (path)
 

@@ -37,12 +37,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPublicFolderNestedPathObject = exports.getPublicFolderNestedPathObjectFromPeer = void 0;
-var database_1 = require("database");
 var fs_util_1 = require("fs-util");
 var get_path_1 = require("get-path");
 var getNestedPathObject_1 = require("./getNestedPathObject");
 var api_1 = require("api");
 var port_conventions_1 = require("port-conventions");
+var getPeerPeople_1 = require("./getPeerPeople");
 /**
 
 Peer = {
@@ -51,22 +51,22 @@ Peer = {
 }
  */
 var getPublicFolderNestedPathObjectFromPeer = function (peerSlug) { return __awaiter(void 0, void 0, void 0, function () {
-    var peers, peer, ip, peerApiResult;
+    var peerPeople, peer, name, ip, peerApiResult;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, database_1.db.get("Peer")];
+            case 0: return [4 /*yield*/, (0, getPeerPeople_1.getPeerPeople)()];
             case 1:
-                peers = _a.sent();
-                peer = peers.find(function (x) { return x.slug === peerSlug; });
-                ip = peer === null || peer === void 0 ? void 0 : peer.name;
-                if (!ip) {
+                peerPeople = (_a.sent()).peerPeople;
+                peer = peerPeople.find(function (x) { return x.slug === peerSlug; });
+                name = peer === null || peer === void 0 ? void 0 : peer.name;
+                if (!name) {
                     console.log("Peer not found");
                     return [2 /*return*/];
                 }
-                console.log({ authToken: peer.authToken });
+                ip = "";
                 return [4 /*yield*/, api_1.apiWithConfig.getPublicFolderNestedPathObject({
                         apiUrl: "http://".concat(ip, ":").concat(port_conventions_1.ports["function-server"]),
-                        authToken: peer.authToken,
+                        // authToken: peer.authToken,
                         timeout: 5000,
                     })];
             case 2:

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263624383,
-  "updatedAt": 1666263624383,
+  "createdAt": 1668335548556,
+  "updatedAt": 1668335548556,
   "deletedAt": 0,
-  "createdFirstAt": 1666263624383,
+  "createdFirstAt": 1668335548556,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  value: FrontmatterValue\n): string | null => {\n  if (value === undefined) return null;\n  if (value === null) return \"null\";\n  if (typeof value === \"number\") return String(value);\n  if (typeof value === \"boolean\") return String(value);\n  if (typeof value === \"boolean\") return String(value);\n  if (Array.isArray(value))\n    return value.map(quotedOrNot).map(stringifyNewlines).join(\", \");\n  if (typeof value === \"string\") return stringifyNewlines(quotedOrNot(value));\n  // NB: according to current support this should never happen\n  if (typeof value === \"object\") return `\"${JSON.stringify(value)}\"`;\n\n  return null;\n}",
   "description": "",
-  "id": "uuzxblssjizarviwwixtbyti"
+  "id": "qvbgdnfhxdljemxaxoaqubvq"
 }

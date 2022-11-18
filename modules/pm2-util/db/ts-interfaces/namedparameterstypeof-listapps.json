@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773975898,
+  "updatedAt": 1668773975898,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773975898,
+  "id": "namedparameterstypeof-listapps",
+  "name": "NamedParameters<typeof listApps>",
+  "slug": "namedparameterstypeof-listapps",
+  "operationRelativeTypescriptFilePath": "src/listApps.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof listApps>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

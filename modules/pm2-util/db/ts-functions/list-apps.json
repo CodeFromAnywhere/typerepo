@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668773976056,
+  "updatedAt": 1668773976056,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773976056,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/listApps.ts",
+  "commentsInside": [],
+  "rawText": " async (): Promise<ListAppsResult> => {\n  return pm2ConnectDisconnect((resolve) => {\n    pm2.list((err, processes) => {\n      if (err) {\n        resolve({ isSuccessful: false, message: err.message });\n      }\n\n      const apps = processes\n        .filter((x) => x.name?.startsWith(appPrefix))\n        .map((x) => ({\n          operationName: x.name!.substring(appPrefix.length),\n          cpuPercentage: x.monit?.cpu,\n          memoryBytes: x.monit?.memory,\n        }));\n\n      resolve({ isSuccessful: true, apps });\n    });\n  });\n}",
+  "name": "listApps",
+  "slug": "list-apps",
+  "parameters": [],
+  "description": "Lists the apps in pm2",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/control-project/pm2-util/src/types\").ListAppsResult>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 552,
+    "lines": 19,
+    "bytes": 552,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 19,
+    "numberOfFiles": 1
+  },
+  "id": "wrjzxwhfkstmnpxhguiyxoec"
+}

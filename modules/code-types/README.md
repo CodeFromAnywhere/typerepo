@@ -1,6 +1,6 @@
 # Code types
 
-code-types (`OperationClassification` js)
+code-types (`OperationClassification` cjs)
 
 
 
@@ -23,20 +23,8 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| canCache (optional) | boolean |  |
-| isGetApi (optional) | boolean |  |
-| isPostApi (optional) | boolean |  |
+| explicitTypeName (optional) | string |  |
 | isExported  | boolean |  |
-| isApiExposed  | boolean |  |
-| publicAuthorization  | array |  |
-| runEveryPeriod (optional) | string |  |
 | description (optional) | string |  |
 | rawText (optional) | string |  |
 | commentsInside  | array |  |
@@ -50,7 +38,69 @@ Properties:
 | cumulativeCodeSize (optional) | object |  |
 | maxIndentationDepth  | number |  |
 | dependantFiles (optional) | array |  |
+| groupAuthorization  | object |  |
+| isApiExposed  | boolean |  |
+| canCache (optional) | boolean |  |
+| runEveryPeriod (optional) | string |  |
 | price (optional) | number |  |
+| classification (optional) | string |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| operationRelativeTypescriptFilePath  | string |  |
+
+
+
+## 🔸 Operation
+
+jsonSingle model
+
+
+
+
+Model for `typerepo` operations. Stored in `package.json` in every package (compatible with regular npm package.json data structure). An `Operation` is a NPM Package that applies the `typerepo` convention.
+
+TODO: add a validation to package.json files for the whole project, to ensure i can apply `fs-orm` convention
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| slug  | string |  |
+| name  | string |  |
+| language  | string |  |
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| path (optional) | string |  |
+| main (optional) | string |  |
+| source (optional) | string |  |
+| description (optional) | string |  |
+| version (optional) | string |  |
+| private (optional) | boolean |  |
+| author (optional) | object |  |
+| repository (optional) | object |  |
+| homepage (optional) | string |  |
+| dependencies (optional) | object |  |
+| devDependencies (optional) | object |  |
+| peerDependencies (optional) | object |  |
+| bin (optional) | object |  |
+| workspaces (optional) | array |  |
+| scripts (optional) | object |  |
+| operation (optional) | object |  |
 
 
 
@@ -89,48 +139,6 @@ Properties:
 | isOperationIndex  | boolean |  |
 | operationStorageLocationRelativeFilePath (optional) | string |  |
 | dbStorageMethod (optional) | string |  |
-
-
-
-## 🔸 PackageJson
-
-jsonSingle model
-
-
-
-
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| path (optional) | string |  |
-| name (optional) | string |  |
-| main (optional) | string |  |
-| source (optional) | string |  |
-| description (optional) | string |  |
-| version (optional) | string |  |
-| private (optional) | boolean |  |
-| author (optional) | object |  |
-| repository (optional) | object |  |
-| homepage (optional) | string |  |
-| dependencies (optional) | object |  |
-| devDependencies (optional) | object |  |
-| peerDependencies (optional) | object |  |
-| bin (optional) | object |  |
-| workspaces (optional) | array |  |
-| scripts (optional) | object |  |
-| type (optional) | string |  |
-| sensible (optional) | object |  |
-| operation (optional) | object |  |
 
 
 
@@ -183,7 +191,6 @@ Properties:
 | deletedAt (optional) | number |  |
 | createdFirstAt (optional) | number |  |
 | parameters  | object |  |
-| downmatterParameters (optional) | object |  |
 | content (optional) | array |  |
 | raw  | string |  |
 
@@ -191,113 +198,72 @@ Properties:
 
 ## 🔹 OperationClassification
 
-## Classification
+`OperationClassification` tells you to what kind of environment the operation can be exposed to. It tells you things about how it will be built. There are three categories: Full stack, frontend only, and backend only. The aim is to do as much as possible in the full stack realm so it can be reused anywhere. If that is not possible, `ui-esm` is preferred for the frontend, or `node-esm` for things that require backend.
 
-TODO: think about what the differences are and how we need to change processes to make it all work good
-
-
-### Possible values
-
-- js: only js (no node) (well, ts of course, but it gets built into js)
-
-- ts: non-built ts code
-
-- node: includes other node packages, operations, core-imports, or globals.
-
-- server: exposes something on some port when it is ran and uses node code
-
-- web: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...
-
-- app: uses react-native and exposes something on some port when it is ran
-
-- DEPRECATED: ui-es6: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. highly discouraged, please use ui-es5, or, if needed, ui-esm)
-
-- ui-es5: ui which main entry points to javascript es5 files (this ui package can be built). don't import ESM packages in here, this won't work.
-
-- ui-esm: ui which builds to ESM module resolved Javascript. All packages that use ui-esm packages, need to be `ui-esm`, `ui-es6`, or `web` in order to work properly.
+TODO: It would be great to learn more about this topic and see if I can make more cross-environment packages. A great use case would be to create a wrapper around the current `fs-orm` to enable using it at the frontend too.
 
 
+## Possible values
+
+FULL STACK
+
+- `cjs`: only js (no node) (well, ts of course, but it gets built into common js)
+
+- `ts`: non-built typescript code (needs to be transpiled, not recommended)
+
+TODO: `esm`: builds to ESM module resolved Javascript
+
+FRONTEND ONLY (cannot be used within backend-only operations)
+
+- `ui-web`: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...
+
+- `ui-app`: uses react-native and exposes something on some port when it is ran
+
+- `ui-ts`: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. Primarily used for big ui libraries tied to a `ui-web` and `ui-app` for convenience. For other things, it is highly discouraged, please use `ui-cjs` or `ui-esm`)
+
+- `ui-cjs`: ui which main entry points to javascript es5 files (this ui package can be built). don't import ESM packages in here, this may give problems.
+
+- `ui-esm`: ui which builds to ESM module resolved Javascript. All packages that use `ui-esm` packages, need to be `ui-esm`, `ui-es6`, `ui-web`, or `ui-app` in order to work properly. It seems to have difficulties using this in `ui-cjs`
+
+BACKEND ONLY (cannot be used within frontend-only operations)
+
+- `node-cjs`: includes other node packages, operations, core-imports, and globals.
+
+TODO: `node-esm`: Typescript package that is built to ESM Javascript which also includes all node packages, operations, core-imports and globals.
+
+TODO: `node-ts`: transpilable node package
+
+- `server-cjs`: exposes something on some port when it is ran and uses node code
+
+
+## Indexation
+
+Operations will be classified automatically. It is good to remember that:
+
+- It will be classified as UI if `isUiOperation` resolves to true
+- It will be classified as Node if `Operation` has a (dev)dependency on `@types/node`.
+- Otherwise, it will be classified as base typescript (full stack)
+- It will be classified to an ESM operation if `tsconfigCompilesEsm` resolves to true.
+- It will be classified to a TS operation if `packageCompilesTs` resolves to true
+- In order for it to be classified as a server, you must set `isNodeServer` to true in the `.operation` config object of `Operation`
 
 
 
 
 
 
-## 🔸 OperationIndex
-
-jsonSingle model
 
 
-
-
-contains all calculated info about an operation that needs to be retreived often:
-some package-only things, but also a collection of all indexes of all files
-
-should be able to be found in operaiton folder in /db/operation-index.json
-
-
-
-
+## 🔹 FunctionParameter
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| slug  | string |  |
 | name  | string |  |
-| language  | string |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| lastPullTimeAt (optional) | number |  |
-| packageName  | string |  |
-| folderName  | string |  |
-| relativeOperationLocationPath  | string |  |
-| classification  | string |  |
-| packageDependencies  | array |  |
-| operationDependencies  | array |  |
-| coreDependencies  | array |  |
-| buildSucceeded  | boolean |  |
-| dependenciesBuildsFailed  | boolean |  |
-| indexImportExportError  | string |  |
-| lintProblems  | array |  |
-| indexInteracesErrors  | array |  |
-| indexErrors  | array |  |
-| size  | object |  |
-
-
-
-## 🔸 TsConfig
-
-jsonSingle model
-
-
-
-
-would be nice if we have a type interface for this, just like package.json
-for now just type the stuff we need
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| include (optional) | array |  |
-| exclude (optional) | array |  |
-| compilerOptions  | object |  |
+| schema (optional) | object |  |
+| simplifiedSchema (optional) | object |  |
+| required  | boolean |  |
 
 
 
@@ -368,19 +334,6 @@ Properties:
 
 
 
-## 🔹 FunctionParameter
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| schema (optional) | object |  |
-| simplifiedSchema (optional) | object |  |
-| required  | boolean |  |
-
-
-
 ## 🔹 MarkdownChunk
 
 Properties: 
@@ -393,6 +346,162 @@ Properties:
 | markdownLink (optional) | object |  |
 | title (optional) | string |  |
 | children (optional) | array |  |
+
+
+
+## 🔸 TsConfig
+
+jsonSingle model
+
+
+
+
+would be nice if we have a type interface for this, just like package.json
+for now just type the stuff we need
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| include (optional) | array |  |
+| exclude (optional) | array |  |
+| compilerOptions  | object |  |
+
+
+
+## 🔸 WebMarkdownFile
+
+markdown model
+
+
+
+Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter
+
+NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| headerImage (optional) | object |  |
+| headerTitle (optional) | string |  |
+| headerSubTitle (optional) | string |  |
+| headerCta (optional) | object |  |
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| markdown  | string |  |
+| categoryStackCalculated  | array |  |
+| isDraft (optional) | boolean |  |
+| privacy  | string |  |
+| language  | string |  |
+| isLanguageCustom (optional) | boolean |  |
+| websiteCallToActionSlugs (optional) | array |  |
+| shop_itemIds (optional) | array |  |
+| author_personSlugs (optional) | array |  |
+| interestSlugs (optional) | array |  |
+| price (optional) | number |  |
+
+
+
+## 🔹 FolderSummary
+
+objective size measurements of all files in a folder
+
+summary for a folder should contain file-summaries for different filetypes and an overal file summary
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| size  | object |  |
+| textSize  | object |  |
+| dataSize  | object |  |
+| codeSize  | object |  |
+
+
+
+## 🔸 FunctionExecution
+
+jsonMultiple model
+
+
+
+Model for tests, examples, cache, and recent executions of any function
+
+Requirement for **tifo-stitching**
+
+Example:
+
+const someFunction = (inputA: string, inputB:string):string => {
+
+return `${inputA} != ${inputB}`
+}
+
+
+find this in the database after executing the function
+
+const functionExecution1 = {
+....
+functionName: "someFunction",
+inputParameters: ["hello", "world"],
+output: "hello != world",
+isTest: false,
+isExample: false,
+isResultFromCache: false,
+performance: [....],
+}
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| functionName  | string |  |
+| tsFunctionId  | string |  |
+| inputParameters (optional) | array |  |
+| output  | object |  |
+| isTest  | boolean |  |
+| isExample  | boolean |  |
+| description (optional) | string |  |
+| isResultFromCache  | boolean |  |
+| hasApiChanged (optional) | boolean |  |
+| performance  | array |  |
 
 
 
@@ -504,15 +613,13 @@ Properties:
 
 
 
-## 🔸 WebMarkdownFile
+## 🔹 CategorizedFilePaths
 
-markdown model
+filepaths categorized based on the filetype. With king os there are only these filetypes:
 
-
-
-Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter
-
-NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!
+- code: ts, tsx
+- data: json
+- text: md, mdx
 
 
 
@@ -522,31 +629,9 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| headerImage  | object |  |
-| headerTitle  | string |  |
-| headerSubTitle  | string |  |
-| headerCta  | object |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| markdown  | string |  |
-| categoryStackCalculated  | array |  |
-| isDraft (optional) | boolean |  |
-| privacy  | string |  |
-| language  | string |  |
-| isLanguageCustom (optional) | boolean |  |
-| websiteCallToActionSlugs (optional) | array |  |
-| shop_itemIds (optional) | array |  |
-| author_personSlugs  | array |  |
-| interestSlugs  | array |  |
-| price  | number |  |
+| code  | array |  |
+| data  | array |  |
+| text  | array |  |
 
 
 
@@ -602,48 +687,6 @@ The following strategies are available to store the data.
 
 
 
-## 🔹 FolderExploration
-
-suggested type for menu is FolderExploration[]
-
-NB: recursive!
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| type  | string |  |
-| name  | string |  |
-| relativeProjectPath  | string |  |
-| children (optional) | array |  |
-
-
-
-## 🔹 FolderSummary
-
-objective size measurements of all files in a folder
-
-summary for a folder should contain file-summaries for different filetypes and an overal file summary
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| size  | object |  |
-| textSize  | object |  |
-| dataSize  | object |  |
-| codeSize  | object |  |
-
-
-
 ## 🔹 IndexModels
 
 Properties: 
@@ -658,67 +701,6 @@ Properties:
 | TsComment  | object |  |
 | TsImport  | object |  |
 | TsExport  | object |  |
-
-
-
-## 🔹 ModelInfo
-
-used to show a list of models available in a menu structure
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| slug  | string |  |
-| rows  | number |  |
-
-
-
-## 🔸 OperationConfig
-
-markdown model
-
-
-
-
-anything configurable about the operation.
-
-Of course we could make this live in operation.json or as a prop in package.json, but it would be better to make it work with a markdown file.
-
-Let's try to use OPERATION.md
-
-TODO: Make this work and make sure the operationconfig is parsed from this file using `db.get("OperationConfig")` as per convention.
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| markdown  | string |  |
-| categoryStackCalculated  | array |  |
-| indirectDependencies (optional) | array |  |
-| authors (optional) | array |  |
-| contributors (optional) | array |  |
-| shortDescriptionText (optional) | string |  |
-| paymentPlanId (optional) | string |  |
 
 
 
@@ -749,27 +731,6 @@ Properties:
 | type  | string |  |
 | secondaryType (optional) | string |  |
 | contentType  | array |  |
-
-
-
-## 🔹 SensibleConfig
-
-Sensible-global configurations
-
-TODO: rename to `typerepo`
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| skipMinify (optional) | boolean |  |
-| isSensibleProject (optional) | boolean |  |
-| hasGeneratedDependencies (optional) | boolean |  |
-| isNotSdkable (optional) | boolean |  |
 
 
 
@@ -869,6 +830,8 @@ Properties:
 
 ## 📄 dbStorageMethods (exported const)
 
+## 📄 operationClassificationConst (exported const)
+
 ## 📄 typescriptIndexModels (exported const)
 
 ## markdownParseToMarkdownModelType()
@@ -880,28 +843,6 @@ makes a markdownModelType from a markdownParse.
 | ---------- | -- | -- |
 | markdownParse | {  } |  |
 | **Output** |    |    |
-
-
-
-## 🔹 CategorizedFilePaths
-
-filepaths categorized based on the filetype. With king os there are only these filetypes:
-
-- code: ts, tsx
-- data: json
-- text: md, mdx
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| code  | array |  |
-| data  | array |  |
-| text  | array |  |
 
 
 
@@ -994,53 +935,28 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| tsImports (optional) | array |  |
+| tsFunctions (optional) | array |  |
+| tsInterfaces (optional) | array |  |
+| tsVariables (optional) | array |  |
 | tsBuildErrors (optional) | array |  |
 | tsLintWarnings (optional) | array |  |
-| tsFunctions (optional) | array |  |
-| tsVariables (optional) | array |  |
-| tsInterfaces (optional) | array |  |
 | tsComments (optional) | array |  |
-| tsImports (optional) | array |  |
 | tsExports (optional) | array |  |
 | success (optional) | boolean |  |
 | response (optional) | string |  |
 | markdown (optional) | object |  |
 | pathMetaData (optional) | object |  |
-| operationIndexes (optional) | array |  |
+| operations (optional) | array |  |
 | index  | array |  |
 
 
 
-## 🔸 FunctionExecution
+## 🔹 FolderExploration
 
-jsonMultiple model
+suggested type for menu is FolderExploration[]
 
-
-
-Model for tests, examples, cache, and recent executions of any function
-
-Requirement for **tifo-stitching**
-
-Example:
-
-const someFunction = (inputA: string, inputB:string):string => {
-
-return `${inputA} != ${inputB}`
-}
-
-
-find this in the database after executing the function
-
-const functionExecution1 = {
-....
-functionName: "someFunction",
-inputParameters: ["hello", "world"],
-output: "hello != world",
-isTest: false,
-isExample: false,
-isResultFromCache: false,
-performance: [....],
-}
+NB: recursive!
 
 
 
@@ -1050,45 +966,10 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| functionName  | string |  |
-| tsFunctionId  | string |  |
-| inputParameters (optional) | array |  |
-| output  | object |  |
-| isTest  | boolean |  |
-| isExample  | boolean |  |
-| description  | string |  |
-| isResultFromCache  | boolean |  |
-| hasApiChanged (optional) | boolean |  |
-| performance  | array |  |
-
-
-
-## 🔹 GeneralOperationIndex
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| updatedAt  | number |  |
-| lastPullTimeAt (optional) | number |  |
+| type  | string |  |
 | name  | string |  |
-| slug  | string |  |
-| packageName  | string |  |
-| folderName  | string |  |
-| relativeOperationLocationPath  | string |  |
-| classification  | string |  |
-| packageDependencies  | array |  |
-| operationDependencies  | array |  |
-| coreDependencies  | array |  |
+| relativeProjectPath  | string |  |
+| children (optional) | array |  |
 
 
 
@@ -1169,6 +1050,24 @@ Properties:
 
 
 
+## 🔹 ModelInfo
+
+used to show a list of models available in a menu structure
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| name  | string |  |
+| slug  | string |  |
+| rows  | number |  |
+
+
+
 ## 🔹 PackageInfoObject
 
 ## 🔹 PathMetaData
@@ -1183,12 +1082,11 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| updatedAt  | number |  |
+| createdAt  | number |  |
 | relativePathFromProjectRoot  | string |  |
 | mainComment (optional) | object |  |
 | fullFileName (optional) | string |  |
-| isFolder  | boolean |  |
-| updatedAt  | number |  |
-| createdAt  | number |  |
 | sizes  | object |  |
 
 
@@ -1211,17 +1109,6 @@ Properties:
 
 
 
-## 🔹 PerformanceItem
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| label  | string |  |
-| durationMs  | number |  |
-
-
-
 ## 🔹 SimplifiedSchemaItem
 
 Properties: 
@@ -1236,6 +1123,12 @@ Properties:
 ## 🔹 SimplifiedSchemaType
 
 ## 🔹 TextJson
+
+TODO: Rename
+
+
+
+
 
 Properties: 
 
@@ -1288,13 +1181,13 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| tsImports  | array |  |
+| tsFunctions  | array |  |
+| tsInterfaces  | array |  |
+| tsVariables  | array |  |
 | tsBuildErrors  | array |  |
 | tsLintWarnings  | array |  |
-| tsFunctions  | array |  |
-| tsVariables  | array |  |
-| tsInterfaces  | array |  |
 | tsComments  | array |  |
-| tsImports  | array |  |
 | tsExports  | array |  |
 
 
@@ -1304,13 +1197,11 @@ Properties:
 makes a markdownModelType from a markdownParse.
 
 
-## 📄 operationClassificationConst (exported const)
-
 ## 📄 runEveryPeriodStringArray (exported const)
 
 # Internal
 
-<details><summary>Show internal (23)</summary>
+<details><summary>Show internal (32)</summary>
     
   # getFunctionExersize()
 
@@ -1499,6 +1390,43 @@ Properties:
 
 
 
+## 🔹 FileContentInfo
+
+Stuff you can find by reading the file
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| mainComment (optional) | object |  |
+| fullFileName (optional) | string |  |
+| sizes  | object |  |
+
+
+
+## 🔹 FunctionClassification
+
+- `react`: The core library that should always be used that wraps react and react native.
+
+- `dumb`: Presentational components that only care about how things look, and have no idea about the type of information that they will contain (**data-agnostic**), nor their context they're used in.
+
+- `smart`: Presentational components that may contain getters and setters for global state. This means they're still easy enough to set up, but
+
+- `wise`: stateful components that use the backend as well to do things. for example, `simplified-schema-form`
+
+- `genius`: blocks of components that have certain functionality. Example: `file-writer` or `crud`
+
+
+
+
+
+
+
+
 ## 🔹 MarkdownAssetType
 
 type of asset that is being embedded
@@ -1562,14 +1490,20 @@ Properties:
 
 
 
-## 🔹 ProjectType
+## 🔹 PathStats
 
-DEPRECATED: TODO: should use OperationClassification
-
-
+Information which can be found by fs.stat
 
 
 
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| updatedAt  | number |  |
+| createdAt  | number |  |
 
 
 
@@ -1604,6 +1538,51 @@ Properties:
 
 
 
+## 🔹 TsFunctionFrontmatterConfig
+
+Everything you can do with frontmatter on a TsFunction
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| groupAuthorization  | object |  |
+| isApiExposed  | boolean |  |
+| canCache (optional) | boolean |  |
+| runEveryPeriod (optional) | string |  |
+| price (optional) | number |  |
+| classification (optional) | string |  |
+
+
+
+## 🔹 TsFunctionIndex
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| explicitTypeName (optional) | string |  |
+| isExported  | boolean |  |
+| description (optional) | string |  |
+| rawText (optional) | string |  |
+| commentsInside  | array |  |
+| returnType  | object |  |
+| parameters (optional) | array |  |
+| size  | object |  |
+| commentSize (optional) | object |  |
+| codeSize (optional) | object |  |
+| cumulativeSize (optional) | object |  |
+| cumulativeCommentSize (optional) | object |  |
+| cumulativeCodeSize (optional) | object |  |
+| maxIndentationDepth  | number |  |
+| dependantFiles (optional) | array |  |
+
+
+
 ## 🔹 TypeCoverage
 
 quantification of coverage of the specified type or subtypes in our database.
@@ -1612,6 +1591,99 @@ quantification of coverage of the specified type or subtypes in our database.
 
 
 
+
+
+
+## 🔸 TypescriptFile
+
+jsonMultiple model
+
+
+
+IDEA: What if we could make a custom db storage method for a typescript file, so you can read and write typescript with the database?
+
+The first thing I can do, is to generate all typescript stuff using a model like this:
+
+Later, I can read a typescript file with a rust parser to get it into this model again.
+
+This is actually super useful for metacoding and coding GUI's
+
+Also a great start for making my own programming language ;)
+
+
+There are multiple ways of describing a typescript file I guess. This is one of them. Another one could be a definition where you put the required context in the statements and types themselves.
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| statements  | array |  |
+| interfaces  | array |  |
+| returnStatementRaw (optional) | string |  |
+| statementContext (optional) | array |  |
+| typeContext (optional) | array |  |
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+
+
+
+## 🔹 TypescriptScopeContent
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| statements  | array |  |
+| interfaces  | array |  |
+| returnStatementRaw (optional) | string |  |
+
+
+
+## 🔹 TypescriptScopeContext
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| statementContext (optional) | array |  |
+| typeContext (optional) | array |  |
+
+
+
+## 🔹 TypescriptScopeStatementContext
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| name  | string |  |
+| isRequired (optional) | boolean |  |
+| simplifiedSchema  | object |  |
+| comment  | string |  |
+| isRest (optional) | boolean |  |
+
+
+
+## 🔹 TypescriptScopeTypeContext
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| name  | string |  |
+| comment (optional) | string |  |
+| simplifiedSchema  | object |  |
 
 
 
@@ -1656,10 +1728,10 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| headerImage  | object |  |
-| headerTitle  | string |  |
-| headerSubTitle  | string |  |
-| headerCta  | object |  |
+| headerImage (optional) | object |  |
+| headerTitle (optional) | string |  |
+| headerSubTitle (optional) | string |  |
+| headerCta (optional) | object |  |
 
 
 

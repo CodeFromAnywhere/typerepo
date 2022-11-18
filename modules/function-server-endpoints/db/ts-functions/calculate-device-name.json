@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668149081147,
-  "updatedAt": 1668149081147,
+  "createdAt": 1668775507519,
+  "updatedAt": 1668775507519,
   "deletedAt": 0,
-  "createdFirstAt": 1668149081147,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775507519,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/calculateDeviceName.ts",
   "commentsInside": [],
   "rawText": " (\n  ipInfo: IPInfo,\n  userAgent: IResult\n): string => {\n  const deviceName: string = slugify(\n    `${userAgent.os.name}-${userAgent.browser.name}-${ipInfo.country}-${\n      ipInfo.region\n    }-${ipInfo.city}-${ipInfo.ip}-${generateRandomString(4)}`\n  );\n\n  return deviceName;\n}",
@@ -106,5 +101,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "kgpnljunaowvfqvuylosfnzo"
+  "id": "froizhkewobqiyjzgfqedgcx"
 }

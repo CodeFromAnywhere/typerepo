@@ -14,6 +14,10 @@ export declare type DbQueryResult = {
     amountInserted?: number;
     amountUpdated?: number;
     amountRemoved?: number;
+    /**
+     * If true, all items in the model were removed
+     */
+    allRemoved?: boolean;
 };
 export declare type DbConfig<TModels extends AnyModelObject> = {
     /**

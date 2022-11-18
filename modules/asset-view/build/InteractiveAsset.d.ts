@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Asset } from "asset-type";
 /**
 

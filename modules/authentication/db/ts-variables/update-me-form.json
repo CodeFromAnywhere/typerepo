@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668777496538,
+  "updatedAt": 1668777496538,
+  "deletedAt": 0,
+  "createdFirstAt": 1668777496538,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "UpdateMeForm",
+  "slug": "update-me-form",
+  "operationRelativeTypescriptFilePath": "src/UpdateMeForm.tsx",
+  "type": {
+    "rawType": "(props: { title?: string | undefined; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { title?: string }) => {\n  const { title } = props;\n  const router = useRouter();\n\n  return (\n    <Div className=\"flex flex-1 flex-row justify-center items-center\">\n      <Div className=\"w-96\">\n        {title ? <P className=\"text-4xl\">{title}</P> : null}\n        <FunctionForm\n          tsFunction={Index}\n          withApiResult={(result: RealApiReturnType<\"updateMeWithContext\">) => {\n            successToast(\n              result.result?.message || result.message || \"No message\"\n            );\n          }}\n        />\n      </Div>\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "tlythxoxhzmrertnqakzebva"
+}

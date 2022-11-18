@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668148580116,
-  "updatedAt": 1668148580116,
+  "createdAt": 1668774215501,
+  "updatedAt": 1668774215501,
   "deletedAt": 0,
-  "createdFirstAt": 1668148580116,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668774215501,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/calculateOperatingSystemBundle.ts",
   "commentsInside": [],
   "rawText": " async (\n  manualProjectRoot?: string\n) => {\n  //   const bundleConfig: BundleConfig = {};\n\n  return; //bundleConfig;\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "kdptnrgdwocxnwzrlucvplbl"
+  "id": "hotvtdxspqpdnyqukbzukppj"
 }

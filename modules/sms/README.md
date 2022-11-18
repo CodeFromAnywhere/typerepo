@@ -1,6 +1,6 @@
 # Sms
 
-sms (`OperationClassification` node)
+sms (`OperationClassification` node-cjs)
 
 
 

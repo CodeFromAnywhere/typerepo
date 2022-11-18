@@ -1,6 +1,6 @@
 # Matter types
 
-matter-types (`OperationClassification` js)
+matter-types (`OperationClassification` cjs)
 
 
 
@@ -47,20 +47,9 @@ Parses frontmatter object into a frontmatter string
 - string[] becomes a comma separated string
 TODO: maybe parse xxxAt values into human readable dates
 
-
-## 🔹 Downmatter
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| detectedLanguage (optional) | string |  |
-| labels (optional) | array |  |
-
-
 # Internal
 
-<details><summary>Show internal (9)</summary>
+<details><summary>Show internal (8)</summary>
     
   # getFrontmatterValueString()
 
@@ -98,25 +87,6 @@ There are probably more edgecases that need to be fixed here
 
 
 ## 🔹 FrontmatterValue
-
-## 🔹 MarkdownIndex
-
-This could hold anything that we can index about a markdown-file
-
-It should probably also be posted in the markdown file itself as "downmatter", if that's a good idea
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| detectedLanguage  | string |  |
-| labels  | array |  |
-
-
 
 ## 📄 getFrontmatterValueString (exported const)
 

@@ -2,7 +2,7 @@ import { MarkdownReaderPage } from "./MarkdownReaderPage";
 import { WebMarkdownFile } from "code-types";
 import { BundleConfig } from "bundle-types";
 import { MappedObject } from "js-util";
-import { AugmentedWord } from "./AugmentedWord";
+import { AugmentedWord } from "augmented-word-types";
 export declare type MarkdownReaderPageProps = {
     /**
      *

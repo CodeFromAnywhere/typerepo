@@ -1,0 +1,88 @@
+{
+  "createdAt": 1668337454299,
+  "updatedAt": 1668337454299,
+  "deletedAt": 0,
+  "createdFirstAt": 1668337454299,
+  "id": "namedparameterstypeof-driversignup",
+  "name": "NamedParameters<typeof driverSignup>",
+  "slug": "namedparameterstypeof-driversignup",
+  "operationRelativeTypescriptFilePath": "src/driverSignup.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "driverInfo": {
+          "$ref": "#/definitions/SignupJeepType"
+        }
+      },
+      "required": [
+        "driverInfo"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "driverInfo",
+          "required": true,
+          "schema": {
+            "fullComment": "Jeep driver signup FORM (not part of the model)",
+            "properties": [
+              {
+                "name": "name",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "email",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "phone",
+                "required": false,
+                "schema": {
+                  "fullComment": "mobile phone number",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "password",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "repeatPassword",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof driverSignup>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,11 +1,14 @@
 {
-  "createdAt": 1662709577328,
-  "updatedAt": 1662709577328,
+  "createdAt": 1668328686006,
+  "updatedAt": 1668328686006,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577328,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328686006,
+  "id": "xiEEhmhKrjFXlAPd",
+  "dependencies": {
+    "fs-util": "1.0.5",
+    "get-path": "0.0.1"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,15 +16,60 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "make-file-type",
-  "license": "ISC",
+  "language": "english",
   "slug": "make-file-type",
-  "id": "xiEEhmhKrjFXlAPd",
-  "dependencies": {
-    "fs-util": "1.0.5",
-    "get-path": "0.0.1"
-  },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "make-file-type",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668332098845,
+    "operationDependenciesIndexed": [
+      "fs",
+      "path",
+      "findOperationBasePath"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/control-project/deprecated",
+    "markdown": "exposes `makeFileType`, a function that helped turning a path into a specific type. Was previously used for things like watching, but this is probably not needed anymore.\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 48,
+        "characters": 1229,
+        "bytes": 1229
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 115,
+        "characters": 2788,
+        "bytes": 2788
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 39,
+        "characters": 787,
+        "bytes": 787
+      },
+      "size": {
+        "bytes": 4804,
+        "characters": 4804,
+        "lines": 202,
+        "numberOfFiles": 5
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

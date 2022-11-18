@@ -1,6 +1,6 @@
 # Generate index
 
-generate-index (`OperationClassification` node)
+generate-index (`OperationClassification` node-cjs)
 
 
 

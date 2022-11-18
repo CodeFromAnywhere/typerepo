@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149197728,
-  "updatedAt": 1668149197728,
+  "createdAt": 1668448623004,
+  "updatedAt": 1668448623004,
   "deletedAt": 0,
-  "createdFirstAt": 1668149197728,
+  "createdFirstAt": 1668448623004,
   "id": "tsfunction",
   "name": "TsFunction",
   "slug": "tsfunction",
@@ -51,14 +51,6 @@
         "canCache": {
           "type": "boolean",
           "description": "whether or not the function is can be cached (relies on cache invalidation)"
-        },
-        "isGetApi": {
-          "type": "boolean",
-          "description": "if true, the function will get the `server`.js context as its only argument, and it's directly exposed as GET api. Endpoint path will be inferred from the function name\n\nFor this to be indexed to `true`, you need to call the function `abcXyzGetApi` whhere `abcXyz` can be anything."
-        },
-        "isPostApi": {
-          "type": "boolean",
-          "description": "If true, the function will get the `server`.js context as its only argument, and it's directly exposed as POST api. Endpoint path will be inferred from the function name\n\nFor this to be indexed to `true`, you need to call the function `abcXyzPostApi` where `abcXyz` can be anything."
         },
         "isExported": {
           "type": "boolean",
@@ -225,22 +217,6 @@
           "required": false,
           "schema": {
             "fullComment": "whether or not the function is can be cached (relies on cache invalidation)",
-            "type": "boolean"
-          }
-        },
-        {
-          "name": "isGetApi",
-          "required": false,
-          "schema": {
-            "fullComment": "if true, the function will get the `server`.js context as its only argument, and it's directly exposed as GET api. Endpoint path will be inferred from the function name\n\nFor this to be indexed to `true`, you need to call the function `abcXyzGetApi` whhere `abcXyz` can be anything.",
-            "type": "boolean"
-          }
-        },
-        {
-          "name": "isPostApi",
-          "required": false,
-          "schema": {
-            "fullComment": "If true, the function will get the `server`.js context as its only argument, and it's directly exposed as POST api. Endpoint path will be inferred from the function name\n\nFor this to be indexed to `true`, you need to call the function `abcXyzPostApi` where `abcXyz` can be anything.",
             "type": "boolean"
           }
         },

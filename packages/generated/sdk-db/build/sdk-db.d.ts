@@ -1,11 +1,8 @@
-import type { JeepType } from "himalayajeep-types";
-import type { LocationType } from "himalayajeep-types";
+import type { AuthorizationModel } from "auth-types";
 import type { BundleConfig } from "bundle-types";
 import type { Dataset } from "code-types";
 import type { FunctionExecution } from "code-types";
-import type { OperationConfig } from "code-types";
-import type { OperationIndex } from "code-types";
-import type { PackageJson } from "code-types";
+import type { Operation } from "code-types";
 import type { SocialMediaCallToAction } from "code-types";
 import type { TsBuildError } from "code-types";
 import type { TsComment } from "code-types";
@@ -16,6 +13,7 @@ import type { TsImport } from "code-types";
 import type { TsInterface } from "code-types";
 import type { TsLintWarning } from "code-types";
 import type { TsVariable } from "code-types";
+import type { TypescriptFile } from "code-types";
 import type { WebMarkdownFile } from "code-types";
 import type { WebsiteCallToAction } from "code-types";
 import type { Address } from "geo-types";
@@ -23,6 +21,8 @@ import type { Area } from "geo-types";
 import type { City } from "geo-types";
 import type { Country } from "geo-types";
 import type { Location } from "geo-types";
+import type { JeepType } from "himalayajeep-types";
+import type { LocationType } from "himalayajeep-types";
 import type { KvmdWord } from "language-types";
 import type { MarkdownWord } from "language-types";
 import type { NepaliEnglishTranslationMatrix } from "language-types";
@@ -54,14 +54,11 @@ import type { MediaCredentail } from "social-media-types";
 import type { MediaPost } from "social-media-types";
 import type { Postable } from "social-media-types";
 export declare type DbModels = {
-    JeepType: JeepType;
-    LocationType: LocationType;
+    AuthorizationModel: AuthorizationModel;
     BundleConfig: BundleConfig;
     Dataset: Dataset;
     FunctionExecution: FunctionExecution;
-    OperationConfig: OperationConfig;
-    OperationIndex: OperationIndex;
-    PackageJson: PackageJson;
+    Operation: Operation;
     SocialMediaCallToAction: SocialMediaCallToAction;
     TsBuildError: TsBuildError;
     TsComment: TsComment;
@@ -72,6 +69,7 @@ export declare type DbModels = {
     TsInterface: TsInterface;
     TsLintWarning: TsLintWarning;
     TsVariable: TsVariable;
+    TypescriptFile: TypescriptFile;
     WebMarkdownFile: WebMarkdownFile;
     WebsiteCallToAction: WebsiteCallToAction;
     Address: Address;
@@ -79,6 +77,8 @@ export declare type DbModels = {
     City: City;
     Country: Country;
     Location: Location;
+    JeepType: JeepType;
+    LocationType: LocationType;
     KvmdWord: KvmdWord;
     MarkdownWord: MarkdownWord;
     NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix;
@@ -110,13 +110,10 @@ export declare type DbModels = {
     MediaPost: MediaPost;
     Postable: Postable;
 };
-export declare const dbModelKeys: readonly ["JeepType", "LocationType", "BundleConfig", "Dataset", "FunctionExecution", "OperationConfig", "OperationIndex", "PackageJson", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PaymentCoupon", "PaymentEvent", "PaymentPlan", "PaymentSubscription", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable"];
+export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "Dataset", "FunctionExecution", "Operation", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "JeepType", "LocationType", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PaymentCoupon", "PaymentEvent", "PaymentPlan", "PaymentSubscription", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
-    JeepType: {
-        dbStorageMethod: string;
-    };
-    LocationType: {
+    AuthorizationModel: {
         dbStorageMethod: string;
     };
     BundleConfig: {
@@ -128,15 +125,7 @@ export declare const modelQueryConfig: {
     FunctionExecution: {
         dbStorageMethod: string;
     };
-    OperationConfig: {
-        dbStorageMethod: string;
-        operationRelativePath: string;
-    };
-    OperationIndex: {
-        dbStorageMethod: string;
-        operationRelativePath: string;
-    };
-    PackageJson: {
+    Operation: {
         dbStorageMethod: string;
         operationRelativePath: string;
     };
@@ -171,6 +160,9 @@ export declare const modelQueryConfig: {
     TsVariable: {
         dbStorageMethod: string;
     };
+    TypescriptFile: {
+        dbStorageMethod: string;
+    };
     WebMarkdownFile: {
         dbStorageMethod: string;
     };
@@ -190,6 +182,12 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     Location: {
+        dbStorageMethod: string;
+    };
+    JeepType: {
+        dbStorageMethod: string;
+    };
+    LocationType: {
         dbStorageMethod: string;
     };
     KvmdWord: {

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668775417808,
+  "updatedAt": 1668775417808,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775417808,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "updateClassifications",
+  "slug": "update-classifications",
+  "operationRelativeTypescriptFilePath": "src/updateClassifications.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    callback: async (folderPath, index) => {\n      const operationName = getLastFolder(folderPath);\n\n      const classificationIndexed = getOperationClassification(folderPath);\n      console.log(`${operationName}: ${classificationIndexed}`);\n\n      await db.update(\n        \"Operation\",\n        (item) => item.name === operationName,\n        (old) =>\n          mergeNestedObject(old, { operation: { classificationIndexed } }),\n        { operationName }\n      );\n\n      console.log(\"updated\");\n\n      return;\n    },\n  });\n}",
+  "description": "",
+  "id": "mhkipmplhtmllkexwjgbtvbj"
+}

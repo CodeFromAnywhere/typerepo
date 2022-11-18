@@ -1,16 +1,11 @@
 {
-  "createdAt": 1666258843356,
-  "updatedAt": 1666258843356,
+  "createdAt": 1668750104965,
+  "updatedAt": 1668750104965,
   "deletedAt": 0,
-  "createdFirstAt": 1666258843356,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668750104965,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/pickWatcher.ts",
   "commentsInside": [],
   "rawText": " () => {\n  if (os.platform() === \"linux\") return watchFoldersChokidar;\n  return watchFoldersFs;\n}",
@@ -46,5 +41,5 @@
     "linesPerFile": 4,
     "numberOfFiles": 1
   },
-  "id": "sgcrpvldcijbmdobeelqzxqh"
+  "id": "pkcotsccuhvzwlridrgvqyxj"
 }

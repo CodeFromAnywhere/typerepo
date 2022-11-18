@@ -15,7 +15,7 @@ exports.Dictionary = exports.AugmentedWordComponent = void 0;
 var jsx_runtime_1 = require("react/jsx-runtime");
 var clickable_icon_1 = require("clickable-icon");
 var fs_util_js_1 = require("fs-util-js");
-var markdown_parse_transpile_ui_1 = require("markdown-parse-transpile-ui");
+var markdown_1 = require("markdown");
 var react_with_native_1 = require("react-with-native");
 var server_api_url_1 = require("server-api-url");
 var store_1 = require("../store");
@@ -23,7 +23,7 @@ var AugmentedWordComponent = function (props) {
     var augmentedWord = props.augmentedWord, augmentedWordObject = props.augmentedWordObject;
     var projectRelativeBaseFolderPath = (0, fs_util_js_1.getFolderJs)(augmentedWord.projectRelativeMarkdownSourcePath);
     var projectRelativeMarkdownFilePath = augmentedWord.projectRelativeMarkdownSourcePath;
-    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "border border-gray-500 rounded-md m-2 p-2" }, { children: [(0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "font-bold" }, { children: augmentedWord.word })), augmentedWord.spoiler ? ((0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: (0, markdown_parse_transpile_ui_1.renderMarkdownContent)(augmentedWord.spoiler, {
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "border border-gray-500 rounded-md m-2 p-2" }, { children: [(0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "font-bold" }, { children: augmentedWord.word })), augmentedWord.spoiler ? ((0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: (0, markdown_1.renderMarkdownContent)(augmentedWord.spoiler, {
                     isDev: server_api_url_1.isDev,
                     isStatic: false,
                     projectRelativeMarkdownFilePath: projectRelativeMarkdownFilePath,

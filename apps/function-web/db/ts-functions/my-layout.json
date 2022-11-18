@@ -1,0 +1,78 @@
+{
+  "createdAt": 1668774408174,
+  "updatedAt": 1668774408174,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774408174,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/MyLayout.tsx",
+  "commentsInside": [],
+  "rawText": " (props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n\n  const queryPathsQuery = queries.useGetFunctionQueryPaths();\n\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        queryPaths: queryPathsQuery.data?.result,\n        isLoading: queryPathsQuery.isLoading,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
+  "name": "MyLayout",
+  "slug": "my-layout",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "pageProps": {},
+          "nextPage": {}
+        },
+        "required": [
+          "pageProps",
+          "nextPage"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "pageProps",
+            "required": true,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "nextPage",
+            "required": true,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 412,
+    "lines": 18,
+    "bytes": 412,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 18,
+    "numberOfFiles": 1
+  },
+  "id": "sstvbiuuuykmophdeqmxxkku"
+}

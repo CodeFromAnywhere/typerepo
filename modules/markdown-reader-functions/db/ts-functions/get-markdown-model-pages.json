@@ -1,15 +1,13 @@
 {
-  "createdAt": 1668149501214,
-  "updatedAt": 1668149501214,
+  "createdAt": 1668551827598,
+  "updatedAt": 1668551827598,
   "deletedAt": 0,
-  "createdFirstAt": 1668149501214,
+  "createdFirstAt": 1668551827598,
   "publicAuthorization": [
     "read",
     "search"
   ],
   "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getMarkdownModelPages.ts",
   "commentsInside": [],
@@ -30,7 +28,7 @@
   ],
   "description": "Transforms all your markdown models into  markdown reader pages\n\nSteps:\n- Finds all markdown model types from the database config\n- Gets their basepaths according to `fs-orm` convention\n- Checks if they actually exist\n- Finds all markdown therein\n- Makess markdown reader pages out of them",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/tools/markdown-reader/markdown-reader-types/build/MarkdownReaderPage\").MarkdownReaderPage[]>",
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/purpose/reader/markdown-reader-types/build/MarkdownReaderPage\").MarkdownReaderPage[]>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -48,5 +46,5 @@
     "linesPerFile": 33,
     "numberOfFiles": 1
   },
-  "id": "yyyohecdsjhhbgemjquuzfmu"
+  "id": "oyuvigkbnoqdaqcjclmmopum"
 }

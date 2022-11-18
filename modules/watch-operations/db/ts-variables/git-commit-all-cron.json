@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264483437,
-  "updatedAt": 1666264483437,
+  "createdAt": 1668336308724,
+  "updatedAt": 1668336308724,
   "deletedAt": 0,
-  "createdFirstAt": 1666264483437,
+  "createdFirstAt": 1668336308724,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(manualProjectRoot?: string) => {\n  setInterval(() => {\n    try {\n      // NB: This doesn't work well with nested .git folders!\n      execSync(\n        \"[[ `git status --porcelain .` ]] && git add . && git commit -m 'Automatic commit'\",\n        { cwd: manualProjectRoot, stdio: \"inherit\" }\n      );\n    } catch {}\n  }, 1000 * 3600);\n}",
   "description": "",
-  "id": "udizkqfndqsrzdxlukrqdkmx"
+  "id": "arfqjzvhtlzxppezmahtftwe"
 }

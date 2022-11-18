@@ -1,25 +1,8 @@
 {
-  "createdAt": 1662709577328,
-  "updatedAt": 1662709577328,
+  "createdAt": 1668328684458,
+  "updatedAt": 1668328684458,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577328,
-  "version": "0.0.1",
-  "main": "build/index.js",
-  "source": "src/index.ts",
-  "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
-    "test": "node ./build/cli.js",
-    "up": "npm version patch -f",
-    "pub": "yarn up && npm publish"
-  },
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.2"
-  },
-  "name": "rename-template-files",
-  "slug": "rename-template-files",
+  "createdFirstAt": 1668328684458,
   "id": "FZFoOSVaQSECmexN",
   "dependencies": {
     "fs-util": "1.0.5",
@@ -27,7 +10,73 @@
     "one-by-one": "0.0.1",
     "make-test": "0.0.1"
   },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.2"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "rename-template-files",
+  "language": "english",
+  "slug": "rename-template-files",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "rename-template-files",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668331964341,
+    "operationDependenciesIndexed": [
+      "fs",
+      "explore",
+      "oneByOne",
+      "makeTest"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/control-fs",
+    "markdown": "Rename template files to their original name\n\nUseful when you want to apply a template to create a new starting point for something\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 75,
+        "characters": 2073,
+        "bytes": 2073
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 109,
+        "characters": 2667,
+        "bytes": 2667
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 83,
+        "characters": 1498,
+        "bytes": 1498
+      },
+      "size": {
+        "bytes": 6238,
+        "characters": 6238,
+        "lines": 267,
+        "numberOfFiles": 6
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

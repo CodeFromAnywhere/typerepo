@@ -33,15 +33,6 @@ Writer input for any utf8 based text, file or no file
 Writer input for any utf8 based text, file or no file
 
 
-## `<DivContentEditable />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `JSX.Element`   |    |
-
-
-
 ## `<MarkdownView />`
 
 | Input      |    |    |
@@ -51,13 +42,11 @@ Writer input for any utf8 based text, file or no file
 
 
 
-## 📄 DivContentEditable (exported const)
-
 ## 📄 MarkdownView (exported const)
 
 # Internal
 
-<details><summary>Show internal (65)</summary>
+<details><summary>Show internal (67)</summary>
     
   # `<Completion />`
 
@@ -84,6 +73,15 @@ Div that is `contentEditable` by default and has possibilities for color/style h
 
 
 ## `<ContextTextArea />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## `<DivContentEditable />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -431,6 +429,8 @@ Div that is `contentEditable` by default and has possibilities for color/style h
 ## 📄 ContextTextArea (exported const)
 
 ## 📄 depthFontSizes (exported const)
+
+## 📄 DivContentEditable (exported const)
 
 ## 📄 editSubtextSubwordConfig (exported const)
 

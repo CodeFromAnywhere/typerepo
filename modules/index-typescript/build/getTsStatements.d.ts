@@ -4,7 +4,6 @@ import { Creation } from "model-types";
 import { Frontmatter } from "matter-types";
 export declare const getFrontmatterFunctionParameters: (frontmatter: Frontmatter) => {
     runEveryPeriod: TsFunction["runEveryPeriod"];
-    publicAuthorization: TsFunction["publicAuthorization"];
     isApiExposed: TsFunction["isApiExposed"];
 };
 export declare type VariableDeclarationInfo = {
@@ -14,6 +13,7 @@ export declare type VariableDeclarationInfo = {
     isArrowFunction: boolean;
     names: string[];
     comments: string[];
+    explicitTypeName?: string;
 };
 /**
  Gets functions and variables from a tsmorph sourcefile

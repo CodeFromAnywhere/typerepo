@@ -1,25 +1,27 @@
 import { AppProps } from "next/app";
-
 import Head from "next/head";
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from "next/router";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Layout, StoreProvider } from "db-ui";
-import { pagesObject, pages, getPageTitle } from "db-ui";
+import { StoreProvider } from "../store";
 import { AlertProvider } from "react-with-native-alert";
 import { ModalProvider } from "react-with-native-modal";
-import { useRouter } from "react-with-native-router";
-
 import getConfig from "next/config";
+import { ToastContainer } from "react-with-native-notification";
+import { DbLayout } from "../DbLayout";
 
+import "react-toastify/dist/ReactToastify.css";
 import "../globals.css";
+import "db-crud/css.css";
+import "authentication/css.css";
+import "layout/css.css";
+import "menu/css.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-datetime/css/react-datetime.css";
 import "rc-time-picker/assets/index.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 ///rwn
-import "db-ui/css.css";
 import "simplified-schema-form/css.css";
 
 import "react-with-native/css.css";
@@ -50,27 +52,21 @@ const queryClient = new QueryClient();
 const { publicRuntimeConfig } = getConfig();
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-  const path = router.route.slice(1);
-  const pageKey = (path === "" ? "index" : path) as keyof typeof pagesObject;
-  const page = pages.find((x) => x.key === pageKey);
-  const title = page ? `${getPageTitle(page)} - Admin` : "Admin";
-
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
-        <title>{title}</title>
+        <title>Database</title>
 
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css"
         />
       </Head>
-      {/* <ToastContainer /> */}
+      <ToastContainer />
       <AlertProvider>
         <ModalProvider>
           <StoreProvider>
-            <Layout Component={Component} pageProps={pageProps} />
+            <DbLayout pageProps={pageProps} nextPage={Component} />
           </StoreProvider>
         </ModalProvider>
       </AlertProvider>

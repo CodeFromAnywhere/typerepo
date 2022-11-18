@@ -1,2 +1,5 @@
-export declare const removePeer: (slug: string) => Promise<import("fs-orm").DbQueryResult>;
+/**
+ * TODO: connect with peoples
+ */
+export declare const removePeer: (id: string) => Promise<import("fs-orm").DbQueryResult>;
 //# sourceMappingURL=removePeer.d.ts.map

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773968985,
+  "updatedAt": 1668773968985,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773968985,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "listAppsCli",
+  "slug": "list-apps-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/listApps.cli.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const result = await listApps();\n  console.table(result.apps || result.message);\n}",
+  "description": "Arguments:none",
+  "id": "ofzprstimfgzsmiloiahfowm"
+}

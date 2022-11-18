@@ -27,9 +27,9 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { getRealSrc } from "./util/getRealSrc.js";
 import { Div, Span } from "react-with-native";
-import { createPopper } from "@popperjs/core";
 import { getFolderJs } from "fs-util-js";
 import { getImplicitId } from "markdown-parse-js";
+import { Tooltip } from "tooltip";
 export var header = function (_a) {
     var level = _a.level, children = _a.children;
     var levelSize = level === 1
@@ -120,36 +120,19 @@ export var renderMarkdownContent = function (content, config) {
                 code: function (_a) {
                     var _b;
                     var node = _a.node, children = _a.children, props = __rest(_a, ["node", "children"]);
-                    var _c = React.useState(false), popoverShow = _c[0], setPopoverShow = _c[1];
-                    var btnRef = React.createRef();
-                    var popoverRef = React.createRef();
-                    var openTooltip = function () {
-                        if (!btnRef.current || !popoverRef.current)
-                            return;
-                        createPopper(btnRef.current, popoverRef.current, {
-                            placement: "left",
-                        });
-                        setPopoverShow(true);
-                    };
-                    var closeTooltip = function () {
-                        setPopoverShow(false);
-                    };
                     var word = children[0];
                     var foundWord = typeof word === "string"
                         ? (_b = config === null || config === void 0 ? void 0 : config.augmentedWordObject) === null || _b === void 0 ? void 0 : _b[word]
                         : undefined;
                     return foundWord &&
                         foundWord.spoiler &&
-                        foundWord.spoiler.length > 0 ? (React.createElement("span", null,
-                        React.createElement("a", __assign({ href: "/".concat(foundWord === null || foundWord === void 0 ? void 0 : foundWord.queryPath), style: { color: "darkred" }, onMouseEnter: openTooltip, onMouseLeave: closeTooltip, ref: btnRef }, props), children),
-                        React.createElement("span", { className: (popoverShow ? "" : "hidden ") +
-                                "bg-gray-200 border-0 mr-3 block z-50 font-normal leading-normal text-sm max-w-xs text-left no-underline break-words rounded-lg", ref: popoverRef },
-                            React.createElement("div", null,
-                                React.createElement("div", { className: "bg-gray-200 text-black opacity-75 font-semibold px-3 mb-0 border-b border-solid border-blueGray-100 uppercase rounded-t-lg" }, foundWord.word),
-                                React.createElement("div", { className: "px-3 text-gray-800" }, renderMarkdownContent(foundWord.spoiler, {
-                                    projectRelativeBaseFolderPath: getFolderJs(foundWord.projectRelativeMarkdownSourcePath),
-                                    projectRelativeMarkdownFilePath: foundWord.projectRelativeMarkdownSourcePath,
-                                })))))) : (React.createElement("code", __assign({ className: "dark:bg-gray-700", style: { color: "darkcyan" } }, props), children));
+                        foundWord.spoiler.length > 0 ? (React.createElement(Tooltip, { placement: "left", tooltip: React.createElement(React.Fragment, null,
+                            React.createElement("div", { className: "font-semibold px-3 mb-0 border-b border-solid border-gray-100 rounded-t-lg" }, foundWord.word),
+                            React.createElement("div", { className: "px-3" }, renderMarkdownContent(foundWord.spoiler, {
+                                projectRelativeBaseFolderPath: getFolderJs(foundWord.projectRelativeMarkdownSourcePath),
+                                projectRelativeMarkdownFilePath: foundWord.projectRelativeMarkdownSourcePath,
+                            }))) },
+                        React.createElement("a", __assign({ href: "/".concat(foundWord === null || foundWord === void 0 ? void 0 : foundWord.queryPath), style: { color: "darkred" } }, props), children))) : (React.createElement("code", __assign({ className: "dark:bg-gray-700", style: { color: "darkcyan" } }, props), children));
                 },
                 a: function (_a) {
                     var node = _a.node, href = _a.href, props = __rest(_a, ["node", "href"]);

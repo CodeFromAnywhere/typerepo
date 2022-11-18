@@ -1,18 +1,9 @@
 {
-  "createdAt": 1662709577331,
-  "updatedAt": 1662709577331,
+  "createdAt": 1668328701605,
+  "updatedAt": 1668328701605,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577331,
-  "name": "function-server-endpoints",
-  "description": "This operation wraps the sdk and creates a server-endpoint for every sdk function form the sdk package. It also adds raw context functions (both get and post) It can be included into any server so the endpoints can be exposed that way.",
-  "version": "0.0.0",
-  "main": "build/index.js",
-  "scripts": {
-    "dev:once": "node build/cli.js",
-    "dev": "tsc -w",
-    "build": "tsc"
-  },
-  "license": "ISC",
+  "createdFirstAt": 1668328701605,
+  "id": "ngYzqrtHoOBkeAuZ",
   "dependencies": {
     "@types/geoip-lite": "^1.4.1",
     "db-recipes": "0.0.1",
@@ -24,15 +15,138 @@
     "get-path": "0.0.1",
     "fs-util": "1.0.5",
     "read-json-file": "0.0.1",
-    "database": "0.0.1"
+    "database": "0.0.1",
+    "peer-types": "0.0.1",
+    "api-types": "0.0.1",
+    "code-types": "0.0.1",
+    "auth-types": "0.0.1",
+    "geo-types": "0.0.1",
+    "fs-orm": "1.0.1",
+    "server": "*",
+    "function-context-type": "0.0.1",
+    "rest-util": "0.0.1",
+    "measure-performance": "0.0.1"
   },
+  "description": "This operation wraps the sdk and creates a server-endpoint for every sdk function form the sdk package. It also adds raw context functions (both get and post) It can be included into any server so the endpoints can be exposed that way.",
   "devDependencies": {
     "@types/node": "^17.0.31",
     "@types/ua-parser-js": "^0.7.36"
   },
+  "main": "build/index.js",
+  "scripts": {
+    "dev:once": "node build/cli.js",
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "version": "0.0.0",
+  "name": "function-server-endpoints",
+  "language": "english",
   "slug": "function-server-endpoints",
-  "id": "ngYzqrtHoOBkeAuZ",
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/api/function-server-endpoints/src/upsertDevice.ts. Error: Error: Unknown node \"this\" of kind \"ThisType\""
+      ],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "function-server-endpoints",
+    "hasGeneratedDependenciesIndexed": true,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668775537956,
+    "operationDependenciesIndexed": [
+      "slugify",
+      "generateRandomString",
+      "IPInfo",
+      "sdk",
+      "notEmpty",
+      "privateEnvironmentVariables",
+      "privateLocalEnvironmentVariables",
+      "cacheLookup",
+      "validateInput",
+      "generateId",
+      "apiConventions",
+      "RealApiReturnType",
+      "getNewPerformance",
+      "PerformanceItem",
+      "FunctionContext",
+      "sdk",
+      "functionApiKeys",
+      "toQueryString",
+      "sdk",
+      "functionApiKeys",
+      "Authorization",
+      "TsFunction",
+      "notEmpty",
+      "onlyUnique2",
+      "Device",
+      "Group",
+      "TsFunction",
+      "sdkFunctionPaths",
+      "getProjectRoot",
+      "path",
+      "readJsonFile",
+      "apiConventions",
+      "Creation",
+      "Id",
+      "IPInfo",
+      "PageVisit",
+      "db",
+      "FunctionExecution",
+      "PerformanceItem",
+      "TsFunction",
+      "db",
+      "Creation",
+      "db",
+      "Include",
+      "Position",
+      "Creation",
+      "generateId",
+      "Device",
+      "IPInfo",
+      "getNewPerformance",
+      "PerformanceItem",
+      "generateUniqueId"
+    ],
+    "packageDependenciesIndexed": [
+      "IResult",
+      "Context",
+      "Middleware",
+      "Middleware",
+      "Context",
+      "Context"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/api",
+    "markdown": "Wraps all functions found in `sdk-api` and creates `server` endpoints for them. Besides simply wrapping them into an endpoint, it also adds some extra layers to every function.\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 11,
+        "lines": 662,
+        "characters": 18942,
+        "bytes": 18942
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 190,
+        "characters": 4849,
+        "bytes": 4849
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 198,
+        "characters": 5053,
+        "bytes": 5053
+      },
+      "size": {
+        "bytes": 28844,
+        "characters": 28844,
+        "lines": 1050,
+        "numberOfFiles": 15
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

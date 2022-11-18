@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { MarkdownParse, SimplifiedSchema } from "code-types";
 /**
  * Renders a form for frontmatter without save button

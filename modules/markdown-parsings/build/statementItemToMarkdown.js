@@ -1,2 +1,19 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.statementItemToMarkdown=void 0;var tsFunctionToMarkdownString_1=require("./tsFunctionToMarkdownString"),tsInterfaceToMarkdownString_1=require("./tsInterfaceToMarkdownString"),tsVariableToMarkdownString_1=require("./tsVariableToMarkdownString"),statementItemToMarkdown=function(t){return t.tsFunction?(0,tsFunctionToMarkdownString_1.tsFunctionToMarkdownString)(t.tsFunction):t.tsInterface?(0,tsInterfaceToMarkdownString_1.tsInterfaceToMarkdownString)(t.tsInterface):t.tsVariable?(0,tsVariableToMarkdownString_1.tsVariableToMarkdownString)(t.tsVariable):void 0};exports.statementItemToMarkdown=statementItemToMarkdown;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.statementItemToMarkdown = void 0;
+var tsFunctionToMarkdownString_1 = require("./tsFunctionToMarkdownString");
+var tsInterfaceToMarkdownString_1 = require("./tsInterfaceToMarkdownString");
+var tsVariableToMarkdownString_1 = require("./tsVariableToMarkdownString");
+var statementItemToMarkdown = function (statementItem) {
+    if (statementItem.tsFunction) {
+        return (0, tsFunctionToMarkdownString_1.tsFunctionToMarkdownString)(statementItem.tsFunction);
+    }
+    if (statementItem.tsInterface) {
+        return (0, tsInterfaceToMarkdownString_1.tsInterfaceToMarkdownString)(statementItem.tsInterface);
+    }
+    if (statementItem.tsVariable) {
+        return (0, tsVariableToMarkdownString_1.tsVariableToMarkdownString)(statementItem.tsVariable);
+    }
+};
+exports.statementItemToMarkdown = statementItemToMarkdown;
 //# sourceMappingURL=statementItemToMarkdown.js.map

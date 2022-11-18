@@ -1,6 +1,9 @@
+---
+publicAuthorization: "read, search, execute"
+---
 # Server login
 
-server-login (`OperationClassification` node)
+server-login (`OperationClassification` node-cjs)
 
 This operation exposes rudimentary functions to set cookies from the backend. We require cookies in order to authenticate a user for GET requests. Cookies are sent to the server for every request and are a safer way, because they are not part of the URL that can be found in the browser history.
 
@@ -9,31 +12,35 @@ This thing is far from finished, see `todo/` for what needs to be done.
 
 
 
+# Docs
+
+Your doccomment here
+*/
+```
+
+This overwrites the public authorisation.
+
+
+### Editing api availability
+
+By default, every exported backend function will become available through the api after indexation of the operation and generating the SDK.
+
+If you want to disable that for a function, you can do so by disabling it altogether, by adding this parameter into your frontmatter.
+
+```ts
+/**
+---
+isApiExposed: false
+---
+
+Your doccomment here
+*/
+const yourFunction = () => void
+```
+
+  </details>
+
 # Api reference
-
-## comparePassword()
-
-Method to check if a raw password should be the same as the encrypted variant. Uses `bcrypt`
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| rawPassword | string |  |,| encryptedPassword | string |  |
-| **Output** |    |    |
-
-
-
-## encryptPassword()
-
-Method to encrypt any password. Uses `bcrypt`
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| rawPassword | string |  |
-| **Output** |    |    |
-
-
 
 ## isValidPassword()
 
@@ -44,117 +51,25 @@ Method to encrypt any password. Uses `bcrypt`
 
 
 
-## 🔹 LogoutResult
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| isSuccessful  | boolean |  |
-| message (optional) | string |  |
-
-
-
-## 📄 comparePassword (exported const)
-
-Method to check if a raw password should be the same as the encrypted variant. Uses `bcrypt`
-
-
-## 📄 encryptPassword (exported const)
-
-Method to encrypt any password. Uses `bcrypt`
-
-
 ## 📄 isValidPassword (exported const)
 
 # Internal
 
-<details><summary>Show internal (21)</summary>
-    
-  # addAuthenticationMethod()
+Login with username and password
 
-core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
+1. Adds an username/password combo as auth-method to the device,
+2. Checks the persons to match the auth
+3. In case of match, moves the method to the person and connects the device
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| functionContext | `FunctionContext` |  |,| username | string |  |,| password | string |  |
 | **Output** |    |    |
 
 
 
-## addDeviceAuthenticatedMethod()
-
-sends an email or sms, or already confirms in case of emailPassword
-
-
-TODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| deviceId | string |  |,| method | `AuthenticationMethodMethod` |  |,| handle | string | most of the time, this is a username, but can also be phone number or email or so |,| credential (optional) | string |  |
-| **Output** |    |    |
-
-
-
-## addDeviceAuthenticationMethodConfirm()
-
-adds an `authenticatedMethod` to `Device` after the OTP is correct
-
-For now, only handles methods `phoneNumber` and `email`
-
-TODO: extrahere the core into `addAuthenticationMethodConfirm` and use it in this one and make also `addPersonAuthenticationMethodConfirm`
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| deviceId | string | device id |,| method | `AuthenticationMethodMethod` |  |,| otp | number | one time password |
-| **Output** |    |    |
-
-
-
-## addPersonAuthenticationMethod()
-
-adds an `authenticationMethod` to `Person`
-
-relies on `addAuthenticationMethod`
-
-TODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## isPhoneNumber()
-
-TODO: Implement this
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| phoneNumber | string |  |
-| **Output** | {  }   |    |
-
-
-
-## login()
-
-attaches the `Device` with `authToken` (`id`) to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| deviceId | string |  |
-| **Output** |    |    |
-
-
-
-## logoutPostApi()
+## logoutWithContext()
 
 Uses cookies (https://serverjs.io/documentation/reply/#cookie-) to logout
 
@@ -163,73 +78,96 @@ Needed for having `authToken` with GET as well in a safe manner (e.g. for images
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| functionContext | `FunctionContext` |  |,| rememberAuthentication (optional) | boolean |  |
 | **Output** |    |    |
 
 
 
-## removeDeviceAuthenticationMethod()
+## removeDeviceAuthenticationMethodWithContext()
 
 removes an `authenticatedMethod` from `Device`
 
+Usually the authentication methods are an attempt to login into a new account, so if you remove something it doesnt have impact on the accounts you already logged into, because these authentications are not stored on the device but on the person.
 
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## removePersonAuthenticationMethod()
-
-removes an `authenticationMethod` from `Person`
+We can therefore remove it without much validation
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| functionContext | `FunctionContext` |  |,| method | `AuthenticationMethodMethod` |  |
 | **Output** |    |    |
 
 
 
-## signup()
+## removePersonAuthenticationMethodWithContext()
+
+removes an `authenticationMethod` from `Person` from currentPerson from authenticated device
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionContext | `FunctionContext` |  |,| method | `AuthenticationMethodMethod` |  |
+| **Output** |    |    |
+
+
+
+## signupWithContext()
 
 Creates a new `Person` for a `Device`. Adds that person to the `Device`.
 
-- Can only be done if authentication is not applied on an existing person already.
 - Can only be done with at least one authenticationMethod
+- Can only be done if authentication is not applied on an existing person already.
 - Function is wrappable
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| deviceId | string |  |,| personData | { authorizations: `Authorization`[], <br />credits: number, <br />dataEntries: `PersonInformationValue`[], <br />interestSlugs: `Slug`[], <br />media: `PersonSocialMedia`[], <br />name: string, <br />slug: string, <br />pictureImage: `BackendAsset`, <br />groupSlugs?: `Slug`[], <br />requiredAuthenticationMethods?: `AuthenticationMethodMethod`[], <br />amountAuthenticationMethodsRequired?: number, <br /> } | Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically |
+| functionContext | `FunctionContext` |  |,| personData | { authorizations?: `Authorization`[], <br />credit?: `Credit`, <br />dataEntries?: `PersonInformationValue`[], <br />interestSlugs?: `Slug`[], <br />media?: `PersonSocialMedia`[], <br />name: string, <br />slug: string, <br />pictureImage?: `BackendAsset`, <br />groupSlugs?: `Slug`[], <br />requiredAuthenticationMethods?: `AuthenticationMethodMethod`[], <br />amountAuthenticationMethodsRequired?: number, <br /> } | Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically |
 | **Output** |    |    |
 
 
 
-## 🔹 LoginResult
+## signupWithPasswordWithContext()
 
-Properties: 
+---
+publicAuthorization: read, search, execute
+---
 
- | Name | Type | Description |
-|---|---|---|
-| isSuccessful  | boolean |  |
-| message (optional) | string |  |
+For now only username/pass is supported due to direct verification
+
+This function makes an authenticationmethod for the device and then signs up by creating a person for it and attaching it to the device.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionContext | `FunctionContext` |  |,| name | string |  |,| handle | string |  |,| password | string |  |,| repeatPassword | string |  |
+| **Output** |    |    |
+
+
+
+## switchCurrentPersonWithContext()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionContext | `FunctionContext` |  |,| newCurentPersonId | string |  |
+| **Output** |    |    |
+
+
+
+## updateMeWithContext()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionContext | `FunctionContext` |  |,| details | `PersonProfileDetails` |  |
+| **Output** |    |    |
 
 
 
 ## 📄 addAuthenticationMethod (exported const)
 
-core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
-
-
-## 📄 addDeviceAuthenticatedMethod (exported const)
-
 sends an email or sms, or already confirms in case of emailPassword
 
-
-TODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.
+core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
 
 
 ## 📄 addDeviceAuthenticationMethodConfirm (exported const)
@@ -241,48 +179,103 @@ For now, only handles methods `phoneNumber` and `email`
 TODO: extrahere the core into `addAuthenticationMethodConfirm` and use it in this one and make also `addPersonAuthenticationMethodConfirm`
 
 
-## 📄 addPersonAuthenticationMethod (exported const)
+## 📄 addDeviceAuthenticationMethodWithContext (exported const)
 
-adds an `authenticationMethod` to `Person`
+returns new function context with added authenticationmethod
 
-relies on `addAuthenticationMethod`
 
-TODO: ensure this wraps `addAuthenticationMethod` and adds it to `Device` after that.
+## 📄 addPersonAuthenticationMethodWithContext (exported const)
 
+## 📄 findAuthenticatedPersonWithHandle (exported const)
+
+Check if the handle is already taken by some person in the system
+
+
+## 📄 findLoggedinPersonsWithContext (exported const)
+
+This finds all persons you should be logged in as according to all your device's Authentication Methods.
+
+Does not update your device to add the found persons.
+
+
+## 📄 getMeWithContext (exported const)
+
+Get all relevant information about yourself, including all persons that are attached to you.
+
+NB: probably need to omit some fields later, but for now it's fine
+
+
+## 📄 getPublicPerson (exported const)
+
+## 📄 getPublicPersons (exported const)
 
 ## 📄 isPhoneNumber (exported const)
 
 TODO: Implement this
 
 
-## 📄 login (exported const)
+## 📄 loginWithContext (exported const)
 
-attaches the `Device` with `authToken` (`id`) to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.
+attaches the `Device` with `authToken` to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.
 
 
-## 📄 logoutPostApi (exported const)
+## 📄 loginWithPasswordWithContext (exported const)
+
+---
+publicAuthorization: read, search, execute
+---
+
+Login with username and password
+
+1. Adds an username/password combo as auth-method to the device,
+2. Checks the persons to match the auth
+3. In case of match, moves the method to the person and connects the device
+
+
+## 📄 logoutWithContext (exported const)
 
 Uses cookies (https://serverjs.io/documentation/reply/#cookie-) to logout
 
 Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
 
 
-## 📄 removeDeviceAuthenticationMethod (exported const)
+## 📄 removeDeviceAuthenticationMethodWithContext (exported const)
 
 removes an `authenticatedMethod` from `Device`
 
+Usually the authentication methods are an attempt to login into a new account, so if you remove something it doesnt have impact on the accounts you already logged into, because these authentications are not stored on the device but on the person.
 
-## 📄 removePersonAuthenticationMethod (exported const)
-
-removes an `authenticationMethod` from `Person`
+We can therefore remove it without much validation
 
 
-## 📄 signup (exported const)
+## 📄 removePersonAuthenticationMethodWithContext (exported const)
+
+removes an `authenticationMethod` from `Person` from currentPerson from authenticated device
+
+
+## 📄 signupWithContext (exported const)
 
 Creates a new `Person` for a `Device`. Adds that person to the `Device`.
 
-- Can only be done if authentication is not applied on an existing person already.
 - Can only be done with at least one authenticationMethod
+- Can only be done if authentication is not applied on an existing person already.
 - Function is wrappable
+
+
+## 📄 signupWithPasswordWithContext (exported const)
+
+---
+publicAuthorization: read, search, execute
+---
+
+For now only username/pass is supported due to direct verification
+
+This function makes an authenticationmethod for the device and then signs up by creating a person for it and attaching it to the device.
+
+
+## 📄 switchCurrentPersonWithContext (exported const)
+
+## 📄 updateMeWithContext (exported const)
+
   </details>
 

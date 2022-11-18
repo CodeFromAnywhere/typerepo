@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149577580,
-  "updatedAt": 1668149577580,
+  "createdAt": 1668751764764,
+  "updatedAt": 1668751764764,
   "deletedAt": 0,
-  "createdFirstAt": 1668149577580,
+  "createdFirstAt": 1668751764764,
   "id": "namedparameterstypeof-augmentedwordcomponent",
   "name": "NamedParameters<typeof AugmentedWordComponent>",
   "slug": "namedparameterstypeof-augmentedwordcomponent",
@@ -50,7 +50,8 @@
                 "name": "augmentedWord",
                 "required": true,
                 "schema": {
-                  "fullComment": "AugmentedWords should have a small footprint since there can be many of them\n\nWords with a specific affix (backticks, bolded, italic) will match against these.\n\nUsed to link automatically to functionNames, InterfaceNames, operation-names, words, and more..",
+                  "fullComment": "AugmentedWords should have a small footprint since there can be many of them\n\nWords with a specific affix (backticks, bolded, italic) will match against these.\n\nUsed to link automatically to functionNames, InterfaceNames, operation-names, words, and more..\n\nTODO: This is a much more general purpose thing than just `markdown-reader-types`. Move to it's own package",
+                  "todo": "This is a much more general purpose thing than just `markdown-reader-types`. Move to it's own package",
                   "properties": [
                     {
                       "name": "type",

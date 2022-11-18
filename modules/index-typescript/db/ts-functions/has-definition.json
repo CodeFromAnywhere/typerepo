@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668150707311,
-  "updatedAt": 1668150707311,
+  "createdAt": 1668752090101,
+  "updatedAt": 1668752090101,
   "deletedAt": 0,
-  "createdFirstAt": 1668150707311,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
+  "createdFirstAt": 1668752090101,
   "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
   "name": "hasDefinition",
   "slug": "has-definition",
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/generateSchema.ts",
+  "groupAuthorization": {},
   "commentsInside": [],
   "description": "",
   "parameters": [
@@ -189,5 +184,5 @@
   },
   "rawText": "\n\nexport function hasDefinition(\n  maybeInterface: MaybeInteface\n): maybeInterface is TsInterface {\n  return maybeInterface.type.typeDefinition !== null;\n}",
   "maxIndentationDepth": 1,
-  "id": "ygkylbzjpawlrctcmmksjnnc"
+  "id": "ayodkyecweibznggokofolga"
 }

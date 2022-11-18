@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668332392350,
+  "updatedAt": 1668332392350,
+  "deletedAt": 0,
+  "createdFirstAt": 1668332392350,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "vscodeOpen",
+  "slug": "vscode-open",
+  "operationRelativeTypescriptFilePath": "src/vscodeOpen.ts",
+  "type": {
+    "rawType": "(config: { files?: import(\"/Users/king/King/operations/tools/control-system/vscode-open/src/vscodeOpen\").OpenableFile[] | undefined; }) => Promise<{ success: boolean; response: string; } | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config: {\n  /**\n  Files to open. Either use a projectRelativePath or an operationName combined with an operationRelativePath.\n  \n  can optionally have the line and character specified as well after the file with [file-path]:[line]:[character]\n   */\n  files?: OpenableFile[];\n}): Promise<undefined | { success: boolean; response: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  if (!config.files) {\n    const command = `code --goto ${projectRoot}`;\n    execSync(command);\n    return { success: true, response: \"Opened the project root\" };\n  }\n\n  await Promise.all(\n    config.files.map(async (file) => {\n      const absolutePath = await getOpenableFilePath(file);\n\n      if (!absolutePath || !fs.existsSync(absolutePath)) {\n        return { success: false, response: \"This path doesn't exist\" };\n      }\n\n      const fullPathWithLine = file.line\n        ? `${absolutePath}:${file.line}`\n        : absolutePath;\n\n      const command = `code --goto ${fullPathWithLine}`;\n\n      execSync(command);\n\n      return { success: true, response: \"Opened the file\" };\n    })\n  );\n\n  return { success: true, response: \"Opened the file(s)\" };\n}",
+  "description": "opens a file in vscode through the \"code\" cli",
+  "id": "wtsnlefqtyzqbtdmxnlbocxa"
+}

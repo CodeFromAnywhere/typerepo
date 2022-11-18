@@ -10,11 +10,11 @@ var x={defaultAssetName:__spreadArray(__spreadArray([],l||[],!0),[(0,pluralize_1
 // NB: many things are omitted here since they're still a work in progress
 "asset"===y.type?void 0:"audio"===y.type?["recordAudio","files"]:"file"===y.type?["files"]:"image"===y.type?["camera","files"]:"video"===y.type?["files","recordScreen","recordVideo"]:void 0};return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,renderParameterTitle_1.renderParameterTitle)(e,_),(0,jsx_runtime_1.jsx)(AssetInput,{value:g,onChange:function(e){c(i,e)},extra:x,
 // parameter={parameter}
-config:{},fieldName:e.name,uniqueFieldId:e.name})]})}
+config:{},fieldName:e.name,uniqueFieldId:e.name})]},h)}
 // First, let's see if the parametername is a reference parameter.
 var b=(0,getReferencedModelDataItem_1.getReferencedModelDataItem)(e.name,u);
 // console.log({ referencedModelDataItem });
-if(null==b?void 0:b.isReferenceParameter)return(0,jsx_runtime_1.jsx)(ReferenceInput_1.ReferenceInput,{parameter:e,parameterValue:g,onChangeParameter:function(e){return c(i,e)},referencedModelDataItem:b,defaultInputFields:j,isDebug:_});if(!e.isDbModel||!(0,name_conventions_1.isCalculatedParameter)(e.name)){var w=(0,schema_util_1.getPossibleReferenceParameterNames)(e.name);
+if(null==b?void 0:b.isReferenceParameter)return(0,jsx_runtime_1.jsx)(ReferenceInput_1.ReferenceInput,{parameter:e,parameterValue:g,onChangeParameter:function(e){return c(i,e)},referencedModelDataItem:b,defaultInputFields:j,isDebug:_},h);if(!e.isDbModel||!(0,name_conventions_1.isCalculatedParameter)(e.name)){var w=(0,schema_util_1.getPossibleReferenceParameterNames)(e.name);
 // NB: if the property has a model reference, we just need the model reference, not the whole model. This is only for retreiving, it's not present in the database. NB: this is also done when simplifying a schema. Adding it here too is kind of unneccessary if you can assume the schemas are correct, so we should probably remove it later!
 if(!!!s.find((function(e){return w.includes(e)}))){if("array"===e.simplifiedSchema.type)return(0,jsx_runtime_1.jsx)(ArrayForm_1.ArrayForm,{parameter:e,parameterValue:g,onChangeParameter:function(e){return c(i,e)},
 // passing props
@@ -22,20 +22,20 @@ itemNameOrId:r,parameterNameStack:l,referencableModelData:u,isDebug:_,id:h,proje
 // passing props
 itemNameOrId:r,parameterNameStack:l,referencableModelData:u,isDebug:_,id:h,projectRelativeStorageFilePath:o},h);if("number"===(null===(f=e.simplifiedSchema)||void 0===f?void 0:f.type)){var P=a[i];return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,renderParameterTitle_1.renderParameterTitle)(e,_),(0,jsx_runtime_1.jsx)(react_with_native_form_inputs_1.NumberInput,__assign({},j,{onChange:function(r){var t=e.required||null!=r?r||0:void 0,u=a.map((function(e,r){
 // NB: only change the index we are on
-return r===i?t:e}));n(u)},value:P,extra:{},config:{}}))]})}if("boolean"===(null===(d=e.simplifiedSchema)||void 0===d?void 0:d.type)){var S=a[i];return(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{children:(0,jsx_runtime_1.jsx)(react_with_native_form_inputs_1.ToggleInput,__assign({},j,{onChange:function(r){var t=a.map((function(t,n){
+return r===i?t:e}));n(u)},value:P,extra:{},config:{}}))]},h)}if("boolean"===(null===(d=e.simplifiedSchema)||void 0===d?void 0:d.type)){var S=a[i];return(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{children:(0,jsx_runtime_1.jsx)(react_with_native_form_inputs_1.ToggleInput,__assign({},j,{onChange:function(r){var t=a.map((function(t,n){
 // NB: only change the index we are on
 return n===i?// NB: ony return undefined for an empty string that's not required
-e.required||!1!==r?r:void 0:t}));n(t)},value:S||!1,extra:{label:(0,renderParameterTitle_1.renderParameterTitle)(e,_)},config:{}}))})}
+e.required||!1!==r?r:void 0:t}));n(t)},value:S||!1,extra:{label:(0,renderParameterTitle_1.renderParameterTitle)(e,_)},config:{}}))},h)}
 // NB: only string text left... sometimes it can be markdown though (textArea would be great here)... But we can't see this yet due to indexation
 var D=a[i];if(null===(p=e.simplifiedSchema)||void 0===p?void 0:p.enum){var I=function(e){var r=a.map((function(r,t){
 // NB: only change the index we are on
 return t===i?//   NB: ony return undefined for an empty string that's not required
 e||null:r}));n(r)},q=e.simplifiedSchema.enum.map((function(e){return{value:String(e),label:(0,convert_case_1.humanCase)(String(e))}})),T=null===(v=e.simplifiedSchema)||void 0===v?void 0:v.enum[0],F=T?String(T):null;
 // NB: we are changing the state here to set the enum to the first value, if it's not specified
-void 0===D&&I(F);var O=D||F,A=q.find((function(e){return e.value===O}));return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,renderParameterTitle_1.renderParameterTitle)(e,_),(0,jsx_runtime_1.jsx)(react_with_native_form_inputs_1.SelectInput,__assign({},j,{onChange:function(e){return I((null==e?void 0:e.value)||null)},value:A,extra:{options:q,autoSuggest:q.length>10},config:{}}))]})}var M=function(r){var t=a.map((function(t,n){
+void 0===D&&I(F);var O=D||F,A=q.find((function(e){return e.value===O}));return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,renderParameterTitle_1.renderParameterTitle)(e,_),(0,jsx_runtime_1.jsx)(react_with_native_form_inputs_1.SelectInput,__assign({},j,{onChange:function(e){return I((null==e?void 0:e.value)||null)},value:A,extra:{options:q,autoSuggest:q.length>10},config:{}}))]},h)}var M=function(r){var t=a.map((function(t,n){
 // NB: only change the index we are on
 return n===i?//   NB: ony return undefined for an empty string that's not required
-e.required||0!==r.length?r:void 0:t}));n(t)};if(name_conventions_1.markdownTextParameterNames.includes(e.name))return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,renderParameterTitle_1.renderParameterTitle)(e,_),(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({className:"w-full"},{children:(0,jsx_runtime_1.jsx)(writer_input_1.WriterInput,{className:"".concat(react_with_native_ui_1.UI.bareInput," bg-white"),value:D||"",onChange:M,hideButtons:!0,type:"markdown",projectRelativeFilePath:o})}))]});var R=name_conventions_1.passwordTextParameterNames.includes(e.name)?react_with_native_form_inputs_1.PasswordInput:react_with_native_form_inputs_1.TextInput;return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,renderParameterTitle_1.renderParameterTitle)(e,_),(0,jsx_runtime_1.jsx)(R,__assign({},j,{onChange:M,value:D||"",extra:{},config:{}}))]})}}}})).filter(js_util_1.notEmpty);return(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{children:m})};
+e.required||0!==r.length?r:void 0:t}));n(t)};if(name_conventions_1.markdownTextParameterNames.includes(e.name))return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,renderParameterTitle_1.renderParameterTitle)(e,_),(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({className:"w-full"},{children:(0,jsx_runtime_1.jsx)(writer_input_1.WriterInput,{className:"".concat(react_with_native_ui_1.UI.bareInput," bg-white"),value:D||"",onChange:M,hideButtons:!0,type:"markdown",projectRelativeFilePath:o})}))]},h);var R=name_conventions_1.passwordTextParameterNames.includes(e.name)?react_with_native_form_inputs_1.PasswordInput:react_with_native_form_inputs_1.TextInput;return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,renderParameterTitle_1.renderParameterTitle)(e,_),(0,jsx_runtime_1.jsx)(R,__assign({},j,{onChange:M,value:D||"",extra:{},config:{}}))]},h)}}}})).filter(js_util_1.notEmpty);return(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{children:m})};
 // modules
 exports.SimplifiedSchemaForm=SimplifiedSchemaForm;
 //# sourceMappingURL=SimplifiedSchemaForm.js.map

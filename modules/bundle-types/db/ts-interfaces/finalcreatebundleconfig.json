@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150020116,
-  "updatedAt": 1668150020116,
+  "createdAt": 1668448855267,
+  "updatedAt": 1668448855267,
   "deletedAt": 0,
-  "createdFirstAt": 1668150020116,
+  "createdFirstAt": 1668448855267,
   "id": "finalcreatebundleconfig",
   "name": "FinalCreateBundleConfig",
   "slug": "finalcreatebundleconfig",
@@ -30,6 +30,13 @@
             "type": "string"
           },
           "description": "if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n\ncan be handy if you're working with someone else..."
+        },
+        "inheritFrom_bundleConfigSlugs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Slug"
+          },
+          "description": "You can specify `Slug`s of other `BundleConfig`s here that this bundle should inherit from, recursively.\n\nWorks a little like https://www.typescriptlang.org/tsconfig#extends\n\nWill only inherit the apps, packages, and modules, nothing else.\n\n# How it works\n\n1) finds all unique `BundleConfig`s that need to be inherited, recursively, 2) make a `BundleSummary` of every `BundleConfig` 3) merge the `BundleSummary`s and omit duplicates\n\nTODO: Implement this"
         },
         "keepStructure": {
           "type": "boolean",
@@ -129,6 +136,24 @@
                   "type": "string"
                 },
                 "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "inheritFrom_bundleConfigSlugs",
+          "required": false,
+          "schema": {
+            "fullComment": "You can specify `Slug`s of other `BundleConfig`s here that this bundle should inherit from, recursively.\n\nWorks a little like https://www.typescriptlang.org/tsconfig#extends\n\nWill only inherit the apps, packages, and modules, nothing else.\n\n# How it works\n\n1) finds all unique `BundleConfig`s that need to be inherited, recursively, 2) make a `BundleSummary` of every `BundleConfig` 3) merge the `BundleSummary`s and omit duplicates\n\nTODO: Implement this",
+            "todo": "Implement this",
+            "items": [
+              {
+                "schema": {
+                  "fullComment": "use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
+                  "type": "string"
+                },
+                "name": "Slug"
               }
             ],
             "type": "array"

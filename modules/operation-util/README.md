@@ -1,6 +1,6 @@
 # Operation util
 
-operation-util (`OperationClassification` js)
+operation-util (`OperationClassification` cjs)
 
 Operation with utility functions to calculate things about operations and alter operation-index.
 
@@ -11,31 +11,19 @@ Operation with utility functions to calculate things about operations and alter 
 
 ## recalculateOperationIndexJson()
 
-relies on import index
+Recalculates some operation indexable things and updates that into the database
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## writeKeyToOperationIndexJson()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| absolutePath | string | can be a path to any file in the operation |
+| operationBasePath | string |  |,| manualProjectRoot (optional) | string |  |
 | **Output** |    |    |
 
 
 
 ## 📄 recalculateOperationIndexJson (exported const)
 
-relies on import index
-
-
-## 📄 writeKeyToOperationIndexJson (exported const)
+Recalculates some operation indexable things and updates that into the database
 
 # Internal
 
@@ -72,7 +60,7 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | operationBasePath  | string |  |
-| operationIndex (optional) | object |  |
+| operation (optional) | object |  |
 | operationName  | string |  |
 | srcPath  | string |  |
 | operationFolderName  | string |  |

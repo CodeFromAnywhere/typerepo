@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { PackageJson, TsImport } from "code-types";
+import { Operation, TsImport } from "code-types";
 /**
  * finds all dependencies of an operation name
  */
@@ -7,18 +7,18 @@ export declare const findMonorepoModules: (operationName: string) => Promise<str
 /**
  * finds all dependencies of an operation name
  */
-export declare const findDependenciesRecursively: (imports: TsImport[], packageJsons: PackageJson[], operationName: string, already: string[], ignore?: string[], ignoreFilter?: ((operationName: string) => boolean) | undefined) => Promise<string[]>;
+export declare const findDependenciesRecursively: (imports: TsImport[], operations: Operation[], operationName: string, already: string[], ignore?: string[], ignoreFilter?: ((operationName: string) => boolean) | undefined) => Promise<string[]>;
 /**
  * to be used when you need to know all dependencies for multiple operation names at once
  *
  * TODO: NB: this breaks with circular dependencies
  */
-export declare const findAllDependencyOperations: ({ imports, packageJsons, operationNames, ignoreOperationNames, ignoreFilter, }: {
+export declare const findAllDependencyOperations: ({ imports, operations, operationNames, ignoreOperationNames, ignoreFilter, }: {
     /**
      * All imports
      */
     imports: TsImport[];
-    packageJsons: PackageJson[];
+    operations: Operation[];
     operationNames: string[];
     ignoreOperationNames?: string[] | undefined;
     ignoreFilter?: ((operationName: string) => boolean) | undefined;

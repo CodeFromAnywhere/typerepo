@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258764627,
-  "updatedAt": 1666258764627,
+  "createdAt": 1668331942622,
+  "updatedAt": 1668331942622,
   "deletedAt": 0,
-  "createdFirstAt": 1666258764627,
+  "createdFirstAt": 1668331942622,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  const x = await categorizeFiles({\n    basePath: \"/Users/king/King/tools/cognition/app-controllers/sensible\",\n  });\n\n  const y = await getFolderSummary(x);\n  console.dir(y, { depth: 999 });\n}",
+  "value": "async () => {\n  const x = await categorizeFiles({\n    basePath: \"/Users/king/King/tools/cognition/app-controllers\",\n  });\n\n  const y = await getFolderSummary(x);\n  console.dir(y, { depth: 999 });\n}",
   "description": "",
-  "id": "neazexfrzryhvwymlrrxwjti"
+  "id": "qwgacgjfrpnpzcgunplmklpu"
 }

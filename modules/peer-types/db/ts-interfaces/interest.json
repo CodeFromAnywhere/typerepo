@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149755386,
-  "updatedAt": 1668149755386,
+  "createdAt": 1668678547111,
+  "updatedAt": 1668678547111,
   "deletedAt": 0,
-  "createdFirstAt": 1668149755386,
+  "createdFirstAt": 1668678547111,
   "id": "interest",
   "name": "Interest",
   "slug": "interest",
@@ -160,7 +160,8 @@
           "name": "categoryStackCalculated",
           "required": true,
           "schema": {
-            "fullComment": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`\n\n",
+            "fullComment": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
+            "nb": "Changing this value when updating/upserting, changes where the item is located!",
             "items": [
               {
                 "schema": {

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666260828361,
-  "updatedAt": 1666260828361,
+  "createdAt": 1668333193625,
+  "updatedAt": 1668333193625,
   "deletedAt": 0,
-  "createdFirstAt": 1666260828361,
+  "createdFirstAt": 1668333193625,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(question: string): Promise<string> => {\n  const rl = readline.createInterface({\n    input: process.stdin,\n    output: process.stdout,\n    terminal: false,\n  });\n\n  return new Promise((resolve) => {\n    rl.question(question, (input) => {\n      resolve(input);\n      rl.close();\n    });\n  });\n}",
   "description": "",
-  "id": "umosjjbfhsxujfqwwxiyharw"
+  "id": "ljekdqjgecbyjmlcjicexbdd"
 }

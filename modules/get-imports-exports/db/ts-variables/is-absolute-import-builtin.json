@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150633995,
-  "updatedAt": 1668150633995,
+  "createdAt": 1668449025492,
+  "updatedAt": 1668449025492,
   "deletedAt": 0,
-  "createdFirstAt": 1668150633995,
+  "createdFirstAt": 1668449025492,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(absoluteImportName: string) => {\n  const realModuleName = getPackageNameFromAbsoluteImport(absoluteImportName);\n  return realModuleName ? builtinModules.includes(realModuleName) : false;\n}",
   "description": "returns true if the absolute import is built in into node",
-  "id": "ovqkduclzutzdapxigfskrrh"
+  "id": "xjtczmyvgfzspgjqymyeworb"
 }

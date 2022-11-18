@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150719713,
-  "updatedAt": 1668150719713,
+  "createdAt": 1668752100962,
+  "updatedAt": 1668752100962,
   "deletedAt": 0,
-  "createdFirstAt": 1668150719713,
+  "createdFirstAt": 1668752100962,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(extensions?: string[]) => {\n  if (!extensions) return;\n\n  /**\n   * put any models here that should, if they are used as extension, have a db model generated\n   */\n  const specialExtensions = {\n    TsIndexModelType: \"jsonMultiple\",\n    OperationIndexModelType: \"jsonMultiple\",\n    DefaultModelType: \"jsonMultiple\",\n    SlugModelType: \"jsonMultiple\",\n    CsvModelType: \"csv\",\n    KeyValueMarkdownModelType: \"keyValueMarkdown\",\n    CategoryModelType: \"jsonMultiple\",\n    MarkdownModelType: \"markdown\",\n  };\n\n  const specialExtensionKeys = Object.keys(specialExtensions);\n\n  const specialExtension = extensions.find((x) =>\n    specialExtensionKeys.includes(x)\n  ) as undefined | keyof typeof specialExtensions;\n\n  if (!specialExtension) return;\n\n  const dbStorageMethod = specialExtensions[\n    specialExtension\n  ] as DbStorageMethod;\n  return dbStorageMethod;\n}",
   "description": "returns undefined if there is not a special extension. if there is, it returns the dbStorageMethod",
-  "id": "hhblgymofecojdhofcjharmy"
+  "id": "qdtfdpuywhuxkehypcroryxl"
 }

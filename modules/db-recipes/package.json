@@ -1,21 +1,8 @@
 {
-  "createdAt": 1662709577329,
-  "updatedAt": 1662709577329,
+  "createdAt": 1668328692437,
+  "updatedAt": 1668328692437,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577329,
-  "version": "0.0.1",
-  "main": "build/index.js",
-  "source": "src/index.ts",
-  "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
-    "test": "node ./build/cli.js",
-    "up": "npm version patch -f",
-    "pub": "yarn up && npm publish"
-  },
-  "license": "ISC",
-  "name": "db-recipes",
-  "slug": "db-recipes",
+  "createdFirstAt": 1668328692437,
   "id": "dbWxqZljJGXXfdTi",
   "dependencies": {
     "database": "0.0.1",
@@ -30,18 +17,131 @@
     "model-types": "0.0.1",
     "js-util": "0.0.1",
     "name-conventions": "0.0.1",
-    "asset-functions-node": "0.0.1"
-  },
-  "operation": {
-    "indirectDependencies": [
-      "bundle-types"
-    ]
+    "asset-functions-node": "0.0.1",
+    "bundle-types": "0.0.1",
+    "nested-menu": "0.0.1",
+    "read-json-file": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
     "typescript": "^4.7.4"
   },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "db-recipes",
+  "language": "english",
+  "slug": "db-recipes",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/database/db-recipes/src/wrapFunction.test.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
+      ],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "db-recipes",
+    "hasGeneratedDependenciesIndexed": true,
+    "indirectDependencies": [
+      "bundle-types"
+    ],
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668774239541,
+    "operationDependenciesIndexed": [
+      "BundleConfig",
+      "db",
+      "DbQueryResult",
+      "DbModelEnum",
+      "notEmpty",
+      "ModelInfo",
+      "humanCase",
+      "db",
+      "getMergedQueryConfig",
+      "getDatabaseFiles",
+      "MergedQueryConfig",
+      "DbModels",
+      "DbModelEnum",
+      "TsInterface",
+      "sdkInterfacePaths",
+      "readProjectRelativeJsonFile",
+      "getDbModelsForBundle",
+      "TsInterface",
+      "db",
+      "getDbModelsFromOperations",
+      "getLastFolder",
+      "path",
+      "getProjectRoot",
+      "isBundle",
+      "exploreOperationFolders",
+      "dbModelKeys",
+      "DbModels",
+      "db",
+      "TsFunction",
+      "camelCase",
+      "humanCase",
+      "slugify",
+      "db",
+      "operations",
+      "getFolder",
+      "destructureOptionalObject",
+      "getProjectRoot",
+      "isBundle",
+      "db",
+      "AugmentedAnyModelType",
+      "DbModels",
+      "TsInterface",
+      "NestedPathObject",
+      "db",
+      "DbModels",
+      "CustomQueryConfig",
+      "DbQueryResult",
+      "getAssetInputType",
+      "makeArray",
+      "notEmpty",
+      "processItemAssets",
+      "TsFunction"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/database",
+    "markdown": "Useful library of functions that wrap the `fs-orm` database.\n\nTODO: should probably be split up further to differentiate between db-ui functions and a more general purpose library\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 17,
+        "lines": 621,
+        "characters": 17740,
+        "bytes": 17740
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 185,
+        "characters": 4597,
+        "bytes": 4597
+      },
+      "textSize": {
+        "numberOfFiles": 3,
+        "lines": 399,
+        "characters": 11484,
+        "bytes": 11484
+      },
+      "size": {
+        "bytes": 33821,
+        "characters": 33821,
+        "lines": 1205,
+        "numberOfFiles": 22
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

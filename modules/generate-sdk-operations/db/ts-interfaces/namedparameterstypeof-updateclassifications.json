@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668775417506,
+  "updatedAt": 1668775417506,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775417506,
+  "id": "namedparameterstypeof-updateclassifications",
+  "name": "NamedParameters<typeof updateClassifications>",
+  "slug": "namedparameterstypeof-updateclassifications",
+  "operationRelativeTypescriptFilePath": "src/updateClassifications.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof updateClassifications>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668148594322,
-  "updatedAt": 1668148594322,
+  "createdAt": 1668774228258,
+  "updatedAt": 1668774228258,
   "deletedAt": 0,
-  "createdFirstAt": 1668148594322,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668774228258,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/tsInterfaceToDbMenu.ts",
   "commentsInside": [],
   "rawText": " (tsInterface: TsInterface, type: string) => {\n  const srcRelativeFolder = makeSrcRelativeFolder(\n    tsInterface.operationRelativeTypescriptFilePath\n  );\n  if (!tsInterface.operationName) return;\n\n  return {\n    name: tsInterface.name,\n    operationName: tsInterface.operationName,\n    type,\n    srcRelativeFolder,\n  };\n}",
@@ -287,5 +282,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "meslgwrhufkhoaobaztwbykn"
+  "id": "wfmbxbkwlslgjfqvulisffef"
 }

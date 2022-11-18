@@ -1,6 +1,6 @@
 # Run child process
 
-run-child-process (`OperationClassification` js)
+run-child-process (`OperationClassification` cjs)
 
 
 

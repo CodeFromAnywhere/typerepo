@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668775518897,
+  "updatedAt": 1668775518897,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775518897,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getAuthorizationInfo",
+  "slug": "get-authorization-info",
+  "operationRelativeTypescriptFilePath": "src/getAuthorizationInfo.ts",
+  "type": {
+    "rawType": "(device: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Device\").Device, tsFunction: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction) => import(\"/Users/king/King/operations/tools/user-interfaces/api/function-server-endpoints/src/getAuthorizationInfo\").AuthorizationInfo",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  device: Device,\n  tsFunction: TsFunction\n): AuthorizationInfo => {\n  const everyPersonsGroups =\n    device?.persons\n      ?.map((x) => x.groups)\n      .flat()\n      .filter(notEmpty)\n      .filter(onlyUnique2<Group>((a, b) => a.slug === b.slug)) || [];\n\n  const everyPersonsAuthorizations =\n    device?.persons?.map((x) => x.authorizations).flat() || [];\n\n  const customGroupAuthorizations = everyPersonsGroups\n    .map((group) => group.customAuthorizations)\n    .flat();\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations: Authorization[] = [\n    ...everyPersonsAuthorizations,\n    ...customGroupAuthorizations,\n  ].filter(notEmpty);\n\n  const hasAuthorization = !!authorizations.find((auth) => {\n    const authAppliesToThisFunction =\n      auth.tsFunctionId === tsFunction.id ||\n      auth.authorizedOperationName === tsFunction?.operationName ||\n      (auth.authorizedProjectRelativePath &&\n        tsFunction.projectRelativePath.startsWith(\n          auth.authorizedProjectRelativePath\n        ));\n\n    return authAppliesToThisFunction && auth.canExecute;\n  });\n\n  return { hasAuthorization, authorizations, groups: everyPersonsGroups };\n}",
+  "description": "returns `AuthorizationInfo` for a device + function",
+  "id": "qzktijfyxrzudtltgiorgrdq"
+}

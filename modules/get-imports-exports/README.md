@@ -1,6 +1,6 @@
 # Get imports exports
 
-get-imports-exports (`OperationClassification` node)
+get-imports-exports (`OperationClassification` node-cjs)
 
 
 
@@ -42,13 +42,13 @@ get-imports-exports (`OperationClassification` node)
 
 ## 📄 getImportsExportsTest (exported const)
 
-## 📄 test (exported const)
+## 📄 test (unexported const)
 
   </details>
 
 # Internal
 
-<details><summary>Show internal (31)</summary>
+<details><summary>Show internal (30)</summary>
     
   # calculatePackageJsonDependencies()
 
@@ -56,7 +56,7 @@ Calculates new packageJson dependencies object based on imports found in the who
 
 For monorepo modules, uses the version inside its packagejson (Uses the database to obtain the package.json)
 
-Generated packages are not added to dependencies. Instead a sensible config prop is added to state that this operation only works within a monorepo since it has generated operation deps that are not on the npm registry
+Generated packages are not added to dependencies. Instead a config is added saying this operation only works within a monorepo since it has generated operation deps that are not on the npm registry
 
 For external modules, uses the version that was already present in dependencies, or uses "*"
 
@@ -65,8 +65,8 @@ Also keeps the dependencies that were already there, nothing is removed.
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| dependencies (optional) | `PackageInfoObject` | Current dependencies object in your operation |,| imports | `Creation<TsImport>`[] | All imports found in your operation |,| packageJsons | `PackageJson`[] | All package-json's in your monorepo |,| operationName | string |  |
-| **Output** | { newDependencies: {  }, <br />hasGeneratedDependencies: boolean, <br /> }   |    |
+| dependencies (optional) | `PackageInfoObject` | Current dependencies object in your operation |,| imports | `Creation<TsImport>`[] | All imports found in your operation |,| operations | `Operation`[] | All package-json's in your monorepo |,| operationName | string |  |
+| **Output** | { newDependencies: {  }, <br />hasGeneratedDependenciesIndexed: boolean, <br /> }   |    |
 
 
 
@@ -239,7 +239,7 @@ Calculates new packageJson dependencies object based on imports found in the who
 
 For monorepo modules, uses the version inside its packagejson (Uses the database to obtain the package.json)
 
-Generated packages are not added to dependencies. Instead a sensible config prop is added to state that this operation only works within a monorepo since it has generated operation deps that are not on the npm registry
+Generated packages are not added to dependencies. Instead a config is added saying this operation only works within a monorepo since it has generated operation deps that are not on the npm registry
 
 For external modules, uses the version that was already present in dependencies, or uses "*"
 
@@ -308,8 +308,6 @@ returns true if the absolute import is built in into node
 
 returns true if the import was found in an optional file, e.g. this import is not always included in the bundle, so should not be a dependency
 
-
-## 📄 test (exported const)
 
 ## 📄 writeResult (exported const)
 

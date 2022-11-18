@@ -1,6 +1,6 @@
 # Comment util
 
-comment-util (`OperationClassification` js)
+comment-util (`OperationClassification` cjs)
 
 
 

@@ -1,6 +1,6 @@
 # Index typescript
 
-index-typescript (`OperationClassification` node)
+index-typescript (`OperationClassification` node-cjs)
 
 
 
@@ -116,7 +116,7 @@ returns all types that are found as start of a line in the comment (capitalised,
 
 # Internal
 
-<details><summary>Show internal (50)</summary>
+<details><summary>Show internal (54)</summary>
     
   # findAndUpsertTsInterfaces()
 
@@ -189,7 +189,7 @@ if isDbModel is specifically set to false, this will return null (which means th
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** | { runEveryPeriod: {  }, <br />publicAuthorization: {  }[], <br />isApiExposed: boolean, <br /> }   |    |
+| **Output** | { runEveryPeriod: {  }, <br />isApiExposed: boolean, <br /> }   |    |
 
 
 
@@ -376,6 +376,15 @@ I think, in general, that we should make it look as much as possible at markdown
 
 
 
+## removeTypescriptIndex()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## schemaToTsInterface()
 
 make a tsInterface from a schema generated from the file
@@ -384,6 +393,15 @@ make a tsInterface from a schema generated from the file
 | Input      |    |    |
 | ---------- | -- | -- |
 | filePath | string |  |,| typeName | string |  |,| schema | `Schema` |  |,| morphInterfaceInfo (optional) | `MorphInterfaceInfo` |  |
+| **Output** |    |    |
+
+
+
+## setTypescriptIndex()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
 | **Output** |    |    |
 
 
@@ -547,10 +565,14 @@ this is actually a fundamental part of the OS. How should comments be structured
 I think, in general, that we should make it look as much as possible at markdown, because it should always be able to have markdown anyway.
 
 
+## 📄 removeTypescriptIndex (exported const)
+
 ## 📄 schemaToTsInterface (exported const)
 
 make a tsInterface from a schema generated from the file
 
+
+## 📄 setTypescriptIndex (exported const)
 
 ## 📄 symbols (exported const)
 

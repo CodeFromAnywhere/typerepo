@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1666258763355,
-    "updatedAt": 1666258763355,
+    "createdAt": 1668331941388,
+    "updatedAt": 1668331941388,
     "deletedAt": 0,
-    "createdFirstAt": 1666258763355,
+    "createdFirstAt": 1668331941388,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/getFolderSummary.ts",
@@ -13,29 +13,29 @@
     "types": [],
     "firstLine": 5,
     "lastLine": 7,
-    "id": "metgxgcmygfdrziymshliwko"
+    "id": "zjsfrobsaktrjpjeovuunziw"
   },
   {
-    "createdAt": 1666258763355,
-    "updatedAt": 1666258763355,
+    "createdAt": 1668331941388,
+    "updatedAt": 1668331941388,
     "deletedAt": 0,
-    "createdFirstAt": 1666258763355,
+    "createdFirstAt": 1668331941388,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/getFolderSummary.ts",
     "comment": "gets a size summary for a file path\n\nDoes not calculate this for files that are too big (bigger than 1MB)",
-    "rawStatement": "export const getSizeSummary = async (\n  filePath: string\n): Promise<SizeSummary> => {\n  const stat = await fs.stat(filePath);\n\n  const bytes = stat.size;\n  const characters = bytes;\n\n  const bytesPerCharacter = bytes / characters;\n  let lines = 1;\n  const charactersPerLine = characters / lines;\n  const numberOfFiles = 1;\n  let linesPerFile = lines;\n  if (bytes > 1024 * 1024) {\n    // NB: too big to watch content\n\n    return {\n      bytes,\n      lines: 0,\n      characters,\n      bytesPerCharacter,\n      charactersPerLine,\n      linesPerFile,\n      numberOfFiles,\n    };\n  }\n\n  const content = await fs.readFile(filePath, \"utf8\");\n  lines = content.split(\"\\n\").length;\n  linesPerFile = lines;\n\n  return {\n    bytes,\n    lines: 0,\n    characters,\n    bytesPerCharacter,\n    charactersPerLine,\n    linesPerFile,\n    numberOfFiles,\n  };\n};",
+    "rawStatement": "export const getSizeSummary = async (\n  filePath: string\n): Promise<SizeSummary> => {\n  const stat = await fs.stat(filePath);\n\n  const bytes = stat.size;\n  const characters = bytes;\n\n  const bytesPerCharacter = bytes / characters;\n  let lines = 1;\n  const charactersPerLine = characters / lines;\n  const numberOfFiles = 1;\n  let linesPerFile = lines;\n  if (bytes > 1024 * 1024) {\n    // NB: too big to watch content\n\n    return {\n      bytes,\n      lines: 0,\n      characters,\n      bytesPerCharacter,\n      charactersPerLine,\n      linesPerFile,\n      numberOfFiles,\n    };\n  }\n\n  const content = await fs.readFile(filePath, \"utf8\");\n  lines = content.split(\"\\n\").length;\n  linesPerFile = lines;\n\n  return {\n    bytes,\n    lines,\n    characters,\n    bytesPerCharacter,\n    charactersPerLine,\n    linesPerFile,\n    numberOfFiles,\n  };\n};",
     "parameters": {},
     "types": [],
     "firstLine": 12,
     "lastLine": 16,
-    "id": "bsafcnxirkgqrtiaaznlodnj"
+    "id": "avemajlvayydtoqtzsaeyean"
   },
   {
-    "createdAt": 1666258763356,
-    "updatedAt": 1666258763356,
+    "createdAt": 1668331941388,
+    "updatedAt": 1668331941388,
     "deletedAt": 0,
-    "createdFirstAt": 1666258763356,
+    "createdFirstAt": 1668331941388,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/getFolderSummary.ts",
@@ -45,6 +45,6 @@
     "types": [],
     "firstLine": 72,
     "lastLine": 74,
-    "id": "rpsxyjabuzeykufsmwbyndyv"
+    "id": "bryxcrvbztbfetrnzhtaqdyt"
   }
 ]

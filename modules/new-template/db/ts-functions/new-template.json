@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667635801701,
-  "updatedAt": 1667635801701,
+  "createdAt": 1668752151266,
+  "updatedAt": 1668752151266,
   "deletedAt": 0,
-  "createdFirstAt": 1667635801701,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752151266,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/newTemplate.ts",
   "commentsInside": [],
   "rawText": " async (\n  type: string,\n  destinationPath?: string\n): Promise<string | undefined> => {\n  const manualProjectRoot = getProjectRoot(destinationPath);\n\n  const source = path.resolve(__dirname, \"..\", \"assets\", \"templates\", type);\n  const templateExists = fs.existsSync(source);\n\n  if (!templateExists) {\n    log(\n      `${type} cannot be generated yet. Create a template in assets/templates/${type}`\n    );\n    return;\n  }\n\n  const basePath = destinationPath\n    ? destinationPath\n    : path.join(process.cwd(), type);\n  // const availableFolderName = await getAvailableOperationName(\n  //   rootFolderPath,\n  //   type,\n  //   manualProjectRoot\n  // );\n\n  // const basePath = path.join(rootFolderPath, availableFolderName);\n\n  // if (fs.existsSync(basePath)) {\n  //   log(`${basePath} already exists`);\n  //   return;\n  // }\n  // Make the non-existing folder\n  await fs.mkdir(basePath, { recursive: true });\n  // Copy the template inthere\n  await fs.cpAsync(source, basePath, { recursive: true });\n  // Rename templatefiles if needed\n  await renameTemplateFiles({ appDir: basePath });\n\n  return basePath;\n}",
@@ -58,5 +53,5 @@
     "linesPerFile": 40,
     "numberOfFiles": 1
   },
-  "id": "jniesydwflgpqjgzvqnfcxqm"
+  "id": "kmpfvibpewpirniswhbbqiut"
 }

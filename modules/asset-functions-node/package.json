@@ -1,11 +1,36 @@
 {
-  "createdAt": 1664355592084,
-  "updatedAt": 1664355592084,
+  "createdAt": 1668328814793,
+  "updatedAt": 1668328814793,
   "deletedAt": 0,
-  "createdFirstAt": 1664355592084,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328814793,
+  "id": "HEMfUzpVNjsHgvYv",
+  "dependencies": {
+    "fluent-ffmpeg": "^2.1.2",
+    "asset-type": "0.0.1",
+    "fs-util": "1.0.5",
+    "filename-conventions": "0.0.1",
+    "get-path": "0.0.1",
+    "k-explore": "0.0.2",
+    "js-util": "0.0.1",
+    "name-conventions": "0.0.1",
+    "convert-case": "0.0.1",
+    "log": "0.0.1",
+    "database": "0.0.1",
+    "fs-orm": "1.0.1",
+    "set-json-key": "1.0.9",
+    "model-types": "0.0.1",
+    "asset-functions-js": "0.0.1",
+    "fs-util-js": "0.0.1",
+    "server": "*",
+    "peer-types": "0.0.1",
+    "function-context-type": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.20",
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,19 +38,120 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "@types/fluent-ffmpeg": "^2.1.20",
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.4"
-  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "asset-functions-node",
-  "sensible": {
-    "hasGeneratedDependencies": false
-  },
-  "dependencies": {
-    "fluent-ffmpeg": "^2.1.2"
-  },
+  "language": "english",
   "slug": "asset-functions-node",
-  "id": "HEMfUzpVNjsHgvYv"
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/asset/asset-functions-node/src/server-context/getReferencedAssetGetApi.ts. Error: Error: Unknown node \"this\" of kind \"ThisType\""
+      ],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "asset-functions-node",
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668773904510,
+    "operationDependenciesIndexed": [
+      "CompressionConfig",
+      "fs",
+      "UploadAssetResult",
+      "databaseFolderName",
+      "generatedFolders",
+      "sourceFolderName",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "makeRelative",
+      "explore",
+      "pathArrayIsOperation",
+      "operations",
+      "notEmpty",
+      "AssetInputType",
+      "getAssetInputType",
+      "sourceFolderName",
+      "databaseFolderName",
+      "path",
+      "findOperationBasePath",
+      "makeRelative",
+      "kebabCase",
+      "path",
+      "BackendAsset",
+      "fs",
+      "getFirstAvailableFilename",
+      "path",
+      "renameAndCreate",
+      "getRelativeLinkPath",
+      "slugify",
+      "log",
+      "db",
+      "DbModelEnum",
+      "DbModels",
+      "CustomQueryConfig",
+      "setKeyAtLocation",
+      "BackendAsset",
+      "makeArray",
+      "mergeObjectsArray",
+      "notEmpty",
+      "AugmentedAnyModelType",
+      "getParameterAtLocation",
+      "fs",
+      "path",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "takeFirst",
+      "FunctionContext",
+      "takeFirst",
+      "fs",
+      "path",
+      "UploadAssetResult",
+      "generateRandomString",
+      "getPreferredExtensionFromType",
+      "FunctionContext",
+      "fs",
+      "path",
+      "getExtension",
+      "getProjectRoot",
+      "path"
+    ],
+    "packageDependenciesIndexed": [
+      "Context",
+      "Context"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/asset",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 17,
+        "lines": 958,
+        "characters": 27660,
+        "bytes": 27660
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 198,
+        "characters": 5662,
+        "bytes": 5662
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 319,
+        "characters": 9388,
+        "bytes": 9388
+      },
+      "size": {
+        "bytes": 42710,
+        "characters": 42710,
+        "lines": 1475,
+        "numberOfFiles": 21
+      }
+    },
+    "hasGeneratedDependenciesIndexed": true,
+    "hasGeneratedImportsIndexed": false
+  }
 }

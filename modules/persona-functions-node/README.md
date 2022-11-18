@@ -1,6 +1,6 @@
 # Persona functions node
 
-persona-functions-node (`OperationClassification` node)
+persona-functions-node (`OperationClassification` node-cjs)
 
 
 

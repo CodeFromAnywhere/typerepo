@@ -1,0 +1,34 @@
+[
+  {
+    "createdAt": 1668336325582,
+    "updatedAt": 1668336325582,
+    "deletedAt": 0,
+    "createdFirstAt": 1668336325582,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/general.ts",
+    "comment": "promises to exec something with response and success as result (Promised)",
+    "rawStatement": "export const execAsync = (\n  command: string\n): Promise<{ success: boolean; response: string }> => {\n  return new Promise((resolve) => {\n    exec(command, (error, stdout, stderr) => {\n      if (error) {\n        console.log(error);\n        resolve({ success: false, response: stderr });\n      } else {\n        resolve({ success: true, response: stdout });\n      }\n    });\n  });\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 12,
+    "lastLine": 14,
+    "id": "srusqxupcogvfgqksfyegmrf"
+  },
+  {
+    "createdAt": 1668336325582,
+    "updatedAt": 1668336325582,
+    "deletedAt": 0,
+    "createdFirstAt": 1668336325582,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/general.ts",
+    "comment": "i don't know if this is ever useful...",
+    "rawStatement": "export const spawnAsync = (\n  command: string,\n  options: SpawnOptionsWithoutStdio\n): Promise<{ success: boolean; response: string; data?: string[] }> => {\n  return new Promise((resolve) => {\n    const spawned = spawn(command, options);\n\n    const data: string[] = [];\n    spawned\n      .on(\"exit\", (code) => {\n        resolve({ response: String(code), success: false, data });\n      })\n      .on(\"message\", (message) => {\n        //not sure if this does anything\n      })\n      .on(\"data\", (message) => {\n        //not sure if this does anything\n        data.push(message);\n      })\n      .on(\"error\", (err) => {\n        resolve({ response: String(err), success: false, data });\n      });\n  });\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 30,
+    "lastLine": 32,
+    "id": "eyeaazmfphdtmsakcgqbnwsx"
+  }
+]

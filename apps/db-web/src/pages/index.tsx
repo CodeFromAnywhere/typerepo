@@ -1,2 +1,3 @@
-import { pagesObject } from "db-ui";
-export default pagesObject.index;
+import { LoginForm } from "authentication";
+
+export default LoginForm;

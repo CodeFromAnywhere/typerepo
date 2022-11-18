@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668552487011,
+  "updatedAt": 1668552487011,
+  "deletedAt": 0,
+  "createdFirstAt": 1668552487011,
+  "id": "namedparameterstypeof-appsmenu",
+  "name": "NamedParameters<typeof AppsMenu>",
+  "slug": "namedparameterstypeof-appsmenu",
+  "operationRelativeTypescriptFilePath": "src/AppsMenu.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof AppsMenu>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

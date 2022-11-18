@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378649232,
-  "updatedAt": 1667378649232,
+  "createdAt": 1668773887601,
+  "updatedAt": 1668773887601,
   "deletedAt": 0,
-  "createdFirstAt": 1667378649232,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668773887601,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findAssetParametersRecursively.ts",
   "commentsInside": [],
   "rawText": " (\n  object: {\n    [key: string]: any;\n  },\n  stack?: string[]\n): AssetParameter[] => {\n  if (!object) return [];\n\n  const result = Object.keys(object)\n    .map((objectProperty) => {\n      const value = object[objectProperty];\n\n      const assetInputType = getAssetInputType(objectProperty);\n\n      if (assetInputType) {\n        return [\n          {\n            assetInputType,\n            parameterName: objectProperty,\n            stack,\n          },\n        ];\n      }\n\n      if (typeof value === \"object\") {\n        const newStack = stack ? [...stack, objectProperty] : [objectProperty];\n\n        return findAssetParametersRecursively(value, newStack);\n      }\n    })\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
@@ -206,5 +201,5 @@
     "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "itxclgzmvhwkjuqzbnfpdbmx"
+  "id": "xmhtvgtejylsgxbpngwpcktr"
 }

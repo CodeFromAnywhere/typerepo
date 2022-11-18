@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150572526,
-  "updatedAt": 1668150572526,
+  "createdAt": 1668775403030,
+  "updatedAt": 1668775403030,
   "deletedAt": 0,
-  "createdFirstAt": 1668150572526,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775403030,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/generateEnvSdks.ts",
   "commentsInside": [],
   "rawText": " async (\n  bundleConfig: BundleConfig,\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  const promises = [\n    newEnvSdk(bundleConfig, \"public\", config),\n    newEnvSdk(bundleConfig, \"private\", config),\n  ];\n\n  const results = await Promise.all(promises);\n\n  return results;\n}",
@@ -173,5 +168,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "hyabjldemopqfkstmyvlkbah"
+  "id": "qfxvmowwglozqvzgwludtmpt"
 }

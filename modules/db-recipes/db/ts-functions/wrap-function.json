@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668148599230,
-  "updatedAt": 1668148599230,
+  "createdAt": 1668774233009,
+  "updatedAt": 1668774233009,
   "deletedAt": 0,
-  "createdFirstAt": 1668148599230,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668774233009,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/wrapFunction.test.ts",
   "commentsInside": [],
   "rawText": " <TFunc extends (...parameters: any[]) => any>(\n  originalFunction: TFunc\n) => {\n  const wrappedFunction = (\n    ...parameters: Parameters<TFunc>\n  ): ReturnType<TFunc> => {\n    /**\ndo other stuff, both with await and without awaiting\n\n- logging io + cache lookup (@pure tag)\n- logging performance\n- logging errors\n- input validation\n- output validation\n- tracking usage quantity, checking if there is still permission for execution based on credit balance\n*/\n    console.log(\"I'm wrapping this function\", originalFunction.name);\n    return originalFunction(...parameters);\n  };\n\n  return wrappedFunction;\n}",
@@ -46,5 +41,5 @@
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "fzahkjmlgdzzspjknqrxzbnr"
+  "id": "jbfimhstgztpwwhnwyinhtnl"
 }

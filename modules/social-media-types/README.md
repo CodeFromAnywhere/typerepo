@@ -1,6 +1,6 @@
 # Social media types
 
-social-media-types (`OperationClassification` js)
+social-media-types (`OperationClassification` cjs)
 
 
 
@@ -64,36 +64,6 @@ Properties:
 
 
 ## 🔹 MediaPlatformEnum
-
-## 🔸 Interest
-
-keyValueMarkdown model
-
-
-
-
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| value (optional) | string |  |
-| comment  | string |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
-| isHeaderCalculated  | boolean |  |
-| parent_interestSlug  | string |  |
-
-
 
 ## 🔸 MediaPost
 
@@ -170,8 +140,39 @@ Properties:
 | tsInterfaceIds (optional) | array |  |
 | tsFunctionIds (optional) | array |  |
 | bundleConfigSlugs (optional) | array |  |
-| operationIndexIds (optional) | array |  |
+| operationIds (optional) | array |  |
+| opeations (optional) | array |  |
 | reference_assets  | array |  |
+
+
+
+## 🔸 Interest
+
+keyValueMarkdown model
+
+
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| value (optional) | string |  |
+| comment  | string |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| categoryStackCalculated  | array |  |
+| isHeaderCalculated  | boolean |  |
+| parent_interestSlug  | string |  |
 
 
 # Internal

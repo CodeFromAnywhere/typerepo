@@ -38,7 +38,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.runScriptEverywhere = void 0;
 var child_process_1 = require("child_process");
+var fs_util_1 = require("fs-util");
 var get_path_1 = require("get-path");
+var log_1 = require("log");
 var forAllFolders_1 = require("./forAllFolders");
 /**
  * runs a package script in all tools operations
@@ -55,6 +57,7 @@ var runScriptEverywhere = function (script, startIndex) { return __awaiter(void 
                     console.log("skipping ".concat(index));
                     return;
                 }
+                var operationName = (0, fs_util_1.getLastFolder)(folderPath);
                 try {
                     console.log("now: ".concat(index, " (").concat(folderPath, ")"));
                     (0, child_process_1.execSync)("npm run ".concat(script, " --if-present"), {
@@ -65,6 +68,7 @@ var runScriptEverywhere = function (script, startIndex) { return __awaiter(void 
                 catch (e) {
                     var error = e;
                     console.log(error === null || error === void 0 ? void 0 : error.stdout);
+                    (0, log_1.log)("Error in ".concat(operationName, " (").concat(folderPath, ")"), { type: "error" });
                 }
             },
         });

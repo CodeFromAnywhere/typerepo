@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668774456789,
+  "updatedAt": 1668774456789,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774456789,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "SearchResultComponent",
+  "slug": "search-result-component",
+  "operationRelativeTypescriptFilePath": "src/components/SearchResultComponent.tsx",
+  "type": {
+    "rawType": "(props: { searchResult: import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").SearchResult; index: number; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  searchResult: SearchResult;\n  index: number;\n}) => {\n  const { index, searchResult } = props;\n  return <Div key={`searchhit${index}`}>hit {index}</Div>;\n}",
+  "description": "If you click on a site that up and running, it should startup via pm2 before being redirected there",
+  "id": "ffkaqmsuzysnrrwjzdueuojc"
+}

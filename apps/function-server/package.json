@@ -1,24 +1,12 @@
 {
-  "createdAt": 1662709577331,
-  "updatedAt": 1662709577331,
+  "createdAt": 1668328701310,
+  "updatedAt": 1668328701310,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577331,
-  "name": "function-server",
-  "version": "0.0.0",
-  "main": "build/index.js",
-  "scripts": {
-    "pm2": "node build/cli.js",
-    "dev": "node build/cli.js",
-    "devThatDoesntWork": "ts-node-dev src/cli.ts --deps",
-    "dev:watch": "tsc -w",
-    "serve": "NODE_ENV=production pm2 start build/cli.js",
-    "restart": "pm2 restart build/cli.js",
-    "cluster": "NODE_ENV=production pm2 start build/cli.js -i 0 --name function-server",
-    "clusterReload": "NODE_ENV=production pm2 reload king",
-    "reloadAll": "git pull && yarn && yarn build && yarn clusterReload",
-    "build": "tsc"
+  "createdFirstAt": 1668328701310,
+  "id": "mWmyXwGmxjHGDraW",
+  "bin": {
+    "runFunctionServer": "./build/cli.js"
   },
-  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
@@ -39,7 +27,10 @@
     "get-path": "0.0.1",
     "fs-util": "1.0.5",
     "database": "0.0.1",
-    "js-util": "0.0.1"
+    "js-util": "0.0.1",
+    "code-types": "0.0.1",
+    "child-process-helper": "0.0.1",
+    "pm2-util": "0.0.1"
   },
   "devDependencies": {
     "@types/multer": "^1.4.7",
@@ -52,9 +43,93 @@
     "ts-node": "^10.7.0",
     "ts-node-dev": "^1.1.8"
   },
-  "id": "mWmyXwGmxjHGDraW",
+  "main": "build/index.js",
+  "scripts": {
+    "pm2": "node build/cli.js",
+    "dev": "node build/cli.js",
+    "devThatDoesntWork": "ts-node-dev src/cli.ts --deps",
+    "dev:watch": "tsc -w",
+    "serve": "NODE_ENV=production pm2 start build/cli.js",
+    "restart": "pm2 restart build/cli.js",
+    "cluster": "NODE_ENV=production pm2 start build/cli.js -i 0 --name function-server",
+    "clusterReload": "NODE_ENV=production pm2 reload king",
+    "reloadAll": "git pull && yarn && yarn build && yarn clusterReload",
+    "build": "tsc"
+  },
+  "version": "0.0.0",
+  "name": "function-server",
+  "language": "english",
   "slug": "function-server",
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "isNodeServer": true,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "server-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "function-server",
+    "hasGeneratedDependenciesIndexed": true,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668775483166,
+    "operationDependenciesIndexed": [
+      "db",
+      "mergeObjectsArray",
+      "notEmpty",
+      "sum",
+      "functionPostEndpoints",
+      "functionGetEndpoints",
+      "ports",
+      "getProjectRoot",
+      "path",
+      "execSync",
+      "log",
+      "startApp",
+      "oneByOne",
+      "log",
+      "sdk",
+      "RunEveryPeriodEnum",
+      "TsFunction",
+      "getObjectKeysArray",
+      "db"
+    ],
+    "packageDependenciesIndexed": [
+      "Options",
+      "Context",
+      "schedule"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/api",
+    "markdown": "Server that exposes all typerepo api functions wrapped into easily accessible endpoints.\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 4,
+        "lines": 201,
+        "characters": 5936,
+        "bytes": 5936
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 170,
+        "characters": 4353,
+        "bytes": 4353
+      },
+      "textSize": {
+        "numberOfFiles": 4,
+        "lines": 169,
+        "characters": 8296,
+        "bytes": 8296
+      },
+      "size": {
+        "bytes": 18585,
+        "characters": 18585,
+        "lines": 540,
+        "numberOfFiles": 10
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

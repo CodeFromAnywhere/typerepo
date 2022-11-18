@@ -1,6 +1,6 @@
 # Mail
 
-mail (`OperationClassification` node)
+mail (`OperationClassification` node-cjs)
 
 
 

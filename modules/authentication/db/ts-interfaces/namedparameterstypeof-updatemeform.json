@@ -1,0 +1,64 @@
+{
+  "createdAt": 1668777496201,
+  "updatedAt": 1668777496201,
+  "deletedAt": 0,
+  "createdFirstAt": 1668777496201,
+  "id": "namedparameterstypeof-updatemeform",
+  "name": "NamedParameters<typeof UpdateMeForm>",
+  "slug": "namedparameterstypeof-updatemeform",
+  "operationRelativeTypescriptFilePath": "src/UpdateMeForm.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof UpdateMeForm>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

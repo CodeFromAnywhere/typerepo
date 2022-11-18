@@ -1,19 +1,14 @@
 {
-  "createdAt": 1667635802856,
-  "updatedAt": 1667635802856,
+  "createdAt": 1668752148940,
+  "updatedAt": 1668752148940,
   "deletedAt": 0,
-  "createdFirstAt": 1667635802856,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752148940,
+  "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/newOperationWithFiles.test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const operationConfig = await getOperationConfig(\n    \"test-operation\",\n    \"This is amaaaaazzzz\"\n  );\n\n  await newOperationWithFiles(\n    operationConfig,\n    { \"src/test-operation.ts\": \"//this is a file\\nexport const x = 1;\" },\n    { overwriteIfExists: true }\n  );\n}",
+  "rawText": " async () => {\n  await newOperationWithFiles(\n    \"test-operation\",\n    \"This is amaaaaazzzz\",\n    { \"src/test-operation.ts\": \"//this is a file\\nexport const x = 1;\" },\n    { overwriteIfExists: true }\n  );\n}",
   "name": "main",
   "slug": "main",
   "parameters": [],
@@ -29,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 285,
-    "lines": 12,
-    "bytes": 285,
+    "characters": 207,
+    "lines": 8,
+    "bytes": 207,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 24,
-    "linesPerFile": 12,
+    "charactersPerLine": 26,
+    "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "ndqaevspnpiceupqinntwovp"
+  "id": "gljtqxiqzyyolzikzqyhxgrx"
 }

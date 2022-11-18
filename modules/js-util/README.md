@@ -1,6 +1,6 @@
 # Js util
 
-js-util (`OperationClassification` js)
+js-util (`OperationClassification` cjs)
 
 
 
@@ -83,6 +83,113 @@ function that returns a filter function that can be used as a filter for any arr
 optionally takes a compare function that should return a "true" if two instances are equal. if you use this function, make sure to pass a generic of the type the items will have, in order to make this equality function type safe as well
 
 
+## destructureOptionalObject()
+
+Easy way to destructure your object even if it may be `undefined` or `null`.
+
+Have you ever had a function with an optional configuration parameter, but you want to access all its properties? It's a hassle. This function lets you turn `doSomething` into `doSomethingBetter`. Check the code.
+
+```ts
+
+
+const doSomething = (config?: { a: string; b: boolean; c: number }) => {
+const a = config?.a;
+const b = config?.b;
+const c = config?.c;
+
+return "something" + a + b + c;
+};
+
+const doSomethingBetter = (config?: { a: string; b: boolean; c: number }) => {
+const { a, b, c } = destructureOptionalObject(config);
+return "something" + a + b + c;
+};
+
+```
+
+<!-- It would be great if I could also make examples that not only refer to input/output combos but maybe another function that showcases it's usage... -->
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 destructureOptionalObject (exported const)
+
+Easy way to destructure your object even if it may be `undefined` or `null`.
+
+Have you ever had a function with an optional configuration parameter, but you want to access all its properties? It's a hassle. This function lets you turn `doSomething` into `doSomethingBetter`. Check the code.
+
+```ts
+
+
+const doSomething = (config?: { a: string; b: boolean; c: number }) => {
+const a = config?.a;
+const b = config?.b;
+const c = config?.c;
+
+return "something" + a + b + c;
+};
+
+const doSomethingBetter = (config?: { a: string; b: boolean; c: number }) => {
+const { a, b, c } = destructureOptionalObject(config);
+return "something" + a + b + c;
+};
+
+```
+
+<!-- It would be great if I could also make examples that not only refer to input/output combos but maybe another function that showcases it's usage... -->
+
+
+## mergeNestedObject()
+
+type X = IsOptional<string|undefined>;
+
+Merges an object into an object, ensuring typesafety. The second object needs to be a recursive subset of the first.
+
+LIMITATION: When you set a value to undefined, ensure that it is allowed by the original object, we are not checking for this!
+
+TODO: is it possible to remove this type unsafety? It would be nice to only be able to set it to undefined if that is allowed by T. Not sure if it's possible to check the difference bewteen a key not being present and a key being present and the value being undefined... Look it up!
+
+Example:
+
+
+```ts
+
+const testObject: {
+a: string;
+b: number;
+c: { x: string; y: number; z: { a: string; b: number; c: { x: "wow" } } };
+} = {
+a: "lol",
+b: 8,
+c: { x: "lol", y: 88, z: { a: "wow", b: 888, c: { x: "wow" } } },
+};
+
+const result = mergeNestedObject(testObject, {
+c: { z: { c: { x: undefined }, b: 999 } },
+});
+
+console.dir({ testObject, result }, { depth: 10 });
+
+result will be: { a: 'lol', b: 8, c: { x: 'lol', y: 88, z: { a: 'wow', b: 999, c: { x: undefined } } }
+}
+
+```
+
+It's great, because you can't make any type mistakes, and your code becomes much shorter for altering an object
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
 ## takeFirst()
 
 takes any type T or an array of T and returns T or the first of the array (which is T)
@@ -95,15 +202,49 @@ takes any type T or an array of T and returns T or the first of the array (which
 
 
 
+## 📄 mergeNestedObject (exported const)
+
+Merges an object into an object, ensuring typesafety. The second object needs to be a recursive subset of the first.
+
+LIMITATION: When you set a value to undefined, ensure that it is allowed by the original object, we are not checking for this!
+
+TODO: is it possible to remove this type unsafety? It would be nice to only be able to set it to undefined if that is allowed by T. Not sure if it's possible to check the difference bewteen a key not being present and a key being present and the value being undefined... Look it up!
+
+Example:
+
+
+```ts
+
+const testObject: {
+a: string;
+b: number;
+c: { x: string; y: number; z: { a: string; b: number; c: { x: "wow" } } };
+} = {
+a: "lol",
+b: 8,
+c: { x: "lol", y: 88, z: { a: "wow", b: 888, c: { x: "wow" } } },
+};
+
+const result = mergeNestedObject(testObject, {
+c: { z: { c: { x: undefined }, b: 999 } },
+});
+
+console.dir({ testObject, result }, { depth: 10 });
+
+result will be: { a: 'lol', b: 8, c: { x: 'lol', y: 88, z: { a: 'wow', b: 999, c: { x: undefined } } }
+}
+
+```
+
+It's great, because you can't make any type mistakes, and your code becomes much shorter for altering an object
+
+
 ## 📄 takeFirst (exported const)
 
 takes any type T or an array of T and returns T or the first of the array (which is T)
 
 
-## isAllTrue()
-
-checks if all items in an array are true
-
+## omitUndefinedValues()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -112,7 +253,12 @@ checks if all items in an array are true
 
 
 
-## omitUndefinedValues()
+## 📄 omitUndefinedValues (exported const)
+
+## isAllTrue()
+
+checks if all items in an array are true
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -173,8 +319,6 @@ Trims a slash on both sides in any path
 checks if all items in an array are true
 
 
-## 📄 omitUndefinedValues (exported const)
-
 ## 📄 removeIndexFromArray (exported const)
 
 removes an index from an array
@@ -192,20 +336,6 @@ console.log(removeIndexFromArray(exampleArray, 2)); //c should be removed
 Trims a slash on both sides in any path
 
 
-## getObjectKeysArray()
-
-Handy function to get the keys of an object, but typed.
-
-NB: The only difference from Object.keys is that this returns the keys in a typesafe manner
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }[]   |    |
-
-
-
 ## getSubsetFromObject()
 
 takes an object and a subset of its keys and returns a subset of that object
@@ -219,6 +349,65 @@ output: { x: "a" }
 | ---------- | -- | -- |
 | - | | |
 | **Output** |    |    |
+
+
+
+## pickRandomArrayItem()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## sum()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 getSubsetFromObject (exported const)
+
+takes an object and a subset of its keys and returns a subset of that object
+
+input: { x: "a", y: "b", z: "c" } and ["x"]
+
+output: { x: "a" }
+
+
+## 📄 pickRandomArrayItem (exported const)
+
+## 📄 sum (exported const)
+
+## createMappedObject()
+
+Creates a `MappedObject` of an array of any type. `MappedObject`s are great for increasing efficiency to get an item from an array. Especially useful when finds are needed on a specific key match for huge arrays. Instead of finding on the array you can simply get the right property from this object.
+
+NB: Don't use this inside of render functions, it's a very slow function, the whole idea is that this makes it faster, so just do it once!
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
+## getObjectKeysArray()
+
+Handy function to get the keys of an object, but typed.
+
+NB: The only difference from Object.keys is that this returns the keys in a typesafe manner
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }[]   |    |
 
 
 
@@ -258,34 +447,11 @@ Taken and improved from https://codeburst.io/async-map-with-limited-parallelism-
 
 
 
-## replaceLastOccurence()
+## 📄 createMappedObject (exported const)
 
-Replaces the last occerence of something in a string by something else
+Creates a `MappedObject` of an array of any type. `MappedObject`s are great for increasing efficiency to get an item from an array. Especially useful when finds are needed on a specific key match for huge arrays. Instead of finding on the array you can simply get the right property from this object.
 
-Example:
-
-```ts
-const result = replaceLastOccurence("theBestSlugSlugSlug", "Slug", "Slack");
-console.log(result); // returns theBestSlugSlugSlack
-```
-
-NB: this is not the most efficient method, as it reverses the string by making it an array, twice. It can probably be done more efficiently by using `String.lastIndexOf`
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| string | string |  |,| searchValue | string |  |,| replaceValue | string |  |
-| **Output** | `String`   |    |
-
-
-
-## sum()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
+NB: Don't use this inside of render functions, it's a very slow function, the whole idea is that this makes it faster, so just do it once!
 
 
 ## 📄 getObjectKeysArray (exported const)
@@ -293,15 +459,6 @@ NB: this is not the most efficient method, as it reverses the string by making i
 Handy function to get the keys of an object, but typed.
 
 NB: The only difference from Object.keys is that this returns the keys in a typesafe manner
-
-
-## 📄 getSubsetFromObject (exported const)
-
-takes an object and a subset of its keys and returns a subset of that object
-
-input: { x: "a", y: "b", z: "c" } and ["x"]
-
-output: { x: "a" }
 
 
 ## 📄 insertAt (exported const)
@@ -326,22 +483,6 @@ Lets you map over any array with a async function while setting a max. concurren
 Taken and improved from https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70
 
 
-## 📄 replaceLastOccurence (exported const)
-
-Replaces the last occerence of something in a string by something else
-
-Example:
-
-```ts
-const result = replaceLastOccurence("theBestSlugSlugSlug", "Slug", "Slack");
-console.log(result); // returns theBestSlugSlugSlack
-```
-
-NB: this is not the most efficient method, as it reverses the string by making it an array, twice. It can probably be done more efficiently by using `String.lastIndexOf`
-
-
-## 📄 sum (exported const)
-
 ## apply()
 
 sum([1, 2, 3]);
@@ -353,20 +494,6 @@ function that takes an array of functions and applies them one by one, on the va
 | ---------- | -- | -- |
 | - | | |
 | **Output** |    |    |
-
-
-
-## createMappedObject()
-
-Creates a `MappedObject` of an array of any type. `MappedObject`s are great for increasing efficiency to get an item from an array. Especially useful when finds are needed on a specific key match for huge arrays. Instead of finding on the array you can simply get the right property from this object.
-
-NB: Don't use this inside of render functions, it's a very slow function, the whole idea is that this makes it faster, so just do it once!
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }   |    |
 
 
 
@@ -443,6 +570,15 @@ Please note that if a latter object has a key which holds "undefined", it will N
 
 
 
+## noEmptyString()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | string   |    |
+
+
+
 ## objectMapAsync()
 
 Map an object asynchronously and return the same object with the mapped result in its values
@@ -506,22 +642,6 @@ return `${value}123`;
 
 
 
-## objectValuesMap()
-
-not sure if this is the best way, but it does save some lines of code!
-
-maps over an object's values with a map function
-
-DEPRECATED in favour of objectMapSync and objectMapAsync
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }   |    |
-
-
-
 ## putIndexAtIndex()
 
 Takes an item from an index of an array and put it somewhere at another index
@@ -531,6 +651,36 @@ Takes an item from an index of an array and put it somewhere at another index
 | ---------- | -- | -- |
 | - | | |
 | **Output** | {  }[]   |    |
+
+
+
+## removeOptionalKeysFromObject()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
+## replaceLastOccurence()
+
+Replaces the last occerence of something in a string by something else
+
+Example:
+
+```ts
+const result = replaceLastOccurence("theBestSlugSlugSlug", "Slug", "Slack");
+console.log(result); // returns theBestSlugSlugSlack
+```
+
+NB: this is not the most efficient method, as it reverses the string by making it an array, twice. It can probably be done more efficiently by using `String.lastIndexOf`
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| string | string |  |,| searchValue | string |  |,| replaceValue | string |  |
+| **Output** | `String`   |    |
 
 
 
@@ -549,13 +699,6 @@ sums all keys of an array of objects, assuming the objects have the same datastr
 ## 📄 apply (exported const)
 
 function that takes an array of functions and applies them one by one, on the value or the result of the previous function. Only possible if the type of the value stays the same.
-
-
-## 📄 createMappedObject (exported const)
-
-Creates a `MappedObject` of an array of any type. `MappedObject`s are great for increasing efficiency to get an item from an array. Especially useful when finds are needed on a specific key match for huge arrays. Instead of finding on the array you can simply get the right property from this object.
-
-NB: Don't use this inside of render functions, it's a very slow function, the whole idea is that this makes it faster, so just do it once!
 
 
 ## 📄 findLastIndex (exported const)
@@ -595,6 +738,8 @@ Please note that you can provide partial objects as well, as long as you are sur
 
 Please note that if a latter object has a key which holds "undefined", it will NOT overwrite it. Anything else WILL
 
+
+## 📄 noEmptyString (exported const)
 
 ## 📄 objectMapAsync (exported const)
 
@@ -645,18 +790,25 @@ return `${value}123`;
 ```
 
 
-## 📄 objectValuesMap (exported const)
-
-not sure if this is the best way, but it does save some lines of code!
-
-maps over an object's values with a map function
-
-DEPRECATED in favour of objectMapSync and objectMapAsync
-
-
 ## 📄 putIndexAtIndex (exported const)
 
 Takes an item from an index of an array and put it somewhere at another index
+
+
+## 📄 removeOptionalKeysFromObject (exported const)
+
+## 📄 replaceLastOccurence (exported const)
+
+Replaces the last occerence of something in a string by something else
+
+Example:
+
+```ts
+const result = replaceLastOccurence("theBestSlugSlugSlug", "Slug", "Slack");
+console.log(result); // returns theBestSlugSlugSlack
+```
+
+NB: this is not the most efficient method, as it reverses the string by making it an array, twice. It can probably be done more efficiently by using `String.lastIndexOf`
 
 
 ## 📄 sumAllKeys (exported const)
@@ -665,7 +817,7 @@ sums all keys of an array of objects, assuming the objects have the same datastr
 
 # Tests
 
-<details><summary>Show test information(4)</summary>
+<details><summary>Show test information(6)</summary>
     
   # concatenate()
 
@@ -688,15 +840,26 @@ sums all keys of an array of objects, assuming the objects have the same datastr
 
 
 
+## mergeNestedObjectTest()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## 📄 concatenate (unexported const)
 
 ## 📄 main (unexported const)
+
+## 📄 mergeNestedObjectTest (unexported const)
 
   </details>
 
 # Internal
 
-<details><summary>Show internal (16)</summary>
+<details><summary>Show internal (17)</summary>
     
   # createEnum()
 
@@ -788,12 +951,19 @@ DEPRECATED: in favor of mergeObjects
 
 
 
-## noEmptyString()
+## objectValuesMap()
+
+not sure if this is the best way, but it does save some lines of code!
+
+maps over an object's values with a map function
+
+DEPRECATED in favour of objectMapSync and objectMapAsync
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** | string   |    |
+| **Output** | {  }   |    |
 
 
 
@@ -817,6 +987,8 @@ sums all parameters in two objects together
 | **Output** | {  }   |    |
 
 
+
+## 🔹 O
 
 ## 📄 createEnum (exported const)
 
@@ -873,7 +1045,14 @@ In short: merges two objects, for every parameter, use the default as a fallback
 DEPRECATED: in favor of mergeObjects
 
 
-## 📄 noEmptyString (exported const)
+## 📄 objectValuesMap (exported const)
+
+not sure if this is the best way, but it does save some lines of code!
+
+maps over an object's values with a map function
+
+DEPRECATED in favour of objectMapSync and objectMapAsync
+
 
 ## 📄 reverseString (exported const)
 

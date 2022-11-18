@@ -1,25 +1,20 @@
 {
-  "createdAt": 1667635794694,
-  "updatedAt": 1667635794694,
+  "createdAt": 1668752143899,
+  "updatedAt": 1668752143899,
   "deletedAt": 0,
-  "createdFirstAt": 1667635794694,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752143899,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/cli/newOperation.cli.ts",
   "commentsInside": [],
-  "rawText": " () => {\n  const [name, type, description, destinationPath] = process.argv.slice(2);\n\n  newOperation(name, {\n    type: type as OperationClassification,\n    description,\n    destinationPath,\n  });\n\n  console.log(`Generated operation`, {\n    name,\n    type,\n    description,\n    destinationPath,\n  });\n}",
+  "rawText": " async () => {\n  const [name, type, description, destinationPath] = process.argv.slice(2);\n\n  log(`Let's make a ${type || \"node-cjs\"} operation called ${name}`, {\n    type: \"important\",\n  });\n  console.log(\"All types possible:\", operationClassificationConst.join(\", \"));\n\n  await newOperation(name, {\n    type: type as OperationClassification,\n    description,\n    destinationPath,\n  });\n\n  console.log(`Generated operation`, {\n    name,\n    type,\n    description,\n    destinationPath,\n  });\n}",
   "name": "newOperationCli",
   "slug": "new-operation-cli",
   "parameters": [],
-  "description": "newOperation also works as CLI\n\nexample: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation (js, node, ui-es5, ui-es6, web) as the second argument of the CLI\n\nArguments (all optional):\n- name: string\n- type: `OperationClassification`\n- description: string\n- destinationPath: string",
+  "description": "newOperation also works as CLI\n\nexample: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation as the second argument of the CLI\n\nArguments (all optional):\n- name: string\n- type: `OperationClassification`\n- description: string\n- destinationPath: string",
   "returnType": {
-    "rawType": "void",
+    "rawType": "any",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -29,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 662,
-    "lines": 24,
-    "bytes": 662,
+    "characters": 822,
+    "lines": 29,
+    "bytes": 822,
     "bytesPerCharacter": 1,
     "charactersPerLine": 28,
-    "linesPerFile": 24,
+    "linesPerFile": 29,
     "numberOfFiles": 1
   },
-  "id": "obpylagfyypskqhvokgxzqdc"
+  "id": "ittmaxlooupurvmwbnlkjvme"
 }

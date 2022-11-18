@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149097081,
-  "updatedAt": 1668149097081,
+  "createdAt": 1668775530441,
+  "updatedAt": 1668775530441,
   "deletedAt": 0,
-  "createdFirstAt": 1668149097081,
+  "createdFirstAt": 1668775530441,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -10,7 +10,7 @@
   "slug": "device-include",
   "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/database/fs-orm/build/types\").Include",
+    "rawType": "import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/database/fs-orm/build/types\").Include",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -18,7 +18,7 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "value": "{\n  referenceKey: \"personId\",\n  include: { referenceKey: \"groupSlugs\" },\n}",
+  "value": "{\n  referenceKey: \"personIds\",\n  include: { referenceKey: \"groupSlugs\" },\n}",
   "description": "",
-  "id": "avbdufnknwukezdauhypizic"
+  "id": "hlxrdurhgneghxzidfhuqhqf"
 }

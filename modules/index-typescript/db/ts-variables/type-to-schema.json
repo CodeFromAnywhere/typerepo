@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150733664,
-  "updatedAt": 1668150733664,
+  "createdAt": 1668752116635,
+  "updatedAt": 1668752116635,
   "deletedAt": 0,
-  "createdFirstAt": 1668150733664,
+  "createdFirstAt": 1668752116635,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(type: Type) => getParamSchema(type)",
   "description": "calculates the schema of a type\n\nthis is great for types inside of parameters of variables that are not declared separately, however, it's probably not as good as vega's json schema generator... therefore, it would be great to always prefer vega's way above this.\n\nNB: this method throws sometimes if it can't find some stuff, so make sure to try/catch it.\n\nTODO: Test and improve this one",
-  "id": "gfcthfohhvtncrdwiojwblww"
+  "id": "iqfjnjkogjvqhhtqhemqfisd"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258846029,
-  "updatedAt": 1666258846029,
+  "createdAt": 1668750107567,
+  "updatedAt": 1668750107567,
   "deletedAt": 0,
-  "createdFirstAt": 1666258846029,
+  "createdFirstAt": 1668750107567,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async ({\n  debug = false,\n  folders,\n  onChange,\n}: {\n  debug?: boolean;\n  folders: string[];\n  onChange: OnChangeDetected;\n}) => {\n  const client = new watchman.Client();\n  await isClientOk(client, debug);\n  // Initiate watching each folder\n  folders.forEach((folderPath) => initiateWatch({ client, debug, folderPath }));\n\n  // whenever there has been a change detected, this function will be called. Beware, can also be from other watch sources!\n  client.on(\n    \"subscription\",\n    function ({ subscription, files, root }: SubscriptionResponse) {\n      const subInfo = getSubInfo(subscription);\n      if (!subInfo) return;\n      const { fullPath, relativePath, rootPath } = subInfo;\n      const ourWatch = folders.includes(fullPath);\n      if (!ourWatch) return;\n\n      onChange({ fullPath, relativePath, rootPath, files });\n    }\n  );\n}",
   "description": "watches folder paths and executes a callback when something changes in one of them\n\nTODO: check fs/promises.watch, that seems like a simple alternative of this! Could it be? Could it remove the need for watchman?",
-  "id": "xsoqgvtdvbruahytydpyhwob"
+  "id": "jbievkltyrdhbnqpwudsqvpu"
 }

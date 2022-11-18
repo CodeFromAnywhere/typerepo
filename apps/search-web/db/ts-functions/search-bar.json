@@ -1,0 +1,76 @@
+{
+  "createdAt": 1668774455354,
+  "updatedAt": 1668774455354,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774455354,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/SearchBar.tsx",
+  "commentsInside": [],
+  "rawText": " (props: {\n  initialValue?: string;\n  placeholder?: string;\n}) => {\n  const { initialValue, placeholder } = props;\n  const [search, setSearch] = useState(initialValue || \"\");\n  const router = useRouter();\n\n  const go = () => {\n    if (search.length === 0) return;\n    router.push(`/${search}`);\n  };\n  return (\n    <Div className=\"rounded-full border border-zinc-700 dark:border-zinc-300 p-2 px-4 text-3xl hover:bg-zinc-200 dark:hover:bg-zinc-800 bg-zinc-100 dark:bg-zinc-600 dark flex flex-row max-w-xl mx-4\">\n      <Form\n        onSubmit={(e) => {\n          e.preventDefault();\n          go();\n        }}\n      >\n        <Input\n          placeholder={placeholder || \"Go crazy\"}\n          className=\"flex flex-1 bg-transparent focus:outline-none\"\n          value={search}\n          onChange={(e) => setSearch(e.target.value)}\n        />\n      </Form>\n      <Div\n        className={search.length === 0 ? \"cursor-default\" : \"cursor-progress\"}\n        onMouseEnter={go}\n      >\n        🔎\n      </Div>\n    </Div>\n  );\n}",
+  "name": "SearchBar",
+  "slug": "search-bar",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "initialValue": {
+            "type": "string"
+          },
+          "placeholder": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "initialValue",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "placeholder",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1017,
+    "lines": 36,
+    "bytes": 1019,
+    "bytesPerCharacter": 1.0019665683382497,
+    "charactersPerLine": 28,
+    "linesPerFile": 36,
+    "numberOfFiles": 1
+  },
+  "id": "ebsjrzxykmqixejmludpkfdq"
+}

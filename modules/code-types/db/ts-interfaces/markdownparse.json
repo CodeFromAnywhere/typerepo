@@ -1,15 +1,15 @@
 {
-  "createdAt": 1668150086676,
-  "updatedAt": 1668150086676,
+  "createdAt": 1668775316670,
+  "updatedAt": 1668775316670,
   "deletedAt": 0,
-  "createdFirstAt": 1668150086676,
+  "createdFirstAt": 1668775316670,
   "id": "markdownparse",
   "name": "MarkdownParse",
   "slug": "markdownparse",
   "operationRelativeTypescriptFilePath": "src/MarkdownParse.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type MarkdownParse = {\n  /**\n   * if available, this can be the filename of the markdown in this markdown-parse. Can be used for things like merging\n   */\n  fileName?: string;\n  createdAt?: number;\n  openedAt?: number;\n  updatedAt?: number;\n  deletedAt?: number;\n  createdFirstAt?: number;\n\n  /**\n   * parameters found in frontmatter\n   */\n  parameters: Frontmatter;\n  /**\n   * downmatter is the same as frontmatter, but it is to be found at the end of the file. It is supposed to be containing things that are not important for the user to know, yet it is important metadata that is connected to this file. This can be indexed things, for example.\n   */\n  downmatterParameters?: Downmatter;\n  /**\n   * structured content based on h1, h2, h3, etc (paragraphs, recursive)\n   */\n  content?: MarkdownChunk[];\n  /**\n   * raw markdown without frontmatter\n   */\n  raw: string;\n};",
+  "rawText": "\n\nexport type MarkdownParse = {\n  /**\n   * if available, this can be the filename of the markdown in this markdown-parse. Can be used for things like merging\n   */\n  fileName?: string;\n  createdAt?: number;\n  openedAt?: number;\n  updatedAt?: number;\n  deletedAt?: number;\n  createdFirstAt?: number;\n\n  /**\n   * parameters found in frontmatter\n   */\n  parameters: Frontmatter;\n  /**\n   * downmatter is the same as frontmatter, but it is to be found at the end of the file. It is supposed to be containing things that are not important for the user to know, yet it is important metadata that is connected to this file. This can be indexed things, for example.\n   * \n   downmatterParameters?: Downmatter;\n   */\n  /**\n   * structured content based on h1, h2, h3, etc (paragraphs, recursive)\n   */\n  content?: MarkdownChunk[];\n  /**\n   * raw markdown without frontmatter\n   */\n  raw: string;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -41,10 +41,6 @@
         "parameters": {
           "$ref": "#/definitions/Frontmatter",
           "description": "parameters found in frontmatter"
-        },
-        "downmatterParameters": {
-          "$ref": "#/definitions/Downmatter",
-          "description": "downmatter is the same as frontmatter, but it is to be found at the end of the file. It is supposed to be containing things that are not important for the user to know, yet it is important metadata that is connected to this file. This can be indexed things, for example."
         },
         "content": {
           "type": "array",
@@ -116,38 +112,6 @@
             "fullComment": "parameters found in frontmatter\n\nOur version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
             "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
             "properties": [],
-            "type": "object"
-          }
-        },
-        {
-          "name": "downmatterParameters",
-          "required": false,
-          "schema": {
-            "fullComment": "downmatter is the same as frontmatter, but it is to be found at the end of the file. It is supposed to be containing things that are not important for the user to know, yet it is important metadata that is connected to this file. This can be indexed things, for example.\n\n",
-            "properties": [
-              {
-                "name": "detectedLanguage",
-                "required": false,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "labels",
-                "required": false,
-                "schema": {
-                  "items": [
-                    {
-                      "schema": {
-                        "type": "string"
-                      },
-                      "name": null
-                    }
-                  ],
-                  "type": "array"
-                }
-              }
-            ],
             "type": "object"
           }
         },

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149582468,
-  "updatedAt": 1668149582468,
+  "createdAt": 1668751768798,
+  "updatedAt": 1668751768798,
   "deletedAt": 0,
-  "createdFirstAt": 1668149582468,
+  "createdFirstAt": 1668751768798,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "pages",
   "operationRelativeTypescriptFilePath": "src/pages.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/markdown-reader/markdown-reader-ui/src/types\").PageType[]",
+    "rawType": "import(\"/Users/king/King/operations/tools/purpose/reader/markdown-reader-ui/src/types\").PageType[]",
     "typeDefinition": {
       "optional": false,
       "type": "array",
@@ -37,5 +37,5 @@
   },
   "value": "pageKeys.map((pageKey) => ({\n  ...pagesObject[pageKey].options,\n  component: pagesObject[pageKey],\n  key: pageKey,\n}))",
   "description": "",
-  "id": "lmazghohskbshdbguulbkdud"
+  "id": "xnunntbbhcmbbzjqhwwpnqpw"
 }

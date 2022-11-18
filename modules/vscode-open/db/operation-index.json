@@ -1,0 +1,58 @@
+{
+  "createdAt": 1664525569079,
+  "updatedAt": 1666259403826,
+  "deletedAt": 0,
+  "createdFirstAt": 1664525569079,
+  "folderName": "vscode-open",
+  "packageName": "vscode-open",
+  "relativeOperationLocationPath": "operations/tools/control-system",
+  "classification": "node",
+  "name": "vscode-open",
+  "slug": "vscode-open",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "fs",
+    "path",
+    "path",
+    "getOperationPath",
+    "getProjectRoot"
+  ],
+  "packageDependencies": [
+    "execSync",
+    "getFips"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 1,
+      "lines": 0,
+      "characters": 2214,
+      "bytes": 2214
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1466,
+      "bytes": 1466
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1344,
+      "bytes": 1344
+    },
+    "size": {
+      "bytes": 5024,
+      "characters": 5024,
+      "lines": 0,
+      "numberOfFiles": 5
+    }
+  },
+  "buildSucceeded": true,
+  "dependenciesBuildsFailed": false,
+  "indexErrors": [],
+  "indexImportExportError": "",
+  "indexInteracesErrors": [],
+  "lintProblems": [],
+  "id": "gcjroecfelvxdwqacadrvaab",
+  "language": "en"
+}

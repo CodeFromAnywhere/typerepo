@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378642484,
-  "updatedAt": 1667378642484,
+  "createdAt": 1668773880779,
+  "updatedAt": 1668773880779,
   "deletedAt": 0,
-  "createdFirstAt": 1667378642484,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668773880779,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/compressAsset.ts",
   "commentsInside": [],
   "rawText": " async (\n  absolutePath: string,\n  compressionConfig: CompressionConfig\n): Promise<string> => {\n  return absolutePath;\n}",
@@ -89,7 +84,7 @@
       "required": true
     }
   ],
-  "description": "Audio, image, video can be compressed. This should be done to sensible defaults, can be turned off, or can be specifically set to other dimensions using a doc-comment on the model.\n\n- audio: bitrate\n- video: fps and resolution\n- image: resolution\n\nReturns the new absolute path of the compressed asset (which can be the same as the initial path)",
+  "description": "Audio, image, video can be compressed. This should be done to logical defaults, can be turned off, or can be specifically set to other dimensions using a doc-comment on the model.\n\n- audio: bitrate\n- video: fps and resolution\n- image: resolution\n\nReturns the new absolute path of the compressed asset (which can be the same as the initial path)",
   "returnType": {
     "rawType": "Promise<string>",
     "typeCoverage": 0,
@@ -101,13 +96,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 465,
+    "characters": 464,
     "lines": 12,
-    "bytes": 465,
+    "bytes": 464,
     "bytesPerCharacter": 1,
     "charactersPerLine": 39,
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "llqttlaqxuexthcvgtrwkfic"
+  "id": "qpopcrlhhjlkxenwvukrzmhx"
 }

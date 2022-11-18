@@ -1,6 +1,6 @@
 # Lint
 
-lint (`OperationClassification` node)
+lint (`OperationClassification` node-cjs)
 
 
 

@@ -1,28 +1,139 @@
 {
-  "createdAt": 1666351013871,
-  "updatedAt": 1666351013871,
+  "createdAt": 1668328702215,
+  "updatedAt": 1668328702215,
   "deletedAt": 0,
-  "createdFirstAt": 1666351013871,
-  "version": "0.0.1",
-  "main": "build/index.js",
-  "source": "src/index.ts",
-  "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc"
+  "createdFirstAt": 1668328702215,
+  "id": "figgjjgfvhincexqpsqtbnsl",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "database": "0.0.1",
+    "model-types": "0.0.1",
+    "peer-types": "0.0.1",
+    "sms": "0.0.1",
+    "mail": "0.0.1",
+    "server": "*",
+    "function-context-type": "0.0.1",
+    "encrypt-password": "0.0.1",
+    "convert-case": "0.0.1",
+    "js-util": "0.0.1"
   },
-  "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/node": "^18.0.1",
     "typescript": "^4.7.4"
   },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "server-login",
-  "sensible": {
-    "hasGeneratedDependencies": false
-  },
-  "dependencies": {
-    "bcrypt": "^5.1.0"
-  },
+  "language": "english",
   "slug": "server-login",
-  "id": "figgjjgfvhincexqpsqtbnsl"
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/api/server-login/src/loginPostApi.ts. Error: Error: Unknown node \\\"this\\\" of kind \\\"ThisType\\\"\"]",
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "server-login",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668752311071,
+    "operationDependenciesIndexed": [
+      "db",
+      "isEmail",
+      "AuthenticationMethod",
+      "AuthenticationMethodMethod",
+      "Device",
+      "sendSms",
+      "sendMail",
+      "encryptPassword",
+      "db",
+      "AuthenticationMethod",
+      "AuthenticationMethodMethod",
+      "FunctionContext",
+      "mergeNestedObject",
+      "db",
+      "isEmail",
+      "AuthenticationMethod",
+      "AuthenticationMethodMethod",
+      "Device",
+      "FunctionContext",
+      "db",
+      "AuthenticationMethod",
+      "AuthenticationMethodMethod",
+      "db",
+      "AuthenticationMethodMethod",
+      "db",
+      "FunctionContext",
+      "Device",
+      "Person",
+      "FunctionContext",
+      "db",
+      "getSubsetFromObject",
+      "publicPersonKeys",
+      "db",
+      "FunctionContext",
+      "FunctionContext",
+      "db",
+      "FunctionContext",
+      "db",
+      "FunctionContext",
+      "AuthenticationMethodMethod",
+      "db",
+      "FunctionContext",
+      "AuthenticationMethodMethod",
+      "db",
+      "FunctionContext",
+      "Creation",
+      "generateId",
+      "englishMethod",
+      "Person",
+      "FunctionContext",
+      "AuthenticationMethodMethod",
+      "slugify",
+      "mergeNestedObject",
+      "db",
+      "FunctionContext",
+      "db",
+      "FunctionContext",
+      "PersonProfileDetails"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/api",
+    "markdown": "This operation exposes rudimentary functions to set cookies from the backend. We require cookies in order to authenticate a user for GET requests. Cookies are sent to the server for every request and are a safer way, because they are not part of the URL that can be found in the browser history.\n\nThis thing is far from finished, see `todo/` for what needs to be done.\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 20,
+        "lines": 943,
+        "characters": 26825,
+        "bytes": 26825
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 174,
+        "characters": 5496,
+        "bytes": 5496
+      },
+      "textSize": {
+        "numberOfFiles": 4,
+        "lines": 343,
+        "characters": 11536,
+        "bytes": 11536
+      },
+      "size": {
+        "bytes": 43857,
+        "characters": 43857,
+        "lines": 1460,
+        "numberOfFiles": 26
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
 }

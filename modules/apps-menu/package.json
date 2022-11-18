@@ -1,0 +1,94 @@
+{
+  "createdAt": 1668328717208,
+  "updatedAt": 1668328717208,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328717208,
+  "id": "kptmrhirsvgbkwunrnkyuxxx",
+  "dependencies": {
+    "@popperjs/core": "2.4.4",
+    "api": "0.0.1",
+    "react-with-native": "1.4.9",
+    "tooltip": "0.0.1",
+    "markdown": "1.0.0",
+    "react-query": "*",
+    "react-with-native-alert": "1.0.33",
+    "fancy-loader": "0.0.1",
+    "react": "*"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.0",
+  "name": "apps-menu",
+  "language": "english",
+  "slug": "apps-menu",
+  "operation": {
+    "indirectDependencies": [
+      "peer-functions",
+      "pm2-util"
+    ],
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [
+      "useState"
+    ],
+    "folderNameIndexed": "apps-menu",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668552491874,
+    "operationDependenciesIndexed": [
+      "Div",
+      "P",
+      "queries",
+      "api",
+      "Tooltip",
+      "renderMarkdownContent",
+      "useAlert",
+      "FancyLoader"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
+    "markdown": "# ❌ No description set yet\n\nPlease set a description for this operation in OPERATION.md\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 91,
+        "characters": 3517,
+        "bytes": 3517
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 123,
+        "characters": 3893,
+        "bytes": 3893
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 30,
+        "characters": 417,
+        "bytes": 417
+      },
+      "size": {
+        "bytes": 7827,
+        "characters": 7827,
+        "lines": 244,
+        "numberOfFiles": 5
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
+}

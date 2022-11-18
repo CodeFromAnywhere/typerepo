@@ -1,6 +1,6 @@
 # Asset type
 
-asset-type (`OperationClassification` js)
+asset-type (`OperationClassification` cjs)
 
 All types related to asset upload
 
@@ -177,7 +177,6 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | isSuccessful  | boolean |  |
-| isUnauthorized (optional) | boolean |  |
 | message (optional) | string |  |
 | temporaryDestination (optional) | string |  |
 
@@ -246,7 +245,7 @@ CompressionOption should be able to be applied on the model parameter through fr
 
 CompressionOption should be able to be applied on the model parameter through frontmatter
 
-- default (default option): Default King OS wide compression. User can make customize it within a sensible limit
+- default (default option): Default OS wide compression. User can make customize it within a logical limit
 - none: no compression applied by default (user can optionally compress it)
 - high: compressed bigtime by default (user cannot make it be compressed less)
 - low: compressed just a little (user cannot make it be compressed less, but can optionally compress it more)

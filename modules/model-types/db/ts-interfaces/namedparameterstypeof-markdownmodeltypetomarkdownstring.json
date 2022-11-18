@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150286541,
-  "updatedAt": 1668150286541,
+  "createdAt": 1668448991961,
+  "updatedAt": 1668448991961,
   "deletedAt": 0,
-  "createdFirstAt": 1668150286541,
+  "createdFirstAt": 1668448991961,
   "id": "namedparameterstypeof-markdownmodeltypetomarkdownstring",
   "name": "NamedParameters<typeof markdownModelTypeToMarkdownString>",
   "slug": "namedparameterstypeof-markdownmodeltypetomarkdownstring",
@@ -70,7 +70,7 @@
                 "name": "categoryStackCalculated",
                 "required": true,
                 "schema": {
-                  "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\n",
+                  "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
                   "nb": "Changing this value when updating/upserting, changes where the item is located!",
                   "items": [
                     {

@@ -1,19 +1,14 @@
 {
-  "createdAt": 1667378651423,
-  "updatedAt": 1667378651423,
+  "createdAt": 1668773896290,
+  "updatedAt": 1668773896290,
   "deletedAt": 0,
-  "createdFirstAt": 1667378651423,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": true,
+  "createdFirstAt": 1668773896290,
+  "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/getReferencedAssetGetApi.ts",
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/server-context/getReferencedAssetGetApi.ts",
   "commentsInside": [],
-  "rawText": " async (\n  ctx: Context\n): Promise<{\n  isSuccessful: boolean;\n  isUnauthorized?: boolean;\n  message: string;\n}> => {\n  /**\n  const authToken = (ctx as any).cookies?.authToken;\n  const authToken2 = ctx.cookie?.authToken;\n\n  console.log({\n    authToken,\n    authToken2,\n    cookie: ctx.cookie,\n    cookies: (ctx as any).cookies,\n    headers: ctx.req.headers,\n  });\n\n  const isAuthed = functionAuthPlugin(\"uploadAsset\", authToken);\n  if (!isAuthed) {\n    return {\n      isSuccessful: false,\n      isUnauthorized: true,\n      message: \"You can only do this when authenticated\",\n    };\n  }\n  */\n  const isDownload = takeFirst(ctx.query.isDownload) === \"1\";\n\n  const projectRelativeReferencingFilePath = takeFirst(\n    ctx.query.projectRelativeReferencingFilePath\n  );\n  const referencingFileRelativeAssetPath = takeFirst(\n    ctx.query.referencingFileRelativeAssetPath\n  );\n\n  const { absoluteAssetPath, message, isSuccessful } =\n    await findAbsoluteAssetPathFromReference(\n      projectRelativeReferencingFilePath,\n      referencingFileRelativeAssetPath\n    );\n\n  if (!absoluteAssetPath) {\n    return { isSuccessful, message };\n  }\n\n  return serverDownloadReply(absoluteAssetPath, isDownload);\n}",
+  "rawText": " async (\n  serverContext: Context\n): Promise<{\n  isSuccessful: boolean;\n  isUnauthorized?: boolean;\n  message: string;\n}> => {\n  if (!serverContext) {\n    return { isSuccessful: false, message: \"No server context provided\" };\n  }\n  /**\n  const authToken = (ctx as any).cookies?.authToken;\n  const authToken2 = ctx.cookie?.authToken;\n\n  console.log({\n    authToken,\n    authToken2,\n    cookie: ctx.cookie,\n    cookies: (ctx as any).cookies,\n    headers: ctx.req.headers,\n  });\n\n  const isAuthed = functionAuthPlugin(\"uploadAsset\", authToken);\n  if (!isAuthed) {\n    return {\n      isSuccessful: false,\n      isUnauthorized: true,\n      message: \"You can only do this when authenticated\",\n    };\n  }\n  */\n  const isDownload = takeFirst(serverContext.query.isDownload) === \"1\";\n\n  const projectRelativeReferencingFilePath = takeFirst(\n    serverContext.query.projectRelativeReferencingFilePath\n  );\n\n  const referencingFileRelativeAssetPath = takeFirst(\n    serverContext?.query.referencingFileRelativeAssetPath\n  );\n\n  const { absoluteAssetPath, message, isSuccessful } =\n    await findAbsoluteAssetPathFromReference(\n      projectRelativeReferencingFilePath,\n      referencingFileRelativeAssetPath\n    );\n\n  if (!absoluteAssetPath) {\n    return { isSuccessful, message };\n  }\n\n  return serverDownloadReply(absoluteAssetPath, isDownload);\n}",
   "name": "getReferencedAssetGetApi",
   "slug": "get-referenced-asset-get-api",
   "parameters": [],
@@ -29,13 +24,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 2407,
-    "lines": 74,
-    "bytes": 2407,
+    "characters": 2552,
+    "lines": 78,
+    "bytes": 2552,
     "bytesPerCharacter": 1,
     "charactersPerLine": 33,
-    "linesPerFile": 74,
+    "linesPerFile": 78,
     "numberOfFiles": 1
   },
-  "id": "gauenpgcukegqwmydnfaffey"
+  "id": "knwhznbmeuigqnrqjhoavlmk"
 }

@@ -1,6 +1,6 @@
 # Set json key
 
-set-json-key (`OperationClassification` node)
+set-json-key (`OperationClassification` node-cjs)
 
 Useful functions to alter JSON files (can be used both with node or with a CLI)
 

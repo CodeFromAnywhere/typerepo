@@ -1,0 +1,77 @@
+{
+  "createdAt": 1668328750699,
+  "updatedAt": 1668328750699,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328750699,
+  "id": "gPsGJdhoTTUasjES",
+  "dependencies": {
+    "model-types": "0.0.1",
+    "asset-type": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "himalayajeep-types",
+  "language": "english",
+  "slug": "himalayajeep-types",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "himalayajeep-types",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668337485327,
+    "operationDependenciesIndexed": [
+      "DefaultModelType",
+      "BackendAsset"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/niches/code-from-anywhere/bootcamp-operations/himalayajeep",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 103,
+        "characters": 1874,
+        "bytes": 1874
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 115,
+        "characters": 3676,
+        "bytes": 3676
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 178,
+        "characters": 3368,
+        "bytes": 3368
+      },
+      "size": {
+        "bytes": 8918,
+        "characters": 8918,
+        "lines": 396,
+        "numberOfFiles": 4
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
+}

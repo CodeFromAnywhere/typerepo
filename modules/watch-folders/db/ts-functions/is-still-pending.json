@@ -1,16 +1,11 @@
 {
-  "createdAt": 1666258841876,
-  "updatedAt": 1666258841876,
+  "createdAt": 1668750103627,
+  "updatedAt": 1668750103627,
   "deletedAt": 0,
-  "createdFirstAt": 1666258841876,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668750103627,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/fswatch.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  if (noPending()) return false;\n  //\n  console.log(\"awaiting pending\", pending);\n  //\n  await new Promise<void>((resolve, reject) => {\n    // do this every 5 seconds\n    setInterval(async () => {\n      if (noPending()) {\n        resolve();\n      } else {\n        //console.log(`still pending`, pending);\n      }\n    }, 5000); //\n  }); //\n\n  return;\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "tblebqqyctecpmrhvkodmqty"
+  "id": "zwhzrwihwjnpzpihgvwdkjwq"
 }

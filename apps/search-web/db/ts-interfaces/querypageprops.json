@@ -1,0 +1,159 @@
+{
+  "createdAt": 1668774467133,
+  "updatedAt": 1668774467133,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774467133,
+  "id": "querypageprops",
+  "name": "QueryPageProps",
+  "slug": "querypageprops",
+  "operationRelativeTypescriptFilePath": "src/util/types.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "export type QueryPageProps = {\n  query: string | null;\n  searchResults: SearchResult[] | null;\n  imagePaths: string[];\n  timelineItems: {\n    comment: string;\n    filePath?: string;\n    line: number;\n  }[];\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "searchResults": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SearchResult"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "imagePaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "timelineItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "comment": {
+                "type": "string"
+              },
+              "filePath": {
+                "type": "string"
+              },
+              "line": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "comment",
+              "line"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "query",
+        "searchResults",
+        "imagePaths",
+        "timelineItems"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "searchResults",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "imagePaths",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "timelineItems",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [
+                    {
+                      "name": "comment",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "filePath",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "line",
+                      "required": true,
+                      "schema": {
+                        "type": "number"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "QueryPageProps",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

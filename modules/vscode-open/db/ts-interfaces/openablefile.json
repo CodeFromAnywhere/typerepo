@@ -1,0 +1,78 @@
+{
+  "createdAt": 1668332391683,
+  "updatedAt": 1668332391683,
+  "deletedAt": 0,
+  "createdFirstAt": 1668332391683,
+  "id": "openablefile",
+  "name": "OpenableFile",
+  "slug": "openablefile",
+  "operationRelativeTypescriptFilePath": "src/vscodeOpen.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type OpenableFile = {\n  projectRelativePath?: string;\n  /**\n   *\n   */\n  operationName?: string;\n  operationRelativeFilePath?: string;\n  line?: number;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        },
+        "operationName": {
+          "type": "string"
+        },
+        "operationRelativeFilePath": {
+          "type": "string"
+        },
+        "line": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "operationName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "operationRelativeFilePath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "line",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "OpenableFile",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

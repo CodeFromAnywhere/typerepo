@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667379661928,
-  "updatedAt": 1667379661928,
+  "createdAt": 1668334831659,
+  "updatedAt": 1668334831659,
   "deletedAt": 0,
-  "createdFirstAt": 1667379661928,
+  "createdFirstAt": 1668334831659,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
   "description": "",
-  "id": "qrkvgrgpdkpevqdlkwvimrej"
+  "id": "vpwkrimbeugonzzaxlijpsju"
 }

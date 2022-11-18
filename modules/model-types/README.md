@@ -1,6 +1,6 @@
 # Model types
 
-model-types (`OperationClassification` js)
+model-types (`OperationClassification` cjs)
 
 
 
@@ -18,9 +18,17 @@ model-types (`OperationClassification` js)
 
 
 
-## 📄 generateId (exported const)
+## 🔹 AugmentedAnyModelType
 
-24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+
 
 
 ## 🔹 DefaultModelType
@@ -77,16 +85,41 @@ Properties:
 
 
 
-## 🔹 AugmentedAnyModelType
+## 📄 generateId (exported const)
+
+24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
+
+
+## 🔹 MarkdownModelType
+
+Handy model type for storing stuff in a Markdown file.
+
+1 markdown file will represent 1 MarkdownModelType extended instance
+
+another option could be to parse the markdown file, but to KISS we are going to just return markdown with the full markdown content
+
+TODO: see how this relates to MarkdownFile. Make this very clear!
+
+
+
+
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| markdown  | string |  |
+| categoryStackCalculated  | array |  |
 
 
 
@@ -129,48 +162,6 @@ Properties:
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
 | categoryStackCalculated (optional) | array |  |
-
-
-
-## 🔹 MarkdownModelType
-
-Handy model type for storing stuff in a Markdown file.
-
-1 markdown file will represent 1 MarkdownModelType extended instance
-
-another option could be to parse the markdown file, but to KISS we are going to just return markdown with the full markdown content
-
-TODO: see how this relates to MarkdownFile. Make this very clear!
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| markdown  | string |  |
-| categoryStackCalculated  | array |  |
-
-
-
-## generateRandomString()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| length | number |  |
-| **Output** | `String`   |    |
 
 
 
@@ -219,17 +210,6 @@ We can always migrate later to a bigger amount, but I don't see good reason to k
 
 
 
-## 🔹 Language
-
-all currently supported languages
-
-
-
-
-
-
-
-
 ## 🔹 Markdown
 
 a string that is known to contain markdown.
@@ -241,9 +221,20 @@ a string that is known to contain markdown.
 
 
 
-## 📄 generateRandomString (exported const)
+## generateRandomString()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| length | number |  |
+| **Output** | `String`   |    |
+
+
 
 ## 🔹 CategoryStack
+
+Taken from the location in the folder of the db-model.
+
+NB: Changing this value when updating/upserting, changes where the item is located!
 
 - null: string
 
@@ -251,6 +242,19 @@ a string that is known to contain markdown.
 
 
 
+
+## 🔹 Language
+
+all currently supported languages
+
+
+
+
+
+
+
+
+## 📄 generateRandomString (exported const)
 
 ## 🔹 ModelLocation
 
@@ -268,17 +272,6 @@ Properties:
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
-
-
-
-## 🔹 KeyValueMarkdownParse
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| parameters  | object |  |
-| data  | array |  |
 
 
 
@@ -302,6 +295,17 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
+
+
+
+## 🔹 KeyValueMarkdownParse
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| parameters  | object |  |
+| data  | array |  |
 
 
 
@@ -351,6 +355,31 @@ Properties:
 
 
 ## 🔹 Json
+
+## 🔹 Price
+
+TLDR;EUROS
+
+A price is a number indicating the relative cost. Absolute cost is calculated by many other factors
+
+For now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.
+
+Later we can add all kinds of extra conversion:
+
+- currency support
+- king os currency
+- lower cost for poorer people
+
+etc...
+
+First we need to start making sales before we can add such complexity.
+
+
+
+
+
+
+
 
 ## 🔹 TsIndexModelType
 
@@ -411,31 +440,6 @@ Properties:
 | operationRelativePath (optional) | string |  |
 | categoryStackCalculated  | array |  |
 | isHeaderCalculated  | boolean |  |
-
-
-
-## 🔹 Price
-
-TLDR;EUROS
-
-A price is a number indicating the relative cost. Absolute cost is calculated by many other factors
-
-For now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.
-
-Later we can add all kinds of extra conversion:
-
-- currency support
-- king os currency
-- lower cost for poorer people
-
-etc...
-
-First we need to start making sales before we can add such complexity.
-
-
-
-
-
 
 
 

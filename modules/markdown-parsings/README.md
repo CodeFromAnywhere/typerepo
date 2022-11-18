@@ -1,10 +1,22 @@
 # Markdown parsings
 
-markdown-parsings (`OperationClassification` node)
+markdown-parsings (`OperationClassification` node-cjs)
 
 
 
 # Api reference
+
+## getOperationSummary()
+
+Summarises operation into useful information about it. Especially useful for generating docs.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { operationName: string, <br />manualProjectRoot?: string, <br /> } |  |
+| **Output** |    |    |
+
+
 
 ## operationToMarkdown()
 
@@ -18,6 +30,11 @@ markdown for reading (so there are no links)
 | config | { operationSummary: `OperationSummary`, <br />returnType?: parse / string / save, <br /> } |  |
 | **Output** |    |    |
 
+
+
+## 📄 getOperationSummary (exported const)
+
+Summarises operation into useful information about it. Especially useful for generating docs.
 
 
 ## 📄 operationToMarkdown (exported const)
@@ -48,7 +65,7 @@ markdown for reading (so there are no links)
 
 # Internal
 
-<details><summary>Show internal (89)</summary>
+<details><summary>Show internal (87)</summary>
     
   # addDependantCount()
 
@@ -215,18 +232,6 @@ Generates short markdown summary
 | ---------- | -- | -- |
 | title | string |  |
 | **Output** | { title: string, <br />hashtagPath: string, <br /> }   |    |
-
-
-
-## getOperationSummary()
-
-Summarises operation into useful information about it. Especially useful for generating docs.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| config | { operationName: string, <br />manualProjectRoot?: string, <br /> } |  |
-| **Output** |    |    |
 
 
 
@@ -728,11 +733,6 @@ Generates short markdown summary
 ## 📄 getMarkdownContents (exported const)
 
 ## 📄 getMergedMarkdownOutlineUrl (exported const)
-
-## 📄 getOperationSummary (exported const)
-
-Summarises operation into useful information about it. Especially useful for generating docs.
-
 
 ## 📄 getOutline (exported const)
 

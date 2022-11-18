@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150563754,
-  "updatedAt": 1668150563754,
+  "createdAt": 1668775394050,
+  "updatedAt": 1668775394050,
   "deletedAt": 0,
-  "createdFirstAt": 1668150563754,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775394050,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/cli/generateDbSdk.cli.ts",
   "commentsInside": [],
   "rawText": " () => {\n  const [customProjectRoot] = process.argv.slice(2);\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  generateDbSdk({ manualProjectRoot: customProjectRoot || defaultProjectRoot });\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 6,
     "numberOfFiles": 1
   },
-  "id": "ocnvgedrmtevtgfcumchvoju"
+  "id": "ykowqduopyvnhesctwrydthv"
 }

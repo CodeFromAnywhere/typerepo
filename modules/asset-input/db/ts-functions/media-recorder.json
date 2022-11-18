@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378715380,
-  "updatedAt": 1667378715380,
+  "createdAt": 1668750030267,
+  "updatedAt": 1668750030267,
   "deletedAt": 0,
-  "createdFirstAt": 1667378715380,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668750030267,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/MediaRecorder.tsx",
   "commentsInside": [],
   "rawText": " (props: {\n  type: MediaRecorderType;\n  withBlob: (blobUrl: string, blob: Blob) => void;\n}) => {\n  const { type, withBlob } = props;\n\n  return (\n    <div>\n      <ReactMediaRecorder\n        screen={type === \"screen\"}\n        audio\n        blobPropertyBag={{}}\n        // audio={type === \"audio\"}\n        video={type === \"video\"}\n        stopStreamsOnStop\n        onStop={(blobUrl, blob) => {\n          withBlob(blobUrl, blob);\n        }}\n        render={(props) => <MediaRecorderComponent {...props} type={type} />}\n      />\n    </div>\n  );\n}",
@@ -41,5 +36,5 @@
     "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "ooaruxjusihwepgaqfvjueur"
+  "id": "ngpqbzcylukbijtxxxdwgnpv"
 }

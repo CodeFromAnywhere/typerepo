@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666258762705,
-  "updatedAt": 1666258762705,
+  "createdAt": 1668331940715,
+  "updatedAt": 1668331940715,
   "deletedAt": 0,
-  "createdFirstAt": 1666258762705,
+  "createdFirstAt": 1668331940715,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -57,5 +57,5 @@
   },
   "rawText": "\n\n/**\n * This function will return the byte size of any UTF-8 string you pass to it.\n */\nexport function byteCount(s: string) {\n  return encodeURI(s).split(/%..|./).length - 1;\n}",
   "maxIndentationDepth": 1,
-  "id": "dvieaziszzhothihkvanjxzn"
+  "id": "xfedlzbwsebxxuimeozoxyjy"
 }

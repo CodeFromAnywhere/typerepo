@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1667635186374,
-    "updatedAt": 1667635186374,
+    "createdAt": 1668551853207,
+    "updatedAt": 1668551853207,
     "deletedAt": 0,
-    "createdFirstAt": 1667635186374,
+    "createdFirstAt": 1668551853207,
     "name": "MarkdownReaderPage",
     "slug": "markdown-reader-page",
     "module": "./MarkdownReaderPage",
@@ -13,13 +13,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "mohsldcvakstjhtgcpqbunir"
+    "id": "wolbnftelffhudbhipxmlpou"
   },
   {
-    "createdAt": 1667635186375,
-    "updatedAt": 1667635186375,
+    "createdAt": 1668551853207,
+    "updatedAt": 1668551853207,
     "deletedAt": 0,
-    "createdFirstAt": 1667635186375,
+    "createdFirstAt": 1668551853207,
     "name": "WebMarkdownFile",
     "slug": "web-markdown-file",
     "type": "type",
@@ -31,13 +31,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nkcprbbchjtcpsfqomhcyczq"
+    "id": "cbluqyafczoowrzmbpnfubkw"
   },
   {
-    "createdAt": 1667635186375,
-    "updatedAt": 1667635186375,
+    "createdAt": 1668551853208,
+    "updatedAt": 1668551853208,
     "deletedAt": 0,
-    "createdFirstAt": 1667635186375,
+    "createdFirstAt": 1668551853208,
     "name": "BundleConfig",
     "slug": "bundle-config",
     "type": "type",
@@ -49,13 +49,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pnmswqkwirgvpcdsrznartay"
+    "id": "fryoiybqmhoijolbkmsxhzsf"
   },
   {
-    "createdAt": 1667635186375,
-    "updatedAt": 1667635186375,
+    "createdAt": 1668551853208,
+    "updatedAt": 1668551853208,
     "deletedAt": 0,
-    "createdFirstAt": 1667635186375,
+    "createdFirstAt": 1668551853208,
     "name": "MappedObject",
     "slug": "mapped-object",
     "type": "type",
@@ -67,22 +67,24 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "hqfzjcoxtnvsncjtyzuqnqvn"
+    "id": "nskogwnqrowoyydyipwawugo"
   },
   {
-    "createdAt": 1667635186375,
-    "updatedAt": 1667635186375,
+    "createdAt": 1668551853208,
+    "updatedAt": 1668551853208,
     "deletedAt": 0,
-    "createdFirstAt": 1667635186375,
+    "createdFirstAt": 1668551853208,
     "name": "AugmentedWord",
     "slug": "augmented-word",
-    "module": "./AugmentedWord",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "augmented-word-types",
     "isModuleResolved": true,
     "comments": [],
     "operationRelativeTypescriptFilePath": "src/MarkdownReaderPageProps.ts",
-    "classification": "internal",
-    "isAbsolute": false,
-    "isModuleFromMonorepo": false,
-    "id": "htupjzrqtbjvsvijnliveswf"
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "ifwiamdsxpswjfefmkpxhwun"
   }
 ]

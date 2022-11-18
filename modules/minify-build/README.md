@@ -1,6 +1,6 @@
 # Minify build
 
-minify-build (`OperationClassification` node)
+minify-build (`OperationClassification` node-cjs)
 
 
 

@@ -1,12 +1,21 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328727206,
+  "updatedAt": 1668328727206,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "version": "0.0.1",
-  "main": "build/index.js",
+  "createdFirstAt": 1668328727206,
+  "id": "SZLSdBVDzaXWYAEI",
+  "dependencies": {
+    "model-types": "0.0.1",
+    "geo-types": "0.0.1",
+    "asset-type": "0.0.1",
+    "code-types": "0.0.1",
+    "bundle-types": "0.0.1"
+  },
   "description": "I want a type interface collection that is able to collect all data from all social networks and put them together.",
-  "source": "src/index.ts",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "main": "build/index.js",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -14,15 +23,73 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^4.7.4"
-  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "social-media-types",
+  "language": "english",
   "slug": "social-media-types",
-  "id": "SZLSdBVDzaXWYAEI",
-  "dependencies": {},
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "social-media-types",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668335243189,
+    "operationDependenciesIndexed": [
+      "KeyValueMarkdownModelType",
+      "Slug",
+      "DefaultModelType",
+      "Id",
+      "Language",
+      "Slug",
+      "Location",
+      "DefaultModelType",
+      "DefaultModelType",
+      "Id",
+      "Slug",
+      "MarkdownModelType",
+      "BackendAsset",
+      "Operation",
+      "TsFunction",
+      "TsInterface",
+      "BundleConfig"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/social-media",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 7,
+        "lines": 192,
+        "characters": 5486,
+        "bytes": 5486
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 135,
+        "characters": 3174,
+        "bytes": 3174
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 281,
+        "characters": 5471,
+        "bytes": 5471
+      },
+      "size": {
+        "bytes": 14131,
+        "characters": 14131,
+        "lines": 608,
+        "numberOfFiles": 10
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

@@ -1,6 +1,6 @@
 # Ts morph util
 
-ts-morph-util (`OperationClassification` node)
+ts-morph-util (`OperationClassification` node-cjs)
 
 
 

@@ -1,11 +1,11 @@
-import { MenuType } from "./types";
+import { MenuItemType, MouseEventCallbacks } from "./types";
 /**
  * General purpose nested menu component
  *
  * Please make sure that you also wrap your app with `MenuStoreProvider`, or this will crash...!
  */
 export declare const NestedMenu: (props: {
-    menu: MenuType;
+    items?: MenuItemType[] | undefined;
     headersClickable?: boolean | undefined;
-}) => JSX.Element;
+} & MouseEventCallbacks) => JSX.Element;
 //# sourceMappingURL=NestedMenu.d.ts.map

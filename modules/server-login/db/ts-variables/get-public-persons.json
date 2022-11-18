@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668752287706,
+  "updatedAt": 1668752287706,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752287706,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getPublicPersons",
+  "slug": "get-public-persons",
+  "operationRelativeTypescriptFilePath": "src/getPublicPersons.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const publicPersons = (await db.get(\"Person\")).map((item) =>\n    getSubsetFromObject(item, publicPersonKeys)\n  );\n  return publicPersons;\n}",
+  "description": "",
+  "id": "rmhjjgcnclgchkbcqvxhcjbu"
+}

@@ -1,7 +1,7 @@
 import { CompressionConfig } from "asset-type";
 /**
 
-Audio, image, video can be compressed. This should be done to sensible defaults, can be turned off, or can be specifically set to other dimensions using a doc-comment on the model.
+Audio, image, video can be compressed. This should be done to logical defaults, can be turned off, or can be specifically set to other dimensions using a doc-comment on the model.
 
 - audio: bitrate
 - video: fps and resolution

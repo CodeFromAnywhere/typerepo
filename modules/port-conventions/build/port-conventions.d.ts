@@ -9,15 +9,15 @@ export declare const ports: {
     readonly "function-server": 42000;
     readonly "search-web": 42001;
     readonly "db-web": 42002;
+    readonly "operation-web": 42003;
     readonly "markdown-reader-web": 42004;
     readonly "asset-demo-web": 42005;
     readonly "learn-toki-web": 42006;
     readonly "writer-web": 42007;
     readonly "himalayajeep-web": 42008;
-    readonly "todo-web": 42009;
-    readonly "social-media-web": 42010;
     readonly "function-web": 42011;
     readonly "peer-web": 42012;
-    readonly "operation-web": 42003;
+    readonly "passionfruit-web": 3000;
+    readonly "bundle-web": 42013;
 };
 //# sourceMappingURL=port-conventions.d.ts.map

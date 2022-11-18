@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668773968836,
+  "updatedAt": 1668773968836,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773968836,
+  "isApiExposed": true,
+  "isExported": false,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/cli/listApps.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const result = await listApps();\n  console.table(result.apps || result.message);\n}",
+  "name": "listAppsCli",
+  "slug": "list-apps-cli",
+  "parameters": [],
+  "description": "Arguments:none",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 113,
+    "lines": 4,
+    "bytes": 113,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 4,
+    "numberOfFiles": 1
+  },
+  "id": "snskutzzuodgtuoipytmrsna"
+}

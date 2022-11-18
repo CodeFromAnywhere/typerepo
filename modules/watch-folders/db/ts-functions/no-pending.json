@@ -1,16 +1,11 @@
 {
-  "createdAt": 1666258841876,
-  "updatedAt": 1666258841876,
+  "createdAt": 1668750103627,
+  "updatedAt": 1668750103627,
   "deletedAt": 0,
-  "createdFirstAt": 1666258841876,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668750103627,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/fswatch.ts",
   "commentsInside": [],
   "rawText": " () => pending.length === 0",
@@ -46,5 +41,5 @@
     "linesPerFile": 1,
     "numberOfFiles": 1
   },
-  "id": "ckbvicpnayuwhgndqhkbnuzd"
+  "id": "gmwnifwjfzdftovxctehpfsx"
 }

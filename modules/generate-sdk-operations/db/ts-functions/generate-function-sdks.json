@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668150576725,
-  "updatedAt": 1668150576725,
+  "createdAt": 1668775404318,
+  "updatedAt": 1668775404318,
   "deletedAt": 0,
-  "createdFirstAt": 1668150576725,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775404318,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
   "commentsInside": [],
-  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const functionsPerClassification = await getSdkFunctions({\n    manualProjectRoot,\n  });\n\n  if (!functionsPerClassification) return;\n  const sdkFunctions = functionsPerClassification.node\n    .concat(functionsPerClassification.js)\n    .filter(onlyUnique2<TsFunction>((a, b) => a.name === b.name));\n\n  const promises = [\n    // sdks\n    newSdkOperation(\"sdk\", sdkFunctions, config),\n    newSdkOperation(\"sdk-api\", functionsPerClassification.node, config),\n    newSdkOperation(\"sdk-js\", functionsPerClassification.js, config),\n    // sdk-keys\n    newSdkKeysOperation(\n      \"sdk-keys\",\n      [{ variableName: \"keys\", values: sdkFunctions.map((x) => x.name) }],\n      config\n    ),\n    newSdkKeysOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => !x.isGetApi && !x.isPostApi)\n            .map((x) => x.name),\n        },\n        {\n          variableName: \"getApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => x.isGetApi)\n            .map((x) => x.name),\n        },\n        {\n          variableName: \"postApiKeys\",\n          values: functionsPerClassification.node\n            .filter((x) => x.isPostApi)\n            .map((x) => x.name),\n        },\n      ],\n      config\n    ),\n    newSdkKeysOperation(\n      \"sdk-js-keys\",\n      [\n        {\n          variableName: \"keys\",\n          values: functionsPerClassification.js.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const functionsPerClassification = await getSdkFunctionsPerClassification({\n    manualProjectRoot,\n  });\n\n  if (!functionsPerClassification) return;\n\n  const jsFunctions = functionsPerClassification[\"cjs\"].concat(\n    functionsPerClassification[\"esm\"]\n  );\n\n  const apiFunctions = functionsPerClassification[\"node-cjs\"]\n    .concat(functionsPerClassification[\"node-esm\"])\n    .concat(functionsPerClassification[\"cjs\"])\n    .concat(functionsPerClassification[\"esm\"]);\n\n  const uiFunctions = functionsPerClassification[\"ui-cjs\"].concat(\n    functionsPerClassification[\"ui-esm\"]\n  );\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n    newFunctionSdkOperation(\"sdk-js\", jsFunctions, config),\n    newFunctionSdkOperation(\"sdk-ui\", uiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
   "name": "generateFunctionSdks",
   "slug": "generate-function-sdks",
   "parameters": [
@@ -63,7 +58,7 @@
       "required": false
     }
   ],
-  "description": "Creates\n- sdk\n- sdk-api (for just operations that have been determined to be exposed): add `export type { SdkApiType }`\n- sdk-js (functions that can be executed in the browser on the client side)\n- sdk-keys (all sdk keys)\n- sdk-api-keys\n- sdk-js-keys\n\nOverwrites them if they already exist with minimal interruption time of the system",
+  "description": "Creates\n\n- sdk-api + sdk-api-keys (for all exposed functions)\n- sdk-js (functions that can be executed anywhere)\n- sdk-ui (functions that use JSX)\n\nOverwrites them if they already exist with minimal interruption time of the system",
   "returnType": {
     "rawType": "any",
     "typeCoverage": 0,
@@ -73,15 +68,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 6,
+  "maxIndentationDepth": 5,
   "size": {
-    "characters": 2069,
-    "lines": 73,
-    "bytes": 2069,
+    "characters": 1519,
+    "lines": 55,
+    "bytes": 1519,
     "bytesPerCharacter": 1,
     "charactersPerLine": 28,
-    "linesPerFile": 73,
+    "linesPerFile": 55,
     "numberOfFiles": 1
   },
-  "id": "qhgszogdwggcjedbuyywmlui"
+  "id": "ilyxkibovddmfomtnfmlnbmh"
 }

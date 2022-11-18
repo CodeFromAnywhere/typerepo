@@ -1,0 +1,100 @@
+{
+  "createdAt": 1668337455669,
+  "updatedAt": 1668337455669,
+  "deletedAt": 0,
+  "createdFirstAt": 1668337455669,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "name": "earthDistance",
+  "slug": "earth-distance",
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/earthDistance.ts",
+  "commentsInside": [],
+  "description": "/**\n * returns the distance between two places (not very precise but it's very efficient)\n */",
+  "parameters": [
+    {
+      "name": "lat1",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    },
+    {
+      "name": "long1",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    },
+    {
+      "name": "lat2",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    },
+    {
+      "name": "long2",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    },
+    {
+      "name": "response",
+      "schema": {
+        "type": "string",
+        "enum": [
+          "m",
+          "km"
+        ]
+      },
+      "simplifiedSchema": {
+        "enum": [
+          "m",
+          "km"
+        ],
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "size": {
+    "characters": 665,
+    "lines": 28,
+    "bytes": 665,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 28,
+    "numberOfFiles": 1
+  },
+  "rawText": "/**\n * returns the distance between two places (not very precise but it's very efficient)\n */\nexport function earthDistance(\n  lat1: number,\n  long1: number,\n  lat2: number,\n  long2: number,\n  response?: \"m\" | \"km\"\n) {\n  const m = Math.PI / 180;\n\n  lat1 = lat1 * m;\n  long1 = long1 * m;\n  lat2 = lat2 * m;\n  long2 = long2 * m;\n\n  var R = 6371e3; // metres of earth radius\n\n  var x = (long2 - long1) * Math.cos((lat1 + lat2) / 2);\n  var y = lat2 - lat1;\n\n  var d = Math.sqrt(x * x + y * y) * R;\n\n  return response === \"m\" ? Math.round(d / 10) * 10 : Math.round(d / 1000);\n}",
+  "maxIndentationDepth": 1,
+  "id": "rtytdrcsjwujbnzwnkryzatn"
+}

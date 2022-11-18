@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150583976,
-  "updatedAt": 1668150583976,
+  "createdAt": 1668775414033,
+  "updatedAt": 1668775414033,
   "deletedAt": 0,
-  "createdFirstAt": 1668150583976,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775414033,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  console.log(\"tsFunctions:\", tsFunctions.length);\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "ejxledkjubcbroxwixqgcfwu"
+  "id": "lpyyhvlcmsskwfdeesbhazli"
 }

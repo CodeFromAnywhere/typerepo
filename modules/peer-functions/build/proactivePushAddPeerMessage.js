@@ -51,21 +51,20 @@ var proactivePushAddPeerMessage = function (message, peerSlug) { return __awaite
             case 0: return [4 /*yield*/, (0, addPeerMessage_1.addPeerMessage)(message, peerSlug)];
             case 1:
                 _a.sent();
-                return [4 /*yield*/, database_1.db.get("Peer", { include: { referenceKey: "personId" } })];
+                return [4 /*yield*/, database_1.db.get("Person", {
+                        include: { referenceKey: "personId" },
+                    })];
             case 2:
                 peers = _a.sent();
                 return [4 /*yield*/, Promise.all(peers.map(function (peer) { return __awaiter(void 0, void 0, void 0, function () {
                         var apiResult;
                         return __generator(this, function (_a) {
                             switch (_a.label) {
-                                case 0:
-                                    if (peer.isMe)
-                                        return [2 /*return*/];
-                                    return [4 /*yield*/, api_1.apiWithConfig.addPeerMessage({
-                                            apiUrl: "http://".concat(peer.name, ":").concat(port_conventions_1.ports["function-server"]),
-                                            authToken: peer.authToken,
-                                            timeout: 2000,
-                                        }, message, peerSlug)];
+                                case 0: return [4 /*yield*/, api_1.apiWithConfig.addPeerMessage({
+                                        apiUrl: "http://".concat(peer.name, ":").concat(port_conventions_1.ports["function-server"]),
+                                        //  authToken: peer,
+                                        timeout: 2000,
+                                    }, message, peerSlug)];
                                 case 1:
                                     apiResult = _a.sent();
                                     return [2 /*return*/, apiResult];

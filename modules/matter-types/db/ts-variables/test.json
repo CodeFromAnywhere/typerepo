@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263624383,
-  "updatedAt": 1666263624383,
+  "createdAt": 1668335548556,
+  "updatedAt": 1668335548556,
   "deletedAt": 0,
-  "createdFirstAt": 1666263624383,
+  "createdFirstAt": 1668335548556,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -40,5 +40,5 @@
   },
   "value": "[\n  makeTest(\n    () => {\n      return frontmatterParseToString({ a: 1, b: 2, c: true, d: \"string\" });\n    },\n    (result) => result === `---\\na: 1\\nb: 2\\nc: true\\nd: string\\n---\\n`\n  ),\n  makeTest(\n    () => {\n      return frontmatterParseToString({});\n    },\n    (result) => result === \"\"\n  ),\n]",
   "description": "",
-  "id": "pinjshusuonxrkskldxxoigm"
+  "id": "ivlkwkqkzamlfxydhjnrhijj"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667378723136,
-  "updatedAt": 1667378723136,
+  "createdAt": 1668750039403,
+  "updatedAt": 1668750039403,
   "deletedAt": 0,
-  "createdFirstAt": 1667378723136,
+  "createdFirstAt": 1668750039403,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "make-backend-asset",
   "operationRelativeTypescriptFilePath": "src/util/makeBackendAsset.ts",
   "type": {
-    "rawType": "(asset: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").Asset) => import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").BackendAsset",
+    "rawType": "(asset: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").Asset) => import(\"/Users/king/King/operations/tools/asset/asset-type/build/BackendAsset\").BackendAsset",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "(asset: Asset): BackendAsset => {\n  return {\n    alt: asset.alt,\n    name: asset.name,\n    relativePath: asset.relativePath,\n    temporaryDestination: asset.temporaryDestination,\n  };\n}",
   "description": "",
-  "id": "zkdffrmucyqkabniejzvgbiu"
+  "id": "fkwgsmiwqbkyqnksjuonlgla"
 }

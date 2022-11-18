@@ -5,13 +5,15 @@ import { NestedPathObject } from "nested-menu";
  * I can use this directly to render a menu with many layers!
  *
  * SUPER COOL
+ *
+ * UPDATE: depreacated
+ *
+ * DEPRECATED:
  */
 export interface NestedDatabaseMenu extends NestedPathObject {
-    [bundleName: string]: {
-        [operationName: string]: {
-            [folderName: string]: {
-                [dbModelName: string]: null;
-            };
+    [projectRelativeOperationPath: string]: {
+        [folderName: string]: {
+            [dbModelName: string]: null;
         };
     };
 }

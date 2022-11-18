@@ -1,7 +1,7 @@
-import { OperationIndex } from "code-types";
+import { Operation } from "code-types";
 export declare type OperationMetaData = {
     operationBasePath: string;
-    operationIndex: OperationIndex | undefined;
+    operation: Operation | undefined;
     operationName: string;
     srcPath: string;
     operationFolderName: string;

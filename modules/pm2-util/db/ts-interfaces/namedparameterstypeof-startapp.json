@@ -1,0 +1,59 @@
+{
+  "createdAt": 1668773982312,
+  "updatedAt": 1668773982312,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773982312,
+  "id": "namedparameterstypeof-startapp",
+  "name": "NamedParameters<typeof startApp>",
+  "slug": "namedparameterstypeof-startapp",
+  "operationRelativeTypescriptFilePath": "src/startApp.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationName": {
+          "type": "string"
+        },
+        "isDev": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isDev",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof startApp>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

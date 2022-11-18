@@ -1,6 +1,6 @@
 # Db recipes
 
-db-recipes (`OperationClassification` node)
+db-recipes (`OperationClassification` node-cjs)
 
 Useful library of functions that wrap the `fs-orm` database.
 
@@ -27,15 +27,6 @@ optimistic caching after cache invalidation
 
 
 
-## getDbModelNames()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| config (optional) | { bundleId?: string, <br /> } |  |
-| **Output** |    |    |
-
-
-
 ## validateInput()
 
 wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
@@ -56,8 +47,6 @@ caching
 automatic cache invalidation if data sources are updated
 optimistic caching after cache invalidation
 
-
-## 📄 getDbModelNames (exported const)
 
 ## 📄 validateInput (exported const)
 
@@ -109,7 +98,7 @@ wrapper function that takes that data but also the interface of the function and
 
 # Internal
 
-<details><summary>Show internal (26)</summary>
+<details><summary>Show internal (28)</summary>
     
   # calculateOperatingSystemBundle()
 
@@ -142,11 +131,20 @@ deletes an instance of an db data interface from the db in a typesafe way
 Finds all relevant Db models to show in the menu
 
 - for a bundleId, it gets all models from the bundleSummary
-- for a sensible project (bundled) gets all models from the packages
+- for a bundled project (bundled) gets all models from the packages
 - for the main project, gets all models from sdk-db directly
 
 TODO: NB: the first and the second are not the same, so this needs to be cleaned up.
 
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { bundleId?: string, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## getDbModelNames()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -189,32 +187,12 @@ TODO: this should be used!
 
 ## getNestedDatabaseMenu()
 
-It's a very low-hanging fruit to be able to group the database models better... now it's kind of messy!
-
-It would be great if it were a nested menu, just like the one in markdown-reader...
-
-We can have a folder per bundle, and a folder per operation. In the operation we can also sort by folder the type was created in (`operationRelativeTypescriptFilePath`)
-
-In a way you can see it at three levels
-
-bundle -> operation -> srcRelativeFolder
-
-The complete OS can also be represented as a bundle
-
-If we do this, and the menus are collapsible as well as searchible... we'll have a GREAT way to alter models.
-
-====================
-
-SUPER COOL
-
-let's use this for db-admin..
-
-Any bundle will just see itself, but I will see this for every bundle. Also for the master-bundle, which is going to be super useful because then I'll be able to see the db-models for different operations and see the data they contain.
+TODO: support search for bundles (but this can be augmented word based)
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| config (optional) | { noOperationPath?: boolean, <br />noOperationName?: boolean, <br />noSrcRelativeFolder?: boolean, <br />noPrefix?: boolean, <br /> } |  |
 | **Output** |    |    |
 
 
@@ -225,12 +203,12 @@ Get referencableModelData for a single DbModel.
 
 NB: this does not get the items that can be referenced in that model!
 
-For getting all required `ReferencableModelData` for the prop in `SimplifiedSchemaForm`, use `useReferencableModelData`.
+For getting all required `ReferencableModelData` for the prop in `SimplifiedSchemaForm`, use `useGetReferencableModelData`.
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| dbModelName | SelfSprintReview / TodoFile / TodoOffer / AuthorizationModel / Device / Group / PageVisit / PaymentCoupon / PaymentEvent / PaymentPlan / PaymentSubscription / PeerMessage / Person / Persona / PersonInformation / PersonInformationValue / PersonPlatformConnection / Platform / RecurringReminder / Interest / MediaChannel / MediaCredentail / MediaPost / Postable / BundleConfig / Dataset / FunctionExecution / Operation / SocialMediaCallToAction / TsBuildError / TsComment / TsConfig / TsExport / TsFunction / TsImport / TsInterface / TsLintWarning / TsVariable / TypescriptFile / WebMarkdownFile / WebsiteCallToAction / Address / Area / City / Country / Location / KvmdWord / MarkdownWord / NepaliEnglishTranslationMatrix / Statement / TokiPonaMatrix / Translation / Word / WordCategory / WordCombination / WordMatrix / SlugModelType / AppDeveloper / Assignment / Bag / Calendar / Deliverable / Diary / Feeling / FeelingLog / Folder / Host / Inventory / Item / ItemCategory / KvmdShortcut / Label / Light / Listing / LoginCredential / Material / MessagePreset / PersonalCarbonFootprintProfile / ProgressReport / Question / Reservation / Resource / Shit / ShitLog / ShoppingList / Shortcut / Student / Student2 / TaskError / Trackable / User / UserCredential / Artist / PlayCategory / PlayItem / PlayList / PlaySchedule / RelationModelType / JeepType / LocationType / OperationConfig / OperationIndex / PackageJson / Activity / CompanyRequirement / CompanySize / CompanyType / Company / ContactInformation / Contribution / EsgMetric / ProductCategory / Product / ProofState / Proof / SustainabilityPlan / ValueChainPhase |  |
 | **Output** |    |    |
 
 
@@ -308,6 +286,10 @@ I can use this directly to render a menu with many layers!
 
 SUPER COOL
 
+UPDATE: depreacated
+
+DEPRECATED:
+
 
 
 
@@ -332,11 +314,13 @@ deletes an instance of an db data interface from the db in a typesafe way
 Finds all relevant Db models to show in the menu
 
 - for a bundleId, it gets all models from the bundleSummary
-- for a sensible project (bundled) gets all models from the packages
+- for a bundled project (bundled) gets all models from the packages
 - for the main project, gets all models from sdk-db directly
 
 TODO: NB: the first and the second are not the same, so this needs to be cleaned up.
 
+
+## 📄 getDbModelNames (exported const)
 
 ## 📄 getDbModel (exported const)
 
@@ -356,27 +340,7 @@ TODO: this should be used!
 
 ## 📄 getNestedDatabaseMenu (exported const)
 
-It's a very low-hanging fruit to be able to group the database models better... now it's kind of messy!
-
-It would be great if it were a nested menu, just like the one in markdown-reader...
-
-We can have a folder per bundle, and a folder per operation. In the operation we can also sort by folder the type was created in (`operationRelativeTypescriptFilePath`)
-
-In a way you can see it at three levels
-
-bundle -> operation -> srcRelativeFolder
-
-The complete OS can also be represented as a bundle
-
-If we do this, and the menus are collapsible as well as searchible... we'll have a GREAT way to alter models.
-
-====================
-
-SUPER COOL
-
-let's use this for db-admin..
-
-Any bundle will just see itself, but I will see this for every bundle. Also for the master-bundle, which is going to be super useful because then I'll be able to see the db-models for different operations and see the data they contain.
+TODO: support search for bundles (but this can be augmented word based)
 
 
 ## 📄 getReferencableModelData (exported const)
@@ -385,7 +349,7 @@ Get referencableModelData for a single DbModel.
 
 NB: this does not get the items that can be referenced in that model!
 
-For getting all required `ReferencableModelData` for the prop in `SimplifiedSchemaForm`, use `useReferencableModelData`.
+For getting all required `ReferencableModelData` for the prop in `SimplifiedSchemaForm`, use `useGetReferencableModelData`.
 
 
 ## 📄 hasDbRecipes (exported const)

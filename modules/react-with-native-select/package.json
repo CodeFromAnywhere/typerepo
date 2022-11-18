@@ -1,38 +1,15 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328707823,
+  "updatedAt": 1668328707823,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "name": "react-with-native-select",
-  "version": "2.0.7",
-  "description": "",
-  "main": "build/index.js",
-  "source": "src/index.tsx",
-  "scripts": {
-    "pub": "npm version patch --force && npm publish",
-    "build": "tsc",
-    "dev": "npx tsc-watch --onSuccess 'yarn dev:tw'",
-    "dev:tw": "tailwindcss -o css.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Code-From-Anywhere/react-with-native.git"
-  },
-  "keywords": [
-    "react",
-    "with",
-    "native",
-    "select",
-    "component",
-    "cross",
-    "platform"
-  ],
+  "createdFirstAt": 1668328707823,
+  "id": "ikNZbbUMqkXxVJPs",
   "author": "Wijnand Karsens <wijnand@karsens.com>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Code-From-Anywhere/react-with-native/issues"
+  "dependencies": {
+    "react": "17.0.2",
+    "react-native": "*"
   },
-  "homepage": "https://github.com/Code-From-Anywhere/react-with-native#readme",
+  "description": "",
   "devDependencies": {
     "@types/react": "17.0.30",
     "@types/react-dom": "^17.0.11",
@@ -44,15 +21,85 @@
     "tailwindcss": "^3.0.24",
     "typescript": "^4.6.4"
   },
+  "homepage": "https://github.com/Code-From-Anywhere/react-with-native#readme",
+  "main": "build/index.js",
   "peerDependencies": {
     "react-with-native": "*"
   },
-  "slug": "react-with-native-select",
-  "id": "ikNZbbUMqkXxVJPs",
-  "dependencies": {
-    "react": "17.0.2"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Code-From-Anywhere/react-with-native.git"
   },
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "scripts": {
+    "pub": "npm version patch --force && npm publish",
+    "build": "tsc",
+    "dev": "npx tsc-watch --onSuccess 'yarn dev:tw'",
+    "dev:tw": "tailwindcss -o css.css"
+  },
+  "source": "src/index.tsx",
+  "version": "2.0.7",
+  "name": "react-with-native-select",
+  "language": "english",
+  "slug": "react-with-native-select",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [
+      "Alert",
+      "ActionSheetIOS",
+      "ChangeEvent",
+      "ChangeEventHandler",
+      "useState",
+      "MouseEvent",
+      "ActionSheetIOSOptions"
+    ],
+    "folderNameIndexed": "react-with-native-select",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668333659660,
+    "operationDependenciesIndexed": [
+      "Button",
+      "Div",
+      "Text",
+      "Button",
+      "Div",
+      "Text"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/interfaces/vui/react-with-native",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 5,
+        "lines": 246,
+        "characters": 5741,
+        "bytes": 5741
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 147,
+        "characters": 3509,
+        "bytes": 3509
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 85,
+        "characters": 1291,
+        "bytes": 1291
+      },
+      "size": {
+        "bytes": 10541,
+        "characters": 10541,
+        "lines": 478,
+        "numberOfFiles": 9
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

@@ -1,8 +1,4 @@
-/// <reference types="react" />
 /// <reference types="node" />
-/// <reference types="node" />
-import { useReactMediaRecorder } from "asset-input";
-import { BigButton } from "big-button";
 import { getTypescriptErrorsFromFiles } from "compile-typescript";
 import { slugify } from "convert-case";
 import { notEmpty } from "js-util";
@@ -17,10 +13,10 @@ export declare const sdk: {
     getGetApiUrl: (apiUrl: string, apiFunctionName: string, query: {
         [name: string]: string | string[] | undefined;
     }) => string;
-    untypedApiFunction: (fnName: string, config: import("api-types").ApiConfig, ...parameters: any) => Promise<import("api-types").RealApiReturnType<any>>;
+    untypedApiFunction: (fnName: string, config: import("api-types").ApiConfig, ...parameters: any) => Promise<import("api-types").ApiReturnType<any>>;
     addToken: (name: string, previousToken?: string | undefined, attachTokenToFilename?: boolean | undefined) => string;
     ensureToken: (name: string, newToken?: string | undefined, attachTokenToFilename?: boolean | undefined) => string;
-    getAssetDirectlyApiUrl: (apiUrl: string, projectRelativeAssetPath: string) => string;
+    getAssetDirectlyApiUrl: (projectRelativeAssetPath: string) => string;
     getExtensionFromAsset: (asset: import("asset-type").Asset) => string | undefined;
     getNameFromRelativePath: (relativePath: string) => string;
     getNameWithTokenFromRelativePath: (relativePath: string, attachTokenToFilename?: boolean | undefined, newToken?: string | undefined) => string;
@@ -32,54 +28,6 @@ export declare const sdk: {
         nameWithoutToken: string;
         token: string | undefined;
     };
-    AssetInput: (props: {
-        attachTokenToFilename?: boolean | undefined;
-        defaultAssetName: string;
-        allowMultiple?: boolean | undefined;
-        inputTypes?: import("asset-type").NewAssetType[] | undefined;
-        value?: import("asset-type").BackendAsset[] | undefined;
-        onChange: (value: import("asset-type").BackendAsset[]) => void;
-        projectRelativeReferencingFilePath: string;
-    }) => JSX.Element;
-    FileInput: (props: {
-        setBlobs: (blobs: import("asset-type").Asset[]) => void;
-    }) => JSX.Element;
-    getTypeFromFileBlob: (file: File) => import("asset-type").AssetType;
-    makeBackendAsset: (asset: import("asset-type").Asset) => import("asset-type").BackendAsset;
-    MediaRecorderComponent: (props: import("asset-input").ReactMediaRecorderRenderProps & {
-        type: import("asset-input").MediaRecorderType;
-    }) => JSX.Element;
-    MediaRecorder: (props: {
-        type: import("asset-input").MediaRecorderType;
-        withBlob: (blobUrl: string, blob: Blob) => void;
-    }) => JSX.Element;
-    ReactMediaRecorder: (props: import("asset-input").ReactMediaRecorderProps) => import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;
-    SelectMedia: (props: {
-        source: import("asset-input").MediaSourceEnum;
-    }) => JSX.Element;
-    useReactMediaRecorder: typeof useReactMediaRecorder;
-    WebcamCapture: (props: {
-        withBlob: (blobUrl: string, blob: Blob) => void;
-    }) => JSX.Element;
-    AssetView: (props: {
-        asset: import("asset-type").Asset;
-        className?: string | undefined;
-        projectRelativeReferencingFilePath: string;
-        hideDownloadLink?: boolean | undefined;
-    }) => JSX.Element;
-    InteractiveAsset: (props: {
-        asset: import("asset-type").Asset;
-        attachTokenToFilename?: boolean | undefined;
-        projectRelativeReferencingFilePath: string;
-        remove: () => void;
-        onChange: (newAsset: import("asset-type").Asset) => void;
-    }) => JSX.Element;
-    BigButton: (button: BigButton) => JSX.Element;
-    BreadCrumbs: (props: {
-        path: string;
-    }) => JSX.Element;
-    renderBreadCrumbs: (chunks: string[]) => JSX.Element[];
-    ClickableIcon: (button: import("clickable-icon").ClickableIconType) => JSX.Element;
     getFunctionExersize: (functionId: string) => Promise<string>;
     markdownParseToMarkdownModelType: (markdownParse: import("code-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
     parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("code-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
@@ -104,10 +52,6 @@ export declare const sdk: {
     pascalCase: (text: string) => string;
     slugify: typeof slugify;
     snakeCase: (text: string) => string;
-    FancyLoader: ({ big, medium, }: {
-        big?: boolean | undefined;
-        medium?: boolean | undefined;
-    }) => JSX.Element;
     getWriterType: (extension: string | undefined) => import("filename-conventions").WriterType;
     hasSubExtension: (srcRelativeFileId: string, subExtensions: string | string[], includeRootName?: boolean | undefined) => boolean;
     isGeneratedOperationName: (operationName: string) => boolean;
@@ -124,16 +68,7 @@ export declare const sdk: {
     canWriteSync: (p: import("fs").PathLike) => boolean;
     canWrite: (p: import("fs").PathLike) => Promise<boolean>;
     copyAllRelativeFiles: (relativeFilePaths: string[], absoluteSourceRoot: string, absoluteDestinationRoot: string, force?: boolean | undefined) => Promise<boolean>;
-    findAllMd: (folderPath: string, onlyInCurrentFolder?: boolean | undefined) => import("fs-util").Markdown[];
     findFileNameCaseInsensitive: (folderPath: string, fileName: string) => Promise<string | undefined>;
-    findFilesRecursively: ({ match, basePath, relativePath, onlyInSubFolders, onlyInCurrentFolder, }: {
-        match: (fileName: string, extension: string) => boolean;
-        basePath: string;
-        relativePath?: string | undefined;
-        onlyInSubFolders?: boolean | undefined;
-        onlyInCurrentFolder?: boolean | undefined;
-    }) => import("fs-util").FolderPath[];
-    findSensibleFiles: (slug: string, basePath: string) => import("fs-util").FolderPath[];
     getAllFoldersUntilFolder: (folderPath: string) => string[];
     getFileName: (pathString: string) => string;
     getFirstAvailableFilename: (absoluteFilePath: string) => string;
@@ -141,13 +76,6 @@ export declare const sdk: {
     getLastFolder: (pathString: string) => string;
     getOneFolderUpPath: (folderPath: string) => string;
     getPathCombinations: (...chunksSegments: (string | string[])[]) => string[];
-    importFromFiles: <T>({ files, importStrategy, list, guard, }: {
-        files: string[];
-        importStrategy?: "default" | "fileName" | "list" | undefined;
-        list?: string[] | undefined;
-        guard?: ((moduleExports: any) => boolean) | undefined;
-    }) => T[];
-    isArrayGuard: (moduleExports: any) => boolean;
     oneUp: (filename: string) => string;
     parseMd: (mdFilePath: string) => import("fs-util").Markdown;
     removeAllExcept: (folderPath: string, config?: {
@@ -158,31 +86,23 @@ export declare const sdk: {
         removed: boolean;
     }[]>;
     renameAndCreate: (oldPath: string, newPath: string) => Promise<void>;
-    writeJsonToFile: <T_1>(p: string, data: T_1) => Promise<boolean>;
+    writeJsonToFile: <T>(p: string, data: T) => Promise<boolean>;
     writeStringToFile: (p: string, data: string) => Promise<boolean>;
     writeToFiles: (fileObject: {
-        [filePath: string]: any;
+        [absoluteFilePath: string]: any;
     }) => Promise<void>;
-    FunctionForm: <T_2 extends (...params: any[]) => any>(props: {
-        tsFunction: any;
-        submitFunction?: T_2 | undefined;
-        withResult?: ((result: import("api-types").WithoutPromise<ReturnType<T_2>>) => void) | undefined;
-        withApiResult?: ((result: any) => void) | undefined;
-        initialValues?: any[] | undefined;
-        hideResult?: boolean | undefined;
-    }) => JSX.Element;
-    findFolderWhereMatch: <T_3>(fullSourcePath: string, matchFunction: (folderPath: string) => T_3) => {
+    findFolderWhereMatch: <T_1>(fullSourcePath: string, matchFunction: (folderPath: string) => T_1) => {
         folderPath: string;
-        matchResult: T_3;
+        matchResult: T_1;
     } | undefined;
     findOperationBasePathWithClassification: (startPath: string) => {
         folderPath: string;
-        classification: "js" | "ts" | "node" | "server" | "web" | "app" | "ui-es6" | "ui-es5" | "ui-esm";
+        classification: "cjs" | "ts" | "esm" | "node-cjs" | "node-esm" | "node-ts" | "server-cjs" | "ui-web" | "ui-app" | "ui-ts" | "ui-cjs" | "ui-esm";
     } | undefined;
     findOperationBasePath: (startPath: string) => string | undefined;
-    getAllPackageJsonDependencies: (p: import("code-types").PackageJson) => string[];
+    getAllPackageJsonDependencies: (operation: import("code-types").Operation) => string[];
     getCommonAncestor: (path1: string, path2: string) => string;
-    getOperationClassification: (folderPath: string) => "js" | "ts" | "node" | "server" | "web" | "app" | "ui-es6" | "ui-es5" | "ui-esm" | undefined;
+    getOperationClassification: (folderPath: string) => "cjs" | "ts" | "esm" | "node-cjs" | "node-esm" | "node-ts" | "server-cjs" | "ui-web" | "ui-app" | "ui-ts" | "ui-cjs" | "ui-esm" | undefined;
     getOperationPathParse: (absolutePath: string) => import("code-types").OperationPathParse | undefined;
     getOperationPath: (operationName: string, config?: {
         manualProjectRoot?: string | undefined;
@@ -200,65 +120,54 @@ export declare const sdk: {
         manualProjectRoot?: string | undefined;
     } | undefined) => string | undefined;
     getSrcRelativeFileId: (operationRelativePath: string) => string;
-    hasDependency: (packageJson: import("code-types").PackageJson, dependency: string) => boolean;
+    hasDependency: (operation: import("code-types").Operation, dependency: string) => boolean;
     isOperation: (absoluteFolderPath: string) => boolean;
-    isSensibleProject: (folderPath?: string | undefined) => boolean;
     isWorkspaceRoot: (folderPath: string) => {
-        isSensibleProject: boolean;
+        isBundle: boolean;
         isWorkspaceRoot: boolean;
     } | undefined;
     makeRelative: (absolutePath: string, baseFolderPath: string) => string;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
-    isAltB: (keyboardEvent: KeyboardEvent) => boolean;
-    isAltN: (keyboardEvent: KeyboardEvent) => boolean;
-    isAltO: (keyboardEvent: KeyboardEvent) => boolean;
-    isAltW: (keyboardEvent: KeyboardEvent) => boolean;
-    isCtrlBacktick: (keyboardEvent: KeyboardEvent) => boolean;
-    isCtrlP: (keyboardEvent: KeyboardEvent) => boolean;
-    isCtrlS: (keyboardEvent: KeyboardEvent) => boolean;
-    isCtrlSpace: (keyboardEvent: KeyboardEvent) => boolean;
-    useHotkey: (isRightKey: (keyboardEvent: KeyboardEvent) => boolean, callback: () => void, dependencies: any[]) => void;
-    useHotkeys: (dependencies: any[], callback: (keyboardEvent: KeyboardEvent) => void) => void;
-    apply: <T_4>(functions: ((input: T_4) => T_4)[], value: T_4) => T_4;
-    createEnum: <T_5 extends readonly string[]>(array: T_5) => { [K in T_5[number]]: K; };
-    createMappedObject: <T_6 extends {
+    apply: <T_2>(functions: ((input: T_2) => T_2)[], value: T_2) => T_2;
+    createEnum: <T_3 extends readonly string[]>(array: T_3) => { [K in T_3[number]]: K; };
+    createMappedObject: <T_4 extends {
         [key: string]: any;
-    }>(array: T_6[], mapKey: keyof T_6) => import("js-util").MappedObject<T_6>;
-    findLastIndex: <T_7>(array: T_7[], findFn: (item: T_7) => boolean) => number | undefined;
+    }, U = T_4>(array: T_4[], mapKey: keyof T_4, mapFn?: ((value: T_4, array: T_4[]) => U) | undefined) => import("js-util").MappedObject<U>;
+    destructureOptionalObject: <T_5 extends {
+        [key: string]: any;
+    }>(object: T_5 | null | undefined) => Partial<T_5>;
+    findLastIndex: <T_6>(array: T_6[], findFn: (item: T_6) => boolean) => number | undefined;
     getObjectFromParamsString: (paramsString: string) => {
         [x: string]: string;
     };
     getObjectKeysArray: <TObject extends {
         [key: string]: any;
     }>(object: TObject) => Extract<keyof TObject, string>[];
-    getParameterAtLocation: <T_8 = any>(object: {
+    getParameterAtLocation: <T_7 = any>(object: {
         [key: string]: any;
-    }, location: string[]) => T_8;
-    getSubsetFromObject: <T_9>(object: {
-        [key: string]: T_9;
-    }, keys: string[]) => {
-        [key: string]: T_9;
-    };
-    groupByKey: <T_10 extends {
+    }, location: string[]) => T_7;
+    getSubsetFromObject: <T_8, K_1 extends readonly (keyof T_8)[]>(object: T_8, keys: K_1) => Pick<T_8, K_1[number]>;
+    groupByKey: <T_9 extends {
         [key: string]: any;
-    }>(array: T_10[], key: keyof T_10) => {
-        [key: string]: T_10[];
+    }>(array: T_9[], key: keyof T_9) => {
+        [key: string]: T_9[];
     };
-    insertAt: <T_11>(array: T_11[], items: T_11 | T_11[], beforeIndex: number) => T_11[];
+    insertAt: <T_10>(array: T_10[], items: T_10 | T_10[], beforeIndex: number) => T_10[];
     isAllTrue: (array: boolean[]) => boolean;
-    makeArray: <T_12>(...arrayOrNotArray: (T_12 | T_12[] | undefined)[]) => T_12[];
-    mapAsync: <T_13, U>(array: T_13[], callback: (value: T_13, index: number, array: T_13[]) => Promise<U>) => Promise<Awaited<U>[]>;
+    makeArray: <T_11>(...arrayOrNotArray: (T_11 | T_11[] | undefined)[]) => T_11[];
+    mapAsync: <T_12, U_1>(array: T_12[], callback: (value: T_12, index: number, array: T_12[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
     mapKeys: (object: {
         [key: string]: any;
     }, mapFn: (key: string) => string | Promise<string> | undefined) => Promise<{
         [x: string]: any;
     }>;
-    mapMany: <T_14, U_1>(array: T_14[], mapFn: (item: T_14, index: number, array: T_14[]) => Promise<U_1>, limit?: number | undefined) => Promise<U_1[]>;
-    mapValuesSync: <T_15, U_2>(object: {
-        [key: string]: T_15;
-    }, mapFn: (value: T_15) => U_2) => {
-        [x: string]: U_2;
+    mapMany: <T_13, U_2>(array: T_13[], mapFn: (item: T_13, index: number, array: T_13[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
+    mapValuesSync: <T_14, U_3>(object: {
+        [key: string]: T_14;
+    }, mapFn: (value: T_14) => U_3) => {
+        [x: string]: U_3;
     };
+    mergeNestedObject: <T_15 extends import("js-util").O>(object: T_15, otherObject: import("js-util").NestedPartial<T_15> | undefined) => T_15;
     mergeObjectParameters: <T_16>(config: T_16 | undefined, defaults: T_16 | undefined) => Partial<T_16>;
     mergeObjectsArray: <T_17 extends {
         [key: string]: any;
@@ -276,63 +185,51 @@ export declare const sdk: {
     }, TMapResult, TResultObject_1 extends { [key_1 in keyof TObject_2]: TMapResult; }>(object: TObject_2, mapFn: (key: keyof TObject_2, value: TObject_2[keyof TObject_2]) => TMapResult) => TResultObject_1;
     objectValuesMap: <T_19 extends {
         [key: string]: T_19[string];
-    }, U_3 extends unknown>(object: T_19, mapFn: (key: string, value: T_19[string]) => U_3) => {
-        [key: string]: U_3;
+    }, U_4 extends unknown>(object: T_19, mapFn: (key: string, value: T_19[string]) => U_4) => {
+        [key: string]: U_4;
     };
     omitUndefinedValues: <T_20 extends {
         [key: string]: any;
     }>(object: T_20) => T_20;
-    onlyUnique2: <U_4>(isEqualFn?: ((a: U_4, b: U_4) => boolean) | undefined) => <T_21 extends U_4>(value: T_21, index: number, self: T_21[]) => boolean;
+    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_21 extends U_5>(value: T_21, index: number, self: T_21[]) => boolean;
     onlyUnique: typeof onlyUnique;
-    putIndexAtIndex: <T_22>(array: T_22[], index: number, toIndex: number) => T_22[];
-    removeIndexFromArray: <T_23>(array: T_23[], index: number) => T_23[];
+    pickRandomArrayItem: <T_22>(array: T_22[]) => T_22;
+    putIndexAtIndex: <T_23>(array: T_23[], index: number, toIndex: number) => T_23[];
+    removeIndexFromArray: <T_24>(array: T_24[], index: number) => T_24[];
+    removeOptionalKeysFromObject: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: Exclude<keyof TObject_3, Exclude<import("js-util").KeysOfType<TObject_3, Exclude<TObject_3[keyof TObject_3], undefined>>, undefined>>[]) => TObject_3;
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
-    sumAllKeys: <T_24 extends {
+    sumAllKeys: <T_25 extends {
         [key: string]: number | undefined;
-    }>(objectArray: T_24[], keys: (keyof T_24)[]) => T_24;
-    sumObjectParameters: <TObject_3 extends {
+    }>(objectArray: T_25[], keys: (keyof T_25)[]) => T_25;
+    sumObjectParameters: <TObject_4 extends {
         [key: string]: number;
-    }>(object1: TObject_3, object2: TObject_3) => TObject_3;
+    }>(object1: TObject_4, object2: TObject_4) => TObject_4;
     sum: (items: number[]) => number;
-    takeFirst: <T_25>(arrayOrNot: T_25 | T_25[]) => T_25;
+    takeFirst: <T_26>(arrayOrNot: T_26 | T_26[]) => T_26;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
     flattenMarkdownChunks: (markdownChunks: import("code-types").MarkdownChunk[]) => import("code-types").MarkdownParagraph[];
     getKvmdItemsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
     getParagraphsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("code-types").MarkdownParagraph[];
-    kvmdDataMap: <T_26 extends {
+    kvmdDataMap: <T_27 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {
         keyName?: string | undefined;
         valueName?: string | undefined;
         commentName?: string | undefined;
         categoryStackCalculatedName?: string | undefined;
-    }) => T_26[];
+    }) => T_27[];
     kvmdDataToString: (kvmdData: import("model-types").KeyValueMarkdownModelType, previous: import("model-types").KeyValueMarkdownModelType | undefined) => string;
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
     parseKvmdLine: (string: string) => import("model-types").KvmdLine | undefined;
-    LabeledButton: (button: import("labeled-button").LabeledButtonType, index: number) => JSX.Element;
     getCallerFileName: () => string | undefined;
     log: (message: string, config?: import("log").LogConfig | undefined, data?: any) => void;
     parseTitle: (markdown: string) => {
         title: string;
         rest: string;
     };
-    checkAuthToken: (password: string) => Promise<{
-        isSuccessful: boolean;
-        message: string;
-        authToken: string;
-    }>;
-    LoginForm: (props: {
-        title?: string | undefined;
-    }) => JSX.Element;
-    LoginWrapper: (props: {
-        title?: string | undefined;
-        children: JSX.Element;
-    }) => JSX.Element;
-    logoutFrontend: () => Promise<void>;
     makeFileType: (filePath: string) => Promise<import("make-file-type").FileType | undefined>;
     isResultOfInterface: <TResult>(result: TResult, jsonSchema: unknown) => boolean;
     makeTest: <TResult_1>(testFunction: (() => Promise<TResult_1>) | (() => TResult_1), isValid?: ((result: TResult_1) => boolean) | undefined) => () => Promise<boolean>;
@@ -356,6 +253,9 @@ export declare const sdk: {
     getFrontmatterValueString: (value: import("matter-types").FrontmatterValue) => string | null;
     quotedOrNot: (string: string) => string;
     stringifyNewlines: (string: string) => string;
+    cleanupTimer: (uniqueId: string) => void;
+    generateUniqueId: () => string;
+    getNewPerformance: (label: string, uniqueId: string, isNew?: boolean | undefined) => import("measure-performance").PerformanceItem | undefined;
     generateId: () => string;
     generatePassword: typeof generatePassword;
     generateRandomString: (length: number) => string;
@@ -366,25 +266,7 @@ export declare const sdk: {
     getParameterContentType: (parameterName: string) => void;
     isCalculatedParameter: (parameterName: string) => boolean;
     isGeneratedParameterName: (parameterName: string) => void;
-    ALink: ({ children, href, target, rel, linkProps, ...otherAProps }: {
-        linkProps?: {
-            href: string | import("url").UrlObject;
-            as?: string | import("url").UrlObject | undefined;
-            replace?: boolean | undefined;
-            scroll?: boolean | undefined;
-            shallow?: boolean | undefined;
-            passHref?: boolean | undefined;
-            prefetch?: boolean | undefined;
-            locale?: string | false | undefined;
-            legacyBehavior?: boolean | undefined;
-            onMouseEnter?: ((e: any) => void) | undefined;
-            onClick?: ((e: any) => void) | undefined;
-        } | undefined;
-    } & import("react").ClassAttributes<HTMLAnchorElement> & import("react").AnchorHTMLAttributes<HTMLAnchorElement> & {
-        native?: import("react-native").TextProps | undefined;
-        textClassName?: string | undefined;
-    }) => JSX.Element;
-    oneByOne: <T_27, U_5>(array: T_27[], callback: (instance: T_27, index: number) => Promise<U_5>) => Promise<U_5[]>;
+    oneByOne: <T_28, U_6>(array: T_28[], callback: (instance: T_28, index: number) => Promise<U_6>) => Promise<U_6[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
         operationDependencies: string[];
@@ -392,7 +274,6 @@ export declare const sdk: {
     }>;
     getOperationMetaData: (operationBasePath: string) => Promise<import("operation-util").OperationMetaData | undefined>;
     recalculateOperationIndexJson: (operationBasePath: string, manualProjectRoot?: string | undefined) => Promise<void>;
-    writeKeyToOperationIndexJson: <K_1 extends keyof import("code-types").OperationIndex>(absolutePath: string, key: K_1, value: import("code-types").OperationIndex[K_1]) => Promise<void>;
     parsePrimitiveArray: (string: string) => string[];
     parsePrimitiveBoolean: (string: string) => boolean | undefined;
     parsePrimitiveString: (string: string) => string;
@@ -411,13 +292,10 @@ export declare const sdk: {
     isSingular: (parameterName: string) => boolean;
     pluralize: (parameterName: string) => string;
     singularize: (parameterName: string) => string;
-    bodyFromQueryString: (query?: string | undefined) => {
-        [key: string]: string | string[] | undefined;
-    } | undefined;
-    getFirstQueryStrings: (query: {
-        [key: string]: string | string[] | undefined;
-    }) => (string | undefined)[];
+    bodyFromQueryString: (query?: string | undefined) => import("rest-util").QueryableObject | undefined;
+    getFirstQueryStrings: (query: import("rest-util").QueryableObject) => (string | undefined)[];
     getQueryPart: (strings: string[], queryKey: string) => string;
+    isValidEntry: ([_, value]: [key: string, value: any]) => boolean;
     toQueryString: (query?: any) => string;
     runChildProcess: (config: {
         operationFolderName: string;
@@ -437,10 +315,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_28>(searchMessage: string, array: T_28[], getSentence?: ((x: T_28) => string) | undefined) => T_28[];
-    searchRecursiveObjectArray: <T_29 extends {
-        children?: T_29[] | undefined;
-    } & Object>(array: T_29[], baseMatcher: (item: T_29) => boolean, afterMapper?: ((item: T_29, isMatch: boolean, hasChildMatch: boolean) => T_29) | undefined) => T_29[];
+    findSentenceMatches: <T_29>(searchMessage: string, array: T_29[], getSentence?: ((x: T_29) => string) | undefined) => T_29[];
+    searchRecursiveObjectArray: <T_30 extends {
+        children?: T_30[] | undefined;
+    } & Object>(array: T_30[], baseMatcher: (item: T_30) => boolean, afterMapper?: ((item: T_30, isMatch: boolean, hasChildMatch: boolean) => T_30) | undefined) => T_30[];
     findPostableToPost: () => void;
     updatePostedStatistics: () => void;
     objectStringToJson: (string: string) => {
@@ -452,9 +330,9 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_30>(text: string, logParseError?: boolean | undefined) => T_30 | null;
+    tryParseJson: <T_31>(text: string, logParseError?: boolean | undefined) => T_31 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_31 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_31, (newValue: T_31 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_32 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_32, (newValue: T_32 | undefined) => Promise<boolean>];
 };
 export declare type SdkType = typeof sdk;
 //# sourceMappingURL=sdk-js.d.ts.map

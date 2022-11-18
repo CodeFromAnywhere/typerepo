@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668149315858,
-  "updatedAt": 1668149315858,
+  "createdAt": 1668775608602,
+  "updatedAt": 1668775608602,
   "deletedAt": 0,
-  "createdFirstAt": 1668149315858,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775608602,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/renderMarkdownParse.tsx",
   "commentsInside": [],
   "rawText": " (\n  markdownParse: MarkdownParse,\n  config: MarkdownParseRenderConfig\n) => {\n  // NB: not sure if this is the best way, there may be mulitiple markdown parses....\n  useOpenHashDetails();\n\n  return (\n    <Div>\n      {renderFrontmatter(markdownParse.parameters, { renderSpacer: true })}\n      {/* NB: Previously we needed renderMarkdownTtile, renderMarkdownChunk etc... but this was not rightly parsed, so we are going to use the regular raw parser now from `react-markdown` instead... */}\n      {renderMarkdownContent(markdownParse.raw, config)}\n    </Div>\n  );\n}",
@@ -122,5 +117,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "jhjdyztrtkojyvdycuepvble"
+  "id": "klvqjuzyavtvjwfgfftjoqnl"
 }

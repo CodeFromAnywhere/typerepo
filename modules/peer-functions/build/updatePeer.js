@@ -57,8 +57,8 @@ var updatePeer = function (slug, updatedValues) { return __awaiter(void 0, void 
     var updateResult;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, database_1.db.update("Peer", function (peer) {
-                    return peer.slug === slug;
+            case 0: return [4 /*yield*/, database_1.db.update("Person", function (person) {
+                    return person.slug === slug;
                 }, function (peer) {
                     return __assign(__assign({}, peer), (0, js_util_1.omitUndefinedValues)(updatedValues));
                 })];

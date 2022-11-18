@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667635794838,
-  "updatedAt": 1667635794838,
+  "createdAt": 1668752144081,
+  "updatedAt": 1668752144081,
   "deletedAt": 0,
-  "createdFirstAt": 1667635794838,
+  "createdFirstAt": 1668752144081,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -10,7 +10,7 @@
   "slug": "new-operation-cli",
   "operationRelativeTypescriptFilePath": "src/cli/newOperation.cli.ts",
   "type": {
-    "rawType": "() => void",
+    "rawType": "() => any",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "() => {\n  const [name, type, description, destinationPath] = process.argv.slice(2);\n\n  newOperation(name, {\n    type: type as OperationClassification,\n    description,\n    destinationPath,\n  });\n\n  console.log(`Generated operation`, {\n    name,\n    type,\n    description,\n    destinationPath,\n  });\n}",
-  "description": "newOperation also works as CLI\n\nexample: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation (js, node, ui-es5, ui-es6, web) as the second argument of the CLI\n\nArguments (all optional):\n- name: string\n- type: `OperationClassification`\n- description: string\n- destinationPath: string",
-  "id": "msdgggpgfkoppxrnlprywbbv"
+  "value": "async () => {\n  const [name, type, description, destinationPath] = process.argv.slice(2);\n\n  log(`Let's make a ${type || \"node-cjs\"} operation called ${name}`, {\n    type: \"important\",\n  });\n  console.log(\"All types possible:\", operationClassificationConst.join(\", \"));\n\n  await newOperation(name, {\n    type: type as OperationClassification,\n    description,\n    destinationPath,\n  });\n\n  console.log(`Generated operation`, {\n    name,\n    type,\n    description,\n    destinationPath,\n  });\n}",
+  "description": "newOperation also works as CLI\n\nexample: `newOperation [operation-name] [type]` in the folder where you want to create it. Optionally you can specify the type of operation as the second argument of the CLI\n\nArguments (all optional):\n- name: string\n- type: `OperationClassification`\n- description: string\n- destinationPath: string",
+  "id": "vtkvzqdjqutadeuxaquurzqp"
 }

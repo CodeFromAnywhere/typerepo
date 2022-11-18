@@ -30,6 +30,8 @@ export declare const FunctionForm: <T extends (...params: any[]) => any>(props: 
     withResult?: ((result: WithoutPromise<ReturnType<T>>) => void) | undefined;
     /**
      * callback to call after the api has resulted with a result
+     *
+     * Please type this yourself as `RealApiReturnType<"functionName">`
      */
     withApiResult?: ((result: any) => void) | undefined;
     initialValues?: any[] | undefined;

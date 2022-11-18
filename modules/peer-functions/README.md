@@ -1,6 +1,6 @@
 # Peer functions
 
-peer-functions (`OperationClassification` node)
+peer-functions (`OperationClassification` node-cjs)
 
 
 
@@ -55,10 +55,22 @@ peer-functions (`OperationClassification` node)
 
 ## addPeer()
 
+TODO:
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| ip | string |  |,| authToken | string |  |,| peerName (optional) | string |  |,| force (optional) | boolean | If true, it does not validate the IP to see if it is online and it is authorized... |,| isMe (optional) | boolean |  |
 | **Output** |    |    |
+
+
+
+## augmentDevice()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| x | `Device` |  |
+| **Output** | {  }   |    |
 
 
 
@@ -102,18 +114,6 @@ Gets all app operations from all packageJsons from the database. Adds `isOnline`
 
 
 ## getPeersFromPeersRecursively()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## getPeers()
-
-Get peers with person relation and calculated values, sorted (first favorite, then online, then offline)
-
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -225,6 +225,11 @@ Update one of your peers
 
 ## 📄 addPeer (exported const)
 
+TODO:
+
+
+## 📄 augmentDevice (exported const)
+
 ## 📄 getAllAppOperations (exported const)
 
 Gets all app operations from all packageJsons from the database. Adds `isOnline` to it on the fly by checking if it can connect to the port or not
@@ -237,11 +242,6 @@ Gets all app operations from all packageJsons from the database. Adds `isOnline`
 ## 📄 getPeerMessages (exported const)
 
 ## 📄 getPeersFromPeersRecursively (exported const)
-
-## 📄 getPeers (exported const)
-
-Get peers with person relation and calculated values, sorted (first favorite, then online, then offline)
-
 
 ## 📄 getPublicFolderNestedPathObjectFromPeer (exported const)
 

@@ -7,6 +7,12 @@ import { Group } from "./Group";
 import { PersonInformationValue } from "./PersonInformationValue";
 import { PersonSocialMedia } from "./PersonSocialMedia";
 /**
+ * Can be seen for every person, without authentication
+ *
+ * NB: I wish it were possible to ensure these keys exist on the person here, but we can't validate that while still keeping it a const I guess
+ */
+export declare const publicPersonKeys: readonly ["name", "slug", "id", "pictureImage", "interestSlugs", "media", "preferredContactMedium", "groupSlugs"];
+/**
  * Model to describe a human person. This model gathers and stores all persons around the world, except for yourself. Kind of a user-like model...
  *
  *
@@ -17,21 +23,21 @@ import { PersonSocialMedia } from "./PersonSocialMedia";
 export interface Person extends DefaultModelType {
     name: string;
     slug: string;
-    pictureImage: BackendAsset;
+    pictureImage?: BackendAsset;
     /**
      * slugs of interest categories that this person should be notified about.
      *
      * Since this is a hierarchical model, parent interests will ensure all children are also applied.
      */
-    interestSlugs: Slug[];
-    dataEntries: PersonInformationValue[];
+    interestSlugs?: Slug[];
     /**
      * Media that is attached to this person.
      *
      * NB: not used to authenticate! Can be filled in by King OS, might be erroneous
      */
-    media: PersonSocialMedia[];
+    media?: PersonSocialMedia[];
     preferredContactMedium?: Slug;
+    dataEntries?: PersonInformationValue[];
     /**
      * Devices can be attached to a person by looking in the device model and finding the devices that refer to this person
      *
@@ -58,7 +64,7 @@ export interface Person extends DefaultModelType {
     /**
      * Which custom authorizations does this `Person` have?
      */
-    authorizations: Authorization[];
+    authorizations?: Authorization[];
     /**
      * By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one
      */
@@ -78,6 +84,6 @@ export interface Person extends DefaultModelType {
      *
      * Insufficient credit can limit the persons possibilities within the OS
      */
-    credit: Credit;
+    credit?: Credit;
 }
 //# sourceMappingURL=Person.d.ts.map

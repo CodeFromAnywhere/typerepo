@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258912155,
-  "updatedAt": 1666258912155,
+  "createdAt": 1668332062540,
+  "updatedAt": 1668332062540,
   "deletedAt": 0,
-  "createdFirstAt": 1666258912155,
+  "createdFirstAt": 1668332062540,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  await removeAllFolders({\n    basePath,\n    folderNames: [folderName],\n  });\n\n  console.log(\"DONE\");\n}",
   "description": "",
-  "id": "prjesmmamyykrnwhxluyhjgj"
+  "id": "lmzfhgubajyxmrgehkptpeil"
 }

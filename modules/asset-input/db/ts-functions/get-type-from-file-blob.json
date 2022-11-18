@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378721887,
-  "updatedAt": 1667378721887,
+  "createdAt": 1668750037923,
+  "updatedAt": 1668750037923,
   "deletedAt": 0,
-  "createdFirstAt": 1667378721887,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668750037923,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util/getTypeFromFileBlob.ts",
   "commentsInside": [],
   "rawText": " (file: File) => {\n  const typeFirstPart = file.type.split(\"/\")[0];\n\n  const firstPartAssetTypes = [\"image\", \"video\", \"audio\"];\n\n  const type: AssetType = firstPartAssetTypes.includes(typeFirstPart)\n    ? (typeFirstPart as AssetType)\n    : \"other\";\n\n  return type;\n}",
@@ -135,5 +130,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "njhyoknbpnoklhfhtvramayx"
+  "id": "ttzmtziafmzlpshbozavicpj"
 }

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668774464935,
+  "updatedAt": 1668774464935,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774464935,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getTimelineItems",
+  "slug": "get-timeline-items",
+  "operationRelativeTypescriptFilePath": "src/util/searchGetStaticProps.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const comments = await db.get(\"TsComment\");\n\n  const items = comments\n    .filter((x) => x.types.includes(\"todo\"))\n    .map((x) => {\n      const isMultiLine = x.firstLine !== x.lastLine;\n\n      const operationPath =\n        operations[x.operationName as keyof typeof operations];\n\n      const comment = isMultiLine\n        ? `/**\\n${x.comment}\\n*/\\n\\n${x.rawStatement}`\n        : `// ${x.comment} \\n ${x.rawStatement}`;\n\n      const filePath = operationPath\n        ? path.join(operationPath, x.operationRelativeTypescriptFilePath)\n        : undefined;\n      return {\n        comment,\n        filePath,\n        line: x.firstLine,\n      };\n    });\n\n  return items;\n}",
+  "description": "",
+  "id": "qwyqrnyxxlfddpecaqxbuccq"
+}

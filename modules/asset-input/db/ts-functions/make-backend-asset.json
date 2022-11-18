@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378722987,
-  "updatedAt": 1667378722987,
+  "createdAt": 1668750039150,
+  "updatedAt": 1668750039150,
   "deletedAt": 0,
-  "createdFirstAt": 1667378722987,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668750039150,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util/makeBackendAsset.ts",
   "commentsInside": [],
   "rawText": " (asset: Asset): BackendAsset => {\n  return {\n    alt: asset.alt,\n    name: asset.name,\n    relativePath: asset.relativePath,\n    temporaryDestination: asset.temporaryDestination,\n  };\n}",
@@ -56,6 +51,14 @@
             "required": false,
             "schema": {
               "fullComment": "Not stored\n\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
+              "type": "string"
+            }
+          },
+          {
+            "name": "apiPath",
+            "required": false,
+            "schema": {
+              "fullComment": "Not stored\n\n`fs-orm` attaches this information to the `BackendAsset` when querying data from anywhere\n\nThe `server-api-url`-relative path that can be used to fetch the asset (path that uses `getReferencedAssetApiUrl`)\n\nTo force a download, you can add &isDownload=1 into the URL",
               "type": "string"
             }
           },
@@ -123,7 +126,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").BackendAsset",
+    "rawType": "import(\"/Users/king/King/operations/tools/asset/asset-type/build/BackendAsset\").BackendAsset",
     "typeDefinition": {
       "optional": false
     },
@@ -148,5 +151,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "ajqpvivlafgcxereobkpuvca"
+  "id": "ltnqnkrfepjennalatnzbdnh"
 }

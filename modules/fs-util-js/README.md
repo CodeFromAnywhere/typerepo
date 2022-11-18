@@ -1,6 +1,6 @@
 # Fs util js
 
-fs-util-js (`OperationClassification` node)
+fs-util-js (`OperationClassification` node-cjs)
 
 
 
@@ -27,6 +27,15 @@ returns the extension of the filename or path WITHOUT dot
 NB: not sure, but could be nice to replace this with path.extname(pathString)
 
 
+## getFolderJs()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | string   |    |
+
+
+
 ## withoutExtension()
 
 removes extension from the filename
@@ -39,21 +48,12 @@ removes extension from the filename
 
 
 
+## 📄 getFolderJs (exported const)
+
 ## 📄 withoutExtension (exported const)
 
 removes extension from the filename
 
-
-## getFolderJs()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | string   |    |
-
-
-
-## 📄 getFolderJs (exported const)
 
 ## getSubExtension()
 

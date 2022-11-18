@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258523784,
-  "updatedAt": 1666258523784,
+  "createdAt": 1668331773700,
+  "updatedAt": 1668331773700,
   "deletedAt": 0,
-  "createdFirstAt": 1666258523784,
+  "createdFirstAt": 1668331773700,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async ({\n  folderPath,\n}: {\n  folderPath: string;\n}): Promise<number> => {\n  return (\n    await explore({\n      basePath: folderPath,\n      includeStats: true,\n      extension: [\"ts\", \"tsx\"],\n      ignore: \"index.ts\",\n    })\n  ).reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.mtimeMs;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n}",
+  "value": "async ({\n  folderPath,\n}: {\n  folderPath: string;\n}): Promise<number> => {\n  return (\n    await explore({\n      basePath: folderPath,\n      includeStats: true,\n      extension: [\"ts\", \"tsx\"],\n      ignore: \"index.ts\",\n    })\n  ).reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.updatedAt;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n}",
   "description": "get last updated file updatedAt time in whole folder, recursively",
-  "id": "xzwrvkvacmpismqwemqnvdfs"
+  "id": "kwtpegxwpkiuqmyukmaiygbp"
 }

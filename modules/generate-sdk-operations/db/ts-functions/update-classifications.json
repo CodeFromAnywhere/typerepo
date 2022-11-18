@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668775417659,
+  "updatedAt": 1668775417659,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775417659,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/updateClassifications.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    callback: async (folderPath, index) => {\n      const operationName = getLastFolder(folderPath);\n\n      const classificationIndexed = getOperationClassification(folderPath);\n      console.log(`${operationName}: ${classificationIndexed}`);\n\n      await db.update(\n        \"Operation\",\n        (item) => item.name === operationName,\n        (old) =>\n          mergeNestedObject(old, { operation: { classificationIndexed } }),\n        { operationName }\n      );\n\n      console.log(\"updated\");\n\n      return;\n    },\n  });\n}",
+  "name": "updateClassifications",
+  "slug": "update-classifications",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 613,
+    "lines": 24,
+    "bytes": 613,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 24,
+    "numberOfFiles": 1
+  },
+  "id": "npcxggppjeadklychzinbzhd"
+}

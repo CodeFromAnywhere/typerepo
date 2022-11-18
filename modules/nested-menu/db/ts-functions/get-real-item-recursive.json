@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668752495244,
+  "updatedAt": 1668752495244,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752495244,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/NestedMenuItem.tsx",
+  "commentsInside": [],
+  "rawText": " (item: MenuItemType): MenuItemType => {\n  const getTitleExtension = (item: MenuItemType) =>\n    item.children && item.children.length === 1 ? item.children?.[0].title : \"\";\n\n  return item.children && item.children.length === 1\n    ? getRealItemRecursive({\n        ...item.children[0],\n        title: item.title + \" ‣ \" + getTitleExtension(item),\n      })\n    : item;\n}",
+  "name": "getRealItemRecursive",
+  "slug": "get-real-item-recursive",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/nested-menu/src/types\").MenuItemType",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 369,
+    "lines": 11,
+    "bytes": 371,
+    "bytesPerCharacter": 1.005420054200542,
+    "charactersPerLine": 34,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "srfbqymhxncghuoycnqgjkbo"
+}

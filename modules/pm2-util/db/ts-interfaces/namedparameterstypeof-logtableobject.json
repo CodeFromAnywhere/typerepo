@@ -1,0 +1,47 @@
+{
+  "createdAt": 1668773986685,
+  "updatedAt": 1668773986685,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773986685,
+  "id": "namedparameterstypeof-logtableobject",
+  "name": "NamedParameters<typeof logTableObject>",
+  "slug": "namedparameterstypeof-logtableobject",
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "object": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "object",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof logTableObject>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

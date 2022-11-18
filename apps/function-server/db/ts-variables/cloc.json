@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668775476524,
+  "updatedAt": 1668775476524,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775476524,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "cloc",
+  "slug": "cloc",
+  "operationRelativeTypescriptFilePath": "src/cloc.test.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const operations = await db.get(\"Operation\");\n  const locs = mergeObjectsArray(\n    operations.map((operation) => ({\n      [operation.name]: operation.operation?.sizeIndexed?.codeSize?.lines,\n    }))\n  );\n\n  console.log({ locs });\n\n  // //   const total = sum(locs);\n\n  //   console.dir(\n  //     { opl: operations.length, locsl: locs.length, locs, total },\n  //     { maxArrayLength: 9999 }\n  //   );\n}",
+  "description": "",
+  "id": "kxcywtdawpjhogmqikmozyqw"
+}

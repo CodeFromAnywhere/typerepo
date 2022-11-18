@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773969742,
+  "updatedAt": 1668773969742,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773969742,
+  "id": "namedparameterstypeof-restartappcli",
+  "name": "NamedParameters<typeof restartAppCli>",
+  "slug": "namedparameterstypeof-restartappcli",
+  "operationRelativeTypescriptFilePath": "src/cli/restartApp.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof restartAppCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

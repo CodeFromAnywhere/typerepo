@@ -1,15 +1,15 @@
 {
-  "createdAt": 1668150117347,
-  "updatedAt": 1668150117347,
+  "createdAt": 1668775174077,
+  "updatedAt": 1668775174077,
   "deletedAt": 0,
-  "createdFirstAt": 1668150117347,
+  "createdFirstAt": 1668775174077,
   "id": "websiteheader",
   "name": "WebsiteHeader",
   "slug": "websiteheader",
   "operationRelativeTypescriptFilePath": "src/WebsiteHeader.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type WebsiteHeader = {\n  headerImage: BackendAsset;\n  headerTitle: string;\n  headerSubTitle: string;\n  headerCta: MarkdownLink;\n};",
+  "rawText": "\n\nexport type WebsiteHeader = {\n  headerImage?: BackendAsset;\n  headerTitle?: string;\n  headerSubTitle?: string;\n  headerCta?: MarkdownLink;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -32,19 +32,13 @@
           "$ref": "#/definitions/MarkdownLink"
         }
       },
-      "required": [
-        "headerImage",
-        "headerTitle",
-        "headerSubTitle",
-        "headerCta"
-      ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
           "name": "headerImage",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Part of the asset that should be sent to the backend. The rest should frontend-only\n\nSome values are stored, some are not",
             "properties": [
@@ -87,21 +81,21 @@
         },
         {
           "name": "headerTitle",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
         },
         {
           "name": "headerSubTitle",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
         },
         {
           "name": "headerCta",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Anything in the format `[alt](href)`\n\nIt needs to be clear how this works. There is a convention for this, and I should implement that as good as possible, and document it here",
             "properties": [

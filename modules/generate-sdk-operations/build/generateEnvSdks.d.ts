@@ -15,7 +15,7 @@ export declare const generateEnvSdks: (bundleConfig: BundleConfig, config?: {
 
 As a full stack app we need a good solution for environment variables that need to be accessible anywhere and can be customized, some `.gitignore'd`, some not. Some public, some only in the backend.
 
-sensible-config:
+conifg:
 - public (local, remote) = sdk-env-public
 - private (local, remote) = sdk-env-private
 

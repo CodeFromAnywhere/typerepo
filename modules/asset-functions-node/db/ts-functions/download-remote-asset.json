@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378645750,
-  "updatedAt": 1667378645750,
+  "createdAt": 1668773884025,
+  "updatedAt": 1668773884025,
   "deletedAt": 0,
-  "createdFirstAt": 1667378645750,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668773884025,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/downloadRemoteAsset.ts",
   "commentsInside": [],
   "rawText": " async (): Promise<UploadAssetResult> => {\n  return {\n    isSuccessful: false,\n  };\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "dqeyvgkxugzgpnrttvameagi"
+  "id": "qmsixjrflqhppijmcibxepul"
 }

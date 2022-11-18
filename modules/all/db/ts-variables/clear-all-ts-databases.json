@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258904083,
-  "updatedAt": 1666258904083,
+  "createdAt": 1668332053036,
+  "updatedAt": 1668332053036,
   "deletedAt": 0,
-  "createdFirstAt": 1666258904083,
+  "createdFirstAt": 1668332053036,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    callback: async (folderPath, index) => {\n      const operationName = getLastFolder(folderPath);\n      log(\n        `#${index}: Clearing Typescript Indexation Data for ${operationName}`,\n        { type: \"success\" }\n      );\n      await clearTsDatabase(operationName);\n      return;\n    },\n  });\n}",
   "description": "",
-  "id": "gzubdtgxshhssninvkkhprsg"
+  "id": "rvzevgkivzwzetlcoieymaib"
 }

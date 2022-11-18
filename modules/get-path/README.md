@@ -1,6 +1,6 @@
 # Get path
 
-get-path (`OperationClassification` js)
+get-path (`OperationClassification` cjs)
 
 Useful functions to get paths within King OS.
 
@@ -36,15 +36,6 @@ recursive. goes up until it finds a folder that's the project root
 if no source path is given, uses the directory name where the function is executed from as a starting point
 
 
-## findOperationBasePath()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| startPath | string |  |
-| **Output** | string   |    |
-
-
-
 ## getOperationPath()
 
 Gets a path of any operation in the project
@@ -58,8 +49,6 @@ TODO: IDEA: maybe auto-generate key-value JSON where keys are the package-names 
 | **Output** |    |    |
 
 
-
-## 📄 findOperationBasePath (exported const)
 
 ## 📄 getOperationPath (exported const)
 
@@ -87,6 +76,17 @@ Resulting path will apply the paths conventions
 - no slash at the end
 - no slash at the beginning
 
+
+## findOperationBasePath()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| startPath | string |  |
+| **Output** | string   |    |
+
+
+
+## 📄 findOperationBasePath (exported const)
 
 ## getPathsWithOperations()
 
@@ -127,20 +127,6 @@ Gets project path, or a folder in the root that is convention
 
 ## 📄 getRootPath (exported const)
 
-## getOperationClassification()
-
-Returns OperationClassification if it's an operation, or undefined if it's not
-
-NB: don't confuse this with ProjectType or ImportClassification
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| folderPath | string |  |
-| **Output** |    |    |
-
-
-
 ## getSrcRelativeFileId()
 
 returns a file id (path without extension) relative to the src folder of an operation
@@ -159,13 +145,6 @@ NB: removes "/" in the beginning, if found
 
 
 
-## 📄 getOperationClassification (exported const)
-
-Returns OperationClassification if it's an operation, or undefined if it's not
-
-NB: don't confuse this with ProjectType or ImportClassification
-
-
 ## 📄 getSrcRelativeFileId (exported const)
 
 returns a file id (path without extension) relative to the src folder of an operation
@@ -177,16 +156,26 @@ NB: assumes all src is in the src folder
 NB: removes "/" in the beginning, if found
 
 
-## isSensibleProject()
+## getOperationClassification()
+
+Returns OperationClassification if it's an operation, or undefined if it's not
+
+NB: don't confuse this with ProjectType or ImportClassification
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| folderPath (optional) | string |  |
-| **Output** | {  }   |    |
+| folderPath | string |  |
+| **Output** |    |    |
 
 
 
-## 📄 isSensibleProject (exported const)
+## 📄 getOperationClassification (exported const)
+
+Returns OperationClassification if it's an operation, or undefined if it's not
+
+NB: don't confuse this with ProjectType or ImportClassification
+
 
 ## getOperationRelativePath()
 
@@ -255,20 +244,6 @@ returns a relative link between two files
 
 
 
-## getRelativePath()
-
-gets the relative path from a specified root
-
-will start with "/"
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| absolutePath | string |  |,| relativeFrom | string |  |
-| **Output** |    |    |
-
-
-
 ## isOperation()
 
 Checks whether or not an absolute path contains an operation. The only check it's doing is that the folder must contain both a package.json as well as a tsconfig.json
@@ -284,13 +259,6 @@ Checks whether or not an absolute path contains an operation. The only check it'
 ## 📄 getRelativeLinkPath (exported const)
 
 returns a relative link between two files
-
-
-## 📄 getRelativePath (exported const)
-
-gets the relative path from a specified root
-
-will start with "/"
 
 
 ## 📄 isOperation (exported const)
@@ -319,7 +287,7 @@ Checks whether or not an absolute path contains an operation. The only check it'
 
 # Internal
 
-<details><summary>Show internal (16)</summary>
+<details><summary>Show internal (18)</summary>
     
   # findFolderWhereMatch()
 
@@ -368,6 +336,20 @@ Finds the common ancestor for two absolute pahts
 
 
 
+## getRelativePath()
+
+gets the relative path from a specified root
+
+will start with "/"
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| absolutePath | string |  |,| relativeFrom | string |  |
+| **Output** |    |    |
+
+
+
 ## hasDependency()
 
 | Input      |    |    |
@@ -406,6 +388,13 @@ because it had to read the package.json anyway, it's returning the operation cla
 ## 📄 getCommonAncestor (exported const)
 
 Finds the common ancestor for two absolute pahts
+
+
+## 📄 getRelativePath (exported const)
+
+gets the relative path from a specified root
+
+will start with "/"
 
 
 ## 📄 hasDependency (exported const)

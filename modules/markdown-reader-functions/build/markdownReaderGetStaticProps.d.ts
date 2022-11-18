@@ -1,5 +1,5 @@
+import type { GetStaticPropsContext } from "next-types";
 import { MarkdownReaderPageProps } from "markdown-reader-types";
-import { GetStaticPropsContext } from "next";
 /**
  Fix `operationBasePath not working` error when building: log `getStaticProps`/`getStaticPaths`
  */

@@ -1,10 +1,10 @@
 {
-  "createdAt": 1666263887948,
-  "updatedAt": 1666263887948,
+  "createdAt": 1668335872204,
+  "updatedAt": 1668335872204,
   "deletedAt": 0,
-  "createdFirstAt": 1666263887948,
+  "createdFirstAt": 1668335872204,
   "publicAuthorization": [
-    "read-docs",
+    "read",
     "search"
   ],
   "isApiExposed": false,
@@ -13,7 +13,7 @@
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/generateSimpleIndex.ts",
   "commentsInside": [],
-  "rawText": " async ({\n  operationName,\n  manualProjectRoot,\n}: {\n  /**\n   * if given, just exports * from those\n   */\n  operationName: string;\n  manualProjectRoot?: string;\n}): Promise<string | undefined> => {\n  if (!operationName) {\n    log(\"No operation name, can't create index\", { type: \"error\" });\n    return;\n  }\n  const operationBasePath = await getOperationPath(operationName, {\n    manualProjectRoot,\n  });\n\n  if (!operationBasePath) {\n    log(`operationPath not found ${operationName}`, { type: \"error\" });\n    return;\n  }\n\n  const classification = getOperationClassification(operationBasePath);\n\n  if (classification === \"web\") {\n    log(\"Not generating index.ts for next.js project, not needed.\", {\n      type: \"default\",\n    });\n    return;\n  }\n\n  const outputPath = path.join(operationBasePath, \"src\", \"index.ts\");\n\n  const files = await getPackageSourcePaths({ operationBasePath });\n\n  const srcRelativeFileIds = files.map((fullPath) =>\n    getSrcRelativeFileId(makeRelative(fullPath, operationBasePath))\n  );\n\n  const indexationString = srcRelativeFileIds\n    .filter(isIndexableFileId)\n    .map((id) => `export * from \"./${id}\";`)\n    .join(\"\\n\");\n\n  await fs.writeFile(outputPath, indexationString, { encoding: \"utf8\" });\n\n  return outputPath;\n}",
+  "rawText": " async ({\n  operationName,\n  manualProjectRoot,\n}: {\n  /**\n   * if given, just exports * from those\n   */\n  operationName: string;\n  manualProjectRoot?: string;\n}): Promise<string | undefined> => {\n  if (!operationName) {\n    log(\"No operation name, can't create index\", { type: \"error\" });\n    return;\n  }\n  const operationBasePath = await getOperationPath(operationName, {\n    manualProjectRoot,\n  });\n\n  if (!operationBasePath) {\n    log(`operationPath not found ${operationName}`, { type: \"error\" });\n    return;\n  }\n\n  const classification = getOperationClassification(operationBasePath);\n\n  if (classification === \"ui-web\") {\n    log(\"Not generating index.ts for next.js project, not needed.\", {\n      type: \"default\",\n    });\n    return;\n  }\n\n  const outputPath = path.join(operationBasePath, \"src\", \"index.ts\");\n\n  const files = await getPackageSourcePaths({ operationBasePath });\n\n  const srcRelativeFileIds = files.map((fullPath) =>\n    getSrcRelativeFileId(makeRelative(fullPath, operationBasePath))\n  );\n\n  const indexationString = srcRelativeFileIds\n    .filter(isIndexableFileId)\n    .map((id) => `export * from \"./${id}\";`)\n    .join(\"\\n\");\n\n  await fs.writeFile(outputPath, indexationString, { encoding: \"utf8\" });\n\n  return outputPath;\n}",
   "name": "generateSimpleIndex",
   "slug": "generate-simple-index",
   "parameters": [
@@ -70,13 +70,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 1537,
+    "characters": 1540,
     "lines": 53,
-    "bytes": 1537,
+    "bytes": 1540,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
     "linesPerFile": 53,
     "numberOfFiles": 1
   },
-  "id": "mxcnamesrjcwtwixwmqmmiwi"
+  "id": "moxudhqdgcfnbcfblxcxtwzf"
 }

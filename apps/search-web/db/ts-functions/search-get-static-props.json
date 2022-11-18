@@ -1,0 +1,37 @@
+{
+  "createdAt": 1668774464648,
+  "updatedAt": 1668774464648,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774464648,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "explicitTypeName": "GetStaticProps<QueryPageProps>",
+  "operationRelativeTypescriptFilePath": "src/util/searchGetStaticProps.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  context\n) => {\n  const query = takeFirst(context.params?.query) || null;\n\n  const imagePaths = await fs.readdir(\n    path.join(__dirname, \"../../..\", \"public\")\n  );\n  const searchResults = getAllSearchResults(query) || null;\n\n  const timelineItems: {\n    comment: string;\n    filePath: string | undefined;\n    line: number;\n  }[] = []; // = await getTimelineItems();\n\n  const props: QueryPageProps = {\n    query,\n    searchResults,\n    imagePaths,\n    timelineItems,\n  };\n\n  return {\n    props,\n  };\n}",
+  "name": "searchGetStaticProps",
+  "slug": "search-get-static-props",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 512,
+    "lines": 27,
+    "bytes": 512,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 19,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "dupxwevudxrperqlzdtirvht"
+}

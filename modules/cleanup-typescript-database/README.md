@@ -1,6 +1,6 @@
 # Cleanup typescript database
 
-cleanup-typescript-database (`OperationClassification` node)
+cleanup-typescript-database (`OperationClassification` node-cjs)
 
 Collection of functions to cleanup the typescript database (all typescript related models)
 

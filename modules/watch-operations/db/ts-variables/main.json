@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666264482142,
-  "updatedAt": 1666264482142,
+  "createdAt": 1668336307516,
+  "updatedAt": 1668336307516,
   "deletedAt": 0,
-  "createdFirstAt": 1666264482142,
+  "createdFirstAt": 1668336307516,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const [manualProjectRoot] = process.argv.slice(2);\n  watchOperations({ manualProjectRoot });\n}",
   "description": "",
-  "id": "oahdocrpmwctkvsnmfhnezhq"
+  "id": "bzwgehpojsnfegsispczoskn"
 }

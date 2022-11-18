@@ -9,6 +9,7 @@ export * from "./Person";
 export * from "./PersonInformation";
 export * from "./PersonInformationValue";
 export * from "./PersonPlatformConnection";
+export * from "./PersonProfileDetails";
 export * from "./PersonSocialMedia";
 export * from "./Persona";
 export * from "./Platform";

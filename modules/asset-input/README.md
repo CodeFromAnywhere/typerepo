@@ -1,6 +1,6 @@
 # Asset input
 
-asset-input (`OperationClassification` js)
+asset-input (`OperationClassification` ui-cjs)
 
 
 ## 📸 Asset Input

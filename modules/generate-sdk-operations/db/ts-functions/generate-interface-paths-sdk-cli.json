@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668775397470,
+  "updatedAt": 1668775397470,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775397470,
+  "isApiExposed": true,
+  "isExported": false,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/cli/generateInterfacePathsSdk.cli.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const [dryrunString, customProjectRoot] = process.argv.slice(2);\n  const dryrun = dryrunString === \"true\";\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  const manualProjectRoot = customProjectRoot || defaultProjectRoot;\n  generateInterfacePathsSdk({ dryrun, manualProjectRoot });\n}",
+  "name": "generateInterfacePathsSdkCli",
+  "slug": "generate-interface-paths-sdk-cli",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 309,
+    "lines": 8,
+    "bytes": 309,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 39,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "buoidpszwcskxhqkvdaozioq"
+}

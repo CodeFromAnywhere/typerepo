@@ -1,15 +1,13 @@
 {
-  "createdAt": 1668148904879,
-  "updatedAt": 1668148904879,
+  "createdAt": 1668448345837,
+  "updatedAt": 1668448345837,
   "deletedAt": 0,
-  "createdFirstAt": 1668148904879,
+  "createdFirstAt": 1668448345837,
   "publicAuthorization": [
     "read",
     "search"
   ],
   "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/getDbModelsForBundle.ts",
   "commentsInside": [],
@@ -94,6 +92,13 @@
               "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
               "type": "string"
             }
+          },
+          {
+            "name": "paymentPlanId",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "type": "object"
@@ -121,5 +126,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "ryegnbefwuxjgyabekstcohp"
+  "id": "qjetnvzwfpurzpihgcfruzti"
 }

@@ -1,0 +1,70 @@
+{
+  "createdAt": 1668769460029,
+  "updatedAt": 1668769460029,
+  "deletedAt": 0,
+  "createdFirstAt": 1668769460029,
+  "version": "0.0.0",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "dependencies": {
+    "react-with-native-notification": "1.0.42"
+  },
+  "name": "cool-toast",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1668769551573,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 42,
+        "characters": 912,
+        "bytes": 912
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 108,
+        "characters": 3410,
+        "bytes": 3410
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 66,
+        "characters": 968,
+        "bytes": 968
+      },
+      "size": {
+        "bytes": 5290,
+        "characters": 5290,
+        "lines": 216,
+        "numberOfFiles": 5
+      }
+    },
+    "folderNameIndexed": "cool-toast",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/dumb",
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "toast"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "slug": "cool-toast",
+  "id": "zutfzbjcvazexarsypjwzekh"
+}

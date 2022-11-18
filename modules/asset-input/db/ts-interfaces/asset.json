@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667378722785,
-  "updatedAt": 1667378722785,
+  "createdAt": 1668750038905,
+  "updatedAt": 1668750038905,
   "deletedAt": 0,
-  "createdFirstAt": 1667378722785,
+  "createdFirstAt": 1668750038905,
   "id": "asset",
   "name": "Asset",
   "slug": "asset",
@@ -32,6 +32,10 @@
         "temporaryDestination": {
           "type": "string",
           "description": "Not stored\n\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created."
+        },
+        "apiPath": {
+          "type": "string",
+          "description": "Not stored\n\n`fs-orm` attaches this information to the `BackendAsset` when querying data from anywhere\n\nThe `server-api-url`-relative path that can be used to fetch the asset (path that uses `getReferencedAssetApiUrl`)\n\nTo force a download, you can add &isDownload=1 into the URL"
         },
         "blobPath": {
           "type": "string",
@@ -108,6 +112,14 @@
           "required": false,
           "schema": {
             "fullComment": "Not stored\n\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
+            "type": "string"
+          }
+        },
+        {
+          "name": "apiPath",
+          "required": false,
+          "schema": {
+            "fullComment": "Not stored\n\n`fs-orm` attaches this information to the `BackendAsset` when querying data from anywhere\n\nThe `server-api-url`-relative path that can be used to fetch the asset (path that uses `getReferencedAssetApiUrl`)\n\nTo force a download, you can add &isDownload=1 into the URL",
             "type": "string"
           }
         },

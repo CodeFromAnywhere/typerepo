@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258794235,
-  "updatedAt": 1666258794235,
+  "createdAt": 1668331960244,
+  "updatedAt": 1668331960244,
   "deletedAt": 0,
-  "createdFirstAt": 1666258794235,
+  "createdFirstAt": 1668331960244,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "makeTest(() => {\n  const fileNames = [\".gitignore\", \"package.json\", \"Podfile\"];\n  const changedFileNames = fileNames\n    .map(renameToTemplateFile)\n    .map(renameTemplateToNormalFile);\n\n  return isEqualArray(fileNames, changedFileNames);\n})",
   "description": "",
-  "id": "gwhnkgwuylwxilumplwcbgpt"
+  "id": "cewjxdbdyvuhofukkqzfdpyn"
 }

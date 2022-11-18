@@ -1,11 +1,23 @@
 {
-  "createdAt": 1663662721338,
-  "updatedAt": 1663662721338,
+  "createdAt": 1668328718447,
+  "updatedAt": 1668328718447,
   "deletedAt": 0,
-  "createdFirstAt": 1663662721338,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328718447,
+  "id": "hvMDXibXiSQYwWSD",
+  "dependencies": {
+    "model-types": "0.0.1",
+    "auth-types": "0.0.1",
+    "code-types": "0.0.1",
+    "geo-types": "0.0.1",
+    "asset-type": "0.0.1",
+    "social-media-types": "0.0.1",
+    "ua-parser-js": "*",
+    "server": "*"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,15 +25,99 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^4.7.4"
-  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "peer-types",
-  "sensible": {
-    "hasGeneratedDependencies": false
-  },
-  "dependencies": {},
+  "language": "english",
   "slug": "peer-types",
-  "id": "hvMDXibXiSQYwWSD"
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "peer-types",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668678578282,
+    "operationDependenciesIndexed": [
+      "DefaultModelType",
+      "Id",
+      "SlugModelType",
+      "Authorization",
+      "AuthorizationModel",
+      "Position",
+      "DefaultModelType",
+      "RunEveryPeriodEnum",
+      "DefaultModelType",
+      "Id",
+      "MarkdownModelType",
+      "Price",
+      "Slug",
+      "Credit",
+      "Authorization",
+      "Credit",
+      "DefaultModelType",
+      "Id",
+      "Price",
+      "Slug",
+      "BackendAsset",
+      "BackendAsset",
+      "Location",
+      "Language",
+      "Slug",
+      "SlugModelType",
+      "Interest",
+      "MediaCredentail",
+      "KeyValueMarkdownModelType",
+      "Slug",
+      "DefaultModelType",
+      "KeyValueMarkdownModelType",
+      "DefaultModelType",
+      "Id",
+      "Slug",
+      "DefaultModelType",
+      "Slug",
+      "Slug",
+      "SlugModelType",
+      "DefaultModelType",
+      "Slug"
+    ],
+    "packageDependenciesIndexed": [
+      "IResult"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/p2p",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 16,
+        "lines": 717,
+        "characters": 20849,
+        "bytes": 20849
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 161,
+        "characters": 4576,
+        "bytes": 4576
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 699,
+        "characters": 15296,
+        "bytes": 15296
+      },
+      "size": {
+        "bytes": 40721,
+        "characters": 40721,
+        "lines": 1577,
+        "numberOfFiles": 19
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
 }

@@ -1,6 +1,6 @@
 import { Id, Slug, MarkdownModelType } from "model-types";
 import { BackendAsset } from "asset-type";
-import { OperationIndex, TsFunction, TsInterface } from "code-types";
+import { Operation, TsFunction, TsInterface } from "code-types";
 import { BundleConfig } from "bundle-types";
 /**
  */
@@ -19,8 +19,8 @@ export interface Postable extends MarkdownModelType {
     tsFunctions?: TsFunction[];
     bundleConfigSlugs?: Slug[];
     bundleConfigs?: BundleConfig[];
-    operationIndexIds?: Id[];
-    operationIndexs?: OperationIndex[];
+    operationIds?: Id[];
+    opeations?: Operation[];
     reference_assets: BackendAsset[];
 }
 /**

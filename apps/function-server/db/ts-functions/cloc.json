@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668775476365,
+  "updatedAt": 1668775476365,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775476365,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/cloc.test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const operations = await db.get(\"Operation\");\n  const locs = mergeObjectsArray(\n    operations.map((operation) => ({\n      [operation.name]: operation.operation?.sizeIndexed?.codeSize?.lines,\n    }))\n  );\n\n  console.log({ locs });\n\n  // //   const total = sum(locs);\n\n  //   console.dir(\n  //     { opl: operations.length, locsl: locs.length, locs, total },\n  //     { maxArrayLength: 9999 }\n  //   );\n}",
+  "name": "cloc",
+  "slug": "cloc",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 420,
+    "lines": 17,
+    "bytes": 420,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "bcaxedgbyrizaawntxpjncir"
+}

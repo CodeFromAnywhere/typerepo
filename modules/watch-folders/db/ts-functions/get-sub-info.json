@@ -1,16 +1,11 @@
 {
-  "createdAt": 1666258845586,
-  "updatedAt": 1666258845586,
+  "createdAt": 1668750107111,
+  "updatedAt": 1668750107111,
   "deletedAt": 0,
-  "createdFirstAt": 1666258845586,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668750107111,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/watchman.ts",
   "commentsInside": [],
   "rawText": " (subscriptionKey: string) => {\n  const [appKey, rootPath, relativePath] = subscriptionKey.split(\":\");\n\n  if (appKey !== uniqueAppKey) {\n    return;\n  }\n  if (!rootPath) {\n    console.log(\"No rootpath found\", subscriptionKey);\n    return;\n  }\n\n  const fullPath = relativePath ? path.join(rootPath, relativePath) : rootPath;\n\n  return {\n    fullPath,\n    relativePath,\n    rootPath,\n  };\n}",
@@ -80,5 +75,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "ljnytqweqgsoxrzstrgeuloi"
+  "id": "youqdmwdnfkadjdejtgmbins"
 }

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150582465,
-  "updatedAt": 1668150582465,
+  "createdAt": 1668775407927,
+  "updatedAt": 1668775407927,
   "deletedAt": 0,
-  "createdFirstAt": 1668150582465,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775407927,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getSdkDescription.ts",
   "commentsInside": [],
   "rawText": " async (\n  operationName: string\n): Promise<string | undefined> => {\n  const descriptionPath = path.join(\n    __dirname,\n    \"..\",\n    \"assets\",\n    \"descriptions\",\n    `${operationName}.md`\n  );\n\n  if (!fs.existsSync(descriptionPath)) return;\n\n  const contents = await fs.readFile(descriptionPath, \"utf8\");\n\n  return contents;\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "mdqarimczvczgwimdazbnijq"
+  "id": "qfyysuaghxfgcwsydriejahh"
 }

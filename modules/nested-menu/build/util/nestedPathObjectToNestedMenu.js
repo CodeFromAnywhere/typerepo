@@ -14,5 +14,5 @@ t,r){void 0===t&&(t=[]);var n=null==r?void 0:r.target,s=null==r?void 0:r.getHref
 // base case
 if(e)return Object.keys(e).map((function(o){var u=t.concat(o),c=u.join("/"),d=(0,exports.nestedPathObjectToNestedMenuRecursive)(e[o],u,r),i=s?s(c):c;return{
 // NB: if there is no path, the title  of the page should be "home"
-title:0===o.length?"Home":o,href:i,target:n,children:d,showChildren:!0}}))};exports.nestedPathObjectToNestedMenuRecursive=nestedPathObjectToNestedMenuRecursive;
+title:0===o.length?"Home":o,href:i,target:n,children:d}}))};exports.nestedPathObjectToNestedMenuRecursive=nestedPathObjectToNestedMenuRecursive;
 //# sourceMappingURL=nestedPathObjectToNestedMenu.js.map

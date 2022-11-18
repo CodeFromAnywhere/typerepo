@@ -1,5 +1,5 @@
 import { MarkdownParse } from "./MarkdownParse";
-import { OperationIndex } from "./OperationIndex";
+import { Operation } from "./Operation";
 import { TsInterface } from "./TsInterface";
 import { TypescriptIndex } from "./TypescriptIndex";
 import { PathMetaData } from "./PathMetaData";
@@ -32,7 +32,7 @@ export declare type ExplorationDetails = {
     response?: string;
     markdown?: MarkdownParse;
     pathMetaData?: PathMetaData;
-    operationIndexes?: OperationIndex[];
+    operations?: Operation[];
     index: TsInterface[];
 } & Partial<TypescriptIndex>;
 //# sourceMappingURL=FolderExploration.d.ts.map

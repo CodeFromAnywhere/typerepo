@@ -1,0 +1,57 @@
+{
+  "createdAt": 1668773982483,
+  "updatedAt": 1668773982483,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773982483,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/startApp.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationName: string,\n  isDev?: boolean\n): Promise<{\n  isSuccessful: boolean;\n  error?: Error;\n  proc?: pm2.Proc;\n  message?: string;\n}> => {\n  const operationFolderPath = await getOperationPath(operationName);\n  if (!operationFolderPath) {\n    return { isSuccessful: false, message: \"No operation folder path\" };\n  }\n  const packageJson = await getPackageJson({ operationFolderPath });\n  if (!packageJson) {\n    return { isSuccessful: false, message: \"no package json found\" };\n  }\n\n  const port = ports[operationName as keyof typeof ports];\n\n  if (!port) {\n    return {\n      isSuccessful: false,\n      message: \"Operation must be in port-conventions ports object\",\n    };\n  }\n\n  const isAlready = await isPortUsed(port);\n\n  if (isAlready) {\n    return {\n      isSuccessful: true,\n      message: `App was already running (port ${port})`,\n    };\n  }\n\n  const action = (resolve: Pm2Resolver) => {\n    pm2.start(\n      {\n        time: true,\n        name: `${appPrefix}${operationName}`,\n        output: undefined,\n        error: undefined,\n        script: isDev ? \"yarn dev\" : \"yarn start\",\n        cwd: operationFolderPath,\n      },\n      (error, proc) => {\n        if (error) {\n          resolve({ isSuccessful: false, error });\n        }\n        resolve({ isSuccessful: true, proc });\n      }\n    );\n  };\n\n  const result = await pm2ConnectDisconnect(action);\n\n  return result;\n}",
+  "name": "startApp",
+  "slug": "start-app",
+  "parameters": [
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "isDev",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; error?: any; proc?: import(\"/Users/king/King/operations/node_modules/pm2/types/index\").Proc | undefined; message?: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1392,
+    "lines": 59,
+    "bytes": 1392,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 59,
+    "numberOfFiles": 1
+  },
+  "id": "ydfdtwcubolrdmodcwuhemtc"
+}

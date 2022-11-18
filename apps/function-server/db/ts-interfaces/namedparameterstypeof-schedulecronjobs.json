@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668775479807,
+  "updatedAt": 1668775479807,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775479807,
+  "id": "namedparameterstypeof-schedulecronjobs",
+  "name": "NamedParameters<typeof scheduleCronJobs>",
+  "slug": "namedparameterstypeof-schedulecronjobs",
+  "operationRelativeTypescriptFilePath": "src/scheduleCronJobs.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof scheduleCronJobs>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

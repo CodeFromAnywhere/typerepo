@@ -1,6 +1,6 @@
 # Watch operations
 
-watch-operations (`OperationClassification` node)
+watch-operations (`OperationClassification` node-cjs)
 
 Calls rebuildOperation for every filechange in every operation watched
 

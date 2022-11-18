@@ -1,0 +1,36 @@
+{
+  "createdAt": 1668774464648,
+  "updatedAt": 1668774464648,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774464648,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/util/searchGetStaticProps.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const comments = await db.get(\"TsComment\");\n\n  const items = comments\n    .filter((x) => x.types.includes(\"todo\"))\n    .map((x) => {\n      const isMultiLine = x.firstLine !== x.lastLine;\n\n      const operationPath =\n        operations[x.operationName as keyof typeof operations];\n\n      const comment = isMultiLine\n        ? `/**\\n${x.comment}\\n*/\\n\\n${x.rawStatement}`\n        : `// ${x.comment} \\n ${x.rawStatement}`;\n\n      const filePath = operationPath\n        ? path.join(operationPath, x.operationRelativeTypescriptFilePath)\n        : undefined;\n      return {\n        comment,\n        filePath,\n        line: x.firstLine,\n      };\n    });\n\n  return items;\n}",
+  "name": "getTimelineItems",
+  "slug": "get-timeline-items",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 682,
+    "lines": 27,
+    "bytes": 682,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "utdtchipktekrevysteurpti"
+}

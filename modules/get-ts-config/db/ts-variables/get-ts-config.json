@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258729576,
-  "updatedAt": 1666258729576,
+  "createdAt": 1668331921151,
+  "updatedAt": 1668331921151,
   "deletedAt": 0,
-  "createdFirstAt": 1666258729576,
+  "createdFirstAt": 1668331921151,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(packageFolder: string) => {\n  const jsonPath = path.join(packageFolder, \"tsconfig.json\");\n  const json = readJsonFile<TsConfig>(jsonPath);\n  return json;\n}",
   "description": "",
-  "id": "uqmyltrtjipgkbgqcdmlxznz"
+  "id": "kxcclxxfolienaxrbvszpwsq"
 }

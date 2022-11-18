@@ -6,6 +6,9 @@
  * All others can also act as authentication methods, but the token shouldn't be stored
  */
 export declare type AuthenticationMethodMethod = "usernamePassword" | "phoneNumber" | "email" | "apple" | "google" | "facebook" | "twitter" | "linkedin" | "github";
+export declare const englishMethod: {
+    [key in AuthenticationMethodMethod]: string;
+};
 export declare type AuthenticationMethod = {
     /**
      * NB: Not all are supported yet

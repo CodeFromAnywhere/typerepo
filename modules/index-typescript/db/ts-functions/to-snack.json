@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150733141,
-  "updatedAt": 1668150733141,
+  "createdAt": 1668752116191,
+  "updatedAt": 1668752116191,
   "deletedAt": 0,
-  "createdFirstAt": 1668150733141,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752116191,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/typeToSchema.ts",
   "commentsInside": [],
   "rawText": " (key: string) =>\n  key.replace(/([A-Z])/g, ($1) => \"-\" + $1.toLowerCase()).replace(/^-/, \"\")",
@@ -37,5 +32,5 @@
     "linesPerFile": 2,
     "numberOfFiles": 1
   },
-  "id": "utrwduomrpynmnhkykpflpuz"
+  "id": "lfqwztwyiieyyfeyredgulxi"
 }

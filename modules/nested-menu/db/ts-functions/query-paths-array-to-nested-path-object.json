@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668151933639,
-  "updatedAt": 1668151933639,
+  "createdAt": 1668752504329,
+  "updatedAt": 1668752504329,
   "deletedAt": 0,
-  "createdFirstAt": 1668151933639,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752504329,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util/queryPathsArrayToNestedPathObject.ts",
   "commentsInside": [],
   "rawText": " (\n  queryPaths: string[]\n): NestedPathObject => {\n  const nestedPathObject: NestedPathObject = reduceQueryPathsRecursively(\n    queryPaths,\n    {}\n  );\n  return nestedPathObject;\n}",
@@ -41,7 +36,7 @@
   ],
   "description": "Handy function to transform an array of `querypaths` into a nested menu, assuming you want to create a new sub-menu for every path\n\nMay also work for relative filePaths\n\nInput:\n\n[\"hello/world\",\"hello/moon\",\"hello/sun\"]\n\nOutput:\n\n{\n\"hello\":{\n\"moon\":null,\n\"world\":null,\n\"sun\":null\n}\n}",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/nested-menu/src/NestedPathObject\").NestedPathObject",
+    "rawType": "import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/nested-menu/src/NestedPathObject\").NestedPathObject",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -59,5 +54,5 @@
     "linesPerFile": 25,
     "numberOfFiles": 1
   },
-  "id": "uumxiqnrhwvisnpsaynucvrw"
+  "id": "zcnxxeopnzcpfrzuisymqimd"
 }

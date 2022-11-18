@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150705545,
-  "updatedAt": 1668150705545,
+  "createdAt": 1668752088553,
+  "updatedAt": 1668752088553,
   "deletedAt": 0,
-  "createdFirstAt": 1668150705545,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752088553,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findCommentTypes.ts",
   "commentsInside": [],
   "rawText": " (\n  commentWithoutFrontmatter: string\n): CommentType[] => {\n  const lines = commentWithoutFrontmatter.split(\"\\n\");\n\n  const types = commentTypes.filter((type) =>\n    lines.find((line) => line.trimStart().startsWith(`${type.toUpperCase()}:`))\n  );\n\n  return types;\n}",
@@ -65,5 +60,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "xwskvtzitnmeamnciimalvyo"
+  "id": "uqwrzcccgoqfrdlbneqzuqdz"
 }

@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const withTM = require("next-transpile-modules")(["db-ui"]);
+const withTM = require("next-transpile-modules")([]);
 
 module.exports = withTM({
   reactStrictMode: true,

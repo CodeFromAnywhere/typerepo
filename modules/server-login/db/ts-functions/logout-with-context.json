@@ -1,0 +1,104 @@
+{
+  "createdAt": 1668752292539,
+  "updatedAt": 1668752292539,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752292539,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/logoutWithContext.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  functionContext: FunctionContext,\n  rememberAuthentication?: boolean\n) => {\n  const { device } = functionContext;\n\n  if (!device.personIds || !device.currentPersonId) {\n    return { isSuccessful: false, message: \"You were already logged out\" };\n  }\n\n  const personAuthenticationMethods =\n    device.currentPersonCalculated?.authenticationMethods || [];\n\n  const newPersonIds = device.personIds.filter(\n    (id) => id !== device.currentPersonId\n  );\n\n  if (newPersonIds.length === device.personIds.length) {\n    return {\n      isSuccessful: false,\n      message: \"Nobody logged out, this is strange...\",\n    };\n  }\n\n  // remove the person from the device, optionally moving the auth on the device again, so you can easily login again.\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => {\n      const newAuthenticationMethods = rememberAuthentication\n        ? old.authenticationMethods.concat(personAuthenticationMethods)\n        : old.authenticationMethods;\n      return {\n        ...old,\n        personIds: newPersonIds,\n        currentPersonId: newPersonIds[newPersonIds.length - 1],\n        authenticationMethods: newAuthenticationMethods,\n      };\n    }\n  );\n\n  const isSuccessful =\n    !!updateResult.isSuccesful && updateResult.amountUpdated === 1;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged out\"\n      : updateResult.message ||\n        \"Something went wrong (No updateResult message)\",\n  };\n}",
+  "name": "logoutWithContext",
+  "slug": "logout-with-context",
+  "parameters": [
+    {
+      "name": "functionContext",
+      "schema": {
+        "$ref": "#/definitions/FunctionContext"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Should be attached as first argument of the function, if the name of the function is in the format of:\n\n- `xyzWithContext`: attaches all context\n- `xyzWithContextRaw`: attaches all context, api returns just the result of the function without wrapping it in the `RealApiReturnType`. Needed in case you have a different server.js `server.reply`\n\nFor more info see `apiConvention`",
+        "properties": [
+          {
+            "name": "authorizations",
+            "required": false,
+            "schema": {
+              "fullComment": "Authorizations accumulated of the person(s), the group(s), and public authorizations.\n\nNB: This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "nb": "This contains all authorisations because there may also be model authorisations and file authorisations that are needed IN the function.",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "groups",
+            "required": false,
+            "schema": {
+              "fullComment": "Groups the person(s) of the device belong to",
+              "items": [],
+              "type": "array"
+            }
+          },
+          {
+            "name": "hasAuthorization",
+            "required": true,
+            "schema": {
+              "fullComment": "Device has authorization to the function",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "authToken",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "serverContext",
+            "required": false,
+            "schema": {
+              "fullComment": "Original context coming from server.js\n\nNB: due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:\n\n`import { Context } from \"server/typings/common\";`",
+              "nb": "due to indexation problems the type has been removed. It can be casted to the `Context` type, which you can import from:",
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "rememberAuthentication",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "Uses cookies (https://serverjs.io/documentation/reply/#cookie-) to logout\n\nNeeded for having `authToken` with GET as well in a safe manner (e.g. for images)",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 1649,
+    "lines": 55,
+    "bytes": 1649,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 55,
+    "numberOfFiles": 1
+  },
+  "id": "pyuneqnsiqtdnsdqxtpgtsdx"
+}

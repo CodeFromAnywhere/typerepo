@@ -1,19 +1,9 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328716891,
+  "updatedAt": 1668328716891,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "name": "markdown-reader-web",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "start": "next start -p 4204",
-    "dev": "next dev -p 4204",
-    "copyStaticAssets": "copyStaticAssets",
-    "build": "next build",
-    "export": "next export",
-    "lint": "next lint"
-  },
+  "createdFirstAt": 1668328716891,
+  "id": "oqRhxGziXSELxSxM",
   "dependencies": {
     "@badrap/bar-of-progress": "^0.2.1",
     "@headlessui/react": "^1.6.2",
@@ -37,7 +27,8 @@
     "react-with-native-router": "1.0.14",
     "react-with-native-store": "*",
     "read-markdown-file": "0.0.1",
-    "rehype-highlight": "^5.0.2"
+    "rehype-highlight": "^5.0.2",
+    "markdown-reader-types": "0.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -45,9 +36,76 @@
     "postcss": "^8.4.14",
     "tailwindcss": "^3.0.24"
   },
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 42004",
+    "start": "next start -p 42004",
+    "stop": "pm2 stop app_markdown-reader-web",
+    "copyStaticAssets": "copyStaticAssets",
+    "build": "next build",
+    "export": "next export",
+    "lint": "next lint"
+  },
+  "version": "0.1.0",
+  "name": "markdown-reader-web",
+  "language": "english",
   "slug": "markdown-reader-web",
-  "id": "oqRhxGziXSELxSxM",
-  "sensible": {
-    "hasGeneratedDependencies": false
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/reader/markdown-reader-web/src/pages/_app.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+      ],
+      "lintProblems": []
+    },
+    "classificationIndexed": "ui-web",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "markdown-reader-web",
+    "hasGeneratedDependenciesIndexed": true,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668751794292,
+    "operationDependenciesIndexed": [
+      "MarkdownReaderPageProps",
+      "StoreProvider",
+      "publicEnvironmentVariables",
+      "publicLocalEnvironmentVariables",
+      "pagesObject",
+      "markdownReaderGetStaticProps"
+    ],
+    "packageDependenciesIndexed": [
+      "AppProps",
+      "QueryClient",
+      "QueryClientProvider"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/reader",
+    "markdown": "# 📚 markdown-reader-web\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 3,
+        "lines": 100,
+        "characters": 3037,
+        "bytes": 3037
+      },
+      "dataSize": {
+        "numberOfFiles": 131,
+        "lines": 5266,
+        "characters": 188257,
+        "bytes": 188257
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 34,
+        "characters": 433,
+        "bytes": 433
+      },
+      "size": {
+        "bytes": 191727,
+        "characters": 191727,
+        "lines": 5400,
+        "numberOfFiles": 136
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

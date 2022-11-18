@@ -1,0 +1,100 @@
+{
+  "createdAt": 1668337455461,
+  "updatedAt": 1668337455461,
+  "deletedAt": 0,
+  "createdFirstAt": 1668337455461,
+  "id": "namedparameterstypeof-earthdistance",
+  "name": "NamedParameters<typeof earthDistance>",
+  "slug": "namedparameterstypeof-earthdistance",
+  "operationRelativeTypescriptFilePath": "src/earthDistance.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "lat1": {
+          "type": "number"
+        },
+        "long1": {
+          "type": "number"
+        },
+        "lat2": {
+          "type": "number"
+        },
+        "long2": {
+          "type": "number"
+        },
+        "response": {
+          "type": "string",
+          "enum": [
+            "m",
+            "km"
+          ]
+        }
+      },
+      "required": [
+        "lat1",
+        "long1",
+        "lat2",
+        "long2"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "lat1",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "long1",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "lat2",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "long2",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "response",
+          "required": false,
+          "schema": {
+            "enum": [
+              "m",
+              "km"
+            ],
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof earthDistance>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

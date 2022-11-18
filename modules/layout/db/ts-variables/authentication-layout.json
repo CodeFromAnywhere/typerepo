@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668754550132,
+  "updatedAt": 1668754550132,
+  "deletedAt": 0,
+  "createdFirstAt": 1668754550132,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "AuthenticationLayout",
+  "slug": "authentication-layout",
+  "operationRelativeTypescriptFilePath": "src/AuthenticationLayout.tsx",
+  "type": {
+    "rawType": "(props: { menu?: import(\"/Users/king/King/operations/tools/user-interfaces/gui/wise/menu/build/MenuProps\").MenuProps | undefined; customHeader?: React.ReactNode; nextPage?: any; pageProps?: any; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  /**\n   * If given, menu will be rendered\n   */\n  menu?: MenuProps;\n\n  customHeader?: React.ReactNode;\n  // how to build up the menu\n\n  // typed as any needed because of react-bug\n  nextPage?: any;\n  pageProps?: any;\n}) => {\n  const publicBundleConfig = queries.useGetPublicBundleConfig().data?.result;\n  const { nextPage, pageProps, menu, customHeader } = props;\n  const router = useRouter();\n  const path = router.asPath.substring(1);\n\n  const pages: { [key: string]: (props?: any) => JSX.Element } = {\n    login: LoginForm,\n    signup: SignupForm,\n    \"edit-profile\": UpdateMeForm,\n    profile: () => <Div>\"should show person's profile\"</Div>,\n  };\n\n  /**\n   * I run into this problem all the time\n   *\n   * https://stackoverflow.com/questions/71616561/css-tailwind-grid-height-100vh-not-working\n   *\n   * final solution came from here\n   *\n   * https://stackoverflow.com/questions/47094742/fullscreen-flex-layouts-necessity-of-intermediate-flex-boxes\n   *\n   * Unfortunately, I can't seem to hide stuff anymore for some reason on non-mobile. \"lg:flex hidden\" just doesn't work, just hides!\n   *\n   * My elegant solution was to just use visible/invisible and make the mobile layout hover over the invisible one in case of a small screen, it works!\n   */\n\n  const NextPage = nextPage;\n\n  const DefaultPage = pages[path];\n  const children = pages[path] ? <DefaultPage /> : <NextPage {...pageProps} />;\n\n  const header = (\n    <Div>\n      {customHeader !== undefined ? (\n        customHeader\n      ) : (\n        <Header publicBundleConfig={publicBundleConfig} />\n      )}\n    </Div>\n  );\n  return (\n    <LoginWrapper>\n      <LayoutGrid header={header} menu={menu}>\n        {children}\n      </LayoutGrid>\n    </LoginWrapper>\n  );\n}",
+  "description": "Layout that includes default pages and header for authentication",
+  "id": "vzutstpcacxxhrukuhwqlaqp"
+}

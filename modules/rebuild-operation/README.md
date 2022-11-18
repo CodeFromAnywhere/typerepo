@@ -1,6 +1,6 @@
 # Rebuild operation
 
-rebuild-operation (`OperationClassification` node)
+rebuild-operation (`OperationClassification` node-cjs)
 
 Operation that makes it possible to rebuild an operation (re-index, re-build, etc.)
 
@@ -95,6 +95,11 @@ This function rebuilds an operation and re-indexes (part of) its files.
 
 ## clearTsDatabase()
 
+Clears all typescript indexation models, and removes all indexation from the oprations
+
+TODO: test first, not sure about the Operation one
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
 | operationName (optional) | string |  |
@@ -124,6 +129,11 @@ Builds and minifies the src
 
 
 ## 📄 clearTsDatabase (exported const)
+
+Clears all typescript indexation models, and removes all indexation from the oprations
+
+TODO: test first, not sure about the Operation one
+
 
 ## 📄 getAllDbModels (exported const)
 

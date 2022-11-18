@@ -1,0 +1,41 @@
+/// <reference types="ua-parser-js" />
+import { Device } from "peer-types";
+export declare const deviceGetAppsCalculated: (device: Device) => Promise<{
+    lastOnlineAt: number;
+    appOperationsCalculated: import("peer-types").AppOperation[] | undefined;
+    authToken: string;
+    userAgent: import("ua-parser-js").IResult;
+    userAgentString: string;
+    name: string;
+    previousIps: import("peer-types").IPInfo[];
+    origins: string[];
+    hasPapi?: boolean | undefined;
+    isOnlineCalculated?: boolean | undefined;
+    isLocalIpCalculated?: boolean | undefined;
+    isFavorite?: boolean | undefined;
+    isPrivate?: boolean | undefined;
+    lastSyncDatabaseAtObject: {
+        [modelName: string]: number;
+    };
+    personIds?: string[] | undefined;
+    persons?: import("peer-types").Person[] | undefined;
+    currentPersonId?: string | undefined;
+    authenticationMethods: import("peer-types").AuthenticationMethod[];
+    categoryStackCalculated?: import("model-types").CategoryStack | undefined;
+    id: string;
+    operationName: string | null;
+    projectRelativePath: string;
+    operationRelativePath?: string | undefined;
+    createdAt: number;
+    updatedAt: number;
+    deletedAt: number;
+    createdFirstAt: number;
+    ip: string;
+    city: string | undefined;
+    position: import("geo-types").Position | undefined;
+    positionRadiusKm: number | undefined;
+    country: string | undefined;
+    region: string | undefined;
+    timezone: string | undefined;
+}>;
+//# sourceMappingURL=deviceGetAppsCalculated.d.ts.map

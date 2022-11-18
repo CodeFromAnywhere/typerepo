@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668775524545,
+  "updatedAt": 1668775524545,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775524545,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "savePageVisit",
+  "slug": "save-page-visit",
+  "operationRelativeTypescriptFilePath": "src/savePageVisit.ts",
+  "type": {
+    "rawType": "(deviceId: string, ipInfo: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/IPInfo\").IPInfo, referer: string) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  deviceId: Id,\n  ipInfo: IPInfo,\n  referer: string\n) => {\n  const pageVisit: Creation<PageVisit> = { ipInfo, path: referer, deviceId };\n\n  await db.upsert(\"PageVisit\", pageVisit, { onlyInsert: true });\n}",
+  "description": "",
+  "id": "ktpxqtdnejkomulupwosmxpe"
+}

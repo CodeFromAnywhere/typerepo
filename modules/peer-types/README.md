@@ -1,10 +1,58 @@
 # Peer types
 
-peer-types (`OperationClassification` js)
+peer-types (`OperationClassification` cjs)
 
 
 
 # Api reference
+
+## 🔸 Person
+
+jsonMultiple model
+
+
+
+Model to describe a human person. This model gathers and stores all persons around the world, except for yourself. Kind of a user-like model...
+
+
+The data inside this model is coming from the `Person` itself but also from the owner of the OS server. It should be possible for the person to automatically push information into any of their instances on any server, but the OS owner can augment this.
+
+NB: This is a `DefaultModelType`, which means name and slug need not to be unique, but it is highly preferred.
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| name  | string |  |
+| slug  | string |  |
+| pictureImage (optional) | object |  |
+| interestSlugs (optional) | array |  |
+| media (optional) | array |  |
+| preferredContactMedium (optional) | string |  |
+| dataEntries (optional) | array |  |
+| devicesCalculated (optional) | array |  |
+| authenticationMethods  | array |  |
+| groupSlugs (optional) | array |  |
+| authorizations (optional) | array |  |
+| amountAuthenticationMethodsRequired (optional) | number |  |
+| requiredAuthenticationMethods (optional) | array |  |
+| paymentAuthToken (optional) | string |  |
+| credit (optional) | number |  |
+
+
 
 ## 🔸 Device
 
@@ -57,8 +105,45 @@ Properties:
 | lastSyncDatabaseAtObject  | object |  |
 | personIds (optional) | array |  |
 | currentPersonId (optional) | string |  |
+| currentPersonCalculated (optional) | object |  |
 | appOperationsCalculated (optional) | array |  |
 | authenticationMethods  | array |  |
+
+
+
+## 🔸 Group
+
+jsonMultiple model
+
+
+
+```
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| slug  | string |  |
+| name  | string |  |
+| language  | string |  |
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| description (optional) | string |  |
+| customAuthorizations (optional) | array |  |
+| indexedAuthorizationCalculated (optional) | array |  |
+| amountAuthenticationMethodsRequired (optional) | number |  |
+| requiredAuthenticationMethods (optional) | array |  |
 
 
 
@@ -190,18 +275,9 @@ Properties:
 
 
 
-## 🔸 Person
+## 🔹 PersonProfileDetails
 
-jsonMultiple model
-
-
-
-Model to describe a human person. This model gathers and stores all persons around the world, except for yourself. Kind of a user-like model...
-
-
-The data inside this model is coming from the `Person` itself but also from the owner of the OS server. It should be possible for the person to automatically push information into any of their instances on any server, but the OS owner can augment this.
-
-NB: This is a `DefaultModelType`, which means name and slug need not to be unique, but it is highly preferred.
+Things the user can fill in about themselves on their profile
 
 
 
@@ -211,77 +287,27 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
 | name  | string |  |
-| slug  | string |  |
-| pictureImage  | object |  |
-| interestSlugs  | array |  |
-| dataEntries  | array |  |
-| media  | array |  |
+| pictureImage (optional) | object |  |
+| interestSlugs (optional) | array |  |
+| media (optional) | array |  |
 | preferredContactMedium (optional) | string |  |
-| devicesCalculated (optional) | array |  |
-| authenticationMethods  | array |  |
-| groupSlugs (optional) | array |  |
-| authorizations  | array |  |
 | amountAuthenticationMethodsRequired (optional) | number |  |
 | requiredAuthenticationMethods (optional) | array |  |
-| paymentAuthToken (optional) | string |  |
-| credit  | number |  |
 
+
+
+## 📄 publicPersonKeys (exported const)
+
+Can be seen for every person, without authentication
+
+NB: I wish it were possible to ensure these keys exist on the person here, but we can't validate that while still keeping it a const I guess
 
 # Internal
 
 <details><summary>Show internal (12)</summary>
     
-  # 🔸 Group
-
-jsonMultiple model
-
-
-
-A `Person` is able to be part of one or multiple `Group`s.
-A `Device` without `Person` is just part of group `unidentified` and can only access `public` info and features.
-`Group`s and individual `Person`s can be given `Authorization`
-
-Functions that require authorization can have
-
-`AUTH-[GROUP]: authorization1, authorization2, etc.` in their doc-comment
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| slug  | string |  |
-| name  | string |  |
-| language  | string |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| authorizations  | array |  |
-| amountAuthenticationMethodsRequired (optional) | number |  |
-| requiredAuthenticationMethods (optional) | array |  |
-
-
-
-## 🔹 HandleObject
+  # 🔹 HandleObject
 
 can be used on multiple models.
 
@@ -663,6 +689,10 @@ Properties:
 | categoryStackCalculated (optional) | array |  |
 | userUrlPrefix  | string |  |
 | userUrlSuffix  | string |  |
+
+
+
+## 📄 englishMethod (exported const)
 
   </details>
 

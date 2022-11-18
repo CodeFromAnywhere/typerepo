@@ -1,6 +1,6 @@
 # One by one
 
-one-by-one (`OperationClassification` js)
+one-by-one (`OperationClassification` cjs)
 
 
 

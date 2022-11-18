@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.listen=void 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.listen = void 0;
 /**
  generates structured operations based on unstructured instructions
 
@@ -24,8 +26,14 @@ The power lies in being able to recursively ask for all the parameters. if you p
 
 This conversation could actually be used to generate code! It's kind of `context.reverse().map(createTsLine);` In fact, if we can make that, we can maybe even reverse code into conversations as well! This is insanely powerful.
 */
-var listen=function(t){t.instruction,t.context;return[]};exports.listen=listen;var chat=function(){
-// 1- listen
-// 2- respond
-chat()};
+var listen = function (_a) {
+    var instruction = _a.instruction, context = _a.context;
+    return [];
+};
+exports.listen = listen;
+var chat = function () {
+    // 1- listen
+    // 2- respond
+    chat();
+};
 //# sourceMappingURL=converse-extra.test.js.map

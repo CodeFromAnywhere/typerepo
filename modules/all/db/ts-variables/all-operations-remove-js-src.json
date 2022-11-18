@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258901716,
-  "updatedAt": 1666258901716,
+  "createdAt": 1668332050561,
+  "updatedAt": 1668332050561,
   "deletedAt": 0,
-  "createdFirstAt": 1666258901716,
+  "createdFirstAt": 1668332050561,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (debug?: boolean) => {\n  await forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    command: \"[ -d \\\"src\\\" ] && find src -name '*.d.ts' -delete || echo 'hoi'\",\n    shell: true,\n  });\n\n  await forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    command: \"[ -d \\\"src\\\" ] && find src -name '*.js' -delete || echo 'hoi'\",\n    shell: true,\n  });\n\n  await forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    command:\n      \"[ -d \\\"src\\\" ] && find src -name '*.d.ts.map' -delete || echo 'hoi'\",\n    shell: true,\n  });\n}",
   "description": "BEWARE! This removes all .d.ts, .js, and .d.ts.map files in your source folder!",
-  "id": "hubaafjsudvqjgoviaakxonf"
+  "id": "bzemjodccsqlzftgnykubgxv"
 }

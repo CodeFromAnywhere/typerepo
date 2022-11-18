@@ -15,6 +15,10 @@ import {
 
 // CSS
 import "../globals.css";
+import "authentication/css.css";
+import "layout/css.css";
+import "menu/css.css";
+import "tooltip/css.css";
 import "react-toastify/dist/ReactToastify.css";
 import "react-datetime/css/react-datetime.css";
 import "react-datepicker/dist/react-datepicker.css";
@@ -69,10 +73,8 @@ function MyApp({ Component, pageProps }: RealAppProps) {
         />
       </Head>
       <StoreProvider>
-        {/* <main className={font.className}> */}
         {/* @ts-ignore */}
         <Component {...pageProps} />
-        {/* </main> */}
       </StoreProvider>
     </QueryClientProvider>
   );

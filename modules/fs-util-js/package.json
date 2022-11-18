@@ -1,11 +1,15 @@
 {
-  "createdAt": 1664966753848,
-  "updatedAt": 1664966753848,
+  "createdAt": 1668328816731,
+  "updatedAt": 1668328816731,
   "deletedAt": 0,
-  "createdFirstAt": 1664966753848,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328816731,
+  "id": "wtywoiemkrpenkgcxyzophmp",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,16 +17,55 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.4"
-  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "fs-util-js",
-  "sensible": {
-    "hasGeneratedDependencies": false
-  },
-  "dependencies": {},
+  "language": "english",
   "slug": "fs-util-js",
-  "id": "wtywoiemkrpenkgcxyzophmp"
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/fs-util-js/src/js.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')\"]",
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "fs-util-js",
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668331850611,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/control-fs",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 51,
+        "characters": 1297,
+        "bytes": 1297
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 109,
+        "characters": 3685,
+        "bytes": 3685
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 102,
+        "characters": 1466,
+        "bytes": 1466
+      },
+      "size": {
+        "bytes": 6448,
+        "characters": 6448,
+        "lines": 262,
+        "numberOfFiles": 5
+      }
+    },
+    "hasGeneratedDependenciesIndexed": false,
+    "hasGeneratedImportsIndexed": false
+  }
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666258678825,
-  "updatedAt": 1666258678825,
+  "createdAt": 1668331888877,
+  "updatedAt": 1668331888877,
   "deletedAt": 0,
-  "createdFirstAt": 1666258678825,
+  "createdFirstAt": 1668331888877,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (operationFolderPath: string) => {\n  const packageJson = await getPackageJson({ operationFolderPath });\n  return packageJson?.bin ? Object.keys(packageJson.bin) : [];\n}",
   "description": "returns array of bins. by convention, these bins should also be exported from operation index file",
-  "id": "ligxpeiklyftadgteqtwxije"
+  "id": "yftfmywomsfmeswtbnrtoiig"
 }

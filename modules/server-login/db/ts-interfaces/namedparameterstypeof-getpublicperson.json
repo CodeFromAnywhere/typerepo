@@ -1,0 +1,49 @@
+{
+  "createdAt": 1668752286156,
+  "updatedAt": 1668752286156,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752286156,
+  "id": "namedparameterstypeof-getpublicperson",
+  "name": "NamedParameters<typeof getPublicPerson>",
+  "slug": "namedparameterstypeof-getpublicperson",
+  "operationRelativeTypescriptFilePath": "src/getPublicPerson.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPublicPerson>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

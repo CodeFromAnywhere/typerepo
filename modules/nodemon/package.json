@@ -1,11 +1,22 @@
 {
-  "createdAt": 1662709577330,
-  "updatedAt": 1662709577330,
+  "createdAt": 1668328740439,
+  "updatedAt": 1668328740439,
   "deletedAt": 0,
-  "createdFirstAt": 1662709577330,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328740439,
+  "id": "IzGAOgwTzdWieQVE",
+  "bin": {
+    "nodemon": "build/cli.js"
+  },
+  "dependencies": {
+    "get-path": "0.0.1",
+    "log": "0.0.1",
+    "fs-util": "1.0.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.2"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",
@@ -13,27 +24,65 @@
     "up": "npm version patch -f",
     "pub": "yarn up && npm publish"
   },
-  "license": "ISC",
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "nodemon",
-  "bin": {
-    "nodemon": "build/cli.js"
-  },
+  "language": "english",
+  "slug": "nodemon",
   "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "nodemon",
+    "hasGeneratedDependenciesIndexed": false,
     "indirectDependencies": [
       "function-util"
-    ]
-  },
-  "devDependencies": {
-    "@types/node": "^18.0.1",
-    "typescript": "^4.7.2"
-  },
-  "slug": "nodemon",
-  "id": "IzGAOgwTzdWieQVE",
-  "dependencies": {
-    "get-path": "0.0.1",
-    "log": "0.0.1"
-  },
-  "sensible": {
-    "hasGeneratedDependencies": false
+    ],
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668336511239,
+    "operationDependenciesIndexed": [
+      "fs",
+      "path",
+      "getOperationPath",
+      "log"
+    ],
+    "packageDependenciesIndexed": [
+      "spawn"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/util",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 64,
+        "characters": 1621,
+        "bytes": 1621
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 128,
+        "characters": 2795,
+        "bytes": 2795
+      },
+      "textSize": {
+        "numberOfFiles": 1,
+        "lines": 22,
+        "characters": 556,
+        "bytes": 556
+      },
+      "size": {
+        "bytes": 4972,
+        "characters": 4972,
+        "lines": 214,
+        "numberOfFiles": 4
+      }
+    },
+    "hasGeneratedImportsIndexed": false
   }
 }

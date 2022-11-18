@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668148588567,
-  "updatedAt": 1668148588567,
+  "createdAt": 1668774223372,
+  "updatedAt": 1668774223372,
   "deletedAt": 0,
-  "createdFirstAt": 1668148588567,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668774223372,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFunctionIndex.ts",
   "commentsInside": [],
   "rawText": " async ({\n  functionName,\n}: {\n  functionName: string;\n}): Promise<{ success: boolean; response: string; function?: TsFunction }> => {\n  const cachedFunctions = await getCachedFunctions();\n\n  // get info about this operation\n  const functionIndex = cachedFunctions.find(\n    (fn) => fn.name === camelCase(functionName)\n  );\n\n  if (!functionIndex) {\n    return { success: false, response: \"Couldn't find function\" };\n  }\n\n  return { success: true, function: functionIndex, response: \"Found\" };\n}",
@@ -66,5 +61,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "eftlmymidsmezqvrwmrvaqzj"
+  "id": "cqzblzgwanljqnctiilyozrp"
 }

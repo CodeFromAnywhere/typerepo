@@ -38,15 +38,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.removePeer = void 0;
 var database_1 = require("database");
-var removePeer = function (
 /**
- * Slug of the peer (ip)
+ * TODO: connect with peoples
  */
-slug) { return __awaiter(void 0, void 0, void 0, function () {
+var removePeer = function (id) { return __awaiter(void 0, void 0, void 0, function () {
     var removeResult;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, database_1.db.remove("Peer", function (peer) { return peer.slug === slug; })];
+            case 0: return [4 /*yield*/, database_1.db.remove("Device", function (peer) { return peer.id === id; })];
             case 1:
                 removeResult = _a.sent();
                 return [2 /*return*/, removeResult];

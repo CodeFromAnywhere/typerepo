@@ -1,24 +1,84 @@
 {
-  "createdAt": 1666258423640,
-  "updatedAt": 1666258423640,
+  "createdAt": 1668328814519,
+  "updatedAt": 1668328814519,
   "deletedAt": 0,
-  "createdFirstAt": 1666258423640,
-  "version": "0.0.1",
+  "createdFirstAt": 1668328814519,
+  "id": "pytnclcnhwrwajqwucxoadrl",
+  "dependencies": {
+    "api": "0.0.1",
+    "asset-type": "0.0.1",
+    "fs-util-js": "0.0.1",
+    "model-types": "0.0.1",
+    "server-api-url": "0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
   "main": "build/index.js",
-  "source": "src/index.ts",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc"
   },
-  "license": "ISC",
-  "devDependencies": {
-    "typescript": "^4.7.4"
-  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
   "name": "asset-functions-js",
-  "sensible": {
-    "hasGeneratedDependencies": false
-  },
-  "dependencies": {},
+  "language": "english",
   "slug": "asset-functions-js",
-  "id": "pytnclcnhwrwajqwucxoadrl"
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "asset-functions-js",
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668773863601,
+    "operationDependenciesIndexed": [
+      "getGetApiUrl",
+      "apiUrl",
+      "Asset",
+      "getExtension",
+      "withoutExtension",
+      "getGetApiUrl",
+      "AssetType",
+      "getExtension",
+      "generateRandomString"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/asset",
+    "markdown": "# ❌ No description set yet\n\nPlease set a description for this operation in OPERATION.md\n\nThis is a js operation. This means you cannot use any react or node, it's pure typescript, compiled to javascript, and can be used anywhere.\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 12,
+        "lines": 180,
+        "characters": 5209,
+        "bytes": 5209
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 122,
+        "characters": 4001,
+        "bytes": 4001
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 202,
+        "characters": 4616,
+        "bytes": 4616
+      },
+      "size": {
+        "bytes": 13826,
+        "characters": 13826,
+        "lines": 504,
+        "numberOfFiles": 16
+      }
+    },
+    "hasGeneratedDependenciesIndexed": false,
+    "hasGeneratedImportsIndexed": false
+  }
 }

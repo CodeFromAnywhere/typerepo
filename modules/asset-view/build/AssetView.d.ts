@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { Asset } from "asset-type";
 export declare const defaultClassName = "w-20 aspect-auto";
 export declare const AssetView: (props: {

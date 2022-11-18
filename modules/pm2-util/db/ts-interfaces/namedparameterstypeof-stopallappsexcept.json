@@ -1,0 +1,57 @@
+{
+  "createdAt": 1668773983334,
+  "updatedAt": 1668773983334,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773983334,
+  "id": "namedparameterstypeof-stopallappsexcept",
+  "name": "NamedParameters<typeof stopAllAppsExcept>",
+  "slug": "namedparameterstypeof-stopallappsexcept",
+  "operationRelativeTypescriptFilePath": "src/stopAllAppsExcept.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "ignore": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "ignore",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof stopAllAppsExcept>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,4 +1,4 @@
-import { DbModels, DbModelEnum } from "sdk-db";
+import type { DbModels, DbModelEnum } from "sdk-db";
 import { TsInterface } from "code-types";
 /**
  * Can be better, see https://www.w3schools.com/js/js_comparisons.asp
@@ -32,6 +32,7 @@ export declare type GetDbModelConfig = {
 };
 export declare type GetDbModelResult<KInterface extends DbModelEnum> = {
     hasMore: boolean;
+    message?: string;
     start?: number;
     limit?: number;
     config?: GetDbModelConfig;
@@ -46,5 +47,5 @@ export declare type GetDbModelResult<KInterface extends DbModelEnum> = {
  *
  * I should find a fix for that.
  */
-export declare const getDbModel: <KInterface extends keyof DbModels>(interfaceName: KInterface, config?: GetDbModelConfig) => Promise<GetDbModelResult<KInterface>>;
+export declare const getDbModel: <KInterface extends keyof DbModels>(interfaceName: KInterface | null, config?: GetDbModelConfig) => Promise<GetDbModelResult<KInterface>>;
 //# sourceMappingURL=getDbModel.d.ts.map

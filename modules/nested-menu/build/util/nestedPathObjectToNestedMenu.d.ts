@@ -1,4 +1,4 @@
-import { MenuType } from "../types";
+import { MenuItemType } from "../types";
 import { NestedPathObject } from "../NestedPathObject";
 /**
  * Transform a nested path object into a nested menu (MenuType), recursively
@@ -9,5 +9,5 @@ export declare const nestedPathObjectToNestedMenuRecursive: (nestedPathObject: N
      * optionally , provide a callback function that returns the actual path
      */
     getHref?: ((fullPath: string) => string) | undefined;
-} | undefined) => MenuType | undefined;
+} | undefined) => MenuItemType[] | undefined;
 //# sourceMappingURL=nestedPathObjectToNestedMenu.d.ts.map

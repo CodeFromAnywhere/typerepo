@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773971748,
+  "updatedAt": 1668773971748,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773971748,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "startAppCli",
+  "slug": "start-app-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/startApp.cli.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const [operationName, isDevString] = process.argv.slice(2);\n  const isDev = isDevString === \"true\";\n  const result = await startApp(operationName, isDev);\n\n  const table = logTableObject(\n    takeFirst(result?.proc) || result?.error || result\n  );\n  console.table(table);\n}",
+  "description": "Arguments\n- Operation Name\n- isDev (true)",
+  "id": "hisbolhrerkpxseblzdvxaok"
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1666263789842,
-  "updatedAt": 1666263789842,
+  "createdAt": 1668335766858,
+  "updatedAt": 1668335766858,
   "deletedAt": 0,
-  "createdFirstAt": 1666263789842,
+  "createdFirstAt": 1668335766858,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(trimmedLine: string) =>\n  trimmedLine.startsWith(\"/**\")\n    ? trimmedLine.substring(3).trim()\n    : trimmedLine.startsWith(\"/*\")\n    ? trimmedLine.substring(2).trim()\n    : trimmedLine",
   "description": "",
-  "id": "ojewvrsednvaeuxiksgxevnk"
+  "id": "rdhidhikxemejmtbzjhyboai"
 }

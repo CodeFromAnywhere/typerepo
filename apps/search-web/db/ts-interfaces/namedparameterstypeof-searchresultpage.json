@@ -1,0 +1,120 @@
+{
+  "createdAt": 1668774457745,
+  "updatedAt": 1668774457745,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774457745,
+  "id": "namedparameterstypeof-searchresultpage",
+  "name": "NamedParameters<typeof SearchResultPage>",
+  "slug": "namedparameterstypeof-searchresultpage",
+  "operationRelativeTypescriptFilePath": "src/components/SearchResultPage.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "$ref": "#/definitions/QueryPageProps"
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "query",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "searchResults",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "imagePaths",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "timelineItems",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "properties": [
+                          {
+                            "name": "comment",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "filePath",
+                            "required": false,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "line",
+                            "required": true,
+                            "schema": {
+                              "type": "number"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof SearchResultPage>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

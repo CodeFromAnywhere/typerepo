@@ -1,0 +1,80 @@
+{
+  "createdAt": 1668332391683,
+  "updatedAt": 1668332391683,
+  "deletedAt": 0,
+  "createdFirstAt": 1668332391683,
+  "id": "namedparameterstypeof-getopenablefilepath",
+  "name": "NamedParameters<typeof getOpenableFilePath>",
+  "slug": "namedparameterstypeof-getopenablefilepath",
+  "operationRelativeTypescriptFilePath": "src/vscodeOpen.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "file": {
+          "$ref": "#/definitions/OpenableFile"
+        }
+      },
+      "required": [
+        "file"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "file",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "projectRelativePath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "operationName",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "operationRelativeFilePath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "line",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOpenableFilePath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

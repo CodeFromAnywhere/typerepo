@@ -1,0 +1,52 @@
+{
+  "createdAt": 1668774462885,
+  "updatedAt": 1668774462885,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774462885,
+  "id": "namedparameterstypeof-getallsearchresults",
+  "name": "NamedParameters<typeof getAllSearchResults>",
+  "slug": "namedparameterstypeof-getallsearchresults",
+  "operationRelativeTypescriptFilePath": "src/util/getAllSearchResults.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "query"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "query",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getAllSearchResults>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

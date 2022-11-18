@@ -1,4 +1,4 @@
-import { DbModels } from "sdk-db";
+import type { DbModels } from "sdk-db";
 import { DbQueryResult } from "fs-orm";
 export declare type UpsertDbModelResult = {
     response: string;

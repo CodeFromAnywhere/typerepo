@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1668149519891,
-    "updatedAt": 1668149519891,
+    "createdAt": 1668551829109,
+    "updatedAt": 1668551829109,
     "deletedAt": 0,
-    "createdFirstAt": 1668149519891,
+    "createdFirstAt": 1668551829109,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/shouldExposeMarkdownFile.ts",
-    "comment": "markdown file should only be exposed if it doesn't say `privacy: private` or `isDraft: true` in your frontmatter.",
-    "rawStatement": "export const shouldExposeMarkdownFile = (parameters: Frontmatter) => {\n  return !Boolean(parameters.isDraft) && parameters.privacy !== \"private\";\n};",
+    "operationRelativeTypescriptFilePath": "src/getMarkdownPageInfo.ts",
+    "comment": "If a markdown page is found, this function fetches all metadata needed to render that markdown page",
+    "rawStatement": "export const getMarkdownPageInfo = async (\n  projectRoot: string,\n  nestedPathObject: NestedPathObject,\n  queryPath: string,\n  contentPage: MarkdownReaderPage\n): Promise<{\n  markdownFile: WebMarkdownFile | null;\n  nextQueryPath: string | null;\n  previousQueryPath: string | null;\n  projectRelativeMarkdownPath: string | null;\n}> => {\n  const parentQuery = getOneFolderUpPath(queryPath);\n  const siblings = getKeysAtPathFromNestedObject(nestedPathObject, parentQuery);\n  const meIndex = siblings.findIndex(\n    (sibling) => queryPath.split(\"/\").pop() === sibling\n  );\n\n  const previousFolder = siblings[meIndex - 1];\n  const previousQueryPath = previousFolder\n    ? `${parentQuery}/${previousFolder}`\n    : null;\n  const nextFolder = siblings[meIndex + 1];\n  const nextQueryPath = nextFolder ? `${parentQuery}/${nextFolder}` : null;\n\n  const absoluteMarkdownPath = contentPage.filePath\n    ? path.join(projectRoot, contentPage.filePath)\n    : undefined;\n\n  const markdownFile = absoluteMarkdownPath\n    ? await readMarkdownFileToModel(absoluteMarkdownPath)\n    : null;\n\n  const projectRelativeMarkdownPath = absoluteMarkdownPath\n    ? makeRelative(absoluteMarkdownPath, projectRoot)\n    : null;\n\n  return {\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n  };\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 3,
-    "lastLine": 5,
-    "id": "efrhakpvragbonegtpywltsm"
+    "firstLine": 8,
+    "lastLine": 10,
+    "id": "mgkfnjwalqdecqmrykejuais"
   }
 ]

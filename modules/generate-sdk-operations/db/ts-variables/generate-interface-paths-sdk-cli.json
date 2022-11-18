@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668775397622,
+  "updatedAt": 1668775397622,
+  "deletedAt": 0,
+  "createdFirstAt": 1668775397622,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "generateInterfacePathsSdkCli",
+  "slug": "generate-interface-paths-sdk-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/generateInterfacePathsSdk.cli.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const [dryrunString, customProjectRoot] = process.argv.slice(2);\n  const dryrun = dryrunString === \"true\";\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  const manualProjectRoot = customProjectRoot || defaultProjectRoot;\n  generateInterfacePathsSdk({ dryrun, manualProjectRoot });\n}",
+  "description": "",
+  "id": "ldmklpkepqxjihluosuoewlf"
+}

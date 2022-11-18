@@ -1,6 +1,6 @@
 # Db util
 
-db-util (`OperationClassification` node)
+db-util (`OperationClassification` node-cjs)
 
 
 

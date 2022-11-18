@@ -3,7 +3,7 @@ runEveryPeriod: midnight
 ---
 # Asset functions node
 
-asset-functions-node (`OperationClassification` node)
+asset-functions-node (`OperationClassification` node-cjs)
 
 
 
@@ -98,16 +98,18 @@ NB: ensure to return the result of this function in your endpoint, otherwise it 
 
 
 
-## uploadAssetPostApi()
+## uploadAssetWithContext()
 
 Uploads an asset to the server, and puts it in a temporary location in the assets folder of `function-server`. It returns the filename of the file in the temporary location.
 
 It can only be accessed through that random name. This random name has 32 characters so cannot be easily guessed. This should be secure enough. The file should be moved to the final destination in the actual function that needs the file.
 
+NB: this function only works by providing a file as blobs under the "file" property name!
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| functionContext | `FunctionContext` |  |
 | **Output** |    |    |
 
 
@@ -134,9 +136,30 @@ Properties:
 
 
 
+## 🔹 ReceivedFile
+
+This is the format that I receive for a file with server.js, even though they say it's a formidable.file, which it's not...
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| size  | number |  |
+| path  | string |  |
+| name  | string |  |
+| type  | string |  |
+| hash  | object |  |
+| lastModifiedDate  | string |  |
+
+
+
 ## 📄 compressAsset (exported const)
 
-Audio, image, video can be compressed. This should be done to sensible defaults, can be turned off, or can be specifically set to other dimensions using a doc-comment on the model.
+Audio, image, video can be compressed. This should be done to logical defaults, can be turned off, or can be specifically set to other dimensions using a doc-comment on the model.
 
 - audio: bitrate
 - video: fps and resolution
@@ -276,10 +299,12 @@ See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Dispositio
 NB: ensure to return the result of this function in your endpoint, otherwise it won't work
 
 
-## 📄 uploadAssetPostApi (exported const)
+## 📄 uploadAssetWithContext (exported const)
 
 Uploads an asset to the server, and puts it in a temporary location in the assets folder of `function-server`. It returns the filename of the file in the temporary location.
 
 It can only be accessed through that random name. This random name has 32 characters so cannot be easily guessed. This should be secure enough. The file should be moved to the final destination in the actual function that needs the file.
+
+NB: this function only works by providing a file as blobs under the "file" property name!
   </details>
 

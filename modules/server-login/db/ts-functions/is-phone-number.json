@@ -1,17 +1,12 @@
 {
-  "createdAt": 1667378545349,
-  "updatedAt": 1667378545349,
+  "createdAt": 1668752304313,
+  "updatedAt": 1668752304313,
   "deletedAt": 0,
-  "createdFirstAt": 1667378545349,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668752304313,
+  "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/isPhoneNumber.ts",
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/validation/isPhoneNumber.ts",
   "commentsInside": [],
   "rawText": " (phoneNumber: string): boolean => {\n  return true;\n}",
   "name": "isPhoneNumber",
@@ -57,5 +52,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "mkyjnamvzxcxlvqheufthfjs"
+  "id": "vepvwyurtrtyqogqqjffnzux"
 }

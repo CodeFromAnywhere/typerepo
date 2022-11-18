@@ -1,8 +1,3 @@
-import { driverLogin } from "himalayajeep-functions";
-import { driverSignup } from "himalayajeep-functions";
-import { getMyJeep } from "himalayajeep-functions";
-import { getPublicJeeps } from "himalayajeep-functions";
-import { updateMyProfile } from "himalayajeep-functions";
 import { allOperationsRemoveJsSrc } from "all";
 import { allOperationsToMarkdown } from "all";
 import { clearAllTsDatabases } from "all";
@@ -38,12 +33,14 @@ import { processAsset } from "asset-functions-node";
 import { processItemAssets } from "asset-functions-node";
 import { removeOldTemporaryAssets } from "asset-functions-node";
 import { serverDownloadReply } from "asset-functions-node";
-import { uploadAssetPostApi } from "asset-functions-node";
-import { getAugmentedWordObject } from "augmented-words";
-import { getAugmentedWords } from "augmented-words";
-import { getBundleAugmentedWords } from "augmented-words";
+import { uploadAssetWithContext } from "asset-functions-node";
+import { getAugmentedWordObject } from "augmented-word-node";
+import { getAugmentedWords } from "augmented-word-node";
+import { getBundleAugmentedWords } from "augmented-word-node";
 import { getBundleSummary } from "bundle-util";
 import { getDbModelsForBundle } from "bundle-util";
+import { execAsync } from "child-process-helper";
+import { spawnAsync } from "child-process-helper";
 import { cleanupTsDatabase } from "cleanup-typescript-database";
 import { shouldDeleteTsModel } from "cleanup-typescript-database";
 import { csvItemArrayToCsvString } from "csv-util";
@@ -73,6 +70,8 @@ import { upsertDbModel } from "db-recipes";
 import { validateInput } from "db-recipes";
 import { filterInterfacesFromOperationNames } from "db-util";
 import { getDbModelsFromOperations } from "db-util";
+import { comparePassword } from "encrypt-password";
+import { encryptPassword } from "encrypt-password";
 import { findAllDependencyOperations } from "find-all-dependency-operations";
 import { findDependantsRecursively } from "find-all-dependency-operations";
 import { findDependants } from "find-all-dependency-operations";
@@ -120,12 +119,16 @@ import { getSubExtension } from "fs-util-js";
 import { isPathRelative } from "fs-util-js";
 import { removeTrailingSlash } from "fs-util-js";
 import { withoutExtension } from "fs-util-js";
+import { getFunctionExecutions } from "function-functions-node";
+import { getFunctionQueryPaths } from "function-functions-node";
+import { getPublicBundleConfig } from "function-functions-node";
+import { getSrcRelativeFolderPath } from "function-functions-node";
+import { getTsFunction } from "function-functions-node";
 import { calculateDeviceName } from "function-server-endpoints";
-import { cleanupTimer } from "function-server-endpoints";
 import { executeFunctionWithParameters } from "function-server-endpoints";
-import { getHasAuthorization } from "function-server-endpoints";
-import { getNewPerformance } from "function-server-endpoints";
-import { getTsFunction } from "function-server-endpoints";
+import { getAuthorizationInfo } from "function-server-endpoints";
+import { isGetEndpoint } from "function-server-endpoints";
+import { savePageVisit } from "function-server-endpoints";
 import { storeFunctionExecution } from "function-server-endpoints";
 import { upsertDevice } from "function-server-endpoints";
 import { generateNamedIndex } from "generate-index";
@@ -136,15 +139,17 @@ import { generateDbSdk } from "generate-sdk-operations";
 import { generateEnvSdks } from "generate-sdk-operations";
 import { generateFunctionPathsSdk } from "generate-sdk-operations";
 import { generateFunctionSdks } from "generate-sdk-operations";
+import { generateInterfacePathsSdk } from "generate-sdk-operations";
 import { generateOperationsSdk } from "generate-sdk-operations";
 import { generateSdkOperations } from "generate-sdk-operations";
 import { getSdkDescription } from "generate-sdk-operations";
-import { getSdkFunctions } from "generate-sdk-operations";
-import { isTsFunctionIndexable } from "generate-sdk-operations";
+import { getSdkFunctionsPerClassification } from "generate-sdk-operations";
 import { newEnvSdk } from "generate-sdk-operations";
-import { newSdkKeysOperation } from "generate-sdk-operations";
-import { newSdkOperation } from "generate-sdk-operations";
+import { newFunctionKeysSdkOperation } from "generate-sdk-operations";
+import { newFunctionSdkOperation } from "generate-sdk-operations";
+import { tsFunctionIsIndexable } from "generate-sdk-operations";
 import { tsFunctionIsSdkable } from "generate-sdk-operations";
+import { updateClassifications } from "generate-sdk-operations";
 import { getAllOperationSourcePaths } from "get-all-operation-source-paths";
 import { getImportedDependencies } from "get-imported-dependencies";
 import { getPackage } from "get-imported-dependencies";
@@ -166,6 +171,12 @@ import { getOperationBins } from "get-package-json";
 import { getOperationPackageName } from "get-package-json";
 import { getPackageJson } from "get-package-json";
 import { getPackageSourcePaths } from "get-package-source-paths";
+import { driverLogin } from "himalayajeep-functions";
+import { driverSignup } from "himalayajeep-functions";
+import { earthDistance } from "himalayajeep-functions";
+import { getMyJeep } from "himalayajeep-functions";
+import { getPublicJeeps } from "himalayajeep-functions";
+import { updateMyProfile } from "himalayajeep-functions";
 import { findAndUpsertTsInterfaces } from "index-typescript";
 import { findCommentTypes } from "index-typescript";
 import { generateSchema } from "index-typescript";
@@ -190,7 +201,9 @@ import { indexTypescriptFile } from "index-typescript";
 import { indexTypescript } from "index-typescript";
 import { isPrimitive } from "index-typescript";
 import { makeTsComment } from "index-typescript";
+import { removeTypescriptIndex } from "index-typescript";
 import { schemaToTsInterface } from "index-typescript";
+import { setTypescriptIndex } from "index-typescript";
 import { tryCreateSchema } from "index-typescript";
 import { typeToSchema } from "index-typescript";
 import { dev } from "k-dev";
@@ -205,6 +218,7 @@ import { findAllDotGitFolders } from "k-explore";
 import { findAllFoldersWithName } from "k-explore";
 import { findAllPackages } from "k-explore";
 import { findAllTodoFolderPaths } from "k-explore";
+import { findFilesRecursively } from "k-explore";
 import { pathArrayIsOperation } from "k-explore";
 import { runTestsForOperation } from "k-test";
 import { runTests } from "k-test";
@@ -252,38 +266,20 @@ import { tsFunctionToMarkdownString } from "markdown-parsings";
 import { tsInterfaceToMarkdownString } from "markdown-parsings";
 import { tsVariableToMarkdownString } from "markdown-parsings";
 import { upMarkdownChunkLevelRecursively } from "markdown-parsings";
-import { copyStaticAssets } from "markdown-reader-functions";
-import { getAllMarkdownReaderPages } from "markdown-reader-functions";
-import { getFolderExplorationInfo } from "markdown-reader-functions";
-import { getMarkdownModelPages } from "markdown-reader-functions";
-import { getMarkdownPageInfo } from "markdown-reader-functions";
-import { getMarkdownReaderPages } from "markdown-reader-functions";
-import { getMarkdownReaderQueryPaths } from "markdown-reader-functions";
-import { getOperationPages } from "markdown-reader-functions";
-import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
-import { getTodoPages } from "markdown-reader-functions";
-import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
-import { markdownReaderGetStaticProps } from "markdown-reader-functions";
-import { putReadmeOnTop } from "markdown-reader-functions";
-import { removeExtensionsFromPath } from "markdown-reader-functions";
-import { removeNumberPrefix } from "markdown-reader-functions";
-import { shouldExposeMarkdownFile } from "markdown-reader-functions";
-import { stripReadmeFromFolder } from "markdown-reader-functions";
 import { minifyBuild } from "minify-build";
 import { getAvailableOperationName } from "new-template";
-import { getOperationConfig } from "new-template";
 import { newOperationWithFiles } from "new-template";
 import { newOperation } from "new-template";
 import { newTemplate } from "new-template";
 import { nodemon } from "nodemon";
 import { addPeerMessage } from "peer-functions";
 import { addPeer } from "peer-functions";
+import { augmentDevice } from "peer-functions";
 import { getAllAppOperations } from "peer-functions";
 import { getFirstEmoji } from "peer-functions";
 import { getNestedPathObject } from "peer-functions";
 import { getPeerMessages } from "peer-functions";
 import { getPeersFromPeersRecursively } from "peer-functions";
-import { getPeers } from "peer-functions";
 import { getPublicFolderNestedPathObjectFromPeer } from "peer-functions";
 import { getPublicFolderNestedPathObject } from "peer-functions";
 import { getPublicPeers } from "peer-functions";
@@ -294,10 +290,21 @@ import { proactivePushAddPeerMessage } from "peer-functions";
 import { removePeer } from "peer-functions";
 import { updatePeer } from "peer-functions";
 import { getPrimaryPersona } from "persona-functions-node";
+import { deleteApp } from "pm2-util";
+import { listApps } from "pm2-util";
+import { logApp } from "pm2-util";
+import { logTableObject } from "pm2-util";
+import { pm2ConnectDisconnect } from "pm2-util";
+import { pm2Connect } from "pm2-util";
+import { restartApp } from "pm2-util";
+import { startApp } from "pm2-util";
+import { stopAllAppsExcept } from "pm2-util";
+import { stopApps } from "pm2-util";
 import { readCsvFileSync } from "read-csv-file";
 import { readCsvFile } from "read-csv-file";
 import { readJsonFileSync } from "read-json-file";
 import { readJsonFile } from "read-json-file";
+import { readProjectRelativeJsonFile } from "read-json-file";
 import { readKvmdFile } from "read-kvmd-file";
 import { readMarkdownFileToModel } from "read-markdown-file";
 import { readMarkdownFile } from "read-markdown-file";
@@ -320,24 +327,33 @@ import { renameTemplateFiles } from "rename-template-files";
 import { renameTemplateToNormalFile } from "rename-template-files";
 import { renameToTemplateFile } from "rename-template-files";
 import { addAuthenticationMethod } from "server-login";
-import { addDeviceAuthenticatedMethod } from "server-login";
 import { addDeviceAuthenticationMethodConfirm } from "server-login";
-import { addPersonAuthenticationMethod } from "server-login";
-import { comparePassword } from "server-login";
-import { encryptPassword } from "server-login";
+import { addDeviceAuthenticationMethodWithContext } from "server-login";
+import { addPersonAuthenticationMethodWithContext } from "server-login";
+import { findAuthenticatedPersonWithHandle } from "server-login";
+import { findLoggedinPersonsWithContext } from "server-login";
+import { getMeWithContext } from "server-login";
+import { getPublicPerson } from "server-login";
+import { getPublicPersons } from "server-login";
 import { isPhoneNumber } from "server-login";
 import { isValidPassword } from "server-login";
-import { login } from "server-login";
-import { logoutPostApi } from "server-login";
-import { removeDeviceAuthenticationMethod } from "server-login";
-import { removePersonAuthenticationMethod } from "server-login";
-import { signup } from "server-login";
+import { loginWithContext } from "server-login";
+import { loginWithPasswordWithContext } from "server-login";
+import { logoutWithContext } from "server-login";
+import { removeDeviceAuthenticationMethodWithContext } from "server-login";
+import { removePersonAuthenticationMethodWithContext } from "server-login";
+import { signupWithContext } from "server-login";
+import { signupWithPasswordWithContext } from "server-login";
+import { switchCurrentPersonWithContext } from "server-login";
+import { updateMeWithContext } from "server-login";
 import { setJsonKey } from "set-json-key";
 import { setKeyAtLocation } from "set-json-key";
 import { sendSms } from "sms";
 import { getAllTsMorphSourceFiles } from "ts-morph-util";
 import { getHasGeneric } from "ts-morph-util";
 import { getTsMorphProject } from "ts-morph-util";
+import { getOpenableFilePath } from "vscode-open";
+import { vscodeOpen } from "vscode-open";
 import { initiateWatch } from "watch-folders";
 import { makeSubscription } from "watch-folders";
 import { pickWatcher } from "watch-folders";
@@ -348,13 +364,230 @@ import { exitIfOperationsChange } from "watch-operations";
 import { gitCommitAllCron } from "watch-operations";
 import { watchOperations } from "watch-operations";
 import { writeToAssets } from "write-to-assets";
+import { getGetApiUrl } from "api";
+import { untypedApiFunction } from "api";
+import { addToken } from "asset-functions-js";
+import { ensureToken } from "asset-functions-js";
+import { getAssetDirectlyApiUrl } from "asset-functions-js";
+import { getExtensionFromAsset } from "asset-functions-js";
+import { getNameFromRelativePath } from "asset-functions-js";
+import { getNameWithTokenFromRelativePath } from "asset-functions-js";
+import { getPreferredExtensionFromType } from "asset-functions-js";
+import { getReferencedAssetApiUrl } from "asset-functions-js";
+import { getTypeFromRelativePath } from "asset-functions-js";
+import { readableSize } from "asset-functions-js";
+import { removeTokenIfPresent } from "asset-functions-js";
+import { getFunctionExersize } from "code-types";
+import { markdownParseToMarkdownModelType } from "code-types";
+import { parseMarkdownModelTimestamp } from "code-types";
+import { tryParseDate } from "code-types";
+import { stripCommentEnd } from "comment-util";
+import { stripCommentStart } from "comment-util";
+import { stripComment } from "comment-util";
+import { stripSlashes } from "comment-util";
+import { stripStar } from "comment-util";
+import { trim } from "comment-util";
+import { getCompileErrors } from "compile-typescript";
+import { getTypescriptErrorsFromFiles } from "compile-typescript";
+import { writeBuildErrors } from "compile-typescript";
+import { camelCase } from "convert-case";
+import { capitalCase } from "convert-case";
+import { capitaliseFirstLetter } from "convert-case";
+import { convertCase } from "convert-case";
+import { getDelimiter } from "convert-case";
+import { humanCase } from "convert-case";
+import { kebabCase } from "convert-case";
+import { lowerCaseArray } from "convert-case";
+import { pascalCase } from "convert-case";
+import { slugify } from "convert-case";
+import { snakeCase } from "convert-case";
+import { getWriterType } from "filename-conventions";
+import { hasSubExtension } from "filename-conventions";
+import { isGeneratedOperationName } from "filename-conventions";
+import { isGeneratedOperation } from "filename-conventions";
+import { isIndexableFileId } from "filename-conventions";
+import { canAccessSync } from "fs-util";
+import { canAccess } from "fs-util";
+import { canExecuteSync } from "fs-util";
+import { canExecute } from "fs-util";
+import { canReadSync } from "fs-util";
+import { canRead } from "fs-util";
+import { canSeeSync } from "fs-util";
+import { canSee } from "fs-util";
+import { canWriteSync } from "fs-util";
+import { canWrite } from "fs-util";
+import { copyAllRelativeFiles } from "fs-util";
+import { findFileNameCaseInsensitive } from "fs-util";
+import { getAllFoldersUntilFolder } from "fs-util";
+import { getFileName } from "fs-util";
+import { getFirstAvailableFilename } from "fs-util";
+import { getFolder } from "fs-util";
+import { getLastFolder } from "fs-util";
+import { getOneFolderUpPath } from "fs-util";
+import { getPathCombinations } from "fs-util";
+import { oneUp } from "fs-util";
+import { parseMd } from "fs-util";
+import { removeAllExcept } from "fs-util";
+import { renameAndCreate } from "fs-util";
+import { writeJsonToFile } from "fs-util";
+import { writeStringToFile } from "fs-util";
+import { writeToFiles } from "fs-util";
+import { findFolderWhereMatch } from "get-path";
+import { findOperationBasePathWithClassification } from "get-path";
+import { findOperationBasePath } from "get-path";
+import { getAllPackageJsonDependencies } from "get-path";
+import { getCommonAncestor } from "get-path";
+import { getOperationClassification } from "get-path";
+import { getOperationPathParse } from "get-path";
+import { getOperationPath } from "get-path";
+import { getOperationRelativePath } from "get-path";
+import { getPathParse } from "get-path";
+import { getPathsWithOperations } from "get-path";
+import { getProjectRoot } from "get-path";
+import { getRelativeLinkPath } from "get-path";
+import { getRelativePath } from "get-path";
+import { getRootPath } from "get-path";
+import { getSrcRelativeFileId } from "get-path";
+import { hasDependency } from "get-path";
+import { isOperation } from "get-path";
+import { isWorkspaceRoot } from "get-path";
+import { makeRelative } from "get-path";
+import { getTsConfig } from "get-ts-config";
+import { apply } from "js-util";
+import { createEnum } from "js-util";
+import { createMappedObject } from "js-util";
+import { destructureOptionalObject } from "js-util";
+import { findLastIndex } from "js-util";
+import { getObjectFromParamsString } from "js-util";
+import { getObjectKeysArray } from "js-util";
+import { getParameterAtLocation } from "js-util";
+import { getSubsetFromObject } from "js-util";
+import { groupByKey } from "js-util";
+import { insertAt } from "js-util";
+import { isAllTrue } from "js-util";
+import { makeArray } from "js-util";
+import { mapAsync } from "js-util";
+import { mapKeys } from "js-util";
+import { mapMany } from "js-util";
+import { mapValuesSync } from "js-util";
+import { mergeNestedObject } from "js-util";
+import { mergeObjectParameters } from "js-util";
+import { mergeObjectsArray } from "js-util";
+import { mergeObjects } from "js-util";
+import { noEmptyString } from "js-util";
+import { notEmpty } from "js-util";
+import { objectMapAsync } from "js-util";
+import { objectMapSync } from "js-util";
+import { objectValuesMap } from "js-util";
+import { omitUndefinedValues } from "js-util";
+import { onlyUnique2 } from "js-util";
+import { onlyUnique } from "js-util";
+import { pickRandomArrayItem } from "js-util";
+import { putIndexAtIndex } from "js-util";
+import { removeIndexFromArray } from "js-util";
+import { removeOptionalKeysFromObject } from "js-util";
+import { replaceLastOccurence } from "js-util";
+import { reverseString } from "js-util";
+import { sumAllKeys } from "js-util";
+import { sumObjectParameters } from "js-util";
+import { sum } from "js-util";
+import { takeFirst } from "js-util";
+import { trimSlashes } from "js-util";
+import { getSimpleJsonString } from "json-util";
+import { flattenMarkdownChunks } from "key-value-markdown-js";
+import { getKvmdItemsRecursively } from "key-value-markdown-js";
+import { getParagraphsRecursively } from "key-value-markdown-js";
+import { kvmdDataMap } from "key-value-markdown-js";
+import { kvmdDataToString } from "key-value-markdown-js";
+import { kvmdParseToMarkdownString } from "key-value-markdown-js";
+import { markdownStringToKvmdParse } from "key-value-markdown-js";
+import { parseKvmdLine } from "key-value-markdown-js";
+import { getCallerFileName } from "log";
+import { log } from "log";
+import { parseTitle } from "log";
+import { makeFileType } from "make-file-type";
+import { isResultOfInterface } from "make-test";
+import { makeTest } from "make-test";
+import { getChunkParagraphsRecursively } from "markdown-parse-js";
+import { getImplicitId } from "markdown-parse-js";
+import { getMarkdownIntro } from "markdown-parse-js";
+import { getMarkdownParseParagraphs } from "markdown-parse-js";
+import { getMarkdownReferencePaths } from "markdown-parse-js";
+import { getMarkdownReferencesFromParagraph } from "markdown-parse-js";
+import { markdownParseToMarkdownString } from "markdown-parse-js";
+import { mdContentParseRecursively } from "markdown-parse-js";
+import { mdToJsonParse } from "markdown-parse-js";
+import { parseFrontmatterMarkdownString } from "markdown-parse-js";
+import { parseMarkdownParagraph } from "markdown-parse-js";
+import { parseMdToChunks } from "markdown-parse-js";
+import { removeHeaderPrefix } from "markdown-parse-js";
+import { frontmatterParseToString } from "matter-types";
+import { getFrontmatterValueString } from "matter-types";
+import { quotedOrNot } from "matter-types";
+import { stringifyNewlines } from "matter-types";
+import { cleanupTimer } from "measure-performance";
+import { generateUniqueId } from "measure-performance";
+import { getNewPerformance } from "measure-performance";
+import { generateId } from "model-types";
+import { generatePassword } from "model-types";
+import { generateRandomString } from "model-types";
+import { generateTime } from "model-types";
+import { isEmail } from "model-types";
+import { markdownModelTypeToMarkdownString } from "model-types";
+import { getAssetInputType } from "name-conventions";
+import { getParameterContentType } from "name-conventions";
+import { isCalculatedParameter } from "name-conventions";
+import { isGeneratedParameterName } from "name-conventions";
+import { oneByOne } from "one-by-one";
+import { getDependenciesSummary } from "operation-util";
+import { getOperationMetaData } from "operation-util";
+import { recalculateOperationIndexJson } from "operation-util";
+import { parsePrimitiveArray } from "parse-primitive";
+import { parsePrimitiveBoolean } from "parse-primitive";
+import { parsePrimitiveString } from "parse-primitive";
+import { parsePrimitive } from "parse-primitive";
+import { byteCount } from "path-util";
+import { calculatePathMetaData } from "path-util";
+import { categorizeFiles } from "path-util";
+import { getFolderSummary } from "path-util";
+import { getPathMainComment } from "path-util";
+import { sumSizeSummary } from "path-util";
+import { isPlural } from "pluralize";
+import { isSingular } from "pluralize";
+import { pluralize } from "pluralize";
+import { singularize } from "pluralize";
+import { bodyFromQueryString } from "rest-util";
+import { getFirstQueryStrings } from "rest-util";
+import { getQueryPart } from "rest-util";
+import { isValidEntry } from "rest-util";
+import { toQueryString } from "rest-util";
+import { runChildProcess } from "run-child-process";
+import { findFirstCommentTypes } from "schema-util";
+import { getPossibleReferenceParameterNames } from "schema-util";
+import { getProperties } from "schema-util";
+import { getRefLink } from "schema-util";
+import { getReferencableModels } from "schema-util";
+import { getReferenceParameterInfo } from "schema-util";
+import { getSchemaItems } from "schema-util";
+import { getSchema } from "schema-util";
+import { simplifiedSchemaToTypeDefinitionString } from "schema-util";
+import { simplifySchema } from "schema-util";
+import { findSentenceMatches } from "search";
+import { searchRecursiveObjectArray } from "search";
+import { findPostableToPost } from "social-media-types";
+import { updatePostedStatistics } from "social-media-types";
+import { objectStringToJson } from "string-to-json";
+import { parseIfJson } from "string-to-json";
+import { parsePrimitiveJson } from "string-to-json";
+import { stringToJson } from "string-to-json";
+import { getEncoding } from "text-or-binary";
+import { isBinary } from "text-or-binary";
+import { isText } from "text-or-binary";
+import { tryParseJson } from "try-parse-json";
+import { createCodeblockMarkdown } from "ui-util";
+import { useCustomUrlStore } from "use-url-store";
 
-export const sdk = { driverLogin,
-driverSignup,
-getMyJeep,
-getPublicJeeps,
-updateMyProfile,
-allOperationsRemoveJsSrc,
+export const sdk = { allOperationsRemoveJsSrc,
 allOperationsToMarkdown,
 clearAllTsDatabases,
 codeAll,
@@ -389,12 +622,14 @@ processAsset,
 processItemAssets,
 removeOldTemporaryAssets,
 serverDownloadReply,
-uploadAssetPostApi,
+uploadAssetWithContext,
 getAugmentedWordObject,
 getAugmentedWords,
 getBundleAugmentedWords,
 getBundleSummary,
 getDbModelsForBundle,
+execAsync,
+spawnAsync,
 cleanupTsDatabase,
 shouldDeleteTsModel,
 csvItemArrayToCsvString,
@@ -424,6 +659,8 @@ upsertDbModel,
 validateInput,
 filterInterfacesFromOperationNames,
 getDbModelsFromOperations,
+comparePassword,
+encryptPassword,
 findAllDependencyOperations,
 findDependantsRecursively,
 findDependants,
@@ -471,12 +708,16 @@ getSubExtension,
 isPathRelative,
 removeTrailingSlash,
 withoutExtension,
-calculateDeviceName,
-cleanupTimer,
-executeFunctionWithParameters,
-getHasAuthorization,
-getNewPerformance,
+getFunctionExecutions,
+getFunctionQueryPaths,
+getPublicBundleConfig,
+getSrcRelativeFolderPath,
 getTsFunction,
+calculateDeviceName,
+executeFunctionWithParameters,
+getAuthorizationInfo,
+isGetEndpoint,
+savePageVisit,
 storeFunctionExecution,
 upsertDevice,
 generateNamedIndex,
@@ -487,15 +728,17 @@ generateDbSdk,
 generateEnvSdks,
 generateFunctionPathsSdk,
 generateFunctionSdks,
+generateInterfacePathsSdk,
 generateOperationsSdk,
 generateSdkOperations,
 getSdkDescription,
-getSdkFunctions,
-isTsFunctionIndexable,
+getSdkFunctionsPerClassification,
 newEnvSdk,
-newSdkKeysOperation,
-newSdkOperation,
+newFunctionKeysSdkOperation,
+newFunctionSdkOperation,
+tsFunctionIsIndexable,
 tsFunctionIsSdkable,
+updateClassifications,
 getAllOperationSourcePaths,
 getImportedDependencies,
 getPackage,
@@ -517,6 +760,12 @@ getOperationBins,
 getOperationPackageName,
 getPackageJson,
 getPackageSourcePaths,
+driverLogin,
+driverSignup,
+earthDistance,
+getMyJeep,
+getPublicJeeps,
+updateMyProfile,
 findAndUpsertTsInterfaces,
 findCommentTypes,
 generateSchema,
@@ -541,7 +790,9 @@ indexTypescriptFile,
 indexTypescript,
 isPrimitive,
 makeTsComment,
+removeTypescriptIndex,
 schemaToTsInterface,
+setTypescriptIndex,
 tryCreateSchema,
 typeToSchema,
 dev,
@@ -556,6 +807,7 @@ findAllDotGitFolders,
 findAllFoldersWithName,
 findAllPackages,
 findAllTodoFolderPaths,
+findFilesRecursively,
 pathArrayIsOperation,
 runTestsForOperation,
 runTests,
@@ -603,38 +855,20 @@ tsFunctionToMarkdownString,
 tsInterfaceToMarkdownString,
 tsVariableToMarkdownString,
 upMarkdownChunkLevelRecursively,
-copyStaticAssets,
-getAllMarkdownReaderPages,
-getFolderExplorationInfo,
-getMarkdownModelPages,
-getMarkdownPageInfo,
-getMarkdownReaderPages,
-getMarkdownReaderQueryPaths,
-getOperationPages,
-getPublicMarkdownFilePaths,
-getTodoPages,
-markdownReaderGetStaticPaths,
-markdownReaderGetStaticProps,
-putReadmeOnTop,
-removeExtensionsFromPath,
-removeNumberPrefix,
-shouldExposeMarkdownFile,
-stripReadmeFromFolder,
 minifyBuild,
 getAvailableOperationName,
-getOperationConfig,
 newOperationWithFiles,
 newOperation,
 newTemplate,
 nodemon,
 addPeerMessage,
 addPeer,
+augmentDevice,
 getAllAppOperations,
 getFirstEmoji,
 getNestedPathObject,
 getPeerMessages,
 getPeersFromPeersRecursively,
-getPeers,
 getPublicFolderNestedPathObjectFromPeer,
 getPublicFolderNestedPathObject,
 getPublicPeers,
@@ -645,10 +879,21 @@ proactivePushAddPeerMessage,
 removePeer,
 updatePeer,
 getPrimaryPersona,
+deleteApp,
+listApps,
+logApp,
+logTableObject,
+pm2ConnectDisconnect,
+pm2Connect,
+restartApp,
+startApp,
+stopAllAppsExcept,
+stopApps,
 readCsvFileSync,
 readCsvFile,
 readJsonFileSync,
 readJsonFile,
+readProjectRelativeJsonFile,
 readKvmdFile,
 readMarkdownFileToModel,
 readMarkdownFile,
@@ -671,24 +916,33 @@ renameTemplateFiles,
 renameTemplateToNormalFile,
 renameToTemplateFile,
 addAuthenticationMethod,
-addDeviceAuthenticatedMethod,
 addDeviceAuthenticationMethodConfirm,
-addPersonAuthenticationMethod,
-comparePassword,
-encryptPassword,
+addDeviceAuthenticationMethodWithContext,
+addPersonAuthenticationMethodWithContext,
+findAuthenticatedPersonWithHandle,
+findLoggedinPersonsWithContext,
+getMeWithContext,
+getPublicPerson,
+getPublicPersons,
 isPhoneNumber,
 isValidPassword,
-login,
-logoutPostApi,
-removeDeviceAuthenticationMethod,
-removePersonAuthenticationMethod,
-signup,
+loginWithContext,
+loginWithPasswordWithContext,
+logoutWithContext,
+removeDeviceAuthenticationMethodWithContext,
+removePersonAuthenticationMethodWithContext,
+signupWithContext,
+signupWithPasswordWithContext,
+switchCurrentPersonWithContext,
+updateMeWithContext,
 setJsonKey,
 setKeyAtLocation,
 sendSms,
 getAllTsMorphSourceFiles,
 getHasGeneric,
 getTsMorphProject,
+getOpenableFilePath,
+vscodeOpen,
 initiateWatch,
 makeSubscription,
 pickWatcher,
@@ -698,6 +952,228 @@ watchFolders,
 exitIfOperationsChange,
 gitCommitAllCron,
 watchOperations,
-writeToAssets};
+writeToAssets,
+getGetApiUrl,
+untypedApiFunction,
+addToken,
+ensureToken,
+getAssetDirectlyApiUrl,
+getExtensionFromAsset,
+getNameFromRelativePath,
+getNameWithTokenFromRelativePath,
+getPreferredExtensionFromType,
+getReferencedAssetApiUrl,
+getTypeFromRelativePath,
+readableSize,
+removeTokenIfPresent,
+getFunctionExersize,
+markdownParseToMarkdownModelType,
+parseMarkdownModelTimestamp,
+tryParseDate,
+stripCommentEnd,
+stripCommentStart,
+stripComment,
+stripSlashes,
+stripStar,
+trim,
+getCompileErrors,
+getTypescriptErrorsFromFiles,
+writeBuildErrors,
+camelCase,
+capitalCase,
+capitaliseFirstLetter,
+convertCase,
+getDelimiter,
+humanCase,
+kebabCase,
+lowerCaseArray,
+pascalCase,
+slugify,
+snakeCase,
+getWriterType,
+hasSubExtension,
+isGeneratedOperationName,
+isGeneratedOperation,
+isIndexableFileId,
+canAccessSync,
+canAccess,
+canExecuteSync,
+canExecute,
+canReadSync,
+canRead,
+canSeeSync,
+canSee,
+canWriteSync,
+canWrite,
+copyAllRelativeFiles,
+findFileNameCaseInsensitive,
+getAllFoldersUntilFolder,
+getFileName,
+getFirstAvailableFilename,
+getFolder,
+getLastFolder,
+getOneFolderUpPath,
+getPathCombinations,
+oneUp,
+parseMd,
+removeAllExcept,
+renameAndCreate,
+writeJsonToFile,
+writeStringToFile,
+writeToFiles,
+findFolderWhereMatch,
+findOperationBasePathWithClassification,
+findOperationBasePath,
+getAllPackageJsonDependencies,
+getCommonAncestor,
+getOperationClassification,
+getOperationPathParse,
+getOperationPath,
+getOperationRelativePath,
+getPathParse,
+getPathsWithOperations,
+getProjectRoot,
+getRelativeLinkPath,
+getRelativePath,
+getRootPath,
+getSrcRelativeFileId,
+hasDependency,
+isOperation,
+isWorkspaceRoot,
+makeRelative,
+getTsConfig,
+apply,
+createEnum,
+createMappedObject,
+destructureOptionalObject,
+findLastIndex,
+getObjectFromParamsString,
+getObjectKeysArray,
+getParameterAtLocation,
+getSubsetFromObject,
+groupByKey,
+insertAt,
+isAllTrue,
+makeArray,
+mapAsync,
+mapKeys,
+mapMany,
+mapValuesSync,
+mergeNestedObject,
+mergeObjectParameters,
+mergeObjectsArray,
+mergeObjects,
+noEmptyString,
+notEmpty,
+objectMapAsync,
+objectMapSync,
+objectValuesMap,
+omitUndefinedValues,
+onlyUnique2,
+onlyUnique,
+pickRandomArrayItem,
+putIndexAtIndex,
+removeIndexFromArray,
+removeOptionalKeysFromObject,
+replaceLastOccurence,
+reverseString,
+sumAllKeys,
+sumObjectParameters,
+sum,
+takeFirst,
+trimSlashes,
+getSimpleJsonString,
+flattenMarkdownChunks,
+getKvmdItemsRecursively,
+getParagraphsRecursively,
+kvmdDataMap,
+kvmdDataToString,
+kvmdParseToMarkdownString,
+markdownStringToKvmdParse,
+parseKvmdLine,
+getCallerFileName,
+log,
+parseTitle,
+makeFileType,
+isResultOfInterface,
+makeTest,
+getChunkParagraphsRecursively,
+getImplicitId,
+getMarkdownIntro,
+getMarkdownParseParagraphs,
+getMarkdownReferencePaths,
+getMarkdownReferencesFromParagraph,
+markdownParseToMarkdownString,
+mdContentParseRecursively,
+mdToJsonParse,
+parseFrontmatterMarkdownString,
+parseMarkdownParagraph,
+parseMdToChunks,
+removeHeaderPrefix,
+frontmatterParseToString,
+getFrontmatterValueString,
+quotedOrNot,
+stringifyNewlines,
+cleanupTimer,
+generateUniqueId,
+getNewPerformance,
+generateId,
+generatePassword,
+generateRandomString,
+generateTime,
+isEmail,
+markdownModelTypeToMarkdownString,
+getAssetInputType,
+getParameterContentType,
+isCalculatedParameter,
+isGeneratedParameterName,
+oneByOne,
+getDependenciesSummary,
+getOperationMetaData,
+recalculateOperationIndexJson,
+parsePrimitiveArray,
+parsePrimitiveBoolean,
+parsePrimitiveString,
+parsePrimitive,
+byteCount,
+calculatePathMetaData,
+categorizeFiles,
+getFolderSummary,
+getPathMainComment,
+sumSizeSummary,
+isPlural,
+isSingular,
+pluralize,
+singularize,
+bodyFromQueryString,
+getFirstQueryStrings,
+getQueryPart,
+isValidEntry,
+toQueryString,
+runChildProcess,
+findFirstCommentTypes,
+getPossibleReferenceParameterNames,
+getProperties,
+getRefLink,
+getReferencableModels,
+getReferenceParameterInfo,
+getSchemaItems,
+getSchema,
+simplifiedSchemaToTypeDefinitionString,
+simplifySchema,
+findSentenceMatches,
+searchRecursiveObjectArray,
+findPostableToPost,
+updatePostedStatistics,
+objectStringToJson,
+parseIfJson,
+parsePrimitiveJson,
+stringToJson,
+getEncoding,
+isBinary,
+isText,
+tryParseJson,
+createCodeblockMarkdown,
+useCustomUrlStore};
 
 export type SdkType = typeof sdk;

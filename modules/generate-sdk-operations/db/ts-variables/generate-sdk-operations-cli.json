@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150569761,
-  "updatedAt": 1668150569761,
+  "createdAt": 1668775399888,
+  "updatedAt": 1668775399888,
   "deletedAt": 0,
-  "createdFirstAt": 1668150569761,
+  "createdFirstAt": 1668775399888,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const [dryrunString, customProjectRoot] = process.argv.slice(2);\n\n  const dryrun = dryrunString ? Boolean(dryrunString) : undefined;\n\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  generateSdkOperations(undefined, {\n    dryrun,\n    yarnInstallAfter: true,\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n\n  if (dryrun) {\n    console.log(\"Check new-operation/assets\");\n  } else {\n    console.log(\"Check generated\");\n  }\n}",
   "description": "",
-  "id": "mtosgzybjlakashxakoksguw"
+  "id": "xpedarhuivhvijkeimmguvqq"
 }

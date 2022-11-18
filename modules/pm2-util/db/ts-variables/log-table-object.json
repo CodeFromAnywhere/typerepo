@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773986996,
+  "updatedAt": 1668773986996,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773986996,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "logTableObject",
+  "slug": "log-table-object",
+  "operationRelativeTypescriptFilePath": "src/util.ts",
+  "type": {
+    "rawType": "(object: { [key: string]: any; } | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(object: { [key: string]: any } | undefined) => {\n  if (!object) return;\n\n  const table = Object.keys(object).map((key) => {\n    return { property: key, value: object[key] };\n  });\n\n  return table;\n}",
+  "description": "",
+  "id": "iuumfojxqnuvlnwcgbkbfhrs"
+}

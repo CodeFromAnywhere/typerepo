@@ -1,6 +1,7 @@
+/// <reference types="react" />
 import { MarkdownParse } from "code-types";
 import { MappedObject } from "js-util";
-import { AugmentedWord } from "markdown-reader-types";
+import { AugmentedWord } from "augmented-word-types";
 export declare const MarkdownParsePresentation: (props: {
     markdownParse: MarkdownParse;
     augmentedWordObject?: MappedObject<AugmentedWord> | undefined;

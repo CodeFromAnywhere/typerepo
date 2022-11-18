@@ -1,5 +1,5 @@
 import { CategoryStack } from "model-types";
-import { Frontmatter, Downmatter } from "matter-types";
+import { Frontmatter } from "matter-types";
 /**
  * type of asset that is being embedded
  */
@@ -75,8 +75,9 @@ export declare type MarkdownParse = {
     parameters: Frontmatter;
     /**
      * downmatter is the same as frontmatter, but it is to be found at the end of the file. It is supposed to be containing things that are not important for the user to know, yet it is important metadata that is connected to this file. This can be indexed things, for example.
+     *
+     downmatterParameters?: Downmatter;
      */
-    downmatterParameters?: Downmatter;
     /**
      * structured content based on h1, h2, h3, etc (paragraphs, recursive)
      */

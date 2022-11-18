@@ -6,5 +6,5 @@
  *
  * When creating a new app, ensure you not only define the port here, but also in
  */
-exports.ports={"function-server":42e3,"search-web":42001,"db-web":42002,"markdown-reader-web":42004,"asset-demo-web":42005,"learn-toki-web":42006,"writer-web":42007,"himalayajeep-web":42008,"todo-web":42009,"social-media-web":42010,"function-web":42011,"peer-web":42012,"operation-web":42003};
+exports.ports={"function-server":42e3,"search-web":42001,"db-web":42002,"operation-web":42003,"markdown-reader-web":42004,"asset-demo-web":42005,"learn-toki-web":42006,"writer-web":42007,"himalayajeep-web":42008,"function-web":42011,"peer-web":42012,"passionfruit-web":3e3,"bundle-web":42013};
 //# sourceMappingURL=port-conventions.js.map

@@ -1,6 +1,6 @@
 # Watch folders
 
-watch-folders (`OperationClassification` node)
+watch-folders (`OperationClassification` node-cjs)
 
 General purpose functions to watch folder(s) for changes on any operating system
 

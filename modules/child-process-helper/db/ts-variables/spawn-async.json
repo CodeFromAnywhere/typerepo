@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336325367,
+  "updatedAt": 1668336325367,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336325367,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "spawnAsync",
+  "slug": "spawn-async",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "(command: string, options: import(\"child_process\").SpawnOptionsWithoutStdio) => Promise<{ success: boolean; response: string; data?: string[] | undefined; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  command: string,\n  options: SpawnOptionsWithoutStdio\n): Promise<{ success: boolean; response: string; data?: string[] }> => {\n  return new Promise((resolve) => {\n    const spawned = spawn(command, options);\n\n    const data: string[] = [];\n    spawned\n      .on(\"exit\", (code) => {\n        resolve({ response: String(code), success: false, data });\n      })\n      .on(\"message\", (message) => {\n        //not sure if this does anything\n      })\n      .on(\"data\", (message) => {\n        //not sure if this does anything\n        data.push(message);\n      })\n      .on(\"error\", (err) => {\n        resolve({ response: String(err), success: false, data });\n      });\n  });\n}",
+  "description": "i don't know if this is ever useful...",
+  "id": "kopcaaxvyissdusuxmvibdza"
+}

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150569546,
-  "updatedAt": 1668150569546,
+  "createdAt": 1668775399734,
+  "updatedAt": 1668775399734,
   "deletedAt": 0,
-  "createdFirstAt": 1668150569546,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775399734,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/cli/generateSdkOperations.cli.ts",
   "commentsInside": [],
   "rawText": " () => {\n  const [dryrunString, customProjectRoot] = process.argv.slice(2);\n\n  const dryrun = dryrunString ? Boolean(dryrunString) : undefined;\n\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  generateSdkOperations(undefined, {\n    dryrun,\n    yarnInstallAfter: true,\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n\n  if (dryrun) {\n    console.log(\"Check new-operation/assets\");\n  } else {\n    console.log(\"Check generated\");\n  }\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "gboiozzaaikeoeubiluilodi"
+  "id": "ilyfhbkhpmwizdsnrmihhmth"
 }

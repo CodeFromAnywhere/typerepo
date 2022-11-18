@@ -1,0 +1,76 @@
+{
+  "createdAt": 1668774258215,
+  "updatedAt": 1668774258215,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774258215,
+  "id": "namedparameterstypeof-dblayout",
+  "name": "NamedParameters<typeof DbLayout>",
+  "slug": "namedparameterstypeof-dblayout",
+  "operationRelativeTypescriptFilePath": "src/DbLayout.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "pageProps": {},
+            "nextPage": {}
+          },
+          "required": [
+            "pageProps",
+            "nextPage"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "pageProps",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "nextPage",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof DbLayout>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,15 +1,15 @@
 {
-  "createdAt": 1668148902975,
-  "updatedAt": 1668148902975,
+  "createdAt": 1668448344118,
+  "updatedAt": 1668448344118,
   "deletedAt": 0,
-  "createdFirstAt": 1668148902975,
+  "createdFirstAt": 1668448344118,
   "id": "bundlesummary",
   "name": "BundleSummary",
   "slug": "bundlesummary",
   "operationRelativeTypescriptFilePath": "src/getBundleSummary.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type BundleSummary = {\n  /**\n   * Haven't found a good usecase for this yet\n   */\n  // filesAndFoldersToInclude: string[];\n  packageNames: string[];\n  moduleNames: string[];\n  appNames: string[];\n};",
+  "rawText": "\n\nexport type BundleSummary = {\n  slug: string;\n  /**\n   * Haven't found a good usecase for this yet\n   */\n  // filesAndFoldersToInclude: string[];\n  packageNames: string[];\n  moduleNames: string[];\n  appNames: string[];\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -19,6 +19,9 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "slug": {
+          "type": "string"
+        },
         "packageNames": {
           "type": "array",
           "items": {
@@ -40,6 +43,7 @@
         }
       },
       "required": [
+        "slug",
         "packageNames",
         "moduleNames",
         "appNames"
@@ -48,6 +52,13 @@
     },
     "simplifiedSchema": {
       "properties": [
+        {
+          "name": "slug",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
         {
           "name": "packageNames",
           "required": true,

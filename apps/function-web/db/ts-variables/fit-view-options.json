@@ -1,0 +1,85 @@
+{
+  "createdAt": 1668774411068,
+  "updatedAt": 1668774411068,
+  "deletedAt": 0,
+  "createdFirstAt": 1668774411068,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "fitViewOptions",
+  "slug": "fit-view-options",
+  "operationRelativeTypescriptFilePath": "src/components/Flow.tsx",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/node_modules/@reactflow/core/dist/esm/types/general\").FitViewOptions",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "padding": {
+          "type": "number"
+        },
+        "includeHiddenNodes": {
+          "type": "boolean"
+        },
+        "minZoom": {
+          "type": "number"
+        },
+        "maxZoom": {
+          "type": "number"
+        },
+        "duration": {
+          "type": "number"
+        }
+      },
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "padding",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "includeHiddenNodes",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "minZoom",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "maxZoom",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "duration",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  padding: 0.2,\n}",
+  "description": "",
+  "id": "zmnrqnhnzbtnkkadndtqxzhu"
+}

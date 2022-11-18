@@ -1,4 +1,6 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.updatePostedStatistics=exports.findPostableToPost=void 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updatePostedStatistics = exports.findPostableToPost = void 0;
 /**
  * This function finds a postable from the database and posts it on multiple channels
  *
@@ -9,11 +11,13 @@
  * 3. for every channel, formats the post correctly
  * 4. for every channel, places the post
  */
-var findPostableToPost=function(){};exports.findPostableToPost=findPostableToPost;
+var findPostableToPost = function () { };
+exports.findPostableToPost = findPostableToPost;
 /**
  * This function keeps the `Posted` statistics up-to-date
  *
  * Can be executed with a cron for all recent posts
  */
-var updatePostedStatistics=function(){};exports.updatePostedStatistics=updatePostedStatistics;
+var updatePostedStatistics = function () { };
+exports.updatePostedStatistics = updatePostedStatistics;
 //# sourceMappingURL=Postable.js.map

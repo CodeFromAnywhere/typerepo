@@ -1,8 +1,8 @@
 {
-  "createdAt": 1667379654830,
-  "updatedAt": 1667379654830,
+  "createdAt": 1668334824351,
+  "updatedAt": 1668334824351,
   "deletedAt": 0,
-  "createdFirstAt": 1667379654830,
+  "createdFirstAt": 1668334824351,
   "id": "markdownchunk",
   "name": "MarkdownChunk",
   "slug": "markdownchunk",
@@ -140,7 +140,7 @@
                     "typescript",
                     "file"
                   ],
-                  "fullComment": "type of asset that is being embedded",
+                  "fullComment": "Can be inferred from href\n\ntype of asset that is being embedded",
                   "type": "string"
                 }
               }

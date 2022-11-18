@@ -1,0 +1,108 @@
+{
+  "createdAt": 1668332391684,
+  "updatedAt": 1668332391684,
+  "deletedAt": 0,
+  "createdFirstAt": 1668332391684,
+  "id": "namedparameterstypeof-vscodeopen",
+  "name": "NamedParameters<typeof vscodeOpen>",
+  "slug": "namedparameterstypeof-vscodeopen",
+  "operationRelativeTypescriptFilePath": "src/vscodeOpen.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "files": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/OpenableFile"
+              },
+              "description": "Files to open. Either use a projectRelativePath or an operationName combined with an operationRelativePath.\n\ncan optionally have the line and character specified as well after the file with [file-path]:[line]:[character]"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "config"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "files",
+                "required": false,
+                "schema": {
+                  "fullComment": "Files to open. Either use a projectRelativePath or an operationName combined with an operationRelativePath.\n\ncan optionally have the line and character specified as well after the file with [file-path]:[line]:[character]",
+                  "items": [
+                    {
+                      "schema": {
+                        "fullComment": "",
+                        "properties": [
+                          {
+                            "name": "projectRelativePath",
+                            "required": false,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "operationName",
+                            "required": false,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "operationRelativeFilePath",
+                            "required": false,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "line",
+                            "required": false,
+                            "schema": {
+                              "type": "number"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": "OpenableFile"
+                    }
+                  ],
+                  "type": "array"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof vscodeOpen>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

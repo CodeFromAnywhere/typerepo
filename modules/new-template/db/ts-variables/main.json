@@ -1,14 +1,14 @@
 {
-  "createdAt": 1667635803004,
-  "updatedAt": 1667635803004,
+  "createdAt": 1668752149105,
+  "updatedAt": 1668752149105,
   "deletedAt": 0,
-  "createdFirstAt": 1667635803004,
+  "createdFirstAt": 1668752149105,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "main",
   "slug": "main",
-  "operationRelativeTypescriptFilePath": "src/test.ts",
+  "operationRelativeTypescriptFilePath": "src/newOperationWithFiles.test.ts",
   "type": {
     "rawType": "() => any",
     "typeDefinition": {
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  const operationConfig = await getOperationConfig(\n    \"test-operation\",\n    \"This is amaaaaazzzz\"\n  );\n\n  await newOperationWithFiles(\n    operationConfig,\n    { \"src/test-operation.ts\": \"//this is a file\\nexport const x = 1;\" },\n    { overwriteIfExists: true }\n  );\n}",
+  "value": "async () => {\n  await newOperationWithFiles(\n    \"test-operation\",\n    \"This is amaaaaazzzz\",\n    { \"src/test-operation.ts\": \"//this is a file\\nexport const x = 1;\" },\n    { overwriteIfExists: true }\n  );\n}",
   "description": "",
-  "id": "fvsjeuapcmucjodtrgtaekls"
+  "id": "jgabmttmzgbclhjxrfcvawnq"
 }

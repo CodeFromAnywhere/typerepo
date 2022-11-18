@@ -1,15 +1,15 @@
 {
-  "createdAt": 1668150114430,
-  "updatedAt": 1668150114430,
+  "createdAt": 1668775171248,
+  "updatedAt": 1668775171248,
   "deletedAt": 0,
-  "createdFirstAt": 1668150114430,
+  "createdFirstAt": 1668775171248,
   "id": "webmarkdownfile",
   "name": "WebMarkdownFile",
   "slug": "webmarkdownfile",
   "operationRelativeTypescriptFilePath": "src/WebMarkdownFile.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter\n *\n * NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!\n */\nexport interface WebMarkdownFile\n  extends MarkdownModelType,\n    /**\n     * NB: it extends WebsiteHeader here because the MarkdownModelType needs to be flat, and cannot have objects\n     */\n    WebsiteHeader {\n  /**\n   * If true, will not show up in markdownReader ui's\n   */\n  isDraft?: boolean;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  updatedAt: number;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  createdAt: number;\n\n  /**\n   * TODO: implement auth layers, then look at this again\n   */\n  privacy: \"private\" | \"request\" | \"public\";\n\n  /**\n   * Either filled in or detected\n   */\n  language: Language;\n  /**\n   * If true, will not auto-detect the language\n   */\n  isLanguageCustom?: boolean;\n\n  websiteCallToActionSlugs?: Slug[];\n  websiteCallToActions?: WebsiteCallToAction[];\n  /**\n   * Refers to an `Item` from the shop\n   */\n  shop_itemIds?: Id[];\n  //shop_items:Item[];\n\n  /**\n   * Author, reference to persons\n   */\n  author_personSlugs: Slug[];\n  //author_persons: Person[];\n\n  /**\n   * Labels referring to interests\n   */\n  interestSlugs: Slug[];\n  //interests: Interest[];\n\n  /**\n   * Price for this file\n   *\n   * NB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.\n   */\n  price: Price;\n}",
+  "rawText": "\n\n/**\n * Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter\n *\n * NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!\n */\nexport interface WebMarkdownFile\n  extends MarkdownModelType,\n    /**\n     * NB: it extends WebsiteHeader here because the MarkdownModelType needs to be flat, and cannot have objects\n     */\n    WebsiteHeader {\n  /**\n   * If true, will not show up in markdownReader ui's\n   */\n  isDraft?: boolean;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  updatedAt: number;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  createdAt: number;\n\n  /**\n   * TODO: implement auth layers, then look at this again\n   */\n  privacy: \"private\" | \"request\" | \"public\";\n\n  /**\n   * Either filled in or detected\n   */\n  language: Language;\n  /**\n   * If true, will not auto-detect the language\n   */\n  isLanguageCustom?: boolean;\n\n  websiteCallToActionSlugs?: Slug[];\n  websiteCallToActions?: WebsiteCallToAction[];\n  /**\n   * Refers to an `Item` from the shop\n   */\n  shop_itemIds?: Id[];\n  //shop_items:Item[];\n\n  /**\n   * Author, reference to persons\n   */\n  author_personSlugs?: Slug[];\n  //author_persons: Person[];\n\n  /**\n   * Labels referring to interests\n   */\n  interestSlugs?: Slug[];\n  //interests: Interest[];\n\n  /**\n   * Price for this file\n   *\n   * NB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.\n   */\n  price?: Price;\n}",
   "extensions": [
     "MarkdownModelType",
     "WebsiteHeader"
@@ -80,8 +80,7 @@
           "description": "the content of the markdown"
         },
         "categoryStackCalculated": {
-          "$ref": "#/definitions/CategoryStack",
-          "description": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!"
+          "$ref": "#/definitions/CategoryStack"
         },
         "isDraft": {
           "type": "boolean",
@@ -143,22 +142,15 @@
         }
       },
       "required": [
-        "author_personSlugs",
         "categoryStackCalculated",
         "createdAt",
         "createdFirstAt",
         "deletedAt",
-        "headerCta",
-        "headerImage",
-        "headerSubTitle",
-        "headerTitle",
         "id",
-        "interestSlugs",
         "language",
         "markdown",
         "name",
         "operationName",
-        "price",
         "privacy",
         "projectRelativePath",
         "slug",
@@ -197,7 +189,7 @@
       "properties": [
         {
           "name": "headerImage",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Part of the asset that should be sent to the backend. The rest should frontend-only\n\nSome values are stored, some are not",
             "properties": [
@@ -240,21 +232,21 @@
         },
         {
           "name": "headerTitle",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
         },
         {
           "name": "headerSubTitle",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
         },
         {
           "name": "headerCta",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Anything in the format `[alt](href)`\n\nIt needs to be clear how this works. There is a convention for this, and I should implement that as good as possible, and document it here",
             "properties": [
@@ -386,7 +378,7 @@
           "name": "categoryStackCalculated",
           "required": true,
           "schema": {
-            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\n",
+            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
             "nb": "Changing this value when updating/upserting, changes where the item is located!",
             "items": [
               {
@@ -497,7 +489,7 @@
         },
         {
           "name": "author_personSlugs",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Author, reference to persons",
             "items": [
@@ -514,7 +506,7 @@
         },
         {
           "name": "interestSlugs",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Labels referring to interests",
             "items": [
@@ -531,7 +523,7 @@
         },
         {
           "name": "price",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Price for this file\n\nNB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.\n\nTLDR;EUROS\n\nA price is a number indicating the relative cost. Absolute cost is calculated by many other factors\n\nFor now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.\n\nLater we can add all kinds of extra conversion:\n\n- currency support\n- king os currency\n- lower cost for poorer people\n\netc...\n\nFirst we need to start making sales before we can add such complexity.\n\n",
             "nb": "in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.",

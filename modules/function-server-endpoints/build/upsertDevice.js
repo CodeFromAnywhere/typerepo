@@ -56,43 +56,51 @@ exports.upsertDevice = void 0;
  *
  * https://github.com/geoip-lite/node-geoip
  */
+var database_1 = require("database");
 var geoip_lite_1 = __importDefault(require("geoip-lite"));
 var ua_parser_js_1 = __importDefault(require("ua-parser-js"));
-var database_1 = require("database");
 var calculateDeviceName_1 = require("./calculateDeviceName");
+var savePageVisit_1 = require("./savePageVisit");
+var measure_performance_1 = require("measure-performance");
 var deviceInclude = {
-    referenceKey: "personId",
+    referenceKey: "personIds",
     include: { referenceKey: "groupSlugs" },
 };
 /**
+ * Returns device with all attached (logged in) `Person`s, and `currentPersonCalculated`
+ *
  * Either finds the device and updates it according to the new request metadata, or creates a new device.
  *
  * Should never return `undefined` if the database functions...
  *
- *
  * TODO: Use cookies (https://serverjs.io/documentation/reply/#cookie-) to login
  *
  * Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
-
  */
-var upsertDevice = function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
-    var authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, alreadyDevice, ipInfo, origin, referer, pageVisit, currentIpInfo_1, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, updatedDevice_1, newDevice, fullNewDevice;
-    var _a, _b;
-    return __generator(this, function (_c) {
-        switch (_c.label) {
+var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, void 0, function () {
+    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, alreadyDevice, ipInfo, origin, referer, currentIpInfo_1, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, currentPersonCalculated_1, updatedDevice_1, newDevice, upsertResult, fullNewDevice, currentPersonCalculated, finalNewDevice;
+    var _a, _b, _c;
+    return __generator(this, function (_d) {
+        switch (_d.label) {
             case 0:
-                authToken = (_b = (_a = ctx.data) === null || _a === void 0 ? void 0 : _a.config) === null || _b === void 0 ? void 0 : _b.authToken;
-                ip = ctx.ip;
-                if (!authToken) {
+                executionId = (0, measure_performance_1.generateUniqueId)();
+                performance = [];
+                performance.push((0, measure_performance_1.getNewPerformance)("start", executionId, true));
+                authToken = (_a = serverContext.data) === null || _a === void 0 ? void 0 : _a.authToken;
+                ip = serverContext.ip;
+                if (!authToken || authToken.length < 24) {
+                    console.log("warn upsert device: no authToken");
                     return [2 /*return*/];
                 }
                 ipLookup = (geoip_lite_1.default.lookup(ip) || {});
                 city = ipLookup.city, positionRadiusKm = ipLookup.area, ll = ipLookup.ll, country = ipLookup.country, region = ipLookup.region, timezone = ipLookup.timezone;
                 position = !!(ll === null || ll === void 0 ? void 0 : ll[0]) && !!(ll === null || ll === void 0 ? void 0 : ll[1]) ? { latitude: ll[0], longitude: ll[1] } : undefined;
-                userAgent = (0, ua_parser_js_1.default)(ctx.req.get("User-Agent"));
+                userAgent = (0, ua_parser_js_1.default)(serverContext.req.get("User-Agent"));
+                performance.push((0, measure_performance_1.getNewPerformance)("lookupIp", executionId));
                 return [4 /*yield*/, database_1.db.get("Device", { include: deviceInclude })];
             case 1:
-                alreadyDevice = (_c.sent()).find(function (x) { return x.id === authToken; });
+                alreadyDevice = (_d.sent()).find(function (x) { return x.authToken === authToken; });
+                performance.push((0, measure_performance_1.getNewPerformance)("findAlreadyDevice", executionId));
                 ipInfo = {
                     ip: ip,
                     city: city,
@@ -102,15 +110,26 @@ var upsertDevice = function (ctx) { return __awaiter(void 0, void 0, void 0, fun
                     region: region,
                     timezone: timezone,
                 };
-                origin = ctx.req.get("Origin");
-                referer = ctx.req.get("Referrer");
-                pageVisit = { ipInfo: ipInfo, path: referer };
-                // @ts-ignore
-                return [4 /*yield*/, database_1.db.upsert("PageVisit", pageVisit, { onlyInsert: true })];
-            case 2:
-                // @ts-ignore
-                _c.sent();
-                if (!alreadyDevice) return [3 /*break*/, 4];
+                origin = serverContext.req.get("Origin");
+                referer = serverContext.req.get("Referrer");
+                // server.reply
+                //   .cookie(
+                //     "testje",
+                //     authToken,
+                //     {
+                //       /**
+                //        * NB: VERY IMPORTANT In order to receive the cookie at other port or domain
+                //        */
+                //       sameSite: "none",
+                //       secure: true,
+                //       /**
+                //        * It turned out that Chrome won't set the cookie if the domain contains a port. Setting it for localhost (without port) is not a problem
+                //        */
+                //       domain: "localhost",
+                //     }
+                //   )
+                performance.push((0, measure_performance_1.getNewPerformance)("gatherIpInfo", executionId));
+                if (!alreadyDevice) return [3 /*break*/, 3];
                 currentIpInfo_1 = {
                     ip: alreadyDevice.ip,
                     city: alreadyDevice.city,
@@ -129,22 +148,42 @@ var upsertDevice = function (ctx) { return __awaiter(void 0, void 0, void 0, fun
                 newOrigins = alreadyDevice.origins.includes(origin)
                     ? alreadyDevice.origins
                     : alreadyDevice.origins.concat(origin);
-                updatedDevice_1 = __assign(__assign(__assign({}, alreadyDevice), newIpStuff), { origins: newOrigins, userAgent: userAgent, userAgentString: userAgent.ua });
-                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.id === authToken; }, function () { return updatedDevice_1; })];
-            case 3:
-                _c.sent();
+                currentPersonCalculated_1 = alreadyDevice.currentPersonId
+                    ? (_b = alreadyDevice.persons) === null || _b === void 0 ? void 0 : _b.find(function (x) { return x.id === alreadyDevice.currentPersonId; })
+                    : undefined;
+                updatedDevice_1 = __assign(__assign(__assign({}, alreadyDevice), newIpStuff), { currentPersonCalculated: currentPersonCalculated_1, origins: newOrigins, userAgent: userAgent, userAgentString: userAgent.ua });
+                performance.push((0, measure_performance_1.getNewPerformance)("alreadyDevice_makeUpdatedDevice", executionId));
+                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.authToken === authToken; }, function () { return updatedDevice_1; })];
+            case 2:
+                _d.sent();
+                performance.push((0, measure_performance_1.getNewPerformance)("alreadyDevice_updateDevice", executionId));
+                (0, savePageVisit_1.savePageVisit)(alreadyDevice.id, ipInfo, referer);
+                //console.log("upsertDevice, already device", performance);
                 return [2 /*return*/, updatedDevice_1];
-            case 4:
+            case 3:
                 newDevice = __assign(__assign({ authToken: authToken, authenticationMethods: [] }, ipInfo), { lastOnlineAt: 0, lastSyncDatabaseAtObject: {}, name: (0, calculateDeviceName_1.calculateDeviceName)(ipInfo, userAgent), origins: [origin], previousIps: [], userAgent: userAgent, userAgentString: userAgent.ua, hasPapi: false });
-                // Create new device
-                return [4 /*yield*/, database_1.db.upsert("Device", newDevice, { onlyInsert: true })];
-            case 5:
-                // Create new device
-                _c.sent();
+                performance.push((0, measure_performance_1.getNewPerformance)("calculateNewDevice", executionId));
+                return [4 /*yield*/, database_1.db.upsert("Device", newDevice, {
+                        onlyInsert: true,
+                    })];
+            case 4:
+                upsertResult = _d.sent();
+                performance.push((0, measure_performance_1.getNewPerformance)("upsertNewDevice", executionId));
                 return [4 /*yield*/, database_1.db.get("Device", { include: deviceInclude })];
-            case 6:
-                fullNewDevice = (_c.sent()).find(function (x) { return x.id === authToken; });
-                return [2 /*return*/, fullNewDevice];
+            case 5:
+                fullNewDevice = (_d.sent()).find(function (x) { return x.authToken === authToken; });
+                performance.push((0, measure_performance_1.getNewPerformance)("getFullNewDevice", executionId));
+                if (fullNewDevice) {
+                    (0, savePageVisit_1.savePageVisit)(fullNewDevice.id, ipInfo, referer);
+                }
+                currentPersonCalculated = (fullNewDevice === null || fullNewDevice === void 0 ? void 0 : fullNewDevice.currentPersonId)
+                    ? (_c = fullNewDevice.persons) === null || _c === void 0 ? void 0 : _c.find(function (x) { return x.id === fullNewDevice.currentPersonId; })
+                    : undefined;
+                finalNewDevice = fullNewDevice
+                    ? __assign(__assign({}, fullNewDevice), { currentPersonCalculated: currentPersonCalculated }) : undefined;
+                performance.push((0, measure_performance_1.getNewPerformance)("calculateMetadata", executionId));
+                //console.log("upsertDevice", performance);
+                return [2 /*return*/, finalNewDevice];
         }
     });
 }); };

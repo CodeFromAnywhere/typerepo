@@ -1,0 +1,37 @@
+{
+  "createdAt": 1668752110527,
+  "updatedAt": 1668752110527,
+  "deletedAt": 0,
+  "createdFirstAt": 1668752110527,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "explicitTypeName": "ProjectWatcher",
+  "operationRelativeTypescriptFilePath": "src/removeTypescriptIndex.ts",
+  "commentsInside": [],
+  "rawText": " (eventName, path) => {\n  console.log(\n    eventName,\n    path,\n    \"Should remove all indexations we had on this path\",\n    path\n  );\n}",
+  "name": "removeTypescriptIndex",
+  "slug": "remove-typescript-index",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 136,
+    "lines": 8,
+    "bytes": 136,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 17,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "rcthrfsncpbnnquihfgbmybs"
+}

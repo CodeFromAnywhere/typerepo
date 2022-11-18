@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378643539,
-  "updatedAt": 1667378643539,
+  "createdAt": 1668773881840,
+  "updatedAt": 1668773881840,
   "deletedAt": 0,
-  "createdFirstAt": 1667378643539,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668773881840,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/convertToMp3.ts",
   "commentsInside": [],
   "rawText": " (\n  sourcePath: string,\n  destinationPath: string\n): Promise<string | undefined> => {\n  return new Promise<string | undefined>((resolve, reject) => {\n    ffmpeg({ source: sourcePath })\n      .toFormat(\"mp3\")\n      .saveToFile(destinationPath)\n      .on(\"end\", () => {\n        resolve(destinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        resolve(undefined);\n      });\n  });\n}",
@@ -58,5 +53,5 @@
     "linesPerFile": 18,
     "numberOfFiles": 1
   },
-  "id": "zirgbxoxbyipnainptulbxfh"
+  "id": "ijsqmirctcxsjuaehnrdnkdm"
 }

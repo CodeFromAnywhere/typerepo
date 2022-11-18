@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667111118720,
-  "updatedAt": 1667111118720,
+  "createdAt": 1668773848043,
+  "updatedAt": 1668773848043,
   "deletedAt": 0,
-  "createdFirstAt": 1667111118720,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668773848043,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getPreferredExtensionFromType.ts",
   "commentsInside": [],
   "rawText": " (type: string | undefined) => {\n  if (type === \"audio/mp4\") return \"mp3\";\n  return type?.split(\"/\").pop();\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "qoswbfsfidvviuyabzrlqloy"
+  "id": "biotfzzasaynqeirevzigdrs"
 }

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667378653623,
-  "updatedAt": 1667378653623,
+  "createdAt": 1668773889784,
+  "updatedAt": 1668773889784,
   "deletedAt": 0,
-  "createdFirstAt": 1667378653623,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668773889784,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getTemporaryAssetsFolderPath.ts",
   "commentsInside": [],
   "rawText": " () => {\n  return path.join(__dirname, \"..\", \"assets\");\n}",
@@ -41,5 +36,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "fgpsbisfpgdjwfyafdmouxbj"
+  "id": "wmozqgdgdqhajsxvvoktucwc"
 }

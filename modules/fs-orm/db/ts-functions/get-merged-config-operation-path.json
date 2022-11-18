@@ -1,17 +1,12 @@
 {
-  "createdAt": 1668148845854,
-  "updatedAt": 1668148845854,
+  "createdAt": 1668774333249,
+  "updatedAt": 1668774333249,
   "deletedAt": 0,
-  "createdFirstAt": 1668148845854,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668774333249,
+  "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/convention/getDatabaseFiles.ts",
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/convention/getMergedOperationPath.ts",
   "commentsInside": [],
   "rawText": " async (\n  mergedConfig: MergedQueryConfig,\n  manualProjectRoot?: string\n): Promise<false | string | undefined> => {\n  if (mergedConfig.operationName) {\n    const operationPath = await getOperationPath(mergedConfig.operationName, {\n      manualProjectRoot,\n      notUseSdk: !!manualProjectRoot,\n    });\n    //\n    if (operationPath === undefined) {\n      log(`Operation wasn't found ${mergedConfig.operationName}`, {\n        type: \"warning\",\n      });\n    }\n\n    return operationPath;\n  }\n\n  return false;\n}",
   "name": "getMergedConfigOperationPath",
@@ -55,5 +50,5 @@
     "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "najdzkraabyicbnugiecpeek"
+  "id": "aaftsxfujdwimsempurrxpbf"
 }

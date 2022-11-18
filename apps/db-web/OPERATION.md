@@ -1,3 +1,3 @@
-# 🗄 db-web
+# 🗄 database
 
-Wraps `db-ui` to expose it on a next.js react website for in the browser.
+Visual user interface for interacting with all available data in the typebase fs-orm database.

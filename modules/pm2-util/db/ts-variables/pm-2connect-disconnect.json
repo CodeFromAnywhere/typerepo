@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668773979621,
+  "updatedAt": 1668773979621,
+  "deletedAt": 0,
+  "createdFirstAt": 1668773979621,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "pm2ConnectDisconnect",
+  "slug": "pm-2connect-disconnect",
+  "operationRelativeTypescriptFilePath": "src/pm2ConnectDisconnect.ts",
+  "type": {
+    "rawType": "<TResult extends { [key: string]: any; isSuccessful: boolean; error?: any; proc?: import(\"/Users/king/King/operations/node_modules/pm2/types/index\").Proc | undefined; }>(action: (resolve: (value: TResult) => void) => void) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async <\n  TResult extends {\n    isSuccessful: boolean;\n    error?: Error;\n    proc?: pm2.Proc;\n    [key: string]: any;\n  }\n>(\n  action: (resolve: (value: TResult) => void) => void\n) => {\n  const result = await new Promise<{\n    isSuccessful: boolean;\n    error?: Error;\n    proc?: pm2.Proc;\n  }>(async (resolve) => {\n    const { error } = await pm2Connect();\n    if (error) resolve({ isSuccessful: false, error });\n    action((value: TResult) => {\n      resolve(value);\n      pm2.disconnect();\n    });\n  });\n\n  return result;\n}",
+  "description": "Function that lets you connect, execute a pm2 action, and disconnect after",
+  "id": "kgiqsqidkrahweslelcozwgf"
+}

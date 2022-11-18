@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150568075,
-  "updatedAt": 1668150568075,
+  "createdAt": 1668775398621,
+  "updatedAt": 1668775398621,
   "deletedAt": 0,
-  "createdFirstAt": 1668150568075,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668775398621,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/cli/generateOperationsSdk.cli.ts",
   "commentsInside": [],
   "rawText": " () => {\n  const [customProjectRoot] = process.argv.slice(2);\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  generateOperationsSdk({\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "ixnbnbrixswsmiqzbjaujukl"
+  "id": "eopdspsmsmqkboxhkwsoczfc"
 }

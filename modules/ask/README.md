@@ -1,6 +1,6 @@
 # Ask
 
-ask (`OperationClassification` node)
+ask (`OperationClassification` node-cjs)
 
 CLI helpers to ask for input parameters (instead of providing as part of the cli command itself)
 
@@ -31,7 +31,14 @@ CLI helpers to ask for input parameters (instead of providing as part of the cli
 
 ## 📄 ask (exported const)
 
-## getArgumentOrAsk()
+# Internal
+
+<details><summary>Show internal (2)</summary>
+    
+  # getArgumentOrAsk()
+
+
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -41,4 +48,6 @@ CLI helpers to ask for input parameters (instead of providing as part of the cli
 
 
 ## 📄 getArgumentOrAsk (exported const)
+
+  </details>
 
