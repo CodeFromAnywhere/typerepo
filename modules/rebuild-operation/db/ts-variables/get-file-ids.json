@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668336151091,
-  "updatedAt": 1668336151091,
+  "createdAt": 1668835974520,
+  "updatedAt": 1668835974520,
   "deletedAt": 0,
-  "createdFirstAt": 1668336151091,
+  "createdFirstAt": 1668835974520,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async ({\n  operationFolderPath,\n  pathSuffix,\n  extension,\n}: {\n  operationFolderPath: string;\n  extension?: SearchableExtension | SearchableExtension[];\n  pathSuffix: string;\n}) => {\n  const basePath = path.join(operationFolderPath, pathSuffix);\n\n  return (\n    await explore({\n      basePath,\n      extension,\n    })\n  )\n    .map((x) => x.path)\n    .map((p) => withoutExtension(p.slice(basePath.length)));\n}",
   "description": "gets all identifiers of files, which are the relative path to a file without the extension",
-  "id": "ykwzvesytipasmkyvdpjlhyq"
+  "id": "vsrjurnmbfylhgqijzlbkmag"
 }

@@ -44,6 +44,16 @@ export interface ApiReturnType<TFunctionName extends keyof SdkType> extends Exec
     result?: FnReturn<TFunctionName>;
 }
 /**
+ * Handy type interface for rendering response
+ */
+export interface StandardizedApiReturnType extends ExecuteFunctionResult {
+    result?: {
+        isSuccessful?: boolean;
+        message?: string;
+        [key: string]: any;
+    };
+}
+/**
  * Taking into account the `xyzWithContextRaw` convention
  */
 export declare type RealApiReturnType<TFunctionName extends keyof SdkType> = IsRawApiResultFunction<TFunctionName> extends true ? FnReturn<TFunctionName> : ApiReturnType<TFunctionName>;

@@ -13,5 +13,6 @@ export * from "./PersonProfileDetails";
 export * from "./PersonSocialMedia";
 export * from "./Persona";
 export * from "./Platform";
+export * from "./external/ua-parser-js";
 export * from "./old/PeerMessage";
 //# sourceMappingURL=index.d.ts.map

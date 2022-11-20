@@ -16,12 +16,13 @@ export declare const sdk: {
         value?: import("asset-type").BackendAsset[] | undefined;
         onChange: (value: import("asset-type").BackendAsset[]) => void;
         projectRelativeReferencingFilePath: string;
+        modelName?: string | undefined;
     }) => JSX.Element;
     FileInput: (props: {
         setBlobs: (blobs: import("asset-type").Asset[]) => void;
     }) => JSX.Element;
     getTypeFromFileBlob: (file: File) => import("asset-type").AssetType;
-    makeBackendAsset: (asset: import("asset-type").Asset) => import("asset-type").BackendAsset;
+    makeBackendAsset: (asset: import("asset-type").Asset, projectRelativeReferencingFilePath: string, modelName?: string | undefined) => import("asset-type").BackendAsset;
     MediaRecorderComponent: (props: import("asset-input").ReactMediaRecorderRenderProps & {
         type: import("asset-input").MediaRecorderType;
     }) => JSX.Element;
@@ -52,7 +53,7 @@ export declare const sdk: {
     }) => JSX.Element;
     itemGetBackendAssetUrl: (config: {
         item: import("model-types").AugmentedAnyModelType;
-        backendAsset?: import("asset-type").BackendAsset | undefined;
+        backendAsset?: import("asset-type").BackendAsset | import("asset-type").BackendAsset[] | undefined;
         isDownload?: boolean | undefined;
     }) => string | undefined;
     ModelItemAssetView: <T extends import("model-types").AugmentedAnyModelType>(props: {
@@ -61,11 +62,15 @@ export declare const sdk: {
         hideDownloadLink?: boolean | undefined;
         className?: string | undefined;
     }) => JSX.Element | null;
+    AuthenticationMethodsCrud: () => JSX.Element;
     LoginForm: () => JSX.Element;
     LoginWrapper: (props: {
         children: any;
     }) => any;
     MeAuthenticationInfo: () => JSX.Element;
+    PersonProfileDetailsForm: (props: {
+        personProfileDetails: import("peer-types").PersonProfileDetails;
+    }) => JSX.Element | null;
     PictureWithInfoDropdown: <T_1 extends unknown>(props: {
         current: import("authentication").PictureWithInfo<T_1>;
         dropdown: import("authentication").PictureWithInfo<T_1>[];
@@ -77,10 +82,12 @@ export declare const sdk: {
         onClickCurrent?: (() => void) | undefined;
         onSelectDropdownItem: (selected: T_1 | undefined) => void;
     }) => JSX.Element;
+    PublicPersonComponent: (props: {
+        publicPerson: import("peer-types").PublicPerson | undefined;
+    }) => JSX.Element | null;
+    PublicProfile: () => JSX.Element;
     SignupForm: () => JSX.Element;
-    UpdateMeForm: (props: {
-        title?: string | undefined;
-    }) => JSX.Element;
+    UpdateMeForm: () => JSX.Element;
     BigButton: (button: BigButton) => JSX.Element;
     BreadCrumbs: (props: {
         path: string;
@@ -89,36 +96,58 @@ export declare const sdk: {
     ClickableIcon: (button: import("clickable-icon").ClickableIconType) => JSX.Element;
     errorToast: (message?: string | undefined) => void;
     infoToast: (message?: string | undefined) => void;
+    showStandardResponse: (apiResult: import("api-types").StandardizedApiReturnType) => void;
     successToast: (message?: string | undefined) => void;
     warningToast: (message?: string | undefined) => void;
+    CrudGrid: (props: import("db-crud").CrudViewProps) => JSX.Element;
+    CrudTable: (props: import("db-crud").CrudViewProps) => JSX.Element;
+    CrudTimeline: (props: import("db-crud").CrudViewProps) => JSX.Element;
+    CrudTree: (props: import("db-crud").CrudViewProps) => JSX.Element;
+    DatasetForm: (props: {
+        modelName: string;
+    }) => JSX.Element;
     DbPage: () => JSX.Element;
-    getDataParameterNames: (properties: import("schema-util").SchemaProperty[]) => string[];
+    getPropertiesDataParameterNames: (properties: import("schema-util").SchemaProperty[]) => string[];
     IndexInstanceContainer: ({ title, children, buttons, }: {
         title: string;
         children: any;
         buttons: import("labeled-button").LabeledButtonType[];
     }) => JSX.Element;
-    ModelComponent: ({ modelName, highlight, }: {
+    ModelComponent: (props: {
         modelName?: string | undefined;
-        highlight: {
-            slug?: string | undefined;
-            id?: string | undefined;
-        };
+        highlight: import("db-crud").Highlight;
     }) => JSX.Element;
+    openWhatsapp: ({ phone, text, }: {
+        phone: string;
+        text: string;
+    }) => void;
+    shimmer: (w: number, h: number) => string;
     SimplifiedSchemaFormDebug: ({ parameters, values, }: {
         parameters: import("code-types").FunctionParameter[] | undefined;
         values: any[];
     }) => JSX.Element;
+    sortToItem: (sort: import("code-types").DatasetSort) => import("react-with-native-select").Item<import("code-types").DatasetSort>;
+    SpaceCard: (props: {
+        secondaryImageUrl: string | null;
+        darkened: boolean;
+        base64?: string | undefined;
+        imageUrl: string;
+        ctaText: string;
+        title: string;
+        subtitle: string;
+        action?: (() => any) | undefined;
+    }) => JSX.Element;
+    toBase64: (str: string) => string;
     UpsertForm: (props: {
         simplifiedSchema: import("code-types").SimplifiedSchema;
         instance: any;
         referencableModelNames?: string[] | undefined;
-        projectRelativeStorageFilePath: string;
+        modelName: string;
     }) => JSX.Element;
     UpsertPage: () => JSX.Element;
-    useGetDbModelQuery: <KDbModel extends "SelfSprintReview" | "TodoFile" | "TodoOffer" | "AuthorizationModel" | "Device" | "Group" | "PageVisit" | "PaymentCoupon" | "PaymentEvent" | "PaymentPlan" | "PaymentSubscription" | "PeerMessage" | "Person" | "Persona" | "PersonInformation" | "PersonInformationValue" | "PersonPlatformConnection" | "Platform" | "RecurringReminder" | "Interest" | "MediaChannel" | "MediaCredentail" | "MediaPost" | "Postable" | "BundleConfig" | "Dataset" | "FunctionExecution" | "Operation" | "SocialMediaCallToAction" | "TsBuildError" | "TsComment" | "TsConfig" | "TsExport" | "TsFunction" | "TsImport" | "TsInterface" | "TsLintWarning" | "TsVariable" | "TypescriptFile" | "WebMarkdownFile" | "WebsiteCallToAction" | "Address" | "Area" | "City" | "Country" | "Location" | "KvmdWord" | "MarkdownWord" | "NepaliEnglishTranslationMatrix" | "Statement" | "TokiPonaMatrix" | "Translation" | "Word" | "WordCategory" | "WordCombination" | "WordMatrix" | "SlugModelType" | "AppDeveloper" | "Assignment" | "Bag" | "Calendar" | "Deliverable" | "Diary" | "Feeling" | "FeelingLog" | "Folder" | "Host" | "Inventory" | "Item" | "ItemCategory" | "KvmdShortcut" | "Label" | "Light" | "Listing" | "LoginCredential" | "Material" | "MessagePreset" | "PersonalCarbonFootprintProfile" | "ProgressReport" | "Question" | "Reservation" | "Resource" | "Shit" | "ShitLog" | "ShoppingList" | "Shortcut" | "Student" | "Student2" | "TaskError" | "Trackable" | "User" | "UserCredential" | "Artist" | "PlayCategory" | "PlayItem" | "PlayList" | "PlaySchedule" | "RelationModelType" | "JeepType" | "LocationType" | "OperationConfig" | "OperationIndex" | "PackageJson" | "Activity" | "CompanyRequirement" | "CompanySize" | "CompanyType" | "Company" | "ContactInformation" | "Contribution" | "EsgMetric" | "ProductCategory" | "Product" | "ProofState" | "Proof" | "SustainabilityPlan" | "ValueChainPhase">(modelName: KDbModel | undefined) => import("react-query").UseInfiniteQueryResult<import("api-types").ApiReturnType<"getDbModel">, unknown>;
-    useModelQuery: () => string | undefined;
-    useUrl: <T_2 extends "path" | "id" | "type" | "name" | "slug">(queryKey: T_2) => {
+    useInfiniteGetDbModel: () => import("react-query").UseInfiniteQueryResult<import("api-types").ApiReturnType<"getDbModel">, unknown>;
+    useModelFromUrl: () => string | undefined;
+    useUrl: <T_2 extends "path" | "id" | "slug" | "name" | "type">(queryKey: T_2) => {
         path: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
         name: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
         type: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
@@ -142,12 +171,14 @@ export declare const sdk: {
         augmentedWords?: import("augmented-word-types").AugmentedWord[] | undefined;
     }) => JSX.Element;
     FunctionForm: <T_3 extends (...params: any[]) => any>(props: {
+        projectRelativeStorageFilePath?: string | undefined;
+        modelName?: string | undefined;
         tsFunction: any;
         submitFunction?: T_3 | undefined;
         withResult?: ((result: import("api-types").WithoutPromise<ReturnType<T_3>>) => void) | undefined;
         withApiResult?: ((result: any) => void) | undefined;
         initialValues?: any[] | undefined;
-        hideResult?: boolean | undefined;
+        showResult?: boolean | undefined;
     }) => JSX.Element;
     converse: (searchMessage: string) => Promise<false | undefined>;
     executeSdkFunction: (operationString: string, parameters: string[] | undefined) => Promise<any>;
@@ -369,6 +400,8 @@ export declare const sdk: {
         value?: import("react-with-native-select").Item<T_7> | null | undefined;
         selectFirstOption?: boolean | undefined;
     }) => import("react-with-native-select").Item<T_7>;
+    useSelectMultiple: <T_8 extends unknown>(items?: import("react-with-native-select").Item<T_8 | null>[] | undefined, initialValue?: import("react-with-native-select").Item<T_8 | null>[] | undefined, withValue?: ((value: import("react-with-native-select").Item<T_8 | null>[]) => void) | undefined, config?: Omit<import("react-with-native-select").SelectMultipleInputProps<T_8>, "onChange" | "value" | "options"> | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_8 | null>[], setValue: (value: import("react-with-native-select").Item<T_8 | null>[]) => void];
+    useSelect: <T_9 extends unknown>(items?: import("react-with-native-select").Item<T_9>[] | undefined, initialValue?: import("react-with-native-select").Item<T_9> | undefined, withValue?: ((value: import("react-with-native-select").Item<T_9> | undefined) => void) | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_9> | null, setValue: (value: import("react-with-native-select").Item<T_9> | null) => void];
     createStoreProvider: <TStore extends object>(config: import("react-with-native-store").StoreConfig<TStore>) => ({ children }: {
         children: any;
     }) => JSX.Element;
@@ -383,9 +416,9 @@ export declare const sdk: {
     setItem: (key: string, value: any) => Promise<void>;
     getColumns: (modelName: string, interfaces: import("code-types").TsInterface[] | undefined, data: any[]) => import("react-with-native-table").ColumnType<any>[];
     TableHeadItem: (column: import("react-with-native-table").ColumnType<any>) => JSX.Element;
-    TableRow: <T_8 extends {
+    TableRow: <T_10 extends {
         [key: string]: any;
-    } = any>({ row, columns, renderExtraColumns, extraColumnsAtStart, shouldHighlight, }: import("react-with-native-table").RowType<T_8>) => JSX.Element;
+    } = any>({ row, columns, renderExtraColumns, extraColumnsAtStart, shouldHighlight, }: import("react-with-native-table").RowType<T_10>) => JSX.Element;
     Table: <TModel extends {
         [key: string]: any;
     }>({ data, columns, renderExtraColumns, extraColumnsAtStart, onEndReached, shouldHighlightItem, }: import("react-with-native-table").TableType<TModel>) => JSX.Element;
@@ -400,6 +433,7 @@ export declare const sdk: {
         isDebug?: boolean | undefined;
         referencableModelData?: import("simplified-schema-form").ReferencableModelData | undefined;
         id: string;
+        modelName?: string | undefined;
     }) => JSX.Element | null;
     FormContainer: (props: {
         className?: string | undefined;
@@ -423,6 +457,7 @@ export declare const sdk: {
         referencableModelData?: import("simplified-schema-form").ReferencableModelData | undefined;
         referencedModelDataIsLoading?: boolean | undefined;
         id: string;
+        modelName?: string | undefined;
     }) => JSX.Element | null;
     ReferenceInput: (props: {
         parameter: import("code-types").FunctionParameter;
@@ -436,18 +471,20 @@ export declare const sdk: {
         isDebug?: boolean | undefined;
     }) => JSX.Element;
     renderParameterTitle: (parameter: import("simplified-schema-form").RenderableFunctionParameter, isDebug: boolean | undefined, isBolded?: boolean | undefined, renderAdditionalButtons?: (() => JSX.Element | null) | undefined) => JSX.Element;
-    SimplifiedSchemaForm: (props: {
+    SimplifiedSchemaForm: <TValues extends any[]>(props: {
         id: string;
         parameterNameStack?: string[] | undefined;
         parameters: import("simplified-schema-form").RenderableFunctionParameter[];
-        values: any[] | undefined;
-        onChange: (values: any[]) => void;
+        values: TValues | undefined;
+        onChange: (values: TValues) => void;
         referencableModelData?: import("simplified-schema-form").ReferencableModelData | undefined;
         isDebug?: boolean | undefined;
         projectRelativeStorageFilePath?: string | undefined;
         itemNameOrId?: string | undefined;
+        modelName?: string | undefined;
     }) => JSX.Element | null;
     useReferencableModelData: (simplifiedSchema: import("code-types").SimplifiedSchema) => import("simplified-schema-form").ReferencableModelData | undefined;
+    useTsInterfaceForm: <T_11 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_11 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_11 | undefined, onChange?: ((value: T_11) => void) | undefined];
     Tooltip: (props: {
         tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;
         children: import("react").ReactNode;
@@ -469,7 +506,7 @@ export declare const sdk: {
         renderSpacer?: boolean | undefined;
     } | undefined) => JSX.Element | null;
     renderMarkdownChunk: (chunk: import("code-types").MarkdownChunk, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
-    renderMarkdownContent: (content: string, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
+    renderMarkdownContent: (content: string, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element | "No content";
     renderMarkdownParse: (markdownParse: import("code-types").MarkdownParse, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownTitle: (title: string, level: number) => JSX.Element;
     useOpenHashDetails: () => void;
@@ -477,14 +514,14 @@ export declare const sdk: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
     }) => JSX.Element;
-    ContentEditableDivInput: <T_9 extends unknown>(props: {
+    ContentEditableDivInput: <T_12 extends unknown>(props: {
         value: string;
         onChange: (newValue: string) => void;
         markdownParseRenderConfig?: import("markdown").MarkdownParseRenderConfig | undefined;
         subwordConfig: import("writer-types").SubwordConfig;
         subtextConfig: import("writer-types").SubtextConfig;
         parseTextContentToHtmlString: import("writer-input").ParseTextContentToHtmlString;
-        divProps: Omit<import("react-with-native").FinalDivType<T_9>, "contentEditable" | "onChange" | "onInput" | "value">;
+        divProps: Omit<import("react-with-native").FinalDivType<T_12>, "contentEditable" | "onChange" | "onInput" | "value">;
     }) => JSX.Element;
     ContextTextArea: (props: import("writer-input").EditorProps) => JSX.Element;
     DivContentEditable: (props: import("writer-input").EditorProps) => JSX.Element;
@@ -493,6 +530,7 @@ export declare const sdk: {
         subwordConfig: import("writer-types").SubwordConfig;
     };
     FrontmatterForm: (props: {
+        modelName?: string | undefined;
         projectRelativeMarkdownFilePath: string;
         frontmatterSchema: import("code-types").SimplifiedSchema;
         markdownParse: import("code-types").MarkdownParse;

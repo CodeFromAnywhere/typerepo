@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1668773943820,
-    "updatedAt": 1668773943820,
+    "createdAt": 1668835200343,
+    "updatedAt": 1668835200343,
     "deletedAt": 0,
-    "createdFirstAt": 1668773943820,
+    "createdFirstAt": 1668835200343,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/itemGetBackendAssetUrl.ts",
-    "comment": "Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.",
-    "rawStatement": "export const itemGetBackendAssetUrl = (config: {\n  item: AugmentedAnyModelType;\n  backendAsset: BackendAsset;\n  isDownload?: boolean;\n}) => {\n  const { backendAsset, item, isDownload } = config;\n\n  if (!backendAsset.relativePath) {\n    return undefined;\n  }\n\n  const url = getReferencedAssetApiUrl(\n    apiUrl,\n    item.projectRelativePath,\n    backendAsset.relativePath,\n    isDownload\n  );\n  return url;\n};",
+    "comment": "Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.\n\nIf you provide an array it'll take the first asset.",
+    "rawStatement": "export const itemGetBackendAssetUrl = (config: {\n  item: AugmentedAnyModelType;\n  backendAsset?: BackendAsset | BackendAsset[];\n  isDownload?: boolean;\n}) => {\n  const { backendAsset, item, isDownload } = config;\n\n  const realBackendAsset = backendAsset ? takeFirst(backendAsset) : undefined;\n\n  if (!realBackendAsset?.relativePath) {\n    return undefined;\n  }\n\n  const url = getReferencedAssetApiUrl(\n    apiUrl,\n    item.projectRelativePath,\n    realBackendAsset.relativePath,\n    isDownload\n  );\n  return url;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 6,
-    "lastLine": 8,
-    "id": "wyvvwwwighnyzprphpnoyhgo"
+    "firstLine": 7,
+    "lastLine": 11,
+    "id": "nhpkfiehlpompcafpkvnbdet"
   }
 ]

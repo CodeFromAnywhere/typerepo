@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752279643,
-  "updatedAt": 1668752279643,
+  "createdAt": 1668831763281,
+  "updatedAt": 1668831763281,
   "deletedAt": 0,
-  "createdFirstAt": 1668752279643,
+  "createdFirstAt": 1668831763281,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "add-person-authentication-method-with-context",
   "operationRelativeTypescriptFilePath": "src/addPersonAuthenticationMethodWithContext.ts",
   "type": {
-    "rawType": "(functionContext: import(\"/Users/king/King/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext, personId: string, method: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/AuthenticationMethjod\").AuthenticationMethodMethod, handle: string, credential?: string | undefined) => unknown",
+    "rawType": "(functionContext: import(\"/Users/king/King/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext, method: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/AuthenticationMethjod\").AuthenticationMethodMethod, handle: string, credential?: string | undefined) => unknown",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  functionContext: FunctionContext,\n  personId: string,\n  method: AuthenticationMethodMethod,\n  handle: AuthenticationMethod[\"handle\"],\n  credential?: string\n) => {\n  if (!functionContext.device.personIds?.includes(personId)) {\n    return { isSuccessful: false, message: \"Incorrect credentials\" };\n  }\n\n  const { isSuccessful, message, authenticationMethod } =\n    await addAuthenticationMethod(method, handle, true, credential);\n\n  if (!isSuccessful || !authenticationMethod) {\n    return { isSuccessful, message };\n  }\n\n  const updateResult = await db.update(\n    \"Person\",\n    (item) => item.id === personId,\n    (old) => ({\n      ...old,\n      authenticationMethods:\n        old.authenticationMethods.concat(authenticationMethod),\n    })\n  );\n\n  return { isSuccessful: updateResult.isSuccesful, message: \"Method added\" };\n}",
+  "value": "async (\n  functionContext: FunctionContext,\n  method: AuthenticationMethodMethod,\n  handle: AuthenticationMethod[\"handle\"],\n  credential?: string\n) => {\n  const { isSuccessful, message, authenticationMethod } =\n    await addAuthenticationMethod(method, handle, true, credential);\n\n  if (!isSuccessful || !authenticationMethod) {\n    return { isSuccessful, message };\n  }\n\n  const updateResult = await db.update(\n    \"Person\",\n    (item) => item.id === functionContext.device.currentPersonId,\n    (old) => ({\n      ...old,\n      authenticationMethods:\n        old.authenticationMethods.concat(authenticationMethod),\n    })\n  );\n\n  return { isSuccessful: updateResult.isSuccesful, message };\n}",
   "description": "",
-  "id": "txvzqdnnlowxbehdsakoepjc"
+  "id": "pbfkyutjljuqkvcbmvfmhnqt"
 }

@@ -1,30 +1,19 @@
-# Welcome
+# Getting started
 
-TypeRepo is a full stack typescript framework that lets you build apps super quickly and smoothly. TypeRepo lets you easily share your code between `React` and `React Native`, and between `front-end` and `back-end`. It has never been this easy! TypeRepo's mission is to boost the productivity of 100.000+ Software Developers, making it as easy as possible to build high-quality full-stack mobile- and web-apps.
+## Installation instructions `*`
 
-Want to know more? See the [docs](https://typerepo.com)
-
-## Installation instructions
-
-1. Make sure you have `brew`, `node`, `npm` and `npx`. If you don't, this is how to install them:
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-```
-brew install node
-```
-
-2. clone this repo
-
-```
+```bash
 git clone https://github.com/CodeFromAnywhere/typerepo.git
+cd typerepo
+yarn
+yarn dev
 ```
 
-3. run `yarn` and `npx dev` to get developing!
+`*` = Make sure you have `node` 17+ (we are using the new fetch api)
 
 ## How does it work?
+
+Well there's just too much to explain... I'll probably do some more demo's soon, but the most important is probably the following:
 
 - Define endpoints (and other type interfaces) in a central place
 - Write your endpoint with complete typesafety

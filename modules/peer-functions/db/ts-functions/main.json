@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668149687030,
-  "updatedAt": 1668149687030,
+  "createdAt": 1668835448675,
+  "updatedAt": 1668835448675,
   "deletedAt": 0,
-  "createdFirstAt": 1668149687030,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835448675,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/isPortUsed.test.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const result = await isPortUsed(4202);\n\n  console.log({ result });\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "syptvjzjgrlzsgatitkrlewm"
+  "id": "kjhpyeqrsixqmslwxcbrhqap"
 }

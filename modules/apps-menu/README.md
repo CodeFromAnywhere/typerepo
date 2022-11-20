@@ -12,14 +12,3 @@ Please set a description for this operation in OPERATION.md
 
 # Api reference
 
-## `<AppsMenu />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `JSX.Element`   |    |
-
-
-
-## 📄 AppsMenu (exported const)
-

@@ -97,7 +97,9 @@ var AppsMenu = function () {
                                 return [2 /*return*/];
                         }
                     });
-                }); } }, { children: [(0, jsx_runtime_1.jsx)(tooltip_1.Tooltip, __assign({ placement: "top", tooltip: (0, markdown_1.renderMarkdownContent)(appOperation.description || appOperation.name, {
+                }); } }, { children: [(0, jsx_runtime_1.jsx)(tooltip_1.Tooltip, __assign({ placement: "top", tooltip: (0, markdown_1.renderMarkdownContent)(appOperation.description ||
+                            appOperation.name ||
+                            "No description set", {
                             projectRelativeBaseFolderPath: "",
                             projectRelativeMarkdownFilePath: "",
                         }) }, { children: (0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ className: "bg-white border border-black mb-2 rounded-lg w-12 h-12 flex items-center justify-center hover:scale-150 transition-all" }, { children: loading[appOperation.name] === true ? ((0, jsx_runtime_1.jsx)(fancy_loader_1.FancyLoader, { medium: true })) : ((0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ title: appOperation.name, className: "text-4xl" }, { children: appOperation.emoji ||

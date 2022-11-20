@@ -1,4 +1,3 @@
-/// <reference types="react" />
 export declare type CodeblockMode = "preview" | "scroll" | "full";
 export declare const defaultExpandedMode: CodeblockMode;
 export declare const defaultMinimalMode: CodeblockMode;
@@ -7,6 +6,9 @@ export declare const defaultMinimalMode: CodeblockMode;
  *
  */
 export declare const MarkdownCodeblock: (props: {
+    /**
+     * STRING! don't put a JSON object here,  first use JSON.stringify!
+     */
     text: string;
     extension?: string | undefined;
     /**

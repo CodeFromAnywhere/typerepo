@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668775642966,
-  "updatedAt": 1668775642966,
+  "createdAt": 1668837672057,
+  "updatedAt": 1668837672057,
   "deletedAt": 0,
-  "createdFirstAt": 1668775642966,
+  "createdFirstAt": 1668837672057,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/UpsertForm.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  /**\n   * the schema for the model we want to update/create\n   */\n  simplifiedSchema: SimplifiedSchema;\n  /**\n   * an instance, if it's an update form\n   */\n  instance: any;\n  /**\n   * NB: this thing will make hooks appear, so it must be constant!\n   */\n  referencableModelNames?: string[];\n  /**\n   * Where is the file stored that this form is for? needed for rendering images and uploading images in writer-input\n   */\n  projectRelativeStorageFilePath: string;\n}) => {\n  const {\n    instance,\n    simplifiedSchema,\n    referencableModelNames,\n    projectRelativeStorageFilePath,\n  } = props;\n  const router = useRouter();\n  const alert = useAlert();\n  const [debug, setDebug] = useState(false);\n  const [id] = useState<string>(generateId());\n  const [loading, setLoading] = useState(false);\n  const [body, setBody] = useState<any>(instance);\n  const [result, setResult] = useState<any>();\n  const modelQuery = useModelQuery();\n  const model = useGetDbModelQuery(modelQuery as DbModelEnum);\n  // NB: all items that this model has can be referenced to in other forms also need to refresh\n\n  const getReferencableModelDataQuery = queries.useGetReferencableModelData(\n    modelQuery as DbModelEnum\n  );\n\n  const referencableModelData = useReferencableModelData(simplifiedSchema);\n\n  const parameters: RenderableFunctionParameter[] = [\n    {\n      name: \"\",\n      required: true,\n      simplifiedSchema,\n      renderButtons: () => <Span />,\n      isDbModel: true,\n    },\n  ];\n  const values = [body];\n\n  const onSubmitForm = () => {\n    if (!modelQuery) return;\n\n    setLoading(true);\n\n    upsertDbModel(modelQuery as any, body)\n      .then(async (result) => {\n        if (!result.result?.isSuccesful) {\n          // If the upsert fails for some reason, this should be made clear\n          alert?.(\"Error\", result.result?.message || result.message);\n          setLoading(false);\n        } else {\n          // NB: we are not waiting for this, we're going back immediately, assuming that there will be loading indicators\n          getReferencableModelDataQuery.refetch();\n          model.refetch();\n\n          setLoading(false);\n          router.back();\n        }\n      })\n      .catch((e) => {\n        setLoading(false);\n        setResult(e);\n      });\n  };\n\n  const explainButton = {\n    onClick: () => {\n      setDebug(!debug);\n    },\n    title: \"Explain\",\n    emoji: \"🧐\",\n  };\n\n  const buttons: LabeledButtonType[] = [explainButton];\n\n  // console.log({ referencableModelData });\n  return (\n    <Div>\n      <IndexInstanceContainer\n        buttons={buttons}\n        title={humanCase(modelQuery || \"\")}\n      >\n        {simplifiedSchema ? (\n          <Div>\n            <FormContainer onSubmit={onSubmitForm} isLoading={loading}>\n              <SimplifiedSchemaForm\n                itemNameOrId={body?.name || body?.id}\n                parameterNameStack={undefined}\n                projectRelativeStorageFilePath={projectRelativeStorageFilePath}\n                id={id}\n                parameters={parameters}\n                values={values}\n                onChange={(values) => setBody(values[0])}\n                referencableModelData={referencableModelData}\n                isDebug={debug}\n              />\n            </FormContainer>\n            <Div className=\"mt-6\">\n              <ClickableIcon emoji=\"❌ Go back\" onClick={() => router.back()} />\n            </Div>\n            {result ? <P>{JSON.stringify(result)}</P> : null}\n            {debug ? (\n              <SimplifiedSchemaFormDebug\n                parameters={parameters}\n                values={values}\n              />\n            ) : null}\n          </Div>\n        ) : null}\n      </IndexInstanceContainer>\n    </Div>\n  );\n}",
+  "rawText": " (props: {\n  /**\n   * the schema for the model we want to update/create\n   */\n  simplifiedSchema: SimplifiedSchema;\n  /**\n   * an instance, if it's an update form\n   */\n  instance: any;\n  /**\n   * NB: this thing will make hooks appear, so it must be constant!\n   */\n  referencableModelNames?: string[];\n  /**\n   * Provide this\n   */\n  modelName: string;\n}) => {\n  const { instance, simplifiedSchema, referencableModelNames, modelName } =\n    props;\n  const router = useRouter();\n  const alert = useAlert();\n  const [debug, setDebug] = useState(false);\n  const [id] = useState<string>(generateId());\n  const [loading, setLoading] = useState(false);\n  const [body, setBody] = useState<any>(instance);\n  const [result, setResult] = useState<any>();\n  const modelFromUrl = useModelFromUrl();\n  const metadataQuery = queries.useGetDbModelMetadata(modelFromUrl);\n  const model = useInfiniteGetDbModel();\n  const projectRelativeStorageFilePath =\n    metadataQuery.data?.result?.projectRelativeStorageFilePath;\n\n  // NB: all items that this model has can be referenced to in other forms also need to refresh\n\n  const getReferencableModelDataQuery = queries.useGetReferencableModelData(\n    modelFromUrl as DbModelEnum\n  );\n\n  const referencableModelData = useReferencableModelData(simplifiedSchema);\n\n  const parameters: RenderableFunctionParameter[] = [\n    {\n      name: \"\",\n      required: true,\n      simplifiedSchema,\n      renderButtons: () => <Span />,\n      isDbModel: true,\n    },\n  ];\n  const values = [body];\n\n  const onSubmitForm = () => {\n    if (!modelFromUrl) return;\n\n    setLoading(true);\n\n    upsertDbModel(modelFromUrl as any, body)\n      .then(async (result) => {\n        if (!result.result?.isSuccesful) {\n          // If the upsert fails for some reason, this should be made clear\n          alert?.(\"Error\", result.result?.message || result.message);\n          setLoading(false);\n        } else {\n          // NB: we are not waiting for this, we're going back immediately, assuming that there will be loading indicators\n          getReferencableModelDataQuery.refetch();\n          model.refetch();\n\n          setLoading(false);\n          router.back();\n        }\n      })\n      .catch((e) => {\n        setLoading(false);\n        setResult(e);\n      });\n  };\n\n  const explainButton = {\n    onClick: () => {\n      setDebug(!debug);\n    },\n    title: \"Explain\",\n    emoji: \"🧐\",\n  };\n\n  const buttons: LabeledButtonType[] = [explainButton];\n\n  // console.log({ referencableModelData });\n  return (\n    <Div>\n      <IndexInstanceContainer\n        buttons={buttons}\n        title={humanCase(modelFromUrl || \"\")}\n      >\n        {simplifiedSchema ? (\n          <Div>\n            <FormContainer onSubmit={onSubmitForm} isLoading={loading}>\n              <SimplifiedSchemaForm\n                modelName={modelName}\n                itemNameOrId={body?.name || body?.id}\n                parameterNameStack={undefined}\n                projectRelativeStorageFilePath={projectRelativeStorageFilePath}\n                id={id}\n                parameters={parameters}\n                values={values}\n                onChange={(values) => setBody(values[0])}\n                referencableModelData={referencableModelData}\n                isDebug={debug}\n              />\n            </FormContainer>\n            <Div className=\"mt-6\">\n              <ClickableIcon emoji=\"❌ Go back\" onClick={() => router.back()} />\n            </Div>\n            {result ? <P>{JSON.stringify(result)}</P> : null}\n            {debug ? (\n              <SimplifiedSchemaFormDebug\n                parameters={parameters}\n                values={values}\n              />\n            ) : null}\n          </Div>\n        ) : null}\n      </IndexInstanceContainer>\n    </Div>\n  );\n}",
   "name": "UpsertForm",
   "slug": "upsert-form",
   "parameters": [
@@ -31,15 +31,15 @@
             },
             "description": "NB: this thing will make hooks appear, so it must be constant!"
           },
-          "projectRelativeStorageFilePath": {
+          "modelName": {
             "type": "string",
-            "description": "Where is the file stored that this form is for? needed for rendering images and uploading images in writer-input"
+            "description": "Provide this"
           }
         },
         "required": [
           "simplifiedSchema",
           "instance",
-          "projectRelativeStorageFilePath"
+          "modelName"
         ],
         "additionalProperties": false
       },
@@ -108,6 +108,23 @@
                   }
                 },
                 {
+                  "name": "type",
+                  "required": true,
+                  "schema": {
+                    "enum": [
+                      "string",
+                      "number",
+                      "boolean",
+                      "object",
+                      "array",
+                      "null"
+                    ],
+                    "fullComment": "- string\n- number\n- boolean\n- object\n- array\n- null\n\nNB: Omit doesn't work for the indexer! This would be the type: Omit<JSONSchema7TypeName, \"integer\">;\n\n",
+                    "nb": "Omit doesn't work for the indexer! This would be the type: Omit<JSONSchema7TypeName, \"integer\">;",
+                    "type": "string"
+                  }
+                },
+                {
                   "name": "circularRefName",
                   "required": false,
                   "schema": {
@@ -120,7 +137,16 @@
                   "required": false,
                   "schema": {
                     "fullComment": "in case of enums this could appear... mostly strings, but e.g. numbers can also be an enum I think",
-                    "items": [],
+                    "items": [
+                      {
+                        "schema": {
+                          "fullComment": "Primitive type",
+                          "properties": [],
+                          "type": "object"
+                        },
+                        "name": "JSONSchema7Type"
+                      }
+                    ],
                     "type": "array"
                   }
                 },
@@ -129,7 +155,42 @@
                   "required": false,
                   "schema": {
                     "fullComment": "in case of object, this will always appear",
-                    "items": [],
+                    "items": [
+                      {
+                        "schema": {
+                          "fullComment": "",
+                          "properties": [
+                            {
+                              "name": "name",
+                              "required": true,
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "schema",
+                              "required": true,
+                              "schema": {
+                                "circularRefName": "SimplifiedSchema",
+                                "properties": [],
+                                "type": "object"
+                              }
+                            },
+                            {
+                              "name": "required",
+                              "required": true,
+                              "schema": {
+                                "fullComment": "NB: can't we put this in the SimplifiedSchema itself?",
+                                "nb": "can't we put this in the SimplifiedSchema itself?",
+                                "type": "boolean"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        },
+                        "name": "SimplifiedSchemaProperty"
+                      }
+                    ],
                     "type": "array"
                   }
                 },
@@ -138,7 +199,34 @@
                   "required": false,
                   "schema": {
                     "fullComment": "in case of arrays, this will always appear",
-                    "items": [],
+                    "items": [
+                      {
+                        "schema": {
+                          "fullComment": "",
+                          "properties": [
+                            {
+                              "name": "name",
+                              "required": true,
+                              "schema": {
+                                "fullComment": "name in case of it being a reference, otherwise null",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "schema",
+                              "required": true,
+                              "schema": {
+                                "circularRefName": "SimplifiedSchema",
+                                "properties": [],
+                                "type": "object"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        },
+                        "name": "SimplifiedSchemaItem"
+                      }
+                    ],
                     "type": "array"
                   }
                 },
@@ -182,10 +270,10 @@
             }
           },
           {
-            "name": "projectRelativeStorageFilePath",
+            "name": "modelName",
             "required": true,
             "schema": {
-              "fullComment": "Where is the file stored that this form is for? needed for rendering images and uploading images in writer-input",
+              "fullComment": "Provide this",
               "type": "string"
             }
           }
@@ -211,13 +299,13 @@
   },
   "maxIndentationDepth": 8,
   "size": {
-    "characters": 3797,
-    "lines": 126,
-    "bytes": 3801,
-    "bytesPerCharacter": 1.0010534632604688,
+    "characters": 3843,
+    "lines": 127,
+    "bytes": 3847,
+    "bytesPerCharacter": 1.0010408534998698,
     "charactersPerLine": 30,
-    "linesPerFile": 126,
+    "linesPerFile": 127,
     "numberOfFiles": 1
   },
-  "id": "iennehhfidzapmenjyyxvvas"
+  "id": "wkzgwdfpprheorruwoqtylxs"
 }

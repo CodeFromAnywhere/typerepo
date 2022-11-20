@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336153200,
-  "updatedAt": 1668336153200,
+  "createdAt": 1668835977322,
+  "updatedAt": 1668835977322,
   "deletedAt": 0,
-  "createdFirstAt": 1668336153200,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835977322,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getSrcIds.ts",
   "commentsInside": [],
   "rawText": " async (operationFolderPath: string) =>\n  getFileIds({\n    operationFolderPath,\n    pathSuffix: \"src\",\n    extension: [\"ts\", \"tsx\"],\n  })",
@@ -48,5 +43,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "ldeqtosdemonviprfyhnwwaq"
+  "id": "vtygvdncmejbyigipalapozy"
 }

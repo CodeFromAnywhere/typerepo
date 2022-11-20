@@ -1,4 +1,3 @@
-import { IPInfo } from "peer-types";
-import { IResult } from "ua-parser-js";
+import { IPInfo, IResult } from "peer-types";
 export declare const calculateDeviceName: (ipInfo: IPInfo, userAgent: IResult) => string;
 //# sourceMappingURL=calculateDeviceName.d.ts.map

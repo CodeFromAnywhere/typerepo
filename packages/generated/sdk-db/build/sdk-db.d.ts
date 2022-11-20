@@ -126,6 +126,7 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     Operation: {
+        operationName: string;
         dbStorageMethod: string;
         operationRelativePath: string;
     };
@@ -133,31 +134,40 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     TsBuildError: {
+        operationName: string;
         dbStorageMethod: string;
     };
     TsComment: {
+        operationName: string;
         dbStorageMethod: string;
     };
     TsConfig: {
+        operationName: string;
         dbStorageMethod: string;
         operationRelativePath: string;
     };
     TsExport: {
+        operationName: string;
         dbStorageMethod: string;
     };
     TsFunction: {
+        operationName: string;
         dbStorageMethod: string;
     };
     TsImport: {
+        operationName: string;
         dbStorageMethod: string;
     };
     TsInterface: {
+        operationName: string;
         dbStorageMethod: string;
     };
     TsLintWarning: {
+        operationName: string;
         dbStorageMethod: string;
     };
     TsVariable: {
+        operationName: string;
         dbStorageMethod: string;
     };
     TypescriptFile: {

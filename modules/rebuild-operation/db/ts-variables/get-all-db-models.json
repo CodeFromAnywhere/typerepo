@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668336149944,
-  "updatedAt": 1668336149944,
+  "createdAt": 1668835973084,
+  "updatedAt": 1668835973084,
   "deletedAt": 0,
-  "createdFirstAt": 1668336149944,
+  "createdFirstAt": 1668835973084,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  manualProjectRoot?: string,\n  operationName?: string\n) => {\n  const allDbModels = (await db.get(\"TsInterface\", { manualProjectRoot }))\n    .filter(\n      (x) => x.isDbModel && x.dbStorageMethod && x.isExported && !x.hasGeneric\n    )\n    .filter((x) => x.operationName !== \"database\")\n    .filter((x) => (operationName ? x.operationName === operationName : true))\n    .filter((x) => !!x.operationName) // && !dependants.includes(x.operationName)\n    .filter(onlyUnique2<TsInterface>((a, b) => a.name === b.name));\n\n  return allDbModels;\n}",
+  "value": "async (\n  manualProjectRoot?: string,\n  operationName?: string\n) => {\n  const allDbModels = (\n    await db.get(\"TsInterface\", { manualProjectRoot, operationName: \"*\" })\n  )\n    .filter(\n      (x) => x.isDbModel && x.dbStorageMethod && x.isExported && !x.hasGeneric\n    )\n    .filter((x) => x.operationName !== \"database\")\n    .filter((x) => (operationName ? x.operationName === operationName : true))\n    .filter((x) => !!x.operationName) // && !dependants.includes(x.operationName)\n    .filter(onlyUnique2<TsInterface>((a, b) => a.name === b.name));\n\n  return allDbModels;\n}",
   "description": "",
-  "id": "dnhpwnpokhmehvpixjwlysgp"
+  "id": "ssduaccsfxjugzokkaahyyrt"
 }

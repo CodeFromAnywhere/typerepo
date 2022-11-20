@@ -11,6 +11,14 @@ This component only works if your `api` is up-to-date and your function is succe
  */
 export declare const FunctionForm: <T extends (...params: any[]) => any>(props: {
     /**
+     * Must be given if you want to store assets with this
+     */
+    projectRelativeStorageFilePath?: string | undefined;
+    /**
+     * Must be given if you want to store assets with this
+     */
+    modelName?: string | undefined;
+    /**
      * Add the tsfunction here imported from `your-operation/db/ts-functions/[function-name].json` directly
      *
      * Typed as `any` because you can import it from JSON, but this should be a `TsFunction`.
@@ -32,9 +40,11 @@ export declare const FunctionForm: <T extends (...params: any[]) => any>(props: 
      * callback to call after the api has resulted with a result
      *
      * Please type this yourself as `RealApiReturnType<"functionName">`
+     *
+     * If you don't provide this but an api call is done, we'll call `showStandardResponse`
      */
     withApiResult?: ((result: any) => void) | undefined;
     initialValues?: any[] | undefined;
-    hideResult?: boolean | undefined;
+    showResult?: boolean | undefined;
 }) => JSX.Element;
 //# sourceMappingURL=FunctionForm.d.ts.map

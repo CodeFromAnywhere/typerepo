@@ -45,63 +45,33 @@
     "folderNameIndexed": "schema-util",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668449140920,
-    "operationDependenciesIndexed": [
-      "CommentTypeObject",
-      "commentTypes",
-      "mergeObjectsArray",
-      "notEmpty",
-      "notEmpty",
-      "AugmentedAnyModelType",
-      "SimplifiedSchema",
-      "referenceParameterNames",
-      "referencePluralParameterNames",
-      "camelCase",
-      "lowerCaseArray",
-      "pascalCase",
-      "capitaliseFirstLetter",
-      "isPlural",
-      "singularize",
-      "replaceLastOccurence",
-      "makeArray",
-      "notEmpty",
-      "TsInterface",
-      "SimplifiedSchema",
-      "log",
-      "notEmpty",
-      "SimplifiedSchema",
-      "SimplifiedSchemaProperty",
-      "SimplifiedSchemaItem"
-    ],
-    "packageDependenciesIndexed": [
-      "JSONSchema7Definition",
-      "JSONSchema7",
-      "JSONSchema7"
-    ],
+    "lastRebuildAt": 1668836023871,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/typescript",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 9,
-        "lines": 569,
-        "characters": 15880,
-        "bytes": 15880
+        "lines": 571,
+        "characters": 15971,
+        "bytes": 15971
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 148,
-        "characters": 3542,
-        "bytes": 3542
+        "lines": 150,
+        "characters": 3591,
+        "bytes": 3591
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 337,
-        "characters": 8150,
-        "bytes": 8150
+        "lines": 9,
+        "characters": 79,
+        "bytes": 79
       },
       "size": {
-        "bytes": 27572,
-        "characters": 27572,
-        "lines": 1054,
+        "bytes": 19641,
+        "characters": 19641,
+        "lines": 730,
         "numberOfFiles": 12
       }
     },

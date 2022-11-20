@@ -58,6 +58,7 @@ import { cacheLookup } from "db-recipes";
 import { calculateOperatingSystemBundle } from "db-recipes";
 import { deleteDbModel } from "db-recipes";
 import { getDatabaseMenu } from "db-recipes";
+import { getDbModelMetadata } from "db-recipes";
 import { getDbModelNames } from "db-recipes";
 import { getDbModel } from "db-recipes";
 import { getFunctionIndex } from "db-recipes";
@@ -275,10 +276,13 @@ import { nodemon } from "nodemon";
 import { addPeerMessage } from "peer-functions";
 import { addPeer } from "peer-functions";
 import { augmentDevice } from "peer-functions";
+import { deviceGetAppsCalculated } from "peer-functions";
 import { getAllAppOperations } from "peer-functions";
+import { getAugmentedPersons } from "peer-functions";
 import { getFirstEmoji } from "peer-functions";
 import { getNestedPathObject } from "peer-functions";
 import { getPeerMessages } from "peer-functions";
+import { getPeerPeople } from "peer-functions";
 import { getPeersFromPeersRecursively } from "peer-functions";
 import { getPublicFolderNestedPathObjectFromPeer } from "peer-functions";
 import { getPublicFolderNestedPathObject } from "peer-functions";
@@ -288,6 +292,7 @@ import { lateFetchPeerMessageSync } from "peer-functions";
 import { ping } from "peer-functions";
 import { proactivePushAddPeerMessage } from "peer-functions";
 import { removePeer } from "peer-functions";
+import { sortDevices } from "peer-functions";
 import { updatePeer } from "peer-functions";
 import { getPrimaryPersona } from "persona-functions-node";
 import { deleteApp } from "pm2-util";
@@ -463,6 +468,7 @@ import { getObjectKeysArray } from "js-util";
 import { getParameterAtLocation } from "js-util";
 import { getSubsetFromObject } from "js-util";
 import { groupByKey } from "js-util";
+import { hasAllLetters } from "js-util";
 import { insertAt } from "js-util";
 import { isAllTrue } from "js-util";
 import { makeArray } from "js-util";
@@ -485,6 +491,7 @@ import { onlyUnique } from "js-util";
 import { pickRandomArrayItem } from "js-util";
 import { putIndexAtIndex } from "js-util";
 import { removeIndexFromArray } from "js-util";
+import { removeOptionalKeysFromObjectStrings } from "js-util";
 import { removeOptionalKeysFromObject } from "js-util";
 import { replaceLastOccurence } from "js-util";
 import { reverseString } from "js-util";
@@ -563,6 +570,7 @@ import { isValidEntry } from "rest-util";
 import { toQueryString } from "rest-util";
 import { runChildProcess } from "run-child-process";
 import { findFirstCommentTypes } from "schema-util";
+import { getDataParameterNames } from "schema-util";
 import { getPossibleReferenceParameterNames } from "schema-util";
 import { getProperties } from "schema-util";
 import { getRefLink } from "schema-util";
@@ -647,6 +655,7 @@ cacheLookup,
 calculateOperatingSystemBundle,
 deleteDbModel,
 getDatabaseMenu,
+getDbModelMetadata,
 getDbModelNames,
 getDbModel,
 getFunctionIndex,
@@ -864,10 +873,13 @@ nodemon,
 addPeerMessage,
 addPeer,
 augmentDevice,
+deviceGetAppsCalculated,
 getAllAppOperations,
+getAugmentedPersons,
 getFirstEmoji,
 getNestedPathObject,
 getPeerMessages,
+getPeerPeople,
 getPeersFromPeersRecursively,
 getPublicFolderNestedPathObjectFromPeer,
 getPublicFolderNestedPathObject,
@@ -877,6 +889,7 @@ lateFetchPeerMessageSync,
 ping,
 proactivePushAddPeerMessage,
 removePeer,
+sortDevices,
 updatePeer,
 getPrimaryPersona,
 deleteApp,
@@ -1052,6 +1065,7 @@ getObjectKeysArray,
 getParameterAtLocation,
 getSubsetFromObject,
 groupByKey,
+hasAllLetters,
 insertAt,
 isAllTrue,
 makeArray,
@@ -1074,6 +1088,7 @@ onlyUnique,
 pickRandomArrayItem,
 putIndexAtIndex,
 removeIndexFromArray,
+removeOptionalKeysFromObjectStrings,
 removeOptionalKeysFromObject,
 replaceLastOccurence,
 reverseString,
@@ -1152,6 +1167,7 @@ isValidEntry,
 toQueryString,
 runChildProcess,
 findFirstCommentTypes,
+getDataParameterNames,
 getPossibleReferenceParameterNames,
 getProperties,
 getRefLink,

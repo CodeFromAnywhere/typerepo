@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668752098622,
-  "updatedAt": 1668752098622,
+  "createdAt": 1668835906374,
+  "updatedAt": 1668835906374,
   "deletedAt": 0,
-  "createdFirstAt": 1668752098622,
+  "createdFirstAt": 1668835906374,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getPossibleRefs.ts",
   "commentsInside": [],
-  "rawText": " (\n  interfaces: Creation<TsInterface>[]\n): { name: string; schema: JSONSchema7 }[] => {\n  const possibleRefs = interfaces\n    .map((tsInterface) => {\n      return tsInterface.type.typeDefinition\n        ? {\n            name: tsInterface.name,\n            schema: tsInterface.type.typeDefinition,\n          }\n        : null;\n    })\n    .filter(notEmpty);\n\n  return possibleRefs;\n}",
+  "rawText": " (\n  interfaces: Creation<TsInterface>[]\n): { name: string; schema: JSONSchema7 }[] => {\n  const possibleRefs2 = interfaces.map((tsInterface) => {\n    return tsInterface.type.typeDefinition\n      ? {\n          name: tsInterface.name,\n          schema: tsInterface.type.typeDefinition,\n        }\n      : null;\n  });\n\n  const possibleRefs = possibleRefs2.filter(notEmpty);\n\n  return possibleRefs;\n}",
   "name": "getPossibleRefs",
   "slug": "get-possible-refs",
   "parameters": [
@@ -92,15 +92,15 @@
       "type": "array"
     }
   },
-  "maxIndentationDepth": 6,
+  "maxIndentationDepth": 5,
   "size": {
-    "characters": 380,
+    "characters": 396,
     "lines": 16,
-    "bytes": 380,
+    "bytes": 396,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 24,
+    "charactersPerLine": 25,
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "sikgmgsauvhtqcidubeukptd"
+  "id": "cpamcobarlhswqmxtmlhdlco"
 }

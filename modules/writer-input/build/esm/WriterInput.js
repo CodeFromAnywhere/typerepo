@@ -62,7 +62,7 @@ export var WriterInput = function (props) {
             writerView === "frontmatter" &&
                 !frontmatterSchemaQuery.isLoading &&
                 ((_b = frontmatterSchemaQuery.data) === null || _b === void 0 ? void 0 : _b.result) &&
-                projectRelativeMarkdownFilePath ? (React.createElement(FrontmatterForm, { key: projectRelativeMarkdownFilePath, markdownParse: markdownParse, projectRelativeMarkdownFilePath: projectRelativeMarkdownFilePath, frontmatterSchema: (_c = frontmatterSchemaQuery.data) === null || _c === void 0 ? void 0 : _c.result, onChange: onChange })) : null,
+                projectRelativeMarkdownFilePath ? (React.createElement(FrontmatterForm, { modelName: markdownModelName, key: projectRelativeMarkdownFilePath, markdownParse: markdownParse, projectRelativeMarkdownFilePath: projectRelativeMarkdownFilePath, frontmatterSchema: (_c = frontmatterSchemaQuery.data) === null || _c === void 0 ? void 0 : _c.result, onChange: onChange })) : null,
             writerView === "edit" || writerView === undefined ? (React.createElement(SmartContentEditableDivInput, { writerType: writerType, value: value, onChange: onChange, markdownParseRenderConfig: markdownParseRenderConfig })) : null,
             writerView === "view" || writerView === "presentation" ? (React.createElement(MarkdownView, { view: writerView, markdownParse: markdownParse, markdownParseRenderConfig: markdownParseRenderConfig })) : null));
     };

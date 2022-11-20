@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668777496201,
-  "updatedAt": 1668777496201,
+  "createdAt": 1668833525153,
+  "updatedAt": 1668833525153,
   "deletedAt": 0,
-  "createdFirstAt": 1668777496201,
+  "createdFirstAt": 1668833525153,
   "id": "namedparameterstypeof-updatemeform",
   "name": "NamedParameters<typeof UpdateMeForm>",
   "slug": "namedparameterstypeof-updatemeform",
@@ -16,41 +16,10 @@
   "type": {
     "typeDefinition": {
       "type": "object",
-      "properties": {
-        "props": {
-          "type": "object",
-          "properties": {
-            "title": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        }
-      },
-      "required": [
-        "props"
-      ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
-      "properties": [
-        {
-          "name": "props",
-          "required": true,
-          "schema": {
-            "properties": [
-              {
-                "name": "title",
-                "required": false,
-                "schema": {
-                  "type": "string"
-                }
-              }
-            ],
-            "type": "object"
-          }
-        }
-      ],
+      "properties": [],
       "type": "object"
     },
     "typeCoverage": 0,

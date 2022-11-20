@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334491272,
-  "updatedAt": 1668334491272,
+  "createdAt": 1668835427696,
+  "updatedAt": 1668835427696,
   "deletedAt": 0,
-  "createdFirstAt": 1668334491272,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835427696,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/addPeerMessage.ts",
   "commentsInside": [],
   "rawText": " async (message: string, peerSlug: string) => {\n  // @ts-ignore\n  const upsertResult = await db.upsert(\"PeerMessage\", {\n    message,\n    peerSlug,\n  });\n\n  return upsertResult;\n}",
@@ -58,5 +53,5 @@
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "knlpwltewkfzlrtmntztkisw"
+  "id": "fxcmoqihncavfvvmshanpdsk"
 }

@@ -1,2 +1,0 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.cleanupTimer=exports.getNewPerformance=void 0;var timer={},getNewPerformance=function(e,r,t){var n=timer[r],o=Date.now();if(timer[r]=o,!t)return{label:e,durationMs:n-o}};exports.getNewPerformance=getNewPerformance;var cleanupTimer=function(e){delete timer[e]};exports.cleanupTimer=cleanupTimer;
-//# sourceMappingURL=getNewPerformance.js.map

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668775937470,
-  "updatedAt": 1668775937470,
+  "createdAt": 1668837479077,
+  "updatedAt": 1668837479077,
   "deletedAt": 0,
-  "createdFirstAt": 1668775937470,
+  "createdFirstAt": 1668837479077,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/removeOptionalKeysFromObject.ts",
   "commentsInside": [],
-  "rawText": " <TObject extends O>(\n  object: TObject,\n  keys: OptionalKeys<TObject>[]\n): TObject => {\n  const newObject = keys.reduce((objectNow, key) => {\n    return {\n      ...objectNow,\n      [key]: undefined,\n    };\n  }, object);\n\n  return newObject;\n}",
+  "rawText": " <TObject extends O>(\n  object: TObject,\n  keys: OptionalKeys<TObject>[]\n): TObject => {\n  return removeOptionalKeysFromObjectStrings(object, keys);\n}",
   "name": "removeOptionalKeysFromObject",
   "slug": "remove-optional-keys-from-object",
   "parameters": [],
@@ -31,15 +31,15 @@
       "type": "object"
     }
   },
-  "maxIndentationDepth": 3,
+  "maxIndentationDepth": 1,
   "size": {
-    "characters": 243,
-    "lines": 13,
-    "bytes": 243,
+    "characters": 150,
+    "lines": 6,
+    "bytes": 150,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 19,
-    "linesPerFile": 13,
+    "charactersPerLine": 25,
+    "linesPerFile": 6,
     "numberOfFiles": 1
   },
-  "id": "dncoqwjbrpebzsvxkmmquvcr"
+  "id": "fajtalyhdtnizykckfwwahld"
 }

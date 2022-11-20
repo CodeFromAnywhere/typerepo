@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774454020,
-  "updatedAt": 1668774454020,
+  "createdAt": 1668835589906,
+  "updatedAt": 1668835589906,
   "deletedAt": 0,
-  "createdFirstAt": 1668774454020,
+  "createdFirstAt": 1668835589906,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: QueryPageProps) => {\n  const { imagePaths } = props;\n\n  const [authToken, setAuthToken] = useStore(\"api.authToken\");\n\n  useEffect(() => {\n    setAuthToken(\"supersecretpasswordthatnobodycanneverguess\");\n  }, []);\n  console.log({ authToken });\n  const hour = new Date(Date.now()).getHours();\n  const quote = quotes[hour % quotes.length];\n  const imagePath = imagePaths[hour % imagePaths.length];\n  const [mindspace, setMindspace] = useState(mindspaces[0]);\n  const [mouseDown, setMouseDown] = useState(false);\n  const [mouseDownTimeout, setMouseDownTimeout] =\n    useState<NodeJS.Timeout | null>(null);\n\n  const yourName = \"Wijnand 🤴\";\n  const yourLocation = \"Napoli 🇮🇹\";\n  const dayPart = \"day\";\n\n  return (\n    <Div className=\"\">\n      <Timeline\n        items={[\n          {\n            component: () => {\n              return (\n                <Div\n                  className=\"flex flex-1 min-h-screen items-center flex-col justify-around\"\n                  // style={{ background: `url(${imagePath})` }}\n                >\n                  <img\n                    src={imagePath}\n                    className=\"rounded-sm\"\n                    width={300}\n                    height={300}\n                  />\n\n                  <Div\n                    className=\"text-3xl cursor-grab\"\n                    onMouseDown={(e) => {\n                      const timeout = setTimeout(() => {\n                        setMouseDown(true);\n                      }, 200);\n                      setMouseDownTimeout(timeout);\n                    }}\n                    onMouseUp={(e) => {\n                      if (mouseDownTimeout) {\n                        clearTimeout(mouseDownTimeout);\n                      }\n                      setMouseDown(false);\n                    }}\n                    onClick={(e) => {\n                      e.preventDefault();\n                      setMindspace(pickRandomArrayItem(mindspaces));\n                    }}\n                  >\n                    Good{\" \"}\n                    {mouseDown ? `${dayPart} in ${yourLocation}` : mindspace},{\" \"}\n                    {yourName}\n                  </Div>\n                  <Div className=\"italic\">{quote}</Div>\n                  <SearchBar placeholder={mindspace} />\n                  <AppsMenu />\n                </Div>\n              );\n            },\n          },\n          {\n            markdown: `import * as React from \"react\";\\n\\nexport const test = () => true;`,\n          },\n          ...props.timelineItems?.map((x) => {\n            return {\n              markdown: x.comment,\n              projectRelativeFilePath: x.filePath,\n              line: x.line,\n            };\n          }),\n        ]}\n      />\n    </Div>\n  );\n}",
   "description": "",
-  "id": "efgwhmxcthrbwzamfvbzolew"
+  "id": "vmncsoeaivsrudmbkwqbcrfm"
 }

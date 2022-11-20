@@ -1,22 +1,38 @@
 {
-  "createdAt": 1668149693120,
-  "updatedAt": 1668149693120,
+  "createdAt": 1668835455226,
+  "updatedAt": 1668835455226,
   "deletedAt": 0,
-  "createdFirstAt": 1668149693120,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835455226,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/proactivePushAddPeerMessage.ts",
   "commentsInside": [],
-  "rawText": " async (\n  message: string,\n  peerSlug: string\n): Promise<boolean> => {\n  await addPeerMessage(message, peerSlug);\n\n  const peers = await db.get(\"Peer\", { include: { referenceKey: \"personId\" } });\n  await Promise.all(\n    peers.map(async (peer) => {\n      if (peer.isMe) return;\n      const apiResult = await apiWithConfig.addPeerMessage(\n        {\n          apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n          authToken: peer.authToken,\n          timeout: 2000,\n        },\n        message,\n        peerSlug\n      );\n\n      return apiResult;\n    })\n  );\n\n  return true;\n}",
+  "rawText": " async (\n  message: string,\n  peerSlug: string\n): Promise<boolean> => {\n  await addPeerMessage(message, peerSlug);\n\n  const peers = await db.get(\"Person\", {\n    include: { referenceKey: \"personId\" },\n  });\n  await Promise.all(\n    peers.map(async (peer) => {\n      //  if (peer.) return;\n      const apiResult = await apiWithConfig.addPeerMessage(\n        {\n          apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n          //  authToken: peer,\n          timeout: 2000,\n        },\n        message,\n        peerSlug\n      );\n\n      return apiResult;\n    })\n  );\n\n  return true;\n}",
   "name": "proactivePushAddPeerMessage",
   "slug": "proactive-push-add-peer-message",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "message",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "peerSlug",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
   "description": "Adds a message to your own peer messages database, but also to the db of all your peers that are online currently",
   "returnType": {
     "rawType": "Promise<boolean>",
@@ -29,13 +45,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 701,
-    "lines": 26,
-    "bytes": 701,
+    "characters": 704,
+    "lines": 28,
+    "bytes": 704,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 26,
+    "charactersPerLine": 25,
+    "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "thdgpwmrqftlsfrxegonrzdx"
+  "id": "ubflsjtxjzxpywhkcfzatupi"
 }

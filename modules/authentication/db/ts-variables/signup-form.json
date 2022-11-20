@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668777494760,
-  "updatedAt": 1668777494760,
+  "createdAt": 1668833523907,
+  "updatedAt": 1668833523907,
   "deletedAt": 0,
-  "createdFirstAt": 1668777494760,
+  "createdFirstAt": 1668833523907,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "() => {\n  const router = useRouter();\n  const meQuery = queries.useGetMeWithContext();\n\n  return (\n    <Div className=\"flex flex-1 flex-row mx-10\">\n      <Div className=\"flex flex-1 flex-col\">\n        <P className=\"text-4xl\">Sign up</P>\n        <FunctionForm\n          tsFunction={Index}\n          withApiResult={(\n            result: RealApiReturnType<\"signupWithPasswordWithContext\">\n          ) => {\n            if (result.isSuccessful && result.result?.isSuccessful) {\n              router.push(\"/\");\n            }\n            meQuery.refetch();\n\n            successToast(\n              result.result?.message || result.message || \"No message\"\n            );\n          }}\n          hideResult\n        />\n        <ALink href=\"/login\">Or click here to login</ALink>\n      </Div>\n    </Div>\n  );\n}",
+  "value": "() => {\n  const router = useRouter();\n  const meQuery = queries.useGetMeWithContext();\n\n  return (\n    <Div className=\"flex flex-1 flex-row mx-10\">\n      <Div className=\"flex flex-1 flex-col\">\n        <P className=\"text-4xl\">Sign up</P>\n        <FunctionForm\n          modelName=\"Person\"\n          projectRelativeStorageFilePath=\"db/persons.json\"\n          tsFunction={Index}\n          withApiResult={(\n            result: RealApiReturnType<\"signupWithPasswordWithContext\">\n          ) => {\n            if (result.isSuccessful && result.result?.isSuccessful) {\n              router.push(\"/\");\n            }\n            meQuery.refetch();\n            showStandardResponse(result);\n          }}\n        />\n        <ALink href=\"/login\">Or click here to login</ALink>\n      </Div>\n    </Div>\n  );\n}",
   "description": "",
-  "id": "mrxfbzjyatgzpwqtjqendlur"
+  "id": "jjlkagfoumfjsyzyqpmiaenk"
 }

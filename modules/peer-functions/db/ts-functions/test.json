@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668149677286,
-  "updatedAt": 1668149677286,
+  "createdAt": 1668835437456,
+  "updatedAt": 1668835437456,
   "deletedAt": 0,
-  "createdFirstAt": 1668149677286,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835437456,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getNestedPathObject.test.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  const publicFolderPath = path.join(projectRoot, \"public\");\n\n  const nestedPathObject = await getNestedPathObject(publicFolderPath);\n\n  console.dir({ nestedPathObject }, { depth: 9999 });\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "ernilcrjeqkpeisuybyqpoaz"
+  "id": "zskbswjrlhuubhtpxnksgbug"
 }

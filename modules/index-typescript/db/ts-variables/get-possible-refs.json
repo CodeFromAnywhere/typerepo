@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752098778,
-  "updatedAt": 1668752098778,
+  "createdAt": 1668835906469,
+  "updatedAt": 1668835906469,
   "deletedAt": 0,
-  "createdFirstAt": 1668752098778,
+  "createdFirstAt": 1668835906469,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  interfaces: Creation<TsInterface>[]\n): { name: string; schema: JSONSchema7 }[] => {\n  const possibleRefs = interfaces\n    .map((tsInterface) => {\n      return tsInterface.type.typeDefinition\n        ? {\n            name: tsInterface.name,\n            schema: tsInterface.type.typeDefinition,\n          }\n        : null;\n    })\n    .filter(notEmpty);\n\n  return possibleRefs;\n}",
+  "value": "(\n  interfaces: Creation<TsInterface>[]\n): { name: string; schema: JSONSchema7 }[] => {\n  const possibleRefs2 = interfaces.map((tsInterface) => {\n    return tsInterface.type.typeDefinition\n      ? {\n          name: tsInterface.name,\n          schema: tsInterface.type.typeDefinition,\n        }\n      : null;\n  });\n\n  const possibleRefs = possibleRefs2.filter(notEmpty);\n\n  return possibleRefs;\n}",
   "description": "",
-  "id": "ghcvhkchpoxenpiudqskgqbx"
+  "id": "ylabpzowauvtlmnsfbzhlqcb"
 }

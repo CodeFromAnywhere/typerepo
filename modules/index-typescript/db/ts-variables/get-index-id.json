@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752095561,
-  "updatedAt": 1668752095561,
+  "createdAt": 1668835902074,
+  "updatedAt": 1668835902074,
   "deletedAt": 0,
-  "createdFirstAt": 1668752095561,
+  "createdFirstAt": 1668835902074,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  filePath: string,\n  name: string\n): Promise<TsIndexModelType | undefined> => {\n  const operationPathParse = getOperationPathParse(filePath);\n  if (!operationPathParse) return;\n  const operationBasePath = findOperationBasePath(filePath);\n  if (!operationBasePath) return;\n\n  const { operationRelativeTypescriptFilePath, relativePathFromProjectRoot } =\n    operationPathParse;\n\n  // TODO: not sure if the projectRelativepath is correc,t that is probably needs to be a path to the db file!\n  const tsIndexModelType: TsIndexModelType = {\n    operationName: operationPathParse.operationName || null,\n    operationRelativeTypescriptFilePath,\n    // TODO: FIX\n    projectRelativePath: relativePathFromProjectRoot,\n    // operationName: \"\",\n    // operationRelativePath: \"\",\n    // projectRelativePath: \"\",\n    // operationRelativeTypescriptFilePath: \"\",\n    // srcFileId: \"\",\n\n    id: generateId(),\n    name,\n    slug: kebabCase(name),\n  };\n\n  return tsIndexModelType;\n}",
   "description": "",
-  "id": "lcvosjdttmcdizwubvaccnoy"
+  "id": "wgrazntmsrrdpydrvmfobdvl"
 }

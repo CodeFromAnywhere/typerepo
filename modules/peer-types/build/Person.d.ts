@@ -11,7 +11,9 @@ import { PersonSocialMedia } from "./PersonSocialMedia";
  *
  * NB: I wish it were possible to ensure these keys exist on the person here, but we can't validate that while still keeping it a const I guess
  */
-export declare const publicPersonKeys: readonly ["name", "slug", "id", "pictureImage", "interestSlugs", "media", "preferredContactMedium", "groupSlugs"];
+export declare const publicPersonKeys: readonly ["name", "slug", "id", "pictureImage", "interestSlugs", "media", "preferredContactMedium", "groupSlugs", "operationName", "projectRelativePath"];
+export declare type PublicPersonKeys = typeof publicPersonKeys[number];
+export declare type PublicPerson = Pick<Person, PublicPersonKeys>;
 /**
  * Model to describe a human person. This model gathers and stores all persons around the world, except for yourself. Kind of a user-like model...
  *

@@ -1,51 +1,15 @@
-import type { DbModels, DbModelEnum } from "sdk-db";
-import { TsInterface } from "code-types";
-/**
- * Can be better, see https://www.w3schools.com/js/js_comparisons.asp
- */
-export declare type DataFilter = {
-    objectParameterKey: string;
-    value: string | number | boolean | null | undefined;
-    operator: "equal" | "gt" | "lt";
-};
-export declare type GetDbModelConfig = {
-    /**
-     * skip the first n items
-     */
-    start?: number;
-    /**
-     * limit the results to this amount of items
-     */
-    limit?: number;
-    /**
-     * Optionally provide one or more data filters that will be applied after querying the data
-     */
-    dataFilters?: DataFilter[];
-    /**
-     * optionally sort on a key
-     */
-    sortParameter?: string;
-    /**
-     * sort normally or in reverse order
-     */
-    sortDirection?: "ascending" | "descending";
-};
+import { DatasetConfig } from "code-types";
+import type { DbModelEnum, DbModels } from "sdk-db";
 export declare type GetDbModelResult<KInterface extends DbModelEnum> = {
     hasMore: boolean;
     message?: string;
-    start?: number;
-    limit?: number;
-    config?: GetDbModelConfig;
+    datasetConfig?: DatasetConfig;
+    /**
+     * NB: Be aware that, if your `DatasetConfig` includes any keys omitted, that the resulting type interface will not be correct.
+     */
     data: DbModels[KInterface][];
-    index?: TsInterface;
-    fileLocations?: string[];
 };
 /**
- * gets all instances of an db data interface from the db in a typesafe way
- *
- * TODO: NB: there's a bug because it sometimes finds multiple instances of the TsInterface so sometimes it returns an old version of the TsInterface that was not re-indexed. This happens because all interfaces for db's also appear in sdk-db, but because the files there themselves don't change, that operation is not re-indexed. This leads to outdated indexations.
- *
- * I should find a fix for that.
- */
-export declare const getDbModel: <KInterface extends keyof DbModels>(interfaceName: KInterface | null, config?: GetDbModelConfig) => Promise<GetDbModelResult<KInterface>>;
+ * gets all instances of an db data interface from the db in a typesafe way */
+export declare const getDbModel: <KInterface extends keyof DbModels, TDatasetConfig extends DatasetConfig>(interfaceName: KInterface | null, datasetConfig?: TDatasetConfig | undefined, search?: string) => Promise<GetDbModelResult<KInterface>>;
 //# sourceMappingURL=getDbModel.d.ts.map

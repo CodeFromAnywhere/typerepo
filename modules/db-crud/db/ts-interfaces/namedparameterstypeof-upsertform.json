@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775642760,
-  "updatedAt": 1668775642760,
+  "createdAt": 1668837671282,
+  "updatedAt": 1668837671282,
   "deletedAt": 0,
-  "createdFirstAt": 1668775642760,
+  "createdFirstAt": 1668837671282,
   "id": "namedparameterstypeof-upsertform",
   "name": "NamedParameters<typeof UpsertForm>",
   "slug": "namedparameterstypeof-upsertform",
@@ -34,15 +34,15 @@
               },
               "description": "NB: this thing will make hooks appear, so it must be constant!"
             },
-            "projectRelativeStorageFilePath": {
+            "modelName": {
               "type": "string",
-              "description": "Where is the file stored that this form is for? needed for rendering images and uploading images in writer-input"
+              "description": "Provide this"
             }
           },
           "required": [
             "simplifiedSchema",
             "instance",
-            "projectRelativeStorageFilePath"
+            "modelName"
           ],
           "additionalProperties": false
         }
@@ -284,10 +284,10 @@
                 }
               },
               {
-                "name": "projectRelativeStorageFilePath",
+                "name": "modelName",
                 "required": true,
                 "schema": {
-                  "fullComment": "Where is the file stored that this form is for? needed for rendering images and uploading images in writer-input",
+                  "fullComment": "Provide this",
                   "type": "string"
                 }
               }

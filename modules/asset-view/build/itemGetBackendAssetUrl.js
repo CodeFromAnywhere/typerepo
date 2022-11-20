@@ -1,18 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.itemGetBackendAssetUrl = void 0;
-var asset_functions_js_1 = require("asset-functions-js");
-var server_api_url_1 = require("server-api-url");
-/**
- * Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.
- */
-var itemGetBackendAssetUrl = function (config) {
-    var backendAsset = config.backendAsset, item = config.item, isDownload = config.isDownload;
-    if (!(backendAsset === null || backendAsset === void 0 ? void 0 : backendAsset.relativePath)) {
-        return undefined;
-    }
-    var url = (0, asset_functions_js_1.getReferencedAssetApiUrl)(server_api_url_1.apiUrl, item.projectRelativePath, backendAsset.relativePath, isDownload);
-    return url;
-};
-exports.itemGetBackendAssetUrl = itemGetBackendAssetUrl;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.itemGetBackendAssetUrl=void 0;var asset_functions_js_1=require("asset-functions-js"),server_api_url_1=require("server-api-url"),js_util_1=require("js-util"),itemGetBackendAssetUrl=function(e){var t=e.backendAsset,s=e.item,r=e.isDownload,i=t?(0,js_util_1.takeFirst)(t):void 0;if(null==i?void 0:i.relativePath)return(0,asset_functions_js_1.getReferencedAssetApiUrl)(server_api_url_1.apiUrl,s.projectRelativePath,i.relativePath,r)};exports.itemGetBackendAssetUrl=itemGetBackendAssetUrl;
 //# sourceMappingURL=itemGetBackendAssetUrl.js.map

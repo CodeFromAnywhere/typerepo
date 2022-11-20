@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775524297,
-  "updatedAt": 1668775524297,
+  "createdAt": 1668836084814,
+  "updatedAt": 1668836084814,
   "deletedAt": 0,
-  "createdFirstAt": 1668775524297,
+  "createdFirstAt": 1668836084814,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -45,6 +45,30 @@
             "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "position",
+            "required": false,
+            "schema": {
+              "fullComment": "",
+              "properties": [
+                {
+                  "name": "latitude",
+                  "required": true,
+                  "schema": {
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "longitude",
+                  "required": true,
+                  "schema": {
+                    "type": "number"
+                  }
+                }
+              ],
+              "type": "object"
             }
           },
           {
@@ -111,5 +135,5 @@
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "rhemozogdsdwxyurxzonjrfn"
+  "id": "joyoqrepawcayiawykmtowva"
 }

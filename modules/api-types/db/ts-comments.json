@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1668248781924,
-    "updatedAt": 1668248781924,
+    "createdAt": 1668836044668,
+    "updatedAt": 1668836044668,
     "deletedAt": 0,
-    "createdFirstAt": 1668248781924,
+    "createdFirstAt": 1668836044668,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/util.ts",
@@ -13,13 +13,29 @@
     "types": [],
     "firstLine": 6,
     "lastLine": 10,
-    "id": "lretsqgrembelunbpbxxitph"
+    "id": "naeadnpzatujnvjehfunuwdo"
   },
   {
-    "createdAt": 1668248781924,
-    "updatedAt": 1668248781924,
+    "createdAt": 1668836044669,
+    "updatedAt": 1668836044669,
     "deletedAt": 0,
-    "createdFirstAt": 1668248781924,
+    "createdFirstAt": 1668836044669,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/util.ts",
+    "comment": "Removes the first parameter of a tuple type\n\nMade based on pop",
+    "rawStatement": "export type Shift<T extends any[]> = T extends [any, ...infer U] ? U : never;",
+    "parameters": {},
+    "types": [],
+    "firstLine": 12,
+    "lastLine": 16,
+    "id": "esrjnjezzxisfakcinzqtbne"
+  },
+  {
+    "createdAt": 1668836044669,
+    "updatedAt": 1668836044669,
+    "deletedAt": 0,
+    "createdFirstAt": 1668836044669,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/util.ts",
@@ -27,8 +43,8 @@
     "rawStatement": "export type WithoutPromise<T> = T extends Promise<infer U> ? U : T;",
     "parameters": {},
     "types": [],
-    "firstLine": 13,
-    "lastLine": 22,
-    "id": "rlriebappgbfvyvxqxhadmmo"
+    "firstLine": 19,
+    "lastLine": 28,
+    "id": "hlnvlhfbzgwxupokztswfbki"
   }
 ]

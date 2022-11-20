@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668149691285,
-  "updatedAt": 1668149691285,
+  "createdAt": 1668835453392,
+  "updatedAt": 1668835453392,
   "deletedAt": 0,
-  "createdFirstAt": 1668149691285,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835453392,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/ping.ts",
   "commentsInside": [],
   "rawText": " () => true",
@@ -46,5 +41,5 @@
     "linesPerFile": 1,
     "numberOfFiles": 1
   },
-  "id": "yuhaazlwoaypcvdipxtjuwrh"
+  "id": "bawdyfwkbnvzsozbbzlcwmds"
 }

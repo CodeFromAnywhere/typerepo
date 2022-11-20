@@ -46,88 +46,43 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/asset/asset-input/src/Webcam.tsx. Error: Error: Unknown type \\\"function\\\"\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/asset/asset-input/src/Webcam.tsx. Error: Error: Unknown type \"function\""
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [
-      "useState",
-      "useEffect",
-      "useRef",
-      "useEffect",
-      "ReactElement",
-      "useCallback",
-      "useEffect",
-      "useRef",
-      "useState",
-      "useState"
-    ],
+    "coreDependenciesIndexed": [],
     "folderNameIndexed": "asset-input",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668750044423,
-    "operationDependenciesIndexed": [
-      "getItem",
-      "Div",
-      "ClickableIcon",
-      "api",
-      "AUTH_TOKEN_STORAGE_KEY",
-      "apiUrl",
-      "notEmpty",
-      "removeIndexFromArray",
-      "InteractiveAsset",
-      "useAlert",
-      "NewAssetType",
-      "UploadAssetResult",
-      "Asset",
-      "BackendAsset",
-      "ensureToken",
-      "generateRandomString",
-      "RealApiReturnType",
-      "Asset",
-      "AssetType",
-      "withoutExtension",
-      "notEmpty",
-      "Input",
-      "Button",
-      "Div",
-      "Image",
-      "Div",
-      "AssetType",
-      "Asset",
-      "BackendAsset"
-    ],
-    "packageDependenciesIndexed": [
-      "register",
-      "MediaRecorder",
-      "IMediaRecorder",
-      "connect",
-      "disconnect"
-    ],
+    "lastRebuildAt": 1668835160876,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/asset",
     "markdown": "# 📸 Asset Input\n\nThis component lets you easily add asset input that includes upload with the `typerepo` server standard (`function-server`)\n\n## Installation\n\nAdd the css to your web project: `import \"asset-input/css.css\";`\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 9,
-        "lines": 1196,
-        "characters": 34671,
-        "bytes": 34671
+        "lines": 1214,
+        "characters": 35137,
+        "bytes": 35137
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 174,
-        "characters": 5350,
-        "bytes": 5350
+        "lines": 177,
+        "characters": 5385,
+        "bytes": 5385
       },
       "textSize": {
         "numberOfFiles": 3,
-        "lines": 237,
-        "characters": 6474,
-        "bytes": 6474
+        "lines": 87,
+        "characters": 3414,
+        "bytes": 3414
       },
       "size": {
-        "bytes": 46495,
-        "characters": 46495,
-        "lines": 1607,
+        "bytes": 43936,
+        "characters": 43936,
+        "lines": 1478,
         "numberOfFiles": 14
       }
     },

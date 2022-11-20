@@ -66,77 +66,38 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-web",
-    "coreDependenciesIndexed": [
-      "useEffect",
-      "useState",
-      "useState"
-    ],
+    "coreDependenciesIndexed": [],
     "folderNameIndexed": "search-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668774470311,
-    "operationDependenciesIndexed": [
-      "AppsMenu",
-      "pickRandomArrayItem",
-      "Div",
-      "driverLogin",
-      "Tooltip",
-      "Timeline",
-      "Div",
-      "Form",
-      "Input",
-      "useRouter",
-      "Div",
-      "Div",
-      "useRouter",
-      "AuthenticationLayout",
-      "AlertProvider",
-      "ModalProvider",
-      "useRouter",
-      "ToastContainer",
-      "MeAuthenticationInfo",
-      "Div",
-      "takeFirst",
-      "fs",
-      "path",
-      "operations",
-      "db",
-      "createStore",
-      "apiStoreInitialValues",
-      "nestedMenuStoreInitialValues",
-      "writerInitialValues"
-    ],
-    "packageDependenciesIndexed": [
-      "AppProps",
-      "QueryClient",
-      "QueryClientProvider",
-      "GetStaticProps"
-    ],
+    "lastRebuildAt": 1668835605988,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/search",
     "markdown": "# 🔎 search\n\nSearch everywhere\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 11,
-        "lines": 479,
-        "characters": 13606,
-        "bytes": 13606
+        "lines": 477,
+        "characters": 13517,
+        "bytes": 13517
       },
       "dataSize": {
         "numberOfFiles": 9,
         "lines": 280,
-        "characters": 18270,
-        "bytes": 18270
+        "characters": 18269,
+        "bytes": 18269
       },
       "textSize": {
         "numberOfFiles": 5,
-        "lines": 240,
-        "characters": 5513,
-        "bytes": 5513
+        "lines": 76,
+        "characters": 2279,
+        "bytes": 2279
       },
       "size": {
-        "bytes": 37389,
-        "characters": 37389,
-        "lines": 999,
+        "bytes": 34065,
+        "characters": 34065,
+        "lines": 833,
         "numberOfFiles": 25
       }
     },

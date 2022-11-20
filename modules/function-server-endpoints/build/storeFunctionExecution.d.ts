@@ -1,4 +1,5 @@
-import { PerformanceItem, TsFunction } from "code-types";
+import { TsFunction } from "code-types";
+import { PerformanceItem } from "measure-performance";
 /**
  * wrapper function that stores execution-speed in an object with `FunctionPerformance` data-structure. Store this using `db.push` if it adds value
  .*/

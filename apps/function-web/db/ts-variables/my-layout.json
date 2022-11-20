@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774408370,
-  "updatedAt": 1668774408370,
+  "createdAt": 1668835390857,
+  "updatedAt": 1668835390857,
   "deletedAt": 0,
-  "createdFirstAt": 1668774408370,
+  "createdFirstAt": 1668835390857,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n\n  const queryPathsQuery = queries.useGetFunctionQueryPaths();\n\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        queryPaths: queryPathsQuery.data?.result,\n        isLoading: queryPathsQuery.isLoading,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
   "description": "",
-  "id": "xvbflahwzeifgzijnfwilgwt"
+  "id": "lnbufggtpnfqeaktomyhzwjd"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775506601,
-  "updatedAt": 1668775506601,
+  "createdAt": 1668836068842,
+  "updatedAt": 1668836068842,
   "deletedAt": 0,
-  "createdFirstAt": 1668775506601,
+  "createdFirstAt": 1668836068842,
   "id": "namedparameterstypeof-calculatedevicename",
   "name": "NamedParameters<typeof calculateDeviceName>",
   "slug": "namedparameterstypeof-calculatedevicename",
@@ -21,7 +21,7 @@
           "$ref": "#/definitions/IPInfo"
         },
         "userAgent": {
-          "$ref": "#/definitions/UAParser.IResult"
+          "$ref": "#/definitions/IResult"
         }
       },
       "required": [
@@ -127,7 +127,8 @@
                 "name": "browser",
                 "required": true,
                 "schema": {
-                  "fullComment": "",
+                  "fullComment": "NB: copied from ua-parser-js ^1.0.32 because they weren't indexed",
+                  "nb": "copied from ua-parser-js ^1.0.32 because they weren't indexed",
                   "properties": [
                     {
                       "name": "name",

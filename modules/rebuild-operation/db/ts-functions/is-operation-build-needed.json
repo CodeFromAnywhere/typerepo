@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336154327,
-  "updatedAt": 1668336154327,
+  "createdAt": 1668835978771,
+  "updatedAt": 1668835978771,
   "deletedAt": 0,
-  "createdFirstAt": 1668336154327,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835978771,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/isOperationBuildNeeded.ts",
   "commentsInside": [],
   "rawText": " (operationBasePath: string) => {\n  const classification = getOperationClassification(operationBasePath)!;\n\n  console.log(`${getLastFolder(operationBasePath)}: ${classification}`);\n\n  // NB: server, web, app and ui-es6 have different ways to keep the build up-to-date\n  // NB: esm can't be minified with current thing\n  const buildNeededOperatons: OperationClassification[] = [\n    \"cjs\",\n    // \"esm\",\n    \"node-cjs\",\n    // \"node-esm\",\n    \"ui-cjs\",\n    // \"ui-esm\",\n  ];\n  const isBuildNeeded = buildNeededOperatons.includes(classification);\n\n  return isBuildNeeded;\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "tqbuahvlcvehmoonfuwknhvh"
+  "id": "jhzbvxcqnczaxmsldrjzreer"
 }

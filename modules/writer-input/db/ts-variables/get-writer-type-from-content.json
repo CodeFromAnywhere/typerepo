@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668152104906,
-  "updatedAt": 1668152104906,
+  "createdAt": 1668835678280,
+  "updatedAt": 1668835678280,
   "deletedAt": 0,
-  "createdFirstAt": 1668152104906,
+  "createdFirstAt": 1668835678280,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(text: string): WriterType => {\n  if (isTypescript(text)) return \"typescript\";\n  // NB: json is something else\n  if (tryParseJson(text)) return \"other\";\n  // by default, assume markdown\n  return \"markdown\";\n}",
   "description": "",
-  "id": "ufizxfnrpkzrvekycqztkqyc"
+  "id": "euaolgazmktcjgwjjzkiizvr"
 }

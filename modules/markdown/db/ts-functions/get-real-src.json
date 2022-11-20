@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775613112,
-  "updatedAt": 1668775613112,
+  "createdAt": 1668836167188,
+  "updatedAt": 1668836167188,
   "deletedAt": 0,
-  "createdFirstAt": 1668775613112,
+  "createdFirstAt": 1668836167188,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -26,6 +26,51 @@
       "name": "config",
       "schema": {
         "$ref": "#/definitions/MarkdownParseRenderConfig"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "projectRelativeBaseFolderPath",
+            "required": true,
+            "schema": {
+              "fullComment": "Folder path where the markdown is supposed to be located.\n\nThis is used for knowing where relative links or assets can be found",
+              "type": "string"
+            }
+          },
+          {
+            "name": "projectRelativeMarkdownFilePath",
+            "required": true,
+            "schema": {
+              "fullComment": "project relative path of the markdown file.\n\nThis is used for knowing where relative links or assets can be found",
+              "type": "string"
+            }
+          },
+          {
+            "name": "isStatic",
+            "required": false,
+            "schema": {
+              "fullComment": "If true, the files should come from a static folder. This means the relative references should now become projectRelative. Also see `copyAllRelativeFiles`.\n\nIf not true, we will use the api.",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "isDev",
+            "required": false,
+            "schema": {
+              "fullComment": "If true, we assume not all files are present in the static folder yet. This means we need to use the api.",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "big",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
       },
       "required": true
     }
@@ -67,5 +112,5 @@
     "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "mnbmtdilsyftgivvsyvazrhi"
+  "id": "ngjaiqgfxgcykydvrtedtmhn"
 }

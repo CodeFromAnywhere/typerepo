@@ -22,9 +22,6 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
-import rehypeHighlight from "rehype-highlight";
-import rehypeRaw from "rehype-raw";
-import remarkGfm from "remark-gfm";
 import { getRealSrc } from "./util/getRealSrc.js";
 import { Div, Span } from "react-with-native";
 import { getFolderJs } from "fs-util-js";
@@ -52,9 +49,13 @@ export var header = function (_a) {
  * renders a markdown striing (without frontmatter)
  */
 export var renderMarkdownContent = function (content, config) {
+    if (!content)
+        return "No content";
     // console.log("Need to render:", content);
     return (React.createElement(Span, null,
-        React.createElement(ReactMarkdown, { className: (config === null || config === void 0 ? void 0 : config.big) ? "max-w-lg" : undefined, rehypePlugins: [rehypeHighlight, remarkGfm, rehypeRaw], components: {
+        React.createElement(ReactMarkdown, { className: (config === null || config === void 0 ? void 0 : config.big) ? "max-w-lg" : undefined, 
+            //rehypePlugins={[rehypeHighlight, remarkGfm, rehypeRaw]}
+            components: {
                 h1: header,
                 h2: header,
                 h3: header,

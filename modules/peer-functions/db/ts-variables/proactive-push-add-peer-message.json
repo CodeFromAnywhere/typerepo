@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149693299,
-  "updatedAt": 1668149693299,
+  "createdAt": 1668835455325,
+  "updatedAt": 1668835455325,
   "deletedAt": 0,
-  "createdFirstAt": 1668149693299,
+  "createdFirstAt": 1668835455325,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  message: string,\n  peerSlug: string\n): Promise<boolean> => {\n  await addPeerMessage(message, peerSlug);\n\n  const peers = await db.get(\"Peer\", { include: { referenceKey: \"personId\" } });\n  await Promise.all(\n    peers.map(async (peer) => {\n      if (peer.isMe) return;\n      const apiResult = await apiWithConfig.addPeerMessage(\n        {\n          apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n          authToken: peer.authToken,\n          timeout: 2000,\n        },\n        message,\n        peerSlug\n      );\n\n      return apiResult;\n    })\n  );\n\n  return true;\n}",
+  "value": "async (\n  message: string,\n  peerSlug: string\n): Promise<boolean> => {\n  await addPeerMessage(message, peerSlug);\n\n  const peers = await db.get(\"Person\", {\n    include: { referenceKey: \"personId\" },\n  });\n  await Promise.all(\n    peers.map(async (peer) => {\n      //  if (peer.) return;\n      const apiResult = await apiWithConfig.addPeerMessage(\n        {\n          apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n          //  authToken: peer,\n          timeout: 2000,\n        },\n        message,\n        peerSlug\n      );\n\n      return apiResult;\n    })\n  );\n\n  return true;\n}",
   "description": "Adds a message to your own peer messages database, but also to the db of all your peers that are online currently",
-  "id": "bbmdqzjnjezfzquwkkvsrqiq"
+  "id": "ogcgjwzrisknzxtoskgcahlb"
 }

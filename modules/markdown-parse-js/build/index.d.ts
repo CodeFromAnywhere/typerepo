@@ -4,6 +4,7 @@ export * from "./MarkdownReference";
 export * from "./exampleContents";
 export * from "./getChunkParagraphsRecursively";
 export * from "./getImplicitId";
+export * from "./markdownParseToMarkdownStringFromContent";
 export * from "./getMarkdownIntro";
 export * from "./getMarkdownParseParagraphs";
 export * from "./getMarkdownReferencePaths";

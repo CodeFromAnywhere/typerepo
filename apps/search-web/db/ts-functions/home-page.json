@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774453851,
-  "updatedAt": 1668774453851,
+  "createdAt": 1668835589807,
+  "updatedAt": 1668835589807,
   "deletedAt": 0,
-  "createdFirstAt": 1668774453851,
+  "createdFirstAt": 1668835589807,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -16,6 +16,80 @@
       "name": "props",
       "schema": {
         "$ref": "#/definitions/QueryPageProps"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "searchResults",
+            "required": true,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "imagePaths",
+            "required": true,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "timelineItems",
+            "required": true,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "properties": [
+                      {
+                        "name": "comment",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "filePath",
+                        "required": false,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "line",
+                        "required": true,
+                        "schema": {
+                          "type": "number"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
       },
       "required": true
     }
@@ -44,5 +118,5 @@
     "linesPerFile": 84,
     "numberOfFiles": 1
   },
-  "id": "akybwtgckkibigfjalisifqz"
+  "id": "icwgnqecrmgdtqldgpmehpov"
 }

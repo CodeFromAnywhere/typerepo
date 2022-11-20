@@ -1,10 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.AssetInputType = void 0;
-var AssetInputType = /** @class */ (function () {
-    function AssetInputType() {
-    }
-    return AssetInputType;
-}());
-exports.AssetInputType = AssetInputType;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.AssetInputType=void 0;var AssetInputType=function(){};exports.AssetInputType=AssetInputType;
 //# sourceMappingURL=AssetInputType.js.map

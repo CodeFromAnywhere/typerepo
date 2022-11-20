@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775917477,
-  "updatedAt": 1668775917477,
+  "createdAt": 1668837452731,
+  "updatedAt": 1668837452731,
   "deletedAt": 0,
-  "createdFirstAt": 1668775917477,
+  "createdFirstAt": 1668837452731,
   "isApiExposed": false,
   "name": "notEmpty",
   "slug": "not-empty",
@@ -41,5 +41,5 @@
   },
   "rawText": "\n\n/**\n * Removes empty values (null or undefined) from your arrays in a type-safe way\n */\nexport function notEmpty<TValue>(\n  value: TValue | null | undefined\n): value is TValue {\n  return value !== null && value !== undefined;\n}",
   "maxIndentationDepth": 1,
-  "id": "mmxrdgkpwaxcxfvjbaobwsch"
+  "id": "rsydoxtgmfdqvcdkdigpzvoq"
 }

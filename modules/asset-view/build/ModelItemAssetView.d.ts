@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { BackendAsset } from "asset-type";
 import { AugmentedAnyModelType } from "model-types";
 export declare const ModelItemAssetView: <T extends AugmentedAnyModelType>(props: {

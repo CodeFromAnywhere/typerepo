@@ -124,470 +124,587 @@ export const dbModelKeys = [ "SelfSprintReview","TodoFile","TodoOffer","Authoriz
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
     SelfSprintReview: {
+          
           dbStorageMethod: "jsonSingle",
           
         },
 TodoFile: {
+          
           dbStorageMethod: "markdown",
           
         },
 TodoOffer: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 AuthorizationModel: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Device: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Group: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PageVisit: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PaymentCoupon: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PaymentEvent: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PaymentPlan: {
+          
           dbStorageMethod: "markdown",
           
         },
 PaymentSubscription: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PeerMessage: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Person: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Persona: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PersonInformation: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 PersonInformationValue: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PersonPlatformConnection: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Platform: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 RecurringReminder: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Interest: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 MediaChannel: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 MediaCredentail: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 MediaPost: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Postable: {
+          
           dbStorageMethod: "markdown",
           
         },
 BundleConfig: {
+          
           dbStorageMethod: "jsonSingle",
           
         },
 Dataset: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 FunctionExecution: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Operation: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           operationRelativePath: "package.json",
         },
 SocialMediaCallToAction: {
+          
           dbStorageMethod: "markdown",
           
         },
 TsBuildError: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsComment: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsConfig: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           operationRelativePath: "tsconfig.json",
         },
 TsExport: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsFunction: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           
         },
 TsImport: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsInterface: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           
         },
 TsLintWarning: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsVariable: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           
         },
 TypescriptFile: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 WebMarkdownFile: {
+          
           dbStorageMethod: "markdown",
           
         },
 WebsiteCallToAction: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Address: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Area: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 City: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Country: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Location: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 KvmdWord: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 MarkdownWord: {
+          
           dbStorageMethod: "markdown",
           
         },
 NepaliEnglishTranslationMatrix: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Statement: {
+          
           dbStorageMethod: "markdown",
           
         },
 TokiPonaMatrix: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Translation: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Word: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 WordCategory: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 WordCombination: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 WordMatrix: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 SlugModelType: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 AppDeveloper: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Assignment: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Bag: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Calendar: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Deliverable: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Diary: {
+          
           dbStorageMethod: "markdown",
           
         },
 Feeling: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 FeelingLog: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Folder: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Host: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Inventory: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Item: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 ItemCategory: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 KvmdShortcut: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 Label: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Light: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Listing: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 LoginCredential: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 Material: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 MessagePreset: {
+          
           dbStorageMethod: "markdown",
           
         },
 PersonalCarbonFootprintProfile: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 ProgressReport: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Question: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Reservation: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Resource: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Shit: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 ShitLog: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 ShoppingList: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 Shortcut: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Student: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Student2: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 TaskError: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Trackable: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 User: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 UserCredential: {
+          
           dbStorageMethod: "csv",
           
         },
 Artist: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PlayCategory: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PlayItem: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PlayList: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PlaySchedule: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 RelationModelType: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 JeepType: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 LocationType: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 OperationConfig: {
+          operationName: "*",
           dbStorageMethod: "markdown",
           operationRelativePath: "OPERATION.md",
         },
 OperationIndex: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           operationRelativePath: "db/operation-index.json",
         },
 PackageJson: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           operationRelativePath: "package.json",
         },
 Activity: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 CompanyRequirement: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 CompanySize: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 CompanyType: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Company: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 ContactInformation: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Contribution: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 EsgMetric: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 ProductCategory: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 Product: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 ProofState: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Proof: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 SustainabilityPlan: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 ValueChainPhase: {
+          
           dbStorageMethod: "jsonMultiple",
           
         }

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668752286336,
-  "updatedAt": 1668752286336,
+  "createdAt": 1668831771051,
+  "updatedAt": 1668831771051,
   "deletedAt": 0,
-  "createdFirstAt": 1668752286336,
+  "createdFirstAt": 1668831771051,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getPublicPerson.ts",
   "commentsInside": [],
-  "rawText": " async (id: string) => {\n  return (await getPublicPersons()).find((x) => x.id === id);\n}",
+  "rawText": " async (id?: string) => {\n  return (await getPublicPersons()).find((x) => x.id === id);\n}",
   "name": "getPublicPerson",
   "slug": "get-public-person",
   "parameters": [
@@ -20,7 +20,7 @@
       "simplifiedSchema": {
         "type": "string"
       },
-      "required": true
+      "required": false
     }
   ],
   "description": "",
@@ -35,13 +35,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 88,
+    "characters": 89,
     "lines": 3,
-    "bytes": 88,
+    "bytes": 89,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 29,
+    "charactersPerLine": 30,
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "neeisptbyrryaekbqapetwtq"
+  "id": "zbslrvpyjjevfvgrvlyikeby"
 }

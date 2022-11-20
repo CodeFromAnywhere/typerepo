@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668678540852,
-  "updatedAt": 1668678540852,
+  "createdAt": 1668835492024,
+  "updatedAt": 1668835492024,
   "deletedAt": 0,
-  "createdFirstAt": 1668678540852,
+  "createdFirstAt": 1668835492024,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "public-person-keys",
   "operationRelativeTypescriptFilePath": "src/Person.ts",
   "type": {
-    "rawType": "readonly [\"name\", \"slug\", \"id\", \"pictureImage\", \"interestSlugs\", \"media\", \"preferredContactMedium\", \"groupSlugs\"]",
+    "rawType": "readonly [\"name\", \"slug\", \"id\", \"pictureImage\", \"interestSlugs\", \"media\", \"preferredContactMedium\", \"groupSlugs\", \"operationName\", \"projectRelativePath\"]",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -18,7 +18,7 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "value": "[\n  \"name\",\n  \"slug\",\n  \"id\",\n  \"pictureImage\",\n  \"interestSlugs\",\n  \"media\",\n  \"preferredContactMedium\",\n  \"groupSlugs\",\n] as const",
+  "value": "[\n  \"name\",\n  \"slug\",\n  \"id\",\n  \"pictureImage\",\n  \"interestSlugs\",\n  \"media\",\n  \"preferredContactMedium\",\n  \"groupSlugs\",\n  \"operationName\",\n  \"projectRelativePath\",\n] as const",
   "description": "Can be seen for every person, without authentication\n\nNB: I wish it were possible to ensure these keys exist on the person here, but we can't validate that while still keeping it a const I guess",
-  "id": "ejotvuuhjklguebqhxbmlsxi"
+  "id": "gpxsjhgjwtdxebzazgdeygqs"
 }

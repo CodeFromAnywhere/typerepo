@@ -1,12 +1,4 @@
 import { BackendAsset } from "asset-type";
-export declare type ProcessAssetConfig = {
-    /**
-     * PascalCase model name for database model
-     *
-     * Only needed for database files
-     */
-    modelName?: string;
-};
 /**
 Processes an asset by moving the file in the right location, if needed...
 
@@ -16,6 +8,9 @@ Processes an asset by moving the file in the right location, if needed...
 - temporaryDestination must be checked. if it exists, must replace the file on relativePath calculated from name
 
 After processing, this function should return a `BackendAsset` without the non-storable parameters
+
+BEWARE: `absoluteReferencingFilePath`, and for db-models also `modelName`, need to be given here! Otherwise this won't work!
+
  */
-export declare const processAsset: (backendAsset: BackendAsset, absoluteReferencingFilePath: string, config: ProcessAssetConfig) => Promise<undefined | BackendAsset>;
+export declare const processAsset: (backendAsset?: BackendAsset | BackendAsset[]) => Promise<undefined | BackendAsset>;
 //# sourceMappingURL=processAsset.d.ts.map

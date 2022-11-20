@@ -1,12 +1,12 @@
 {
-  "createdAt": 1668775639168,
-  "updatedAt": 1668775639168,
+  "createdAt": 1668837690162,
+  "updatedAt": 1668837690162,
   "deletedAt": 0,
-  "createdFirstAt": 1668775639168,
+  "createdFirstAt": 1668837690162,
   "id": "namedparameterstypeof-modelcomponent",
   "name": "NamedParameters<typeof ModelComponent>",
   "slug": "namedparameterstypeof-modelcomponent",
-  "operationRelativeTypescriptFilePath": "src/ModelComponent.tsx",
+  "operationRelativeTypescriptFilePath": "src/crud/ModelComponent.tsx",
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
@@ -17,23 +17,14 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
-        "{\n  modelName,\n  highlight,\n}": {
+        "props": {
           "type": "object",
           "properties": {
             "modelName": {
               "type": "string"
             },
             "highlight": {
-              "type": "object",
-              "properties": {
-                "slug": {
-                  "type": "string"
-                },
-                "id": {
-                  "type": "string"
-                }
-              },
-              "additionalProperties": false
+              "$ref": "#/definitions/Highlight"
             }
           },
           "required": [
@@ -43,14 +34,14 @@
         }
       },
       "required": [
-        "{\n  modelName,\n  highlight,\n}"
+        "props"
       ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
-          "name": "{\n  modelName,\n  highlight,\n}",
+          "name": "props",
           "required": true,
           "schema": {
             "properties": [
@@ -65,6 +56,7 @@
                 "name": "highlight",
                 "required": true,
                 "schema": {
+                  "fullComment": "",
                   "properties": [
                     {
                       "name": "slug",

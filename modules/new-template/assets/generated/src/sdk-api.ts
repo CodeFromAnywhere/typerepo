@@ -235,6 +235,7 @@ import { cacheLookup } from "db-recipes";
 import { calculateOperatingSystemBundle } from "db-recipes";
 import { deleteDbModel } from "db-recipes";
 import { getDatabaseMenu } from "db-recipes";
+import { getDbModelMetadata } from "db-recipes";
 import { getDbModelNames } from "db-recipes";
 import { getDbModel } from "db-recipes";
 import { getFunctionIndex } from "db-recipes";
@@ -285,13 +286,19 @@ import { getFunctionQueryPaths } from "function-functions-node";
 import { getPublicBundleConfig } from "function-functions-node";
 import { getSrcRelativeFolderPath } from "function-functions-node";
 import { getTsFunction } from "function-functions-node";
+import { getAugmentedWordObject } from "augmented-word-node";
+import { getAugmentedWords } from "augmented-word-node";
+import { getBundleAugmentedWords } from "augmented-word-node";
 import { addPeerMessage } from "peer-functions";
 import { addPeer } from "peer-functions";
 import { augmentDevice } from "peer-functions";
+import { deviceGetAppsCalculated } from "peer-functions";
 import { getAllAppOperations } from "peer-functions";
+import { getAugmentedPersons } from "peer-functions";
 import { getFirstEmoji } from "peer-functions";
 import { getNestedPathObject } from "peer-functions";
 import { getPeerMessages } from "peer-functions";
+import { getPeerPeople } from "peer-functions";
 import { getPeersFromPeersRecursively } from "peer-functions";
 import { getPublicFolderNestedPathObjectFromPeer } from "peer-functions";
 import { getPublicFolderNestedPathObject } from "peer-functions";
@@ -301,11 +308,9 @@ import { lateFetchPeerMessageSync } from "peer-functions";
 import { ping } from "peer-functions";
 import { proactivePushAddPeerMessage } from "peer-functions";
 import { removePeer } from "peer-functions";
+import { sortDevices } from "peer-functions";
 import { updatePeer } from "peer-functions";
 import { getPrimaryPersona } from "persona-functions-node";
-import { getAugmentedWordObject } from "augmented-word-node";
-import { getAugmentedWords } from "augmented-word-node";
-import { getBundleAugmentedWords } from "augmented-word-node";
 import { getDayNumber } from "reminder-node";
 import { remindMe } from "reminder-node";
 import { getPostableFrontmatterSchema } from "social-media-functions";
@@ -731,6 +736,7 @@ import { getObjectKeysArray } from "js-util";
 import { getParameterAtLocation } from "js-util";
 import { getSubsetFromObject } from "js-util";
 import { groupByKey } from "js-util";
+import { hasAllLetters } from "js-util";
 import { insertAt } from "js-util";
 import { isAllTrue } from "js-util";
 import { makeArray } from "js-util";
@@ -752,6 +758,7 @@ import { onlyUnique } from "js-util";
 import { pickRandomArrayItem } from "js-util";
 import { putIndexAtIndex } from "js-util";
 import { removeIndexFromArray } from "js-util";
+import { removeOptionalKeysFromObjectStrings } from "js-util";
 import { removeOptionalKeysFromObject } from "js-util";
 import { replaceLastOccurence } from "js-util";
 import { reverseString } from "js-util";
@@ -1010,6 +1017,7 @@ cacheLookup,
 calculateOperatingSystemBundle,
 deleteDbModel,
 getDatabaseMenu,
+getDbModelMetadata,
 getDbModelNames,
 getDbModel,
 getFunctionIndex,
@@ -1060,13 +1068,19 @@ getFunctionQueryPaths,
 getPublicBundleConfig,
 getSrcRelativeFolderPath,
 getTsFunction,
+getAugmentedWordObject,
+getAugmentedWords,
+getBundleAugmentedWords,
 addPeerMessage,
 addPeer,
 augmentDevice,
+deviceGetAppsCalculated,
 getAllAppOperations,
+getAugmentedPersons,
 getFirstEmoji,
 getNestedPathObject,
 getPeerMessages,
+getPeerPeople,
 getPeersFromPeersRecursively,
 getPublicFolderNestedPathObjectFromPeer,
 getPublicFolderNestedPathObject,
@@ -1076,11 +1090,9 @@ lateFetchPeerMessageSync,
 ping,
 proactivePushAddPeerMessage,
 removePeer,
+sortDevices,
 updatePeer,
 getPrimaryPersona,
-getAugmentedWordObject,
-getAugmentedWords,
-getBundleAugmentedWords,
 getDayNumber,
 remindMe,
 getPostableFrontmatterSchema,
@@ -1506,6 +1518,7 @@ getObjectKeysArray,
 getParameterAtLocation,
 getSubsetFromObject,
 groupByKey,
+hasAllLetters,
 insertAt,
 isAllTrue,
 makeArray,
@@ -1527,6 +1540,7 @@ onlyUnique,
 pickRandomArrayItem,
 putIndexAtIndex,
 removeIndexFromArray,
+removeOptionalKeysFromObjectStrings,
 removeOptionalKeysFromObject,
 replaceLastOccurence,
 reverseString,

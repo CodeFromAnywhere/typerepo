@@ -1,6 +1,5 @@
 /// <reference types="node" />
 /// <reference types="node" />
-/// <reference types="ua-parser-js" />
 /// <reference types="node" />
 import { earthDistance } from "himalayajeep-functions";
 import { hasDefinition } from "index-typescript";
@@ -126,13 +125,13 @@ export declare const sdk: {
         isUnauthorized?: boolean | undefined;
         message: string;
     }>;
-    getStorageLocationInfo: (absoluteReferencingFilePath: string, config: import("asset-functions-node").ProcessAssetConfig) => {
+    getStorageLocationInfo: (absoluteReferencingFilePath: string, modelName?: string | undefined) => {
         type: "typescript" | "database" | "markdown";
         absoluteAssetBaseFolderPath: string;
     };
     getTemporaryAssetsFolderPath: () => string;
-    processAsset: (backendAsset: import("asset-type").BackendAsset, absoluteReferencingFilePath: string, config: import("asset-functions-node").ProcessAssetConfig) => Promise<import("asset-type").BackendAsset | undefined>;
-    processItemAssets: <KInterfaceName extends string | number | symbol>(item: import("model-types").AugmentedAnyModelType, interfaceName: KInterfaceName, operationName: string | null, customQueryConfig: import("fs-orm").CustomQueryConfig) => Promise<import("model-types").AugmentedAnyModelType>;
+    processAsset: (backendAsset?: import("asset-type").BackendAsset | import("asset-type").BackendAsset[] | undefined) => Promise<import("asset-type").BackendAsset | undefined>;
+    processItemAssets: <KInterfaceName extends string | number | symbol>(item: import("model-types").AugmentedAnyModelType, interfaceName: KInterfaceName, operationName: string | null, customQueryConfig: import("fs-orm").CustomQueryConfig) => Promise<import("model-types").AugmentedAnyModelType | undefined>;
     removeOldTemporaryAssets: () => Promise<{
         removedAmount: number;
     }>;
@@ -175,10 +174,15 @@ export declare const sdk: {
     } | undefined) => Promise<{
         menu: import("code-types").ModelInfo[];
     }>;
+    getDbModelMetadata: (modelName: string | undefined) => Promise<{
+        tsInterface?: import("code-types").TsInterface | undefined;
+        datasets?: import("code-types").Dataset[] | undefined;
+        projectRelativeStorageFilePath?: string | undefined;
+    }>;
     getDbModelNames: (config?: {
         bundleId?: string | undefined;
     } | undefined) => Promise<(string | number | symbol)[]>;
-    getDbModel: <KInterface_1 extends string | number | symbol>(interfaceName: KInterface_1 | null, config?: import("db-recipes").GetDbModelConfig | undefined) => Promise<import("db-recipes").GetDbModelResult<KInterface_1>>;
+    getDbModel: <KInterface_1 extends string | number | symbol, TDatasetConfig extends import("code-types").DatasetConfig>(interfaceName: KInterface_1 | null, datasetConfig?: TDatasetConfig | undefined, search?: string | undefined) => Promise<import("db-recipes").GetDbModelResult<KInterface_1>>;
     getFunctionIndex: ({ functionName, }: {
         functionName: string;
     }) => Promise<{
@@ -327,12 +331,12 @@ export declare const sdk: {
     getPublicBundleConfig: () => Promise<import("function-types").PublicBundleConfig | undefined>;
     getSrcRelativeFolderPath: (operationRelativeSourcePath: string) => string | undefined;
     getTsFunction: (functionName?: string | undefined) => Promise<import("function-types").FunctionData | undefined>;
-    calculateDeviceName: (ipInfo: import("peer-types").IPInfo, userAgent: import("ua-parser-js").IResult) => string;
+    calculateDeviceName: (ipInfo: import("peer-types").IPInfo, userAgent: import("peer-types").IResult) => string;
     executeFunctionWithParameters: (functionName: string | number | symbol, parameters: any[] | undefined, serverContext: import("server/typings/common").Context) => Promise<import("api-types").ApiReturnType<any>>;
     getAuthorizationInfo: (device: import("peer-types").Device, tsFunction: import("code-types").TsFunction) => import("function-server-endpoints").AuthorizationInfo;
     isGetEndpoint: (functionName: string) => boolean;
     savePageVisit: (deviceId: string, ipInfo: import("peer-types").IPInfo, referer: string) => Promise<void>;
-    storeFunctionExecution: (tsFunction: import("code-types").TsFunction, inputParameters: any[] | undefined, output: any, performance: PerformanceItem[], isResultFromCache: boolean) => Promise<void>;
+    storeFunctionExecution: (tsFunction: import("code-types").TsFunction, inputParameters: any[] | undefined, output: any, performance: import("measure-performance").PerformanceItem[], isResultFromCache: boolean) => Promise<void>;
     upsertDevice: (serverContext: import("server/typings/common").Context) => Promise<import("peer-types").Device | undefined>;
     generateNamedIndex: ({ operationName, manualProjectRoot, }: {
         manualProjectRoot?: string | undefined;
@@ -678,10 +682,59 @@ export declare const sdk: {
         message: string;
     } | undefined>;
     augmentDevice: (x: import("peer-types").Device) => import("peer-types").Device;
+    deviceGetAppsCalculated: (device: import("peer-types").Device) => Promise<{
+        lastOnlineAt: number;
+        appOperationsCalculated: import("peer-types").AppOperation[] | undefined;
+        authToken: string;
+        userAgent: import("peer-types").IResult;
+        userAgentString: string;
+        name: string;
+        previousIps: import("peer-types").IPInfo[];
+        origins: string[];
+        hasPapi?: boolean | undefined;
+        isOnlineCalculated?: boolean | undefined;
+        isLocalIpCalculated?: boolean | undefined;
+        isFavorite?: boolean | undefined;
+        isPrivate?: boolean | undefined;
+        lastSyncDatabaseAtObject: {
+            [modelName: string]: number;
+        };
+        personIds?: string[] | undefined;
+        persons?: import("peer-types").Person[] | undefined;
+        currentPersonId?: string | undefined;
+        currentPersonCalculated?: import("peer-types").Person | undefined;
+        authenticationMethods: import("peer-types").AuthenticationMethod[];
+        categoryStackCalculated?: import("model-types").CategoryStack | undefined;
+        id: string;
+        operationName: string | null;
+        projectRelativePath: string;
+        operationRelativePath?: string | undefined;
+        createdAt: number;
+        updatedAt: number;
+        deletedAt: number;
+        createdFirstAt: number;
+        ip: string;
+        city: string | undefined;
+        position: import("geo-types").Position | undefined;
+        positionRadiusKm: number | undefined;
+        country: string | undefined;
+        region: string | undefined;
+        timezone: string | undefined;
+    }>;
     getAllAppOperations: () => Promise<import("peer-types").AppOperation[]>;
+    getAugmentedPersons: (devices: import("peer-types").Device[], config?: {
+        onlyWithDevices?: boolean | undefined;
+        onlyWithPapi?: boolean | undefined;
+        onlyOnline?: boolean | undefined;
+        withAppsCalculated?: boolean | undefined;
+    } | undefined) => Promise<import("peer-types").Person[]>;
     getFirstEmoji: (text?: string | undefined) => string | undefined;
     getNestedPathObject: (baseFolderPath: string) => Promise<import("nested-menu").NestedPathObject>;
     getPeerMessages: () => Promise<import("peer-types").PeerMessage[]>;
+    getPeerPeople: () => Promise<{
+        success: boolean;
+        peerPeople: import("peer-types").Person[];
+    }>;
     getPeersFromPeersRecursively: () => void;
     getPublicFolderNestedPathObjectFromPeer: (peerSlug: string) => Promise<{
         peerApiResult: import("api-types").ApiReturnType<"getPublicFolderNestedPathObject">;
@@ -695,6 +748,7 @@ export declare const sdk: {
     ping: () => boolean;
     proactivePushAddPeerMessage: (message: string, peerSlug: string) => Promise<boolean>;
     removePeer: (id: string) => Promise<import("fs-orm").DbQueryResult>;
+    sortDevices: (a: import("peer-types").Device, b: import("peer-types").Device) => 1 | -1;
     updatePeer: (slug: string, updatedValues: {
         name?: string | undefined;
         description?: string | undefined;
@@ -821,7 +875,7 @@ export declare const sdk: {
         functionContext?: import("function-context-type").FunctionContext | undefined;
         authenticationMethod?: import("peer-types").AuthenticationMethod | undefined;
     }>;
-    addPersonAuthenticationMethodWithContext: (functionContext: import("function-context-type").FunctionContext, personId: string, method: import("peer-types").AuthenticationMethodMethod, handle: string, credential?: string | undefined) => Promise<{
+    addPersonAuthenticationMethodWithContext: (functionContext: import("function-context-type").FunctionContext, method: import("peer-types").AuthenticationMethodMethod, handle: string, credential?: string | undefined) => Promise<{
         isSuccessful: boolean | undefined;
         message: string;
     }>;
@@ -836,8 +890,8 @@ export declare const sdk: {
         device: import("peer-types").Device;
         groups?: import("peer-types").Group[] | undefined;
     };
-    getPublicPerson: (id: string) => Promise<Pick<import("peer-types").Person, "id" | "name" | "slug" | "pictureImage" | "interestSlugs" | "media" | "preferredContactMedium" | "groupSlugs"> | undefined>;
-    getPublicPersons: () => Promise<Pick<import("peer-types").Person, "id" | "name" | "slug" | "pictureImage" | "interestSlugs" | "media" | "preferredContactMedium" | "groupSlugs">[]>;
+    getPublicPerson: (id?: string | undefined) => Promise<import("peer-types").PublicPerson | undefined>;
+    getPublicPersons: () => Promise<import("peer-types").PublicPerson[]>;
     isPhoneNumber: (phoneNumber: string) => boolean;
     isValidPassword: (password: string) => boolean;
     loginWithContext: (functionContext: import("function-context-type").FunctionContext) => Promise<{
@@ -860,11 +914,11 @@ export declare const sdk: {
         isSuccessful: boolean | undefined;
         message: string | undefined;
     }>;
-    signupWithContext: (functionContext: import("function-context-type").FunctionContext, personData: Pick<import("peer-types").Person, "name" | "slug" | "pictureImage" | "interestSlugs" | "media" | "groupSlugs" | "authorizations" | "credit" | "dataEntries" | "requiredAuthenticationMethods" | "amountAuthenticationMethodsRequired">) => Promise<{
+    signupWithContext: (functionContext: import("function-context-type").FunctionContext, personData: import("server-login").SignupPersonData) => Promise<{
         isSuccessful: boolean;
         message: string;
     }>;
-    signupWithPasswordWithContext: (functionContext: import("function-context-type").FunctionContext, name: string, handle: string, password: string, repeatPassword: string) => Promise<{
+    signupWithPasswordWithContext: (functionContext: import("function-context-type").FunctionContext, name: string, handle: string, pictureImage: import("asset-type").BackendAsset | undefined, password: string, repeatPassword: string) => Promise<{
         isSuccessful: boolean;
         message: string;
     }>;
@@ -1083,6 +1137,7 @@ export declare const sdk: {
     }>(array: T_22[], key: keyof T_22) => {
         [key: string]: T_22[];
     };
+    hasAllLetters: (a: string, b: string) => boolean;
     insertAt: <T_23>(array: T_23[], items: T_23 | T_23[], beforeIndex: number) => T_23[];
     isAllTrue: (array: boolean[]) => boolean;
     makeArray: <T_24>(...arrayOrNotArray: (T_24 | T_24[] | undefined)[]) => T_24[];
@@ -1127,15 +1182,16 @@ export declare const sdk: {
     pickRandomArrayItem: <T_35>(array: T_35[]) => T_35;
     putIndexAtIndex: <T_36>(array: T_36[], index: number, toIndex: number) => T_36[];
     removeIndexFromArray: <T_37>(array: T_37[], index: number) => T_37[];
-    removeOptionalKeysFromObject: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: Exclude<keyof TObject_3, Exclude<import("js-util").KeysOfType<TObject_3, Exclude<TObject_3[keyof TObject_3], undefined>>, undefined>>[]) => TObject_3;
+    removeOptionalKeysFromObjectStrings: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: string[]) => TObject_3;
+    removeOptionalKeysFromObject: <TObject_4 extends import("js-util").O>(object: TObject_4, keys: Exclude<Extract<keyof TObject_4, string>, Exclude<import("js-util").KeysOfType<TObject_4, Exclude<TObject_4[keyof TObject_4], undefined>>, undefined>>[]) => TObject_4;
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
     sumAllKeys: <T_38 extends {
         [key: string]: number | undefined;
     }>(objectArray: T_38[], keys: (keyof T_38)[]) => T_38;
-    sumObjectParameters: <TObject_4 extends {
+    sumObjectParameters: <TObject_5 extends {
         [key: string]: number;
-    }>(object1: TObject_4, object2: TObject_4) => TObject_4;
+    }>(object1: TObject_5, object2: TObject_5) => TObject_5;
     sum: (items: number[]) => number;
     takeFirst: <T_39>(arrayOrNot: T_39 | T_39[]) => T_39;
     trimSlashes: (absoluteOrRelativePath: string) => string;
@@ -1234,6 +1290,7 @@ export declare const sdk: {
         args?: (string | undefined)[] | undefined;
     }) => Promise<(string | null)[] | undefined>;
     findFirstCommentTypes: (strippedFullComment?: string | undefined) => import("code-types").CommentTypeObject;
+    getDataParameterNames: (item: import("model-types").AugmentedAnyModelType) => string[];
     getPossibleReferenceParameterNames: (parameterName: string) => string[];
     getProperties: (schema: import("json-schema").JSONSchema7 | undefined) => import("schema-util").SchemaProperty[];
     getRefLink: (ref?: string | undefined) => string | undefined;

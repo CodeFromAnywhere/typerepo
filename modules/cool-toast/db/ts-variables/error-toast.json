@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668769547777,
-  "updatedAt": 1668769547777,
+  "createdAt": 1668836111847,
+  "updatedAt": 1668836111847,
   "deletedAt": 0,
-  "createdFirstAt": 1668769547777,
+  "createdFirstAt": 1668836111847,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(message?: string) => {\n  toast(\n    {\n      title: \"\",\n      body: message || \"Something went wrong\",\n    },\n    { hideProgressBar: true, position: \"bottom-right\", type: \"error\" }\n  );\n}",
   "description": "",
-  "id": "ktifuxkcghxlooefgcdrexzg"
+  "id": "pwlcfosjulrzyeoemudhgrcg"
 }

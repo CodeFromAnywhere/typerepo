@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668754551334,
-  "updatedAt": 1668754551334,
+  "createdAt": 1668836298960,
+  "updatedAt": 1668836298960,
   "deletedAt": 0,
-  "createdFirstAt": 1668754551334,
+  "createdFirstAt": 1668836298960,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -77,6 +77,80 @@
                     "fullComment": "if true, your gitrepo is marked as pubilc and thus users will be linked to it sometimes",
                     "type": "boolean"
                   }
+                },
+                {
+                  "name": "bundleMarkdownReaderConfig",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "configurate your markdown reader\n\n",
+                    "properties": [
+                      {
+                        "name": "docsInRoot",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "When set to `true`, docs are not shown in docs folder but in the root menu of the site",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "showTodos",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "Show todo menu",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "omitModulesMenu",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "`modules` will be hidden from markdown reader menu",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "omitAppsMenu",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "`apps` will be hidden from markdown reader menui",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "omitDictionaryMenu",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "if true, dictionary is omitted from menu",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "omitPackagesMenu",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "`packages` will be hidden from markdown reader menu",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "customOperationNames",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "if given, the operations menu will show with these operations",
+                          "items": [
+                            {
+                              "schema": {
+                                "type": "string"
+                              },
+                              "name": null
+                            }
+                          ],
+                          "type": "array"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  }
                 }
               ],
               "type": "object"
@@ -112,5 +186,5 @@
     "linesPerFile": 57,
     "numberOfFiles": 1
   },
-  "id": "dvucvkkfbvmqrpxlntewqeta"
+  "id": "rgukfqeydpfrwfaugtjnrrze"
 }

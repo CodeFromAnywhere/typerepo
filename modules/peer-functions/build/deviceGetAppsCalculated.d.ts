@@ -1,10 +1,9 @@
-/// <reference types="ua-parser-js" />
 import { Device } from "peer-types";
 export declare const deviceGetAppsCalculated: (device: Device) => Promise<{
     lastOnlineAt: number;
     appOperationsCalculated: import("peer-types").AppOperation[] | undefined;
     authToken: string;
-    userAgent: import("ua-parser-js").IResult;
+    userAgent: import("peer-types").IResult;
     userAgentString: string;
     name: string;
     previousIps: import("peer-types").IPInfo[];
@@ -20,6 +19,7 @@ export declare const deviceGetAppsCalculated: (device: Device) => Promise<{
     personIds?: string[] | undefined;
     persons?: import("peer-types").Person[] | undefined;
     currentPersonId?: string | undefined;
+    currentPersonCalculated?: import("peer-types").Person | undefined;
     authenticationMethods: import("peer-types").AuthenticationMethod[];
     categoryStackCalculated?: import("model-types").CategoryStack | undefined;
     id: string;

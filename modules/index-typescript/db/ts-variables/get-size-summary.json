@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752099870,
-  "updatedAt": 1668752099870,
+  "createdAt": 1668835907856,
+  "updatedAt": 1668835907856,
   "deletedAt": 0,
-  "createdFirstAt": 1668752099870,
+  "createdFirstAt": 1668835907856,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(string: string): SizeSummary => {\n  const characters = string.length;\n  const lines = string.split(\"\\n\").length;\n  const bytes = byteCount(string);\n  return {\n    characters,\n    lines,\n    bytes,\n    bytesPerCharacter: bytes / characters,\n    charactersPerLine: Math.round(characters / lines),\n    linesPerFile: lines,\n    numberOfFiles: 1,\n  };\n}",
   "description": "takes a string and simply returns the amount of characters, the amount of lines and the amount of bytes\n\nTODO: this is not the right place for this function",
-  "id": "shncnlykqbkrgmvthyfhrppg"
+  "id": "gnchwzvphyqkyvojjaucgxar"
 }

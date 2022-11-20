@@ -1,9 +1,9 @@
-import { IResult } from "ua-parser-js";
 import { DefaultModelType, Id } from "model-types";
 import { Person } from "./Person";
 import { AppOperation } from "./AppOperation";
 import { IPInfo } from "./IPInfo";
 import { AuthenticationMethod } from "./AuthenticationMethjod";
+import { IResult } from "./external/ua-parser-js";
 /**
  A Device that accesses any King OS api.
 

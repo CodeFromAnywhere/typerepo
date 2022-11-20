@@ -157,6 +157,8 @@ var executeFunctionWithParameters = function (functionName, parameters, serverCo
             case 5:
                 result = _b.sent();
                 performance.push((0, measure_performance_1.getNewPerformance)("function", executionId));
+                (0, measure_performance_1.cleanupTimer)(executionId);
+                // console.log({ serverwithPar: performance });
                 // 6) store performance
                 (0, storeFunctionExecution_1.storeFunctionExecution)(tsFunction, parameters, result, performance.filter(js_util_1.notEmpty), false);
                 // need to return this immediately without the surrounding object, because it might do stuff with that server context that needs to be returned

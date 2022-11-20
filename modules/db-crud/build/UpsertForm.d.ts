@@ -17,8 +17,8 @@ export declare const UpsertForm: (props: {
      */
     referencableModelNames?: string[] | undefined;
     /**
-     * Where is the file stored that this form is for? needed for rendering images and uploading images in writer-input
+     * Provide this
      */
-    projectRelativeStorageFilePath: string;
+    modelName: string;
 }) => JSX.Element;
 //# sourceMappingURL=UpsertForm.d.ts.map

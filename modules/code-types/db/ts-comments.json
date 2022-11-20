@@ -1,20 +1,20 @@
 [
   {
-    "createdAt": 1668775325723,
-    "updatedAt": 1668775325723,
+    "createdAt": 1668835760430,
+    "updatedAt": 1668835760430,
     "deletedAt": 0,
-    "createdFirstAt": 1668775325723,
+    "createdFirstAt": 1668835760430,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/TextJson.ts",
-    "comment": "TODO: Rename",
-    "rawStatement": "export interface TextJson {\n  /**\n   * only available if it's a json file\n   */\n  json?: any;\n  /**\n   * only available if it's a typescript file\n   */\n  typescriptJson?: unknown;\n  /**\n   * only available if it's a markdown file\n   */\n  markdownJson?: MarkdownParse;\n  /**\n   * full absolute path to the file or folder\n   */\n  path: string;\n  isFolder: boolean;\n  /**\n   * only returned if `includeStats` is true\n   */\n  stats?: PathStats;\n  /**\n   * only returned if `includeMetaData` is set to true\n   */\n  metaData?: FileContentInfo;\n  /** if true, this means this path is given back because it was the last opened base path that searching was canceled on because of the cancelRecursionOn prop */\n  isCancelRecursionResult?: boolean;\n}",
+    "operationRelativeTypescriptFilePath": "src/ts/TypescriptFile.ts",
+    "comment": "IDEA: What if we could make a custom db storage method for a typescript file, so you can read and write typescript with the database?\n\nThe first thing I can do, is to generate all typescript stuff using a model like this:\n\nLater, I can read a typescript file with a rust parser to get it into this model again.\n\nThis is actually super useful for metacoding and coding GUI's\n\nAlso a great start for making my own programming language ;)\n\n\nThere are multiple ways of describing a typescript file I guess. This is one of them. Another one could be a definition where you put the required context in the statements and types themselves.",
+    "rawStatement": "export interface TypescriptFile\n  extends DefaultModelType,\n    TypescriptScopeContext,\n    TypescriptScopeContent {}",
     "parameters": {},
     "types": [
-      "todo"
+      "idea"
     ],
-    "firstLine": 3,
-    "lastLine": 5,
-    "id": "wtcexvoelmswypzqrtpeazhr"
+    "firstLine": 4,
+    "lastLine": 17,
+    "id": "zgfxcovxwnpfutcpuppzgwpq"
   }
 ]

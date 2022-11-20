@@ -20,6 +20,7 @@ __exportStar(require("./MarkdownReference"), exports);
 __exportStar(require("./exampleContents"), exports);
 __exportStar(require("./getChunkParagraphsRecursively"), exports);
 __exportStar(require("./getImplicitId"), exports);
+__exportStar(require("./markdownParseToMarkdownStringFromContent"), exports);
 __exportStar(require("./getMarkdownIntro"), exports);
 __exportStar(require("./getMarkdownParseParagraphs"), exports);
 __exportStar(require("./getMarkdownReferencePaths"), exports);

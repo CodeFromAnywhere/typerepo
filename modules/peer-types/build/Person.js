@@ -4,5 +4,5 @@
  *
  * NB: I wish it were possible to ensure these keys exist on the person here, but we can't validate that while still keeping it a const I guess
  */
-exports.publicPersonKeys=["name","slug","id","pictureImage","interestSlugs","media","preferredContactMedium","groupSlugs"];
+exports.publicPersonKeys=["name","slug","id","pictureImage","interestSlugs","media","preferredContactMedium","groupSlugs","operationName","projectRelativePath"];
 //# sourceMappingURL=Person.js.map

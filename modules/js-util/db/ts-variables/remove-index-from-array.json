@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775913407,
-  "updatedAt": 1668775913407,
+  "createdAt": 1668837447720,
+  "updatedAt": 1668837447720,
   "deletedAt": 0,
-  "createdFirstAt": 1668775913407,
+  "createdFirstAt": 1668837447720,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T>(array: T[], index: number) => {\n  const before = array.slice(0, index);\n  const after = array.slice(index + 1);\n  return [...before, ...after];\n}",
   "description": "removes an index from an array\n\nexample:\n\n```ts\nconst exampleArray = [\"a\", \"b\", \"c\", \"d\", \"e\"];\nconsole.log(removeIndexFromArray(exampleArray, 2)); //c should be removed\n```",
-  "id": "jhhkbkzgyztxaxxokxhvqpja"
+  "id": "abycivkeljvfvmtxtcdzljwn"
 }

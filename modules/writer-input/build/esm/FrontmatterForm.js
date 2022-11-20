@@ -17,13 +17,13 @@ import { useState } from "react";
  * Renders a form for frontmatter without save button
  */
 export var FrontmatterForm = function (props) {
-    var onChange = props.onChange, projectRelativeMarkdownFilePath = props.projectRelativeMarkdownFilePath, markdownParse = props.markdownParse;
+    var onChange = props.onChange, projectRelativeMarkdownFilePath = props.projectRelativeMarkdownFilePath, markdownParse = props.markdownParse, modelName = props.modelName;
     var immutableFrontmatterSchema = useState(props.frontmatterSchema)[0];
     console.log({
         parameters: markdownParse.parameters,
     });
     var referencableModelData = useReferencableModelData(immutableFrontmatterSchema);
-    return (React.createElement(SimplifiedSchemaForm, { id: projectRelativeMarkdownFilePath, parameters: [
+    return (React.createElement(SimplifiedSchemaForm, { modelName: modelName, id: projectRelativeMarkdownFilePath, parameters: [
             {
                 name: "Frontmatter",
                 required: true,

@@ -152,6 +152,7 @@ export declare const sdk: {
     }>(array: T_9[], key: keyof T_9) => {
         [key: string]: T_9[];
     };
+    hasAllLetters: (a: string, b: string) => boolean;
     insertAt: <T_10>(array: T_10[], items: T_10 | T_10[], beforeIndex: number) => T_10[];
     isAllTrue: (array: boolean[]) => boolean;
     makeArray: <T_11>(...arrayOrNotArray: (T_11 | T_11[] | undefined)[]) => T_11[];
@@ -196,15 +197,16 @@ export declare const sdk: {
     pickRandomArrayItem: <T_22>(array: T_22[]) => T_22;
     putIndexAtIndex: <T_23>(array: T_23[], index: number, toIndex: number) => T_23[];
     removeIndexFromArray: <T_24>(array: T_24[], index: number) => T_24[];
-    removeOptionalKeysFromObject: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: Exclude<keyof TObject_3, Exclude<import("js-util").KeysOfType<TObject_3, Exclude<TObject_3[keyof TObject_3], undefined>>, undefined>>[]) => TObject_3;
+    removeOptionalKeysFromObjectStrings: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: string[]) => TObject_3;
+    removeOptionalKeysFromObject: <TObject_4 extends import("js-util").O>(object: TObject_4, keys: Exclude<Extract<keyof TObject_4, string>, Exclude<import("js-util").KeysOfType<TObject_4, Exclude<TObject_4[keyof TObject_4], undefined>>, undefined>>[]) => TObject_4;
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
     sumAllKeys: <T_25 extends {
         [key: string]: number | undefined;
     }>(objectArray: T_25[], keys: (keyof T_25)[]) => T_25;
-    sumObjectParameters: <TObject_4 extends {
+    sumObjectParameters: <TObject_5 extends {
         [key: string]: number;
-    }>(object1: TObject_4, object2: TObject_4) => TObject_4;
+    }>(object1: TObject_5, object2: TObject_5) => TObject_5;
     sum: (items: number[]) => number;
     takeFirst: <T_26>(arrayOrNot: T_26 | T_26[]) => T_26;
     trimSlashes: (absoluteOrRelativePath: string) => string;
@@ -303,6 +305,7 @@ export declare const sdk: {
         args?: (string | undefined)[] | undefined;
     }) => Promise<(string | null)[] | undefined>;
     findFirstCommentTypes: (strippedFullComment?: string | undefined) => import("code-types").CommentTypeObject;
+    getDataParameterNames: (item: import("model-types").AugmentedAnyModelType) => string[];
     getPossibleReferenceParameterNames: (parameterName: string) => string[];
     getProperties: (schema: import("json-schema").JSONSchema7 | undefined) => import("schema-util").SchemaProperty[];
     getRefLink: (ref?: string | undefined) => string | undefined;

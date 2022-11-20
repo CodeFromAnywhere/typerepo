@@ -1,4 +1,5 @@
 import { FunctionContext } from "function-context-type";
+import { BackendAsset } from "asset-type";
 /**
  * ---
  * publicAuthorization: read, search, execute
@@ -8,7 +9,7 @@ import { FunctionContext } from "function-context-type";
  *
  * This function makes an authenticationmethod for the device and then signs up by creating a person for it and attaching it to the device.
  */
-export declare const signupWithPasswordWithContext: (functionContext: FunctionContext, name: string, handle: string, password: string, repeatPassword: string) => Promise<{
+export declare const signupWithPasswordWithContext: (functionContext: FunctionContext, name: string, handle: string, pictureImage: BackendAsset | undefined, password: string, repeatPassword: string) => Promise<{
     isSuccessful: boolean;
     message: string;
 }>;

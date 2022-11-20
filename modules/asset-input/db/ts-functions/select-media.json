@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668750035559,
-  "updatedAt": 1668750035559,
+  "createdAt": 1668835150919,
+  "updatedAt": 1668835150919,
   "deletedAt": 0,
-  "createdFirstAt": 1668750035559,
+  "createdFirstAt": 1668835150919,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -28,7 +28,25 @@
         "additionalProperties": false
       },
       "simplifiedSchema": {
-        "properties": [],
+        "properties": [
+          {
+            "name": "source",
+            "required": true,
+            "schema": {
+              "enum": [
+                "project",
+                "p2p",
+                "google",
+                "giphy",
+                "unsplashed",
+                "youtube"
+              ],
+              "fullComment": "NB: please don't change the source after initialisation!\n\nproject: api urls p2p: api urls with other ip\n--- google: remote image urls giphy: remote image urls unsplashed: remote image urls youtube: remote video urls (selectable as mp3, mp4, or url)",
+              "nb": "please don't change the source after initialisation!",
+              "type": "string"
+            }
+          }
+        ],
         "type": "object"
       },
       "required": true
@@ -58,5 +76,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "qvrxjooqcznrzdoeowjiovqt"
+  "id": "wefsasssxzfcfynsgqnkilhn"
 }

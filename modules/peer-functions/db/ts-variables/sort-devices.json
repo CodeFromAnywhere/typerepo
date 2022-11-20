@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668835458394,
+  "updatedAt": 1668835458394,
+  "deletedAt": 0,
+  "createdFirstAt": 1668835458394,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "sortDevices",
+  "slug": "sort-devices",
+  "operationRelativeTypescriptFilePath": "src/sortDevice.ts",
+  "type": {
+    "rawType": "(a: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Device\").Device, b: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Device\").Device) => 1 | -1",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(a: Device, b: Device) => {\n  if (a.isFavorite) return -1;\n  if (b.isFavorite) return 1;\n\n  if (a.isOnlineCalculated) return -1;\n  if (b.isOnlineCalculated) return 1;\n\n  return 1;\n}",
+  "description": "Only works if isOnlineCalculated is set (using augmentDevice)\n\nSorts device: first favorite, then online, then offline",
+  "id": "xriwltpqiqlrqbcodmuzcczo"
+}

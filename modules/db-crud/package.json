@@ -39,7 +39,13 @@
     "use-url-store": "0.0.1",
     "react": "*",
     "react-query": "*",
-    "fs-util-js": "0.0.1"
+    "fs-util-js": "0.0.1",
+    "rest-util": "0.0.1",
+    "react-with-native-store": "2.0.40",
+    "next-a-link": "0.0.1",
+    "asset-view": "0.0.0",
+    "cool-toast": "0.0.0",
+    "react-with-native-select": "2.0.7"
   },
   "name": "db-crud",
   "operation": {
@@ -55,113 +61,39 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/db-crud/src/useUrl.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
       ]
     },
-    "lastRebuildAt": 1668775654374,
+    "lastRebuildAt": 1668837711327,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 9,
-        "lines": 616,
-        "characters": 19055,
-        "bytes": 19055
+        "numberOfFiles": 23,
+        "lines": 1156,
+        "characters": 33409,
+        "bytes": 33409
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 203,
-        "characters": 5668,
-        "bytes": 5668
+        "lines": 139,
+        "characters": 4484,
+        "bytes": 4484
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 168,
-        "characters": 3485,
-        "bytes": 3485
+        "lines": 17,
+        "characters": 450,
+        "bytes": 450
       },
       "size": {
-        "bytes": 28208,
-        "characters": 28208,
-        "lines": 987,
-        "numberOfFiles": 13
+        "bytes": 38343,
+        "characters": 38343,
+        "lines": 1312,
+        "numberOfFiles": 27
       }
     },
     "folderNameIndexed": "db-crud",
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [
-      "useState",
-      "useState",
-      "useState"
-    ],
-    "operationDependenciesIndexed": [
-      "makeArray",
-      "Div",
-      "useRouter",
-      "LabeledButton",
-      "LabeledButtonType",
-      "Button",
-      "Div",
-      "P",
-      "Svg",
-      "api",
-      "queries",
-      "humanCase",
-      "FancyLoader",
-      "getFolderJs",
-      "notEmpty",
-      "sum",
-      "LabeledButton",
-      "renderMarkdownContent",
-      "getAssetInputType",
-      "isCalculatedParameter",
-      "Div",
-      "P",
-      "useAlert",
-      "useRouter",
-      "ColumnType",
-      "Table",
-      "getProperties",
-      "getReferenceParameterInfo",
-      "SchemaProperty",
-      "DbModelEnum",
-      "FunctionParameter",
-      "Div",
-      "P",
-      "createCodeblockMarkdown",
-      "renderMarkdownContent",
-      "Div",
-      "P",
-      "Span",
-      "SimplifiedSchemaForm",
-      "FormContainer",
-      "RenderableFunctionParameter",
-      "useReferencableModelData",
-      "useRouter",
-      "SimplifiedSchema",
-      "generateId",
-      "ClickableIcon",
-      "DbModelEnum",
-      "useAlert",
-      "api",
-      "queries",
-      "humanCase",
-      "LabeledButtonType",
-      "Div",
-      "useRouter",
-      "makeArray",
-      "mapValuesSync",
-      "notEmpty",
-      "takeFirst",
-      "DbModelEnum",
-      "DbModels",
-      "AugmentedAnyModelType",
-      "getReferencableModels",
-      "api",
-      "DbModelEnum",
-      "makeArray",
-      "useRouter",
-      "useCustomUrlStore"
-    ],
-    "packageDependenciesIndexed": [
-      "useInfiniteQuery"
-    ]
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": []
   },
   "slug": "db-crud",
   "id": "lirieiteddugaafnaaeyjbds"

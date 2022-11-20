@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774411069,
-  "updatedAt": 1668774411069,
+  "createdAt": 1668835393473,
+  "updatedAt": 1668835393473,
   "deletedAt": 0,
-  "createdFirstAt": 1668774411069,
+  "createdFirstAt": 1668835393473,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  return (\n    <Flow\n      renderNode={(item: { todo: string; status: string }) => {\n        return <div />;\n      }}\n      childObject={{\n        status: \"lala\",\n        todo: \"sss\",\n        children: [{ status: \"\", todo: \"\", children: [] }],\n      }}\n    />\n  );\n}",
   "description": "",
-  "id": "awmdxitfpkawimlniwreifrz"
+  "id": "leduowsesfxjlcdcpknsfskf"
 }

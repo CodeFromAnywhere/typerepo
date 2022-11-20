@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668750038098,
-  "updatedAt": 1668750038098,
+  "createdAt": 1668835153995,
+  "updatedAt": 1668835153995,
   "deletedAt": 0,
-  "createdFirstAt": 1668750038098,
+  "createdFirstAt": 1668835153995,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(file: File) => {\n  const typeFirstPart = file.type.split(\"/\")[0];\n\n  const firstPartAssetTypes = [\"image\", \"video\", \"audio\"];\n\n  const type: AssetType = firstPartAssetTypes.includes(typeFirstPart)\n    ? (typeFirstPart as AssetType)\n    : \"other\";\n\n  return type;\n}",
   "description": "",
-  "id": "bdslozpralrttressreshxfe"
+  "id": "rvbsnyndcccznplfhrxtitpj"
 }

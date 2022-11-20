@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752297283,
-  "updatedAt": 1668752297283,
+  "createdAt": 1668831782485,
+  "updatedAt": 1668831782485,
   "deletedAt": 0,
-  "createdFirstAt": 1668752297283,
+  "createdFirstAt": 1668831782485,
   "id": "namedparameterstypeof-signupwithcontext",
   "name": "NamedParameters<typeof signupWithContext>",
   "slug": "namedparameterstypeof-signupwithcontext",
@@ -21,72 +21,7 @@
           "$ref": "#/definitions/FunctionContext"
         },
         "personData": {
-          "type": "object",
-          "properties": {
-            "authorizations": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Authorization"
-              },
-              "description": "Which custom authorizations does this `Person` have?"
-            },
-            "credit": {
-              "$ref": "#/definitions/Credit",
-              "description": "Actions by the `Person` can create changes in the amount of credits\n\nThe exact meaning of the number of credits is determined by the OS settings. Can for example be 1:1 to euro, 1:1 to bitcoin, or a custom credit system. Transferability is also customisable.\n\nInsufficient credit can limit the persons possibilities within the OS"
-            },
-            "dataEntries": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/PersonInformationValue"
-              }
-            },
-            "interestSlugs": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Slug"
-              },
-              "description": "slugs of interest categories that this person should be notified about.\n\nSince this is a hierarchical model, parent interests will ensure all children are also applied."
-            },
-            "media": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/PersonSocialMedia"
-              },
-              "description": "Media that is attached to this person.\n\nNB: not used to authenticate! Can be filled in by King OS, might be erroneous"
-            },
-            "name": {
-              "type": "string"
-            },
-            "slug": {
-              "type": "string"
-            },
-            "pictureImage": {
-              "$ref": "#/definitions/BackendAsset"
-            },
-            "groupSlugs": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/Slug"
-              },
-              "description": "To which groups does this person belong?\n\nThis determines additional authorizations\n\nCan be set on signup, but can always be edited by admin"
-            },
-            "requiredAuthenticationMethods": {
-              "type": "array",
-              "items": {
-                "$ref": "#/definitions/AuthenticationMethodMethod"
-              },
-              "description": "Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device"
-            },
-            "amountAuthenticationMethodsRequired": {
-              "type": "number",
-              "description": "By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one"
-            }
-          },
-          "required": [
-            "name",
-            "slug"
-          ],
-          "additionalProperties": false,
+          "$ref": "#/definitions/SignupPersonData",
           "description": "Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically"
         }
       },
@@ -2473,7 +2408,8 @@
                             "name": "browser",
                             "required": true,
                             "schema": {
-                              "fullComment": "",
+                              "fullComment": "NB: copied from ua-parser-js ^1.0.32 because they weren't indexed",
+                              "nb": "copied from ua-parser-js ^1.0.32 because they weren't indexed",
                               "properties": [
                                 {
                                   "name": "name",
@@ -2949,15 +2885,23 @@
                                   "name": "temporaryDestination",
                                   "required": false,
                                   "schema": {
-                                    "fullComment": "Not stored\n\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
+                                    "fullComment": "Not stored\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
                                     "type": "string"
                                   }
                                 },
                                 {
-                                  "name": "apiPath",
+                                  "name": "projectRelativeReferencingFilePath",
                                   "required": false,
                                   "schema": {
-                                    "fullComment": "Not stored\n\n`fs-orm` attaches this information to the `BackendAsset` when querying data from anywhere\n\nThe `server-api-url`-relative path that can be used to fetch the asset (path that uses `getReferencedAssetApiUrl`)\n\nTo force a download, you can add &isDownload=1 into the URL",
+                                    "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nLocation of the place where the asset is referenced\n\n- markdown file (or folder where it is located)\n- typescript file (or folder where it is located)\n- database file (or folder where it is located)",
+                                    "type": "string"
+                                  }
+                                },
+                                {
+                                  "name": "modelName",
+                                  "required": false,
+                                  "schema": {
+                                    "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                                     "type": "string"
                                   }
                                 }
@@ -4101,7 +4045,7 @@
           "name": "personData",
           "required": true,
           "schema": {
-            "fullComment": "Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically",
+            "fullComment": "Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically\n\n",
             "properties": [
               {
                 "name": "authorizations",
@@ -4455,15 +4399,23 @@
                       "name": "temporaryDestination",
                       "required": false,
                       "schema": {
-                        "fullComment": "Not stored\n\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
+                        "fullComment": "Not stored\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
                         "type": "string"
                       }
                     },
                     {
-                      "name": "apiPath",
+                      "name": "projectRelativeReferencingFilePath",
                       "required": false,
                       "schema": {
-                        "fullComment": "Not stored\n\n`fs-orm` attaches this information to the `BackendAsset` when querying data from anywhere\n\nThe `server-api-url`-relative path that can be used to fetch the asset (path that uses `getReferencedAssetApiUrl`)\n\nTo force a download, you can add &isDownload=1 into the URL",
+                        "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nLocation of the place where the asset is referenced\n\n- markdown file (or folder where it is located)\n- typescript file (or folder where it is located)\n- database file (or folder where it is located)",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "modelName",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                         "type": "string"
                       }
                     }

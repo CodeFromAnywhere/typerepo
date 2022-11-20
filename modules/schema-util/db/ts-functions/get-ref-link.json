@@ -1,14 +1,11 @@
 {
-  "createdAt": 1668449130621,
-  "updatedAt": 1668449130621,
+  "createdAt": 1668836010870,
+  "updatedAt": 1668836010870,
   "deletedAt": 0,
-  "createdFirstAt": 1668449130621,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
+  "createdFirstAt": 1668836010870,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getRefLink.ts",
   "commentsInside": [],
   "rawText": " (ref?: string) => {\n  const refLink = ref\n    ?.split(\"/\")\n    .pop()\n    ?.replaceAll(\"%3C\", \"<\")\n    .replaceAll(\"%3E\", \">\");\n\n  return refLink;\n}",
@@ -46,5 +43,5 @@
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "dowegudtplcijortgakequdy"
+  "id": "qijmmlxmudjepzdegghlousp"
 }

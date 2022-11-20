@@ -1,0 +1,24 @@
+{
+  "createdAt": 1668835714579,
+  "updatedAt": 1668835714579,
+  "deletedAt": 0,
+  "createdFirstAt": 1668835714579,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "modelViews",
+  "slug": "model-views",
+  "operationRelativeTypescriptFilePath": "src/Dataset.ts",
+  "type": {
+    "rawType": "readonly [{ readonly view: \"table\"; readonly emoji: \"🍴\"; }, { readonly view: \"grid\"; readonly emoji: \"⚃\"; }, { readonly view: \"timeline\"; readonly emoji: \"⏳\"; }, { readonly view: \"tree\"; readonly emoji: \"🌳\"; }]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "value": "[\n  {\n    view: \"table\",\n    emoji: \"🍴\",\n  },\n  { view: \"grid\", emoji: \"⚃\" },\n  {\n    view: \"timeline\",\n    emoji: \"⏳\",\n  },\n  { view: \"tree\", emoji: \"🌳\" },\n] as const",
+  "description": "",
+  "id": "xmavqdjfjpnlvuroengqydby"
+}

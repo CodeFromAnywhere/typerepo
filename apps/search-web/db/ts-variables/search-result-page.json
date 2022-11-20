@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774458060,
-  "updatedAt": 1668774458060,
+  "createdAt": 1668835594533,
+  "updatedAt": 1668835594533,
   "deletedAt": 0,
-  "createdFirstAt": 1668774458060,
+  "createdFirstAt": 1668835594533,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: QueryPageProps) => {\n  const { query, searchResults } = props;\n  const router = useRouter();\n  return (\n    <Div>\n      <Div className=\"flex w-full justify-between\">\n        <Div\n          className=\"text-3xl p-2 cursor-pointer\"\n          onClick={() => router.push(\"/\")}\n        >\n          🏠\n        </Div>\n        <SearchBar initialValue={query || undefined} />\n        <Div />\n      </Div>\n      <a\n        className=\"text-blue-500\"\n        href={`https://www.google.nl/search?q=${query}`}\n      >\n        {query}\n      </a>\n      {searchResults?.map((searchResult, index) => {\n        return (\n          <SearchResultComponent\n            key={`s${index}`}\n            index={index}\n            searchResult={searchResult}\n          />\n        );\n      })}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "txkpiascjccilcoggilkxicj"
+  "id": "fugqnqryykrysrxfcxyssznj"
 }

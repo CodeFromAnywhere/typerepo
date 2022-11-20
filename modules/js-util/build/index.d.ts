@@ -6,6 +6,7 @@ export * from "./general";
 export * from "./getObjectKeysArray";
 export * from "./getParameterAtLocation";
 export * from "./getSubsetFromObject";
+export * from "./hasAllLetters";
 export * from "./mapAsync";
 export * from "./mapMany";
 export * from "./mergeNestedObject";

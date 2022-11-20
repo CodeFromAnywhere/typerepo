@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752088713,
-  "updatedAt": 1668752088713,
+  "createdAt": 1668835893758,
+  "updatedAt": 1668835893758,
   "deletedAt": 0,
-  "createdFirstAt": 1668752088713,
+  "createdFirstAt": 1668835893758,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  commentWithoutFrontmatter: string\n): CommentType[] => {\n  const lines = commentWithoutFrontmatter.split(\"\\n\");\n\n  const types = commentTypes.filter((type) =>\n    lines.find((line) => line.trimStart().startsWith(`${type.toUpperCase()}:`))\n  );\n\n  return types;\n}",
   "description": "returns all types that are found as start of a line in the comment (capitalised, with a \":\" behind)",
-  "id": "jsmvcjunvfcxoskzlxytsyau"
+  "id": "amoplkjkbayuhrnxjplwramb"
 }

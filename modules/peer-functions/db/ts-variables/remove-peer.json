@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149694684,
-  "updatedAt": 1668149694684,
+  "createdAt": 1668835456883,
+  "updatedAt": 1668835456883,
   "deletedAt": 0,
-  "createdFirstAt": 1668149694684,
+  "createdFirstAt": 1668835456883,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "remove-peer",
   "operationRelativeTypescriptFilePath": "src/removePeer.ts",
   "type": {
-    "rawType": "(slug: string) => unknown",
+    "rawType": "(id: string) => unknown",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  /**\n   * Slug of the peer (ip)\n   */\n  slug: string\n) => {\n  const removeResult = await db.remove(\"Peer\", (peer) => peer.slug === slug);\n  return removeResult;\n}",
-  "description": "",
-  "id": "gcxjxpmurudmpabxsrypxjin"
+  "value": "async (id: string) => {\n  const removeResult = await db.remove(\"Device\", (peer) => peer.id === id);\n  return removeResult;\n}",
+  "description": "TODO: connect with peoples",
+  "id": "zxjginynhitjshjmnqgktqgr"
 }

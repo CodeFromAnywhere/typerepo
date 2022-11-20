@@ -3,6 +3,7 @@ export * from "./calculateOperatingSystemBundle";
 export * from "./deleteDbModel";
 export * from "./getDatabaseMenu";
 export * from "./getDbModel";
+export * from "./getDbModelMetadata";
 export * from "./getDbModelNames";
 export * from "./getFunctionIndex";
 export * from "./getNestedDatabaseMenu";

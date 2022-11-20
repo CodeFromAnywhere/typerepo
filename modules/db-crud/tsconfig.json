@@ -2,6 +2,7 @@
   // CFA TSConfig.json v1.0
   // code from anywhere tsconfig should be the same anywhere
   "compilerOptions": {
+    "resolveJsonModule": true,
     "outDir": "build", // we build every package before publishing so people get precompiled common.js
     "target": "ES5", // this is supported almost anywhere
     "sourceMap": true, // make sure the code is mapped to the source code, so you can Cmd+Click on any definition

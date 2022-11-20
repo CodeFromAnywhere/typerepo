@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752097333,
-  "updatedAt": 1668752097333,
+  "createdAt": 1668835904143,
+  "updatedAt": 1668835904143,
   "deletedAt": 0,
-  "createdFirstAt": 1668752097333,
+  "createdFirstAt": 1668835904143,
   "id": "namedparameterstypeof-getparametersfrominterfaces",
   "name": "NamedParameters<typeof getParametersFromInterfaces>",
   "slug": "namedparameterstypeof-getparametersfrominterfaces",
@@ -24,7 +24,8 @@
           "type": "array",
           "items": {
             "$ref": "#/definitions/Creation%3CTsInterface%3E"
-          }
+          },
+          "description": "NB: we need ALL interfaces here across the project because there may be others that were not found in the interfaces in the file, but only in the functions."
         }
       },
       "required": [
@@ -46,6 +47,8 @@
           "name": "interfaces",
           "required": true,
           "schema": {
+            "fullComment": "NB: we need ALL interfaces here across the project because there may be others that were not found in the interfaces in the file, but only in the functions.",
+            "nb": "we need ALL interfaces here across the project because there may be others that were not found in the interfaces in the file, but only in the functions.",
             "items": [],
             "type": "array"
           }

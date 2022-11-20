@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774258860,
-  "updatedAt": 1668774258860,
+  "createdAt": 1668837336496,
+  "updatedAt": 1668837336496,
   "deletedAt": 0,
-  "createdFirstAt": 1668774258860,
+  "createdFirstAt": 1668837336496,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: { pageProps: any; nextPage: any }) => {\n  const [menuType, setMenuType] = useState<string>(menuTypes[0][\"type\"]);\n  const dbMenuQuery = queries.useGetNestedDatabaseMenu({\n    noOperationName: menuType === \"flat\",\n    noOperationPath: menuType !== \"deep\",\n    noSrcRelativeFolder: menuType !== \"deep\",\n    noPrefix: true,\n  });\n\n  const dbQueryPaths = dbMenuQuery.data?.result as any as string[];\n\n  const { nextPage, pageProps } = props;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        menuType,\n        setMenuType,\n        menuTypes,\n        queryPaths: dbQueryPaths,\n        isLoading: dbMenuQuery.isLoading,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
   "description": "",
-  "id": "fxojbjscbueznagcmlwphdhn"
+  "id": "fxrlyoeststtwdvjruutroen"
 }

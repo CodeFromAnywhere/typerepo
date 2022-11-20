@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752286512,
-  "updatedAt": 1668752286512,
+  "createdAt": 1668831771149,
+  "updatedAt": 1668831771149,
   "deletedAt": 0,
-  "createdFirstAt": 1668752286512,
+  "createdFirstAt": 1668831771149,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-public-person",
   "operationRelativeTypescriptFilePath": "src/getPublicPerson.ts",
   "type": {
-    "rawType": "(id: string) => unknown",
+    "rawType": "(id?: string | undefined) => unknown",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (id: string) => {\n  return (await getPublicPersons()).find((x) => x.id === id);\n}",
+  "value": "async (id?: string) => {\n  return (await getPublicPersons()).find((x) => x.id === id);\n}",
   "description": "",
-  "id": "rhodizdbomvgdnwuudraadpj"
+  "id": "psnlqvifdwjstlsmigyfayub"
 }

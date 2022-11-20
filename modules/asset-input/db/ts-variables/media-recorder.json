@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668750030766,
-  "updatedAt": 1668750030766,
+  "createdAt": 1668835145423,
+  "updatedAt": 1668835145423,
   "deletedAt": 0,
-  "createdFirstAt": 1668750030766,
+  "createdFirstAt": 1668835145423,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: {\n  type: MediaRecorderType;\n  withBlob: (blobUrl: string, blob: Blob) => void;\n}) => {\n  const { type, withBlob } = props;\n\n  return (\n    <div>\n      <ReactMediaRecorder\n        screen={type === \"screen\"}\n        audio\n        blobPropertyBag={{}}\n        // audio={type === \"audio\"}\n        video={type === \"video\"}\n        stopStreamsOnStop\n        onStop={(blobUrl, blob) => {\n          withBlob(blobUrl, blob);\n        }}\n        render={(props) => <MediaRecorderComponent {...props} type={type} />}\n      />\n    </div>\n  );\n}",
   "description": "",
-  "id": "prntoxnvtlchyxveogpmwkex"
+  "id": "sibcbbdrcakeagyyjdngaafx"
 }

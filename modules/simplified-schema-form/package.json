@@ -47,105 +47,44 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/simplified-schema-form/src/types.ts. Error: Error: Unknown type \"function\""
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/simplified-schema-form/src/useTsInterfaceForm.tsx. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
       ],
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [
-      "useEffect",
-      "useState",
-      "useEffect"
-    ],
+    "coreDependenciesIndexed": [],
     "folderNameIndexed": "simplified-schema-form",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668775711975,
-    "operationDependenciesIndexed": [
-      "FunctionParameter",
-      "SimplifiedSchema",
-      "Div",
-      "P",
-      "Span",
-      "humanCase",
-      "ClickableIcon",
-      "insertAt",
-      "removeIndexFromArray",
-      "P",
-      "BigButton",
-      "CategoryStack",
-      "getReferenceParameterInfo",
-      "ReferenceParameterInfo",
-      "Div",
-      "P",
-      "Span",
-      "mergeObjectsArray",
-      "ClickableIcon",
-      "ClickableIcon",
-      "FunctionParameter",
-      "Div",
-      "FancyLoader",
-      "SelectInput",
-      "SelectMultipleInput",
-      "Item",
-      "notEmpty",
-      "Div",
-      "P",
-      "Span",
-      "humanCase",
-      "getReferenceParameterInfo",
-      "isCalculatedParameter",
-      "markdownTextParameterNames",
-      "passwordTextParameterNames",
-      "singularize",
-      "WriterInput",
-      "Div",
-      "humanCase",
-      "notEmpty",
-      "TextInput",
-      "ToggleInput",
-      "NumberInput",
-      "SelectInput",
-      "PasswordInput",
-      "AssetInputType",
-      "getPossibleReferenceParameterNames",
-      "getAssetInputType",
-      "UI",
-      "FunctionParameter",
-      "SimplifiedSchema",
-      "mergeObjectsArray",
-      "notEmpty",
-      "getReferencableModels",
-      "DbModels",
-      "queries"
-    ],
+    "lastRebuildAt": 1668836349894,
+    "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "markdown": "component that generates a form using react-with-native and a `SimplifiedSchema`. Can obtain any JSON object from the user.\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 9,
-        "lines": 1179,
-        "characters": 37008,
-        "bytes": 37008
+        "numberOfFiles": 10,
+        "lines": 1291,
+        "characters": 40358,
+        "bytes": 40358
       },
       "dataSize": {
         "numberOfFiles": 2,
         "lines": 195,
-        "characters": 4809,
-        "bytes": 4809
+        "characters": 4855,
+        "bytes": 4855
       },
       "textSize": {
         "numberOfFiles": 4,
-        "lines": 224,
-        "characters": 6645,
-        "bytes": 6645
+        "lines": 20,
+        "characters": 678,
+        "bytes": 678
       },
       "size": {
-        "bytes": 48462,
-        "characters": 48462,
-        "lines": 1598,
-        "numberOfFiles": 15
+        "bytes": 45891,
+        "characters": 45891,
+        "lines": 1506,
+        "numberOfFiles": 16
       }
     },
     "hasGeneratedImportsIndexed": false

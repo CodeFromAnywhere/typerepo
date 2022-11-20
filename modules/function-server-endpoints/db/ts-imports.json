@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1668775495776,
-    "updatedAt": 1668775495776,
+    "createdAt": 1668836060013,
+    "updatedAt": 1668836060013,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495776,
+    "createdFirstAt": 1668836060013,
     "name": "slugify",
     "slug": "slugify",
     "type": "value",
@@ -14,13 +14,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "fbnlbczbrjvduhxvktvpfbqx"
+    "id": "hiwnkzbfygebovsxgsxfzhfa"
   },
   {
-    "createdAt": 1668775495776,
-    "updatedAt": 1668775495776,
+    "createdAt": 1668836060013,
+    "updatedAt": 1668836060013,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495776,
+    "createdFirstAt": 1668836060013,
     "name": "generateRandomString",
     "slug": "generate-random-string",
     "type": "value",
@@ -31,13 +31,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pkwnijcvvfrfkgmfvmxwlxbj"
+    "id": "bidbvbroblnthrerivnncbeh"
   },
   {
-    "createdAt": 1668775495776,
-    "updatedAt": 1668775495776,
+    "createdAt": 1668836060013,
+    "updatedAt": 1668836060013,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495776,
+    "createdFirstAt": 1668836060013,
     "name": "IPInfo",
     "slug": "ipinfo",
     "type": "type",
@@ -49,29 +49,31 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gqrwevahicydcofjkhugtwmm"
+    "id": "lrxxfrmnfhbhujibrwwengeg"
   },
   {
-    "createdAt": 1668775495776,
-    "updatedAt": 1668775495776,
+    "createdAt": 1668836060013,
+    "updatedAt": 1668836060013,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495776,
+    "createdFirstAt": 1668836060013,
     "name": "IResult",
     "slug": "iresult",
-    "module": "ua-parser-js",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "peer-types",
     "isModuleResolved": true,
     "comments": [],
     "operationRelativeTypescriptFilePath": "src/calculateDeviceName.ts",
-    "classification": "package",
+    "classification": "operation",
     "isAbsolute": true,
-    "isModuleFromMonorepo": false,
-    "id": "auquukzsqpcuuqgmquoymhjw"
+    "isModuleFromMonorepo": true,
+    "id": "zhycalnwshurxzmaruqhrbdk"
   },
   {
-    "createdAt": 1668775495776,
-    "updatedAt": 1668775495776,
+    "createdAt": 1668836060013,
+    "updatedAt": 1668836060013,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495776,
+    "createdFirstAt": 1668836060013,
     "name": "sdk",
     "slug": "sdk",
     "type": "value",
@@ -82,13 +84,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zxgobixdbfqzffswqrvobrzb"
+    "id": "igfxjhkiavyolnymksuewdfp"
   },
   {
-    "createdAt": 1668775495777,
-    "updatedAt": 1668775495777,
+    "createdAt": 1668836060013,
+    "updatedAt": 1668836060013,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495777,
+    "createdFirstAt": 1668836060013,
     "name": "notEmpty",
     "slug": "not-empty",
     "type": "value",
@@ -99,13 +101,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "sokvjchlzjalkyhqghavziiu"
+    "id": "rgjdesxqsgkegyrovxsfcuqt"
   },
   {
-    "createdAt": 1668775495777,
-    "updatedAt": 1668775495777,
+    "createdAt": 1668836060014,
+    "updatedAt": 1668836060014,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495777,
+    "createdFirstAt": 1668836060014,
     "name": "privateEnvironmentVariables",
     "slug": "private-environment-variables",
     "type": "value",
@@ -116,13 +118,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "smgeujyymmgiktprjbcohmzf"
+    "id": "xollkooeezvhcqpnsmhianbi"
   },
   {
-    "createdAt": 1668775495777,
-    "updatedAt": 1668775495777,
+    "createdAt": 1668836060014,
+    "updatedAt": 1668836060014,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495777,
+    "createdFirstAt": 1668836060014,
     "name": "privateLocalEnvironmentVariables",
     "slug": "private-local-environment-variables",
     "type": "value",
@@ -133,13 +135,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "jhqehfcvxkawnijhvperxlam"
+    "id": "lqhdiivhwpojmyhrndrvmfmm"
   },
   {
-    "createdAt": 1668775495777,
-    "updatedAt": 1668775495777,
+    "createdAt": 1668836060014,
+    "updatedAt": 1668836060014,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495777,
+    "createdFirstAt": 1668836060014,
     "name": "cacheLookup",
     "slug": "cache-lookup",
     "type": "value",
@@ -150,13 +152,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "mavwdbyeneyandnsuqfpgfku"
+    "id": "jcbtnylxthgbfvfopqjxiuld"
   },
   {
-    "createdAt": 1668775495777,
-    "updatedAt": 1668775495777,
+    "createdAt": 1668836060014,
+    "updatedAt": 1668836060014,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495777,
+    "createdFirstAt": 1668836060014,
     "name": "validateInput",
     "slug": "validate-input",
     "type": "value",
@@ -167,13 +169,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "uterpuzxwglnzdooxojqkxxw"
+    "id": "qvdzabvqbbfhgqziweqmvqwg"
   },
   {
-    "createdAt": 1668775495777,
-    "updatedAt": 1668775495777,
+    "createdAt": 1668836060014,
+    "updatedAt": 1668836060014,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495777,
+    "createdFirstAt": 1668836060014,
     "name": "generateId",
     "slug": "generate-id",
     "type": "value",
@@ -184,13 +186,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qdzzbmvbklkicyinynibqief"
+    "id": "weajhiohzmxrqhcfzwdlccsy"
   },
   {
-    "createdAt": 1668775495777,
-    "updatedAt": 1668775495777,
+    "createdAt": 1668836060014,
+    "updatedAt": 1668836060014,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495777,
+    "createdFirstAt": 1668836060014,
     "name": "Context",
     "slug": "context",
     "module": "server/typings/common",
@@ -200,13 +202,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "ptfthbirceobuwtnvfxulsjh"
+    "id": "ztfyecpbwdhokqprumzgewni"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060014,
+    "updatedAt": 1668836060014,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060014,
     "name": "apiConventions",
     "slug": "api-conventions",
     "type": "value",
@@ -217,13 +219,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qsukxbrhjxyiomefxqzzltnt"
+    "id": "cmlqehlkyfaypxjsstsmbixm"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060014,
+    "updatedAt": 1668836060014,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060014,
     "name": "RealApiReturnType",
     "slug": "real-api-return-type",
     "type": "type",
@@ -235,13 +237,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wryvpypbouzofctorbcfjekz"
+    "id": "prxgyapkpkmpchwhiznkakhq"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "upsertDevice",
     "slug": "upsert-device",
     "module": "./upsertDevice",
@@ -251,13 +253,30 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "xcrgdisuhsfbedfdbwuuqfjo"
+    "id": "ivilodbnwugmlingiwcblvrf"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
+    "name": "cleanupTimer",
+    "slug": "cleanup-timer",
+    "type": "value",
+    "module": "measure-performance",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "igawktgjumgzqkqygmiuapfx"
+  },
+  {
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
+    "deletedAt": 0,
+    "createdFirstAt": 1668836060015,
     "name": "getNewPerformance",
     "slug": "get-new-performance",
     "type": "value",
@@ -268,13 +287,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "hqrgfstmjxhatijsixjxguvy"
+    "id": "fhkqavewpvhqpbtnzpkpbzcl"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "getTsFunction",
     "slug": "get-ts-function",
     "module": "./getTsFunction",
@@ -284,13 +303,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "zwypjbymcgjlcgvaagwnnsik"
+    "id": "skujsojiruybkplnrwzzsubr"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "getAuthorizationInfo",
     "slug": "get-authorization-info",
     "module": "./getAuthorizationInfo",
@@ -300,29 +319,31 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "hkbkdrndzgaidjkziwtlbyur"
+    "id": "pwqtfjufbeqvnzsholscvodg"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "PerformanceItem",
     "slug": "performance-item",
-    "module": "code-types",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "measure-performance",
     "isModuleResolved": true,
     "comments": [],
     "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qollqycgsarumssmualmamja"
+    "id": "aysaimyfkivxzlhflszwdakc"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "storeFunctionExecution",
     "slug": "store-function-execution",
     "module": "./storeFunctionExecution",
@@ -332,13 +353,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "wtvtkrlfblzoubgtbwrbklzy"
+    "id": "mxuefhcvazvrcsohxnfdjtxy"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "FunctionContext",
     "slug": "function-context",
     "type": "type",
@@ -350,13 +371,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nyezwtaxwgizzvjxtakipilg"
+    "id": "kzlosiwwizgyasomhynfaqex"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "isGetEndpoint",
     "slug": "is-get-endpoint",
     "module": "./isGetEndpoint",
@@ -366,13 +387,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "geurgeaqeqgvxldeenwucikk"
+    "id": "whgbgmiuuecqojbptuabjust"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "sdk",
     "slug": "sdk",
     "type": "value",
@@ -383,13 +404,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nfbrbxmiymowalkqkyqnfgjc"
+    "id": "jwvrofzwyvxkwfinbbdoxcrl"
   },
   {
-    "createdAt": 1668775495778,
-    "updatedAt": 1668775495778,
+    "createdAt": 1668836060015,
+    "updatedAt": 1668836060015,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495778,
+    "createdFirstAt": 1668836060015,
     "name": "functionApiKeys",
     "slug": "function-api-keys",
     "type": "value",
@@ -400,13 +421,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tmfddoikqakogmddnwwpjgab"
+    "id": "oxvlvrdnuvfeucxakrnotvzu"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "Middleware",
     "slug": "middleware",
     "module": "server/typings/common",
@@ -416,13 +437,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "zynwmsibwhggammzyqgupxvl"
+    "id": "wprlafyzbmiettvmlaevurok"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "toQueryString",
     "slug": "to-query-string",
     "type": "value",
@@ -433,13 +454,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "cmlkxbfuldnhaqtsrlrhsqjm"
+    "id": "mteatfeeyzkbalcmkbyheuid"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "isGetEndpoint",
     "slug": "is-get-endpoint",
     "module": "./isGetEndpoint",
@@ -449,13 +470,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ohwhovyidpfyqscdwedunied"
+    "id": "bloaicfnvxvmkogugtpkeahg"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "executeFunctionWithParameters",
     "slug": "execute-function-with-parameters",
     "module": "./executeFunctionWithParameters",
@@ -465,13 +486,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "bhnuusymyauvjewlcytrgnvr"
+    "id": "etnmggeandfjklsfjncicifs"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "sdk",
     "slug": "sdk",
     "type": "value",
@@ -482,13 +503,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xdeswlfwopedikeommutplwe"
+    "id": "uobsgjweiphimudlmmnqyeex"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "functionApiKeys",
     "slug": "function-api-keys",
     "type": "value",
@@ -499,13 +520,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "aszqnmzuzuyrozyxipcihnhl"
+    "id": "oorbzojwiurzjdbygtjuoddu"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "Middleware",
     "slug": "middleware",
     "module": "server/typings/common",
@@ -515,13 +536,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "ssmhillpcoujfdxcieegnmpw"
+    "id": "fqetuglwuittozhxtghwhoii"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "executeFunctionWithParameters",
     "slug": "execute-function-with-parameters",
     "module": "./executeFunctionWithParameters",
@@ -531,13 +552,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "pdkmqhhmgxvjexwrkiwgwini"
+    "id": "vlpffpxioffzzqsqicsvtwot"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "isGetEndpoint",
     "slug": "is-get-endpoint",
     "module": "./isGetEndpoint",
@@ -547,13 +568,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "bawpjhqdrlyknzctdmuazdqg"
+    "id": "ayqfrvfigwitztrcxawdlirh"
   },
   {
-    "createdAt": 1668775495779,
-    "updatedAt": 1668775495779,
+    "createdAt": 1668836060016,
+    "updatedAt": 1668836060016,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495779,
+    "createdFirstAt": 1668836060016,
     "name": "Authorization",
     "slug": "authorization",
     "type": "type",
@@ -565,13 +586,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "liubhnmhhrrapjaqwygqxdyb"
+    "id": "aaxaeozgzobsexwyacqwbozu"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "TsFunction",
     "slug": "ts-function",
     "type": "type",
@@ -583,13 +604,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "abulhbgolrsgooqwecmfofxe"
+    "id": "ntvsqusxpdksrhgkfbktsntj"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "notEmpty",
     "slug": "not-empty",
     "type": "value",
@@ -600,13 +621,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qmogplpmmwtgfrlvclipoenh"
+    "id": "waytasowpjdzxnjiwmdpnnwz"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "onlyUnique2",
     "slug": "only-unique-2",
     "type": "value",
@@ -617,13 +638,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rswlebxdzqiwbzcllnbvscir"
+    "id": "rtoochpyjaeyofbishylmuga"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "Device",
     "slug": "device",
     "type": "type",
@@ -635,13 +656,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "dzxwqftfmxvbkrexeeozhmya"
+    "id": "fzlswsaydlqmbnargknpbfdy"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "Group",
     "slug": "group",
     "type": "type",
@@ -653,13 +674,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "neperthwqbaigxyzzbucsrhl"
+    "id": "liorehgclpzdjdluovsgwkqc"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "TsFunction",
     "slug": "ts-function",
     "type": "type",
@@ -671,13 +692,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "dizrqibsumcjucwcaurjmlrq"
+    "id": "ocyajcyhwfhfjrucbfagcqor"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "sdkFunctionPaths",
     "slug": "sdk-function-paths",
     "type": "value",
@@ -688,13 +709,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "cdyyjzcebvpprpwprbscahqx"
+    "id": "okioetwoznuepmqsiwnmrniw"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -705,13 +726,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "uculqrkwieyojpwaazbbxgvf"
+    "id": "crbupboiaglnxedjflhcefwc"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -722,13 +743,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ttykezzxavmbwryhsxzfqhtf"
+    "id": "xlzigrhtojxmytjiikpnnkzl"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "readJsonFile",
     "slug": "read-json-file",
     "type": "value",
@@ -739,13 +760,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "cigxdxeqonbndcuyqeblvahe"
+    "id": "pnmhkjgtlysiiatrshxlytqi"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "apiConventions",
     "slug": "api-conventions",
     "type": "value",
@@ -756,13 +777,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "itmntvvwxpjihtvufpmkzhph"
+    "id": "xbfqjkdxkupfywkwaaassxpp"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "Creation",
     "slug": "creation",
     "type": "type",
@@ -774,13 +795,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xdkviygeektxfuiigqmigfcg"
+    "id": "sywvbrwyxlufrwwepfkvfdfv"
   },
   {
-    "createdAt": 1668775495780,
-    "updatedAt": 1668775495780,
+    "createdAt": 1668836060017,
+    "updatedAt": 1668836060017,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495780,
+    "createdFirstAt": 1668836060017,
     "name": "Id",
     "slug": "id",
     "type": "type",
@@ -792,13 +813,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "apntayypmzhlimbtbbwdouia"
+    "id": "rotyqwecmslentpcqhhhdpgl"
   },
   {
-    "createdAt": 1668775495781,
-    "updatedAt": 1668775495781,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495781,
+    "createdFirstAt": 1668836060018,
     "name": "IPInfo",
     "slug": "ipinfo",
     "type": "type",
@@ -810,13 +831,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wapxtithvrsaxawnixxlrgad"
+    "id": "zvriuqwczxovqzgbkbqcnjrn"
   },
   {
-    "createdAt": 1668775495781,
-    "updatedAt": 1668775495781,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495781,
+    "createdFirstAt": 1668836060018,
     "name": "PageVisit",
     "slug": "page-visit",
     "type": "type",
@@ -828,13 +849,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "fwgetkfdinlarvbgykzvmsaz"
+    "id": "corgbqxpmxjlutuucwstwwlw"
   },
   {
-    "createdAt": 1668775495781,
-    "updatedAt": 1668775495781,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495781,
+    "createdFirstAt": 1668836060018,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -845,13 +866,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "jurghylmfchsmbtansxptdte"
+    "id": "tmrhcubqkhxcgphindodpwzs"
   },
   {
-    "createdAt": 1668775495781,
-    "updatedAt": 1668775495781,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495781,
+    "createdFirstAt": 1668836060018,
     "name": "FunctionExecution",
     "slug": "function-execution",
     "type": "type",
@@ -863,29 +884,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "sbpmzwbytkwlrzqxgdpftpys"
+    "id": "oorzexbmxpyizmrkekunsrku"
   },
   {
-    "createdAt": 1668775495781,
-    "updatedAt": 1668775495781,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495781,
-    "name": "PerformanceItem",
-    "slug": "performance-item",
-    "module": "code-types",
-    "isModuleResolved": true,
-    "comments": [],
-    "operationRelativeTypescriptFilePath": "src/storeFunctionExecution.ts",
-    "classification": "operation",
-    "isAbsolute": true,
-    "isModuleFromMonorepo": true,
-    "id": "qftfrfdscpceewblpghvcney"
-  },
-  {
-    "createdAt": 1668775495781,
-    "updatedAt": 1668775495781,
-    "deletedAt": 0,
-    "createdFirstAt": 1668775495781,
+    "createdFirstAt": 1668836060018,
     "name": "TsFunction",
     "slug": "ts-function",
     "type": "type",
@@ -897,13 +902,31 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "boizdhsvwdqbsqjvhiprtkbg"
+    "id": "fpfrswokuxckvdyknlbutjng"
   },
   {
-    "createdAt": 1668775495782,
-    "updatedAt": 1668775495782,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495782,
+    "createdFirstAt": 1668836060018,
+    "name": "PerformanceItem",
+    "slug": "performance-item",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "measure-performance",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/storeFunctionExecution.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "sxzhxqqpgnipoxiidzdcwanp"
+  },
+  {
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
+    "deletedAt": 0,
+    "createdFirstAt": 1668836060018,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -914,13 +937,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tcupwwnnlexyujbpsejigndk"
+    "id": "mtaukfqrszczivezqwrkxapj"
   },
   {
-    "createdAt": 1668775495782,
-    "updatedAt": 1668775495782,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495782,
+    "createdFirstAt": 1668836060018,
     "name": "Creation",
     "slug": "creation",
     "type": "type",
@@ -932,13 +955,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qcwsaorahnwqchbwdqhwkvfm"
+    "id": "jxoongkspsqhhaergiuzmlog"
   },
   {
-    "createdAt": 1668775495782,
-    "updatedAt": 1668775495782,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495782,
+    "createdFirstAt": 1668836060018,
     "name": "Context",
     "slug": "context",
     "module": "server/typings/common",
@@ -948,13 +971,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "rlerghhhiejlupegppvbukkf"
+    "id": "dwwwttkbzpuktqetoxcuyxsn"
   },
   {
-    "createdAt": 1668775495782,
-    "updatedAt": 1668775495782,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495782,
+    "createdFirstAt": 1668836060018,
     "name": "Context",
     "slug": "context",
     "module": "server/typings/common",
@@ -964,13 +987,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "organlkqfembbpkuwtfptnuk"
+    "id": "dlxnnvgvtdwcfqkjtaqeawxx"
   },
   {
-    "createdAt": 1668775495782,
-    "updatedAt": 1668775495782,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495782,
+    "createdFirstAt": 1668836060018,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -981,13 +1004,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "oswcogruybrfqzpkkkondobv"
+    "id": "axxjilfltmhiewlmnxvcbxmh"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060018,
     "name": "Include",
     "slug": "include",
     "type": "type",
@@ -999,13 +1022,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "jbanimdbkqdehquqqkxvzqwe"
+    "id": "atzwlbsgfenndhzelnakckss"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060018,
+    "updatedAt": 1668836060018,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060018,
     "name": "Position",
     "slug": "position",
     "type": "type",
@@ -1017,13 +1040,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "sbbylcroyyoiwdaszxjyeyol"
+    "id": "vtntdqigdpedetliqjrtbuyx"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
     "name": "Creation",
     "slug": "creation",
     "type": "type",
@@ -1035,13 +1058,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ssejxrdvvjekgaoolrhxtgfa"
+    "id": "vaevgprxfiluobizenomxmum"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
     "name": "generateId",
     "slug": "generate-id",
     "type": "value",
@@ -1052,13 +1075,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "plglyigqdfmmkpvfctsiyakm"
+    "id": "kvyhqzjslswxkuacvqldfxal"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
     "name": "Device",
     "slug": "device",
     "type": "type",
@@ -1070,13 +1093,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "eabwkdpsviukqkqcbxekwzxs"
+    "id": "pcyewdfezkghprpgywqnrkaq"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
     "name": "IPInfo",
     "slug": "ipinfo",
     "type": "type",
@@ -1088,13 +1111,31 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "lrlxwkopgltatiurkdffjrak"
+    "id": "omuvpgmhmndunrxolhurwvio"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
+    "name": "IResult",
+    "slug": "iresult",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "peer-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "wcjaizshryohxnrudtijuezd"
+  },
+  {
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
+    "deletedAt": 0,
+    "createdFirstAt": 1668836060019,
     "name": "calculateDeviceName",
     "slug": "calculate-device-name",
     "module": "./calculateDeviceName",
@@ -1104,13 +1145,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "nqrvbuftpedbctrdjoocstur"
+    "id": "uqitjxbjydkqbmsnhvvbgepw"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
     "name": "savePageVisit",
     "slug": "save-page-visit",
     "module": "./savePageVisit",
@@ -1120,13 +1161,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "jqptlfcvtnlmvqzadyqurbxp"
+    "id": "zfpqxiqfzkhofruvnrdzsywy"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
     "name": "getNewPerformance",
     "slug": "get-new-performance",
     "type": "value",
@@ -1137,13 +1178,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "lijdrgbbbyisnfnnlivyykcz"
+    "id": "pcgevznzkpyldvtpwlyfuvsr"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
     "name": "PerformanceItem",
     "slug": "performance-item",
     "type": "type",
@@ -1155,13 +1196,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "iwwgxccauviunzyltsifnbic"
+    "id": "teucymrpnxqhjphpfhiicxuc"
   },
   {
-    "createdAt": 1668775495783,
-    "updatedAt": 1668775495783,
+    "createdAt": 1668836060019,
+    "updatedAt": 1668836060019,
     "deletedAt": 0,
-    "createdFirstAt": 1668775495783,
+    "createdFirstAt": 1668836060019,
     "name": "generateUniqueId",
     "slug": "generate-unique-id",
     "type": "value",
@@ -1172,6 +1213,6 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "anzkhxlmsqwszktwewdzspmy"
+    "id": "rlucseqwwsiyippuutwpfbqr"
   }
 ]

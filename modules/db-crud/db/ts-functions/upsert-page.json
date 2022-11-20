@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668775644806,
-  "updatedAt": 1668775644806,
+  "createdAt": 1668837674287,
+  "updatedAt": 1668837674287,
   "deletedAt": 0,
-  "createdFirstAt": 1668775644806,
+  "createdFirstAt": 1668837674287,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/UpsertPage.tsx",
   "commentsInside": [],
-  "rawText": " () => {\n  const router = useRouter();\n  const modelQuery = useModelQuery();\n  const query = mapValuesSync(router.query, (value) => takeFirst(value));\n  const model = useGetDbModelQuery(modelQuery as DbModelEnum);\n\n  const allItems = model?.data?.pages\n    ?.map((x) => x.result?.data)\n    .flat()\n    .filter(notEmpty) as AugmentedAnyModelType[];\n  const instance = allItems?.find((x) => x.id === query.id);\n  const index = model?.data?.pages[0]?.result?.index;\n\n  // NB: this is quite ugly, it's obviously not always the same location for every item... yet this is the best I can do for now, I guess...\n  const fileLocations = model?.data?.pages[0]?.result?.fileLocations;\n\n  const projectRelativeStorageFilePath =\n    instance?.projectRelativePath || fileLocations?.[0] || \"\";\n\n  const simplifiedSchema = index?.type?.simplifiedSchema;\n  const referencableModelNames = getReferencableModels(simplifiedSchema)\n    ?.map((x) => x.interfaceName)\n    .filter(notEmpty);\n\n  return (\n    <Div scroll className=\"py-4 px-8 lg:px-20\">\n      {model.isLoading || !simplifiedSchema ? null : (\n        <UpsertForm\n          projectRelativeStorageFilePath={projectRelativeStorageFilePath}\n          simplifiedSchema={simplifiedSchema}\n          instance={instance}\n          referencableModelNames={referencableModelNames}\n        />\n      )}\n    </Div>\n  );\n}",
+  "rawText": " () => {\n  const router = useRouter();\n  const query = mapValuesSync(router.query, (value) => takeFirst(value));\n  const model = useInfiniteGetDbModel();\n  const allItems = model?.data?.pages\n    ?.map((x) => x.result?.data)\n    .flat()\n    .filter(notEmpty) as AugmentedAnyModelType[];\n  const instance = allItems?.find((x) => x.id === query.id);\n  const modelName = useModelFromUrl();\n  const metadataQuery = queries.useGetDbModelMetadata(modelName);\n  const { tsInterface } = destructureOptionalObject(metadataQuery.data?.result);\n  const simplifiedSchema = tsInterface?.type?.simplifiedSchema;\n  const referencableModelNames = getReferencableModels(simplifiedSchema)\n    ?.map((x) => x.interfaceName)\n    .filter(notEmpty);\n\n  return (\n    <Div scroll className=\"py-4 px-8 lg:px-20\">\n      {model.isLoading || !simplifiedSchema || !modelName ? null : (\n        <UpsertForm\n          modelName={modelName}\n          simplifiedSchema={simplifiedSchema}\n          instance={instance}\n          referencableModelNames={referencableModelNames}\n        />\n      )}\n    </Div>\n  );\n}",
   "name": "UpsertPage",
   "slug": "upsert-page",
   "parameters": [],
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1349,
-    "lines": 37,
-    "bytes": 1349,
+    "characters": 1080,
+    "lines": 30,
+    "bytes": 1080,
     "bytesPerCharacter": 1,
     "charactersPerLine": 36,
-    "linesPerFile": 37,
+    "linesPerFile": 30,
     "numberOfFiles": 1
   },
-  "id": "xpqxkjsihqfombsxdjgqzvoi"
+  "id": "nksajgjzsrbbiszvxytsdswz"
 }

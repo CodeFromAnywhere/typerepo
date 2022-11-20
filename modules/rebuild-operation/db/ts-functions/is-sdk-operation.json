@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336155443,
-  "updatedAt": 1668336155443,
+  "createdAt": 1668835980176,
+  "updatedAt": 1668835980176,
   "deletedAt": 0,
-  "createdFirstAt": 1668336155443,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835980176,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/isSdkOperation.ts",
   "commentsInside": [],
   "rawText": " (operationBasePath: string) => {\n  const operationName = getLastFolder(operationBasePath);\n\n  return operationName.split(\"-\")[0] === \"sdk\";\n}",
@@ -57,5 +52,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "cesnockdvtepflthtyzizxra"
+  "id": "janrvnweejsdumuaqnfvlpum"
 }

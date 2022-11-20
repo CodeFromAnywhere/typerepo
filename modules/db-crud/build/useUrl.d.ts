@@ -1,4 +1,4 @@
-export declare const useUrl: <T extends "path" | "type" | "id" | "name" | "slug">(queryKey: T) => {
+export declare const useUrl: <T extends "path" | "id" | "type" | "slug" | "name">(queryKey: T) => {
     path: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
     name: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
     type: [string | undefined, (newValue: string | undefined) => Promise<boolean>];

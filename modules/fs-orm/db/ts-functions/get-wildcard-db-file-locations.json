@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774337062,
-  "updatedAt": 1668774337062,
+  "createdAt": 1668835350323,
+  "updatedAt": 1668835350323,
   "deletedAt": 0,
-  "createdFirstAt": 1668774337062,
+  "createdFirstAt": 1668835350323,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -67,6 +67,31 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "rootFolder",
+            "required": true,
+            "schema": {
+              "fullComment": "",
+              "properties": [
+                {
+                  "name": "basePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "is an operation Base path in case of operationName is not null",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
           }
         ],
         "type": "object"
@@ -94,5 +119,5 @@
     "linesPerFile": 47,
     "numberOfFiles": 1
   },
-  "id": "punkrvkuwvtrqqcnkbadflks"
+  "id": "ccogymuxcxmvjfidaxcvwumk"
 }

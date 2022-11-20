@@ -32,7 +32,8 @@
     "nested-menu": "0.0.1",
     "writer-input": "1.0.0",
     "react-with-native-notification": "1.0.42",
-    "authentication": "0.0.1"
+    "authentication": "0.0.1",
+    "db-crud": "0.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -65,56 +66,39 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-web",
-    "coreDependenciesIndexed": [
-      "useState"
-    ],
+    "coreDependenciesIndexed": [],
     "folderNameIndexed": "db-web",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668774267598,
-    "operationDependenciesIndexed": [
-      "queries",
-      "AuthenticationLayout",
-      "createStore",
-      "apiStoreInitialValues",
-      "nestedMenuStoreInitialValues",
-      "writerInitialValues",
-      "AlertProvider",
-      "ModalProvider",
-      "ToastContainer",
-      "LoginForm"
-    ],
-    "packageDependenciesIndexed": [
-      "AppProps",
-      "QueryClient",
-      "QueryClientProvider"
-    ],
+    "lastRebuildAt": 1668837346142,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/database",
     "markdown": "# 🗄 database\n\nWraps `db-ui` to expose it on a next.js react website for in the browser.\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 160,
-        "characters": 4819,
-        "bytes": 4819
+        "lines": 162,
+        "characters": 4892,
+        "bytes": 4892
       },
       "dataSize": {
-        "numberOfFiles": 59,
-        "lines": 250,
-        "characters": 7819,
-        "bytes": 7819
+        "numberOfFiles": 206,
+        "lines": 381,
+        "characters": 15902,
+        "bytes": 15902
       },
       "textSize": {
         "numberOfFiles": 5,
-        "lines": 165,
-        "characters": 7131,
-        "bytes": 7131
+        "lines": 167,
+        "characters": 7187,
+        "bytes": 7187
       },
       "size": {
-        "bytes": 19769,
-        "characters": 19769,
-        "lines": 575,
-        "numberOfFiles": 69
+        "bytes": 27981,
+        "characters": 27981,
+        "lines": 710,
+        "numberOfFiles": 216
       }
     },
     "hasGeneratedImportsIndexed": false

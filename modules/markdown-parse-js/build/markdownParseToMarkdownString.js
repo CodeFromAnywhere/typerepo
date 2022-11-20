@@ -4,6 +4,11 @@ exports.markdownParseToMarkdownString = void 0;
 var make_test_1 = require("make-test");
 var exampleContents_1 = require("./exampleContents");
 var matter_types_1 = require("matter-types");
+/**
+ * NB: this just uses RAW!
+ *
+ * Use `markdownParseToMarkdownStringFromContent` for the real deal
+ */
 var markdownParseToMarkdownString = function (markdownParse) {
     var frontMatterString = (0, matter_types_1.frontmatterParseToString)(markdownParse.parameters);
     return "".concat(frontMatterString).concat(markdownParse.raw);

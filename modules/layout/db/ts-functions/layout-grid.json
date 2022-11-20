@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668754552716,
-  "updatedAt": 1668754552716,
+  "createdAt": 1668836300598,
+  "updatedAt": 1668836300598,
   "deletedAt": 0,
-  "createdFirstAt": 1668754552716,
+  "createdFirstAt": 1668836300598,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -12,7 +12,7 @@
   "name": "LayoutGrid",
   "slug": "layout-grid",
   "parameters": [],
-  "description": "Style for creating a grid for the layout that is mobile friendly and has menu support",
+  "description": "Style for creating a grid for the layout that is mobile friendly and has menu support\n\n\n\nI run into this problem all the time\n\nhttps://stackoverflow.com/questions/71616561/css-tailwind-grid-height-100vh-not-working\n\nfinal solution came from here\n\nhttps://stackoverflow.com/questions/47094742/fullscreen-flex-layouts-necessity-of-intermediate-flex-boxes\n\nUnfortunately, I can't seem to hide stuff anymore for some reason on non-mobile. \"lg:flex hidden\" just doesn't work, just hides!\n\nMy elegant solution was to just use visible/invisible and make the mobile layout hover over the invisible one in case of a small screen, it works!",
   "returnType": {
     "rawType": "JSX.Element",
     "typeDefinition": {
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 7,
   "size": {
-    "characters": 1414,
-    "lines": 48,
-    "bytes": 1414,
+    "characters": 1959,
+    "lines": 62,
+    "bytes": 1959,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 29,
-    "linesPerFile": 48,
+    "charactersPerLine": 32,
+    "linesPerFile": 62,
     "numberOfFiles": 1
   },
-  "id": "scdqrzslancfsadmdystowvw"
+  "id": "uhizgioltudlusnsxehqhhev"
 }

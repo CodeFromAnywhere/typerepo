@@ -1,0 +1,49 @@
+{
+  "createdAt": 1668835456008,
+  "updatedAt": 1668835456008,
+  "deletedAt": 0,
+  "createdFirstAt": 1668835456008,
+  "id": "namedparameterstypeof-removepeer",
+  "name": "NamedParameters<typeof removePeer>",
+  "slug": "namedparameterstypeof-removepeer",
+  "operationRelativeTypescriptFilePath": "src/removePeer.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof removePeer>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

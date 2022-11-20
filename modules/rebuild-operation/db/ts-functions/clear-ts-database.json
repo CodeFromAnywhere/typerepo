@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668336140231,
-  "updatedAt": 1668336140231,
+  "createdAt": 1668835961458,
+  "updatedAt": 1668835961458,
   "deletedAt": 0,
-  "createdFirstAt": 1668336140231,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835961458,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/clearTsDatabase.ts",
   "commentsInside": [],
-  "rawText": " async (operationName: string | undefined) => {\n  const result = await Promise.all(\n    typescriptIndexModels.map((modelName) => {\n      return db.clear(modelName, { operationName });\n    })\n  );\n\n  await db.update(\n    \"Operation\",\n    () => true,\n    (old) =>\n      mergeNestedObject(old, {\n        operation: {\n          sizeIndexed: undefined,\n          buildResultIndexed: undefined,\n          classificationIndexed: undefined,\n          folderNameIndexed: undefined,\n          coreDependenciesIndexed: undefined,\n          hasGeneratedDependenciesIndexed: undefined,\n          hasGeneratedImportsIndexed: undefined,\n          lastPullTimeAtIndexed: undefined,\n          operationDependenciesIndexed: undefined,\n          packageDependenciesIndexed: undefined,\n          relativeOperationLocationPathIndexed: undefined,\n        },\n      }),\n    { operationName }\n  );\n}",
+  "rawText": " async (operationName: string | undefined) => {\n  const result = await Promise.all(\n    typescriptIndexModels.map((modelName) => {\n      return db.clear(modelName, { operationName });\n    })\n  );\n\n  await db.update(\n    \"Operation\",\n    () => true,\n    (old) =>\n      mergeNestedObject(old, {\n        operation: {\n          sizeIndexed: undefined,\n          buildResultIndexed: undefined,\n          classificationIndexed: undefined,\n          folderNameIndexed: undefined,\n          coreDependenciesIndexed: undefined,\n          hasGeneratedDependenciesIndexed: undefined,\n          lastPullTimeAtIndexed: undefined,\n          operationDependenciesIndexed: undefined,\n          packageDependenciesIndexed: undefined,\n          relativeOperationLocationPathIndexed: undefined,\n        },\n      }),\n    { operationName }\n  );\n}",
   "name": "clearTsDatabase",
   "slug": "clear-ts-database",
   "parameters": [
@@ -40,13 +35,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1012,
-    "lines": 31,
-    "bytes": 1012,
+    "characters": 963,
+    "lines": 30,
+    "bytes": 963,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 33,
-    "linesPerFile": 31,
+    "charactersPerLine": 32,
+    "linesPerFile": 30,
     "numberOfFiles": 1
   },
-  "id": "nhnzmotqqdvrzxfzciczlikb"
+  "id": "wadkswbtlaghgckoyqakqftq"
 }

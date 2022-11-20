@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775507804,
-  "updatedAt": 1668775507804,
+  "createdAt": 1668836070131,
+  "updatedAt": 1668836070131,
   "deletedAt": 0,
-  "createdFirstAt": 1668775507804,
+  "createdFirstAt": 1668836070131,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "calculate-device-name",
   "operationRelativeTypescriptFilePath": "src/calculateDeviceName.ts",
   "type": {
-    "rawType": "(ipInfo: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/IPInfo\").IPInfo, userAgent: UAParser.IResult) => string",
+    "rawType": "(ipInfo: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/IPInfo\").IPInfo, userAgent: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/external/ua-parser-js\").IResult) => string",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "(\n  ipInfo: IPInfo,\n  userAgent: IResult\n): string => {\n  const deviceName: string = slugify(\n    `${userAgent.os.name}-${userAgent.browser.name}-${ipInfo.country}-${\n      ipInfo.region\n    }-${ipInfo.city}-${ipInfo.ip}-${generateRandomString(4)}`\n  );\n\n  return deviceName;\n}",
   "description": "",
-  "id": "nasslrxtushfuazhebitzvjg"
+  "id": "svaraolekegyxatnequtuqqc"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752286156,
-  "updatedAt": 1668752286156,
+  "createdAt": 1668831770372,
+  "updatedAt": 1668831770372,
   "deletedAt": 0,
-  "createdFirstAt": 1668752286156,
+  "createdFirstAt": 1668831770372,
   "id": "namedparameterstypeof-getpublicperson",
   "name": "NamedParameters<typeof getPublicPerson>",
   "slug": "namedparameterstypeof-getpublicperson",
@@ -21,16 +21,13 @@
           "type": "string"
         }
       },
-      "required": [
-        "id"
-      ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
           "name": "id",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }

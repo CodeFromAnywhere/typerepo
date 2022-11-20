@@ -203,6 +203,7 @@ import { getObjectKeysArray } from "js-util";
 import { getParameterAtLocation } from "js-util";
 import { getSubsetFromObject } from "js-util";
 import { groupByKey } from "js-util";
+import { hasAllLetters } from "js-util";
 import { insertAt } from "js-util";
 import { isAllTrue } from "js-util";
 import { makeArray } from "js-util";
@@ -224,6 +225,7 @@ import { onlyUnique } from "js-util";
 import { pickRandomArrayItem } from "js-util";
 import { putIndexAtIndex } from "js-util";
 import { removeIndexFromArray } from "js-util";
+import { removeOptionalKeysFromObjectStrings } from "js-util";
 import { removeOptionalKeysFromObject } from "js-util";
 import { replaceLastOccurence } from "js-util";
 import { reverseString } from "js-util";
@@ -450,6 +452,7 @@ getObjectKeysArray,
 getParameterAtLocation,
 getSubsetFromObject,
 groupByKey,
+hasAllLetters,
 insertAt,
 isAllTrue,
 makeArray,
@@ -471,6 +474,7 @@ onlyUnique,
 pickRandomArrayItem,
 putIndexAtIndex,
 removeIndexFromArray,
+removeOptionalKeysFromObjectStrings,
 removeOptionalKeysFromObject,
 replaceLastOccurence,
 reverseString,

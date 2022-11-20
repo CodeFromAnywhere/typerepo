@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149696050,
-  "updatedAt": 1668149696050,
+  "createdAt": 1668835459899,
+  "updatedAt": 1668835459899,
   "deletedAt": 0,
-  "createdFirstAt": 1668149696050,
+  "createdFirstAt": 1668835459899,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  slug: string,\n  updatedValues: {\n    name?: string;\n    description?: string;\n    authToken?: string;\n    isFavorite?: boolean;\n    isMe?: boolean;\n  }\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  const updateResult = await db.update(\n    \"Peer\",\n    (peer) => {\n      return peer.slug === slug;\n    },\n    (peer) => {\n      return { ...peer, ...omitUndefinedValues(updatedValues) };\n    }\n  );\n\n  return {\n    isSuccesful: !!updateResult.isSuccesful,\n    message: updateResult.isSuccesful\n      ? \"Peer updated\"\n      : `Something went wrong: ${updateResult.message}`,\n  };\n}",
+  "value": "async (\n  slug: string,\n  updatedValues: {\n    name?: string;\n    description?: string;\n    authToken?: string;\n    isFavorite?: boolean;\n    isMe?: boolean;\n  }\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  const updateResult = await db.update(\n    \"Person\",\n    (person) => {\n      return person.slug === slug;\n    },\n    (peer) => {\n      return { ...peer, ...omitUndefinedValues(updatedValues) };\n    }\n  );\n\n  return {\n    isSuccesful: !!updateResult.isSuccesful,\n    message: updateResult.isSuccesful\n      ? \"Peer updated\"\n      : `Something went wrong: ${updateResult.message}`,\n  };\n}",
   "description": "Update one of your peers",
-  "id": "hbwfzonvfjwnvommurobwmih"
+  "id": "unvvqyjksizzeqqnwxipjrrj"
 }

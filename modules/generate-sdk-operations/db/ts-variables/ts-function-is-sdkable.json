@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775416729,
-  "updatedAt": 1668775416729,
+  "createdAt": 1668835855666,
+  "updatedAt": 1668835855666,
   "deletedAt": 0,
-  "createdFirstAt": 1668775416729,
+  "createdFirstAt": 1668835855666,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  tsFunction: TsFunction,\n  operationClassificationObject: OperationClassificationObject,\n  operationClassification: OperationClassification\n) => {\n  const { operationName } = tsFunction;\n  if (!operationName) return false;\n\n  const functionClassification = operationClassificationObject[operationName];\n\n  const isSdkable = functionClassification === operationClassification;\n\n  return isSdkable;\n}",
   "description": "",
-  "id": "bvzahiljsnkrsymfuaegxvlg"
+  "id": "fstdiqqjmkwvrxchrpixevep"
 }

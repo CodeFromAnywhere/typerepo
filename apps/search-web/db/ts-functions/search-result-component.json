@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774456627,
-  "updatedAt": 1668774456627,
+  "createdAt": 1668835592887,
+  "updatedAt": 1668835592887,
   "deletedAt": 0,
-  "createdFirstAt": 1668774456627,
+  "createdFirstAt": 1668835592887,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -32,6 +32,15 @@
       },
       "simplifiedSchema": {
         "properties": [
+          {
+            "name": "searchResult",
+            "required": true,
+            "schema": {
+              "fullComment": "",
+              "properties": [],
+              "type": "object"
+            }
+          },
           {
             "name": "index",
             "required": true,
@@ -69,5 +78,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "ivsibyidvzwxikdjiasgciqa"
+  "id": "uduzkvavilzpomldofxlsrdq"
 }

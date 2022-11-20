@@ -16,7 +16,8 @@
     "clickable-icon": "0.0.1",
     "asset-type": "0.0.1",
     "react": "*",
-    "model-types": "0.0.1"
+    "model-types": "0.0.1",
+    "js-util": "0.0.1"
   },
   "devDependencies": {
     "@types/istextorbinary": "^2.3.1",
@@ -47,69 +48,37 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [
-      "useEffect",
-      "useState"
-    ],
+    "coreDependenciesIndexed": [],
     "folderNameIndexed": "asset-view",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668773948746,
-    "operationDependenciesIndexed": [
-      "Asset",
-      "BackendAsset",
-      "A",
-      "Div",
-      "P",
-      "Span",
-      "MarkdownCodeblock",
-      "isText",
-      "getReferencedAssetApiUrl",
-      "getTypeFromRelativePath",
-      "getExtensionFromAsset",
-      "readableSize",
-      "apiUrl",
-      "AugmentedAnyModelType",
-      "Asset",
-      "ClickableIcon",
-      "Div",
-      "Input",
-      "Span",
-      "addToken",
-      "removeTokenIfPresent",
-      "getNameWithTokenFromRelativePath",
-      "BackendAsset",
-      "getReferencedAssetApiUrl",
-      "apiUrl",
-      "AugmentedAnyModelType",
-      "BackendAsset",
-      "AugmentedAnyModelType"
-    ],
+    "lastRebuildAt": 1668835205790,
+    "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/asset",
     "markdown": "# 📁 AssetView\n\n`AssetView` shows an asset. Every file-format has a different way to be rendered.\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 4,
-        "lines": 287,
-        "characters": 7864,
-        "bytes": 7864
+        "lines": 296,
+        "characters": 8124,
+        "bytes": 8124
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 157,
-        "characters": 4852,
-        "bytes": 4852
+        "lines": 158,
+        "characters": 4876,
+        "bytes": 4876
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 95,
-        "characters": 1996,
-        "bytes": 1996
+        "lines": 19,
+        "characters": 284,
+        "bytes": 284
       },
       "size": {
-        "bytes": 14712,
-        "characters": 14712,
-        "lines": 539,
+        "bytes": 13284,
+        "characters": 13284,
+        "lines": 473,
         "numberOfFiles": 8
       }
     },

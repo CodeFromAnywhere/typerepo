@@ -58,50 +58,21 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-esm",
-    "coreDependenciesIndexed": [
-      "useState"
-    ],
+    "coreDependenciesIndexed": [],
     "folderNameIndexed": "markdown",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668775615906,
-    "operationDependenciesIndexed": [
-      "path",
-      "apiUrl",
-      "getReferencedAssetApiUrl",
-      "createCodeblockMarkdown",
-      "Div",
-      "ClickableIcon",
-      "Frontmatter",
-      "Div",
-      "P",
-      "Div",
-      "MarkdownChunk",
-      "AugmentedWord",
-      "Div",
-      "Span",
-      "getFolderJs",
-      "getImplicitId",
-      "Tooltip",
-      "Div",
-      "MarkdownParse",
-      "getImplicitId",
-      "P",
-      "MappedObject",
-      "AugmentedWord",
-      "isPathRelative"
-    ],
-    "packageDependenciesIndexed": [
-      "Components"
-    ],
+    "lastRebuildAt": 1668836169188,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/smart",
     "markdown": "# markdown\n\nthis uses `react-markdown` to render markdown in the browser with react...\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 10,
-        "lines": 554,
-        "characters": 15766,
-        "bytes": 15766
+        "lines": 555,
+        "characters": 15814,
+        "bytes": 15814
       },
       "dataSize": {
         "numberOfFiles": 2,
@@ -111,14 +82,14 @@
       },
       "textSize": {
         "numberOfFiles": 4,
-        "lines": 258,
-        "characters": 6159,
-        "bytes": 6159
+        "lines": 63,
+        "characters": 2178,
+        "bytes": 2178
       },
       "size": {
-        "bytes": 26051,
-        "characters": 26051,
-        "lines": 963,
+        "bytes": 22118,
+        "characters": 22118,
+        "lines": 769,
         "numberOfFiles": 16
       }
     },

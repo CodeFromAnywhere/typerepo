@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336150927,
-  "updatedAt": 1668336150927,
+  "createdAt": 1668835974425,
+  "updatedAt": 1668835974425,
   "deletedAt": 0,
-  "createdFirstAt": 1668336150927,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835974425,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFileIds.ts",
   "commentsInside": [],
   "rawText": " async ({\n  operationFolderPath,\n  pathSuffix,\n  extension,\n}: {\n  operationFolderPath: string;\n  extension?: SearchableExtension | SearchableExtension[];\n  pathSuffix: string;\n}) => {\n  const basePath = path.join(operationFolderPath, pathSuffix);\n\n  return (\n    await explore({\n      basePath,\n      extension,\n    })\n  )\n    .map((x) => x.path)\n    .map((p) => withoutExtension(p.slice(basePath.length)));\n}",
@@ -98,5 +93,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "tbdactawdugmdmzqlfonkkxc"
+  "id": "qtwepxxspxymzmfmelppdbxv"
 }

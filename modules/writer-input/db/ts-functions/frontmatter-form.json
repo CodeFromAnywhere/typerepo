@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668152065259,
-  "updatedAt": 1668152065259,
+  "createdAt": 1668835634059,
+  "updatedAt": 1668835634059,
   "deletedAt": 0,
-  "createdFirstAt": 1668152065259,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835634059,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/FrontmatterForm.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  projectRelativeMarkdownFilePath: string;\n  frontmatterSchema: SimplifiedSchema;\n  markdownParse: MarkdownParse;\n  onChange: (value: string) => void;\n}) => {\n  const { onChange, projectRelativeMarkdownFilePath, markdownParse } = props;\n  const [immutableFrontmatterSchema] = useState<SimplifiedSchema>(\n    props.frontmatterSchema\n  );\n\n  console.log({\n    parameters: markdownParse.parameters,\n  });\n  const referencableModelData = useReferencableModelData(\n    immutableFrontmatterSchema\n  );\n\n  return (\n    <SimplifiedSchemaForm\n      id={projectRelativeMarkdownFilePath}\n      parameters={[\n        {\n          name: \"Frontmatter\",\n          required: true,\n          isDbModel: true,\n          simplifiedSchema: immutableFrontmatterSchema,\n        },\n      ]}\n      onChange={([frontmatter]) => {\n        const newMarkdownParse: MarkdownParse = {\n          ...markdownParse,\n          parameters: frontmatter,\n        };\n\n        const newMarkdownString =\n          markdownParseToMarkdownString(newMarkdownParse);\n\n        onChange(newMarkdownString);\n      }}\n      values={[markdownParse.parameters]}\n      projectRelativeStorageFilePath={projectRelativeMarkdownFilePath}\n      referencableModelData={referencableModelData}\n    />\n  );\n}",
+  "rawText": " (props: {\n  modelName?: string;\n  projectRelativeMarkdownFilePath: string;\n  frontmatterSchema: SimplifiedSchema;\n  markdownParse: MarkdownParse;\n  onChange: (value: string) => void;\n}) => {\n  const {\n    onChange,\n    projectRelativeMarkdownFilePath,\n    markdownParse,\n    modelName,\n  } = props;\n  const [immutableFrontmatterSchema] = useState<SimplifiedSchema>(\n    props.frontmatterSchema\n  );\n\n  console.log({\n    parameters: markdownParse.parameters,\n  });\n  const referencableModelData = useReferencableModelData(\n    immutableFrontmatterSchema\n  );\n\n  return (\n    <SimplifiedSchemaForm\n      modelName={modelName}\n      id={projectRelativeMarkdownFilePath}\n      parameters={[\n        {\n          name: \"Frontmatter\",\n          required: true,\n          isDbModel: true,\n          simplifiedSchema: immutableFrontmatterSchema,\n        },\n      ]}\n      onChange={([frontmatter]) => {\n        const newMarkdownParse: MarkdownParse = {\n          ...markdownParse,\n          parameters: frontmatter,\n        };\n\n        const newMarkdownString =\n          markdownParseToMarkdownString(newMarkdownParse);\n\n        onChange(newMarkdownString);\n      }}\n      values={[markdownParse.parameters]}\n      projectRelativeStorageFilePath={projectRelativeMarkdownFilePath}\n      referencableModelData={referencableModelData}\n    />\n  );\n}",
   "name": "FrontmatterForm",
   "slug": "frontmatter-form",
   "parameters": [],
@@ -33,13 +28,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1308,
-    "lines": 46,
-    "bytes": 1308,
+    "characters": 1388,
+    "lines": 53,
+    "bytes": 1388,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 28,
-    "linesPerFile": 46,
+    "charactersPerLine": 26,
+    "linesPerFile": 53,
     "numberOfFiles": 1
   },
-  "id": "ytqxjfmprsuiqyffugkejqll"
+  "id": "zfthlfrqxhsiuersjpqmobsx"
 }

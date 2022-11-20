@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336152071,
-  "updatedAt": 1668336152071,
+  "createdAt": 1668835975904,
+  "updatedAt": 1668835975904,
   "deletedAt": 0,
-  "createdFirstAt": 1668336152071,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835975904,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getIndexFileIds.ts",
   "commentsInside": [],
   "rawText": " async (operationFolderPath: string) =>\n  getFileIds({\n    operationFolderPath,\n    // NB: we take index/variables here because we need the file ids of any index as they would be the same in any index\n    pathSuffix: `${databaseFolderName}/ts-variables`,\n    extension: \"json\",\n  })",
@@ -48,5 +43,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "pioazkftjgskysuixhhditqd"
+  "id": "kzloppnhxsgdhufmcoskdrvv"
 }

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668152106025,
-  "updatedAt": 1668152106025,
+  "createdAt": 1668835679724,
+  "updatedAt": 1668835679724,
   "deletedAt": 0,
-  "createdFirstAt": 1668152106025,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835679724,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util/isTypescript.ts",
   "commentsInside": [],
   "rawText": " (text: string) => {\n  return text.startsWith(\"import\");\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "perbtqiozuersbgfgfrrtmgd"
+  "id": "cktwqjxcqeqctskfodozunec"
 }

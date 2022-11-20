@@ -158,7 +158,7 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 _d.sent();
                 performance.push((0, measure_performance_1.getNewPerformance)("alreadyDevice_updateDevice", executionId));
                 (0, savePageVisit_1.savePageVisit)(alreadyDevice.id, ipInfo, referer);
-                //console.log("upsertDevice, already device", performance);
+                // console.log("upsertDevice, already device", performance);
                 return [2 /*return*/, updatedDevice_1];
             case 3:
                 newDevice = __assign(__assign({ authToken: authToken, authenticationMethods: [] }, ipInfo), { lastOnlineAt: 0, lastSyncDatabaseAtObject: {}, name: (0, calculateDeviceName_1.calculateDeviceName)(ipInfo, userAgent), origins: [origin], previousIps: [], userAgent: userAgent, userAgentString: userAgent.ua, hasPapi: false });
@@ -182,7 +182,7 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 finalNewDevice = fullNewDevice
                     ? __assign(__assign({}, fullNewDevice), { currentPersonCalculated: currentPersonCalculated }) : undefined;
                 performance.push((0, measure_performance_1.getNewPerformance)("calculateMetadata", executionId));
-                //console.log("upsertDevice", performance);
+                // console.log("upsertDevice", performance);
                 return [2 /*return*/, finalNewDevice];
         }
     });

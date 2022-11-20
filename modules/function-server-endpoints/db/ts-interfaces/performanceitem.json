@@ -1,0 +1,60 @@
+{
+  "createdAt": 1668836085775,
+  "updatedAt": 1668836085775,
+  "deletedAt": 0,
+  "createdFirstAt": 1668836085775,
+  "id": "performanceitem",
+  "name": "PerformanceItem",
+  "slug": "performanceitem",
+  "operationRelativeTypescriptFilePath": "src/storeFunctionExecution.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "durationMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "label",
+        "durationMs"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "label",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "durationMs",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "PerformanceItem",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

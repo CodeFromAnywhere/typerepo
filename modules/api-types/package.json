@@ -28,7 +28,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/api/api-types/src/api-types.ts. Error: Error: Unknown node \\\" import(\\\"next\\\").GetStaticPaths<import(\\\"querystring\\\").ParsedUrlQuery>\\\" of kind \\\"LastTypeNode\\\"\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/api/api-types/src/api-types.ts. Error: Error: Unknown node \" import(\"watch-types\").ProjectWatcher\" of kind \"LastTypeNode\""
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "cjs",
@@ -36,27 +38,23 @@
     "folderNameIndexed": "api-types",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668448467416,
-    "operationDependenciesIndexed": [
-      "sdk"
-    ],
-    "packageDependenciesIndexed": [
-      "UseQueryResult"
-    ],
-    "relativeOperationLocationPathIndexed": "operations/tools/interfaces/api",
+    "lastRebuildAt": 1668836052065,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/api",
     "markdown": "api-related types needed for the `api` operation\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 214,
-        "characters": 6848,
-        "bytes": 6848
+        "lines": 219,
+        "characters": 7056,
+        "bytes": 7056
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 116,
-        "characters": 2888,
-        "bytes": 2888
+        "lines": 118,
+        "characters": 2860,
+        "bytes": 2860
       },
       "textSize": {
         "numberOfFiles": 3,
@@ -65,9 +63,9 @@
         "bytes": 1253
       },
       "size": {
-        "bytes": 10989,
-        "characters": 10989,
-        "lines": 358,
+        "bytes": 11169,
+        "characters": 11169,
+        "lines": 365,
         "numberOfFiles": 8
       }
     },

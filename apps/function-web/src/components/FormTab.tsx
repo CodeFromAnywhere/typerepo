@@ -46,7 +46,6 @@ export const FormTab = (props: { tsFunction: TsFunction }) => {
         key={executionId}
         tsFunction={tsFunction}
         initialValues={initialValues}
-        hideResult
         submitFunction={
           undefined
           // provide this later, for js functions

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336156650,
-  "updatedAt": 1668336156650,
+  "createdAt": 1668835981590,
+  "updatedAt": 1668835981590,
   "deletedAt": 0,
-  "createdFirstAt": 1668336156650,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835981590,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/rebuildAllOperations.ts",
   "commentsInside": [],
   "rawText": " async (\n  /**\n   * If true, you are indicating that the rebuilding process has changed and all operations should be rebuilt after this date.\n   */\n  isRebuildingProcessUpdated?: boolean,\n  manualProjectRoot?: string\n) => {\n  const configPath = path.join(__dirname, \"..\", \"config.json\");\n\n  if (isRebuildingProcessUpdated) {\n    await writeJsonToFile(configPath, { updatedAt: Date.now() });\n  }\n\n  const config = await readJsonFile<{ updatedAt: number }>(configPath);\n\n  forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations({ manualProjectRoot }),\n    callback: async (folderPath, index) => {\n      log(`#${index}: Let's do ${folderPath}`, { type: \"success\" });\n\n      await rebuildOperation({\n        operationBasePath: folderPath,\n        noExit: true,\n        updatedAt: config?.updatedAt,\n      });\n\n      return;\n    },\n  });\n}",
@@ -60,5 +55,5 @@
     "linesPerFile": 31,
     "numberOfFiles": 1
   },
-  "id": "uxesgsgkayiocllpfjpdffbw"
+  "id": "uvoqpupybfltxwqivzprcmeb"
 }

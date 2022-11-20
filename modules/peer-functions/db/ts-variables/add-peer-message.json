@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668334491437,
-  "updatedAt": 1668334491437,
+  "createdAt": 1668835427787,
+  "updatedAt": 1668835427787,
   "deletedAt": 0,
-  "createdFirstAt": 1668334491437,
+  "createdFirstAt": 1668835427787,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (message: string, peerSlug: string) => {\n  // @ts-ignore\n  const upsertResult = await db.upsert(\"PeerMessage\", {\n    message,\n    peerSlug,\n  });\n\n  return upsertResult;\n}",
   "description": "",
-  "id": "ncpyccxlmaynbobpxaolvjle"
+  "id": "jfxtvvaovrfhetkmxordrjwp"
 }

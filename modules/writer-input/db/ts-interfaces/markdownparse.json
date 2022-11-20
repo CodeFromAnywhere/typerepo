@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668152068296,
-  "updatedAt": 1668152068296,
+  "createdAt": 1668835636590,
+  "updatedAt": 1668835636590,
   "deletedAt": 0,
-  "createdFirstAt": 1668152068296,
+  "createdFirstAt": 1668835636590,
   "id": "markdownparse",
   "name": "MarkdownParse",
   "slug": "markdownparse",
@@ -39,10 +39,6 @@
         "parameters": {
           "$ref": "#/definitions/Frontmatter",
           "description": "parameters found in frontmatter"
-        },
-        "downmatterParameters": {
-          "$ref": "#/definitions/Downmatter",
-          "description": "downmatter is the same as frontmatter, but it is to be found at the end of the file. It is supposed to be containing things that are not important for the user to know, yet it is important metadata that is connected to this file. This can be indexed things, for example."
         },
         "content": {
           "type": "array",
@@ -114,38 +110,6 @@
             "fullComment": "parameters found in frontmatter\n\nOur version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
             "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
             "properties": [],
-            "type": "object"
-          }
-        },
-        {
-          "name": "downmatterParameters",
-          "required": false,
-          "schema": {
-            "fullComment": "downmatter is the same as frontmatter, but it is to be found at the end of the file. It is supposed to be containing things that are not important for the user to know, yet it is important metadata that is connected to this file. This can be indexed things, for example.\n\n",
-            "properties": [
-              {
-                "name": "detectedLanguage",
-                "required": false,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "labels",
-                "required": false,
-                "schema": {
-                  "items": [
-                    {
-                      "schema": {
-                        "type": "string"
-                      },
-                      "name": null
-                    }
-                  ],
-                  "type": "array"
-                }
-              }
-            ],
             "type": "object"
           }
         },

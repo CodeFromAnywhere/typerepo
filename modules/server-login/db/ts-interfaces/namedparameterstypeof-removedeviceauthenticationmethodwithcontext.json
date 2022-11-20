@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752293980,
-  "updatedAt": 1668752293980,
+  "createdAt": 1668831778965,
+  "updatedAt": 1668831778965,
   "deletedAt": 0,
-  "createdFirstAt": 1668752293980,
+  "createdFirstAt": 1668831778965,
   "id": "namedparameterstypeof-removedeviceauthenticationmethodwithcontext",
   "name": "NamedParameters<typeof removeDeviceAuthenticationMethodWithContext>",
   "slug": "namedparameterstypeof-removedeviceauthenticationmethodwithcontext",
@@ -2407,7 +2407,8 @@
                             "name": "browser",
                             "required": true,
                             "schema": {
-                              "fullComment": "",
+                              "fullComment": "NB: copied from ua-parser-js ^1.0.32 because they weren't indexed",
+                              "nb": "copied from ua-parser-js ^1.0.32 because they weren't indexed",
                               "properties": [
                                 {
                                   "name": "name",
@@ -2883,15 +2884,23 @@
                                   "name": "temporaryDestination",
                                   "required": false,
                                   "schema": {
-                                    "fullComment": "Not stored\n\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
+                                    "fullComment": "Not stored\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
                                     "type": "string"
                                   }
                                 },
                                 {
-                                  "name": "apiPath",
+                                  "name": "projectRelativeReferencingFilePath",
                                   "required": false,
                                   "schema": {
-                                    "fullComment": "Not stored\n\n`fs-orm` attaches this information to the `BackendAsset` when querying data from anywhere\n\nThe `server-api-url`-relative path that can be used to fetch the asset (path that uses `getReferencedAssetApiUrl`)\n\nTo force a download, you can add &isDownload=1 into the URL",
+                                    "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nLocation of the place where the asset is referenced\n\n- markdown file (or folder where it is located)\n- typescript file (or folder where it is located)\n- database file (or folder where it is located)",
+                                    "type": "string"
+                                  }
+                                },
+                                {
+                                  "name": "modelName",
+                                  "required": false,
+                                  "schema": {
+                                    "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                                     "type": "string"
                                   }
                                 }

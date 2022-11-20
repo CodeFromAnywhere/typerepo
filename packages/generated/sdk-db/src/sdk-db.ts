@@ -62,222 +62,277 @@ export const dbModelKeys = [ "AuthorizationModel","BundleConfig","Dataset","Func
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
     AuthorizationModel: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 BundleConfig: {
+          
           dbStorageMethod: "jsonSingle",
           
         },
 Dataset: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 FunctionExecution: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Operation: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           operationRelativePath: "package.json",
         },
 SocialMediaCallToAction: {
+          
           dbStorageMethod: "markdown",
           
         },
 TsBuildError: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsComment: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsConfig: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           operationRelativePath: "tsconfig.json",
         },
 TsExport: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsFunction: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           
         },
 TsImport: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsInterface: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           
         },
 TsLintWarning: {
+          operationName: "*",
           dbStorageMethod: "jsonMultiple",
           
         },
 TsVariable: {
+          operationName: "*",
           dbStorageMethod: "jsonSingle",
           
         },
 TypescriptFile: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 WebMarkdownFile: {
+          
           dbStorageMethod: "markdown",
           
         },
 WebsiteCallToAction: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Address: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Area: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 City: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Country: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Location: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 JeepType: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 LocationType: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 KvmdWord: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 MarkdownWord: {
+          
           dbStorageMethod: "markdown",
           
         },
 NepaliEnglishTranslationMatrix: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Statement: {
+          
           dbStorageMethod: "markdown",
           
         },
 TokiPonaMatrix: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Translation: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Word: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 WordCategory: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 WordCombination: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 WordMatrix: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 SlugModelType: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Device: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Group: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PageVisit: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PaymentCoupon: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PaymentEvent: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PaymentPlan: {
+          
           dbStorageMethod: "markdown",
           
         },
 PaymentSubscription: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PeerMessage: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Person: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Persona: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PersonInformation: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 PersonInformationValue: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 PersonPlatformConnection: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Platform: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Interest: {
+          
           dbStorageMethod: "keyValueMarkdown",
           
         },
 MediaChannel: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 MediaCredentail: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 MediaPost: {
+          
           dbStorageMethod: "jsonMultiple",
           
         },
 Postable: {
+          
           dbStorageMethod: "markdown",
           
         }

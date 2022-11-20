@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775520555,
-  "updatedAt": 1668775520555,
+  "createdAt": 1668836079782,
+  "updatedAt": 1668836079782,
   "deletedAt": 0,
-  "createdFirstAt": 1668775520555,
+  "createdFirstAt": 1668836079782,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  functionName: string\n): Promise<TsFunction | null> => {\n  const tsFunctionPath: string | undefined =\n    sdkFunctionPaths[functionName as keyof typeof sdkFunctionPaths];\n  const projectRoot = getProjectRoot();\n  if (!tsFunctionPath || !projectRoot) {\n    return null;\n  }\n  const absoluteTsFunctionPath = path.join(projectRoot, tsFunctionPath);\n  const tsFunction = await readJsonFile<TsFunction>(absoluteTsFunctionPath);\n\n  return tsFunction;\n}",
   "description": "Uses the `sdk-function-paths` sdk to the indexation of any function in the project.",
-  "id": "mpuzwerqilzvkakmhtexgisi"
+  "id": "wkvjhtogmzfabadhxfivgtxc"
 }

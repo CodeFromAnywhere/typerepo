@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774463217,
-  "updatedAt": 1668774463217,
+  "createdAt": 1668835599630,
+  "updatedAt": 1668835599630,
   "deletedAt": 0,
-  "createdFirstAt": 1668774463217,
+  "createdFirstAt": 1668835599630,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  query: string | null\n): SearchResult[] | undefined => {\n  return [\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n  ];\n}",
   "description": "Searches filepaths, then links to any `ui-web` that has this file available as a page, or vscode.\n\nFor this we need to get the `MarkdownReaderPage` and other pages that are available in ui's and see the files they are linked to.\n\nI want to be able to:\n\n- search functions, interfaces, variables\n- search operations\n- search markdown files, anywhere\n- search db-ui models\n\nBut there's more. To make a good serach...\n\nTODO:\n- gather everything i've made before about search",
-  "id": "dpkfwqwoosvdhysvvaeofsoe"
+  "id": "tvcqinfrzxnwswgsxxgdvbab"
 }

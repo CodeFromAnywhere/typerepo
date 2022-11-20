@@ -1,23 +1,29 @@
 {
-  "createdAt": 1668149694488,
-  "updatedAt": 1668149694488,
+  "createdAt": 1668835456789,
+  "updatedAt": 1668835456789,
   "deletedAt": 0,
-  "createdFirstAt": 1668149694488,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835456789,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/removePeer.ts",
   "commentsInside": [],
-  "rawText": " async (\n  /**\n   * Slug of the peer (ip)\n   */\n  slug: string\n) => {\n  const removeResult = await db.remove(\"Peer\", (peer) => peer.slug === slug);\n  return removeResult;\n}",
+  "rawText": " async (id: string) => {\n  const removeResult = await db.remove(\"Device\", (peer) => peer.id === id);\n  return removeResult;\n}",
   "name": "removePeer",
   "slug": "remove-peer",
-  "parameters": [],
-  "description": "",
+  "parameters": [
+    {
+      "name": "id",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "TODO: connect with peoples",
   "returnType": {
     "rawType": "unknown",
     "typeCoverage": 0,
@@ -29,13 +35,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 172,
-    "lines": 9,
-    "bytes": 172,
+    "characters": 151,
+    "lines": 4,
+    "bytes": 151,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 19,
-    "linesPerFile": 9,
+    "charactersPerLine": 38,
+    "linesPerFile": 4,
     "numberOfFiles": 1
   },
-  "id": "tzhtdsfevgwupehvvacujmds"
+  "id": "yssbvescmaahjajcgswfozrq"
 }

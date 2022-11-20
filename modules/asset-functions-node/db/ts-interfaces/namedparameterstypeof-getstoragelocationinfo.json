@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773888564,
-  "updatedAt": 1668773888564,
+  "createdAt": 1668835104585,
+  "updatedAt": 1668835104585,
   "deletedAt": 0,
-  "createdFirstAt": 1668773888564,
+  "createdFirstAt": 1668835104585,
   "id": "namedparameterstypeof-getstoragelocationinfo",
   "name": "NamedParameters<typeof getStorageLocationInfo>",
   "slug": "namedparameterstypeof-getstoragelocationinfo",
@@ -20,13 +20,12 @@
         "absoluteReferencingFilePath": {
           "type": "string"
         },
-        "config": {
-          "$ref": "#/definitions/ProcessAssetConfig"
+        "modelName": {
+          "type": "string"
         }
       },
       "required": [
-        "absoluteReferencingFilePath",
-        "config"
+        "absoluteReferencingFilePath"
       ],
       "additionalProperties": false
     },
@@ -40,21 +39,10 @@
           }
         },
         {
-          "name": "config",
-          "required": true,
+          "name": "modelName",
+          "required": false,
           "schema": {
-            "fullComment": "",
-            "properties": [
-              {
-                "name": "modelName",
-                "required": false,
-                "schema": {
-                  "fullComment": "PascalCase model name for database model\n\nOnly needed for database files",
-                  "type": "string"
-                }
-              }
-            ],
-            "type": "object"
+            "type": "string"
           }
         }
       ],

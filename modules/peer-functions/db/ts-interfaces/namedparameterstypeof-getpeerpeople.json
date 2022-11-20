@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668835441613,
+  "updatedAt": 1668835441613,
+  "deletedAt": 0,
+  "createdFirstAt": 1668835441613,
+  "id": "namedparameterstypeof-getpeerpeople",
+  "name": "NamedParameters<typeof getPeerPeople>",
+  "slug": "namedparameterstypeof-getpeerpeople",
+  "operationRelativeTypescriptFilePath": "src/getPeerPeople.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getPeerPeople>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775408080,
-  "updatedAt": 1668775408080,
+  "createdAt": 1668835844689,
+  "updatedAt": 1668835844689,
   "deletedAt": 0,
-  "createdFirstAt": 1668775408080,
+  "createdFirstAt": 1668835844689,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  operationName: string\n): Promise<string | undefined> => {\n  const descriptionPath = path.join(\n    __dirname,\n    \"..\",\n    \"assets\",\n    \"descriptions\",\n    `${operationName}.md`\n  );\n\n  if (!fs.existsSync(descriptionPath)) return;\n\n  const contents = await fs.readFile(descriptionPath, \"utf8\");\n\n  return contents;\n}",
   "description": "Gets a description of any sdk operation from the assets",
-  "id": "kuhodzpronyilrdlbwlurawh"
+  "id": "hpmkcustkxmnkywyamfnkngs"
 }

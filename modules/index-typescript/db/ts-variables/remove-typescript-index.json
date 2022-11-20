@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752110682,
-  "updatedAt": 1668752110682,
+  "createdAt": 1668835920928,
+  "updatedAt": 1668835920928,
   "deletedAt": 0,
-  "createdFirstAt": 1668752110682,
+  "createdFirstAt": 1668835920928,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -46,5 +46,5 @@
   },
   "value": "(eventName, path) => {\n  console.log(\n    eventName,\n    path,\n    \"Should remove all indexations we had on this path\",\n    path\n  );\n}",
   "description": "",
-  "id": "iwusrgmyzxrczpwpdevmljlv"
+  "id": "lmmfajvccfpswixdlgadrbku"
 }

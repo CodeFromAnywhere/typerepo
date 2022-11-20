@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336147361,
-  "updatedAt": 1668336147361,
+  "createdAt": 1668835969998,
+  "updatedAt": 1668835969998,
   "deletedAt": 0,
-  "createdFirstAt": 1668336147361,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835969998,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/exitIfProcessDependenciesChange.ts",
   "commentsInside": [],
   "rawText": " async (\n  operationName: string,\n  manualProjectRoot?: string\n) => {\n  const imports = (\n    await Promise.all(\n      [\"watch-operations\", \"rebuild-operation\"].map(\n        async (operationName) =>\n          // @ts-ignore\n          db.get(\"TsImport\", { operationName, manualProjectRoot }) as Promise<\n            TsImport[]\n          >\n      )\n    )\n  )\n    .flat()\n    .map((i: TsImport) => i.module)\n    // apparently this isn't a dependency of the above 3\n    .concat([\"watch-operations\"])\n    .filter(onlyUnique);\n\n  if (operationName && imports.includes(operationName)) {\n    log(`One of our dependencies (${operationName}) changed. Let's restart.`, {\n      type: \"important\",\n    });\n    process.exit(1);\n  }\n}",
@@ -58,5 +53,5 @@
     "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "tmqevbvivlyebnvhfbxlaphn"
+  "id": "znhbrtyvnypaquvvisaagjfz"
 }

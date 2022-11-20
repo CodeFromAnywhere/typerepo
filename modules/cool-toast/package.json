@@ -19,7 +19,8 @@
     "hasGeneratedDependencies": false
   },
   "dependencies": {
-    "react-with-native-notification": "1.0.42"
+    "react-with-native-notification": "1.0.42",
+    "api-types": "0.0.1"
   },
   "name": "cool-toast",
   "operation": {
@@ -29,30 +30,30 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1668769551573,
+    "lastRebuildAt": 1668836117205,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 1,
-        "lines": 42,
-        "characters": 912,
-        "bytes": 912
+        "lines": 78,
+        "characters": 1740,
+        "bytes": 1740
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 108,
-        "characters": 3410,
-        "bytes": 3410
+        "lines": 109,
+        "characters": 3437,
+        "bytes": 3437
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 66,
-        "characters": 968,
-        "bytes": 968
+        "lines": 13,
+        "characters": 213,
+        "bytes": 213
       },
       "size": {
-        "bytes": 5290,
-        "characters": 5290,
-        "lines": 216,
+        "bytes": 5390,
+        "characters": 5390,
+        "lines": 200,
         "numberOfFiles": 5
       }
     },
@@ -60,9 +61,7 @@
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/dumb",
     "classificationIndexed": "ui-cjs",
     "coreDependenciesIndexed": [],
-    "operationDependenciesIndexed": [
-      "toast"
-    ],
+    "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": []
   },
   "slug": "cool-toast",

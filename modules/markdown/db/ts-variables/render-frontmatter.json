@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775602735,
-  "updatedAt": 1668775602735,
+  "createdAt": 1668836154994,
+  "updatedAt": 1668836154994,
   "deletedAt": 0,
-  "createdFirstAt": 1668775602735,
+  "createdFirstAt": 1668836154994,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  parameters: Frontmatter,\n  config?: { renderSpacer?: boolean }\n) => {\n  const frontMatterKeys = Object.keys(parameters);\n\n  return frontMatterKeys.length > 0 ? (\n    <Div>\n      <Div>\n        {frontMatterKeys.map((key) => (\n          <P>\n            {key}: {parameters[key]}\n          </P>\n        ))}\n      </Div>\n\n      {config?.renderSpacer ? <P>------------</P> : null}\n    </Div>\n  ) : null;\n}",
   "description": "Renders markdown frontmatter parameters (and optionally a spacer)",
-  "id": "pyusssqrxqwvpiwguofkauzu"
+  "id": "bxbqrrbisoaddozjsdsipxpg"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775918347,
-  "updatedAt": 1668775918347,
+  "createdAt": 1668837453551,
+  "updatedAt": 1668837453551,
   "deletedAt": 0,
-  "createdFirstAt": 1668775918347,
+  "createdFirstAt": 1668837453551,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  input: string | undefined\n): string | undefined => {\n  if (input === \"\") return undefined;\n  return input;\n}",
   "description": "",
-  "id": "aqbpwkwdaxzjbuhvkccdjfvp"
+  "id": "ssnopnaljidqdduubsryvzyz"
 }

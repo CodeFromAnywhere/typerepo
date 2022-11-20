@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668149677463,
-  "updatedAt": 1668149677463,
+  "createdAt": 1668835437549,
+  "updatedAt": 1668835437549,
   "deletedAt": 0,
-  "createdFirstAt": 1668149677463,
+  "createdFirstAt": 1668835437549,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  const publicFolderPath = path.join(projectRoot, \"public\");\n\n  const nestedPathObject = await getNestedPathObject(publicFolderPath);\n\n  console.dir({ nestedPathObject }, { depth: 9999 });\n}",
   "description": "",
-  "id": "lojmzikmkxwzpeeaxxgnbhax"
+  "id": "phuduavxplaswhekkaoylgdl"
 }

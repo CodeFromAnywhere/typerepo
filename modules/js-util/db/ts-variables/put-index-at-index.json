@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775913408,
-  "updatedAt": 1668775913408,
+  "createdAt": 1668837447721,
+  "updatedAt": 1668837447721,
   "deletedAt": 0,
-  "createdFirstAt": 1668775913408,
+  "createdFirstAt": 1668837447721,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T>(\n  array: T[],\n  index: number,\n  toIndex: number\n) => {\n  const item = array[index];\n  const arrayWithoutIndex = removeIndexFromArray(array, index);\n  const changedArray = insertAt(arrayWithoutIndex, item, toIndex);\n  return changedArray;\n}",
   "description": "Takes an item from an index of an array and put it somewhere at another index",
-  "id": "rsiksishaqsdbceluvpegzhn"
+  "id": "syzaioxnrfwbnumbnocmkdpa"
 }

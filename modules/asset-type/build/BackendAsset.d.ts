@@ -2,8 +2,6 @@
  * Part of the asset that should be sent to the backend. The rest should frontend-only
  *
  * Some values are stored, some are not
- *
- *
  */
 export interface BackendAsset {
     /**
@@ -35,11 +33,30 @@ export interface BackendAsset {
     /**
      * Not stored
      *
-     *
      * Filename after uploading in the temporary folder. should still be moved to its final location
      *
      * Only available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.
      */
     temporaryDestination?: string;
+    /**
+     * Not stored
+     *
+     * Needs to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.
+     *
+     * Location of the place where the asset is referenced
+     *
+     * - markdown file (or folder where it is located)
+     * - typescript file (or folder where it is located)
+     * - database file (or folder where it is located)
+     */
+    projectRelativeReferencingFilePath?: string;
+    /**
+     * Not stored
+     *
+     * Needs to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.
+     *
+     * Model that the asset is related to
+     */
+    modelName?: string;
 }
 //# sourceMappingURL=BackendAsset.d.ts.map

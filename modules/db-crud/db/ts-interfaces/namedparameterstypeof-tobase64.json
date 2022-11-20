@@ -1,0 +1,49 @@
+{
+  "createdAt": 1668837678297,
+  "updatedAt": 1668837678297,
+  "deletedAt": 0,
+  "createdFirstAt": 1668837678297,
+  "id": "namedparameterstypeof-tobase64",
+  "name": "NamedParameters<typeof toBase64>",
+  "slug": "namedparameterstypeof-tobase64",
+  "operationRelativeTypescriptFilePath": "src/card/toBase64.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "str": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "str"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "str",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof toBase64>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334490042,
-  "updatedAt": 1668334490042,
+  "createdAt": 1668835426158,
+  "updatedAt": 1668835426158,
   "deletedAt": 0,
-  "createdFirstAt": 1668334490042,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668835426158,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/addPeer.ts",
   "commentsInside": [],
   "rawText": " async (\n  ip: string,\n  authToken: string,\n  peerName?: string,\n  /**\n   * If true, it does not validate the IP to see if it is online and it is authorized...\n   */\n  force?: boolean,\n  isMe?: boolean\n) => {\n  // get new PeerMessages after last sync\n\n  const apiResult = await apiWithConfig.ping({\n    apiUrl: `http://${ip}:${ports[\"function-server\"]}`,\n    authToken,\n    timeout: 2000,\n  });\n\n  const isConnectionEstablished =\n    apiResult?.isSuccessful &&\n    !apiResult?.isUnauthorized &&\n    apiResult.result === true;\n\n  if (!force && !isConnectionEstablished) {\n    return {\n      isSuccesful: false,\n      message:\n        \"Peer connection could not be established. Are you sure the peer is online? Use force if you want to add your peer anyway. If you have a node version lower than v17, this will also fail.\",\n    };\n  }\n}",
@@ -90,5 +85,5 @@
     "linesPerFile": 31,
     "numberOfFiles": 1
   },
-  "id": "gwzjulnckejlhcwxqunamokm"
+  "id": "wieorrfdagxzwbzszsqhutxd"
 }

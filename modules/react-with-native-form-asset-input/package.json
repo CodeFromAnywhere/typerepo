@@ -27,7 +27,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/vui/react-with-native/react-with-native-form-asset-input/src/AssetInput.tsx. Error: TypeError: Invalid value used as weak map key\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/react-with-native/react-with-native-form-asset-input/src/AssetInput.tsx. Error: TypeError: Invalid value used as weak map key"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
@@ -35,40 +37,34 @@
     "folderNameIndexed": "react-with-native-form-asset-input",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668333513007,
-    "operationDependenciesIndexed": [
-      "PluginComponent",
-      "AssetInput",
-      "PluginInputType",
-      "BackendAsset",
-      "NewAssetType"
-    ],
+    "lastRebuildAt": 1668836136519,
+    "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
-    "relativeOperationLocationPathIndexed": "operations/tools/interfaces/vui/react-with-native",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/react-with-native",
     "markdown": "# ❌ No description set yet\n\nPlease set a description for this operation in OPERATION.md\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 94,
-        "characters": 2847,
-        "bytes": 2847
+        "lines": 99,
+        "characters": 2983,
+        "bytes": 2983
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 115,
-        "characters": 3999,
-        "bytes": 3999
+        "lines": 117,
+        "characters": 4035,
+        "bytes": 4035
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 47,
-        "characters": 702,
-        "bytes": 702
+        "lines": 19,
+        "characters": 312,
+        "bytes": 312
       },
       "size": {
-        "bytes": 7548,
-        "characters": 7548,
-        "lines": 256,
+        "bytes": 7330,
+        "characters": 7330,
+        "lines": 235,
         "numberOfFiles": 7
       }
     },
