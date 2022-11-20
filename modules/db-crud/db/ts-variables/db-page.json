@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668837666463,
-  "updatedAt": 1668837666463,
+  "createdAt": 1668977270603,
+  "updatedAt": 1668977270603,
   "deletedAt": 0,
-  "createdFirstAt": 1668837666463,
+  "createdFirstAt": 1668977270603,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const router = useRouter();\n  const paths = router.query.paths ? makeArray(router.query.paths) : [];\n  const modelQuery = paths.pop();\n  console.log({ modelQuery });\n  const [slug] = useUrl(\"slug\");\n  const [id] = useUrl(\"id\");\n\n  return (\n    <Div scroll>\n      <ModelComponent modelName={modelQuery} highlight={{ slug, id }} />\n    </Div>\n  );\n}",
   "description": "",
-  "id": "bmusyamttsfnfptzscgouuyg"
+  "id": "musixayaiycbkfnuznafztwf"
 }

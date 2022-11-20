@@ -27,7 +27,8 @@
     "markdown-reader-types": "0.0.1",
     "writer-types": "0.0.1",
     "react": "*",
-    "augmented-word-types": "0.0.1"
+    "augmented-word-types": "0.0.1",
+    "cool-toast": "0.0.0"
   },
   "devDependencies": {
     "@types/marked": "^4.0.7",
@@ -66,23 +67,23 @@
     "folderNameIndexed": "writer-input",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668835683231,
+    "lastRebuildAt": 1668976987456,
     "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/writer",
     "markdown": "# Writer Input\n\ncomponent to create a writer input\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 29,
-        "lines": 2153,
-        "characters": 60771,
-        "bytes": 60771
+        "numberOfFiles": 30,
+        "lines": 2262,
+        "characters": 64306,
+        "bytes": 64306
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 231,
-        "characters": 5963,
-        "bytes": 5963
+        "lines": 128,
+        "characters": 3765,
+        "bytes": 3765
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -91,10 +92,10 @@
         "bytes": 602
       },
       "size": {
-        "bytes": 67336,
-        "characters": 67336,
-        "lines": 2407,
-        "numberOfFiles": 33
+        "bytes": 68673,
+        "characters": 68673,
+        "lines": 2413,
+        "numberOfFiles": 34
       }
     },
     "hasGeneratedImportsIndexed": false

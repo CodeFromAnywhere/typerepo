@@ -610,6 +610,7 @@ export declare const sdkInterfacePaths: {
     MarkdownParagraphChunk: string;
     MarkdownParseConfig: string;
     MarkdownReference: string;
+    "NamedParameters<typeof chunkToStringRecursively>": string;
     "NamedParameters<typeof getChunkParagraphsRecursively>": string;
     "NamedParameters<typeof getImplicitId>": string;
     "NamedParameters<typeof getMarkdownIntro>": string;
@@ -617,6 +618,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof getMarkdownReferencePaths>": string;
     "NamedParameters<typeof getMarkdownReferencesFromParagraph>": string;
     "NamedParameters<typeof markdownParseToMarkdownString>": string;
+    "NamedParameters<typeof markdownParseToMarkdownStringFromContent>": string;
     "NamedParameters<typeof mdContentParseRecursively>": string;
     "NamedParameters<typeof mdToJsonParse>": string;
     "NamedParameters<typeof parseFrontmatterMarkdownString>": string;
@@ -957,6 +959,10 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof gitCommitAllCron>": string;
     "NamedParameters<typeof watchOperations>": string;
     WatchEventType: string;
+    FilePage: string;
+    MarkdownReaderPage2: string;
+    NestedWebPage: string;
+    TodoPage: string;
     "NamedParameters<typeof writeToAssets>": string;
     "NamedParameters<typeof Completion>": string;
     "NamedParameters<typeof editSubtextSubwordConfig>": string;

@@ -149,6 +149,7 @@ export declare const operations: {
     "watch-folders": string;
     "watch-operations": string;
     "watch-types": string;
+    "webpage-types": string;
     "write-to-assets": string;
     "writer-input": string;
     "writer-types": string;

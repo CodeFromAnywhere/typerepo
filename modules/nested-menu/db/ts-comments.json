@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1668752504763,
-    "updatedAt": 1668752504763,
+    "createdAt": 1668960471241,
+    "updatedAt": 1668960471241,
     "deletedAt": 0,
-    "createdFirstAt": 1668752504763,
+    "createdFirstAt": 1668960471241,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/util/queryPathsArrayToNestedPathObject.ts",
@@ -11,8 +11,8 @@
     "rawStatement": "export const queryPathsArrayToNestedPathObject = (\n  queryPaths: string[]\n): NestedPathObject => {\n  const nestedPathObject: NestedPathObject = reduceQueryPathsRecursively(\n    queryPaths,\n    {}\n  );\n  return nestedPathObject;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 37,
-    "lastLine": 56,
-    "id": "azyioodbihwsqfjqjnjiamez"
+    "firstLine": 4,
+    "lastLine": 23,
+    "id": "xuuofnxarpayyvcksrfsxdsj"
   }
 ]

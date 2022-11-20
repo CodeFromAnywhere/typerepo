@@ -1,15 +1,15 @@
 {
-  "createdAt": 1668835671550,
-  "updatedAt": 1668835671550,
+  "createdAt": 1668976975554,
+  "updatedAt": 1668976975554,
   "deletedAt": 0,
-  "createdFirstAt": 1668835671550,
+  "createdFirstAt": 1668976975554,
   "id": "texteditingcontext",
   "name": "TextEditingContext",
   "slug": "texteditingcontext",
   "operationRelativeTypescriptFilePath": "src/old/getContext.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "export type TextEditingContext = {\n  wordAtPosition: string;\n};",
+  "rawText": "export type TextEditingContext = {\n  wordAtPosition: string;\n  positionIndex: number;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -21,10 +21,14 @@
       "properties": {
         "wordAtPosition": {
           "type": "string"
+        },
+        "positionIndex": {
+          "type": "number"
         }
       },
       "required": [
-        "wordAtPosition"
+        "wordAtPosition",
+        "positionIndex"
       ],
       "additionalProperties": false
     },
@@ -35,6 +39,13 @@
           "required": true,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "positionIndex",
+          "required": true,
+          "schema": {
+            "type": "number"
           }
         }
       ],

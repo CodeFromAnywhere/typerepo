@@ -235,6 +235,7 @@ export declare const sdk: {
     makeFileType: (filePath: string) => Promise<import("make-file-type").FileType | undefined>;
     isResultOfInterface: <TResult>(result: TResult, jsonSchema: unknown) => boolean;
     makeTest: <TResult_1>(testFunction: (() => Promise<TResult_1>) | (() => TResult_1), isValid?: ((result: TResult_1) => boolean) | undefined) => () => Promise<boolean>;
+    chunkToStringRecursively: (chunk: import("code-types").MarkdownChunk) => string;
     getChunkParagraphsRecursively: (chunk: import("code-types").MarkdownChunk) => string[];
     getImplicitId: (title: string) => string;
     getMarkdownIntro: (markdownParse: import("code-types").MarkdownParse | null) => {
@@ -244,6 +245,7 @@ export declare const sdk: {
     getMarkdownParseParagraphs: (markdownParse: import("code-types").MarkdownParse) => string[];
     getMarkdownReferencePaths: (markdownString: string) => string[];
     getMarkdownReferencesFromParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownReference[];
+    markdownParseToMarkdownStringFromContent: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
     markdownParseToMarkdownString: (markdownParse: import("code-types").MarkdownParse) => string;
     mdContentParseRecursively: (markdownString: string, level: number) => import("code-types").MarkdownChunk[];
     mdToJsonParse: (markdownString: string, fileName?: string | undefined, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => import("code-types").MarkdownParse;

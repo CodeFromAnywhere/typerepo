@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1668148282072,
-    "updatedAt": 1668148282072,
+    "createdAt": 1668976561657,
+    "updatedAt": 1668976561657,
     "deletedAt": 0,
-    "createdFirstAt": 1668148282072,
+    "createdFirstAt": 1668976561657,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/js.ts",
@@ -11,15 +11,15 @@
     "rawStatement": "export const withoutExtension = (fileName: string) => {\n  const pieces = fileName.split(\".\");\n  pieces.pop();\n  return pieces.join(\".\");\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 24,
-    "lastLine": 27,
-    "id": "aciypzvngrrldhszoefmboxa"
+    "firstLine": 32,
+    "lastLine": 35,
+    "id": "povdafpbhyxsgvvoiiuckrbp"
   },
   {
-    "createdAt": 1668148282073,
-    "updatedAt": 1668148282073,
+    "createdAt": 1668976561657,
+    "updatedAt": 1668976561657,
     "deletedAt": 0,
-    "createdFirstAt": 1668148282073,
+    "createdFirstAt": 1668976561657,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/js.ts",
@@ -29,8 +29,8 @@
     "types": [
       "nb"
     ],
-    "firstLine": 34,
-    "lastLine": 38,
-    "id": "umclsfuyragkhabacafxngel"
+    "firstLine": 42,
+    "lastLine": 46,
+    "id": "pgsqjaarbrouqcngktptmfjp"
   }
 ]

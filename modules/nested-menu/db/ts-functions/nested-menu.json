@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668752493534,
-  "updatedAt": 1668752493534,
+  "createdAt": 1668960453790,
+  "updatedAt": 1668960453790,
   "deletedAt": 0,
-  "createdFirstAt": 1668752493534,
+  "createdFirstAt": 1668960453790,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/NestedMenu.tsx",
   "commentsInside": [],
-  "rawText": " (\n  props: {\n    items?: MenuItemType[];\n    headersClickable?: boolean;\n  } & MouseEventCallbacks\n) => {\n  const router = useRouter();\n  const [expanded, setExpanded, { hydrated }] = useStore(\"menu.expanded\");\n\n  const expandCompleteUrlInMenu = () => {\n    const parts = trimSlashes(router.asPath).split(\"/\");\n    const cummulativeParts = parts\n      .map((part, index, array) => {\n        if (part === \"\") return;\n        return array.slice(0, index + 1).join(\"/\");\n      })\n      .filter(notEmpty);\n    const cumulativePartsExpandedObject = mergeObjectsArray(\n      cummulativeParts.map((url) => ({ [url]: true }))\n    );\n    setExpanded({ ...expanded, ...cumulativePartsExpandedObject });\n  };\n  useEffect(() => {\n    expandCompleteUrlInMenu();\n  }, [router.asPath]);\n\n  const { items, ...menuItemProps } = props;\n  const menuItems = items?.map((menuItem, index) => {\n    return (\n      <NestedMenuItem\n        mergeSingleChilds\n        item={menuItem}\n        key={`menu${index}`}\n        {...menuItemProps}\n      />\n    );\n  });\n\n  return <Div className=\"w-full\">{menuItems}</Div>;\n}",
+  "rawText": " (\n  props: {\n    items?: NestedWebPage[];\n    headersClickable?: boolean;\n  } & MouseEventCallbacks\n) => {\n  const router = useRouter();\n  const [expanded, setExpanded, { hydrated }] = useStore(\"menu.expanded\");\n\n  const expandCompleteUrlInMenu = () => {\n    const parts = trimSlashes(router.asPath).split(\"/\");\n    const cummulativeParts = parts\n      .map((part, index, array) => {\n        if (part === \"\") return;\n        return array.slice(0, index + 1).join(\"/\");\n      })\n      .filter(notEmpty);\n    const cumulativePartsExpandedObject = mergeObjectsArray(\n      cummulativeParts.map((url) => ({ [url]: true }))\n    );\n    setExpanded({ ...expanded, ...cumulativePartsExpandedObject });\n  };\n  useEffect(() => {\n    expandCompleteUrlInMenu();\n  }, [router.asPath]);\n\n  const { items, ...menuItemProps } = props;\n  const menuItems = items\n    ?.filter((x) => !x.isMenuHidden)\n    .map((nestedWebPage, index) => {\n      return (\n        <NestedMenuItem\n          mergeSingleChilds\n          item={nestedWebPage}\n          key={`menu${index}`}\n          {...menuItemProps}\n        />\n      );\n    });\n\n  return <Div className=\"w-full\">{menuItems}</Div>;\n}",
   "name": "NestedMenu",
   "slug": "nested-menu",
   "parameters": [],
@@ -26,15 +26,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 4,
+  "maxIndentationDepth": 5,
   "size": {
-    "characters": 1222,
-    "lines": 42,
-    "bytes": 1222,
+    "characters": 1292,
+    "lines": 44,
+    "bytes": 1292,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
-    "linesPerFile": 42,
+    "linesPerFile": 44,
     "numberOfFiles": 1
   },
-  "id": "cycrfvbicbcrgvvrwzqtmrei"
+  "id": "iwydsxlziuuweqvtkefexadp"
 }

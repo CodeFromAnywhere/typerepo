@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334825622,
-  "updatedAt": 1668334825622,
+  "createdAt": 1668976704791,
+  "updatedAt": 1668976704791,
   "deletedAt": 0,
-  "createdFirstAt": 1668334825622,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668976704791,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getImplicitId.ts",
   "commentsInside": [],
   "rawText": " (title: string): string => {\n  return slugify(title);\n}",
@@ -52,5 +47,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "cowzkjcoihnomscaquqkhfnm"
+  "id": "nellrocpenxurqoqxqqsdmuj"
 }

@@ -296,6 +296,7 @@ export declare const sdkFunctionPaths: {
     writeStringToFile: string;
     writeToFiles: string;
     getExtension: string;
+    getFileOrFolderName: string;
     getFolderJs: string;
     getSubExtension: string;
     isPathRelative: string;
@@ -546,12 +547,14 @@ export declare const sdkFunctionPaths: {
     renderMarkdownParse: string;
     renderMarkdownTitle: string;
     useOpenHashDetails: string;
+    chunkToStringRecursively: string;
     getChunkParagraphsRecursively: string;
     getImplicitId: string;
     getMarkdownIntro: string;
     getMarkdownParseParagraphs: string;
     getMarkdownReferencePaths: string;
     getMarkdownReferencesFromParagraph: string;
+    markdownParseToMarkdownStringFromContent: string;
     markdownParseToMarkdownString: string;
     mdContentParseRecursively: string;
     mdToJsonParse: string;
@@ -626,6 +629,7 @@ export declare const sdkFunctionPaths: {
     cleanupTimer: string;
     generateUniqueId: string;
     getNewPerformance: string;
+    getLegacyMenu: string;
     Menu: string;
     minifyBuild: string;
     generateId: string;
@@ -640,9 +644,13 @@ export declare const sdkFunctionPaths: {
     isGeneratedParameterName: string;
     getKeysAtPathFromNestedObject: string;
     getRealItemRecursive: string;
+    getTitle: string;
+    makeNestedObjectFromQueryPathObject: string;
     NestedMenuItem: string;
     NestedMenu: string;
+    nestedObjectToChildObject: string;
     nestedPathObjectToNestedMenuRecursive: string;
+    nestifyQueryPathObjectRecursive: string;
     queryPathsArrayToNestedPathObject: string;
     reduceQueryPathsRecursively: string;
     useExpanded: string;
@@ -920,6 +928,7 @@ export declare const sdkFunctionPaths: {
     ContextTextArea: string;
     DivContentEditable: string;
     editSubtextSubwordConfig: string;
+    EditWriterInput: string;
     FrontmatterForm: string;
     getSubtext: string;
     getTextSegments: string;

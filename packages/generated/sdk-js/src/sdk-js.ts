@@ -144,12 +144,14 @@ import { parseTitle } from "log";
 import { makeFileType } from "make-file-type";
 import { isResultOfInterface } from "make-test";
 import { makeTest } from "make-test";
+import { chunkToStringRecursively } from "markdown-parse-js";
 import { getChunkParagraphsRecursively } from "markdown-parse-js";
 import { getImplicitId } from "markdown-parse-js";
 import { getMarkdownIntro } from "markdown-parse-js";
 import { getMarkdownParseParagraphs } from "markdown-parse-js";
 import { getMarkdownReferencePaths } from "markdown-parse-js";
 import { getMarkdownReferencesFromParagraph } from "markdown-parse-js";
+import { markdownParseToMarkdownStringFromContent } from "markdown-parse-js";
 import { markdownParseToMarkdownString } from "markdown-parse-js";
 import { mdContentParseRecursively } from "markdown-parse-js";
 import { mdToJsonParse } from "markdown-parse-js";
@@ -370,12 +372,14 @@ parseTitle,
 makeFileType,
 isResultOfInterface,
 makeTest,
+chunkToStringRecursively,
 getChunkParagraphsRecursively,
 getImplicitId,
 getMarkdownIntro,
 getMarkdownParseParagraphs,
 getMarkdownReferencePaths,
 getMarkdownReferencesFromParagraph,
+markdownParseToMarkdownStringFromContent,
 markdownParseToMarkdownString,
 mdContentParseRecursively,
 mdToJsonParse,

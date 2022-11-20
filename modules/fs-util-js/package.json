@@ -28,40 +28,42 @@
       "dependenciesBuildsFailed": false,
       "indexErrors": [],
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-fs/fs-util-js/src/js.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/control-fs/fs-util-js/src/js.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "node-cjs",
     "coreDependenciesIndexed": [],
     "folderNameIndexed": "fs-util-js",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668331850611,
+    "lastRebuildAt": 1668976577690,
     "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/control-fs",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 2,
-        "lines": 51,
-        "characters": 1297,
-        "bytes": 1297
+        "lines": 59,
+        "characters": 1519,
+        "bytes": 1519
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 109,
-        "characters": 3685,
-        "bytes": 3685
+        "lines": 111,
+        "characters": 3716,
+        "bytes": 3716
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 102,
-        "characters": 1466,
-        "bytes": 1466
+        "lines": 9,
+        "characters": 82,
+        "bytes": 82
       },
       "size": {
-        "bytes": 6448,
-        "characters": 6448,
-        "lines": 262,
+        "bytes": 5317,
+        "characters": 5317,
+        "lines": 179,
         "numberOfFiles": 5
       }
     },

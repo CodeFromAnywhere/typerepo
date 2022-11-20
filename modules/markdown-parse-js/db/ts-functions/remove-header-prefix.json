@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334841530,
-  "updatedAt": 1668334841530,
+  "createdAt": 1668976729813,
+  "updatedAt": 1668976729813,
   "deletedAt": 0,
-  "createdFirstAt": 1668334841530,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668976729813,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/removeHeaderPrefix.ts",
   "commentsInside": [],
   "rawText": " (string: string) => {\n  const trimmed = string.split(\"\").reduce(\n    (cum, letter) => {\n      const isHeaderPrefix = cum.isHeaderPrefix && letter === \"#\";\n      return {\n        string: isHeaderPrefix ? \"\" : cum.string.concat(letter),\n        isHeaderPrefix,\n      };\n    },\n    { string: \"\", isHeaderPrefix: true }\n  );\n\n  return trimmed.string.trim();\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "eeguryjnxsuyoqrfdrcamwfs"
+  "id": "snfrbsenuuoeffojhnnwbdmc"
 }

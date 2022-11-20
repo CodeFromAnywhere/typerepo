@@ -321,7 +321,8 @@ export declare const sdk: {
         newStoredData: import("model-types").Storing<import("model-types").AugmentedAnyModelType>[];
     };
     getExtension: (fileNameOrPath: string) => string;
-    getFolderJs: <T_6 extends string | undefined>(filePath: T_6) => T_6;
+    getFileOrFolderName: <T_6 extends string | undefined>(fileOrFolderPath: T_6) => T_6;
+    getFolderJs: <T_7 extends string | undefined>(filePath: T_7) => T_7;
     getSubExtension: (fileName: string) => string | undefined;
     isPathRelative: (path: string) => boolean;
     removeTrailingSlash: (p: string) => string;
@@ -540,12 +541,13 @@ export declare const sdk: {
     exploreOperationFolders: (config: import("k-explore").BaseConfig) => Promise<string[]>;
     explorePreset: (preset: "git" | "markdown" | "todo" | "packages" | "docs" | "src", config?: import("k-explore").BaseConfig) => Promise<import("code-types").TextJson[]>;
     explore: ({ basePath, searchLevel, debug, ...other }: import("k-explore").SearchConfig) => Promise<import("code-types").TextJson[]>;
-    findAllDocsFolderPaths: (ignoreOperations?: boolean | undefined) => Promise<string[]>;
+    findAllDocsFolderPaths: (ignoreOperations?: boolean | undefined, ignoreFolders?: string[] | undefined) => Promise<string[]>;
     findAllDotGitFolders: (config: import("k-explore").BaseConfig) => Promise<import("code-types").TextJson[]>;
     findAllFoldersWithName: (config: {
         basePath: string;
         folderName: string;
         ignoreOperations?: boolean | undefined;
+        ignoreFolders?: string[] | undefined;
     }) => Promise<string[]>;
     findAllPackages: (config?: {
         basePath: string | string[] | undefined;
@@ -581,7 +583,7 @@ export declare const sdk: {
     createMinimizedSection: (markdown: string | undefined, title: string, expandTitle: string) => import("code-types").MarkdownParse | undefined;
     deployToVercel: () => void;
     emailMarkdownParse: () => void;
-    flattenNestedObject: <T_7>(nestedObject: import("nested-menu").NestedObject<T_7>, isLeaf?: ((content: T_7 | import("nested-menu").NestedObject<T_7> | undefined) => boolean) | undefined) => void;
+    flattenNestedObject: <T_8>(nestedObject: NestedObject<T_8>, isLeaf?: ((content: any) => boolean) | undefined) => void;
     generateStaticSite: ({ projectRelativeMdFilePath, singlePage, }: {
         singlePage?: boolean | undefined;
         projectRelativeMdFilePath?: string | undefined;
@@ -603,7 +605,7 @@ export declare const sdk: {
         manualProjectRoot?: string | undefined;
     }) => Promise<import("markdown-parsings").OperationSummary | undefined>;
     getOutline: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
-    getPublicMarkdownNestedPathObject: (absoluteFolderPath: string) => Promise<import("nested-menu").NestedObject<string>>;
+    getPublicMarkdownNestedPathObject: (absoluteFolderPath: string) => Promise<NestedObject<string>>;
     getTitlesRecursively: (chunk: import("code-types").MarkdownChunk) => import("markdown-parsings").NestedTitle[];
     getTypeDescriptorRecursive: (schema: import("json-schema").JSONSchema7, isMarkdown: boolean) => string;
     isConventionFileStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, conventionFile: "test" | "cli") => boolean;
@@ -729,7 +731,7 @@ export declare const sdk: {
         withAppsCalculated?: boolean | undefined;
     } | undefined) => Promise<import("peer-types").Person[]>;
     getFirstEmoji: (text?: string | undefined) => string | undefined;
-    getNestedPathObject: (baseFolderPath: string) => Promise<import("nested-menu").NestedPathObject>;
+    getNestedPathObject: (baseFolderPath: string) => Promise<NestedPathObject>;
     getPeerMessages: () => Promise<import("peer-types").PeerMessage[]>;
     getPeerPeople: () => Promise<{
         success: boolean;
@@ -739,7 +741,7 @@ export declare const sdk: {
     getPublicFolderNestedPathObjectFromPeer: (peerSlug: string) => Promise<{
         peerApiResult: import("api-types").ApiReturnType<"getPublicFolderNestedPathObject">;
     } | undefined>;
-    getPublicFolderNestedPathObject: () => Promise<import("nested-menu").NestedPathObject | undefined>;
+    getPublicFolderNestedPathObject: () => Promise<any>;
     getPublicPeers: () => Promise<import("peer-types").Device[]>;
     isPortUsed: (port: number) => Promise<boolean>;
     lateFetchPeerMessageSync: () => Promise<{
@@ -804,11 +806,11 @@ export declare const sdk: {
         error?: Error | undefined;
         proc?: import("pm2").Proc | undefined;
     }>;
-    readCsvFileSync: <T_8 extends import("csv-util").CsvItemType>(filePath: string) => T_8[] | null;
-    readCsvFile: <T_9 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_9[] | null>;
-    readJsonFileSync: <T_10>(filePath: string) => T_10 | null;
-    readJsonFile: <T_11>(filePath: string | undefined) => Promise<T_11 | null>;
-    readProjectRelativeJsonFile: <T_12>(projectRelativePath: string) => Promise<T_12 | null>;
+    readCsvFileSync: <T_9 extends import("csv-util").CsvItemType>(filePath: string) => T_9[] | null;
+    readCsvFile: <T_10 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_10[] | null>;
+    readJsonFileSync: <T_11>(filePath: string) => T_11 | null;
+    readJsonFile: <T_12>(filePath: string | undefined) => Promise<T_12 | null>;
+    readProjectRelativeJsonFile: <T_13>(projectRelativePath: string) => Promise<T_13 | null>;
     readKvmdFile: (filePath: string, dbFileLocation: import("model-types").DbFileLocation) => Promise<import("model-types").KeyValueMarkdownParse | null>;
     readMarkdownFileToModel: (absoluteFilePath: string) => Promise<import("code-types").WebMarkdownFile | null>;
     readMarkdownFile: (filePath: string) => Promise<import("code-types").MarkdownParse | null>;
@@ -1071,14 +1073,14 @@ export declare const sdk: {
         removed: boolean;
     }[]>;
     renameAndCreate: (oldPath: string, newPath: string) => Promise<void>;
-    writeJsonToFile: <T_13>(p: string, data: T_13) => Promise<boolean>;
+    writeJsonToFile: <T_14>(p: string, data: T_14) => Promise<boolean>;
     writeStringToFile: (p: string, data: string) => Promise<boolean>;
     writeToFiles: (fileObject: {
         [absoluteFilePath: string]: any;
     }) => Promise<void>;
-    findFolderWhereMatch: <T_14>(fullSourcePath: string, matchFunction: (folderPath: string) => T_14) => {
+    findFolderWhereMatch: <T_15>(fullSourcePath: string, matchFunction: (folderPath: string) => T_15) => {
         folderPath: string;
-        matchResult: T_14;
+        matchResult: T_15;
     } | undefined;
     findOperationBasePathWithClassification: (startPath: string) => {
         folderPath: string;
@@ -1113,54 +1115,54 @@ export declare const sdk: {
     } | undefined;
     makeRelative: (absolutePath: string, baseFolderPath: string) => string;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
-    apply: <T_15>(functions: ((input: T_15) => T_15)[], value: T_15) => T_15;
-    createEnum: <T_16 extends readonly string[]>(array: T_16) => { [K in T_16[number]]: K; };
-    createMappedObject: <T_17 extends {
+    apply: <T_16>(functions: ((input: T_16) => T_16)[], value: T_16) => T_16;
+    createEnum: <T_17 extends readonly string[]>(array: T_17) => { [K in T_17[number]]: K; };
+    createMappedObject: <T_18 extends {
         [key: string]: any;
-    }, U = T_17>(array: T_17[], mapKey: keyof T_17, mapFn?: ((value: T_17, array: T_17[]) => U) | undefined) => import("js-util").MappedObject<U>;
-    destructureOptionalObject: <T_18 extends {
+    }, U = T_18>(array: T_18[], mapKey: keyof T_18, mapFn?: ((value: T_18, array: T_18[]) => U) | undefined) => import("js-util").MappedObject<U>;
+    destructureOptionalObject: <T_19 extends {
         [key: string]: any;
-    }>(object: T_18 | null | undefined) => Partial<T_18>;
-    findLastIndex: <T_19>(array: T_19[], findFn: (item: T_19) => boolean) => number | undefined;
+    }>(object: T_19 | null | undefined) => Partial<T_19>;
+    findLastIndex: <T_20>(array: T_20[], findFn: (item: T_20) => boolean) => number | undefined;
     getObjectFromParamsString: (paramsString: string) => {
         [x: string]: string;
     };
     getObjectKeysArray: <TObject extends {
         [key: string]: any;
     }>(object: TObject) => Extract<keyof TObject, string>[];
-    getParameterAtLocation: <T_20 = any>(object: {
+    getParameterAtLocation: <T_21 = any>(object: {
         [key: string]: any;
-    }, location: string[]) => T_20;
-    getSubsetFromObject: <T_21, K_1 extends readonly (keyof T_21)[]>(object: T_21, keys: K_1) => Pick<T_21, K_1[number]>;
-    groupByKey: <T_22 extends {
+    }, location: string[]) => T_21;
+    getSubsetFromObject: <T_22, K_1 extends readonly (keyof T_22)[]>(object: T_22, keys: K_1) => Pick<T_22, K_1[number]>;
+    groupByKey: <T_23 extends {
         [key: string]: any;
-    }>(array: T_22[], key: keyof T_22) => {
-        [key: string]: T_22[];
+    }>(array: T_23[], key: keyof T_23) => {
+        [key: string]: T_23[];
     };
     hasAllLetters: (a: string, b: string) => boolean;
-    insertAt: <T_23>(array: T_23[], items: T_23 | T_23[], beforeIndex: number) => T_23[];
+    insertAt: <T_24>(array: T_24[], items: T_24 | T_24[], beforeIndex: number) => T_24[];
     isAllTrue: (array: boolean[]) => boolean;
-    makeArray: <T_24>(...arrayOrNotArray: (T_24 | T_24[] | undefined)[]) => T_24[];
-    mapAsync: <T_25, U_1>(array: T_25[], callback: (value: T_25, index: number, array: T_25[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
+    makeArray: <T_25>(...arrayOrNotArray: (T_25 | T_25[] | undefined)[]) => T_25[];
+    mapAsync: <T_26, U_1>(array: T_26[], callback: (value: T_26, index: number, array: T_26[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
     mapKeys: (object: {
         [key: string]: any;
     }, mapFn: (key: string) => string | Promise<string> | undefined) => Promise<{
         [x: string]: any;
     }>;
-    mapMany: <T_26, U_2>(array: T_26[], mapFn: (item: T_26, index: number, array: T_26[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
-    mapValuesSync: <T_27, U_3>(object: {
-        [key: string]: T_27;
-    }, mapFn: (value: T_27) => U_3) => {
+    mapMany: <T_27, U_2>(array: T_27[], mapFn: (item: T_27, index: number, array: T_27[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
+    mapValuesSync: <T_28, U_3>(object: {
+        [key: string]: T_28;
+    }, mapFn: (value: T_28) => U_3) => {
         [x: string]: U_3;
     };
-    mergeNestedObject: <T_28 extends import("js-util").O>(object: T_28, otherObject: import("js-util").NestedPartial<T_28> | undefined) => T_28;
-    mergeObjectParameters: <T_29>(config: T_29 | undefined, defaults: T_29 | undefined) => Partial<T_29>;
-    mergeObjectsArray: <T_30 extends {
+    mergeNestedObject: <T_29 extends import("js-util").O>(object: T_29, otherObject: import("js-util").NestedPartial<T_29> | undefined) => T_29;
+    mergeObjectParameters: <T_30>(config: T_30 | undefined, defaults: T_30 | undefined) => Partial<T_30>;
+    mergeObjectsArray: <T_31 extends {
         [key: string]: any;
-    }>(objectsArray: T_30[]) => T_30;
-    mergeObjects: <T_31 extends {
+    }>(objectsArray: T_31[]) => T_31;
+    mergeObjects: <T_32 extends {
         [key: string]: any;
-    }>(...objects: (Partial<T_31> | undefined)[]) => T_31 | undefined;
+    }>(...objects: (Partial<T_32> | undefined)[]) => T_32 | undefined;
     noEmptyString: (input: string | undefined) => string | undefined;
     notEmpty: typeof notEmpty;
     objectMapAsync: <TObject_1 extends {
@@ -1169,44 +1171,44 @@ export declare const sdk: {
     objectMapSync: <TObject_2 extends {
         [key: string]: any;
     }, TMapResult, TResultObject_1 extends { [key_1 in keyof TObject_2]: TMapResult; }>(object: TObject_2, mapFn: (key: keyof TObject_2, value: TObject_2[keyof TObject_2]) => TMapResult) => TResultObject_1;
-    objectValuesMap: <T_32 extends {
-        [key: string]: T_32[string];
-    }, U_4 extends unknown>(object: T_32, mapFn: (key: string, value: T_32[string]) => U_4) => {
+    objectValuesMap: <T_33 extends {
+        [key: string]: T_33[string];
+    }, U_4 extends unknown>(object: T_33, mapFn: (key: string, value: T_33[string]) => U_4) => {
         [key: string]: U_4;
     };
-    omitUndefinedValues: <T_33 extends {
+    omitUndefinedValues: <T_34 extends {
         [key: string]: any;
-    }>(object: T_33) => T_33;
-    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_34 extends U_5>(value: T_34, index: number, self: T_34[]) => boolean;
+    }>(object: T_34) => T_34;
+    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_35 extends U_5>(value: T_35, index: number, self: T_35[]) => boolean;
     onlyUnique: typeof onlyUnique;
-    pickRandomArrayItem: <T_35>(array: T_35[]) => T_35;
-    putIndexAtIndex: <T_36>(array: T_36[], index: number, toIndex: number) => T_36[];
-    removeIndexFromArray: <T_37>(array: T_37[], index: number) => T_37[];
+    pickRandomArrayItem: <T_36>(array: T_36[]) => T_36;
+    putIndexAtIndex: <T_37>(array: T_37[], index: number, toIndex: number) => T_37[];
+    removeIndexFromArray: <T_38>(array: T_38[], index: number) => T_38[];
     removeOptionalKeysFromObjectStrings: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: string[]) => TObject_3;
     removeOptionalKeysFromObject: <TObject_4 extends import("js-util").O>(object: TObject_4, keys: Exclude<Extract<keyof TObject_4, string>, Exclude<import("js-util").KeysOfType<TObject_4, Exclude<TObject_4[keyof TObject_4], undefined>>, undefined>>[]) => TObject_4;
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
-    sumAllKeys: <T_38 extends {
+    sumAllKeys: <T_39 extends {
         [key: string]: number | undefined;
-    }>(objectArray: T_38[], keys: (keyof T_38)[]) => T_38;
+    }>(objectArray: T_39[], keys: (keyof T_39)[]) => T_39;
     sumObjectParameters: <TObject_5 extends {
         [key: string]: number;
     }>(object1: TObject_5, object2: TObject_5) => TObject_5;
     sum: (items: number[]) => number;
-    takeFirst: <T_39>(arrayOrNot: T_39 | T_39[]) => T_39;
+    takeFirst: <T_40>(arrayOrNot: T_40 | T_40[]) => T_40;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
     flattenMarkdownChunks: (markdownChunks: import("code-types").MarkdownChunk[]) => import("code-types").MarkdownParagraph[];
     getKvmdItemsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
     getParagraphsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("code-types").MarkdownParagraph[];
-    kvmdDataMap: <T_40 extends {
+    kvmdDataMap: <T_41 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {
         keyName?: string | undefined;
         valueName?: string | undefined;
         commentName?: string | undefined;
         categoryStackCalculatedName?: string | undefined;
-    }) => T_40[];
+    }) => T_41[];
     kvmdDataToString: (kvmdData: import("model-types").KeyValueMarkdownModelType, previous: import("model-types").KeyValueMarkdownModelType | undefined) => string;
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
@@ -1220,6 +1222,7 @@ export declare const sdk: {
     makeFileType: (filePath: string) => Promise<import("make-file-type").FileType | undefined>;
     isResultOfInterface: <TResult_1>(result: TResult_1, jsonSchema: unknown) => boolean;
     makeTest: <TResult_2>(testFunction: (() => Promise<TResult_2>) | (() => TResult_2), isValid?: ((result: TResult_2) => boolean) | undefined) => () => Promise<boolean>;
+    chunkToStringRecursively: (chunk: import("code-types").MarkdownChunk) => string;
     getChunkParagraphsRecursively: (chunk: import("code-types").MarkdownChunk) => string[];
     getImplicitId: (title: string) => string;
     getMarkdownIntro: (markdownParse: import("code-types").MarkdownParse | null) => {
@@ -1229,6 +1232,7 @@ export declare const sdk: {
     getMarkdownParseParagraphs: (markdownParse: import("code-types").MarkdownParse) => string[];
     getMarkdownReferencePaths: (markdownString: string) => string[];
     getMarkdownReferencesFromParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownReference[];
+    markdownParseToMarkdownStringFromContent: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
     markdownParseToMarkdownString: (markdownParse: import("code-types").MarkdownParse) => string;
     mdContentParseRecursively: (markdownString: string, level: number) => import("code-types").MarkdownChunk[];
     mdToJsonParse: (markdownString: string, fileName?: string | undefined, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => import("code-types").MarkdownParse;
@@ -1253,7 +1257,7 @@ export declare const sdk: {
     getParameterContentType: (parameterName: string) => void;
     isCalculatedParameter: (parameterName: string) => boolean;
     isGeneratedParameterName: (parameterName: string) => void;
-    oneByOne: <T_41, U_6>(array: T_41[], callback: (instance: T_41, index: number) => Promise<U_6>) => Promise<U_6[]>;
+    oneByOne: <T_42, U_6>(array: T_42[], callback: (instance: T_42, index: number) => Promise<U_6>) => Promise<U_6[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
         operationDependencies: string[];
@@ -1303,10 +1307,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_42>(searchMessage: string, array: T_42[], getSentence?: ((x: T_42) => string) | undefined) => T_42[];
-    searchRecursiveObjectArray: <T_43 extends {
-        children?: T_43[] | undefined;
-    } & Object>(array: T_43[], baseMatcher: (item: T_43) => boolean, afterMapper?: ((item: T_43, isMatch: boolean, hasChildMatch: boolean) => T_43) | undefined) => T_43[];
+    findSentenceMatches: <T_43>(searchMessage: string, array: T_43[], getSentence?: ((x: T_43) => string) | undefined) => T_43[];
+    searchRecursiveObjectArray: <T_44 extends {
+        children?: T_44[] | undefined;
+    } & Object>(array: T_44[], baseMatcher: (item: T_44) => boolean, afterMapper?: ((item: T_44, isMatch: boolean, hasChildMatch: boolean) => T_44) | undefined) => T_44[];
     findPostableToPost: () => void;
     updatePostedStatistics: () => void;
     objectStringToJson: (string: string) => {
@@ -1318,9 +1322,9 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_44>(text: string, logParseError?: boolean | undefined) => T_44 | null;
+    tryParseJson: <T_45>(text: string, logParseError?: boolean | undefined) => T_45 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_45 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_45, (newValue: T_45 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_46 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_46, (newValue: T_46 | undefined) => Promise<boolean>];
 };
 export declare type SdkType = typeof sdk;
 //# sourceMappingURL=sdk-api.d.ts.map

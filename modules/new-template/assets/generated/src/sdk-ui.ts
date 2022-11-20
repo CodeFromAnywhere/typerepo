@@ -21,7 +21,6 @@ import { getMarkdownReaderPages } from "markdown-reader-functions";
 import { getMarkdownReaderQueryPaths } from "markdown-reader-functions";
 import { getOperationPages } from "markdown-reader-functions";
 import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
-import { getTodoPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
 import { markdownReaderGetStaticProps } from "markdown-reader-functions";
 import { putReadmeOnTop } from "markdown-reader-functions";
@@ -255,7 +254,6 @@ getMarkdownReaderPages,
 getMarkdownReaderQueryPaths,
 getOperationPages,
 getPublicMarkdownFilePaths,
-getTodoPages,
 markdownReaderGetStaticPaths,
 markdownReaderGetStaticProps,
 putReadmeOnTop,

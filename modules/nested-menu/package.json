@@ -11,7 +11,10 @@
     "js-util": "0.0.1",
     "clickable-icon": "0.0.1",
     "react-with-native-store": "2.0.40",
-    "react-with-native-router": "1.0.14"
+    "react-with-native-router": "1.0.14",
+    "webpage-types": "0.0.1",
+    "fs-util-js": "0.0.1",
+    "recursive-types": "0.0.1"
   },
   "devDependencies": {
     "typescript": "^4.7.4",
@@ -36,58 +39,43 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/smart/nested-menu/src/util/nestedPathObjectToNestedMenu.ts. Error: Error: Unknown type \"function\""
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/smart/nested-menu/src/util/nestifyQueryPathObjectRecursive.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
       ],
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [
-      "useEffect",
-      "MouseEvent"
-    ],
+    "coreDependenciesIndexed": [],
     "folderNameIndexed": "nested-menu",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668752510834,
-    "operationDependenciesIndexed": [
-      "Div",
-      "trimSlashes",
-      "mergeObjectsArray",
-      "notEmpty",
-      "useRouter",
-      "ClickableIcon",
-      "Div",
-      "Span",
-      "useRouter",
-      "ALink",
-      "createStore"
-    ],
+    "lastRebuildAt": 1668960485076,
+    "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/smart",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 10,
-        "lines": 460,
-        "characters": 12210,
-        "bytes": 12210
+        "numberOfFiles": 12,
+        "lines": 628,
+        "characters": 17730,
+        "bytes": 17730
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 137,
-        "characters": 3306,
-        "bytes": 3306
+        "lines": 140,
+        "characters": 3430,
+        "bytes": 3430
       },
       "textSize": {
-        "numberOfFiles": 1,
-        "lines": 211,
-        "characters": 3609,
-        "bytes": 3609
+        "numberOfFiles": 2,
+        "lines": 11,
+        "characters": 119,
+        "bytes": 119
       },
       "size": {
-        "bytes": 19125,
-        "characters": 19125,
-        "lines": 808,
-        "numberOfFiles": 13
+        "bytes": 21279,
+        "characters": 21279,
+        "lines": 779,
+        "numberOfFiles": 16
       }
     },
     "hasGeneratedImportsIndexed": false

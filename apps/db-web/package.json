@@ -17,7 +17,7 @@
     "react-dom": "17.0.2",
     "react-markdown": "^8.0.3",
     "react-query": "^3.39.0",
-    "react-with-native": "*",
+    "react-with-native": "1.4.9",
     "react-with-native-alert": "1.0.33",
     "react-with-native-form": "*",
     "react-with-native-modal": "1.0.60",
@@ -33,7 +33,8 @@
     "writer-input": "1.0.0",
     "react-with-native-notification": "1.0.42",
     "authentication": "0.0.1",
-    "db-crud": "0.0.0"
+    "db-crud": "0.0.0",
+    "clickable-icon": "0.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -70,7 +71,7 @@
     "folderNameIndexed": "db-web",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668837346142,
+    "lastRebuildAt": 1668976816577,
     "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/database",
@@ -78,27 +79,27 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 162,
-        "characters": 4892,
-        "bytes": 4892
+        "lines": 183,
+        "characters": 5692,
+        "bytes": 5692
       },
       "dataSize": {
-        "numberOfFiles": 206,
-        "lines": 381,
-        "characters": 15902,
-        "bytes": 15902
+        "numberOfFiles": 336,
+        "lines": 517,
+        "characters": 22053,
+        "bytes": 22053
       },
       "textSize": {
         "numberOfFiles": 5,
-        "lines": 167,
-        "characters": 7187,
-        "bytes": 7187
+        "lines": 170,
+        "characters": 7210,
+        "bytes": 7210
       },
       "size": {
-        "bytes": 27981,
-        "characters": 27981,
-        "lines": 710,
-        "numberOfFiles": 216
+        "bytes": 34955,
+        "characters": 34955,
+        "lines": 870,
+        "numberOfFiles": 346
       }
     },
     "hasGeneratedImportsIndexed": false

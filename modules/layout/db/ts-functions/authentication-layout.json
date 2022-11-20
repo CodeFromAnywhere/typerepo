@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668836297118,
-  "updatedAt": 1668836297118,
+  "createdAt": 1668977332968,
+  "updatedAt": 1668977332968,
   "deletedAt": 0,
-  "createdFirstAt": 1668836297118,
+  "createdFirstAt": 1668977332968,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/AuthenticationLayout.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  /**\n   * If given, menu will be rendered\n   */\n  menu?: MenuProps;\n\n  customHeader?: React.ReactNode;\n  // how to build up the menu\n\n  // typed as any needed because of react-bug\n  nextPage?: any;\n  pageProps?: any;\n}) => {\n  const publicBundleConfig = queries.useGetPublicBundleConfig().data?.result;\n  const { nextPage, pageProps, menu, customHeader } = props;\n  const router = useRouter();\n  const path = router.asPath.substring(1).split(\"?\")[0];\n\n  const pages: { [key: string]: (props?: any) => JSX.Element } = {\n    login: LoginForm,\n    signup: SignupForm,\n    \"edit-profile\": UpdateMeForm,\n    profile: PublicProfile,\n    \"2fa\": AuthenticationMethodsCrud,\n  };\n\n  const NextPage = nextPage;\n\n  const DefaultPage = pages[path];\n  const children = pages[path] ? <DefaultPage /> : <NextPage {...pageProps} />;\n\n  const header = (\n    <Div>\n      {customHeader !== undefined ? (\n        customHeader\n      ) : (\n        <Header publicBundleConfig={publicBundleConfig} />\n      )}\n    </Div>\n  );\n  return (\n    <LoginWrapper>\n      <LayoutGrid header={header} menu={menu}>\n        {children}\n      </LayoutGrid>\n    </LoginWrapper>\n  );\n}",
+  "rawText": " (props: {\n  /**\n   * If given, menu will be rendered\n   */\n  menu?: MenuProps;\n\n  customHeader?: React.ReactNode;\n  custom404Page?: React.ReactNode;\n  // how to build up the menu\n\n  // typed as any needed because of react-bug\n  nextPage?: any;\n  pageProps?: any;\n}) => {\n  const publicBundleConfig = queries.useGetPublicBundleConfig().data?.result;\n  const { nextPage, pageProps, menu, customHeader, custom404Page } = props;\n  const router = useRouter();\n  const path = router.asPath.substring(1).split(\"?\")[0];\n\n  const pages: { [key: string]: (props?: any) => JSX.Element } = {\n    login: LoginForm,\n    signup: SignupForm,\n    \"edit-profile\": UpdateMeForm,\n    profile: PublicProfile,\n    \"2fa\": AuthenticationMethodsCrud,\n  };\n\n  const NextPage = nextPage;\n\n  const hasQueryPath = !!menu?.queryPaths?.includes(path);\n  const hasWebPage = !!menu?.webPagesFlat?.find((x) => x.queryPath === path);\n\n  const hasWebPageInThisFolder = !!menu?.webPagesFlat?.find((x) =>\n    x.queryPath.startsWith(path)\n  );\n\n  const shouldRenderCustom =\n    hasQueryPath || hasWebPage || path === \"\" || hasWebPageInThisFolder;\n\n  const DefaultPage = pages[path];\n\n  const notFoundRender = custom404Page || (\n    <Div>Could not find this page, are you sure you got it?</Div>\n  );\n\n  const children = shouldRenderCustom ? (\n    <NextPage {...pageProps} />\n  ) : DefaultPage ? (\n    <DefaultPage />\n  ) : (\n    notFoundRender\n  );\n\n  const header = (\n    <Div>\n      {customHeader !== undefined ? (\n        customHeader\n      ) : (\n        <Header publicBundleConfig={publicBundleConfig} />\n      )}\n    </Div>\n  );\n  return (\n    <LoginWrapper>\n      <LayoutGrid header={header} menu={menu}>\n        {children}\n      </LayoutGrid>\n    </LoginWrapper>\n  );\n}",
   "name": "AuthenticationLayout",
   "slug": "authentication-layout",
   "parameters": [],
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 1219,
-    "lines": 48,
-    "bytes": 1219,
+    "characters": 1801,
+    "lines": 70,
+    "bytes": 1801,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 25,
-    "linesPerFile": 48,
+    "charactersPerLine": 26,
+    "linesPerFile": 70,
     "numberOfFiles": 1
   },
-  "id": "fwsgmyqnfemyztvdttqbbamt"
+  "id": "abyjkqnrpthvbzzkoweodfbx"
 }

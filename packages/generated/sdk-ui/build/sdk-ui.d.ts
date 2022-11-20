@@ -205,6 +205,7 @@ export declare const sdk: {
     AuthenticationLayout: (props: {
         menu?: import("menu").MenuProps | undefined;
         customHeader?: import("react").ReactNode;
+        custom404Page?: import("react").ReactNode;
         nextPage?: any;
         pageProps?: any;
     }) => JSX.Element;
@@ -219,7 +220,7 @@ export declare const sdk: {
     getAllMarkdownReaderPages: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<import("markdown-reader-types").MarkdownReaderPage[] | undefined>;
-    getFolderExplorationInfo: (nestedPathObject: import("nested-menu").NestedPathObject, queryPath: string, projectRoot: string) => Promise<{
+    getFolderExplorationInfo: (nestedPathObject: NestedPathObject, queryPath: string, projectRoot: string) => Promise<{
         title: string | undefined;
         description: string | null;
         descriptionProjectRelativeMarkdownPath: string | null;
@@ -231,7 +232,7 @@ export declare const sdk: {
         }[];
     }>;
     getMarkdownModelPages: (projectRoot: string) => Promise<import("markdown-reader-types").MarkdownReaderPage[]>;
-    getMarkdownPageInfo: (projectRoot: string, nestedPathObject: import("nested-menu").NestedPathObject, queryPath: string, contentPage: import("markdown-reader-types").MarkdownReaderPage) => Promise<{
+    getMarkdownPageInfo: (projectRoot: string, nestedPathObject: NestedPathObject, queryPath: string, contentPage: import("markdown-reader-types").MarkdownReaderPage) => Promise<{
         markdownFile: import("code-types").WebMarkdownFile | null;
         nextQueryPath: string | null;
         previousQueryPath: string | null;
@@ -264,29 +265,36 @@ export declare const sdk: {
     shouldExposeMarkdownFile: (parameters: import("matter-types").Frontmatter) => boolean;
     stripReadmeFromFolder: (filePath: string) => string;
     getQueryPath: (parsedUrlQuery: import("next-types").ParsedUrlQuery | undefined) => string;
+    getLegacyMenu: (queryPaths: string[]) => import("webpage-types").WebPage<undefined>[] | undefined;
     Menu: (props: import("menu").MenuProps & {
         message?: string | undefined;
     }) => JSX.Element;
     getKeysAtPathFromNestedObject: <T_5 extends {
         [key: string]: any;
     }>(nestedObject: T_5, objectPath: string) => string[];
-    getRealItemRecursive: (item: import("nested-menu").MenuItemType) => import("nested-menu").MenuItemType;
+    getRealItemRecursive: (item: import("webpage-types").NestedWebPage) => import("webpage-types").NestedWebPage;
+    getTitle: (item: import("webpage-types").WebPage<undefined>) => string;
+    makeNestedObjectFromQueryPathObject: <T_6 extends import("nested-menu").QueryPathObject>(objectArray: T_6[], initialValue: import("recursive-types").NestedObject<T_6>) => import("recursive-types").NestedObject<T_6>;
     NestedMenuItem: (props: {
-        item: import("nested-menu").MenuItemType;
+        item: import("webpage-types").NestedWebPage;
         mergeSingleChilds?: boolean | undefined;
         headersClickable?: boolean | undefined;
         level?: number | undefined;
-    } & import("nested-menu").MouseEventCallbacks) => JSX.Element;
+    } & import("nested-menu").MouseEventCallbacks) => JSX.Element | null;
     NestedMenu: (props: {
-        items?: import("nested-menu").MenuItemType[] | undefined;
+        items?: import("webpage-types").NestedWebPage[] | undefined;
         headersClickable?: boolean | undefined;
     } & import("nested-menu").MouseEventCallbacks) => JSX.Element;
-    nestedPathObjectToNestedMenuRecursive: (nestedPathObject: import("nested-menu").NestedPathObject | null, pathStack?: string[] | undefined, config?: {
+    nestedObjectToChildObject: <T_7 extends {
+        [key: string]: any;
+    }>(nestedObject: import("recursive-types").NestedObject<T_7>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_7>, key: string) => T_7, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_7>[];
+    nestedPathObjectToNestedMenuRecursive: (nestedPathObject: import("recursive-types").NestedPathObject | null, pathStack?: string[] | undefined, config?: {
         target?: "_blank" | undefined;
         getHref?: ((fullPath: string) => string) | undefined;
     } | undefined) => import("nested-menu").MenuItemType[] | undefined;
-    queryPathsArrayToNestedPathObject: (queryPaths: string[]) => import("nested-menu").NestedPathObject;
-    reduceQueryPathsRecursively: (queryPaths: string[], initialValue: import("nested-menu").NestedPathObject) => import("nested-menu").NestedPathObject;
+    nestifyQueryPathObjectRecursive: <T_8 extends import("nested-menu").QueryPathObject>(queryPathObjects: T_8[], level?: number | undefined) => import("nested-menu").NestedQueryPathObject<T_8>[];
+    queryPathsArrayToNestedPathObject: (queryPaths: string[]) => import("recursive-types").NestedPathObject;
+    reduceQueryPathsRecursively: (queryPaths: string[], initialValue: import("recursive-types").NestedPathObject) => import("recursive-types").NestedPathObject;
     useExpanded: (queryPath?: string | undefined) => [boolean, () => Promise<void>, () => Promise<void>, () => Promise<void>, {
         hydrated: boolean;
     }];
@@ -349,18 +357,18 @@ export declare const sdk: {
     DefaultInputContainer: ({ children, startSection, sectionTitle, title, description, error, errorClassName, }: import("react-with-native-form").InputContainerProps) => JSX.Element;
     errorOnField: (fieldName: string) => (error: import("react-with-native-form").Error) => boolean;
     isObject: typeof isObject;
-    makeInputField: <TInputs_1, T_6 extends Extract<keyof TInputs_1, string>>(type: T_6, config: Omit<import("react-with-native-form").Field<TInputs_1, T_6>, "type">) => () => {
+    makeInputField: <TInputs_1, T_9 extends Extract<keyof TInputs_1, string>>(type: T_9, config: Omit<import("react-with-native-form").Field<TInputs_1, T_9>, "type">) => () => {
         field: string;
         title?: string | undefined;
         shouldHide?: ((state: any) => boolean) | undefined;
         titleFromState?: ((state: any) => string) | undefined;
-        hasError?: ((value: TInputs_1[T_6] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_6]["value"] : any, state: Partial<import("react-with-native-form").PossibleState>) => string | boolean | import("react-with-native-form").Error[]) | undefined;
+        hasError?: ((value: TInputs_1[T_9] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_9]["value"] : any, state: Partial<import("react-with-native-form").PossibleState>) => string | boolean | import("react-with-native-form").Error[]) | undefined;
         startSection?: boolean | undefined;
         sectionTitle?: string | undefined;
         description?: string | undefined;
-        initialValue?: (TInputs_1[T_6] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_6]["value"] : any) | undefined;
-        extra?: (TInputs_1[T_6] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_6]["extra"] : any) | undefined;
-        type: T_6;
+        initialValue?: (TInputs_1[T_9] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_9]["value"] : any) | undefined;
+        extra?: (TInputs_1[T_9] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_9]["extra"] : any) | undefined;
+        type: T_9;
     };
     setConfig: <TInputs_2, TState_1>(DataForm: (props: import("react-with-native-form").DataFormProps<TInputs_2, TState_1>) => JSX.Element, config: import("react-with-native-form").DataFormConfig<TInputs_2>) => (props: import("react-with-native-form").DataFormProps<TInputs_2, TState_1>) => JSX.Element;
     castToNumber: (numberString: string | null | undefined) => number | null | undefined;
@@ -394,14 +402,14 @@ export declare const sdk: {
         body: string;
     }, options?: import("react-with-native-notification").ToastOptions | undefined) => void;
     useNavigation: typeof useNavigation;
-    getRealValue: <T_7 extends unknown>({ value, selectFirstOption, options, title, }: {
+    getRealValue: <T_10 extends unknown>({ value, selectFirstOption, options, title, }: {
         title: string;
-        options: import("react-with-native-select").Item<T_7>[];
-        value?: import("react-with-native-select").Item<T_7> | null | undefined;
+        options: import("react-with-native-select").Item<T_10>[];
+        value?: import("react-with-native-select").Item<T_10> | null | undefined;
         selectFirstOption?: boolean | undefined;
-    }) => import("react-with-native-select").Item<T_7>;
-    useSelectMultiple: <T_8 extends unknown>(items?: import("react-with-native-select").Item<T_8 | null>[] | undefined, initialValue?: import("react-with-native-select").Item<T_8 | null>[] | undefined, withValue?: ((value: import("react-with-native-select").Item<T_8 | null>[]) => void) | undefined, config?: Omit<import("react-with-native-select").SelectMultipleInputProps<T_8>, "onChange" | "value" | "options"> | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_8 | null>[], setValue: (value: import("react-with-native-select").Item<T_8 | null>[]) => void];
-    useSelect: <T_9 extends unknown>(items?: import("react-with-native-select").Item<T_9>[] | undefined, initialValue?: import("react-with-native-select").Item<T_9> | undefined, withValue?: ((value: import("react-with-native-select").Item<T_9> | undefined) => void) | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_9> | null, setValue: (value: import("react-with-native-select").Item<T_9> | null) => void];
+    }) => import("react-with-native-select").Item<T_10>;
+    useSelectMultiple: <T_11 extends unknown>(items?: import("react-with-native-select").Item<T_11 | null>[] | undefined, initialValue?: import("react-with-native-select").Item<T_11 | null>[] | undefined, withValue?: ((value: import("react-with-native-select").Item<T_11 | null>[]) => void) | undefined, config?: Omit<import("react-with-native-select").SelectMultipleInputProps<T_11>, "onChange" | "value" | "options"> | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_11 | null>[], setValue: (value: import("react-with-native-select").Item<T_11 | null>[]) => void];
+    useSelect: <T_12 extends unknown>(items?: import("react-with-native-select").Item<T_12>[] | undefined, initialValue?: import("react-with-native-select").Item<T_12> | undefined, withValue?: ((value: import("react-with-native-select").Item<T_12> | undefined) => void) | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_12> | null, setValue: (value: import("react-with-native-select").Item<T_12> | null) => void];
     createStoreProvider: <TStore extends object>(config: import("react-with-native-store").StoreConfig<TStore>) => ({ children }: {
         children: any;
     }) => JSX.Element;
@@ -416,9 +424,9 @@ export declare const sdk: {
     setItem: (key: string, value: any) => Promise<void>;
     getColumns: (modelName: string, interfaces: import("code-types").TsInterface[] | undefined, data: any[]) => import("react-with-native-table").ColumnType<any>[];
     TableHeadItem: (column: import("react-with-native-table").ColumnType<any>) => JSX.Element;
-    TableRow: <T_10 extends {
+    TableRow: <T_13 extends {
         [key: string]: any;
-    } = any>({ row, columns, renderExtraColumns, extraColumnsAtStart, shouldHighlight, }: import("react-with-native-table").RowType<T_10>) => JSX.Element;
+    } = any>({ row, columns, renderExtraColumns, extraColumnsAtStart, shouldHighlight, }: import("react-with-native-table").RowType<T_13>) => JSX.Element;
     Table: <TModel extends {
         [key: string]: any;
     }>({ data, columns, renderExtraColumns, extraColumnsAtStart, onEndReached, shouldHighlightItem, }: import("react-with-native-table").TableType<TModel>) => JSX.Element;
@@ -484,7 +492,7 @@ export declare const sdk: {
         modelName?: string | undefined;
     }) => JSX.Element | null;
     useReferencableModelData: (simplifiedSchema: import("code-types").SimplifiedSchema) => import("simplified-schema-form").ReferencableModelData | undefined;
-    useTsInterfaceForm: <T_11 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_11 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_11 | undefined, onChange?: ((value: T_11) => void) | undefined];
+    useTsInterfaceForm: <T_14 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_14 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_14 | undefined, onChange?: ((value: T_14) => void) | undefined];
     Tooltip: (props: {
         tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;
         children: import("react").ReactNode;
@@ -514,14 +522,14 @@ export declare const sdk: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
     }) => JSX.Element;
-    ContentEditableDivInput: <T_12 extends unknown>(props: {
+    ContentEditableDivInput: <T_15 extends unknown>(props: {
         value: string;
         onChange: (newValue: string) => void;
         markdownParseRenderConfig?: import("markdown").MarkdownParseRenderConfig | undefined;
         subwordConfig: import("writer-types").SubwordConfig;
         subtextConfig: import("writer-types").SubtextConfig;
         parseTextContentToHtmlString: import("writer-input").ParseTextContentToHtmlString;
-        divProps: Omit<import("react-with-native").FinalDivType<T_12>, "contentEditable" | "onChange" | "onInput" | "value">;
+        divProps: Omit<import("react-with-native").FinalDivType<T_15>, "contentEditable" | "onChange" | "onInput" | "value">;
     }) => JSX.Element;
     ContextTextArea: (props: import("writer-input").EditorProps) => JSX.Element;
     DivContentEditable: (props: import("writer-input").EditorProps) => JSX.Element;
@@ -529,6 +537,12 @@ export declare const sdk: {
         subtextConfig: import("writer-types").SubtextConfig;
         subwordConfig: import("writer-types").SubwordConfig;
     };
+    EditWriterInput: (props: {
+        onChange: (value: string) => void;
+        value: string;
+        projectRelativeFilePath: string;
+        markdownModelName?: string | number | symbol | undefined;
+    }) => JSX.Element;
     FrontmatterForm: (props: {
         modelName?: string | undefined;
         projectRelativeMarkdownFilePath: string;

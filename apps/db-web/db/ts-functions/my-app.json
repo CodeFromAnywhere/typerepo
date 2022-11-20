@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668837341747,
-  "updatedAt": 1668837341747,
+  "createdAt": 1668976812288,
+  "updatedAt": 1668976812288,
   "deletedAt": 0,
-  "createdFirstAt": 1668837341747,
+  "createdFirstAt": 1668976812288,
   "isApiExposed": false,
   "name": "MyApp",
   "slug": "my-app",
@@ -36,5 +36,5 @@
   },
   "rawText": "\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>Database</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <ModalProvider>\n          <StoreProvider>\n            <DbLayout pageProps={pageProps} nextPage={Component} />\n          </StoreProvider>\n        </ModalProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
   "maxIndentationDepth": 6,
-  "id": "nygdghpzvmtkkvilwxnbeqih"
+  "id": "bfvyzbpqpqoankrrmgezgmka"
 }

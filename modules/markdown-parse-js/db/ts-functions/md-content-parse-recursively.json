@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334833190,
-  "updatedAt": 1668334833190,
+  "createdAt": 1668976717397,
+  "updatedAt": 1668976717397,
   "deletedAt": 0,
-  "createdFirstAt": 1668334833190,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668976717397,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/mdContentParseRecursively.ts",
   "commentsInside": [],
   "rawText": " (\n  markdownString: string,\n  level: number\n): MarkdownChunk[] => {\n  const chunks = parseMdToChunks(markdownString, level);\n\n  const chunksWithChildren = chunks.map(\n    (chunk: MarkdownChunk): MarkdownChunk[] => {\n      // NB: chunk is a paragraph\n      if (chunk.level === 0 && !chunk.title && chunk.content) {\n        // const lines = chunk.content.split(\"\\n\");\n\n        // // For every line, copy the chunk...\n        // const chunks = lines?.map((line) => ({\n        //   ...chunk,\n        //   content: line,\n        // }));\n\n        // return chunks;\n        return [chunk];\n      }\n\n      // NB: h6 is highest level\n      const children =\n        chunk.content && [1, 2, 3, 4, 5, 6].includes(chunk.level)\n          ? mdContentParseRecursively(chunk.content, chunk.level + 1)\n          : undefined;\n\n      const content = children ? undefined : chunk.content;\n\n      // NB: here we are splitting content with multiple lines into lines only for level 0 chunks\n      return content\n        ? [{ ...chunk, content }]\n        : [{ ...chunk, children, content: undefined }];\n    }\n  );\n\n  return chunksWithChildren.flat();\n}",
@@ -58,5 +53,5 @@
     "linesPerFile": 43,
     "numberOfFiles": 1
   },
-  "id": "iwsklgxnosvvwpczowexhaim"
+  "id": "gkdzqtymheekuogrtbdjldva"
 }

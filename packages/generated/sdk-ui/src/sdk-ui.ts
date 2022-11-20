@@ -92,12 +92,17 @@ import { removeNumberPrefix } from "markdown-reader-functions";
 import { shouldExposeMarkdownFile } from "markdown-reader-functions";
 import { stripReadmeFromFolder } from "markdown-reader-functions";
 import { getQueryPath } from "markdown-reader-functions-js";
+import { getLegacyMenu } from "menu";
 import { Menu } from "menu";
 import { getKeysAtPathFromNestedObject } from "nested-menu";
 import { getRealItemRecursive } from "nested-menu";
+import { getTitle } from "nested-menu";
+import { makeNestedObjectFromQueryPathObject } from "nested-menu";
 import { NestedMenuItem } from "nested-menu";
 import { NestedMenu } from "nested-menu";
+import { nestedObjectToChildObject } from "nested-menu";
 import { nestedPathObjectToNestedMenuRecursive } from "nested-menu";
+import { nestifyQueryPathObjectRecursive } from "nested-menu";
 import { queryPathsArrayToNestedPathObject } from "nested-menu";
 import { reduceQueryPathsRecursively } from "nested-menu";
 import { useExpanded } from "nested-menu";
@@ -196,6 +201,7 @@ import { ContentEditableDivInput } from "writer-input";
 import { ContextTextArea } from "writer-input";
 import { DivContentEditable } from "writer-input";
 import { editSubtextSubwordConfig } from "writer-input";
+import { EditWriterInput } from "writer-input";
 import { FrontmatterForm } from "writer-input";
 import { getContext } from "writer-input";
 import { getSubtext } from "writer-input";
@@ -318,12 +324,17 @@ removeNumberPrefix,
 shouldExposeMarkdownFile,
 stripReadmeFromFolder,
 getQueryPath,
+getLegacyMenu,
 Menu,
 getKeysAtPathFromNestedObject,
 getRealItemRecursive,
+getTitle,
+makeNestedObjectFromQueryPathObject,
 NestedMenuItem,
 NestedMenu,
+nestedObjectToChildObject,
 nestedPathObjectToNestedMenuRecursive,
+nestifyQueryPathObjectRecursive,
 queryPathsArrayToNestedPathObject,
 reduceQueryPathsRecursively,
 useExpanded,
@@ -422,6 +433,7 @@ ContentEditableDivInput,
 ContextTextArea,
 DivContentEditable,
 editSubtextSubwordConfig,
+EditWriterInput,
 FrontmatterForm,
 getContext,
 getSubtext,

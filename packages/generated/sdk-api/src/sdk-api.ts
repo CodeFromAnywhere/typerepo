@@ -115,6 +115,7 @@ import { upsertItems } from "fs-orm";
 import { upsertKeyValueMarkdown } from "fs-orm";
 import { upsert } from "fs-orm";
 import { getExtension } from "fs-util-js";
+import { getFileOrFolderName } from "fs-util-js";
 import { getFolderJs } from "fs-util-js";
 import { getSubExtension } from "fs-util-js";
 import { isPathRelative } from "fs-util-js";
@@ -515,12 +516,14 @@ import { parseTitle } from "log";
 import { makeFileType } from "make-file-type";
 import { isResultOfInterface } from "make-test";
 import { makeTest } from "make-test";
+import { chunkToStringRecursively } from "markdown-parse-js";
 import { getChunkParagraphsRecursively } from "markdown-parse-js";
 import { getImplicitId } from "markdown-parse-js";
 import { getMarkdownIntro } from "markdown-parse-js";
 import { getMarkdownParseParagraphs } from "markdown-parse-js";
 import { getMarkdownReferencePaths } from "markdown-parse-js";
 import { getMarkdownReferencesFromParagraph } from "markdown-parse-js";
+import { markdownParseToMarkdownStringFromContent } from "markdown-parse-js";
 import { markdownParseToMarkdownString } from "markdown-parse-js";
 import { mdContentParseRecursively } from "markdown-parse-js";
 import { mdToJsonParse } from "markdown-parse-js";
@@ -712,6 +715,7 @@ upsertItems,
 upsertKeyValueMarkdown,
 upsert,
 getExtension,
+getFileOrFolderName,
 getFolderJs,
 getSubExtension,
 isPathRelative,
@@ -1112,12 +1116,14 @@ parseTitle,
 makeFileType,
 isResultOfInterface,
 makeTest,
+chunkToStringRecursively,
 getChunkParagraphsRecursively,
 getImplicitId,
 getMarkdownIntro,
 getMarkdownParseParagraphs,
 getMarkdownReferencePaths,
 getMarkdownReferencesFromParagraph,
+markdownParseToMarkdownStringFromContent,
 markdownParseToMarkdownString,
 mdContentParseRecursively,
 mdToJsonParse,

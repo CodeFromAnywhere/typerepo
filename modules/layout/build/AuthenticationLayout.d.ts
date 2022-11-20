@@ -11,6 +11,7 @@ export declare const AuthenticationLayout: (props: {
      */
     menu?: MenuProps | undefined;
     customHeader?: React.ReactNode;
+    custom404Page?: React.ReactNode;
     nextPage?: any;
     pageProps?: any;
 }) => JSX.Element;

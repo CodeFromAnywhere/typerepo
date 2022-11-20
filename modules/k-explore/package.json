@@ -39,7 +39,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-project/k-explore/src/explore.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/control-project/k-explore/src/explore.ts. Error: Error: Unknown type \"function\""
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "node-cjs",
@@ -47,71 +49,34 @@
     "folderNameIndexed": "k-explore",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668332228094,
-    "operationDependenciesIndexed": [
-      "Dirent",
-      "fs",
-      "path",
-      "canRead",
-      "canSee",
-      "readJsonFile",
-      "MarkdownParse",
-      "TextJson",
-      "getExtension",
-      "getSubExtension",
-      "makeArray",
-      "notEmpty",
-      "removeIndexFromArray",
-      "mdToJsonParse",
-      "generatedFolders",
-      "getProjectRoot",
-      "SearchableExtension",
-      "allowedSearchContentExtensions",
-      "fileTypes",
-      "extensions",
-      "markdownExtensions",
-      "SearchLevel",
-      "jsonExtensions",
-      "typescriptExtensions",
-      "writeToAssets",
-      "fs",
-      "getFolder",
-      "path",
-      "generatedFolders",
-      "getProjectRoot",
-      "getRootPath",
-      "isBundle",
-      "getPathsWithOperations",
-      "generatedFolders",
-      "getPathsWithOperations",
-      "path"
-    ],
+    "lastRebuildAt": 1668976661925,
+    "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/control-project",
     "markdown": "exploration functions for exploring files within King OS\n\nCurrently has a thin dependency on `get-path`, but this can probably be removed to make this operation more general purpose (and work outside of King OS too)\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 8,
-        "lines": 731,
-        "characters": 21405,
-        "bytes": 21405
+        "lines": 740,
+        "characters": 21610,
+        "bytes": 21610
       },
       "dataSize": {
         "numberOfFiles": 3,
-        "lines": 327,
-        "characters": 15184,
-        "bytes": 15184
+        "lines": 329,
+        "characters": 15204,
+        "bytes": 15204
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 283,
-        "characters": 5415,
-        "bytes": 5415
+        "lines": 18,
+        "characters": 514,
+        "bytes": 514
       },
       "size": {
-        "bytes": 42004,
-        "characters": 42004,
-        "lines": 1341,
+        "bytes": 37328,
+        "characters": 37328,
+        "lines": 1087,
         "numberOfFiles": 13
       }
     },

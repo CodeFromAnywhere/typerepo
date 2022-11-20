@@ -121,6 +121,7 @@ export var renderMarkdownContent = function (content, config) {
                 code: function (_a) {
                     var _b;
                     var node = _a.node, children = _a.children, props = __rest(_a, ["node", "children"]);
+                    // NB: There's a big problem with this because all code elements get put in a `<pre>` element. I don't think this is easy to remove, but we can look in the issues. we can also look in google for how to improve it with css because i couldn't figure it out myself
                     var word = children[0];
                     var foundWord = typeof word === "string"
                         ? (_b = config === null || config === void 0 ? void 0 : config.augmentedWordObject) === null || _b === void 0 ? void 0 : _b[word]
@@ -133,7 +134,12 @@ export var renderMarkdownContent = function (content, config) {
                                 projectRelativeBaseFolderPath: getFolderJs(foundWord.projectRelativeMarkdownSourcePath),
                                 projectRelativeMarkdownFilePath: foundWord.projectRelativeMarkdownSourcePath,
                             }))) },
-                        React.createElement("a", __assign({ href: "/".concat(foundWord === null || foundWord === void 0 ? void 0 : foundWord.queryPath), style: { color: "darkred" } }, props), children))) : (React.createElement("code", __assign({ className: "dark:bg-gray-700", style: { color: "darkcyan" } }, props), children));
+                        React.createElement("a", __assign({ href: "/".concat(foundWord === null || foundWord === void 0 ? void 0 : foundWord.queryPath), style: { color: "darkred" } }, props), children))) : (React.createElement("code", __assign({ className: "dark:bg-gray-700" }, props, { style: {
+                            color: "darkcyan",
+                            // NB: the below doesn't work!
+                            wordBreak: "break-all",
+                            wordWrap: "break-word",
+                        } }), children));
                 },
                 a: function (_a) {
                     var node = _a.node, href = _a.href, props = __rest(_a, ["node", "href"]);

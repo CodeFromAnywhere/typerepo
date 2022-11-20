@@ -1,4 +1,5 @@
 import { MouseEvent } from "react";
+import { NestedWebPage } from "webpage-types";
 export declare type MenuItemType = {
     icon?: string;
     title: string;
@@ -7,7 +8,7 @@ export declare type MenuItemType = {
     target?: "_blank";
     children?: MenuItemType[];
 };
-export declare type MenuItemMouseEventCallback = (event: MouseEvent, item: MenuItemType) => void;
+export declare type MenuItemMouseEventCallback = (event: MouseEvent, item: NestedWebPage) => void;
 export declare type MouseEventCallbacks = {
     /**
      * Custom extra thing to do when clicking

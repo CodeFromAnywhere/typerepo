@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668837477698,
-  "updatedAt": 1668837477698,
+  "createdAt": 1668977414299,
+  "updatedAt": 1668977414299,
   "deletedAt": 0,
-  "createdFirstAt": 1668837477698,
+  "createdFirstAt": 1668977414299,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T>(array: T[]) => {\n  return array[Math.floor((array.length - 1) * Math.random())];\n}",
   "description": "",
-  "id": "ncutukkvyaayztjfkdxmhimq"
+  "id": "vjwqzazdqbgvvpirdpyxdtmh"
 }

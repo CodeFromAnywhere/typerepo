@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668837706725,
-  "updatedAt": 1668837706725,
+  "createdAt": 1668977312580,
+  "updatedAt": 1668977312580,
   "deletedAt": 0,
-  "createdFirstAt": 1668837706725,
+  "createdFirstAt": 1668977312580,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends keyof typeof queryStore>(queryKey: T) => {\n  /**\n   * Here you can define your global storages that can be present in any URL\n   *\n   * Make sure you use the CustomUrlConfig type\n   */\n  const queryStore = {\n    path: useCustomUrlStore<string | undefined>(\"path\", { type: \"string\" }),\n    name: useCustomUrlStore<string | undefined>(\"name\", { type: \"string\" }),\n    type: useCustomUrlStore<string | undefined>(\"type\", { type: \"string\" }),\n\n    // for db page\n    slug: useCustomUrlStore<string | undefined>(\"slug\", { type: \"string\" }),\n    id: useCustomUrlStore<string | undefined>(\"id\", { type: \"string\" }),\n  };\n\n  return queryStore[queryKey];\n}",
   "description": "",
-  "id": "eaukfbobigjroevsaarqfiyf"
+  "id": "noreeyshfulkcrwbnborqfpg"
 }

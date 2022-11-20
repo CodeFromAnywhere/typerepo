@@ -148,6 +148,7 @@ export const operations = { "db-web": "apps/db-web",
 "watch-folders": "modules/watch-folders",
 "watch-operations": "modules/watch-operations",
 "watch-types": "modules/watch-types",
+"webpage-types": "modules/webpage-types",
 "write-to-assets": "modules/write-to-assets",
 "writer-input": "modules/writer-input",
 "writer-types": "modules/writer-types" };

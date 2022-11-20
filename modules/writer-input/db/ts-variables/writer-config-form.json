@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835643296,
-  "updatedAt": 1668835643296,
+  "createdAt": 1668976946974,
+  "updatedAt": 1668976946974,
   "deletedAt": 0,
-  "createdFirstAt": 1668835643296,
+  "createdFirstAt": 1668976946974,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const [subtextConfig, setSubtextConfig] = useStore(\"subtextConfig\");\n  const [subwordConfig, setSubwordConfig] = useStore(\"subwordConfig\");\n\n  const values: WriterConfigFormValue = [subtextConfig, subwordConfig];\n\n  return (\n    <Div>\n      <SimplifiedSchemaForm\n        id=\"writerConfig\"\n        onChange={(values) => {\n          const [newSubtextConfig, newSubwordConfig] =\n            values as WriterConfigFormValue;\n          setSubtextConfig(newSubtextConfig);\n          setSubwordConfig(newSubwordConfig);\n        }}\n        parameters={[\n          {\n            name: \"SubtextConfig\",\n            required: true,\n            isDbModel: false,\n            simplifiedSchema: SubtextConfigIndex.type\n              .simplifiedSchema as SimplifiedSchema,\n          },\n          {\n            name: \"SubwordConfig\",\n            required: true,\n            isDbModel: false,\n            simplifiedSchema: SubwordConfigIndex.type\n              .simplifiedSchema as SimplifiedSchema,\n          },\n        ]}\n        values={values}\n      />\n    </Div>\n  );\n}",
   "description": "",
-  "id": "srczwlmeczdvmyljeklfursp"
+  "id": "aqvzrbowtlhyygbxqcbnahbf"
 }

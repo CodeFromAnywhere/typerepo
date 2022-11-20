@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668334831659,
-  "updatedAt": 1668334831659,
+  "createdAt": 1668976713148,
+  "updatedAt": 1668976713148,
   "deletedAt": 0,
-  "createdFirstAt": 1668334831659,
+  "createdFirstAt": 1668976713148,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -28,6 +28,6 @@
     }
   },
   "value": "(\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
-  "description": "",
-  "id": "vpwkrimbeugonzzaxlijpsju"
+  "description": "NB: this just uses RAW!\n\nUse `markdownParseToMarkdownStringFromContent` for the real deal",
+  "id": "pfjendzvjafdyskcrsdcwjxa"
 }

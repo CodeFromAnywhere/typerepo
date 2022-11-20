@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835681356,
-  "updatedAt": 1668835681356,
+  "createdAt": 1668976985580,
+  "updatedAt": 1668976985580,
   "deletedAt": 0,
-  "createdFirstAt": 1668835681356,
+  "createdFirstAt": 1668976985580,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(word: string, character: string): string => {\n  if (word.startsWith(character))\n    return trimLeft(word.slice(character.length), character);\n  return word;\n}",
   "description": "Trims a character from a word at the left until that character is not found anymore (recursive)",
-  "id": "xbsssdowqgglyithictdcgep"
+  "id": "rhuskgztyajxkltwibgzfjdd"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668837479230,
-  "updatedAt": 1668837479230,
+  "createdAt": 1668977415789,
+  "updatedAt": 1668977415789,
   "deletedAt": 0,
-  "createdFirstAt": 1668837479230,
+  "createdFirstAt": 1668977415789,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<TObject extends O>(\n  object: TObject,\n  keys: OptionalKeys<TObject>[]\n): TObject => {\n  return removeOptionalKeysFromObjectStrings(object, keys);\n}",
   "description": "",
-  "id": "bamtnobdardmkwlqcvcokvvc"
+  "id": "qzpyjybmsiwctsastvtrpwet"
 }

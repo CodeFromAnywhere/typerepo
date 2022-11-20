@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835679820,
-  "updatedAt": 1668835679820,
+  "createdAt": 1668976984011,
+  "updatedAt": 1668976984011,
   "deletedAt": 0,
-  "createdFirstAt": 1668835679820,
+  "createdFirstAt": 1668976984011,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(text: string) => {\n  return text.startsWith(\"import\");\n}",
   "description": "only detect typescript if the string starts with `import`. must be improved later on. It would be great to be able to detect that it's a typescript file even if it contains syntax errors.",
-  "id": "mvyspcorexphhgcyiydbofbk"
+  "id": "yndunsubuyhzjkxjvjecimcr"
 }

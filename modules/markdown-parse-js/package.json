@@ -42,59 +42,35 @@
     "folderNameIndexed": "markdown-parse-js",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668334847715,
-    "operationDependenciesIndexed": [
-      "MarkdownChunk",
-      "MarkdownParse",
-      "notEmpty",
-      "slugify",
-      "MarkdownParse",
-      "MarkdownParse",
-      "notEmpty",
-      "MarkdownParse",
-      "makeTest",
-      "frontmatterParseToString",
-      "MarkdownChunk",
-      "makeTest",
-      "MarkdownParse",
-      "SimplifiedSchema",
-      "MarkdownParse",
-      "Frontmatter",
-      "mergeObjectsArray",
-      "makeTest",
-      "parsePrimitive",
-      "MarkdownChunk",
-      "makeTest",
-      "makeTest",
-      "SimplifiedSchema"
-    ],
+    "lastRebuildAt": 1668976738440,
+    "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion/md",
     "markdown": "js-only operation containing all kinds of functions that help parsing markdown\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 18,
-        "lines": 511,
-        "characters": 14568,
-        "bytes": 14568
+        "numberOfFiles": 19,
+        "lines": 532,
+        "characters": 15193,
+        "bytes": 15193
       },
       "dataSize": {
         "numberOfFiles": 2,
         "lines": 142,
-        "characters": 3339,
-        "bytes": 3339
+        "characters": 3357,
+        "bytes": 3357
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 311,
-        "characters": 7829,
-        "bytes": 7829
+        "lines": 14,
+        "characters": 251,
+        "bytes": 251
       },
       "size": {
-        "bytes": 25736,
-        "characters": 25736,
-        "lines": 964,
-        "numberOfFiles": 22
+        "bytes": 18801,
+        "characters": 18801,
+        "lines": 688,
+        "numberOfFiles": 23
       }
     },
     "hasGeneratedImportsIndexed": false

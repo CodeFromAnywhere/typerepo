@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334838342,
-  "updatedAt": 1668334838342,
+  "createdAt": 1668976724651,
+  "updatedAt": 1668976724651,
   "deletedAt": 0,
-  "createdFirstAt": 1668334838342,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668976724651,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/parseMarkdownParagraph.ts",
   "commentsInside": [],
   "rawText": " (\n  paragraph: string\n): MarkdownParagraphChunk[] => {\n  return [];\n}",
@@ -251,5 +246,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "maisnegacmjnpigxmjazklfo"
+  "id": "zziblzrtivouvpofzuyzsqnn"
 }

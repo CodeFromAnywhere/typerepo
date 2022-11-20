@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668148280933,
-  "updatedAt": 1668148280933,
+  "createdAt": 1668976560776,
+  "updatedAt": 1668976560776,
   "deletedAt": 0,
-  "createdFirstAt": 1668148280933,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1668976560776,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/js.ts",
   "commentsInside": [],
   "rawText": " (fileName: string): string | undefined => {\n  const parts = fileName.split(\".\");\n  //removes extension\n  parts.pop();\n  //returns extension that's left (the sub-extension)\n  const subExtension = parts.pop();\n  return subExtension;\n}",
@@ -54,5 +49,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "zbevkmslsrsqgclpcrktkfby"
+  "id": "beztvfcrvhfnjqdrtfuvopgc"
 }

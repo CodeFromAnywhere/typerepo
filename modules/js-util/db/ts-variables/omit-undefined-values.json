@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668837476128,
-  "updatedAt": 1668837476128,
+  "createdAt": 1668977412794,
+  "updatedAt": 1668977412794,
   "deletedAt": 0,
-  "createdFirstAt": 1668837476128,
+  "createdFirstAt": 1668977412794,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends { [key: string]: any }>(\n  object: T\n) => {\n  Object.keys(object).map((key) => {\n    const value = object[key];\n    if (value === undefined) {\n      delete object[key];\n    }\n  });\n\n  return object;\n}",
   "description": "",
-  "id": "xgnqgwcqhdxvwaqkdzwxeckm"
+  "id": "vbuevmuvanaqcstfcimbffkk"
 }

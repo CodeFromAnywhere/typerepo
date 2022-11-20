@@ -40,5 +40,5 @@ export declare const ContentEditableDivInput: <T extends unknown>(props: {
     /**
      * Extra props you want to pass to the main div
      */
-    divProps: Omit<FinalDivType<T>, "onChange" | "contentEditable" | "onInput" | "value">;
+    divProps: Omit<FinalDivType<T>, "value" | "onChange" | "contentEditable" | "onInput">;
 }) => JSX.Element;

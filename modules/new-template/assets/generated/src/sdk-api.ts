@@ -64,6 +64,7 @@ import { getFileWithExtension } from "explore-project";
 import { getFolderExplorationDetails } from "explore-project";
 import { getInstanceNames } from "explore-project";
 import { getProjectRelativePaths } from "explore-project";
+import { getTodoPages } from "explore-project";
 import { hasSameProjectPath } from "explore-project";
 import { getAllOperationSourcePaths } from "get-all-operation-source-paths";
 import { determineFileType } from "k-explore";
@@ -319,6 +320,7 @@ import { getFrontmatterSchema } from "writer-functions";
 import { moveFile } from "writer-functions";
 import { newFile } from "writer-functions";
 import { newFolder } from "writer-functions";
+import { processAssetUpload } from "writer-functions";
 import { renameFilename } from "writer-functions";
 import { saveFileContents } from "writer-functions";
 import { getLight } from "get-light";
@@ -846,6 +848,7 @@ getFileWithExtension,
 getFolderExplorationDetails,
 getInstanceNames,
 getProjectRelativePaths,
+getTodoPages,
 hasSameProjectPath,
 getAllOperationSourcePaths,
 determineFileType,
@@ -1101,6 +1104,7 @@ getFrontmatterSchema,
 moveFile,
 newFile,
 newFolder,
+processAssetUpload,
 renameFilename,
 saveFileContents,
 getLight,

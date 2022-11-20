@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752504329,
-  "updatedAt": 1668752504329,
+  "createdAt": 1668960471033,
+  "updatedAt": 1668960471033,
   "deletedAt": 0,
-  "createdFirstAt": 1668752504329,
+  "createdFirstAt": 1668960471033,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -36,13 +36,20 @@
   ],
   "description": "Handy function to transform an array of `querypaths` into a nested menu, assuming you want to create a new sub-menu for every path\n\nMay also work for relative filePaths\n\nInput:\n\n[\"hello/world\",\"hello/moon\",\"hello/sun\"]\n\nOutput:\n\n{\n\"hello\":{\n\"moon\":null,\n\"world\":null,\n\"sun\":null\n}\n}",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/nested-menu/src/NestedPathObject\").NestedPathObject",
+    "rawType": "import(\"/Users/king/King/operations/tools/types/recursive-types/build/NestedPathObject\").NestedPathObject",
+    "typeDefinition": {
+      "optional": false
+    },
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
     "isObject": true,
     "isPrimitive": false,
-    "isEnumLiteral": false
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
   },
   "maxIndentationDepth": 2,
   "size": {
@@ -54,5 +61,5 @@
     "linesPerFile": 25,
     "numberOfFiles": 1
   },
-  "id": "zcnxxeopnzcpfrzuisymqimd"
+  "id": "rgklcdmbxkbwqppxtchisjss"
 }

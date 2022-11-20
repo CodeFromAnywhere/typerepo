@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668837304054,
-  "updatedAt": 1668837304054,
+  "createdAt": 1668976769091,
+  "updatedAt": 1668976769091,
   "deletedAt": 0,
-  "createdFirstAt": 1668837304054,
+  "createdFirstAt": 1668976769091,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async ({\n  functionName,\n}: {\n  functionName: string;\n}): Promise<{ success: boolean; response: string; function?: TsFunction }> => {\n  const cachedFunctions = await getCachedFunctions();\n\n  // get info about this operation\n  const functionIndex = cachedFunctions.find(\n    (fn) => fn.name === camelCase(functionName)\n  );\n\n  if (!functionIndex) {\n    return { success: false, response: \"Couldn't find function\" };\n  }\n\n  return { success: true, function: functionIndex, response: \"Found\" };\n}",
   "description": "finds function indexation from database\n\nTODO: this should be used!",
-  "id": "seckiafrqelxtbhqxobroons"
+  "id": "tgypkvbdqtmgcbpqhaeujbzi"
 }

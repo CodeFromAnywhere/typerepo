@@ -29,7 +29,8 @@
     "js-util": "0.0.1",
     "react-with-native-store": "2.0.40",
     "clickable-icon": "0.0.1",
-    "hotkeys": "0.0.0"
+    "hotkeys": "0.0.0",
+    "webpage-types": "0.0.1"
   },
   "name": "menu",
   "operation": {
@@ -42,58 +43,38 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/menu/src/MenuProps.ts. Error: Error: Unknown type \"function\""
       ]
     },
-    "lastRebuildAt": 1668752666124,
+    "lastRebuildAt": 1668977362243,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 150,
-        "characters": 4043,
-        "bytes": 4043
+        "lines": 165,
+        "characters": 4257,
+        "bytes": 4257
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 137,
-        "characters": 4225,
-        "bytes": 4225
+        "lines": 140,
+        "characters": 4300,
+        "bytes": 4300
       },
       "textSize": {
         "numberOfFiles": 3,
-        "lines": 46,
-        "characters": 857,
-        "bytes": 857
+        "lines": 21,
+        "characters": 430,
+        "bytes": 430
       },
       "size": {
-        "bytes": 9125,
-        "characters": 9125,
-        "lines": 333,
+        "bytes": 8987,
+        "characters": 8987,
+        "lines": 326,
         "numberOfFiles": 8
       }
     },
     "folderNameIndexed": "menu",
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [
-      "useState",
-      "Dispatch",
-      "SetStateAction"
-    ],
-    "operationDependenciesIndexed": [
-      "FancyLoader",
-      "NestedMenu",
-      "nestedPathObjectToNestedMenuRecursive",
-      "queryPathsArrayToNestedPathObject",
-      "Div",
-      "Input",
-      "P",
-      "PathSearchResults",
-      "ClickableIcon",
-      "isAltB",
-      "useHotkey",
-      "isCtrlP",
-      "AugmentedWord",
-      "nestedMenuStoreInitialValues",
-      "createStore"
-    ],
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": []
   },
   "slug": "menu",

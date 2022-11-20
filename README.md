@@ -4,7 +4,7 @@
 
 **Typerepo** aims to make it as easy as possible to build high-quality full-stack mobile- and web-apps.
 
-Typerepo is a collection of tools, conventions and a large SDK that brings together the well-known **Typescript** frameworks: **Node.js**, **Expo.dev** and **Next.js** under 1 bigger whole. :)
+Typerepo is a collection of tools, conventions and a large SDK that brings together the well-known **Typescript** frameworks: **Node.js**, **Expo.dev** and **Next.js** under 1 bigger whole.
 
 ## Features
 
