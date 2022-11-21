@@ -1,4 +1,5 @@
 /// <reference types="react" />
+/// <reference types="react" />
 /// <reference types="node" />
 import { useReactMediaRecorder } from "asset-input";
 import { BigButton } from "big-button";
@@ -62,6 +63,17 @@ export declare const sdk: {
         hideDownloadLink?: boolean | undefined;
         className?: string | undefined;
     }) => JSX.Element | null;
+    useAssetInfo: (url?: string | undefined, filename?: string | undefined) => {
+        rawText: string | null;
+        type: import("asset-type").AssetType;
+    } | undefined;
+    useAsset: (asset: import("asset-type").Asset, projectRelativeReferencingFilePath: string) => {
+        rawText: string | null;
+        type: import("asset-type").AssetType | undefined;
+        downloadUrl: string | undefined;
+        src: string | undefined;
+        extension: string | undefined;
+    };
     AuthenticationMethodsCrud: () => JSX.Element;
     LoginForm: () => JSX.Element;
     LoginWrapper: (props: {
@@ -370,7 +382,9 @@ export declare const sdk: {
         extra?: (TInputs_1[T_9] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_9]["extra"] : any) | undefined;
         type: T_9;
     };
-    setConfig: <TInputs_2, TState_1>(DataForm: (props: import("react-with-native-form").DataFormProps<TInputs_2, TState_1>) => JSX.Element, config: import("react-with-native-form").DataFormConfig<TInputs_2>) => (props: import("react-with-native-form").DataFormProps<TInputs_2, TState_1>) => JSX.Element;
+    setConfig: <TInputs_2, TState_1 extends {
+        [key: string]: any;
+    }>(DataForm: (props: import("react-with-native-form").DataFormProps<TInputs_2, TState_1>) => JSX.Element, config: import("react-with-native-form").DataFormConfig<TInputs_2>) => (props: import("react-with-native-form").DataFormProps<TInputs_2, TState_1>) => JSX.Element;
     castToNumber: (numberString: string | null | undefined) => number | null | undefined;
     DateInput: import("react-with-native-form").PluginComponent<import("react-with-native-form-inputs").DateInputType>;
     DatetimeInput: import("react-with-native-form").PluginComponent<import("react-with-native-form-inputs").DatetimeInputType>;

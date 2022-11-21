@@ -42,6 +42,7 @@ import { ContextTextArea } from "./old/ContextTextArea";
 import { errorToast } from "cool-toast";
 import dynamic from "next/dynamic";
 import { api } from "api";
+import { getFileOrFolderName } from "fs-util-js";
 var AssetInput = dynamic(function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
     switch (_a.label) {
         case 0: return [4 /*yield*/, import("react-with-native-form-asset-input")];
@@ -99,7 +100,7 @@ export var EditWriterInput = function (props) {
                         });
                     }); }, extra: {
                         projectRelativeReferencingFilePath: projectRelativeFilePath,
-                        defaultAssetName: "upload",
+                        defaultAssetName: getFileOrFolderName(projectRelativeFilePath),
                         allowMultiple: true,
                         modelName: markdownModelName,
                         size: "md",

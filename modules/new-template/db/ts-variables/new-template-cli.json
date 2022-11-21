@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752145325,
-  "updatedAt": 1668752145325,
+  "createdAt": 1669055664521,
+  "updatedAt": 1669055664521,
   "deletedAt": 0,
-  "createdFirstAt": 1668752145325,
+  "createdFirstAt": 1669055664521,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const [type, destinationPath] = process.argv.slice(2);\n\n  newTemplate(type, destinationPath).then((basePath) => {\n    if (basePath) {\n      console.log(`Generated template`, { type });\n    } else {\n      console.log(\"Something went wrong\");\n    }\n  });\n}",
   "description": "newTemplate can be used as CLI:\n\nArguments:\n- type (required): a folder from `new-template/assets/templates`\n- destinationPath (optional): path where the template should be copied to (uses `cwd` by default)",
-  "id": "ndqlssqjnrgtblzeiyxaglqa"
+  "id": "ziiythtbamuyuzebfrmtcqmf"
 }

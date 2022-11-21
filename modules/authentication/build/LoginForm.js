@@ -1,2 +1,29 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(t){for(var e,i=1,r=arguments.length;i<r;i++)for(var n in e=arguments[i])Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t},__assign.apply(this,arguments)},__importDefault=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.LoginForm=void 0;var jsx_runtime_1=require("react/jsx-runtime"),login_with_password_with_context_json_1=__importDefault(require("server-login/db/ts-functions/login-with-password-with-context.json")),function_form_1=require("function-form"),router_1=require("next/router"),react_with_native_1=require("react-with-native"),api_1=require("api"),cool_toast_1=require("cool-toast"),next_a_link_1=require("next-a-link"),LoginForm=function(){var t=(0,router_1.useRouter)(),e=api_1.queries.useGetMeWithContext();return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,__assign({className:"flex flex-1 flex-col mx-10"},{children:[(0,jsx_runtime_1.jsx)(react_with_native_1.P,__assign({className:"text-4xl"},{children:"Login"})),(0,jsx_runtime_1.jsx)(function_form_1.FunctionForm,{tsFunction:login_with_password_with_context_json_1.default,withApiResult:function(i){var r;i.isSuccessful&&(null===(r=i.result)||void 0===r?void 0:r.isSuccessful)&&t.push("/"),e.refetch(),(0,cool_toast_1.showStandardResponse)(i)}}),(0,jsx_runtime_1.jsx)(next_a_link_1.ALink,__assign({href:"/signup"},{children:"Or click here to sign up"}))]}))};exports.LoginForm=LoginForm;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LoginForm = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var router_1 = require("next/router");
+var react_with_native_ui_1 = require("react-with-native-ui");
+var react_with_native_1 = require("react-with-native");
+var api_1 = require("api");
+var store_1 = require("./store");
+var big_button_1 = require("big-button");
+var LoginForm = function () {
+    var router = (0, router_1.useRouter)();
+    var meQuery = api_1.queries.useGetMeWithContext();
+    var _a = (0, store_1.useStore)("api.authToken"), pass = _a[0], setPass = _a[1];
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "flex flex-1 flex-col mx-10" }, { children: [(0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "text-4xl" }, { children: "Login" })), (0, jsx_runtime_1.jsx)(react_with_native_1.Input, { className: react_with_native_ui_1.UI.textInput, placeholder: "Password", type: "password", value: pass, onChange: function (e) { return setPass(e.target.value); } }), (0, jsx_runtime_1.jsx)(big_button_1.BigButton, { title: "Login", onClick: function () { return router.reload(); } })] })));
+};
+exports.LoginForm = LoginForm;
 //# sourceMappingURL=LoginForm.js.map

@@ -31,7 +31,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/control-project/get-path/src/getRootPath.ts. Error: Error: Unknown node \\\" databaseFolderName\\\" of kind \\\"Identifier\\\"\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/control-project/get-path/src/getRootPath.ts. Error: Error: Unknown node \" databaseFolderName\" of kind \"Identifier\""
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "cjs",
@@ -39,7 +41,7 @@
     "folderNameIndexed": "get-path",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668446895488,
+    "lastRebuildAt": 1669055099565,
     "operationDependenciesIndexed": [
       "path",
       "fs",
@@ -102,20 +104,20 @@
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 159,
-        "characters": 3796,
-        "bytes": 3796
+        "lines": 166,
+        "characters": 3934,
+        "bytes": 3934
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 427,
-        "characters": 9604,
-        "bytes": 9604
+        "lines": 484,
+        "characters": 10510,
+        "bytes": 10510
       },
       "size": {
-        "bytes": 35664,
-        "characters": 35664,
-        "lines": 1336,
+        "bytes": 36708,
+        "characters": 36708,
+        "lines": 1400,
         "numberOfFiles": 27
       }
     },

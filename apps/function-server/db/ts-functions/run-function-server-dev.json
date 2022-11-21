@@ -1,0 +1,36 @@
+{
+  "createdAt": 1669055752223,
+  "updatedAt": 1669055752223,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055752223,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/runFunctionServerDev.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  nodemon({\n    operationName: \"function-server\",\n    cliFunctionName: \"runFunctionServer\",\n    vars: [\"true\", \"false\"],\n    restartVars: [\"true\", \"true\"],\n  });\n}",
+  "name": "runFunctionServerDev",
+  "slug": "run-function-server-dev",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 172,
+    "lines": 8,
+    "bytes": 172,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "ghjownaxspdaytjrgzdzljld"
+}

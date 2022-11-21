@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835096417,
-  "updatedAt": 1668835096417,
+  "createdAt": 1669054903209,
+  "updatedAt": 1669054903209,
   "deletedAt": 0,
-  "createdFirstAt": 1668835096417,
+  "createdFirstAt": 1669054903209,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  sourcePath: string,\n  destinationPath: string\n): Promise<string | undefined> => {\n  return new Promise<string | undefined>((resolve, reject) => {\n    ffmpeg({ source: sourcePath })\n      .toFormat(\"mp3\")\n      .saveToFile(destinationPath)\n      .on(\"end\", () => {\n        resolve(destinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        resolve(undefined);\n      });\n  });\n}",
   "description": "Uses ffmpeg to convert a file to mp3\n\nReturns the new file path on success",
-  "id": "yrnovcqtccrqhrphrbqrovux"
+  "id": "bylolpymzfdorjlkfrzvrtax"
 }

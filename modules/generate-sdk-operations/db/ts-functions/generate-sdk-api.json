@@ -1,0 +1,82 @@
+{
+  "createdAt": 1669055516023,
+  "updatedAt": 1669055516023,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055516023,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/generateSdkApi.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const { apiFunctions } = await getFunctionSdksContent({ manualProjectRoot });\n\n  if (!apiFunctions) return;\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      { ...config, skipYarnInstall: true }\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
+  "name": "generateSdkApi",
+  "slug": "generate-sdk-api",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          },
+          "skipYarnInstall": {
+            "type": "boolean"
+          },
+          "dryrun": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "skipYarnInstall",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "dryrun",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 726,
+    "lines": 32,
+    "bytes": 726,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 32,
+    "numberOfFiles": 1
+  },
+  "id": "joxrvetljuwtensincqmsgty"
+}

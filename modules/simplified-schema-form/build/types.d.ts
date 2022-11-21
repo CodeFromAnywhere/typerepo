@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { FunctionParameter } from "code-types";
 export declare type ReferencableItem = {
     id: string;

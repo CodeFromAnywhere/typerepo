@@ -8,7 +8,7 @@ import { getNameFromRelativePath } from "asset-functions-js";
 import { getNameWithTokenFromRelativePath } from "asset-functions-js";
 import { getPreferredExtensionFromType } from "asset-functions-js";
 import { getReferencedAssetApiUrl } from "asset-functions-js";
-import { getTypeFromRelativePath } from "asset-functions-js";
+import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
 import { removeTokenIfPresent } from "asset-functions-js";
 import { getFunctionExersize } from "code-types";
@@ -71,6 +71,7 @@ import { findOperationBasePathWithClassification } from "get-path";
 import { findOperationBasePath } from "get-path";
 import { getAllPackageJsonDependencies } from "get-path";
 import { getCommonAncestor } from "get-path";
+import { getOperationClassificationObject } from "get-path";
 import { getOperationClassification } from "get-path";
 import { getOperationPathParse } from "get-path";
 import { getOperationPath } from "get-path";
@@ -83,9 +84,13 @@ import { getRelativePath } from "get-path";
 import { getRootPath } from "get-path";
 import { getSrcRelativeFileId } from "get-path";
 import { hasDependency } from "get-path";
+import { isBundle } from "get-path";
 import { isOperation } from "get-path";
+import { isUiOperation } from "get-path";
 import { isWorkspaceRoot } from "get-path";
 import { makeRelative } from "get-path";
+import { packageCompilesTs } from "get-path";
+import { tsconfigCompilesEsm } from "get-path";
 import { getTsConfig } from "get-ts-config";
 import { apply } from "js-util";
 import { createEnum } from "js-util";
@@ -236,7 +241,7 @@ getNameFromRelativePath,
 getNameWithTokenFromRelativePath,
 getPreferredExtensionFromType,
 getReferencedAssetApiUrl,
-getTypeFromRelativePath,
+getTypeFromUrlOrPath,
 readableSize,
 removeTokenIfPresent,
 getFunctionExersize,
@@ -299,6 +304,7 @@ findOperationBasePathWithClassification,
 findOperationBasePath,
 getAllPackageJsonDependencies,
 getCommonAncestor,
+getOperationClassificationObject,
 getOperationClassification,
 getOperationPathParse,
 getOperationPath,
@@ -311,9 +317,13 @@ getRelativePath,
 getRootPath,
 getSrcRelativeFileId,
 hasDependency,
+isBundle,
 isOperation,
+isUiOperation,
 isWorkspaceRoot,
 makeRelative,
+packageCompilesTs,
+tsconfigCompilesEsm,
 getTsConfig,
 apply,
 createEnum,

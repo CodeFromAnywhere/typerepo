@@ -1,0 +1,36 @@
+{
+  "createdAt": 1669055504619,
+  "updatedAt": 1669055504619,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055504619,
+  "isApiExposed": true,
+  "isExported": false,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/cli/generateSdkApi.cli.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const [customProjectRoot] = process.argv.slice(2);\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  generateSdkApi({\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n}",
+  "name": "generateSdkApiCli",
+  "slug": "generate-sdk-api-cli",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 213,
+    "lines": 8,
+    "bytes": 213,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "zkvdqdbnfylnihhdcgdgeruu"
+}

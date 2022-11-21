@@ -22,7 +22,7 @@ export declare const sdk: {
     getNameWithTokenFromRelativePath: (relativePath: string, attachTokenToFilename?: boolean | undefined, newToken?: string | undefined) => string;
     getPreferredExtensionFromType: (type: string | undefined) => string | undefined;
     getReferencedAssetApiUrl: (apiUrl: string, projectRelativeReferencingFilePath: string, referencingFileRelativeAssetPath: string, isDownload?: boolean | undefined) => string;
-    getTypeFromRelativePath: (relativePath: string) => import("asset-type").AssetType;
+    getTypeFromUrlOrPath: (urlOrPath: string) => import("asset-type").AssetType;
     readableSize: (sizeBytes: number) => string;
     removeTokenIfPresent: (name: string, attachTokenToFilename?: boolean | undefined) => {
         nameWithoutToken: string;
@@ -102,6 +102,7 @@ export declare const sdk: {
     findOperationBasePath: (startPath: string) => string | undefined;
     getAllPackageJsonDependencies: (operation: import("code-types").Operation) => string[];
     getCommonAncestor: (path1: string, path2: string) => string;
+    getOperationClassificationObject: () => Promise<import("get-path").OperationClassificationObject>;
     getOperationClassification: (folderPath: string) => "cjs" | "ts" | "esm" | "node-cjs" | "node-esm" | "node-ts" | "server-cjs" | "ui-web" | "ui-app" | "ui-ts" | "ui-cjs" | "ui-esm" | undefined;
     getOperationPathParse: (absolutePath: string) => import("code-types").OperationPathParse | undefined;
     getOperationPath: (operationName: string, config?: {
@@ -116,17 +117,21 @@ export declare const sdk: {
     getProjectRoot: (fullSourcePath?: string | undefined) => string | undefined;
     getRelativeLinkPath: (absoluteFromFilePath: string, absoluteToFilePath: string, debug?: boolean | undefined) => string;
     getRelativePath: (absolutePath: string, relativeFrom: "project-root") => string | undefined;
-    getRootPath: (name?: "assets" | "backups" | "bundled" | "cloned" | "distributions" | "operations" | "text" | "db" | undefined, config?: {
+    getRootPath: (name?: "text" | "assets" | "backups" | "bundled" | "cloned" | "distributions" | "operations" | "db" | undefined, config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => string | undefined;
     getSrcRelativeFileId: (operationRelativePath: string) => string;
     hasDependency: (operation: import("code-types").Operation, dependency: string) => boolean;
+    isBundle: (folderPath?: string | undefined) => boolean;
     isOperation: (absoluteFolderPath: string) => boolean;
+    isUiOperation: (tsconfig: import("code-types").TsConfig | null, packageJson: import("code-types").Operation | null) => boolean;
     isWorkspaceRoot: (folderPath: string) => {
         isBundle: boolean;
         isWorkspaceRoot: boolean;
     } | undefined;
     makeRelative: (absolutePath: string, baseFolderPath: string) => string;
+    packageCompilesTs: (packageJson: import("code-types").Operation | null) => boolean;
+    tsconfigCompilesEsm: (tsconfig: import("code-types").TsConfig) => boolean;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
     apply: <T_2>(functions: ((input: T_2) => T_2)[], value: T_2) => T_2;
     createEnum: <T_3 extends readonly string[]>(array: T_3) => { [K in T_3[number]]: K; };

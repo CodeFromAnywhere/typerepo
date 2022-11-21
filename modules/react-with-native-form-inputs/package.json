@@ -10,7 +10,8 @@
     "react-with-native-select": "2.0.7",
     "react-dropzone": "*",
     "react-with-native-form": "1.0.114",
-    "react-map-gl": "*"
+    "react-map-gl": "*",
+    "react": "*"
   },
   "devDependencies": {
     "@react-native-community/datetimepicker": "^6.1.3",
@@ -58,7 +59,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/vui/react-with-native/react-with-native-form-inputs/src/toggle/toggle.tsx. Error: TypeError: Invalid value used as weak map key\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/react-with-native/react-with-native-form-inputs/src/toggle/toggle.tsx. Error: TypeError: Invalid value used as weak map key"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
@@ -76,7 +79,7 @@
     "folderNameIndexed": "react-with-native-form-inputs",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668333557255,
+    "lastRebuildAt": 1669055949441,
     "operationDependenciesIndexed": [
       "Div",
       "PluginComponent",
@@ -154,19 +157,19 @@
       "Marker",
       "MapRef"
     ],
-    "relativeOperationLocationPathIndexed": "operations/tools/interfaces/vui/react-with-native",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/react-with-native",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 25,
-        "lines": 1158,
-        "characters": 29989,
-        "bytes": 29989
+        "lines": 1156,
+        "characters": 30089,
+        "bytes": 30089
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 227,
-        "characters": 5385,
-        "bytes": 5385
+        "lines": 231,
+        "characters": 5470,
+        "bytes": 5470
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -175,9 +178,9 @@
         "bytes": 11765
       },
       "size": {
-        "bytes": 47139,
-        "characters": 47139,
-        "lines": 1910,
+        "bytes": 47324,
+        "characters": 47324,
+        "lines": 1912,
         "numberOfFiles": 29
       }
     },

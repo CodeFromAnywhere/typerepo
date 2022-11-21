@@ -10,7 +10,7 @@ When generating a schema, also use ts-morph to get the AST for the interface so 
 */
 import { Schema } from "ts-json-schema-generator";
 import { TsInterface } from "code-types";
-import { MorphInterfaceInfo } from "./types";
+import { MorphInterfaceInfo } from "./MorphInterfaceInfo";
 import { Creation } from "model-types";
 /**
  make a tsInterface from a schema generated from the file

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668976765877,
-  "updatedAt": 1668976765877,
+  "createdAt": 1669055153823,
+  "updatedAt": 1669055153823,
   "deletedAt": 0,
-  "createdFirstAt": 1668976765877,
+  "createdFirstAt": 1669055153823,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  modelName: string | undefined\n): Promise<{\n  tsInterface?: TsInterface;\n  datasets?: Dataset[];\n  projectRelativeStorageFilePath?: string;\n}> => {\n  if (!modelName) return {};\n  if (!([...dbModelKeys] as string[]).includes(modelName)) {\n    return {};\n  }\n\n  const realModelName = modelName as DbModelEnum;\n\n  const mergedConfig: MergedQueryConfig = getMergedQueryConfig(realModelName);\n  const projectRelativeStorageFilePath = (\n    await getDatabaseFiles(realModelName, mergedConfig)\n  ).map((x) => x.projectRelativePath)[0];\n\n  const indexPath = sdkInterfacePaths[realModelName];\n  const tsInterface =\n    (await readProjectRelativeJsonFile<TsInterface>(indexPath)) || undefined;\n\n  const allDatasets = await db.get(\"Dataset\");\n  const datasets = allDatasets.filter((x) => x.modelName === realModelName);\n\n  return { tsInterface, datasets, projectRelativeStorageFilePath };\n}",
   "description": "",
-  "id": "tcszccqjwzhylvonxbgklyix"
+  "id": "ykxbckllodnqzbmptnysxfde"
 }

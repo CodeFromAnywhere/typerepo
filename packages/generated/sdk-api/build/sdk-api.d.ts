@@ -1,7 +1,6 @@
 /// <reference types="node" />
 /// <reference types="node" />
 /// <reference types="node" />
-import { earthDistance } from "himalayajeep-functions";
 import { hasDefinition } from "index-typescript";
 import { setKeyAtLocation } from "set-json-key";
 import { makeSubscription } from "watch-folders";
@@ -195,7 +194,10 @@ export declare const sdk: {
         noOperationName?: boolean | undefined;
         noSrcRelativeFolder?: boolean | undefined;
         noPrefix?: boolean | undefined;
-    } | undefined) => Promise<string[]>;
+    } | undefined) => Promise<{
+        flat?: import("webpage-types").WebPage<undefined>[] | undefined;
+        nested?: import("webpage-types").NestedWebPage[] | undefined;
+    }>;
     getReferencableModelData: (dbModelName: string | number | symbol) => Promise<{
         id: string;
         name: any;
@@ -379,16 +381,30 @@ export declare const sdk: {
         skipYarnInstall?: boolean | undefined;
         dryrun?: boolean | undefined;
     } | undefined) => Promise<void>;
+    generateSdkApiWatcher: import("watch-types").ProjectWatcher;
+    generateSdkApi: (config?: {
+        manualProjectRoot?: string | undefined;
+        skipYarnInstall?: boolean | undefined;
+        dryrun?: boolean | undefined;
+    } | undefined) => Promise<void>;
     generateSdkOperations: (bundleConfig?: import("bundle-types").BundleConfig | undefined, config?: {
         yarnInstallBefore?: boolean | undefined;
         yarnInstallAfter?: boolean | undefined;
         manualProjectRoot?: string | undefined;
         dryrun?: boolean | undefined;
     } | undefined) => Promise<boolean>;
+    getFunctionSdksContent: (config?: {
+        manualProjectRoot?: string | undefined;
+    } | undefined) => Promise<{
+        jsFunctions?: import("code-types").TsFunction[] | undefined;
+        apiFunctions?: import("code-types").TsFunction[] | undefined;
+        uiFunctions?: import("code-types").TsFunction[] | undefined;
+    }>;
     getSdkDescription: (operationName: string) => Promise<string | undefined>;
     getSdkFunctionsPerClassification: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<import("generate-sdk-operations").FunctionsPerClassification | undefined>;
+    isNonUiOperationBuild: (eventName: import("watch-types").WatchEventType, path: string) => boolean;
     newEnvSdk: (bundleConfig: import("bundle-types").BundleConfig, type: "public" | "private", config?: {
         manualProjectRoot?: string | undefined;
         skipYarnInstall?: boolean | undefined;
@@ -453,28 +469,6 @@ export declare const sdk: {
         ignoreIndexFiles?: boolean | undefined;
         allTypes?: boolean | undefined;
     }) => Promise<string[]>;
-    driverLogin: (emailOrPhone: string, password: string) => Promise<{
-        isSuccessful: boolean;
-        message: string;
-        loginToken?: string | undefined;
-    }>;
-    driverSignup: (driverInfo: import("himalayajeep-types").SignupJeepType) => Promise<{
-        isSuccesful: boolean;
-        message: string;
-    }>;
-    earthDistance: typeof earthDistance;
-    getMyJeep: (loginToken: string) => Promise<{
-        isSuccessful: boolean;
-        message?: string | undefined;
-        myJeep?: import("himalayajeep-types").MyJeepType | undefined;
-    }>;
-    getPublicJeeps: (position?: import("geo-types").Position | undefined) => Promise<{
-        publicJeeps: import("himalayajeep-types").PublicJeepType[];
-    }>;
-    updateMyProfile: (loginToken: string, myJeep: Omit<import("himalayajeep-types").MyJeepType, "id" | "createdAt" | "updatedAt" | keyof import("himalayajeep-types").MyJeepAdminTypes>) => Promise<{
-        isSuccesful: boolean;
-        message: string;
-    }>;
     findAndUpsertTsInterfaces: (config: {
         sourceFile?: import("ts-morph").SourceFile | undefined;
         operationName: string;
@@ -513,8 +507,12 @@ export declare const sdk: {
     getTypeInfo: (type: import("ts-morph").Type<import("@ts-morph/common/lib/typescript").Type>, schema?: import("json-schema").JSONSchema7 | undefined) => import("code-types").TypeInfo;
     getValidatedOperationPathParse: (filePath: string) => import("index-typescript").CompleteOperationPathParse | undefined;
     hasDefinition: typeof hasDefinition;
+    hasTypescriptFileChanged: (eventName: import("watch-types").WatchEventType, path: string) => boolean;
+    indexImportsExportsForFilePath: import("watch-types").ProjectWatcher;
+    indexTypescriptFilePath: import("watch-types").ProjectWatcher;
     indexTypescriptFile: (project: import("ts-morph").Project, file: import("index-typescript").CompleteOperationPathParse, projectRoot: string) => Promise<void>;
-    indexTypescript: ({ filePaths, manualProjectRoot, }: {
+    indexTypescript: (props: {
+        showLogging?: boolean | undefined;
         filePaths: string[];
         manualProjectRoot: string | null;
     }) => Promise<void>;
@@ -528,7 +526,6 @@ export declare const sdk: {
     }) => import("model-types").Creation<import("code-types").TsComment>;
     removeTypescriptIndex: import("watch-types").ProjectWatcher;
     schemaToTsInterface: (filePath: string, typeName: string, schema: import("json-schema").JSONSchema7, morphInterfaceInfo: import("index-typescript").MorphInterfaceInfo | undefined) => Promise<import("model-types").Creation<import("code-types").TsInterface> | undefined>;
-    setTypescriptIndex: import("watch-types").ProjectWatcher;
     tryCreateSchema: (config: import("ts-json-schema-generator").Config) => {
         schema?: import("json-schema").JSONSchema7 | undefined;
         error?: string | undefined;
@@ -677,7 +674,14 @@ export declare const sdk: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<string | undefined>;
     newTemplate: (type: string, destinationPath?: string | undefined) => Promise<string | undefined>;
-    nodemon: (operationName: string, cliFunctionName: string, vars?: string[] | undefined, manualProjectRoot?: string | undefined) => Promise<void>;
+    nodemon: (config: {
+        isRestart?: boolean | undefined;
+        operationName: string;
+        cliFunctionName: string;
+        vars?: string[] | undefined;
+        restartVars?: string[] | undefined;
+        manualProjectRoot?: string | undefined;
+    }) => Promise<void>;
     addPeerMessage: (message: string, peerSlug: string) => Promise<import("fs-orm").DbQueryResult>;
     addPeer: (ip: string, authToken: string, peerName?: string | undefined, force?: boolean | undefined, isMe?: boolean | undefined) => Promise<{
         isSuccesful: boolean;
@@ -950,6 +954,9 @@ export declare const sdk: {
         success: boolean;
         response: string;
     } | undefined>;
+    watchAll: (config?: {
+        customIgnored?: string[] | undefined;
+    } | undefined) => Promise<void>;
     initiateWatch: ({ client, debug, folderPath, }: {
         client: import("fb-watchman").Client;
         debug: boolean;
@@ -961,7 +968,7 @@ export declare const sdk: {
         folders: string[];
         takeLatest?: boolean | undefined;
         onChange: (event: {
-            eventType: "rename" | "change";
+            eventType: "change" | "rename";
             filePaths: string[];
             operationBasePath: string;
         }) => Promise<void>;
@@ -971,7 +978,7 @@ export declare const sdk: {
         folders: string[];
         takeLatest?: boolean | undefined;
         onChange: (event: {
-            eventType: "rename" | "change";
+            eventType: "change" | "rename";
             filePaths: string[];
             operationBasePath: string;
         }) => Promise<void>;
@@ -981,7 +988,7 @@ export declare const sdk: {
         folders: string[];
         takeLatest?: boolean | undefined;
         onChange: (event: {
-            eventType: "rename" | "change";
+            eventType: "change" | "rename";
             filePaths: string[];
             operationBasePath: string;
         }) => Promise<void>;
@@ -997,6 +1004,33 @@ export declare const sdk: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<void>;
     writeToAssets: (filePath: string, data: any, assetsFileName?: string | undefined) => Promise<boolean | undefined>;
+    getFileContents: (projectRelativeFilePath: string) => Promise<{
+        isSuccessful: boolean;
+        message?: string | undefined;
+        fileContents?: string | undefined;
+    }>;
+    getFrontmatterSchema: (markdownModelName: string | number | symbol | undefined) => Promise<import("code-types").SimplifiedSchema | undefined>;
+    moveFile: (projectRelativePath: string, projectRelativeNewFolderPath: string) => Promise<{
+        isSuccessful: boolean;
+        message?: string | undefined;
+    }>;
+    newFile: (projectRelativeFilePath: string) => Promise<{
+        isSuccessful: boolean;
+        message?: string | undefined;
+    }>;
+    newFolder: (projectRelativeFolderBasePath: string, folderName: string) => Promise<{
+        isSuccessful: boolean;
+        message?: string | undefined;
+    }>;
+    processAssetUpload: (assets: import("asset-type").BackendAsset[]) => Promise<import("asset-type").BackendAsset[]>;
+    renameFilename: (projectRelativeFilePath: string, newFilename: string) => Promise<{
+        isSuccessful: boolean;
+        message?: string | undefined;
+    }>;
+    saveFileContents: (projectRelativeFilePath: string, newContent: string) => Promise<{
+        isSuccessful: boolean;
+        message?: string | undefined;
+    }>;
     getGetApiUrl: (apiUrl: string, apiFunctionName: string, query: {
         [name: string]: string | string[] | undefined;
     }) => string;
@@ -1009,7 +1043,7 @@ export declare const sdk: {
     getNameWithTokenFromRelativePath: (relativePath: string, attachTokenToFilename?: boolean | undefined, newToken?: string | undefined) => string;
     getPreferredExtensionFromType: (type: string | undefined) => string | undefined;
     getReferencedAssetApiUrl: (apiUrl: string, projectRelativeReferencingFilePath: string, referencingFileRelativeAssetPath: string, isDownload?: boolean | undefined) => string;
-    getTypeFromRelativePath: (relativePath: string) => import("asset-type").AssetType;
+    getTypeFromUrlOrPath: (urlOrPath: string) => import("asset-type").AssetType;
     readableSize: (sizeBytes: number) => string;
     removeTokenIfPresent: (name: string, attachTokenToFilename?: boolean | undefined) => {
         nameWithoutToken: string;
@@ -1089,6 +1123,7 @@ export declare const sdk: {
     findOperationBasePath: (startPath: string) => string | undefined;
     getAllPackageJsonDependencies: (operation: import("code-types").Operation) => string[];
     getCommonAncestor: (path1: string, path2: string) => string;
+    getOperationClassificationObject: () => Promise<import("get-path").OperationClassificationObject>;
     getOperationClassification: (folderPath: string) => "cjs" | "ts" | "esm" | "node-cjs" | "node-esm" | "node-ts" | "server-cjs" | "ui-web" | "ui-app" | "ui-ts" | "ui-cjs" | "ui-esm" | undefined;
     getOperationPathParse: (absolutePath: string) => import("code-types").OperationPathParse | undefined;
     getOperationPath: (operationName: string, config?: {
@@ -1108,12 +1143,16 @@ export declare const sdk: {
     } | undefined) => string | undefined;
     getSrcRelativeFileId: (operationRelativePath: string) => string;
     hasDependency: (operation: import("code-types").Operation, dependency: string) => boolean;
+    isBundle: (folderPath?: string | undefined) => boolean;
     isOperation: (absoluteFolderPath: string) => boolean;
+    isUiOperation: (tsconfig: import("code-types").TsConfig | null, packageJson: import("code-types").Operation | null) => boolean;
     isWorkspaceRoot: (folderPath: string) => {
         isBundle: boolean;
         isWorkspaceRoot: boolean;
     } | undefined;
     makeRelative: (absolutePath: string, baseFolderPath: string) => string;
+    packageCompilesTs: (packageJson: import("code-types").Operation | null) => boolean;
+    tsconfigCompilesEsm: (tsconfig: import("code-types").TsConfig) => boolean;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
     apply: <T_16>(functions: ((input: T_16) => T_16)[], value: T_16) => T_16;
     createEnum: <T_17 extends readonly string[]>(array: T_17) => { [K in T_17[number]]: K; };

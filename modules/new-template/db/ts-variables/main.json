@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668752149105,
-  "updatedAt": 1668752149105,
+  "createdAt": 1669055670400,
+  "updatedAt": 1669055670400,
   "deletedAt": 0,
-  "createdFirstAt": 1668752149105,
+  "createdFirstAt": 1669055670400,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  await newOperationWithFiles(\n    \"test-operation\",\n    \"This is amaaaaazzzz\",\n    { \"src/test-operation.ts\": \"//this is a file\\nexport const x = 1;\" },\n    { overwriteIfExists: true }\n  );\n}",
   "description": "",
-  "id": "jgabmttmzgbclhjxrfcvawnq"
+  "id": "mgxnpdbxgotaeeogdgtujwub"
 }

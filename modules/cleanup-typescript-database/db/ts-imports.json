@@ -1,9 +1,25 @@
 [
   {
-    "createdAt": 1668335746374,
-    "updatedAt": 1668335746374,
+    "createdAt": 1669055466649,
+    "updatedAt": 1669055466649,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746374,
+    "createdFirstAt": 1669055466649,
+    "name": "cleanupTsDatabase",
+    "slug": "cleanup-ts-database",
+    "module": "./cleanupTsDatabase",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/cleanupTsDatabase.test.ts",
+    "classification": "internal",
+    "isAbsolute": false,
+    "isModuleFromMonorepo": false,
+    "id": "skmtxpnqpgozaetcymdcwbyv"
+  },
+  {
+    "createdAt": 1669055466649,
+    "updatedAt": 1669055466649,
+    "deletedAt": 0,
+    "createdFirstAt": 1669055466649,
     "name": "getPackageSourcePaths",
     "slug": "get-package-source-paths",
     "type": "value",
@@ -14,13 +30,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rjjevxxsrdugavzetsjuntgs"
+    "id": "uqsnynnkmcyiusjodcrnlqci"
   },
   {
-    "createdAt": 1668335746374,
-    "updatedAt": 1668335746374,
+    "createdAt": 1669055466649,
+    "updatedAt": 1669055466649,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746374,
+    "createdFirstAt": 1669055466649,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -31,13 +47,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ufufdnaedfgtpswlshyuuxux"
+    "id": "uheuhumrdexwchjnrqeeidka"
   },
   {
-    "createdAt": 1668335746374,
-    "updatedAt": 1668335746374,
+    "createdAt": 1669055466649,
+    "updatedAt": 1669055466649,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746374,
+    "createdFirstAt": 1669055466649,
     "name": "getOperationPath",
     "slug": "get-operation-path",
     "type": "value",
@@ -48,13 +64,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "opayqspqaslqmraivxwaddvv"
+    "id": "lzfchaitlpbyqjhbsjzcmtns"
   },
   {
-    "createdAt": 1668335746374,
-    "updatedAt": 1668335746374,
+    "createdAt": 1669055466650,
+    "updatedAt": 1669055466650,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746374,
+    "createdFirstAt": 1669055466650,
     "name": "getOperationRelativePath",
     "slug": "get-operation-relative-path",
     "type": "value",
@@ -65,13 +81,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "eircsrudzxefayljulwujgxp"
+    "id": "afwvnfhehcuivsvsfxkmcmyu"
   },
   {
-    "createdAt": 1668335746374,
-    "updatedAt": 1668335746374,
+    "createdAt": 1669055466650,
+    "updatedAt": 1669055466650,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746374,
+    "createdFirstAt": 1669055466650,
     "name": "TsBuildError",
     "slug": "ts-build-error",
     "type": "type",
@@ -83,13 +99,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "bxwniterexjdmqividuynhce"
+    "id": "oyymdistzhvlznmgbcbdjlph"
   },
   {
-    "createdAt": 1668335746374,
-    "updatedAt": 1668335746374,
+    "createdAt": 1669055466650,
+    "updatedAt": 1669055466650,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746374,
+    "createdFirstAt": 1669055466650,
     "name": "TsComment",
     "slug": "ts-comment",
     "type": "type",
@@ -101,13 +117,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ybyfomxwqufowxqndegfasiy"
+    "id": "hgsnczuwyypyfneoqqjocuxq"
   },
   {
-    "createdAt": 1668335746375,
-    "updatedAt": 1668335746375,
+    "createdAt": 1669055466650,
+    "updatedAt": 1669055466650,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746375,
+    "createdFirstAt": 1669055466650,
     "name": "TsExport",
     "slug": "ts-export",
     "type": "type",
@@ -119,13 +135,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "astcpyexhnpkeazgfksbsrri"
+    "id": "ddjhezplhvcmvitlfrqtlfrh"
   },
   {
-    "createdAt": 1668335746375,
-    "updatedAt": 1668335746375,
+    "createdAt": 1669055466650,
+    "updatedAt": 1669055466650,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746375,
+    "createdFirstAt": 1669055466650,
     "name": "TsFunction",
     "slug": "ts-function",
     "type": "type",
@@ -137,13 +153,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "uvrhjnpyvkgxgmyijzhjsfgi"
+    "id": "aatxybdfnobjadspwoxyrnml"
   },
   {
-    "createdAt": 1668335746375,
-    "updatedAt": 1668335746375,
+    "createdAt": 1669055466650,
+    "updatedAt": 1669055466650,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746375,
+    "createdFirstAt": 1669055466650,
     "name": "TsImport",
     "slug": "ts-import",
     "type": "type",
@@ -155,13 +171,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nvvsxxodsatvndlxrmpqtozi"
+    "id": "lncmkoxrwcmntihnwldxtcpo"
   },
   {
-    "createdAt": 1668335746375,
-    "updatedAt": 1668335746375,
+    "createdAt": 1669055466650,
+    "updatedAt": 1669055466650,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746375,
+    "createdFirstAt": 1669055466650,
     "name": "TsInterface",
     "slug": "ts-interface",
     "type": "type",
@@ -173,13 +189,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rzvdkbpdygghywvuhzmfynch"
+    "id": "tdrgcwbztmxakwyddamhonvi"
   },
   {
-    "createdAt": 1668335746375,
-    "updatedAt": 1668335746375,
+    "createdAt": 1669055466650,
+    "updatedAt": 1669055466650,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746375,
+    "createdFirstAt": 1669055466650,
     "name": "TsLintWarning",
     "slug": "ts-lint-warning",
     "type": "type",
@@ -191,13 +207,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pfkwkxttfzfgdeaeatqpdmvu"
+    "id": "aloxcazitqoeasxjbsruqcdn"
   },
   {
-    "createdAt": 1668335746375,
-    "updatedAt": 1668335746375,
+    "createdAt": 1669055466651,
+    "updatedAt": 1669055466651,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746375,
+    "createdFirstAt": 1669055466651,
     "name": "TsVariable",
     "slug": "ts-variable",
     "type": "type",
@@ -209,13 +225,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "hgtvkfjaiicssrqyrrbalwjl"
+    "id": "pmgwoxturaaboltwehepcdck"
   },
   {
-    "createdAt": 1668335746375,
-    "updatedAt": 1668335746375,
+    "createdAt": 1669055466651,
+    "updatedAt": 1669055466651,
     "deletedAt": 0,
-    "createdFirstAt": 1668335746375,
+    "createdFirstAt": 1669055466651,
     "name": "typescriptIndexModels",
     "slug": "typescript-index-models",
     "type": "value",
@@ -226,6 +242,6 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "dxcqartjziptyznqfruykatz"
+    "id": "ofqcpfneddokiczycvowzpdd"
   }
 ]

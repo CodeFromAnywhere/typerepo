@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669055516126,
+  "updatedAt": 1669055516126,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055516126,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "generateSdkApi",
+  "slug": "generate-sdk-api",
+  "operationRelativeTypescriptFilePath": "src/generateSdkApi.ts",
+  "type": {
+    "rawType": "(config?: { manualProjectRoot?: string | undefined; skipYarnInstall?: boolean | undefined; dryrun?: boolean | undefined; } | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const { apiFunctions } = await getFunctionSdksContent({ manualProjectRoot });\n\n  if (!apiFunctions) return;\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      { ...config, skipYarnInstall: true }\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
+  "description": "",
+  "id": "togtsjxsjoyhcxrfowujrajp"
+}

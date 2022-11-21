@@ -5,6 +5,7 @@ import {
   functionPostEndpoints,
   functionGetEndpoints,
 } from "function-server-endpoints";
+import { watchAll } from "watch-all";
 import { ports } from "port-conventions";
 import { getProjectRoot } from "get-path";
 import { path } from "fs-util";
@@ -18,7 +19,11 @@ import { scheduleCronJobs } from "./scheduleCronJobs";
  *
  * server will be exposed on port 42000
  */
-export const runFunctionServer = () => {
+
+export const runFunctionServer = (
+  isWatching?: boolean,
+  isRestart?: boolean
+) => {
   const { header } = server.reply;
 
   startApp("search-web", true).then((result) => {
@@ -30,10 +35,13 @@ export const runFunctionServer = () => {
       return;
     }
 
-    setTimeout(() => {
-      execSync(`open http://localhost:42001`);
-      log(`Opened the homepage in your browser`, { type: "success" });
-    }, 1000);
+    if (!isRestart && isWatching) {
+      // Open in browser
+      setTimeout(() => {
+        execSync(`open http://localhost:42001`);
+        log(`Opened the homepage in your browser`, { type: "success" });
+      }, 1000);
+    }
   });
   const cors = [
     /* 
@@ -100,7 +108,12 @@ export const runFunctionServer = () => {
       process.env.NODE_APP_INSTANCE === undefined ||
       process.env.NODE_APP_INSTANCE === "0"
     ) {
+      // only on the first core, schedule crons and initiate watchers
       scheduleCronJobs();
+
+      if (isWatching) {
+        watchAll();
+      }
     }
 
     console.log(

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668831771149,
-  "updatedAt": 1668831771149,
+  "createdAt": 1669055836570,
+  "updatedAt": 1669055836570,
   "deletedAt": 0,
-  "createdFirstAt": 1668831771149,
+  "createdFirstAt": 1669055836570,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (id?: string) => {\n  return (await getPublicPersons()).find((x) => x.id === id);\n}",
   "description": "",
-  "id": "psnlqvifdwjstlsmigyfayub"
+  "id": "eyrmkzvgxpoaadigoltcmagc"
 }

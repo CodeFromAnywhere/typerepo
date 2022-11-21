@@ -62,8 +62,6 @@ export declare const operations: {
     "get-package-source-paths": string;
     "get-path": string;
     "get-ts-config": string;
-    "himalayajeep-functions": string;
-    "himalayajeep-types": string;
     hotkeys: string;
     "index-typescript": string;
     "js-util": string;
@@ -146,11 +144,13 @@ export declare const operations: {
     "ui-util": string;
     "use-url-store": string;
     "vscode-open": string;
+    "watch-all": string;
     "watch-folders": string;
     "watch-operations": string;
     "watch-types": string;
     "webpage-types": string;
     "write-to-assets": string;
+    "writer-functions": string;
     "writer-input": string;
     "writer-types": string;
 };

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668976807444,
-  "updatedAt": 1668976807444,
+  "createdAt": 1669055194838,
+  "updatedAt": 1669055194838,
   "deletedAt": 0,
-  "createdFirstAt": 1668976807444,
+  "createdFirstAt": 1669055194838,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -10,7 +10,7 @@
   "slug": "menu-types",
   "operationRelativeTypescriptFilePath": "src/DbLayout.tsx",
   "type": {
-    "rawType": "readonly [{ readonly type: \"operation\"; readonly emoji: \"⚡️\"; }, { readonly type: \"flat\"; readonly emoji: \"👩‍🌾\"; }, { readonly type: \"deep\"; readonly emoji: \"💣\"; }]",
+    "rawType": "readonly [{ readonly type: \"deep\"; readonly emoji: \"💣\"; }, { readonly type: \"operation\"; readonly emoji: \"⚡️\"; }, { readonly type: \"flat\"; readonly emoji: \"👩‍🌾\"; }]",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -18,7 +18,7 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "value": "[\n  { type: \"operation\", emoji: \"⚡️\" },\n  { type: \"flat\", emoji: \"👩‍🌾\" },\n  { type: \"deep\", emoji: \"💣\" },\n] as const",
+  "value": "[\n  { type: \"deep\", emoji: \"💣\" },\n  { type: \"operation\", emoji: \"⚡️\" },\n  { type: \"flat\", emoji: \"👩‍🌾\" },\n] as const",
   "description": "",
-  "id": "ijtdakydsrlbxosjqbqiygtf"
+  "id": "dfvdbzdvnubjckndulxeqmbg"
 }

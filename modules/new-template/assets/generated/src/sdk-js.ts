@@ -90,12 +90,14 @@ import { kvmdDataToString } from "key-value-markdown-js";
 import { kvmdParseToMarkdownString } from "key-value-markdown-js";
 import { markdownStringToKvmdParse } from "key-value-markdown-js";
 import { parseKvmdLine } from "key-value-markdown-js";
+import { chunkToStringRecursively } from "markdown-parse-js";
 import { getChunkParagraphsRecursively } from "markdown-parse-js";
 import { getImplicitId } from "markdown-parse-js";
 import { getMarkdownIntro } from "markdown-parse-js";
 import { getMarkdownParseParagraphs } from "markdown-parse-js";
 import { getMarkdownReferencePaths } from "markdown-parse-js";
 import { getMarkdownReferencesFromParagraph } from "markdown-parse-js";
+import { markdownParseToMarkdownStringFromContent } from "markdown-parse-js";
 import { markdownParseToMarkdownString } from "markdown-parse-js";
 import { mdContentParseRecursively } from "markdown-parse-js";
 import { mdToJsonParse } from "markdown-parse-js";
@@ -339,12 +341,14 @@ kvmdDataToString,
 kvmdParseToMarkdownString,
 markdownStringToKvmdParse,
 parseKvmdLine,
+chunkToStringRecursively,
 getChunkParagraphsRecursively,
 getImplicitId,
 getMarkdownIntro,
 getMarkdownParseParagraphs,
 getMarkdownReferencePaths,
 getMarkdownReferencesFromParagraph,
+markdownParseToMarkdownStringFromContent,
 markdownParseToMarkdownString,
 mdContentParseRecursively,
 mdToJsonParse,

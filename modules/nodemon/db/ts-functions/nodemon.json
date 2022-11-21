@@ -1,78 +1,123 @@
 {
-  "createdAt": 1668336507650,
-  "updatedAt": 1668336507650,
+  "createdAt": 1669056156606,
+  "updatedAt": 1669056156606,
   "deletedAt": 0,
-  "createdFirstAt": 1668336507650,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669056156606,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/nodemon.ts",
   "commentsInside": [],
-  "rawText": " async (\n  operationName: string,\n  /**\n   * name of the function that you want to run the cli from\n   *\n   * by convention, we are going to execute the `build/cli/[fnName].cli.js` file\n   */\n  cliFunctionName: string,\n  /**\n   * vars that need to be passed to the cli\n   */\n  vars?: string[],\n  /**\n   * manual project root for the operation to run\n   */\n  manualProjectRoot?: string\n): Promise<void> => {\n  const operationPath = await getOperationPath(operationName, {\n    manualProjectRoot,\n  });\n\n  if (!operationPath) {\n    console.log(`${operationName} not found`);\n    return;\n  }\n\n  const cliPath = `build/cli/${cliFunctionName}.cli.js`;\n  const absoluteCliPath = path.join(operationPath, cliPath);\n\n  if (!fs.existsSync(absoluteCliPath)) {\n    log(`${absoluteCliPath} not found (nodemon)`, { type: \"error\" });\n    return;\n  }\n  const command = `node ${cliPath} ${vars ? ` ${vars.join(\" \")}` : \"\"}`;\n\n  const process = spawn(command, {\n    cwd: operationPath,\n    shell: true,\n    stdio: \"inherit\",\n  });\n  //\n  process\n    .on(\"exit\", (code) => {\n      log(\n        `Process ${cliFunctionName} has ended with code ${code}, restarting...`,\n        { type: \"important\" }\n      );\n\n      nodemon(operationName, cliFunctionName, vars, manualProjectRoot);\n    })\n    .on(\"data\", (message) => {\n      log(message);\n    })\n    .on(\"error\", (err) => {\n      log(`${err.name} Error: ${err.message}`, { type: \"error\" });\n    });\n}",
+  "rawText": " async (config: {\n  isRestart?: boolean;\n\n  operationName: string;\n  /**\n   * name of the function that you want to run the cli from\n   *\n   * by convention, we are going to execute the `build/cli/[fnName].cli.js` file\n   */\n  cliFunctionName: string;\n\n  /**\n   * vars that need to be passed to the cli\n   */\n  vars?: string[];\n\n  restartVars?: string[];\n  /**\n   * manual project root for the operation to run\n   */\n  manualProjectRoot?: string;\n}): Promise<void> => {\n  const {\n    cliFunctionName,\n    operationName,\n    isRestart,\n    manualProjectRoot,\n    restartVars,\n    vars,\n  } = config;\n\n  const operationPath = await getOperationPath(operationName, {\n    manualProjectRoot,\n  });\n\n  if (!operationPath) {\n    console.log(`${operationName} not found`);\n    return;\n  }\n\n  const cliPath = `build/cli/${cliFunctionName}.cli.js`;\n  const absoluteCliPath = path.join(operationPath, cliPath);\n\n  if (!fs.existsSync(absoluteCliPath)) {\n    log(`${absoluteCliPath} not found (nodemon)`, { type: \"error\" });\n    return;\n  }\n  const realRestartVars = restartVars || vars;\n  const realVars = isRestart ? realRestartVars : vars;\n  const varsString = realVars ? ` ${realVars.join(\" \")}` : \"\";\n  const command = `node ${cliPath} ${varsString}`;\n\n  const process = spawn(command, {\n    cwd: operationPath,\n    shell: true,\n    stdio: \"inherit\",\n  });\n  //\n  process\n    .on(\"exit\", (code) => {\n      log(\n        `Process ${cliFunctionName} has ended with code ${code}, restarting...`,\n        { type: \"important\" }\n      );\n\n      nodemon({ ...config, isRestart: true });\n    })\n    .on(\"data\", (message) => {\n      log(message);\n    })\n    .on(\"error\", (err) => {\n      log(`${err.name} Error: ${err.message}`, { type: \"error\" });\n    });\n}",
   "name": "nodemon",
   "slug": "nodemon",
   "parameters": [
     {
-      "name": "operationName",
+      "name": "config",
       "schema": {
-        "type": "string"
-      },
-      "simplifiedSchema": {
-        "type": "string"
-      },
-      "required": true
-    },
-    {
-      "name": "cliFunctionName",
-      "schema": {
-        "type": "string",
-        "description": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file"
-      },
-      "simplifiedSchema": {
-        "fullComment": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file",
-        "type": "string"
-      },
-      "required": true
-    },
-    {
-      "name": "vars",
-      "schema": {
-        "type": "array",
-        "items": {
-          "type": "string"
-        },
-        "description": "vars that need to be passed to the cli"
-      },
-      "simplifiedSchema": {
-        "fullComment": "vars that need to be passed to the cli",
-        "items": [
-          {
-            "schema": {
+        "type": "object",
+        "properties": {
+          "isRestart": {
+            "type": "boolean"
+          },
+          "operationName": {
+            "type": "string"
+          },
+          "cliFunctionName": {
+            "type": "string",
+            "description": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file"
+          },
+          "vars": {
+            "type": "array",
+            "items": {
               "type": "string"
             },
-            "name": null
+            "description": "vars that need to be passed to the cli"
+          },
+          "restartVars": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "manualProjectRoot": {
+            "type": "string",
+            "description": "manual project root for the operation to run"
           }
+        },
+        "required": [
+          "operationName",
+          "cliFunctionName"
         ],
-        "type": "array"
-      },
-      "required": false
-    },
-    {
-      "name": "manualProjectRoot",
-      "schema": {
-        "type": "string",
-        "description": "manual project root for the operation to run"
+        "additionalProperties": false
       },
       "simplifiedSchema": {
-        "fullComment": "manual project root for the operation to run",
-        "type": "string"
+        "properties": [
+          {
+            "name": "isRestart",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "operationName",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cliFunctionName",
+            "required": true,
+            "schema": {
+              "fullComment": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file",
+              "type": "string"
+            }
+          },
+          {
+            "name": "vars",
+            "required": false,
+            "schema": {
+              "fullComment": "vars that need to be passed to the cli",
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "restartVars",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "fullComment": "manual project root for the operation to run",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
       },
-      "required": false
+      "required": true
     }
   ],
   "description": "",
@@ -87,13 +132,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 1429,
-    "lines": 57,
-    "bytes": 1429,
+    "characters": 1740,
+    "lines": 74,
+    "bytes": 1740,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 25,
-    "linesPerFile": 57,
+    "charactersPerLine": 24,
+    "linesPerFile": 74,
     "numberOfFiles": 1
   },
-  "id": "gnwweedubmowytdptuyxmxxc"
+  "id": "vezdvqfufqblssuxquccexvk"
 }

@@ -48,38 +48,70 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [],
+    "coreDependenciesIndexed": [
+      "useEffect",
+      "useState"
+    ],
     "folderNameIndexed": "asset-view",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668835205790,
-    "operationDependenciesIndexed": [],
+    "lastRebuildAt": 1669055025981,
+    "operationDependenciesIndexed": [
+      "readableSize",
+      "Asset",
+      "MarkdownCodeblock",
+      "A",
+      "Div",
+      "P",
+      "Span",
+      "Asset",
+      "ClickableIcon",
+      "Div",
+      "Input",
+      "Span",
+      "addToken",
+      "removeTokenIfPresent",
+      "getNameWithTokenFromRelativePath",
+      "BackendAsset",
+      "getReferencedAssetApiUrl",
+      "apiUrl",
+      "AugmentedAnyModelType",
+      "takeFirst",
+      "BackendAsset",
+      "AugmentedAnyModelType",
+      "getExtensionFromAsset",
+      "getReferencedAssetApiUrl",
+      "Asset",
+      "apiUrl",
+      "getTypeFromUrlOrPath",
+      "isText"
+    ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/asset",
     "markdown": "# 📁 AssetView\n\n`AssetView` shows an asset. Every file-format has a different way to be rendered.\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 4,
-        "lines": 296,
-        "characters": 8124,
-        "bytes": 8124
+        "numberOfFiles": 6,
+        "lines": 320,
+        "characters": 8864,
+        "bytes": 8864
       },
       "dataSize": {
         "numberOfFiles": 2,
         "lines": 158,
-        "characters": 4876,
-        "bytes": 4876
+        "characters": 4856,
+        "bytes": 4856
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 19,
-        "characters": 284,
-        "bytes": 284
+        "lines": 121,
+        "characters": 2725,
+        "bytes": 2725
       },
       "size": {
-        "bytes": 13284,
-        "characters": 13284,
-        "lines": 473,
-        "numberOfFiles": 8
+        "bytes": 16445,
+        "characters": 16445,
+        "lines": 599,
+        "numberOfFiles": 10
       }
     },
     "hasGeneratedDependenciesIndexed": false,

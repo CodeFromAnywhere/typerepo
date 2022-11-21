@@ -1,0 +1,82 @@
+{
+  "createdAt": 1668687823467,
+  "updatedAt": 1668687823467,
+  "deletedAt": 0,
+  "createdFirstAt": 1668687823467,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "name": "watch-all",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": true,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669055122709,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 3,
+        "lines": 99,
+        "characters": 2640,
+        "bytes": 2640
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 120,
+        "characters": 3588,
+        "bytes": 3588
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 85,
+        "characters": 2200,
+        "bytes": 2200
+      },
+      "size": {
+        "bytes": 8428,
+        "characters": 8428,
+        "lines": 304,
+        "numberOfFiles": 7
+      }
+    },
+    "folderNameIndexed": "watch-all",
+    "relativeOperationLocationPathIndexed": "operations/tools/control-project",
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "log",
+      "getProjectRoot",
+      "sdk",
+      "db",
+      "ProjectWatcher",
+      "notEmpty",
+      "oneByOne"
+    ],
+    "packageDependenciesIndexed": [
+      "watch"
+    ]
+  },
+  "dependencies": {
+    "fs-util-js": "0.0.1",
+    "log": "0.0.1",
+    "one-by-one": "0.0.1",
+    "get-path": "0.0.1",
+    "chokidar": "*",
+    "database": "0.0.1",
+    "js-util": "0.0.1",
+    "watch-types": "0.0.1"
+  },
+  "slug": "watch-all",
+  "id": "wdrlkzjoriemaynaejxldjgd"
+}

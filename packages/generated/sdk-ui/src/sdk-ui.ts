@@ -13,6 +13,8 @@ import { AssetView } from "asset-view";
 import { InteractiveAsset } from "asset-view";
 import { itemGetBackendAssetUrl } from "asset-view";
 import { ModelItemAssetView } from "asset-view";
+import { useAssetInfo } from "asset-view";
+import { useAsset } from "asset-view";
 import { AuthenticationMethodsCrud } from "authentication";
 import { LoginForm } from "authentication";
 import { LoginWrapper } from "authentication";
@@ -245,6 +247,8 @@ AssetView,
 InteractiveAsset,
 itemGetBackendAssetUrl,
 ModelItemAssetView,
+useAssetInfo,
+useAsset,
 AuthenticationMethodsCrud,
 LoginForm,
 LoginWrapper,

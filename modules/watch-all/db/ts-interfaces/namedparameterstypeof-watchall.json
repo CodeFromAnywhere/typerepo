@@ -1,0 +1,74 @@
+{
+  "createdAt": 1669055116475,
+  "updatedAt": 1669055116475,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055116475,
+  "id": "namedparameterstypeof-watchall",
+  "name": "NamedParameters<typeof watchAll>",
+  "slug": "namedparameterstypeof-watchall",
+  "operationRelativeTypescriptFilePath": "src/watchAll.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "customIgnored": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Overwrite the default ignored behavior"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "customIgnored",
+                "required": false,
+                "schema": {
+                  "fullComment": "Overwrite the default ignored behavior",
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof watchAll>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

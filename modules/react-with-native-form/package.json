@@ -38,7 +38,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/vui/react-with-native/react-with-native-form/src/general.tsx. Error: TypeError: Cannot read properties of undefined (reading 'kind')\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/react-with-native/react-with-native-form/src/general.tsx. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
@@ -51,7 +53,7 @@
     "folderNameIndexed": "react-with-native-form",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668333485742,
+    "lastRebuildAt": 1669055882969,
     "operationDependenciesIndexed": [
       "ActivityIndicator",
       "Div",
@@ -65,19 +67,19 @@
       "bareInputClass"
     ],
     "packageDependenciesIndexed": [],
-    "relativeOperationLocationPathIndexed": "operations/tools/interfaces/vui/react-with-native",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/react-with-native",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 1,
-        "lines": 826,
-        "characters": 22547,
-        "bytes": 22547
+        "lines": 829,
+        "characters": 22666,
+        "bytes": 22666
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 139,
-        "characters": 3491,
-        "bytes": 3491
+        "lines": 141,
+        "characters": 3530,
+        "bytes": 3530
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -86,9 +88,9 @@
         "bytes": 12373
       },
       "size": {
-        "bytes": 38411,
-        "characters": 38411,
-        "lines": 1503,
+        "bytes": 38569,
+        "characters": 38569,
+        "lines": 1508,
         "numberOfFiles": 5
       }
     },

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668835839913,
-  "updatedAt": 1668835839913,
+  "createdAt": 1669055512761,
+  "updatedAt": 1669055512761,
   "deletedAt": 0,
-  "createdFirstAt": 1668835839913,
+  "createdFirstAt": 1669055512761,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/generateFunctionSdks.ts",
   "commentsInside": [],
-  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const functionsPerClassification = await getSdkFunctionsPerClassification({\n    manualProjectRoot,\n  });\n\n  if (!functionsPerClassification) return;\n\n  const jsFunctions = functionsPerClassification[\"cjs\"].concat(\n    functionsPerClassification[\"esm\"]\n  );\n\n  const apiFunctions = functionsPerClassification[\"node-cjs\"]\n    .concat(functionsPerClassification[\"node-esm\"])\n    .concat(functionsPerClassification[\"cjs\"])\n    .concat(functionsPerClassification[\"esm\"]);\n\n  const uiFunctions = functionsPerClassification[\"ui-cjs\"].concat(\n    functionsPerClassification[\"ui-esm\"]\n  );\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n    newFunctionSdkOperation(\"sdk-js\", jsFunctions, config),\n    newFunctionSdkOperation(\"sdk-ui\", uiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const { apiFunctions, jsFunctions, uiFunctions } =\n    await getFunctionSdksContent({ manualProjectRoot });\n\n  if (!apiFunctions || !jsFunctions || !uiFunctions) return;\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n    newFunctionSdkOperation(\"sdk-js\", jsFunctions, config),\n    newFunctionSdkOperation(\"sdk-ui\", uiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
   "name": "generateFunctionSdks",
   "slug": "generate-function-sdks",
   "parameters": [
@@ -70,13 +70,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1519,
-    "lines": 55,
-    "bytes": 1519,
+    "characters": 1108,
+    "lines": 41,
+    "bytes": 1108,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 28,
-    "linesPerFile": 55,
+    "charactersPerLine": 27,
+    "linesPerFile": 41,
     "numberOfFiles": 1
   },
-  "id": "vypophttpdnbjbakwuddaxju"
+  "id": "qrilrcynigwgcoroxnrsptxt"
 }

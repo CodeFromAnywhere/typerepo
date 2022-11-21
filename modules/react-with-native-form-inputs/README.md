@@ -166,7 +166,18 @@ If you want to know the exact type interface of the input (which differs per inp
 
 
 
+## `<ToggleInput />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## 📄 SelectMultipleInput (exported const)
+
+## 📄 ToggleInput (exported const)
 
 ## `<NumberInput />`
 
@@ -195,22 +206,11 @@ If you want to know the exact type interface of the input (which differs per inp
 
 
 
-## `<ToggleInput />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `JSX.Element`   |    |
-
-
-
 ## 📄 NumberInput (exported const)
 
 ## 📄 PasswordInput (exported const)
 
 ## 📄 TextInput (exported const)
-
-## 📄 ToggleInput (exported const)
 
 # Internal
 

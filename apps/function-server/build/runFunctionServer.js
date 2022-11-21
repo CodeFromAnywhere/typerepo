@@ -42,6 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.runFunctionServer = void 0;
 var server_1 = __importDefault(require("server"));
 var function_server_endpoints_1 = require("function-server-endpoints");
+var watch_all_1 = require("watch-all");
 var port_conventions_1 = require("port-conventions");
 var get_path_1 = require("get-path");
 var fs_util_1 = require("fs-util");
@@ -54,17 +55,20 @@ var scheduleCronJobs_1 = require("./scheduleCronJobs");
  *
  * server will be exposed on port 42000
  */
-var runFunctionServer = function () {
+var runFunctionServer = function (isWatching, isRestart) {
     var header = server_1.default.reply.header;
     (0, pm2_util_1.startApp)("search-web", true).then(function (result) {
         if (!(result === null || result === void 0 ? void 0 : result.isSuccessful)) {
             (0, log_1.log)("Something went wrong starting \"search-web\". Maybe you don't have it?", { type: "error" });
             return;
         }
-        setTimeout(function () {
-            (0, child_process_helper_1.execSync)("open http://localhost:42001");
-            (0, log_1.log)("Opened the homepage in your browser", { type: "success" });
-        }, 1000);
+        if (!isRestart && isWatching) {
+            // Open in browser
+            setTimeout(function () {
+                (0, child_process_helper_1.execSync)("open http://localhost:42001");
+                (0, log_1.log)("Opened the homepage in your browser", { type: "success" });
+            }, 1000);
+        }
     });
     var cors = [
         /*
@@ -119,7 +123,11 @@ var runFunctionServer = function () {
         return __generator(this, function (_a) {
             if (process.env.NODE_APP_INSTANCE === undefined ||
                 process.env.NODE_APP_INSTANCE === "0") {
+                // only on the first core, schedule crons and initiate watchers
                 (0, scheduleCronJobs_1.scheduleCronJobs)();
+                if (isWatching) {
+                    (0, watch_all_1.watchAll)();
+                }
             }
             console.log("Running on port ".concat(port_conventions_1.ports["function-server"], ". All node functions are now available through /function/[name] or through the \"api\" object..."));
             return [2 /*return*/];

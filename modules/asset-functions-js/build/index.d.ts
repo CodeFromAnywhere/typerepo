@@ -3,7 +3,7 @@ export * from "./getExtensionFromAsset";
 export * from "./getNameFromRelativePath";
 export * from "./getPreferredExtensionFromType";
 export * from "./getReferencedAssetApiUrl";
-export * from "./getTypeFromRelativePath";
+export * from "./getTypeFromUrlOrPath";
 export * from "./readableSize";
 export * from "./token/addToken";
 export * from "./token/ensureToken";

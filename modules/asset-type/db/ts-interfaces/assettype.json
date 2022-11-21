@@ -1,15 +1,15 @@
 {
-  "createdAt": 1668835169901,
-  "updatedAt": 1668835169901,
+  "createdAt": 1669054983381,
+  "updatedAt": 1669054983381,
   "deletedAt": 0,
-  "createdFirstAt": 1668835169901,
+  "createdFirstAt": 1669054983381,
   "id": "assettype",
   "name": "AssetType",
   "slug": "assettype",
   "operationRelativeTypescriptFilePath": "src/Asset.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * Possible Asset Types\n */\nexport type AssetType = \"video\" | \"audio\" | \"image\" | \"other\";",
+  "rawText": "\n\n/**\n * Possible Asset Types\n */\nexport type AssetType = \"video\" | \"audio\" | \"image\" | \"text\" | \"other\";",
   "extensions": [],
   "isOperationIndex": false,
   "description": "Possible Asset Types",
@@ -22,6 +22,7 @@
         "video",
         "audio",
         "image",
+        "text",
         "other"
       ],
       "description": "Possible Asset Types"
@@ -31,6 +32,7 @@
         "video",
         "audio",
         "image",
+        "text",
         "other"
       ],
       "fullComment": "Possible Asset Types",

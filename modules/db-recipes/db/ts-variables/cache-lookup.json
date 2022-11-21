@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668976756370,
-  "updatedAt": 1668976756370,
+  "createdAt": 1669055144007,
+  "updatedAt": 1669055144007,
   "deletedAt": 0,
-  "createdFirstAt": 1668976756370,
+  "createdFirstAt": 1669055144007,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  functionName: string,\n  parameters: undefined | any[]\n): CacheLookupResult => {\n  // TODO: think of a smart way to look in cache and make sure it works with as many functions as possible with a smart cache invalidation + cleanup strategy\n  return { hasValidCache: false };\n}",
   "description": "Wrapper function to cache any function and invalidate it, in some way\n\ncaching\nautomatic cache invalidation if data sources are updated\noptimistic caching after cache invalidation",
-  "id": "hlrkinxhcqvakpokhgoauxma"
+  "id": "andlvbbfsuzqnedptsvarosa"
 }

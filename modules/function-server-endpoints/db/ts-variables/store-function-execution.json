@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668836086723,
-  "updatedAt": 1668836086723,
+  "createdAt": 1669055794402,
+  "updatedAt": 1669055794402,
   "deletedAt": 0,
-  "createdFirstAt": 1668836086723,
+  "createdFirstAt": 1669055794402,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  tsFunction: TsFunction,\n  inputParameters: any[] | undefined,\n  output: any,\n  performance: PerformanceItem[],\n  isResultFromCache: boolean\n) => {\n  // TODO: store using db (if useful)\n\n  const functionExecution: Creation<FunctionExecution> = {\n    functionName: tsFunction.name,\n    tsFunctionId: tsFunction.id,\n    inputParameters,\n    isExample: false,\n    isTest: false,\n    isResultFromCache,\n    output,\n    performance,\n  };\n\n  //@ts-ignore\n  const result = await db.upsert(\"FunctionExecution\", functionExecution, {\n    onlyInsert: true,\n    operationName: tsFunction.operationName,\n  });\n  return;\n}",
   "description": "wrapper function that stores execution-speed in an object with `FunctionPerformance` data-structure. Store this using `db.push` if it adds value\n.",
-  "id": "lcypotzhecdigwqsamibglay"
+  "id": "posbupfwqeyjbrqkexpeiwgz"
 }

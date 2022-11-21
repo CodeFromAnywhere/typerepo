@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775478095,
-  "updatedAt": 1668775478095,
+  "createdAt": 1669055749946,
+  "updatedAt": 1669055749946,
   "deletedAt": 0,
-  "createdFirstAt": 1668775478095,
+  "createdFirstAt": 1669055749946,
   "id": "namedparameterstypeof-runfunctionserver",
   "name": "NamedParameters<typeof runFunctionServer>",
   "slug": "namedparameterstypeof-runfunctionserver",
@@ -16,10 +16,33 @@
   "type": {
     "typeDefinition": {
       "type": "object",
+      "properties": {
+        "isWatching": {
+          "type": "boolean"
+        },
+        "isRestart": {
+          "type": "boolean"
+        }
+      },
       "additionalProperties": false
     },
     "simplifiedSchema": {
-      "properties": [],
+      "properties": [
+        {
+          "name": "isWatching",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isRestart",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
       "type": "object"
     },
     "typeCoverage": 0,

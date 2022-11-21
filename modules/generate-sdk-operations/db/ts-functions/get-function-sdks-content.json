@@ -1,0 +1,62 @@
+{
+  "createdAt": 1669055521251,
+  "updatedAt": 1669055521251,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055521251,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getFunctionSdksContent.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}): Promise<{\n  jsFunctions?: TsFunction[];\n  apiFunctions?: TsFunction[];\n  uiFunctions?: TsFunction[];\n}> => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const functionsPerClassification = await getSdkFunctionsPerClassification({\n    manualProjectRoot,\n  });\n\n  if (!functionsPerClassification) return {};\n\n  const jsFunctions = functionsPerClassification[\"cjs\"].concat(\n    functionsPerClassification[\"esm\"]\n  );\n\n  const apiFunctions = functionsPerClassification[\"node-cjs\"]\n    .concat(functionsPerClassification[\"node-esm\"])\n    .concat(functionsPerClassification[\"cjs\"])\n    .concat(functionsPerClassification[\"esm\"]);\n\n  const uiFunctions = functionsPerClassification[\"ui-cjs\"].concat(\n    functionsPerClassification[\"ui-esm\"]\n  );\n\n  return { jsFunctions, apiFunctions, uiFunctions };\n}",
+  "name": "getFunctionSdksContent",
+  "slug": "get-function-sdks-content",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ jsFunctions?: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction[] | undefined; apiFunctions?: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction[] | undefined; uiFunctions?: import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction[] | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 859,
+    "lines": 30,
+    "bytes": 859,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 30,
+    "numberOfFiles": 1
+  },
+  "id": "ywabbqpvudgysnucrzlxhxvm"
+}

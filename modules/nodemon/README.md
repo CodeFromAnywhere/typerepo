@@ -10,9 +10,7 @@ nodemon (`OperationClassification` node-cjs)
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| operationName | string |  |,| cliFunctionName | string | name of the function that you want to run the cli from
-
-by convention, we are going to execute the `build/cli/[fnName].cli.js` file |,| vars (optional) | string[] | vars that need to be passed to the cli |,| manualProjectRoot (optional) | string | manual project root for the operation to run |
+| config | { isRestart?: boolean, <br />operationName: string, <br />cliFunctionName: string, <br />vars?: string[], <br />restartVars?: string[], <br />manualProjectRoot?: string, <br /> } |  |
 | **Output** |    |    |
 
 

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977355066,
-  "updatedAt": 1668977355066,
+  "createdAt": 1669056076211,
+  "updatedAt": 1669056076211,
   "deletedAt": 0,
-  "createdFirstAt": 1668977355066,
+  "createdFirstAt": 1669056076211,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(queryPaths: string[]) => {\n  const projectNestedPathObject = queryPaths\n    ? queryPathsArrayToNestedPathObject(queryPaths)\n    : undefined;\n\n  /**\n   * This one too\n   */\n  const nestedMenu = projectNestedPathObject\n    ? nestedPathObjectToNestedMenuRecursive(projectNestedPathObject, [], {\n        getHref: (fullPath) => {\n          return fullPath;\n        },\n      })\n    : undefined;\n\n  const result = nestedMenu?.map((item) => {\n    const webPage: WebPage<undefined> = {\n      queryPath: item.title,\n      menuTitleTooltip: \"Should be replaced with WebPage model\",\n      pageData: undefined,\n    };\n\n    return webPage;\n  });\n\n  return result;\n}",
   "description": "",
-  "id": "kzgopncdiiorelyrbzciwiii"
+  "id": "orzfsmcugmkbpieuzyqakqnu"
 }

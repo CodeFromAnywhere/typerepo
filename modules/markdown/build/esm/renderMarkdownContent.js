@@ -22,10 +22,13 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
-import { getRealSrc } from "./util/getRealSrc.js";
-import { Div, Span } from "react-with-native";
-import { getFolderJs } from "fs-util-js";
+// import rehypeHighlight from "rehype-highlight";
+// import rehypeRaw from "rehype-raw";
+// import remarkGfm from "remark-gfm";
+import { AssetView } from "asset-view";
+import { getFolderJs, isPathRelative } from "fs-util-js";
 import { getImplicitId } from "markdown-parse-js";
+import { Div, Span } from "react-with-native";
 import { Tooltip } from "tooltip";
 export var header = function (_a) {
     var level = _a.level, children = _a.children;
@@ -63,9 +66,16 @@ export var renderMarkdownContent = function (content, config) {
                 h5: header,
                 h6: header,
                 img: function (_a) {
-                    var node = _a.node, src = _a.src, props = __rest(_a, ["node", "src"]);
-                    var realSrc = getRealSrc(src, config);
-                    return React.createElement("img", __assign({ src: realSrc }, props));
+                    var src = _a.src, alt = _a.alt;
+                    console.log({ src: src, alt: alt });
+                    if (!src)
+                        return React.createElement(Div, null, "Bad asset src");
+                    var isRelative = isPathRelative(src);
+                    var url = isRelative ? undefined : src;
+                    var relativePath = isRelative ? src : undefined;
+                    var asset = { alt: alt, relativePath: relativePath, absoluteUrl: url };
+                    console.log({ isRelative: isRelative, url: url, relativePath: relativePath, asset: asset, config: config });
+                    return (React.createElement(AssetView, { asset: asset, projectRelativeReferencingFilePath: config.projectRelativeMarkdownFilePath }));
                 },
                 //Fix newlines with `<br>`
                 br: function (_a) {

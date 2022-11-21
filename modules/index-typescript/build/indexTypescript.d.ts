@@ -11,7 +11,8 @@
  TODO: if a typescript file starst with a comment before any statements (but possibly after the `#!/usr/bin/env xyz` statement), this should be indexed as the main file comment... This can be shown when opening the file in the admin... It should also check if there is an associated md file for that in src, so that can also be added in the index.
 
  */
-export declare const indexTypescript: ({ filePaths, manualProjectRoot, }: {
+export declare const indexTypescript: (props: {
+    showLogging?: boolean | undefined;
     /**
      * filepaths of files to index. must be files from the same operation.
      */

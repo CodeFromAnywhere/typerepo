@@ -43,38 +43,62 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/menu/src/MenuProps.ts. Error: Error: Unknown type \"function\""
       ]
     },
-    "lastRebuildAt": 1668977362243,
+    "lastRebuildAt": 1669056083917,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 165,
-        "characters": 4257,
-        "bytes": 4257
+        "lines": 166,
+        "characters": 4286,
+        "bytes": 4286
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 140,
-        "characters": 4300,
-        "bytes": 4300
+        "lines": 120,
+        "characters": 3878,
+        "bytes": 3878
       },
       "textSize": {
         "numberOfFiles": 3,
-        "lines": 21,
-        "characters": 430,
-        "bytes": 430
+        "lines": 71,
+        "characters": 1127,
+        "bytes": 1127
       },
       "size": {
-        "bytes": 8987,
-        "characters": 8987,
-        "lines": 326,
+        "bytes": 9291,
+        "characters": 9291,
+        "lines": 357,
         "numberOfFiles": 8
       }
     },
     "folderNameIndexed": "menu",
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [],
-    "operationDependenciesIndexed": [],
+    "coreDependenciesIndexed": [
+      "useState",
+      "Dispatch",
+      "SetStateAction"
+    ],
+    "operationDependenciesIndexed": [
+      "FancyLoader",
+      "NestedMenu",
+      "nestedPathObjectToNestedMenuRecursive",
+      "queryPathsArrayToNestedPathObject",
+      "Div",
+      "Input",
+      "P",
+      "PathSearchResults",
+      "ClickableIcon",
+      "isAltB",
+      "useHotkey",
+      "isCtrlP",
+      "NestedWebPage",
+      "WebPage",
+      "AugmentedWord",
+      "NestedWebPage",
+      "WebPage",
+      "nestedMenuStoreInitialValues",
+      "createStore"
+    ],
     "packageDependenciesIndexed": []
   },
   "slug": "menu",

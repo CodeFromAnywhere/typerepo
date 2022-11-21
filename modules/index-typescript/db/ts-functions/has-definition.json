@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835895550,
-  "updatedAt": 1668835895550,
+  "createdAt": 1669055585611,
+  "updatedAt": 1669055585611,
   "deletedAt": 0,
-  "createdFirstAt": 1668835895550,
+  "createdFirstAt": 1669055585611,
   "isApiExposed": false,
   "name": "hasDefinition",
   "slug": "has-definition",
@@ -1168,5 +1168,5 @@
   },
   "rawText": "\n\nexport function hasDefinition(\n  maybeInterface: MaybeInteface\n): maybeInterface is TsInterface {\n  return maybeInterface.type.typeDefinition !== null;\n}",
   "maxIndentationDepth": 1,
-  "id": "uaxtpvgmksiyzmeugvilrdio"
+  "id": "odqkqnwwfvwlciherqujrixd"
 }

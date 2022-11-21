@@ -78,7 +78,7 @@ var deviceInclude = {
  * Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
  */
 var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, alreadyDevice, ipInfo, origin, referer, currentIpInfo_1, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, currentPersonCalculated_1, updatedDevice_1, newDevice, upsertResult, fullNewDevice, currentPersonCalculated, finalNewDevice;
+    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, devices, firstDevice, alreadyDevice, ipInfo, origin, referer, currentIpInfo_1, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, currentPersonCalculated_1, updatedDevice_1, newDevice, upsertResult, fullNewDevice, currentPersonCalculated, finalNewDevice;
     var _a, _b, _c;
     return __generator(this, function (_d) {
         switch (_d.label) {
@@ -99,7 +99,11 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 performance.push((0, measure_performance_1.getNewPerformance)("lookupIp", executionId));
                 return [4 /*yield*/, database_1.db.get("Device", { include: deviceInclude })];
             case 1:
-                alreadyDevice = (_d.sent()).find(function (x) { return x.authToken === authToken; });
+                devices = _d.sent();
+                firstDevice = devices[0];
+                if (firstDevice)
+                    return [2 /*return*/, firstDevice];
+                alreadyDevice = devices.find(function (x) { return x.authToken === authToken; });
                 performance.push((0, measure_performance_1.getNewPerformance)("findAlreadyDevice", executionId));
                 ipInfo = {
                     ip: ip,

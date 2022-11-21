@@ -45,7 +45,7 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/layout/src/LayoutGrid.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
       ]
     },
-    "lastRebuildAt": 1668977344186,
+    "lastRebuildAt": 1669056065131,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 4,
@@ -61,14 +61,14 @@
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 13,
-        "characters": 188,
-        "bytes": 188
+        "lines": 96,
+        "characters": 2270,
+        "bytes": 2270
       },
       "size": {
-        "bytes": 10544,
-        "characters": 10544,
-        "lines": 369,
+        "bytes": 12626,
+        "characters": 12626,
+        "lines": 452,
         "numberOfFiles": 8
       }
     },
@@ -76,7 +76,29 @@
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "classificationIndexed": "ui-cjs",
     "coreDependenciesIndexed": [],
-    "operationDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "LoginForm",
+      "LoginWrapper",
+      "SignupForm",
+      "UpdateMeForm",
+      "PublicProfile",
+      "AuthenticationMethodsCrud",
+      "queries",
+      "MenuProps",
+      "Div",
+      "useRouter",
+      "MeAuthenticationInfo",
+      "PublicBundleConfig",
+      "ClickableIcon",
+      "ALink",
+      "Div",
+      "P",
+      "Menu",
+      "MenuProps",
+      "Div",
+      "nestedMenuStoreInitialValues",
+      "createStore"
+    ],
     "packageDependenciesIndexed": []
   },
   "slug": "layout",

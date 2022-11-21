@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669055111656,
+  "updatedAt": 1669055111656,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055111656,
+  "id": "namedparameterstypeof-watchallcli",
+  "name": "NamedParameters<typeof watchAllCli>",
+  "slug": "namedparameterstypeof-watchallcli",
+  "operationRelativeTypescriptFilePath": "src/cli/watchAll.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof watchAllCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

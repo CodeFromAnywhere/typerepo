@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835840009,
-  "updatedAt": 1668835840009,
+  "createdAt": 1669055512864,
+  "updatedAt": 1669055512864,
   "deletedAt": 0,
-  "createdFirstAt": 1668835840009,
+  "createdFirstAt": 1669055512864,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const functionsPerClassification = await getSdkFunctionsPerClassification({\n    manualProjectRoot,\n  });\n\n  if (!functionsPerClassification) return;\n\n  const jsFunctions = functionsPerClassification[\"cjs\"].concat(\n    functionsPerClassification[\"esm\"]\n  );\n\n  const apiFunctions = functionsPerClassification[\"node-cjs\"]\n    .concat(functionsPerClassification[\"node-esm\"])\n    .concat(functionsPerClassification[\"cjs\"])\n    .concat(functionsPerClassification[\"esm\"]);\n\n  const uiFunctions = functionsPerClassification[\"ui-cjs\"].concat(\n    functionsPerClassification[\"ui-esm\"]\n  );\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n    newFunctionSdkOperation(\"sdk-js\", jsFunctions, config),\n    newFunctionSdkOperation(\"sdk-ui\", uiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
+  "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const { apiFunctions, jsFunctions, uiFunctions } =\n    await getFunctionSdksContent({ manualProjectRoot });\n\n  if (!apiFunctions || !jsFunctions || !uiFunctions) return;\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n    newFunctionSdkOperation(\"sdk-js\", jsFunctions, config),\n    newFunctionSdkOperation(\"sdk-ui\", uiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
   "description": "Creates\n\n- sdk-api + sdk-api-keys (for all exposed functions)\n- sdk-js (functions that can be executed anywhere)\n- sdk-ui (functions that use JSX)\n\nOverwrites them if they already exist with minimal interruption time of the system",
-  "id": "vphdsdspfvylykklmixrijla"
+  "id": "eadvakcvtsntwjozehzwtzzi"
 }

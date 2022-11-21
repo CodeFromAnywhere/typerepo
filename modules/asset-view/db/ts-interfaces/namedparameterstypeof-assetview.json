@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835193770,
-  "updatedAt": 1668835193770,
+  "createdAt": 1669055009486,
+  "updatedAt": 1669055009486,
   "deletedAt": 0,
-  "createdFirstAt": 1668835193770,
+  "createdFirstAt": 1669055009486,
   "id": "namedparameterstypeof-assetview",
   "name": "NamedParameters<typeof AssetView>",
   "slug": "namedparameterstypeof-assetview",
@@ -124,9 +124,18 @@
                           "video",
                           "audio",
                           "image",
+                          "text",
                           "other"
                         ],
                         "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "absoluteUrl",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Can be available in case it's an asset from an external source URL for example within md.",
                         "type": "string"
                       }
                     },

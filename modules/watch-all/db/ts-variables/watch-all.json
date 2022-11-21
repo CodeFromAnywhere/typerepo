@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669055117378,
+  "updatedAt": 1669055117378,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055117378,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "watchAll",
+  "slug": "watch-all",
+  "operationRelativeTypescriptFilePath": "src/watchAll.ts",
+  "type": {
+    "rawType": "(config?: { customIgnored?: string[] | undefined; } | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config?: {\n  /**\n   * Overwrite the default ignored behavior\n   */\n  customIgnored?: string[];\n}) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  console.log(\"Searching...\"); //\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  const projectWatcherTsFunctions = tsFunctions.filter(\n    (x) => x.explicitTypeName === \"ProjectWatcher\"\n  );\n\n  const projectWatchers = projectWatcherTsFunctions\n    .map((x) => x.name)\n    .map((name) => sdk[name as keyof typeof sdk] as ProjectWatcher | undefined)\n    .filter(notEmpty);\n\n  log(`${projectWatchers.length} watchers gonna watch ${projectRoot}`, {\n    type: \"important\",\n  });\n\n  const startupWaitMs = 1000;\n  setTimeout(() => {\n    log(\n      `There they are! \\n\\n${projectWatchers\n        .map((projectWatcher) => {\n          return `👁 👁 ${projectWatcher.name} ✅`;\n        })\n        .join(\"\\n\")}`,\n      {\n        type: \"success\",\n      }\n    );\n  }, startupWaitMs);\n\n  const startTimeAt = Date.now();\n\n  watch(projectRoot, {\n    ignoreInitial: true,\n    ignored: config?.customIgnored || [\n      \"**/node_modules/**\",\n      \"**/.next/**\",\n      \"**/.expo/**\",\n      // \"**/build/**\", // build change detection is needed for SDK generation\n      \"**/db/**\",\n      \"**/.git/**\",\n      \"**/.turbo/**\",\n      \"**/generated/**\",\n    ],\n    // alwaysStat: true, // not sure why I would need this, seems inefficient if I don't need it, I can simply run fs.stat\n  }).on(\"all\", (eventName, path, stats) => {\n    if (Date.now() < startTimeAt + startupWaitMs) return;\n\n    const relevantWatchers = projectWatchers.filter((watcher) =>\n      watcher.filter(eventName, path)\n    );\n\n    oneByOne(relevantWatchers, async (projectWatcher) => {\n      await projectWatcher(eventName, path);\n    });\n  });\n}",
+  "description": "👁 👁 Finds all watchers within typerepo and ensures they all start watching their watch",
+  "id": "wzkkurxtiogoitbqmmizuggk"
+}

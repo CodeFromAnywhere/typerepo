@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977225767,
-  "updatedAt": 1668977225767,
+  "createdAt": 1669056020445,
+  "updatedAt": 1669056020445,
   "deletedAt": 0,
-  "createdFirstAt": 1668977225767,
+  "createdFirstAt": 1669056020445,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: {\n  publicPerson: PublicPerson | undefined;\n}) => {\n  const { publicPerson } = props;\n\n  return !publicPerson ? null : (\n    <Div className=\"w-full bg-red-500\">\n      <ModelItemAssetView\n        item={publicPerson}\n        backendAsset={publicPerson?.pictureImage}\n        hideDownloadLink\n        className=\" w-[800px]\"\n      />\n      <P>{publicPerson.name}</P>\n    </Div>\n  );\n}",
   "description": "",
-  "id": "dzgnrhflbgrotqgklwxewdpy"
+  "id": "gxwucslooxyyhtayvfqayjjq"
 }

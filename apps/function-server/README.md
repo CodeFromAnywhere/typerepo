@@ -46,13 +46,16 @@ Nevertheless, server.js works fine and most things are documented.
 
 # Api reference
 
-# Tests
+# CLI
 
-<details><summary>Show test information(2)</summary>
+<details><summary>Show CLI information (4)</summary>
     
-  # cloc()
+  # runFunctionServerCli()
 
-
+Argument:
+- pass true if you want the server to be watching
+- pass true true if you want the server to be watching and this is a restart (so don't launch things like browser)
+- if you pass nothing, there will be no browser start and no watcher
 
 
 | Input      |    |    |
@@ -62,27 +65,32 @@ Nevertheless, server.js works fine and most things are documented.
 
 
 
-## 📄 cloc (exported const)
+## runFunctionServerDevCli()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 runFunctionServerCli (unexported const)
+
+Argument:
+- pass true if you want the server to be watching
+- pass true true if you want the server to be watching and this is a restart (so don't launch things like browser)
+- if you pass nothing, there will be no browser start and no watcher
+
+
+## 📄 runFunctionServerDevCli (exported const)
 
   </details>
 
 # Internal
 
-<details><summary>Show internal (9)</summary>
+<details><summary>Show internal (11)</summary>
     
-  # cloc()
-
-
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## executeCronFunction()
+  # executeCronFunction()
 
 NB: cron functions cannot have parameters
 
@@ -90,6 +98,24 @@ NB: cron functions cannot have parameters
 | Input      |    |    |
 | ---------- | -- | -- |
 | tsFunction | `TsFunction` |  |
+| **Output** |    |    |
+
+
+
+## runFunctionServerDevCli()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## runFunctionServerDev()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
 | **Output** |    |    |
 
 
@@ -103,7 +129,7 @@ server will be exposed on port 42000
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| isWatching (optional) | boolean |  |,| isRestart (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -117,12 +143,14 @@ server will be exposed on port 42000
 
 
 
-## 📄 cloc (exported const)
-
 ## 📄 executeCronFunction (exported const)
 
 NB: cron functions cannot have parameters
 
+
+## 📄 runFunctionServerDevCli (exported const)
+
+## 📄 runFunctionServerDev (exported const)
 
 ## 📄 runFunctionServer (exported const)
 

@@ -21,8 +21,6 @@ import type { Area } from "geo-types";
 import type { City } from "geo-types";
 import type { Country } from "geo-types";
 import type { Location } from "geo-types";
-import type { JeepType } from "himalayajeep-types";
-import type { LocationType } from "himalayajeep-types";
 import type { KvmdWord } from "language-types";
 import type { MarkdownWord } from "language-types";
 import type { NepaliEnglishTranslationMatrix } from "language-types";
@@ -77,8 +75,6 @@ export declare type DbModels = {
     City: City;
     Country: Country;
     Location: Location;
-    JeepType: JeepType;
-    LocationType: LocationType;
     KvmdWord: KvmdWord;
     MarkdownWord: MarkdownWord;
     NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix;
@@ -110,7 +106,7 @@ export declare type DbModels = {
     MediaPost: MediaPost;
     Postable: Postable;
 };
-export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "Dataset", "FunctionExecution", "Operation", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "JeepType", "LocationType", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PaymentCoupon", "PaymentEvent", "PaymentPlan", "PaymentSubscription", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable"];
+export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "Dataset", "FunctionExecution", "Operation", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PaymentCoupon", "PaymentEvent", "PaymentPlan", "PaymentSubscription", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
     AuthorizationModel: {
@@ -192,12 +188,6 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     Location: {
-        dbStorageMethod: string;
-    };
-    JeepType: {
-        dbStorageMethod: string;
-    };
-    LocationType: {
         dbStorageMethod: string;
     };
     KvmdWord: {

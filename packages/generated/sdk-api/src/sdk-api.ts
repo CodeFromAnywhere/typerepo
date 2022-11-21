@@ -143,9 +143,13 @@ import { generateFunctionPathsSdk } from "generate-sdk-operations";
 import { generateFunctionSdks } from "generate-sdk-operations";
 import { generateInterfacePathsSdk } from "generate-sdk-operations";
 import { generateOperationsSdk } from "generate-sdk-operations";
+import { generateSdkApiWatcher } from "generate-sdk-operations";
+import { generateSdkApi } from "generate-sdk-operations";
 import { generateSdkOperations } from "generate-sdk-operations";
+import { getFunctionSdksContent } from "generate-sdk-operations";
 import { getSdkDescription } from "generate-sdk-operations";
 import { getSdkFunctionsPerClassification } from "generate-sdk-operations";
+import { isNonUiOperationBuild } from "generate-sdk-operations";
 import { newEnvSdk } from "generate-sdk-operations";
 import { newFunctionKeysSdkOperation } from "generate-sdk-operations";
 import { newFunctionSdkOperation } from "generate-sdk-operations";
@@ -173,12 +177,6 @@ import { getOperationBins } from "get-package-json";
 import { getOperationPackageName } from "get-package-json";
 import { getPackageJson } from "get-package-json";
 import { getPackageSourcePaths } from "get-package-source-paths";
-import { driverLogin } from "himalayajeep-functions";
-import { driverSignup } from "himalayajeep-functions";
-import { earthDistance } from "himalayajeep-functions";
-import { getMyJeep } from "himalayajeep-functions";
-import { getPublicJeeps } from "himalayajeep-functions";
-import { updateMyProfile } from "himalayajeep-functions";
 import { findAndUpsertTsInterfaces } from "index-typescript";
 import { findCommentTypes } from "index-typescript";
 import { generateSchema } from "index-typescript";
@@ -199,13 +197,15 @@ import { getTsStatements } from "index-typescript";
 import { getTypeInfo } from "index-typescript";
 import { getValidatedOperationPathParse } from "index-typescript";
 import { hasDefinition } from "index-typescript";
+import { hasTypescriptFileChanged } from "index-typescript";
+import { indexImportsExportsForFilePath } from "index-typescript";
+import { indexTypescriptFilePath } from "index-typescript";
 import { indexTypescriptFile } from "index-typescript";
 import { indexTypescript } from "index-typescript";
 import { isPrimitive } from "index-typescript";
 import { makeTsComment } from "index-typescript";
 import { removeTypescriptIndex } from "index-typescript";
 import { schemaToTsInterface } from "index-typescript";
-import { setTypescriptIndex } from "index-typescript";
 import { tryCreateSchema } from "index-typescript";
 import { typeToSchema } from "index-typescript";
 import { dev } from "k-dev";
@@ -360,6 +360,7 @@ import { getHasGeneric } from "ts-morph-util";
 import { getTsMorphProject } from "ts-morph-util";
 import { getOpenableFilePath } from "vscode-open";
 import { vscodeOpen } from "vscode-open";
+import { watchAll } from "watch-all";
 import { initiateWatch } from "watch-folders";
 import { makeSubscription } from "watch-folders";
 import { pickWatcher } from "watch-folders";
@@ -370,6 +371,14 @@ import { exitIfOperationsChange } from "watch-operations";
 import { gitCommitAllCron } from "watch-operations";
 import { watchOperations } from "watch-operations";
 import { writeToAssets } from "write-to-assets";
+import { getFileContents } from "writer-functions";
+import { getFrontmatterSchema } from "writer-functions";
+import { moveFile } from "writer-functions";
+import { newFile } from "writer-functions";
+import { newFolder } from "writer-functions";
+import { processAssetUpload } from "writer-functions";
+import { renameFilename } from "writer-functions";
+import { saveFileContents } from "writer-functions";
 import { getGetApiUrl } from "api";
 import { untypedApiFunction } from "api";
 import { addToken } from "asset-functions-js";
@@ -380,7 +389,7 @@ import { getNameFromRelativePath } from "asset-functions-js";
 import { getNameWithTokenFromRelativePath } from "asset-functions-js";
 import { getPreferredExtensionFromType } from "asset-functions-js";
 import { getReferencedAssetApiUrl } from "asset-functions-js";
-import { getTypeFromRelativePath } from "asset-functions-js";
+import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
 import { removeTokenIfPresent } from "asset-functions-js";
 import { getFunctionExersize } from "code-types";
@@ -443,6 +452,7 @@ import { findOperationBasePathWithClassification } from "get-path";
 import { findOperationBasePath } from "get-path";
 import { getAllPackageJsonDependencies } from "get-path";
 import { getCommonAncestor } from "get-path";
+import { getOperationClassificationObject } from "get-path";
 import { getOperationClassification } from "get-path";
 import { getOperationPathParse } from "get-path";
 import { getOperationPath } from "get-path";
@@ -455,9 +465,13 @@ import { getRelativePath } from "get-path";
 import { getRootPath } from "get-path";
 import { getSrcRelativeFileId } from "get-path";
 import { hasDependency } from "get-path";
+import { isBundle } from "get-path";
 import { isOperation } from "get-path";
+import { isUiOperation } from "get-path";
 import { isWorkspaceRoot } from "get-path";
 import { makeRelative } from "get-path";
+import { packageCompilesTs } from "get-path";
+import { tsconfigCompilesEsm } from "get-path";
 import { getTsConfig } from "get-ts-config";
 import { apply } from "js-util";
 import { createEnum } from "js-util";
@@ -743,9 +757,13 @@ generateFunctionPathsSdk,
 generateFunctionSdks,
 generateInterfacePathsSdk,
 generateOperationsSdk,
+generateSdkApiWatcher,
+generateSdkApi,
 generateSdkOperations,
+getFunctionSdksContent,
 getSdkDescription,
 getSdkFunctionsPerClassification,
+isNonUiOperationBuild,
 newEnvSdk,
 newFunctionKeysSdkOperation,
 newFunctionSdkOperation,
@@ -773,12 +791,6 @@ getOperationBins,
 getOperationPackageName,
 getPackageJson,
 getPackageSourcePaths,
-driverLogin,
-driverSignup,
-earthDistance,
-getMyJeep,
-getPublicJeeps,
-updateMyProfile,
 findAndUpsertTsInterfaces,
 findCommentTypes,
 generateSchema,
@@ -799,13 +811,15 @@ getTsStatements,
 getTypeInfo,
 getValidatedOperationPathParse,
 hasDefinition,
+hasTypescriptFileChanged,
+indexImportsExportsForFilePath,
+indexTypescriptFilePath,
 indexTypescriptFile,
 indexTypescript,
 isPrimitive,
 makeTsComment,
 removeTypescriptIndex,
 schemaToTsInterface,
-setTypescriptIndex,
 tryCreateSchema,
 typeToSchema,
 dev,
@@ -960,6 +974,7 @@ getHasGeneric,
 getTsMorphProject,
 getOpenableFilePath,
 vscodeOpen,
+watchAll,
 initiateWatch,
 makeSubscription,
 pickWatcher,
@@ -970,6 +985,14 @@ exitIfOperationsChange,
 gitCommitAllCron,
 watchOperations,
 writeToAssets,
+getFileContents,
+getFrontmatterSchema,
+moveFile,
+newFile,
+newFolder,
+processAssetUpload,
+renameFilename,
+saveFileContents,
 getGetApiUrl,
 untypedApiFunction,
 addToken,
@@ -980,7 +1003,7 @@ getNameFromRelativePath,
 getNameWithTokenFromRelativePath,
 getPreferredExtensionFromType,
 getReferencedAssetApiUrl,
-getTypeFromRelativePath,
+getTypeFromUrlOrPath,
 readableSize,
 removeTokenIfPresent,
 getFunctionExersize,
@@ -1043,6 +1066,7 @@ findOperationBasePathWithClassification,
 findOperationBasePath,
 getAllPackageJsonDependencies,
 getCommonAncestor,
+getOperationClassificationObject,
 getOperationClassification,
 getOperationPathParse,
 getOperationPath,
@@ -1055,9 +1079,13 @@ getRelativePath,
 getRootPath,
 getSrcRelativeFileId,
 hasDependency,
+isBundle,
 isOperation,
+isUiOperation,
 isWorkspaceRoot,
 makeRelative,
+packageCompilesTs,
+tsconfigCompilesEsm,
 getTsConfig,
 apply,
 createEnum,

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668831763183,
-  "updatedAt": 1668831763183,
+  "createdAt": 1669055828123,
+  "updatedAt": 1669055828123,
   "deletedAt": 0,
-  "createdFirstAt": 1668831763183,
+  "createdFirstAt": 1669055828123,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -2952,7 +2952,7 @@
                       },
                       {
                         "name": "pictureImage",
-                        "required": true,
+                        "required": false,
                         "schema": {
                           "fullComment": "Part of the asset that should be sent to the backend. The rest should frontend-only\n\nSome values are stored, some are not",
                           "properties": [
@@ -2985,7 +2985,23 @@
                               "name": "temporaryDestination",
                               "required": false,
                               "schema": {
-                                "fullComment": "Not stored\n\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
+                                "fullComment": "Not stored\n\nFilename after uploading in the temporary folder. should still be moved to its final location\n\nOnly available straight after uploading. After the function processes the asset, this is removed and a `relativePath` is created.",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "projectRelativeReferencingFilePath",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nLocation of the place where the asset is referenced\n\n- markdown file (or folder where it is located)\n- typescript file (or folder where it is located)\n- database file (or folder where it is located)",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "modelName",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                                 "type": "string"
                               }
                             }
@@ -2995,7 +3011,7 @@
                       },
                       {
                         "name": "interestSlugs",
-                        "required": true,
+                        "required": false,
                         "schema": {
                           "fullComment": "slugs of interest categories that this person should be notified about.\n\nSince this is a hierarchical model, parent interests will ensure all children are also applied.",
                           "items": [
@@ -3011,8 +3027,76 @@
                         }
                       },
                       {
+                        "name": "media",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "Media that is attached to this person.\n\nNB: not used to authenticate! Can be filled in by King OS, might be erroneous",
+                          "nb": "not used to authenticate! Can be filled in by King OS, might be erroneous",
+                          "items": [
+                            {
+                              "schema": {
+                                "fullComment": "media (mediums) that a person uses, e.g. linkedin, twitter, whatsapp, sms, calling, and irl",
+                                "properties": [
+                                  {
+                                    "name": "platformSlug",
+                                    "required": true,
+                                    "schema": {
+                                      "fullComment": "medium where the person is a user\n\nuse this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
+                                      "type": "string"
+                                    }
+                                  },
+                                  {
+                                    "name": "path",
+                                    "required": true,
+                                    "schema": {
+                                      "fullComment": "used to find the user on the platform",
+                                      "type": "string"
+                                    }
+                                  },
+                                  {
+                                    "name": "isPremium",
+                                    "required": true,
+                                    "schema": {
+                                      "fullComment": "(if available) whether or not the user has a premium account",
+                                      "type": "boolean"
+                                    }
+                                  },
+                                  {
+                                    "name": "tagline",
+                                    "required": false,
+                                    "schema": {
+                                      "fullComment": "(if available) a tagline for the user of the platform",
+                                      "type": "string"
+                                    }
+                                  },
+                                  {
+                                    "name": "bio",
+                                    "required": false,
+                                    "schema": {
+                                      "fullComment": "(if available) a bio for the user of the platform",
+                                      "type": "string"
+                                    }
+                                  }
+                                ],
+                                "type": "object"
+                              },
+                              "name": "PersonSocialMedia"
+                            }
+                          ],
+                          "type": "array"
+                        }
+                      },
+                      {
+                        "name": "preferredContactMedium",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
+                          "type": "string"
+                        }
+                      },
+                      {
                         "name": "dataEntries",
-                        "required": true,
+                        "required": false,
                         "schema": {
                           "items": [
                             {
@@ -3109,74 +3193,6 @@
                             }
                           ],
                           "type": "array"
-                        }
-                      },
-                      {
-                        "name": "media",
-                        "required": true,
-                        "schema": {
-                          "fullComment": "Media that is attached to this person.\n\nNB: not used to authenticate! Can be filled in by King OS, might be erroneous",
-                          "nb": "not used to authenticate! Can be filled in by King OS, might be erroneous",
-                          "items": [
-                            {
-                              "schema": {
-                                "fullComment": "media (mediums) that a person uses, e.g. linkedin, twitter, whatsapp, sms, calling, and irl",
-                                "properties": [
-                                  {
-                                    "name": "platformSlug",
-                                    "required": true,
-                                    "schema": {
-                                      "fullComment": "medium where the person is a user\n\nuse this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
-                                      "type": "string"
-                                    }
-                                  },
-                                  {
-                                    "name": "path",
-                                    "required": true,
-                                    "schema": {
-                                      "fullComment": "used to find the user on the platform",
-                                      "type": "string"
-                                    }
-                                  },
-                                  {
-                                    "name": "isPremium",
-                                    "required": true,
-                                    "schema": {
-                                      "fullComment": "(if available) whether or not the user has a premium account",
-                                      "type": "boolean"
-                                    }
-                                  },
-                                  {
-                                    "name": "tagline",
-                                    "required": false,
-                                    "schema": {
-                                      "fullComment": "(if available) a tagline for the user of the platform",
-                                      "type": "string"
-                                    }
-                                  },
-                                  {
-                                    "name": "bio",
-                                    "required": false,
-                                    "schema": {
-                                      "fullComment": "(if available) a bio for the user of the platform",
-                                      "type": "string"
-                                    }
-                                  }
-                                ],
-                                "type": "object"
-                              },
-                              "name": "PersonSocialMedia"
-                            }
-                          ],
-                          "type": "array"
-                        }
-                      },
-                      {
-                        "name": "preferredContactMedium",
-                        "required": false,
-                        "schema": {
-                          "fullComment": "use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
-                          "type": "string"
                         }
                       },
                       {
@@ -3288,7 +3304,7 @@
                       },
                       {
                         "name": "authorizations",
-                        "required": true,
+                        "required": false,
                         "schema": {
                           "fullComment": "Which custom authorizations does this `Person` have?",
                           "items": [
@@ -3449,7 +3465,7 @@
                       },
                       {
                         "name": "credit",
-                        "required": true,
+                        "required": false,
                         "schema": {
                           "fullComment": "Actions by the `Person` can create changes in the amount of credits\n\nThe exact meaning of the number of credits is determined by the OS settings. Can for example be 1:1 to euro, 1:1 to bitcoin, or a custom credit system. Transferability is also customisable.\n\nInsufficient credit can limit the persons possibilities within the OS\n\n",
                           "type": "number"
@@ -4191,5 +4207,5 @@
     "linesPerFile": 25,
     "numberOfFiles": 1
   },
-  "id": "vuyxofpjqtfvqgatkmybbkoh"
+  "id": "oqfdklmqupwflnltqveoednf"
 }

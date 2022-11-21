@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977214807,
-  "updatedAt": 1668977214807,
+  "createdAt": 1669056006698,
+  "updatedAt": 1669056006698,
   "deletedAt": 0,
-  "createdFirstAt": 1668977214807,
+  "createdFirstAt": 1669056006698,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "() => {\n  const router = useRouter();\n  const meQuery = queries.useGetMeWithContext();\n\n  return (\n    <Div className=\"flex flex-1 flex-col mx-10\">\n      <P className=\"text-4xl\">Login</P>\n      <FunctionForm\n        tsFunction={Index}\n        withApiResult={(\n          result: RealApiReturnType<\"loginWithPasswordWithContext\">\n        ) => {\n          if (result.isSuccessful && result.result?.isSuccessful) {\n            router.push(\"/\");\n          }\n          meQuery.refetch();\n          showStandardResponse(result);\n        }}\n      />\n      <ALink href=\"/signup\">Or click here to sign up</ALink>\n    </Div>\n  );\n}",
+  "value": "() => {\n  const router = useRouter();\n  const meQuery = queries.useGetMeWithContext();\n\n  const [pass, setPass] = useStore(\"api.authToken\");\n  return (\n    <Div className=\"flex flex-1 flex-col mx-10\">\n      <P className=\"text-4xl\">Login</P>\n\n      <Input\n        className={UI.textInput}\n        placeholder=\"Password\"\n        type=\"password\"\n        value={pass}\n        onChange={(e) => setPass(e.target.value)}\n      />\n      <BigButton title=\"Login\" onClick={() => router.reload()} />\n\n      {/* New way\n      <FunctionForm\n        tsFunction={Index}\n        withApiResult={(\n          result: RealApiReturnType<\"loginWithPasswordWithContext\">\n        ) => {\n          if (result.isSuccessful && result.result?.isSuccessful) {\n            router.push(\"/\");\n          }\n          meQuery.refetch();\n          showStandardResponse(result);\n        }}\n      />\n      <ALink href=\"/signup\">Or click here to sign up</ALink> */}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "nltexmrrvbxyrbjclqmgxqzt"
+  "id": "jaugkrjanydobbhjrmnbuadp"
 }

@@ -1,12 +1,12 @@
 {
-  "createdAt": 1668835193771,
-  "updatedAt": 1668835193771,
+  "createdAt": 1669055016832,
+  "updatedAt": 1669055016832,
   "deletedAt": 0,
-  "createdFirstAt": 1668835193771,
+  "createdFirstAt": 1669055016832,
   "id": "asset",
   "name": "Asset",
   "slug": "asset",
-  "operationRelativeTypescriptFilePath": "src/AssetView.tsx",
+  "operationRelativeTypescriptFilePath": "src/useAsset.ts",
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
@@ -48,6 +48,10 @@
         "type": {
           "$ref": "#/definitions/AssetType",
           "description": "can be calculated from the path, or come directly from the blob"
+        },
+        "absoluteUrl": {
+          "type": "string",
+          "description": "Can be available in case it's an asset from an external source URL for example within md."
         },
         "originalFilename": {
           "type": "string",
@@ -151,9 +155,18 @@
               "video",
               "audio",
               "image",
+              "text",
               "other"
             ],
             "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types",
+            "type": "string"
+          }
+        },
+        {
+          "name": "absoluteUrl",
+          "required": false,
+          "schema": {
+            "fullComment": "Can be available in case it's an asset from an external source URL for example within md.",
             "type": "string"
           }
         },

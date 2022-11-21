@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835827869,
-  "updatedAt": 1668835827869,
+  "createdAt": 1669055498548,
+  "updatedAt": 1669055498548,
   "deletedAt": 0,
-  "createdFirstAt": 1668835827869,
+  "createdFirstAt": 1669055498548,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const bundleConfig = (await db.get(\"BundleConfig\"))[0];\n\n  if (!bundleConfig) {\n    console.log(\"DIDNT WORK\");\n    return;\n  }\n\n  const [customProjectRoot] = process.argv.slice(2);\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  await generateEnvSdks(bundleConfig, {\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n}",
   "description": "",
-  "id": "dwkbtlkccuzjixqnsolmizti"
+  "id": "hucscododjbnpcolylsratdv"
 }

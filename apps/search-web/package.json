@@ -10,7 +10,6 @@
     "apps-menu": "0.0.0",
     "database": "0.0.1",
     "fs-util": "1.0.5",
-    "himalayajeep-functions": "0.0.1",
     "js-util": "0.0.1",
     "next": "12.1.6",
     "next-pwa": "^5.6.0",
@@ -66,38 +65,75 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-web",
-    "coreDependenciesIndexed": [],
+    "coreDependenciesIndexed": [
+      "useEffect",
+      "useState",
+      "useState"
+    ],
     "folderNameIndexed": "search-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668835605988,
-    "operationDependenciesIndexed": [],
-    "packageDependenciesIndexed": [],
+    "lastRebuildAt": 1669055369584,
+    "operationDependenciesIndexed": [
+      "AppsMenu",
+      "pickRandomArrayItem",
+      "Div",
+      "Timeline",
+      "Div",
+      "Form",
+      "Input",
+      "useRouter",
+      "Div",
+      "Div",
+      "useRouter",
+      "AuthenticationLayout",
+      "AlertProvider",
+      "ModalProvider",
+      "useRouter",
+      "ToastContainer",
+      "MeAuthenticationInfo",
+      "Div",
+      "takeFirst",
+      "fs",
+      "path",
+      "operations",
+      "db",
+      "createStore",
+      "apiStoreInitialValues",
+      "nestedMenuStoreInitialValues",
+      "writerInitialValues"
+    ],
+    "packageDependenciesIndexed": [
+      "AppProps",
+      "QueryClient",
+      "QueryClientProvider",
+      "GetStaticProps"
+    ],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/search",
     "markdown": "# 🔎 search\n\nSearch everywhere\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 11,
         "lines": 477,
-        "characters": 13517,
-        "bytes": 13517
+        "characters": 13515,
+        "bytes": 13515
       },
       "dataSize": {
         "numberOfFiles": 9,
-        "lines": 280,
-        "characters": 18269,
-        "bytes": 18269
+        "lines": 246,
+        "characters": 17768,
+        "bytes": 17768
       },
       "textSize": {
         "numberOfFiles": 5,
-        "lines": 76,
-        "characters": 2279,
-        "bytes": 2279
+        "lines": 240,
+        "characters": 5513,
+        "bytes": 5513
       },
       "size": {
-        "bytes": 34065,
-        "characters": 34065,
-        "lines": 833,
+        "bytes": 36796,
+        "characters": 36796,
+        "lines": 963,
         "numberOfFiles": 25
       }
     },

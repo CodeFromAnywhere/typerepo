@@ -21,7 +21,7 @@ Until this is solved, it will be difficult to get types of nested functions (oth
 */
 import { Config, Schema } from "ts-json-schema-generator";
 import { TsInterface, MaybeInteface } from "code-types";
-import { MorphInterfaceInfo } from "./types";
+import { MorphInterfaceInfo } from "./MorphInterfaceInfo";
 import { Creation } from "model-types";
 /**
  * Try because sometimes generateSchema fails

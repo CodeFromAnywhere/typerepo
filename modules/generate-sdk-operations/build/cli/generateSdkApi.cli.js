@@ -1,0 +1,3 @@
+#!/usr/bin/env node
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var get_path_1=require("get-path"),generateSdkApi_1=require("../generateSdkApi"),generateSdkApiCli=function(){var e=process.argv.slice(2)[0],t=(0,get_path_1.getProjectRoot)(process.cwd());(0,generateSdkApi_1.generateSdkApi)({manualProjectRoot:e||t})};generateSdkApiCli();
+//# sourceMappingURL=generateSdkApi.cli.js.map

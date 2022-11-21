@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669055745658,
+  "updatedAt": 1669055745658,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055745658,
+  "id": "namedparameterstypeof-runfunctionservercli",
+  "name": "NamedParameters<typeof runFunctionServerCli>",
+  "slug": "namedparameterstypeof-runfunctionservercli",
+  "operationRelativeTypescriptFilePath": "src/cli/runFunctionServer.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof runFunctionServerCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

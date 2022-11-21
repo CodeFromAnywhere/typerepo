@@ -1,3 +1,3 @@
 export const privateEnvironmentVariables = {
-  "authToken": "typerepoSecretPassword"
+  "authToken": "PasswordThatMustBeLonger"
 };

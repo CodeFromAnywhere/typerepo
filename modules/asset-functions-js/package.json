@@ -9,7 +9,8 @@
     "asset-type": "0.0.1",
     "fs-util-js": "0.0.1",
     "model-types": "0.0.1",
-    "server-api-url": "0.0.1"
+    "server-api-url": "0.0.1",
+    "text-or-binary": "0.0.1"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
@@ -37,7 +38,7 @@
     "coreDependenciesIndexed": [],
     "folderNameIndexed": "asset-functions-js",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668773863601,
+    "lastRebuildAt": 1669054878877,
     "operationDependenciesIndexed": [
       "getGetApiUrl",
       "apiUrl",
@@ -47,6 +48,7 @@
       "getGetApiUrl",
       "AssetType",
       "getExtension",
+      "isText",
       "generateRandomString"
     ],
     "packageDependenciesIndexed": [],
@@ -55,26 +57,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 12,
-        "lines": 180,
-        "characters": 5209,
-        "bytes": 5209
+        "lines": 187,
+        "characters": 5501,
+        "bytes": 5501
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 122,
-        "characters": 4001,
-        "bytes": 4001
+        "lines": 123,
+        "characters": 4032,
+        "bytes": 4032
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 202,
-        "characters": 4616,
-        "bytes": 4616
+        "lines": 208,
+        "characters": 4762,
+        "bytes": 4762
       },
       "size": {
-        "bytes": 13826,
-        "characters": 13826,
-        "lines": 504,
+        "bytes": 14295,
+        "characters": 14295,
+        "lines": 518,
         "numberOfFiles": 16
       }
     },

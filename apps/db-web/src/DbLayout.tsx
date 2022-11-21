@@ -3,10 +3,11 @@ import { AuthenticationLayout } from "layout";
 import { useState } from "react";
 import { Div } from "react-with-native";
 import { ClickableIcon } from "clickable-icon";
+import { destructureOptionalObject } from "js-util";
 const menuTypes = [
+  { type: "deep", emoji: "💣" },
   { type: "operation", emoji: "⚡️" },
   { type: "flat", emoji: "👩‍🌾" },
-  { type: "deep", emoji: "💣" },
 ] as const;
 
 export const DbLayout = (props: { pageProps: any; nextPage: any }) => {
@@ -18,13 +19,15 @@ export const DbLayout = (props: { pageProps: any; nextPage: any }) => {
     noPrefix: true,
   });
 
-  const dbQueryPaths = dbMenuQuery.data?.result as any as string[];
+  const { flat, nested } = destructureOptionalObject(dbMenuQuery.data?.result);
 
   const { nextPage, pageProps } = props;
   return (
     <AuthenticationLayout
       // menu props
       menu={{
+        // NB: passionfruit wants this xD just make a layoutconfig in the PublicBundleConfig, or make it editable per user (later)
+        menuPosition: "left",
         menuHeader: () => {
           return (
             <Div className="flex flex-row gap gap-2">
@@ -48,8 +51,9 @@ export const DbLayout = (props: { pageProps: any; nextPage: any }) => {
             </Div>
           );
         },
-        queryPaths: dbQueryPaths,
         isLoading: dbMenuQuery.isLoading,
+        webPagesFlat: flat,
+        webPagesNested: nested,
       }}
       // other
       nextPage={nextPage}

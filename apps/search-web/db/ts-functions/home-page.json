@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668835589807,
-  "updatedAt": 1668835589807,
+  "createdAt": 1669055352729,
+  "updatedAt": 1669055352729,
   "deletedAt": 0,
-  "createdFirstAt": 1668835589807,
+  "createdFirstAt": 1669055352729,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/components/HomePage.tsx",
   "commentsInside": [],
-  "rawText": " (props: QueryPageProps) => {\n  const { imagePaths } = props;\n\n  const [authToken, setAuthToken] = useStore(\"api.authToken\");\n\n  useEffect(() => {\n    setAuthToken(\"supersecretpasswordthatnobodycanneverguess\");\n  }, []);\n  console.log({ authToken });\n  const hour = new Date(Date.now()).getHours();\n  const quote = quotes[hour % quotes.length];\n  const imagePath = imagePaths[hour % imagePaths.length];\n  const [mindspace, setMindspace] = useState(mindspaces[0]);\n  const [mouseDown, setMouseDown] = useState(false);\n  const [mouseDownTimeout, setMouseDownTimeout] =\n    useState<NodeJS.Timeout | null>(null);\n\n  const yourName = \"Wijnand 🤴\";\n  const yourLocation = \"Napoli 🇮🇹\";\n  const dayPart = \"day\";\n\n  return (\n    <Div className=\"\">\n      <Timeline\n        items={[\n          {\n            component: () => {\n              return (\n                <Div\n                  className=\"flex flex-1 min-h-screen items-center flex-col justify-around\"\n                  // style={{ background: `url(${imagePath})` }}\n                >\n                  <img\n                    src={imagePath}\n                    className=\"rounded-sm\"\n                    width={300}\n                    height={300}\n                  />\n\n                  <Div\n                    className=\"text-3xl cursor-grab\"\n                    onMouseDown={(e) => {\n                      const timeout = setTimeout(() => {\n                        setMouseDown(true);\n                      }, 200);\n                      setMouseDownTimeout(timeout);\n                    }}\n                    onMouseUp={(e) => {\n                      if (mouseDownTimeout) {\n                        clearTimeout(mouseDownTimeout);\n                      }\n                      setMouseDown(false);\n                    }}\n                    onClick={(e) => {\n                      e.preventDefault();\n                      setMindspace(pickRandomArrayItem(mindspaces));\n                    }}\n                  >\n                    Good{\" \"}\n                    {mouseDown ? `${dayPart} in ${yourLocation}` : mindspace},{\" \"}\n                    {yourName}\n                  </Div>\n                  <Div className=\"italic\">{quote}</Div>\n                  <SearchBar placeholder={mindspace} />\n                  <AppsMenu />\n                </Div>\n              );\n            },\n          },\n          {\n            markdown: `import * as React from \"react\";\\n\\nexport const test = () => true;`,\n          },\n          ...props.timelineItems?.map((x) => {\n            return {\n              markdown: x.comment,\n              projectRelativeFilePath: x.filePath,\n              line: x.line,\n            };\n          }),\n        ]}\n      />\n    </Div>\n  );\n}",
+  "rawText": " (props: QueryPageProps) => {\n  const { imagePaths } = props;\n\n  const [authToken, setAuthToken] = useStore(\"api.authToken\");\n\n  useEffect(() => {\n    setAuthToken(\"supersecretpasswordthatnobodycanneverguess\");\n  }, []);\n  console.log({ authToken });\n  const hour = new Date(Date.now()).getHours();\n  const quote = quotes[hour % quotes.length];\n  const imagePath = imagePaths[hour % imagePaths.length];\n  const [mindspace, setMindspace] = useState(mindspaces[0]);\n  const [mouseDown, setMouseDown] = useState(false);\n  const [mouseDownTimeout, setMouseDownTimeout] =\n    useState<NodeJS.Timeout | null>(null);\n\n  const yourName = \"King 🤴\";\n  const yourLocation = \"Napoli 🇮🇹\";\n  const dayPart = \"day\";\n\n  return (\n    <Div className=\"\">\n      <Timeline\n        items={[\n          {\n            component: () => {\n              return (\n                <Div\n                  className=\"flex flex-1 min-h-screen items-center flex-col justify-around\"\n                  // style={{ background: `url(${imagePath})` }}\n                >\n                  <img\n                    src={imagePath}\n                    className=\"rounded-sm\"\n                    width={300}\n                    height={300}\n                  />\n\n                  <Div\n                    className=\"text-3xl cursor-grab\"\n                    onMouseDown={(e) => {\n                      const timeout = setTimeout(() => {\n                        setMouseDown(true);\n                      }, 200);\n                      setMouseDownTimeout(timeout);\n                    }}\n                    onMouseUp={(e) => {\n                      if (mouseDownTimeout) {\n                        clearTimeout(mouseDownTimeout);\n                      }\n                      setMouseDown(false);\n                    }}\n                    onClick={(e) => {\n                      e.preventDefault();\n                      setMindspace(pickRandomArrayItem(mindspaces));\n                    }}\n                  >\n                    Good{\" \"}\n                    {mouseDown ? `${dayPart} in ${yourLocation}` : mindspace},{\" \"}\n                    {yourName}\n                  </Div>\n                  <Div className=\"italic\">{quote}</Div>\n                  <SearchBar placeholder={mindspace} />\n                  <AppsMenu />\n                </Div>\n              );\n            },\n          },\n          {\n            markdown: `import * as React from \"react\";\\n\\nexport const test = () => true;`,\n          },\n          ...props.timelineItems?.map((x) => {\n            return {\n              markdown: x.comment,\n              projectRelativeFilePath: x.filePath,\n              line: x.line,\n            };\n          }),\n        ]}\n      />\n    </Div>\n  );\n}",
   "name": "HomePage",
   "slug": "home-page",
   "parameters": [
@@ -110,13 +110,13 @@
   },
   "maxIndentationDepth": 12,
   "size": {
-    "characters": 2721,
+    "characters": 2718,
     "lines": 84,
-    "bytes": 2727,
-    "bytesPerCharacter": 1.0022050716648292,
+    "bytes": 2724,
+    "bytesPerCharacter": 1.0022075055187638,
     "charactersPerLine": 32,
     "linesPerFile": 84,
     "numberOfFiles": 1
   },
-  "id": "icwgnqecrmgdtqldgpmehpov"
+  "id": "ociaxexxvvifyqmxxtkcawul"
 }

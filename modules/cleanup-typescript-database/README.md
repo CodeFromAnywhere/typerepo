@@ -25,6 +25,26 @@ From all Ts Index Models, removes the instances that refer to a ts file that doe
 
 From all Ts Index Models, removes the instances that refer to a ts file that doesn't exist anymore in the operation.
 
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # test()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 test (unexported const)
+
+  </details>
+
 # Internal
 
 <details><summary>Show internal (2)</summary>

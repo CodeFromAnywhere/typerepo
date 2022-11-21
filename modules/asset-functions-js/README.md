@@ -102,12 +102,15 @@ NB: we also need to convert the file itself in case of mp3
 
 
 
-## getTypeFromRelativePath()
+## getTypeFromUrlOrPath()
+
+We are assuming the asset name and extsion appear at the end of the URL
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| relativePath | string |  |
-| **Output** | video / audio / image / other   |    |
+| urlOrPath | string |  |
+| **Output** | video / audio / image / text / other   |    |
 
 
 
@@ -162,7 +165,10 @@ Here the extension is decided.
 NB: we also need to convert the file itself in case of mp3
 
 
-## 📄 getTypeFromRelativePath (exported const)
+## 📄 getTypeFromUrlOrPath (exported const)
+
+We are assuming the asset name and extsion appear at the end of the URL
+
 
 ## 📄 readableSize (exported const)
 

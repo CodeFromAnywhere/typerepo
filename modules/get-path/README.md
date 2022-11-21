@@ -52,6 +52,15 @@ TODO: IDEA: maybe auto-generate key-value JSON where keys are the package-names 
 
 ## 📄 getOperationPath (exported const)
 
+## findOperationBasePath()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| startPath | string |  |
+| **Output** | string   |    |
+
+
+
 ## makeRelative()
 
 Makes a path relative using proper parsing
@@ -68,6 +77,8 @@ Resulting path will apply the paths conventions
 
 
 
+## 📄 findOperationBasePath (exported const)
+
 ## 📄 makeRelative (exported const)
 
 Makes a path relative using proper parsing
@@ -77,22 +88,11 @@ Resulting path will apply the paths conventions
 - no slash at the beginning
 
 
-## findOperationBasePath()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| startPath | string |  |
-| **Output** | string   |    |
-
-
-
-## 📄 findOperationBasePath (exported const)
-
 ## getPathsWithOperations()
 
 returns an array of all (absolute) paths containing operations
 
-for a sensible project, that means /apps, /packages, /modules
+for a bundled project, that means /apps, /packages, /modules
 
 for the OS project, that means /operations/tools and /operations/niches
 
@@ -108,7 +108,7 @@ for the OS project, that means /operations/tools and /operations/niches
 
 returns an array of all (absolute) paths containing operations
 
-for a sensible project, that means /apps, /packages, /modules
+for a bundled project, that means /apps, /packages, /modules
 
 for the OS project, that means /operations/tools and /operations/niches
 
@@ -158,9 +158,9 @@ NB: removes "/" in the beginning, if found
 
 ## getOperationClassification()
 
-Returns OperationClassification if it's an operation, or undefined if it's not
+Returns `OperationClassification` if it's an operation, or undefined if it's not
 
-NB: don't confuse this with ProjectType or ImportClassification
+NB: don't confuse this with `ImportClassification`
 
 
 | Input      |    |    |
@@ -172,10 +172,21 @@ NB: don't confuse this with ProjectType or ImportClassification
 
 ## 📄 getOperationClassification (exported const)
 
-Returns OperationClassification if it's an operation, or undefined if it's not
+Returns `OperationClassification` if it's an operation, or undefined if it's not
 
-NB: don't confuse this with ProjectType or ImportClassification
+NB: don't confuse this with `ImportClassification`
 
+
+## isBundle()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| folderPath (optional) | string |  |
+| **Output** | {  }   |    |
+
+
+
+## 📄 isBundle (exported const)
 
 ## getOperationRelativePath()
 
@@ -232,6 +243,15 @@ NB: currently it also looks up the operation name from its packagejson
 gets all kinds of information that can be inferred from any path (file or folder).
 
 
+## getOperationClassificationObject()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## getRelativeLinkPath()
 
 returns a relative link between two files
@@ -255,6 +275,10 @@ Checks whether or not an absolute path contains an operation. The only check it'
 | **Output** | {  }   |    |
 
 
+
+## 🔹 OperationClassificationObject
+
+## 📄 getOperationClassificationObject (exported const)
 
 ## 📄 getRelativeLinkPath (exported const)
 
@@ -287,7 +311,7 @@ Checks whether or not an absolute path contains an operation. The only check it'
 
 # Internal
 
-<details><summary>Show internal (18)</summary>
+<details><summary>Show internal (24)</summary>
     
   # findFolderWhereMatch()
 
@@ -319,7 +343,7 @@ because it had to read the package.json anyway, it's returning the operation cla
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| p | `PackageJson` |  |
+| operation | `Operation` |  |
 | **Output** | string[]   |    |
 
 
@@ -354,7 +378,16 @@ will start with "/"
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| packageJson | `PackageJson` |  |,| dependency | string |  |
+| operation | `Operation` |  |,| dependency | string |  |
+| **Output** |    |    |
+
+
+
+## isUiOperation()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsconfig | {  } |  |,| packageJson | {  } |  |
 | **Output** |    |    |
 
 
@@ -367,7 +400,25 @@ simple sync function to check if a folder is the root of a workspace (not operat
 | Input      |    |    |
 | ---------- | -- | -- |
 | folderPath | string |  |
-| **Output** | { isSensibleProject: boolean, <br />isWorkspaceRoot: boolean, <br /> }   |    |
+| **Output** | { isBundle: boolean, <br />isWorkspaceRoot: boolean, <br /> }   |    |
+
+
+
+## packageCompilesTs()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| packageJson | {  } |  |
+| **Output** |    |    |
+
+
+
+## tsconfigCompilesEsm()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| tsconfig | `TsConfig` |  |
+| **Output** | {  }   |    |
 
 
 
@@ -399,6 +450,8 @@ will start with "/"
 
 ## 📄 hasDependency (exported const)
 
+## 📄 isUiOperation (exported const)
+
 ## 📄 isWorkspaceRoot (exported const)
 
 simple sync function to check if a folder is the root of a workspace (not operation but a workspace)
@@ -411,12 +464,16 @@ can only be accessed in the OS
 
 ## 📄 osRootFolders (exported const)
 
+## 📄 packageCompilesTs (exported const)
+
 ## 📄 projectRootFoldersConst (exported const)
 
 can be accessed in projects as well as in the OS
 
 
 ## 📄 projectRootFolders (exported const)
+
+## 📄 tsconfigCompilesEsm (exported const)
 
   </details>
 

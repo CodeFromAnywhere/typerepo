@@ -52,37 +52,84 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [],
+    "coreDependenciesIndexed": [
+      "useState",
+      "useEffect",
+      "useRef",
+      "useEffect",
+      "ReactElement",
+      "useCallback",
+      "useEffect",
+      "useRef",
+      "useState",
+      "useState"
+    ],
     "folderNameIndexed": "asset-input",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668835160876,
-    "operationDependenciesIndexed": [],
-    "packageDependenciesIndexed": [],
+    "lastRebuildAt": 1669054974672,
+    "operationDependenciesIndexed": [
+      "getItem",
+      "Div",
+      "ClickableIcon",
+      "api",
+      "AUTH_TOKEN_STORAGE_KEY",
+      "apiUrl",
+      "notEmpty",
+      "removeIndexFromArray",
+      "InteractiveAsset",
+      "useAlert",
+      "NewAssetType",
+      "UploadAssetResult",
+      "Asset",
+      "BackendAsset",
+      "ensureToken",
+      "generateRandomString",
+      "RealApiReturnType",
+      "Asset",
+      "AssetType",
+      "withoutExtension",
+      "notEmpty",
+      "Input",
+      "Button",
+      "Div",
+      "Image",
+      "Div",
+      "AssetType",
+      "Asset",
+      "BackendAsset"
+    ],
+    "packageDependenciesIndexed": [
+      "register",
+      "MediaRecorder",
+      "IMediaRecorder",
+      "connect",
+      "disconnect"
+    ],
     "relativeOperationLocationPathIndexed": "operations/tools/asset",
     "markdown": "# 📸 Asset Input\n\nThis component lets you easily add asset input that includes upload with the `typerepo` server standard (`function-server`)\n\n## Installation\n\nAdd the css to your web project: `import \"asset-input/css.css\";`\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 9,
         "lines": 1214,
-        "characters": 35137,
-        "bytes": 35137
+        "characters": 35189,
+        "bytes": 35189
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 177,
-        "characters": 5385,
-        "bytes": 5385
+        "lines": 130,
+        "characters": 4508,
+        "bytes": 4508
       },
       "textSize": {
         "numberOfFiles": 3,
-        "lines": 87,
-        "characters": 3414,
-        "bytes": 3414
+        "lines": 237,
+        "characters": 6569,
+        "bytes": 6569
       },
       "size": {
-        "bytes": 43936,
-        "characters": 43936,
-        "lines": 1478,
+        "bytes": 46266,
+        "characters": 46266,
+        "lines": 1581,
         "numberOfFiles": 14
       }
     },

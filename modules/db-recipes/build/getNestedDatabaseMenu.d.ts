@@ -1,3 +1,4 @@
+import { NestedWebPage, WebPage } from "webpage-types";
 /**
 TODO: support search for bundles (but this can be augmented word based)
 */
@@ -6,5 +7,8 @@ export declare const getNestedDatabaseMenu: (config?: {
     noOperationName?: boolean | undefined;
     noSrcRelativeFolder?: boolean | undefined;
     noPrefix?: boolean | undefined;
-} | undefined) => Promise<string[]>;
+} | undefined) => Promise<{
+    flat?: WebPage<undefined>[] | undefined;
+    nested?: NestedWebPage[] | undefined;
+}>;
 //# sourceMappingURL=getNestedDatabaseMenu.d.ts.map

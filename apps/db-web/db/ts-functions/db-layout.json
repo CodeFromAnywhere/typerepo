@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668976807321,
-  "updatedAt": 1668976807321,
+  "createdAt": 1669055194718,
+  "updatedAt": 1669055194718,
   "deletedAt": 0,
-  "createdFirstAt": 1668976807321,
+  "createdFirstAt": 1669055194718,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/DbLayout.tsx",
   "commentsInside": [],
-  "rawText": " (props: { pageProps: any; nextPage: any }) => {\n  const [menuType, setMenuType] = useState<string>(menuTypes[0][\"type\"]);\n  const dbMenuQuery = queries.useGetNestedDatabaseMenu({\n    noOperationName: menuType === \"flat\",\n    noOperationPath: menuType !== \"deep\",\n    noSrcRelativeFolder: menuType !== \"deep\",\n    noPrefix: true,\n  });\n\n  const dbQueryPaths = dbMenuQuery.data?.result as any as string[];\n\n  const { nextPage, pageProps } = props;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        menuHeader: () => {\n          return (\n            <Div className=\"flex flex-row gap gap-2\">\n              {menuTypes?.map((item, index) => {\n                return (\n                  <Div\n                    key={item.type}\n                    className={`${\n                      item.type === menuType\n                        ? \"bg-gray-200 dark:bg-gray-800 rounded-full\"\n                        : undefined\n                    } w-7 h-7 flex justify-center items-center`}\n                  >\n                    <ClickableIcon\n                      onClick={() => setMenuType(item.type)}\n                      emoji={item.emoji}\n                    />\n                  </Div>\n                );\n              })}\n            </Div>\n          );\n        },\n        queryPaths: dbQueryPaths,\n        isLoading: dbMenuQuery.isLoading,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
+  "rawText": " (props: { pageProps: any; nextPage: any }) => {\n  const [menuType, setMenuType] = useState<string>(menuTypes[0][\"type\"]);\n  const dbMenuQuery = queries.useGetNestedDatabaseMenu({\n    noOperationName: menuType === \"flat\",\n    noOperationPath: menuType !== \"deep\",\n    noSrcRelativeFolder: menuType !== \"deep\",\n    noPrefix: true,\n  });\n\n  const { flat, nested } = destructureOptionalObject(dbMenuQuery.data?.result);\n\n  const { nextPage, pageProps } = props;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        // NB: passionfruit wants this xD just make a layoutconfig in the PublicBundleConfig, or make it editable per user (later)\n        menuPosition: \"left\",\n        menuHeader: () => {\n          return (\n            <Div className=\"flex flex-row gap gap-2\">\n              {menuTypes?.map((item, index) => {\n                return (\n                  <Div\n                    key={item.type}\n                    className={`${\n                      item.type === menuType\n                        ? \"bg-gray-200 dark:bg-gray-800 rounded-full\"\n                        : undefined\n                    } w-7 h-7 flex justify-center items-center`}\n                  >\n                    <ClickableIcon\n                      onClick={() => setMenuType(item.type)}\n                      emoji={item.emoji}\n                    />\n                  </Div>\n                );\n              })}\n            </Div>\n          );\n        },\n        isLoading: dbMenuQuery.isLoading,\n        webPagesFlat: flat,\n        webPagesNested: nested,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
   "name": "DbLayout",
   "slug": "db-layout",
   "parameters": [
@@ -66,13 +66,13 @@
   },
   "maxIndentationDepth": 12,
   "size": {
-    "characters": 1455,
-    "lines": 48,
-    "bytes": 1455,
+    "characters": 1654,
+    "lines": 51,
+    "bytes": 1654,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 30,
-    "linesPerFile": 48,
+    "charactersPerLine": 32,
+    "linesPerFile": 51,
     "numberOfFiles": 1
   },
-  "id": "tngrvidxjenjcrqkxbwonkpb"
+  "id": "dmbafcvqqbjgdbyqrthhmrbz"
 }

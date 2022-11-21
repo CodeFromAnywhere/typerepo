@@ -1,2 +1,2 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.privateEnvironmentVariables=void 0,exports.privateEnvironmentVariables={authToken:"typerepoSecretPassword"};
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.privateEnvironmentVariables=void 0,exports.privateEnvironmentVariables={authToken:"PasswordThatMustBeLonger"};
 //# sourceMappingURL=private.js.map

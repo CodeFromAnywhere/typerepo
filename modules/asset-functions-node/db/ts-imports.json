@@ -1,77 +1,9 @@
 [
   {
-    "createdAt": 1668773870669,
-    "updatedAt": 1668773870669,
+    "createdAt": 1669054890359,
+    "updatedAt": 1669054890359,
     "deletedAt": 0,
-    "createdFirstAt": 1668773870669,
-    "name": "ProcessAssetConfig",
-    "slug": "process-asset-config",
-    "module": "./processAsset",
-    "isModuleResolved": true,
-    "comments": [],
-    "operationRelativeTypescriptFilePath": "src/getStorageLocationInfo.ts",
-    "classification": "internal",
-    "isAbsolute": false,
-    "isModuleFromMonorepo": false,
-    "id": "knoihfkimbifjaoupumtdulu"
-  },
-  {
-    "createdAt": 1668773870670,
-    "updatedAt": 1668773870670,
-    "deletedAt": 0,
-    "createdFirstAt": 1668773870670,
-    "name": "DbModelEnum",
-    "slug": "db-model-enum",
-    "type": "type",
-    "hasGeneric": false,
-    "module": "sdk-db",
-    "isModuleResolved": true,
-    "comments": [],
-    "operationRelativeTypescriptFilePath": "src/processItemAssets.ts",
-    "classification": "operation",
-    "isAbsolute": true,
-    "isModuleFromMonorepo": true,
-    "id": "isrlqtcstjmeayuivmgebfhm"
-  },
-  {
-    "createdAt": 1668773870671,
-    "updatedAt": 1668773870671,
-    "deletedAt": 0,
-    "createdFirstAt": 1668773870671,
-    "name": "makeArray",
-    "slug": "make-array",
-    "type": "value",
-    "module": "js-util",
-    "isModuleResolved": true,
-    "comments": [],
-    "operationRelativeTypescriptFilePath": "src/processItemAssets.ts",
-    "classification": "operation",
-    "isAbsolute": true,
-    "isModuleFromMonorepo": true,
-    "id": "iuyrfdlisfiddbdyarwlxnwy"
-  },
-  {
-    "createdAt": 1668773870671,
-    "updatedAt": 1668773870671,
-    "deletedAt": 0,
-    "createdFirstAt": 1668773870671,
-    "name": "mergeObjectsArray",
-    "slug": "merge-objects-array",
-    "type": "value",
-    "module": "js-util",
-    "isModuleResolved": true,
-    "comments": [],
-    "operationRelativeTypescriptFilePath": "src/processItemAssets.ts",
-    "classification": "operation",
-    "isAbsolute": true,
-    "isModuleFromMonorepo": true,
-    "id": "fsazretfcptyxrnpuwdpimic"
-  },
-  {
-    "createdAt": 1668835084744,
-    "updatedAt": 1668835084744,
-    "deletedAt": 0,
-    "createdFirstAt": 1668835084744,
+    "createdFirstAt": 1669054890359,
     "name": "CompressionConfig",
     "slug": "compression-config",
     "type": "type",
@@ -83,13 +15,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "frywgmkwvweqcbijkncijklj"
+    "id": "qywvxngqoqhdtvoelgwryvst"
   },
   {
-    "createdAt": 1668835084744,
-    "updatedAt": 1668835084744,
+    "createdAt": 1669054890359,
+    "updatedAt": 1669054890359,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084744,
+    "createdFirstAt": 1669054890359,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -100,13 +32,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wvpikwzzlkcxrmmfdsaenbwz"
+    "id": "iqtrwvqaymfuhddkkcyrzaow"
   },
   {
-    "createdAt": 1668835084744,
-    "updatedAt": 1668835084744,
+    "createdAt": 1669054890359,
+    "updatedAt": 1669054890359,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084744,
+    "createdFirstAt": 1669054890359,
     "name": "findAbsoluteAssetPathFromReference",
     "slug": "find-absolute-asset-path-from-reference",
     "module": "./util/findAbsoluteAssetPathFromReference",
@@ -116,13 +48,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "yghdtmrnoynuhpqahrhsextg"
+    "id": "oekjbhycwrsdhfnccngrgjxf"
   },
   {
-    "createdAt": 1668835084744,
-    "updatedAt": 1668835084744,
+    "createdAt": 1669054890359,
+    "updatedAt": 1669054890359,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084744,
+    "createdFirstAt": 1669054890359,
     "name": "UploadAssetResult",
     "slug": "upload-asset-result",
     "type": "type",
@@ -134,13 +66,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "dcvdqzssumgxuwdtfvepcuxe"
+    "id": "dhpogtfdhsrvgqsqrtcfucqm"
   },
   {
-    "createdAt": 1668835084744,
-    "updatedAt": 1668835084744,
+    "createdAt": 1669054890359,
+    "updatedAt": 1669054890359,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084744,
+    "createdFirstAt": 1669054890359,
     "name": "databaseFolderName",
     "slug": "database-folder-name",
     "type": "value",
@@ -151,13 +83,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "mxmlflikfwssusrpomifexgu"
+    "id": "fhtyzparldoygluqaejspohg"
   },
   {
-    "createdAt": 1668835084745,
-    "updatedAt": 1668835084745,
+    "createdAt": 1669054890360,
+    "updatedAt": 1669054890360,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084745,
+    "createdFirstAt": 1669054890360,
     "name": "generatedFolders",
     "slug": "generated-folders",
     "type": "value",
@@ -168,13 +100,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "smoxpfaajjrnbigtttzgenqv"
+    "id": "uizxhjouocjfymhciiyntkux"
   },
   {
-    "createdAt": 1668835084745,
-    "updatedAt": 1668835084745,
+    "createdAt": 1669054890360,
+    "updatedAt": 1669054890360,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084745,
+    "createdFirstAt": 1669054890360,
     "name": "sourceFolderName",
     "slug": "source-folder-name",
     "type": "value",
@@ -185,13 +117,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "fkqsiyjbzaldzbtmfghaximc"
+    "id": "hdsnhbwlznlnkihxfcucusot"
   },
   {
-    "createdAt": 1668835084745,
-    "updatedAt": 1668835084745,
+    "createdAt": 1669054890360,
+    "updatedAt": 1669054890360,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084745,
+    "createdFirstAt": 1669054890360,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -202,13 +134,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xohwdskebkuttzqmsvelsype"
+    "id": "qxqvxoaeodkxbswzcivhptva"
   },
   {
-    "createdAt": 1668835084745,
-    "updatedAt": 1668835084745,
+    "createdAt": 1669054890360,
+    "updatedAt": 1669054890360,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084745,
+    "createdFirstAt": 1669054890360,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -219,13 +151,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vugwygqjgmreayajacafyqxy"
+    "id": "nihqeeyuipipigozhdpogadm"
   },
   {
-    "createdAt": 1668835084745,
-    "updatedAt": 1668835084745,
+    "createdAt": 1669054890360,
+    "updatedAt": 1669054890360,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084745,
+    "createdFirstAt": 1669054890360,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -236,13 +168,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tdeauzdrdsrhdocekfnqclrr"
+    "id": "zljtuwjlunlvuzxpbzlbrpza"
   },
   {
-    "createdAt": 1668835084745,
-    "updatedAt": 1668835084745,
+    "createdAt": 1669054890360,
+    "updatedAt": 1669054890360,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084745,
+    "createdFirstAt": 1669054890360,
     "name": "makeRelative",
     "slug": "make-relative",
     "type": "value",
@@ -253,13 +185,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gnociykvciogolkdowcgjaly"
+    "id": "jwpyleoclfgyddreqxeewtem"
   },
   {
-    "createdAt": 1668835084745,
-    "updatedAt": 1668835084745,
+    "createdAt": 1669054890360,
+    "updatedAt": 1669054890360,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084745,
+    "createdFirstAt": 1669054890360,
     "name": "explore",
     "slug": "explore",
     "type": "value",
@@ -270,13 +202,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qcenumvkdyvvfdrfxcjdzmfl"
+    "id": "wbcgflekmioxgoakxpbwvewm"
   },
   {
-    "createdAt": 1668835084745,
-    "updatedAt": 1668835084745,
+    "createdAt": 1669054890360,
+    "updatedAt": 1669054890360,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084745,
+    "createdFirstAt": 1669054890360,
     "name": "pathArrayIsOperation",
     "slug": "path-array-is-operation",
     "type": "value",
@@ -287,13 +219,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vzmfghomjmqpkevrlnefyxsk"
+    "id": "xuczbfpjykhgptrxhajqzarc"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "operations",
     "slug": "operations",
     "type": "value",
@@ -304,13 +236,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "fhvfdqdvtxfamxbbyjnashas"
+    "id": "vpnyoyvjngznewmwkeskceqf"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "findAssetParametersRecursively",
     "slug": "find-asset-parameters-recursively",
     "module": "./findAssetParametersRecursively",
@@ -320,13 +252,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "jzgcqfszoikpvsrysekpduqi"
+    "id": "mqcjahajmxdclvsixgszivvx"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "notEmpty",
     "slug": "not-empty",
     "type": "value",
@@ -337,13 +269,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nqjcdrdvfcjndzdcdalfvvvy"
+    "id": "gmarjlpqwwrfcfuepqcjinnj"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "AssetInputType",
     "slug": "asset-input-type",
     "type": "type",
@@ -355,13 +287,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "cvrvyrwrhmmhhqntosswopkc"
+    "id": "firpmaqsgfrizideqcuxgpmw"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "getAssetInputType",
     "slug": "get-asset-input-type",
     "type": "value",
@@ -372,13 +304,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "mljpkizdgmgpaeddtgjulgfd"
+    "id": "xtfjmhojtqotkyxzuzwsbcdh"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "sourceFolderName",
     "slug": "source-folder-name",
     "type": "value",
@@ -389,13 +321,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ussgmfgxzfextytqmoazwmbo"
+    "id": "tnzxwdiscfxizozqdftrubha"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "databaseFolderName",
     "slug": "database-folder-name",
     "type": "value",
@@ -406,13 +338,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "frdiuhjickkxkotcbrrptgho"
+    "id": "xwvuosqcithqrehgwnhfuodz"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -423,13 +355,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "hsqpatsrfiwgtdajjqyfeozu"
+    "id": "ugufiokmflazxjecdxaiqjmb"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "findOperationBasePath",
     "slug": "find-operation-base-path",
     "type": "value",
@@ -440,13 +372,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "dwegwnuhamuartguubuvvxzt"
+    "id": "envpwnrtywllqyqsosjmfzly"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "makeRelative",
     "slug": "make-relative",
     "type": "value",
@@ -457,13 +389,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "efxkxidndxluazcbnwwmuoaz"
+    "id": "ubowdnqdxgxbgvqirexknqmg"
   },
   {
-    "createdAt": 1668835084746,
-    "updatedAt": 1668835084746,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084746,
+    "createdFirstAt": 1669054890361,
     "name": "kebabCase",
     "slug": "kebab-case",
     "type": "value",
@@ -474,13 +406,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ckunzumpfkkdnrosmvyecvvc"
+    "id": "bnjecjpognlxmvmpucxhgthb"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890361,
+    "updatedAt": 1669054890361,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890361,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -491,13 +423,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pqajtkvgdrnxpifigacokfxe"
+    "id": "zlatbdtyxzuqikvukottmzsg"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "BackendAsset",
     "slug": "backend-asset",
     "type": "type",
@@ -509,13 +441,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "chfxuopvebhbnfrgnkzzilia"
+    "id": "zaxgjcctgklmuqljrfntdayl"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -526,13 +458,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rjldtgynuwmuystbfujaeifu"
+    "id": "mkghoexrfdmladeapdptlctv"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "getFirstAvailableFilename",
     "slug": "get-first-available-filename",
     "type": "value",
@@ -543,13 +475,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "falalhkelngtodqxcnbokdxb"
+    "id": "uzjfvumtndxzmbbdcqnytryx"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -560,13 +492,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "bfvphahnqhqjpenzhwmwjfgb"
+    "id": "vkmzmfaiantgqhdgrgkpjmhw"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "renameAndCreate",
     "slug": "rename-and-create",
     "type": "value",
@@ -577,13 +509,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "grxckdfjdbwyszuiynxijcvy"
+    "id": "senqqqjgftngfkmsrlvcenik"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -594,13 +526,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "jqudrdxleqgrwxtsxznaloqh"
+    "id": "wifoegiwdnroloupaolwnkbt"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "getRelativeLinkPath",
     "slug": "get-relative-link-path",
     "type": "value",
@@ -611,13 +543,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ewnoumenlunznrkrikzylwav"
+    "id": "xcwnoorucpncgdybmruwzgzx"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "slugify",
     "slug": "slugify",
     "type": "value",
@@ -628,13 +560,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "hgylmikovlrdopvyuqmbjufc"
+    "id": "ehzcsjdhhupxjvfyirbbkrml"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "getStorageLocationInfo",
     "slug": "get-storage-location-info",
     "module": "./getStorageLocationInfo",
@@ -644,13 +576,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "iphefoqqnafyekswqyvogrkh"
+    "id": "mebvkrjcwmobevbuxeapfyre"
   },
   {
-    "createdAt": 1668835084747,
-    "updatedAt": 1668835084747,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084747,
+    "createdFirstAt": 1669054890362,
     "name": "getTemporaryAssetsFolderPath",
     "slug": "get-temporary-assets-folder-path",
     "module": "./getTemporaryAssetsFolderPath",
@@ -660,13 +592,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "bjwsjuddjditthvftstnccbk"
+    "id": "jpvxpiuyuwlypwcwuyksiixr"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890362,
+    "updatedAt": 1669054890362,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890362,
     "name": "log",
     "slug": "log",
     "type": "value",
@@ -677,13 +609,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wphafuwtzyaluwuwdrdbnvec"
+    "id": "edmybzpxeqezoxirfybgxqpv"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "takeFirst",
     "slug": "take-first",
     "type": "value",
@@ -694,13 +626,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rfznssgbjygazrgdgigjyfbm"
+    "id": "kjcersejhdhmyixjfcerqkpd"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -711,13 +643,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "chzoapwitwfmzntmorrhzmxl"
+    "id": "vsddsbpwcismosidhoieufop"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "DbModels",
     "slug": "db-models",
     "type": "type",
@@ -729,13 +661,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "bnpyvbbthsrdmdzhjndgqnzp"
+    "id": "drypsuvvknkblslnhygdrhsz"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "CustomQueryConfig",
     "slug": "custom-query-config",
     "type": "type",
@@ -747,13 +679,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ztcstbbbphrecljhbewxalir"
+    "id": "mqslnypuqegtldnbdxwshlvr"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "setKeyAtLocation",
     "slug": "set-key-at-location",
     "type": "value",
@@ -764,13 +696,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zhqztygtzgtzmrlqtnqqkqgl"
+    "id": "owgidpkugnwnexkeozzkuenb"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "BackendAsset",
     "slug": "backend-asset",
     "type": "type",
@@ -782,13 +714,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zqfqccbhfhizqylvegqoflng"
+    "id": "orvvqzqvolxyeigwvswyazbn"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "notEmpty",
     "slug": "not-empty",
     "type": "value",
@@ -799,13 +731,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xhqehoisthldjmeqymraztje"
+    "id": "tpxixeqheuwybikpvtzbgbzm"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "AugmentedAnyModelType",
     "slug": "augmented-any-model-type",
     "type": "type",
@@ -817,13 +749,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "aglvpuncdywzjkxigslvapay"
+    "id": "ikmsmoeuwgdlzsfmexjrxjdu"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "processAsset",
     "slug": "process-asset",
     "module": "./processAsset",
@@ -833,13 +765,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "bcgevqbkvfsjbiljwyuwdpuh"
+    "id": "rpaofvqhnimfcfsedczisgey"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "findAssetParametersRecursively",
     "slug": "find-asset-parameters-recursively",
     "module": "./findAssetParametersRecursively",
@@ -849,13 +781,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "fyubeytjgitqhbvygkbytlpj"
+    "id": "hspwciguthftjxnnivgmdpav"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "getParameterAtLocation",
     "slug": "get-parameter-at-location",
     "type": "value",
@@ -866,13 +798,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "fljbkkeglwhnwzkehyulgwxc"
+    "id": "ajraczoxjrycblexcgeytnbs"
   },
   {
-    "createdAt": 1668835084748,
-    "updatedAt": 1668835084748,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084748,
+    "createdFirstAt": 1669054890363,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -883,13 +815,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "cwgatysevqtmsfkdiolheqct"
+    "id": "amrwskqdzyrozdjbpmhmjrns"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890363,
+    "updatedAt": 1669054890363,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890363,
     "name": "makeRelative",
     "slug": "make-relative",
     "type": "value",
@@ -900,13 +832,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ldrhpoerhdmlaleabcvxavoq"
+    "id": "zsgkmkmcoecouaypibyueefa"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -917,13 +849,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "kjpoyvjfjurvxpifwzufblnk"
+    "id": "cgpeaazbpblddttbcyxsofwc"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -934,13 +866,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "yioishnjhllqmlzlqarrrpcb"
+    "id": "zhckygldeyugnzslduozfhno"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "getTemporaryAssetsFolderPath",
     "slug": "get-temporary-assets-folder-path",
     "module": "./getTemporaryAssetsFolderPath",
@@ -950,13 +882,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "asihhpucdkqzdroduikumgmf"
+    "id": "ihfvjdhyyvotkkpugomsislq"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -967,13 +899,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zprnfdjnnyqmkemxyckielya"
+    "id": "hpqaxhkgvlerwrjfaaejpkzw"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -984,13 +916,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rgcffssctixypccutjkcmcsz"
+    "id": "ukvvhkwyvmtxpcyisiqlnyai"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -1001,13 +933,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pqnbgwppzkmqbkzfermlssjx"
+    "id": "nxkjrfxtkmwblqqlhilatsum"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "takeFirst",
     "slug": "take-first",
     "type": "value",
@@ -1018,13 +950,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pqfxotvwmojcyqqqtlwxgbwz"
+    "id": "dzcfsckemgoaditifbxvwjpy"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "FunctionContext",
     "slug": "function-context",
     "type": "type",
@@ -1036,13 +968,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "aslpfugqqrnkqnxmuriocpmc"
+    "id": "ddmrgxaiapzjimrozivpykkb"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "serverDownloadReply",
     "slug": "server-download-reply",
     "module": "../util/serverDownloadReply",
@@ -1052,13 +984,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "aatvfkmcwrgmtzsknafxfehb"
+    "id": "pjtzxwlekhxgggnefmqadkqe"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "Context",
     "slug": "context",
     "module": "server/typings/common",
@@ -1068,13 +1000,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "bluihamtwirgfgukaeqfygdx"
+    "id": "opmeuozmrvbrwadduoeefwki"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "Context",
     "slug": "context",
     "module": "server/typings/common",
@@ -1084,13 +1016,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "ietlrwiiljqnkkqcnvoezpys"
+    "id": "dkoigemdhoznvgisquhydcwp"
   },
   {
-    "createdAt": 1668835084749,
-    "updatedAt": 1668835084749,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084749,
+    "createdFirstAt": 1669054890364,
     "name": "takeFirst",
     "slug": "take-first",
     "type": "value",
@@ -1101,13 +1033,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "oakrzcqplpfsjbvwdjbpbhpm"
+    "id": "zcoijgjagspixkttisbptgfr"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890364,
     "name": "findAbsoluteAssetPathFromReference",
     "slug": "find-absolute-asset-path-from-reference",
     "module": "../util/findAbsoluteAssetPathFromReference",
@@ -1117,13 +1049,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "rbsdiphxtoysgwngmxsvebna"
+    "id": "ndndfaujwpmoglbkvhykumji"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890364,
+    "updatedAt": 1669054890364,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890364,
     "name": "serverDownloadReply",
     "slug": "server-download-reply",
     "module": "../util/serverDownloadReply",
@@ -1133,13 +1065,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "gngtivxkpsklricfdwnyzbwb"
+    "id": "edeaomferzojnqinmtcojgnf"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -1150,13 +1082,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "oalfbpnjtmesexnhwcxuhfhx"
+    "id": "mberyxkqbxfrxehrfrggpzwl"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -1167,13 +1099,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "cztnrenevflruagzadfjgeto"
+    "id": "sfaegazdiwqlaupewvqebzzy"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "UploadAssetResult",
     "slug": "upload-asset-result",
     "type": "type",
@@ -1185,13 +1117,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "isarkjqedqovbdhqvpktcwoy"
+    "id": "qpgucyonzdfpbaopmbclxovg"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "generateRandomString",
     "slug": "generate-random-string",
     "type": "value",
@@ -1202,13 +1134,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zppxcsgpurbdgqurnpurfsde"
+    "id": "uiszscryhdihlrabyqzeoueq"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "getTemporaryAssetsFolderPath",
     "slug": "get-temporary-assets-folder-path",
     "module": "../getTemporaryAssetsFolderPath",
@@ -1218,13 +1150,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "pzxozqpxdiawaiakrtwrlhdz"
+    "id": "bgjrijnqvidtxnwujukixlwc"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "getPreferredExtensionFromType",
     "slug": "get-preferred-extension-from-type",
     "type": "value",
@@ -1235,13 +1167,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "naywdmvkqlkyitzbmvasxvly"
+    "id": "eibernfdsobavnplgumdubjf"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "convertToMp3",
     "slug": "convert-to-mp-3",
     "module": "../convertToMp3",
@@ -1251,13 +1183,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "hrmrzpehwhicduibtlrykcro"
+    "id": "zodkzryowzwcfryezwsgyepu"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "FunctionContext",
     "slug": "function-context",
     "type": "type",
@@ -1269,13 +1201,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "adqcpwwazwfyimruivonlnql"
+    "id": "ipnjuvrmswewvdlsiuvdwlru"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -1286,13 +1218,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nqgsmdehbxwopckwgmcbxtbo"
+    "id": "mzafambrapuoqopzoswvtorp"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -1303,13 +1235,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "mdlvuaiieuvoupcnkriubdyy"
+    "id": "jpxkzoglzkybrsphphoccmhd"
   },
   {
-    "createdAt": 1668835084750,
-    "updatedAt": 1668835084750,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084750,
+    "createdFirstAt": 1669054890365,
     "name": "getExtension",
     "slug": "get-extension",
     "type": "value",
@@ -1320,13 +1252,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "jezwdysikvjhpunewsxcgynw"
+    "id": "xlyetuzutofznjnvupwztijj"
   },
   {
-    "createdAt": 1668835084751,
-    "updatedAt": 1668835084751,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084751,
+    "createdFirstAt": 1669054890365,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -1337,13 +1269,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gnlnzjqoapdefjgusnfsahow"
+    "id": "gwybkmhhpzxgpgazykitcdgd"
   },
   {
-    "createdAt": 1668835084751,
-    "updatedAt": 1668835084751,
+    "createdAt": 1669054890365,
+    "updatedAt": 1669054890365,
     "deletedAt": 0,
-    "createdFirstAt": 1668835084751,
+    "createdFirstAt": 1669054890365,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -1354,6 +1286,6 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gtlyjyhojxqzbcdfvboayigj"
+    "id": "labmhjwvowhmcbnjtwevaqub"
   }
 ]

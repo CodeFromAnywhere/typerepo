@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977192335,
-  "updatedAt": 1668977192335,
+  "createdAt": 1669055978965,
+  "updatedAt": 1669055978965,
   "deletedAt": 0,
-  "createdFirstAt": 1668977192335,
+  "createdFirstAt": 1669055978965,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  src: string | undefined,\n  config: MarkdownParseRenderConfig\n) => {\n  // src from static folder of next.js\n  const relativeUrlStrategy =\n    config.isDev || !config.isStatic ? \"api\" : \"static\";\n\n  const realSrc = src\n    ? isPathRelative(src)\n      ? getUrlFromRelativeUrl(\n          src,\n          relativeUrlStrategy,\n          config.projectRelativeBaseFolderPath,\n          config.projectRelativeMarkdownFilePath\n        )\n      : src\n    : undefined;\n\n  return realSrc;\n}",
   "description": "Based on markdown info, gest the real source for an image",
-  "id": "jdjzlyvhcpcewebsmvrwgrck"
+  "id": "xvcjssruubiiodcdsuqewumz"
 }

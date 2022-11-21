@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669055017727,
+  "updatedAt": 1669055017727,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055017727,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useAsset",
+  "slug": "use-asset",
+  "operationRelativeTypescriptFilePath": "src/useAsset.ts",
+  "type": {
+    "rawType": "(asset: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").Asset, projectRelativeReferencingFilePath: string) => { rawText: string | null; type: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").AssetType | undefined; downloadUrl: string | undefined; src: string | undefined; extension: string | undefined; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  asset: Asset,\n  projectRelativeReferencingFilePath: string\n) => {\n  const isRemote = !asset.blobPath;\n\n  /**\n   * NB: `relativePath` is required\n   */\n  const getRemoteUrl = (isDownload: boolean) =>\n    getReferencedAssetApiUrl(\n      apiUrl,\n      projectRelativeReferencingFilePath,\n      asset.relativePath!,\n      isDownload\n    );\n  /**\n   * NB: `asset.temporaryDestination` is not a URL that can be used to retreive the image as \"src\"\n   */\n  const src = asset.absoluteUrl\n    ? asset.absoluteUrl\n    : isRemote\n    ? asset.relativePath\n      ? getRemoteUrl(false)\n      : undefined\n    : asset.blobPath;\n\n  // console.log(\"UseAssetSRC:\", src);\n  const downloadRemotely = isRemote && !!asset.relativePath;\n\n  const downloadUrl = downloadRemotely\n    ? getRemoteUrl(true)\n    : // NB: other type is ugly when downloading. Also doesn't make sense much to want to download an asset after uploading\n    asset.type !== \"other\"\n    ? asset.blobPath\n    : undefined;\n\n  const extension = getExtensionFromAsset(asset);\n\n  const assetInfo = useAssetInfo(src, asset.originalFilename);\n\n  const rawText = assetInfo?.rawText || null;\n  const type = asset.type || assetInfo?.type;\n\n  return { rawText, type, downloadUrl, src, extension };\n}",
+  "description": "",
+  "id": "lnbmvuwfkupbeepalbvmvirc"
+}

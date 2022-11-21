@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668336507321,
-  "updatedAt": 1668336507321,
+  "createdAt": 1669056155552,
+  "updatedAt": 1669056155552,
   "deletedAt": 0,
-  "createdFirstAt": 1668336507321,
+  "createdFirstAt": 1669056155552,
   "id": "namedparameterstypeof-nodemon",
   "name": "NamedParameters<typeof nodemon>",
   "slug": "namedparameterstypeof-nodemon",
@@ -17,70 +17,119 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
-        "operationName": {
-          "type": "string"
-        },
-        "cliFunctionName": {
-          "type": "string",
-          "description": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file"
-        },
-        "vars": {
-          "type": "array",
-          "items": {
-            "type": "string"
+        "config": {
+          "type": "object",
+          "properties": {
+            "isRestart": {
+              "type": "boolean"
+            },
+            "operationName": {
+              "type": "string"
+            },
+            "cliFunctionName": {
+              "type": "string",
+              "description": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file"
+            },
+            "vars": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "vars that need to be passed to the cli"
+            },
+            "restartVars": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "manualProjectRoot": {
+              "type": "string",
+              "description": "manual project root for the operation to run"
+            }
           },
-          "description": "vars that need to be passed to the cli"
-        },
-        "manualProjectRoot": {
-          "type": "string",
-          "description": "manual project root for the operation to run"
+          "required": [
+            "operationName",
+            "cliFunctionName"
+          ],
+          "additionalProperties": false
         }
       },
       "required": [
-        "operationName",
-        "cliFunctionName"
+        "config"
       ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
-          "name": "operationName",
+          "name": "config",
           "required": true,
           "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "cliFunctionName",
-          "required": true,
-          "schema": {
-            "fullComment": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file",
-            "type": "string"
-          }
-        },
-        {
-          "name": "vars",
-          "required": false,
-          "schema": {
-            "fullComment": "vars that need to be passed to the cli",
-            "items": [
+            "properties": [
               {
+                "name": "isRestart",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "operationName",
+                "required": true,
                 "schema": {
                   "type": "string"
-                },
-                "name": null
+                }
+              },
+              {
+                "name": "cliFunctionName",
+                "required": true,
+                "schema": {
+                  "fullComment": "name of the function that you want to run the cli from\n\nby convention, we are going to execute the `build/cli/[fnName].cli.js` file",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "vars",
+                "required": false,
+                "schema": {
+                  "fullComment": "vars that need to be passed to the cli",
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "restartVars",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "manualProjectRoot",
+                "required": false,
+                "schema": {
+                  "fullComment": "manual project root for the operation to run",
+                  "type": "string"
+                }
               }
             ],
-            "type": "array"
-          }
-        },
-        {
-          "name": "manualProjectRoot",
-          "required": false,
-          "schema": {
-            "fullComment": "manual project root for the operation to run",
-            "type": "string"
+            "type": "object"
           }
         }
       ],

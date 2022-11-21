@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669055746863,
+  "updatedAt": 1669055746863,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055746863,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "runFunctionServerCli",
+  "slug": "run-function-server-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/runFunctionServer.cli.ts",
+  "type": {
+    "rawType": "() => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const [isWatchingString, isRestartString] = process.argv.slice(2);\n\n  runFunctionServer(\n    isWatchingString === \"true\" ? true : false,\n    isRestartString === \"true\" ? true : false\n  );\n}",
+  "description": "Argument:\n- pass true if you want the server to be watching\n- pass true true if you want the server to be watching and this is a restart (so don't launch things like browser)\n- if you pass nothing, there will be no browser start and no watcher",
+  "id": "hkxodwdgrzgexbulciyebwyx"
+}

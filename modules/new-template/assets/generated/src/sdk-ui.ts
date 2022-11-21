@@ -135,9 +135,13 @@ import { getOpenPageUrl } from "file-tabs";
 import { renderIcon } from "file-tabs";
 import { getKeysAtPathFromNestedObject } from "nested-menu";
 import { getRealItemRecursive } from "nested-menu";
+import { getTitle } from "nested-menu";
+import { makeNestedObjectFromQueryPathObject } from "nested-menu";
 import { NestedMenuItem } from "nested-menu";
 import { NestedMenu } from "nested-menu";
+import { nestedObjectToChildObject } from "nested-menu";
 import { nestedPathObjectToNestedMenuRecursive } from "nested-menu";
+import { nestifyQueryPathObjectRecursive } from "nested-menu";
 import { queryPathsArrayToNestedPathObject } from "nested-menu";
 import { reduceQueryPathsRecursively } from "nested-menu";
 import { useExpanded } from "nested-menu";
@@ -175,6 +179,7 @@ import { useUrl } from "db-crud";
 import { FunctionForm } from "function-form";
 import { AuthenticationLayout } from "layout";
 import { LayoutGrid } from "layout";
+import { getLegacyMenu } from "menu";
 import { Menu } from "menu";
 import { ArrayForm } from "simplified-schema-form";
 import { FormContainer } from "simplified-schema-form";
@@ -192,6 +197,7 @@ import { ContentEditableDivInput } from "writer-input";
 import { ContextTextArea } from "writer-input";
 import { DivContentEditable } from "writer-input";
 import { editSubtextSubwordConfig } from "writer-input";
+import { EditWriterInput } from "writer-input";
 import { FrontmatterForm } from "writer-input";
 import { getContext } from "writer-input";
 import { getSubtext } from "writer-input";
@@ -368,9 +374,13 @@ getOpenPageUrl,
 renderIcon,
 getKeysAtPathFromNestedObject,
 getRealItemRecursive,
+getTitle,
+makeNestedObjectFromQueryPathObject,
 NestedMenuItem,
 NestedMenu,
+nestedObjectToChildObject,
 nestedPathObjectToNestedMenuRecursive,
+nestifyQueryPathObjectRecursive,
 queryPathsArrayToNestedPathObject,
 reduceQueryPathsRecursively,
 useExpanded,
@@ -408,6 +418,7 @@ useUrl,
 FunctionForm,
 AuthenticationLayout,
 LayoutGrid,
+getLegacyMenu,
 Menu,
 ArrayForm,
 FormContainer,
@@ -425,6 +436,7 @@ ContentEditableDivInput,
 ContextTextArea,
 DivContentEditable,
 editSubtextSubwordConfig,
+EditWriterInput,
 FrontmatterForm,
 getContext,
 getSubtext,

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668336507809,
-  "updatedAt": 1668336507809,
+  "createdAt": 1669056156711,
+  "updatedAt": 1669056156711,
   "deletedAt": 0,
-  "createdFirstAt": 1668336507809,
+  "createdFirstAt": 1669056156711,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "nodemon",
   "operationRelativeTypescriptFilePath": "src/nodemon.ts",
   "type": {
-    "rawType": "(operationName: string, cliFunctionName: string, vars?: string[] | undefined, manualProjectRoot?: string | undefined) => Promise<void>",
+    "rawType": "(config: { isRestart?: boolean | undefined; operationName: string; cliFunctionName: string; vars?: string[] | undefined; restartVars?: string[] | undefined; manualProjectRoot?: string | undefined; }) => Promise<void>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  operationName: string,\n  /**\n   * name of the function that you want to run the cli from\n   *\n   * by convention, we are going to execute the `build/cli/[fnName].cli.js` file\n   */\n  cliFunctionName: string,\n  /**\n   * vars that need to be passed to the cli\n   */\n  vars?: string[],\n  /**\n   * manual project root for the operation to run\n   */\n  manualProjectRoot?: string\n): Promise<void> => {\n  const operationPath = await getOperationPath(operationName, {\n    manualProjectRoot,\n  });\n\n  if (!operationPath) {\n    console.log(`${operationName} not found`);\n    return;\n  }\n\n  const cliPath = `build/cli/${cliFunctionName}.cli.js`;\n  const absoluteCliPath = path.join(operationPath, cliPath);\n\n  if (!fs.existsSync(absoluteCliPath)) {\n    log(`${absoluteCliPath} not found (nodemon)`, { type: \"error\" });\n    return;\n  }\n  const command = `node ${cliPath} ${vars ? ` ${vars.join(\" \")}` : \"\"}`;\n\n  const process = spawn(command, {\n    cwd: operationPath,\n    shell: true,\n    stdio: \"inherit\",\n  });\n  //\n  process\n    .on(\"exit\", (code) => {\n      log(\n        `Process ${cliFunctionName} has ended with code ${code}, restarting...`,\n        { type: \"important\" }\n      );\n\n      nodemon(operationName, cliFunctionName, vars, manualProjectRoot);\n    })\n    .on(\"data\", (message) => {\n      log(message);\n    })\n    .on(\"error\", (err) => {\n      log(`${err.name} Error: ${err.message}`, { type: \"error\" });\n    });\n}",
+  "value": "async (config: {\n  isRestart?: boolean;\n\n  operationName: string;\n  /**\n   * name of the function that you want to run the cli from\n   *\n   * by convention, we are going to execute the `build/cli/[fnName].cli.js` file\n   */\n  cliFunctionName: string;\n\n  /**\n   * vars that need to be passed to the cli\n   */\n  vars?: string[];\n\n  restartVars?: string[];\n  /**\n   * manual project root for the operation to run\n   */\n  manualProjectRoot?: string;\n}): Promise<void> => {\n  const {\n    cliFunctionName,\n    operationName,\n    isRestart,\n    manualProjectRoot,\n    restartVars,\n    vars,\n  } = config;\n\n  const operationPath = await getOperationPath(operationName, {\n    manualProjectRoot,\n  });\n\n  if (!operationPath) {\n    console.log(`${operationName} not found`);\n    return;\n  }\n\n  const cliPath = `build/cli/${cliFunctionName}.cli.js`;\n  const absoluteCliPath = path.join(operationPath, cliPath);\n\n  if (!fs.existsSync(absoluteCliPath)) {\n    log(`${absoluteCliPath} not found (nodemon)`, { type: \"error\" });\n    return;\n  }\n  const realRestartVars = restartVars || vars;\n  const realVars = isRestart ? realRestartVars : vars;\n  const varsString = realVars ? ` ${realVars.join(\" \")}` : \"\";\n  const command = `node ${cliPath} ${varsString}`;\n\n  const process = spawn(command, {\n    cwd: operationPath,\n    shell: true,\n    stdio: \"inherit\",\n  });\n  //\n  process\n    .on(\"exit\", (code) => {\n      log(\n        `Process ${cliFunctionName} has ended with code ${code}, restarting...`,\n        { type: \"important\" }\n      );\n\n      nodemon({ ...config, isRestart: true });\n    })\n    .on(\"data\", (message) => {\n      log(message);\n    })\n    .on(\"error\", (err) => {\n      log(`${err.name} Error: ${err.message}`, { type: \"error\" });\n    });\n}",
   "description": "",
-  "id": "chntcosgchycapfyuqirgmby"
+  "id": "zxbfpdkuohldxxqbmwnjkkwd"
 }

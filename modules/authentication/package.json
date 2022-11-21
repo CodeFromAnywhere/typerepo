@@ -44,7 +44,9 @@
     "cool-toast": "0.0.0",
     "asset-view": "0.0.0",
     "simplified-schema-form": "0.0.1",
-    "code-types": "0.0.1"
+    "code-types": "0.0.1",
+    "react-with-native-ui": "1.0.6",
+    "big-button": "0.0.1"
   },
   "name": "authentication",
   "operation": {
@@ -60,39 +62,110 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/authentication/src/PictureWithInfoDropdown.tsx. Error: Error: Unknown type \"function\""
       ]
     },
-    "lastRebuildAt": 1668977241524,
+    "lastRebuildAt": 1669056035164,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 12,
-        "lines": 470,
-        "characters": 14315,
-        "bytes": 14315
+        "lines": 483,
+        "characters": 14708,
+        "bytes": 14708
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 138,
-        "characters": 4427,
-        "bytes": 4427
+        "lines": 140,
+        "characters": 4491,
+        "bytes": 4491
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 26,
-        "characters": 897,
-        "bytes": 897
+        "lines": 177,
+        "characters": 3492,
+        "bytes": 3492
       },
       "size": {
-        "bytes": 19639,
-        "characters": 19639,
-        "lines": 634,
+        "bytes": 22691,
+        "characters": 22691,
+        "lines": 800,
         "numberOfFiles": 16
       }
     },
     "folderNameIndexed": "authentication",
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [],
-    "operationDependenciesIndexed": [],
-    "packageDependenciesIndexed": []
+    "coreDependenciesIndexed": [
+      "useEffect",
+      "useState"
+    ],
+    "operationDependenciesIndexed": [
+      "Div",
+      "FunctionForm",
+      "UI",
+      "Div",
+      "Input",
+      "P",
+      "RealApiReturnType",
+      "queries",
+      "showStandardResponse",
+      "successToast",
+      "ALink",
+      "BigButton",
+      "generateId",
+      "api",
+      "queries",
+      "destructureOptionalObject",
+      "Person",
+      "useAlert",
+      "toast",
+      "successToast",
+      "itemGetBackendAssetUrl",
+      "Device",
+      "Div",
+      "P",
+      "Image",
+      "useRouter",
+      "FancyLoader",
+      "getAssetDirectlyApiUrl",
+      "Div",
+      "P",
+      "useRouter",
+      "queries",
+      "takeFirst",
+      "FancyLoader",
+      "Person",
+      "PublicPerson",
+      "ModelItemAssetView",
+      "queries",
+      "FancyLoader",
+      "takeFirst",
+      "Div",
+      "useRouter",
+      "FunctionForm",
+      "ALink",
+      "Div",
+      "P",
+      "RealApiReturnType",
+      "queries",
+      "showStandardResponse",
+      "successToast",
+      "createStore",
+      "apiStoreInitialValues",
+      "FunctionForm",
+      "Div",
+      "P",
+      "PersonProfileDetails",
+      "api",
+      "queries",
+      "showStandardResponse",
+      "FormContainer",
+      "useTsInterfaceForm",
+      "Storing",
+      "TsInterface"
+    ],
+    "packageDependenciesIndexed": [
+      "useRouter",
+      "useRouter",
+      "useRouter"
+    ]
   },
   "slug": "authentication",
   "id": "hdvslqxxvwqpttxpqpdouyxc"

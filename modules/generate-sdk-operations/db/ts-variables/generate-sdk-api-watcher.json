@@ -1,0 +1,50 @@
+{
+  "createdAt": 1669055517799,
+  "updatedAt": 1669055517799,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055517799,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "generateSdkApiWatcher",
+  "slug": "generate-sdk-api-watcher",
+  "operationRelativeTypescriptFilePath": "src/generateSdkApiWatcher.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/control-project/watch-types/build/ProjectWatcher\").ProjectWatcher",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "filter": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "filter"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "filter",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  if (isRegenerating === true) {\n    // Don't run if it's already running\n    return;\n  }\n  console.log(\"Generate sdk-api...\");\n\n  isRegenerating = true;\n  await generateSdkApi();\n\n  console.log(\"DONE, exiting server\");\n  isRegenerating = false;\n  process.exit();\n}",
+  "description": "",
+  "id": "ybkwvcohvoqutieujncrdmah"
+}

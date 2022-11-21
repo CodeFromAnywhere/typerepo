@@ -8,7 +8,7 @@ import { Timeline } from "timeline";
 import { useStore } from "../util/store";
 
 export const mindspaces = [
-  "King OS",
+  "Typerepo",
   "search-ui",
   "p2p internet",
   "reader-ui",
@@ -22,13 +22,6 @@ const quotes = ["A day without coding is a day unlived"];
 
 export const HomePage = (props: QueryPageProps) => {
   const { imagePaths } = props;
-
-  const [authToken, setAuthToken] = useStore("api.authToken");
-
-  useEffect(() => {
-    setAuthToken("supersecretpasswordthatnobodycanneverguess");
-  }, []);
-  console.log({ authToken });
   const hour = new Date(Date.now()).getHours();
   const quote = quotes[hour % quotes.length];
   const imagePath = imagePaths[hour % imagePaths.length];
@@ -37,7 +30,7 @@ export const HomePage = (props: QueryPageProps) => {
   const [mouseDownTimeout, setMouseDownTimeout] =
     useState<NodeJS.Timeout | null>(null);
 
-  const yourName = "Wijnand 🤴";
+  const yourName = "King 🤴";
   const yourLocation = "Napoli 🇮🇹";
   const dayPart = "day";
 
@@ -89,9 +82,9 @@ export const HomePage = (props: QueryPageProps) => {
               );
             },
           },
-          {
-            markdown: `import * as React from "react";\n\nexport const test = () => true;`,
-          },
+          // {
+          //   markdown: `import * as React from "react";\n\nexport const test = () => true;`,
+          // },
           ...props.timelineItems?.map((x) => {
             return {
               markdown: x.comment,

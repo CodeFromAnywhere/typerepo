@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835857185,
-  "updatedAt": 1668835857185,
+  "createdAt": 1669055538071,
+  "updatedAt": 1669055538071,
   "deletedAt": 0,
-  "createdFirstAt": 1668835857185,
+  "createdFirstAt": 1669055538071,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  forAllFolders({\n    type: \"operations\",\n    basePath: getPathsWithOperations(),\n    callback: async (folderPath, index) => {\n      const operationName = getLastFolder(folderPath);\n\n      const classificationIndexed = getOperationClassification(folderPath);\n      console.log(`${operationName}: ${classificationIndexed}`);\n\n      await db.update(\n        \"Operation\",\n        (item) => item.name === operationName,\n        (old) =>\n          mergeNestedObject(old, { operation: { classificationIndexed } }),\n        { operationName }\n      );\n\n      console.log(\"updated\");\n\n      return;\n    },\n  });\n}",
   "description": "",
-  "id": "yndjywehwviuioaexqxtgtxy"
+  "id": "mdazqpuougvgkyinywpmuknf"
 }
