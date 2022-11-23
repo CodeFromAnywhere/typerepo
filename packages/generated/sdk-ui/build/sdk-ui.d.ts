@@ -241,7 +241,7 @@ export declare const sdk: {
     } | undefined) => Promise<boolean | undefined>;
     getAllMarkdownReaderPages: (config?: {
         manualProjectRoot?: string | undefined;
-    } | undefined) => Promise<import("webpage-types").FileWebPage[] | undefined>;
+    } | undefined) => Promise<import("webpage-types").WebPage<any>[] | undefined>;
     getChildren: (webPages: import("webpage-types").WebPage<any>[], queryPath: string) => string[];
     getFolderExplorationInfo: (webPages: import("webpage-types").WebPage<any>[], queryPath: string, projectRoot: string) => Promise<{
         title: string | undefined;
@@ -276,7 +276,7 @@ export declare const sdk: {
     }[]>;
     getReaderTodoPages: (projectRoot: string) => Promise<import("webpage-types").FileWebPage[]>;
     markdownReaderGetStaticPaths: import("next-types").GetStaticPaths<import("next-types").ParsedUrlQuery>;
-    markdownReaderGetStaticPropsFromPages: (fileWebPages: import("webpage-types").FileWebPage[], context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
+    markdownReaderGetStaticPropsFromPages: (fileWebPages: import("webpage-types").WebPage<any>[], context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
         props: import("markdown-reader-types").MarkdownReaderPageProps;
     }>;
     markdownReaderGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
