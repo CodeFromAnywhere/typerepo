@@ -55,8 +55,13 @@ import { useInfiniteGetDbModel } from "db-crud";
 import { useModelFromUrl } from "db-crud";
 import { useUrl } from "db-crud";
 import { FancyLoader } from "fancy-loader";
+import { getFileType } from "file-icons";
 import { MatchingText } from "file-search";
 import { PathSearchResults } from "file-search";
+import { FileTabs } from "file-tabs";
+import { getActivePage } from "file-tabs";
+import { getOpenPageUrl } from "file-tabs";
+import { renderIcon } from "file-tabs";
 import { FunctionForm } from "function-form";
 import { converse } from "function-util";
 import { executeSdkFunction } from "function-util";
@@ -75,9 +80,11 @@ import { useHotkey } from "hotkeys";
 import { useHotkeys } from "hotkeys";
 import { LabeledButton } from "labeled-button";
 import { AuthenticationLayout } from "layout";
+import { Header } from "layout";
 import { LayoutGrid } from "layout";
 import { copyStaticAssets } from "markdown-reader-functions";
 import { getAllMarkdownReaderPages } from "markdown-reader-functions";
+import { getChildren } from "markdown-reader-functions";
 import { getFolderExplorationInfo } from "markdown-reader-functions";
 import { getMarkdownModelPages } from "markdown-reader-functions";
 import { getMarkdownPageInfo } from "markdown-reader-functions";
@@ -85,8 +92,9 @@ import { getMarkdownReaderPages } from "markdown-reader-functions";
 import { getMarkdownReaderQueryPaths } from "markdown-reader-functions";
 import { getOperationPages } from "markdown-reader-functions";
 import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
-import { getTodoPages } from "markdown-reader-functions";
+import { getReaderTodoPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
+import { markdownReaderGetStaticPropsFromPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticProps } from "markdown-reader-functions";
 import { putReadmeOnTop } from "markdown-reader-functions";
 import { removeExtensionsFromPath } from "markdown-reader-functions";
@@ -96,17 +104,10 @@ import { stripReadmeFromFolder } from "markdown-reader-functions";
 import { getQueryPath } from "markdown-reader-functions-js";
 import { getLegacyMenu } from "menu";
 import { Menu } from "menu";
-import { getKeysAtPathFromNestedObject } from "nested-menu";
 import { getRealItemRecursive } from "nested-menu";
 import { getTitle } from "nested-menu";
-import { makeNestedObjectFromQueryPathObject } from "nested-menu";
 import { NestedMenuItem } from "nested-menu";
 import { NestedMenu } from "nested-menu";
-import { nestedObjectToChildObject } from "nested-menu";
-import { nestedPathObjectToNestedMenuRecursive } from "nested-menu";
-import { nestifyQueryPathObjectRecursive } from "nested-menu";
-import { queryPathsArrayToNestedPathObject } from "nested-menu";
-import { reduceQueryPathsRecursively } from "nested-menu";
 import { useExpanded } from "nested-menu";
 import { ALink } from "next-a-link";
 import { A } from "react-with-native";
@@ -190,7 +191,7 @@ import { Tooltip } from "tooltip";
 import { getRealSrc } from "markdown";
 import { getUrlFromRelativeUrl } from "markdown";
 import { getYoutubeId } from "markdown";
-import { header } from "markdown";
+import { HtmlHeader } from "markdown";
 import { MarkdownCodeblock } from "markdown";
 import { renderFrontmatter } from "markdown";
 import { renderMarkdownChunk } from "markdown";
@@ -198,6 +199,10 @@ import { renderMarkdownContent } from "markdown";
 import { renderMarkdownParse } from "markdown";
 import { renderMarkdownTitle } from "markdown";
 import { useOpenHashDetails } from "markdown";
+import { AugmentedWordComponent } from "reader-ui";
+import { Dictionary } from "reader-ui";
+import { Layout } from "reader-ui";
+import { MarkdownReaderPage } from "reader-ui";
 import { Completion } from "writer-input";
 import { ContentEditableDivInput } from "writer-input";
 import { ContextTextArea } from "writer-input";
@@ -289,8 +294,13 @@ useInfiniteGetDbModel,
 useModelFromUrl,
 useUrl,
 FancyLoader,
+getFileType,
 MatchingText,
 PathSearchResults,
+FileTabs,
+getActivePage,
+getOpenPageUrl,
+renderIcon,
 FunctionForm,
 converse,
 executeSdkFunction,
@@ -309,9 +319,11 @@ useHotkey,
 useHotkeys,
 LabeledButton,
 AuthenticationLayout,
+Header,
 LayoutGrid,
 copyStaticAssets,
 getAllMarkdownReaderPages,
+getChildren,
 getFolderExplorationInfo,
 getMarkdownModelPages,
 getMarkdownPageInfo,
@@ -319,8 +331,9 @@ getMarkdownReaderPages,
 getMarkdownReaderQueryPaths,
 getOperationPages,
 getPublicMarkdownFilePaths,
-getTodoPages,
+getReaderTodoPages,
 markdownReaderGetStaticPaths,
+markdownReaderGetStaticPropsFromPages,
 markdownReaderGetStaticProps,
 putReadmeOnTop,
 removeExtensionsFromPath,
@@ -330,17 +343,10 @@ stripReadmeFromFolder,
 getQueryPath,
 getLegacyMenu,
 Menu,
-getKeysAtPathFromNestedObject,
 getRealItemRecursive,
 getTitle,
-makeNestedObjectFromQueryPathObject,
 NestedMenuItem,
 NestedMenu,
-nestedObjectToChildObject,
-nestedPathObjectToNestedMenuRecursive,
-nestifyQueryPathObjectRecursive,
-queryPathsArrayToNestedPathObject,
-reduceQueryPathsRecursively,
 useExpanded,
 ALink,
 A,
@@ -424,7 +430,7 @@ Tooltip,
 getRealSrc,
 getUrlFromRelativeUrl,
 getYoutubeId,
-header,
+HtmlHeader,
 MarkdownCodeblock,
 renderFrontmatter,
 renderMarkdownChunk,
@@ -432,6 +438,10 @@ renderMarkdownContent,
 renderMarkdownParse,
 renderMarkdownTitle,
 useOpenHashDetails,
+AugmentedWordComponent,
+Dictionary,
+Layout,
+MarkdownReaderPage,
 Completion,
 ContentEditableDivInput,
 ContextTextArea,

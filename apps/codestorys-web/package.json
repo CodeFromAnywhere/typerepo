@@ -1,0 +1,116 @@
+{
+  "createdAt": 1669200527097,
+  "updatedAt": 1669200527097,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200527097,
+  "version": "0.1.0",
+  "name": "codestorys-web",
+  "language": "english",
+  "slug": "codestorys-web",
+  "dependencies": {
+    "@badrap/bar-of-progress": "^0.2.1",
+    "@headlessui/react": "^1.6.2",
+    "@next/font": "^13.0.3",
+    "fs-orm": "1.0.1",
+    "fs-util": "1.0.5",
+    "get-path": "0.0.1",
+    "markdown-reader-functions": "0.0.1",
+    "reader-ui": "1.0.0",
+    "next": "12.3.1",
+    "next-transpile-modules": "^9.0.0",
+    "nightwind": "^1.1.12",
+    "react": "17.0.2",
+    "react-datepicker": "^4.8.0",
+    "react-datetime": "^3.1.1",
+    "react-dom": "17.0.2",
+    "react-markdown": "^8.0.3",
+    "react-query": "^3.39.0",
+    "react-with-native": "1.4.9",
+    "react-with-native-form": "*",
+    "react-with-native-router": "1.0.14",
+    "react-with-native-store": "*",
+    "read-markdown-file": "0.0.1",
+    "rehype-highlight": "^5.0.2",
+    "markdown-reader-types": "0.0.1",
+    "next-a-link": "0.0.1",
+    "codestorys-node": "0.0.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.3.0",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 42016",
+    "start": "next start -p 42016",
+    "stop": "pm2 stop app_codestorys-web",
+    "copyStaticAssets": "copyStaticAssets",
+    "build": "next build",
+    "export": "next export",
+    "lint": "next lint"
+  },
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/reader/codestorys-web/src/pages/_app.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+      ],
+      "lintProblems": []
+    },
+    "classificationIndexed": "ui-web",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "codestorys-web",
+    "hasGeneratedDependenciesIndexed": true,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1669200538348,
+    "operationDependenciesIndexed": [
+      "MarkdownReaderPageProps",
+      "Div",
+      "P",
+      "ALink",
+      "MarkdownReaderPageProps",
+      "StoreProvider",
+      "publicEnvironmentVariables",
+      "publicLocalEnvironmentVariables",
+      "codestoriesGetStaticProps"
+    ],
+    "packageDependenciesIndexed": [
+      "AppProps",
+      "QueryClient",
+      "QueryClientProvider"
+    ],
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/reader",
+    "markdown": "# 🧙‍♂️ codestories-web\n\nNB: this is an experimental part of typerepo!",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 4,
+        "lines": 121,
+        "characters": 3577,
+        "bytes": 3577
+      },
+      "dataSize": {
+        "numberOfFiles": 25,
+        "lines": 225,
+        "characters": 2710081,
+        "bytes": 2710081
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 45,
+        "characters": 609,
+        "bytes": 609
+      },
+      "size": {
+        "bytes": 2714267,
+        "characters": 2714267,
+        "lines": 391,
+        "numberOfFiles": 31
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  },
+  "id": "ulxdvwhgearuudloknysrfiz"
+}

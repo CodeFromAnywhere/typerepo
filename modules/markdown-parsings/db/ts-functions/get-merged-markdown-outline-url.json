@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154809768,
-  "updatedAt": 1668154809768,
+  "createdAt": 1669200467686,
+  "updatedAt": 1669200467686,
   "deletedAt": 0,
-  "createdFirstAt": 1668154809768,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200467686,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getMergedMarkdownOutlineUrl.ts",
   "commentsInside": [],
   "rawText": " (title: string) => {\n  return { title, hashtagPath: getImplicitId(title) };\n}",
@@ -103,5 +98,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "jddfasmgqzxermtpdvwdcfcv"
+  "id": "romuqizxutlqmrlqpogfjoof"
 }

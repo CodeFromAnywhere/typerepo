@@ -12,8 +12,11 @@ import { AssetView } from "asset-view";
 import { InteractiveAsset } from "asset-view";
 import { itemGetBackendAssetUrl } from "asset-view";
 import { ModelItemAssetView } from "asset-view";
+import { useAssetInfo } from "asset-view";
+import { useAsset } from "asset-view";
 import { copyStaticAssets } from "markdown-reader-functions";
 import { getAllMarkdownReaderPages } from "markdown-reader-functions";
+import { getChildren } from "markdown-reader-functions";
 import { getFolderExplorationInfo } from "markdown-reader-functions";
 import { getMarkdownModelPages } from "markdown-reader-functions";
 import { getMarkdownPageInfo } from "markdown-reader-functions";
@@ -21,7 +24,9 @@ import { getMarkdownReaderPages } from "markdown-reader-functions";
 import { getMarkdownReaderQueryPaths } from "markdown-reader-functions";
 import { getOperationPages } from "markdown-reader-functions";
 import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
+import { getReaderTodoPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
+import { markdownReaderGetStaticPropsFromPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticProps } from "markdown-reader-functions";
 import { putReadmeOnTop } from "markdown-reader-functions";
 import { removeExtensionsFromPath } from "markdown-reader-functions";
@@ -133,17 +138,10 @@ import { FileTabs } from "file-tabs";
 import { getActivePage } from "file-tabs";
 import { getOpenPageUrl } from "file-tabs";
 import { renderIcon } from "file-tabs";
-import { getKeysAtPathFromNestedObject } from "nested-menu";
 import { getRealItemRecursive } from "nested-menu";
 import { getTitle } from "nested-menu";
-import { makeNestedObjectFromQueryPathObject } from "nested-menu";
 import { NestedMenuItem } from "nested-menu";
 import { NestedMenu } from "nested-menu";
-import { nestedObjectToChildObject } from "nested-menu";
-import { nestedPathObjectToNestedMenuRecursive } from "nested-menu";
-import { nestifyQueryPathObjectRecursive } from "nested-menu";
-import { queryPathsArrayToNestedPathObject } from "nested-menu";
-import { reduceQueryPathsRecursively } from "nested-menu";
 import { useExpanded } from "nested-menu";
 import { AppsMenu } from "apps-menu";
 import { AuthenticationMethodsCrud } from "authentication";
@@ -190,6 +188,11 @@ import { renderParameterTitle } from "simplified-schema-form";
 import { SimplifiedSchemaForm } from "simplified-schema-form";
 import { useReferencableModelData } from "simplified-schema-form";
 import { useTsInterfaceForm } from "simplified-schema-form";
+import { AugmentedWordComponent } from "reader-ui";
+import { Dictionary } from "reader-ui";
+import { Header } from "reader-ui";
+import { Layout } from "reader-ui";
+import { MarkdownReaderPage } from "reader-ui";
 import { FileWriter } from "file-writer";
 import { OpenFileWriterPages } from "file-writer";
 import { Completion } from "writer-input";
@@ -228,7 +231,7 @@ import { WriterInput } from "writer-input";
 import { getRealSrc } from "markdown";
 import { getUrlFromRelativeUrl } from "markdown";
 import { getYoutubeId } from "markdown";
-import { header } from "markdown";
+import { HtmlHeader } from "markdown";
 import { MarkdownCodeblock } from "markdown";
 import { renderFrontmatter } from "markdown";
 import { renderMarkdownChunk } from "markdown";
@@ -236,6 +239,57 @@ import { renderMarkdownContent } from "markdown";
 import { renderMarkdownParse } from "markdown";
 import { renderMarkdownTitle } from "markdown";
 import { useOpenHashDetails } from "markdown";
+import { AverageMetricDougnut } from "passionfruit-ui";
+import { AverageTransparencyDougnut } from "passionfruit-ui";
+import { CardRow } from "passionfruit-ui";
+import { CompanyInfoTab } from "passionfruit-ui";
+import { CompanyInfo } from "passionfruit-ui";
+import { ContributionNodeComponent } from "passionfruit-ui";
+import { CountriesHorizontalBar } from "passionfruit-ui";
+import { EnvironmentTab } from "passionfruit-ui";
+import { EsgPerformance } from "passionfruit-ui";
+import { GoalsOverview } from "passionfruit-ui";
+import { GoalsTab } from "passionfruit-ui";
+import { ListHeader } from "passionfruit-ui";
+import { ListItem } from "passionfruit-ui";
+import { List } from "passionfruit-ui";
+import { PhaseNodeComponent } from "passionfruit-ui";
+import { PriorityChip } from "passionfruit-ui";
+import { ProofStateForm } from "passionfruit-ui";
+import { ProofStatusChip } from "passionfruit-ui";
+import { ProofValueChip } from "passionfruit-ui";
+import { RenderCompanyEsgPolarArea } from "passionfruit-ui";
+import { renderCompanyESGdetails } from "passionfruit-ui";
+import { renderEsgProgressBar } from "passionfruit-ui";
+import { renderESGMetricdetails } from "passionfruit-ui";
+import { renderGetArrayLength } from "passionfruit-ui";
+import { renderGetArrayNames } from "passionfruit-ui";
+import { renderGetArray } from "passionfruit-ui";
+import { renderGetCategoryIcons } from "passionfruit-ui";
+import { renderGetCategoryLabel } from "passionfruit-ui";
+import { renderGetCompanyTranspTooltip } from "passionfruit-ui";
+import { RenderGetEnvPerformance } from "passionfruit-ui";
+import { renderGetIconText } from "passionfruit-ui";
+import { renderGetMainLink } from "passionfruit-ui";
+import { renderGetPriority } from "passionfruit-ui";
+import { renderGetProgressBarSingle } from "passionfruit-ui";
+import { renderGetProofState } from "passionfruit-ui";
+import { renderGetRequirementStatus } from "passionfruit-ui";
+import { renderGetRequirement } from "passionfruit-ui";
+import { renderGetSidePanel } from "passionfruit-ui";
+import { renderGetStaticIconArray } from "passionfruit-ui";
+import { renderGetSumArray } from "passionfruit-ui";
+import { renderGetSummarizedArray } from "passionfruit-ui";
+import { renderGetTier } from "passionfruit-ui";
+import { renderMetricProgressBar } from "passionfruit-ui";
+import { renderNestedText } from "passionfruit-ui";
+import { SearchField } from "passionfruit-ui";
+import { SocialTab } from "passionfruit-ui";
+import { sortedArray } from "passionfruit-ui";
+import { TabContent } from "passionfruit-ui";
+import { TooltipGroup } from "passionfruit-ui";
+import { ValueChainCard } from "passionfruit-ui";
+import { ValueChainConnectionsForm } from "passionfruit-ui";
 
 export const sdk = { AssetInput,
 FileInput,
@@ -251,8 +305,11 @@ AssetView,
 InteractiveAsset,
 itemGetBackendAssetUrl,
 ModelItemAssetView,
+useAssetInfo,
+useAsset,
 copyStaticAssets,
 getAllMarkdownReaderPages,
+getChildren,
 getFolderExplorationInfo,
 getMarkdownModelPages,
 getMarkdownPageInfo,
@@ -260,7 +317,9 @@ getMarkdownReaderPages,
 getMarkdownReaderQueryPaths,
 getOperationPages,
 getPublicMarkdownFilePaths,
+getReaderTodoPages,
 markdownReaderGetStaticPaths,
+markdownReaderGetStaticPropsFromPages,
 markdownReaderGetStaticProps,
 putReadmeOnTop,
 removeExtensionsFromPath,
@@ -372,17 +431,10 @@ FileTabs,
 getActivePage,
 getOpenPageUrl,
 renderIcon,
-getKeysAtPathFromNestedObject,
 getRealItemRecursive,
 getTitle,
-makeNestedObjectFromQueryPathObject,
 NestedMenuItem,
 NestedMenu,
-nestedObjectToChildObject,
-nestedPathObjectToNestedMenuRecursive,
-nestifyQueryPathObjectRecursive,
-queryPathsArrayToNestedPathObject,
-reduceQueryPathsRecursively,
 useExpanded,
 AppsMenu,
 AuthenticationMethodsCrud,
@@ -429,6 +481,11 @@ renderParameterTitle,
 SimplifiedSchemaForm,
 useReferencableModelData,
 useTsInterfaceForm,
+AugmentedWordComponent,
+Dictionary,
+Header,
+Layout,
+MarkdownReaderPage,
 FileWriter,
 OpenFileWriterPages,
 Completion,
@@ -467,13 +524,64 @@ WriterInput,
 getRealSrc,
 getUrlFromRelativeUrl,
 getYoutubeId,
-header,
+HtmlHeader,
 MarkdownCodeblock,
 renderFrontmatter,
 renderMarkdownChunk,
 renderMarkdownContent,
 renderMarkdownParse,
 renderMarkdownTitle,
-useOpenHashDetails};
+useOpenHashDetails,
+AverageMetricDougnut,
+AverageTransparencyDougnut,
+CardRow,
+CompanyInfoTab,
+CompanyInfo,
+ContributionNodeComponent,
+CountriesHorizontalBar,
+EnvironmentTab,
+EsgPerformance,
+GoalsOverview,
+GoalsTab,
+ListHeader,
+ListItem,
+List,
+PhaseNodeComponent,
+PriorityChip,
+ProofStateForm,
+ProofStatusChip,
+ProofValueChip,
+RenderCompanyEsgPolarArea,
+renderCompanyESGdetails,
+renderEsgProgressBar,
+renderESGMetricdetails,
+renderGetArrayLength,
+renderGetArrayNames,
+renderGetArray,
+renderGetCategoryIcons,
+renderGetCategoryLabel,
+renderGetCompanyTranspTooltip,
+RenderGetEnvPerformance,
+renderGetIconText,
+renderGetMainLink,
+renderGetPriority,
+renderGetProgressBarSingle,
+renderGetProofState,
+renderGetRequirementStatus,
+renderGetRequirement,
+renderGetSidePanel,
+renderGetStaticIconArray,
+renderGetSumArray,
+renderGetSummarizedArray,
+renderGetTier,
+renderMetricProgressBar,
+renderNestedText,
+SearchField,
+SocialTab,
+sortedArray,
+TabContent,
+TooltipGroup,
+ValueChainCard,
+ValueChainConnectionsForm};
 
 export type SdkType = typeof sdk;

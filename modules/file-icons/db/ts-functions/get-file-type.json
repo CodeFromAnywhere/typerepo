@@ -1,0 +1,98 @@
+{
+  "createdAt": 1668336613667,
+  "updatedAt": 1668336613667,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336613667,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getFileType.ts",
+  "commentsInside": [],
+  "rawText": " (fullPath: string): keyof typeof typeIcons => {\n  if (fullPath.endsWith(\".ts\")) return \"typescript\";\n  if (fullPath.endsWith(\".tsx\")) return \"typescript\";\n  if (fullPath.endsWith(\".js\")) return \"javascript\";\n  if (fullPath.endsWith(\".jsx\")) return \"javascript\";\n  if (fullPath.endsWith(\".md\")) return \"markdown\";\n  if (fullPath.endsWith(\".mdx\")) return \"markdown\";\n  if (fullPath.endsWith(\".json\")) return \"json\";\n  if (!fullPath.split(\"/\").pop()?.includes(\".\")) return \"folder\";\n\n  return \"other\";\n}",
+  "name": "getFileType",
+  "slug": "get-file-type",
+  "parameters": [
+    {
+      "name": "fullPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "\"function\" | \"markdown\" | \"typescript\" | \"javascript\" | \"json\" | \"folder\" | \"operation\" | \"operationFolder\" | \"interface\" | \"variable\" | \"other\"",
+    "typeDefinition": {
+      "optional": false,
+      "enum": [
+        "function",
+        "markdown",
+        "typescript",
+        "javascript",
+        "json",
+        "folder",
+        "operation",
+        "operationFolder",
+        "interface",
+        "variable",
+        "other"
+      ],
+      "x-enumNames": [
+        "function",
+        "markdown",
+        "typescript",
+        "javascript",
+        "json",
+        "folder",
+        "operation",
+        "operationFolder",
+        "interface",
+        "variable",
+        "other"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "enum": [
+        "function",
+        "markdown",
+        "typescript",
+        "javascript",
+        "json",
+        "folder",
+        "operation",
+        "operationFolder",
+        "interface",
+        "variable",
+        "other"
+      ],
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 501,
+    "lines": 12,
+    "bytes": 501,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 42,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "fofovwypcfnozautsywwowmk"
+}

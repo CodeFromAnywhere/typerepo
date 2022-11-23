@@ -1,0 +1,75 @@
+{
+  "createdAt": 1668328743478,
+  "updatedAt": 1668328743478,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328743478,
+  "id": "slentyitwfkamdqsbtvmlfva",
+  "dependencies": {
+    "react-with-native-router": "1.0.14"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/cli.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "next-paths",
+  "language": "english",
+  "slug": "next-paths",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "next-paths",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668336743088,
+    "operationDependenciesIndexed": [
+      "useRouter"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/writer",
+    "markdown": "# 🌐 next-paths\n\noperation that helps you to render your own paths in a next project without using their pages convention\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 3,
+        "lines": 45,
+        "characters": 1205,
+        "bytes": 1205
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 113,
+        "characters": 3684,
+        "bytes": 3684
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 71,
+        "characters": 1532,
+        "bytes": 1532
+      },
+      "size": {
+        "bytes": 6421,
+        "characters": 6421,
+        "lines": 229,
+        "numberOfFiles": 7
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
+}

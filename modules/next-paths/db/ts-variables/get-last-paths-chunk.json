@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336737967,
+  "updatedAt": 1668336737967,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336737967,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getLastPathsChunk",
+  "slug": "get-last-paths-chunk",
+  "operationRelativeTypescriptFilePath": "src/getLastPathsChunk.ts",
+  "type": {
+    "rawType": "(paths: string | string[] | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  /**\n   * paths coming from `router.query`\n   */\n  paths: string | string[] | undefined\n) => {\n  return Array.isArray(paths) ? paths[paths.length - 1] : paths;\n}",
+  "description": "returns the last chunk of the path",
+  "id": "bvuyrvdwhjuhogajwehkzsae"
+}

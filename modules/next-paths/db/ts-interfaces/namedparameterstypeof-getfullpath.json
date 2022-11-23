@@ -1,0 +1,59 @@
+{
+  "createdAt": 1668336736202,
+  "updatedAt": 1668336736202,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336736202,
+  "id": "namedparameterstypeof-getfullpath",
+  "name": "NamedParameters<typeof getFullPath>",
+  "slug": "namedparameterstypeof-getfullpath",
+  "operationRelativeTypescriptFilePath": "src/getFullPath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "paths": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "paths coming from `router.query`\n\nsupposed to be a path/url refering to a file/page that can be represented with slashes in between"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "paths",
+          "required": false,
+          "schema": {
+            "fullComment": "paths coming from `router.query`\n\nsupposed to be a path/url refering to a file/page that can be represented with slashes in between",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getFullPath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

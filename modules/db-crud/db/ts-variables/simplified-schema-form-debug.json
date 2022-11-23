@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977273905,
-  "updatedAt": 1668977273905,
+  "createdAt": 1669131400897,
+  "updatedAt": 1669131400897,
   "deletedAt": 0,
-  "createdFirstAt": 1668977273905,
+  "createdFirstAt": 1669131400897,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "({\n  parameters,\n  values,\n}: {\n  parameters: FunctionParameter[] | undefined;\n  values: any[];\n}) => {\n  const [showParams, setShowParams] = useState(false);\n  return (\n    <Div>\n      <P>values</P>\n      {renderMarkdownContent(\n        createCodeblockMarkdown(JSON.stringify(values, null, 2), \"json\"),\n        // NB: since there won't be any assets in here, it doesn't matter where the md is made\n        {\n          projectRelativeBaseFolderPath: \"\",\n          projectRelativeMarkdownFilePath: \"\",\n        }\n      )}\n      <P\n        className=\"hover:underline cursor-pointer\"\n        onClick={() => setShowParams(!showParams)}\n      >\n        params (toggle)\n      </P>{\" \"}\n      {showParams\n        ? renderMarkdownContent(\n            createCodeblockMarkdown(\n              JSON.stringify(parameters, null, 2),\n              \"json\"\n            ),\n            // NB: since there won't be any assets in here, it doesn't matter where the md is made\n            {\n              projectRelativeBaseFolderPath: \"\",\n              projectRelativeMarkdownFilePath: \"\",\n            }\n          )\n        : null}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "rzodiwkoglxazveukaxilhiu"
+  "id": "bjiaubtmulsliwfbplwyfjgp"
 }

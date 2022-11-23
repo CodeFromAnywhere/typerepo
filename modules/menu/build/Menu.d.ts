@@ -2,7 +2,7 @@
 import { MenuProps } from "./MenuProps";
 import { WebPage } from "webpage-types";
 export declare type ProjectRelativePathType = "todo" | "postables";
-export declare const getLegacyMenu: (queryPaths: string[]) => WebPage<undefined>[] | undefined;
+export declare const getLegacyMenu: (queryPaths: string[]) => WebPage<null>[] | undefined;
 /**
  * `"wise"` component that lets you render a menu easily, including search
 

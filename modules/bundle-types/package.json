@@ -37,20 +37,21 @@
     "folderNameIndexed": "bundle-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668448866331,
+    "lastRebuildAt": 1669109144469,
     "operationDependenciesIndexed": [
       "SlugModelType",
       "Json",
-      "Slug"
+      "Slug",
+      "SlugModelType"
     ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/types",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 9,
-        "lines": 370,
-        "characters": 11562,
-        "bytes": 11562
+        "lines": 373,
+        "characters": 11702,
+        "bytes": 11702
       },
       "dataSize": {
         "numberOfFiles": 2,
@@ -60,14 +61,14 @@
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 318,
-        "characters": 7648,
-        "bytes": 7648
+        "lines": 338,
+        "characters": 8244,
+        "bytes": 8244
       },
       "size": {
-        "bytes": 21834,
-        "characters": 21834,
-        "lines": 804,
+        "bytes": 22570,
+        "characters": 22570,
+        "lines": 827,
         "numberOfFiles": 12
       }
     },

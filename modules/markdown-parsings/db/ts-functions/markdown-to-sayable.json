@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154820490,
-  "updatedAt": 1668154820490,
+  "createdAt": 1669200482332,
+  "updatedAt": 1669200482332,
   "deletedAt": 0,
-  "createdFirstAt": 1668154820490,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200482332,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/parsing/markdownToSayable.ts",
   "commentsInside": [],
   "rawText": " ({\n  markdown,\n  markdownFilePath,\n}: {\n  markdownFilePath: string;\n  markdown: MarkdownParse;\n}): Sayable[] => {\n  //1 get markdownparse\n\n  //2. alter every piece of content as needed into a sayable text that can be understood through audio only\n\n  /*\n    - headings should be paused before (long) and after (shorter)\n    - headings should be numbered\n    - images and other inline assets should be referenced with alt text, unless it's an audio file\n    - new alineas should get some pause before\n    - OPTIONAL: maybe, when starting a (sub)chapter, tell the reader how many subchapters there are in this (sub)chapter. This can give a better orientation\n    */\n\n  return [];\n}",
@@ -94,11 +89,158 @@
                   }
                 },
                 {
+                  "name": "parameters",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "parameters found in frontmatter\n\nOur version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+                    "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+                    "properties": [],
+                    "type": "object"
+                  }
+                },
+                {
                   "name": "content",
                   "required": false,
                   "schema": {
                     "fullComment": "structured content based on h1, h2, h3, etc (paragraphs, recursive)",
-                    "items": [],
+                    "items": [
+                      {
+                        "schema": {
+                          "fullComment": "",
+                          "properties": [
+                            {
+                              "name": "level",
+                              "required": true,
+                              "schema": {
+                                "fullComment": "0 is a paragraph 1-6 is h1 until h6",
+                                "type": "number"
+                              }
+                            },
+                            {
+                              "name": "content",
+                              "required": false,
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "markdownEmbed",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "Anything in the format `![alt](src)`\n\nNB: I need to be very clear how this one works",
+                                "nb": "I need to be very clear how this one works",
+                                "properties": [
+                                  {
+                                    "name": "alt",
+                                    "required": true,
+                                    "schema": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  {
+                                    "name": "src",
+                                    "required": true,
+                                    "schema": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  {
+                                    "name": "type",
+                                    "required": true,
+                                    "schema": {
+                                      "enum": [
+                                        "youtube",
+                                        "video",
+                                        "image",
+                                        "audio",
+                                        "markdown",
+                                        "json",
+                                        "typescript",
+                                        "file"
+                                      ],
+                                      "fullComment": "type of asset that is being embedded",
+                                      "type": "string"
+                                    }
+                                  }
+                                ],
+                                "type": "object"
+                              }
+                            },
+                            {
+                              "name": "markdownLink",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "Anything in the format `[alt](href)`\n\nIt needs to be clear how this works. There is a convention for this, and I should implement that as good as possible, and document it here",
+                                "properties": [
+                                  {
+                                    "name": "alt",
+                                    "required": true,
+                                    "schema": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  {
+                                    "name": "href",
+                                    "required": true,
+                                    "schema": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  {
+                                    "name": "type",
+                                    "required": true,
+                                    "schema": {
+                                      "enum": [
+                                        "youtube",
+                                        "video",
+                                        "image",
+                                        "audio",
+                                        "markdown",
+                                        "json",
+                                        "typescript",
+                                        "file"
+                                      ],
+                                      "fullComment": "Can be inferred from href\n\ntype of asset that is being embedded",
+                                      "type": "string"
+                                    }
+                                  }
+                                ],
+                                "type": "object"
+                              }
+                            },
+                            {
+                              "name": "title",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "NB: title can also be an empty string (\"\")",
+                                "nb": "title can also be an empty string (\"\")",
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "children",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "all content until the next title. it's either a content array if there's any titles found, or a string[] if it's paragraphs",
+                                "items": [
+                                  {
+                                    "schema": {
+                                      "circularRefName": "MarkdownChunk",
+                                      "properties": [],
+                                      "type": "object"
+                                    },
+                                    "name": "MarkdownChunk"
+                                  }
+                                ],
+                                "type": "array"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        },
+                        "name": "MarkdownChunk"
+                      }
+                    ],
                     "type": "array"
                   }
                 },
@@ -202,5 +344,5 @@
     "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "oigjjekczjyyodxvkhhgnhvf"
+  "id": "gzadflqqqpiknpvjtikdzpyh"
 }

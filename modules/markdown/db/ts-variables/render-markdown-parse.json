@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055972850,
-  "updatedAt": 1669055972850,
+  "createdAt": 1669200730565,
+  "updatedAt": 1669200730565,
   "deletedAt": 0,
-  "createdFirstAt": 1669055972850,
+  "createdFirstAt": 1669200730565,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdownParse: MarkdownParse,\n  config: MarkdownParseRenderConfig\n) => {\n  // NB: not sure if this is the best way, there may be mulitiple markdown parses....\n  useOpenHashDetails();\n\n  return (\n    <Div>\n      {renderFrontmatter(markdownParse.parameters, { renderSpacer: true })}\n      {/* NB: Previously we needed renderMarkdownTtile, renderMarkdownChunk etc... but this was not rightly parsed, so we are going to use the regular raw parser now from `react-markdown` instead... */}\n      {renderMarkdownContent(markdownParse.raw, config)}\n    </Div>\n  );\n}",
   "description": "renders the MardkownParse interface (including frontmatter)",
-  "id": "hadgjnlssxpyanbibacpwtao"
+  "id": "ptzcpgqoytsughzvsbizekai"
 }

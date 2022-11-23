@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669200532330,
+  "updatedAt": 1669200532330,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200532330,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "HomePage",
+  "slug": "home-page",
+  "operationRelativeTypescriptFilePath": "src/HomePage.tsx",
+  "type": {
+    "rawType": "(props: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-types/build/MarkdownReaderPageProps\").MarkdownReaderPageProps) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: MarkdownReaderPageProps) => {\n  return (\n    <Div>\n      {props.menu.flat.map((x) => {\n        return (\n          <ALink key={x.queryPath} href={x.queryPath}>\n            <Div className=\"text-3xl bg-blue-200 m-2 rounded-md p-4\">\n              {x.menuTitle}\n            </Div>\n\n            {/* <P>{x.pageData.shortDescription}</P> */}\n          </ALink>\n        );\n      })}\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "klmeuyqcfwznvkfuqabqhrxt"
+}

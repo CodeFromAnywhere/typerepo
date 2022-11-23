@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669200671522,
+  "updatedAt": 1669200671522,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200671522,
+  "id": "markdown",
+  "name": "Markdown",
+  "slug": "markdown",
+  "operationRelativeTypescriptFilePath": "src/TodoOffer.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "a string that is known to contain markdown.",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "description": "a string that is known to contain markdown."
+    },
+    "simplifiedSchema": {
+      "fullComment": "a string that is known to contain markdown.",
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "Markdown",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

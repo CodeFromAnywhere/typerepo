@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334885754,
-  "updatedAt": 1668334885754,
+  "createdAt": 1669200445399,
+  "updatedAt": 1669200445399,
   "deletedAt": 0,
-  "createdFirstAt": 1668334885754,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200445399,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/bundleToMarkdown.ts",
   "commentsInside": [],
   "rawText": " ({\n  bundleConfigId,\n  includeModules,\n}: {\n  bundleConfigId: string;\n  /** if true, also includes the private modules */\n  includeModules?: boolean;\n}): string => {\n  /**\n       - explain operation config itself, e.g. which apps there are and an outline of the packages and modules\n    \n       - extract all needed operations from bundle config (with or without modules) and use operationToMd for those\n      \n       - extract docs and readmes from bundle config and bundle those\n      */\n  return \"\";\n}",
@@ -82,5 +77,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "fhcskeaahhganpundqmxdrzx"
+  "id": "oqeplmkyhrakxqtentjioton"
 }

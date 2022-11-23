@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334887546,
-  "updatedAt": 1668334887546,
+  "createdAt": 1669200448316,
+  "updatedAt": 1669200448316,
   "deletedAt": 0,
-  "createdFirstAt": 1668334887546,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200448316,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/createMinimisedSection.ts",
   "commentsInside": [],
   "rawText": " (\n  markdown: string | undefined,\n  title: string,\n  expandTitle: string\n): MarkdownParse | undefined => {\n  if (!markdown) return;\n  return mdToJsonParse(\n    createMinimizedSectionMarkdown(markdown, expandTitle),\n    title\n  );\n}",
@@ -68,5 +63,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "dkjgtqzqykfblmgnkjthidpa"
+  "id": "hfpnfatzzxpnbaceggwcxebw"
 }

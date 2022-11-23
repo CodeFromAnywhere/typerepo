@@ -1,17 +1,14 @@
 {
-  "createdAt": 1668551828823,
-  "updatedAt": 1668551828823,
+  "createdAt": 1669200582701,
+  "updatedAt": 1669200582701,
   "deletedAt": 0,
-  "createdFirstAt": 1668551828823,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
+  "createdFirstAt": 1669200582701,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getMarkdownPageInfo.ts",
   "commentsInside": [],
-  "rawText": " async (\n  projectRoot: string,\n  nestedPathObject: NestedPathObject,\n  queryPath: string,\n  contentPage: MarkdownReaderPage\n): Promise<{\n  markdownFile: WebMarkdownFile | null;\n  nextQueryPath: string | null;\n  previousQueryPath: string | null;\n  projectRelativeMarkdownPath: string | null;\n}> => {\n  const parentQuery = getOneFolderUpPath(queryPath);\n  const siblings = getKeysAtPathFromNestedObject(nestedPathObject, parentQuery);\n  const meIndex = siblings.findIndex(\n    (sibling) => queryPath.split(\"/\").pop() === sibling\n  );\n\n  const previousFolder = siblings[meIndex - 1];\n  const previousQueryPath = previousFolder\n    ? `${parentQuery}/${previousFolder}`\n    : null;\n  const nextFolder = siblings[meIndex + 1];\n  const nextQueryPath = nextFolder ? `${parentQuery}/${nextFolder}` : null;\n\n  const absoluteMarkdownPath = contentPage.filePath\n    ? path.join(projectRoot, contentPage.filePath)\n    : undefined;\n\n  const markdownFile = absoluteMarkdownPath\n    ? await readMarkdownFileToModel(absoluteMarkdownPath)\n    : null;\n\n  const projectRelativeMarkdownPath = absoluteMarkdownPath\n    ? makeRelative(absoluteMarkdownPath, projectRoot)\n    : null;\n\n  return {\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n  };\n}",
+  "rawText": " async (\n  projectRoot: string,\n  webPages: WebPage<any>[],\n  queryPath: string,\n  contentPage: ReaderWebPage\n): Promise<{\n  markdownFile: WebMarkdownFile | null;\n  nextQueryPath: string | null;\n  previousQueryPath: string | null;\n  projectRelativeMarkdownPath: string | null;\n}> => {\n  const parentQuery = getOneFolderUpPath(queryPath);\n  const siblings = getChildren(webPages, parentQuery);\n  const thisPageKey = queryPath.split(\"/\").pop();\n  const meIndex = siblings.findIndex((sibling) => thisPageKey === sibling);\n\n  const previousFolder = siblings[meIndex - 1];\n  const previousQueryPath = previousFolder\n    ? `${parentQuery}/${previousFolder}`\n    : null;\n  const nextFolder = siblings[meIndex + 1];\n  const nextQueryPath = nextFolder ? `${parentQuery}/${nextFolder}` : null;\n\n  const absoluteMarkdownPath = contentPage.pageData.projectRelativeFilePath\n    ? path.join(projectRoot, contentPage.pageData.projectRelativeFilePath)\n    : undefined;\n\n  const markdownFile = absoluteMarkdownPath\n    ? await readMarkdownFileToModel(absoluteMarkdownPath)\n    : null;\n\n  const projectRelativeMarkdownPath = absoluteMarkdownPath\n    ? makeRelative(absoluteMarkdownPath, projectRoot)\n    : null;\n\n  return {\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n  };\n}",
   "name": "getMarkdownPageInfo",
   "slug": "get-markdown-page-info",
   "parameters": [
@@ -26,14 +23,16 @@
       "required": true
     },
     {
-      "name": "nestedPathObject",
+      "name": "webPages",
       "schema": {
-        "$ref": "#/definitions/NestedPathObject"
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/WebPage%3Cany%3E"
+        }
       },
       "simplifiedSchema": {
-        "fullComment": "A different way to represent a path array in a nested object of folders\n\n{  \"folderName\": {    \"file1\": null,    \"file2\": null  },  \"folderName2\": {    \"file1\": null,    \"file2\": null  } }",
-        "properties": [],
-        "type": "object"
+        "items": [],
+        "type": "array"
       },
       "required": true
     },
@@ -50,37 +49,7 @@
     {
       "name": "contentPage",
       "schema": {
-        "$ref": "#/definitions/MarkdownReaderPage"
-      },
-      "simplifiedSchema": {
-        "fullComment": "for markdown-reader-ui, the pages can be markdown files, but they can also be connected to models",
-        "properties": [
-          {
-            "name": "queryPath",
-            "required": true,
-            "schema": {
-              "fullComment": "path to be used as the url. no preceding slash",
-              "type": "string"
-            }
-          },
-          {
-            "name": "filePath",
-            "required": false,
-            "schema": {
-              "fullComment": "if given, the md-file will be provided to the frontend\n\nproject relative path",
-              "type": "string"
-            }
-          },
-          {
-            "name": "isMenuItem",
-            "required": false,
-            "schema": {
-              "fullComment": "if true, this item will be shown in the menu",
-              "type": "boolean"
-            }
-          }
-        ],
-        "type": "object"
+        "$ref": "#/definitions/ReaderWebPage"
       },
       "required": true
     }
@@ -97,13 +66,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 1370,
-    "lines": 43,
-    "bytes": 1370,
+    "characters": 1404,
+    "lines": 42,
+    "bytes": 1404,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 32,
-    "linesPerFile": 43,
+    "charactersPerLine": 33,
+    "linesPerFile": 42,
     "numberOfFiles": 1
   },
-  "id": "kvgfbxcorlimgacdvakdfypi"
+  "id": "acbuuaekimcqdskzhdnoiuvh"
 }

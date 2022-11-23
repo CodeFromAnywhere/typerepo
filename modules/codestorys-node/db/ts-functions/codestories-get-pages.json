@@ -1,0 +1,62 @@
+{
+  "createdAt": 1669200016610,
+  "updatedAt": 1669200016610,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200016610,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/codestoriesGetPages.ts",
+  "commentsInside": [],
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}): Promise<undefined | ReaderWebPage[]> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const codestoriesPaths = await getTodoPaths({\n    categoryStack: [\"codestories\"],\n    subExtension: \"codestory\",\n    sort: \"recent\",\n  });\n\n  const pages: ReaderWebPage[] = await Promise.all(\n    codestoriesPaths.map(async (projectRelativeFilePath) => {\n      const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n      const markdownParse = fs.existsSync(absolutePath)\n        ? await readMarkdownFile(absolutePath)\n        : null;\n\n      const readmeInfo = getMarkdownIntro(markdownParse);\n\n      const readerWebPage: ReaderWebPage = {\n        pageData: {\n          projectRelativeFilePath,\n          /**\n          1) scrape images and the first alinea from the `projectRelativeFilePath`\n\n          2) if there's an image in the frontmatter, use that. Otherwise, use the first image. Otherwise, no image.\n          */\n          imagePath: null,\n          shortDescription: readmeInfo.firstParagraph,\n        },\n        queryPath: projectRelativeFilePath.replaceAll(\"/\", \"-\"),\n        isMenuHidden: false,\n        menuTitle: readmeInfo.title || path.parse(projectRelativeFilePath).name,\n      };\n      return readerWebPage;\n    })\n  );\n\n  const filteredPages = pages.filter(\n    onlyUnique2<ReaderWebPage>((a, b) => a.queryPath === b.queryPath)\n  );\n\n  return filteredPages;\n}",
+  "name": "codestoriesGetPages",
+  "slug": "codestories-get-pages",
+  "parameters": [
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "manualProjectRoot": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "manualProjectRoot",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/webpage-types/build/types\").FileWebPage[] | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1488,
+    "lines": 46,
+    "bytes": 1488,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 46,
+    "numberOfFiles": 1
+  },
+  "id": "mwxvppttipvuiavpabkaashw"
+}

@@ -1,25 +1,9 @@
 [
   {
-    "createdAt": 1668551853207,
-    "updatedAt": 1668551853207,
+    "createdAt": 1669127837392,
+    "updatedAt": 1669127837392,
     "deletedAt": 0,
-    "createdFirstAt": 1668551853207,
-    "name": "MarkdownReaderPage",
-    "slug": "markdown-reader-page",
-    "module": "./MarkdownReaderPage",
-    "isModuleResolved": true,
-    "comments": [],
-    "operationRelativeTypescriptFilePath": "src/MarkdownReaderPageProps.ts",
-    "classification": "internal",
-    "isAbsolute": false,
-    "isModuleFromMonorepo": false,
-    "id": "wolbnftelffhudbhipxmlpou"
-  },
-  {
-    "createdAt": 1668551853207,
-    "updatedAt": 1668551853207,
-    "deletedAt": 0,
-    "createdFirstAt": 1668551853207,
+    "createdFirstAt": 1669127837392,
     "name": "WebMarkdownFile",
     "slug": "web-markdown-file",
     "type": "type",
@@ -31,15 +15,15 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "cbluqyafczoowrzmbpnfubkw"
+    "id": "iocertkklkqdwfijkzhzbjhp"
   },
   {
-    "createdAt": 1668551853208,
-    "updatedAt": 1668551853208,
+    "createdAt": 1669127837392,
+    "updatedAt": 1669127837392,
     "deletedAt": 0,
-    "createdFirstAt": 1668551853208,
-    "name": "BundleConfig",
-    "slug": "bundle-config",
+    "createdFirstAt": 1669127837392,
+    "name": "PublicBundleConfig",
+    "slug": "public-bundle-config",
     "type": "type",
     "hasGeneric": false,
     "module": "bundle-types",
@@ -49,13 +33,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "fryoiybqmhoijolbkmsxhzsf"
+    "id": "pemjcfvynivkyhyjxcghjwwg"
   },
   {
-    "createdAt": 1668551853208,
-    "updatedAt": 1668551853208,
+    "createdAt": 1669127837393,
+    "updatedAt": 1669127837393,
     "deletedAt": 0,
-    "createdFirstAt": 1668551853208,
+    "createdFirstAt": 1669127837393,
     "name": "MappedObject",
     "slug": "mapped-object",
     "type": "type",
@@ -67,13 +51,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nskogwnqrowoyydyipwawugo"
+    "id": "ogezscobdznygmuhgdqcgdcv"
   },
   {
-    "createdAt": 1668551853208,
-    "updatedAt": 1668551853208,
+    "createdAt": 1669127837393,
+    "updatedAt": 1669127837393,
     "deletedAt": 0,
-    "createdFirstAt": 1668551853208,
+    "createdFirstAt": 1669127837393,
     "name": "AugmentedWord",
     "slug": "augmented-word",
     "type": "type",
@@ -85,6 +69,42 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ifwiamdsxpswjfefmkpxhwun"
+    "id": "cmehuvwdxmfsasojygfbqcgj"
+  },
+  {
+    "createdAt": 1669127837393,
+    "updatedAt": 1669127837393,
+    "deletedAt": 0,
+    "createdFirstAt": 1669127837393,
+    "name": "NestedWebPage",
+    "slug": "nested-web-page",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "webpage-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/MarkdownReaderPageProps.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "bgyrljclmkysijrkwggebxew"
+  },
+  {
+    "createdAt": 1669127837393,
+    "updatedAt": 1669127837393,
+    "deletedAt": 0,
+    "createdFirstAt": 1669127837393,
+    "name": "ReaderWebPage",
+    "slug": "reader-web-page",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "webpage-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/MarkdownReaderPageProps.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "azvwzbrqomlpkzlbqamlrmpc"
   }
 ]

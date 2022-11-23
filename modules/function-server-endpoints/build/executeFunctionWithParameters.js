@@ -67,23 +67,22 @@ TODO: make it possible to return result BEFORE storing cache and performance. we
 
 */
 var executeFunctionWithParameters = function (functionName, parameters, serverContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var executionId, result_1, performance, device, tsFunction, _a, hasAuthorization, authorizations, groups, authToken, cacheLookupResult, validationResult, fn, needsReturnRaw, needsFunctionContext, functionContext, parametersWithContext, result;
-    var _b;
-    return __generator(this, function (_c) {
-        switch (_c.label) {
+    var executionId, result_1, performance, device, tsFunction, _a, hasAuthorization, authorizations, groups, cacheLookupResult, validationResult, fn, needsReturnRaw, needsFunctionContext, functionContext, parametersWithContext, result;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0:
                 executionId = (0, model_types_1.generateId)();
                 if (!(0, isGetEndpoint_1.isGetEndpoint)(functionName)) return [3 /*break*/, 2];
                 return [4 /*yield*/, sdk_api_1.sdk[functionName](serverContext)];
             case 1:
-                result_1 = _c.sent();
+                result_1 = _b.sent();
                 return [2 /*return*/, result_1];
             case 2:
                 performance = [];
                 performance.push((0, measure_performance_1.getNewPerformance)("start", executionId, true));
                 return [4 /*yield*/, (0, upsertDevice_1.upsertDevice)(serverContext)];
             case 3:
-                device = _c.sent();
+                device = _b.sent();
                 if (!device) {
                     return [2 /*return*/, {
                             isSuccessful: false,
@@ -93,7 +92,7 @@ var executeFunctionWithParameters = function (functionName, parameters, serverCo
                 performance.push((0, measure_performance_1.getNewPerformance)("upsertDevice", executionId));
                 return [4 /*yield*/, (0, getTsFunction_1.getTsFunction)(functionName)];
             case 4:
-                tsFunction = _c.sent();
+                tsFunction = _b.sent();
                 if (!tsFunction) {
                     return [2 /*return*/, {
                             isSuccessful: false,
@@ -102,14 +101,28 @@ var executeFunctionWithParameters = function (functionName, parameters, serverCo
                 }
                 performance.push((0, measure_performance_1.getNewPerformance)("getTsFunction", executionId));
                 _a = (0, getAuthorizationInfo_1.getAuthorizationInfo)(device, tsFunction), hasAuthorization = _a.hasAuthorization, authorizations = _a.authorizations, groups = _a.groups;
-                authToken = (_b = serverContext.data) === null || _b === void 0 ? void 0 : _b.authToken;
-                if (privateAuthToken !== authToken) {
-                    return [2 /*return*/, {
-                            isSuccessful: false,
-                            isUnauthorized: true,
-                            message: "You are not authorized to execute this function, you might need to login.",
-                        }];
+                //new way: hasAuthorization
+                /*
+                  if (!hasAuthorization) {
+                  return {
+                    isSuccessful: false,
+                    isUnauthorized: true,
+                    message:
+                      "You are not authorized to execute this function, you might need to login.",
+                  };
                 }
+              */
+                // 3) auth
+                //OLD way:
+                // const authToken: string | undefined = serverContext.data?.authToken;
+                // if (privateAuthToken !== authToken) {
+                //   return {
+                //     isSuccessful: false,
+                //     isUnauthorized: true,
+                //     message:
+                //       "You are not authorized to execute this function, you might need to login.",
+                //   };
+                // }
                 performance.push((0, measure_performance_1.getNewPerformance)("auth", executionId));
                 cacheLookupResult = (0, db_recipes_1.cacheLookup)(functionName, parameters);
                 if (cacheLookupResult.hasValidCache) {
@@ -154,7 +167,7 @@ var executeFunctionWithParameters = function (functionName, parameters, serverCo
                     : parameters;
                 return [4 /*yield*/, fn.apply(void 0, parametersWithContext)];
             case 5:
-                result = _c.sent();
+                result = _b.sent();
                 performance.push((0, measure_performance_1.getNewPerformance)("function", executionId));
                 (0, measure_performance_1.cleanupTimer)(executionId);
                 // console.log({ serverwithPar: performance });

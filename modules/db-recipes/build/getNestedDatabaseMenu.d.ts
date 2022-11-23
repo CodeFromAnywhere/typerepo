@@ -8,7 +8,7 @@ export declare const getNestedDatabaseMenu: (config?: {
     noSrcRelativeFolder?: boolean | undefined;
     noPrefix?: boolean | undefined;
 } | undefined) => Promise<{
-    flat?: WebPage<undefined>[] | undefined;
+    flat?: WebPage<null>[] | undefined;
     nested?: NestedWebPage[] | undefined;
 }>;
 //# sourceMappingURL=getNestedDatabaseMenu.d.ts.map

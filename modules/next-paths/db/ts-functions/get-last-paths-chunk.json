@@ -1,0 +1,65 @@
+{
+  "createdAt": 1668336737743,
+  "updatedAt": 1668336737743,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336737743,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getLastPathsChunk.ts",
+  "commentsInside": [],
+  "rawText": " (\n  /**\n   * paths coming from `router.query`\n   */\n  paths: string | string[] | undefined\n) => {\n  return Array.isArray(paths) ? paths[paths.length - 1] : paths;\n}",
+  "name": "getLastPathsChunk",
+  "slug": "get-last-paths-chunk",
+  "parameters": [
+    {
+      "name": "paths",
+      "schema": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "paths coming from `router.query`"
+      },
+      "simplifiedSchema": {
+        "fullComment": "paths coming from `router.query`",
+        "properties": [],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "returns the last chunk of the path",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 199,
+    "lines": 8,
+    "bytes": 199,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "hiynmuuikidqzfrqyzmqxsyj"
+}

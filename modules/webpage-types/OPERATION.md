@@ -1,5 +1,3 @@
-# ❌ No description set yet
+# webpage-types
 
-Please set a description for this operation in OPERATION.md
-
-This is a js operation. This means you cannot use any react or node, it's pure typescript, compiled to javascript, and can be used anywhere.
+This library contains a set of conventions for different standards of webpages. It integrates with typerepo to create complete platforms super quickly.

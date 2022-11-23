@@ -1,0 +1,177 @@
+{
+  "createdAt": 1669200532223,
+  "updatedAt": 1669200532223,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200532223,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/HomePage.tsx",
+  "commentsInside": [],
+  "rawText": " (props: MarkdownReaderPageProps) => {\n  return (\n    <Div>\n      {props.menu.flat.map((x) => {\n        return (\n          <ALink key={x.queryPath} href={x.queryPath}>\n            <Div className=\"text-3xl bg-blue-200 m-2 rounded-md p-4\">\n              {x.menuTitle}\n            </Div>\n\n            {/* <P>{x.pageData.shortDescription}</P> */}\n          </ALink>\n        );\n      })}\n    </Div>\n  );\n}",
+  "name": "HomePage",
+  "slug": "home-page",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "$ref": "#/definitions/MarkdownReaderPageProps"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "publicBundleConfig",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "projectRelativeMarkdownPath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "menu",
+            "required": true,
+            "schema": {
+              "properties": [
+                {
+                  "name": "flat",
+                  "required": true,
+                  "schema": {
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "nested",
+                  "required": true,
+                  "schema": {
+                    "items": [],
+                    "type": "array"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "markdownFile",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "title",
+            "required": false,
+            "schema": {
+              "fullComment": "Title of the page",
+              "type": "string"
+            }
+          },
+          {
+            "name": "children",
+            "required": false,
+            "schema": {
+              "fullComment": "If path is not a markdownfile, will return all children here",
+              "items": [
+                {
+                  "schema": {
+                    "properties": [
+                      {
+                        "name": "title",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "firstParagraph",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "folderName",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "projectRelativeMarkdownPath",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "previousQueryPath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "nextQueryPath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 400,
+    "lines": 17,
+    "bytes": 400,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "dsaueabwidtjlmwbfhckbnur"
+}

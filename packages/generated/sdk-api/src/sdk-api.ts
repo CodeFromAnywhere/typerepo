@@ -43,6 +43,9 @@ import { execAsync } from "child-process-helper";
 import { spawnAsync } from "child-process-helper";
 import { cleanupTsDatabase } from "cleanup-typescript-database";
 import { shouldDeleteTsModel } from "cleanup-typescript-database";
+import { codestoriesGetPages } from "codestorys-node";
+import { codestoriesGetStaticPaths } from "codestorys-node";
+import { codestoriesGetStaticProps } from "codestorys-node";
 import { csvItemArrayToCsvString } from "csv-util";
 import { tryParseCsv } from "csv-util";
 import { generateCsvInstance } from "database";
@@ -73,6 +76,17 @@ import { filterInterfacesFromOperationNames } from "db-util";
 import { getDbModelsFromOperations } from "db-util";
 import { comparePassword } from "encrypt-password";
 import { encryptPassword } from "encrypt-password";
+import { exploreOperation } from "explore-project";
+import { exploreProject } from "explore-project";
+import { getExplorationType } from "explore-project";
+import { getFileWithExtension } from "explore-project";
+import { getFolderExplorationDetails } from "explore-project";
+import { getInstanceNames } from "explore-project";
+import { getProjectRelativePaths } from "explore-project";
+import { getTodoFrontmattersMappedObject } from "explore-project";
+import { getTodoPages } from "explore-project";
+import { getTodoPaths } from "explore-project";
+import { hasSameProjectPath } from "explore-project";
 import { findAllDependencyOperations } from "find-all-dependency-operations";
 import { findDependantsRecursively } from "find-all-dependency-operations";
 import { findDependants } from "find-all-dependency-operations";
@@ -314,6 +328,8 @@ import { readProjectRelativeJsonFile } from "read-json-file";
 import { readKvmdFile } from "read-kvmd-file";
 import { readMarkdownFileToModel } from "read-markdown-file";
 import { readMarkdownFile } from "read-markdown-file";
+import { getFolderTypescriptIndex } from "read-typescript-file";
+import { readTypescriptFile } from "read-typescript-file";
 import { clearTsDatabase } from "rebuild-operation";
 import { executeCommandQuietUnlessFail } from "rebuild-operation";
 import { exitIfProcessDependenciesChanged } from "rebuild-operation";
@@ -562,6 +578,9 @@ import { getAssetInputType } from "name-conventions";
 import { getParameterContentType } from "name-conventions";
 import { isCalculatedParameter } from "name-conventions";
 import { isGeneratedParameterName } from "name-conventions";
+import { getFullPath } from "next-paths";
+import { getLastPathsChunk } from "next-paths";
+import { usePath } from "next-paths";
 import { oneByOne } from "one-by-one";
 import { getDependenciesSummary } from "operation-util";
 import { getOperationMetaData } from "operation-util";
@@ -580,6 +599,14 @@ import { isPlural } from "pluralize";
 import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
+import { getKeysAtPathFromNestedObject } from "recursive-util";
+import { getMenuPagesObject } from "recursive-util";
+import { makeNestedObjectFromQueryPathObject } from "recursive-util";
+import { nestedObjectToChildObject } from "recursive-util";
+import { nestedPathObjectToNestedMenuRecursive } from "recursive-util";
+import { nestifyQueryPathObjectRecursive } from "recursive-util";
+import { queryPathsArrayToNestedPathObject } from "recursive-util";
+import { reduceQueryPathsRecursively } from "recursive-util";
 import { bodyFromQueryString } from "rest-util";
 import { getFirstQueryStrings } from "rest-util";
 import { getQueryPart } from "rest-util";
@@ -611,6 +638,8 @@ import { isText } from "text-or-binary";
 import { tryParseJson } from "try-parse-json";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
+import { crudPageToWebPages } from "webpage-types";
+import { functionFormPageToWebPage } from "webpage-types";
 
 export const sdk = { allOperationsRemoveJsSrc,
 allOperationsToMarkdown,
@@ -657,6 +686,9 @@ execAsync,
 spawnAsync,
 cleanupTsDatabase,
 shouldDeleteTsModel,
+codestoriesGetPages,
+codestoriesGetStaticPaths,
+codestoriesGetStaticProps,
 csvItemArrayToCsvString,
 tryParseCsv,
 generateCsvInstance,
@@ -687,6 +719,17 @@ filterInterfacesFromOperationNames,
 getDbModelsFromOperations,
 comparePassword,
 encryptPassword,
+exploreOperation,
+exploreProject,
+getExplorationType,
+getFileWithExtension,
+getFolderExplorationDetails,
+getInstanceNames,
+getProjectRelativePaths,
+getTodoFrontmattersMappedObject,
+getTodoPages,
+getTodoPaths,
+hasSameProjectPath,
 findAllDependencyOperations,
 findDependantsRecursively,
 findDependants,
@@ -928,6 +971,8 @@ readProjectRelativeJsonFile,
 readKvmdFile,
 readMarkdownFileToModel,
 readMarkdownFile,
+getFolderTypescriptIndex,
+readTypescriptFile,
 clearTsDatabase,
 executeCommandQuietUnlessFail,
 exitIfProcessDependenciesChanged,
@@ -1176,6 +1221,9 @@ getAssetInputType,
 getParameterContentType,
 isCalculatedParameter,
 isGeneratedParameterName,
+getFullPath,
+getLastPathsChunk,
+usePath,
 oneByOne,
 getDependenciesSummary,
 getOperationMetaData,
@@ -1194,6 +1242,14 @@ isPlural,
 isSingular,
 pluralize,
 singularize,
+getKeysAtPathFromNestedObject,
+getMenuPagesObject,
+makeNestedObjectFromQueryPathObject,
+nestedObjectToChildObject,
+nestedPathObjectToNestedMenuRecursive,
+nestifyQueryPathObjectRecursive,
+queryPathsArrayToNestedPathObject,
+reduceQueryPathsRecursively,
 bodyFromQueryString,
 getFirstQueryStrings,
 getQueryPart,
@@ -1224,6 +1280,8 @@ isBinary,
 isText,
 tryParseJson,
 createCodeblockMarkdown,
-useCustomUrlStore};
+useCustomUrlStore,
+crudPageToWebPages,
+functionFormPageToWebPage};
 
 export type SdkType = typeof sdk;

@@ -1,21 +1,22 @@
 import { queries } from "api";
 import { AuthenticationLayout } from "layout";
-import { useState } from "react";
-import { Div } from "react-with-native";
-import { ClickableIcon } from "clickable-icon";
+import { useSelect } from "react-with-native-select";
 import { destructureOptionalObject } from "js-util";
-const menuTypes = [
-  { type: "deep", emoji: "💣" },
-  { type: "operation", emoji: "⚡️" },
-  { type: "flat", emoji: "👩‍🌾" },
-] as const;
 
 export const DbLayout = (props: { pageProps: any; nextPage: any }) => {
-  const [menuType, setMenuType] = useState<string>(menuTypes[0]["type"]);
+  const [SelectMenu, menuType] = useSelect(
+    [
+      { label: "🪺 Nested", value: "nested" },
+      { label: "⚡️ Operaton-based", value: "operation" },
+      { label: "👩‍🌾 Flat", value: "flat" },
+    ],
+    undefined
+  );
+
   const dbMenuQuery = queries.useGetNestedDatabaseMenu({
-    noOperationName: menuType === "flat",
-    noOperationPath: menuType !== "deep",
-    noSrcRelativeFolder: menuType !== "deep",
+    noOperationName: menuType?.value === "flat",
+    noOperationPath: menuType?.value !== "nested",
+    noSrcRelativeFolder: menuType?.value !== "nested",
     noPrefix: true,
   });
 
@@ -29,27 +30,7 @@ export const DbLayout = (props: { pageProps: any; nextPage: any }) => {
         // NB: passionfruit wants this xD just make a layoutconfig in the PublicBundleConfig, or make it editable per user (later)
         menuPosition: "left",
         menuHeader: () => {
-          return (
-            <Div className="flex flex-row gap gap-2">
-              {menuTypes?.map((item, index) => {
-                return (
-                  <Div
-                    key={item.type}
-                    className={`${
-                      item.type === menuType
-                        ? "bg-gray-200 dark:bg-gray-800 rounded-full"
-                        : undefined
-                    } w-7 h-7 flex justify-center items-center`}
-                  >
-                    <ClickableIcon
-                      onClick={() => setMenuType(item.type)}
-                      emoji={item.emoji}
-                    />
-                  </Div>
-                );
-              })}
-            </Div>
-          );
+          return <SelectMenu />;
         },
         isLoading: dbMenuQuery.isLoading,
         webPagesFlat: flat,

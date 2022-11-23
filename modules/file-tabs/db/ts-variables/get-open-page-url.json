@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667380082741,
+  "updatedAt": 1667380082741,
+  "deletedAt": 0,
+  "createdFirstAt": 1667380082741,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getOpenPageUrl",
+  "slug": "get-open-page-url",
+  "operationRelativeTypescriptFilePath": "src/getOpenPageUrl.ts",
+  "type": {
+    "rawType": "<TPagesObject extends import(\"/Users/king/King/operations/tools/writer/file-tabs/src/types\").PagesObjectShape>(openPage: import(\"/Users/king/King/operations/tools/writer/file-tabs/src/types\").OpenPage<keyof TPagesObject>, pagesObject: TPagesObject) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<TPagesObject extends PagesObjectShape>(\n  openPage: OpenPage<keyof TPagesObject>,\n  pagesObject: TPagesObject\n) => {\n  const page =\n    openPage.page === \"index\"\n      ? getFullPath(openPage.query.paths)\n      : (openPage.page as string);\n\n  const query = { ...openPage.query };\n  delete query.paths;\n\n  const queryString = toQueryString(query);\n\n  const url = `${page}${queryString}`;\n  return url;\n}",
+  "description": "gets the url of the open page\n\n- paths is a special query key that is expanded as path, not as query\n- index page should be on /",
+  "id": "qilkhmybbijpzhascxazfjkr"
+}

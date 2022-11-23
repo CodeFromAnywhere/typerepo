@@ -1,0 +1,49 @@
+{
+  "createdAt": 1668336613308,
+  "updatedAt": 1668336613308,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336613308,
+  "id": "namedparameterstypeof-getfiletype",
+  "name": "NamedParameters<typeof getFileType>",
+  "slug": "namedparameterstypeof-getfiletype",
+  "operationRelativeTypescriptFilePath": "src/getFileType.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "fullPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "fullPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "fullPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getFileType>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

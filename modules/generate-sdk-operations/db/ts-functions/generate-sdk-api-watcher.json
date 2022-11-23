@@ -1,15 +1,15 @@
 {
-  "createdAt": 1669055517695,
-  "updatedAt": 1669055517695,
+  "createdAt": 1669205238403,
+  "updatedAt": 1669205238403,
   "deletedAt": 0,
-  "createdFirstAt": 1669055517695,
+  "createdFirstAt": 1669205238403,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "explicitTypeName": "ProjectWatcher",
   "operationRelativeTypescriptFilePath": "src/generateSdkApiWatcher.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  if (isRegenerating === true) {\n    // Don't run if it's already running\n    return;\n  }\n  console.log(\"Generate sdk-api...\");\n\n  isRegenerating = true;\n  await generateSdkApi();\n\n  console.log(\"DONE, exiting server\");\n  isRegenerating = false;\n  process.exit();\n}",
+  "rawText": " async () => {\n  if (isRegenerating === true) {\n    // Don't run if it's already running\n    return;\n  }\n  // console.log(\"Generate sdk-api...\");\n\n  // isRegenerating = true;\n  // await generateSdkApi();\n\n  // console.log(\"DONE, exiting server\");\n  // isRegenerating = false;\n  process.exit();\n}",
   "name": "generateSdkApiWatcher",
   "slug": "generate-sdk-api-watcher",
   "parameters": [],
@@ -25,13 +25,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 280,
+    "characters": 295,
     "lines": 14,
-    "bytes": 280,
+    "bytes": 295,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 20,
+    "charactersPerLine": 21,
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "minzieapaghaffyqljerqtrc"
+  "id": "ubglzkpsfvyddlfqddtnfnhy"
 }

@@ -1,0 +1,107 @@
+{
+  "createdAt": 1668328742566,
+  "updatedAt": 1668328742566,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328742566,
+  "id": "yxjrqsojvivmtfykswhaezlh",
+  "dependencies": {
+    "react-contextmenu": "^2.14.0",
+    "react-with-native": "1.4.9",
+    "model-types": "0.0.1",
+    "js-util": "0.0.1",
+    "react-with-native-alert": "1.0.33",
+    "react-with-native-router": "1.0.14",
+    "hotkeys": "0.0.0",
+    "file-icons": "0.0.0",
+    "next-a-link": "0.0.1",
+    "next-paths": "0.0.1",
+    "rest-util": "0.0.1",
+    "react-with-native-store": "2.0.40",
+    "react": "*"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.0",
+  "name": "file-tabs",
+  "language": "english",
+  "slug": "file-tabs",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/writer/file-tabs/src/types.ts. Error: TypeError: Cannot read properties of undefined (reading 'kind')\"]",
+      "lintProblems": []
+    },
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [
+      "useState",
+      "MouseEventHandler"
+    ],
+    "folderNameIndexed": "file-tabs",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668336669719,
+    "operationDependenciesIndexed": [
+      "P",
+      "generateId",
+      "notEmpty",
+      "Div",
+      "useAlert",
+      "useRouter",
+      "useHotkey",
+      "useHotkeys",
+      "isAltN",
+      "isAltO",
+      "isAltW",
+      "typeIcons",
+      "getFileType",
+      "ALink",
+      "getFullPath",
+      "getLastPathsChunk",
+      "usePath",
+      "getFullPath",
+      "toQueryString",
+      "Button",
+      "Svg",
+      "createUseStore"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/writer",
+    "markdown": "# 📁 file-tabs\n\nOpen files as tabs so you can come back there...\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 6,
+        "lines": 371,
+        "characters": 10257,
+        "bytes": 10257
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 145,
+        "characters": 4479,
+        "bytes": 4479
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 103,
+        "characters": 1826,
+        "bytes": 1826
+      },
+      "size": {
+        "bytes": 16562,
+        "characters": 16562,
+        "lines": 619,
+        "numberOfFiles": 10
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
+}

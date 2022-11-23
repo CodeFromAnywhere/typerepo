@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668835390760,
-  "updatedAt": 1668835390760,
+  "createdAt": 1669205963059,
+  "updatedAt": 1669205963059,
   "deletedAt": 0,
-  "createdFirstAt": 1668835390760,
+  "createdFirstAt": 1669205963059,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/MyLayout.tsx",
   "commentsInside": [],
-  "rawText": " (props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n\n  const queryPathsQuery = queries.useGetFunctionQueryPaths();\n\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        queryPaths: queryPathsQuery.data?.result,\n        isLoading: queryPathsQuery.isLoading,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
+  "rawText": " (props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n\n  const queryPathsQuery = queries.useGetFunctionQueryPaths();\n  const menu = queryPathsQuery.data?.result;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        isLoading: queryPathsQuery.isLoading,\n        webPagesFlat: menu?.flat,\n        webPagesNested: menu?.nested,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
   "name": "MyLayout",
   "slug": "my-layout",
   "parameters": [
@@ -66,13 +66,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 412,
-    "lines": 18,
-    "bytes": 412,
+    "characters": 478,
+    "lines": 19,
+    "bytes": 478,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 23,
-    "linesPerFile": 18,
+    "charactersPerLine": 25,
+    "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "yyjycgasaeyqfkeiqkkatzef"
+  "id": "yhyzbebumcxashcnhbxusdvt"
 }

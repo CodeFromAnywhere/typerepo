@@ -1,6 +1,6 @@
-import { MouseEventCallbacks } from "./types";
+import { MouseEventCallbacks } from "nested-menu-types";
 import { NestedWebPage, WebPage } from "webpage-types";
-export declare const getTitle: (item: WebPage<undefined>) => string;
+export declare const getTitle: (item: WebPage<null>) => string;
 export declare const getRealItemRecursive: (item: NestedWebPage) => NestedWebPage;
 /**
  * General purpose NestedMenuItem.

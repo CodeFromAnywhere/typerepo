@@ -1,4 +1,5 @@
 import { TsFunction } from "code-types";
+import { NestedWebPage, WebPage } from "webpage-types";
 /**
 
 Calculate all required query paths for the function UI menu...
@@ -34,5 +35,8 @@ Example:
 NB: if possible, rename the menu items if the items in a folder are not unique (use file-name to replace item name if this happens)
 
  */
-export declare const getFunctionQueryPaths: (tsFunctions?: TsFunction[]) => Promise<string[]>;
+export declare const getFunctionQueryPaths: (tsFunctions?: TsFunction[]) => Promise<{
+    nested: NestedWebPage[];
+    flat: WebPage[];
+}>;
 //# sourceMappingURL=getFunctionQueryPaths.d.ts.map

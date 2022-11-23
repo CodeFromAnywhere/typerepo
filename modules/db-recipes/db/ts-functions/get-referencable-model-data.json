@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055160903,
-  "updatedAt": 1669055160903,
+  "createdAt": 1669132693582,
+  "updatedAt": 1669132693582,
   "deletedAt": 0,
-  "createdFirstAt": 1669055160903,
+  "createdFirstAt": 1669132693582,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -17,6 +17,12 @@
       "schema": {
         "type": "string",
         "enum": [
+          "PaymentCoupon",
+          "PaymentEvent",
+          "PaymentPlan",
+          "PaymentRequest",
+          "PaymentSubscription",
+          "PaymentTransaction",
           "SelfSprintReview",
           "TodoFile",
           "TodoOffer",
@@ -24,10 +30,6 @@
           "Device",
           "Group",
           "PageVisit",
-          "PaymentCoupon",
-          "PaymentEvent",
-          "PaymentPlan",
-          "PaymentSubscription",
           "PeerMessage",
           "Person",
           "Persona",
@@ -42,6 +44,7 @@
           "MediaPost",
           "Postable",
           "BundleConfig",
+          "FrontBackBundle",
           "Dataset",
           "FunctionExecution",
           "Operation",
@@ -138,6 +141,12 @@
       },
       "simplifiedSchema": {
         "enum": [
+          "PaymentCoupon",
+          "PaymentEvent",
+          "PaymentPlan",
+          "PaymentRequest",
+          "PaymentSubscription",
+          "PaymentTransaction",
           "SelfSprintReview",
           "TodoFile",
           "TodoOffer",
@@ -145,10 +154,6 @@
           "Device",
           "Group",
           "PageVisit",
-          "PaymentCoupon",
-          "PaymentEvent",
-          "PaymentPlan",
-          "PaymentSubscription",
           "PeerMessage",
           "Person",
           "Persona",
@@ -163,6 +168,7 @@
           "MediaPost",
           "Postable",
           "BundleConfig",
+          "FrontBackBundle",
           "Dataset",
           "FunctionExecution",
           "Operation",
@@ -281,5 +287,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "vvjlcdepxsubvksjjbzmndxn"
+  "id": "rtmjreaqacftmufcdrpmefso"
 }

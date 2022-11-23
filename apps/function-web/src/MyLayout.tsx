@@ -5,13 +5,14 @@ export const MyLayout = (props: { pageProps: any; nextPage: any }) => {
   const { nextPage, pageProps } = props;
 
   const queryPathsQuery = queries.useGetFunctionQueryPaths();
-
+  const menu = queryPathsQuery.data?.result;
   return (
     <AuthenticationLayout
       // menu props
       menu={{
-        queryPaths: queryPathsQuery.data?.result,
         isLoading: queryPathsQuery.isLoading,
+        webPagesFlat: menu?.flat,
+        webPagesNested: menu?.nested,
       }}
       // other
       nextPage={nextPage}

@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334894346,
-  "updatedAt": 1668334894346,
+  "createdAt": 1669200458545,
+  "updatedAt": 1669200458545,
   "deletedAt": 0,
-  "createdFirstAt": 1668334894346,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200458545,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/expose/radio.ts",
   "commentsInside": [],
   "rawText": " async (\n  baseFolderPath?: string\n): Promise<string> => {\n  return \"\";\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "xqbivbetvmrcdiedscwgpfet"
+  "id": "nooigcnwdyaxqezttdglohzx"
 }

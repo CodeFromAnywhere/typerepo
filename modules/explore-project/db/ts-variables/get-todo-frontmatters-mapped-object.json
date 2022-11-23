@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669205453223,
+  "updatedAt": 1669205453223,
+  "deletedAt": 0,
+  "createdFirstAt": 1669205453223,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getTodoFrontmattersMappedObject",
+  "slug": "get-todo-frontmatters-mapped-object",
+  "operationRelativeTypescriptFilePath": "src/getTodoFrontmattersMappedObject.ts",
+  "type": {
+    "rawType": "(projectRoot: string, todoPaths?: string[] | undefined) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  projectRoot: string,\n  todoPaths?: string[]\n) => {\n  const frontmatterPromises = todoPaths?.map(async (todoPath) => {\n    const absoluteFilePath = path.join(projectRoot, todoPath);\n    const frontmatter = (await readMarkdownFile(absoluteFilePath))?.parameters;\n    return { [todoPath]: frontmatter };\n  });\n  const todoFrontmattersArray = frontmatterPromises\n    ? await Promise.all(frontmatterPromises)\n    : [];\n  const todoFrontmattersMappedObject = mergeObjectsArray(todoFrontmattersArray);\n\n  return todoFrontmattersMappedObject;\n}",
+  "description": "",
+  "id": "gpdscelyzshfiellnjjrgnxr"
+}

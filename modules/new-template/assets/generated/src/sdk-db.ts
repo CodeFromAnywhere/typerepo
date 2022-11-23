@@ -1,5 +1,11 @@
 // THIS FILE HAS BEEN GENERATED
 
+import type { PaymentCoupon } from "payment-types";
+import type { PaymentEvent } from "payment-types";
+import type { PaymentPlan } from "payment-types";
+import type { PaymentRequest } from "payment-types";
+import type { PaymentSubscription } from "payment-types";
+import type { PaymentTransaction } from "payment-types";
 import type { SelfSprintReview } from "todo-types";
 import type { TodoFile } from "todo-types";
 import type { TodoOffer } from "todo-types";
@@ -7,10 +13,6 @@ import type { AuthorizationModel } from "auth-types";
 import type { Device } from "peer-types";
 import type { Group } from "peer-types";
 import type { PageVisit } from "peer-types";
-import type { PaymentCoupon } from "peer-types";
-import type { PaymentEvent } from "peer-types";
-import type { PaymentPlan } from "peer-types";
-import type { PaymentSubscription } from "peer-types";
 import type { PeerMessage } from "peer-types";
 import type { Person } from "peer-types";
 import type { Persona } from "peer-types";
@@ -25,6 +27,7 @@ import type { MediaCredentail } from "social-media-types";
 import type { MediaPost } from "social-media-types";
 import type { Postable } from "social-media-types";
 import type { BundleConfig } from "bundle-types";
+import type { FrontBackBundle } from "bundle-types";
 import type { Dataset } from "code-types";
 import type { FunctionExecution } from "code-types";
 import type { Operation } from "code-types";
@@ -119,11 +122,41 @@ import type { SustainabilityPlan } from "foodchain-types";
 import type { ValueChainPhase } from "foodchain-types";
 
 
-export type DbModels = { SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer,AuthorizationModel: AuthorizationModel,Device: Device,Group: Group,PageVisit: PageVisit,PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentSubscription: PaymentSubscription,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,RecurringReminder: RecurringReminder,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,Postable: Postable,BundleConfig: BundleConfig,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,SocialMediaCallToAction: SocialMediaCallToAction,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,WebMarkdownFile: WebMarkdownFile,WebsiteCallToAction: WebsiteCallToAction,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,SlugModelType: SlugModelType,AppDeveloper: AppDeveloper,Assignment: Assignment,Bag: Bag,Calendar: Calendar,Deliverable: Deliverable,Diary: Diary,Feeling: Feeling,FeelingLog: FeelingLog,Folder: Folder,Host: Host,Inventory: Inventory,Item: Item,ItemCategory: ItemCategory,KvmdShortcut: KvmdShortcut,Label: Label,Light: Light,Listing: Listing,LoginCredential: LoginCredential,Material: Material,MessagePreset: MessagePreset,PersonalCarbonFootprintProfile: PersonalCarbonFootprintProfile,ProgressReport: ProgressReport,Question: Question,Reservation: Reservation,Resource: Resource,Shit: Shit,ShitLog: ShitLog,ShoppingList: ShoppingList,Shortcut: Shortcut,Student: Student,Student2: Student2,TaskError: TaskError,Trackable: Trackable,User: User,UserCredential: UserCredential,Artist: Artist,PlayCategory: PlayCategory,PlayItem: PlayItem,PlayList: PlayList,PlaySchedule: PlaySchedule,RelationModelType: RelationModelType,JeepType: JeepType,LocationType: LocationType,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,Activity: Activity,CompanyRequirement: CompanyRequirement,CompanySize: CompanySize,CompanyType: CompanyType,Company: Company,ContactInformation: ContactInformation,Contribution: Contribution,EsgMetric: EsgMetric,ProductCategory: ProductCategory,Product: Product,ProofState: ProofState,Proof: Proof,SustainabilityPlan: SustainabilityPlan,ValueChainPhase: ValueChainPhase };
-export const dbModelKeys = [ "SelfSprintReview","TodoFile","TodoOffer","AuthorizationModel","Device","Group","PageVisit","PaymentCoupon","PaymentEvent","PaymentPlan","PaymentSubscription","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","RecurringReminder","Interest","MediaChannel","MediaCredentail","MediaPost","Postable","BundleConfig","Dataset","FunctionExecution","Operation","SocialMediaCallToAction","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","WebMarkdownFile","WebsiteCallToAction","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","SlugModelType","AppDeveloper","Assignment","Bag","Calendar","Deliverable","Diary","Feeling","FeelingLog","Folder","Host","Inventory","Item","ItemCategory","KvmdShortcut","Label","Light","Listing","LoginCredential","Material","MessagePreset","PersonalCarbonFootprintProfile","ProgressReport","Question","Reservation","Resource","Shit","ShitLog","ShoppingList","Shortcut","Student","Student2","TaskError","Trackable","User","UserCredential","Artist","PlayCategory","PlayItem","PlayList","PlaySchedule","RelationModelType","JeepType","LocationType","OperationConfig","OperationIndex","PackageJson","Activity","CompanyRequirement","CompanySize","CompanyType","Company","ContactInformation","Contribution","EsgMetric","ProductCategory","Product","ProofState","Proof","SustainabilityPlan","ValueChainPhase" ] as const;
+export type DbModels = { PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentRequest: PaymentRequest,PaymentSubscription: PaymentSubscription,PaymentTransaction: PaymentTransaction,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer,AuthorizationModel: AuthorizationModel,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,RecurringReminder: RecurringReminder,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,Postable: Postable,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,SocialMediaCallToAction: SocialMediaCallToAction,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,WebMarkdownFile: WebMarkdownFile,WebsiteCallToAction: WebsiteCallToAction,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,SlugModelType: SlugModelType,AppDeveloper: AppDeveloper,Assignment: Assignment,Bag: Bag,Calendar: Calendar,Deliverable: Deliverable,Diary: Diary,Feeling: Feeling,FeelingLog: FeelingLog,Folder: Folder,Host: Host,Inventory: Inventory,Item: Item,ItemCategory: ItemCategory,KvmdShortcut: KvmdShortcut,Label: Label,Light: Light,Listing: Listing,LoginCredential: LoginCredential,Material: Material,MessagePreset: MessagePreset,PersonalCarbonFootprintProfile: PersonalCarbonFootprintProfile,ProgressReport: ProgressReport,Question: Question,Reservation: Reservation,Resource: Resource,Shit: Shit,ShitLog: ShitLog,ShoppingList: ShoppingList,Shortcut: Shortcut,Student: Student,Student2: Student2,TaskError: TaskError,Trackable: Trackable,User: User,UserCredential: UserCredential,Artist: Artist,PlayCategory: PlayCategory,PlayItem: PlayItem,PlayList: PlayList,PlaySchedule: PlaySchedule,RelationModelType: RelationModelType,JeepType: JeepType,LocationType: LocationType,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,Activity: Activity,CompanyRequirement: CompanyRequirement,CompanySize: CompanySize,CompanyType: CompanyType,Company: Company,ContactInformation: ContactInformation,Contribution: Contribution,EsgMetric: EsgMetric,ProductCategory: ProductCategory,Product: Product,ProofState: ProofState,Proof: Proof,SustainabilityPlan: SustainabilityPlan,ValueChainPhase: ValueChainPhase };
+export const dbModelKeys = [ "PaymentCoupon","PaymentEvent","PaymentPlan","PaymentRequest","PaymentSubscription","PaymentTransaction","SelfSprintReview","TodoFile","TodoOffer","AuthorizationModel","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","RecurringReminder","Interest","MediaChannel","MediaCredentail","MediaPost","Postable","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","SocialMediaCallToAction","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","WebMarkdownFile","WebsiteCallToAction","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","SlugModelType","AppDeveloper","Assignment","Bag","Calendar","Deliverable","Diary","Feeling","FeelingLog","Folder","Host","Inventory","Item","ItemCategory","KvmdShortcut","Label","Light","Listing","LoginCredential","Material","MessagePreset","PersonalCarbonFootprintProfile","ProgressReport","Question","Reservation","Resource","Shit","ShitLog","ShoppingList","Shortcut","Student","Student2","TaskError","Trackable","User","UserCredential","Artist","PlayCategory","PlayItem","PlayList","PlaySchedule","RelationModelType","JeepType","LocationType","OperationConfig","OperationIndex","PackageJson","Activity","CompanyRequirement","CompanySize","CompanyType","Company","ContactInformation","Contribution","EsgMetric","ProductCategory","Product","ProofState","Proof","SustainabilityPlan","ValueChainPhase" ] as const;
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
-    SelfSprintReview: {
+    PaymentCoupon: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+PaymentEvent: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+PaymentPlan: {
+          
+          dbStorageMethod: "markdown",
+          
+        },
+PaymentRequest: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+PaymentSubscription: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+PaymentTransaction: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+SelfSprintReview: {
           
           dbStorageMethod: "jsonSingle",
           
@@ -154,26 +187,6 @@ Group: {
           
         },
 PageVisit: {
-          
-          dbStorageMethod: "jsonMultiple",
-          
-        },
-PaymentCoupon: {
-          
-          dbStorageMethod: "jsonMultiple",
-          
-        },
-PaymentEvent: {
-          
-          dbStorageMethod: "jsonMultiple",
-          
-        },
-PaymentPlan: {
-          
-          dbStorageMethod: "markdown",
-          
-        },
-PaymentSubscription: {
           
           dbStorageMethod: "jsonMultiple",
           
@@ -246,6 +259,11 @@ Postable: {
 BundleConfig: {
           
           dbStorageMethod: "jsonSingle",
+          
+        },
+FrontBackBundle: {
+          
+          dbStorageMethod: "jsonMultiple",
           
         },
 Dataset: {

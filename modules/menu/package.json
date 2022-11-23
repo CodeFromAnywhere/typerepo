@@ -30,7 +30,8 @@
     "react-with-native-store": "2.0.40",
     "clickable-icon": "0.0.1",
     "hotkeys": "0.0.0",
-    "webpage-types": "0.0.1"
+    "webpage-types": "0.0.1",
+    "recursive-util": "0.0.1"
   },
   "name": "menu",
   "operation": {
@@ -43,19 +44,19 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/menu/src/MenuProps.ts. Error: Error: Unknown type \"function\""
       ]
     },
-    "lastRebuildAt": 1669056083917,
+    "lastRebuildAt": 1669132877360,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 166,
-        "characters": 4286,
-        "bytes": 4286
+        "lines": 172,
+        "characters": 4739,
+        "bytes": 4739
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 120,
-        "characters": 3878,
-        "bytes": 3878
+        "lines": 145,
+        "characters": 4415,
+        "bytes": 4415
       },
       "textSize": {
         "numberOfFiles": 3,
@@ -64,9 +65,9 @@
         "bytes": 1127
       },
       "size": {
-        "bytes": 9291,
-        "characters": 9291,
-        "lines": 357,
+        "bytes": 10281,
+        "characters": 10281,
+        "lines": 388,
         "numberOfFiles": 8
       }
     },
@@ -74,15 +75,11 @@
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "classificationIndexed": "ui-cjs",
     "coreDependenciesIndexed": [
-      "useState",
-      "Dispatch",
-      "SetStateAction"
+      "useState"
     ],
     "operationDependenciesIndexed": [
       "FancyLoader",
       "NestedMenu",
-      "nestedPathObjectToNestedMenuRecursive",
-      "queryPathsArrayToNestedPathObject",
       "Div",
       "Input",
       "P",
@@ -93,6 +90,8 @@
       "isCtrlP",
       "NestedWebPage",
       "WebPage",
+      "nestedPathObjectToNestedMenuRecursive",
+      "queryPathsArrayToNestedPathObject",
       "AugmentedWord",
       "NestedWebPage",
       "WebPage",

@@ -104,6 +104,8 @@ Properties:
 | isOffline (optional) | boolean |  |
 | skipPull (optional) | boolean |  |
 | skipPush (optional) | boolean |  |
+| skipSyncNicheFolder (optional) | boolean |  |
+| skipRebuildNicheOperations (optional) | boolean |  |
 | skipUpsert (optional) | boolean |  |
 | debug (optional) | boolean |  |
 | description (optional) | string |  |
@@ -185,6 +187,8 @@ Properties:
 | isOffline (optional) | boolean |  |
 | skipPull (optional) | boolean |  |
 | skipPush (optional) | boolean |  |
+| skipSyncNicheFolder (optional) | boolean |  |
+| skipRebuildNicheOperations (optional) | boolean |  |
 | skipUpsert (optional) | boolean |  |
 | publicEnvironmentVariables (optional) | object |  |
 | privateEnvironmentVariables (optional) | object |  |
@@ -203,9 +207,25 @@ Properties:
 | privacy  | string |  |
 
 
+
+## 🔹 PublicBundleConfig
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| name  | string |  |
+| description (optional) | string |  |
+| emoji (optional) | string |  |
+| primaryColor (optional) | string |  |
+| gitRepoUrl (optional) | string |  |
+| isGitRepoPublic (optional) | boolean |  |
+| bundleMarkdownReaderConfig (optional) | object |  |
+
+
 # Internal
 
-<details><summary>Show internal (9)</summary>
+<details><summary>Show internal (8)</summary>
     
   # 🔹 AppShell
 
@@ -220,7 +240,11 @@ Properties:
 
 ## 🔹 EnvironmentVariableObject
 
-## 🔹 FrontBackBundle
+## 🔸 FrontBackBundle
+
+jsonMultiple model
+
+
 
 This type can specify a frontend and backend that belong to each other. it doesn't include all operations that the ui or server are dependent on, they are calculated separately
 
@@ -232,6 +256,18 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| slug  | string |  |
+| name  | string |  |
+| language  | string |  |
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
 | operations (optional) | array |  |
 | uiOperationName (optional) | string |  |
 | appShellOperationNames (optional) | array |  |
@@ -292,22 +328,6 @@ We need to figure out how we can know all type types in between when getting the
 
 
 
-
-
-
-## 🔹 PublicBundleConfig
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| description (optional) | string |  |
-| emoji (optional) | string |  |
-| primaryColor (optional) | string |  |
-| gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | boolean |  |
-| bundleMarkdownReaderConfig (optional) | object |  |
 
 
 

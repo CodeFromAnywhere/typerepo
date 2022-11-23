@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336739155,
+  "updatedAt": 1668336739155,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336739155,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "usePath",
+  "slug": "use-path",
+  "operationRelativeTypescriptFilePath": "src/usePath.ts",
+  "type": {
+    "rawType": "() => { lastChunk: any; fullPath: string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const router = useRouter();\n  const paths = router.query?.paths;\n  const lastChunk = getLastPathsChunk(paths);\n  const fullPath = getFullPath(paths);\n  return { lastChunk, fullPath };\n}",
+  "description": "uses `useRouter` from `next.js` to get the lastChunk and the `fullPath` out of the `paths`. Assumes you have a page in your next.js project called `[...paths]`.",
+  "id": "wezhczxpctilvwzxhrajvbux"
+}

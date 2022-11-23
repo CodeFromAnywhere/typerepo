@@ -1,20 +1,18 @@
 [
   {
-    "createdAt": 1669059722229,
-    "updatedAt": 1669059722229,
+    "createdAt": 1669132700428,
+    "updatedAt": 1669132700428,
     "deletedAt": 0,
-    "createdFirstAt": 1669059722229,
+    "createdFirstAt": 1669132700428,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/getNestedDatabaseMenu.ts",
-    "comment": "TODO: support search for bundles (but this can be augmented word based)",
-    "rawStatement": "export const getNestedDatabaseMenu = async (config?: {\n  noOperationPath?: boolean;\n  noOperationName?: boolean;\n  noSrcRelativeFolder?: boolean;\n  noPrefix?: boolean;\n}): Promise<{ flat?: WebPage[]; nested?: NestedWebPage[] }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return {};\n  const { noOperationPath, noOperationName, noSrcRelativeFolder, noPrefix } =\n    destructureOptionalObject(config);\n  const dbModels = (await db.get(\"TsInterface\")).filter((x) => x.isDbModel);\n\n  const queryPaths = dbModels.map((dbModel) => {\n    const projectRelativeOperationPath =\n      operations[dbModel.operationName as keyof typeof operations];\n\n    const slicedProjectRelativeOperationPath = projectRelativeOperationPath\n      .split(\"/\")\n      // in bundles, we still want to make the distinction between modules and packages, so this is great.\n      .slice(isBundle(projectRoot) ? 0 : 2)\n      .join(\"/\");\n    const operationPart = noOperationName\n      ? \"\"\n      : noOperationPath\n      ? dbModel.operationName + \"/\"\n      : slicedProjectRelativeOperationPath + \"/\";\n\n    const folder = getFolder(\n      dbModel.operationRelativeTypescriptFilePath.slice(\"src/\".length)\n    );\n    const folderPart = noSrcRelativeFolder\n      ? \"\"\n      : folder.length === 0\n      ? \"\"\n      : folder + \"/\";\n\n    const prefixPart = noPrefix ? \"\" : \"db/\";\n    const url = `${prefixPart}${operationPart}${folderPart}${dbModel.name}`;\n\n    return url;\n  });\n\n  const dbPages: WebPage[] = queryPaths.map((queryPath) => {\n    return { queryPath, pageData: undefined };\n  });\n\n  const upsertPages: WebPage[] = dbModels.map((dbModel) => ({\n    queryPath: `upsert/${dbModel.name}`,\n    pageData: undefined,\n    isMenuHidden: true,\n  }));\n\n  const flat = dbPages.concat(upsertPages);\n\n  // NB: to make the NestedWebPage[], we don't want the pageData.\n  const flatWithoutPageData: WebPage[] = flat\n    .filter((x) => !x.isMenuHidden)\n    .map((x) => {\n      return { ...x, pageData: undefined, __check: true };\n    });\n\n  const nestedObject = makeNestedObjectFromQueryPathObject(\n    flatWithoutPageData,\n    {}\n  );\n\n  const keyToWebPage = (nestedObject: NestedObject<WebPage>, key: string) => {\n    return { pageData: undefined, queryPath: \"\" };\n  };\n\n  const nested: NestedWebPage[] = nestedObjectToChildObject(\n    nestedObject,\n    keyToWebPage\n  );\n\n  return {\n    flat,\n    nested,\n  };\n};",
+    "operationRelativeTypescriptFilePath": "src/validateInput.ts",
+    "comment": "wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.",
+    "rawStatement": "export const validateInput = (\n  functionName: string,\n  parameters: undefined | any[],\n  tsFunction: TsFunction\n): ValidationResult => {\n  // TODO: make this validation function! It may be possible to do it with SimplifiedJson, otherwise just use JSONSchema7\n  return { isValid: true };\n};",
     "parameters": {},
-    "types": [
-      "todo"
-    ],
-    "firstLine": 13,
-    "lastLine": 15,
-    "id": "lvimqrisyeaccfhinqfoeuab"
+    "types": [],
+    "firstLine": 8,
+    "lastLine": 8,
+    "id": "qqjevqdzpqfzhrgjxkgmzgmg"
   }
 ]

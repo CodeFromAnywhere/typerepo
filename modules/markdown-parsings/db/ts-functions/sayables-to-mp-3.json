@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334895745,
-  "updatedAt": 1668334895745,
+  "createdAt": 1669200460546,
+  "updatedAt": 1669200460546,
   "deletedAt": 0,
-  "createdFirstAt": 1668334895745,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200460546,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/expose/sayablesToMp3.ts",
   "commentsInside": [],
   "rawText": " ({\n  sayables,\n  destinationAbsoluteFilePath,\n}: {\n  destinationAbsoluteFilePath: string;\n  sayables: Sayable[];\n}) => {\n  /**\n  \n  \n  \n   */\n}",
@@ -105,5 +100,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "jafvtmmvaylvzoiiuraiwnmj"
+  "id": "luqxdbuzmevloxvcepegbmsj"
 }

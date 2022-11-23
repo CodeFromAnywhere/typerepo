@@ -12,7 +12,7 @@
     "fs-util": "1.0.5",
     "get-path": "0.0.1",
     "markdown-reader-functions": "0.0.1",
-    "markdown-reader-ui": "0.0.0",
+    "reader-ui": "1.0.0",
     "next": "12.3.1",
     "next-transpile-modules": "^9.0.0",
     "nightwind": "^1.1.12",
@@ -55,7 +55,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/purpose/reader/markdown-reader-web/src/pages/_app.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-web/src/pages/_app.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
       ],
       "lintProblems": []
     },
@@ -64,13 +64,13 @@
     "folderNameIndexed": "markdown-reader-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668751794292,
+    "lastRebuildAt": 1669200625602,
     "operationDependenciesIndexed": [
       "MarkdownReaderPageProps",
       "StoreProvider",
       "publicEnvironmentVariables",
       "publicLocalEnvironmentVariables",
-      "pagesObject",
+      "MarkdownReaderPage",
       "markdownReaderGetStaticProps"
     ],
     "packageDependenciesIndexed": [
@@ -78,20 +78,20 @@
       "QueryClient",
       "QueryClientProvider"
     ],
-    "relativeOperationLocationPathIndexed": "operations/tools/purpose/reader",
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/reader",
     "markdown": "# 📚 markdown-reader-web\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
         "lines": 100,
-        "characters": 3037,
-        "bytes": 3037
+        "characters": 3018,
+        "bytes": 3018
       },
       "dataSize": {
-        "numberOfFiles": 131,
-        "lines": 5266,
-        "characters": 188257,
-        "bytes": 188257
+        "numberOfFiles": 17,
+        "lines": 5188,
+        "characters": 182036,
+        "bytes": 182036
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -100,10 +100,10 @@
         "bytes": 433
       },
       "size": {
-        "bytes": 191727,
-        "characters": 191727,
-        "lines": 5400,
-        "numberOfFiles": 136
+        "bytes": 185487,
+        "characters": 185487,
+        "lines": 5322,
+        "numberOfFiles": 22
       }
     },
     "hasGeneratedImportsIndexed": false

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668154824615,
-  "updatedAt": 1668154824615,
+  "createdAt": 1669200488588,
+  "updatedAt": 1669200488588,
   "deletedAt": 0,
-  "createdFirstAt": 1668154824615,
+  "createdFirstAt": 1669200488588,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(chunk: MarkdownChunk) => {\n  const childrenTitles: NestedTitle[] | undefined =\n    chunk.children?.map(getTitlesRecursively);\n\n  const returnStatement: NestedTitle[] = [];\n\n  if (chunk.title) returnStatement.push(chunk.title);\n  if (childrenTitles?.length) returnStatement.push(childrenTitles);\n\n  return returnStatement;\n}",
   "description": "helper function to get a nested array of the titles and its subtitles",
-  "id": "auxggbgozcmughcnbjwmvkwr"
+  "id": "bmmyiricouzjtwaeddtfimzk"
 }

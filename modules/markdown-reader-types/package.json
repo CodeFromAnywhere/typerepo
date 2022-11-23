@@ -8,7 +8,8 @@
     "code-types": "0.0.1",
     "bundle-types": "0.0.1",
     "js-util": "0.0.1",
-    "augmented-word-types": "0.0.1"
+    "augmented-word-types": "0.0.1",
+    "webpage-types": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -41,39 +42,41 @@
     "folderNameIndexed": "markdown-reader-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668551860728,
+    "lastRebuildAt": 1669127844675,
     "operationDependenciesIndexed": [
       "WebMarkdownFile",
-      "BundleConfig",
+      "PublicBundleConfig",
       "MappedObject",
-      "AugmentedWord"
+      "AugmentedWord",
+      "NestedWebPage",
+      "ReaderWebPage"
     ],
     "packageDependenciesIndexed": [],
-    "relativeOperationLocationPathIndexed": "operations/tools/purpose/reader",
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/reader",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 2,
-        "lines": 59,
-        "characters": 1520,
-        "bytes": 1520
+        "numberOfFiles": 1,
+        "lines": 37,
+        "characters": 950,
+        "bytes": 950
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 118,
-        "characters": 3757,
-        "bytes": 3757
+        "lines": 120,
+        "characters": 3807,
+        "bytes": 3807
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 45,
-        "characters": 896,
-        "bytes": 896
+        "lines": 27,
+        "characters": 601,
+        "bytes": 601
       },
       "size": {
-        "bytes": 6173,
-        "characters": 6173,
-        "lines": 222,
-        "numberOfFiles": 5
+        "bytes": 5358,
+        "characters": 5358,
+        "lines": 184,
+        "numberOfFiles": 4
       }
     },
     "hasGeneratedImportsIndexed": false

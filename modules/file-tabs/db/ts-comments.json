@@ -1,0 +1,20 @@
+[
+  {
+    "createdAt": 1667380085126,
+    "updatedAt": 1667380085126,
+    "deletedAt": 0,
+    "createdFirstAt": 1667380085126,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/store.ts",
+    "comment": "NB: this is a `useStore` without a `StoreProvider`, because I think I won't ever need the provider since I won't ever need this as the sole storage in any component/app. If I do, I should make a provider, but it's usually better to create the `useStore` and `StoreProvider` in the component itself because it often comprises more than just this one.",
+    "rawStatement": "export const useStore = createUseStore(fileTabsInitialValues);",
+    "parameters": {},
+    "types": [
+      "nb"
+    ],
+    "firstLine": 16,
+    "lastLine": 18,
+    "id": "bunzxyjxlveqzlugmbcwsfnn"
+  }
+]

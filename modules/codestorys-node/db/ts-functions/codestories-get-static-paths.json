@@ -1,0 +1,73 @@
+{
+  "createdAt": 1669200018544,
+  "updatedAt": 1669200018544,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200018544,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "explicitTypeName": "GetStaticPaths",
+  "operationRelativeTypescriptFilePath": "src/codestoriesGetStaticPaths.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  context: GetStaticPathsContext\n) => {\n  const queryPaths = ((await codestoriesGetPages()) || []).map(\n    (x) => x.queryPath\n  );\n\n  // console.log({ paths });\n  if (!queryPaths) {\n    return { paths: [], fallback: \"blocking\" };\n  }\n\n  const staticPaths = queryPaths\n    .filter((x) => x !== \"\")\n    .map((p) => ({ params: { paths: p.split(\"/\") } }));\n\n  return {\n    paths: staticPaths,\n    fallback: \"blocking\",\n  };\n}",
+  "name": "codestoriesGetStaticPaths",
+  "slug": "codestories-get-static-paths",
+  "parameters": [
+    {
+      "name": "context",
+      "schema": {
+        "$ref": "#/definitions/GetStaticPathsContext"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "locales",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "defaultLocale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Function that tells Next.js what the pages are that need to be statically generated",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 514,
+    "lines": 21,
+    "bytes": 514,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "vheowkckcutfnnwnetiwqvos"
+}

@@ -1,28 +1,2 @@
-"use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getReferencedModelDataItem = void 0;
-var schema_util_1 = require("schema-util");
-var getReferencedModelDataItem = function (parameterName, referencedModelData) {
-    var interfaceInfo = (0, schema_util_1.getReferenceParameterInfo)(parameterName);
-    var referencedData = interfaceInfo &&
-        interfaceInfo.interfaceName &&
-        referencedModelData &&
-        referencedModelData[interfaceInfo.interfaceName]
-        ? referencedModelData[interfaceInfo.interfaceName]
-        : undefined;
-    return interfaceInfo
-        ? __assign(__assign({}, referencedData), interfaceInfo) : undefined;
-};
-exports.getReferencedModelDataItem = getReferencedModelDataItem;
+"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,a=1,r=arguments.length;a<r;a++)for(var n in t=arguments[a])Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e},__assign.apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getReferencedModelDataItem=void 0;var schema_util_1=require("schema-util"),getReferencedModelDataItem=function(e,t){var a=(0,schema_util_1.getReferenceParameterInfo)(e),r=a&&a.interfaceName&&t&&t[a.interfaceName]?t[a.interfaceName]:void 0;return a?__assign(__assign({},r),a):void 0};exports.getReferencedModelDataItem=getReferencedModelDataItem;
 //# sourceMappingURL=getReferencedModelDataItem.js.map

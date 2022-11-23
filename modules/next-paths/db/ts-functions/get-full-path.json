@@ -1,0 +1,69 @@
+{
+  "createdAt": 1668336736565,
+  "updatedAt": 1668336736565,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336736565,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getFullPath.ts",
+  "commentsInside": [],
+  "rawText": " (\n  /**\n   * paths coming from `router.query`\n   *\n   * supposed to be a path/url refering to a file/page that can be represented with slashes in between\n   */\n  paths: string | string[] | undefined\n): string => {\n  return typeof paths === \"string\"\n    ? paths\n    : Array.isArray(paths)\n    ? paths.join(\"/\")\n    : \"\";\n}",
+  "name": "getFullPath",
+  "slug": "get-full-path",
+  "parameters": [
+    {
+      "name": "paths",
+      "schema": {
+        "anyOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        ],
+        "description": "paths coming from `router.query`\n\nsupposed to be a path/url refering to a file/page that can be represented with slashes in between"
+      },
+      "simplifiedSchema": {
+        "fullComment": "paths coming from `router.query`\n\nsupposed to be a path/url refering to a file/page that can be represented with slashes in between",
+        "properties": [],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "gets a path string from `next.js` `router.query`.",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 371,
+    "lines": 14,
+    "bytes": 371,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "ufqzovfuzrpjwbetyadgogbj"
+}

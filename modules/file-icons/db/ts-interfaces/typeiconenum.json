@@ -1,0 +1,59 @@
+{
+  "createdAt": 1668336614646,
+  "updatedAt": 1668336614646,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336614646,
+  "id": "typeiconenum",
+  "name": "TypeIconEnum",
+  "slug": "typeiconenum",
+  "operationRelativeTypescriptFilePath": "src/typeIcons.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type TypeIconEnum = keyof typeof typeIcons;",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "markdown",
+        "typescript",
+        "javascript",
+        "json",
+        "folder",
+        "operation",
+        "operationFolder",
+        "function",
+        "interface",
+        "variable",
+        "other"
+      ]
+    },
+    "simplifiedSchema": {
+      "enum": [
+        "markdown",
+        "typescript",
+        "javascript",
+        "json",
+        "folder",
+        "operation",
+        "operationFolder",
+        "function",
+        "interface",
+        "variable",
+        "other"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "TypeIconEnum",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

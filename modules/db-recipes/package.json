@@ -22,7 +22,8 @@
     "nested-menu": "0.0.1",
     "read-json-file": "0.0.1",
     "webpage-types": "0.0.1",
-    "recursive-types": "0.0.1"
+    "recursive-types": "0.0.1",
+    "recursive-util": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -60,7 +61,7 @@
       "bundle-types"
     ],
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669055174829,
+    "lastRebuildAt": 1669132708561,
     "operationDependenciesIndexed": [
       "BundleConfig",
       "db",
@@ -102,8 +103,6 @@
       "db",
       "TsFunction",
       "camelCase",
-      "humanCase",
-      "slugify",
       "db",
       "operations",
       "getFolder",
@@ -112,9 +111,7 @@
       "isBundle",
       "NestedWebPage",
       "WebPage",
-      "makeNestedObjectFromQueryPathObject",
-      "nestedObjectToChildObject",
-      "NestedObject",
+      "getMenuPagesObject",
       "db",
       "AugmentedAnyModelType",
       "DbModels",
@@ -135,26 +132,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 17,
-        "lines": 691,
-        "characters": 20488,
-        "bytes": 20488
+        "lines": 672,
+        "characters": 20013,
+        "bytes": 20013
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 136,
-        "characters": 3599,
-        "bytes": 3599
+        "lines": 204,
+        "characters": 5120,
+        "bytes": 5120
       },
       "textSize": {
         "numberOfFiles": 3,
         "lines": 383,
-        "characters": 10651,
-        "bytes": 10651
+        "characters": 10707,
+        "bytes": 10707
       },
       "size": {
-        "bytes": 34738,
-        "characters": 34738,
-        "lines": 1210,
+        "bytes": 35840,
+        "characters": 35840,
+        "lines": 1259,
         "numberOfFiles": 22
       }
     },

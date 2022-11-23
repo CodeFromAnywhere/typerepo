@@ -22,15 +22,15 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
-// import rehypeHighlight from "rehype-highlight";
-// import rehypeRaw from "rehype-raw";
-// import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 import { AssetView } from "asset-view";
 import { getFolderJs, isPathRelative } from "fs-util-js";
 import { getImplicitId } from "markdown-parse-js";
 import { Div, Span } from "react-with-native";
 import { Tooltip } from "tooltip";
-export var header = function (_a) {
+export var HtmlHeader = function (_a) {
     var level = _a.level, children = _a.children;
     var levelSize = level === 1
         ? "text-3xl"
@@ -53,18 +53,16 @@ export var header = function (_a) {
  */
 export var renderMarkdownContent = function (content, config) {
     if (!content)
-        return "No content";
+        return "[No content]";
     // console.log("Need to render:", content);
     return (React.createElement(Span, null,
-        React.createElement(ReactMarkdown, { className: (config === null || config === void 0 ? void 0 : config.big) ? "max-w-lg" : undefined, 
-            //rehypePlugins={[rehypeHighlight, remarkGfm, rehypeRaw]}
-            components: {
-                h1: header,
-                h2: header,
-                h3: header,
-                h4: header,
-                h5: header,
-                h6: header,
+        React.createElement(ReactMarkdown, { className: (config === null || config === void 0 ? void 0 : config.big) ? "max-w-lg" : undefined, rehypePlugins: [rehypeHighlight, remarkGfm, rehypeRaw], components: {
+                h1: HtmlHeader,
+                h2: HtmlHeader,
+                h3: HtmlHeader,
+                h4: HtmlHeader,
+                h5: HtmlHeader,
+                h6: HtmlHeader,
                 img: function (_a) {
                     var src = _a.src, alt = _a.alt;
                     console.log({ src: src, alt: alt });
@@ -74,7 +72,6 @@ export var renderMarkdownContent = function (content, config) {
                     var url = isRelative ? undefined : src;
                     var relativePath = isRelative ? src : undefined;
                     var asset = { alt: alt, relativePath: relativePath, absoluteUrl: url };
-                    console.log({ isRelative: isRelative, url: url, relativePath: relativePath, asset: asset, config: config });
                     return (React.createElement(AssetView, { asset: asset, projectRelativeReferencingFilePath: config.projectRelativeMarkdownFilePath }));
                 },
                 //Fix newlines with `<br>`
@@ -84,25 +81,23 @@ export var renderMarkdownContent = function (content, config) {
                     // @ts-ignore
                     React.createElement("br", __assign({}, props)));
                 },
-                // details: ({ node, ...props }: any) => {
-                //   console.log("DETAILS DETECTED");
-                //   return (
-                //     // @ts-ignore
-                //     <details {...props} />
-                //   );
-                // },
-                // summary: ({ node, ...props }: any) => {
-                //   console.log("SUMMARY DETECTED");
-                //   return (
-                //     // @ts-ignore
-                //     <summary {...props} />
-                //   );
-                // },
+                details: function (_a) {
+                    var node = _a.node, props = __rest(_a, ["node"]);
+                    return (
+                    // @ts-ignore
+                    React.createElement("details", __assign({ className: "group border border-gray-600 rounded-lg" }, props)));
+                },
+                summary: function (_a) {
+                    var node = _a.node, props = __rest(_a, ["node"]);
+                    return (
+                    // @ts-ignore
+                    React.createElement("summary", __assign({ className: "bg-gray-200 dark:bg-gray-700 p-2 rounded-lg group-open:rounded-b-none group-open:border group-open:border-b-gray-600 select-none" }, props)));
+                },
                 td: function (_a) {
                     var node = _a.node, children = _a.children, props = __rest(_a, ["node", "children"]);
                     return (
                     // @ts-ignore
-                    React.createElement("td", __assign({ className: "border border-gray-900 dark:border-gray-100" }, props), children === null || children === void 0 ? void 0 : children.map(function (child) {
+                    React.createElement("td", __assign({ className: "border-spacing-1 border-t border-r last:border-r-0 border-gray-600 dark:border-gray-100 p-2" }, props), children === null || children === void 0 ? void 0 : children.map(function (child) {
                         return child === "<br />" ? React.createElement("br", null) : child;
                     })));
                 },
@@ -110,7 +105,26 @@ export var renderMarkdownContent = function (content, config) {
                     var node = _a.node, props = __rest(_a, ["node"]);
                     return (
                     // @ts-ignore
-                    React.createElement("th", __assign({ className: "border border-gray-900 dark:border-gray-100" }, props)));
+                    React.createElement("th", __assign({ className: "" }, props)));
+                },
+                table: function (_a) {
+                    var node = _a.node, props = __rest(_a, ["node"]);
+                    return (
+                    // @ts-ignore
+                    React.createElement("div", { className: "inline-block rounded-lg border shadow-2xl" },
+                        React.createElement("table", __assign({ className: "" }, props))));
+                },
+                tbody: function (_a) {
+                    var node = _a.node, props = __rest(_a, ["node"]);
+                    return (
+                    // @ts-ignore
+                    React.createElement("tbody", __assign({ className: "border-gray-600 dark:border-gray-100" }, props)));
+                },
+                tr: function (_a) {
+                    var node = _a.node, props = __rest(_a, ["node"]);
+                    return (
+                    // @ts-ignore
+                    React.createElement("tr", __assign({ className: "dark:even:bg-black even:bg-gray-400 even:bg-opacity-30" }, props)));
                 },
                 ol: function (_a) {
                     var node = _a.node, props = __rest(_a, ["node"]);

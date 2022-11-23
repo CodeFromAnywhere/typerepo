@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055364888,
-  "updatedAt": 1669055364888,
+  "createdAt": 1669127912666,
+  "updatedAt": 1669127912666,
   "deletedAt": 0,
-  "createdFirstAt": 1669055364888,
+  "createdFirstAt": 1669127912666,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  context\n) => {\n  const query = takeFirst(context.params?.query) || null;\n\n  const imagePaths = await fs.readdir(\n    path.join(__dirname, \"../../..\", \"public\")\n  );\n  const searchResults = getAllSearchResults(query) || null;\n\n  const timelineItems: {\n    comment: string;\n    filePath: string | undefined;\n    line: number;\n  }[] = []; // = await getTimelineItems();\n\n  const props: QueryPageProps = {\n    query,\n    searchResults,\n    imagePaths,\n    timelineItems,\n  };\n\n  return {\n    props,\n  };\n}",
   "description": "",
-  "id": "kxnfrnplosewrmytksandkpn"
+  "id": "ncdwfceyrscemxkmxsaymkaq"
 }

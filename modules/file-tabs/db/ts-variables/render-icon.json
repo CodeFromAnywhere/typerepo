@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667380083864,
+  "updatedAt": 1667380083864,
+  "deletedAt": 0,
+  "createdFirstAt": 1667380083864,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "renderIcon",
+  "slug": "render-icon",
+  "operationRelativeTypescriptFilePath": "src/renderIcon.tsx",
+  "type": {
+    "rawType": "(item: import(\"/Users/king/King/operations/tools/writer/file-tabs/src/types\").ClickIcon, index: number) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(item: ClickIcon, index: number) => {\n  const { onClick, emoji } = item;\n  return (\n    <Button\n      key={`icon${index}`}\n      onClick={onClick}\n      className=\"hover:bg-yellow-100 rounded-sm m-0.5 p-0.5\"\n    >\n      {emoji}\n    </Button>\n  );\n}",
+  "description": "",
+  "id": "jlvdgpexjrdwfnmrdhhjqhos"
+}

@@ -1,0 +1,103 @@
+{
+  "createdAt": 1669200020463,
+  "updatedAt": 1669200020463,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200020463,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/codestoriesGetStaticProps.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await codestoriesGetPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(flat, context);\n}",
+  "name": "codestoriesGetStaticProps",
+  "slug": "codestories-get-static-props",
+  "parameters": [
+    {
+      "name": "context",
+      "schema": {
+        "$ref": "#/definitions/GetStaticPropsContext"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "params",
+            "required": false,
+            "schema": {
+              "fullComment": "",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "preview",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "previewData",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locales",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "defaultLocale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ props: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-types/build/MarkdownReaderPageProps\").MarkdownReaderPageProps; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 213,
+    "lines": 8,
+    "bytes": 213,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "jwvcnlzihpwbkdfhqmvsmvko"
+}

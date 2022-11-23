@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667380082604,
+  "updatedAt": 1667380082604,
+  "deletedAt": 0,
+  "createdFirstAt": 1667380082604,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getOpenPageUrl.ts",
+  "commentsInside": [],
+  "rawText": " <TPagesObject extends PagesObjectShape>(\n  openPage: OpenPage<keyof TPagesObject>,\n  pagesObject: TPagesObject\n) => {\n  const page =\n    openPage.page === \"index\"\n      ? getFullPath(openPage.query.paths)\n      : (openPage.page as string);\n\n  const query = { ...openPage.query };\n  delete query.paths;\n\n  const queryString = toQueryString(query);\n\n  const url = `${page}${queryString}`;\n  return url;\n}",
+  "name": "getOpenPageUrl",
+  "slug": "get-open-page-url",
+  "parameters": [],
+  "description": "gets the url of the open page\n\n- paths is a special query key that is expanded as path, not as query\n- index page should be on /",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 531,
+    "lines": 20,
+    "bytes": 531,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 20,
+    "numberOfFiles": 1
+  },
+  "id": "knmwdxdfegxsuhcmhhyccfsm"
+}

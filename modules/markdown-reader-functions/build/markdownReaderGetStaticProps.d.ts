@@ -1,7 +1,6 @@
-import type { GetStaticPropsContext } from "next-types";
 import { MarkdownReaderPageProps } from "markdown-reader-types";
+import type { GetStaticPropsContext } from "next-types";
 /**
- Fix `operationBasePath not working` error when building: log `getStaticProps`/`getStaticPaths`
  */
 export declare const markdownReaderGetStaticProps: (context: GetStaticPropsContext) => Promise<{
     props: MarkdownReaderPageProps;

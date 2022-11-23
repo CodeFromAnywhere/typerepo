@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055167396,
-  "updatedAt": 1669055167396,
+  "createdAt": 1669132700327,
+  "updatedAt": 1669132700327,
   "deletedAt": 0,
-  "createdFirstAt": 1669055167396,
+  "createdFirstAt": 1669132700327,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  functionName: string,\n  parameters: undefined | any[],\n  tsFunction: TsFunction\n): ValidationResult => {\n  // TODO: make this validation function! It may be possible to do it with SimplifiedJson, otherwise just use JSONSchema7\n  return { isValid: true };\n}",
   "description": "wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.",
-  "id": "tccoticfzyiityvalvockorx"
+  "id": "hdppzvifpjgjrpxkdiajfioa"
 }

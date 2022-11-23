@@ -1,0 +1,135 @@
+{
+  "createdAt": 1669200632054,
+  "updatedAt": 1669200632054,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200632054,
+  "name": "reader-ui",
+  "version": "1.0.0",
+  "main": "./build/esm/index.js",
+  "types": "./build/esm/index.d.ts",
+  "files": [
+    "/build"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4"
+  },
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "wcss": "tailwindcss -w -o css.css",
+    "css": "tailwindcss -o css.css"
+  },
+  "operation": {
+    "hasGeneratedDependenciesIndexed": true,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669200648373,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 5,
+        "lines": 437,
+        "characters": 13430,
+        "bytes": 13430
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 87,
+        "characters": 2205,
+        "bytes": 2205
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 81,
+        "characters": 1764,
+        "bytes": 1764
+      },
+      "size": {
+        "bytes": 17399,
+        "characters": 17399,
+        "lines": 605,
+        "numberOfFiles": 9
+      }
+    },
+    "folderNameIndexed": "reader-ui",
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/reader",
+    "classificationIndexed": "ui-esm",
+    "coreDependenciesIndexed": [
+      "useState"
+    ],
+    "operationDependenciesIndexed": [
+      "nestedMenuStoreInitialValues",
+      "createStore",
+      "ClickableIcon",
+      "getFolderJs",
+      "MappedObject",
+      "renderMarkdownContent",
+      "AugmentedWord",
+      "Div",
+      "P",
+      "isDev",
+      "PublicBundleConfig",
+      "ClickableIcon",
+      "ALink",
+      "Div",
+      "P",
+      "publicEnvironmentVariables",
+      "publicLocalEnvironmentVariables",
+      "AugmentedWord",
+      "MappedObject",
+      "LayoutGrid",
+      "MarkdownReaderPageProps",
+      "MenuObjectType",
+      "FilePage",
+      "ClickableIcon",
+      "humanCase",
+      "getFolderJs",
+      "renderMarkdownContent",
+      "mdToJsonParse",
+      "getQueryPath",
+      "MarkdownReaderPageProps",
+      "ALink",
+      "Div",
+      "P",
+      "useRouter",
+      "isDev",
+      "MarkdownView"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "dependencies": {
+    "nested-menu": "0.0.1",
+    "react-with-native-store": "2.0.40",
+    "clickable-icon": "0.0.1",
+    "fs-util-js": "0.0.1",
+    "js-util": "0.0.1",
+    "markdown": "1.0.0",
+    "augmented-word-types": "0.0.1",
+    "react-with-native": "1.4.9",
+    "server-api-url": "0.0.1",
+    "bundle-types": "0.0.1",
+    "next-a-link": "0.0.1",
+    "layout": "0.0.0",
+    "markdown-reader-types": "0.0.1",
+    "webpage-types": "0.0.1",
+    "convert-case": "0.0.1",
+    "markdown-parse-js": "0.0.1",
+    "markdown-reader-functions-js": "0.0.1",
+    "react-with-native-router": "1.0.14",
+    "writer-input": "1.0.0",
+    "react": "*"
+  },
+  "slug": "reader-ui",
+  "id": "dmrxxyobafgmvgnfcrwzhoqw"
+}

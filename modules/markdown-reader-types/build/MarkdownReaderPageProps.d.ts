@@ -1,20 +1,17 @@
-import { MarkdownReaderPage } from "./MarkdownReaderPage";
 import { WebMarkdownFile } from "code-types";
-import { BundleConfig } from "bundle-types";
+import { PublicBundleConfig } from "bundle-types";
 import { MappedObject } from "js-util";
 import { AugmentedWord } from "augmented-word-types";
+import { NestedWebPage, ReaderWebPage } from "webpage-types";
 export declare type MarkdownReaderPageProps = {
-    /**
-     *
-     */
-    publicBundleConfig?: Omit<BundleConfig, "customisableBundleConfig" | "createBundleConfig"> | null;
+    publicBundleConfig?: PublicBundleConfig | null;
     projectRelativeMarkdownPath?: string | null;
     augmentedWordObject?: MappedObject<AugmentedWord>;
-    /**
-     * If markdownfile is null, the page should exist, but the reading of the file failed
-     */
+    menu: {
+        flat: ReaderWebPage[];
+        nested: NestedWebPage[];
+    };
     markdownFile?: WebMarkdownFile | null;
-    pages: MarkdownReaderPage[];
     /**
      * Title of the page
      */

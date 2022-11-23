@@ -1,4 +1,4 @@
-import { NestedObject } from "nested-menu";
+import { NestedObject } from "recursive-types";
 /**
  * Recursively searches a folder for public markdown files, and returns a `NestedObject` with the keys being the file or folder names, and the leafs being the absolute file paths.
  *

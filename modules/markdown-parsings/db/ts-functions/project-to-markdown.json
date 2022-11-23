@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154828253,
-  "updatedAt": 1668154828253,
+  "createdAt": 1669200493291,
+  "updatedAt": 1669200493291,
   "deletedAt": 0,
-  "createdFirstAt": 1668154828253,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200493291,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/projectToMarkdown.ts",
   "commentsInside": [],
   "rawText": " ({\n  includeTodo,\n}: {\n  includeTodo?: boolean;\n  includeOperationDetails?: boolean;\n}): string => {\n  /**\n    \n     - the folder structure should be the outline\n     - hierarchically delve into folders with all its content (md and operations)\n  \n     */\n  return \"\";\n}",
@@ -77,5 +72,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "dpincnqgjnzaqdxinbnxvtke"
+  "id": "bobctxqiqrlhvlbgzszjhwfw"
 }

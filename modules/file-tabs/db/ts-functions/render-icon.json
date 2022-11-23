@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667380083720,
+  "updatedAt": 1667380083720,
+  "deletedAt": 0,
+  "createdFirstAt": 1667380083720,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/renderIcon.tsx",
+  "commentsInside": [],
+  "rawText": " (item: ClickIcon, index: number) => {\n  const { onClick, emoji } = item;\n  return (\n    <Button\n      key={`icon${index}`}\n      onClick={onClick}\n      className=\"hover:bg-yellow-100 rounded-sm m-0.5 p-0.5\"\n    >\n      {emoji}\n    </Button>\n  );\n}",
+  "name": "renderIcon",
+  "slug": "render-icon",
+  "parameters": [],
+  "description": "<Svg src={svgSrc} className=\"w-4 h-4 text-gray-900 dark:text-gray-200\" />",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 322,
+    "lines": 12,
+    "bytes": 322,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "dlihhwiucyrpfiqdfzykzyhl"
+}

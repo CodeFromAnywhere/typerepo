@@ -1,0 +1,45 @@
+{
+  "createdAt": 1667380080297,
+  "updatedAt": 1667380080297,
+  "deletedAt": 0,
+  "createdFirstAt": 1667380080297,
+  "publicAuthorization": [
+    "read-docs",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/FileTabs.tsx",
+  "commentsInside": [],
+  "rawText": " <TPagesObject extends PagesObjectShape>(props: {\n  pagesObject: TPagesObject;\n}) => {\n  const { pagesObject } = props;\n\n  const router = useRouter();\n  const { query } = router;\n  const alert = useAlert();\n  const { fullPath } = usePath();\n\n  const [showOpenPages, setShowOpenPages] = useState(true);\n  const [openPages, setOpenPages] = useStore(\"openPages\");\n  const [unsavedFiles, setUnsavedFiles] = useStore(\"unsavedFiles\");\n\n  const unsavedFilePaths = Object.keys(unsavedFiles).filter(\n    (projectRelativePath) => unsavedFiles[projectRelativePath] !== undefined\n  );\n\n  const notOpenUnsavedFilesPages: OpenPage<Keys<TPagesObject>>[] =\n    unsavedFilePaths\n      .map((projectRelativeFilePath) => {\n        const already = !!openPages.find(\n          (x) => getFullPath(x.query.paths) === projectRelativeFilePath\n        );\n\n        if (already) return;\n\n        const openPage: OpenPage<Keys<TPagesObject>> = {\n          id: generateId(),\n          page: \"index\" as Keys<TPagesObject>,\n          query: {\n            paths: projectRelativeFilePath.split(\"/\"),\n          },\n          lastOpenedAt: Date.now(),\n          isUnsaved: true,\n          temporary: true,\n        };\n        return openPage;\n      })\n      .filter(notEmpty);\n\n  const currentOpenPage: OpenPage<Keys<TPagesObject>> = {\n    page: getActivePage(router.pathname, pagesObject),\n    query,\n    lastOpenedAt: 0,\n    temporary: true,\n    /*** NB: id isn't correct */\n    id: generateId(),\n  };\n\n  const openAndUnsavedPages = openPages.concat(notOpenUnsavedFilesPages);\n\n  const already = openAndUnsavedPages.find((x) => {\n    const url = getOpenPageUrl(x, pagesObject);\n    const currentUrl = router.asPath.slice(1);\n    return url === currentUrl;\n  });\n\n  const allOpenPages =\n    !already && router.asPath !== \"/\"\n      ? openAndUnsavedPages.concat(currentOpenPage)\n      : openAndUnsavedPages;\n\n  // Alt + N: new file\n  useHotkey(isAltN, () => goToOpenPage(undefined), []);\n  // `alt+o`: toggle hiding file-tabs\n  useHotkey(isAltO, () => setShowOpenPages((value) => !value), []);\n  // Alt+W: close page\n  useHotkey(isAltW, () => closeOpenPage(currentOpenPage, true), [\n    currentOpenPage.id,\n  ]);\n\n  useHotkeys([], (keyboardEvent) => {\n    const { altKey, code, shiftKey } = keyboardEvent;\n    if (altKey && code === \"Tab\") {\n      if (shiftKey) {\n        alert?.(\"Previous page\");\n      } else {\n        alert?.(\"Next page\");\n      }\n    }\n  });\n\n  const goToOpenPage = (openPage?: OpenPage<keyof TPagesObject>) => {\n    if (openPage) {\n      router.push(getOpenPageUrl(openPage, pagesObject));\n    } else {\n      router.push(`/`);\n    }\n  };\n\n  const closeOpenPage = (\n    openPage: OpenPage<keyof TPagesObject>,\n    isActive: boolean\n  ) => {\n    const newOpenPages = openPages.filter((x) =>\n      x.id === openPage.id ? false : true\n    );\n\n    setOpenPages(newOpenPages);\n\n    // if you were there, go to another page that's open\n    if (isActive) {\n      const anotherPage = newOpenPages[0];\n      goToOpenPage(anotherPage);\n    }\n  };\n\n  const renderOpenPage = (openPage: OpenPage<string>, i: number) => {\n    const type = getFileType(getOpenPageUrl(openPage, pagesObject));\n    const typeIcon = typeIcons[type];\n    const thisFullPath = getOpenPageUrl(openPage, pagesObject);\n    const isActive = thisFullPath === fullPath;\n\n    const title =\n      openPage.page === \"index\"\n        ? `${typeIcon} ${getLastPathsChunk(openPage.query.paths)}`\n        : openPage.page === \"menu\"\n        ? \"📁\"\n        : \"?\";\n\n    const clickableIcons: ClickIcon[] = [\n      {\n        visible: openPage.pinned,\n        //  svgSrc: PinIcon,\n        emoji: \"🔒\",\n        // unpin\n        onClick: (e) => {\n          const newOpenPages = openPages.map((x) =>\n            x.id === openPage.id ? { ...x, pinned: false } : x\n          );\n          setOpenPages(newOpenPages);\n        },\n      },\n      {\n        visible: !openPage.isUnsaved && !openPage.pinned,\n        // svgSrc: CloseIcon,\n        emoji: \"⨯\",\n        // close\n        onClick: (e) => {\n          e.stopPropagation();\n\n          closeOpenPage(openPage, isActive);\n        },\n      },\n      {\n        visible: openPage.isUnsaved,\n        // svgSrc: CloseIcon,\n        emoji: \"●\",\n        // close\n        // onClick: (e) => {\n        //   e.stopPropagation();\n\n        //   closeOpenPage(openPage, isActive);\n        // },\n      },\n    ];\n\n    return (\n      <Div\n        key={`openPage${i}`}\n        className={`m-0.5 flex flex-row items-center border rounded-md border-gray-900 ${\n          isActive\n            ? \"bg-gray100 dark:bg-gray-900\"\n            : \"bg-gray-200 dark:bg-gray-700\"\n        }`}\n      >\n        <ALink\n          onDoubleClick={() => {\n            if (openPage.temporary) {\n              const thisOpenPageNotTemporary: OpenPage<string> = {\n                ...openPage,\n                temporary: false,\n                isUnsaved: undefined,\n              };\n\n              setOpenPages(openPages.concat(thisOpenPageNotTemporary));\n            }\n          }}\n          onContextMenu={(e) => {\n            e.preventDefault();\n\n            //  pin/unpin\n            const newOpenPages = openPages.map((x) =>\n              x.id === openPage.id\n                ? { ...x, pinned: !x.pinned, isUnsaved: undefined }\n                : x\n            );\n            setOpenPages(newOpenPages);\n          }}\n          href={getOpenPageUrl(openPage, pagesObject)}\n          key={`p${i}`}\n        >\n          <P\n            className={`${\n              openPage.temporary\n                ? \"italic text-black dark:text-gray-200\"\n                : \"text-black dark:text-gray-200\"\n            }`}\n          >\n            {title}\n          </P>\n        </ALink>\n        {clickableIcons.filter((x) => x.visible).map(renderIcon)}\n      </Div>\n    );\n  };\n\n  return showOpenPages ? (\n    <Div className={`bg-gray-100 dark:bg-gray-900`}>\n      <Div className=\"flex flex-row flex-wrap\">\n        {allOpenPages.map(renderOpenPage)}\n      </Div>\n    </Div>\n  ) : null;\n}",
+  "name": "FileTabs",
+  "slug": "file-tabs",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element | null",
+    "typeDefinition": {
+      "optional": true,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 8,
+  "size": {
+    "characters": 5996,
+    "lines": 216,
+    "bytes": 6004,
+    "bytesPerCharacter": 1.0013342228152102,
+    "charactersPerLine": 28,
+    "linesPerFile": 216,
+    "numberOfFiles": 1
+  },
+  "id": "frbkcfkybbyqgcvttkeywhws"
+}

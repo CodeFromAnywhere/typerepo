@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668960455631,
-  "updatedAt": 1668960455631,
+  "createdAt": 1669132820674,
+  "updatedAt": 1669132820674,
   "deletedAt": 0,
-  "createdFirstAt": 1668960455631,
+  "createdFirstAt": 1669132820674,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/NestedMenuItem.tsx",
   "commentsInside": [],
-  "rawText": " (item: WebPage<undefined>): string => {\n  return item.menuTitle || getFileOrFolderName(item.queryPath);\n}",
+  "rawText": " (item: WebPage<null>): string => {\n  return item.menuTitle || getFileOrFolderName(item.queryPath);\n}",
   "name": "getTitle",
   "slug": "get-title",
   "parameters": [],
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 106,
+    "characters": 101,
     "lines": 3,
-    "bytes": 106,
+    "bytes": 101,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 35,
+    "charactersPerLine": 34,
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "jyxjkzyzzusmtpditileqppr"
+  "id": "mrwbvdjmuniofrjonikhqpms"
 }

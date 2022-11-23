@@ -1,0 +1,72 @@
+{
+  "createdAt": 1665292242208,
+  "updatedAt": 1667380089655,
+  "deletedAt": 0,
+  "createdFirstAt": 1665292242208,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/writer/file-tabs/src/types.ts. Error: TypeError: Cannot read properties of undefined (reading 'kind')\"]",
+  "buildSucceeded": true,
+  "id": "vwqyfbdzseogznhydqhrgtka",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "file-tabs",
+  "packageName": "file-tabs",
+  "relativeOperationLocationPath": "operations/tools/writer",
+  "classification": "js",
+  "name": "file-tabs",
+  "slug": "file-tabs",
+  "coreDependencies": [
+    "useState",
+    "MouseEventHandler"
+  ],
+  "operationDependencies": [
+    "P",
+    "generateId",
+    "notEmpty",
+    "Div",
+    "useAlert",
+    "useRouter",
+    "useHotkey",
+    "useHotkeys",
+    "isAltN",
+    "isAltO",
+    "isAltW",
+    "typeIcons",
+    "getFileType",
+    "ALink",
+    "getFullPath",
+    "getLastPathsChunk",
+    "usePath",
+    "getFullPath",
+    "toQueryString",
+    "Button",
+    "Svg",
+    "createUseStore"
+  ],
+  "packageDependencies": [],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 6,
+      "lines": 0,
+      "characters": 10257,
+      "bytes": 10257
+    },
+    "dataSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 2336,
+      "bytes": 2336
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 1740,
+      "bytes": 1740
+    },
+    "size": {
+      "bytes": 14333,
+      "characters": 14333,
+      "lines": 0,
+      "numberOfFiles": 10
+    }
+  }
+}

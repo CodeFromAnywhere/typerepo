@@ -6,7 +6,7 @@ import { getNameFromRelativePath } from "asset-functions-js";
 import { getNameWithTokenFromRelativePath } from "asset-functions-js";
 import { getPreferredExtensionFromType } from "asset-functions-js";
 import { getReferencedAssetApiUrl } from "asset-functions-js";
-import { getTypeFromRelativePath } from "asset-functions-js";
+import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
 import { removeTokenIfPresent } from "asset-functions-js";
 import { getEncoding } from "text-or-binary";
@@ -52,6 +52,7 @@ import { findOperationBasePathWithClassification } from "get-path";
 import { findOperationBasePath } from "get-path";
 import { getAllPackageJsonDependencies } from "get-path";
 import { getCommonAncestor } from "get-path";
+import { getOperationClassificationObject } from "get-path";
 import { getOperationClassification } from "get-path";
 import { getOperationPathParse } from "get-path";
 import { getOperationPath } from "get-path";
@@ -64,9 +65,13 @@ import { getRelativePath } from "get-path";
 import { getRootPath } from "get-path";
 import { getSrcRelativeFileId } from "get-path";
 import { hasDependency } from "get-path";
+import { isBundle } from "get-path";
 import { isOperation } from "get-path";
+import { isUiOperation } from "get-path";
 import { isWorkspaceRoot } from "get-path";
 import { makeRelative } from "get-path";
+import { packageCompilesTs } from "get-path";
+import { tsconfigCompilesEsm } from "get-path";
 import { getDependenciesSummary } from "operation-util";
 import { getOperationMetaData } from "operation-util";
 import { recalculateOperationIndexJson } from "operation-util";
@@ -146,6 +151,8 @@ import { isOutOfStock } from "os-types";
 import { kvmdToCredential } from "os-types";
 import { upcomingOutgoingFlights } from "os-types";
 import { whereShouldIgo } from "os-types";
+import { crudPageToWebPages } from "webpage-types";
+import { functionFormPageToWebPage } from "webpage-types";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
 import { stripComment } from "comment-util";
@@ -184,6 +191,14 @@ import { getLastPathsChunk } from "next-paths";
 import { usePath } from "next-paths";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
+import { getKeysAtPathFromNestedObject } from "recursive-util";
+import { getMenuPagesObject } from "recursive-util";
+import { makeNestedObjectFromQueryPathObject } from "recursive-util";
+import { nestedObjectToChildObject } from "recursive-util";
+import { nestedPathObjectToNestedMenuRecursive } from "recursive-util";
+import { nestifyQueryPathObjectRecursive } from "recursive-util";
+import { queryPathsArrayToNestedPathObject } from "recursive-util";
+import { reduceQueryPathsRecursively } from "recursive-util";
 import { camelCase } from "convert-case";
 import { capitalCase } from "convert-case";
 import { capitaliseFirstLetter } from "convert-case";
@@ -257,7 +272,7 @@ getNameFromRelativePath,
 getNameWithTokenFromRelativePath,
 getPreferredExtensionFromType,
 getReferencedAssetApiUrl,
-getTypeFromRelativePath,
+getTypeFromUrlOrPath,
 readableSize,
 removeTokenIfPresent,
 getEncoding,
@@ -303,6 +318,7 @@ findOperationBasePathWithClassification,
 findOperationBasePath,
 getAllPackageJsonDependencies,
 getCommonAncestor,
+getOperationClassificationObject,
 getOperationClassification,
 getOperationPathParse,
 getOperationPath,
@@ -315,9 +331,13 @@ getRelativePath,
 getRootPath,
 getSrcRelativeFileId,
 hasDependency,
+isBundle,
 isOperation,
+isUiOperation,
 isWorkspaceRoot,
 makeRelative,
+packageCompilesTs,
+tsconfigCompilesEsm,
 getDependenciesSummary,
 getOperationMetaData,
 recalculateOperationIndexJson,
@@ -397,6 +417,8 @@ isOutOfStock,
 kvmdToCredential,
 upcomingOutgoingFlights,
 whereShouldIgo,
+crudPageToWebPages,
+functionFormPageToWebPage,
 stripCommentEnd,
 stripCommentStart,
 stripComment,
@@ -435,6 +457,14 @@ getLastPathsChunk,
 usePath,
 createCodeblockMarkdown,
 useCustomUrlStore,
+getKeysAtPathFromNestedObject,
+getMenuPagesObject,
+makeNestedObjectFromQueryPathObject,
+nestedObjectToChildObject,
+nestedPathObjectToNestedMenuRecursive,
+nestifyQueryPathObjectRecursive,
+queryPathsArrayToNestedPathObject,
+reduceQueryPathsRecursively,
 camelCase,
 capitalCase,
 capitaliseFirstLetter,

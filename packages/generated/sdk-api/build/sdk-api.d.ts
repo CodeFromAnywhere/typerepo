@@ -154,6 +154,13 @@ export declare const sdk: {
         amountRemoved: number;
     } | undefined>;
     shouldDeleteTsModel: (tsModel: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsComment | import("code-types").TsBuildError | import("code-types").TsLintWarning | import("code-types").TsExport | import("code-types").TsImport | import("code-types").TsVariable, operationName: string, operationRelativePaths: string[]) => boolean;
+    codestoriesGetPages: (config?: {
+        manualProjectRoot?: string | undefined;
+    } | undefined) => Promise<import("webpage-types").FileWebPage[] | undefined>;
+    codestoriesGetStaticPaths: import("next-types").GetStaticPaths<import("next-types").ParsedUrlQuery>;
+    codestoriesGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
+        props: import("markdown-reader-types").MarkdownReaderPageProps;
+    }>;
     csvItemArrayToCsvString: <T extends import("csv-util").CsvItemType>(csvModelData: T[]) => string;
     tryParseCsv: <T_1 extends import("csv-util").CsvItemType>(csvString: string) => T_1[] | null;
     generateCsvInstance: () => import("model-types").Creation<import("database").CsvTestModel>;
@@ -167,7 +174,7 @@ export declare const sdk: {
     testOperationModels: () => Promise<boolean>;
     cacheLookup: (functionName: string, parameters: any[] | undefined) => import("db-recipes").CacheLookupResult;
     calculateOperatingSystemBundle: (manualProjectRoot?: string | undefined) => Promise<void>;
-    deleteDbModel: <KInterface extends "TsConfig" | "SelfSprintReview" | "TodoFile" | "TodoOffer" | "AuthorizationModel" | "Device" | "Group" | "PageVisit" | "PaymentCoupon" | "PaymentEvent" | "PaymentPlan" | "PaymentSubscription" | "PeerMessage" | "Person" | "Persona" | "PersonInformation" | "PersonInformationValue" | "PersonPlatformConnection" | "Platform" | "RecurringReminder" | "Interest" | "MediaChannel" | "MediaCredentail" | "MediaPost" | "Postable" | "BundleConfig" | "Dataset" | "FunctionExecution" | "Operation" | "SocialMediaCallToAction" | "TsBuildError" | "TsComment" | "TsExport" | "TsFunction" | "TsImport" | "TsInterface" | "TsLintWarning" | "TsVariable" | "TypescriptFile" | "WebMarkdownFile" | "WebsiteCallToAction" | "Address" | "Area" | "City" | "Country" | "Location" | "KvmdWord" | "MarkdownWord" | "NepaliEnglishTranslationMatrix" | "Statement" | "TokiPonaMatrix" | "Translation" | "Word" | "WordCategory" | "WordCombination" | "WordMatrix" | "SlugModelType" | "AppDeveloper" | "Assignment" | "Bag" | "Calendar" | "Deliverable" | "Diary" | "Feeling" | "FeelingLog" | "Folder" | "Host" | "Inventory" | "Item" | "ItemCategory" | "KvmdShortcut" | "Label" | "Light" | "Listing" | "LoginCredential" | "Material" | "MessagePreset" | "PersonalCarbonFootprintProfile" | "ProgressReport" | "Question" | "Reservation" | "Resource" | "Shit" | "ShitLog" | "ShoppingList" | "Shortcut" | "Student" | "Student2" | "TaskError" | "Trackable" | "User" | "UserCredential" | "Artist" | "PlayCategory" | "PlayItem" | "PlayList" | "PlaySchedule" | "RelationModelType" | "JeepType" | "LocationType" | "OperationConfig" | "OperationIndex" | "PackageJson" | "Activity" | "CompanyRequirement" | "CompanySize" | "CompanyType" | "Company" | "ContactInformation" | "Contribution" | "EsgMetric" | "ProductCategory" | "Product" | "ProofState" | "Proof" | "SustainabilityPlan" | "ValueChainPhase">(interfaceName: KInterface, id: string) => Promise<import("fs-orm").DbQueryResult>;
+    deleteDbModel: <KInterface extends "TsConfig" | "PaymentCoupon" | "PaymentEvent" | "PaymentPlan" | "PaymentRequest" | "PaymentSubscription" | "PaymentTransaction" | "SelfSprintReview" | "TodoFile" | "TodoOffer" | "AuthorizationModel" | "Device" | "Group" | "PageVisit" | "PeerMessage" | "Person" | "Persona" | "PersonInformation" | "PersonInformationValue" | "PersonPlatformConnection" | "Platform" | "RecurringReminder" | "Interest" | "MediaChannel" | "MediaCredentail" | "MediaPost" | "Postable" | "BundleConfig" | "FrontBackBundle" | "Dataset" | "FunctionExecution" | "Operation" | "SocialMediaCallToAction" | "TsBuildError" | "TsComment" | "TsExport" | "TsFunction" | "TsImport" | "TsInterface" | "TsLintWarning" | "TsVariable" | "TypescriptFile" | "WebMarkdownFile" | "WebsiteCallToAction" | "Address" | "Area" | "City" | "Country" | "Location" | "KvmdWord" | "MarkdownWord" | "NepaliEnglishTranslationMatrix" | "Statement" | "TokiPonaMatrix" | "Translation" | "Word" | "WordCategory" | "WordCombination" | "WordMatrix" | "SlugModelType" | "AppDeveloper" | "Assignment" | "Bag" | "Calendar" | "Deliverable" | "Diary" | "Feeling" | "FeelingLog" | "Folder" | "Host" | "Inventory" | "Item" | "ItemCategory" | "KvmdShortcut" | "Label" | "Light" | "Listing" | "LoginCredential" | "Material" | "MessagePreset" | "PersonalCarbonFootprintProfile" | "ProgressReport" | "Question" | "Reservation" | "Resource" | "Shit" | "ShitLog" | "ShoppingList" | "Shortcut" | "Student" | "Student2" | "TaskError" | "Trackable" | "User" | "UserCredential" | "Artist" | "PlayCategory" | "PlayItem" | "PlayList" | "PlaySchedule" | "RelationModelType" | "JeepType" | "LocationType" | "OperationConfig" | "OperationIndex" | "PackageJson" | "Activity" | "CompanyRequirement" | "CompanySize" | "CompanyType" | "Company" | "ContactInformation" | "Contribution" | "EsgMetric" | "ProductCategory" | "Product" | "ProofState" | "Proof" | "SustainabilityPlan" | "ValueChainPhase">(interfaceName: KInterface, id: string) => Promise<import("fs-orm").DbQueryResult>;
     getDatabaseMenu: (config?: {
         bundleId?: string | undefined;
     } | undefined) => Promise<{
@@ -195,7 +202,7 @@ export declare const sdk: {
         noSrcRelativeFolder?: boolean | undefined;
         noPrefix?: boolean | undefined;
     } | undefined) => Promise<{
-        flat?: import("webpage-types").WebPage<undefined>[] | undefined;
+        flat?: import("webpage-types").WebPage<null>[] | undefined;
         nested?: import("webpage-types").NestedWebPage[] | undefined;
     }>;
     getReferencableModelData: (dbModelName: string | number | symbol) => Promise<{
@@ -224,6 +231,37 @@ export declare const sdk: {
     getDbModelsFromOperations: (operationNames: string[]) => Promise<import("code-types").TsInterface[]>;
     comparePassword: (rawPassword: string, encryptedPassword: string) => Promise<boolean>;
     encryptPassword: (rawPassword: string) => Promise<string>;
+    exploreOperation: (operationBasePath: string) => Promise<import("code-types").TextJson[]>;
+    exploreProject: (config?: {
+        bundleId?: string | undefined;
+    } | undefined) => Promise<import("code-types").FolderExploration[] | undefined>;
+    getExplorationType: (absolutePath: string, operationFolders: string[]) => "function" | "folder" | "typescript" | "markdown" | "operation" | "operationFolder" | "interface" | "variable" | undefined;
+    getFileWithExtension: (absolutePath: string) => string;
+    getFolderExplorationDetails: (config: {
+        path: string;
+        type: "function" | "folder" | "typescript" | "markdown" | "operation" | "operationFolder" | "interface" | "variable";
+        name: string;
+        sort?: string | undefined;
+        typeIndexType?: keyof import("code-types").IndexModels | null | undefined;
+    } & import("read-typescript-file").IndexFilter) => Promise<import("code-types").ExplorationDetails>;
+    getInstanceNames: (array: any[], relativePathFromProjectRoot: string) => string[];
+    getProjectRelativePaths: (config?: {
+        type?: import("explore-project").RelativePathType | undefined;
+        earliestUpdatedAt?: number | undefined;
+        filterDraft?: boolean | undefined;
+        filterPrivate?: boolean | undefined;
+        filterGenerated?: boolean | undefined;
+        sort?: "recent" | undefined;
+    } | undefined) => Promise<string[] | undefined>;
+    getTodoFrontmattersMappedObject: (projectRoot: string, todoPaths?: string[] | undefined) => Promise<{
+        [x: string]: import("matter-types").Frontmatter | undefined;
+    }>;
+    getTodoPages: (config?: import("todo-types").TodoPagesConfig | undefined) => Promise<{
+        nested: import("webpage-types").NestedWebPage[];
+        flat: (import("webpage-types").FileWebPage | import("webpage-types").WebPage<null>)[];
+    }>;
+    getTodoPaths: (config?: import("todo-types").TodoPagesConfig | undefined) => Promise<string[]>;
+    hasSameProjectPath: (projectRelativePath: string) => <T_2 extends import("model-types").TsIndexModelType>(x: T_2) => boolean;
     findAllDependencyOperations: ({ imports, operations, operationNames, ignoreOperationNames, ignoreFilter, }: {
         imports: import("code-types").TsImport[];
         operations: import("code-types").Operation[];
@@ -273,15 +311,15 @@ export declare const sdk: {
     }>;
     createDb: <TModels extends import("fs-orm").AnyModelObject>(dbConfig?: import("fs-orm").DbConfig<TModels> | undefined) => import("fs-orm").Db<TModels>;
     findParent: (arrayItem: import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>, newCategoryStack: import("model-types").CategoryStack) => boolean;
-    getAugmentedData: <T_2>(dbFileLocation: import("model-types").DbFileLocation, dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv") => Promise<T_2[] | null>;
+    getAugmentedData: <T_3>(dbFileLocation: import("model-types").DbFileLocation, dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv") => Promise<T_3[] | null>;
     getDatabaseFiles: (modelName: string, mergedConfig: import("fs-orm").MergedQueryConfig) => Promise<import("model-types").DbFileLocation[]>;
     getDatabaseRootFolder: (operationName: string | null | undefined, manualProjectRoot?: string | undefined) => Promise<string | undefined>;
     getDbFileLocation: (storedItem: import("model-types").Storing<import("model-types").AugmentedAnyModelType>, operationName: string | null, mergedConfig: import("fs-orm").MergedQueryConfig, modelName: string) => Promise<import("model-types").DbFileLocation | undefined>;
     getDbStorageMethodExtension: (dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv") => string;
     getDefaultLocationPattern: (dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv", modelName: string) => string | undefined;
-    getItemModelLocation: <T_3 extends {
+    getItemModelLocation: <T_4 extends {
         [key: string]: any;
-    }>(item: T_3) => import("model-types").ModelLocation;
+    }>(item: T_4) => import("model-types").ModelLocation;
     getLength: (array: any[]) => number;
     getLocationPattern: (dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv", modelName: string, mergedConfig: import("fs-orm").MergedQueryConfig) => string | undefined;
     getMergedConfigOperationPath: (mergedConfig: import("fs-orm").MergedQueryConfig, manualProjectRoot?: string | undefined) => Promise<string | false | undefined>;
@@ -306,10 +344,10 @@ export declare const sdk: {
         projectRoot: string;
         rootFolder: import("fs-orm").RootDbFolder;
     }) => Promise<import("model-types").DbFileLocation[]>;
-    groupByFile: <T_4 extends {
+    groupByFile: <T_5 extends {
         [key: string]: any;
-    }>(creationItems: import("model-types").Creation<T_4>[], mergedConfig: import("fs-orm").MergedQueryConfig, modelName: string) => Promise<import("fs-orm").ItemPerFileObject<T_4>>;
-    makeStoringItem: <T_5 extends import("model-types").AugmentedAnyModelType>(item: T_5) => import("model-types").Storing<T_5>;
+    }>(creationItems: import("model-types").Creation<T_5>[], mergedConfig: import("fs-orm").MergedQueryConfig, modelName: string) => Promise<import("fs-orm").ItemPerFileObject<T_5>>;
+    makeStoringItem: <T_6 extends import("model-types").AugmentedAnyModelType>(item: T_6) => import("model-types").Storing<T_6>;
     mergeConfigs: <TModels_1 extends import("fs-orm").AnyModelObject>(modelName: Extract<keyof TModels_1, string>, dbConfig?: import("fs-orm").DbConfig<TModels_1> | undefined, config?: import("fs-orm").CustomQueryConfig | import("fs-orm").GetQueryConfig<TModels_1[keyof TModels_1]> | undefined) => import("fs-orm").MergedQueryConfig;
     removeKeyValueMarkdown: (storedData: import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[], slug: string) => import("fs-orm").DbQueryResult & {
         newStoredData: import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
@@ -323,14 +361,17 @@ export declare const sdk: {
         newStoredData: import("model-types").Storing<import("model-types").AugmentedAnyModelType>[];
     };
     getExtension: (fileNameOrPath: string) => string;
-    getFileOrFolderName: <T_6 extends string | undefined>(fileOrFolderPath: T_6) => T_6;
-    getFolderJs: <T_7 extends string | undefined>(filePath: T_7) => T_7;
-    getSubExtension: (fileName: string) => string | undefined;
+    getFileOrFolderName: <T_7 extends string | undefined>(fileOrFolderPath: T_7) => T_7;
+    getFolderJs: <T_8 extends string | undefined>(filePath: T_8) => T_8;
+    getSubExtension: (filename: string) => string | undefined;
     isPathRelative: (path: string) => boolean;
     removeTrailingSlash: (p: string) => string;
     withoutExtension: (fileName: string) => string;
     getFunctionExecutions: (functionName: string | undefined) => Promise<import("code-types").FunctionExecution[]>;
-    getFunctionQueryPaths: (tsFunctions?: import("code-types").TsFunction[] | undefined) => Promise<string[]>;
+    getFunctionQueryPaths: (tsFunctions?: import("code-types").TsFunction[] | undefined) => Promise<{
+        nested: import("webpage-types").NestedWebPage[];
+        flat: import("webpage-types").WebPage<null>[];
+    }>;
     getPublicBundleConfig: () => Promise<import("function-types").PublicBundleConfig | undefined>;
     getSrcRelativeFolderPath: (operationRelativeSourcePath: string) => string | undefined;
     getTsFunction: (functionName?: string | undefined) => Promise<import("function-types").FunctionData | undefined>;
@@ -350,7 +391,7 @@ export declare const sdk: {
         manualProjectRoot?: string | undefined;
     }) => Promise<string | undefined>;
     isTestFn: (x: import("generate-index").ImportStatement) => boolean;
-    mapToImportStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, type: "function" | "variable" | "interface") => import("generate-index").ImportStatement;
+    mapToImportStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, type: "function" | "interface" | "variable") => import("generate-index").ImportStatement;
     generateDbSdk: (config?: {
         manualProjectRoot?: string | undefined;
         skipYarnInstall?: boolean | undefined;
@@ -580,7 +621,7 @@ export declare const sdk: {
     createMinimizedSection: (markdown: string | undefined, title: string, expandTitle: string) => import("code-types").MarkdownParse | undefined;
     deployToVercel: () => void;
     emailMarkdownParse: () => void;
-    flattenNestedObject: <T_8>(nestedObject: NestedObject<T_8>, isLeaf?: ((content: any) => boolean) | undefined) => void;
+    flattenNestedObject: <T_9>(nestedObject: import("recursive-types").NestedObject<T_9>, isLeaf?: ((content: T_9 | import("recursive-types").NestedObject<T_9> | undefined) => boolean) | undefined) => void;
     generateStaticSite: ({ projectRelativeMdFilePath, singlePage, }: {
         singlePage?: boolean | undefined;
         projectRelativeMdFilePath?: string | undefined;
@@ -602,7 +643,7 @@ export declare const sdk: {
         manualProjectRoot?: string | undefined;
     }) => Promise<import("markdown-parsings").OperationSummary | undefined>;
     getOutline: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
-    getPublicMarkdownNestedPathObject: (absoluteFolderPath: string) => Promise<NestedObject<string>>;
+    getPublicMarkdownNestedPathObject: (absoluteFolderPath: string) => Promise<import("recursive-types").NestedObject<string>>;
     getTitlesRecursively: (chunk: import("code-types").MarkdownChunk) => import("markdown-parsings").NestedTitle[];
     getTypeDescriptorRecursive: (schema: import("json-schema").JSONSchema7, isMarkdown: boolean) => string;
     isConventionFileStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, conventionFile: "test" | "cli") => boolean;
@@ -810,14 +851,22 @@ export declare const sdk: {
         error?: Error | undefined;
         proc?: import("pm2").Proc | undefined;
     }>;
-    readCsvFileSync: <T_9 extends import("csv-util").CsvItemType>(filePath: string) => T_9[] | null;
-    readCsvFile: <T_10 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_10[] | null>;
-    readJsonFileSync: <T_11>(filePath: string) => T_11 | null;
-    readJsonFile: <T_12>(filePath: string | undefined) => Promise<T_12 | null>;
-    readProjectRelativeJsonFile: <T_13>(projectRelativePath: string) => Promise<T_13 | null>;
+    readCsvFileSync: <T_10 extends import("csv-util").CsvItemType>(filePath: string) => T_10[] | null;
+    readCsvFile: <T_11 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_11[] | null>;
+    readJsonFileSync: <T_12>(filePath: string) => T_12 | null;
+    readJsonFile: <T_13>(filePath: string | undefined) => Promise<T_13 | null>;
+    readProjectRelativeJsonFile: <T_14>(projectRelativePath: string) => Promise<T_14 | null>;
     readKvmdFile: (filePath: string, dbFileLocation: import("model-types").DbFileLocation) => Promise<import("model-types").KeyValueMarkdownParse | null>;
     readMarkdownFileToModel: (absoluteFilePath: string) => Promise<import("code-types").WebMarkdownFile | null>;
     readMarkdownFile: (filePath: string) => Promise<import("code-types").MarkdownParse | null>;
+    getFolderTypescriptIndex: ({ basePath, filter, sort, type, filePath, }: {
+        filePath?: string | string[] | undefined;
+        basePath?: string | string[] | undefined;
+        type?: keyof import("code-types").IndexModels | null | undefined;
+        filter?: import("read-typescript-file").IndexFilter | undefined;
+        sort?: string | undefined;
+    }) => Promise<import("code-types").TypescriptIndex | null>;
+    readTypescriptFile: (filePath: string) => Promise<import("code-types").TypescriptIndex | null>;
     clearTsDatabase: (operationName: string | undefined) => Promise<void>;
     executeCommandQuietUnlessFail: (config: {
         command: string;
@@ -1107,14 +1156,14 @@ export declare const sdk: {
         removed: boolean;
     }[]>;
     renameAndCreate: (oldPath: string, newPath: string) => Promise<void>;
-    writeJsonToFile: <T_14>(p: string, data: T_14) => Promise<boolean>;
+    writeJsonToFile: <T_15>(p: string, data: T_15) => Promise<boolean>;
     writeStringToFile: (p: string, data: string) => Promise<boolean>;
     writeToFiles: (fileObject: {
         [absoluteFilePath: string]: any;
     }) => Promise<void>;
-    findFolderWhereMatch: <T_15>(fullSourcePath: string, matchFunction: (folderPath: string) => T_15) => {
+    findFolderWhereMatch: <T_16>(fullSourcePath: string, matchFunction: (folderPath: string) => T_16) => {
         folderPath: string;
-        matchResult: T_15;
+        matchResult: T_16;
     } | undefined;
     findOperationBasePathWithClassification: (startPath: string) => {
         folderPath: string;
@@ -1154,54 +1203,54 @@ export declare const sdk: {
     packageCompilesTs: (packageJson: import("code-types").Operation | null) => boolean;
     tsconfigCompilesEsm: (tsconfig: import("code-types").TsConfig) => boolean;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
-    apply: <T_16>(functions: ((input: T_16) => T_16)[], value: T_16) => T_16;
-    createEnum: <T_17 extends readonly string[]>(array: T_17) => { [K in T_17[number]]: K; };
-    createMappedObject: <T_18 extends {
+    apply: <T_17>(functions: ((input: T_17) => T_17)[], value: T_17) => T_17;
+    createEnum: <T_18 extends readonly string[]>(array: T_18) => { [K in T_18[number]]: K; };
+    createMappedObject: <T_19 extends {
         [key: string]: any;
-    }, U = T_18>(array: T_18[], mapKey: keyof T_18, mapFn?: ((value: T_18, array: T_18[]) => U) | undefined) => import("js-util").MappedObject<U>;
-    destructureOptionalObject: <T_19 extends {
+    }, U = T_19>(array: T_19[], mapKey: keyof T_19, mapFn?: ((value: T_19, array: T_19[]) => U) | undefined) => import("js-util").MappedObject<U>;
+    destructureOptionalObject: <T_20 extends {
         [key: string]: any;
-    }>(object: T_19 | null | undefined) => Partial<T_19>;
-    findLastIndex: <T_20>(array: T_20[], findFn: (item: T_20) => boolean) => number | undefined;
+    }>(object: T_20 | null | undefined) => Partial<T_20>;
+    findLastIndex: <T_21>(array: T_21[], findFn: (item: T_21) => boolean) => number | undefined;
     getObjectFromParamsString: (paramsString: string) => {
         [x: string]: string;
     };
     getObjectKeysArray: <TObject extends {
         [key: string]: any;
     }>(object: TObject) => Extract<keyof TObject, string>[];
-    getParameterAtLocation: <T_21 = any>(object: {
+    getParameterAtLocation: <T_22 = any>(object: {
         [key: string]: any;
-    }, location: string[]) => T_21;
-    getSubsetFromObject: <T_22, K_1 extends readonly (keyof T_22)[]>(object: T_22, keys: K_1) => Pick<T_22, K_1[number]>;
-    groupByKey: <T_23 extends {
+    }, location: string[]) => T_22;
+    getSubsetFromObject: <T_23, K_1 extends readonly (keyof T_23)[]>(object: T_23, keys: K_1) => Pick<T_23, K_1[number]>;
+    groupByKey: <T_24 extends {
         [key: string]: any;
-    }>(array: T_23[], key: keyof T_23) => {
-        [key: string]: T_23[];
+    }>(array: T_24[], key: keyof T_24) => {
+        [key: string]: T_24[];
     };
     hasAllLetters: (a: string, b: string) => boolean;
-    insertAt: <T_24>(array: T_24[], items: T_24 | T_24[], beforeIndex: number) => T_24[];
+    insertAt: <T_25>(array: T_25[], items: T_25 | T_25[], beforeIndex: number) => T_25[];
     isAllTrue: (array: boolean[]) => boolean;
-    makeArray: <T_25>(...arrayOrNotArray: (T_25 | T_25[] | undefined)[]) => T_25[];
-    mapAsync: <T_26, U_1>(array: T_26[], callback: (value: T_26, index: number, array: T_26[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
+    makeArray: <T_26>(...arrayOrNotArray: (T_26 | T_26[] | undefined)[]) => T_26[];
+    mapAsync: <T_27, U_1>(array: T_27[], callback: (value: T_27, index: number, array: T_27[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
     mapKeys: (object: {
         [key: string]: any;
     }, mapFn: (key: string) => string | Promise<string> | undefined) => Promise<{
         [x: string]: any;
     }>;
-    mapMany: <T_27, U_2>(array: T_27[], mapFn: (item: T_27, index: number, array: T_27[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
-    mapValuesSync: <T_28, U_3>(object: {
-        [key: string]: T_28;
-    }, mapFn: (value: T_28) => U_3) => {
+    mapMany: <T_28, U_2>(array: T_28[], mapFn: (item: T_28, index: number, array: T_28[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
+    mapValuesSync: <T_29, U_3>(object: {
+        [key: string]: T_29;
+    }, mapFn: (value: T_29) => U_3) => {
         [x: string]: U_3;
     };
-    mergeNestedObject: <T_29 extends import("js-util").O>(object: T_29, otherObject: import("js-util").NestedPartial<T_29> | undefined) => T_29;
-    mergeObjectParameters: <T_30>(config: T_30 | undefined, defaults: T_30 | undefined) => Partial<T_30>;
-    mergeObjectsArray: <T_31 extends {
+    mergeNestedObject: <T_30 extends import("js-util").O>(object: T_30, otherObject: import("js-util").NestedPartial<T_30> | undefined) => T_30;
+    mergeObjectParameters: <T_31>(config: T_31 | undefined, defaults: T_31 | undefined) => Partial<T_31>;
+    mergeObjectsArray: <T_32 extends {
         [key: string]: any;
-    }>(objectsArray: T_31[]) => T_31;
-    mergeObjects: <T_32 extends {
+    }>(objectsArray: T_32[]) => T_32;
+    mergeObjects: <T_33 extends {
         [key: string]: any;
-    }>(...objects: (Partial<T_32> | undefined)[]) => T_32 | undefined;
+    }>(...objects: (Partial<T_33> | undefined)[]) => T_33 | undefined;
     noEmptyString: (input: string | undefined) => string | undefined;
     notEmpty: typeof notEmpty;
     objectMapAsync: <TObject_1 extends {
@@ -1210,44 +1259,44 @@ export declare const sdk: {
     objectMapSync: <TObject_2 extends {
         [key: string]: any;
     }, TMapResult, TResultObject_1 extends { [key_1 in keyof TObject_2]: TMapResult; }>(object: TObject_2, mapFn: (key: keyof TObject_2, value: TObject_2[keyof TObject_2]) => TMapResult) => TResultObject_1;
-    objectValuesMap: <T_33 extends {
-        [key: string]: T_33[string];
-    }, U_4 extends unknown>(object: T_33, mapFn: (key: string, value: T_33[string]) => U_4) => {
+    objectValuesMap: <T_34 extends {
+        [key: string]: T_34[string];
+    }, U_4 extends unknown>(object: T_34, mapFn: (key: string, value: T_34[string]) => U_4) => {
         [key: string]: U_4;
     };
-    omitUndefinedValues: <T_34 extends {
+    omitUndefinedValues: <T_35 extends {
         [key: string]: any;
-    }>(object: T_34) => T_34;
-    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_35 extends U_5>(value: T_35, index: number, self: T_35[]) => boolean;
+    }>(object: T_35) => T_35;
+    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_36 extends U_5>(value: T_36, index: number, self: T_36[]) => boolean;
     onlyUnique: typeof onlyUnique;
-    pickRandomArrayItem: <T_36>(array: T_36[]) => T_36;
-    putIndexAtIndex: <T_37>(array: T_37[], index: number, toIndex: number) => T_37[];
-    removeIndexFromArray: <T_38>(array: T_38[], index: number) => T_38[];
+    pickRandomArrayItem: <T_37>(array: T_37[]) => T_37;
+    putIndexAtIndex: <T_38>(array: T_38[], index: number, toIndex: number) => T_38[];
+    removeIndexFromArray: <T_39>(array: T_39[], index: number) => T_39[];
     removeOptionalKeysFromObjectStrings: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: string[]) => TObject_3;
     removeOptionalKeysFromObject: <TObject_4 extends import("js-util").O>(object: TObject_4, keys: Exclude<Extract<keyof TObject_4, string>, Exclude<import("js-util").KeysOfType<TObject_4, Exclude<TObject_4[keyof TObject_4], undefined>>, undefined>>[]) => TObject_4;
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
-    sumAllKeys: <T_39 extends {
+    sumAllKeys: <T_40 extends {
         [key: string]: number | undefined;
-    }>(objectArray: T_39[], keys: (keyof T_39)[]) => T_39;
+    }>(objectArray: T_40[], keys: (keyof T_40)[]) => T_40;
     sumObjectParameters: <TObject_5 extends {
         [key: string]: number;
     }>(object1: TObject_5, object2: TObject_5) => TObject_5;
     sum: (items: number[]) => number;
-    takeFirst: <T_40>(arrayOrNot: T_40 | T_40[]) => T_40;
+    takeFirst: <T_41>(arrayOrNot: T_41 | T_41[]) => T_41;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
     flattenMarkdownChunks: (markdownChunks: import("code-types").MarkdownChunk[]) => import("code-types").MarkdownParagraph[];
     getKvmdItemsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
     getParagraphsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("code-types").MarkdownParagraph[];
-    kvmdDataMap: <T_41 extends {
+    kvmdDataMap: <T_42 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {
         keyName?: string | undefined;
         valueName?: string | undefined;
         commentName?: string | undefined;
         categoryStackCalculatedName?: string | undefined;
-    }) => T_41[];
+    }) => T_42[];
     kvmdDataToString: (kvmdData: import("model-types").KeyValueMarkdownModelType, previous: import("model-types").KeyValueMarkdownModelType | undefined) => string;
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
@@ -1296,7 +1345,13 @@ export declare const sdk: {
     getParameterContentType: (parameterName: string) => void;
     isCalculatedParameter: (parameterName: string) => boolean;
     isGeneratedParameterName: (parameterName: string) => void;
-    oneByOne: <T_42, U_6>(array: T_42[], callback: (instance: T_42, index: number) => Promise<U_6>) => Promise<U_6[]>;
+    getFullPath: (paths: string | string[] | undefined) => string;
+    getLastPathsChunk: (paths: string | string[] | undefined) => string | undefined;
+    usePath: () => {
+        lastChunk: string | undefined;
+        fullPath: string;
+    };
+    oneByOne: <T_43, U_6>(array: T_43[], callback: (instance: T_43, index: number) => Promise<U_6>) => Promise<U_6[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
         operationDependencies: string[];
@@ -1322,6 +1377,21 @@ export declare const sdk: {
     isSingular: (parameterName: string) => boolean;
     pluralize: (parameterName: string) => string;
     singularize: (parameterName: string) => string;
+    getKeysAtPathFromNestedObject: <T_44 extends {
+        [key: string]: any;
+    }>(nestedObject: T_44, objectPath: string) => string[];
+    getMenuPagesObject: <T_45>(flat: import("webpage-types").WebPage<T_45>[]) => import("webpage-types").MenuObjectType<T_45>;
+    makeNestedObjectFromQueryPathObject: <T_46 extends import("recursive-util").QueryPathObject>(objectArray: T_46[], initialValue: import("recursive-types").NestedObject<T_46>) => import("recursive-types").NestedObject<T_46>;
+    nestedObjectToChildObject: <T_47 extends {
+        [key: string]: any;
+    }>(nestedObject: import("recursive-types").NestedObject<T_47>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_47>, key: string) => T_47, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_47>[];
+    nestedPathObjectToNestedMenuRecursive: (nestedPathObject: import("recursive-types").NestedPathObject | null, pathStack?: string[] | undefined, config?: {
+        target?: "_blank" | undefined;
+        getHref?: ((fullPath: string) => string) | undefined;
+    } | undefined) => import("nested-menu-types").MenuItemType[] | undefined;
+    nestifyQueryPathObjectRecursive: <T_48 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_48[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_48>[];
+    queryPathsArrayToNestedPathObject: (queryPaths: string[]) => import("recursive-types").NestedPathObject;
+    reduceQueryPathsRecursively: (queryPaths: string[], initialValue: import("recursive-types").NestedPathObject) => import("recursive-types").NestedPathObject;
     bodyFromQueryString: (query?: string | undefined) => import("rest-util").QueryableObject | undefined;
     getFirstQueryStrings: (query: import("rest-util").QueryableObject) => (string | undefined)[];
     getQueryPart: (strings: string[], queryKey: string) => string;
@@ -1346,10 +1416,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_43>(searchMessage: string, array: T_43[], getSentence?: ((x: T_43) => string) | undefined) => T_43[];
-    searchRecursiveObjectArray: <T_44 extends {
-        children?: T_44[] | undefined;
-    } & Object>(array: T_44[], baseMatcher: (item: T_44) => boolean, afterMapper?: ((item: T_44, isMatch: boolean, hasChildMatch: boolean) => T_44) | undefined) => T_44[];
+    findSentenceMatches: <T_49>(searchMessage: string, array: T_49[], getSentence?: ((x: T_49) => string) | undefined) => T_49[];
+    searchRecursiveObjectArray: <T_50 extends {
+        children?: T_50[] | undefined;
+    } & Object>(array: T_50[], baseMatcher: (item: T_50) => boolean, afterMapper?: ((item: T_50, isMatch: boolean, hasChildMatch: boolean) => T_50) | undefined) => T_50[];
     findPostableToPost: () => void;
     updatePostedStatistics: () => void;
     objectStringToJson: (string: string) => {
@@ -1361,9 +1431,11 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_45>(text: string, logParseError?: boolean | undefined) => T_45 | null;
+    tryParseJson: <T_51>(text: string, logParseError?: boolean | undefined) => T_51 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_46 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_46, (newValue: T_46 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_52 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_52, (newValue: T_52 | undefined) => Promise<boolean>];
+    crudPageToWebPages: (pageData: import("webpage-types").CrudPage) => import("webpage-types").WebPage<import("webpage-types").CrudPage>[];
+    functionFormPageToWebPage: (pageData: import("webpage-types").FunctionFormPage) => import("webpage-types").WebPage<import("webpage-types").FunctionFormPage>;
 };
 export declare type SdkType = typeof sdk;
 //# sourceMappingURL=sdk-api.d.ts.map

@@ -1,0 +1,90 @@
+{
+  "createdAt": 1668328730588,
+  "updatedAt": 1668328730588,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328730588,
+  "id": "hcnakrerkamuzptdswbxscwz",
+  "dependencies": {
+    "asset-type": "0.0.1",
+    "model-types": "0.0.1",
+    "peer-types": "0.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.1",
+  "name": "todo-types",
+  "language": "english",
+  "slug": "todo-types",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "todo-types",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1669200682895,
+    "operationDependenciesIndexed": [
+      "BackendAsset",
+      "DefaultModelType",
+      "Person",
+      "KeyValueMarkdownModelType",
+      "Id",
+      "KeyValueMarkdownModelType",
+      "CategoryStack",
+      "Id",
+      "MarkdownModelType",
+      "Price",
+      "Slug",
+      "Person",
+      "BackendAsset",
+      "DefaultModelType",
+      "Id",
+      "Markdown",
+      "Price"
+    ],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/todos",
+    "markdown": "# todo-types\n\ntypes related to the upcoming `todo-ui`\n\nThis is a js operation. This means you cannot use any react or node, it's pure typescript, compiled to javascript, and can be used anywhere.\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 8,
+        "lines": 374,
+        "characters": 10755,
+        "bytes": 10755
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 110,
+        "characters": 3721,
+        "bytes": 3721
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 309,
+        "characters": 7653,
+        "bytes": 7653
+      },
+      "size": {
+        "bytes": 22129,
+        "characters": 22129,
+        "lines": 793,
+        "numberOfFiles": 12
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
+}

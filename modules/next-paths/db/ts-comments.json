@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1668336739340,
+    "updatedAt": 1668336739340,
+    "deletedAt": 0,
+    "createdFirstAt": 1668336739340,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/usePath.ts",
+    "comment": "uses `useRouter` from `next.js` to get the lastChunk and the `fullPath` out of the `paths`. Assumes you have a page in your next.js project called `[...paths]`.",
+    "rawStatement": "export const usePath = () => {\n  const router = useRouter();\n  const paths = router.query?.paths;\n  const lastChunk = getLastPathsChunk(paths);\n  const fullPath = getFullPath(paths);\n  return { lastChunk, fullPath };\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 5,
+    "lastLine": 7,
+    "id": "zwplezzyrptojraevamvixao"
+  }
+]

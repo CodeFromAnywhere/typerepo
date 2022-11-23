@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334890877,
-  "updatedAt": 1668334890877,
+  "createdAt": 1669200453400,
+  "updatedAt": 1669200453400,
   "deletedAt": 0,
-  "createdFirstAt": 1668334890877,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200453400,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/expose/generateStaticSite.ts",
   "commentsInside": [],
   "rawText": " ({\n  projectRelativeMdFilePath,\n  singlePage,\n}: {\n  singlePage?: boolean;\n  projectRelativeMdFilePath?: string;\n}) => {\n  //\n}",
@@ -73,5 +68,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "bnglvxvkmseensuaqypqqheo"
+  "id": "wiwplcfrlrnygyzhwrevovyu"
 }

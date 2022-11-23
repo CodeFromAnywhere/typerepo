@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154826835,
-  "updatedAt": 1668154826835,
+  "createdAt": 1669200491434,
+  "updatedAt": 1669200491434,
   "deletedAt": 0,
-  "createdFirstAt": 1668154826835,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200491434,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/parsing/parsing.ts",
   "commentsInside": [],
   "rawText": " (\n  markdownChunk: MarkdownChunk\n): string => {\n  const title =\n    markdownChunk.title && markdownChunk.level !== 0\n      ? `${\"#\".repeat(markdownChunk.level)} ${markdownChunk.title}`\n      : undefined;\n\n  const content = markdownChunk.content;\n\n  const children = markdownChunk.children\n    ? markdownChunksToMarkdownStringRecursive(markdownChunk.children)\n    : \"\";\n\n  return `${title ? `${title}\\n\\n` : \"\"}${\n    content ? `${content}\\n\\n` : \"\"\n  }${children}`;\n}",
@@ -26,10 +21,103 @@
         "fullComment": "",
         "properties": [
           {
+            "name": "level",
+            "required": true,
+            "schema": {
+              "fullComment": "0 is a paragraph 1-6 is h1 until h6",
+              "type": "number"
+            }
+          },
+          {
             "name": "content",
             "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "markdownEmbed",
+            "required": false,
+            "schema": {
+              "fullComment": "Anything in the format `![alt](src)`\n\nNB: I need to be very clear how this one works",
+              "nb": "I need to be very clear how this one works",
+              "properties": [
+                {
+                  "name": "alt",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "src",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "type",
+                  "required": true,
+                  "schema": {
+                    "enum": [
+                      "youtube",
+                      "video",
+                      "image",
+                      "audio",
+                      "markdown",
+                      "json",
+                      "typescript",
+                      "file"
+                    ],
+                    "fullComment": "type of asset that is being embedded",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "markdownLink",
+            "required": false,
+            "schema": {
+              "fullComment": "Anything in the format `[alt](href)`\n\nIt needs to be clear how this works. There is a convention for this, and I should implement that as good as possible, and document it here",
+              "properties": [
+                {
+                  "name": "alt",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "href",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "type",
+                  "required": true,
+                  "schema": {
+                    "enum": [
+                      "youtube",
+                      "video",
+                      "image",
+                      "audio",
+                      "markdown",
+                      "json",
+                      "typescript",
+                      "file"
+                    ],
+                    "fullComment": "Can be inferred from href\n\ntype of asset that is being embedded",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
             }
           },
           {
@@ -89,5 +177,5 @@
     "linesPerFile": 18,
     "numberOfFiles": 1
   },
-  "id": "ntbxwcwqfbdzlpxxbsespoud"
+  "id": "etzqoxlmznwleyfjxdjbjlww"
 }

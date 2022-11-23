@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336613844,
+  "updatedAt": 1668336613844,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336613844,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getFileType",
+  "slug": "get-file-type",
+  "operationRelativeTypescriptFilePath": "src/getFileType.ts",
+  "type": {
+    "rawType": "(fullPath: string) => \"function\" | \"markdown\" | \"typescript\" | \"javascript\" | \"json\" | \"folder\" | \"operation\" | \"operationFolder\" | \"interface\" | \"variable\" | \"other\"",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(fullPath: string): keyof typeof typeIcons => {\n  if (fullPath.endsWith(\".ts\")) return \"typescript\";\n  if (fullPath.endsWith(\".tsx\")) return \"typescript\";\n  if (fullPath.endsWith(\".js\")) return \"javascript\";\n  if (fullPath.endsWith(\".jsx\")) return \"javascript\";\n  if (fullPath.endsWith(\".md\")) return \"markdown\";\n  if (fullPath.endsWith(\".mdx\")) return \"markdown\";\n  if (fullPath.endsWith(\".json\")) return \"json\";\n  if (!fullPath.split(\"/\").pop()?.includes(\".\")) return \"folder\";\n\n  return \"other\";\n}",
+  "description": "",
+  "id": "xxprscvkrnjatahkiiecjtch"
+}

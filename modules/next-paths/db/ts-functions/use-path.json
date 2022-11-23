@@ -1,0 +1,85 @@
+{
+  "createdAt": 1668336738972,
+  "updatedAt": 1668336738972,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336738972,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/usePath.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const router = useRouter();\n  const paths = router.query?.paths;\n  const lastChunk = getLastPathsChunk(paths);\n  const fullPath = getFullPath(paths);\n  return { lastChunk, fullPath };\n}",
+  "name": "usePath",
+  "slug": "use-path",
+  "parameters": [],
+  "description": "uses `useRouter` from `next.js` to get the lastChunk and the `fullPath` out of the `paths`. Assumes you have a page in your next.js project called `[...paths]`.",
+  "returnType": {
+    "rawType": "{ lastChunk: any; fullPath: string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "lastChunk": {},
+        "fullPath": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "lastChunk",
+        "fullPath"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "lastChunk",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "fullPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 356,
+    "lines": 7,
+    "bytes": 356,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 51,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "hfertoebkaxpeviycyndawnh"
+}

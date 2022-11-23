@@ -181,6 +181,9 @@ import { getAssetInputType } from "name-conventions";
 import { getParameterContentType } from "name-conventions";
 import { isCalculatedParameter } from "name-conventions";
 import { isGeneratedParameterName } from "name-conventions";
+import { getFullPath } from "next-paths";
+import { getLastPathsChunk } from "next-paths";
+import { usePath } from "next-paths";
 import { oneByOne } from "one-by-one";
 import { getDependenciesSummary } from "operation-util";
 import { getOperationMetaData } from "operation-util";
@@ -199,6 +202,14 @@ import { isPlural } from "pluralize";
 import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
+import { getKeysAtPathFromNestedObject } from "recursive-util";
+import { getMenuPagesObject } from "recursive-util";
+import { makeNestedObjectFromQueryPathObject } from "recursive-util";
+import { nestedObjectToChildObject } from "recursive-util";
+import { nestedPathObjectToNestedMenuRecursive } from "recursive-util";
+import { nestifyQueryPathObjectRecursive } from "recursive-util";
+import { queryPathsArrayToNestedPathObject } from "recursive-util";
+import { reduceQueryPathsRecursively } from "recursive-util";
 import { bodyFromQueryString } from "rest-util";
 import { getFirstQueryStrings } from "rest-util";
 import { getQueryPart } from "rest-util";
@@ -230,6 +241,8 @@ import { isText } from "text-or-binary";
 import { tryParseJson } from "try-parse-json";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
+import { crudPageToWebPages } from "webpage-types";
+import { functionFormPageToWebPage } from "webpage-types";
 
 export const sdk = { getGetApiUrl,
 untypedApiFunction,
@@ -414,6 +427,9 @@ getAssetInputType,
 getParameterContentType,
 isCalculatedParameter,
 isGeneratedParameterName,
+getFullPath,
+getLastPathsChunk,
+usePath,
 oneByOne,
 getDependenciesSummary,
 getOperationMetaData,
@@ -432,6 +448,14 @@ isPlural,
 isSingular,
 pluralize,
 singularize,
+getKeysAtPathFromNestedObject,
+getMenuPagesObject,
+makeNestedObjectFromQueryPathObject,
+nestedObjectToChildObject,
+nestedPathObjectToNestedMenuRecursive,
+nestifyQueryPathObjectRecursive,
+queryPathsArrayToNestedPathObject,
+reduceQueryPathsRecursively,
 bodyFromQueryString,
 getFirstQueryStrings,
 getQueryPart,
@@ -462,6 +486,8 @@ isBinary,
 isText,
 tryParseJson,
 createCodeblockMarkdown,
-useCustomUrlStore};
+useCustomUrlStore,
+crudPageToWebPages,
+functionFormPageToWebPage};
 
 export type SdkType = typeof sdk;

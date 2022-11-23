@@ -1,167 +1,18 @@
-"use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDbModel = void 0;
-var database_1 = require("database");
-var js_util_1 = require("js-util");
-/**
- * gets all instances of an db data interface from the db in a typesafe way */
-var getDbModel = function (
+"use strict";var __awaiter=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((function(o,a){function u(e){try{i(n.next(e))}catch(e){a(e)}}function l(e){try{i(n.throw(e))}catch(e){a(e)}}function i(e){var t;e.done?o(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(u,l)}i((n=n.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,n,o,a,u={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:l(0),throw:l(1),return:l(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function l(a){return function(l){return function(a){if(r)throw new TypeError("Generator is already executing.");for(;u;)try{if(r=1,n&&(o=2&a[0]?n.return:a[0]?n.throw||((o=n.return)&&o.call(n),0):n.next)&&!(o=o.call(n,a[1])).done)return o;switch(n=0,o&&(a=[2&a[0],o.value]),a[0]){case 0:case 1:o=a;break;case 4:return u.label++,{value:a[1],done:!1};case 5:u.label++,n=a[1],a=[0];continue;case 7:a=u.ops.pop(),u.trys.pop();continue;default:if(!(o=u.trys,(o=o.length>0&&o[o.length-1])||6!==a[0]&&2!==a[0])){u=0;continue}if(3===a[0]&&(!o||a[1]>o[0]&&a[1]<o[3])){u.label=a[1];break}if(6===a[0]&&u.label<o[1]){u.label=o[1],o=a;break}if(o&&u.label<o[2]){u.label=o[2],u.ops.push(a);break}o[2]&&u.ops.pop(),u.trys.pop();continue}a=t.call(e,u)}catch(e){a=[6,e],n=0}finally{r=o=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,l])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getDbModel=void 0;var database_1=require("database"),js_util_1=require("js-util"),getDbModel=function(
 /**
  * the interfaceName you want to get
  */
-interfaceName, 
+e,
 /**
  * optionally, provide a configuration
  */
-datasetConfig, 
+t,
 /**
  * This search should be done on the deepest JSON value's of the whole thing. The purpose is not limiting the content to user, but rather just a nice user experience where one can quickly search
  */
-search) { return __awaiter(void 0, void 0, void 0, function () {
-    var data, slicedStartData, slicedLimitData, hasMore, filteredData, sortedData, searchedData, subsetData, ignoredData, finalData;
-    var _a, _b, _c;
-    return __generator(this, function (_d) {
-        switch (_d.label) {
-            case 0:
-                if (!interfaceName) {
-                    return [2 /*return*/, { data: [], hasMore: false, message: "No interfaceName posted" }];
-                }
-                return [4 /*yield*/, database_1.db.get(interfaceName)];
-            case 1:
-                data = _d.sent();
-                slicedStartData = data.slice(datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.startFromIndex);
-                slicedLimitData = (datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.maxRows)
-                    ? slicedStartData.slice(0, datasetConfig.maxRows)
-                    : slicedStartData;
-                hasMore = slicedLimitData.length < slicedStartData.length;
-                filteredData = ((_a = datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.filter) === null || _a === void 0 ? void 0 : _a.length)
-                    ? datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.filter.reduce(function (filteredData, datasetFilter) {
-                        var newFilteredData = filteredData.filter(function (item) {
-                            var key = datasetFilter.objectParameterKey;
-                            var value = item[key];
-                            if (datasetFilter.operator === "equal") {
-                                return String(value) === datasetFilter.value;
-                            }
-                            if (datasetFilter.operator === "notEqual") {
-                                return String(value) === datasetFilter.value;
-                            }
-                            var lowercaseValue = String(value).toLowerCase();
-                            var lowercaseDatasetValue = String(datasetFilter.value).toLowerCase();
-                            if (datasetFilter.operator === "endsWith") {
-                                return lowercaseValue.endsWith(lowercaseDatasetValue);
-                            }
-                            if (datasetFilter.operator === "startsWith") {
-                                return lowercaseValue.startsWith(lowercaseDatasetValue);
-                            }
-                            if (datasetFilter.operator === "includes") {
-                                return lowercaseValue.includes(lowercaseDatasetValue);
-                            }
-                            if (datasetFilter.operator === "includesLetters") {
-                                return (0, js_util_1.hasAllLetters)(lowercaseValue, lowercaseDatasetValue);
-                            }
-                            if (datasetFilter.operator === "greaterThan" &&
-                                datasetFilter.value !== null &&
-                                datasetFilter.value !== undefined) {
-                                return Number(value) > Number(datasetFilter.value);
-                            }
-                            if (datasetFilter.operator === "lessThan" &&
-                                datasetFilter.value !== null &&
-                                datasetFilter.value !== undefined) {
-                                return Number(value) < Number(datasetFilter.value);
-                            }
-                            if (datasetFilter.operator === "greaterThanOrEqual" &&
-                                datasetFilter.value !== null &&
-                                datasetFilter.value !== undefined) {
-                                return Number(value) >= Number(datasetFilter.value);
-                            }
-                            if (datasetFilter.operator === "lessThanOrEqual" &&
-                                datasetFilter.value !== null &&
-                                datasetFilter.value !== undefined) {
-                                return Number(value) <= Number(datasetFilter.value);
-                            }
-                            return false;
-                        });
-                        return newFilteredData;
-                    }, slicedLimitData)
-                    : slicedLimitData;
-                sortedData = (datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.sort)
-                    ? datasetConfig.sort.reduce(function (sortedData, datasetSort) {
-                        var newSortedData = sortedData.sort(function (a, b) {
-                            // @ts-ignore
-                            var valueA = a[datasetSort.objectParameterKey];
-                            // @ts-ignore
-                            var valueB = b[datasetSort.objectParameterKey];
-                            var directionMultiplier = datasetSort.sortDirection === "ascending" ? 1 : -1;
-                            return Number(valueA) < Number(valueB)
-                                ? directionMultiplier
-                                : directionMultiplier * -1;
-                        });
-                        return newSortedData;
-                    }, filteredData)
-                    : filteredData;
-                searchedData = search && search.length > 0
-                    ? sortedData.filter(function (item) {
-                        var searchable = Object.values(item)
-                            .map(function (value) { return JSON.stringify(value); })
-                            .join(",")
-                            .toLowerCase();
-                        return searchable.includes(search.toLowerCase());
-                    })
-                    : sortedData;
-                subsetData = ((_b = datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.objectParameterKeys) === null || _b === void 0 ? void 0 : _b.length)
-                    ? searchedData.map(function (item) {
-                        return (0, js_util_1.getSubsetFromObject)(item, datasetConfig.objectParameterKeys);
-                    })
-                    : searchedData;
-                ignoredData = ((_c = datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.ignoreObjectParameterKeys) === null || _c === void 0 ? void 0 : _c.length)
-                    ? subsetData.map(function (item) {
-                        return (0, js_util_1.removeOptionalKeysFromObjectStrings)(item, datasetConfig.ignoreObjectParameterKeys);
-                    })
-                    : subsetData;
-                finalData = ignoredData;
-                return [2 /*return*/, {
-                        datasetConfig: datasetConfig,
-                        data: finalData,
-                        hasMore: hasMore,
-                    }];
-        }
-    });
-}); };
-exports.getDbModel = getDbModel;
+r){return __awaiter(void 0,void 0,void 0,(function(){var n,o,a,u,l,i,s,c,v,d,f,b;return __generator(this,(function(h){switch(h.label){case 0:return e?[4/*yield*/,database_1.db.get(e)]:[2/*return*/,{data:[],hasMore:!1,message:"No interfaceName posted"}];case 1:return n=h.sent(),o=n.slice(null==t?void 0:t.startFromIndex),a=(null==t?void 0:t.maxRows)?o.slice(0,t.maxRows):o,u=a.length<o.length,l=(null===(d=null==t?void 0:t.filter)||void 0===d?void 0:d.length)?null==t?void 0:t.filter.reduce((function(e,t){return e.filter((function(e){var r=e[t.objectParameterKey];if("equal"===t.operator)return String(r)===t.value;if("notEqual"===t.operator)return String(r)===t.value;var n=String(r).toLowerCase(),o=String(t.value).toLowerCase();return"endsWith"===t.operator?n.endsWith(o):"startsWith"===t.operator?n.startsWith(o):"includes"===t.operator?n.includes(o):"includesLetters"===t.operator?(0,js_util_1.hasAllLetters)(n,o):"greaterThan"===t.operator&&null!==t.value&&void 0!==t.value?Number(r)>Number(t.value):"lessThan"===t.operator&&null!==t.value&&void 0!==t.value?Number(r)<Number(t.value):"greaterThanOrEqual"===t.operator&&null!==t.value&&void 0!==t.value?Number(r)>=Number(t.value):"lessThanOrEqual"===t.operator&&null!==t.value&&void 0!==t.value&&Number(r)<=Number(t.value)}))}),a):a,i=(null==t?void 0:t.sort)?t.sort.reduce((function(e,t){return e.sort((function(e,r){
+// @ts-ignore
+var n=e[t.objectParameterKey],o=r[t.objectParameterKey],a="ascending"===t.sortDirection?1:-1;
+// @ts-ignore
+return Number(n)<Number(o)?a:-1*a}))}),l):l,s=r&&r.length>0?i.filter((function(e){return Object.values(e).map((function(e){return JSON.stringify(e)})).join(",").toLowerCase().includes(r.toLowerCase())})):i,c=(null===(f=null==t?void 0:t.objectParameterKeys)||void 0===f?void 0:f.length)?s.map((function(e){return(0,js_util_1.getSubsetFromObject)(e,t.objectParameterKeys)})):s,v=(null===(b=null==t?void 0:t.ignoreObjectParameterKeys)||void 0===b?void 0:b.length)?c.map((function(e){return(0,js_util_1.removeOptionalKeysFromObjectStrings)(e,t.ignoreObjectParameterKeys)})):c,[2/*return*/,{datasetConfig:t,data:v,hasMore:u}]}}))}))};exports.getDbModel=getDbModel;
 //# sourceMappingURL=getDbModel.js.map

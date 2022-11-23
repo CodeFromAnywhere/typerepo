@@ -1,0 +1,135 @@
+{
+  "createdAt": 1668976857032,
+  "updatedAt": 1668976857032,
+  "deletedAt": 0,
+  "createdFirstAt": 1668976857032,
+  "dependencies": {
+    "@badrap/bar-of-progress": "^0.2.1",
+    "@headlessui/react": "^1.6.2",
+    "@zeit/next-workers": "^1.0.0",
+    "next": "12.3.1",
+    "next-transpile-modules": "^9.0.0",
+    "react": "17.0.2",
+    "next-pwa": "^5.6.0",
+    "react-datepicker": "^4.8.0",
+    "react-datetime": "^3.1.1",
+    "react-dom": "17.0.2",
+    "react-markdown": "^8.0.3",
+    "react-query": "^3.39.0",
+    "react-with-native": "1.4.9",
+    "react-with-native-alert": "1.0.33",
+    "react-with-native-form": "*",
+    "react-with-native-modal": "1.0.60",
+    "react-with-native-router": "1.0.14",
+    "react-with-native-store": "2.0.40",
+    "rehype-highlight": "^5.0.2",
+    "worker-loader": "^3.0.8",
+    "db-recipes": "0.0.1",
+    "api": "0.0.1",
+    "layout": "0.0.0",
+    "api-store": "0.0.1",
+    "nested-menu": "0.0.1",
+    "writer-input": "1.0.0",
+    "file-tabs": "0.0.0",
+    "db-crud": "0.0.0",
+    "todo-types": "0.0.1",
+    "convert-case": "0.0.1",
+    "react-with-native-form-inputs": "1.0.15",
+    "react-with-native-select": "2.0.7",
+    "react-with-native-notification": "1.0.42",
+    "authentication": "0.0.1",
+    "fancy-loader": "0.0.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.3.0",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 42014",
+    "start": "next start -p 42014",
+    "stop": "pm2 stop app_todo-web",
+    "build": "next build",
+    "lint": "next lint"
+  },
+  "version": "0.0.1",
+  "operation": {
+    "markdown": "# 👬 todo-web\n\nNB: This is an experimental part of typerepo!",
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/todos/todo-web/src/pages/_app.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+      ],
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669055337615,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 6,
+        "lines": 336,
+        "characters": 10471,
+        "bytes": 10471
+      },
+      "dataSize": {
+        "numberOfFiles": 8,
+        "lines": 236,
+        "characters": 5961,
+        "bytes": 5961
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 55,
+        "characters": 729,
+        "bytes": 729
+      },
+      "size": {
+        "bytes": 17161,
+        "characters": 17161,
+        "lines": 627,
+        "numberOfFiles": 16
+      }
+    },
+    "folderNameIndexed": "todo-web",
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/todos",
+    "classificationIndexed": "ui-web",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "queries",
+      "AuthenticationLayout",
+      "createStore",
+      "apiStoreInitialValues",
+      "nestedMenuStoreInitialValues",
+      "writerInitialValues",
+      "fileTabsInitialValues",
+      "dbCrudInitialValues",
+      "TodoPagesConfig",
+      "queries",
+      "humanCase",
+      "Div",
+      "SelectInput",
+      "ToggleInput",
+      "Item",
+      "TodoPagesConfig",
+      "todoPagesConfigRecencys",
+      "AlertProvider",
+      "ModalProvider",
+      "ToastContainer",
+      "LoginForm",
+      "queries",
+      "FancyLoader",
+      "Div"
+    ],
+    "packageDependenciesIndexed": [
+      "AppProps",
+      "QueryClient",
+      "QueryClientProvider"
+    ]
+  },
+  "name": "todo-web",
+  "slug": "todo-web",
+  "id": "mykoqlebootgziemsvfbewtu"
+}

@@ -3,7 +3,6 @@ const withTM = require("next-transpile-modules")([]);
 
 module.exports = withTM({
   reactStrictMode: true,
-  images: ["localhost"],
   publicRuntimeConfig: {
     NEXT_PUBLIC_SITE: process.env.NEXT_PUBLIC_SITE,
   },

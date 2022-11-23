@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1669200020697,
+    "updatedAt": 1669200020697,
+    "deletedAt": 0,
+    "createdFirstAt": 1669200020697,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/codestoriesGetStaticProps.ts",
+    "comment": "",
+    "rawStatement": "export const codestoriesGetStaticProps = async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await codestoriesGetPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(flat, context);\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 5,
+    "lastLine": 6,
+    "id": "hdquujselsnqhnazsqgihfyd"
+  }
+]

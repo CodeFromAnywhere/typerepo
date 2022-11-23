@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668751789662,
-  "updatedAt": 1668751789662,
+  "createdAt": 1669200621511,
+  "updatedAt": 1669200621511,
   "deletedAt": 0,
-  "createdFirstAt": 1668751789662,
+  "createdFirstAt": 1669200621511,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-static-props",
   "operationRelativeTypescriptFilePath": "src/pages/[...paths].tsx",
   "type": {
-    "rawType": "(context: import(\"/Users/king/King/operations/tools/purpose/reader/next-types/build/types\").GetStaticPropsContext<import(\"/Users/king/King/operations/tools/purpose/reader/next-types/build/types\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/reader/next-types/build/types\").PreviewData>) => Promise<{ props: import(\"/Users/king/King/operations/tools/purpose/reader/markdown-reader-types/build/MarkdownReaderPageProps\").MarkdownReaderPageProps; }>",
+    "rawType": "(context: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPropsContext<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").PreviewData>) => Promise<{ props: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-types/build/MarkdownReaderPageProps\").MarkdownReaderPageProps; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "markdownReaderGetStaticProps",
   "description": "",
-  "id": "zsioiubsilvzwesvabxszpwy"
+  "id": "eqbxzuffyroevuulhgowixcq"
 }

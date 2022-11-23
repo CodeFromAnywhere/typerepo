@@ -27,7 +27,8 @@
     "markdown-reader-functions": "0.0.1",
     "fs-util-js": "0.0.1",
     "nested-menu": "0.0.1",
-    "json-schema": "*"
+    "json-schema": "*",
+    "recursive-types": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -52,7 +53,9 @@
       "dependenciesBuildsFailed": false,
       "indexErrors": [],
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/parsing/file-conversion/md/markdown-parsings/src/flattenNestedObject.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/parsing/file-conversion/md/markdown-parsings/src/flattenNestedObject.ts. Error: Error: Unknown type \"function\""
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "node-cjs",
@@ -60,7 +63,7 @@
     "folderNameIndexed": "markdown-parsings",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668334913344,
+    "lastRebuildAt": 1669200512962,
     "operationDependenciesIndexed": [
       "TsFunction",
       "TsImport",
@@ -92,8 +95,8 @@
       "mergeObjectsArray",
       "getPublicMarkdownFilePaths",
       "removeExtensionsFromPath",
-      "NestedObject",
       "getFolderJs",
+      "NestedObject",
       "getImplicitId",
       "getProperties",
       "getRefLink",
@@ -155,26 +158,26 @@
       "codeSize": {
         "numberOfFiles": 39,
         "lines": 1391,
-        "characters": 39859,
-        "bytes": 39859
+        "characters": 39867,
+        "bytes": 39867
       },
       "dataSize": {
         "numberOfFiles": 4,
-        "lines": 6277,
-        "characters": 250821,
-        "bytes": 250821
+        "lines": 6276,
+        "characters": 250788,
+        "bytes": 250788
       },
       "textSize": {
-        "numberOfFiles": 7,
-        "lines": 2387,
-        "characters": 65762,
-        "bytes": 65762
+        "numberOfFiles": 8,
+        "lines": 2397,
+        "characters": 66109,
+        "bytes": 66109
       },
       "size": {
-        "bytes": 356442,
-        "characters": 356442,
-        "lines": 10055,
-        "numberOfFiles": 50
+        "bytes": 356764,
+        "characters": 356764,
+        "lines": 10064,
+        "numberOfFiles": 51
       }
     },
     "hasGeneratedImportsIndexed": false

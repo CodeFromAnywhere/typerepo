@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055157207,
-  "updatedAt": 1669055157207,
+  "createdAt": 1669132689987,
+  "updatedAt": 1669132689987,
   "deletedAt": 0,
-  "createdFirstAt": 1669055157207,
+  "createdFirstAt": 1669132689987,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  if (functions.length) return functions;\n  functions = await db.get(\"TsFunction\");\n  return functions;\n}",
   "description": "",
-  "id": "bnqnshxbugvpkuypjuqwvjtu"
+  "id": "vfdxavrfvlfqwtuglipxacmy"
 }

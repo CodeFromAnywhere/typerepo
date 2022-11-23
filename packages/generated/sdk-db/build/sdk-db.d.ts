@@ -1,5 +1,6 @@
 import type { AuthorizationModel } from "auth-types";
 import type { BundleConfig } from "bundle-types";
+import type { FrontBackBundle } from "bundle-types";
 import type { Dataset } from "code-types";
 import type { FunctionExecution } from "code-types";
 import type { Operation } from "code-types";
@@ -51,9 +52,13 @@ import type { MediaChannel } from "social-media-types";
 import type { MediaCredentail } from "social-media-types";
 import type { MediaPost } from "social-media-types";
 import type { Postable } from "social-media-types";
+import type { SelfSprintReview } from "todo-types";
+import type { TodoFile } from "todo-types";
+import type { TodoOffer } from "todo-types";
 export declare type DbModels = {
     AuthorizationModel: AuthorizationModel;
     BundleConfig: BundleConfig;
+    FrontBackBundle: FrontBackBundle;
     Dataset: Dataset;
     FunctionExecution: FunctionExecution;
     Operation: Operation;
@@ -105,14 +110,20 @@ export declare type DbModels = {
     MediaCredentail: MediaCredentail;
     MediaPost: MediaPost;
     Postable: Postable;
+    SelfSprintReview: SelfSprintReview;
+    TodoFile: TodoFile;
+    TodoOffer: TodoOffer;
 };
-export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "Dataset", "FunctionExecution", "Operation", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PaymentCoupon", "PaymentEvent", "PaymentPlan", "PaymentSubscription", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable"];
+export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PaymentCoupon", "PaymentEvent", "PaymentPlan", "PaymentSubscription", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable", "SelfSprintReview", "TodoFile", "TodoOffer"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
     AuthorizationModel: {
         dbStorageMethod: string;
     };
     BundleConfig: {
+        dbStorageMethod: string;
+    };
+    FrontBackBundle: {
         dbStorageMethod: string;
     };
     Dataset: {
@@ -278,6 +289,15 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     Postable: {
+        dbStorageMethod: string;
+    };
+    SelfSprintReview: {
+        dbStorageMethod: string;
+    };
+    TodoFile: {
+        dbStorageMethod: string;
+    };
+    TodoOffer: {
         dbStorageMethod: string;
     };
 };

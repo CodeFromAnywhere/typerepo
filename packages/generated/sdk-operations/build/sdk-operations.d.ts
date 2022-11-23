@@ -1,10 +1,11 @@
 export declare const operations: {
+    "codestorys-web": string;
     "db-web": string;
     "function-server": string;
     "function-web": string;
     "markdown-reader-web": string;
     "search-web": string;
-    "markdown-reader-ui": string;
+    "todo-web": string;
     all: string;
     api: string;
     "api-store": string;
@@ -28,6 +29,7 @@ export declare const operations: {
     "cleanup-typescript-database": string;
     "clickable-icon": string;
     "code-types": string;
+    "codestorys-node": string;
     "comment-util": string;
     "compile-typescript": string;
     "convert-case": string;
@@ -38,8 +40,11 @@ export declare const operations: {
     "db-recipes": string;
     "db-util": string;
     "encrypt-password": string;
+    "explore-project": string;
     "fancy-loader": string;
+    "file-icons": string;
     "file-search": string;
+    "file-tabs": string;
     "filename-conventions": string;
     "find-all-dependency-operations": string;
     "folder-get-updated-at": string;
@@ -91,8 +96,10 @@ export declare const operations: {
     "model-types": string;
     "name-conventions": string;
     "nested-menu": string;
+    "nested-menu-types": string;
     "new-template": string;
     "next-a-link": string;
+    "next-paths": string;
     "next-types": string;
     nodemon: string;
     "one-by-one": string;
@@ -121,8 +128,11 @@ export declare const operations: {
     "read-json-file": string;
     "read-kvmd-file": string;
     "read-markdown-file": string;
+    "read-typescript-file": string;
+    "reader-ui": string;
     "rebuild-operation": string;
     "recursive-types": string;
+    "recursive-util": string;
     "rename-template-files": string;
     "rest-util": string;
     "run-child-process": string;
@@ -138,6 +148,7 @@ export declare const operations: {
     tabs: string;
     "text-or-binary": string;
     timeline: string;
+    "todo-types": string;
     tooltip: string;
     "try-parse-json": string;
     "ts-morph-util": string;

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055162536,
-  "updatedAt": 1669055162536,
+  "createdAt": 1669132695280,
+  "updatedAt": 1669132695280,
   "deletedAt": 0,
-  "createdFirstAt": 1669055162536,
+  "createdFirstAt": 1669132695280,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  operationRelativeTypescriptFilePath: string\n): string | undefined => {\n  const srcPrefix = \"src/\";\n  if (!operationRelativeTypescriptFilePath.startsWith(srcPrefix)) return;\n  const withoutSrc = operationRelativeTypescriptFilePath.substring(\n    srcPrefix.length\n  );\n\n  const parts = withoutSrc.split(\"/\");\n\n  parts.pop();\n\n  const withoutFile = parts.join(\"/\");\n\n  if (withoutFile.length === 0) return;\n\n  return withoutFile;\n}",
   "description": "gets a src relative folder path (so maybe \"\" for a file `src/util.ts` or \"util\" for a file `src/util/thing.ts`)",
-  "id": "ytbfqpmyhbxmmafyavvoisec"
+  "id": "rbeijfybsttenlnnnnmwznxc"
 }

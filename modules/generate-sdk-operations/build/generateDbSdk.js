@@ -1,3 +1,104 @@
 #!/usr/bin/env node
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,n,o){return new(n||(n=Promise))((function(r,a){function i(e){try{l(o.next(e))}catch(e){a(e)}}function c(e){try{l(o.throw(e))}catch(e){a(e)}}function l(e){var t;e.done?r(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,c)}l((o=o.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,o,r,a,i={label:0,sent:function(){if(1&r[0])throw r[1];return r[1]},trys:[],ops:[]};return a={next:c(0),throw:c(1),return:c(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function c(a){return function(c){return function(a){if(n)throw new TypeError("Generator is already executing.");for(;i;)try{if(n=1,o&&(r=2&a[0]?o.return:a[0]?o.throw||((r=o.return)&&r.call(o),0):o.next)&&!(r=r.call(o,a[1])).done)return r;switch(o=0,r&&(a=[2&a[0],r.value]),a[0]){case 0:case 1:r=a;break;case 4:return i.label++,{value:a[1],done:!1};case 5:i.label++,o=a[1],a=[0];continue;case 7:a=i.ops.pop(),i.trys.pop();continue;default:if(!(r=i.trys,(r=r.length>0&&r[r.length-1])||6!==a[0]&&2!==a[0])){i=0;continue}if(3===a[0]&&(!r||a[1]>r[0]&&a[1]<r[3])){i.label=a[1];break}if(6===a[0]&&i.label<r[1]){i.label=r[1],r=a;break}if(r&&i.label<r[2]){i.label=r[2],i.ops.push(a);break}r[2]&&i.ops.pop(),i.trys.pop();continue}a=t.call(e,i)}catch(e){a=[6,e],o=0}finally{n=r=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,c])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.generateDbSdk=void 0;var js_util_1=require("js-util"),new_template_1=require("new-template"),getSdkDescription_1=require("./getSdkDescription"),rebuild_operation_1=require("rebuild-operation"),generateDbSdk=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,n,o,r,a,i,c,l,u,s,p;return __generator(this,(function(d){switch(d.label){case 0:return t=null==e?void 0:e.manualProjectRoot,n=null==e?void 0:e.skipYarnInstall,o=null==e?void 0:e.dryrun,[4/*yield*/,(0,rebuild_operation_1.getAllDbModels)(t)];case 1:return r=d.sent(),a=r.map((function(e){return"import type { ".concat(e.name,' } from "').concat(e.operationName,'";')})).filter(js_util_1.notEmpty).join("\n").concat("\n"),i="export type DbModels = { ".concat(r.map((function(e){return"".concat(e.name,": ").concat(e.name)})).join(",")," };\n"),c="export const dbModelKeys = [ ".concat(r.map((function(e){return'"'.concat(e.name,'"')})).join(",")," ] as const;\n"),"export type DbModelEnum = typeof dbModelKeys[number];\n",l="export const modelQueryConfig = {\n    ".concat(null==r?void 0:r.map((function(e){if(e.dbStorageMethod)return"".concat(e.name,": {\n          ").concat(e.operationStorageLocationRelativeFilePath||e.isOperationIndex?'operationName: "*",':"",'\n          dbStorageMethod: "').concat(e.dbStorageMethod,'",\n          ').concat(e.operationStorageLocationRelativeFilePath?'operationRelativePath: "'.concat(e.operationStorageLocationRelativeFilePath,'",'):"","\n        }")})).filter(js_util_1.notEmpty).join(",\n"),"\n  };"),u="// THIS FILE HAS BEEN GENERATED\n".concat("\n").concat(a).concat("\n\n").concat(i).concat(c).concat("export type DbModelEnum = typeof dbModelKeys[number];\n").concat(l).concat("\n").concat("// THANK YOU\n"),s=new_template_1.newOperationWithFiles,p=["sdk-db"],[4/*yield*/,(0,getSdkDescription_1.getSdkDescription)("sdk-db")];case 2:return[4/*yield*/,s.apply(void 0,p.concat([d.sent(),{"src/sdk-db.ts":u},{overwriteIfExists:!0,skipYarnInstall:n,manualProjectRoot:t,dryrun:o}]))];case 3:return d.sent(),[2/*return*/]}}))}))};exports.generateDbSdk=generateDbSdk;
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.generateDbSdk = void 0;
+var js_util_1 = require("js-util");
+var new_template_1 = require("new-template");
+var getSdkDescription_1 = require("./getSdkDescription");
+var rebuild_operation_1 = require("rebuild-operation");
+var generateDbSdk = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var manualProjectRoot, skipYarnInstall, dryrun, allDbModels, typeImportsString, exportDbTypesString, exportDbKeysString, exportDbModelEnumString, exportModelQueryConfigString, indexationString, _a, _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                manualProjectRoot = config === null || config === void 0 ? void 0 : config.manualProjectRoot;
+                skipYarnInstall = config === null || config === void 0 ? void 0 : config.skipYarnInstall;
+                dryrun = config === null || config === void 0 ? void 0 : config.dryrun;
+                return [4 /*yield*/, (0, rebuild_operation_1.getAllDbModels)(manualProjectRoot)];
+            case 1:
+                allDbModels = _c.sent();
+                typeImportsString = allDbModels
+                    .map(function (tsInterface) {
+                    return "import type { ".concat(tsInterface.name, " } from \"").concat(tsInterface.operationName, "\";");
+                })
+                    .filter(js_util_1.notEmpty)
+                    .join("\n")
+                    .concat("\n");
+                exportDbTypesString = "export type DbModels = { ".concat(allDbModels
+                    .map(function (x) { return "".concat(x.name, ": ").concat(x.name); })
+                    .join(","), " };\n");
+                exportDbKeysString = "export const dbModelKeys = [ ".concat(allDbModels
+                    .map(function (x) { return "\"".concat(x.name, "\""); })
+                    .join(","), " ] as const;\n");
+                exportDbModelEnumString = "export type DbModelEnum = typeof dbModelKeys[number];\n";
+                exportModelQueryConfigString = "export const modelQueryConfig = {\n    ".concat(allDbModels === null || allDbModels === void 0 ? void 0 : allDbModels.map(function (model) {
+                    if (!model.dbStorageMethod)
+                        return;
+                    return "".concat(model.name, ": {\n          ").concat(model.operationStorageLocationRelativeFilePath ||
+                        model.isOperationIndex
+                        ? "operationName: \"*\","
+                        : "", "\n          dbStorageMethod: \"").concat(model.dbStorageMethod, "\",\n          ").concat(model.operationStorageLocationRelativeFilePath
+                        ? "operationRelativePath: \"".concat(model.operationStorageLocationRelativeFilePath, "\",")
+                        : "", "\n        }");
+                }).filter(js_util_1.notEmpty).join(",\n"), "\n  };");
+                indexationString = "// THIS FILE HAS BEEN GENERATED\n"
+                    .concat("\n")
+                    // all imports
+                    .concat(typeImportsString)
+                    .concat("\n\n")
+                    // all exports
+                    .concat(exportDbTypesString)
+                    .concat(exportDbKeysString)
+                    .concat(exportDbModelEnumString)
+                    .concat(exportModelQueryConfigString)
+                    .concat("\n")
+                    .concat("// THANK YOU\n");
+                _a = new_template_1.newOperationWithFiles;
+                _b = ["sdk-db"];
+                return [4 /*yield*/, (0, getSdkDescription_1.getSdkDescription)("sdk-db")];
+            case 2: return [4 /*yield*/, _a.apply(void 0, _b.concat([_c.sent(), { "src/sdk-db.ts": indexationString },
+                    { overwriteIfExists: true, skipYarnInstall: skipYarnInstall, manualProjectRoot: manualProjectRoot, dryrun: dryrun }]))];
+            case 3:
+                _c.sent();
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.generateDbSdk = generateDbSdk;
 //# sourceMappingURL=generateDbSdk.js.map

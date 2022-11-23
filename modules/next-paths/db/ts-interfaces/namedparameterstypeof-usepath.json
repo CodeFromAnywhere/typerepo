@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336738784,
+  "updatedAt": 1668336738784,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336738784,
+  "id": "namedparameterstypeof-usepath",
+  "name": "NamedParameters<typeof usePath>",
+  "slug": "namedparameterstypeof-usepath",
+  "operationRelativeTypescriptFilePath": "src/usePath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof usePath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

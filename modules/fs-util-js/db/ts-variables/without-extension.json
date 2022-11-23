@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668976561230,
-  "updatedAt": 1668976561230,
+  "createdAt": 1669200353511,
+  "updatedAt": 1669200353511,
   "deletedAt": 0,
-  "createdFirstAt": 1668976561230,
+  "createdFirstAt": 1669200353511,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(fileName: string) => {\n  const pieces = fileName.split(\".\");\n  pieces.pop();\n  return pieces.join(\".\");\n}",
   "description": "removes extension from the filename",
-  "id": "wkoklzujuykowrcywrgbnagj"
+  "id": "zorheptwdcvzhxowioyybiic"
 }

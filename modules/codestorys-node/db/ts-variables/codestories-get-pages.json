@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669200016736,
+  "updatedAt": 1669200016736,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200016736,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "codestoriesGetPages",
+  "slug": "codestories-get-pages",
+  "operationRelativeTypescriptFilePath": "src/codestoriesGetPages.ts",
+  "type": {
+    "rawType": "(config?: { manualProjectRoot?: string | undefined; } | undefined) => Promise<import(\"/Users/king/King/operations/tools/types/webpage-types/build/types\").FileWebPage[] | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config?: {\n  manualProjectRoot?: string;\n}): Promise<undefined | ReaderWebPage[]> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const codestoriesPaths = await getTodoPaths({\n    categoryStack: [\"codestories\"],\n    subExtension: \"codestory\",\n    sort: \"recent\",\n  });\n\n  const pages: ReaderWebPage[] = await Promise.all(\n    codestoriesPaths.map(async (projectRelativeFilePath) => {\n      const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n      const markdownParse = fs.existsSync(absolutePath)\n        ? await readMarkdownFile(absolutePath)\n        : null;\n\n      const readmeInfo = getMarkdownIntro(markdownParse);\n\n      const readerWebPage: ReaderWebPage = {\n        pageData: {\n          projectRelativeFilePath,\n          /**\n          1) scrape images and the first alinea from the `projectRelativeFilePath`\n\n          2) if there's an image in the frontmatter, use that. Otherwise, use the first image. Otherwise, no image.\n          */\n          imagePath: null,\n          shortDescription: readmeInfo.firstParagraph,\n        },\n        queryPath: projectRelativeFilePath.replaceAll(\"/\", \"-\"),\n        isMenuHidden: false,\n        menuTitle: readmeInfo.title || path.parse(projectRelativeFilePath).name,\n      };\n      return readerWebPage;\n    })\n  );\n\n  const filteredPages = pages.filter(\n    onlyUnique2<ReaderWebPage>((a, b) => a.queryPath === b.queryPath)\n  );\n\n  return filteredPages;\n}",
+  "description": "",
+  "id": "rmytrnoezzdobunqgjxwzxei"
+}

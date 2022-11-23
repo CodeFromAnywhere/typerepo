@@ -1,5 +1,5 @@
 import { NestedWebPage } from "webpage-types";
-import { MouseEventCallbacks } from "./types";
+import { MouseEventCallbacks } from "nested-menu-types";
 /**
  * General purpose nested menu component
  *

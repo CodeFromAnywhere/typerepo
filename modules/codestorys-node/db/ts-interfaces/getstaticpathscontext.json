@@ -1,0 +1,67 @@
+{
+  "createdAt": 1669200017578,
+  "updatedAt": 1669200017578,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200017578,
+  "id": "getstaticpathscontext",
+  "name": "GetStaticPathsContext",
+  "slug": "getstaticpathscontext",
+  "operationRelativeTypescriptFilePath": "src/codestoriesGetStaticPaths.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "locales": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defaultLocale": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "locales",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "defaultLocale",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "GetStaticPathsContext",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

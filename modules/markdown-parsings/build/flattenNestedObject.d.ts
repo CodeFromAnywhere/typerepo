@@ -1,4 +1,4 @@
-import { NestedObject } from "nested-menu";
+import { NestedObject } from "recursive-types";
 /**
  * Flattens a nested object by returning an object that hasa the nested path as the key and the leaf as the value
  *

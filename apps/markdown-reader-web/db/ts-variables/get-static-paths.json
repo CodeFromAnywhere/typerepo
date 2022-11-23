@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668751789661,
-  "updatedAt": 1668751789661,
+  "createdAt": 1669200621511,
+  "updatedAt": 1669200621511,
   "deletedAt": 0,
-  "createdFirstAt": 1668751789661,
+  "createdFirstAt": 1669200621511,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-static-paths",
   "operationRelativeTypescriptFilePath": "src/pages/[...paths].tsx",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/purpose/reader/next-types/build/types\").GetStaticPaths<import(\"/Users/king/King/operations/tools/purpose/reader/next-types/build/types\").ParsedUrlQuery>",
+    "rawType": "import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPaths<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "markdownReaderGetStaticPaths",
   "description": "",
-  "id": "imkcmocievogxswgiebgufth"
+  "id": "ruqugjrntxxqbudnpghgpsll"
 }

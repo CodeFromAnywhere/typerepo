@@ -60,18 +60,6 @@ Based on markdown info, gest the real source for an image
 
 
 
-## renderMarkdownParse()
-
-renders the MardkownParse interface (including frontmatter)
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| markdownParse | `MarkdownParse` |  |,| config | `MarkdownParseRenderConfig` |  |
-| **Output** | `JSX.Element`   |    |
-
-
-
 ## 🔹 MarkdownParseRenderConfig
 
 Properties: 
@@ -91,14 +79,9 @@ Properties:
 
 Based on markdown info, gest the real source for an image
 
-
-## 📄 renderMarkdownParse (exported const)
-
-renders the MardkownParse interface (including frontmatter)
-
 # Internal
 
-<details><summary>Show internal (17)</summary>
+<details><summary>Show internal (19)</summary>
     
   # getUrlFromRelativeUrl()
 
@@ -121,7 +104,7 @@ gets the renderable asset url from the relative url
 
 
 
-## header()
+## `<HtmlHeader />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -150,6 +133,18 @@ renders a MarkdownChunk interface
 | Input      |    |    |
 | ---------- | -- | -- |
 | chunk | `MarkdownChunk` |  |,| config | `MarkdownParseRenderConfig` |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## renderMarkdownParse()
+
+renders the MardkownParse interface (including frontmatter)
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| markdownParse | `MarkdownParse` |  |,| config | `MarkdownParseRenderConfig` |  |
 | **Output** | `JSX.Element`   |    |
 
 
@@ -188,7 +183,7 @@ gets the renderable asset url from the relative url
 
 ## 📄 getYoutubeId (exported const)
 
-## 📄 header (exported const)
+## 📄 HtmlHeader (exported const)
 
 ## 📄 renderFrontmatter (exported const)
 
@@ -198,6 +193,11 @@ Renders markdown frontmatter parameters (and optionally a spacer)
 ## 📄 renderMarkdownChunk (exported const)
 
 renders a MarkdownChunk interface
+
+
+## 📄 renderMarkdownParse (exported const)
+
+renders the MardkownParse interface (including frontmatter)
 
 
 ## 📄 renderMarkdownTitle (exported const)

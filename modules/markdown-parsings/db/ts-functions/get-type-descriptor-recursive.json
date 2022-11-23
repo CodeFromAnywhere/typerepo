@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154813759,
-  "updatedAt": 1668154813759,
+  "createdAt": 1669200473087,
+  "updatedAt": 1669200473087,
   "deletedAt": 0,
-  "createdFirstAt": 1668154813759,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200473087,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getTypeDescriptorRecursive.ts",
   "commentsInside": [],
   "rawText": " (\n  schema: JSONSchema7,\n  /**\n   * If true, references will be links, otherwise, just the name of the referred interface\n   */\n  isMarkdown: boolean\n): string => {\n  const refLink = getRefLink(schema.$ref);\n  // console.log({ $ref: schema.$ref, refLink });\n\n  const type = Array.isArray(schema.type) ? schema.type[0] : schema.type;\n\n  if (refLink) {\n    return isMarkdown ? `\\`${refLink}\\`` : refLink;\n  } //(#${getImplicitId(refLink)})\n\n  if (schema.enum) {\n    const enumString = `${schema.enum.map(String).join(\" / \")}`;\n    return type === \"number\" ? `${enumString} (number)` : enumString;\n  }\n\n  if (type === \"boolean\") return \"boolean\";\n  if (type === \"string\") return \"string\";\n  if (type === \"number\" || type === \"integer\") return \"number\";\n  if (type === \"null\") return \"null\";\n  if (type === \"array\") {\n    const items = getSchemaItems(schema);\n\n    const itemsString = items\n      .map((item) => getTypeDescriptorRecursive(item, true))\n      .join(\" | \");\n\n    return `${items.length > 1 ? `(${itemsString})` : itemsString}[]`;\n  }\n\n  //   NB: only type object is left now\n\n  const properties = getProperties(schema);\n\n  const additionalProperties = getSchema(schema.additionalProperties);\n  const additionalPropertiesString = additionalProperties\n    ? `[key: string]: ${getTypeDescriptorRecursive(\n        additionalProperties,\n        isMarkdown\n      )}`\n    : \"\";\n\n  const propertyStrings = properties\n    .map((property) => {\n      const propertyString = `${property.name}${\n        property?.required ? \":\" : \"?:\"\n      } ${getTypeDescriptorRecursive(property.schema, isMarkdown)}`;\n\n      return propertyString;\n    })\n    .concat(additionalPropertiesString);\n\n  return isMarkdown\n    ? noNewlines(`{ ${propertyStrings.join(\", \\n\")} }`)!\n    : propertyStrings.join(\", \");\n}",
@@ -66,8 +61,26 @@
             "name": "enum",
             "required": false,
             "schema": {
-              "items": [],
+              "items": [
+                {
+                  "schema": {
+                    "fullComment": "Primitive type",
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": "JSONSchema7Type"
+                }
+              ],
               "type": "array"
+            }
+          },
+          {
+            "name": "const",
+            "required": false,
+            "schema": {
+              "fullComment": "Primitive type",
+              "properties": [],
+              "type": "object"
             }
           },
           {
@@ -130,6 +143,15 @@
             "name": "items",
             "required": false,
             "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "additionalItems",
+            "required": false,
+            "schema": {
+              "fullComment": "JSON Schema v7",
               "properties": [],
               "type": "object"
             }
@@ -210,6 +232,15 @@
             }
           },
           {
+            "name": "additionalProperties",
+            "required": false,
+            "schema": {
+              "fullComment": "JSON Schema v7",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
             "name": "dependencies",
             "required": false,
             "schema": {
@@ -218,10 +249,55 @@
             }
           },
           {
+            "name": "propertyNames",
+            "required": false,
+            "schema": {
+              "fullComment": "JSON Schema v7",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "if",
+            "required": false,
+            "schema": {
+              "fullComment": "JSON Schema v7",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "then",
+            "required": false,
+            "schema": {
+              "fullComment": "JSON Schema v7",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "else",
+            "required": false,
+            "schema": {
+              "fullComment": "JSON Schema v7",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
             "name": "allOf",
             "required": false,
             "schema": {
-              "items": [],
+              "items": [
+                {
+                  "schema": {
+                    "fullComment": "JSON Schema v7",
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": "JSONSchema7Definition"
+                }
+              ],
               "type": "array"
             }
           },
@@ -229,7 +305,16 @@
             "name": "anyOf",
             "required": false,
             "schema": {
-              "items": [],
+              "items": [
+                {
+                  "schema": {
+                    "fullComment": "JSON Schema v7",
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": "JSONSchema7Definition"
+                }
+              ],
               "type": "array"
             }
           },
@@ -237,8 +322,26 @@
             "name": "oneOf",
             "required": false,
             "schema": {
-              "items": [],
+              "items": [
+                {
+                  "schema": {
+                    "fullComment": "JSON Schema v7",
+                    "properties": [],
+                    "type": "object"
+                  },
+                  "name": "JSONSchema7Definition"
+                }
+              ],
               "type": "array"
+            }
+          },
+          {
+            "name": "not",
+            "required": false,
+            "schema": {
+              "fullComment": "JSON Schema v7",
+              "properties": [],
+              "type": "object"
             }
           },
           {
@@ -285,6 +388,15 @@
             }
           },
           {
+            "name": "default",
+            "required": false,
+            "schema": {
+              "fullComment": "Primitive type",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
             "name": "readOnly",
             "required": false,
             "schema": {
@@ -296,6 +408,15 @@
             "required": false,
             "schema": {
               "type": "boolean"
+            }
+          },
+          {
+            "name": "examples",
+            "required": false,
+            "schema": {
+              "fullComment": "Primitive type",
+              "properties": [],
+              "type": "object"
             }
           }
         ],
@@ -340,5 +461,5 @@
     "linesPerFile": 61,
     "numberOfFiles": 1
   },
-  "id": "mmsekpunndimrowlihjzwqyk"
+  "id": "cxdyfgxqueddaxlvigoacdkx"
 }

@@ -36,7 +36,8 @@
     "react-with-native-store": "2.0.40",
     "rehype-highlight": "^5.0.2",
     "worker-loader": "^3.0.8",
-    "writer-input": "1.0.0"
+    "writer-input": "1.0.0",
+    "react-with-native-select": "2.0.7"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -69,18 +70,15 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-web",
-    "coreDependenciesIndexed": [
-      "useState"
-    ],
+    "coreDependenciesIndexed": [],
     "folderNameIndexed": "db-web",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669055204315,
+    "lastRebuildAt": 1669131229113,
     "operationDependenciesIndexed": [
       "queries",
       "AuthenticationLayout",
-      "Div",
-      "ClickableIcon",
+      "useSelect",
       "destructureOptionalObject",
       "createStore",
       "apiStoreInitialValues",
@@ -102,15 +100,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 187,
-        "characters": 5944,
-        "bytes": 5944
+        "lines": 168,
+        "characters": 5213,
+        "bytes": 5213
       },
       "dataSize": {
-        "numberOfFiles": 76,
-        "lines": 258,
-        "characters": 10473,
-        "bytes": 10473
+        "numberOfFiles": 9,
+        "lines": 220,
+        "characters": 5840,
+        "bytes": 5840
       },
       "textSize": {
         "numberOfFiles": 5,
@@ -119,10 +117,10 @@
         "bytes": 7854
       },
       "size": {
-        "bytes": 24271,
-        "characters": 24271,
-        "lines": 655,
-        "numberOfFiles": 86
+        "bytes": 18907,
+        "characters": 18907,
+        "lines": 598,
+        "numberOfFiles": 19
       }
     },
     "hasGeneratedImportsIndexed": false

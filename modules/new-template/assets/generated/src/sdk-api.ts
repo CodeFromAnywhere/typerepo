@@ -67,6 +67,7 @@ import { getInstanceNames } from "explore-project";
 import { getProjectRelativePaths } from "explore-project";
 import { getTodoFrontmattersMappedObject } from "explore-project";
 import { getTodoPages } from "explore-project";
+import { getTodoPaths } from "explore-project";
 import { hasSameProjectPath } from "explore-project";
 import { getAllOperationSourcePaths } from "get-all-operation-source-paths";
 import { determineFileType } from "k-explore";
@@ -162,6 +163,12 @@ import { getSynonymFrequencyDataset } from "simplify-text";
 import { preprocessSynonyms } from "simplify-text";
 import { preprocessWordFrequencies } from "simplify-text";
 import { speakWordsToLearn } from "speak-words-to-learn";
+import { createPaymentRequestWithContext } from "payment-node";
+import { createPaymentTransactionWithContext } from "payment-node";
+import { defaultResponse } from "payment-node";
+import { fail } from "payment-node";
+import { getPaymentWebPages } from "payment-node";
+import { succeed } from "payment-node";
 import { mapArrayJson } from "edit-json-file";
 import { mapObjectJson } from "edit-json-file";
 import { videoToMp3 } from "video-to-mp3";
@@ -303,6 +310,9 @@ import { getTsFunction } from "function-functions-node";
 import { getAugmentedWordObject } from "augmented-word-node";
 import { getAugmentedWords } from "augmented-word-node";
 import { getBundleAugmentedWords } from "augmented-word-node";
+import { codestoriesGetPages } from "codestorys-node";
+import { codestoriesGetStaticPaths } from "codestorys-node";
+import { codestoriesGetStaticProps } from "codestorys-node";
 import { addPeerMessage } from "peer-functions";
 import { addPeer } from "peer-functions";
 import { augmentDevice } from "peer-functions";
@@ -372,9 +382,13 @@ import { generateFunctionPathsSdk } from "generate-sdk-operations";
 import { generateFunctionSdks } from "generate-sdk-operations";
 import { generateInterfacePathsSdk } from "generate-sdk-operations";
 import { generateOperationsSdk } from "generate-sdk-operations";
+import { generateSdkApiWatcher } from "generate-sdk-operations";
+import { generateSdkApi } from "generate-sdk-operations";
 import { generateSdkOperations } from "generate-sdk-operations";
+import { getFunctionSdksContent } from "generate-sdk-operations";
 import { getSdkDescription } from "generate-sdk-operations";
 import { getSdkFunctionsPerClassification } from "generate-sdk-operations";
+import { isNonUiOperationBuild } from "generate-sdk-operations";
 import { newEnvSdk } from "generate-sdk-operations";
 import { newFunctionKeysSdkOperation } from "generate-sdk-operations";
 import { newFunctionSdkOperation } from "generate-sdk-operations";
@@ -417,13 +431,15 @@ import { getTsStatements } from "index-typescript";
 import { getTypeInfo } from "index-typescript";
 import { getValidatedOperationPathParse } from "index-typescript";
 import { hasDefinition } from "index-typescript";
+import { hasTypescriptFileChanged } from "index-typescript";
+import { indexImportsExportsForFilePath } from "index-typescript";
+import { indexTypescriptFilePath } from "index-typescript";
 import { indexTypescriptFile } from "index-typescript";
 import { indexTypescript } from "index-typescript";
 import { isPrimitive } from "index-typescript";
 import { makeTsComment } from "index-typescript";
 import { removeTypescriptIndex } from "index-typescript";
 import { schemaToTsInterface } from "index-typescript";
-import { setTypescriptIndex } from "index-typescript";
 import { tryCreateSchema } from "index-typescript";
 import { typeToSchema } from "index-typescript";
 import { preIndexLint } from "lint";
@@ -554,7 +570,7 @@ import { getNameFromRelativePath } from "asset-functions-js";
 import { getNameWithTokenFromRelativePath } from "asset-functions-js";
 import { getPreferredExtensionFromType } from "asset-functions-js";
 import { getReferencedAssetApiUrl } from "asset-functions-js";
-import { getTypeFromRelativePath } from "asset-functions-js";
+import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
 import { removeTokenIfPresent } from "asset-functions-js";
 import { getEncoding } from "text-or-binary";
@@ -600,6 +616,7 @@ import { findOperationBasePathWithClassification } from "get-path";
 import { findOperationBasePath } from "get-path";
 import { getAllPackageJsonDependencies } from "get-path";
 import { getCommonAncestor } from "get-path";
+import { getOperationClassificationObject } from "get-path";
 import { getOperationClassification } from "get-path";
 import { getOperationPathParse } from "get-path";
 import { getOperationPath } from "get-path";
@@ -612,9 +629,13 @@ import { getRelativePath } from "get-path";
 import { getRootPath } from "get-path";
 import { getSrcRelativeFileId } from "get-path";
 import { hasDependency } from "get-path";
+import { isBundle } from "get-path";
 import { isOperation } from "get-path";
+import { isUiOperation } from "get-path";
 import { isWorkspaceRoot } from "get-path";
 import { makeRelative } from "get-path";
+import { packageCompilesTs } from "get-path";
+import { tsconfigCompilesEsm } from "get-path";
 import { getDependenciesSummary } from "operation-util";
 import { getOperationMetaData } from "operation-util";
 import { recalculateOperationIndexJson } from "operation-util";
@@ -694,6 +715,8 @@ import { isOutOfStock } from "os-types";
 import { kvmdToCredential } from "os-types";
 import { upcomingOutgoingFlights } from "os-types";
 import { whereShouldIgo } from "os-types";
+import { crudPageToWebPages } from "webpage-types";
+import { functionFormPageToWebPage } from "webpage-types";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
 import { stripComment } from "comment-util";
@@ -732,6 +755,14 @@ import { getLastPathsChunk } from "next-paths";
 import { usePath } from "next-paths";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
+import { getKeysAtPathFromNestedObject } from "recursive-util";
+import { getMenuPagesObject } from "recursive-util";
+import { makeNestedObjectFromQueryPathObject } from "recursive-util";
+import { nestedObjectToChildObject } from "recursive-util";
+import { nestedPathObjectToNestedMenuRecursive } from "recursive-util";
+import { nestifyQueryPathObjectRecursive } from "recursive-util";
+import { queryPathsArrayToNestedPathObject } from "recursive-util";
+import { reduceQueryPathsRecursively } from "recursive-util";
 import { camelCase } from "convert-case";
 import { capitalCase } from "convert-case";
 import { capitaliseFirstLetter } from "convert-case";
@@ -866,6 +897,7 @@ getInstanceNames,
 getProjectRelativePaths,
 getTodoFrontmattersMappedObject,
 getTodoPages,
+getTodoPaths,
 hasSameProjectPath,
 getAllOperationSourcePaths,
 determineFileType,
@@ -961,6 +993,12 @@ getSynonymFrequencyDataset,
 preprocessSynonyms,
 preprocessWordFrequencies,
 speakWordsToLearn,
+createPaymentRequestWithContext,
+createPaymentTransactionWithContext,
+defaultResponse,
+fail,
+getPaymentWebPages,
+succeed,
 mapArrayJson,
 mapObjectJson,
 videoToMp3,
@@ -1102,6 +1140,9 @@ getTsFunction,
 getAugmentedWordObject,
 getAugmentedWords,
 getBundleAugmentedWords,
+codestoriesGetPages,
+codestoriesGetStaticPaths,
+codestoriesGetStaticProps,
 addPeerMessage,
 addPeer,
 augmentDevice,
@@ -1171,9 +1212,13 @@ generateFunctionPathsSdk,
 generateFunctionSdks,
 generateInterfacePathsSdk,
 generateOperationsSdk,
+generateSdkApiWatcher,
+generateSdkApi,
 generateSdkOperations,
+getFunctionSdksContent,
 getSdkDescription,
 getSdkFunctionsPerClassification,
+isNonUiOperationBuild,
 newEnvSdk,
 newFunctionKeysSdkOperation,
 newFunctionSdkOperation,
@@ -1216,13 +1261,15 @@ getTsStatements,
 getTypeInfo,
 getValidatedOperationPathParse,
 hasDefinition,
+hasTypescriptFileChanged,
+indexImportsExportsForFilePath,
+indexTypescriptFilePath,
 indexTypescriptFile,
 indexTypescript,
 isPrimitive,
 makeTsComment,
 removeTypescriptIndex,
 schemaToTsInterface,
-setTypescriptIndex,
 tryCreateSchema,
 typeToSchema,
 preIndexLint,
@@ -1353,7 +1400,7 @@ getNameFromRelativePath,
 getNameWithTokenFromRelativePath,
 getPreferredExtensionFromType,
 getReferencedAssetApiUrl,
-getTypeFromRelativePath,
+getTypeFromUrlOrPath,
 readableSize,
 removeTokenIfPresent,
 getEncoding,
@@ -1399,6 +1446,7 @@ findOperationBasePathWithClassification,
 findOperationBasePath,
 getAllPackageJsonDependencies,
 getCommonAncestor,
+getOperationClassificationObject,
 getOperationClassification,
 getOperationPathParse,
 getOperationPath,
@@ -1411,9 +1459,13 @@ getRelativePath,
 getRootPath,
 getSrcRelativeFileId,
 hasDependency,
+isBundle,
 isOperation,
+isUiOperation,
 isWorkspaceRoot,
 makeRelative,
+packageCompilesTs,
+tsconfigCompilesEsm,
 getDependenciesSummary,
 getOperationMetaData,
 recalculateOperationIndexJson,
@@ -1493,6 +1545,8 @@ isOutOfStock,
 kvmdToCredential,
 upcomingOutgoingFlights,
 whereShouldIgo,
+crudPageToWebPages,
+functionFormPageToWebPage,
 stripCommentEnd,
 stripCommentStart,
 stripComment,
@@ -1531,6 +1585,14 @@ getLastPathsChunk,
 usePath,
 createCodeblockMarkdown,
 useCustomUrlStore,
+getKeysAtPathFromNestedObject,
+getMenuPagesObject,
+makeNestedObjectFromQueryPathObject,
+nestedObjectToChildObject,
+nestedPathObjectToNestedMenuRecursive,
+nestifyQueryPathObjectRecursive,
+queryPathsArrayToNestedPathObject,
+reduceQueryPathsRecursively,
 camelCase,
 capitalCase,
 capitaliseFirstLetter,

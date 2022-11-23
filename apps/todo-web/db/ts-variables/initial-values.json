@@ -1,0 +1,125 @@
+{
+  "createdAt": 1669055335906,
+  "updatedAt": 1669055335906,
+  "deletedAt": 0,
+  "createdFirstAt": 1669055335906,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "initialValues",
+  "slug": "initial-values",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "type": {
+    "rawType": "{ todoPagesConfig: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/todos/todo-types/build/TodoPagesConfig\").TodoPagesConfig; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "todoPagesConfig": {
+          "type": "object",
+          "properties": {
+            "recency": {},
+            "personId": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            },
+            "categoryStack": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              }
+            },
+            "priority": {}
+          },
+          "required": [
+            "recency",
+            "priority"
+          ]
+        }
+      },
+      "required": [
+        "todoPagesConfig"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "todoPagesConfig",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "recency",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "personId",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "categoryStack",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "priority",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  todoPagesConfig: {},\n}",
+  "description": "",
+  "id": "ospgihgdaeacbezolfqnzouv"
+}

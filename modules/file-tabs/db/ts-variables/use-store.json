@@ -1,0 +1,33 @@
+{
+  "createdAt": 1667380084922,
+  "updatedAt": 1667380084922,
+  "deletedAt": 0,
+  "createdFirstAt": 1667380084922,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useStore",
+  "slug": "use-store",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "type": {
+    "rawType": "<K>(key: K) => import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/react-with-native-store/build/general\").UseStoreResult<import(\"/Users/king/King/operations/tools/writer/file-tabs/src/store\").FileTabsStoreType[K]>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "createUseStore(fileTabsInitialValues)",
+  "description": "NB: this is a `useStore` without a `StoreProvider`, because I think I won't ever need the provider since I won't ever need this as the sole storage in any component/app. If I do, I should make a provider, but it's usually better to create the `useStore` and `StoreProvider` in the component itself because it often comprises more than just this one.",
+  "id": "zoetbkqpvbigedscdjlzuzmq"
+}

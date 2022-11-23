@@ -275,6 +275,12 @@ export declare const sdk: {
     getParameterContentType: (parameterName: string) => void;
     isCalculatedParameter: (parameterName: string) => boolean;
     isGeneratedParameterName: (parameterName: string) => void;
+    getFullPath: (paths: string | string[] | undefined) => string;
+    getLastPathsChunk: (paths: string | string[] | undefined) => string | undefined;
+    usePath: () => {
+        lastChunk: string | undefined;
+        fullPath: string;
+    };
     oneByOne: <T_28, U_6>(array: T_28[], callback: (instance: T_28, index: number) => Promise<U_6>) => Promise<U_6[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
@@ -301,6 +307,21 @@ export declare const sdk: {
     isSingular: (parameterName: string) => boolean;
     pluralize: (parameterName: string) => string;
     singularize: (parameterName: string) => string;
+    getKeysAtPathFromNestedObject: <T_29 extends {
+        [key: string]: any;
+    }>(nestedObject: T_29, objectPath: string) => string[];
+    getMenuPagesObject: <T_30>(flat: import("webpage-types").WebPage<T_30>[]) => import("webpage-types").MenuObjectType<T_30>;
+    makeNestedObjectFromQueryPathObject: <T_31 extends import("recursive-util").QueryPathObject>(objectArray: T_31[], initialValue: import("recursive-types").NestedObject<T_31>) => import("recursive-types").NestedObject<T_31>;
+    nestedObjectToChildObject: <T_32 extends {
+        [key: string]: any;
+    }>(nestedObject: import("recursive-types").NestedObject<T_32>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_32>, key: string) => T_32, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_32>[];
+    nestedPathObjectToNestedMenuRecursive: (nestedPathObject: import("recursive-types").NestedPathObject | null, pathStack?: string[] | undefined, config?: {
+        target?: "_blank" | undefined;
+        getHref?: ((fullPath: string) => string) | undefined;
+    } | undefined) => import("nested-menu-types").MenuItemType[] | undefined;
+    nestifyQueryPathObjectRecursive: <T_33 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_33[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_33>[];
+    queryPathsArrayToNestedPathObject: (queryPaths: string[]) => import("recursive-types").NestedPathObject;
+    reduceQueryPathsRecursively: (queryPaths: string[], initialValue: import("recursive-types").NestedPathObject) => import("recursive-types").NestedPathObject;
     bodyFromQueryString: (query?: string | undefined) => import("rest-util").QueryableObject | undefined;
     getFirstQueryStrings: (query: import("rest-util").QueryableObject) => (string | undefined)[];
     getQueryPart: (strings: string[], queryKey: string) => string;
@@ -325,10 +346,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_29>(searchMessage: string, array: T_29[], getSentence?: ((x: T_29) => string) | undefined) => T_29[];
-    searchRecursiveObjectArray: <T_30 extends {
-        children?: T_30[] | undefined;
-    } & Object>(array: T_30[], baseMatcher: (item: T_30) => boolean, afterMapper?: ((item: T_30, isMatch: boolean, hasChildMatch: boolean) => T_30) | undefined) => T_30[];
+    findSentenceMatches: <T_34>(searchMessage: string, array: T_34[], getSentence?: ((x: T_34) => string) | undefined) => T_34[];
+    searchRecursiveObjectArray: <T_35 extends {
+        children?: T_35[] | undefined;
+    } & Object>(array: T_35[], baseMatcher: (item: T_35) => boolean, afterMapper?: ((item: T_35, isMatch: boolean, hasChildMatch: boolean) => T_35) | undefined) => T_35[];
     findPostableToPost: () => void;
     updatePostedStatistics: () => void;
     objectStringToJson: (string: string) => {
@@ -340,9 +361,11 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_31>(text: string, logParseError?: boolean | undefined) => T_31 | null;
+    tryParseJson: <T_36>(text: string, logParseError?: boolean | undefined) => T_36 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_32 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_32, (newValue: T_32 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_37 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_37, (newValue: T_37 | undefined) => Promise<boolean>];
+    crudPageToWebPages: (pageData: import("webpage-types").CrudPage) => import("webpage-types").WebPage<import("webpage-types").CrudPage>[];
+    functionFormPageToWebPage: (pageData: import("webpage-types").FunctionFormPage) => import("webpage-types").WebPage<import("webpage-types").FunctionFormPage>;
 };
 export declare type SdkType = typeof sdk;
 //# sourceMappingURL=sdk-js.d.ts.map

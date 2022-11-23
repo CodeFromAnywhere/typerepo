@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154816484,
-  "updatedAt": 1668154816484,
+  "createdAt": 1669200476918,
+  "updatedAt": 1669200476918,
   "deletedAt": 0,
-  "createdFirstAt": 1668154816484,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200476918,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/makeOutlineMarkdownString.ts",
   "commentsInside": [],
   "rawText": " (\n  title: string,\n  urls: MergedMarkdownOutlineUrl[]\n): string => {\n  const outlineString =\n    urls.length > 0\n      ? `## ${title}\\n\\n${urls\n          .map((url) => {\n            return `- [${url.title}](#${url.hashtagPath})`;\n          })\n          .join(\"\\n\")}\\n\\n`\n      : \"\";\n\n  return outlineString;\n}",
@@ -36,7 +31,31 @@
         }
       },
       "simplifiedSchema": {
-        "items": [],
+        "items": [
+          {
+            "schema": {
+              "fullComment": "",
+              "properties": [
+                {
+                  "name": "title",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "hashtagPath",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "MergedMarkdownOutlineUrl"
+          }
+        ],
         "type": "array"
       },
       "required": true
@@ -66,5 +85,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "phttoxnicpjherakplpjriou"
+  "id": "rtkwxooptcprywpefudnljuz"
 }

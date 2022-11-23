@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154824310,
-  "updatedAt": 1668154824310,
+  "createdAt": 1669200488277,
+  "updatedAt": 1669200488277,
   "deletedAt": 0,
-  "createdFirstAt": 1668154824310,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200488277,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/parsing/outline.ts",
   "commentsInside": [],
   "rawText": " (chunk: MarkdownChunk) => {\n  const childrenTitles: NestedTitle[] | undefined =\n    chunk.children?.map(getTitlesRecursively);\n\n  const returnStatement: NestedTitle[] = [];\n\n  if (chunk.title) returnStatement.push(chunk.title);\n  if (childrenTitles?.length) returnStatement.push(childrenTitles);\n\n  return returnStatement;\n}",
@@ -26,10 +21,103 @@
         "fullComment": "",
         "properties": [
           {
+            "name": "level",
+            "required": true,
+            "schema": {
+              "fullComment": "0 is a paragraph 1-6 is h1 until h6",
+              "type": "number"
+            }
+          },
+          {
             "name": "content",
             "required": false,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "markdownEmbed",
+            "required": false,
+            "schema": {
+              "fullComment": "Anything in the format `![alt](src)`\n\nNB: I need to be very clear how this one works",
+              "nb": "I need to be very clear how this one works",
+              "properties": [
+                {
+                  "name": "alt",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "src",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "type",
+                  "required": true,
+                  "schema": {
+                    "enum": [
+                      "youtube",
+                      "video",
+                      "image",
+                      "audio",
+                      "markdown",
+                      "json",
+                      "typescript",
+                      "file"
+                    ],
+                    "fullComment": "type of asset that is being embedded",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "markdownLink",
+            "required": false,
+            "schema": {
+              "fullComment": "Anything in the format `[alt](href)`\n\nIt needs to be clear how this works. There is a convention for this, and I should implement that as good as possible, and document it here",
+              "properties": [
+                {
+                  "name": "alt",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "href",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "type",
+                  "required": true,
+                  "schema": {
+                    "enum": [
+                      "youtube",
+                      "video",
+                      "image",
+                      "audio",
+                      "markdown",
+                      "json",
+                      "typescript",
+                      "file"
+                    ],
+                    "fullComment": "Can be inferred from href\n\ntype of asset that is being embedded",
+                    "type": "string"
+                  }
+                }
+              ],
+              "type": "object"
             }
           },
           {
@@ -85,5 +173,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "nhuhhzrgvndzfcuqnbochotb"
+  "id": "sropizvabisuwaashoxmlnmz"
 }

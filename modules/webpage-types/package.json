@@ -22,42 +22,48 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1668977156228,
+    "lastRebuildAt": 1669200703134,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 1,
-        "lines": 77,
-        "characters": 2528,
-        "bytes": 2528
+        "numberOfFiles": 2,
+        "lines": 149,
+        "characters": 4261,
+        "bytes": 4261
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 102,
-        "characters": 3243,
-        "bytes": 3243
+        "lines": 108,
+        "characters": 3365,
+        "bytes": 3365
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 15,
-        "characters": 315,
-        "bytes": 315
+        "lines": 189,
+        "characters": 4165,
+        "bytes": 4165
       },
       "size": {
-        "bytes": 6086,
-        "characters": 6086,
-        "lines": 194,
-        "numberOfFiles": 5
+        "bytes": 11791,
+        "characters": 11791,
+        "lines": 446,
+        "numberOfFiles": 6
       }
     },
     "folderNameIndexed": "webpage-types",
     "relativeOperationLocationPathIndexed": "operations/tools/types",
     "classificationIndexed": "cjs",
     "coreDependenciesIndexed": [],
-    "operationDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "humanCase",
+      "notEmpty",
+      "ChildObject"
+    ],
     "packageDependenciesIndexed": []
   },
   "dependencies": {
-    "recursive-types": "0.0.1"
+    "recursive-types": "0.0.1",
+    "convert-case": "0.0.1",
+    "js-util": "0.0.1"
   },
   "slug": "webpage-types",
   "id": "lnwhnaoqskdjejvofpnoecrv"

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668960455861,
-  "updatedAt": 1668960455861,
+  "createdAt": 1669132820883,
+  "updatedAt": 1669132820883,
   "deletedAt": 0,
-  "createdFirstAt": 1668960455861,
+  "createdFirstAt": 1669132820883,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-title",
   "operationRelativeTypescriptFilePath": "src/NestedMenuItem.tsx",
   "type": {
-    "rawType": "(item: import(\"/Users/king/King/operations/tools/types/webpage-types/build/types\").WebPage<undefined>) => string",
+    "rawType": "(item: import(\"/Users/king/King/operations/tools/types/webpage-types/build/types\").WebPage<null>) => string",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(item: WebPage<undefined>): string => {\n  return item.menuTitle || getFileOrFolderName(item.queryPath);\n}",
+  "value": "(item: WebPage<null>): string => {\n  return item.menuTitle || getFileOrFolderName(item.queryPath);\n}",
   "description": "",
-  "id": "pjjjregmxvpdyypqioctbngc"
+  "id": "vaxexdnbaxjqfhtqfjlmnkrn"
 }

@@ -1,0 +1,69 @@
+{
+  "createdAt": 1668328741949,
+  "updatedAt": 1668328741949,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328741949,
+  "id": "omjkuceilskauoedaqurtwyw",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "main": "build/index.js",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "source": "src/index.ts",
+  "version": "0.0.0",
+  "name": "file-icons",
+  "language": "english",
+  "slug": "file-icons",
+  "operation": {
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "dependenciesBuildsFailed": false,
+      "indexErrors": [],
+      "indexImportExportError": "",
+      "indexInteracesErrors": [],
+      "lintProblems": []
+    },
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [],
+    "folderNameIndexed": "file-icons",
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1668336618615,
+    "operationDependenciesIndexed": [],
+    "packageDependenciesIndexed": [],
+    "relativeOperationLocationPathIndexed": "operations/tools/writer",
+    "markdown": "# 🌈 file-icons\n\nExposes funcitons to get a nice emoji file-icon for any file type\n",
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 33,
+        "characters": 1002,
+        "bytes": 1002
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 107,
+        "characters": 3532,
+        "bytes": 3532
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 47,
+        "characters": 675,
+        "bytes": 675
+      },
+      "size": {
+        "bytes": 5209,
+        "characters": 5209,
+        "lines": 187,
+        "numberOfFiles": 6
+      }
+    },
+    "hasGeneratedImportsIndexed": false
+  }
+}

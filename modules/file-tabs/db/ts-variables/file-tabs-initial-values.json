@@ -1,0 +1,253 @@
+{
+  "createdAt": 1667380084922,
+  "updatedAt": 1667380084922,
+  "deletedAt": 0,
+  "createdFirstAt": 1667380084922,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "fileTabsInitialValues",
+  "slug": "file-tabs-initial-values",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/writer/file-tabs/src/store\").FileTabsStoreType",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "unsavedFiles": {
+          "type": "object",
+          "properties": {}
+        },
+        "openPages": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              },
+              "page": {},
+              "query": {
+                "type": "object",
+                "properties": {}
+              },
+              "pinned": {
+                "type": "boolean"
+              },
+              "temporary": {
+                "type": "boolean"
+              },
+              "isUnsaved": {
+                "type": "boolean"
+              },
+              "cursorPosition": {
+                "type": "number"
+              },
+              "cursorWord": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              },
+              "cursorSentence": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              },
+              "startPosition": {
+                "type": "number"
+              },
+              "endPosition": {
+                "type": "number"
+              },
+              "exactSelection": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              },
+              "lastOpenedAt": {
+                "type": "number"
+              }
+            },
+            "required": [
+              "id",
+              "page",
+              "query",
+              "lastOpenedAt"
+            ]
+          }
+        }
+      },
+      "required": [
+        "unsavedFiles",
+        "openPages"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "unsavedFiles",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "openPages",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [
+                    {
+                      "name": "id",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "page",
+                      "required": true,
+                      "schema": {
+                        "properties": [],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "name": "query",
+                      "required": true,
+                      "schema": {
+                        "properties": [],
+                        "type": "object"
+                      }
+                    },
+                    {
+                      "name": "pinned",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "temporary",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "isUnsaved",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "cursorPosition",
+                      "required": false,
+                      "schema": {
+                        "type": "number"
+                      }
+                    },
+                    {
+                      "name": "cursorWord",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "cursorSentence",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "startPosition",
+                      "required": false,
+                      "schema": {
+                        "type": "number"
+                      }
+                    },
+                    {
+                      "name": "endPosition",
+                      "required": false,
+                      "schema": {
+                        "type": "number"
+                      }
+                    },
+                    {
+                      "name": "exactSelection",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "lastOpenedAt",
+                      "required": true,
+                      "schema": {
+                        "type": "number"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  unsavedFiles: {},\n  openPages: [],\n}",
+  "description": "",
+  "id": "sjuybnetqysrhqbiwxjmnpjd"
+}

@@ -1,0 +1,59 @@
+{
+  "createdAt": 1668336737550,
+  "updatedAt": 1668336737550,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336737550,
+  "id": "namedparameterstypeof-getlastpathschunk",
+  "name": "NamedParameters<typeof getLastPathsChunk>",
+  "slug": "namedparameterstypeof-getlastpathschunk",
+  "operationRelativeTypescriptFilePath": "src/getLastPathsChunk.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "paths": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ],
+          "description": "paths coming from `router.query`"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "paths",
+          "required": false,
+          "schema": {
+            "fullComment": "paths coming from `router.query`",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getLastPathsChunk>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

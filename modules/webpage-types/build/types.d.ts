@@ -2,7 +2,7 @@ import { ChildObject } from "recursive-types";
 /**
  General purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.
  */
-export declare type WebPage<T = undefined> = {
+export declare type WebPage<T = null> = {
     /**
      * query-path to be visited in order to find the page on the web.
      *
@@ -59,13 +59,45 @@ export declare type WebPage<T = undefined> = {
      */
     pageData: T;
 };
-export declare type FilePage = WebPage<{
-    projectRelativeFilePath: string;
-}>;
-export declare type TodoPage = FilePage;
-export declare type MarkdownReaderPage2 = FilePage;
+export declare type CustomWebPage = WebPage<null>;
+export declare type FileWebPage = WebPage<FilePage>;
+export declare type WriterWebPage = FileWebPage;
+export declare type ReaderWebPage = FileWebPage;
 /**
  * Only used for menu, so can be undefined because it shouldn't be available
  */
-export declare type NestedWebPage = ChildObject<WebPage<undefined>>;
+export declare type NestedWebPage = ChildObject<WebPage<null>>;
+export declare type FilePage = {
+    projectRelativeFilePath: string;
+    internalLinkWord?: string | null;
+    imagePath?: string | null;
+    shortDescription?: string | null;
+};
+/**
+ * Data needed to make a `WebPage`<CrudPage>
+ */
+export declare type CrudPage = {
+    modelName: string;
+    datasetSlugs?: string[];
+    canCreate?: boolean;
+    canRead?: boolean;
+    canUpdate?: boolean;
+    canDelete?: boolean;
+    itemActionFunctionNames?: string[];
+    pageActionFunctionNames?: string[];
+};
+/**
+ * Data needed to make a `WebPage`<FunctionFormPage>
+ */
+export declare type FunctionFormPage = {
+    functionName: string;
+    actionWithResult?: string;
+    routeOnIsSuccessful?: string;
+    customTitle?: string;
+    isMenuHidden?: boolean;
+};
+export declare type MenuObjectType<T> = {
+    flat: WebPage<T>[];
+    nested: NestedWebPage[];
+};
 //# sourceMappingURL=types.d.ts.map

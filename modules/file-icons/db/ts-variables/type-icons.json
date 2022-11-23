@@ -1,0 +1,268 @@
+{
+  "createdAt": 1668336614980,
+  "updatedAt": 1668336614980,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336614980,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "typeIcons",
+  "slug": "type-icons",
+  "operationRelativeTypescriptFilePath": "src/typeIcons.ts",
+  "type": {
+    "rawType": "{ markdown: string; typescript: string; javascript: string; json: string; folder: string; operation: string; operationFolder: string; function: string; interface: string; variable: string; other: string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "markdown": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "typescript": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "javascript": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "json": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "folder": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "operation": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "operationFolder": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "function": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "interface": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "variable": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "other": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "markdown",
+        "typescript",
+        "javascript",
+        "json",
+        "folder",
+        "operation",
+        "operationFolder",
+        "function",
+        "interface",
+        "variable",
+        "other"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "markdown",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "typescript",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "javascript",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "json",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "folder",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "operation",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "operationFolder",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "function",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "interface",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "variable",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "other",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  markdown: \"✍️\",\n  typescript: \"⌘\",\n  javascript: \"⌘\",\n  json: \"🗄\",\n  folder: \"📁\",\n\n  // other shit, not sure if this is worth keeping unless I start using this and make a general purpose convention for it\n  operation: \"👑\",\n  operationFolder: \"▶️\",\n  function: \"🍺\",\n  interface: \"🍷\",\n  variable: \"🍹\",\n  other: \"📃\",\n}",
+  "description": "",
+  "id": "bgammkwbwhkpglgbrqdanshk"
+}

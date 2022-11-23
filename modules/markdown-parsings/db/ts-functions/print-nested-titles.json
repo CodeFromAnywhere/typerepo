@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154824310,
-  "updatedAt": 1668154824310,
+  "createdAt": 1669200488277,
+  "updatedAt": 1669200488277,
   "deletedAt": 0,
-  "createdFirstAt": 1668154824310,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200488277,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/parsing/outline.ts",
   "commentsInside": [],
   "rawText": " (\n  nestedTitles: NestedTitle[] | undefined,\n  depth?: number\n): string | undefined => {\n  const realDepth = depth || 0;\n  const prefix = \"..\".repeat(realDepth);\n\n  const printedTogether = nestedTitles\n    ?.map((nestedTitle) => {\n      return Array.isArray(nestedTitle)\n        ? printNestedTitles(nestedTitle, realDepth + 1)\n        : `${prefix}${nestedTitle}\\n`;\n    })\n    .join(\"\\n\");\n\n  return printedTogether;\n}",
@@ -88,5 +83,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "kckzuqhazkvqdughwhivxxds"
+  "id": "yomjkqqytxucrzfisqoivily"
 }

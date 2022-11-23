@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334893202,
-  "updatedAt": 1668334893202,
+  "createdAt": 1669200456815,
+  "updatedAt": 1669200456815,
   "deletedAt": 0,
-  "createdFirstAt": 1668334893202,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200456815,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/expose/print.ts",
   "commentsInside": [],
   "rawText": " ({ absoluteFilePath }: { absoluteFilePath: string }) => {\n  /**\n    \n    markdown files should be rendered via the renderer first\n    \n    ts, json files should be color highlighted (we can simply wrap this in triple backticks and print it as markdown)\n    */\n}",
@@ -66,5 +61,5 @@
     "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "jholufosyuogcszmatcpstql"
+  "id": "bgbzzsqzxqsmkhvctgyhqlou"
 }

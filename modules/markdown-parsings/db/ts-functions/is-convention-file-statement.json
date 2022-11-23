@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154815272,
-  "updatedAt": 1668154815272,
+  "createdAt": 1669200475264,
+  "updatedAt": 1669200475264,
   "deletedAt": 0,
-  "createdFirstAt": 1668154815272,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200475264,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/isConventionFileStatement.ts",
   "commentsInside": [],
   "rawText": " (\n  item: TsFunction | TsVariable | TsInterface,\n  conventionFile: \"test\" | \"cli\"\n) => {\n  const fileId = getSrcRelativeFileId(item.operationRelativeTypescriptFilePath);\n  return hasSubExtension(fileId, [conventionFile], true);\n}",
@@ -86,5 +81,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "puiocirwgcvvynfznvyqopcq"
+  "id": "stesvmdkgvyoktkktjpstkfw"
 }

@@ -1,0 +1,41 @@
+{
+  "createdAt": 1669205450526,
+  "updatedAt": 1669205450526,
+  "deletedAt": 0,
+  "createdFirstAt": 1669205450526,
+  "id": "relativepathtype",
+  "name": "RelativePathType",
+  "slug": "relativepathtype",
+  "operationRelativeTypescriptFilePath": "src/getProjectRelativePaths.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type RelativePathType = \"todo\" | \"postables\";",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "todo",
+        "postables"
+      ]
+    },
+    "simplifiedSchema": {
+      "enum": [
+        "todo",
+        "postables"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "RelativePathType",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "createdAt": 1669200011722,
+  "updatedAt": 1669200011722,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200011722,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "name": "codestorys-node",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669200025153,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 3,
+        "lines": 100,
+        "characters": 3105,
+        "bytes": 3105
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 79,
+        "characters": 2725,
+        "bytes": 2725
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 61,
+        "characters": 1058,
+        "bytes": 1058
+      },
+      "size": {
+        "bytes": 6888,
+        "characters": 6888,
+        "lines": 240,
+        "numberOfFiles": 7
+      }
+    },
+    "folderNameIndexed": "codestorys-node",
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/reader",
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "getTodoPaths",
+      "getProjectRoot",
+      "onlyUnique2",
+      "fs",
+      "path",
+      "ReaderWebPage",
+      "readMarkdownFile",
+      "getMarkdownIntro",
+      "GetStaticPaths",
+      "GetStaticPathsContext",
+      "MarkdownReaderPageProps",
+      "GetStaticPropsContext",
+      "markdownReaderGetStaticPropsFromPages"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "dependencies": {
+    "explore-project": "0.0.1",
+    "get-path": "0.0.1",
+    "js-util": "0.0.1",
+    "fs-util": "1.0.5",
+    "webpage-types": "0.0.1",
+    "read-markdown-file": "0.0.1",
+    "markdown-parse-js": "0.0.1",
+    "next-types": "0.0.1",
+    "markdown-reader-types": "0.0.1",
+    "markdown-reader-functions": "0.0.1"
+  },
+  "slug": "codestorys-node",
+  "id": "csdmeiggslgvtqzybrxcxaqy"
+}

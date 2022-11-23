@@ -1,0 +1,57 @@
+{
+  "createdAt": 1664527168979,
+  "updatedAt": 1668149625486,
+  "deletedAt": 0,
+  "createdFirstAt": 1664527168979,
+  "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/markdown-reader/markdown-reader-web/src/pages/_app.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\\\" of kind \\\"ConstructorType\\\"\"]",
+  "buildSucceeded": true,
+  "id": "vmvuyjtxnrlhcvhwyshqbwug",
+  "indexImportExportError": "",
+  "lintProblems": [],
+  "folderName": "markdown-reader-web",
+  "packageName": "markdown-reader-web",
+  "relativeOperationLocationPath": "operations/tools/markdown-reader",
+  "classification": "web",
+  "name": "markdown-reader-web",
+  "slug": "markdown-reader-web",
+  "coreDependencies": [],
+  "operationDependencies": [
+    "MarkdownReaderPageProps",
+    "StoreProvider",
+    "publicEnvironmentVariables",
+    "publicLocalEnvironmentVariables",
+    "pagesObject",
+    "markdownReaderGetStaticProps"
+  ],
+  "packageDependencies": [
+    "AppProps",
+    "QueryClient",
+    "QueryClientProvider"
+  ],
+  "size": {
+    "codeSize": {
+      "numberOfFiles": 3,
+      "lines": 0,
+      "characters": 2528,
+      "bytes": 2528
+    },
+    "dataSize": {
+      "numberOfFiles": 34,
+      "lines": 0,
+      "characters": 180422,
+      "bytes": 180422
+    },
+    "textSize": {
+      "numberOfFiles": 2,
+      "lines": 0,
+      "characters": 410,
+      "bytes": 410
+    },
+    "size": {
+      "bytes": 183360,
+      "characters": 183360,
+      "lines": 0,
+      "numberOfFiles": 39
+    }
+  }
+}

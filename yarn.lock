@@ -1906,19 +1906,6 @@
     react-is "^16.13.0"
     use-latest-callback "^0.1.5"
 
-"@react-navigation/elements@^1.3.6":
-  version "1.3.6"
-  resolved "https://registry.yarnpkg.com/@react-navigation/elements/-/elements-1.3.6.tgz#fa700318528db93f05144b1be4b691b9c1dd1abe"
-  integrity sha512-pNJ8R9JMga6SXOw6wGVN0tjmE6vegwPmJBL45SEMX2fqTfAk2ykDnlJHodRpHpAgsv0DaI8qX76z3A+aqKSU0w==
-
-"@react-navigation/native-stack@^6.6.2":
-  version "6.9.1"
-  resolved "https://registry.yarnpkg.com/@react-navigation/native-stack/-/native-stack-6.9.1.tgz#6013300e4cd0b33e242aa18593e4dff7db2ab3d1"
-  integrity sha512-aOuJP97ge6NRz8wH6sDKfLTfdygGmraYh0apKrrVbGvMnflbPX4kpjQiAQcUPUpMeas0betH/Su8QubNL8HEkg==
-  dependencies:
-    "@react-navigation/elements" "^1.3.6"
-    warn-once "^0.1.0"
-
 "@react-navigation/native@^6.0.6":
   version "6.0.13"
   resolved "https://registry.yarnpkg.com/@react-navigation/native/-/native-6.0.13.tgz#ec504120e193ea6a7f24ffa765a1338be5a3160a"
@@ -2184,7 +2171,7 @@
   dependencies:
     tslib "^2.4.0"
 
-"@tailwindcss/line-clamp@^0.4.0", "@tailwindcss/line-clamp@^0.4.2":
+"@tailwindcss/line-clamp@^0.4.2":
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.4.2.tgz#f353c5a8ab2c939c6267ac5b907f012e5ee130f9"
   integrity sha512-HFzAQuqYCjyy/SX9sLGB1lroPzmcnWv1FHkIpmypte10hptf4oPUfucryMKovZh2u0uiS9U5Ty3GghWfEJGwVw==
@@ -2819,11 +2806,6 @@
   version "0.0.30"
   resolved "https://registry.yarnpkg.com/@types/strip-json-comments/-/strip-json-comments-0.0.30.tgz#9aa30c04db212a9a0649d6ae6fd50accc40748a1"
   integrity sha512-7NQmHra/JILCd1QqpSzl8+mJRc8ZHz3uDm8YV1Ks9IhK0epEiTw8aIErbvH9PI+6XbqhyIQy3462nEsn7UVzjQ==
-
-"@types/svg-path-parser@^1.1.3":
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/@types/svg-path-parser/-/svg-path-parser-1.1.3.tgz#659aca2e886071e5c593e06206b6254bcb811202"
-  integrity sha512-F1Y6lQIto5b2sKCseVUsFfY5J+8PIhhX4jrDVxpth4m7hwM2OdySh3iTLeR35lEhl/K4ZMEF+GDAwTl7yJcO5Q==
 
 "@types/trusted-types@^2.0.2":
   version "2.0.2"
@@ -4054,7 +4036,7 @@ classcat@^5.0.3:
   resolved "https://registry.yarnpkg.com/classcat/-/classcat-5.0.4.tgz#e12d1dfe6df6427f260f03b80dc63571a5107ba6"
   integrity sha512-sbpkOw6z413p+HDGcBENe498WM9woqWHiJxCq7nvmxe9WmrUmqfAcxpIwAiMtM5Q3AhYkzXcNQHqsWq0mND51g==
 
-classnames@2.x, classnames@^2.2.6:
+classnames@2.x, classnames@^2.2.5, classnames@^2.2.6:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
@@ -10234,6 +10216,14 @@ react-autosuggest@^10.1.0:
     section-iterator "^2.0.0"
     shallow-equal "^1.2.1"
 
+react-contextmenu@^2.14.0:
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/react-contextmenu/-/react-contextmenu-2.14.0.tgz#d8966f30614b9b780b928be4c8d92bd740d55cdd"
+  integrity sha512-ktqMOuad6sCFNJs/ltEwppN8F0YeXmqoZfwycgtZR/MxOXMYx1xgYC44SzWH259HdGyshk1/7sXGuIRwj9hzbw==
+  dependencies:
+    classnames "^2.2.5"
+    object-assign "^4.1.0"
+
 react-datepicker@^4.8.0:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/react-datepicker/-/react-datepicker-4.8.0.tgz#11b8918d085a1ce4781eee4c8e4641b3cd592010"
@@ -10340,13 +10330,6 @@ react-media-recorder@^1.6.6:
     extendable-media-recorder "^6.6.5"
     extendable-media-recorder-wav-encoder "^7.0.68"
 
-react-minimal-pie-chart@^8.3.0:
-  version "8.4.0"
-  resolved "https://registry.yarnpkg.com/react-minimal-pie-chart/-/react-minimal-pie-chart-8.4.0.tgz#c784dd3dffa9aee5c5396c0cb8ece814fd02e0e8"
-  integrity sha512-A0wG+6mRjboyMxMDrzQNWp+2+GSn2ai4ERzRFHLp/OCC45PwIR1DpDVjwedawO+5AtFpzBRQKSFm3ZUxrqIEzA==
-  dependencies:
-    "@types/svg-path-parser" "^1.1.3"
-
 react-native-codegen@^0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/react-native-codegen/-/react-native-codegen-0.0.7.tgz#86651c5c5fec67a8077ef7f4e36f7ed459043e14"
@@ -10447,7 +10430,7 @@ react-themeable@^1.1.0:
   dependencies:
     object-assign "^3.0.0"
 
-react-toastify@*, react-toastify@^9.0.1:
+react-toastify@*:
   version "9.1.1"
   resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.1.1.tgz#9280caea4a13dc1739c350d90660a630807bf10b"
   integrity sha512-pkFCla1z3ve045qvjEmn2xOJOy4ZciwRXm1oMPULVkELi5aJdHCN/FHnuqXq8IwGDLB7PPk2/J6uP9D8ejuiRw==
@@ -12851,11 +12834,6 @@ walker@^1.0.7, walker@~1.0.5:
   integrity sha512-ts/8E8l5b7kY0vlWLewOkDXMmPdLcVV4GmOQLyxuSswIJsweeFZtAsMF7k1Nszz+TYBQrlYRmzOnr398y1JemQ==
   dependencies:
     makeerror "1.0.12"
-
-warn-once@^0.1.0:
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/warn-once/-/warn-once-0.1.1.tgz#952088f4fb56896e73fd4e6a3767272a3fccce43"
-  integrity sha512-VkQZJbO8zVImzYFteBXvBOZEl1qL175WH8VmZcxF2fZAoudNhNDvHi+doCaAEdU2l2vtcIwa2zn0QK5+I1HQ3Q==
 
 warning@^4.0.2:
   version "4.0.3"

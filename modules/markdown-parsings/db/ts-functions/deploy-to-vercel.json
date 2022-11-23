@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334888729,
-  "updatedAt": 1668334888729,
+  "createdAt": 1669200450024,
+  "updatedAt": 1669200450024,
   "deletedAt": 0,
-  "createdFirstAt": 1668334888729,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200450024,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/expose/deployToVercel.ts",
   "commentsInside": [],
   "rawText": " () => {}",
@@ -37,5 +32,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "sgghfyxlykqruzvhmpanmbes"
+  "id": "ahwyxlwnimtzwxkutuixzulf"
 }

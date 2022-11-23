@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336736746,
+  "updatedAt": 1668336736746,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336736746,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getFullPath",
+  "slug": "get-full-path",
+  "operationRelativeTypescriptFilePath": "src/getFullPath.ts",
+  "type": {
+    "rawType": "(paths: string | string[] | undefined) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  /**\n   * paths coming from `router.query`\n   *\n   * supposed to be a path/url refering to a file/page that can be represented with slashes in between\n   */\n  paths: string | string[] | undefined\n): string => {\n  return typeof paths === \"string\"\n    ? paths\n    : Array.isArray(paths)\n    ? paths.join(\"/\")\n    : \"\";\n}",
+  "description": "gets a path string from `next.js` `router.query`.",
+  "id": "rrqnrtetixrownnfvmbyfnvh"
+}

@@ -1,0 +1,77 @@
+{
+  "createdAt": 1667380084666,
+  "updatedAt": 1667380084666,
+  "deletedAt": 0,
+  "createdFirstAt": 1667380084666,
+  "id": "filetabsstoretype",
+  "name": "FileTabsStoreType",
+  "slug": "filetabsstoretype",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type FileTabsStoreType = {\n  unsavedFiles: {\n    [projectRelativePath: string]: string | undefined;\n  };\n  openPages: OpenPage<string>[];\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "unsavedFiles": {
+          "type": "object",
+          "additionalProperties": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "not": {}
+              }
+            ]
+          }
+        },
+        "openPages": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/OpenPage%3Cstring%3E"
+          }
+        }
+      },
+      "required": [
+        "unsavedFiles",
+        "openPages"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "unsavedFiles",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "openPages",
+          "required": true,
+          "schema": {
+            "items": [],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "FileTabsStoreType",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

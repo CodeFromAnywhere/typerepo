@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668154837521,
-  "updatedAt": 1668154837521,
+  "createdAt": 1669200506591,
+  "updatedAt": 1669200506591,
   "deletedAt": 0,
-  "createdFirstAt": 1668154837521,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669200506591,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util/noNewlines.ts",
   "commentsInside": [],
   "rawText": " (\n  markdown: string | undefined\n): string | undefined => {\n  return markdown?.replaceAll(\"\\n\", \"<br />\");\n}",
@@ -65,5 +60,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "aiyybgplszezlrxbfbtyglbw"
+  "id": "jtpjvecxwybsjocppsyqfjyu"
 }

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669200020580,
+  "updatedAt": 1669200020580,
+  "deletedAt": 0,
+  "createdFirstAt": 1669200020580,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "codestoriesGetStaticProps",
+  "slug": "codestories-get-static-props",
+  "operationRelativeTypescriptFilePath": "src/codestoriesGetStaticProps.ts",
+  "type": {
+    "rawType": "(context: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPropsContext<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").PreviewData>) => Promise<{ props: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-types/build/MarkdownReaderPageProps\").MarkdownReaderPageProps; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await codestoriesGetPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(flat, context);\n}",
+  "description": "",
+  "id": "jgqvpspbdrtcqmlcomenojyw"
+}
