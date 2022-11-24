@@ -1,16 +1,16 @@
 {
-  "createdAt": 1669287948669,
-  "updatedAt": 1669287948669,
+  "createdAt": 1669322129363,
+  "updatedAt": 1669322129363,
   "deletedAt": 0,
-  "createdFirstAt": 1669287948669,
+  "createdFirstAt": 1669322129363,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "getStaticProps",
   "slug": "get-static-props",
-  "operationRelativeTypescriptFilePath": "src/pages/[...query].tsx",
+  "operationRelativeTypescriptFilePath": "src/pages/index.tsx",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").GetStaticProps<import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").QueryPageProps, import(\"querystring\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").PreviewData>",
+    "rawType": "import(\"/Users/king/King/bundled/typerepo/apps/search-web/node_modules/next/types/index\").GetStaticProps<import(\"/Users/king/King/bundled/typerepo/apps/search-web/src/util/types\").QueryPageProps, ParsedUrlQuery, import(\"/Users/king/King/bundled/typerepo/apps/search-web/node_modules/next/types/index\").PreviewData>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "searchGetStaticProps",
   "description": "",
-  "id": "nlfqznuclijsykpzcktzotsa"
+  "id": "hezgyjoqvaglakfkpnnvjdhg"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287954106,
-  "updatedAt": 1669287954106,
+  "createdAt": 1669322120414,
+  "updatedAt": 1669322120414,
   "deletedAt": 0,
-  "createdFirstAt": 1669287954106,
+  "createdFirstAt": 1669322120414,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -28,14 +28,11 @@
   ],
   "description": "Searches filepaths, then links to any `ui-web` that has this file available as a page, or vscode.\n\nFor this we need to get the `MarkdownReaderPage` and other pages that are available in ui's and see the files they are linked to.\n\nI want to be able to:\n\n- search functions, interfaces, variables\n- search operations\n- search markdown files, anywhere\n- search db-ui models\n\nBut there's more. To make a good serach...\n\nTODO:\n- gather everything i've made before about search",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").SearchResult[] | undefined",
+    "rawType": "{} | undefined",
     "typeDefinition": {
-      "optional": true,
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {}
-      }
+      "type": "object",
+      "properties": {},
+      "optional": true
     },
     "typeCoverage": 0,
     "isArray": false,
@@ -44,16 +41,8 @@
     "isPrimitive": false,
     "isEnumLiteral": false,
     "simplifiedSchema": {
-      "items": [
-        {
-          "schema": {
-            "properties": [],
-            "type": "object"
-          },
-          "name": null
-        }
-      ],
-      "type": "array"
+      "properties": [],
+      "type": "object"
     }
   },
   "maxIndentationDepth": 2,
@@ -66,5 +55,5 @@
     "linesPerFile": 44,
     "numberOfFiles": 1
   },
-  "id": "hddcouwvsdygminqpvgrnukk"
+  "id": "aznadibjywbbeubmevqgssxa"
 }

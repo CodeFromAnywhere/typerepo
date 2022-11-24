@@ -35,6 +35,8 @@ Typerepo is a collection of tools, conventions and a large SDK that brings toget
 
 ✅ **Web3 first** from the ground up, typerepo was built to support decentralised systems and peer to peer as a first-class citizen
 
+![](./readmemd.wav)
+
 🟠 **Test automation** We are building a different, better way to test your code
 
 🟠 **Execution monitoring** Soon, you can see all the functions executed in your backend and monitor different things
@@ -44,6 +46,8 @@ Typerepo is a collection of tools, conventions and a large SDK that brings toget
 🟠 **Authentication + Authorisation** We're building a general purpose auth layer that any app can use, out of the box!
 
 🟠 **Code Marketplace** We're building the developers creator economy by enabling developers to earn money for their open source code more easily. No sponsorship, cold hard cash!
+
+![](./readmemd1.wav)
 
 Many more things are coming!
 

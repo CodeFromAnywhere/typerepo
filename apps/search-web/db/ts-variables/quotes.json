@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287939380,
-  "updatedAt": 1669287939380,
+  "createdAt": 1669322130967,
+  "updatedAt": 1669322130967,
   "deletedAt": 0,
-  "createdFirstAt": 1669287939380,
+  "createdFirstAt": 1669322130967,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -10,43 +10,24 @@
   "slug": "quotes",
   "operationRelativeTypescriptFilePath": "src/components/HomePage.tsx",
   "type": {
-    "rawType": "string[]",
+    "rawType": "{}",
     "typeDefinition": {
-      "optional": false,
-      "type": "array",
-      "items": {
-        "type": "string",
-        "allOf": [
-          {
-            "transform": [
-              "trim"
-            ]
-          },
-          {
-            "minLength": 1
-          }
-        ]
-      }
+      "type": "object",
+      "properties": {},
+      "optional": false
     },
     "typeCoverage": 0,
-    "isArray": true,
+    "isArray": false,
     "isEnum": false,
     "isObject": true,
     "isPrimitive": false,
     "isEnumLiteral": false,
     "simplifiedSchema": {
-      "items": [
-        {
-          "schema": {
-            "type": "string"
-          },
-          "name": null
-        }
-      ],
-      "type": "array"
+      "properties": [],
+      "type": "object"
     }
   },
   "value": "[\"A day without coding is a day unlived\"]",
   "description": "",
-  "id": "hjgtmbouialwqlhsqujbzhbj"
+  "id": "kanbuupmrvctqhtufmlipfwv"
 }

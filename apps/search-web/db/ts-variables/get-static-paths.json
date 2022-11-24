@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287948669,
-  "updatedAt": 1669287948669,
+  "createdAt": 1669322124346,
+  "updatedAt": 1669322124346,
   "deletedAt": 0,
-  "createdFirstAt": 1669287948669,
+  "createdFirstAt": 1669322124346,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-static-paths",
   "operationRelativeTypescriptFilePath": "src/pages/[...query].tsx",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").GetStaticPaths<import(\"querystring\").ParsedUrlQuery>",
+    "rawType": "import(\"/Users/king/King/bundled/typerepo/apps/search-web/node_modules/next/types/index\").GetStaticPaths<ParsedUrlQuery>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  return { fallback: \"blocking\", paths: [] };\n}",
   "description": "",
-  "id": "giaeucdsfdomgduhrrtxypai"
+  "id": "ziisnerfyiwtqnyguhtshaiv"
 }

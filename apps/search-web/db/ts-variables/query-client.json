@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287951786,
-  "updatedAt": 1669287951786,
+  "createdAt": 1669322127866,
+  "updatedAt": 1669322127866,
   "deletedAt": 0,
-  "createdFirstAt": 1669287951786,
+  "createdFirstAt": 1669322127866,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -10,22 +10,15 @@
   "slug": "query-client",
   "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/node_modules/react-query/types/core/queryClient\").QueryClient",
-    "typeDefinition": {
-      "optional": false
-    },
+    "rawType": "any",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": true,
+    "isObject": false,
     "isPrimitive": false,
-    "isEnumLiteral": false,
-    "simplifiedSchema": {
-      "properties": [],
-      "type": "object"
-    }
+    "isEnumLiteral": false
   },
   "value": "new QueryClient()",
   "description": "",
-  "id": "zgralpdzapecvcbgixccxlyz"
+  "id": "zxrebhfrvzcezkfuwerypkbj"
 }
