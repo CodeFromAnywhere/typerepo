@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669055754608,
-  "updatedAt": 1669055754608,
+  "createdAt": 1669304035909,
+  "updatedAt": 1669304035909,
   "deletedAt": 0,
-  "createdFirstAt": 1669055754608,
+  "createdFirstAt": 1669304035909,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/scheduleCronJobs.ts",
   "commentsInside": [],
-  "rawText": " async (tsFunction: TsFunction) => {\n  if (tsFunction.parameters && tsFunction.parameters.length > 0) {\n    log(\"CRON Functions cannot have parameters\", { type: \"error\" });\n    process.exit();\n  }\n\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n}",
+  "rawText": " async (tsFunction: TsFunction) => {\n  if (\n    tsFunction.parameters &&\n    tsFunction.parameters.length > 0 &&\n    tsFunction.parameters.find((x) => x.required)\n  ) {\n    log(\"CRON Functions cannot have required parameters\", { type: \"error\" });\n    process.exit();\n  }\n\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n}",
   "name": "executeCronFunction",
   "slug": "execute-cron-function",
   "parameters": [
@@ -2227,13 +2227,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 283,
-    "lines": 9,
-    "bytes": 283,
+    "characters": 357,
+    "lines": 13,
+    "bytes": 357,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 31,
-    "linesPerFile": 9,
+    "charactersPerLine": 27,
+    "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "qgslqegpkqvntlyhjxtzmzmh"
+  "id": "bfrjlmjldmegqwrvogliyuxd"
 }

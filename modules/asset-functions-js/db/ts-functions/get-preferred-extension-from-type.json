@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669054859158,
-  "updatedAt": 1669054859158,
+  "createdAt": 1669311656601,
+  "updatedAt": 1669311656601,
   "deletedAt": 0,
-  "createdFirstAt": 1669054859158,
+  "createdFirstAt": 1669311656601,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getPreferredExtensionFromType.ts",
   "commentsInside": [],
-  "rawText": " (type: string | undefined) => {\n  if (type === \"audio/mp4\") return \"mp3\";\n  return type?.split(\"/\").pop();\n}",
+  "rawText": " (type: string | undefined) => {\n  if (type === \"audio/mp4\") return \"mp3\";\n  const lastPart = type?.split(\"/\").pop();\n  if (lastPart === \"quicktime\") return \"mp4\";\n\n  return lastPart;\n}",
   "name": "getPreferredExtensionFromType",
   "slug": "get-preferred-extension-from-type",
   "parameters": [
@@ -35,13 +35,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 273,
-    "lines": 8,
-    "bytes": 273,
+    "characters": 349,
+    "lines": 11,
+    "bytes": 349,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 34,
-    "linesPerFile": 8,
+    "charactersPerLine": 32,
+    "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "onbciqykdvvlzdaxhxhbszeb"
+  "id": "bqbgczqdqfjunaaxwvqihckz"
 }

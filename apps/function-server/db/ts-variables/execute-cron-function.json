@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055754766,
-  "updatedAt": 1669055754766,
+  "createdAt": 1669304036100,
+  "updatedAt": 1669304036100,
   "deletedAt": 0,
-  "createdFirstAt": 1669055754766,
+  "createdFirstAt": 1669304036100,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (tsFunction: TsFunction) => {\n  if (tsFunction.parameters && tsFunction.parameters.length > 0) {\n    log(\"CRON Functions cannot have parameters\", { type: \"error\" });\n    process.exit();\n  }\n\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n}",
+  "value": "async (tsFunction: TsFunction) => {\n  if (\n    tsFunction.parameters &&\n    tsFunction.parameters.length > 0 &&\n    tsFunction.parameters.find((x) => x.required)\n  ) {\n    log(\"CRON Functions cannot have required parameters\", { type: \"error\" });\n    process.exit();\n  }\n\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n}",
   "description": "NB: cron functions cannot have parameters",
-  "id": "spvnbiqckjekkmqsiqahmnqr"
+  "id": "dgjyoqflmqeuufykplcabuuf"
 }

@@ -63,7 +63,7 @@ export const sdkInterfacePaths = {
   "FunctionContext": "/modules/server-login/db/ts-interfaces/functioncontext.json",
   "NamedParameters<typeof compressAsset>": "/modules/asset-functions-node/db/ts-interfaces/namedparameterstypeof-compressasset.json",
   "NamedParameters<typeof downloadRemoteAsset>": "/modules/asset-functions-node/db/ts-interfaces/namedparameterstypeof-downloadremoteasset.json",
-  "NamedParameters<typeof convertToMp3>": "/modules/asset-functions-node/db/ts-interfaces/namedparameterstypeof-converttomp3.json",
+  "NamedParameters<typeof convertToMp4>": "/modules/asset-functions-node/db/ts-interfaces/namedparameterstypeof-converttomp4.json",
   "NamedParameters<typeof deleteReferencedAsset>": "/modules/asset-functions-node/db/ts-interfaces/namedparameterstypeof-deletereferencedasset.json",
   "NamedParameters<typeof findAbsoluteAssetPathFromReference>": "/modules/asset-functions-node/db/ts-interfaces/namedparameterstypeof-findabsoluteassetpathfromreference.json",
   "NamedParameters<typeof findAllProjectMedia>": "/modules/asset-functions-node/db/ts-interfaces/namedparameterstypeof-findallprojectmedia.json",

@@ -1,5 +1,6 @@
 export * from "./compressAsset";
 export * from "./convertToMp3";
+export * from "./convertToMp4";
 export * from "./deleteReferencedAsset";
 export * from "./downloadRemoteAsset";
 export * from "./findAllProjectMedia";

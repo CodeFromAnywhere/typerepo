@@ -389,6 +389,53 @@ Returns not only the file paths, but also where they were found (`operationName,
 
 
 
+## 🔹 DbQueryResult
+
+TODO: return the inserted id or other reference
+
+Result of any query except `get`. Will not always provide all parameters (depends on the type of query you do)
+
+
+
+> TODO: return the inserted id or other reference<br /><br />Result of any query except `get`. Will not always provide all parameters (depends on the type of query you do)
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| isSuccesful (optional) | boolean |  |
+| message (optional) | string |  |
+| isNewFile (optional) | boolean |  |
+| amountInserted (optional) | number |  |
+| amountUpdated (optional) | number |  |
+| amountRemoved (optional) | number |  |
+
+
+
+## 🔹 DbQueryResult
+
+TODO: return the inserted id or other reference
+
+Result of any query except `get`. Will not always provide all parameters (depends on the type of query you do)
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| isSuccesful (optional) | boolean |  |
+| message (optional) | string |  |
+| isNewFile (optional) | boolean |  |
+| amountInserted (optional) | number |  |
+| amountUpdated (optional) | number |  |
+| amountRemoved (optional) | number |  |
+| allRemoved (optional) | boolean |  |
+
+
+
 ## 📄 getDatabaseFiles (exported const)
 
 This function gets the files that the data can be stored, by convention, based on the model and the config
@@ -437,53 +484,6 @@ DB main storage convention
 | ---------- | -- | -- |
 | - | | |
 | **Output** |    |    |
-
-
-
-## 🔹 DbQueryResult
-
-TODO: return the inserted id or other reference
-
-Result of any query except `get`. Will not always provide all parameters (depends on the type of query you do)
-
-
-
-> TODO: return the inserted id or other reference<br /><br />Result of any query except `get`. Will not always provide all parameters (depends on the type of query you do)
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| isSuccesful (optional) | boolean |  |
-| message (optional) | string |  |
-| isNewFile (optional) | boolean |  |
-| amountInserted (optional) | number |  |
-| amountUpdated (optional) | number |  |
-| amountRemoved (optional) | number |  |
-
-
-
-## 🔹 DbQueryResult
-
-TODO: return the inserted id or other reference
-
-Result of any query except `get`. Will not always provide all parameters (depends on the type of query you do)
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| isSuccesful (optional) | boolean |  |
-| message (optional) | string |  |
-| isNewFile (optional) | boolean |  |
-| amountInserted (optional) | number |  |
-| amountUpdated (optional) | number |  |
-| amountRemoved (optional) | number |  |
-| allRemoved (optional) | boolean |  |
 
 
 

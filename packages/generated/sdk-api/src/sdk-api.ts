@@ -19,7 +19,7 @@ import { askOk } from "ask";
 import { ask } from "ask";
 import { getArgumentOrAsk } from "ask";
 import { compressAsset } from "asset-functions-node";
-import { convertToMp3 } from "asset-functions-node";
+import { convertToMp4 } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
 import { findAbsoluteAssetPathFromReference } from "asset-functions-node";
@@ -681,7 +681,7 @@ askOk,
 ask,
 getArgumentOrAsk,
 compressAsset,
-convertToMp3,
+convertToMp4,
 deleteReferencedAsset,
 downloadRemoteAsset,
 findAbsoluteAssetPathFromReference,

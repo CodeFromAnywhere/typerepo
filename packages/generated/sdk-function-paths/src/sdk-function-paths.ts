@@ -64,7 +64,7 @@ export const sdkFunctionPaths = {
   "readableSize": "/modules/asset-functions-js/db/ts-functions/readable-size.json",
   "removeTokenIfPresent": "/modules/asset-functions-js/db/ts-functions/remove-token-if-present.json",
   "compressAsset": "/modules/asset-functions-node/db/ts-functions/compress-asset.json",
-  "convertToMp3": "/modules/asset-functions-node/db/ts-functions/convert-to-mp-3.json",
+  "convertToMp4": "/modules/asset-functions-node/db/ts-functions/convert-to-mp-4.json",
   "deleteReferencedAsset": "/modules/asset-functions-node/db/ts-functions/delete-referenced-asset.json",
   "downloadRemoteAsset": "/modules/asset-functions-node/db/ts-functions/download-remote-asset.json",
   "findAbsoluteAssetPathFromReference": "/modules/asset-functions-node/db/ts-functions/find-absolute-asset-path-from-reference.json",

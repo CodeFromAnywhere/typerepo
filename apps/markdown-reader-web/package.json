@@ -1,4 +1,8 @@
 {
+  "createdAt": 1668328716891,
+  "updatedAt": 1668328716891,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328716891,
   "scripts": {
     "dev": "next dev -p 42004",
     "start": "next start -p 42004",
@@ -8,10 +12,6 @@
     "export": "next export",
     "lint": "next lint"
   },
-  "createdAt": 1668328716891,
-  "updatedAt": 1668328716891,
-  "deletedAt": 0,
-  "createdFirstAt": 1668328716891,
   "id": "oqRhxGziXSELxSxM",
   "dependencies": {
     "@badrap/bar-of-progress": "^0.2.1",

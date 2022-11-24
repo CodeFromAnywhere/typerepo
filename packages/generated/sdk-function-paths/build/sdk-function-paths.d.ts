@@ -64,7 +64,7 @@ export declare const sdkFunctionPaths: {
     readableSize: string;
     removeTokenIfPresent: string;
     compressAsset: string;
-    convertToMp3: string;
+    convertToMp4: string;
     deleteReferencedAsset: string;
     downloadRemoteAsset: string;
     findAbsoluteAssetPathFromReference: string;

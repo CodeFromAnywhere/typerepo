@@ -6,21 +6,31 @@
 
 Typerepo is a collection of tools, conventions and a large SDK that brings together the well-known **Typescript** frameworks: **Node.js**, **Expo.dev** and **Next.js** under 1 bigger whole.
 
-## Features
-
 ✅ **Automatic form generation** Generate forms from your functions without writing any frontend code
+
+![](./mov2.mp4)
 
 ✅ **API generation** You don't need to write endpoints, just write your functions in the node environment and they will be accessible as CLI as well as through the API
 
+✅ **API type-safety** Your backend functions are directly accessible via the `api` object on the frontend. We also support `react-query` by creating a fully-typed `useQuery` for you for every backend-function, automatically.
+
+![](./mov.mp4)
+
 ✅ **Automatic documentation** Everything you code automatically becomes part of your docs, no need to write them separately!
 
-✅ **API type-safety** Your backend functions are directly accessible via the `api` object on the frontend. We also support `react-query` by creating a fully-typed `useQuery` for you for every backend-function, automatically.
+![](./screen-recording-2022-11-24-at-184643.mp4)
 
 ✅ **Asset upload** You don't need to integrate to any third party services to allow asset upload, and there is no set up required! You can allow image upload at any page with a single line of code.
 
+![](./screen-recording-2022-11-24-at-184923.mp4)
+
 ✅ **Database** we created `typebase` to bring first-class support for anything we're still going to build.
 
+![](./screen-recording-2022-11-24-at-185226.mp4)
+
 ✅ **Admin panels** We bring all your code together in an admin panel where you can try out your functions and control all your data in the database.
+
+![](./screen-recording-2022-11-24-at-185502.mp4)
 
 ✅ **Web3 first** from the ground up, typerepo was built to support decentralised systems and peer to peer as a first-class citizen
 
@@ -42,4 +52,8 @@ Please see the [docs here](docs)
 
 ## Community
 
+![](./readmemd1.mp4)
+
+
 Join our community where dozens of developers are building the tech of tomorrow. Join us now on [Discord](https://discord.com/codefromanywhere)
+

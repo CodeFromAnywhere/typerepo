@@ -15,5 +15,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./runFunctionServer"), exports);
+__exportStar(require("./runFunctionServerDev"), exports);
 __exportStar(require("./scheduleCronJobs"), exports);
 //# sourceMappingURL=index.js.map

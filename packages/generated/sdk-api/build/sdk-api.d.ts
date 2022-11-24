@@ -100,7 +100,7 @@ export declare const sdk: {
     ask: (question: string) => Promise<string>;
     getArgumentOrAsk: (argumentPosition: number, question: string, isNonInteractive?: boolean | undefined) => Promise<string>;
     compressAsset: (absolutePath: string, compressionConfig: import("asset-type").CompressionConfig) => Promise<string>;
-    convertToMp3: (sourcePath: string, destinationPath: string) => Promise<string | undefined>;
+    convertToMp4: (sourcePath: string, destinationPath: string) => Promise<string | undefined>;
     deleteReferencedAsset: (projectRelativeReferencingFilePath: string, referencingFileRelativeAssetPath: string) => Promise<{
         isSuccessful: boolean;
         message: string;

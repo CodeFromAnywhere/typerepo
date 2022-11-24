@@ -48,14 +48,16 @@ function MyApp({ Component, pageProps }: RealAppProps) {
     publicEnvironmentVariables.markdownReaderTitle ||
     "Docs";
 
-  const title = pageProps.title ? `${pageProps.title} - ${siteName}` : siteName;
+  const title = pageProps.content?.title
+    ? `${pageProps.content?.title} - ${siteName}`
+    : siteName;
 
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
         <title>{title}</title>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        {/* <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -64,7 +66,7 @@ function MyApp({ Component, pageProps }: RealAppProps) {
         <link
           href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
           rel="stylesheet"
-        />
+        /> */}
 
         {/* NB: for CODE syntax highlighting of "markdown" markdown-parser */}
         <link

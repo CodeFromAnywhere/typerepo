@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669276098983,
-  "updatedAt": 1669276098983,
+  "createdAt": 1669310098481,
+  "updatedAt": 1669310098481,
   "deletedAt": 0,
-  "createdFirstAt": 1669276098983,
+  "createdFirstAt": 1669310098481,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  operationBasePath: string,\n  /**\n   * non-reader webPages will be filtered out by checking if the projectRelativeFilePath exists on pageData and has the extension .md\n   */\n  allWebPages: WebPage<unknown>[]\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  const baseDestinationPath = path.join(\n    operationBasePath,\n    \"public\",\n    \"markdown-assets\"\n  );\n\n  if (fs.existsSync(baseDestinationPath)) {\n    //first clean up if it was generated before\n    await fs.rm(baseDestinationPath, { recursive: true });\n  }\n\n  const readerWebPages = allWebPages\n    .map((x) => ({\n      ...x,\n      pageData: x.pageData as null | { [key: string]: any },\n    }))\n    // filter out the WebPages that don't have a filePath ending on .md\n    .filter((x) => x.pageData?.projectRelativeFilePath?.endsWith(\".md\"))\n    .map((x) => x as ReaderWebPage);\n\n  const absoluteAssetPaths =\n    (await findReaderStaticAssets(readerWebPages)) || [];\n\n  const copyPairs = absoluteAssetPaths.map((absoluteAssetPath) => {\n    const projectRelativeAssetPath = makeRelative(\n      absoluteAssetPath,\n      projectRoot\n    );\n\n    const absoluteDestinationPath = path.join(\n      baseDestinationPath,\n      projectRelativeAssetPath\n    );\n\n    return { absoluteSourcePath: absoluteAssetPath, absoluteDestinationPath };\n  });\n\n  await copyCopyPairs(copyPairs);\n\n  console.log(`Copied ${copyPairs.length} files into your public folder`);\n\n  // console.log({ copyPairs });\n}",
+  "value": "async (\n  operationBasePath: string,\n  /**\n   * non-reader webPages will be filtered out by checking if the projectRelativeFilePath exists on pageData and has the extension .md\n   */\n  allWebPages: WebPage<unknown>[]\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  const baseDestinationPath = path.join(\n    operationBasePath,\n    \"public\",\n    \"markdown-assets\"\n  );\n\n  if (fs.existsSync(baseDestinationPath)) {\n    //first clean up if it was generated before\n    await fs.rm(baseDestinationPath, { recursive: true });\n  }\n\n  const readerWebPages = allWebPages\n    .map((x) => ({\n      ...x,\n      pageData: x.pageData as null | { [key: string]: any },\n    }))\n    // filter out the WebPages that don't have a filePath ending on .md\n    .filter((x) => x.pageData?.projectRelativeFilePath?.endsWith(\".md\"))\n    .filter((x) => fs.existsSync(x.pageData?.projectRelativeFilePath))\n    .map((x) => x as ReaderWebPage);\n\n  const absoluteAssetPaths =\n    (await findReaderStaticAssets(readerWebPages)) || [];\n\n  const copyPairs = absoluteAssetPaths.map((absoluteAssetPath) => {\n    const projectRelativeAssetPath = makeRelative(\n      absoluteAssetPath,\n      projectRoot\n    );\n\n    const absoluteDestinationPath = path.join(\n      baseDestinationPath,\n      projectRelativeAssetPath\n    );\n\n    return { absoluteSourcePath: absoluteAssetPath, absoluteDestinationPath };\n  });\n\n  await copyCopyPairs(copyPairs);\n\n  console.log(`Copied ${copyPairs.length} files into your public folder`);\n\n  // console.log({ copyPairs });\n}",
   "description": "",
-  "id": "jzbsjexyiubuquvogdmyecxa"
+  "id": "vkylqtkofzmrrnwecuovmiyf"
 }

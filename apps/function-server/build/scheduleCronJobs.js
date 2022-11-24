@@ -49,8 +49,10 @@ var database_1 = require("database");
 var executeCronFunction = function (tsFunction) { return __awaiter(void 0, void 0, void 0, function () {
     var _a;
     return __generator(this, function (_b) {
-        if (tsFunction.parameters && tsFunction.parameters.length > 0) {
-            (0, log_1.log)("CRON Functions cannot have parameters", { type: "error" });
+        if (tsFunction.parameters &&
+            tsFunction.parameters.length > 0 &&
+            tsFunction.parameters.find(function (x) { return x.required; })) {
+            (0, log_1.log)("CRON Functions cannot have required parameters", { type: "error" });
             process.exit();
         }
         //@ts-ignore

@@ -10,8 +10,12 @@ import { db } from "database";
  * NB: cron functions cannot have parameters
  */
 export const executeCronFunction = async (tsFunction: TsFunction) => {
-  if (tsFunction.parameters && tsFunction.parameters.length > 0) {
-    log("CRON Functions cannot have parameters", { type: "error" });
+  if (
+    tsFunction.parameters &&
+    tsFunction.parameters.length > 0 &&
+    tsFunction.parameters.find((x) => x.required)
+  ) {
+    log("CRON Functions cannot have required parameters", { type: "error" });
     process.exit();
   }
 

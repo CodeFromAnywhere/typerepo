@@ -23,19 +23,30 @@ export const TodoMenuHeader = () => {
     recencyOptions.find((x) => x.value === todoPagesConfig.recency) ||
     recencyOptions[0];
 
-  const categoryStackOptions = [{ label: "🧩", value: "" }].concat(
-    ["ideas", "backlog", "done", "codestories", "postables"].map((x) => {
-      return { value: x, label: humanCase(x) };
-    })
+  const categoryStackOptions = [
+    { label: "🧩", value: "" },
+    { label: "Without category", value: "__NO_CATEGORY__" },
+  ].concat(
+    ["ideas", "backlog", "done", "codestories", "postables", "wontdo"].map(
+      (x) => {
+        return { value: x, label: humanCase(x) };
+      }
+    )
   );
 
   const defaultSelectClass =
     "text-xs border-gray-300 border rounded-md focus:outline-none bg-transparent h-9";
 
+  const noCategoryValue =
+    todoPagesConfig.categoryStack?.length === 0
+      ? categoryStackOptions.find((x) => x.value === "__NO_CATEGORY__")
+      : undefined;
+
+  const cateogryValue = categoryStackOptions.find(
+    (x) => x.value === todoPagesConfig.categoryStack?.[0]
+  );
   const categoryStackValue: Item<string> =
-    categoryStackOptions.find(
-      (x) => x.value === todoPagesConfig.categoryStack?.[0]
-    ) || categoryStackOptions[0];
+    noCategoryValue || cateogryValue || categoryStackOptions[0];
 
   const personOptions = [{ label: "🙋‍♂️", value: "" }].concat(persons);
 
@@ -80,6 +91,8 @@ export const TodoMenuHeader = () => {
             categoryStack:
               v?.value === "" || v?.value === undefined
                 ? undefined
+                : v?.value === "__NO_CATEGORY__"
+                ? []
                 : [v?.value],
           })
         }

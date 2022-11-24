@@ -1,20 +1,20 @@
 [
   {
-    "createdAt": 1669054871865,
-    "updatedAt": 1669054871865,
+    "createdAt": 1669311656832,
+    "updatedAt": 1669311656832,
     "deletedAt": 0,
-    "createdFirstAt": 1669054871865,
+    "createdFirstAt": 1669311656832,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/token/tokenPrefix.ts",
-    "comment": "NB: any filename should not be expected to enter this as part of its name. Otherwise it breaks the code and the filename will be changed to the thing before this string.\n\nNB: don't put any things inhere that are different, slugified, as the name will be slugified!",
-    "rawStatement": "export const tokenPrefix = \"-id-281271\";",
+    "operationRelativeTypescriptFilePath": "src/getPreferredExtensionFromType.ts",
+    "comment": "Received files contain a \"type\" like \"audio/mp3\" or \"image/jpeg\", etc...\n\nHere the extension is decided.\n\nNB: we also need to convert the file itself in case of mp3",
+    "rawStatement": "export const getPreferredExtensionFromType = (type: string | undefined) => {\n  if (type === \"audio/mp4\") return \"mp3\";\n  const lastPart = type?.split(\"/\").pop();\n  if (lastPart === \"quicktime\") return \"mp4\";\n\n  return lastPart;\n};",
     "parameters": {},
     "types": [
       "nb"
     ],
     "firstLine": 1,
-    "lastLine": 5,
-    "id": "pvpidpmzenpgcnwlnasqafwz"
+    "lastLine": 7,
+    "id": "qpysvbffwzqvcfzidqcpxljp"
   }
 ]

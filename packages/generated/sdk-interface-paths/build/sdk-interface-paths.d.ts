@@ -63,7 +63,7 @@ export declare const sdkInterfacePaths: {
     FunctionContext: string;
     "NamedParameters<typeof compressAsset>": string;
     "NamedParameters<typeof downloadRemoteAsset>": string;
-    "NamedParameters<typeof convertToMp3>": string;
+    "NamedParameters<typeof convertToMp4>": string;
     "NamedParameters<typeof deleteReferencedAsset>": string;
     "NamedParameters<typeof findAbsoluteAssetPathFromReference>": string;
     "NamedParameters<typeof findAllProjectMedia>": string;

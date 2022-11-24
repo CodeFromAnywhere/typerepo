@@ -74,6 +74,17 @@ var getTodoPaths = function (config) { return __awaiter(void 0, void 0, void 0, 
             case 1:
                 todoPaths = _b.sent();
                 // filter on categoryStack, if it's there. Filter BEFORE getting the markdown frontmatter, that's slow...
+                if (categoryStack && categoryStack.length === 0) {
+                    todoPaths = todoPaths === null || todoPaths === void 0 ? void 0 : todoPaths.filter(function (todoPath) {
+                        var lastIndexTodoFolder = todoPath.lastIndexOf("todo/");
+                        if (lastIndexTodoFolder === -1) {
+                            return false;
+                        }
+                        var todoRelativeFileId = todoPath.slice(lastIndexTodoFolder + "todo/".length);
+                        var depth = todoRelativeFileId.split("/").length - 1;
+                        return depth === 0;
+                    });
+                }
                 if (categoryStack && categoryStack.length > 0) {
                     todoPaths = todoPaths === null || todoPaths === void 0 ? void 0 : todoPaths.filter(function (todoPath) {
                         var lastIndexTodoFolder = todoPath.lastIndexOf("todo/");

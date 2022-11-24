@@ -1,27 +1,27 @@
 [
   {
-    "createdAt": 1669055754976,
-    "updatedAt": 1669055754976,
+    "createdAt": 1669304036420,
+    "updatedAt": 1669304036420,
     "deletedAt": 0,
-    "createdFirstAt": 1669055754976,
+    "createdFirstAt": 1669304036420,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/scheduleCronJobs.ts",
     "comment": "NB: cron functions cannot have parameters",
-    "rawStatement": "export const executeCronFunction = async (tsFunction: TsFunction) => {\n  if (tsFunction.parameters && tsFunction.parameters.length > 0) {\n    log(\"CRON Functions cannot have parameters\", { type: \"error\" });\n    process.exit();\n  }\n\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n};",
+    "rawStatement": "export const executeCronFunction = async (tsFunction: TsFunction) => {\n  if (\n    tsFunction.parameters &&\n    tsFunction.parameters.length > 0 &&\n    tsFunction.parameters.find((x) => x.required)\n  ) {\n    log(\"CRON Functions cannot have required parameters\", { type: \"error\" });\n    process.exit();\n  }\n\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n};",
     "parameters": {},
     "types": [
       "nb"
     ],
     "firstLine": 9,
     "lastLine": 11,
-    "id": "jpkqyyazvejsmnbornglhaka"
+    "id": "nqkymzwqpopauesbhklydvnm"
   },
   {
-    "createdAt": 1669055754976,
-    "updatedAt": 1669055754976,
+    "createdAt": 1669304036420,
+    "updatedAt": 1669304036420,
     "deletedAt": 0,
-    "createdFirstAt": 1669055754976,
+    "createdFirstAt": 1669304036420,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/scheduleCronJobs.ts",
@@ -29,8 +29,8 @@
     "rawStatement": "export const scheduleObject: { [interval in RunEveryPeriodEnum]: string } = {\n  minute: \"* * * * *\",\n  \"5-minutes\": \"0,5,10,15,20,25,30,35,40,45,50,55 * * * *\",\n  \"quarter-hour\": \"0,15,30,45 * * * *\",\n  hour: \"0 * * * *\",\n  \"6-hours\": \"0 0,6,12,18 * * *\",\n  midnight: \"0 0 * * *\",\n  week: \"0 0 * * 1\",\n  month: \"0 0 1 * *\",\n  \"3-months\": \"0 0 1 1,4,7,10 *\",\n  year: \"0 0 1 1 *\",\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 22,
-    "lastLine": 24,
-    "id": "iqwufannzaiysuqkspbkqvgm"
+    "firstLine": 26,
+    "lastLine": 28,
+    "id": "tdeghezgorosjwkcdrxwlmua"
   }
 ]

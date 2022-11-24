@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669054859261,
-  "updatedAt": 1669054859261,
+  "createdAt": 1669311656719,
+  "updatedAt": 1669311656719,
   "deletedAt": 0,
-  "createdFirstAt": 1669054859261,
+  "createdFirstAt": 1669311656719,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(type: string | undefined) => {\n  if (type === \"audio/mp4\") return \"mp3\";\n  return type?.split(\"/\").pop();\n}",
+  "value": "(type: string | undefined) => {\n  if (type === \"audio/mp4\") return \"mp3\";\n  const lastPart = type?.split(\"/\").pop();\n  if (lastPart === \"quicktime\") return \"mp4\";\n\n  return lastPart;\n}",
   "description": "Received files contain a \"type\" like \"audio/mp3\" or \"image/jpeg\", etc...\n\nHere the extension is decided.\n\nNB: we also need to convert the file itself in case of mp3",
-  "id": "elefddwcarxgpsblfhaviujh"
+  "id": "qsmevuhhfngbxsqbnanceqsp"
 }
