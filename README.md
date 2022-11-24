@@ -10,6 +10,7 @@ Typerepo is a collection of tools, conventions and a large SDK that brings toget
 
 ![](./mov2.mp4)
 
+[](./mov2.placeholder.jpeg)
 ✅ **API generation** You don't need to write endpoints, just write your functions in the node environment and they will be accessible as CLI as well as through the API
 
 ✅ **API type-safety** Your backend functions are directly accessible via the `api` object on the frontend. We also support `react-query` by creating a fully-typed `useQuery` for you for every backend-function, automatically.
@@ -54,6 +55,4 @@ Please see the [docs here](docs)
 
 ![](./readmemd1.mp4)
 
-
 Join our community where dozens of developers are building the tech of tomorrow. Join us now on [Discord](https://discord.com/codefromanywhere)
-
