@@ -63,9 +63,9 @@ import { exploreProject } from "explore-project";
 import { getExplorationType } from "explore-project";
 import { getFileWithExtension } from "explore-project";
 import { getFolderExplorationDetails } from "explore-project";
+import { getFrontmattersMappedObject } from "explore-project";
 import { getInstanceNames } from "explore-project";
 import { getProjectRelativePaths } from "explore-project";
-import { getTodoFrontmattersMappedObject } from "explore-project";
 import { getTodoPages } from "explore-project";
 import { getTodoPaths } from "explore-project";
 import { hasSameProjectPath } from "explore-project";
@@ -132,6 +132,7 @@ import { getDbModelsFromOperations } from "db-util";
 import { applyDataset } from "generate-bundle";
 import { calculateBundleDependencies } from "generate-bundle";
 import { calculateToPath } from "generate-bundle";
+import { copyCodestories } from "generate-bundle";
 import { copyDocsAndReadme } from "generate-bundle";
 import { copyFromRepoToNiche } from "generate-bundle";
 import { copyOperation } from "generate-bundle";
@@ -178,12 +179,14 @@ import { csvItemArrayToCsvString } from "csv-util";
 import { tryParseCsv } from "csv-util";
 import { convertCsvToJson } from "xls-to-csv-json";
 import { convertXlsToJson } from "xls-to-csv-json";
+import { copyCopyPairs } from "collect-static-assets";
+import { copyReaderStaticAssets } from "collect-static-assets";
+import { findReaderStaticAssets } from "collect-static-assets";
+import { findStaticAssets } from "collect-static-assets";
 import { docToMd } from "doc-to-md";
 import { docxToMd } from "doc-to-md";
 import { addCodestoryToSection } from "make-codestory";
 import { addModelName } from "make-codestory";
-import { findCodespansFromTokenRecursively } from "make-codestory";
-import { findCodespans } from "make-codestory";
 import { findCodestories } from "make-codestory";
 import { makeCodespanMappedObject } from "make-codestory";
 import { makeCodestory } from "make-codestory";
@@ -340,6 +343,8 @@ import { remindMe } from "reminder-node";
 import { getPostableFrontmatterSchema } from "social-media-functions";
 import { getFileContents } from "writer-functions";
 import { getFrontmatterSchema } from "writer-functions";
+import { getWriterWebPagesMenu } from "writer-functions";
+import { getWriterWebPages } from "writer-functions";
 import { moveFile } from "writer-functions";
 import { newFile } from "writer-functions";
 import { newFolder } from "writer-functions";
@@ -674,6 +679,12 @@ import { parseFrontmatterMarkdownString } from "markdown-parse-js";
 import { parseMarkdownParagraph } from "markdown-parse-js";
 import { parseMdToChunks } from "markdown-parse-js";
 import { removeHeaderPrefix } from "markdown-parse-js";
+import { findCodespansFromTokenRecursively } from "marked-util";
+import { findCodespans } from "marked-util";
+import { findEmbedsFromTokenRecursively } from "marked-util";
+import { findEmbeds } from "marked-util";
+import { findLinksFromTokenRecursively } from "marked-util";
+import { findLinks } from "marked-util";
 import { parsePrimitiveArray } from "parse-primitive";
 import { parsePrimitiveBoolean } from "parse-primitive";
 import { parsePrimitiveString } from "parse-primitive";
@@ -686,18 +697,16 @@ import { isValidEntry } from "rest-util";
 import { toQueryString } from "rest-util";
 import { findSentenceMatches } from "search";
 import { searchRecursiveObjectArray } from "search";
-import { findPostableToPost } from "social-media-types";
-import { updatePostedStatistics } from "social-media-types";
 import { getFunctionExersize } from "code-types";
-import { markdownParseToMarkdownModelType } from "code-types";
-import { parseMarkdownModelTimestamp } from "code-types";
-import { tryParseDate } from "code-types";
 import { createInvoiceContactMarkdown } from "invoice-types";
 import { createInvoiceMarkdown } from "invoice-types";
 import { createKeyValueMarkdown } from "invoice-types";
 import { money } from "invoice-types";
 import { newInvoice } from "invoice-types";
 import { printDate } from "invoice-types";
+import { markdownParseToMarkdownModelType } from "markdown-types";
+import { parseMarkdownModelTimestamp } from "markdown-types";
+import { tryParseDate } from "markdown-types";
 import { frontmatterParseToString } from "matter-types";
 import { getFrontmatterValueString } from "matter-types";
 import { quotedOrNot } from "matter-types";
@@ -893,9 +902,9 @@ exploreProject,
 getExplorationType,
 getFileWithExtension,
 getFolderExplorationDetails,
+getFrontmattersMappedObject,
 getInstanceNames,
 getProjectRelativePaths,
-getTodoFrontmattersMappedObject,
 getTodoPages,
 getTodoPaths,
 hasSameProjectPath,
@@ -962,6 +971,7 @@ getDbModelsFromOperations,
 applyDataset,
 calculateBundleDependencies,
 calculateToPath,
+copyCodestories,
 copyDocsAndReadme,
 copyFromRepoToNiche,
 copyOperation,
@@ -1008,12 +1018,14 @@ csvItemArrayToCsvString,
 tryParseCsv,
 convertCsvToJson,
 convertXlsToJson,
+copyCopyPairs,
+copyReaderStaticAssets,
+findReaderStaticAssets,
+findStaticAssets,
 docToMd,
 docxToMd,
 addCodestoryToSection,
 addModelName,
-findCodespansFromTokenRecursively,
-findCodespans,
 findCodestories,
 makeCodespanMappedObject,
 makeCodestory,
@@ -1170,6 +1182,8 @@ remindMe,
 getPostableFrontmatterSchema,
 getFileContents,
 getFrontmatterSchema,
+getWriterWebPagesMenu,
+getWriterWebPages,
 moveFile,
 newFile,
 newFolder,
@@ -1504,6 +1518,12 @@ parseFrontmatterMarkdownString,
 parseMarkdownParagraph,
 parseMdToChunks,
 removeHeaderPrefix,
+findCodespansFromTokenRecursively,
+findCodespans,
+findEmbedsFromTokenRecursively,
+findEmbeds,
+findLinksFromTokenRecursively,
+findLinks,
 parsePrimitiveArray,
 parsePrimitiveBoolean,
 parsePrimitiveString,
@@ -1516,18 +1536,16 @@ isValidEntry,
 toQueryString,
 findSentenceMatches,
 searchRecursiveObjectArray,
-findPostableToPost,
-updatePostedStatistics,
 getFunctionExersize,
-markdownParseToMarkdownModelType,
-parseMarkdownModelTimestamp,
-tryParseDate,
 createInvoiceContactMarkdown,
 createInvoiceMarkdown,
 createKeyValueMarkdown,
 money,
 newInvoice,
 printDate,
+markdownParseToMarkdownModelType,
+parseMarkdownModelTimestamp,
+tryParseDate,
 frontmatterParseToString,
 getFrontmatterValueString,
 quotedOrNot,

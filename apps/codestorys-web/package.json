@@ -33,7 +33,8 @@
     "rehype-highlight": "^5.0.2",
     "markdown-reader-types": "0.0.1",
     "next-a-link": "0.0.1",
-    "codestorys-node": "0.0.1"
+    "codestorys-node": "0.0.1",
+    "asset-view": "0.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -46,12 +47,16 @@
     "dev": "next dev -p 42016",
     "start": "next start -p 42016",
     "stop": "pm2 stop app_codestorys-web",
-    "copyStaticAssets": "copyStaticAssets",
-    "build": "next build",
+    "fillPublic": "node fillPublic.js",
+    "writeAllCodestories": "npx writeAllCodestories",
+    "build": "yarn fillPublic && next build",
     "export": "next export",
     "lint": "next lint"
   },
   "operation": {
+    "indirectDependencies": [
+      "collect-static-assets"
+    ],
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
@@ -65,12 +70,15 @@
     "folderNameIndexed": "codestorys-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669200538348,
+    "lastRebuildAt": 1669291088365,
     "operationDependenciesIndexed": [
       "MarkdownReaderPageProps",
       "Div",
       "P",
       "ALink",
+      "AssetView",
+      "Div",
+      "P",
       "MarkdownReaderPageProps",
       "StoreProvider",
       "publicEnvironmentVariables",
@@ -86,28 +94,28 @@
     "markdown": "# 🧙‍♂️ codestories-web\n\nNB: this is an experimental part of typerepo!",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 4,
-        "lines": 121,
-        "characters": 3577,
-        "bytes": 3577
+        "numberOfFiles": 5,
+        "lines": 170,
+        "characters": 5279,
+        "bytes": 5279
       },
       "dataSize": {
-        "numberOfFiles": 25,
+        "numberOfFiles": 21,
         "lines": 225,
-        "characters": 2710081,
-        "bytes": 2710081
+        "characters": 7389,
+        "bytes": 7389
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 45,
-        "characters": 609,
-        "bytes": 609
+        "lines": 69,
+        "characters": 1206,
+        "bytes": 1206
       },
       "size": {
-        "bytes": 2714267,
-        "characters": 2714267,
-        "lines": 391,
-        "numberOfFiles": 31
+        "bytes": 13874,
+        "characters": 13874,
+        "lines": 464,
+        "numberOfFiles": 28
       }
     },
     "hasGeneratedImportsIndexed": false

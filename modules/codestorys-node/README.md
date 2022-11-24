@@ -1,14 +1,25 @@
 # Codestorys node
 
-codestorys-node (`OperationClassification` undefined)
+codestorys-node (`OperationClassification` node-cjs)
 
 
 
 # Api reference
 
+## codestoriesGetStaticProps()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| context | `GetStaticPropsContext` |  |
+| **Output** |    |    |
+
+
+
+## 📄 codestoriesGetStaticProps (exported const)
+
 # Internal
 
-<details><summary>Show internal (6)</summary>
+<details><summary>Show internal (4)</summary>
     
   # codestoriesGetPages()
 
@@ -34,23 +45,10 @@ Function that tells Next.js what the pages are that need to be statically genera
 
 
 
-## codestoriesGetStaticProps()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| context | `GetStaticPropsContext` |  |
-| **Output** |    |    |
-
-
-
 ## 📄 codestoriesGetPages (exported const)
 
 ## 📄 codestoriesGetStaticPaths (exported const)
 
 Function that tells Next.js what the pages are that need to be statically generated
-
-
-## 📄 codestoriesGetStaticProps (exported const)
-
   </details>
 

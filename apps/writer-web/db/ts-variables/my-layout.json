@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669288030148,
+  "updatedAt": 1669288030148,
+  "deletedAt": 0,
+  "createdFirstAt": 1669288030148,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "MyLayout",
+  "slug": "my-layout",
+  "operationRelativeTypescriptFilePath": "src/MyLayout.tsx",
+  "type": {
+    "rawType": "(props: { pageProps: any; nextPage: any; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n  const writerWebPagesMenuQuery = queries.useGetWriterWebPagesMenu();\n\n  const menu = writerWebPagesMenuQuery.data?.result;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        menuHeader: () => {\n          return (\n            <Div>\n              <P>\n                Filters: filetype (select-multiple), recently edited, recently\n                created, author\n              </P>\n              <P>\n                Other: In search-mode, by default show the 100 most recent,\n                sorted on recency\n              </P>\n            </Div>\n          );\n        },\n        isLoading: writerWebPagesMenuQuery.isLoading,\n        webPagesFlat: menu?.flat,\n        webPagesNested: menu?.nested,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
+  "description": "",
+  "id": "dtzunnhuzgudckkzcexhqdqf"
+}

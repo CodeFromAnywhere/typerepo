@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200581811,
-  "updatedAt": 1669200581811,
+  "createdAt": 1669287840175,
+  "updatedAt": 1669287840175,
   "deletedAt": 0,
-  "createdFirstAt": 1669200581811,
+  "createdFirstAt": 1669287840175,
   "id": "readerwebpage",
   "name": "ReaderWebPage",
   "slug": "readerwebpage",
@@ -10,15 +10,16 @@
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
-  "description": "",
+  "description": "specifically always a markdown page",
   "isDbModel": false,
   "commentsInside": [],
   "type": {
     "typeDefinition": {
-      "$ref": "#/definitions/FileWebPage"
+      "$ref": "#/definitions/FileWebPage",
+      "description": "specifically always a markdown page"
     },
     "simplifiedSchema": {
-      "fullComment": "General purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
+      "fullComment": "specifically always a markdown page\n\n\n\nGeneral purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
       "properties": [
         {
           "name": "queryPath",

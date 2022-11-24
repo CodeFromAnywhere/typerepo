@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669288087583,
+  "updatedAt": 1669288087583,
+  "deletedAt": 0,
+  "createdFirstAt": 1669288087583,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "OpenFileWriterPages",
+  "slug": "open-file-writer-pages",
+  "operationRelativeTypescriptFilePath": "src/OpenFileWriterPages.tsx",
+  "type": {
+    "rawType": "(props: { pagesObject: import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/file-tabs/build/types\").PagesObjectShape; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  pagesObject: PagesObjectShape;\n}) => {\n  const { pagesObject } = props;\n  return <FileTabs pagesObject={pagesObject} />;\n}",
+  "description": "",
+  "id": "ssqcokjwugekhhveefqumeyq"
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669109129318,
-  "updatedAt": 1669109129318,
+  "createdAt": 1669287373203,
+  "updatedAt": 1669287373203,
   "deletedAt": 0,
-  "createdFirstAt": 1669109129318,
+  "createdFirstAt": 1669287373203,
   "id": "finalbundleconfig",
   "name": "FinalBundleConfig",
   "slug": "finalbundleconfig",
@@ -286,6 +286,13 @@
                 "required": false,
                 "schema": {
                   "fullComment": "If true, the structure of operation locations is kept the same but still inside packages/apps/modules.",
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "keepCodestories",
+                "required": false,
+                "schema": {
                   "type": "boolean"
                 }
               },

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200695752,
-  "updatedAt": 1669200695752,
+  "createdAt": 1669276583696,
+  "updatedAt": 1669276583696,
   "deletedAt": 0,
-  "createdFirstAt": 1669200695752,
+  "createdFirstAt": 1669276583696,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  pageData: FunctionFormPage\n): WebPage<FunctionFormPage> => {\n  return {\n    pageData,\n    queryPath: `function/${pageData.functionName}`,\n    isMenuHidden: false,\n    menuTitle: humanCase(pageData.functionName),\n  };\n}",
   "description": "",
-  "id": "rltoocnrxebyuosaaldrqnav"
+  "id": "naadtzdcgmyqgyfbctgiyflp"
 }

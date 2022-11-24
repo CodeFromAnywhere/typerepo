@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1669200697961,
-    "updatedAt": 1669200697961,
+    "createdAt": 1669276585752,
+    "updatedAt": 1669276585752,
     "deletedAt": 0,
-    "createdFirstAt": 1669200697961,
+    "createdFirstAt": 1669276585752,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -13,13 +13,13 @@
     "types": [],
     "firstLine": 3,
     "lastLine": 5,
-    "id": "pphbtzdflwwlropqgarhchnv"
+    "id": "gqclbbhwedezbbanstfwxrxn"
   },
   {
-    "createdAt": 1669200697961,
-    "updatedAt": 1669200697961,
+    "createdAt": 1669276585753,
+    "updatedAt": 1669276585753,
     "deletedAt": 0,
-    "createdFirstAt": 1669200697961,
+    "createdFirstAt": 1669276585753,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -29,13 +29,29 @@
     "types": [],
     "firstLine": 69,
     "lastLine": 69,
-    "id": "qcyvhbbtiqthjehsqvfabqzb"
+    "id": "axxtjcfgauuivotbqoaoclcy"
   },
   {
-    "createdAt": 1669200697961,
-    "updatedAt": 1669200697961,
+    "createdAt": 1669276585753,
+    "updatedAt": 1669276585753,
     "deletedAt": 0,
-    "createdFirstAt": 1669200697961,
+    "createdFirstAt": 1669276585753,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/types.ts",
+    "comment": "specifically always a markdown page",
+    "rawStatement": "export type ReaderWebPage = FileWebPage;",
+    "parameters": {},
+    "types": [],
+    "firstLine": 73,
+    "lastLine": 75,
+    "id": "jxgmmujywxbfxenyiorxlytp"
+  },
+  {
+    "createdAt": 1669276585753,
+    "updatedAt": 1669276585753,
+    "deletedAt": 0,
+    "createdFirstAt": 1669276585753,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -43,15 +59,15 @@
     "rawStatement": "export type NestedWebPage = ChildObject<WebPage<null>>;",
     "parameters": {},
     "types": [],
-    "firstLine": 75,
-    "lastLine": 77,
-    "id": "ibalulvgtnbksmfyzpkmyksp"
+    "firstLine": 78,
+    "lastLine": 80,
+    "id": "edouvtxrelbxovfundtwpvwf"
   },
   {
-    "createdAt": 1669200697961,
-    "updatedAt": 1669200697961,
+    "createdAt": 1669276585753,
+    "updatedAt": 1669276585753,
     "deletedAt": 0,
-    "createdFirstAt": 1669200697961,
+    "createdFirstAt": 1669276585753,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -59,15 +75,15 @@
     "rawStatement": "export type CrudPage = {\n  modelName: string;\n  datasetSlugs?: string[];\n  canCreate?: boolean;\n  canRead?: boolean;\n  canUpdate?: boolean;\n  canDelete?: boolean;\n  itemActionFunctionNames?: string[];\n  pageActionFunctionNames?: string[];\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 86,
-    "lastLine": 88,
-    "id": "kirezutcovcyposyqnlxyvjf"
+    "firstLine": 89,
+    "lastLine": 91,
+    "id": "tgfveixyuiegiwxbjwarqgwb"
   },
   {
-    "createdAt": 1669200697962,
-    "updatedAt": 1669200697962,
+    "createdAt": 1669276585753,
+    "updatedAt": 1669276585753,
     "deletedAt": 0,
-    "createdFirstAt": 1669200697962,
+    "createdFirstAt": 1669276585753,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/types.ts",
@@ -75,8 +91,8 @@
     "rawStatement": "export type FunctionFormPage = {\n  functionName: string;\n  actionWithResult?: string;\n  routeOnIsSuccessful?: string;\n  customTitle?: string;\n  isMenuHidden?: boolean;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 100,
-    "lastLine": 102,
-    "id": "zfsvgicyszkksmtcvstdvbri"
+    "firstLine": 103,
+    "lastLine": 105,
+    "id": "evnnkwhxnamuqqucgcinijkf"
   }
 ]

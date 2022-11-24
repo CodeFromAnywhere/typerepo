@@ -1,6 +1,6 @@
 import { useRouter } from "react-with-native-router";
 import { UpsertPage, DbPage } from "db-crud";
-import { FileWriter } from "file-writer";
+import { FileWriter, WriterLayout } from "file-writer";
 import { ALink } from "next-a-link";
 import { Div, P } from "react-with-native";
 import { queries } from "api";
@@ -59,9 +59,11 @@ const FileWriterPage = () => {
     return <Div>Couldn't find that page</Div>;
   }
   return (
-    <FileWriter
-      markdownModelName="TodoFile"
-      projectRelativeFilePath={projectRelativeFilePath}
-    />
+    <WriterLayout>
+      <FileWriter
+        markdownModelName="TodoFile"
+        projectRelativeFilePath={projectRelativeFilePath}
+      />
+    </WriterLayout>
   );
 };

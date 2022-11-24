@@ -1,0 +1,46 @@
+{
+  "createdAt": 1669288762889,
+  "updatedAt": 1669288762889,
+  "deletedAt": 0,
+  "createdFirstAt": 1669288762889,
+  "id": "namedparameterstypeof-addcodestorytosection",
+  "name": "NamedParameters<typeof addCodestoryToSection>",
+  "slug": "namedparameterstypeof-addcodestorytosection",
+  "operationRelativeTypescriptFilePath": "src/addCodeStoryToSection.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "sectionContent": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "sectionContent",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof addCodestoryToSection>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

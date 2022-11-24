@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669288089420,
+  "updatedAt": 1669288089420,
+  "deletedAt": 0,
+  "createdFirstAt": 1669288089420,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "WriterLayout",
+  "slug": "writer-layout",
+  "operationRelativeTypescriptFilePath": "src/WriterLayout.tsx",
+  "type": {
+    "rawType": "(props: { children: JSX.Element; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { children: JSX.Element }) => {\n  const { fullPath } = usePath();\n\n  return (\n    <Div\n      className={`flex flex-col flex-1 h-full`}\n      textClassName=\"dark:text-white\"\n    >\n      <Div className=\"sticky top-0\">\n        <OpenFileWriterPages pagesObject={{}} />\n        <BreadCrumbs path={fullPath || \"\"} />\n      </Div>\n      {props.children}\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "oiocvpnchkcaiweboqkadkis"
+}

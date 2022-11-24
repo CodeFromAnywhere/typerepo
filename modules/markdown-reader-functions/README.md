@@ -27,7 +27,7 @@ Takes the routes and pages you want to show, and returns the MarkdownReaderPageP
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| fileWebPages | `FileWebPage`[] |  |,| context | `GetStaticPropsContext` |  |
+| fileWebPages | `WebPage<any>`[] |  |,| context | `GetStaticPropsContext` |  |
 | **Output** |    |    |
 
 

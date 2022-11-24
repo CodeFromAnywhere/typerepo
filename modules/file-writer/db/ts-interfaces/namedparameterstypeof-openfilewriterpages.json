@@ -1,0 +1,69 @@
+{
+  "createdAt": 1669288086344,
+  "updatedAt": 1669288086344,
+  "deletedAt": 0,
+  "createdFirstAt": 1669288086344,
+  "id": "namedparameterstypeof-openfilewriterpages",
+  "name": "NamedParameters<typeof OpenFileWriterPages>",
+  "slug": "namedparameterstypeof-openfilewriterpages",
+  "operationRelativeTypescriptFilePath": "src/OpenFileWriterPages.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "pagesObject": {
+              "$ref": "#/definitions/PagesObjectShape"
+            }
+          },
+          "required": [
+            "pagesObject"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "pagesObject",
+                "required": true,
+                "schema": {
+                  "fullComment": "",
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof OpenFileWriterPages>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

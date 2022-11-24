@@ -1,0 +1,92 @@
+{
+  "createdAt": 1669236402264,
+  "updatedAt": 1669236402264,
+  "deletedAt": 0,
+  "createdFirstAt": 1669236402264,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "name": "collect-static-assets",
+  "operation": {
+    "buildResultIndexed": {
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/parsing/file-conversion/md/collect-static-assets/src/findStaticAssets.ts. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+      ],
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "hasGeneratedDependenciesIndexed": false,
+    "lastRebuildAt": 1669276105896,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 4,
+        "lines": 166,
+        "characters": 4924,
+        "bytes": 4924
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 129,
+        "characters": 4033,
+        "bytes": 4033
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 95,
+        "characters": 2356,
+        "bytes": 2356
+      },
+      "size": {
+        "bytes": 11313,
+        "characters": 11313,
+        "lines": 390,
+        "numberOfFiles": 8
+      }
+    },
+    "folderNameIndexed": "collect-static-assets",
+    "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion/md",
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "fs",
+      "path",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "makeRelative",
+      "ReaderWebPage",
+      "WebPage",
+      "path",
+      "onlyUnique2",
+      "getProjectRoot",
+      "ReaderWebPage",
+      "findEmbeds",
+      "findLinks",
+      "fs",
+      "path",
+      "getFolderJs",
+      "isPathRelative"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "slug": "collect-static-assets",
+  "id": "edprvcqxqoapkijitcbmgrpn",
+  "dependencies": {
+    "fs-util": "1.0.5",
+    "get-path": "0.0.1",
+    "webpage-types": "0.0.1",
+    "js-util": "0.0.1",
+    "marked-util": "0.0.1",
+    "fs-util-js": "0.0.1"
+  }
+}

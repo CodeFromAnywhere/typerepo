@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669055330952,
-  "updatedAt": 1669055330952,
+  "createdAt": 1669287915429,
+  "updatedAt": 1669287915429,
   "deletedAt": 0,
-  "createdFirstAt": 1669055330952,
+  "createdFirstAt": 1669287915429,
   "isApiExposed": true,
   "isExported": false,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/pages/[...paths].tsx",
   "commentsInside": [],
-  "rawText": " () => {\n  const router = useRouter();\n  const paths = router.asPath.slice(1).split(\"?\")[0];\n  const [todoPagesConfig] = useStore(\"todoPagesConfig\");\n  const todoPagesQuery = queries.useGetTodoPages(todoPagesConfig);\n  const webPages = todoPagesQuery.data?.result?.flat;\n  const filePage = webPages?.find((x) => x.queryPath === paths);\n  const folderPages = webPages?.filter((x) => x.queryPath.startsWith(paths));\n\n  const projectRelativeFilePath = filePage?.pageData?.projectRelativeFilePath;\n  if (!projectRelativeFilePath) {\n    if (folderPages?.length) {\n      return (\n        <Div className=\"p-4\">\n          {folderPages.map((item) => {\n            return (\n              <P className=\"my-2\">\n                -{\" \"}\n                <ALink key={item.queryPath} href={item.queryPath}>\n                  {item.menuTitle}\n                </ALink>\n              </P>\n            );\n          })}\n        </Div>\n      );\n    }\n    return <Div>Couldn't find that page</Div>;\n  }\n  return (\n    <FileWriter\n      markdownModelName=\"TodoFile\"\n      projectRelativeFilePath={projectRelativeFilePath}\n    />\n  );\n}",
+  "rawText": " () => {\n  const router = useRouter();\n  const paths = router.asPath.slice(1).split(\"?\")[0];\n  const [todoPagesConfig] = useStore(\"todoPagesConfig\");\n  const todoPagesQuery = queries.useGetTodoPages(todoPagesConfig);\n  const webPages = todoPagesQuery.data?.result?.flat;\n  const filePage = webPages?.find((x) => x.queryPath === paths);\n  const folderPages = webPages?.filter((x) => x.queryPath.startsWith(paths));\n\n  const projectRelativeFilePath = filePage?.pageData?.projectRelativeFilePath;\n  if (!projectRelativeFilePath) {\n    if (folderPages?.length) {\n      return (\n        <Div className=\"p-4\">\n          {folderPages.map((item) => {\n            return (\n              <P className=\"my-2\">\n                -{\" \"}\n                <ALink key={item.queryPath} href={item.queryPath}>\n                  {item.menuTitle}\n                </ALink>\n              </P>\n            );\n          })}\n        </Div>\n      );\n    }\n    return <Div>Couldn't find that page</Div>;\n  }\n  return (\n    <WriterLayout>\n      <FileWriter\n        markdownModelName=\"TodoFile\"\n        projectRelativeFilePath={projectRelativeFilePath}\n      />\n    </WriterLayout>\n  );\n}",
   "name": "FileWriterPage",
   "slug": "file-writer-page",
   "parameters": [],
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 9,
   "size": {
-    "characters": 1109,
-    "lines": 36,
-    "bytes": 1109,
+    "characters": 1156,
+    "lines": 38,
+    "bytes": 1156,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 31,
-    "linesPerFile": 36,
+    "charactersPerLine": 30,
+    "linesPerFile": 38,
     "numberOfFiles": 1
   },
-  "id": "ymetgsjqexjujzhpgxiscbwg"
+  "id": "sucnnzuoqdonsqymioznrnkn"
 }

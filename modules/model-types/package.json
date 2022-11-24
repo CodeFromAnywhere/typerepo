@@ -30,7 +30,9 @@
       "dependenciesBuildsFailed": false,
       "indexErrors": [],
       "indexImportExportError": "",
-      "indexInteracesErrors": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/types/model-types/src/markdownModelTypeToMarkdownString.ts. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "cjs",
@@ -38,7 +40,7 @@
     "folderNameIndexed": "model-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668449007750,
+    "lastRebuildAt": 1669276572383,
     "operationDependenciesIndexed": [
       "Frontmatter",
       "Frontmatter",
@@ -48,28 +50,28 @@
     "relativeOperationLocationPathIndexed": "operations/tools/types",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 12,
-        "lines": 623,
-        "characters": 18064,
-        "bytes": 18064
+        "numberOfFiles": 13,
+        "lines": 625,
+        "characters": 18153,
+        "bytes": 18153
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 104,
-        "characters": 2427,
-        "bytes": 2427
+        "lines": 106,
+        "characters": 2643,
+        "bytes": 2643
       },
       "textSize": {
         "numberOfFiles": 3,
         "lines": 684,
-        "characters": 13659,
-        "bytes": 13659
+        "characters": 13613,
+        "bytes": 13613
       },
       "size": {
-        "bytes": 34150,
-        "characters": 34150,
-        "lines": 1411,
-        "numberOfFiles": 17
+        "bytes": 34409,
+        "characters": 34409,
+        "lines": 1415,
+        "numberOfFiles": 18
       }
     },
     "hasGeneratedImportsIndexed": false

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055531141,
-  "updatedAt": 1669055531141,
+  "createdAt": 1669276646610,
+  "updatedAt": 1669276646610,
   "deletedAt": 0,
-  "createdFirstAt": 1669055531141,
+  "createdFirstAt": 1669276646610,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const skipYarnInstall = config?.skipYarnInstall;\n  const dryrun = config?.dryrun;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const tsFunctions = await db.get(\"TsFunction\", { manualProjectRoot });\n\n  const functionPathsObject = mergeObjectsArray(\n    tsFunctions\n      .map((tsFunction) => {\n        const projectRelativePath = tsFunction.projectRelativePath;\n        const exists = fs.existsSync(\n          path.join(projectRoot, projectRelativePath)\n        );\n        if (!exists) return;\n        return { [tsFunction.name]: projectRelativePath };\n      })\n      .filter(notEmpty)\n  );\n\n  const operationObjectString = `export const sdkFunctionPaths = ${JSON.stringify(\n    functionPathsObject,\n    null,\n    2\n  )};`;\n\n  await newOperationWithFiles(\n    \"sdk-function-paths\",\n    await getSdkDescription(\"sdk-function-paths\"),\n    { \"src/sdk-function-paths.ts\": operationObjectString },\n    { overwriteIfExists: true, skipYarnInstall, manualProjectRoot, dryrun }\n  );\n}",
   "description": "",
-  "id": "qyfnpjhwojdiwdektkdoxfla"
+  "id": "djnypoxxyzbwuzesihyyaemh"
 }

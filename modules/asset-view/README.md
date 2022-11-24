@@ -44,6 +44,15 @@ If you provide an array it'll take the first asset.
 
 ## 📄 ModelItemAssetView (exported const)
 
+## `<AssetView />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { asset: `Asset`, <br />className?: string, <br />projectRelativeReferencingFilePath: string, <br />hideDownloadLink?: boolean, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## `<InteractiveAsset />`
 
 shows an `Asset` with interactivity
@@ -61,6 +70,8 @@ shows an `Asset` with interactivity
 
 
 
+## 📄 AssetView (exported const)
+
 ## 📄 InteractiveAsset (exported const)
 
 shows an `Asset` with interactivity
@@ -72,21 +83,12 @@ shows an `Asset` with interactivity
 
 # Internal
 
-<details><summary>Show internal (7)</summary>
+<details><summary>Show internal (5)</summary>
     
-  # `<AssetView />`
+  # useAssetInfo()
 
 
 
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | { asset: `Asset`, <br />className?: string, <br />projectRelativeReferencingFilePath: string, <br />hideDownloadLink?: boolean, <br /> } |  |
-| **Output** | `JSX.Element`   |    |
-
-
-
-## useAssetInfo()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -99,12 +101,10 @@ shows an `Asset` with interactivity
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| asset | `Asset` |  |,| projectRelativeReferencingFilePath | string |  |
-| **Output** | { rawText?: {  }, <br />type?: video / audio / image / text / other, <br />downloadUrl?: string, <br />src?: string, <br />extension?: string, <br /> }   |    |
+| asset | `Asset` |  |,| projectRelativeReferencingFilePath | string |  |,| isNextStaticProductionBuild (optional) | boolean |  |
+| **Output** | { rawText?: {  }, <br />type?: video / audio / image / text / other, <br />downloadUrl?: string, <br />src: string, <br />extension?: string, <br /> }   |    |
 
 
-
-## 📄 AssetView (exported const)
 
 ## 📄 defaultClassName (exported const)
 

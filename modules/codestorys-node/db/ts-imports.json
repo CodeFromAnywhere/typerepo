@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1669200011952,
-    "updatedAt": 1669200011952,
+    "createdAt": 1669287758641,
+    "updatedAt": 1669287758641,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011952,
+    "createdFirstAt": 1669287758641,
     "name": "getTodoPaths",
     "slug": "get-todo-paths",
     "type": "value",
@@ -14,13 +14,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "kkgmjrcgpmdlsmdahfkupeke"
+    "id": "ayzatdandvxskztbhbkcjmen"
   },
   {
-    "createdAt": 1669200011953,
-    "updatedAt": 1669200011953,
+    "createdAt": 1669287758641,
+    "updatedAt": 1669287758641,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011953,
+    "createdFirstAt": 1669287758641,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -31,13 +31,30 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ihfznlnzpjlggwnhfclypotn"
+    "id": "rxvmwwsdvtktgdtdcdikyvla"
   },
   {
-    "createdAt": 1669200011953,
-    "updatedAt": 1669200011953,
+    "createdAt": 1669287758642,
+    "updatedAt": 1669287758642,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011953,
+    "createdFirstAt": 1669287758642,
+    "name": "notEmpty",
+    "slug": "not-empty",
+    "type": "value",
+    "module": "js-util",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/codestoriesGetPages.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "njalhntjuzjkqddgwdaxkqef"
+  },
+  {
+    "createdAt": 1669287758642,
+    "updatedAt": 1669287758642,
+    "deletedAt": 0,
+    "createdFirstAt": 1669287758642,
     "name": "onlyUnique2",
     "slug": "only-unique-2",
     "type": "value",
@@ -48,13 +65,30 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wnkbwjkosyivjczxhbajkrzg"
+    "id": "lcmnjwkfucfpkczilhtnpnqo"
   },
   {
-    "createdAt": 1669200011953,
-    "updatedAt": 1669200011953,
+    "createdAt": 1669287758642,
+    "updatedAt": 1669287758642,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011953,
+    "createdFirstAt": 1669287758642,
+    "name": "findEmbeds",
+    "slug": "find-embeds",
+    "type": "value",
+    "module": "marked-util",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/codestoriesGetPages.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "hmrpkhhkqwkkpvspkbxynfyq"
+  },
+  {
+    "createdAt": 1669287758642,
+    "updatedAt": 1669287758642,
+    "deletedAt": 0,
+    "createdFirstAt": 1669287758642,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -65,13 +99,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vfqajfedlkdtxdbthsuxlqrf"
+    "id": "rfycdpobybpwquiyysdknjwa"
   },
   {
-    "createdAt": 1669200011953,
-    "updatedAt": 1669200011953,
+    "createdAt": 1669287758642,
+    "updatedAt": 1669287758642,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011953,
+    "createdFirstAt": 1669287758642,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -82,13 +116,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ryntjmcvtzxvmjgskkwzvpzg"
+    "id": "gfkxaieukgsqxpbrzyvsuvmg"
   },
   {
-    "createdAt": 1669200011953,
-    "updatedAt": 1669200011953,
+    "createdAt": 1669287758642,
+    "updatedAt": 1669287758642,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011953,
+    "createdFirstAt": 1669287758642,
     "name": "ReaderWebPage",
     "slug": "reader-web-page",
     "type": "type",
@@ -100,13 +134,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zubajbyistyjdwatgfuqzulo"
+    "id": "fzabcarperrydbpbflnwdpch"
   },
   {
-    "createdAt": 1669200011953,
-    "updatedAt": 1669200011953,
+    "createdAt": 1669287758642,
+    "updatedAt": 1669287758642,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011953,
+    "createdFirstAt": 1669287758642,
     "name": "readMarkdownFile",
     "slug": "read-markdown-file",
     "type": "value",
@@ -117,13 +151,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "swbgxfmyksrlyuvprfuacnfh"
+    "id": "tinftlezfjfzlhwfgfkfyddz"
   },
   {
-    "createdAt": 1669200011953,
-    "updatedAt": 1669200011953,
+    "createdAt": 1669287758643,
+    "updatedAt": 1669287758643,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011953,
+    "createdFirstAt": 1669287758643,
     "name": "getMarkdownIntro",
     "slug": "get-markdown-intro",
     "type": "value",
@@ -134,13 +168,49 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nkwvsfddkpwiqupomiixokba"
+    "id": "jbmivhialessskghqtrwvbqe"
   },
   {
-    "createdAt": 1669200011954,
-    "updatedAt": 1669200011954,
+    "createdAt": 1669287758643,
+    "updatedAt": 1669287758643,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011954,
+    "createdFirstAt": 1669287758643,
+    "name": "MarkdownEmbed",
+    "slug": "markdown-embed",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "markdown-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/codestoriesGetPages.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "vzoepoqbwqdealniaclwmcmx"
+  },
+  {
+    "createdAt": 1669287758643,
+    "updatedAt": 1669287758643,
+    "deletedAt": 0,
+    "createdFirstAt": 1669287758643,
+    "name": "MarkdownParse",
+    "slug": "markdown-parse",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "markdown-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/codestoriesGetPages.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "ksjufjegemwmegfyevqaddtm"
+  },
+  {
+    "createdAt": 1669287758643,
+    "updatedAt": 1669287758643,
+    "deletedAt": 0,
+    "createdFirstAt": 1669287758643,
     "name": "GetStaticPaths",
     "slug": "get-static-paths",
     "type": "type",
@@ -152,13 +222,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "dezbkbeywvuyjplgloketjhe"
+    "id": "blsrritdhxfjfxlirsmickkl"
   },
   {
-    "createdAt": 1669200011954,
-    "updatedAt": 1669200011954,
+    "createdAt": 1669287758643,
+    "updatedAt": 1669287758643,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011954,
+    "createdFirstAt": 1669287758643,
     "name": "GetStaticPathsContext",
     "slug": "get-static-paths-context",
     "type": "type",
@@ -170,13 +240,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xknszfyllakpdrjyiuzupuyl"
+    "id": "jiuumjarquzldfjxedvrhvfo"
   },
   {
-    "createdAt": 1669200011954,
-    "updatedAt": 1669200011954,
+    "createdAt": 1669287758643,
+    "updatedAt": 1669287758643,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011954,
+    "createdFirstAt": 1669287758643,
     "name": "codestoriesGetPages",
     "slug": "codestories-get-pages",
     "module": "./codestoriesGetPages",
@@ -186,13 +256,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "pgwijrflwjwpylbtikqfabtb"
+    "id": "pbxasyvrkcbdrwhzxpebinfw"
   },
   {
-    "createdAt": 1669200011954,
-    "updatedAt": 1669200011954,
+    "createdAt": 1669287758643,
+    "updatedAt": 1669287758643,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011954,
+    "createdFirstAt": 1669287758643,
     "name": "MarkdownReaderPageProps",
     "slug": "markdown-reader-page-props",
     "type": "type",
@@ -204,13 +274,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "mctlfmkwclkwqcdjtlnwilqb"
+    "id": "cjfqstulpkgcwetlpvktbamo"
   },
   {
-    "createdAt": 1669200011954,
-    "updatedAt": 1669200011954,
+    "createdAt": 1669287758644,
+    "updatedAt": 1669287758644,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011954,
+    "createdFirstAt": 1669287758644,
     "name": "GetStaticPropsContext",
     "slug": "get-static-props-context",
     "type": "type",
@@ -222,13 +292,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "sxbujitcbhcjzeyytusvmuvm"
+    "id": "rnezqyqpwozypztqypxnbglv"
   },
   {
-    "createdAt": 1669200011954,
-    "updatedAt": 1669200011954,
+    "createdAt": 1669287758644,
+    "updatedAt": 1669287758644,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011954,
+    "createdFirstAt": 1669287758644,
     "name": "codestoriesGetPages",
     "slug": "codestories-get-pages",
     "module": "./codestoriesGetPages",
@@ -238,13 +308,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "mxbyqigehjywkfauxgkjesfl"
+    "id": "zipczqosfsdcncmrejilpnmm"
   },
   {
-    "createdAt": 1669200011955,
-    "updatedAt": 1669200011955,
+    "createdAt": 1669287758644,
+    "updatedAt": 1669287758644,
     "deletedAt": 0,
-    "createdFirstAt": 1669200011955,
+    "createdFirstAt": 1669287758644,
     "name": "markdownReaderGetStaticPropsFromPages",
     "slug": "markdown-reader-get-static-props-from-pages",
     "type": "value",
@@ -255,6 +325,6 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zujqzbzmmygfngndzdnmmewc"
+    "id": "vwbuffmqkhhfxehsqrpbpwir"
   }
 ]

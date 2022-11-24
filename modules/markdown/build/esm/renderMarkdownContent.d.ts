@@ -1,3 +1,4 @@
+/// <reference types="react" />
 import { Components } from "react-markdown";
 import { MarkdownParseRenderConfig } from "./types.js";
 export declare const HtmlHeader: Components["h1"] | Components["h2"] | Components["h3"] | Components["h4"] | Components["h5"] | Components["h6"];

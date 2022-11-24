@@ -70,11 +70,13 @@ var markdownReaderGetStaticPropsFromPages = function (fileWebPages, context) { r
                 return [2 /*return*/, {
                         props: {
                             publicBundleConfig: publicBundleConfig,
-                            children: children,
                             menu: menu,
-                            title: title,
-                            description: description,
-                            projectRelativeMarkdownPath: descriptionProjectRelativeMarkdownPath,
+                            content: {
+                                children: children,
+                                title: title,
+                                description: description,
+                                projectRelativeMarkdownPath: descriptionProjectRelativeMarkdownPath,
+                            },
                         },
                     }];
             case 3: return [4 /*yield*/, (0, getMarkdownPageInfo_1.getMarkdownPageInfo)(projectRoot, fileWebPages, queryPath, contentPage)];
@@ -86,13 +88,15 @@ var markdownReaderGetStaticPropsFromPages = function (fileWebPages, context) { r
                 return [2 /*return*/, {
                         // Passed to the page component as props
                         props: {
+                            content: {
+                                markdownFile: markdownFile,
+                                nextQueryPath: nextQueryPath,
+                                previousQueryPath: previousQueryPath,
+                                augmentedWordObject: augmentedWordObject,
+                                projectRelativeMarkdownPath: projectRelativeMarkdownPath,
+                            },
                             publicBundleConfig: publicBundleConfig,
                             menu: menu,
-                            markdownFile: markdownFile,
-                            nextQueryPath: nextQueryPath,
-                            previousQueryPath: previousQueryPath,
-                            augmentedWordObject: augmentedWordObject,
-                            projectRelativeMarkdownPath: projectRelativeMarkdownPath,
                         },
                     }];
         }

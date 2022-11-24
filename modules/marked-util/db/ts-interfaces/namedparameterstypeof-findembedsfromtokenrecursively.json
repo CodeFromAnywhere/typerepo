@@ -1,0 +1,51 @@
+{
+  "createdAt": 1669235145084,
+  "updatedAt": 1669235145084,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235145084,
+  "id": "namedparameterstypeof-findembedsfromtokenrecursively",
+  "name": "NamedParameters<typeof findEmbedsFromTokenRecursively>",
+  "slug": "namedparameterstypeof-findembedsfromtokenrecursively",
+  "operationRelativeTypescriptFilePath": "src/findEmbedsFromTokenRecursively.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "$ref": "#/definitions/marked.Token"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "token",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof findEmbedsFromTokenRecursively>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

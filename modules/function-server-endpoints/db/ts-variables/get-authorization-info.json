@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669127969590,
-  "updatedAt": 1669127969590,
+  "createdAt": 1669276687470,
+  "updatedAt": 1669276687470,
   "deletedAt": 0,
-  "createdFirstAt": 1669127969590,
+  "createdFirstAt": 1669276687470,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  device: Device,\n  tsFunction: TsFunction\n): AuthorizationInfo => {\n  const everyPersonsGroups =\n    device?.persons\n      ?.map((x) => x.groups)\n      .flat()\n      .filter(notEmpty)\n      .filter(onlyUnique2<Group>((a, b) => a.slug === b.slug)) || [];\n\n  const everyPersonsAuthorizations =\n    device?.persons?.map((x) => x.authorizations).flat() || [];\n\n  const customGroupAuthorizations = everyPersonsGroups\n    .map((group) => group.customAuthorizations)\n    .flat();\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations: Authorization[] = [\n    ...everyPersonsAuthorizations,\n    ...customGroupAuthorizations,\n  ].filter(notEmpty);\n\n  const hasAuthorization = !!authorizations.find((auth) => {\n    const authAppliesToThisFunction =\n      auth.tsFunctionId === tsFunction.id ||\n      auth.authorizedOperationName === tsFunction?.operationName ||\n      (auth.authorizedProjectRelativePath &&\n        tsFunction.projectRelativePath.startsWith(\n          auth.authorizedProjectRelativePath\n        ));\n\n    return authAppliesToThisFunction && auth.canExecute;\n  });\n\n  return { hasAuthorization, authorizations, groups: everyPersonsGroups };\n}",
   "description": "returns `AuthorizationInfo` for a device + function",
-  "id": "fynxttwilivqsjdocswuqzkm"
+  "id": "ogtnxllxydmnxwjgceihbqbz"
 }

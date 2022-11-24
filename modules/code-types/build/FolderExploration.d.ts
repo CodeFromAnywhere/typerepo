@@ -1,4 +1,3 @@
-import { MarkdownParse } from "./MarkdownParse";
 import { Operation } from "./Operation";
 import { TsInterface } from "./TsInterface";
 import { TypescriptIndex } from "./TypescriptIndex";
@@ -30,7 +29,7 @@ export declare type FolderExploration = {
 export declare type ExplorationDetails = {
     success?: boolean;
     response?: string;
-    markdown?: MarkdownParse;
+    markdown?: any;
     pathMetaData?: PathMetaData;
     operations?: Operation[];
     index: TsInterface[];

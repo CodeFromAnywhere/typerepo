@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669055017628,
-  "updatedAt": 1669055017628,
+  "createdAt": 1669276056610,
+  "updatedAt": 1669276056610,
   "deletedAt": 0,
-  "createdFirstAt": 1669055017628,
+  "createdFirstAt": 1669276056610,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/useAsset.ts",
   "commentsInside": [],
-  "rawText": " (\n  asset: Asset,\n  projectRelativeReferencingFilePath: string\n) => {\n  const isRemote = !asset.blobPath;\n\n  /**\n   * NB: `relativePath` is required\n   */\n  const getRemoteUrl = (isDownload: boolean) =>\n    getReferencedAssetApiUrl(\n      apiUrl,\n      projectRelativeReferencingFilePath,\n      asset.relativePath!,\n      isDownload\n    );\n  /**\n   * NB: `asset.temporaryDestination` is not a URL that can be used to retreive the image as \"src\"\n   */\n  const src = asset.absoluteUrl\n    ? asset.absoluteUrl\n    : isRemote\n    ? asset.relativePath\n      ? getRemoteUrl(false)\n      : undefined\n    : asset.blobPath;\n\n  // console.log(\"UseAssetSRC:\", src);\n  const downloadRemotely = isRemote && !!asset.relativePath;\n\n  const downloadUrl = downloadRemotely\n    ? getRemoteUrl(true)\n    : // NB: other type is ugly when downloading. Also doesn't make sense much to want to download an asset after uploading\n    asset.type !== \"other\"\n    ? asset.blobPath\n    : undefined;\n\n  const extension = getExtensionFromAsset(asset);\n\n  const assetInfo = useAssetInfo(src, asset.originalFilename);\n\n  const rawText = assetInfo?.rawText || null;\n  const type = asset.type || assetInfo?.type;\n\n  return { rawText, type, downloadUrl, src, extension };\n}",
+  "rawText": " (\n  asset: Asset,\n  projectRelativeReferencingFilePath: string,\n  isNextStaticProductionBuild?: boolean\n) => {\n  console.log({ apiUrl });\n  /**\n   * NB: `relativePath` is required\n   */\n  const getRemoteUrl = (isDownload: boolean) =>\n    getReferencedAssetApiUrl(\n      apiUrl,\n      projectRelativeReferencingFilePath,\n      asset.relativePath!,\n      isDownload\n    );\n\n  const getPublicUrl = (relativePath: string) =>\n    `markdown-assets/${path.join(\n      path.parse(projectRelativeReferencingFilePath).dir,\n      relativePath\n    )}`;\n  /**\n   * NB: `asset.temporaryDestination` is not a URL that can be used to retreive the image as \"src\"\n   */\n  const src = asset.absoluteUrl\n    ? asset.absoluteUrl\n    : asset.blobPath\n    ? asset.blobPath\n    : isNextStaticProductionBuild && asset.relativePath\n    ? getPublicUrl(asset.relativePath)\n    : getRemoteUrl(false);\n\n  // console.log(\"UseAssetSRC:\", src);\n  const downloadRemotely = !asset.blobPath && !!asset.relativePath;\n\n  const downloadUrl =\n    isNextStaticProductionBuild && asset.relativePath\n      ? getPublicUrl(asset.relativePath)\n      : downloadRemotely\n      ? getRemoteUrl(true)\n      : // NB: other type is ugly when downloading. Also doesn't make sense much to want to download an asset after uploading\n      asset.type !== \"other\"\n      ? asset.blobPath\n      : undefined;\n\n  const extension = getExtensionFromAsset(asset);\n\n  const assetInfo = useAssetInfo(src, asset.originalFilename);\n\n  const rawText = assetInfo?.rawText || null;\n  const type = asset.type || assetInfo?.type;\n\n  return { rawText, type, downloadUrl, src, extension };\n}",
   "name": "useAsset",
   "slug": "use-asset",
   "parameters": [
@@ -89,7 +89,7 @@
                 "text",
                 "other"
               ],
-              "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types",
+              "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
               "type": "string"
             }
           },
@@ -163,11 +163,21 @@
         "type": "string"
       },
       "required": true
+    },
+    {
+      "name": "isNextStaticProductionBuild",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
     }
   ],
   "description": "",
   "returnType": {
-    "rawType": "{ rawText: string | null; type: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").AssetType | undefined; downloadUrl: string | undefined; src: string | undefined; extension: string | undefined; }",
+    "rawType": "{ rawText: string | null; type: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").AssetType | undefined; downloadUrl: string | undefined; src: string; extension: string | undefined; }",
     "typeDefinition": {
       "type": "object",
       "properties": {
@@ -231,6 +241,9 @@
           ]
         }
       },
+      "required": [
+        "src"
+      ],
       "optional": false
     },
     "typeCoverage": 0,
@@ -272,7 +285,7 @@
         },
         {
           "name": "src",
-          "required": false,
+          "required": true,
           "schema": {
             "type": "string"
           }
@@ -290,13 +303,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 1238,
-    "lines": 46,
-    "bytes": 1238,
+    "characters": 1615,
+    "lines": 55,
+    "bytes": 1615,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 46,
+    "charactersPerLine": 29,
+    "linesPerFile": 55,
     "numberOfFiles": 1
   },
-  "id": "ybfvmnailbaddomkemzrazpx"
+  "id": "miifulcrvsflfwisuunbsswe"
 }

@@ -133,6 +133,9 @@ Properties:
 
 Possible Asset Types
 
+Later, maybe also support:
+"markdown","json","typescript"
+
 
 
 

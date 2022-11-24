@@ -1,0 +1,48 @@
+{
+  "createdAt": 1669293756238,
+  "updatedAt": 1669293756238,
+  "deletedAt": 0,
+  "createdFirstAt": 1669293756238,
+  "runEveryPeriod": "5-minutes",
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/writeAllCodestories.ts",
+  "commentsInside": [],
+  "rawText": " async (isDebug?: boolean) => {\n  const files = await findCodestories();\n\n  await makeCodespanMappedObject();\n\n  const mappedObject = await readJsonFile<{ [key: string]: CodespanItemInfo }>(\n    path.join(__dirname, \"..\", \"assets\", \"codespan-mapped-object-small.json\")\n  );\n\n  if (!mappedObject) {\n    console.log(\"Couldn't find mapped obj\");\n    return;\n  }\n\n  const codestoryPaths = await oneByOne(files, (absolutePath) =>\n    makeCodestory(absolutePath, mappedObject, isDebug)\n  );\n  if (isDebug) {\n    console.log({ codestoryPaths });\n  }\n}",
+  "name": "writeAllCodestories",
+  "slug": "write-all-codestories",
+  "parameters": [
+    {
+      "name": "isDebug",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "---\nrunEveryPeriod: 5-minutes\n---",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 577,
+    "lines": 23,
+    "bytes": 577,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 23,
+    "numberOfFiles": 1
+  },
+  "id": "vmhjntpkmgpvtyxjipvhjlmd"
+}

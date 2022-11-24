@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055500088,
-  "updatedAt": 1669055500088,
+  "createdAt": 1669276614492,
+  "updatedAt": 1669276614492,
   "deletedAt": 0,
-  "createdFirstAt": 1669055500088,
+  "createdFirstAt": 1669276614492,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const [dryrunString, customProjectRoot] = process.argv.slice(2);\n  const dryrun = dryrunString === \"true\";\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n  generateFunctionSdks({\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n    dryrun,\n  });\n}",
   "description": "",
-  "id": "tqptzjbqsaupdkjiqnhqipld"
+  "id": "weohmzmniicwtywqebwlkrmk"
 }

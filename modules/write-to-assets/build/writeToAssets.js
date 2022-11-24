@@ -52,7 +52,7 @@ filePath,
 /**
  * The data you want to write to a file, can also be a promise
  */
-data, assetsFileName) { return __awaiter(void 0, void 0, void 0, function () {
+data, assetsFileName, hideLog) { return __awaiter(void 0, void 0, void 0, function () {
     var realData, operationBasePath, extension, realAssetsFileName, assetsFilePath;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -65,7 +65,9 @@ data, assetsFileName) { return __awaiter(void 0, void 0, void 0, function () {
                 extension = typeof realData === "string" ? ".md" : ".json";
                 realAssetsFileName = assetsFileName || "".concat(fs_util_1.path.parse(filePath).name).concat(extension);
                 assetsFilePath = fs_util_1.path.join(operationBasePath, "assets", realAssetsFileName);
-                console.log({ assetsFilePath: assetsFilePath });
+                if (!hideLog) {
+                    console.log({ assetsFilePath: assetsFilePath });
+                }
                 if (typeof data === "string") {
                     return [2 /*return*/, (0, fs_util_1.writeStringToFile)(assetsFilePath, realData)];
                 }

@@ -1,0 +1,75 @@
+{
+  "createdAt": 1669235141107,
+  "updatedAt": 1669235141107,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235141107,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/findCodespans.ts",
+  "commentsInside": [],
+  "rawText": " (sectionContent: string): string[] => {\n  const result: string[] = marked\n    .lexer(sectionContent)\n    .map(findCodespansFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
+  "name": "findCodespans",
+  "slug": "find-codespans",
+  "parameters": [
+    {
+      "name": "sectionContent",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "find all backtick-blocks",
+  "returnType": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 224,
+    "lines": 9,
+    "bytes": 224,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "pxpsvngjxvmblaphyyhknktx"
+}

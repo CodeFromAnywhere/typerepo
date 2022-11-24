@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200532330,
-  "updatedAt": 1669200532330,
+  "createdAt": 1669291080581,
+  "updatedAt": 1669291080581,
   "deletedAt": 0,
-  "createdFirstAt": 1669200532330,
+  "createdFirstAt": 1669291080581,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: MarkdownReaderPageProps) => {\n  return (\n    <Div>\n      {props.menu.flat.map((x) => {\n        return (\n          <ALink key={x.queryPath} href={x.queryPath}>\n            <Div className=\"text-3xl bg-blue-200 m-2 rounded-md p-4\">\n              {x.menuTitle}\n            </Div>\n\n            {/* <P>{x.pageData.shortDescription}</P> */}\n          </ALink>\n        );\n      })}\n    </Div>\n  );\n}",
+  "value": "(props: MarkdownReaderPageProps) => {\n  return (\n    <Layout>\n      <Div className=\"flex flex-col px-2 my-5 gap-y-5 gap\">\n        <P className=\"text-2xl\">What's a codestory?</P>\n        <P>\n          It's a story about my coding session, where I mention my observations,\n          my ideas, thought processes, choices, implementation details, and\n          results.\n        </P>\n        <P>Enjoy!</P>\n      </Div>\n      <Div className=\"flex flex-row flex-wrap\">\n        {props.menu.flat.map((x) => {\n          return (\n            <ALink key={x.queryPath} href={x.queryPath}>\n              <Div className=\"w-80 bg-yellow-500 hover:bg-yellow-300 m-2 rounded-md p-4\">\n                {x.pageData.imagePath ? (\n                  <AssetView\n                    projectRelativeReferencingFilePath={\n                      x.pageData.projectRelativeFilePath\n                    }\n                    className=\"h-40 object-cover w-80\"\n                    hideDownloadLink\n                    asset={{\n                      projectRelativeReferencingFilePath:\n                        x.pageData.projectRelativeFilePath,\n                      relativePath: x.pageData.imagePath,\n                    }}\n                  />\n                ) : null}\n                <P className=\"text-3xl\">{x.menuTitle}</P>\n              </Div>\n            </ALink>\n          );\n        })}\n      </Div>\n    </Layout>\n  );\n}",
   "description": "",
-  "id": "klmeuyqcfwznvkfuqabqhrxt"
+  "id": "etrfnoqvnkzkyacjajikugkg"
 }

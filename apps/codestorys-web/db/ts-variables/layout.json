@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669291082321,
+  "updatedAt": 1669291082321,
+  "deletedAt": 0,
+  "createdFirstAt": 1669291082321,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "Layout",
+  "slug": "layout",
+  "operationRelativeTypescriptFilePath": "src/Layout.tsx",
+  "type": {
+    "rawType": "(props: { children: React.ReactNode; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { children: React.ReactNode }) => {\n  return (\n    <Div>\n      <Div className=\"h-32 bg-yellow-700 flex flex-col items-center justify-center\">\n        <P className=\"text-white text-3xl\">Codestories</P>\n        <P className=\"text-white\">The adventures of a brave coder</P>\n      </Div>\n      {props.children}\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "usqvezfpzuihkseinjaeaxcl"
+}

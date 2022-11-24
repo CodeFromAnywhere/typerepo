@@ -12,7 +12,6 @@ export const mindspaces = [
   "search-ui",
   "p2p internet",
   "reader-ui",
-  "writer-ui",
   "function-ui",
   "focus",
   "immersion",

@@ -32,6 +32,12 @@ Properties:
 
 ## 🔹 ReaderWebPage
 
+specifically always a markdown page
+
+
+
+
+
 Properties: 
 
  | Name | Type | Description |

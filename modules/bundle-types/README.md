@@ -49,6 +49,22 @@ Properties:
 
 
 
+## 🔹 PublicBundleConfig
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| name  | string |  |
+| description (optional) | string |  |
+| emoji (optional) | string |  |
+| primaryColor (optional) | string |  |
+| gitRepoUrl (optional) | string |  |
+| isGitRepoPublic (optional) | boolean |  |
+| bundleMarkdownReaderConfig (optional) | object |  |
+
+
+
 ## 🔹 BundleMarkdownReaderConfig
 
 Properties: 
@@ -73,6 +89,7 @@ Properties:
 |---|---|---|
 | inheritFrom_bundleConfigSlugs (optional) | array |  |
 | keepStructure (optional) | boolean |  |
+| keepCodestories (optional) | boolean |  |
 | informationStrategy (optional) | string |  |
 | modelInformationStrategy (optional) | object |  |
 | additional_datasetSlugs (optional) | array |  |
@@ -163,6 +180,7 @@ Properties:
 | foldersFromRepo (optional) | array |  |
 | inheritFrom_bundleConfigSlugs (optional) | array |  |
 | keepStructure (optional) | boolean |  |
+| keepCodestories (optional) | boolean |  |
 | modelInformationStrategy (optional) | object |  |
 | additional_datasetSlugs (optional) | array |  |
 | filter_datasetSlugs (optional) | array |  |
@@ -205,22 +223,6 @@ Properties:
 |---|---|---|
 | operationName  | string |  |
 | privacy  | string |  |
-
-
-
-## 🔹 PublicBundleConfig
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| description (optional) | string |  |
-| emoji (optional) | string |  |
-| primaryColor (optional) | string |  |
-| gitRepoUrl (optional) | string |  |
-| isGitRepoPublic (optional) | boolean |  |
-| bundleMarkdownReaderConfig (optional) | object |  |
 
 
 # Internal

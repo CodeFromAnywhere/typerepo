@@ -7,6 +7,7 @@ search-web (`OperationClassification` ui-web)
 
 Search everywhere
 
+NB: This is an experimental part of typerepo!
 
 
 

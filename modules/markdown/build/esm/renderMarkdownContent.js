@@ -30,6 +30,7 @@ import { getFolderJs, isPathRelative } from "fs-util-js";
 import { getImplicitId } from "markdown-parse-js";
 import { Div, Span } from "react-with-native";
 import { Tooltip } from "tooltip";
+import { Parameter } from "./Parameter.js";
 export var HtmlHeader = function (_a) {
     var level = _a.level, children = _a.children;
     var levelSize = level === 1
@@ -147,8 +148,9 @@ export var renderMarkdownContent = function (content, config) {
                     var node = _a.node, children = _a.children, props = __rest(_a, ["node", "children"]);
                     // NB: There's a big problem with this because all code elements get put in a `<pre>` element. I don't think this is easy to remove, but we can look in the issues. we can also look in google for how to improve it with css because i couldn't figure it out myself
                     var word = children[0];
-                    var foundWord = typeof word === "string"
-                        ? (_b = config === null || config === void 0 ? void 0 : config.augmentedWordObject) === null || _b === void 0 ? void 0 : _b[word]
+                    var wordString = typeof word === "string" ? word : undefined;
+                    var foundWord = wordString
+                        ? (_b = config === null || config === void 0 ? void 0 : config.augmentedWordObject) === null || _b === void 0 ? void 0 : _b[wordString]
                         : undefined;
                     return foundWord &&
                         foundWord.spoiler &&
@@ -158,7 +160,7 @@ export var renderMarkdownContent = function (content, config) {
                                 projectRelativeBaseFolderPath: getFolderJs(foundWord.projectRelativeMarkdownSourcePath),
                                 projectRelativeMarkdownFilePath: foundWord.projectRelativeMarkdownSourcePath,
                             }))) },
-                        React.createElement("a", __assign({ href: "/".concat(foundWord === null || foundWord === void 0 ? void 0 : foundWord.queryPath), style: { color: "darkred" } }, props), children))) : (React.createElement("code", __assign({ className: "dark:bg-gray-700" }, props, { style: {
+                        React.createElement("a", __assign({ href: "/".concat(foundWord === null || foundWord === void 0 ? void 0 : foundWord.queryPath), style: { color: "darkred" } }, props), children))) : (wordString === null || wordString === void 0 ? void 0 : wordString.startsWith(".")) ? (React.createElement(Parameter, { text: wordString })) : (React.createElement("code", __assign({ className: "dark:bg-gray-700" }, props, { style: {
                             color: "darkcyan",
                             // NB: the below doesn't work!
                             wordBreak: "break-all",

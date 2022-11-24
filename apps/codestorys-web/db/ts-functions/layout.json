@@ -1,0 +1,93 @@
+{
+  "createdAt": 1669291082216,
+  "updatedAt": 1669291082216,
+  "deletedAt": 0,
+  "createdFirstAt": 1669291082216,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/Layout.tsx",
+  "commentsInside": [],
+  "rawText": " (props: { children: React.ReactNode }) => {\n  return (\n    <Div>\n      <Div className=\"h-32 bg-yellow-700 flex flex-col items-center justify-center\">\n        <P className=\"text-white text-3xl\">Codestories</P>\n        <P className=\"text-white\">The adventures of a brave coder</P>\n      </Div>\n      {props.children}\n    </Div>\n  );\n}",
+  "name": "Layout",
+  "slug": "layout",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "publicBundleConfig": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/PublicBundleConfig"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "children": {},
+          "augmentedWordObject": {
+            "$ref": "#/definitions/MappedObject%3CAugmentedWord%3E"
+          },
+          "menu": {
+            "$ref": "#/definitions/MenuObjectType%3CFilePage%3E"
+          }
+        },
+        "required": [
+          "children",
+          "menu"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "publicBundleConfig",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "children",
+            "required": true,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 333,
+    "lines": 11,
+    "bytes": 333,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "reiesmzuqtweghdxrmzcrizc"
+}

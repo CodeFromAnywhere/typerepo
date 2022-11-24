@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774381476,
-  "updatedAt": 1668774381476,
+  "createdAt": 1669276149703,
+  "updatedAt": 1669276149703,
   "deletedAt": 0,
-  "createdFirstAt": 1668774381476,
+  "createdFirstAt": 1669276149703,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  operationRelativeSourcePath: string\n) => {\n  // 1) remove src/\n  const withouSrc = operationRelativeSourcePath.startsWith(\"src/\")\n    ? operationRelativeSourcePath.slice(\"src/\".length)\n    : undefined;\n\n  const folder = getFolderJs(withouSrc);\n\n  if (folder === \"\") return undefined;\n\n  return folder;\n}",
   "description": "",
-  "id": "ycbammxhoqkaoqsyakwvegln"
+  "id": "xyormjygrzwbxvxdyoqyitcs"
 }

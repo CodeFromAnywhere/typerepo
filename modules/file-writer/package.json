@@ -1,0 +1,108 @@
+{
+  "createdAt": 1668328742867,
+  "updatedAt": 1668328742867,
+  "deletedAt": 0,
+  "createdFirstAt": 1668328742867,
+  "id": "eeoxcjsmleyuvdgfpizfdxlb",
+  "dependencies": {
+    "react-with-native": "1.4.9",
+    "api": "0.0.1",
+    "writer-input": "1.0.0",
+    "react-with-native-notification": "1.0.42",
+    "next-paths": "0.0.1",
+    "hotkeys": "0.0.0",
+    "file-tabs": "0.0.0",
+    "react-with-native-store": "2.0.40",
+    "js-util": "0.0.1",
+    "augmented-word-types": "0.0.1",
+    "breadcrumbs": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.25",
+    "@types/react-dom": "^18.0.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^4.8.4"
+  },
+  "main": "./build/esm/index.js",
+  "peerDependencies": {
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css"
+  },
+  "version": "0.0.0",
+  "name": "file-writer",
+  "language": "english",
+  "slug": "file-writer",
+  "operation": {
+    "buildResultIndexed": {
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/file-writer/src/WriterLayout.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+      ],
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "hasGeneratedDependenciesIndexed": false,
+    "lastPullTimeAtIndexed": 0,
+    "lastRebuildAt": 1669288093646,
+    "markdown": "# ❌ No description set yet\n\nPlease set a description for this operation in OPERATION.md\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
+    "hasGeneratedImportsIndexed": false,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 4,
+        "lines": 137,
+        "characters": 4228,
+        "bytes": 4228
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 112,
+        "characters": 3329,
+        "bytes": 3329
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 68,
+        "characters": 1250,
+        "bytes": 1250
+      },
+      "size": {
+        "bytes": 8807,
+        "characters": 8807,
+        "lines": 317,
+        "numberOfFiles": 8
+      }
+    },
+    "folderNameIndexed": "file-writer",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
+    "classificationIndexed": "ui-esm",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "Div",
+      "P",
+      "queries",
+      "api",
+      "WriterInput",
+      "toast",
+      "useHotkey",
+      "isCtrlS",
+      "DbModels",
+      "MappedObject",
+      "AugmentedWord",
+      "FileTabs",
+      "PagesObjectShape",
+      "createStore",
+      "writerInitialValues",
+      "fileTabsInitialValues",
+      "Div",
+      "BreadCrumbs",
+      "usePath"
+    ],
+    "packageDependenciesIndexed": []
+  }
+}

@@ -65,7 +65,7 @@
     "folderNameIndexed": "markdown",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669200738575,
+    "lastRebuildAt": 1669277898819,
     "operationDependenciesIndexed": [
       "path",
       "apiUrl",
@@ -73,6 +73,7 @@
       "createCodeblockMarkdown",
       "Div",
       "ClickableIcon",
+      "Div",
       "Frontmatter",
       "Div",
       "P",
@@ -102,28 +103,28 @@
     "markdown": "# markdown\n\nthis uses `react-markdown` to render markdown in the browser with react...\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 10,
-        "lines": 608,
-        "characters": 17632,
-        "bytes": 17632
+        "numberOfFiles": 11,
+        "lines": 634,
+        "characters": 18544,
+        "bytes": 18544
       },
       "dataSize": {
         "numberOfFiles": 2,
         "lines": 155,
-        "characters": 4200,
-        "bytes": 4200
+        "characters": 4201,
+        "bytes": 4201
       },
       "textSize": {
         "numberOfFiles": 4,
-        "lines": 258,
-        "characters": 6162,
-        "bytes": 6162
+        "lines": 275,
+        "characters": 6717,
+        "bytes": 6717
       },
       "size": {
-        "bytes": 27994,
-        "characters": 27994,
-        "lines": 1021,
-        "numberOfFiles": 16
+        "bytes": 29462,
+        "characters": 29462,
+        "lines": 1064,
+        "numberOfFiles": 17
       }
     },
     "hasGeneratedImportsIndexed": false

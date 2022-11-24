@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055834963,
-  "updatedAt": 1669055834963,
+  "createdAt": 1669276739502,
+  "updatedAt": 1669276739502,
   "deletedAt": 0,
-  "createdFirstAt": 1669055834963,
+  "createdFirstAt": 1669276739502,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(functionContext: FunctionContext) => {\n  const {\n    tsFunction,\n    serverContext,\n    hasAuthorization,\n    authToken,\n    ...userInfo\n  } = functionContext;\n\n  return userInfo;\n}",
   "description": "Get all relevant information about yourself, including all persons that are attached to you.\n\nNB: probably need to omit some fields later, but for now it's fine",
-  "id": "tyvdwthsbtzhnioavqqkyrwk"
+  "id": "jywpwugszfqnfeeppnvjbens"
 }

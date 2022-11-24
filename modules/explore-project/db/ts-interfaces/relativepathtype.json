@@ -1,15 +1,15 @@
 {
-  "createdAt": 1669205450526,
-  "updatedAt": 1669205450526,
+  "createdAt": 1669287695440,
+  "updatedAt": 1669287695440,
   "deletedAt": 0,
-  "createdFirstAt": 1669205450526,
+  "createdFirstAt": 1669287695440,
   "id": "relativepathtype",
   "name": "RelativePathType",
   "slug": "relativepathtype",
   "operationRelativeTypescriptFilePath": "src/getProjectRelativePaths.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type RelativePathType = \"todo\" | \"postables\";",
+  "rawText": "\n\nexport type RelativePathType = \"todo\";",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -18,16 +18,9 @@
   "type": {
     "typeDefinition": {
       "type": "string",
-      "enum": [
-        "todo",
-        "postables"
-      ]
+      "const": "todo"
     },
     "simplifiedSchema": {
-      "enum": [
-        "todo",
-        "postables"
-      ],
       "type": "string"
     },
     "typeCoverage": 0,

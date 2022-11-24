@@ -25,13 +25,11 @@ import type { Interest } from "social-media-types";
 import type { MediaChannel } from "social-media-types";
 import type { MediaCredentail } from "social-media-types";
 import type { MediaPost } from "social-media-types";
-import type { Postable } from "social-media-types";
 import type { BundleConfig } from "bundle-types";
 import type { FrontBackBundle } from "bundle-types";
 import type { Dataset } from "code-types";
 import type { FunctionExecution } from "code-types";
 import type { Operation } from "code-types";
-import type { SocialMediaCallToAction } from "code-types";
 import type { TsBuildError } from "code-types";
 import type { TsComment } from "code-types";
 import type { TsConfig } from "code-types";
@@ -42,8 +40,6 @@ import type { TsInterface } from "code-types";
 import type { TsLintWarning } from "code-types";
 import type { TsVariable } from "code-types";
 import type { TypescriptFile } from "code-types";
-import type { WebMarkdownFile } from "code-types";
-import type { WebsiteCallToAction } from "code-types";
 import type { Address } from "geo-types";
 import type { Area } from "geo-types";
 import type { City } from "geo-types";
@@ -59,6 +55,8 @@ import type { Word } from "language-types";
 import type { WordCategory } from "language-types";
 import type { WordCombination } from "language-types";
 import type { WordMatrix } from "language-types";
+import type { MarkdownCallToAction } from "markdown-types";
+import type { WebMarkdownFile } from "markdown-types";
 import type { SlugModelType } from "model-types";
 import type { AppDeveloper } from "os-types";
 import type { Assignment } from "os-types";
@@ -122,8 +120,8 @@ import type { SustainabilityPlan } from "foodchain-types";
 import type { ValueChainPhase } from "foodchain-types";
 
 
-export type DbModels = { PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentRequest: PaymentRequest,PaymentSubscription: PaymentSubscription,PaymentTransaction: PaymentTransaction,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer,AuthorizationModel: AuthorizationModel,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,RecurringReminder: RecurringReminder,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,Postable: Postable,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,SocialMediaCallToAction: SocialMediaCallToAction,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,WebMarkdownFile: WebMarkdownFile,WebsiteCallToAction: WebsiteCallToAction,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,SlugModelType: SlugModelType,AppDeveloper: AppDeveloper,Assignment: Assignment,Bag: Bag,Calendar: Calendar,Deliverable: Deliverable,Diary: Diary,Feeling: Feeling,FeelingLog: FeelingLog,Folder: Folder,Host: Host,Inventory: Inventory,Item: Item,ItemCategory: ItemCategory,KvmdShortcut: KvmdShortcut,Label: Label,Light: Light,Listing: Listing,LoginCredential: LoginCredential,Material: Material,MessagePreset: MessagePreset,PersonalCarbonFootprintProfile: PersonalCarbonFootprintProfile,ProgressReport: ProgressReport,Question: Question,Reservation: Reservation,Resource: Resource,Shit: Shit,ShitLog: ShitLog,ShoppingList: ShoppingList,Shortcut: Shortcut,Student: Student,Student2: Student2,TaskError: TaskError,Trackable: Trackable,User: User,UserCredential: UserCredential,Artist: Artist,PlayCategory: PlayCategory,PlayItem: PlayItem,PlayList: PlayList,PlaySchedule: PlaySchedule,RelationModelType: RelationModelType,JeepType: JeepType,LocationType: LocationType,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,Activity: Activity,CompanyRequirement: CompanyRequirement,CompanySize: CompanySize,CompanyType: CompanyType,Company: Company,ContactInformation: ContactInformation,Contribution: Contribution,EsgMetric: EsgMetric,ProductCategory: ProductCategory,Product: Product,ProofState: ProofState,Proof: Proof,SustainabilityPlan: SustainabilityPlan,ValueChainPhase: ValueChainPhase };
-export const dbModelKeys = [ "PaymentCoupon","PaymentEvent","PaymentPlan","PaymentRequest","PaymentSubscription","PaymentTransaction","SelfSprintReview","TodoFile","TodoOffer","AuthorizationModel","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","RecurringReminder","Interest","MediaChannel","MediaCredentail","MediaPost","Postable","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","SocialMediaCallToAction","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","WebMarkdownFile","WebsiteCallToAction","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","SlugModelType","AppDeveloper","Assignment","Bag","Calendar","Deliverable","Diary","Feeling","FeelingLog","Folder","Host","Inventory","Item","ItemCategory","KvmdShortcut","Label","Light","Listing","LoginCredential","Material","MessagePreset","PersonalCarbonFootprintProfile","ProgressReport","Question","Reservation","Resource","Shit","ShitLog","ShoppingList","Shortcut","Student","Student2","TaskError","Trackable","User","UserCredential","Artist","PlayCategory","PlayItem","PlayList","PlaySchedule","RelationModelType","JeepType","LocationType","OperationConfig","OperationIndex","PackageJson","Activity","CompanyRequirement","CompanySize","CompanyType","Company","ContactInformation","Contribution","EsgMetric","ProductCategory","Product","ProofState","Proof","SustainabilityPlan","ValueChainPhase" ] as const;
+export type DbModels = { PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentRequest: PaymentRequest,PaymentSubscription: PaymentSubscription,PaymentTransaction: PaymentTransaction,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer,AuthorizationModel: AuthorizationModel,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,RecurringReminder: RecurringReminder,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,MarkdownCallToAction: MarkdownCallToAction,WebMarkdownFile: WebMarkdownFile,SlugModelType: SlugModelType,AppDeveloper: AppDeveloper,Assignment: Assignment,Bag: Bag,Calendar: Calendar,Deliverable: Deliverable,Diary: Diary,Feeling: Feeling,FeelingLog: FeelingLog,Folder: Folder,Host: Host,Inventory: Inventory,Item: Item,ItemCategory: ItemCategory,KvmdShortcut: KvmdShortcut,Label: Label,Light: Light,Listing: Listing,LoginCredential: LoginCredential,Material: Material,MessagePreset: MessagePreset,PersonalCarbonFootprintProfile: PersonalCarbonFootprintProfile,ProgressReport: ProgressReport,Question: Question,Reservation: Reservation,Resource: Resource,Shit: Shit,ShitLog: ShitLog,ShoppingList: ShoppingList,Shortcut: Shortcut,Student: Student,Student2: Student2,TaskError: TaskError,Trackable: Trackable,User: User,UserCredential: UserCredential,Artist: Artist,PlayCategory: PlayCategory,PlayItem: PlayItem,PlayList: PlayList,PlaySchedule: PlaySchedule,RelationModelType: RelationModelType,JeepType: JeepType,LocationType: LocationType,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,Activity: Activity,CompanyRequirement: CompanyRequirement,CompanySize: CompanySize,CompanyType: CompanyType,Company: Company,ContactInformation: ContactInformation,Contribution: Contribution,EsgMetric: EsgMetric,ProductCategory: ProductCategory,Product: Product,ProofState: ProofState,Proof: Proof,SustainabilityPlan: SustainabilityPlan,ValueChainPhase: ValueChainPhase };
+export const dbModelKeys = [ "PaymentCoupon","PaymentEvent","PaymentPlan","PaymentRequest","PaymentSubscription","PaymentTransaction","SelfSprintReview","TodoFile","TodoOffer","AuthorizationModel","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","RecurringReminder","Interest","MediaChannel","MediaCredentail","MediaPost","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","MarkdownCallToAction","WebMarkdownFile","SlugModelType","AppDeveloper","Assignment","Bag","Calendar","Deliverable","Diary","Feeling","FeelingLog","Folder","Host","Inventory","Item","ItemCategory","KvmdShortcut","Label","Light","Listing","LoginCredential","Material","MessagePreset","PersonalCarbonFootprintProfile","ProgressReport","Question","Reservation","Resource","Shit","ShitLog","ShoppingList","Shortcut","Student","Student2","TaskError","Trackable","User","UserCredential","Artist","PlayCategory","PlayItem","PlayList","PlaySchedule","RelationModelType","JeepType","LocationType","OperationConfig","OperationIndex","PackageJson","Activity","CompanyRequirement","CompanySize","CompanyType","Company","ContactInformation","Contribution","EsgMetric","ProductCategory","Product","ProofState","Proof","SustainabilityPlan","ValueChainPhase" ] as const;
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
     PaymentCoupon: {
@@ -248,11 +246,6 @@ MediaCredentail: {
         },
 MediaPost: {
           
-          dbStorageMethod: "jsonMultiple",
-          
-        },
-Postable: {
-          
           dbStorageMethod: "markdown",
           
         },
@@ -280,11 +273,6 @@ Operation: {
           operationName: "*",
           dbStorageMethod: "jsonSingle",
           operationRelativePath: "package.json",
-        },
-SocialMediaCallToAction: {
-          
-          dbStorageMethod: "markdown",
-          
         },
 TsBuildError: {
           operationName: "*",
@@ -332,16 +320,6 @@ TsVariable: {
           
         },
 TypescriptFile: {
-          
-          dbStorageMethod: "jsonMultiple",
-          
-        },
-WebMarkdownFile: {
-          
-          dbStorageMethod: "markdown",
-          
-        },
-WebsiteCallToAction: {
           
           dbStorageMethod: "jsonMultiple",
           
@@ -419,6 +397,16 @@ WordCombination: {
 WordMatrix: {
           
           dbStorageMethod: "jsonMultiple",
+          
+        },
+MarkdownCallToAction: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+WebMarkdownFile: {
+          
+          dbStorageMethod: "markdown",
           
         },
 SlugModelType: {

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669200582701,
-  "updatedAt": 1669200582701,
+  "createdAt": 1669287841178,
+  "updatedAt": 1669287841178,
   "deletedAt": 0,
-  "createdFirstAt": 1669200582701,
+  "createdFirstAt": 1669287841178,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getMarkdownPageInfo.ts",
   "commentsInside": [],
-  "rawText": " async (\n  projectRoot: string,\n  webPages: WebPage<any>[],\n  queryPath: string,\n  contentPage: ReaderWebPage\n): Promise<{\n  markdownFile: WebMarkdownFile | null;\n  nextQueryPath: string | null;\n  previousQueryPath: string | null;\n  projectRelativeMarkdownPath: string | null;\n}> => {\n  const parentQuery = getOneFolderUpPath(queryPath);\n  const siblings = getChildren(webPages, parentQuery);\n  const thisPageKey = queryPath.split(\"/\").pop();\n  const meIndex = siblings.findIndex((sibling) => thisPageKey === sibling);\n\n  const previousFolder = siblings[meIndex - 1];\n  const previousQueryPath = previousFolder\n    ? `${parentQuery}/${previousFolder}`\n    : null;\n  const nextFolder = siblings[meIndex + 1];\n  const nextQueryPath = nextFolder ? `${parentQuery}/${nextFolder}` : null;\n\n  const absoluteMarkdownPath = contentPage.pageData.projectRelativeFilePath\n    ? path.join(projectRoot, contentPage.pageData.projectRelativeFilePath)\n    : undefined;\n\n  const markdownFile = absoluteMarkdownPath\n    ? await readMarkdownFileToModel(absoluteMarkdownPath)\n    : null;\n\n  const projectRelativeMarkdownPath = absoluteMarkdownPath\n    ? makeRelative(absoluteMarkdownPath, projectRoot)\n    : null;\n\n  return {\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n  };\n}",
+  "rawText": " async (\n  projectRoot: string,\n  webPages: WebPage<any>[],\n  queryPath: string,\n  contentPage: ReaderWebPage\n): Promise<{\n  markdownFile: WebMarkdownFile | null;\n  nextQueryPath: string | null;\n  previousQueryPath: string | null;\n  projectRelativeMarkdownPath: string | null;\n}> => {\n  const parentQuery = getOneFolderUpPath(queryPath);\n  const siblings = getChildren(webPages, parentQuery);\n  const thisPageKey = queryPath.split(\"/\").pop();\n  const meIndex = siblings.findIndex((sibling) => thisPageKey === sibling);\n\n  const previousFolder = siblings[meIndex - 1];\n  const previousQueryPath = previousFolder\n    ? `${parentQuery}/${previousFolder}`\n    : null;\n  const nextFolder = siblings[meIndex + 1];\n  const nextQueryPath = nextFolder ? `${parentQuery}/${nextFolder}` : null;\n\n  const absoluteMarkdownPath = contentPage.pageData?.projectRelativeFilePath\n    ? path.join(projectRoot, contentPage.pageData.projectRelativeFilePath)\n    : undefined;\n\n  const markdownFile = absoluteMarkdownPath\n    ? await readMarkdownFileToModel(absoluteMarkdownPath)\n    : null;\n\n  const projectRelativeMarkdownPath = absoluteMarkdownPath\n    ? makeRelative(absoluteMarkdownPath, projectRoot)\n    : null;\n\n  return {\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n  };\n}",
   "name": "getMarkdownPageInfo",
   "slug": "get-markdown-page-info",
   "parameters": [
@@ -56,7 +56,7 @@
   ],
   "description": "If a markdown page is found, this function fetches all metadata needed to render that markdown page",
   "returnType": {
-    "rawType": "Promise<{ markdownFile: import(\"/Users/king/King/operations/tools/types/code-types/build/WebMarkdownFile\").WebMarkdownFile | null; nextQueryPath: string | null; previousQueryPath: string | null; projectRelativeMarkdownPath: string | null; }>",
+    "rawType": "Promise<{ markdownFile: any; nextQueryPath: string | null; previousQueryPath: string | null; projectRelativeMarkdownPath: string | null; }>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -66,13 +66,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 1404,
+    "characters": 1405,
     "lines": 42,
-    "bytes": 1404,
+    "bytes": 1405,
     "bytesPerCharacter": 1,
     "charactersPerLine": 33,
     "linesPerFile": 42,
     "numberOfFiles": 1
   },
-  "id": "acbuuaekimcqdskzhdnoiuvh"
+  "id": "qyabvvjhjblzfdeiynclvfgq"
 }

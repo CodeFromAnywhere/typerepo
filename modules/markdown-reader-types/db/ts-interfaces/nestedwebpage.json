@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669127839961,
-  "updatedAt": 1669127839961,
+  "createdAt": 1669287881490,
+  "updatedAt": 1669287881490,
   "deletedAt": 0,
-  "createdFirstAt": 1669127839961,
+  "createdFirstAt": 1669287881490,
   "id": "nestedwebpage",
   "name": "NestedWebPage",
   "slug": "nestedwebpage",
@@ -15,7 +15,7 @@
   "commentsInside": [],
   "type": {
     "typeDefinition": {
-      "$ref": "#/definitions/ChildObject%3CWebPage%3Cundefined%3E%3E",
+      "$ref": "#/definitions/ChildObject%3CWebPage%3Cnull%3E%3E",
       "description": "Only used for menu, so can be undefined because it shouldn't be available"
     },
     "simplifiedSchema": {
@@ -87,11 +87,10 @@
         },
         {
           "name": "pageData",
-          "required": false,
+          "required": true,
           "schema": {
             "fullComment": "Data connected to the `queryPath`. can take any shape or form based on your application.\n\nFor example, you can provide a `projectRelativePath` to a file here\n\nThe motivation to put this in a `extraData` object is because this makes the type super flexible.\n\n`.pageData` is not to be included into the menu, only to the page!\n\nSome ideas of what to provide here:\n\n- `projectRelativeFilePath` (so you can open the page if it's connected to some path)\n- `operationName`\n- `operationRelativePath`\n\n\nWhat not to provide here:\n\n- `AugmentedWord`[] (this is way too big, so it'd be a waste of query time to provide it for every page already)\n- stuff you already provided in the WebPage itself (it will also be available on the page, so why bother?)",
-            "properties": [],
-            "type": "object"
+            "type": "null"
           }
         },
         {
@@ -101,11 +100,11 @@
             "items": [
               {
                 "schema": {
-                  "circularRefName": "ChildObject<WebPage<undefined>>",
+                  "circularRefName": "ChildObject<WebPage<null>>",
                   "properties": [],
                   "type": "object"
                 },
-                "name": "ChildObject<WebPage<undefined>>"
+                "name": "ChildObject<WebPage<null>>"
               }
             ],
             "type": "array"

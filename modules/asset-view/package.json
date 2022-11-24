@@ -5,22 +5,24 @@
   "createdFirstAt": 1668328815625,
   "id": "yiqycykmfrkrufuhrdysvyzu",
   "dependencies": {
-    "binaryextensions": "^4.18.0",
-    "istextorbinary": "^6.0.0",
-    "textextensions": "^5.15.0",
-    "react-with-native": "1.4.9",
-    "markdown": "1.0.0",
-    "text-or-binary": "0.0.1",
     "asset-functions-js": "0.0.1",
-    "server-api-url": "0.0.1",
-    "clickable-icon": "0.0.1",
     "asset-type": "0.0.1",
-    "react": "*",
+    "binaryextensions": "^4.18.0",
+    "clickable-icon": "0.0.1",
+    "istextorbinary": "^6.0.0",
+    "js-util": "0.0.1",
+    "markdown": "1.0.0",
     "model-types": "0.0.1",
-    "js-util": "0.0.1"
+    "path-browserify": "^1.0.1",
+    "react": "*",
+    "react-with-native": "1.4.9",
+    "server-api-url": "0.0.1",
+    "text-or-binary": "0.0.1",
+    "textextensions": "^5.15.0"
   },
   "devDependencies": {
     "@types/istextorbinary": "^2.3.1",
+    "@types/path-browserify": "^1.0.0",
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
@@ -54,10 +56,11 @@
     ],
     "folderNameIndexed": "asset-view",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669055025981,
+    "lastRebuildAt": 1669276064389,
     "operationDependenciesIndexed": [
       "readableSize",
       "Asset",
+      "isDev",
       "MarkdownCodeblock",
       "A",
       "Div",
@@ -91,26 +94,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 6,
-        "lines": 320,
-        "characters": 8864,
-        "bytes": 8864
+        "lines": 332,
+        "characters": 9329,
+        "bytes": 9329
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 158,
-        "characters": 4856,
-        "bytes": 4856
+        "lines": 160,
+        "characters": 4929,
+        "bytes": 4929
       },
       "textSize": {
         "numberOfFiles": 2,
         "lines": 121,
-        "characters": 2725,
-        "bytes": 2725
+        "characters": 2780,
+        "bytes": 2780
       },
       "size": {
-        "bytes": 16445,
-        "characters": 16445,
-        "lines": 599,
+        "bytes": 17038,
+        "characters": 17038,
+        "lines": 613,
         "numberOfFiles": 10
       }
     },

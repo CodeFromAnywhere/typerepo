@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668335548556,
-  "updatedAt": 1668335548556,
+  "createdAt": 1669288056008,
+  "updatedAt": 1669288056008,
   "deletedAt": 0,
-  "createdFirstAt": 1668335548556,
+  "createdFirstAt": 1669288056008,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(frontmatter: Frontmatter): string => {\n  const keys = Object.keys(frontmatter);\n\n  const keyValueLines = keys\n    .map((key) => {\n      const value = frontmatter[key];\n      const valueString = getFrontmatterValueString(value);\n\n      if (valueString === null) {\n        return null;\n      }\n\n      const parsedFrontmatterLine = `${key}: ${valueString}`;\n\n      return parsedFrontmatterLine;\n    })\n    .filter(notEmpty);\n\n  return keyValueLines.length === 0\n    ? \"\"\n    : `---\\n${keyValueLines.join(\"\\n\")}\\n---\\n`;\n}",
   "description": "Parses frontmatter object into a frontmatter string\n- includes a newline at the end\n- string[] becomes a comma separated string\nTODO: maybe parse xxxAt values into human readable dates",
-  "id": "yseogxlwbmkuxxtzlnvptjbe"
+  "id": "qizapxowloyafjmiauzvidzz"
 }

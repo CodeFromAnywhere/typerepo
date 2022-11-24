@@ -1,0 +1,145 @@
+{
+  "createdAt": 1669235144274,
+  "updatedAt": 1669235144274,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235144274,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/findEmbeds.ts",
+  "commentsInside": [],
+  "rawText": " (markdownString: string): MarkdownEmbed[] => {\n  const result: MarkdownEmbed[] = marked\n    .lexer(markdownString)\n    .map(findEmbedsFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
+  "name": "findEmbeds",
+  "slug": "find-embeds",
+  "parameters": [
+    {
+      "name": "markdownString",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "find all embedded assets",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownEmbed[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alt": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "src": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "type": {
+            "enum": [
+              "video",
+              "audio",
+              "image",
+              "text",
+              "other"
+            ],
+            "x-enumNames": [
+              "video",
+              "audio",
+              "image",
+              "text",
+              "other"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "alt",
+          "src",
+          "type"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "alt",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "src",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "type",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "video",
+                    "audio",
+                    "image",
+                    "text",
+                    "other"
+                  ],
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 235,
+    "lines": 9,
+    "bytes": 235,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "lblsnpbequzbqftekrpwjexn"
+}

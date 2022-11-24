@@ -12,9 +12,6 @@ import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
 import { removeTokenIfPresent } from "asset-functions-js";
 import { getFunctionExersize } from "code-types";
-import { markdownParseToMarkdownModelType } from "code-types";
-import { parseMarkdownModelTimestamp } from "code-types";
-import { tryParseDate } from "code-types";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
 import { stripComment } from "comment-util";
@@ -164,6 +161,15 @@ import { parseFrontmatterMarkdownString } from "markdown-parse-js";
 import { parseMarkdownParagraph } from "markdown-parse-js";
 import { parseMdToChunks } from "markdown-parse-js";
 import { removeHeaderPrefix } from "markdown-parse-js";
+import { markdownParseToMarkdownModelType } from "markdown-types";
+import { parseMarkdownModelTimestamp } from "markdown-types";
+import { tryParseDate } from "markdown-types";
+import { findCodespansFromTokenRecursively } from "marked-util";
+import { findCodespans } from "marked-util";
+import { findEmbedsFromTokenRecursively } from "marked-util";
+import { findEmbeds } from "marked-util";
+import { findLinksFromTokenRecursively } from "marked-util";
+import { findLinks } from "marked-util";
 import { frontmatterParseToString } from "matter-types";
 import { getFrontmatterValueString } from "matter-types";
 import { quotedOrNot } from "matter-types";
@@ -229,8 +235,6 @@ import { simplifiedSchemaToTypeDefinitionString } from "schema-util";
 import { simplifySchema } from "schema-util";
 import { findSentenceMatches } from "search";
 import { searchRecursiveObjectArray } from "search";
-import { findPostableToPost } from "social-media-types";
-import { updatePostedStatistics } from "social-media-types";
 import { objectStringToJson } from "string-to-json";
 import { parseIfJson } from "string-to-json";
 import { parsePrimitiveJson } from "string-to-json";
@@ -258,9 +262,6 @@ getTypeFromUrlOrPath,
 readableSize,
 removeTokenIfPresent,
 getFunctionExersize,
-markdownParseToMarkdownModelType,
-parseMarkdownModelTimestamp,
-tryParseDate,
 stripCommentEnd,
 stripCommentStart,
 stripComment,
@@ -410,6 +411,15 @@ parseFrontmatterMarkdownString,
 parseMarkdownParagraph,
 parseMdToChunks,
 removeHeaderPrefix,
+markdownParseToMarkdownModelType,
+parseMarkdownModelTimestamp,
+tryParseDate,
+findCodespansFromTokenRecursively,
+findCodespans,
+findEmbedsFromTokenRecursively,
+findEmbeds,
+findLinksFromTokenRecursively,
+findLinks,
 frontmatterParseToString,
 getFrontmatterValueString,
 quotedOrNot,
@@ -475,8 +485,6 @@ simplifiedSchemaToTypeDefinitionString,
 simplifySchema,
 findSentenceMatches,
 searchRecursiveObjectArray,
-findPostableToPost,
-updatePostedStatistics,
 objectStringToJson,
 parseIfJson,
 parsePrimitiveJson,

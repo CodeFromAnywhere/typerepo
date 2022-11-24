@@ -33,37 +33,40 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "lintProblems": []
+      "lintProblems": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/reader-ui/src/components/Layout.tsx. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+      ]
     },
-    "lastRebuildAt": 1669200648373,
+    "lastRebuildAt": 1669288132947,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 5,
-        "lines": 437,
-        "characters": 13430,
-        "bytes": 13430
+        "numberOfFiles": 6,
+        "lines": 458,
+        "characters": 13915,
+        "bytes": 13915
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 87,
-        "characters": 2205,
-        "bytes": 2205
+        "lines": 163,
+        "characters": 4165,
+        "bytes": 4165
       },
       "textSize": {
-        "numberOfFiles": 2,
-        "lines": 81,
-        "characters": 1764,
-        "bytes": 1764
+        "numberOfFiles": 3,
+        "lines": 164,
+        "characters": 5723,
+        "bytes": 5723
       },
       "size": {
-        "bytes": 17399,
-        "characters": 17399,
-        "lines": 605,
-        "numberOfFiles": 9
+        "bytes": 23803,
+        "characters": 23803,
+        "lines": 785,
+        "numberOfFiles": 11
       }
     },
     "folderNameIndexed": "reader-ui",
-    "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/reader",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "classificationIndexed": "ui-esm",
     "coreDependenciesIndexed": [
       "useState"
@@ -79,6 +82,9 @@
       "Div",
       "P",
       "isDev",
+      "getQueryPath",
+      "MarkdownReaderPageProps",
+      "useRouter",
       "PublicBundleConfig",
       "ClickableIcon",
       "ALink",
@@ -98,13 +104,14 @@
       "renderMarkdownContent",
       "mdToJsonParse",
       "getQueryPath",
-      "MarkdownReaderPageProps",
+      "MarkdownParse",
       "ALink",
       "Div",
       "P",
       "useRouter",
       "isDev",
-      "MarkdownView"
+      "MarkdownView",
+      "ReaderPageContentProps"
     ],
     "packageDependenciesIndexed": []
   },
@@ -128,7 +135,8 @@
     "markdown-reader-functions-js": "0.0.1",
     "react-with-native-router": "1.0.14",
     "writer-input": "1.0.0",
-    "react": "*"
+    "react": "*",
+    "markdown-types": "0.0.1"
   },
   "slug": "reader-ui",
   "id": "dmrxxyobafgmvgnfcrwzhoqw"

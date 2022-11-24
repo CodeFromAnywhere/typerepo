@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055531141,
-  "updatedAt": 1669055531141,
+  "createdAt": 1669276646609,
+  "updatedAt": 1669276646609,
   "deletedAt": 0,
-  "createdFirstAt": 1669055531141,
+  "createdFirstAt": 1669276646609,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const skipYarnInstall = config?.skipYarnInstall;\n  const dryrun = config?.dryrun;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const tsInterfaces = await db.get(\"TsInterface\", {\n    manualProjectRoot,\n    operationName: \"*\",\n  });\n\n  const interfacePathsObject = mergeObjectsArray(\n    tsInterfaces\n      .map((tsInterface) => {\n        const projectRelativePath = tsInterface.projectRelativePath;\n        const exists = fs.existsSync(\n          path.join(projectRoot, projectRelativePath)\n        );\n        if (!exists) return;\n        return { [tsInterface.name]: projectRelativePath };\n      })\n      .filter(notEmpty)\n  );\n\n  const operationObjectString = `export const sdkInterfacePaths = ${JSON.stringify(\n    interfacePathsObject,\n    null,\n    2\n  )};`;\n\n  await newOperationWithFiles(\n    \"sdk-interface-paths\",\n    await getSdkDescription(\"sdk-interface-paths\"),\n    { \"src/sdk-interface-paths.ts\": operationObjectString },\n    { overwriteIfExists: true, skipYarnInstall, manualProjectRoot, dryrun }\n  );\n}",
   "description": "`sdk-function-paths` indexes all operations and builds an object containing all operations.",
-  "id": "dcyyzvhhltkpmobyfflpytjs"
+  "id": "zysqscndwxfmbdrhfhljixxe"
 }

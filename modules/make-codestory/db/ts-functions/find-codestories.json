@@ -1,0 +1,36 @@
+{
+  "createdAt": 1669289246164,
+  "updatedAt": 1669289246164,
+  "deletedAt": 0,
+  "createdFirstAt": 1669289246164,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/findCodestories.ts",
+  "commentsInside": [],
+  "rawText": " async (): Promise<string[]> => {\n  // open the file\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return [];\n\n  const allMarkdownPaths = await getProjectRelativePaths();\n\n  const frontmatterObject = await getFrontmattersMappedObject(\n    projectRoot,\n    allMarkdownPaths\n  );\n\n  const stories =\n    allMarkdownPaths?.filter((x) => {\n      const frontmatter = frontmatterObject[x];\n      if (!frontmatter) return false;\n\n      const isCodestory = frontmatter.isCodestory === true;\n      return isCodestory;\n    }) || [];\n\n  const files = stories\n    .filter((x) => !x.endsWith(\".codestory.md\"))\n    .map((x) => x);\n\n  return files.map((x) => path.join(projectRoot, x));\n}",
+  "name": "findCodestories",
+  "slug": "find-codestories",
+  "parameters": [],
+  "description": "Finds all mdfiles (absolute paths) in /text or /operations that have a frontmatterprop `.isCodestory: true`",
+  "returnType": {
+    "rawType": "Promise<string[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 793,
+    "lines": 27,
+    "bytes": 793,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "tbvwveqyhfwcejnoaarqjtjb"
+}

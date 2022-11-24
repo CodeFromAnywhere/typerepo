@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200586075,
-  "updatedAt": 1669200586075,
+  "createdAt": 1669287844976,
+  "updatedAt": 1669287844976,
   "deletedAt": 0,
-  "createdFirstAt": 1669200586075,
+  "createdFirstAt": 1669287844976,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  writeToAssets(\n    __filename,\n    await getMarkdownReaderQueryPaths(),\n    \"getMarkdownReaderQueryPaths.json\"\n  );\n}",
   "description": "",
-  "id": "jucybfcduczejarfqmeacxhp"
+  "id": "puljzaedxhhpqygcbrslqlbw"
 }

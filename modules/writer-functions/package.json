@@ -11,7 +11,10 @@
     "code-types": "0.0.1",
     "asset-type": "0.0.1",
     "asset-functions-node": "0.0.1",
-    "js-util": "0.0.1"
+    "js-util": "0.0.1",
+    "explore-project": "0.0.1",
+    "webpage-types": "0.0.1",
+    "recursive-util": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -36,7 +39,9 @@
       "dependenciesBuildsFailed": false,
       "indexErrors": [],
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/writer/writer-functions/src/getFrontmatterSchema.ts. Error: TypeError: Cannot read properties of undefined (reading 'filter')\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-functions/src/getFrontmatterSchema.ts. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "node-cjs",
@@ -44,34 +49,62 @@
     "folderNameIndexed": "writer-functions",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668960416200,
-    "operationDependenciesIndexed": [],
+    "lastRebuildAt": 1669288011763,
+    "operationDependenciesIndexed": [
+      "fs",
+      "path",
+      "getProjectRoot",
+      "DbModels",
+      "db",
+      "SimplifiedSchema",
+      "getProjectRelativePaths",
+      "WriterWebPage",
+      "getMenuPagesObject",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "BackendAsset",
+      "processAsset",
+      "notEmpty",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "fs",
+      "path",
+      "getProjectRoot"
+    ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/writer",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 8,
-        "lines": 250,
-        "characters": 6725,
-        "bytes": 6725
+        "numberOfFiles": 10,
+        "lines": 281,
+        "characters": 7706,
+        "bytes": 7706
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 139,
-        "characters": 4294,
-        "bytes": 4294
+        "lines": 150,
+        "characters": 4562,
+        "bytes": 4562
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 9,
-        "characters": 94,
-        "bytes": 94
+        "lines": 142,
+        "characters": 2790,
+        "bytes": 2790
       },
       "size": {
-        "bytes": 11113,
-        "characters": 11113,
-        "lines": 398,
-        "numberOfFiles": 11
+        "bytes": 15058,
+        "characters": 15058,
+        "lines": 573,
+        "numberOfFiles": 13
       }
     },
     "hasGeneratedImportsIndexed": false

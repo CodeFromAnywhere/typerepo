@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.findLinks=void 0;var marked_1=require("marked"),js_util_1=require("js-util"),findLinksFromTokenRecursively_1=require("./findLinksFromTokenRecursively"),findLinks=function(e){return marked_1.marked.lexer(e).map(findLinksFromTokenRecursively_1.findLinksFromTokenRecursively).filter(js_util_1.notEmpty).flat()};exports.findLinks=findLinks;
+//# sourceMappingURL=findLinks.js.map

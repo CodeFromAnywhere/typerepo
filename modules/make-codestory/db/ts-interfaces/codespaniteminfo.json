@@ -1,0 +1,105 @@
+{
+  "createdAt": 1669288761106,
+  "updatedAt": 1669288761106,
+  "deletedAt": 0,
+  "createdFirstAt": 1669288761106,
+  "id": "codespaniteminfo",
+  "name": "CodespanItemInfo",
+  "slug": "codespaniteminfo",
+  "operationRelativeTypescriptFilePath": "src/CodespanItemInfo.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "export type CodespanItemInfo = {\n  name: string;\n  /**\n   * This is the type in this case\n   */\n  slug: string;\n  id: string;\n  description?: string;\n  rawText?: string;\n  gitRepoUrl?: string;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string",
+          "description": "This is the type in this case"
+        },
+        "id": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "rawText": {
+          "type": "string"
+        },
+        "gitRepoUrl": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "slug",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "name",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "slug",
+          "required": true,
+          "schema": {
+            "fullComment": "This is the type in this case",
+            "type": "string"
+          }
+        },
+        {
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "description",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "rawText",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "gitRepoUrl",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "CodespanItemInfo",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055512864,
-  "updatedAt": 1669055512864,
+  "createdAt": 1669276627798,
+  "updatedAt": 1669276627798,
   "deletedAt": 0,
-  "createdFirstAt": 1669055512864,
+  "createdFirstAt": 1669276627798,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const { apiFunctions, jsFunctions, uiFunctions } =\n    await getFunctionSdksContent({ manualProjectRoot });\n\n  if (!apiFunctions || !jsFunctions || !uiFunctions) return;\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n    newFunctionSdkOperation(\"sdk-js\", jsFunctions, config),\n    newFunctionSdkOperation(\"sdk-ui\", uiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      config\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
   "description": "Creates\n\n- sdk-api + sdk-api-keys (for all exposed functions)\n- sdk-js (functions that can be executed anywhere)\n- sdk-ui (functions that use JSX)\n\nOverwrites them if they already exist with minimal interruption time of the system",
-  "id": "eadvakcvtsntwjozehzwtzzi"
+  "id": "gstuhnpludwnpgzbrgaaedag"
 }

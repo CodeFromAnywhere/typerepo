@@ -1,0 +1,49 @@
+{
+  "createdAt": 1669235140060,
+  "updatedAt": 1669235140060,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235140060,
+  "id": "namedparameterstypeof-findcodespans",
+  "name": "NamedParameters<typeof findCodespans>",
+  "slug": "namedparameterstypeof-findcodespans",
+  "operationRelativeTypescriptFilePath": "src/findCodespans.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "sectionContent": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "sectionContent"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "sectionContent",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof findCodespans>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

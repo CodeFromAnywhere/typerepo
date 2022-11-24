@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669205450526,
-  "updatedAt": 1669205450526,
+  "createdAt": 1669287695441,
+  "updatedAt": 1669287695441,
   "deletedAt": 0,
-  "createdFirstAt": 1669205450526,
+  "createdFirstAt": 1669287695441,
   "id": "namedparameterstypeof-getprojectrelativepaths",
   "name": "NamedParameters<typeof getProjectRelativePaths>",
   "slug": "namedparameterstypeof-getprojectrelativepaths",
@@ -59,10 +59,6 @@
                 "name": "type",
                 "required": false,
                 "schema": {
-                  "enum": [
-                    "todo",
-                    "postables"
-                  ],
                   "fullComment": "Optionally filter the results to only:\n\n- todo: all todos in your project operations\n- postable: all your postables in your database\n\nby default, scans all relevant files...\n\n",
                   "type": "string"
                 }

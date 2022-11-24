@@ -1,5 +1,6 @@
 export declare const sdkFunctionPaths: {
     HomePage: string;
+    Layout: string;
     MyApp: string;
     DbAndUpsert: string;
     DbLayout: string;
@@ -125,12 +126,13 @@ export declare const sdkFunctionPaths: {
     abc: string;
     getExamples: string;
     getFunctionExersize: string;
-    markdownParseToMarkdownModelType: string;
-    parseMarkdownModelTimestamp: string;
-    tryParseDate: string;
     codestoriesGetPages: string;
     codestoriesGetStaticPaths: string;
     codestoriesGetStaticProps: string;
+    copyCopyPairs: string;
+    copyReaderStaticAssets: string;
+    findReaderStaticAssets: string;
+    findStaticAssets: string;
     stripCommentEnd: string;
     stripCommentStart: string;
     stripComment: string;
@@ -228,9 +230,9 @@ export declare const sdkFunctionPaths: {
     getExplorationType: string;
     getFileWithExtension: string;
     getFolderExplorationDetails: string;
+    getFrontmattersMappedObject: string;
     getInstanceNames: string;
     getProjectRelativePaths: string;
-    getTodoFrontmattersMappedObject: string;
     getTodoPages: string;
     getTodoPaths: string;
     hasSameProjectPath: string;
@@ -242,6 +244,9 @@ export declare const sdkFunctionPaths: {
     getActivePage: string;
     getOpenPageUrl: string;
     renderIcon: string;
+    FileWriter: string;
+    OpenFileWriterPages: string;
+    WriterLayout: string;
     getWriterType: string;
     hasSubExtension: string;
     isGeneratedOperationName: string;
@@ -560,6 +565,15 @@ export declare const sdkFunctionPaths: {
     log: string;
     parseTitle: string;
     sendMail: string;
+    addCodestoryToSection: string;
+    addModelName: string;
+    findCodestories: string;
+    makeCodespanMappedObject: string;
+    makeCodestory: string;
+    mapChunkRecursively: string;
+    mapMarkdownParseSections: string;
+    writeAllCodestories: string;
+    writeCodespanDetails: string;
     makeFileType: string;
     isResultOfInterface: string;
     makeTest: string;
@@ -568,6 +582,7 @@ export declare const sdkFunctionPaths: {
     getYoutubeId: string;
     HtmlHeader: string;
     MarkdownCodeblock: string;
+    Parameter: string;
     renderFrontmatter: string;
     renderMarkdownChunk: string;
     renderMarkdownContent: string;
@@ -651,6 +666,15 @@ export declare const sdkFunctionPaths: {
     shouldExposeMarkdownFile: string;
     stripReadmeFromFolder: string;
     getQueryPath: string;
+    markdownParseToMarkdownModelType: string;
+    parseMarkdownModelTimestamp: string;
+    tryParseDate: string;
+    findCodespansFromTokenRecursively: string;
+    findCodespans: string;
+    findEmbedsFromTokenRecursively: string;
+    findEmbeds: string;
+    findLinksFromTokenRecursively: string;
+    findLinks: string;
     frontmatterParseToString: string;
     getFrontmatterValueString: string;
     quotedOrNot: string;
@@ -842,8 +866,8 @@ export declare const sdkFunctionPaths: {
     uniqueNames: string;
     AugmentedWordComponent: string;
     Dictionary: string;
-    Layout: string;
-    MarkdownReaderPage: string;
+    DocsReaderLayout: string;
+    ReaderPageContent: string;
     clearTsDatabase: string;
     executeCommandQuietUnlessFail: string;
     exitIfProcessDependenciesChanged: string;
@@ -924,8 +948,6 @@ export declare const sdkFunctionPaths: {
     useReferencableModelData: string;
     useTsInterfaceForm: string;
     sendSms: string;
-    findPostableToPost: string;
-    updatePostedStatistics: string;
     objectStringToJson: string;
     parseIfJson: string;
     parsePrimitiveJson: string;
@@ -969,6 +991,8 @@ export declare const sdkFunctionPaths: {
     writeToAssets: string;
     getFileContents: string;
     getFrontmatterSchema: string;
+    getWriterWebPagesMenu: string;
+    getWriterWebPages: string;
     moveFile: string;
     newFile: string;
     newFolder: string;

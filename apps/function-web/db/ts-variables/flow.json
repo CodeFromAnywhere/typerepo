@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835393473,
-  "updatedAt": 1668835393473,
+  "createdAt": 1669276184877,
+  "updatedAt": 1669276184877,
   "deletedAt": 0,
-  "createdFirstAt": 1668835393473,
+  "createdFirstAt": 1669276184877,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends { [key: string]: any }>(props: {\n  renderNode: (item: T) => JSX.Element;\n  childObject: ChildObject<T>;\n}) => {\n  const { childObject, renderNode } = props;\n\n  //\n\n  // const [nodes, setNodes] = useNodesState<Node[]>(initialNodes);\n  // const [edges, setEdges] = useEdgesState<Edge[]>(initialEdges);\n\n  // const onNodesChange = useCallback(\n  //   (changes: NodeChange[]) =>\n  //     setNodes((nds) => applyNodeChanges(changes, nds)),\n  //   [setNodes]\n  // );\n  // const onEdgesChange = useCallback(\n  //   (changes: EdgeChange[]) =>\n  //     setEdges((eds) => applyEdgeChanges(changes, eds)),\n  //   [setEdges]\n  // );\n  // const onConnect = useCallback(\n  //   (connection: Connection) => setEdges((eds) => addEdge(connection, eds)),\n  //   [setEdges]\n  // );\n\n  const [nodes, setNodes] = useState(initialNodes);\n  const [edges, setEdges] = useState([]);\n\n  const onNodesChange = useCallback(\n    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),\n    [setNodes]\n  );\n  const onEdgesChange = useCallback(\n    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),\n    [setEdges]\n  );\n  const onConnect = useCallback(\n    (connection) => setEdges((eds) => addEdge(connection, eds)),\n    [setEdges]\n  );\n\n  return (\n    <ReactFlow\n      nodes={nodes}\n      edges={edges}\n      onNodesChange={onNodesChange}\n      onEdgesChange={onEdgesChange}\n      onConnect={onConnect}\n      fitView\n      fitViewOptions={fitViewOptions}\n    />\n  );\n}",
   "description": "",
-  "id": "nrkqwfbvmibgsteupjsikisp"
+  "id": "mjxconsgmbczzvrvffrehgnn"
 }

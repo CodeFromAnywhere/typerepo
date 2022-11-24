@@ -48,7 +48,9 @@ function MyApp({ Component, pageProps }: RealAppProps) {
     publicEnvironmentVariables.markdownReaderTitle ||
     "Docs";
 
-  const title = pageProps.title ? `${pageProps.title} - ${siteName}` : siteName;
+  const title = pageProps.content?.title
+    ? `${pageProps.content?.title} - ${siteName}`
+    : siteName;
 
   return (
     <QueryClientProvider client={queryClient}>

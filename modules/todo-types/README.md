@@ -33,7 +33,7 @@ Properties:
 
 # Internal
 
-<details><summary>Show internal (9)</summary>
+<details><summary>Show internal (10)</summary>
     
   # 🔹 ReviewSummary
 
@@ -215,8 +215,38 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| createdAt  | number |  |
+| priority (optional) | string |  |
+| isHiddenForFreelancer (optional) | boolean |  |
+| isClaimable (optional) | boolean |  |
+| doNowPrice (optional) | number |  |
+| deadlineAt (optional) | number |  |
+| codeRequired_operationSlugs  | array |  |
+| todoOffersCalculated (optional) | array |  |
+| owner_personId (optional) | string |  |
+| categoryStackCalculated  | array |  |
+| isPreset (optional) | boolean |  |
+| isPostable (optional) | boolean |  |
+| isCodestory (optional) | boolean |  |
+| tsInterfaceIds (optional) | array |  |
+| tsFunctionIds (optional) | array |  |
+| bundleConfigSlugs (optional) | array |  |
+| operationIds (optional) | array |  |
+| reference_assets  | array |  |
+| headerImage (optional) | object |  |
+| headerTitle (optional) | string |  |
+| headerSubTitle (optional) | string |  |
+| headerCta (optional) | object |  |
+| markdownCallToActionSlugs (optional) | array |  |
+| shop_itemIds (optional) | array |  |
+| author_personSlugs (optional) | array |  |
+| interestSlugs (optional) | array |  |
+| price (optional) | number |  |
+| isDraft (optional) | boolean |  |
 | updatedAt  | number |  |
+| createdAt  | number |  |
+| privacy  | string |  |
+| language  | string |  |
+| isLanguageCustom (optional) | boolean |  |
 | deletedAt  | number |  |
 | createdFirstAt  | number |  |
 | operationName  | null |  |
@@ -226,7 +256,15 @@ Properties:
 | name  | string |  |
 | slug  | string |  |
 | markdown  | string |  |
-| categoryStackCalculated  | array |  |
+
+
+
+## 🔹 TodoFileProperties
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
 | priority (optional) | string |  |
 | isHiddenForFreelancer (optional) | boolean |  |
 | isClaimable (optional) | boolean |  |
@@ -235,6 +273,7 @@ Properties:
 | codeRequired_operationSlugs  | array |  |
 | todoOffersCalculated (optional) | array |  |
 | owner_personId (optional) | string |  |
+| categoryStackCalculated  | array |  |
 
 
 

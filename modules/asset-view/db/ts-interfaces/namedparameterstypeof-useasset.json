@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055016831,
-  "updatedAt": 1669055016831,
+  "createdAt": 1669276055686,
+  "updatedAt": 1669276055686,
   "deletedAt": 0,
-  "createdFirstAt": 1669055016831,
+  "createdFirstAt": 1669276055686,
   "id": "namedparameterstypeof-useasset",
   "name": "NamedParameters<typeof useAsset>",
   "slug": "namedparameterstypeof-useasset",
@@ -22,6 +22,9 @@
         },
         "projectRelativeReferencingFilePath": {
           "type": "string"
+        },
+        "isNextStaticProductionBuild": {
+          "type": "boolean"
         }
       },
       "required": [
@@ -107,7 +110,7 @@
                     "text",
                     "other"
                   ],
-                  "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types",
+                  "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
                   "type": "string"
                 }
               },
@@ -176,6 +179,13 @@
           "required": true,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "isNextStaticProductionBuild",
+          "required": false,
+          "schema": {
+            "type": "boolean"
           }
         }
       ],

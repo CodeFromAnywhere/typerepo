@@ -13,9 +13,28 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | publicBundleConfig (optional) | object |  |
+| menu  | object |  |
+| content (optional) | object |  |
+
+
+# Internal
+
+<details><summary>Show internal (1)</summary>
+    
+  # 🔹 ReaderPageContentProps
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
 | projectRelativeMarkdownPath (optional) | string |  |
 | augmentedWordObject (optional) | object |  |
-| menu  | object |  |
 | markdownFile (optional) | object |  |
 | title (optional) | string |  |
 | children (optional) | array |  |
@@ -23,4 +42,5 @@ Properties:
 | nextQueryPath (optional) | string |  |
 | description (optional) | string |  |
 
+  </details>
 

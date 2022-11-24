@@ -161,6 +161,10 @@ export declare const sdk: {
     codestoriesGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
         props: import("markdown-reader-types").MarkdownReaderPageProps;
     }>;
+    copyCopyPairs: (copyPairs: import("collect-static-assets").CopyPair[]) => Promise<void[]>;
+    copyReaderStaticAssets: (operationBasePath: string, allWebPages: import("webpage-types").WebPage<unknown>[]) => Promise<void>;
+    findReaderStaticAssets: (readerWebPages: import("webpage-types").FileWebPage[]) => Promise<string[] | undefined>;
+    findStaticAssets: (absoluteMarkdownFilePath: string) => Promise<string[]>;
     csvItemArrayToCsvString: <T extends import("csv-util").CsvItemType>(csvModelData: T[]) => string;
     tryParseCsv: <T_1 extends import("csv-util").CsvItemType>(csvString: string) => T_1[] | null;
     generateCsvInstance: () => import("model-types").Creation<import("database").CsvTestModel>;
@@ -231,7 +235,7 @@ export declare const sdk: {
     getDbModelsFromOperations: (operationNames: string[]) => Promise<import("code-types").TsInterface[]>;
     comparePassword: (rawPassword: string, encryptedPassword: string) => Promise<boolean>;
     encryptPassword: (rawPassword: string) => Promise<string>;
-    exploreOperation: (operationBasePath: string) => Promise<import("code-types").TextJson[]>;
+    exploreOperation: (operationBasePath: string) => Promise<TextJson[]>;
     exploreProject: (config?: {
         bundleId?: string | undefined;
     } | undefined) => Promise<import("code-types").FolderExploration[] | undefined>;
@@ -244,18 +248,18 @@ export declare const sdk: {
         sort?: string | undefined;
         typeIndexType?: keyof import("code-types").IndexModels | null | undefined;
     } & import("read-typescript-file").IndexFilter) => Promise<import("code-types").ExplorationDetails>;
+    getFrontmattersMappedObject: (projectRoot: string, markdownPaths?: string[] | undefined) => Promise<{
+        [x: string]: any;
+    }>;
     getInstanceNames: (array: any[], relativePathFromProjectRoot: string) => string[];
     getProjectRelativePaths: (config?: {
-        type?: import("explore-project").RelativePathType | undefined;
+        type?: "todo" | undefined;
         earliestUpdatedAt?: number | undefined;
         filterDraft?: boolean | undefined;
         filterPrivate?: boolean | undefined;
         filterGenerated?: boolean | undefined;
         sort?: "recent" | undefined;
     } | undefined) => Promise<string[] | undefined>;
-    getTodoFrontmattersMappedObject: (projectRoot: string, todoPaths?: string[] | undefined) => Promise<{
-        [x: string]: import("matter-types").Frontmatter | undefined;
-    }>;
     getTodoPages: (config?: import("todo-types").TodoPagesConfig | undefined) => Promise<{
         nested: import("webpage-types").NestedWebPage[];
         flat: (import("webpage-types").FileWebPage | import("webpage-types").WebPage<null>)[];
@@ -575,12 +579,12 @@ export declare const sdk: {
     dev: (manualProjectRoot?: string | undefined) => void;
     determineFileType: (filePath: string) => import("filename-conventions").FileType | null;
     exploreGitRepoFolders: (config: import("k-explore").BaseConfig) => Promise<string[]>;
-    exploreMultiple: (searchConfigs: import("k-explore").SearchConfig[]) => Promise<import("code-types").TextJson[]>;
+    exploreMultiple: (searchConfigs: import("k-explore").SearchConfig[]) => Promise<TextJson[]>;
     exploreOperationFolders: (config: import("k-explore").BaseConfig) => Promise<string[]>;
-    explorePreset: (preset: "git" | "markdown" | "todo" | "packages" | "docs" | "src", config?: import("k-explore").BaseConfig) => Promise<import("code-types").TextJson[]>;
-    explore: ({ basePath, searchLevel, debug, ...other }: import("k-explore").SearchConfig) => Promise<import("code-types").TextJson[]>;
+    explorePreset: (preset: "git" | "markdown" | "todo" | "packages" | "docs" | "src", config?: import("k-explore").BaseConfig) => Promise<TextJson[]>;
+    explore: ({ basePath, searchLevel, debug, ...other }: import("k-explore").SearchConfig) => Promise<TextJson[]>;
     findAllDocsFolderPaths: (ignoreOperations?: boolean | undefined, ignoreFolders?: string[] | undefined) => Promise<string[]>;
-    findAllDotGitFolders: (config: import("k-explore").BaseConfig) => Promise<import("code-types").TextJson[]>;
+    findAllDotGitFolders: (config: import("k-explore").BaseConfig) => Promise<TextJson[]>;
     findAllFoldersWithName: (config: {
         basePath: string;
         folderName: string;
@@ -589,11 +593,11 @@ export declare const sdk: {
     }) => Promise<string[]>;
     findAllPackages: (config?: {
         basePath: string | string[] | undefined;
-    } | undefined) => Promise<import("code-types").TextJson[]>;
+    } | undefined) => Promise<any[]>;
     findAllTodoFolderPaths: (basePath: string, ignoreOperations?: boolean | undefined) => Promise<string[]>;
     findFilesRecursively: (config: Omit<import("k-explore").SearchConfig, "basePath"> & {
         basePath: string;
-    }) => Promise<import("code-types").TextJson[]>;
+    }) => Promise<TextJson[]>;
     pathArrayIsOperation: (pathArray: string[]) => boolean;
     runTestsForOperation: (operationName: string, writeResultsToIndex?: boolean | undefined, manualProjectRoot?: string | undefined) => Promise<boolean | undefined>;
     runTests: (test: import("k-test").Test, operationName?: string | undefined) => Promise<boolean>;
@@ -601,9 +605,24 @@ export declare const sdk: {
         operationFolderPath: string;
     }) => Promise<string[]>;
     sendMail: (mailData: import("mail").MailDataFromOptional | import("mail").MailDataFromOptional[], isMultiple?: boolean | undefined) => Promise<import("@sendgrid/mail").ClientResponse | undefined>;
+    addCodestoryToSection: (sectionContent: string | undefined, mappedObject: {
+        [key: string]: import("make-codestory").CodespanItemInfo;
+    }, isDebug?: boolean | undefined) => string | undefined;
+    addModelName: <T_9 extends import("make-codestory").O>(item: T_9, modelName: string) => T_9 & {
+        author?: string | undefined;
+    };
+    findCodestories: () => Promise<string[]>;
+    makeCodespanMappedObject: () => Promise<void>;
+    makeCodestory: (absolutePath: string, mappedObject: {
+        [key: string]: import("make-codestory").CodespanItemInfo;
+    }, isDebug?: boolean | undefined) => Promise<string | undefined>;
+    mapChunkRecursively: (chunk: import("markdown-types").MarkdownChunk, mapFunction: (content?: string | undefined) => string | undefined) => import("markdown-types").MarkdownChunk;
+    mapMarkdownParseSections: (markdownParse: import("markdown-types").MarkdownParse, mapFunction: (content?: string | undefined) => string | undefined) => import("markdown-types").MarkdownParse;
+    writeAllCodestories: (isDebug?: boolean | undefined) => Promise<void>;
+    writeCodespanDetails: (codespanItemInfo: import("make-codestory").CodespanItemInfo) => string;
     addDependantCount: (type: "tsFunction" | "tsVariable" | "tsInterface", imports: import("code-types").TsImport[]) => (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable) => Promise<import("markdown-parsings").DependantCountObject>;
     bundleFolderWithMarkdown: (outlineTitle: string, markdownStrings: string[], resultFileName?: string | undefined) => Promise<{
-        markdownParse: import("code-types").MarkdownParse;
+        markdownParse: MarkdownParse;
         outlineString: string;
     }>;
     bundleToBookMarkdown: (config: {
@@ -618,10 +637,10 @@ export declare const sdk: {
         includeModules?: boolean | undefined;
     }) => string;
     createMinimizedSectionMarkdown: (markdown: string, expandTitle: string) => string;
-    createMinimizedSection: (markdown: string | undefined, title: string, expandTitle: string) => import("code-types").MarkdownParse | undefined;
+    createMinimizedSection: (markdown: string | undefined, title: string, expandTitle: string) => any;
     deployToVercel: () => void;
     emailMarkdownParse: () => void;
-    flattenNestedObject: <T_9>(nestedObject: import("recursive-types").NestedObject<T_9>, isLeaf?: ((content: T_9 | import("recursive-types").NestedObject<T_9> | undefined) => boolean) | undefined) => void;
+    flattenNestedObject: <T_10>(nestedObject: import("recursive-types").NestedObject<T_10>, isLeaf?: ((content: T_10 | import("recursive-types").NestedObject<T_10> | undefined) => boolean) | undefined) => void;
     generateStaticSite: ({ projectRelativeMdFilePath, singlePage, }: {
         singlePage?: boolean | undefined;
         projectRelativeMdFilePath?: string | undefined;
@@ -642,28 +661,28 @@ export declare const sdk: {
         operationName: string;
         manualProjectRoot?: string | undefined;
     }) => Promise<import("markdown-parsings").OperationSummary | undefined>;
-    getOutline: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
+    getOutline: (markdownParse: MarkdownParse) => string | undefined;
     getPublicMarkdownNestedPathObject: (absoluteFolderPath: string) => Promise<import("recursive-types").NestedObject<string>>;
-    getTitlesRecursively: (chunk: import("code-types").MarkdownChunk) => import("markdown-parsings").NestedTitle[];
+    getTitlesRecursively: (chunk: MarkdownChunk) => import("markdown-parsings").NestedTitle[];
     getTypeDescriptorRecursive: (schema: import("json-schema").JSONSchema7, isMarkdown: boolean) => string;
     isConventionFileStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, conventionFile: "test" | "cli") => boolean;
     isUpperCase: (text: string) => boolean;
     makeOutlineMarkdownString: (title: string, urls: import("markdown-parsings").MergedMarkdownOutlineUrl[]) => string;
     makePropertiesTable: (properties: import("code-types").SimplifiedSchemaProperty[] | undefined) => string;
-    markdownChunkToMarkdownStringRecursive: (markdownChunk: import("code-types").MarkdownChunk) => string;
-    markdownChunksToMarkdownStringRecursive: (markdownChunks: import("code-types").MarkdownChunk[]) => string;
+    markdownChunkToMarkdownStringRecursive: (markdownChunk: MarkdownChunk) => string;
+    markdownChunksToMarkdownStringRecursive: (markdownChunks: MarkdownChunk[]) => string;
     markdownToSayable: ({ markdown, markdownFilePath, }: {
         markdownFilePath: string;
-        markdown: import("code-types").MarkdownParse;
+        markdown: MarkdownParse;
     }) => import("markdown-parsings").Sayable[];
     mdToPdf: ({ absoluteFilePath, markdown, markdownParse, pdfAbsoluteFilePath, }: {
         absoluteFilePath?: string | undefined;
         markdown?: string | undefined;
-        markdownParse?: import("code-types").MarkdownParse | undefined;
+        markdownParse?: any;
         pdfAbsoluteFilePath?: string | undefined;
     }) => void;
-    mergeMarkdownParse: (markdownParses: import("code-types").MarkdownParse[], fileName?: string | undefined) => {
-        merged: import("code-types").MarkdownParse;
+    mergeMarkdownParse: (markdownParses: MarkdownParse[], fileName?: string | undefined) => {
+        merged: MarkdownParse;
         outline: import("markdown-parsings").MergedMarkdownOutlineUrl[];
     };
     noNewlines: (markdown: string | undefined) => string | undefined;
@@ -671,7 +690,7 @@ export declare const sdk: {
     operationToMarkdown: (config: {
         operationSummary: import("markdown-parsings").OperationSummary;
         returnType?: "string" | "parse" | "save" | undefined;
-    }) => Promise<string | import("code-types").MarkdownParse | undefined>;
+    }) => Promise<any>;
     printNestedTitles: (nestedTitles: import("markdown-parsings").NestedTitle[] | undefined, depth?: number | undefined) => string | undefined;
     print: ({ absoluteFilePath }: {
         absoluteFilePath: string;
@@ -691,7 +710,7 @@ export declare const sdk: {
     tsFunctionToMarkdownString: (tsFunction: import("code-types").TsFunction) => string;
     tsInterfaceToMarkdownString: (tsInterface: import("code-types").TsInterface) => string;
     tsVariableToMarkdownString: (tsVariable: import("code-types").TsVariable) => string;
-    upMarkdownChunkLevelRecursively: (markdownChunks: import("code-types").MarkdownChunk[] | undefined) => import("code-types").MarkdownChunk[] | undefined;
+    upMarkdownChunkLevelRecursively: (markdownChunks: MarkdownChunk[] | undefined) => MarkdownChunk[] | undefined;
     minifyBuild: ({ operationName, buildFolderPath, }: {
         operationName?: string | undefined;
         buildFolderPath?: string | undefined;
@@ -851,14 +870,14 @@ export declare const sdk: {
         error?: Error | undefined;
         proc?: import("pm2").Proc | undefined;
     }>;
-    readCsvFileSync: <T_10 extends import("csv-util").CsvItemType>(filePath: string) => T_10[] | null;
-    readCsvFile: <T_11 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_11[] | null>;
-    readJsonFileSync: <T_12>(filePath: string) => T_12 | null;
-    readJsonFile: <T_13>(filePath: string | undefined) => Promise<T_13 | null>;
-    readProjectRelativeJsonFile: <T_14>(projectRelativePath: string) => Promise<T_14 | null>;
+    readCsvFileSync: <T_11 extends import("csv-util").CsvItemType>(filePath: string) => T_11[] | null;
+    readCsvFile: <T_12 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_12[] | null>;
+    readJsonFileSync: <T_13>(filePath: string) => T_13 | null;
+    readJsonFile: <T_14>(filePath: string | undefined) => Promise<T_14 | null>;
+    readProjectRelativeJsonFile: <T_15>(projectRelativePath: string) => Promise<T_15 | null>;
     readKvmdFile: (filePath: string, dbFileLocation: import("model-types").DbFileLocation) => Promise<import("model-types").KeyValueMarkdownParse | null>;
-    readMarkdownFileToModel: (absoluteFilePath: string) => Promise<import("code-types").WebMarkdownFile | null>;
-    readMarkdownFile: (filePath: string) => Promise<import("code-types").MarkdownParse | null>;
+    readMarkdownFileToModel: (absoluteFilePath: string) => Promise<any>;
+    readMarkdownFile: (filePath: string) => Promise<any>;
     getFolderTypescriptIndex: ({ basePath, filter, sort, type, filePath, }: {
         filePath?: string | string[] | undefined;
         basePath?: string | string[] | undefined;
@@ -1052,13 +1071,15 @@ export declare const sdk: {
     watchOperations: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<void>;
-    writeToAssets: (filePath: string, data: any, assetsFileName?: string | undefined) => Promise<boolean | undefined>;
+    writeToAssets: (filePath: string, data: any, assetsFileName?: string | undefined, hideLog?: boolean | undefined) => Promise<boolean | undefined>;
     getFileContents: (projectRelativeFilePath: string) => Promise<{
         isSuccessful: boolean;
         message?: string | undefined;
         fileContents?: string | undefined;
     }>;
     getFrontmatterSchema: (markdownModelName: string | number | symbol | undefined) => Promise<import("code-types").SimplifiedSchema | undefined>;
+    getWriterWebPagesMenu: () => Promise<import("webpage-types").MenuObjectType<import("webpage-types").FilePage>>;
+    getWriterWebPages: () => Promise<import("webpage-types").FileWebPage[]>;
     moveFile: (projectRelativePath: string, projectRelativeNewFolderPath: string) => Promise<{
         isSuccessful: boolean;
         message?: string | undefined;
@@ -1099,9 +1120,6 @@ export declare const sdk: {
         token: string | undefined;
     };
     getFunctionExersize: (functionId: string) => Promise<string>;
-    markdownParseToMarkdownModelType: (markdownParse: import("code-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
-    parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("code-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
-    tryParseDate: (dateString: string) => number | undefined;
     stripCommentEnd: (trimmedLine: string) => string;
     stripCommentStart: (trimmedLine: string) => string;
     stripComment: (rawCommentString: string) => string;
@@ -1156,14 +1174,14 @@ export declare const sdk: {
         removed: boolean;
     }[]>;
     renameAndCreate: (oldPath: string, newPath: string) => Promise<void>;
-    writeJsonToFile: <T_15>(p: string, data: T_15) => Promise<boolean>;
+    writeJsonToFile: <T_16>(p: string, data: T_16) => Promise<boolean>;
     writeStringToFile: (p: string, data: string) => Promise<boolean>;
     writeToFiles: (fileObject: {
         [absoluteFilePath: string]: any;
     }) => Promise<void>;
-    findFolderWhereMatch: <T_16>(fullSourcePath: string, matchFunction: (folderPath: string) => T_16) => {
+    findFolderWhereMatch: <T_17>(fullSourcePath: string, matchFunction: (folderPath: string) => T_17) => {
         folderPath: string;
-        matchResult: T_16;
+        matchResult: T_17;
     } | undefined;
     findOperationBasePathWithClassification: (startPath: string) => {
         folderPath: string;
@@ -1203,54 +1221,54 @@ export declare const sdk: {
     packageCompilesTs: (packageJson: import("code-types").Operation | null) => boolean;
     tsconfigCompilesEsm: (tsconfig: import("code-types").TsConfig) => boolean;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
-    apply: <T_17>(functions: ((input: T_17) => T_17)[], value: T_17) => T_17;
-    createEnum: <T_18 extends readonly string[]>(array: T_18) => { [K in T_18[number]]: K; };
-    createMappedObject: <T_19 extends {
+    apply: <T_18>(functions: ((input: T_18) => T_18)[], value: T_18) => T_18;
+    createEnum: <T_19 extends readonly string[]>(array: T_19) => { [K in T_19[number]]: K; };
+    createMappedObject: <T_20 extends {
         [key: string]: any;
-    }, U = T_19>(array: T_19[], mapKey: keyof T_19, mapFn?: ((value: T_19, array: T_19[]) => U) | undefined) => import("js-util").MappedObject<U>;
-    destructureOptionalObject: <T_20 extends {
+    }, U = T_20>(array: T_20[], mapKey: keyof T_20, mapFn?: ((value: T_20, array: T_20[]) => U) | undefined) => import("js-util").MappedObject<U>;
+    destructureOptionalObject: <T_21 extends {
         [key: string]: any;
-    }>(object: T_20 | null | undefined) => Partial<T_20>;
-    findLastIndex: <T_21>(array: T_21[], findFn: (item: T_21) => boolean) => number | undefined;
+    }>(object: T_21 | null | undefined) => Partial<T_21>;
+    findLastIndex: <T_22>(array: T_22[], findFn: (item: T_22) => boolean) => number | undefined;
     getObjectFromParamsString: (paramsString: string) => {
         [x: string]: string;
     };
     getObjectKeysArray: <TObject extends {
         [key: string]: any;
     }>(object: TObject) => Extract<keyof TObject, string>[];
-    getParameterAtLocation: <T_22 = any>(object: {
+    getParameterAtLocation: <T_23 = any>(object: {
         [key: string]: any;
-    }, location: string[]) => T_22;
-    getSubsetFromObject: <T_23, K_1 extends readonly (keyof T_23)[]>(object: T_23, keys: K_1) => Pick<T_23, K_1[number]>;
-    groupByKey: <T_24 extends {
+    }, location: string[]) => T_23;
+    getSubsetFromObject: <T_24, K_1 extends readonly (keyof T_24)[]>(object: T_24, keys: K_1) => Pick<T_24, K_1[number]>;
+    groupByKey: <T_25 extends {
         [key: string]: any;
-    }>(array: T_24[], key: keyof T_24) => {
-        [key: string]: T_24[];
+    }>(array: T_25[], key: keyof T_25) => {
+        [key: string]: T_25[];
     };
     hasAllLetters: (a: string, b: string) => boolean;
-    insertAt: <T_25>(array: T_25[], items: T_25 | T_25[], beforeIndex: number) => T_25[];
+    insertAt: <T_26>(array: T_26[], items: T_26 | T_26[], beforeIndex: number) => T_26[];
     isAllTrue: (array: boolean[]) => boolean;
-    makeArray: <T_26>(...arrayOrNotArray: (T_26 | T_26[] | undefined)[]) => T_26[];
-    mapAsync: <T_27, U_1>(array: T_27[], callback: (value: T_27, index: number, array: T_27[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
+    makeArray: <T_27>(...arrayOrNotArray: (T_27 | T_27[] | undefined)[]) => T_27[];
+    mapAsync: <T_28, U_1>(array: T_28[], callback: (value: T_28, index: number, array: T_28[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
     mapKeys: (object: {
         [key: string]: any;
     }, mapFn: (key: string) => string | Promise<string> | undefined) => Promise<{
         [x: string]: any;
     }>;
-    mapMany: <T_28, U_2>(array: T_28[], mapFn: (item: T_28, index: number, array: T_28[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
-    mapValuesSync: <T_29, U_3>(object: {
-        [key: string]: T_29;
-    }, mapFn: (value: T_29) => U_3) => {
+    mapMany: <T_29, U_2>(array: T_29[], mapFn: (item: T_29, index: number, array: T_29[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
+    mapValuesSync: <T_30, U_3>(object: {
+        [key: string]: T_30;
+    }, mapFn: (value: T_30) => U_3) => {
         [x: string]: U_3;
     };
-    mergeNestedObject: <T_30 extends import("js-util").O>(object: T_30, otherObject: import("js-util").NestedPartial<T_30> | undefined) => T_30;
-    mergeObjectParameters: <T_31>(config: T_31 | undefined, defaults: T_31 | undefined) => Partial<T_31>;
-    mergeObjectsArray: <T_32 extends {
+    mergeNestedObject: <T_31 extends import("js-util").O>(object: T_31, otherObject: import("js-util").NestedPartial<T_31> | undefined) => T_31;
+    mergeObjectParameters: <T_32>(config: T_32 | undefined, defaults: T_32 | undefined) => Partial<T_32>;
+    mergeObjectsArray: <T_33 extends {
         [key: string]: any;
-    }>(objectsArray: T_32[]) => T_32;
-    mergeObjects: <T_33 extends {
+    }>(objectsArray: T_33[]) => T_33;
+    mergeObjects: <T_34 extends {
         [key: string]: any;
-    }>(...objects: (Partial<T_33> | undefined)[]) => T_33 | undefined;
+    }>(...objects: (Partial<T_34> | undefined)[]) => T_34 | undefined;
     noEmptyString: (input: string | undefined) => string | undefined;
     notEmpty: typeof notEmpty;
     objectMapAsync: <TObject_1 extends {
@@ -1259,44 +1277,44 @@ export declare const sdk: {
     objectMapSync: <TObject_2 extends {
         [key: string]: any;
     }, TMapResult, TResultObject_1 extends { [key_1 in keyof TObject_2]: TMapResult; }>(object: TObject_2, mapFn: (key: keyof TObject_2, value: TObject_2[keyof TObject_2]) => TMapResult) => TResultObject_1;
-    objectValuesMap: <T_34 extends {
-        [key: string]: T_34[string];
-    }, U_4 extends unknown>(object: T_34, mapFn: (key: string, value: T_34[string]) => U_4) => {
+    objectValuesMap: <T_35 extends {
+        [key: string]: T_35[string];
+    }, U_4 extends unknown>(object: T_35, mapFn: (key: string, value: T_35[string]) => U_4) => {
         [key: string]: U_4;
     };
-    omitUndefinedValues: <T_35 extends {
+    omitUndefinedValues: <T_36 extends {
         [key: string]: any;
-    }>(object: T_35) => T_35;
-    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_36 extends U_5>(value: T_36, index: number, self: T_36[]) => boolean;
+    }>(object: T_36) => T_36;
+    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_37 extends U_5>(value: T_37, index: number, self: T_37[]) => boolean;
     onlyUnique: typeof onlyUnique;
-    pickRandomArrayItem: <T_37>(array: T_37[]) => T_37;
-    putIndexAtIndex: <T_38>(array: T_38[], index: number, toIndex: number) => T_38[];
-    removeIndexFromArray: <T_39>(array: T_39[], index: number) => T_39[];
+    pickRandomArrayItem: <T_38>(array: T_38[]) => T_38;
+    putIndexAtIndex: <T_39>(array: T_39[], index: number, toIndex: number) => T_39[];
+    removeIndexFromArray: <T_40>(array: T_40[], index: number) => T_40[];
     removeOptionalKeysFromObjectStrings: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: string[]) => TObject_3;
     removeOptionalKeysFromObject: <TObject_4 extends import("js-util").O>(object: TObject_4, keys: Exclude<Extract<keyof TObject_4, string>, Exclude<import("js-util").KeysOfType<TObject_4, Exclude<TObject_4[keyof TObject_4], undefined>>, undefined>>[]) => TObject_4;
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
-    sumAllKeys: <T_40 extends {
+    sumAllKeys: <T_41 extends {
         [key: string]: number | undefined;
-    }>(objectArray: T_40[], keys: (keyof T_40)[]) => T_40;
+    }>(objectArray: T_41[], keys: (keyof T_41)[]) => T_41;
     sumObjectParameters: <TObject_5 extends {
         [key: string]: number;
     }>(object1: TObject_5, object2: TObject_5) => TObject_5;
     sum: (items: number[]) => number;
-    takeFirst: <T_41>(arrayOrNot: T_41 | T_41[]) => T_41;
+    takeFirst: <T_42>(arrayOrNot: T_42 | T_42[]) => T_42;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
-    flattenMarkdownChunks: (markdownChunks: import("code-types").MarkdownChunk[]) => import("code-types").MarkdownParagraph[];
-    getKvmdItemsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
-    getParagraphsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("code-types").MarkdownParagraph[];
-    kvmdDataMap: <T_42 extends {
+    flattenMarkdownChunks: (markdownChunks: MarkdownChunk[]) => MarkdownParagraph[];
+    getKvmdItemsRecursively: (chunk: MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
+    getParagraphsRecursively: (chunk: MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => MarkdownParagraph[];
+    kvmdDataMap: <T_43 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {
         keyName?: string | undefined;
         valueName?: string | undefined;
         commentName?: string | undefined;
         categoryStackCalculatedName?: string | undefined;
-    }) => T_42[];
+    }) => T_43[];
     kvmdDataToString: (kvmdData: import("model-types").KeyValueMarkdownModelType, previous: import("model-types").KeyValueMarkdownModelType | undefined) => string;
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
@@ -1310,24 +1328,33 @@ export declare const sdk: {
     makeFileType: (filePath: string) => Promise<import("make-file-type").FileType | undefined>;
     isResultOfInterface: <TResult_1>(result: TResult_1, jsonSchema: unknown) => boolean;
     makeTest: <TResult_2>(testFunction: (() => Promise<TResult_2>) | (() => TResult_2), isValid?: ((result: TResult_2) => boolean) | undefined) => () => Promise<boolean>;
-    chunkToStringRecursively: (chunk: import("code-types").MarkdownChunk) => string;
-    getChunkParagraphsRecursively: (chunk: import("code-types").MarkdownChunk) => string[];
+    chunkToStringRecursively: (chunk: MarkdownChunk) => string;
+    getChunkParagraphsRecursively: (chunk: MarkdownChunk) => string[];
     getImplicitId: (title: string) => string;
-    getMarkdownIntro: (markdownParse: import("code-types").MarkdownParse | null) => {
+    getMarkdownIntro: (markdownParse: any) => {
         title: string | undefined;
         firstParagraph: string | null;
     };
-    getMarkdownParseParagraphs: (markdownParse: import("code-types").MarkdownParse) => string[];
+    getMarkdownParseParagraphs: (markdownParse: MarkdownParse) => string[];
     getMarkdownReferencePaths: (markdownString: string) => string[];
     getMarkdownReferencesFromParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownReference[];
-    markdownParseToMarkdownStringFromContent: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
-    markdownParseToMarkdownString: (markdownParse: import("code-types").MarkdownParse) => string;
-    mdContentParseRecursively: (markdownString: string, level: number) => import("code-types").MarkdownChunk[];
-    mdToJsonParse: (markdownString: string, fileName?: string | undefined, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => import("code-types").MarkdownParse;
-    parseFrontmatterMarkdownString: (markdownWithFrontmatter: string, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => import("code-types").MarkdownParse;
+    markdownParseToMarkdownStringFromContent: (markdownParse: MarkdownParse) => string | undefined;
+    markdownParseToMarkdownString: (markdownParse: MarkdownParse) => string;
+    mdContentParseRecursively: (markdownString: string, level: number) => MarkdownChunk[];
+    mdToJsonParse: (markdownString: string, fileName?: string | undefined, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => MarkdownParse;
+    parseFrontmatterMarkdownString: (markdownWithFrontmatter: string, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => MarkdownParse;
     parseMarkdownParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownParagraphChunk[];
-    parseMdToChunks: (markdownString: string, level: number) => import("code-types").MarkdownChunk[];
+    parseMdToChunks: (markdownString: string, level: number) => MarkdownChunk[];
     removeHeaderPrefix: (string: string) => string;
+    markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
+    parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
+    tryParseDate: (dateString: string) => number | undefined;
+    findCodespansFromTokenRecursively: (token: import("marked").marked.Token) => string[];
+    findCodespans: (sectionContent: string) => string[];
+    findEmbedsFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownEmbed[];
+    findEmbeds: (markdownString: string) => MarkdownEmbed[];
+    findLinksFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownLink[];
+    findLinks: (markdownString: string) => MarkdownLink[];
     frontmatterParseToString: (frontmatter: import("matter-types").Frontmatter) => string;
     getFrontmatterValueString: (value: import("matter-types").FrontmatterValue) => string | null;
     quotedOrNot: (string: string) => string;
@@ -1351,7 +1378,7 @@ export declare const sdk: {
         lastChunk: string | undefined;
         fullPath: string;
     };
-    oneByOne: <T_43, U_6>(array: T_43[], callback: (instance: T_43, index: number) => Promise<U_6>) => Promise<U_6[]>;
+    oneByOne: <T_44, U_6>(array: T_44[], callback: (instance: T_44, index: number) => Promise<U_6>) => Promise<U_6[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
         operationDependencies: string[];
@@ -1377,19 +1404,19 @@ export declare const sdk: {
     isSingular: (parameterName: string) => boolean;
     pluralize: (parameterName: string) => string;
     singularize: (parameterName: string) => string;
-    getKeysAtPathFromNestedObject: <T_44 extends {
+    getKeysAtPathFromNestedObject: <T_45 extends {
         [key: string]: any;
-    }>(nestedObject: T_44, objectPath: string) => string[];
-    getMenuPagesObject: <T_45>(flat: import("webpage-types").WebPage<T_45>[]) => import("webpage-types").MenuObjectType<T_45>;
-    makeNestedObjectFromQueryPathObject: <T_46 extends import("recursive-util").QueryPathObject>(objectArray: T_46[], initialValue: import("recursive-types").NestedObject<T_46>) => import("recursive-types").NestedObject<T_46>;
-    nestedObjectToChildObject: <T_47 extends {
+    }>(nestedObject: T_45, objectPath: string) => string[];
+    getMenuPagesObject: <T_46>(flat: import("webpage-types").WebPage<T_46>[]) => import("webpage-types").MenuObjectType<T_46>;
+    makeNestedObjectFromQueryPathObject: <T_47 extends import("recursive-util").QueryPathObject>(objectArray: T_47[], initialValue: import("recursive-types").NestedObject<T_47>) => import("recursive-types").NestedObject<T_47>;
+    nestedObjectToChildObject: <T_48 extends {
         [key: string]: any;
-    }>(nestedObject: import("recursive-types").NestedObject<T_47>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_47>, key: string) => T_47, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_47>[];
+    }>(nestedObject: import("recursive-types").NestedObject<T_48>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_48>, key: string) => T_48, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_48>[];
     nestedPathObjectToNestedMenuRecursive: (nestedPathObject: import("recursive-types").NestedPathObject | null, pathStack?: string[] | undefined, config?: {
         target?: "_blank" | undefined;
         getHref?: ((fullPath: string) => string) | undefined;
     } | undefined) => import("nested-menu-types").MenuItemType[] | undefined;
-    nestifyQueryPathObjectRecursive: <T_48 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_48[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_48>[];
+    nestifyQueryPathObjectRecursive: <T_49 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_49[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_49>[];
     queryPathsArrayToNestedPathObject: (queryPaths: string[]) => import("recursive-types").NestedPathObject;
     reduceQueryPathsRecursively: (queryPaths: string[], initialValue: import("recursive-types").NestedPathObject) => import("recursive-types").NestedPathObject;
     bodyFromQueryString: (query?: string | undefined) => import("rest-util").QueryableObject | undefined;
@@ -1416,12 +1443,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_49>(searchMessage: string, array: T_49[], getSentence?: ((x: T_49) => string) | undefined) => T_49[];
-    searchRecursiveObjectArray: <T_50 extends {
-        children?: T_50[] | undefined;
-    } & Object>(array: T_50[], baseMatcher: (item: T_50) => boolean, afterMapper?: ((item: T_50, isMatch: boolean, hasChildMatch: boolean) => T_50) | undefined) => T_50[];
-    findPostableToPost: () => void;
-    updatePostedStatistics: () => void;
+    findSentenceMatches: <T_50>(searchMessage: string, array: T_50[], getSentence?: ((x: T_50) => string) | undefined) => T_50[];
+    searchRecursiveObjectArray: <T_51 extends {
+        children?: T_51[] | undefined;
+    } & Object>(array: T_51[], baseMatcher: (item: T_51) => boolean, afterMapper?: ((item: T_51, isMatch: boolean, hasChildMatch: boolean) => T_51) | undefined) => T_51[];
     objectStringToJson: (string: string) => {
         [key: string]: import("string-to-json").JSONValue;
     };
@@ -1431,9 +1456,9 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_51>(text: string, logParseError?: boolean | undefined) => T_51 | null;
+    tryParseJson: <T_52>(text: string, logParseError?: boolean | undefined) => T_52 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_52 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_52, (newValue: T_52 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_53 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_53, (newValue: T_53 | undefined) => Promise<boolean>];
     crudPageToWebPages: (pageData: import("webpage-types").CrudPage) => import("webpage-types").WebPage<import("webpage-types").CrudPage>[];
     functionFormPageToWebPage: (pageData: import("webpage-types").FunctionFormPage) => import("webpage-types").WebPage<import("webpage-types").FunctionFormPage>;
 };

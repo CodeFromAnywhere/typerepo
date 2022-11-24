@@ -1,15 +1,15 @@
 {
-  "createdAt": 1669127839960,
-  "updatedAt": 1669127839960,
+  "createdAt": 1669287881489,
+  "updatedAt": 1669287881489,
   "deletedAt": 0,
-  "createdFirstAt": 1669127839960,
+  "createdFirstAt": 1669287881489,
   "id": "markdownreaderpageprops",
   "name": "MarkdownReaderPageProps",
   "slug": "markdownreaderpageprops",
   "operationRelativeTypescriptFilePath": "src/MarkdownReaderPageProps.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\nexport type MarkdownReaderPageProps = {\n  publicBundleConfig?: PublicBundleConfig | null;\n  projectRelativeMarkdownPath?: string | null;\n\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n\n  menu: {\n    flat: ReaderWebPage[];\n    nested: NestedWebPage[];\n  };\n\n  markdownFile?: WebMarkdownFile | null;\n\n  /**\n   * Title of the page\n   */\n  title?: string | null;\n  /**\n   * If path is not a markdownfile, will return all children here\n   */\n  children?: {\n    title: string;\n    firstParagraph: string | null;\n    folderName: string;\n    projectRelativeMarkdownPath: string | null;\n  }[];\n\n  previousQueryPath?: string | null;\n  nextQueryPath?: string | null;\n  description?: string | null;\n};",
+  "rawText": "\n\nexport type MarkdownReaderPageProps = {\n  publicBundleConfig?: PublicBundleConfig | null;\n  menu: {\n    flat: ReaderWebPage[];\n    nested: NestedWebPage[];\n  };\n  content?: ReaderPageContentProps;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -28,15 +28,6 @@
               "type": "null"
             }
           ]
-        },
-        "projectRelativeMarkdownPath": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "augmentedWordObject": {
-          "$ref": "#/definitions/MappedObject%3CAugmentedWord%3E"
         },
         "menu": {
           "type": "object",
@@ -60,74 +51,8 @@
           ],
           "additionalProperties": false
         },
-        "markdownFile": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/WebMarkdownFile"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Title of the page"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "title": {
-                "type": "string"
-              },
-              "firstParagraph": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "folderName": {
-                "type": "string"
-              },
-              "projectRelativeMarkdownPath": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              }
-            },
-            "required": [
-              "title",
-              "firstParagraph",
-              "folderName",
-              "projectRelativeMarkdownPath"
-            ],
-            "additionalProperties": false
-          },
-          "description": "If path is not a markdownfile, will return all children here"
-        },
-        "previousQueryPath": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "nextQueryPath": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "content": {
+          "$ref": "#/definitions/ReaderPageContentProps"
         }
       },
       "required": [
@@ -146,22 +71,6 @@
           }
         },
         {
-          "name": "projectRelativeMarkdownPath",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "augmentedWordObject",
-          "required": false,
-          "schema": {
-            "fullComment": "",
-            "properties": [],
-            "type": "object"
-          }
-        },
-        {
           "name": "menu",
           "required": true,
           "schema": {
@@ -173,7 +82,7 @@
                   "items": [
                     {
                       "schema": {
-                        "fullComment": "General purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
+                        "fullComment": "specifically always a markdown page\n\n\n\nGeneral purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
                         "properties": [
                           {
                             "name": "queryPath",
@@ -243,7 +152,7 @@
                             "name": "pageData",
                             "required": true,
                             "schema": {
-                              "fullComment": "Data connected to the `queryPath`. can take any shape or form based on your application.\n\nFor example, you can provide a `projectRelativePath` to a file here\n\nThe motivation to put this in a `extraData` object is because this makes the type super flexible.\n\n`.pageData` is not to be included into the menu, only to the page!\n\nSome ideas of what to provide here:\n\n- `projectRelativeFilePath` (so you can open the page if it's connected to some path)\n- `operationName`\n- `operationRelativePath`\n\n\nWhat not to provide here:\n\n- `AugmentedWord`[] (this is way too big, so it'd be a waste of query time to provide it for every page already)\n- stuff you already provided in the WebPage itself (it will also be available on the page, so why bother?)",
+                              "fullComment": "Data connected to the `queryPath`. can take any shape or form based on your application.\n\nFor example, you can provide a `projectRelativePath` to a file here\n\nThe motivation to put this in a `extraData` object is because this makes the type super flexible.\n\n`.pageData` is not to be included into the menu, only to the page!\n\nSome ideas of what to provide here:\n\n- `projectRelativeFilePath` (so you can open the page if it's connected to some path)\n- `operationName`\n- `operationRelativePath`\n\n\nWhat not to provide here:\n\n- `AugmentedWord`[] (this is way too big, so it'd be a waste of query time to provide it for every page already)\n- stuff you already provided in the WebPage itself (it will also be available on the page, so why bother?)\n\n",
                               "properties": [
                                 {
                                   "name": "projectRelativeFilePath",
@@ -254,6 +163,20 @@
                                 },
                                 {
                                   "name": "internalLinkWord",
+                                  "required": false,
+                                  "schema": {
+                                    "type": "string"
+                                  }
+                                },
+                                {
+                                  "name": "imagePath",
+                                  "required": false,
+                                  "schema": {
+                                    "type": "string"
+                                  }
+                                },
+                                {
+                                  "name": "shortDescription",
                                   "required": false,
                                   "schema": {
                                     "type": "string"
@@ -347,11 +270,10 @@
                           },
                           {
                             "name": "pageData",
-                            "required": false,
+                            "required": true,
                             "schema": {
                               "fullComment": "Data connected to the `queryPath`. can take any shape or form based on your application.\n\nFor example, you can provide a `projectRelativePath` to a file here\n\nThe motivation to put this in a `extraData` object is because this makes the type super flexible.\n\n`.pageData` is not to be included into the menu, only to the page!\n\nSome ideas of what to provide here:\n\n- `projectRelativeFilePath` (so you can open the page if it's connected to some path)\n- `operationName`\n- `operationRelativePath`\n\n\nWhat not to provide here:\n\n- `AugmentedWord`[] (this is way too big, so it'd be a waste of query time to provide it for every page already)\n- stuff you already provided in the WebPage itself (it will also be available on the page, so why bother?)",
-                              "properties": [],
-                              "type": "object"
+                              "type": "null"
                             }
                           },
                           {
@@ -361,11 +283,11 @@
                               "items": [
                                 {
                                   "schema": {
-                                    "circularRefName": "ChildObject<WebPage<undefined>>",
+                                    "circularRefName": "ChildObject<WebPage<null>>",
                                     "properties": [],
                                     "type": "object"
                                   },
-                                  "name": "ChildObject<WebPage<undefined>>"
+                                  "name": "ChildObject<WebPage<null>>"
                                 }
                               ],
                               "type": "array"
@@ -385,86 +307,112 @@
           }
         },
         {
-          "name": "markdownFile",
+          "name": "content",
           "required": false,
           "schema": {
-            "properties": [],
-            "type": "object"
-          }
-        },
-        {
-          "name": "title",
-          "required": false,
-          "schema": {
-            "fullComment": "Title of the page",
-            "type": "string"
-          }
-        },
-        {
-          "name": "children",
-          "required": false,
-          "schema": {
-            "fullComment": "If path is not a markdownfile, will return all children here",
-            "items": [
+            "fullComment": "",
+            "properties": [
               {
+                "name": "projectRelativeMarkdownPath",
+                "required": false,
                 "schema": {
-                  "properties": [
+                  "type": "string"
+                }
+              },
+              {
+                "name": "augmentedWordObject",
+                "required": false,
+                "schema": {
+                  "fullComment": "",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "markdownFile",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "fullComment": "Title of the page",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "children",
+                "required": false,
+                "schema": {
+                  "fullComment": "If path is not a markdownfile, will return all children here",
+                  "items": [
                     {
-                      "name": "title",
-                      "required": true,
                       "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "firstParagraph",
-                      "required": true,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "folderName",
-                      "required": true,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "projectRelativeMarkdownPath",
-                      "required": true,
-                      "schema": {
-                        "type": "string"
-                      }
+                        "properties": [
+                          {
+                            "name": "title",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "firstParagraph",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "folderName",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "projectRelativeMarkdownPath",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": null
                     }
                   ],
-                  "type": "object"
-                },
-                "name": null
+                  "type": "array"
+                }
+              },
+              {
+                "name": "previousQueryPath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "nextQueryPath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "description",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
               }
             ],
-            "type": "array"
-          }
-        },
-        {
-          "name": "previousQueryPath",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "nextQueryPath",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "description",
-          "required": false,
-          "schema": {
-            "type": "string"
+            "type": "object"
           }
         }
       ],

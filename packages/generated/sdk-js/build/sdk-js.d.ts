@@ -29,9 +29,6 @@ export declare const sdk: {
         token: string | undefined;
     };
     getFunctionExersize: (functionId: string) => Promise<string>;
-    markdownParseToMarkdownModelType: (markdownParse: import("code-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
-    parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("code-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
-    tryParseDate: (dateString: string) => number | undefined;
     stripCommentEnd: (trimmedLine: string) => string;
     stripCommentStart: (trimmedLine: string) => string;
     stripComment: (rawCommentString: string) => string;
@@ -216,9 +213,9 @@ export declare const sdk: {
     takeFirst: <T_26>(arrayOrNot: T_26 | T_26[]) => T_26;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
-    flattenMarkdownChunks: (markdownChunks: import("code-types").MarkdownChunk[]) => import("code-types").MarkdownParagraph[];
-    getKvmdItemsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
-    getParagraphsRecursively: (chunk: import("code-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("code-types").MarkdownParagraph[];
+    flattenMarkdownChunks: (markdownChunks: MarkdownChunk[]) => MarkdownParagraph[];
+    getKvmdItemsRecursively: (chunk: MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
+    getParagraphsRecursively: (chunk: MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => MarkdownParagraph[];
     kvmdDataMap: <T_27 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {
@@ -240,24 +237,33 @@ export declare const sdk: {
     makeFileType: (filePath: string) => Promise<import("make-file-type").FileType | undefined>;
     isResultOfInterface: <TResult>(result: TResult, jsonSchema: unknown) => boolean;
     makeTest: <TResult_1>(testFunction: (() => Promise<TResult_1>) | (() => TResult_1), isValid?: ((result: TResult_1) => boolean) | undefined) => () => Promise<boolean>;
-    chunkToStringRecursively: (chunk: import("code-types").MarkdownChunk) => string;
-    getChunkParagraphsRecursively: (chunk: import("code-types").MarkdownChunk) => string[];
+    chunkToStringRecursively: (chunk: MarkdownChunk) => string;
+    getChunkParagraphsRecursively: (chunk: MarkdownChunk) => string[];
     getImplicitId: (title: string) => string;
-    getMarkdownIntro: (markdownParse: import("code-types").MarkdownParse | null) => {
+    getMarkdownIntro: (markdownParse: any) => {
         title: string | undefined;
         firstParagraph: string | null;
     };
-    getMarkdownParseParagraphs: (markdownParse: import("code-types").MarkdownParse) => string[];
+    getMarkdownParseParagraphs: (markdownParse: MarkdownParse) => string[];
     getMarkdownReferencePaths: (markdownString: string) => string[];
     getMarkdownReferencesFromParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownReference[];
-    markdownParseToMarkdownStringFromContent: (markdownParse: import("code-types").MarkdownParse) => string | undefined;
-    markdownParseToMarkdownString: (markdownParse: import("code-types").MarkdownParse) => string;
-    mdContentParseRecursively: (markdownString: string, level: number) => import("code-types").MarkdownChunk[];
-    mdToJsonParse: (markdownString: string, fileName?: string | undefined, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => import("code-types").MarkdownParse;
-    parseFrontmatterMarkdownString: (markdownWithFrontmatter: string, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => import("code-types").MarkdownParse;
+    markdownParseToMarkdownStringFromContent: (markdownParse: MarkdownParse) => string | undefined;
+    markdownParseToMarkdownString: (markdownParse: MarkdownParse) => string;
+    mdContentParseRecursively: (markdownString: string, level: number) => MarkdownChunk[];
+    mdToJsonParse: (markdownString: string, fileName?: string | undefined, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => MarkdownParse;
+    parseFrontmatterMarkdownString: (markdownWithFrontmatter: string, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => MarkdownParse;
     parseMarkdownParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownParagraphChunk[];
-    parseMdToChunks: (markdownString: string, level: number) => import("code-types").MarkdownChunk[];
+    parseMdToChunks: (markdownString: string, level: number) => MarkdownChunk[];
     removeHeaderPrefix: (string: string) => string;
+    markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
+    parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
+    tryParseDate: (dateString: string) => number | undefined;
+    findCodespansFromTokenRecursively: (token: import("marked").marked.Token) => string[];
+    findCodespans: (sectionContent: string) => string[];
+    findEmbedsFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownEmbed[];
+    findEmbeds: (markdownString: string) => MarkdownEmbed[];
+    findLinksFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownLink[];
+    findLinks: (markdownString: string) => MarkdownLink[];
     frontmatterParseToString: (frontmatter: import("matter-types").Frontmatter) => string;
     getFrontmatterValueString: (value: import("matter-types").FrontmatterValue) => string | null;
     quotedOrNot: (string: string) => string;
@@ -350,8 +356,6 @@ export declare const sdk: {
     searchRecursiveObjectArray: <T_35 extends {
         children?: T_35[] | undefined;
     } & Object>(array: T_35[], baseMatcher: (item: T_35) => boolean, afterMapper?: ((item: T_35, isMatch: boolean, hasChildMatch: boolean) => T_35) | undefined) => T_35[];
-    findPostableToPost: () => void;
-    updatePostedStatistics: () => void;
     objectStringToJson: (string: string) => {
         [key: string]: import("string-to-json").JSONValue;
     };

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669127839961,
-  "updatedAt": 1669127839961,
+  "createdAt": 1669287881490,
+  "updatedAt": 1669287881490,
   "deletedAt": 0,
-  "createdFirstAt": 1669127839961,
+  "createdFirstAt": 1669287881490,
   "id": "readerwebpage",
   "name": "ReaderWebPage",
   "slug": "readerwebpage",
@@ -10,15 +10,16 @@
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
-  "description": "",
+  "description": "specifically always a markdown page",
   "isDbModel": false,
   "commentsInside": [],
   "type": {
     "typeDefinition": {
-      "$ref": "#/definitions/FileWebPage"
+      "$ref": "#/definitions/FileWebPage",
+      "description": "specifically always a markdown page"
     },
     "simplifiedSchema": {
-      "fullComment": "General purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
+      "fullComment": "specifically always a markdown page\n\n\n\nGeneral purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
       "properties": [
         {
           "name": "queryPath",
@@ -88,7 +89,7 @@
           "name": "pageData",
           "required": true,
           "schema": {
-            "fullComment": "Data connected to the `queryPath`. can take any shape or form based on your application.\n\nFor example, you can provide a `projectRelativePath` to a file here\n\nThe motivation to put this in a `extraData` object is because this makes the type super flexible.\n\n`.pageData` is not to be included into the menu, only to the page!\n\nSome ideas of what to provide here:\n\n- `projectRelativeFilePath` (so you can open the page if it's connected to some path)\n- `operationName`\n- `operationRelativePath`\n\n\nWhat not to provide here:\n\n- `AugmentedWord`[] (this is way too big, so it'd be a waste of query time to provide it for every page already)\n- stuff you already provided in the WebPage itself (it will also be available on the page, so why bother?)",
+            "fullComment": "Data connected to the `queryPath`. can take any shape or form based on your application.\n\nFor example, you can provide a `projectRelativePath` to a file here\n\nThe motivation to put this in a `extraData` object is because this makes the type super flexible.\n\n`.pageData` is not to be included into the menu, only to the page!\n\nSome ideas of what to provide here:\n\n- `projectRelativeFilePath` (so you can open the page if it's connected to some path)\n- `operationName`\n- `operationRelativePath`\n\n\nWhat not to provide here:\n\n- `AugmentedWord`[] (this is way too big, so it'd be a waste of query time to provide it for every page already)\n- stuff you already provided in the WebPage itself (it will also be available on the page, so why bother?)\n\n",
             "properties": [
               {
                 "name": "projectRelativeFilePath",
@@ -99,6 +100,20 @@
               },
               {
                 "name": "internalLinkWord",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "imagePath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "shortDescription",
                 "required": false,
                 "schema": {
                   "type": "string"

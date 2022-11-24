@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668335548226,
-  "updatedAt": 1668335548226,
+  "createdAt": 1669288055680,
+  "updatedAt": 1669288055680,
   "deletedAt": 0,
-  "createdFirstAt": 1668335548226,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669288055680,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/frontmatterParseToString.ts",
   "commentsInside": [],
   "rawText": " (string: string) => {\n  return string.replaceAll(\"\\n\", \"\\\\n\");\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "fukulakcheuczygdhvimprfa"
+  "id": "lqtnnicdrblfthjsorjyoymq"
 }

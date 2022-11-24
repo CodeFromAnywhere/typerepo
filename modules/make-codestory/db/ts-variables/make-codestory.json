@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669288774991,
+  "updatedAt": 1669288774991,
+  "deletedAt": 0,
+  "createdFirstAt": 1669288774991,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "makeCodestory",
+  "slug": "make-codestory",
+  "operationRelativeTypescriptFilePath": "src/makeCodestory.ts",
+  "type": {
+    "rawType": "(absolutePath: string) => Promise<string | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  absolutePath: string\n): Promise<undefined | string> => {\n  //   Use MarkdownParse to split up the markdown into different headers with their content\n  const markdownParse = await readMarkdownFile(absolutePath);\n  if (!markdownParse) return;\n\n  const newMarkdownParse = mapMarkdownParseSections(markdownParse, (content) =>\n    addCodestoryToSection(content)\n  );\n\n  const newString = markdownParseToMarkdownStringFromContent(newMarkdownParse);\n\n  const parse = path.parse(absolutePath);\n\n  const newPath = path.join(parse.dir, `${parse.name}.codestory${parse.ext}`);\n\n  await fs.writeFile(newPath, newString || \"\", \"utf8\");\n  return newPath;\n}",
+  "description": "no real reason to do this from text to text, let's do path to path here",
+  "id": "nifkkqdivmrbeyatjejbxhxk"
+}

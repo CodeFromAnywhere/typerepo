@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669127975455,
-  "updatedAt": 1669127975455,
+  "createdAt": 1669276693045,
+  "updatedAt": 1669276693045,
   "deletedAt": 0,
-  "createdFirstAt": 1669127975455,
+  "createdFirstAt": 1669276693045,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  deviceId: Id,\n  ipInfo: IPInfo,\n  referer: string\n) => {\n  const pageVisit: Creation<PageVisit> = { ipInfo, path: referer, deviceId };\n\n  await db.upsert(\"PageVisit\", pageVisit, { onlyInsert: true });\n}",
   "description": "",
-  "id": "wpgkrvjusdpwuiawvosvjstj"
+  "id": "sqakjouvchguctzreigtofli"
 }

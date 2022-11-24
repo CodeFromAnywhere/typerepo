@@ -1,12 +1,12 @@
 {
-  "createdAt": 1669200644105,
-  "updatedAt": 1669200644105,
+  "createdAt": 1669288121675,
+  "updatedAt": 1669288121675,
   "deletedAt": 0,
-  "createdFirstAt": 1669200644105,
+  "createdFirstAt": 1669288121675,
   "id": "markdownreaderpageprops",
   "name": "MarkdownReaderPageProps",
   "slug": "markdownreaderpageprops",
-  "operationRelativeTypescriptFilePath": "src/components/MarkdownReaderPage.tsx",
+  "operationRelativeTypescriptFilePath": "src/components/DocsReaderLayout.tsx",
   "hasGeneric": false,
   "isExported": false,
   "isOperationIndex": false,
@@ -26,15 +26,6 @@
               "type": "null"
             }
           ]
-        },
-        "projectRelativeMarkdownPath": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "augmentedWordObject": {
-          "$ref": "#/definitions/MappedObject%3CAugmentedWord%3E"
         },
         "menu": {
           "type": "object",
@@ -58,74 +49,8 @@
           ],
           "additionalProperties": false
         },
-        "markdownFile": {
-          "anyOf": [
-            {
-              "$ref": "#/definitions/WebMarkdownFile"
-            },
-            {
-              "type": "null"
-            }
-          ]
-        },
-        "title": {
-          "type": [
-            "string",
-            "null"
-          ],
-          "description": "Title of the page"
-        },
-        "children": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "title": {
-                "type": "string"
-              },
-              "firstParagraph": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              },
-              "folderName": {
-                "type": "string"
-              },
-              "projectRelativeMarkdownPath": {
-                "type": [
-                  "string",
-                  "null"
-                ]
-              }
-            },
-            "required": [
-              "title",
-              "firstParagraph",
-              "folderName",
-              "projectRelativeMarkdownPath"
-            ],
-            "additionalProperties": false
-          },
-          "description": "If path is not a markdownfile, will return all children here"
-        },
-        "previousQueryPath": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "nextQueryPath": {
-          "type": [
-            "string",
-            "null"
-          ]
-        },
-        "description": {
-          "type": [
-            "string",
-            "null"
-          ]
+        "content": {
+          "$ref": "#/definitions/ReaderPageContentProps"
         }
       },
       "required": [
@@ -144,22 +69,6 @@
           }
         },
         {
-          "name": "projectRelativeMarkdownPath",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "augmentedWordObject",
-          "required": false,
-          "schema": {
-            "fullComment": "",
-            "properties": [],
-            "type": "object"
-          }
-        },
-        {
           "name": "menu",
           "required": true,
           "schema": {
@@ -171,7 +80,7 @@
                   "items": [
                     {
                       "schema": {
-                        "fullComment": "General purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
+                        "fullComment": "specifically always a markdown page\n\n\n\nGeneral purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
                         "properties": [
                           {
                             "name": "queryPath",
@@ -396,86 +305,112 @@
           }
         },
         {
-          "name": "markdownFile",
+          "name": "content",
           "required": false,
           "schema": {
-            "properties": [],
-            "type": "object"
-          }
-        },
-        {
-          "name": "title",
-          "required": false,
-          "schema": {
-            "fullComment": "Title of the page",
-            "type": "string"
-          }
-        },
-        {
-          "name": "children",
-          "required": false,
-          "schema": {
-            "fullComment": "If path is not a markdownfile, will return all children here",
-            "items": [
+            "fullComment": "",
+            "properties": [
               {
+                "name": "projectRelativeMarkdownPath",
+                "required": false,
                 "schema": {
-                  "properties": [
+                  "type": "string"
+                }
+              },
+              {
+                "name": "augmentedWordObject",
+                "required": false,
+                "schema": {
+                  "fullComment": "",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "markdownFile",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "fullComment": "Title of the page",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "children",
+                "required": false,
+                "schema": {
+                  "fullComment": "If path is not a markdownfile, will return all children here",
+                  "items": [
                     {
-                      "name": "title",
-                      "required": true,
                       "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "firstParagraph",
-                      "required": true,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "folderName",
-                      "required": true,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "projectRelativeMarkdownPath",
-                      "required": true,
-                      "schema": {
-                        "type": "string"
-                      }
+                        "properties": [
+                          {
+                            "name": "title",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "firstParagraph",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "folderName",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "projectRelativeMarkdownPath",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": null
                     }
                   ],
-                  "type": "object"
-                },
-                "name": null
+                  "type": "array"
+                }
+              },
+              {
+                "name": "previousQueryPath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "nextQueryPath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "description",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
               }
             ],
-            "type": "array"
-          }
-        },
-        {
-          "name": "previousQueryPath",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "nextQueryPath",
-          "required": false,
-          "schema": {
-            "type": "string"
-          }
-        },
-        {
-          "name": "description",
-          "required": false,
-          "schema": {
-            "type": "string"
+            "type": "object"
           }
         }
       ],

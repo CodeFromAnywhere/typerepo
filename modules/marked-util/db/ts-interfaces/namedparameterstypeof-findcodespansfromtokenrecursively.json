@@ -1,0 +1,51 @@
+{
+  "createdAt": 1669235141918,
+  "updatedAt": 1669235141918,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235141918,
+  "id": "namedparameterstypeof-findcodespansfromtokenrecursively",
+  "name": "NamedParameters<typeof findCodespansFromTokenRecursively>",
+  "slug": "namedparameterstypeof-findcodespansfromtokenrecursively",
+  "operationRelativeTypescriptFilePath": "src/findCodespansFromTokenRecursively.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "token": {
+          "$ref": "#/definitions/marked.Token"
+        }
+      },
+      "required": [
+        "token"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "token",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof findCodespansFromTokenRecursively>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

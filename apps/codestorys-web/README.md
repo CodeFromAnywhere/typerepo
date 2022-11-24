@@ -3,13 +3,17 @@
 codestorys-web (`OperationClassification` ui-web)
 
 
-## 📚 codestories-web
+## 🧙‍♂️ codestories-web
+
+NB: this is an experimental part of typerepo!
+
+
 
 # Api reference
 
 # Internal
 
-<details><summary>Show internal (5)</summary>
+<details><summary>Show internal (7)</summary>
     
   # `<HomePage />`
 
@@ -19,6 +23,15 @@ codestorys-web (`OperationClassification` ui-web)
 | Input      |    |    |
 | ---------- | -- | -- |
 | props | `MarkdownReaderPageProps` |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## `<Layout />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { publicBundleConfig?: {  }, <br />children: {  }, <br />augmentedWordObject?: `MappedObject<AugmentedWord>`, <br />menu: `MenuObjectType<FilePage>`, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
 
 
@@ -37,6 +50,8 @@ codestorys-web (`OperationClassification` ui-web)
 ## 📄 getStaticProps (exported const)
 
 ## 📄 HomePage (exported const)
+
+## 📄 Layout (exported const)
 
   </details>
 

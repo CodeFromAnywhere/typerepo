@@ -1,0 +1,85 @@
+{
+  "createdAt": 1669234836150,
+  "updatedAt": 1669234836150,
+  "deletedAt": 0,
+  "createdFirstAt": 1669234836150,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "name": "marked-util",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669235153201,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 6,
+        "lines": 124,
+        "characters": 2995,
+        "bytes": 2995
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 116,
+        "characters": 3517,
+        "bytes": 3517
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 106,
+        "characters": 2050,
+        "bytes": 2050
+      },
+      "size": {
+        "bytes": 8562,
+        "characters": 8562,
+        "lines": 346,
+        "numberOfFiles": 10
+      }
+    },
+    "folderNameIndexed": "marked-util",
+    "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion/md",
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "notEmpty",
+      "notEmpty",
+      "MarkdownEmbed",
+      "MarkdownEmbed",
+      "getTypeFromUrlOrPath",
+      "notEmpty",
+      "MarkdownLink",
+      "MarkdownEmbed",
+      "MarkdownLink",
+      "getTypeFromUrlOrPath"
+    ],
+    "packageDependenciesIndexed": [
+      "marked",
+      "marked",
+      "marked",
+      "marked",
+      "marked",
+      "marked"
+    ]
+  },
+  "dependencies": {
+    "js-util": "0.0.1",
+    "code-types": "0.0.1",
+    "asset-functions-js": "0.0.1",
+    "marked": "*"
+  },
+  "slug": "marked-util",
+  "id": "nwuyvleykklklazutgnonxys"
+}

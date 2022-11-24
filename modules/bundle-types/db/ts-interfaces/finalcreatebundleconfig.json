@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669109126170,
-  "updatedAt": 1669109126170,
+  "createdAt": 1669287369708,
+  "updatedAt": 1669287369708,
   "deletedAt": 0,
-  "createdFirstAt": 1669109126170,
+  "createdFirstAt": 1669287369708,
   "id": "finalcreatebundleconfig",
   "name": "FinalCreateBundleConfig",
   "slug": "finalcreatebundleconfig",
@@ -41,6 +41,9 @@
         "keepStructure": {
           "type": "boolean",
           "description": "If true, the structure of operation locations is kept the same but still inside packages/apps/modules."
+        },
+        "keepCodestories": {
+          "type": "boolean"
         },
         "modelInformationStrategy": {
           "type": "object",
@@ -164,6 +167,13 @@
           "required": false,
           "schema": {
             "fullComment": "If true, the structure of operation locations is kept the same but still inside packages/apps/modules.",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "keepCodestories",
+          "required": false,
+          "schema": {
             "type": "boolean"
           }
         },

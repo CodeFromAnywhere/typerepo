@@ -62,6 +62,9 @@ export declare type WebPage<T = null> = {
 export declare type CustomWebPage = WebPage<null>;
 export declare type FileWebPage = WebPage<FilePage>;
 export declare type WriterWebPage = FileWebPage;
+/**
+ * specifically always a markdown page
+ */
 export declare type ReaderWebPage = FileWebPage;
 /**
  * Only used for menu, so can be undefined because it shouldn't be available

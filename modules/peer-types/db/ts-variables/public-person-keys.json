@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835492024,
-  "updatedAt": 1668835492024,
+  "createdAt": 1669276388662,
+  "updatedAt": 1669276388662,
   "deletedAt": 0,
-  "createdFirstAt": 1668835492024,
+  "createdFirstAt": 1669276388662,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -20,5 +20,5 @@
   },
   "value": "[\n  \"name\",\n  \"slug\",\n  \"id\",\n  \"pictureImage\",\n  \"interestSlugs\",\n  \"media\",\n  \"preferredContactMedium\",\n  \"groupSlugs\",\n  \"operationName\",\n  \"projectRelativePath\",\n] as const",
   "description": "Can be seen for every person, without authentication\n\nNB: I wish it were possible to ensure these keys exist on the person here, but we can't validate that while still keeping it a const I guess",
-  "id": "gpxsjhgjwtdxebzazgdeygqs"
+  "id": "mxqtimqgqlxixvdwuubrjnbl"
 }

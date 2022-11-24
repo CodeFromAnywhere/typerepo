@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669200532223,
-  "updatedAt": 1669200532223,
+  "createdAt": 1669291080472,
+  "updatedAt": 1669291080472,
   "deletedAt": 0,
-  "createdFirstAt": 1669200532223,
+  "createdFirstAt": 1669291080472,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/HomePage.tsx",
   "commentsInside": [],
-  "rawText": " (props: MarkdownReaderPageProps) => {\n  return (\n    <Div>\n      {props.menu.flat.map((x) => {\n        return (\n          <ALink key={x.queryPath} href={x.queryPath}>\n            <Div className=\"text-3xl bg-blue-200 m-2 rounded-md p-4\">\n              {x.menuTitle}\n            </Div>\n\n            {/* <P>{x.pageData.shortDescription}</P> */}\n          </ALink>\n        );\n      })}\n    </Div>\n  );\n}",
+  "rawText": " (props: MarkdownReaderPageProps) => {\n  return (\n    <Layout>\n      <Div className=\"flex flex-col px-2 my-5 gap-y-5 gap\">\n        <P className=\"text-2xl\">What's a codestory?</P>\n        <P>\n          It's a story about my coding session, where I mention my observations,\n          my ideas, thought processes, choices, implementation details, and\n          results.\n        </P>\n        <P>Enjoy!</P>\n      </Div>\n      <Div className=\"flex flex-row flex-wrap\">\n        {props.menu.flat.map((x) => {\n          return (\n            <ALink key={x.queryPath} href={x.queryPath}>\n              <Div className=\"w-80 bg-yellow-500 hover:bg-yellow-300 m-2 rounded-md p-4\">\n                {x.pageData.imagePath ? (\n                  <AssetView\n                    projectRelativeReferencingFilePath={\n                      x.pageData.projectRelativeFilePath\n                    }\n                    className=\"h-40 object-cover w-80\"\n                    hideDownloadLink\n                    asset={{\n                      projectRelativeReferencingFilePath:\n                        x.pageData.projectRelativeFilePath,\n                      relativePath: x.pageData.imagePath,\n                    }}\n                  />\n                ) : null}\n                <P className=\"text-3xl\">{x.menuTitle}</P>\n              </Div>\n            </ALink>\n          );\n        })}\n      </Div>\n    </Layout>\n  );\n}",
   "name": "HomePage",
   "slug": "home-page",
   "parameters": [
@@ -26,13 +26,6 @@
             "schema": {
               "properties": [],
               "type": "object"
-            }
-          },
-          {
-            "name": "projectRelativeMarkdownPath",
-            "required": false,
-            "schema": {
-              "type": "string"
             }
           },
           {
@@ -61,86 +54,103 @@
             }
           },
           {
-            "name": "markdownFile",
+            "name": "content",
             "required": false,
             "schema": {
-              "properties": [],
-              "type": "object"
-            }
-          },
-          {
-            "name": "title",
-            "required": false,
-            "schema": {
-              "fullComment": "Title of the page",
-              "type": "string"
-            }
-          },
-          {
-            "name": "children",
-            "required": false,
-            "schema": {
-              "fullComment": "If path is not a markdownfile, will return all children here",
-              "items": [
+              "fullComment": "",
+              "properties": [
                 {
+                  "name": "projectRelativeMarkdownPath",
+                  "required": false,
                   "schema": {
-                    "properties": [
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "markdownFile",
+                  "required": false,
+                  "schema": {
+                    "properties": [],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "title",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Title of the page",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "children",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If path is not a markdownfile, will return all children here",
+                    "items": [
                       {
-                        "name": "title",
-                        "required": true,
                         "schema": {
-                          "type": "string"
-                        }
-                      },
-                      {
-                        "name": "firstParagraph",
-                        "required": true,
-                        "schema": {
-                          "type": "string"
-                        }
-                      },
-                      {
-                        "name": "folderName",
-                        "required": true,
-                        "schema": {
-                          "type": "string"
-                        }
-                      },
-                      {
-                        "name": "projectRelativeMarkdownPath",
-                        "required": true,
-                        "schema": {
-                          "type": "string"
-                        }
+                          "properties": [
+                            {
+                              "name": "title",
+                              "required": true,
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "firstParagraph",
+                              "required": true,
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "folderName",
+                              "required": true,
+                              "schema": {
+                                "type": "string"
+                              }
+                            },
+                            {
+                              "name": "projectRelativeMarkdownPath",
+                              "required": true,
+                              "schema": {
+                                "type": "string"
+                              }
+                            }
+                          ],
+                          "type": "object"
+                        },
+                        "name": null
                       }
                     ],
-                    "type": "object"
-                  },
-                  "name": null
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "previousQueryPath",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "nextQueryPath",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "description",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
                 }
               ],
-              "type": "array"
-            }
-          },
-          {
-            "name": "previousQueryPath",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "nextQueryPath",
-            "required": false,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "description",
-            "required": false,
-            "schema": {
-              "type": "string"
+              "type": "object"
             }
           }
         ],
@@ -163,15 +173,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 7,
+  "maxIndentationDepth": 12,
   "size": {
-    "characters": 400,
-    "lines": 17,
-    "bytes": 400,
+    "characters": 1399,
+    "lines": 40,
+    "bytes": 1399,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 24,
-    "linesPerFile": 17,
+    "charactersPerLine": 35,
+    "linesPerFile": 40,
     "numberOfFiles": 1
   },
-  "id": "dsaueabwidtjlmwbfhckbnur"
+  "id": "xbcxfyectirroaojntyxzkio"
 }

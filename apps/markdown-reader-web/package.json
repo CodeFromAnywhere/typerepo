@@ -1,4 +1,13 @@
 {
+  "scripts": {
+    "dev": "next dev -p 42004",
+    "start": "next start -p 42004",
+    "stop": "pm2 stop app_markdown-reader-web",
+    "fillPublic": "node fillPublic.js",
+    "build": "yarn fillPublic && next build",
+    "export": "next export",
+    "lint": "next lint"
+  },
   "createdAt": 1668328716891,
   "updatedAt": 1668328716891,
   "deletedAt": 0,
@@ -37,20 +46,14 @@
     "tailwindcss": "^3.0.24"
   },
   "private": true,
-  "scripts": {
-    "dev": "next dev -p 42004",
-    "start": "next start -p 42004",
-    "stop": "pm2 stop app_markdown-reader-web",
-    "copyStaticAssets": "copyStaticAssets",
-    "build": "next build",
-    "export": "next export",
-    "lint": "next lint"
-  },
   "version": "0.1.0",
   "name": "markdown-reader-web",
   "language": "english",
   "slug": "markdown-reader-web",
   "operation": {
+    "indirectDependencies": [
+      "collect-static-assets"
+    ],
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",

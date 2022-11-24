@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669289246285,
+  "updatedAt": 1669289246285,
+  "deletedAt": 0,
+  "createdFirstAt": 1669289246285,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findCodestories",
+  "slug": "find-codestories",
+  "operationRelativeTypescriptFilePath": "src/findCodestories.ts",
+  "type": {
+    "rawType": "() => Promise<string[]>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (): Promise<string[]> => {\n  // open the file\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return [];\n\n  const allMarkdownPaths = await getProjectRelativePaths();\n\n  const frontmatterObject = await getFrontmattersMappedObject(\n    projectRoot,\n    allMarkdownPaths\n  );\n\n  const stories =\n    allMarkdownPaths?.filter((x) => {\n      const frontmatter = frontmatterObject[x];\n      if (!frontmatter) return false;\n\n      const isCodestory = frontmatter.isCodestory === true;\n      return isCodestory;\n    }) || [];\n\n  const files = stories\n    .filter((x) => !x.endsWith(\".codestory.md\"))\n    .map((x) => x);\n\n  return files.map((x) => path.join(projectRoot, x));\n}",
+  "description": "Finds all mdfiles (absolute paths) in /text or /operations that have a frontmatterprop `.isCodestory: true`",
+  "id": "nzuyhuuvovdtlqacaisxeozi"
+}

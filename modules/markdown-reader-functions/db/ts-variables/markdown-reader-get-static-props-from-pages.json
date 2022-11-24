@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200597325,
-  "updatedAt": 1669200597325,
+  "createdAt": 1669287857366,
+  "updatedAt": 1669287857366,
   "deletedAt": 0,
-  "createdFirstAt": 1669200597325,
+  "createdFirstAt": 1669287857366,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "markdown-reader-get-static-props-from-pages",
   "operationRelativeTypescriptFilePath": "src/markdownReaderGetStaticPropsFromPages.ts",
   "type": {
-    "rawType": "(fileWebPages: import(\"/Users/king/King/operations/tools/types/webpage-types/build/types\").FileWebPage[], context: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPropsContext<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").PreviewData>) => Promise<{ props: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-types/build/MarkdownReaderPageProps\").MarkdownReaderPageProps; }>",
+    "rawType": "(fileWebPages: import(\"/Users/king/King/operations/tools/types/webpage-types/build/types\").WebPage<any>[], context: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPropsContext<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").PreviewData>) => Promise<{ props: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-types/build/MarkdownReaderPageProps\").MarkdownReaderPageProps; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  fileWebPages: FileWebPage[],\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const menu = getMenuPagesObject(fileWebPages);\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) {\n    return { props: { menu } };\n  }\n\n  const publicBundleConfig = await readJsonFile<PublicBundleConfig>(\n    path.join(projectRoot, \"public-bundle-config.json\")\n  );\n\n  const queryPath = getQueryPath(context.params);\n\n  // console.log(\"get static props\", queryPath);\n\n  // definitions/statements/functions/interfaces/operations\n\n  // NB: finds a page with actual content\n  const contentPage = fileWebPages.find((x) => x.queryPath === queryPath);\n\n  if (!contentPage) {\n    // NB: we need to render an exploration page\n    const {\n      children,\n      title,\n      description,\n      descriptionProjectRelativeMarkdownPath,\n    } = await getFolderExplorationInfo(fileWebPages, queryPath, projectRoot);\n    return {\n      props: {\n        publicBundleConfig,\n        children,\n        menu,\n        title,\n        description,\n        projectRelativeMarkdownPath: descriptionProjectRelativeMarkdownPath,\n      },\n    };\n  }\n\n  // NB: There's a content page. We need to return it (`MarkdownFile`), including its previous, next pages, and a title\n\n  const {\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n  } = await getMarkdownPageInfo(\n    projectRoot,\n    fileWebPages,\n    queryPath,\n    contentPage\n  );\n\n  const augmentedWordObject = await getAugmentedWordObject(projectRoot);\n\n  return {\n    // Passed to the page component as props\n    props: {\n      publicBundleConfig,\n      menu,\n      markdownFile,\n      nextQueryPath,\n      previousQueryPath,\n      augmentedWordObject,\n      projectRelativeMarkdownPath,\n    },\n  };\n}",
+  "value": "async (\n  fileWebPages: WebPage<any>[],\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const menu = getMenuPagesObject(fileWebPages);\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) {\n    return { props: { menu } };\n  }\n\n  const publicBundleConfig = await readJsonFile<PublicBundleConfig>(\n    path.join(projectRoot, \"public-bundle-config.json\")\n  );\n\n  const queryPath = getQueryPath(context.params);\n\n  // console.log(\"get static props\", queryPath);\n\n  // definitions/statements/functions/interfaces/operations\n\n  // NB: finds a page with actual content\n  const contentPage = fileWebPages.find((x) => x.queryPath === queryPath);\n\n  if (!contentPage) {\n    // NB: we need to render an exploration page\n    const {\n      children,\n      title,\n      description,\n      descriptionProjectRelativeMarkdownPath,\n    } = await getFolderExplorationInfo(fileWebPages, queryPath, projectRoot);\n    return {\n      props: {\n        publicBundleConfig,\n        menu,\n\n        content: {\n          children,\n          title,\n          description,\n          projectRelativeMarkdownPath: descriptionProjectRelativeMarkdownPath,\n        },\n      },\n    };\n  }\n\n  // NB: There's a content page. We need to return it (`MarkdownFile`), including its previous, next pages, and a title\n\n  const {\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n  } = await getMarkdownPageInfo(\n    projectRoot,\n    fileWebPages,\n    queryPath,\n    contentPage\n  );\n\n  const augmentedWordObject = await getAugmentedWordObject(projectRoot);\n\n  return {\n    // Passed to the page component as props\n    props: {\n      content: {\n        markdownFile,\n        nextQueryPath,\n        previousQueryPath,\n        augmentedWordObject,\n        projectRelativeMarkdownPath,\n      },\n\n      publicBundleConfig,\n      menu,\n    },\n  };\n}",
   "description": "Takes the routes and pages you want to show, and returns the MarkdownReaderPageProps you need to render the reader page.",
-  "id": "tcowbkvvxzptowddhighcsfy"
+  "id": "hbfjqcxwyxvkurkcqjxznbgq"
 }

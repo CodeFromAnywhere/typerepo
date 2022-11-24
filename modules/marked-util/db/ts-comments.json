@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1669235147649,
+    "updatedAt": 1669235147649,
+    "deletedAt": 0,
+    "createdFirstAt": 1669235147649,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/findLinks.ts",
+    "comment": "find all embedded assets",
+    "rawStatement": "export const findLinks = (markdownString: string): MarkdownLink[] => {\n  const result: MarkdownLink[] = marked\n    .lexer(markdownString)\n    .map(findLinksFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 6,
+    "lastLine": 8,
+    "id": "sljgnchqzuzhicbtoirkykvb"
+  }
+]

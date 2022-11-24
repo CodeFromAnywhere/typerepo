@@ -44,33 +44,68 @@
     "folderNameIndexed": "peer-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668835535805,
-    "operationDependenciesIndexed": [],
+    "lastRebuildAt": 1669276427322,
+    "operationDependenciesIndexed": [
+      "DefaultModelType",
+      "Id",
+      "SlugModelType",
+      "Authorization",
+      "AuthorizationModel",
+      "Position",
+      "DefaultModelType",
+      "Authorization",
+      "Credit",
+      "DefaultModelType",
+      "Id",
+      "Price",
+      "Slug",
+      "BackendAsset",
+      "BackendAsset",
+      "Location",
+      "Language",
+      "Slug",
+      "SlugModelType",
+      "Interest",
+      "MediaCredentail",
+      "KeyValueMarkdownModelType",
+      "Slug",
+      "DefaultModelType",
+      "KeyValueMarkdownModelType",
+      "DefaultModelType",
+      "Id",
+      "Slug",
+      "DefaultModelType",
+      "Slug",
+      "Slug",
+      "SlugModelType",
+      "DefaultModelType",
+      "Slug"
+    ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/p2p",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 17,
-        "lines": 823,
-        "characters": 23898,
-        "bytes": 23898
+        "lines": 812,
+        "characters": 23679,
+        "bytes": 23679
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 161,
-        "characters": 4576,
-        "bytes": 4576
+        "lines": 117,
+        "characters": 3703,
+        "bytes": 3703
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 9,
-        "characters": 77,
-        "bytes": 77
+        "lines": 724,
+        "characters": 15794,
+        "bytes": 15794
       },
       "size": {
-        "bytes": 28551,
-        "characters": 28551,
-        "lines": 993,
+        "bytes": 43176,
+        "characters": 43176,
+        "lines": 1653,
         "numberOfFiles": 20
       }
     },

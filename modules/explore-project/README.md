@@ -9,6 +9,23 @@ explore-project (`OperationClassification` node-cjs)
 
 # Api reference
 
+## getProjectRelativePaths()
+
+get file paths within your project
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config (optional) | { type?: `RelativePathType`, <br />earliestUpdatedAt?: number, <br />filterDraft?: boolean, <br />filterPrivate?: boolean, <br />filterGenerated?: boolean, <br />sort?: string, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## 📄 getProjectRelativePaths (exported const)
+
+get file paths within your project
+
+
 ## getTodoPaths()
 
 | Input      |    |    |
@@ -42,7 +59,7 @@ explore-project (`OperationClassification` node-cjs)
 
 # Internal
 
-<details><summary>Show internal (21)</summary>
+<details><summary>Show internal (19)</summary>
     
   # exploreOperation()
 
@@ -139,18 +156,6 @@ returns the paths of instances in a file, like functions, variables or interface
 
 
 
-## getProjectRelativePaths()
-
-get file paths within your project
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| config (optional) | { type?: `RelativePathType`, <br />earliestUpdatedAt?: number, <br />filterDraft?: boolean, <br />filterPrivate?: boolean, <br />filterGenerated?: boolean, <br />sort?: string, <br /> } |  |
-| **Output** |    |    |
-
-
-
 ## getTodoFrontmattersMappedObject()
 
 | Input      |    |    |
@@ -241,11 +246,6 @@ gets the exploration type from an absolute type
 ## 📄 getInstanceNames (exported const)
 
 returns the paths of instances in a file, like functions, variables or interfaces
-
-
-## 📄 getProjectRelativePaths (exported const)
-
-get file paths within your project
 
 
 ## 📄 getTodoFrontmattersMappedObject (exported const)

@@ -9,7 +9,8 @@
     "bundle-types": "0.0.1",
     "js-util": "0.0.1",
     "augmented-word-types": "0.0.1",
-    "webpage-types": "0.0.1"
+    "webpage-types": "0.0.1",
+    "markdown-types": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -34,7 +35,9 @@
       "dependenciesBuildsFailed": false,
       "indexErrors": [],
       "indexImportExportError": "",
-      "indexInteracesErrors": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-types/src/ReaderPageContentProps.ts. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "node-cjs",
@@ -42,41 +45,41 @@
     "folderNameIndexed": "markdown-reader-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669127844675,
+    "lastRebuildAt": 1669287888220,
     "operationDependenciesIndexed": [
-      "WebMarkdownFile",
       "PublicBundleConfig",
-      "MappedObject",
-      "AugmentedWord",
       "NestedWebPage",
-      "ReaderWebPage"
+      "ReaderWebPage",
+      "AugmentedWord",
+      "MappedObject",
+      "WebMarkdownFile"
     ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/reader",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 1,
-        "lines": 37,
-        "characters": 950,
-        "bytes": 950
+        "numberOfFiles": 2,
+        "lines": 41,
+        "characters": 1100,
+        "bytes": 1100
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 120,
-        "characters": 3807,
-        "bytes": 3807
+        "lines": 125,
+        "characters": 4158,
+        "bytes": 4158
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 27,
-        "characters": 601,
-        "bytes": 601
+        "lines": 47,
+        "characters": 812,
+        "bytes": 812
       },
       "size": {
-        "bytes": 5358,
-        "characters": 5358,
-        "lines": 184,
-        "numberOfFiles": 4
+        "bytes": 6070,
+        "characters": 6070,
+        "lines": 213,
+        "numberOfFiles": 5
       }
     },
     "hasGeneratedImportsIndexed": false

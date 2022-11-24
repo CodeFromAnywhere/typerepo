@@ -6,6 +6,7 @@ export declare const operations: {
     "markdown-reader-web": string;
     "search-web": string;
     "todo-web": string;
+    "writer-web": string;
     all: string;
     api: string;
     "api-store": string;
@@ -30,6 +31,7 @@ export declare const operations: {
     "clickable-icon": string;
     "code-types": string;
     "codestorys-node": string;
+    "collect-static-assets": string;
     "comment-util": string;
     "compile-typescript": string;
     "convert-case": string;
@@ -45,6 +47,7 @@ export declare const operations: {
     "file-icons": string;
     "file-search": string;
     "file-tabs": string;
+    "file-writer": string;
     "filename-conventions": string;
     "find-all-dependency-operations": string;
     "folder-get-updated-at": string;
@@ -81,6 +84,7 @@ export declare const operations: {
     lint: string;
     log: string;
     mail: string;
+    "make-codestory": string;
     "make-file-type": string;
     "make-test": string;
     markdown: string;
@@ -89,6 +93,8 @@ export declare const operations: {
     "markdown-reader-functions": string;
     "markdown-reader-functions-js": string;
     "markdown-reader-types": string;
+    "markdown-types": string;
+    "marked-util": string;
     "matter-types": string;
     "measure-performance": string;
     menu: string;

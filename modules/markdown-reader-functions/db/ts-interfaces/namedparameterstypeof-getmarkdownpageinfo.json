@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200581810,
-  "updatedAt": 1669200581810,
+  "createdAt": 1669287840175,
+  "updatedAt": 1669287840175,
   "deletedAt": 0,
-  "createdFirstAt": 1669200581810,
+  "createdFirstAt": 1669287840175,
   "id": "namedparameterstypeof-getmarkdownpageinfo",
   "name": "NamedParameters<typeof getMarkdownPageInfo>",
   "slug": "namedparameterstypeof-getmarkdownpageinfo",
@@ -152,7 +152,7 @@
           "name": "contentPage",
           "required": true,
           "schema": {
-            "fullComment": "General purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
+            "fullComment": "specifically always a markdown page\n\n\n\nGeneral purpose interface for a webpage. Should be compatible within the node.js environment and therefore should not contain any frontend functions. A nested variant (`NestedWebPage`) is used in the frontend to render the `nested-menu` with.",
             "properties": [
               {
                 "name": "queryPath",

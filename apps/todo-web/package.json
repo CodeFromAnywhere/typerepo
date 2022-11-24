@@ -56,6 +56,9 @@
   },
   "version": "0.0.1",
   "operation": {
+    "indirectDependencies": [
+      "file-writer"
+    ],
     "markdown": "# 👬 todo-web\n\nNB: This is an experimental part of typerepo!",
     "hasGeneratedDependenciesIndexed": false,
     "buildResultIndexed": {
@@ -66,30 +69,30 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669055337615,
+    "lastRebuildAt": 1669287922625,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 6,
-        "lines": 336,
-        "characters": 10471,
-        "bytes": 10471
+        "lines": 339,
+        "characters": 10562,
+        "bytes": 10562
       },
       "dataSize": {
         "numberOfFiles": 8,
-        "lines": 236,
-        "characters": 5961,
-        "bytes": 5961
+        "lines": 265,
+        "characters": 6653,
+        "bytes": 6653
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 55,
-        "characters": 729,
-        "bytes": 729
+        "lines": 60,
+        "characters": 836,
+        "bytes": 836
       },
       "size": {
-        "bytes": 17161,
-        "characters": 17161,
-        "lines": 627,
+        "bytes": 18051,
+        "characters": 18051,
+        "lines": 664,
         "numberOfFiles": 16
       }
     },

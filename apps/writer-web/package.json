@@ -1,0 +1,121 @@
+{
+  "createdAt": 1668751893973,
+  "updatedAt": 1668751893973,
+  "deletedAt": 0,
+  "createdFirstAt": 1668751893973,
+  "dependencies": {
+    "@badrap/bar-of-progress": "^0.2.1",
+    "@headlessui/react": "^1.6.2",
+    "@zeit/next-workers": "^1.0.0",
+    "next": "12.3.1",
+    "next-transpile-modules": "^9.0.0",
+    "react": "17.0.2",
+    "next-pwa": "^5.6.0",
+    "react-datepicker": "^4.8.0",
+    "react-datetime": "^3.1.1",
+    "react-dom": "17.0.2",
+    "react-markdown": "^8.0.3",
+    "react-query": "^3.39.0",
+    "react-with-native": "1.4.9",
+    "react-with-native-alert": "1.0.33",
+    "react-with-native-form": "*",
+    "react-with-native-modal": "1.0.60",
+    "react-with-native-router": "1.0.14",
+    "react-with-native-store": "2.0.40",
+    "rehype-highlight": "^5.0.2",
+    "worker-loader": "^3.0.8",
+    "db-recipes": "0.0.1",
+    "api": "0.0.1",
+    "layout": "0.0.0",
+    "api-store": "0.0.1",
+    "nested-menu": "0.0.1",
+    "writer-input": "1.0.0",
+    "file-tabs": "0.0.0",
+    "react-with-native-notification": "1.0.42",
+    "clickable-icon": "0.0.1"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^6.3.0",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.0.24"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 42007",
+    "start": "next start -p 42007",
+    "stop": "pm2 stop app_writer-web",
+    "build": "next build",
+    "lint": "next lint"
+  },
+  "version": "0.0.1",
+  "operation": {
+    "indirectDependencies": [
+      "file-writer"
+    ],
+    "markdown": "✍️ writer-web",
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-web/src/pages/_app.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+      ],
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669288042834,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 5,
+        "lines": 155,
+        "characters": 4616,
+        "bytes": 4616
+      },
+      "dataSize": {
+        "numberOfFiles": 10,
+        "lines": 248,
+        "characters": 6616,
+        "bytes": 6616
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 46,
+        "characters": 721,
+        "bytes": 721
+      },
+      "size": {
+        "bytes": 11953,
+        "characters": 11953,
+        "lines": 449,
+        "numberOfFiles": 17
+      }
+    },
+    "folderNameIndexed": "writer-web",
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/writer",
+    "classificationIndexed": "ui-web",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "queries",
+      "AuthenticationLayout",
+      "Div",
+      "P",
+      "createStore",
+      "apiStoreInitialValues",
+      "nestedMenuStoreInitialValues",
+      "writerInitialValues",
+      "fileTabsInitialValues",
+      "AlertProvider",
+      "ModalProvider",
+      "ToastContainer",
+      "Div"
+    ],
+    "packageDependenciesIndexed": [
+      "AppProps",
+      "QueryClient",
+      "QueryClientProvider"
+    ]
+  },
+  "name": "writer-web",
+  "slug": "writer-web",
+  "id": "tntfebpigyuqzszbxuglslsa"
+}

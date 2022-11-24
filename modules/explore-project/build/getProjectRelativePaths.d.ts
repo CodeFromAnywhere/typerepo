@@ -1,4 +1,4 @@
-export declare type RelativePathType = "todo" | "postables";
+export declare type RelativePathType = "todo";
 /**
  * get file paths within your project
  */
@@ -11,7 +11,7 @@ export declare const getProjectRelativePaths: (config?: {
      *
      * by default, scans all relevant files...
      */
-    type?: RelativePathType | undefined;
+    type?: "todo" | undefined;
     earliestUpdatedAt?: number | undefined;
     /**
      * Not implemented

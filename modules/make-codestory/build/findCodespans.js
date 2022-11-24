@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.findCodespans=void 0;var marked_1=require("marked"),js_util_1=require("js-util"),findCodespansFromTokenRecursively_1=require("./findCodespansFromTokenRecursively"),findCodespans=function(e){return marked_1.marked.lexer(e).map(findCodespansFromTokenRecursively_1.findCodespansFromTokenRecursively).filter(js_util_1.notEmpty).flat()};exports.findCodespans=findCodespans;
+//# sourceMappingURL=findCodespans.js.map

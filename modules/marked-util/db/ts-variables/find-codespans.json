@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669235141207,
+  "updatedAt": 1669235141207,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235141207,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findCodespans",
+  "slug": "find-codespans",
+  "operationRelativeTypescriptFilePath": "src/findCodespans.ts",
+  "type": {
+    "rawType": "(sectionContent: string) => string[]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(sectionContent: string): string[] => {\n  const result: string[] = marked\n    .lexer(sectionContent)\n    .map(findCodespansFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
+  "description": "find all backtick-blocks",
+  "id": "iiginbetqjvcpgetsywicgmb"
+}

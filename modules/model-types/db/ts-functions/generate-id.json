@@ -1,14 +1,11 @@
 {
-  "createdAt": 1668448988518,
-  "updatedAt": 1668448988518,
+  "createdAt": 1669276546371,
+  "updatedAt": 1669276546371,
   "deletedAt": 0,
-  "createdFirstAt": 1668448988518,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
+  "createdFirstAt": 1669276546371,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/id.ts",
   "commentsInside": [],
   "rawText": " (): Id => {\n  return generateRandomString(24).toLowerCase();\n}",
@@ -39,5 +36,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "vxjeccplayrqmkqctvldquly"
+  "id": "zarbdzmzansqhkwlpnezsxtg"
 }

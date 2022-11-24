@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668335230650,
-  "updatedAt": 1668335230650,
+  "createdAt": 1669276442346,
+  "updatedAt": 1669276442346,
   "deletedAt": 0,
-  "createdFirstAt": 1668335230650,
+  "createdFirstAt": 1669276442346,
   "id": "mediacredentail",
   "name": "MediaCredentail",
   "slug": "mediacredentail",
@@ -83,16 +83,7 @@
         "projectRelativePath",
         "updatedAt"
       ],
-      "additionalProperties": {
-        "anyOf": [
-          {
-            "$ref": "#/definitions/Id"
-          },
-          {
-            "not": {}
-          }
-        ]
-      }
+      "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [

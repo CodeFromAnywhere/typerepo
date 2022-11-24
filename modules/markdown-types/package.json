@@ -1,0 +1,95 @@
+{
+  "createdAt": 1669275049451,
+  "updatedAt": 1669275049451,
+  "deletedAt": 0,
+  "createdFirstAt": 1669275049451,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "name": "markdown-types",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669280041009,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 9,
+        "lines": 399,
+        "characters": 10532,
+        "bytes": 10532
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 134,
+        "characters": 3910,
+        "bytes": 3910
+      },
+      "textSize": {
+        "numberOfFiles": 3,
+        "lines": 409,
+        "characters": 9315,
+        "bytes": 9315
+      },
+      "size": {
+        "bytes": 23757,
+        "characters": 23757,
+        "lines": 942,
+        "numberOfFiles": 14
+      }
+    },
+    "folderNameIndexed": "markdown-types",
+    "relativeOperationLocationPathIndexed": "operations/tools/types",
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "Language",
+      "SlugModelType",
+      "CategoryStack",
+      "Frontmatter",
+      "AssetType",
+      "ModelLocation",
+      "generateId",
+      "MarkdownModelType",
+      "Storing",
+      "kebabCase",
+      "Frontmatter",
+      "BundleConfig",
+      "Id",
+      "Slug",
+      "BackendAsset",
+      "Operation",
+      "TsFunction",
+      "TsInterface",
+      "FileContentInfo",
+      "PathStats",
+      "MarkdownModelType",
+      "Id",
+      "Price",
+      "Slug",
+      "BackendAsset"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "dependencies": {
+    "model-types": "0.0.1",
+    "matter-types": "0.0.1",
+    "asset-type": "0.0.1",
+    "convert-case": "0.0.1",
+    "bundle-types": "0.0.1",
+    "code-types": "0.0.1"
+  },
+  "slug": "markdown-types",
+  "id": "lfjxdzqmyqzatibtsvmvwnlu"
+}

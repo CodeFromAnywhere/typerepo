@@ -30,7 +30,9 @@
     "fs-util": "1.0.5",
     "function-types": "0.0.1",
     "get-path": "0.0.1",
-    "read-json-file": "0.0.1"
+    "read-json-file": "0.0.1",
+    "webpage-types": "0.0.1",
+    "recursive-util": "0.0.1"
   },
   "slug": "function-functions-node",
   "id": "nwxdvcemhjxnshvyimslpusa",
@@ -41,19 +43,19 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1668774387053,
+    "lastRebuildAt": 1669276154763,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 167,
-        "characters": 4578,
-        "bytes": 4578
+        "lines": 179,
+        "characters": 4922,
+        "bytes": 4922
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 131,
-        "characters": 3981,
-        "bytes": 3981
+        "lines": 133,
+        "characters": 4042,
+        "bytes": 4042
       },
       "textSize": {
         "numberOfFiles": 1,
@@ -62,9 +64,9 @@
         "bytes": 2733
       },
       "size": {
-        "bytes": 11292,
-        "characters": 11292,
-        "lines": 437,
+        "bytes": 11697,
+        "characters": 11697,
+        "lines": 451,
         "numberOfFiles": 8
       }
     },
@@ -80,6 +82,9 @@
       "db",
       "notEmpty",
       "TsFunction",
+      "NestedWebPage",
+      "WebPage",
+      "getMenuPagesObject",
       "path",
       "PublicBundleConfig",
       "getProjectRoot",

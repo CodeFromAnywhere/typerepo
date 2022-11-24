@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200534124,
-  "updatedAt": 1669200534124,
+  "createdAt": 1669291084098,
+  "updatedAt": 1669291084098,
   "deletedAt": 0,
-  "createdFirstAt": 1669200534124,
+  "createdFirstAt": 1669291084098,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,15 +10,24 @@
   "slug": "get-static-props",
   "operationRelativeTypescriptFilePath": "src/pages/[...paths].tsx",
   "type": {
-    "rawType": "any",
+    "rawType": "(context: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPropsContext<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").PreviewData>) => Promise<{ props: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-types/build/MarkdownReaderPageProps\").MarkdownReaderPageProps; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": false,
+    "isObject": true,
     "isPrimitive": false,
-    "isEnumLiteral": false
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
   },
   "value": "codestoriesGetStaticProps",
   "description": "",
-  "id": "ilhgfuagqkvfxueggazxcckw"
+  "id": "ttcvofsepuphjgnkuafwgzmp"
 }

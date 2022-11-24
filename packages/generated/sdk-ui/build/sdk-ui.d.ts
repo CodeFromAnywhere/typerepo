@@ -67,11 +67,11 @@ export declare const sdk: {
         rawText: string | null;
         type: import("asset-type").AssetType;
     } | undefined;
-    useAsset: (asset: import("asset-type").Asset, projectRelativeReferencingFilePath: string) => {
+    useAsset: (asset: import("asset-type").Asset, projectRelativeReferencingFilePath: string, isNextStaticProductionBuild?: boolean | undefined) => {
         rawText: string | null;
         type: import("asset-type").AssetType | undefined;
         downloadUrl: string | undefined;
-        src: string | undefined;
+        src: string;
         extension: string | undefined;
     };
     AuthenticationMethodsCrud: () => JSX.Element;
@@ -256,7 +256,7 @@ export declare const sdk: {
     }>;
     getMarkdownModelPages: (projectRoot: string) => Promise<import("webpage-types").FileWebPage[]>;
     getMarkdownPageInfo: (projectRoot: string, webPages: import("webpage-types").WebPage<any>[], queryPath: string, contentPage: import("webpage-types").FileWebPage) => Promise<{
-        markdownFile: import("code-types").WebMarkdownFile | null;
+        markdownFile: any;
         nextQueryPath: string | null;
         previousQueryPath: string | null;
         projectRelativeMarkdownPath: string | null;
@@ -512,6 +512,17 @@ export declare const sdk: {
         children: import("react").ReactNode;
         placement?: import("@popperjs/core").Placement | undefined;
     }) => JSX.Element;
+    FileWriter: (props: {
+        markdownModelName?: string | number | symbol | undefined;
+        projectRelativeFilePath: string;
+        augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
+    }) => JSX.Element;
+    OpenFileWriterPages: (props: {
+        pagesObject: import("file-tabs").PagesObjectShape;
+    }) => JSX.Element;
+    WriterLayout: (props: {
+        children: JSX.Element;
+    }) => JSX.Element;
     getRealSrc: (src: string | undefined, config: import("markdown").MarkdownParseRenderConfig) => string | undefined;
     getUrlFromRelativeUrl: (relativeUrl: string, relativeUrlStrategy: "api" | "static", projectRelativeBaseFolderPath: string, projectRelativeMarkdownFilePath: string) => string;
     getYoutubeId: (url: string | undefined) => string | undefined;
@@ -524,12 +535,15 @@ export declare const sdk: {
         isInitiallyExpanded?: boolean | undefined;
         isModeStatic?: boolean | undefined;
     }) => JSX.Element;
+    Parameter: (props: {
+        text: string;
+    }) => JSX.Element | null;
     renderFrontmatter: (parameters: import("matter-types").Frontmatter, config?: {
         renderSpacer?: boolean | undefined;
     } | undefined) => JSX.Element | null;
-    renderMarkdownChunk: (chunk: import("code-types").MarkdownChunk, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
+    renderMarkdownChunk: (chunk: MarkdownChunk, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownContent: (content: string, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element | "[No content]";
-    renderMarkdownParse: (markdownParse: import("code-types").MarkdownParse, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
+    renderMarkdownParse: (markdownParse: MarkdownParse, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownTitle: (title: string, level: number) => JSX.Element;
     useOpenHashDetails: () => void;
     AugmentedWordComponent: (props: {
@@ -540,13 +554,8 @@ export declare const sdk: {
         augmentedWordObject: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord>;
         word?: string | undefined;
     }) => JSX.Element;
-    Layout: (props: {
-        publicBundleConfig: import("bundle-types").PublicBundleConfig | null | undefined;
-        children: any;
-        augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
-        menu: import("webpage-types").MenuObjectType<import("webpage-types").FilePage>;
-    }) => JSX.Element;
-    MarkdownReaderPage: (props: import("markdown-reader-types").MarkdownReaderPageProps) => JSX.Element;
+    DocsReaderLayout: (props: import("markdown-reader-types").MarkdownReaderPageProps) => JSX.Element;
+    ReaderPageContent: (props: import("markdown-reader-types").ReaderPageContentProps) => JSX.Element;
     Completion: (props: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
@@ -576,7 +585,7 @@ export declare const sdk: {
         modelName?: string | undefined;
         projectRelativeMarkdownFilePath: string;
         frontmatterSchema: import("code-types").SimplifiedSchema;
-        markdownParse: import("code-types").MarkdownParse;
+        markdownParse: MarkdownParse;
         onChange: (value: string) => void;
     }) => JSX.Element;
     getContext: (editorDetails: {
@@ -594,14 +603,14 @@ export declare const sdk: {
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
     }) => JSX.Element;
     MarkdownParsePresentation: (props: {
-        markdownParse: import("code-types").MarkdownParse;
+        markdownParse: MarkdownParse;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
         projectRelativeBaseFolderPath: string;
         projectRelativeMarkdownFilePath: string;
     }) => JSX.Element | null;
     MarkdownView: (props: {
         view: "view" | "presentation";
-        markdownParse: import("code-types").MarkdownParse;
+        markdownParse: MarkdownParse;
         markdownParseRenderConfig: import("markdown").MarkdownParseRenderConfig;
     }) => JSX.Element;
     MarkedParagraph: import("writer-input").ContentEditableRenderComponentType<import("marked").marked.Tokens.Paragraph>;

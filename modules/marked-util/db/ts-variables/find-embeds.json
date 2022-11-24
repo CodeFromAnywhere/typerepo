@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669235144379,
+  "updatedAt": 1669235144379,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235144379,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findEmbeds",
+  "slug": "find-embeds",
+  "operationRelativeTypescriptFilePath": "src/findEmbeds.ts",
+  "type": {
+    "rawType": "(markdownString: string) => import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownEmbed[]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(markdownString: string): MarkdownEmbed[] => {\n  const result: MarkdownEmbed[] = marked\n    .lexer(markdownString)\n    .map(findEmbedsFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
+  "description": "find all embedded assets",
+  "id": "bpfudgmekskngmgcwoanejze"
+}

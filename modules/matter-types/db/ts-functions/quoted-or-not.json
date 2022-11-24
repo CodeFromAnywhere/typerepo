@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668335548226,
-  "updatedAt": 1668335548226,
+  "createdAt": 1669288055680,
+  "updatedAt": 1669288055680,
   "deletedAt": 0,
-  "createdFirstAt": 1668335548226,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669288055680,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/frontmatterParseToString.ts",
   "commentsInside": [],
-  "rawText": " (string: string) => {\n  const returnString = string.includes(\",\") ? `\"${string}\"` : string;\n  return returnString;\n}",
+  "rawText": " (string: string) => {\n  const returnString = string?.includes(\",\") ? `\"${string}\"` : string;\n  return returnString;\n}",
   "name": "quotedOrNot",
   "slug": "quoted-or-not",
   "parameters": [
@@ -44,13 +39,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 231,
+    "characters": 232,
     "lines": 6,
-    "bytes": 231,
+    "bytes": 232,
     "bytesPerCharacter": 1,
     "charactersPerLine": 39,
     "linesPerFile": 6,
     "numberOfFiles": 1
   },
-  "id": "rrziwhsnsqyeprakwkwbnvic"
+  "id": "ttcqotkjseedffupgvvkjezo"
 }

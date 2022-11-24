@@ -23,30 +23,30 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669200025153,
+    "lastRebuildAt": 1669287771401,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 100,
-        "characters": 3105,
-        "bytes": 3105
+        "lines": 105,
+        "characters": 3299,
+        "bytes": 3299
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 79,
-        "characters": 2725,
-        "bytes": 2725
+        "lines": 128,
+        "characters": 3995,
+        "bytes": 3995
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 61,
-        "characters": 1058,
-        "bytes": 1058
+        "lines": 59,
+        "characters": 1055,
+        "bytes": 1055
       },
       "size": {
-        "bytes": 6888,
-        "characters": 6888,
-        "lines": 240,
+        "bytes": 8349,
+        "characters": 8349,
+        "lines": 292,
         "numberOfFiles": 7
       }
     },
@@ -57,12 +57,16 @@
     "operationDependenciesIndexed": [
       "getTodoPaths",
       "getProjectRoot",
+      "notEmpty",
       "onlyUnique2",
+      "findEmbeds",
       "fs",
       "path",
       "ReaderWebPage",
       "readMarkdownFile",
       "getMarkdownIntro",
+      "MarkdownEmbed",
+      "MarkdownParse",
       "GetStaticPaths",
       "GetStaticPathsContext",
       "MarkdownReaderPageProps",
@@ -81,7 +85,9 @@
     "markdown-parse-js": "0.0.1",
     "next-types": "0.0.1",
     "markdown-reader-types": "0.0.1",
-    "markdown-reader-functions": "0.0.1"
+    "markdown-reader-functions": "0.0.1",
+    "marked-util": "0.0.1",
+    "markdown-types": "0.0.1"
   },
   "slug": "codestorys-node",
   "id": "csdmeiggslgvtqzybrxcxaqy"

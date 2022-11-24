@@ -40,6 +40,9 @@ export interface Asset extends BackendAsset {
 }
 /**
  * Possible Asset Types
+ *
+ * Later, maybe also support:
+ * "markdown","json","typescript"
  */
 export declare type AssetType = "video" | "audio" | "image" | "text" | "other";
 //# sourceMappingURL=Asset.d.ts.map

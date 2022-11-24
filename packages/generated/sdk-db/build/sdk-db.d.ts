@@ -4,7 +4,6 @@ import type { FrontBackBundle } from "bundle-types";
 import type { Dataset } from "code-types";
 import type { FunctionExecution } from "code-types";
 import type { Operation } from "code-types";
-import type { SocialMediaCallToAction } from "code-types";
 import type { TsBuildError } from "code-types";
 import type { TsComment } from "code-types";
 import type { TsConfig } from "code-types";
@@ -15,8 +14,6 @@ import type { TsInterface } from "code-types";
 import type { TsLintWarning } from "code-types";
 import type { TsVariable } from "code-types";
 import type { TypescriptFile } from "code-types";
-import type { WebMarkdownFile } from "code-types";
-import type { WebsiteCallToAction } from "code-types";
 import type { Address } from "geo-types";
 import type { Area } from "geo-types";
 import type { City } from "geo-types";
@@ -32,14 +29,12 @@ import type { Word } from "language-types";
 import type { WordCategory } from "language-types";
 import type { WordCombination } from "language-types";
 import type { WordMatrix } from "language-types";
+import type { MarkdownCallToAction } from "markdown-types";
+import type { WebMarkdownFile } from "markdown-types";
 import type { SlugModelType } from "model-types";
 import type { Device } from "peer-types";
 import type { Group } from "peer-types";
 import type { PageVisit } from "peer-types";
-import type { PaymentCoupon } from "peer-types";
-import type { PaymentEvent } from "peer-types";
-import type { PaymentPlan } from "peer-types";
-import type { PaymentSubscription } from "peer-types";
 import type { PeerMessage } from "peer-types";
 import type { Person } from "peer-types";
 import type { Persona } from "peer-types";
@@ -51,7 +46,6 @@ import type { Interest } from "social-media-types";
 import type { MediaChannel } from "social-media-types";
 import type { MediaCredentail } from "social-media-types";
 import type { MediaPost } from "social-media-types";
-import type { Postable } from "social-media-types";
 import type { SelfSprintReview } from "todo-types";
 import type { TodoFile } from "todo-types";
 import type { TodoOffer } from "todo-types";
@@ -62,7 +56,6 @@ export declare type DbModels = {
     Dataset: Dataset;
     FunctionExecution: FunctionExecution;
     Operation: Operation;
-    SocialMediaCallToAction: SocialMediaCallToAction;
     TsBuildError: TsBuildError;
     TsComment: TsComment;
     TsConfig: TsConfig;
@@ -73,8 +66,6 @@ export declare type DbModels = {
     TsLintWarning: TsLintWarning;
     TsVariable: TsVariable;
     TypescriptFile: TypescriptFile;
-    WebMarkdownFile: WebMarkdownFile;
-    WebsiteCallToAction: WebsiteCallToAction;
     Address: Address;
     Area: Area;
     City: City;
@@ -90,14 +81,12 @@ export declare type DbModels = {
     WordCategory: WordCategory;
     WordCombination: WordCombination;
     WordMatrix: WordMatrix;
+    MarkdownCallToAction: MarkdownCallToAction;
+    WebMarkdownFile: WebMarkdownFile;
     SlugModelType: SlugModelType;
     Device: Device;
     Group: Group;
     PageVisit: PageVisit;
-    PaymentCoupon: PaymentCoupon;
-    PaymentEvent: PaymentEvent;
-    PaymentPlan: PaymentPlan;
-    PaymentSubscription: PaymentSubscription;
     PeerMessage: PeerMessage;
     Person: Person;
     Persona: Persona;
@@ -109,12 +98,11 @@ export declare type DbModels = {
     MediaChannel: MediaChannel;
     MediaCredentail: MediaCredentail;
     MediaPost: MediaPost;
-    Postable: Postable;
     SelfSprintReview: SelfSprintReview;
     TodoFile: TodoFile;
     TodoOffer: TodoOffer;
 };
-export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "SocialMediaCallToAction", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "WebMarkdownFile", "WebsiteCallToAction", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "SlugModelType", "Device", "Group", "PageVisit", "PaymentCoupon", "PaymentEvent", "PaymentPlan", "PaymentSubscription", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "Postable", "SelfSprintReview", "TodoFile", "TodoOffer"];
+export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "MarkdownCallToAction", "WebMarkdownFile", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "SelfSprintReview", "TodoFile", "TodoOffer"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
     AuthorizationModel: {
@@ -136,9 +124,6 @@ export declare const modelQueryConfig: {
         operationName: string;
         dbStorageMethod: string;
         operationRelativePath: string;
-    };
-    SocialMediaCallToAction: {
-        dbStorageMethod: string;
     };
     TsBuildError: {
         operationName: string;
@@ -178,12 +163,6 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     TypescriptFile: {
-        dbStorageMethod: string;
-    };
-    WebMarkdownFile: {
-        dbStorageMethod: string;
-    };
-    WebsiteCallToAction: {
         dbStorageMethod: string;
     };
     Address: {
@@ -231,6 +210,12 @@ export declare const modelQueryConfig: {
     WordMatrix: {
         dbStorageMethod: string;
     };
+    MarkdownCallToAction: {
+        dbStorageMethod: string;
+    };
+    WebMarkdownFile: {
+        dbStorageMethod: string;
+    };
     SlugModelType: {
         dbStorageMethod: string;
     };
@@ -241,18 +226,6 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     PageVisit: {
-        dbStorageMethod: string;
-    };
-    PaymentCoupon: {
-        dbStorageMethod: string;
-    };
-    PaymentEvent: {
-        dbStorageMethod: string;
-    };
-    PaymentPlan: {
-        dbStorageMethod: string;
-    };
-    PaymentSubscription: {
         dbStorageMethod: string;
     };
     PeerMessage: {
@@ -286,9 +259,6 @@ export declare const modelQueryConfig: {
         dbStorageMethod: string;
     };
     MediaPost: {
-        dbStorageMethod: string;
-    };
-    Postable: {
         dbStorageMethod: string;
     };
     SelfSprintReview: {

@@ -1,4 +1,12 @@
 {
+  "scripts": {
+    "dev": "next dev -p 42080",
+    "start": "next start -p 42080",
+    "stop": "pm2 stop app_[app-name]",
+    "fillPublic": "node fillPublic.js",
+    "build": "yarn fillPublic && next build",
+    "lint": "next lint"
+  },
   "dependencies": {
     "@badrap/bar-of-progress": "^0.2.1",
     "@headlessui/react": "^1.6.2",
@@ -29,13 +37,6 @@
     "tailwindcss": "^3.0.24"
   },
   "private": true,
-  "scripts": {
-    "dev": "next dev -p 42080",
-    "start": "next start -p 42080",
-    "stop": "pm2 stop app_[app-name]",
-    "build": "next build",
-    "lint": "next lint"
-  },
   "version": "0.0.1",
   "operation": {}
 }

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1669288772986,
+  "updatedAt": 1669288772986,
+  "deletedAt": 0,
+  "createdFirstAt": 1669288772986,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/makeCodespanMappedObject.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  // a mapped object of all TsFunctions, TsInterfaces, Operations\n  const tsVariables = await db.get(\"TsVariable\"); // name -> description\n  const tsInterfaces = await db.get(\"TsInterface\"); // name -> description + rawText\n  const tsFunctions = await db.get(\"TsFunction\"); // name -> description + rawText\n  const operations = await db.get(\"Operation\"); // name -> description\n  const bundleConfigs = await db.get(\"BundleConfig\"); // slugify(name) -> description / gitRepoUrl\n\n  const modelItemsArrays = [\n    tsVariables.map((x) => addModelName(x, \"TsVariable\")),\n    tsInterfaces.map((x) => addModelName(x, \"TsInterface\")),\n    tsFunctions.map((x) => addModelName(x, \"TsFunction\")),\n    operations.map((x) => addModelName(x, \"Operation\")),\n    bundleConfigs.map((x) => addModelName(x, \"BundleConfig\")),\n  ];\n\n  // duplicates will overwrite each other, so let's do the most important ones last\n  const mappedObject = mergeObjectsArray(\n    modelItemsArrays.flat().map((item) => {\n      return {\n        [item.name]: getSubsetFromObject(item as AugmentedAnyModelType, [\n          \"name\",\n          \"slug\",\n          \"id\",\n          \"description\",\n          \"operationName\",\n          \"rawText\",\n          \"gitRepoUrl\",\n        ]),\n      };\n    })\n  );\n\n  const result = await writeToAssets(\n    __filename,\n    mappedObject,\n    \"codespan-mapped-object-small2.json\"\n  );\n}",
+  "name": "makeCodespanMappedObject",
+  "slug": "make-codespan-mapped-object",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1388,
+    "lines": 39,
+    "bytes": 1388,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 36,
+    "linesPerFile": 39,
+    "numberOfFiles": 1
+  },
+  "id": "lhuavyrspmnidxpzwwhccnwa"
+}

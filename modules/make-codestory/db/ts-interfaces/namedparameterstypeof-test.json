@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669289096126,
+  "updatedAt": 1669289096126,
+  "deletedAt": 0,
+  "createdFirstAt": 1669289096126,
+  "id": "namedparameterstypeof-test",
+  "name": "NamedParameters<typeof test>",
+  "slug": "namedparameterstypeof-test",
+  "operationRelativeTypescriptFilePath": "src/findCodestories.test.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof test>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

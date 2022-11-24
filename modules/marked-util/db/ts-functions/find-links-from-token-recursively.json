@@ -1,0 +1,142 @@
+{
+  "createdAt": 1669235149094,
+  "updatedAt": 1669235149094,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235149094,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/findLinksFromTokenRecursively.ts",
+  "commentsInside": [],
+  "rawText": " (\n  token: marked.Token\n): MarkdownLink[] => {\n  if (token.type === \"link\") {\n    return [\n      {\n        href: token.href,\n        alt: token.title,\n        type: getTypeFromUrlOrPath(token.href),\n      },\n    ];\n  }\n\n  if (token.type === \"paragraph\") {\n    const result = token.tokens.map(findLinksFromTokenRecursively).flat();\n    return result;\n  }\n\n  // probably need to add more here because the images can be nested elsewhere too\n\n  return [];\n}",
+  "name": "findLinksFromTokenRecursively",
+  "slug": "find-links-from-token-recursively",
+  "parameters": [
+    {
+      "name": "token",
+      "schema": {
+        "$ref": "#/definitions/marked.Token"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownLink[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "alt": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "href": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "type": {
+            "enum": [
+              "video",
+              "audio",
+              "image",
+              "text",
+              "other"
+            ],
+            "x-enumNames": [
+              "video",
+              "audio",
+              "image",
+              "text",
+              "other"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "alt",
+          "href",
+          "type"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "alt",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "href",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "type",
+                "required": true,
+                "schema": {
+                  "enum": [
+                    "video",
+                    "audio",
+                    "image",
+                    "text",
+                    "other"
+                  ],
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 454,
+    "lines": 22,
+    "bytes": 454,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 22,
+    "numberOfFiles": 1
+  },
+  "id": "jxjahuxbxdhrlyynqpkciofj"
+}

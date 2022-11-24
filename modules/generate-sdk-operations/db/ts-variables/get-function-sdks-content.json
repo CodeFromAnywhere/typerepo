@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055521349,
-  "updatedAt": 1669055521349,
+  "createdAt": 1669276636307,
+  "updatedAt": 1669276636307,
   "deletedAt": 0,
-  "createdFirstAt": 1669055521349,
+  "createdFirstAt": 1669276636307,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (config?: {\n  manualProjectRoot?: string;\n}): Promise<{\n  jsFunctions?: TsFunction[];\n  apiFunctions?: TsFunction[];\n  uiFunctions?: TsFunction[];\n}> => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const functionsPerClassification = await getSdkFunctionsPerClassification({\n    manualProjectRoot,\n  });\n\n  if (!functionsPerClassification) return {};\n\n  const jsFunctions = functionsPerClassification[\"cjs\"].concat(\n    functionsPerClassification[\"esm\"]\n  );\n\n  const apiFunctions = functionsPerClassification[\"node-cjs\"]\n    .concat(functionsPerClassification[\"node-esm\"])\n    .concat(functionsPerClassification[\"cjs\"])\n    .concat(functionsPerClassification[\"esm\"]);\n\n  const uiFunctions = functionsPerClassification[\"ui-cjs\"].concat(\n    functionsPerClassification[\"ui-esm\"]\n  );\n\n  return { jsFunctions, apiFunctions, uiFunctions };\n}",
   "description": "",
-  "id": "pabkjyavdccatbtjupvrdgrg"
+  "id": "lxnrqihufnmeclfpjkzadkhq"
 }

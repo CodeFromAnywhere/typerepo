@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055009486,
-  "updatedAt": 1669055009486,
+  "createdAt": 1669276047341,
+  "updatedAt": 1669276047341,
   "deletedAt": 0,
-  "createdFirstAt": 1669055009486,
+  "createdFirstAt": 1669276047341,
   "id": "namedparameterstypeof-assetview",
   "name": "NamedParameters<typeof AssetView>",
   "slug": "namedparameterstypeof-assetview",
@@ -127,7 +127,7 @@
                           "text",
                           "other"
                         ],
-                        "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types",
+                        "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
                         "type": "string"
                       }
                     },

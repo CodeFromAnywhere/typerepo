@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669054983380,
-  "updatedAt": 1669054983380,
+  "createdAt": 1669276019105,
+  "updatedAt": 1669276019105,
   "deletedAt": 0,
-  "createdFirstAt": 1669054983380,
+  "createdFirstAt": 1669276019105,
   "id": "asset",
   "name": "Asset",
   "slug": "asset",
@@ -162,7 +162,7 @@
               "text",
               "other"
             ],
-            "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types",
+            "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
             "type": "string"
           }
         },

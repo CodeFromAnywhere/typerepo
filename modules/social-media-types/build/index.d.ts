@@ -3,6 +3,5 @@ export * from "./MediaChannel";
 export * from "./MediaCredential";
 export * from "./MediaPlatformEnum";
 export * from "./MediaPost";
-export * from "./Postable";
 export * from "./SocialMediaPostReturnType";
 //# sourceMappingURL=index.d.ts.map

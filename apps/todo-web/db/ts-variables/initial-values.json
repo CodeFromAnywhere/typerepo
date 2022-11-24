@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055335906,
-  "updatedAt": 1669055335906,
+  "createdAt": 1669287920719,
+  "updatedAt": 1669287920719,
   "deletedAt": 0,
-  "createdFirstAt": 1669055335906,
+  "createdFirstAt": 1669287920719,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -47,11 +47,26 @@
                 ]
               }
             },
-            "priority": {}
+            "priority": {},
+            "subExtension": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            },
+            "sort": {}
           },
           "required": [
             "recency",
-            "priority"
+            "priority",
+            "sort"
           ]
         }
       },
@@ -110,6 +125,21 @@
                   "properties": [],
                   "type": "object"
                 }
+              },
+              {
+                "name": "subExtension",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "sort",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
               }
             ],
             "type": "object"
@@ -121,5 +151,5 @@
   },
   "value": "{\n  todoPagesConfig: {},\n}",
   "description": "",
-  "id": "ospgihgdaeacbezolfqnzouv"
+  "id": "vystzjlylawwgvhihcbjujtt"
 }

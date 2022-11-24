@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669235146018,
+  "updatedAt": 1669235146018,
+  "deletedAt": 0,
+  "createdFirstAt": 1669235146018,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findEmbedsFromTokenRecursively",
+  "slug": "find-embeds-from-token-recursively",
+  "operationRelativeTypescriptFilePath": "src/findEmbedsFromTokenRecursively.ts",
+  "type": {
+    "rawType": "(token: import(\"/Users/king/King/operations/node_modules/@types/marked/index\").marked.Token) => import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownEmbed[]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  token: marked.Token\n): MarkdownEmbed[] => {\n  if (token.type === \"image\") {\n    return [\n      {\n        src: token.href,\n        alt: token.title,\n        type: getTypeFromUrlOrPath(token.href),\n      },\n    ];\n  }\n\n  if (token.type === \"paragraph\") {\n    const result = token.tokens.map(findEmbedsFromTokenRecursively).flat();\n    return result;\n  }\n\n  // probably need to add more here because the images can be nested elsewhere too\n\n  return [];\n}",
+  "description": "",
+  "id": "pcyetqmbkttloprdwkmazgqs"
+}

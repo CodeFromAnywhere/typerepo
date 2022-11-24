@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668335229476,
-  "updatedAt": 1668335229476,
+  "createdAt": 1669276440554,
+  "updatedAt": 1669276440554,
   "deletedAt": 0,
-  "createdFirstAt": 1668335229476,
+  "createdFirstAt": 1669276440554,
   "id": "mediachannel",
   "name": "MediaChannel",
   "slug": "mediachannel",
@@ -137,16 +137,7 @@
         "slug",
         "updatedAt"
       ],
-      "additionalProperties": {
-        "anyOf": [
-          {
-            "$ref": "#/definitions/Id"
-          },
-          {
-            "not": {}
-          }
-        ]
-      },
+      "additionalProperties": false,
       "description": "channel where messages can be posted to\n\nexamples:\n- facebook group\n- slack channel\n- whatsapp pm\n- facebook pm"
     },
     "simplifiedSchema": {

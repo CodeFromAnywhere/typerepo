@@ -81,7 +81,7 @@ Based on markdown info, gest the real source for an image
 
 # Internal
 
-<details><summary>Show internal (19)</summary>
+<details><summary>Show internal (21)</summary>
     
   # getUrlFromRelativeUrl()
 
@@ -109,6 +109,18 @@ gets the renderable asset url from the relative url
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## `<Parameter />`
+
+In markdown, if you wish to refer to a parameter, you can backtick it and put a "." in front. You can also add a value to it if you wish, by adding the ":" and the value afterwards.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { text: string, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
 
 
@@ -184,6 +196,11 @@ gets the renderable asset url from the relative url
 ## 📄 getYoutubeId (exported const)
 
 ## 📄 HtmlHeader (exported const)
+
+## 📄 Parameter (exported const)
+
+In markdown, if you wish to refer to a parameter, you can backtick it and put a "." in front. You can also add a value to it if you wish, by adding the ":" and the value afterwards.
+
 
 ## 📄 renderFrontmatter (exported const)
 

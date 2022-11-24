@@ -23,6 +23,7 @@ export declare type CreateBundleConfig = {
      * If true, the structure of operation locations is kept the same but still inside packages/apps/modules.
      */
     keepStructure?: boolean;
+    keepCodestories?: boolean;
     /**
      * Default information strategy
      */

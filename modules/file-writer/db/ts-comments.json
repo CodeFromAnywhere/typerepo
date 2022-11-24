@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1669288091166,
+    "updatedAt": 1669288091166,
+    "deletedAt": 0,
+    "createdFirstAt": 1669288091166,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/store.tsx",
+    "comment": "Combining two store types to create an aggregated store",
+    "rawStatement": "export const { useStore, StoreProvider } = createStore({\n  ...writerInitialValues,\n  ...fileTabsInitialValues,\n});",
+    "parameters": {},
+    "types": [],
+    "firstLine": 5,
+    "lastLine": 7,
+    "id": "saznlaflyliwphylivrzpyaf"
+  }
+]

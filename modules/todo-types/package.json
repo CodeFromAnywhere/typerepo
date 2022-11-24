@@ -7,7 +7,8 @@
   "dependencies": {
     "asset-type": "0.0.1",
     "model-types": "0.0.1",
-    "peer-types": "0.0.1"
+    "peer-types": "0.0.1",
+    "markdown-types": "0.0.1"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
@@ -36,7 +37,7 @@
     "folderNameIndexed": "todo-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669200682895,
+    "lastRebuildAt": 1669279972941,
     "operationDependenciesIndexed": [
       "BackendAsset",
       "DefaultModelType",
@@ -44,12 +45,14 @@
       "KeyValueMarkdownModelType",
       "Id",
       "KeyValueMarkdownModelType",
+      "ExtendedMarkdownProperties",
+      "PostableProperties",
+      "WebMarkdownProperties",
+      "MarkdownModelType",
       "CategoryStack",
       "Id",
-      "MarkdownModelType",
       "Price",
       "Slug",
-      "Person",
       "BackendAsset",
       "DefaultModelType",
       "Id",
@@ -61,28 +64,28 @@
     "markdown": "# todo-types\n\ntypes related to the upcoming `todo-ui`\n\nThis is a js operation. This means you cannot use any react or node, it's pure typescript, compiled to javascript, and can be used anywhere.\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 8,
-        "lines": 374,
-        "characters": 10755,
-        "bytes": 10755
+        "numberOfFiles": 9,
+        "lines": 390,
+        "characters": 11123,
+        "bytes": 11123
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 110,
-        "characters": 3721,
-        "bytes": 3721
+        "lines": 131,
+        "characters": 4174,
+        "bytes": 4174
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 309,
-        "characters": 7653,
-        "bytes": 7653
+        "lines": 348,
+        "characters": 8930,
+        "bytes": 8930
       },
       "size": {
-        "bytes": 22129,
-        "characters": 22129,
-        "lines": 793,
-        "numberOfFiles": 12
+        "bytes": 24227,
+        "characters": 24227,
+        "lines": 869,
+        "numberOfFiles": 13
       }
     },
     "hasGeneratedImportsIndexed": false

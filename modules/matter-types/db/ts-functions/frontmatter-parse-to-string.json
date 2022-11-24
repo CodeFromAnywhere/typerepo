@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668335548226,
-  "updatedAt": 1668335548226,
+  "createdAt": 1669288055680,
+  "updatedAt": 1669288055680,
   "deletedAt": 0,
-  "createdFirstAt": 1668335548226,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1669288055680,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/frontmatterParseToString.ts",
   "commentsInside": [],
   "rawText": " (frontmatter: Frontmatter): string => {\n  const keys = Object.keys(frontmatter);\n\n  const keyValueLines = keys\n    .map((key) => {\n      const value = frontmatter[key];\n      const valueString = getFrontmatterValueString(value);\n\n      if (valueString === null) {\n        return null;\n      }\n\n      const parsedFrontmatterLine = `${key}: ${valueString}`;\n\n      return parsedFrontmatterLine;\n    })\n    .filter(notEmpty);\n\n  return keyValueLines.length === 0\n    ? \"\"\n    : `---\\n${keyValueLines.join(\"\\n\")}\\n---\\n`;\n}",
@@ -21,6 +16,12 @@
       "name": "frontmatter",
       "schema": {
         "$ref": "#/definitions/Frontmatter"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+        "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+        "properties": [],
+        "type": "object"
       },
       "required": true
     }
@@ -49,5 +50,5 @@
     "linesPerFile": 25,
     "numberOfFiles": 1
   },
-  "id": "dujkdfagrgotecvrxluejxai"
+  "id": "jpsccsacvgwlsdtupzpqidtw"
 }
