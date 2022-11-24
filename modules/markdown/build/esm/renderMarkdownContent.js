@@ -73,7 +73,7 @@ export var renderMarkdownContent = function (content, config) {
                     var url = isRelative ? undefined : src;
                     var relativePath = isRelative ? src : undefined;
                     var asset = { alt: alt, relativePath: relativePath, absoluteUrl: url };
-                    return (React.createElement(AssetView, { asset: asset, projectRelativeReferencingFilePath: config.projectRelativeMarkdownFilePath }));
+                    return (React.createElement(AssetView, { asset: asset, projectRelativeReferencingFilePath: config.projectRelativeMarkdownFilePath, hideDownloadLink: true, className: "w-96" }));
                 },
                 //Fix newlines with `<br>`
                 br: function (_a) {

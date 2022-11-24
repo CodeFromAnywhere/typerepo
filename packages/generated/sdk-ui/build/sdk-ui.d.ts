@@ -541,9 +541,9 @@ export declare const sdk: {
     renderFrontmatter: (parameters: import("matter-types").Frontmatter, config?: {
         renderSpacer?: boolean | undefined;
     } | undefined) => JSX.Element | null;
-    renderMarkdownChunk: (chunk: MarkdownChunk, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
+    renderMarkdownChunk: (chunk: import("markdown-types").MarkdownChunk, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownContent: (content: string, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element | "[No content]";
-    renderMarkdownParse: (markdownParse: MarkdownParse, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
+    renderMarkdownParse: (markdownParse: import("markdown-types").MarkdownParse, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownTitle: (title: string, level: number) => JSX.Element;
     useOpenHashDetails: () => void;
     AugmentedWordComponent: (props: {
