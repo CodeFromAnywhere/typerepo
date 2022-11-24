@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669276048544,
-  "updatedAt": 1669276048544,
+  "createdAt": 1669317469507,
+  "updatedAt": 1669317469507,
   "deletedAt": 0,
-  "createdFirstAt": 1669276048544,
+  "createdFirstAt": 1669317469507,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/AssetView.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  asset: Asset;\n  className?: string;\n  projectRelativeReferencingFilePath: string;\n  hideDownloadLink?: boolean;\n}) => {\n  const {\n    asset,\n    className,\n    projectRelativeReferencingFilePath,\n    hideDownloadLink,\n  } = props;\n\n  const { downloadUrl, rawText, src, type, extension } = useAsset(\n    asset,\n    projectRelativeReferencingFilePath,\n    !isDev\n  );\n\n  // console.log({ src });\n\n  const sizeText =\n    asset.sizeBytes !== undefined\n      ? `(${readableSize(asset.sizeBytes)})`\n      : undefined;\n\n  const downloadText = \" ⬇️ Download\";\n\n  return (\n    <Span style={{ position: \"relative\" }}>\n      {downloadUrl && !hideDownloadLink ? (\n        <Div\n          style={{\n            padding: \"5px\",\n          }}\n        >\n          <A target=\"_blank\" href={downloadUrl}>\n            {downloadText} {sizeText}\n          </A>\n        </Div>\n      ) : null}\n\n      {type === \"image\" && src && (\n        <img\n          src={src}\n          className={className || \"w-40\"}\n          style={{ aspectRatio: \"auto\" }}\n        />\n      )}\n      {type === \"audio\" && src && <audio controls src={src} />}\n      {type === \"video\" && src && (\n        <video style={{ aspectRatio: \"auto\", width: 150 }} controls src={src} />\n      )}\n\n      {type === \"text\" && rawText ? (\n        <MarkdownCodeblock text={rawText} extension={extension} />\n      ) : null}\n\n      {/* LATER: render PDF renderer here */}\n      {type === \"other\" && extension === \"pdf\" ? null : null}\n\n      {src === undefined ? <P>Asset src not found</P> : null}\n    </Span>\n  );\n}",
+  "rawText": " (props: {\n  asset: Asset;\n  className?: string;\n  projectRelativeReferencingFilePath: string;\n  hideDownloadLink?: boolean;\n}) => {\n  const {\n    asset,\n    className,\n    projectRelativeReferencingFilePath,\n    hideDownloadLink,\n  } = props;\n\n  const { downloadUrl, rawText, src, type, extension } = useAsset(\n    asset,\n    projectRelativeReferencingFilePath,\n    !isDev\n  );\n\n  // console.log({ src });\n\n  const sizeText =\n    asset.sizeBytes !== undefined\n      ? `(${readableSize(asset.sizeBytes)})`\n      : undefined;\n\n  const downloadText = \" ⬇️ Download\";\n\n  return (\n    <Span style={{ position: \"relative\" }}>\n      {downloadUrl && !hideDownloadLink ? (\n        <Div\n          style={{\n            padding: \"5px\",\n          }}\n        >\n          <A target=\"_blank\" href={downloadUrl}>\n            {downloadText} {sizeText}\n          </A>\n        </Div>\n      ) : null}\n\n      {type === \"image\" && src && (\n        <img\n          src={src}\n          className={className || \"w-40\"}\n          style={{ aspectRatio: \"auto\" }}\n        />\n      )}\n      {type === \"audio\" && src && <audio controls src={src} />}\n      {type === \"video\" && src && (\n        <video\n          style={{ aspectRatio: \"auto\" }}\n          className={className || \"w-40\"}\n          controls\n          src={src}\n        />\n      )}\n\n      {type === \"text\" && rawText ? (\n        <MarkdownCodeblock text={rawText} extension={extension} />\n      ) : null}\n\n      {/* LATER: render PDF renderer here */}\n      {type === \"other\" && extension === \"pdf\" ? null : null}\n\n      {src === undefined ? <P>Asset src not found</P> : null}\n    </Span>\n  );\n}",
   "name": "AssetView",
   "slug": "asset-view",
   "parameters": [
@@ -220,13 +220,13 @@
   },
   "maxIndentationDepth": 6,
   "size": {
-    "characters": 1557,
-    "lines": 65,
-    "bytes": 1561,
-    "bytesPerCharacter": 1.0025690430314709,
-    "charactersPerLine": 24,
-    "linesPerFile": 65,
+    "characters": 1625,
+    "lines": 70,
+    "bytes": 1629,
+    "bytesPerCharacter": 1.0024615384615385,
+    "charactersPerLine": 23,
+    "linesPerFile": 70,
     "numberOfFiles": 1
   },
-  "id": "kjikfuaglcngokqiwspmzfzi"
+  "id": "iowkbsodqrhdtgzshzaolmrm"
 }
