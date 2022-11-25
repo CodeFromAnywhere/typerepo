@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669287910632,
-  "updatedAt": 1669287910632,
+  "createdAt": 1669361139900,
+  "updatedAt": 1669361139900,
   "deletedAt": 0,
-  "createdFirstAt": 1669287910632,
+  "createdFirstAt": 1669361139900,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/MyLayout.tsx",
   "commentsInside": [],
-  "rawText": " (props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n  const [todoPagesConfig] = useStore(\"todoPagesConfig\");\n  const todoPagesQuery = queries.useGetTodoPages(todoPagesConfig);\n  const todoPages = todoPagesQuery.data?.result;\n\n  console.log({ todoPages });\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        webPagesFlat: todoPages?.flat,\n        webPagesNested: todoPages?.nested,\n        isLoading: todoPagesQuery.isLoading,\n        menuHeader: TodoMenuHeader,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
+  "rawText": " (props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n  const [todoPagesConfig] = useStore(\"todoPagesConfig\");\n  const todoPagesQuery = queries.useGetTodoPages(todoPagesConfig);\n  const todoPages = todoPagesQuery.data?.result;\n\n  // console.log({ todoPages });\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        webPagesFlat: todoPages?.flat,\n        webPagesNested: todoPages?.nested,\n        isLoading: todoPagesQuery.isLoading,\n        menuHeader: TodoMenuHeader,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
   "name": "MyLayout",
   "slug": "my-layout",
   "parameters": [
@@ -66,13 +66,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 619,
+    "characters": 622,
     "lines": 22,
-    "bytes": 619,
+    "bytes": 622,
     "bytesPerCharacter": 1,
     "charactersPerLine": 28,
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "yvdipcndceavieporqfxshhh"
+  "id": "lruugdnabujafkbvoigoiodw"
 }

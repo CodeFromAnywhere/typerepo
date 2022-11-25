@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669318628979,
-  "updatedAt": 1669318628979,
+  "createdAt": 1669377688524,
+  "updatedAt": 1669377688524,
   "deletedAt": 0,
-  "createdFirstAt": 1669318628979,
+  "createdFirstAt": 1669377688524,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/AssetView.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  asset: Asset;\n  className?: string;\n  projectRelativeReferencingFilePath: string;\n  hideDownloadLink?: boolean;\n}) => {\n  const {\n    asset,\n    className,\n    projectRelativeReferencingFilePath,\n    hideDownloadLink,\n  } = props;\n\n  const { downloadUrl, rawText, src, type, extension } = useAsset(\n    asset,\n    projectRelativeReferencingFilePath,\n    !isDev\n  );\n\n  // console.log({ src });\n\n  const sizeText =\n    asset.sizeBytes !== undefined\n      ? `(${readableSize(asset.sizeBytes)})`\n      : undefined;\n\n  const downloadText = \" ⬇️ Download\";\n\n  return (\n    <Span style={{ position: \"relative\" }}>\n      {downloadUrl && !hideDownloadLink ? (\n        <Div\n          style={{\n            padding: \"5px\",\n          }}\n        >\n          <A target=\"_blank\" href={downloadUrl}>\n            {downloadText} {sizeText}\n          </A>\n        </Div>\n      ) : null}\n\n      {type === \"image\" && src && (\n        <img\n          src={src}\n          className={className || \"w-40\"}\n          style={{ aspectRatio: \"auto\" }}\n        />\n      )}\n      {type === \"audio\" && src && <audio controls src={src} />}\n      {type === \"video\" && src && (\n        <video\n          style={{ aspectRatio: \"auto\" }}\n          className={className || \"w-40\"}\n          preload=\"none\"\n          // not always available, should I check first somehow?\n          poster={src.replace(\".mp4\", \".placeholder.jpeg\")}\n          controls\n          src={src}\n        />\n      )}\n\n      {type === \"text\" && rawText ? (\n        <MarkdownCodeblock text={rawText} extension={extension} />\n      ) : null}\n\n      {/* LATER: render PDF renderer here */}\n      {type === \"other\" && extension === \"pdf\" ? null : null}\n\n      {src === undefined ? <P>Asset src not found</P> : null}\n    </Span>\n  );\n}",
+  "rawText": " (props: {\n  asset: Asset;\n  className?: string;\n  projectRelativeReferencingFilePath: string;\n  hideDownloadLink?: boolean;\n}) => {\n  const {\n    asset,\n    className,\n    projectRelativeReferencingFilePath,\n    hideDownloadLink,\n  } = props;\n\n  const result = useAsset(asset, projectRelativeReferencingFilePath, !isDev);\n  const { downloadUrl, rawText, src, type, extension } =\n    destructureOptionalObject(result);\n\n  // console.log({ src });\n\n  const sizeText =\n    asset.sizeBytes !== undefined\n      ? `(${readableSize(asset.sizeBytes)})`\n      : undefined;\n\n  const downloadText = \" ⬇️ Download\";\n\n  return (\n    <Span style={{ position: \"relative\" }}>\n      {downloadUrl && !hideDownloadLink ? (\n        <Div\n          style={{\n            padding: \"5px\",\n          }}\n        >\n          <A target=\"_blank\" href={downloadUrl}>\n            {downloadText} {sizeText}\n          </A>\n        </Div>\n      ) : null}\n\n      {type === \"image\" && src && (\n        <img\n          src={src}\n          className={className || \"w-40\"}\n          style={{ aspectRatio: \"auto\" }}\n        />\n      )}\n      {type === \"audio\" && src && <audio controls src={src} />}\n      {type === \"video\" && src && (\n        <video\n          style={{ aspectRatio: \"auto\" }}\n          className={className || \"w-40\"}\n          preload=\"none\"\n          // not always available, should I check first somehow?\n          poster={src.replace(\".mp4\", \".placeholder.jpeg\")}\n          controls\n          src={src}\n        />\n      )}\n\n      {type === \"text\" && rawText ? (\n        <MarkdownCodeblock text={rawText} extension={extension} />\n      ) : null}\n\n      {/* LATER: render PDF renderer here */}\n      {type === \"other\" && extension === \"pdf\" ? null : null}\n\n      {src === undefined ? <P>Asset src not found</P> : null}\n    </Span>\n  );\n}",
   "name": "AssetView",
   "slug": "asset-view",
   "parameters": [
@@ -220,13 +220,13 @@
   },
   "maxIndentationDepth": 6,
   "size": {
-    "characters": 1775,
-    "lines": 73,
-    "bytes": 1779,
-    "bytesPerCharacter": 1.0022535211267605,
-    "charactersPerLine": 24,
-    "linesPerFile": 73,
+    "characters": 1815,
+    "lines": 71,
+    "bytes": 1819,
+    "bytesPerCharacter": 1.0022038567493112,
+    "charactersPerLine": 26,
+    "linesPerFile": 71,
     "numberOfFiles": 1
   },
-  "id": "drueacpwzfbxcxxfckluhova"
+  "id": "pewygiooosnvwsjzbupqfvps"
 }

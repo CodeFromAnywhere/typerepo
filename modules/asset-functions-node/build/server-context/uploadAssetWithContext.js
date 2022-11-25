@@ -51,7 +51,7 @@ var convertToMp4_1 = require("../convertToMp4");
  * NB: this function only works by providing a file as blobs under the "file" property name!
  */
 var uploadAssetWithContext = function (functionContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var file, realFile, functionFile, randomName, temporaryAssetsFolderPath, preferredExtension, temporaryFileName, absoluteTemporaryDestinationPath, resultingPath, resultingPath;
+    var file, realFile, functionFile, randomName, temporaryAssetsFolderPath, conversionInfo, temporaryFileName, absoluteTemporaryDestinationPath, resultingPath, resultingPath;
     var _a;
     return __generator(this, function (_b) {
         switch (_b.label) {
@@ -72,15 +72,9 @@ var uploadAssetWithContext = function (functionContext) { return __awaiter(void 
                 };
                 randomName = (0, model_types_1.generateRandomString)(32);
                 temporaryAssetsFolderPath = (0, getTemporaryAssetsFolderPath_1.getTemporaryAssetsFolderPath)();
-                preferredExtension = (0, asset_functions_js_1.getPreferredExtensionFromType)(realFile.type);
-                console.log({ preferredExtension: preferredExtension });
-                if (!preferredExtension) {
-                    return [2 /*return*/, {
-                            isSuccessful: false,
-                            message: "couldn't figure out what you're trying to upload",
-                        }];
-                }
-                temporaryFileName = "".concat(randomName, ".").concat(preferredExtension);
+                conversionInfo = (0, asset_functions_js_1.getConversionInfoFromType)(realFile.type);
+                console.log({ conversionInfo: conversionInfo });
+                temporaryFileName = "".concat(randomName, ".").concat(conversionInfo.targetFormat);
                 absoluteTemporaryDestinationPath = fs_util_1.path.join(temporaryAssetsFolderPath, temporaryFileName);
                 if (!!fs_util_1.fs.existsSync(temporaryAssetsFolderPath)) return [3 /*break*/, 2];
                 return [4 /*yield*/, fs_util_1.fs.mkdir(temporaryAssetsFolderPath, { recursive: true })];
@@ -88,13 +82,13 @@ var uploadAssetWithContext = function (functionContext) { return __awaiter(void 
                 _b.sent();
                 _b.label = 2;
             case 2:
-                if (!(preferredExtension === "mp3")) return [3 /*break*/, 4];
+                if (!(conversionInfo.targetFormat === "mp3")) return [3 /*break*/, 4];
                 return [4 /*yield*/, (0, convertToMp3_1.convertToMp3)(functionFile.path, absoluteTemporaryDestinationPath)];
             case 3:
                 resultingPath = _b.sent();
                 return [3 /*break*/, 8];
             case 4:
-                if (!(preferredExtension === "mp4")) return [3 /*break*/, 6];
+                if (!(conversionInfo.targetFormat === "mp4")) return [3 /*break*/, 6];
                 return [4 /*yield*/, (0, convertToMp4_1.convertToMp4)(functionFile.path, absoluteTemporaryDestinationPath)];
             case 5:
                 resultingPath = _b.sent();

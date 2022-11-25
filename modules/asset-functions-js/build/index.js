@@ -17,7 +17,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./getAssetDirectlyApiUrl"), exports);
 __exportStar(require("./getExtensionFromAsset"), exports);
 __exportStar(require("./getNameFromRelativePath"), exports);
-__exportStar(require("./getPreferredExtensionFromType"), exports);
+__exportStar(require("./getConversionInfoFromType"), exports);
 __exportStar(require("./getReferencedAssetApiUrl"), exports);
 __exportStar(require("./getTypeFromUrlOrPath"), exports);
 __exportStar(require("./readableSize"), exports);
@@ -26,4 +26,5 @@ __exportStar(require("./token/ensureToken"), exports);
 __exportStar(require("./token/getNameWithTokenFromRelativePath"), exports);
 __exportStar(require("./token/removeTokenIfPresent"), exports);
 __exportStar(require("./token/tokenPrefix"), exports);
+__exportStar(require("./findAssetParametersRecursively"), exports);
 //# sourceMappingURL=index.js.map

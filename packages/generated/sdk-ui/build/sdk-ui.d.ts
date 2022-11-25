@@ -67,13 +67,13 @@ export declare const sdk: {
         rawText: string | null;
         type: import("asset-type").AssetType;
     } | undefined;
-    useAsset: (asset: import("asset-type").Asset, projectRelativeReferencingFilePath: string, isNextStaticProductionBuild?: boolean | undefined) => {
+    useAsset: (asset: import("asset-type").Asset | undefined, projectRelativeReferencingFilePath?: string | null | undefined, isNextStaticProductionBuild?: boolean | undefined) => {
         rawText: string | null;
         type: import("asset-type").AssetType | undefined;
         downloadUrl: string | undefined;
         src: string;
         extension: string | undefined;
-    };
+    } | undefined;
     AuthenticationMethodsCrud: () => JSX.Element;
     LoginForm: () => JSX.Element;
     LoginWrapper: (props: {
@@ -256,7 +256,7 @@ export declare const sdk: {
     }>;
     getMarkdownModelPages: (projectRoot: string) => Promise<import("webpage-types").FileWebPage[]>;
     getMarkdownPageInfo: (projectRoot: string, webPages: import("webpage-types").WebPage<any>[], queryPath: string, contentPage: import("webpage-types").FileWebPage) => Promise<{
-        markdownFile: any;
+        markdownFile: import("markdown-types").WebMarkdownFile | null;
         nextQueryPath: string | null;
         previousQueryPath: string | null;
         projectRelativeMarkdownPath: string | null;
@@ -556,6 +556,7 @@ export declare const sdk: {
     }) => JSX.Element;
     DocsReaderLayout: (props: import("markdown-reader-types").MarkdownReaderPageProps) => JSX.Element;
     ReaderPageContent: (props: import("markdown-reader-types").ReaderPageContentProps) => JSX.Element;
+    ReaderPageHeader: any;
     Completion: (props: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
@@ -585,7 +586,7 @@ export declare const sdk: {
         modelName?: string | undefined;
         projectRelativeMarkdownFilePath: string;
         frontmatterSchema: import("code-types").SimplifiedSchema;
-        markdownParse: MarkdownParse;
+        markdownParse: import("markdown-types").MarkdownParse;
         onChange: (value: string) => void;
     }) => JSX.Element;
     getContext: (editorDetails: {
@@ -603,14 +604,14 @@ export declare const sdk: {
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
     }) => JSX.Element;
     MarkdownParsePresentation: (props: {
-        markdownParse: MarkdownParse;
+        markdownParse: import("markdown-types").MarkdownParse;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
         projectRelativeBaseFolderPath: string;
         projectRelativeMarkdownFilePath: string;
     }) => JSX.Element | null;
     MarkdownView: (props: {
         view: "view" | "presentation";
-        markdownParse: MarkdownParse;
+        markdownParse: import("markdown-types").MarkdownParse;
         markdownParseRenderConfig: import("markdown").MarkdownParseRenderConfig;
     }) => JSX.Element;
     MarkedParagraph: import("writer-input").ContentEditableRenderComponentType<import("marked").marked.Tokens.Paragraph>;

@@ -46,16 +46,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readMarkdownFileToModel = void 0;
@@ -63,13 +55,15 @@ var fs_util_1 = require("fs-util");
 var js_util_1 = require("js-util");
 var get_path_1 = require("get-path");
 var readMarkdownFile_1 = require("./readMarkdownFile");
+var frontmatter_util_1 = require("frontmatter-util");
+var webmarkdownfile_json_1 = __importDefault(require("markdown-types/db/ts-interfaces/webmarkdownfile.json"));
 /**
  * Reads a markdown absolute path to a `MarkdownFile` model
  */
 var readMarkdownFileToModel = function (absoluteFilePath) { return __awaiter(void 0, void 0, void 0, function () {
-    var filename, projectRoot, mdParse, _a, privacy, detectedLanguage, labels, createdAt, createdFirstAt, deletedAt, updatedAt, id, slug, cta, headerImage, headerSubtitle, headerTitle, isDraft, itemId, frontmatter, operationBasePath, modelLocation, markdownFile;
-    return __generator(this, function (_b) {
-        switch (_b.label) {
+    var filename, projectRoot, mdParse, parsedParameters, operationBasePath, modelLocation, name, markdownFile;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
             case 0:
                 filename = fs_util_1.path.parse(absoluteFilePath).name;
                 projectRoot = (0, get_path_1.getProjectRoot)(absoluteFilePath);
@@ -77,10 +71,10 @@ var readMarkdownFileToModel = function (absoluteFilePath) { return __awaiter(voi
                     return [2 /*return*/, null];
                 return [4 /*yield*/, (0, readMarkdownFile_1.readMarkdownFile)(absoluteFilePath)];
             case 1:
-                mdParse = _b.sent();
+                mdParse = _a.sent();
                 if (!mdParse)
                     return [2 /*return*/, null];
-                _a = mdParse.parameters, privacy = _a.privacy, detectedLanguage = _a.detectedLanguage, labels = _a.labels, createdAt = _a.createdAt, createdFirstAt = _a.createdFirstAt, deletedAt = _a.deletedAt, updatedAt = _a.updatedAt, id = _a.id, slug = _a.slug, cta = _a.cta, headerImage = _a.headerImage, headerSubtitle = _a.headerSubtitle, headerTitle = _a.headerTitle, isDraft = _a.isDraft, itemId = _a.itemId, frontmatter = __rest(_a, ["privacy", "detectedLanguage", "labels", "createdAt", "createdFirstAt", "deletedAt", "updatedAt", "id", "slug", "cta", "headerImage", "headerSubtitle", "headerTitle", "isDraft", "itemId"]);
+                parsedParameters = (0, frontmatter_util_1.frontmatterToObject)(mdParse.parameters, webmarkdownfile_json_1.default.type.simplifiedSchema);
                 operationBasePath = (0, get_path_1.findOperationBasePath)(absoluteFilePath);
                 modelLocation = {
                     operationName: operationBasePath ? (0, fs_util_1.getLastFolder)(operationBasePath) : null,
@@ -89,7 +83,8 @@ var readMarkdownFileToModel = function (absoluteFilePath) { return __awaiter(voi
                         ? (0, get_path_1.makeRelative)(absoluteFilePath, operationBasePath)
                         : undefined,
                 };
-                markdownFile = __assign(__assign(__assign({}, modelLocation), frontmatter), { markdown: mdParse.raw, categoryStackCalculated: [], language: "english", privacy: privacy, detectedLanguage: detectedLanguage, labels: labels, createdAt: createdAt, createdFirstAt: createdFirstAt, deletedAt: deletedAt, updatedAt: updatedAt, cta: cta, headerImage: headerImage, headerSubTitle: headerSubtitle, headerTitle: headerTitle, isDraft: isDraft, itemId: itemId, name: filename, slug: slug, id: id });
+                name = mdParse.fileName || "untitled";
+                markdownFile = __assign(__assign(__assign(__assign(__assign({}, modelLocation), parsedParameters), { markdown: mdParse.raw, categoryStackCalculated: [] }), parsedParameters), { id: name, createdFirstAt: Date.now(), deletedAt: 0, createdAt: Date.now(), privacy: parsedParameters.privacy || "public", language: parsedParameters.language || "english", updatedAt: parsedParameters.updatedAt || Date.now(), name: name, slug: name });
                 return [2 /*return*/, (0, js_util_1.omitUndefinedValues)(markdownFile)];
         }
     });

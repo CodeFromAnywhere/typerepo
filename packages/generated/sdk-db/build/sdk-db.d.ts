@@ -31,6 +31,7 @@ import type { WordCombination } from "language-types";
 import type { WordMatrix } from "language-types";
 import type { MarkdownCallToAction } from "markdown-types";
 import type { WebMarkdownFile } from "markdown-types";
+import type { WebsiteHeader } from "markdown-types";
 import type { SlugModelType } from "model-types";
 import type { Device } from "peer-types";
 import type { Group } from "peer-types";
@@ -44,7 +45,7 @@ import type { PersonPlatformConnection } from "peer-types";
 import type { Platform } from "peer-types";
 import type { Interest } from "social-media-types";
 import type { MediaChannel } from "social-media-types";
-import type { MediaCredentail } from "social-media-types";
+import type { MediaCredential } from "social-media-types";
 import type { MediaPost } from "social-media-types";
 import type { SelfSprintReview } from "todo-types";
 import type { TodoFile } from "todo-types";
@@ -83,6 +84,7 @@ export declare type DbModels = {
     WordMatrix: WordMatrix;
     MarkdownCallToAction: MarkdownCallToAction;
     WebMarkdownFile: WebMarkdownFile;
+    WebsiteHeader: WebsiteHeader;
     SlugModelType: SlugModelType;
     Device: Device;
     Group: Group;
@@ -96,13 +98,13 @@ export declare type DbModels = {
     Platform: Platform;
     Interest: Interest;
     MediaChannel: MediaChannel;
-    MediaCredentail: MediaCredentail;
+    MediaCredential: MediaCredential;
     MediaPost: MediaPost;
     SelfSprintReview: SelfSprintReview;
     TodoFile: TodoFile;
     TodoOffer: TodoOffer;
 };
-export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "MarkdownCallToAction", "WebMarkdownFile", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredentail", "MediaPost", "SelfSprintReview", "TodoFile", "TodoOffer"];
+export declare const dbModelKeys: readonly ["AuthorizationModel", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "MarkdownCallToAction", "WebMarkdownFile", "WebsiteHeader", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Interest", "MediaChannel", "MediaCredential", "MediaPost", "SelfSprintReview", "TodoFile", "TodoOffer"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
     AuthorizationModel: {
@@ -216,6 +218,9 @@ export declare const modelQueryConfig: {
     WebMarkdownFile: {
         dbStorageMethod: string;
     };
+    WebsiteHeader: {
+        dbStorageMethod: string;
+    };
     SlugModelType: {
         dbStorageMethod: string;
     };
@@ -255,7 +260,7 @@ export declare const modelQueryConfig: {
     MediaChannel: {
         dbStorageMethod: string;
     };
-    MediaCredentail: {
+    MediaCredential: {
         dbStorageMethod: string;
     };
     MediaPost: {

@@ -1,4 +1,4 @@
-import { MarkdownEmbed } from "code-types";
+import { MarkdownEmbed } from "markdown-types";
 /**
  * find all embedded assets
  */

@@ -6,6 +6,24 @@ markdown-types (`OperationClassification` cjs)
 
 # Api reference
 
+## 🔹 MarkdownParse
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| fileName (optional) | string |  |
+| createdAt (optional) | number |  |
+| openedAt (optional) | number |  |
+| updatedAt (optional) | number |  |
+| deletedAt (optional) | number |  |
+| createdFirstAt (optional) | number |  |
+| parameters  | object |  |
+| content (optional) | array |  |
+| raw  | string |  |
+
+
+
 ## 🔹 ExtendedMarkdownProperties
 
 Some properties for on any `MarkdownModelType` model that are quite general purpose and yet aren't included into the `MarkdownModel` because we may not always want them.
@@ -24,6 +42,41 @@ Properties:
 | privacy  | string |  |
 | language  | string |  |
 | isLanguageCustom (optional) | boolean |  |
+
+
+
+## 🔹 MarkdownChunk
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| level  | number |  |
+| content (optional) | string |  |
+| markdownEmbed (optional) | object |  |
+| markdownLink (optional) | object |  |
+| title (optional) | string |  |
+| children (optional) | array |  |
+
+
+
+## 🔹 MarkdownEmbed
+
+Anything in the format `![alt](src)`
+
+NB: I need to be very clear how this one works
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| alt  | string |  |
+| src  | string |  |
+| type  | string |  |
 
 
 
@@ -46,7 +99,62 @@ Properties:
 | tsFunctionIds (optional) | array |  |
 | bundleConfigSlugs (optional) | array |  |
 | operationIds (optional) | array |  |
-| reference_assets  | array |  |
+| reference_assets (optional) | array |  |
+
+
+
+## 🔸 WebMarkdownFile
+
+markdown model
+
+
+
+Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter
+
+NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| isPreset (optional) | boolean |  |
+| isPostable (optional) | boolean |  |
+| isCodestory (optional) | boolean |  |
+| tsInterfaceIds (optional) | array |  |
+| tsFunctionIds (optional) | array |  |
+| bundleConfigSlugs (optional) | array |  |
+| operationIds (optional) | array |  |
+| reference_assets (optional) | array |  |
+| headerImage (optional) | object |  |
+| headerTitle (optional) | string |  |
+| headerBig (optional) | boolean |  |
+| headerSubTitle (optional) | string |  |
+| header_markdownCallToActionSlugs (optional) | array |  |
+| markdownCallToActionSlugs (optional) | array |  |
+| shop_itemIds (optional) | array |  |
+| author_personSlugs (optional) | array |  |
+| interestSlugs (optional) | array |  |
+| price (optional) | number |  |
+| isDraft (optional) | boolean |  |
+| updatedAt  | number |  |
+| createdAt  | number |  |
+| privacy  | string |  |
+| language  | string |  |
+| isLanguageCustom (optional) | boolean |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| markdown  | string |  |
+| categoryStackCalculated  | array |  |
 
 
 
@@ -58,8 +166,9 @@ Properties:
 |---|---|---|
 | headerImage (optional) | object |  |
 | headerTitle (optional) | string |  |
+| headerBig (optional) | boolean |  |
 | headerSubTitle (optional) | string |  |
-| headerCta (optional) | object |  |
+| header_markdownCallToActionSlugs (optional) | array |  |
 | markdownCallToActionSlugs (optional) | array |  |
 | shop_itemIds (optional) | array |  |
 | author_personSlugs (optional) | array |  |
@@ -69,7 +178,7 @@ Properties:
 
 # Internal
 
-<details><summary>Show internal (17)</summary>
+<details><summary>Show internal (14)</summary>
     
   # markdownParseToMarkdownModelType()
 
@@ -147,22 +256,7 @@ Properties:
 | title  | string |  |
 | description  | string |  |
 | onlyFooter  | boolean |  |
-| banner (optional) | string |  |
-
-
-
-## 🔹 MarkdownChunk
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| level  | number |  |
-| content (optional) | string |  |
-| markdownEmbed (optional) | object |  |
-| markdownLink (optional) | object |  |
-| title (optional) | string |  |
-| children (optional) | array |  |
+| bannerImage (optional) | object |  |
 
 
 
@@ -175,26 +269,6 @@ Properties:
 
 
 
-
-
-
-## 🔹 MarkdownEmbed
-
-Anything in the format `![alt](src)`
-
-NB: I need to be very clear how this one works
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| alt  | string |  |
-| src  | string |  |
-| type  | string |  |
 
 
 
@@ -241,24 +315,6 @@ Properties:
 
 
 
-## 🔹 MarkdownParse
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| fileName (optional) | string |  |
-| createdAt (optional) | number |  |
-| openedAt (optional) | number |  |
-| updatedAt (optional) | number |  |
-| deletedAt (optional) | number |  |
-| createdFirstAt (optional) | number |  |
-| parameters  | object |  |
-| content (optional) | array |  |
-| raw  | string |  |
-
-
-
 ## 🔹 TextJson
 
 TODO: Rename
@@ -282,15 +338,13 @@ Properties:
 
 
 
-## 🔸 WebMarkdownFile
+## 🔸 WebsiteHeader
 
-markdown model
+jsonMultiple model
 
 
 
-Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter
 
-NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!
 
 
 
@@ -300,43 +354,27 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| isPreset (optional) | boolean |  |
-| isPostable (optional) | boolean |  |
-| isCodestory (optional) | boolean |  |
-| tsInterfaceIds (optional) | array |  |
-| tsFunctionIds (optional) | array |  |
-| bundleConfigSlugs (optional) | array |  |
-| operationIds (optional) | array |  |
-| reference_assets  | array |  |
 | headerImage (optional) | object |  |
 | headerTitle (optional) | string |  |
+| headerBig (optional) | boolean |  |
 | headerSubTitle (optional) | string |  |
-| headerCta (optional) | object |  |
-| markdownCallToActionSlugs (optional) | array |  |
-| shop_itemIds (optional) | array |  |
-| author_personSlugs (optional) | array |  |
-| interestSlugs (optional) | array |  |
-| price (optional) | number |  |
-| isDraft (optional) | boolean |  |
-| updatedAt  | number |  |
-| createdAt  | number |  |
-| privacy  | string |  |
+| header_markdownCallToActionSlugs (optional) | array |  |
+| slug  | string |  |
+| name  | string |  |
 | language  | string |  |
-| isLanguageCustom (optional) | boolean |  |
+| createdAt  | number |  |
+| updatedAt  | number |  |
 | deletedAt  | number |  |
 | createdFirstAt  | number |  |
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| markdown  | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStackCalculated (optional) | array |  |
 
 
 
-## 🔹 WebsiteHeader
+## 🔹 WebsiteHeaderProperties
 
 Properties: 
 
@@ -344,8 +382,9 @@ Properties:
 |---|---|---|
 | headerImage (optional) | object |  |
 | headerTitle (optional) | string |  |
+| headerBig (optional) | boolean |  |
 | headerSubTitle (optional) | string |  |
-| headerCta (optional) | object |  |
+| header_markdownCallToActionSlugs (optional) | array |  |
 
 
 

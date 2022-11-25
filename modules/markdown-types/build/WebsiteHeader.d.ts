@@ -1,9 +1,14 @@
 import { BackendAsset } from "asset-type";
-import { MarkdownLink } from "./MarkdownParse";
-export declare type WebsiteHeader = {
+import { Slug, SlugModelType } from "model-types";
+import { MarkdownCallToAction } from "./MarkdownCallToAction";
+export interface WebsiteHeader extends SlugModelType, WebsiteHeaderProperties {
+}
+export declare type WebsiteHeaderProperties = {
     headerImage?: BackendAsset;
     headerTitle?: string;
+    headerBig?: boolean;
     headerSubTitle?: string;
-    headerCta?: MarkdownLink;
+    header_markdownCallToActionSlugs?: Slug[];
+    header_markdownCallToActions?: MarkdownCallToAction[];
 };
 //# sourceMappingURL=WebsiteHeader.d.ts.map

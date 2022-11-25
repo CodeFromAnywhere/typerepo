@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669322123403,
-  "updatedAt": 1669322123403,
+  "createdAt": 1669287943738,
+  "updatedAt": 1669287943738,
   "deletedAt": 0,
-  "createdFirstAt": 1669322123403,
+  "createdFirstAt": 1669287943738,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "search-result-component",
   "operationRelativeTypescriptFilePath": "src/components/SearchResultComponent.tsx",
   "type": {
-    "rawType": "(props: { searchResult: import(\"/Users/king/King/bundled/typerepo/apps/search-web/src/util/types\").SearchResult; index: number; }) => any",
+    "rawType": "(props: { searchResult: import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").SearchResult; index: number; }) => JSX.Element",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "(props: {\n  searchResult: SearchResult;\n  index: number;\n}) => {\n  const { index, searchResult } = props;\n  return <Div key={`searchhit${index}`}>hit {index}</Div>;\n}",
   "description": "If you click on a site that up and running, it should startup via pm2 before being redirected there",
-  "id": "rmwbmjmxvnrjvxnisonuzipr"
+  "id": "znjjwpxvnqyajbzbwkvgvuxn"
 }

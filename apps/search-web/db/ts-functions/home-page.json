@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669322130824,
-  "updatedAt": 1669322130824,
+  "createdAt": 1669287939196,
+  "updatedAt": 1669287939196,
   "deletedAt": 0,
-  "createdFirstAt": 1669322130824,
+  "createdFirstAt": 1669287939196,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -96,11 +96,15 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "any",
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": false,
+    "isObject": true,
     "isPrimitive": false,
     "isEnumLiteral": false
   },
@@ -114,5 +118,5 @@
     "linesPerFile": 77,
     "numberOfFiles": 1
   },
-  "id": "vfxufbgxqmbscxipuuxbkiym"
+  "id": "vssqmbikrwngeinswjjbfdnu"
 }

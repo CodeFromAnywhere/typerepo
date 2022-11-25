@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1669276446593,
-    "updatedAt": 1669276446593,
+    "createdAt": 1669364931125,
+    "updatedAt": 1669364931125,
     "deletedAt": 0,
-    "createdFirstAt": 1669276446593,
+    "createdFirstAt": 1669364931125,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/MediaPost.ts",
-    "comment": "Post/message on any medium.",
-    "rawStatement": "export interface MediaPost extends MarkdownModelType {\n  /**\n   * Parsed content from the postable content, every social media platform parses in a different way\n   *\n   * For example, a big blog could be parsed into multiple tweets.\n   *\n   * Another example: maybe in some cases we need to remove images or audio\n   *\n   * Another example: markdown is mostly unsupported!\n   */\n  mediaPlatform: MediaPlatformEnum;\n  posted_messageChannelId?: string;\n  posted_messageChannel?: MediaChannel;\n\n  isVerified?: boolean;\n  isPostable: boolean;\n  unpostableReason?: string;\n  isPosted?: boolean;\n\n  /**\n   * URL that leads directly to the posted message\n   */\n  postedUrl?: string;\n  channelOrGroupName?: string;\n\n  /**\n   * projectRelativePath referring to the file that has been parsed into this MediaPost\n   */\n  webMarkdownFile_projectRelativePath?: string;\n  /**\n * \n * \n * the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\n  parsedTitle\n  parsedContent\n\n */\n  markdown: string;\n\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedTitleCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedContentCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedAssetCalculated?: BackendAsset;\n\n  /**\n   * After it has been posted, this should be filled and frequently updated\n   *\n   * Omitted from the form in writer-input because it's indexed\n   */\n  postedDetailsIndexed?: {\n    views: number;\n    reactions: number;\n    interactions: number;\n    statisticsUpdatedAt: number;\n  };\n}",
+    "operationRelativeTypescriptFilePath": "src/MediaChannel.ts",
+    "comment": "channel where messages can be posted to\n\nexamples:\n- facebook group\n- slack channel\n- whatsapp pm\n- facebook pm",
+    "rawStatement": "export interface MediaChannel extends DefaultModelType {\n  platformSlug: Slug;\n  /** way to identify the channel on the platform\n   *\n   * e.g. on slack we can say `xyz/meet` for the `#meet` channel on the `xyz` slack\n   */\n  platformChannelId: string;\n  url?: string;\n  name: string;\n  slug: string;\n  description?: string;\n\n  /** if true, this channel is a group */\n  isGroup?: boolean;\n\n  /** ids that each identify a `Person` that is part of this channel. Isn't always available */\n  memberPersonIds?: Id[];\n\n  /**\n   * The below parameters should ONLY be used if the instance is a channel for a group.\n   * if this is a channel for a person, the interests should be stored on the person instead.\n   */\n\n  /** group-only: interests this group has */\n  interestSlugs?: Slug[];\n  interests?: Interest[];\n\n  /** group-only: most specific location of the people in this channel (if any) */\n  locationSlug?: Slug;\n  location?: Location;\n\n  /** group-only: preferred spoken language in this channel. `Postable` should be translated into this language */\n  language: Language;\n\n  /**\n   * Which account do you want to use to post something in this channel?\n   *\n   * TODO: maybe refactor this to use `Persona` and match the persona automatically based on interests, location, and language, then get the mediaCredential for the platform from the `Persona` that matches this channel the most...\n   */\n  mediaCredentialId?: Id;\n  mediaCredential?: MediaCredential;\n\n  /** when did you make your last post? */\n  myLastPostAt: number;\n}",
     "parameters": {},
     "types": [],
-    "firstLine": 6,
-    "lastLine": 8,
-    "id": "alvvwqyyfbufeuslmdpqxdss"
+    "firstLine": 5,
+    "lastLine": 12,
+    "id": "vyceowhmdxsgdywikatdkqel"
   }
 ]

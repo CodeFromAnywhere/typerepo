@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668976729926,
-  "updatedAt": 1668976729926,
+  "createdAt": 1669374244718,
+  "updatedAt": 1669374244718,
   "deletedAt": 0,
-  "createdFirstAt": 1668976729926,
+  "createdFirstAt": 1669374244718,
   "classification": "const",
   "comments": [],
   "isExported": false,
   "name": "test",
   "slug": "test",
-  "operationRelativeTypescriptFilePath": "src/removeHeaderPrefix.ts",
+  "operationRelativeTypescriptFilePath": "src/mdContentParseRecursively.ts",
   "type": {
     "rawType": "() => Promise<boolean>",
     "typeDefinition": {
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "makeTest(\n  () => removeHeaderPrefix(\"#### Header\"),\n  (result) => result === \"Header\"\n)",
+  "value": "makeTest(\n  () => {\n    return mdContentParseRecursively(exampleMarkdownFileContents, 1);\n  }\n  // (result) => {\n  //   return (\n  //     JSON.stringify(result) ===\n  //     JSON.stringify([\n  //       {\n  //         level: 1,\n  //         title: \"Header 1\",\n  //         content: undefined,\n  //         children: [\n  //           { level: 0, content: \"Paragraph 1\" },\n  //           { level: 0, content: \"\" },\n  //         ],\n  //       },\n  //       {\n  //         level: 1,\n  //         title: \"Header 2\",\n  //         content: undefined,\n  //         children: [\n  //           {\n  //             level: 2,\n  //             title: \"Header 2.1\",\n  //             content: undefined,\n  //             children: [\n  //               { level: 0, content: \"Paragraph 2\" },\n  //               { level: 0, content: \"\" },\n  //             ],\n  //           },\n  //           {\n  //             level: 2,\n  //             title: \"Header 2.2\",\n  //             content: undefined,\n  //             children: [\n  //               { level: 0, content: \"Paragraph 3\" },\n  //               { level: 0, content: \"Paragraph 4\" },\n  //               { level: 0, content: \"\" },\n  //               {\n  //                 level: 0,\n  //                 content: \"Paragraph 5 (with empty line above)\",\n  //               },\n  //               { level: 0, content: \"\" },\n  //             ],\n  //           },\n  //         ],\n  //       },\n  //     ])\n  //   );\n  // }\n)",
   "description": "",
-  "id": "ascrseolnvawlepqjsvgntjv"
+  "id": "tzlsuvnmavemoiulxvayxhjk"
 }

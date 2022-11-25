@@ -1,2 +1,15 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.findCodespansFromTokenRecursively=void 0;var findCodespansFromTokenRecursively=function(e){return"codespan"===e.type?[e.text]:"paragraph"===e.type?e.tokens.map(exports.findCodespansFromTokenRecursively).flat():[]};exports.findCodespansFromTokenRecursively=findCodespansFromTokenRecursively;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.findCodespansFromTokenRecursively = void 0;
+var findCodespansFromTokenRecursively = function (token) {
+    if (token.type === "codespan") {
+        return [token.text];
+    }
+    if (token.type === "paragraph") {
+        var result = token.tokens.map(exports.findCodespansFromTokenRecursively).flat();
+        return result;
+    }
+    return [];
+};
+exports.findCodespansFromTokenRecursively = findCodespansFromTokenRecursively;
 //# sourceMappingURL=findCodespansFromTokenRecursively.js.map

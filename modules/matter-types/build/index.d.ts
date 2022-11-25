@@ -1,3 +1,3 @@
 export * from "./Frontmatter";
-export * from "./frontmatterParseToString";
+export * from "./FrontmatterParse";
 //# sourceMappingURL=index.d.ts.map

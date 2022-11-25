@@ -9,7 +9,9 @@ var server_api_url_1 = require("server-api-url");
 var path_browserify_1 = __importDefault(require("path-browserify"));
 var useAssetInfo_1 = require("./useAssetInfo");
 var useAsset = function (asset, projectRelativeReferencingFilePath, isNextStaticProductionBuild) {
-    console.log({ apiUrl: server_api_url_1.apiUrl });
+    if (!asset || !projectRelativeReferencingFilePath)
+        return;
+    // console.log({ apiUrl });
     /**
      * NB: `relativePath` is required
      */

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668976713034,
-  "updatedAt": 1668976713034,
+  "createdAt": 1669374102914,
+  "updatedAt": 1669374102914,
   "deletedAt": 0,
-  "createdFirstAt": 1668976713034,
+  "createdFirstAt": 1669374102914,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/markdownParseToMarkdownString.ts",
   "commentsInside": [],
-  "rawText": " (\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
+  "rawText": " (\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
   "name": "markdownParseToMarkdownString",
   "slug": "markdown-parse-to-markdown-string",
   "parameters": [
@@ -124,16 +124,13 @@
                               "required": true,
                               "schema": {
                                 "enum": [
-                                  "youtube",
                                   "video",
-                                  "image",
                                   "audio",
-                                  "markdown",
-                                  "json",
-                                  "typescript",
-                                  "file"
+                                  "image",
+                                  "text",
+                                  "other"
                                 ],
-                                "fullComment": "type of asset that is being embedded",
+                                "fullComment": "Possible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
                                 "type": "string"
                               }
                             }
@@ -166,16 +163,13 @@
                               "required": true,
                               "schema": {
                                 "enum": [
-                                  "youtube",
                                   "video",
-                                  "image",
                                   "audio",
-                                  "markdown",
-                                  "json",
-                                  "typescript",
-                                  "file"
+                                  "image",
+                                  "text",
+                                  "other"
                                 ],
-                                "fullComment": "Can be inferred from href\n\ntype of asset that is being embedded",
+                                "fullComment": "Can be inferred from href\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
                                 "type": "string"
                               }
                             }
@@ -249,13 +243,13 @@
   },
   "maxIndentationDepth": 1,
   "size": {
-    "characters": 273,
-    "lines": 9,
-    "bytes": 273,
+    "characters": 272,
+    "lines": 8,
+    "bytes": 272,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 30,
-    "linesPerFile": 9,
+    "charactersPerLine": 34,
+    "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "tfuvwxdhvcaymwyufhwhqsjm"
+  "id": "qaafwqxsvvhodmtucrjfbosf"
 }

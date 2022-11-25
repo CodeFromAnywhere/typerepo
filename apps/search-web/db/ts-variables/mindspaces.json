@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669322130967,
-  "updatedAt": 1669322130967,
+  "createdAt": 1669287939380,
+  "updatedAt": 1669287939380,
   "deletedAt": 0,
-  "createdFirstAt": 1669322130967,
+  "createdFirstAt": 1669287939380,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,24 +10,43 @@
   "slug": "mindspaces",
   "operationRelativeTypescriptFilePath": "src/components/HomePage.tsx",
   "type": {
-    "rawType": "{}",
+    "rawType": "string[]",
     "typeDefinition": {
-      "type": "object",
-      "properties": {},
-      "optional": false
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
     },
     "typeCoverage": 0,
-    "isArray": false,
+    "isArray": true,
     "isEnum": false,
     "isObject": true,
     "isPrimitive": false,
     "isEnumLiteral": false,
     "simplifiedSchema": {
-      "properties": [],
-      "type": "object"
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
     }
   },
   "value": "[\n  \"Typerepo\",\n  \"search-ui\",\n  \"p2p internet\",\n  \"reader-ui\",\n  \"function-ui\",\n  \"focus\",\n  \"immersion\",\n]",
   "description": "",
-  "id": "tcqwlpheaulebjnpqgmndapx"
+  "id": "qgxldwbgilsxtlgusgizxhui"
 }

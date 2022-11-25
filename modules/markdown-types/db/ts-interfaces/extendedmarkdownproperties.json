@@ -1,15 +1,15 @@
 {
-  "createdAt": 1669280022012,
-  "updatedAt": 1669280022012,
+  "createdAt": 1669378595872,
+  "updatedAt": 1669378595872,
   "deletedAt": 0,
-  "createdFirstAt": 1669280022012,
+  "createdFirstAt": 1669378595872,
   "id": "extendedmarkdownproperties",
   "name": "ExtendedMarkdownProperties",
   "slug": "extendedmarkdownproperties",
   "operationRelativeTypescriptFilePath": "src/ExtendedMarkdownProperties.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n/**\n * Some properties for on any `MarkdownModelType` model that are quite general purpose and yet aren't included into the `MarkdownModel` because we may not always want them.\n */\nexport interface ExtendedMarkdownProperties {\n  /**\n   * If true, will not show up in markdownReader ui's\n   */\n  isDraft?: boolean;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  updatedAt: number;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  createdAt: number;\n\n  /**\n   * TODO: implement auth layers, then look at this again\n   */\n  privacy: \"private\" | \"request\" | \"public\";\n\n  /**\n   * Either filled in or detected\n   */\n  language: Language;\n  /**\n   * If true, will not auto-detect the language\n   */\n  isLanguageCustom?: boolean;\n}",
+  "rawText": "\n/**\n * Some properties for on any `MarkdownModelType` model that are quite general purpose and yet aren't included into the `MarkdownModel` because we may not always want them.\n */\nexport interface ExtendedMarkdownProperties {\n  /**\n   * If true, will not show up in markdownReader ui's\n   */\n  isDraft?: boolean;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  updatedAt: number;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  createdAt: number;\n\n  /**\n   * TODO: implement auth layers, then look at this again\n   */\n  privacy: \"public\" | \"private\" | \"request\";\n\n  /**\n   * Either filled in or detected\n   */\n  language: Language;\n\n  /**\n   * If true, will not auto-detect the language\n   */\n  isLanguageCustom?: boolean;\n}",
   "extensions": [],
   "isOperationIndex": false,
   "description": "Some properties for on any `MarkdownModelType` model that are quite general purpose and yet aren't included into the `MarkdownModel` because we may not always want them.",
@@ -34,9 +34,9 @@
         "privacy": {
           "type": "string",
           "enum": [
+            "public",
             "private",
-            "request",
-            "public"
+            "request"
           ],
           "description": "TODO: implement auth layers, then look at this again"
         },
@@ -90,9 +90,9 @@
           "required": true,
           "schema": {
             "enum": [
+              "public",
               "private",
-              "request",
-              "public"
+              "request"
             ],
             "fullComment": "TODO: implement auth layers, then look at this again",
             "todo": "implement auth layers, then look at this again",

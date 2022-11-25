@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669280030814,
-  "updatedAt": 1669280030814,
+  "createdAt": 1669378605571,
+  "updatedAt": 1669378605571,
   "deletedAt": 0,
-  "createdFirstAt": 1669280030814,
+  "createdFirstAt": 1669378605571,
   "id": "webmarkdownfile",
   "name": "WebMarkdownFile",
   "slug": "webmarkdownfile",
@@ -30,16 +30,13 @@
             "description": "This kind of overwrites frontmatter, but it is needed because there need to be models attached to the markdown model sometimes."
           },
           {
-            "not": {}
-          },
-          {
             "$ref": "#/definitions/Id"
           },
           {
             "not": {}
           },
           {
-            "type": ["string", "number", "null", "boolean", "array"]
+            "type": "string"
           }
         ]
       },
@@ -116,11 +113,23 @@
         "headerTitle": {
           "type": "string"
         },
+        "headerBig": {
+          "type": "boolean"
+        },
         "headerSubTitle": {
           "type": "string"
         },
-        "headerCta": {
-          "$ref": "#/definitions/MarkdownLink"
+        "header_markdownCallToActionSlugs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Slug"
+          }
+        },
+        "header_markdownCallToActions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MarkdownCallToAction"
+          }
         },
         "markdownCallToActionSlugs": {
           "type": "array",
@@ -171,7 +180,11 @@
         },
         "privacy": {
           "type": "string",
-          "enum": ["private", "request", "public"],
+          "enum": [
+            "public",
+            "private",
+            "request"
+          ],
           "description": "TODO: implement auth layers, then look at this again"
         },
         "language": {
@@ -189,7 +202,10 @@
           "$ref": "#/definitions/CreatedFirstAt"
         },
         "operationName": {
-          "type": ["null", "string"],
+          "type": [
+            "null",
+            "string"
+          ],
           "description": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you"
         },
         "projectRelativePath": {
@@ -231,7 +247,6 @@
         "operationName",
         "privacy",
         "projectRelativePath",
-        "reference_assets",
         "slug",
         "updatedAt"
       ],
@@ -331,7 +346,7 @@
         },
         {
           "name": "reference_assets",
-          "required": true,
+          "required": false,
           "schema": {
             "items": [
               {
@@ -463,6 +478,13 @@
           }
         },
         {
+          "name": "headerBig",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
           "name": "headerSubTitle",
           "required": false,
           "schema": {
@@ -470,36 +492,19 @@
           }
         },
         {
-          "name": "headerCta",
+          "name": "header_markdownCallToActionSlugs",
           "required": false,
           "schema": {
-            "fullComment": "Anything in the format `[alt](href)`\n\nIt needs to be clear how this works. There is a convention for this, and I should implement that as good as possible, and document it here",
-            "properties": [
+            "items": [
               {
-                "name": "alt",
-                "required": true,
                 "schema": {
+                  "fullComment": "use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
                   "type": "string"
-                }
-              },
-              {
-                "name": "href",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "type",
-                "required": true,
-                "schema": {
-                  "enum": ["video", "audio", "image", "text", "other"],
-                  "fullComment": "Can be inferred from href\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
-                  "type": "string"
-                }
+                },
+                "name": "Slug"
               }
             ],
-            "type": "object"
+            "type": "array"
           }
         },
         {
@@ -606,7 +611,11 @@
           "name": "privacy",
           "required": true,
           "schema": {
-            "enum": ["private", "request", "public"],
+            "enum": [
+              "public",
+              "private",
+              "request"
+            ],
             "fullComment": "TODO: implement auth layers, then look at this again",
             "todo": "implement auth layers, then look at this again",
             "type": "string"

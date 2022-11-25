@@ -24,7 +24,6 @@ import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
 import { findAbsoluteAssetPathFromReference } from "asset-functions-node";
 import { findAllProjectMedia } from "asset-functions-node";
-import { findAssetParametersRecursively } from "asset-functions-node";
 import { getAssetDirectlyGetApi } from "asset-functions-node";
 import { getReferencedAssetGetApi } from "asset-functions-node";
 import { getStorageLocationInfo } from "asset-functions-node";
@@ -414,11 +413,12 @@ import { getGetApiUrl } from "api";
 import { untypedApiFunction } from "api";
 import { addToken } from "asset-functions-js";
 import { ensureToken } from "asset-functions-js";
+import { findAssetParametersRecursively } from "asset-functions-js";
 import { getAssetDirectlyApiUrl } from "asset-functions-js";
+import { getConversionInfoFromType } from "asset-functions-js";
 import { getExtensionFromAsset } from "asset-functions-js";
 import { getNameFromRelativePath } from "asset-functions-js";
 import { getNameWithTokenFromRelativePath } from "asset-functions-js";
-import { getPreferredExtensionFromType } from "asset-functions-js";
 import { getReferencedAssetApiUrl } from "asset-functions-js";
 import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
@@ -582,10 +582,6 @@ import { findEmbedsFromTokenRecursively } from "marked-util";
 import { findEmbeds } from "marked-util";
 import { findLinksFromTokenRecursively } from "marked-util";
 import { findLinks } from "marked-util";
-import { frontmatterParseToString } from "matter-types";
-import { getFrontmatterValueString } from "matter-types";
-import { quotedOrNot } from "matter-types";
-import { stringifyNewlines } from "matter-types";
 import { cleanupTimer } from "measure-performance";
 import { generateUniqueId } from "measure-performance";
 import { getNewPerformance } from "measure-performance";
@@ -686,7 +682,6 @@ deleteReferencedAsset,
 downloadRemoteAsset,
 findAbsoluteAssetPathFromReference,
 findAllProjectMedia,
-findAssetParametersRecursively,
 getAssetDirectlyGetApi,
 getReferencedAssetGetApi,
 getStorageLocationInfo,
@@ -1076,11 +1071,12 @@ getGetApiUrl,
 untypedApiFunction,
 addToken,
 ensureToken,
+findAssetParametersRecursively,
 getAssetDirectlyApiUrl,
+getConversionInfoFromType,
 getExtensionFromAsset,
 getNameFromRelativePath,
 getNameWithTokenFromRelativePath,
-getPreferredExtensionFromType,
 getReferencedAssetApiUrl,
 getTypeFromUrlOrPath,
 readableSize,
@@ -1244,10 +1240,6 @@ findEmbedsFromTokenRecursively,
 findEmbeds,
 findLinksFromTokenRecursively,
 findLinks,
-frontmatterParseToString,
-getFrontmatterValueString,
-quotedOrNot,
-stringifyNewlines,
 cleanupTimer,
 generateUniqueId,
 getNewPerformance,

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668976728193,
-  "updatedAt": 1668976728193,
+  "createdAt": 1669374128058,
+  "updatedAt": 1669374128058,
   "deletedAt": 0,
-  "createdFirstAt": 1668976728193,
+  "createdFirstAt": 1669374128058,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -35,7 +35,7 @@
   ],
   "description": "should get chunks recursively. first just look for every h1 line. everything after the h1 line is the children  until there's another h1 line, then do this recursivley for h2, h3, etc.",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownChunk[]",
+    "rawType": "import(\"/Users/king/King/operations/tools/types/markdown-types/build/MarkdownParse\").MarkdownChunk[]",
     "typeCoverage": 0,
     "isArray": true,
     "isEnum": false,
@@ -53,5 +53,5 @@
     "linesPerFile": 37,
     "numberOfFiles": 1
   },
-  "id": "rmiobcduwqwickpxxblhgjlg"
+  "id": "bufkputyhxufhqdzywuurpav"
 }

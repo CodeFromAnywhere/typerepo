@@ -18,7 +18,7 @@ export interface ExtendedMarkdownProperties {
     /**
      * TODO: implement auth layers, then look at this again
      */
-    privacy: "private" | "request" | "public";
+    privacy: "public" | "private" | "request";
     /**
      * Either filled in or detected
      */

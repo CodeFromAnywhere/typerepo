@@ -1,36 +1,18 @@
 [
   {
-    "createdAt": 1669311688773,
-    "updatedAt": 1669311688773,
+    "createdAt": 1669357927283,
+    "updatedAt": 1669357927283,
     "deletedAt": 0,
-    "createdFirstAt": 1669311688773,
+    "createdFirstAt": 1669357927283,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/server-context/uploadAssetWithContext.ts",
-    "comment": "This is the format that I receive for a file with server.js, even though they say it's a formidable.file, which it's not...",
-    "rawStatement": "export type ReceivedFile = {\n  size: number;\n  path: string;\n  name: string;\n  type: string;\n  hash: any;\n  lastModifiedDate: Date;\n};",
+    "operationRelativeTypescriptFilePath": "src/processItemAssets.ts",
+    "comment": "processes all assets in an item and returns the new item",
+    "rawStatement": "export const processItemAssets = async <KInterfaceName extends keyof DbModels>(\n  item: AugmentedAnyModelType,\n  interfaceName: KInterfaceName,\n  operationName: string | null,\n  customQueryConfig: CustomQueryConfig\n): Promise<AugmentedAnyModelType | undefined> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const absoluteReferencingFilePath = await db.getDbFileLocationPath(\n    item,\n    operationName,\n    interfaceName,\n    customQueryConfig\n  );\n  if (!absoluteReferencingFilePath) return item;\n\n  const projectRelativeReferencingFilePath = makeRelative(\n    absoluteReferencingFilePath,\n    projectRoot\n  );\n\n  const assetParameters = findAssetParametersRecursively(item);\n\n  const assetsToPutOnObject = await Promise.all(\n    assetParameters.map(async (assetParameter) => {\n      const location = [\n        ...(assetParameter.stack || []),\n        assetParameter.parameterName,\n      ];\n\n      const value = getParameterAtLocation<\n        BackendAsset | BackendAsset[] | undefined\n      >(item, location);\n\n      const backendAssetToStore = Array.isArray(value)\n        ? (\n            await Promise.all(\n              value.map((asset) =>\n                processAsset({\n                  ...asset,\n                  projectRelativeReferencingFilePath,\n                  modelName: interfaceName,\n                })\n              )\n            )\n          ).filter(notEmpty)\n        : value\n        ? await processAsset({\n            ...value,\n            projectRelativeReferencingFilePath,\n            modelName: interfaceName,\n          })\n        : undefined;\n\n      return { backendAssetToStore, location };\n    })\n  );\n\n  assetsToPutOnObject.forEach((assetWithLocation) => {\n    setKeyAtLocation(\n      assetWithLocation.location.join(\".\"),\n      assetWithLocation.backendAssetToStore,\n      item\n    );\n  });\n\n  // console.dir(\n  //   { assetParameters, assetsToPutOnObject, finalItem: item },\n  //   { depth: 999 }\n  // );\n\n  return item;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 10,
-    "lastLine": 12,
-    "id": "jffcquzzxdkltnfxoyfheevd"
-  },
-  {
-    "createdAt": 1669311688773,
-    "updatedAt": 1669311688773,
-    "deletedAt": 0,
-    "createdFirstAt": 1669311688773,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/server-context/uploadAssetWithContext.ts",
-    "comment": "Uploads an asset to the server, and puts it in a temporary location in the assets folder of `function-server`. It returns the filename of the file in the temporary location.\n\nIt can only be accessed through that random name. This random name has 32 characters so cannot be easily guessed. This should be secure enough. The file should be moved to the final destination in the actual function that needs the file.\n\nNB: this function only works by providing a file as blobs under the \"file\" property name!",
-    "rawStatement": "export const uploadAssetWithContext = async (\n  functionContext: FunctionContext\n): Promise<UploadAssetResult> => {\n  const file = functionContext.serverContext?.files.file;\n  if (!file) {\n    console.log(\"Got no file, fuktup\");\n    return { isSuccessful: false, message: \"No file found\" };\n  }\n\n  const realFile = (Array.isArray(file)\n    ? file[0]\n    : file) as unknown as ReceivedFile;\n\n  const functionFile = {\n    size: realFile.size,\n    path: realFile.path,\n    name: realFile.name,\n    type: realFile.type,\n  };\n\n  const randomName = generateRandomString(32);\n\n  const temporaryAssetsFolderPath = getTemporaryAssetsFolderPath();\n\n  const preferredExtension = getPreferredExtensionFromType(realFile.type);\n\n  console.log({ preferredExtension });\n\n  if (!preferredExtension) {\n    return {\n      isSuccessful: false,\n      message: \"couldn't figure out what you're trying to upload\",\n    };\n  }\n\n  const temporaryFileName = `${randomName}.${preferredExtension}`;\n  const absoluteTemporaryDestinationPath = path.join(\n    temporaryAssetsFolderPath,\n    temporaryFileName\n  );\n\n  if (!fs.existsSync(temporaryAssetsFolderPath)) {\n    await fs.mkdir(temporaryAssetsFolderPath, { recursive: true });\n  }\n\n  if (preferredExtension === \"mp3\") {\n    // Conversion needed!\n    const resultingPath = await convertToMp3(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else if (preferredExtension === \"mp4\") {\n    // in many cases, conversion needed\n    const resultingPath = await convertToMp4(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else {\n    await fs.rename(functionFile.path, absoluteTemporaryDestinationPath);\n  }\n\n  return {\n    isSuccessful: true,\n    message: \"File received\",\n    temporaryDestination: temporaryFileName,\n  };\n};",
-    "parameters": {},
-    "types": [
-      "nb"
-    ],
-    "firstLine": 22,
-    "lastLine": 28,
-    "id": "bdsmpqepgzmdovxfhlryvbtp"
+    "firstLine": 13,
+    "lastLine": 15,
+    "id": "oqcwqspjdufhuuloiwtidftm"
   }
 ]

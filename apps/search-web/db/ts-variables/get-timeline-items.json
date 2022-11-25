@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669322124348,
-  "updatedAt": 1669322124348,
+  "createdAt": 1669287957710,
+  "updatedAt": 1669287957710,
   "deletedAt": 0,
-  "createdFirstAt": 1669322124348,
+  "createdFirstAt": 1669287957710,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const comments = await db.get(\"TsComment\");\n\n  const items = comments\n    .filter((x) => x.types.includes(\"todo\"))\n    .map((x) => {\n      const isMultiLine = x.firstLine !== x.lastLine;\n\n      const operationPath =\n        operations[x.operationName as keyof typeof operations];\n\n      const comment = isMultiLine\n        ? `/**\\n${x.comment}\\n*/\\n\\n${x.rawStatement}`\n        : `// ${x.comment} \\n ${x.rawStatement}`;\n\n      const filePath = operationPath\n        ? path.join(operationPath, x.operationRelativeTypescriptFilePath)\n        : undefined;\n      return {\n        comment,\n        filePath,\n        line: x.firstLine,\n      };\n    });\n\n  return items;\n}",
   "description": "",
-  "id": "oubjjqiwwczazvjqjeekamsh"
+  "id": "jeydsyyjizyahyecoxnthhdo"
 }

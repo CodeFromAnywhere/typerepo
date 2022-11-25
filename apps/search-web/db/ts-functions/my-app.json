@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669322126587,
-  "updatedAt": 1669322126587,
+  "createdAt": 1669287951623,
+  "updatedAt": 1669287951623,
   "deletedAt": 0,
-  "createdFirstAt": 1669322126587,
+  "createdFirstAt": 1669287951623,
   "isApiExposed": false,
   "name": "MyApp",
   "slug": "my-app",
@@ -13,11 +13,15 @@
   "description": "",
   "parameters": [],
   "returnType": {
-    "rawType": "any",
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": false,
+    "isObject": true,
     "isPrimitive": false,
     "isEnumLiteral": false
   },
@@ -32,5 +36,5 @@
   },
   "rawText": "\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  const router = useRouter();\n\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <meta charSet=\"utf-8\" />\n        <meta httpEquiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n        <meta\n          name=\"viewport\"\n          content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\"\n        />\n\n        <meta name=\"description\" content=\"Description\" />\n        <meta name=\"keywords\" content=\"Keywords\" />\n\n        <link rel=\"manifest\" href=\"/manifest.json\" />\n        <link\n          href=\"/icons/favicon-16x16.png\"\n          rel=\"icon\"\n          type=\"image/png\"\n          sizes=\"16x16\"\n        />\n        <link\n          href=\"/icons/favicon-32x32.png\"\n          rel=\"icon\"\n          type=\"image/png\"\n          sizes=\"32x32\"\n        />\n        <link rel=\"apple-touch-icon\" href=\"/apple-icon.png\"></link>\n        <meta name=\"theme-color\" content=\"#317EFB\" />\n\n        <title>Search</title>\n\n        <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n        <link\n          rel=\"preconnect\"\n          href=\"https://fonts.gstatic.com\"\n          crossOrigin=\"true\"\n        />\n        <link\n          href=\"https://fonts.googleapis.com/css2?family=Raleway&display=swap\"\n          rel=\"stylesheet\"\n        />\n\n        {/* NB: for CODE syntax highlighting of \"markdown\" markdown-parser */}\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <ModalProvider>\n          <StoreProvider>\n            <AuthenticationLayout\n              customHeader={\n                <Div className=\"absolute top-0 right-0 w-40 rounded-full bg-green-400\">\n                  <MeAuthenticationInfo />\n                </Div>\n              }\n              nextPage={Component}\n              pageProps={pageProps}\n            />\n          </StoreProvider>\n        </ModalProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
   "maxIndentationDepth": 9,
-  "id": "ycnogrhyyzwquwxuaknffujt"
+  "id": "giqrvogqmpytrxfmehttouar"
 }

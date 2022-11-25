@@ -9,7 +9,7 @@ export const MyLayout = (props: { pageProps: any; nextPage: any }) => {
   const todoPagesQuery = queries.useGetTodoPages(todoPagesConfig);
   const todoPages = todoPagesQuery.data?.result;
 
-  console.log({ todoPages });
+  // console.log({ todoPages });
   return (
     <AuthenticationLayout
       // menu props

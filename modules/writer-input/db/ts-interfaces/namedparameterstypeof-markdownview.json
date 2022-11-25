@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055407416,
-  "updatedAt": 1669055407416,
+  "createdAt": 1669358174820,
+  "updatedAt": 1669358174820,
   "deletedAt": 0,
-  "createdFirstAt": 1669055407416,
+  "createdFirstAt": 1669358174820,
   "id": "namedparameterstypeof-markdownview",
   "name": "NamedParameters<typeof MarkdownView>",
   "slug": "namedparameterstypeof-markdownview",
@@ -175,16 +175,13 @@
                                         "required": true,
                                         "schema": {
                                           "enum": [
-                                            "youtube",
                                             "video",
-                                            "image",
                                             "audio",
-                                            "markdown",
-                                            "json",
-                                            "typescript",
-                                            "file"
+                                            "image",
+                                            "text",
+                                            "other"
                                           ],
-                                          "fullComment": "type of asset that is being embedded",
+                                          "fullComment": "Possible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
                                           "type": "string"
                                         }
                                       }
@@ -217,16 +214,13 @@
                                         "required": true,
                                         "schema": {
                                           "enum": [
-                                            "youtube",
                                             "video",
-                                            "image",
                                             "audio",
-                                            "markdown",
-                                            "json",
-                                            "typescript",
-                                            "file"
+                                            "image",
+                                            "text",
+                                            "other"
                                           ],
-                                          "fullComment": "Can be inferred from href\n\ntype of asset that is being embedded",
+                                          "fullComment": "Can be inferred from href\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
                                           "type": "string"
                                         }
                                       }

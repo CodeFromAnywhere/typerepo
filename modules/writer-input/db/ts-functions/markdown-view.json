@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055408329,
-  "updatedAt": 1669055408329,
+  "createdAt": 1669358176227,
+  "updatedAt": 1669358176227,
   "deletedAt": 0,
-  "createdFirstAt": 1669055408329,
+  "createdFirstAt": 1669358176227,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -161,16 +161,13 @@
                                     "required": true,
                                     "schema": {
                                       "enum": [
-                                        "youtube",
                                         "video",
-                                        "image",
                                         "audio",
-                                        "markdown",
-                                        "json",
-                                        "typescript",
-                                        "file"
+                                        "image",
+                                        "text",
+                                        "other"
                                       ],
-                                      "fullComment": "type of asset that is being embedded",
+                                      "fullComment": "Possible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
                                       "type": "string"
                                     }
                                   }
@@ -203,16 +200,13 @@
                                     "required": true,
                                     "schema": {
                                       "enum": [
-                                        "youtube",
                                         "video",
-                                        "image",
                                         "audio",
-                                        "markdown",
-                                        "json",
-                                        "typescript",
-                                        "file"
+                                        "image",
+                                        "text",
+                                        "other"
                                       ],
-                                      "fullComment": "Can be inferred from href\n\ntype of asset that is being embedded",
+                                      "fullComment": "Can be inferred from href\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
                                       "type": "string"
                                     }
                                   }
@@ -347,5 +341,5 @@
     "linesPerFile": 37,
     "numberOfFiles": 1
   },
-  "id": "tirquwafzahyvqxknuvkhrgm"
+  "id": "vaerlhxtighflpritsahnqvy"
 }

@@ -52,6 +52,14 @@
     "operationName": "asset-functions-js",
     "rawText": " (\n  name: string,\n  /**\n   * if given, is used for generating new token\n   *\n   * if already present, token is used from the name instead of this one\n   */\n  newToken?: string,\n  attachTokenToFilename?: boolean\n) => {\n  const { nameWithoutToken, token } = removeTokenIfPresent(\n    name,\n    attachTokenToFilename\n  );\n  const nameWithToken = addToken(\n    nameWithoutToken,\n    token || newToken,\n    attachTokenToFilename\n  );\n  return nameWithToken;\n}"
   },
+  "findAssetParametersRecursively": {
+    "name": "findAssetParametersRecursively",
+    "slug": "TsFunction",
+    "id": "vjyxnfttvzrkqdexvjtgrfoh",
+    "description": "Recursively finds all asset parameters in an object (for example in a database model item)",
+    "operationName": "asset-functions-js",
+    "rawText": " (\n  object: {\n    [key: string]: any;\n  },\n  stack?: string[]\n): AssetParameter[] => {\n  if (!object) return [];\n\n  const result = Object.keys(object)\n    .map((objectProperty) => {\n      const value = object[objectProperty];\n\n      const assetInputType = getAssetInputType(objectProperty);\n\n      if (assetInputType) {\n        return [\n          {\n            assetInputType,\n            parameterName: objectProperty,\n            stack,\n          },\n        ];\n      }\n\n      if (typeof value === \"object\") {\n        const newStack = stack ? [...stack, objectProperty] : [objectProperty];\n\n        return findAssetParametersRecursively(value, newStack);\n      }\n    })\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}"
+  },
   "getAssetDirectlyApiUrl": {
     "name": "getAssetDirectlyApiUrl",
     "slug": "TsFunction",
@@ -59,6 +67,14 @@
     "description": "",
     "operationName": "asset-functions-js",
     "rawText": " (projectRelativeAssetPath: string) => {\n  return getGetApiUrl(apiUrl, \"function/getAssetDirectlyGetApi\", {\n    projectRelativeAssetPath,\n  });\n}"
+  },
+  "getConversionInfoFromType": {
+    "name": "getConversionInfoFromType",
+    "slug": "TsFunction",
+    "id": "eqolfpiuuogrufhlhijhyurs",
+    "description": "Received files contain a \"type\" like \"audio/mp3\" or \"image/jpeg\", etc...\n\nHere the extension is decided.\n\nNB: we also need to convert the file itself in case of mp3",
+    "operationName": "asset-functions-js",
+    "rawText": " (\n  uploadMimeType: string | undefined\n): {\n  uploadMimeType: string | undefined;\n  targetFormat: string | undefined;\n  isUnchecked?: boolean;\n} => {\n  const parts = uploadMimeType?.split(\"/\") || [];\n  const firstPart = parts.length > 0 ? parts[0] : undefined;\n  const lastPart = parts.length > 0 ? parts[parts.length - 1] : undefined;\n\n  console.log({ uploadMimeType, lastPart });\n  if (uploadMimeType === \"audio/mp4\") {\n    return { uploadMimeType, targetFormat: \"mp3\" };\n  }\n\n  if (lastPart === \"wav\") {\n    return { uploadMimeType, targetFormat: \"mp3\" };\n  }\n\n  if (lastPart === \"x-m4a\") {\n    return { uploadMimeType, targetFormat: \"mp3\" };\n  }\n\n  if (firstPart === \"audio\") {\n    return { uploadMimeType, targetFormat: \"mp3\" };\n  }\n\n  if (lastPart === \"quicktime\") {\n    return { uploadMimeType, targetFormat: \"mp4\" };\n  }\n\n  if (firstPart === \"video\") {\n    return { uploadMimeType, targetFormat: \"mp4\" };\n  }\n\n  if (firstPart === \"image\") {\n    return { uploadMimeType, targetFormat: \"jpg\" };\n  }\n\n  return { uploadMimeType, targetFormat: lastPart, isUnchecked: true };\n}"
   },
   "getExtensionFromAsset": {
     "name": "getExtensionFromAsset",
@@ -83,14 +99,6 @@
     "description": "first gets the name from the relativePath\n\nthen ensures the token is attached (if not already there)",
     "operationName": "asset-functions-js",
     "rawText": " (\n  relativePath: string,\n  attachTokenToFilename?: boolean,\n  newToken?: string\n): string => {\n  const name = getNameFromRelativePath(relativePath);\n  if (!attachTokenToFilename) return name;\n  return ensureToken(name, newToken, attachTokenToFilename);\n}"
-  },
-  "getPreferredExtensionFromType": {
-    "name": "getPreferredExtensionFromType",
-    "slug": "TsFunction",
-    "id": "bqbgczqdqfjunaaxwvqihckz",
-    "description": "Received files contain a \"type\" like \"audio/mp3\" or \"image/jpeg\", etc...\n\nHere the extension is decided.\n\nNB: we also need to convert the file itself in case of mp3",
-    "operationName": "asset-functions-js",
-    "rawText": " (type: string | undefined) => {\n  if (type === \"audio/mp4\") return \"mp3\";\n  const lastPart = type?.split(\"/\").pop();\n  if (lastPart === \"quicktime\") return \"mp4\";\n\n  return lastPart;\n}"
   },
   "getReferencedAssetApiUrl": {
     "name": "getReferencedAssetApiUrl",
@@ -123,6 +131,14 @@
     "description": "",
     "operationName": "asset-functions-js",
     "rawText": " (\n  name: string,\n  attachTokenToFilename?: boolean\n) => {\n  if (!attachTokenToFilename) {\n    return { nameWithoutToken: name, token: undefined };\n  }\n  const [nameWithoutToken, token] = name.split(tokenPrefix);\n  return { nameWithoutToken, token: token as string | undefined };\n}"
+  },
+  "test": {
+    "name": "test",
+    "slug": "TsFunction",
+    "id": "kxzupqyxybmjexkcxshjljhu",
+    "description": "",
+    "operationName": "rebuild-operation",
+    "rawText": " async () => {}"
   },
   "tokenPrefix": {
     "name": "tokenPrefix",
@@ -179,14 +195,6 @@
     "operationName": "asset-functions-node",
     "rawText": " async (\n  searchQuery?: string,\n  /**\n   * defaults to absolute\n   */\n  returnType?: \"projectRelative\" | \"absolute\"\n): Promise<string[]> => {\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) return [];\n\n  const dbPath = path.join(projectRoot, databaseFolderName);\n\n  const operationBasePaths = Object.values(operations).map(\n    (projectRelativePath) => path.join(projectRoot, projectRelativePath)\n  );\n\n  const databaseFolderPaths = operationBasePaths\n    .map((absoluteOperationPath) =>\n      path.join(absoluteOperationPath, databaseFolderName)\n    )\n    .concat(dbPath)\n    .filter(fs.existsSync);\n\n  const dbResults = await explore({\n    basePath: databaseFolderPaths,\n    extension: mediaExtensions,\n    search: searchQuery,\n  });\n\n  const operationResults = await explore({\n    basePath: operationBasePaths,\n    extension: mediaExtensions,\n    ignore: [...generatedFolders, databaseFolderName, sourceFolderName],\n    search: searchQuery,\n  });\n\n  const anywhereResults = await explore({\n    cancelRecursionOn: pathArrayIsOperation,\n    basePath: projectRoot,\n    extension: mediaExtensions,\n    ignore: [databaseFolderName, \"node_modules\", \".git\"],\n  });\n\n  const results = [dbResults, operationResults, anywhereResults]\n    .flat()\n    .map((x) => x.path);\n\n  return returnType === \"projectRelative\"\n    ? results.map((x) => makeRelative(x, projectRoot))\n    : results;\n}"
   },
-  "findAssetParametersRecursively": {
-    "name": "findAssetParametersRecursively",
-    "slug": "TsFunction",
-    "id": "cninwemgplcmjwaqngspekzu",
-    "description": "Recursively finds all asset parameters in an object (for example in a database model item)",
-    "operationName": "asset-functions-node",
-    "rawText": " (\n  object: {\n    [key: string]: any;\n  },\n  stack?: string[]\n): AssetParameter[] => {\n  if (!object) return [];\n\n  const result = Object.keys(object)\n    .map((objectProperty) => {\n      const value = object[objectProperty];\n\n      const assetInputType = getAssetInputType(objectProperty);\n\n      if (assetInputType) {\n        return [\n          {\n            assetInputType,\n            parameterName: objectProperty,\n            stack,\n          },\n        ];\n      }\n\n      if (typeof value === \"object\") {\n        const newStack = stack ? [...stack, objectProperty] : [objectProperty];\n\n        return findAssetParametersRecursively(value, newStack);\n      }\n    })\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}"
-  },
   "getAssetDirectlyGetApi": {
     "name": "getAssetDirectlyGetApi",
     "slug": "TsFunction",
@@ -237,7 +245,7 @@
   "processItemAssets": {
     "name": "processItemAssets",
     "slug": "TsFunction",
-    "id": "zkvbljaehbkgaqrkphjlhixc",
+    "id": "lmqsfzdhecjacubecujksnwk",
     "description": "processes all assets in an item and returns the new item",
     "operationName": "asset-functions-node",
     "rawText": " async <KInterfaceName extends keyof DbModels>(\n  item: AugmentedAnyModelType,\n  interfaceName: KInterfaceName,\n  operationName: string | null,\n  customQueryConfig: CustomQueryConfig\n): Promise<AugmentedAnyModelType | undefined> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const absoluteReferencingFilePath = await db.getDbFileLocationPath(\n    item,\n    operationName,\n    interfaceName,\n    customQueryConfig\n  );\n  if (!absoluteReferencingFilePath) return item;\n\n  const projectRelativeReferencingFilePath = makeRelative(\n    absoluteReferencingFilePath,\n    projectRoot\n  );\n\n  const assetParameters = findAssetParametersRecursively(item);\n\n  const assetsToPutOnObject = await Promise.all(\n    assetParameters.map(async (assetParameter) => {\n      const location = [\n        ...(assetParameter.stack || []),\n        assetParameter.parameterName,\n      ];\n\n      const value = getParameterAtLocation<\n        BackendAsset | BackendAsset[] | undefined\n      >(item, location);\n\n      const backendAssetToStore = Array.isArray(value)\n        ? (\n            await Promise.all(\n              value.map((asset) =>\n                processAsset({\n                  ...asset,\n                  projectRelativeReferencingFilePath,\n                  modelName: interfaceName,\n                })\n              )\n            )\n          ).filter(notEmpty)\n        : value\n        ? await processAsset({\n            ...value,\n            projectRelativeReferencingFilePath,\n            modelName: interfaceName,\n          })\n        : undefined;\n\n      return { backendAssetToStore, location };\n    })\n  );\n\n  assetsToPutOnObject.forEach((assetWithLocation) => {\n    setKeyAtLocation(\n      assetWithLocation.location.join(\".\"),\n      assetWithLocation.backendAssetToStore,\n      item\n    );\n  });\n\n  // console.dir(\n  //   { assetParameters, assetsToPutOnObject, finalItem: item },\n  //   { depth: 999 }\n  // );\n\n  return item;\n}"
@@ -258,21 +266,13 @@
     "operationName": "asset-functions-node",
     "rawText": " (\n  absoluteAssetPath: string,\n  isDownload: boolean\n) => {\n  const parsedAsset = path.parse(absoluteAssetPath);\n\n  if (isDownload) {\n    return server.reply.download(absoluteAssetPath, parsedAsset.base);\n  }\n  return (\n    server.reply\n      // @ts-ignore NB: TODO: why doesn't server.js has the right types???\n      .file(absoluteAssetPath)\n  );\n}"
   },
-  "test": {
-    "name": "test",
-    "slug": "TsFunction",
-    "id": "kxzupqyxybmjexkcxshjljhu",
-    "description": "",
-    "operationName": "rebuild-operation",
-    "rawText": " async () => {}"
-  },
   "uploadAssetWithContext": {
     "name": "uploadAssetWithContext",
     "slug": "TsFunction",
-    "id": "hjfbivzxgqatqeiuiyujqadc",
+    "id": "mvoqlkxelxfxksmtsolltkae",
     "description": "Uploads an asset to the server, and puts it in a temporary location in the assets folder of `function-server`. It returns the filename of the file in the temporary location.\n\nIt can only be accessed through that random name. This random name has 32 characters so cannot be easily guessed. This should be secure enough. The file should be moved to the final destination in the actual function that needs the file.\n\nNB: this function only works by providing a file as blobs under the \"file\" property name!",
     "operationName": "asset-functions-node",
-    "rawText": " async (\n  functionContext: FunctionContext\n): Promise<UploadAssetResult> => {\n  const file = functionContext.serverContext?.files.file;\n  if (!file) {\n    console.log(\"Got no file, fuktup\");\n    return { isSuccessful: false, message: \"No file found\" };\n  }\n\n  const realFile = (Array.isArray(file)\n    ? file[0]\n    : file) as unknown as ReceivedFile;\n\n  const functionFile = {\n    size: realFile.size,\n    path: realFile.path,\n    name: realFile.name,\n    type: realFile.type,\n  };\n\n  const randomName = generateRandomString(32);\n\n  const temporaryAssetsFolderPath = getTemporaryAssetsFolderPath();\n\n  const preferredExtension = getPreferredExtensionFromType(realFile.type);\n\n  console.log({ preferredExtension });\n\n  if (!preferredExtension) {\n    return {\n      isSuccessful: false,\n      message: \"couldn't figure out what you're trying to upload\",\n    };\n  }\n\n  const temporaryFileName = `${randomName}.${preferredExtension}`;\n  const absoluteTemporaryDestinationPath = path.join(\n    temporaryAssetsFolderPath,\n    temporaryFileName\n  );\n\n  if (!fs.existsSync(temporaryAssetsFolderPath)) {\n    await fs.mkdir(temporaryAssetsFolderPath, { recursive: true });\n  }\n\n  if (preferredExtension === \"mp3\") {\n    // Conversion needed!\n    const resultingPath = await convertToMp3(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else if (preferredExtension === \"mp4\") {\n    // in many cases, conversion needed\n    const resultingPath = await convertToMp4(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else {\n    await fs.rename(functionFile.path, absoluteTemporaryDestinationPath);\n  }\n\n  return {\n    isSuccessful: true,\n    message: \"File received\",\n    temporaryDestination: temporaryFileName,\n  };\n}"
+    "rawText": " async (\n  functionContext: FunctionContext\n): Promise<UploadAssetResult> => {\n  const file = functionContext.serverContext?.files.file;\n  if (!file) {\n    console.log(\"Got no file, fuktup\");\n    return { isSuccessful: false, message: \"No file found\" };\n  }\n\n  const realFile = (Array.isArray(file)\n    ? file[0]\n    : file) as unknown as ReceivedFile;\n\n  const functionFile = {\n    size: realFile.size,\n    path: realFile.path,\n    name: realFile.name,\n    type: realFile.type,\n  };\n\n  const randomName = generateRandomString(32);\n  const temporaryAssetsFolderPath = getTemporaryAssetsFolderPath();\n  const conversionInfo = getConversionInfoFromType(realFile.type);\n\n  console.log({ conversionInfo });\n\n  const temporaryFileName = `${randomName}.${conversionInfo.targetFormat}`;\n  const absoluteTemporaryDestinationPath = path.join(\n    temporaryAssetsFolderPath,\n    temporaryFileName\n  );\n\n  if (!fs.existsSync(temporaryAssetsFolderPath)) {\n    await fs.mkdir(temporaryAssetsFolderPath, { recursive: true });\n  }\n\n  if (conversionInfo.targetFormat === \"mp3\") {\n    // Conversion needed!\n    const resultingPath = await convertToMp3(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else if (conversionInfo.targetFormat === \"mp4\") {\n    // in many cases, conversion needed\n    const resultingPath = await convertToMp4(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else {\n    await fs.rename(functionFile.path, absoluteTemporaryDestinationPath);\n  }\n\n  return {\n    isSuccessful: true,\n    message: \"File received\",\n    temporaryDestination: temporaryFileName,\n  };\n}"
   },
   "ASPECT_RATIO": {
     "name": "ASPECT_RATIO",
@@ -401,15 +401,15 @@
   "AssetView": {
     "name": "AssetView",
     "slug": "TsFunction",
-    "id": "drueacpwzfbxcxxfckluhova",
+    "id": "pewygiooosnvwsjzbupqfvps",
     "description": "",
     "operationName": "asset-view",
-    "rawText": " (props: {\n  asset: Asset;\n  className?: string;\n  projectRelativeReferencingFilePath: string;\n  hideDownloadLink?: boolean;\n}) => {\n  const {\n    asset,\n    className,\n    projectRelativeReferencingFilePath,\n    hideDownloadLink,\n  } = props;\n\n  const { downloadUrl, rawText, src, type, extension } = useAsset(\n    asset,\n    projectRelativeReferencingFilePath,\n    !isDev\n  );\n\n  // console.log({ src });\n\n  const sizeText =\n    asset.sizeBytes !== undefined\n      ? `(${readableSize(asset.sizeBytes)})`\n      : undefined;\n\n  const downloadText = \" ⬇️ Download\";\n\n  return (\n    <Span style={{ position: \"relative\" }}>\n      {downloadUrl && !hideDownloadLink ? (\n        <Div\n          style={{\n            padding: \"5px\",\n          }}\n        >\n          <A target=\"_blank\" href={downloadUrl}>\n            {downloadText} {sizeText}\n          </A>\n        </Div>\n      ) : null}\n\n      {type === \"image\" && src && (\n        <img\n          src={src}\n          className={className || \"w-40\"}\n          style={{ aspectRatio: \"auto\" }}\n        />\n      )}\n      {type === \"audio\" && src && <audio controls src={src} />}\n      {type === \"video\" && src && (\n        <video\n          style={{ aspectRatio: \"auto\" }}\n          className={className || \"w-40\"}\n          preload=\"none\"\n          // not always available, should I check first somehow?\n          poster={src.replace(\".mp4\", \".placeholder.jpeg\")}\n          controls\n          src={src}\n        />\n      )}\n\n      {type === \"text\" && rawText ? (\n        <MarkdownCodeblock text={rawText} extension={extension} />\n      ) : null}\n\n      {/* LATER: render PDF renderer here */}\n      {type === \"other\" && extension === \"pdf\" ? null : null}\n\n      {src === undefined ? <P>Asset src not found</P> : null}\n    </Span>\n  );\n}"
+    "rawText": " (props: {\n  asset: Asset;\n  className?: string;\n  projectRelativeReferencingFilePath: string;\n  hideDownloadLink?: boolean;\n}) => {\n  const {\n    asset,\n    className,\n    projectRelativeReferencingFilePath,\n    hideDownloadLink,\n  } = props;\n\n  const result = useAsset(asset, projectRelativeReferencingFilePath, !isDev);\n  const { downloadUrl, rawText, src, type, extension } =\n    destructureOptionalObject(result);\n\n  // console.log({ src });\n\n  const sizeText =\n    asset.sizeBytes !== undefined\n      ? `(${readableSize(asset.sizeBytes)})`\n      : undefined;\n\n  const downloadText = \" ⬇️ Download\";\n\n  return (\n    <Span style={{ position: \"relative\" }}>\n      {downloadUrl && !hideDownloadLink ? (\n        <Div\n          style={{\n            padding: \"5px\",\n          }}\n        >\n          <A target=\"_blank\" href={downloadUrl}>\n            {downloadText} {sizeText}\n          </A>\n        </Div>\n      ) : null}\n\n      {type === \"image\" && src && (\n        <img\n          src={src}\n          className={className || \"w-40\"}\n          style={{ aspectRatio: \"auto\" }}\n        />\n      )}\n      {type === \"audio\" && src && <audio controls src={src} />}\n      {type === \"video\" && src && (\n        <video\n          style={{ aspectRatio: \"auto\" }}\n          className={className || \"w-40\"}\n          preload=\"none\"\n          // not always available, should I check first somehow?\n          poster={src.replace(\".mp4\", \".placeholder.jpeg\")}\n          controls\n          src={src}\n        />\n      )}\n\n      {type === \"text\" && rawText ? (\n        <MarkdownCodeblock text={rawText} extension={extension} />\n      ) : null}\n\n      {/* LATER: render PDF renderer here */}\n      {type === \"other\" && extension === \"pdf\" ? null : null}\n\n      {src === undefined ? <P>Asset src not found</P> : null}\n    </Span>\n  );\n}"
   },
   "defaultClassName": {
     "name": "defaultClassName",
     "slug": "TsVariable",
-    "id": "hvcrworduvfrgmhpemkloalz",
+    "id": "yfpnirbasrelfwbbyphtonbl",
     "description": "",
     "operationName": "asset-view"
   },
@@ -448,10 +448,10 @@
   "useAsset": {
     "name": "useAsset",
     "slug": "TsFunction",
-    "id": "miifulcrvsflfwisuunbsswe",
+    "id": "nmakvuxxxvclexaococbvszv",
     "description": "",
     "operationName": "asset-view",
-    "rawText": " (\n  asset: Asset,\n  projectRelativeReferencingFilePath: string,\n  isNextStaticProductionBuild?: boolean\n) => {\n  console.log({ apiUrl });\n  /**\n   * NB: `relativePath` is required\n   */\n  const getRemoteUrl = (isDownload: boolean) =>\n    getReferencedAssetApiUrl(\n      apiUrl,\n      projectRelativeReferencingFilePath,\n      asset.relativePath!,\n      isDownload\n    );\n\n  const getPublicUrl = (relativePath: string) =>\n    `markdown-assets/${path.join(\n      path.parse(projectRelativeReferencingFilePath).dir,\n      relativePath\n    )}`;\n  /**\n   * NB: `asset.temporaryDestination` is not a URL that can be used to retreive the image as \"src\"\n   */\n  const src = asset.absoluteUrl\n    ? asset.absoluteUrl\n    : asset.blobPath\n    ? asset.blobPath\n    : isNextStaticProductionBuild && asset.relativePath\n    ? getPublicUrl(asset.relativePath)\n    : getRemoteUrl(false);\n\n  // console.log(\"UseAssetSRC:\", src);\n  const downloadRemotely = !asset.blobPath && !!asset.relativePath;\n\n  const downloadUrl =\n    isNextStaticProductionBuild && asset.relativePath\n      ? getPublicUrl(asset.relativePath)\n      : downloadRemotely\n      ? getRemoteUrl(true)\n      : // NB: other type is ugly when downloading. Also doesn't make sense much to want to download an asset after uploading\n      asset.type !== \"other\"\n      ? asset.blobPath\n      : undefined;\n\n  const extension = getExtensionFromAsset(asset);\n\n  const assetInfo = useAssetInfo(src, asset.originalFilename);\n\n  const rawText = assetInfo?.rawText || null;\n  const type = asset.type || assetInfo?.type;\n\n  return { rawText, type, downloadUrl, src, extension };\n}"
+    "rawText": " (\n  asset: Asset | undefined,\n  projectRelativeReferencingFilePath?: string | null,\n  isNextStaticProductionBuild?: boolean\n) => {\n  if (!asset || !projectRelativeReferencingFilePath) return;\n  // console.log({ apiUrl });\n  /**\n   * NB: `relativePath` is required\n   */\n  const getRemoteUrl = (isDownload: boolean) =>\n    getReferencedAssetApiUrl(\n      apiUrl,\n      projectRelativeReferencingFilePath,\n      asset.relativePath!,\n      isDownload\n    );\n\n  const getPublicUrl = (relativePath: string) =>\n    `markdown-assets/${path.join(\n      path.parse(projectRelativeReferencingFilePath).dir,\n      relativePath\n    )}`;\n  /**\n   * NB: `asset.temporaryDestination` is not a URL that can be used to retreive the image as \"src\"\n   */\n  const src = asset.absoluteUrl\n    ? asset.absoluteUrl\n    : asset.blobPath\n    ? asset.blobPath\n    : isNextStaticProductionBuild && asset.relativePath\n    ? getPublicUrl(asset.relativePath)\n    : getRemoteUrl(false);\n\n  // console.log(\"UseAssetSRC:\", src);\n  const downloadRemotely = !asset.blobPath && !!asset.relativePath;\n\n  const downloadUrl =\n    isNextStaticProductionBuild && asset.relativePath\n      ? getPublicUrl(asset.relativePath)\n      : downloadRemotely\n      ? getRemoteUrl(true)\n      : // NB: other type is ugly when downloading. Also doesn't make sense much to want to download an asset after uploading\n      asset.type !== \"other\"\n      ? asset.blobPath\n      : undefined;\n\n  const extension = getExtensionFromAsset(asset);\n\n  const assetInfo = useAssetInfo(src, asset.originalFilename);\n\n  const rawText = assetInfo?.rawText || null;\n  const type = asset.type || assetInfo?.type;\n\n  return { rawText, type, downloadUrl, src, extension };\n}"
   },
   "binaryExtensions": {
     "name": "binaryExtensions",
@@ -1423,10 +1423,10 @@
   "getTodoPages": {
     "name": "getTodoPages",
     "slug": "TsFunction",
-    "id": "kpbsirxqwschaldjgyfjtyun",
+    "id": "ilxmlcxrkzsifwqhxtcfdura",
     "description": "`getTodoPages(): WebPage[]` function:\n\n- use getProjectRelativePaths, map the result to a queryPath + file\n- [operation-name]/[todo-relative-file-id] for operations\n- [folder-name]/[todo-relative-file-id] for todos within folders",
     "operationName": "explore-project",
-    "rawText": " async (\n  config?: TodoPagesConfig\n): Promise<{ nested: NestedWebPage[]; flat: (WriterWebPage | WebPage)[] }> => {\n  // console.log({ config });\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return { nested: [], flat: [] };\n\n  //needed for matching persons but also for just showing that it has offers\n  const todoOffers = await db.get(\"TodoOffer\");\n  const todoPaths = await getTodoPaths(config);\n\n  const todoPages: WriterWebPage[] =\n    todoPaths?.map((projectRelativeFilePath) => {\n      const [before, after] = projectRelativeFilePath.split(\"/todo/\");\n      const lastFolderBeforeTodo = getLastFolder(before);\n      const todoRelativeFileId = withoutExtension(after);\n      const fileName = getLastFolder(todoRelativeFileId);\n      /**\n       * Idea: parsing the file for amount of items with and without checkmark, showing the % done and (x/y)\n       */\n      const menuTitle = humanCase(fileName);\n\n      const hasTodoOffers = !!todoOffers.find(\n        (x) => x.todoFileId === projectRelativeFilePath\n      );\n      /**\n       * showing an emoji the status of the todo-offers\n       */\n      const menuTitleAugmentation = hasTodoOffers ? \"🔥\" : undefined;\n\n      /**\n       * Idea: showing a summary, more about the progress and owner(s), and anything you just quickly wanna see\n       */\n      const menuTitleTooltip =\n        \"Tooltip example\\n\\nShould render markdown\\n\\n**Say,this is great, no?**\";\n\n      const page: WriterWebPage = {\n        pageData: {\n          projectRelativeFilePath,\n        },\n        queryPath: `${lastFolderBeforeTodo}/${todoRelativeFileId}`,\n        menuTitle,\n        menuTitleAugmentation,\n        menuTitleTooltip,\n        isMenuHidden: false,\n      };\n\n      return page;\n    }) || [];\n\n  const otherPages: WebPage<unknown>[] = [\n    {\n      queryPath: \"stats\",\n      menuTitle: \"Statistics\",\n      menuTitleTooltip: \"Some stats about cool stuff\",\n      pageData: undefined,\n    },\n\n    {\n      queryPath: \"SelfSprintReview\",\n      menuTitle: \"Sprint review\",\n      menuTitleTooltip: \"Let's do this every friday, 3PM CET\",\n      pageData: undefined,\n    },\n    {\n      queryPath: \"TodoOffer\",\n      isMenuHidden: true,\n      pageData: undefined,\n    },\n    {\n      queryPath: \"upsert/TodoOffer\",\n      isMenuHidden: true,\n      pageData: undefined,\n    },\n    {\n      queryPath: \"upsert/SelfSprintReview\",\n      isMenuHidden: true,\n      pageData: undefined,\n    },\n  ];\n\n  const flat = otherPages.concat(todoPages) as (WriterWebPage | WebPage)[];\n\n  //   nestifyQueryPathObjectRecursive(flatWithoutPageData);\n\n  return getMenuPagesObject(flat);\n}"
+    "rawText": " async (\n  config?: TodoPagesConfig\n): Promise<{ nested: NestedWebPage[]; flat: (WriterWebPage | WebPage)[] }> => {\n  // console.log({ config });\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return { nested: [], flat: [] };\n\n  //needed for matching persons but also for just showing that it has offers\n  const todoOffers = await db.get(\"TodoOffer\");\n  const todoPaths = await getTodoPaths(config);\n\n  const todoPages: WriterWebPage[] =\n    todoPaths?.map((projectRelativeFilePath) => {\n      const [before, after] = projectRelativeFilePath.split(\"/todo/\");\n      const lastFolderBeforeTodo = getLastFolder(before);\n      const todoRelativeFileId = withoutExtension(after);\n      const fileName = getLastFolder(todoRelativeFileId);\n      /**\n       * Idea: parsing the file for amount of items with and without checkmark, showing the % done and (x/y)\n       */\n      const menuTitle = humanCase(fileName);\n\n      const hasTodoOffers = !!todoOffers.find(\n        (x) => x.todoFileId === projectRelativeFilePath\n      );\n      /**\n       * showing an emoji the status of the todo-offers\n       */\n      const menuTitleAugmentation = hasTodoOffers ? \"🔥\" : undefined;\n\n      /**\n       * Idea: showing a summary, more about the progress and owner(s), and anything you just quickly wanna see\n       */\n      const menuTitleTooltip =\n        \"Tooltip example\\n\\nShould render markdown\\n\\n**Say,this is great, no?**\";\n\n      const page: WriterWebPage = {\n        pageData: {\n          projectRelativeFilePath,\n        },\n        queryPath: `${lastFolderBeforeTodo}/${todoRelativeFileId}`,\n        menuTitle,\n        menuTitleAugmentation,\n        menuTitleTooltip,\n        isMenuHidden: false,\n      };\n\n      return page;\n    }) || [];\n\n  const otherPages: WebPage<unknown>[] = [\n    {\n      queryPath: \"stats\",\n      menuTitle: \"Statistics\",\n      menuTitleTooltip: \"Some stats about cool stuff\",\n      pageData: undefined,\n    },\n\n    {\n      queryPath: \"SelfSprintReview\",\n      menuTitle: \"Sprint review\",\n      menuTitleTooltip: \"Let's do this every friday, 3PM CET\",\n      pageData: undefined,\n    },\n    {\n      queryPath: \"TodoOffer\",\n      isMenuHidden: true,\n      pageData: undefined,\n    },\n    {\n      queryPath: \"upsert/TodoOffer\",\n      isMenuHidden: true,\n      pageData: undefined,\n    },\n    {\n      queryPath: \"upsert/SelfSprintReview\",\n      isMenuHidden: true,\n      pageData: undefined,\n    },\n  ];\n\n  const flat = otherPages.concat(todoPages) as (WriterWebPage | WebPage)[];\n\n  // nestifyQueryPathObjectRecursive(flatWithoutPageData);\n\n  return getMenuPagesObject(flat);\n}"
   },
   "getTodoPaths": {
     "name": "getTodoPaths",
@@ -3276,7 +3276,7 @@
   "chunkToStringRecursively": {
     "name": "chunkToStringRecursively",
     "slug": "TsFunction",
-    "id": "qxcevueifjlmxeghgyioetmf",
+    "id": "qbgcytxklcbcozfiwibvsgmc",
     "description": "",
     "operationName": "markdown-parse-js",
     "rawText": " (chunk: MarkdownChunk): string => {\n  return `${\"#\".repeat(chunk.level)} ${chunk.title || \"\"}\\n\\n${\n    chunk.content || \"\"\n  }\\n\\n${chunk.children?.map(chunkToStringRecursively)}\\n\\n`;\n}"
@@ -3291,7 +3291,7 @@
   "getChunkParagraphsRecursively": {
     "name": "getChunkParagraphsRecursively",
     "slug": "TsFunction",
-    "id": "rvjdihdeqnetxfwfzfglnuki",
+    "id": "ponlezxlojbclmapfushugut",
     "description": "Get all paragraphs (`content` values) recursively from a `MarkdownChunk`",
     "operationName": "markdown-parse-js",
     "rawText": " (\n  chunk: MarkdownChunk\n): string[] => {\n  const childrenParagraphs =\n    chunk.children?.map(getChunkParagraphsRecursively).flat() || [];\n  const thisParagraph = chunk.content;\n  const paragraphs = [thisParagraph, ...childrenParagraphs].filter(notEmpty);\n  return paragraphs;\n}"
@@ -3307,7 +3307,7 @@
   "getMarkdownIntro": {
     "name": "getMarkdownIntro",
     "slug": "TsFunction",
-    "id": "afjeeijazoqktzonofikepkw",
+    "id": "gdqronkwzlrbyajmoygmirak",
     "description": "This function takes a markdown parse and gets the first paragraph and a title from it, if available.\n\nCurrently assumes that the first paragraph starts directly after the title or there is no title and the content is at the beginning.\n\nTODO: It would be better to find the first paragraph based on the level.",
     "operationName": "markdown-parse-js",
     "rawText": " (markdownParse: MarkdownParse | null) => {\n  const firstChunk = markdownParse?.content?.[0];\n  const title = firstChunk?.title;\n  const firstParagraph = firstChunk?.title\n    ? firstChunk?.children?.[0]?.content || null\n    : firstChunk?.content || null;\n\n  return { title, firstParagraph };\n}"
@@ -3315,7 +3315,7 @@
   "getMarkdownParseParagraphs": {
     "name": "getMarkdownParseParagraphs",
     "slug": "TsFunction",
-    "id": "sfrctpzdjhzqbddokjbiewua",
+    "id": "ykjerallqdkrnvvynvhoyyfb",
     "description": "Gets all paragraphs (recursively) from a `MarkdownParse`",
     "operationName": "markdown-parse-js",
     "rawText": " (\n  markdownParse: MarkdownParse\n): string[] => {\n  const paragraphs =\n    markdownParse.content?.map(getChunkParagraphsRecursively).flat() || [];\n\n  return paragraphs;\n}"
@@ -3339,7 +3339,7 @@
   "markdownParseToMarkdownStringFromContent": {
     "name": "markdownParseToMarkdownStringFromContent",
     "slug": "TsFunction",
-    "id": "kwanbaovqahntjzbahxfghlw",
+    "id": "qbopoiurhecnnmstharywvef",
     "description": "",
     "operationName": "markdown-parse-js",
     "rawText": " (\n  markdownParse: MarkdownParse\n): string | undefined => {\n  const result = markdownParse.content\n    ?.map(chunkToStringRecursively)\n    .join(\"\\n\\n\");\n  return result;\n}"
@@ -3347,15 +3347,15 @@
   "markdownParseToMarkdownString": {
     "name": "markdownParseToMarkdownString",
     "slug": "TsFunction",
-    "id": "tfuvwxdhvcaymwyufhwhqsjm",
+    "id": "qaafwqxsvvhodmtucrjfbosf",
     "description": "NB: this just uses RAW!\n\nUse `markdownParseToMarkdownStringFromContent` for the real deal",
     "operationName": "markdown-parse-js",
-    "rawText": " (\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n\n  return `${frontMatterString}${markdownParse.raw}`;\n}"
+    "rawText": " (\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n  return `${frontMatterString}${markdownParse.raw}`;\n}"
   },
   "mdContentParseRecursively": {
     "name": "mdContentParseRecursively",
     "slug": "TsFunction",
-    "id": "gkdzqtymheekuogrtbdjldva",
+    "id": "skhxgoegzdbgjeffhfcttear",
     "description": "recursively parses a string containing markdown (without frontmatter) into a MarkdownChunk[]\n\nImprove:\n- include the comment-type (TODO/NB/etc), both on a chunk level and on root level\n- parse paragraphs further around the assets",
     "operationName": "markdown-parse-js",
     "rawText": " (\n  markdownString: string,\n  level: number\n): MarkdownChunk[] => {\n  const chunks = parseMdToChunks(markdownString, level);\n\n  const chunksWithChildren = chunks.map(\n    (chunk: MarkdownChunk): MarkdownChunk[] => {\n      // NB: chunk is a paragraph\n      if (chunk.level === 0 && !chunk.title && chunk.content) {\n        // const lines = chunk.content.split(\"\\n\");\n\n        // // For every line, copy the chunk...\n        // const chunks = lines?.map((line) => ({\n        //   ...chunk,\n        //   content: line,\n        // }));\n\n        // return chunks;\n        return [chunk];\n      }\n\n      // NB: h6 is highest level\n      const children =\n        chunk.content && [1, 2, 3, 4, 5, 6].includes(chunk.level)\n          ? mdContentParseRecursively(chunk.content, chunk.level + 1)\n          : undefined;\n\n      const content = children ? undefined : chunk.content;\n\n      // NB: here we are splitting content with multiple lines into lines only for level 0 chunks\n      return content\n        ? [{ ...chunk, content }]\n        : [{ ...chunk, children, content: undefined }];\n    }\n  );\n\n  return chunksWithChildren.flat();\n}"
@@ -3363,7 +3363,7 @@
   "mdToJsonParse": {
     "name": "mdToJsonParse",
     "slug": "TsFunction",
-    "id": "xeuzmaavtsaflhsnvypgawig",
+    "id": "evmyyshejgxwslwdbhqdqate",
     "description": "makes a markdown parse from a markdown string\n\nTODO: `markdownStringToMarkdownParse` is a better name. First make a refactor script for this, because it is too hard to rename stuff that is used a lot.\n\nTODO: BUG: it doesn't take into account triple backticks! if there is markdown inside of the triple backticks, it can still be seen as main markdown. Triple backticks are stronger!",
     "operationName": "markdown-parse-js",
     "rawText": " (\n  markdownString: string,\n  fileName?: string,\n  config?: MarkdownParseConfig\n): MarkdownParse => {\n  const { parameters, raw } = parseFrontmatterMarkdownString(\n    markdownString,\n    config\n  );\n  return {\n    fileName,\n    raw,\n    parameters,\n    content: mdContentParseRecursively(raw, 1),\n  };\n}"
@@ -3371,10 +3371,10 @@
   "parseFrontmatterMarkdownString": {
     "name": "parseFrontmatterMarkdownString",
     "slug": "TsFunction",
-    "id": "edwtrfmojfaqlcvqealaakaj",
+    "id": "vcyxgptdzgryaqcimkfqltwd",
     "description": "splits a markdown string into its frontmatter object and the raw content (without frontmatter)",
     "operationName": "markdown-parse-js",
-    "rawText": " (\n  markdownWithFrontmatter: string,\n  config?: MarkdownParseConfig\n): MarkdownParse => {\n  const lines = markdownWithFrontmatter.split(\"\\n\");\n\n  const frontmatterStartIndex = lines.findIndex((x) => x === \"---\");\n\n  //console.log({ frontmatterStartIndex });\n  if (frontmatterStartIndex === -1) {\n    return { raw: markdownWithFrontmatter, parameters: {}, content: [] };\n  }\n\n  const linesAfterStart = lines.slice(frontmatterStartIndex + 1);\n  const frontmatterEndIndex =\n    linesAfterStart.findIndex((x) => x === \"---\") + frontmatterStartIndex + 1;\n\n  //console.log({ frontmatterEndIndex });\n  const frontmatterLines = lines.slice(\n    frontmatterStartIndex + 1,\n    frontmatterEndIndex\n  );\n\n  //   console.log({ frontmatterLines });\n  const parameters: Frontmatter = mergeObjectsArray(\n    frontmatterLines.map((line) => {\n      const needTrim = !config?.noFinal;\n      const key = line.split(\":\")[0]?.trim();\n      const value = line.split(\":\")[1];\n      const finalValue = needTrim ? value?.trim() : value;\n\n      const typeFromSchema = config?.frontmatterSchema?.properties?.find(\n        (x) => x.name === key\n      )?.schema;\n\n      // console.dir(\n      //   {\n      //     frontmatterSchema: config?.frontmatterSchema,\n      //     key,\n      //     typeFromSchema,\n      //   },\n      //   { depth: 999 }\n      // );\n\n      return { [key]: parsePrimitive(finalValue, typeFromSchema) };\n    })\n  );\n\n  const raw = lines.slice(frontmatterEndIndex + 1).join(\"\\n\");\n\n  return { parameters, raw, content: [] };\n}"
+    "rawText": " (\n  markdownWithFrontmatter: string,\n  config?: MarkdownParseConfig\n): MarkdownParse => {\n  const lines = markdownWithFrontmatter.split(\"\\n\");\n\n  const frontmatterStartIndex = lines.findIndex((x) => x === \"---\");\n\n  //console.log({ frontmatterStartIndex });\n  if (frontmatterStartIndex === -1) {\n    return { raw: markdownWithFrontmatter, parameters: {}, content: [] };\n  }\n\n  const linesAfterStart = lines.slice(frontmatterStartIndex + 1);\n  const frontmatterEndIndex =\n    linesAfterStart.findIndex((x) => x === \"---\") + frontmatterStartIndex + 1;\n\n  //console.log({ frontmatterEndIndex });\n  const frontmatterLines = lines.slice(\n    frontmatterStartIndex + 1,\n    frontmatterEndIndex\n  );\n\n  const parameters: Frontmatter = mergeObjectsArray(\n    frontmatterLines.map((line) => {\n      const needTrim = !config?.noFinal;\n      const key = line.split(\":\")[0]?.trim();\n      const value = line.split(\":\")[1];\n      const finalValue = needTrim ? value?.trim() : value;\n\n      return { [key]: finalValue };\n    })\n  );\n\n  const raw = lines.slice(frontmatterEndIndex + 1).join(\"\\n\");\n\n  return { parameters, raw, content: [] };\n}"
   },
   "parseMarkdownParagraph": {
     "name": "parseMarkdownParagraph",
@@ -3387,7 +3387,7 @@
   "parseMdToChunks": {
     "name": "parseMdToChunks",
     "slug": "TsFunction",
-    "id": "rmiobcduwqwickpxxblhgjlg",
+    "id": "bufkputyhxufhqdzywuurpav",
     "description": "should get chunks recursively. first just look for every h1 line. everything after the h1 line is the children  until there's another h1 line, then do this recursivley for h2, h3, etc.",
     "operationName": "markdown-parse-js",
     "rawText": " (\n  markdownString: string,\n  level: number\n): MarkdownChunk[] => {\n  const lines = markdownString.split(\"\\n\");\n\n  const chunks = lines.reduce(\n    (chunks, line) => {\n      // NB: please note the space at the end, it's very important for this to work\n      const prefix = level !== 0 ? `${\"#\".repeat(level)} ` : null;\n\n      if (prefix && line.startsWith(prefix)) {\n        // Seems to be a header!\n\n        // NB: new header of this level detected, new chunk begins\n        return chunks.concat([\n          {\n            level,\n            title: removeHeaderPrefix(line),\n          },\n        ]);\n      } else {\n        // line is part of previous chunk, just add it to it\n\n        // NB: since the initial value contains something, we can assert it not being empty\n        const lastItem: MarkdownChunk = chunks.pop()!;\n        const previousContent = lastItem.content ? `${lastItem.content}\\n` : \"\";\n        const content = `${previousContent}${line}`;\n        return chunks.concat([{ ...lastItem, content }]);\n      }\n    },\n    // NB: by default it's a paragraph without header\n    [{ level: 0 }] as MarkdownChunk[]\n  );\n  // NB: we need something... filter out empty chunks!\n  return chunks.filter((x) => x.content || x.title || x.children);\n}"
@@ -3755,7 +3755,7 @@
   "findEmbeds": {
     "name": "findEmbeds",
     "slug": "TsFunction",
-    "id": "lblsnpbequzbqftekrpwjexn",
+    "id": "xndteydlxgowmdpnnzyeuirr",
     "description": "find all embedded assets",
     "operationName": "marked-util",
     "rawText": " (markdownString: string): MarkdownEmbed[] => {\n  const result: MarkdownEmbed[] = marked\n    .lexer(markdownString)\n    .map(findEmbedsFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}"
@@ -3867,15 +3867,15 @@
   "readMarkdownFileToModel": {
     "name": "readMarkdownFileToModel",
     "slug": "TsFunction",
-    "id": "djrscvgnbvtbdryuuvszwzeh",
+    "id": "mnotywciwkgyiatoidkbayqk",
     "description": "Reads a markdown absolute path to a `MarkdownFile` model",
     "operationName": "read-markdown-file",
-    "rawText": " async (\n  absoluteFilePath: string\n): Promise<null | WebMarkdownFile> => {\n  const filename = path.parse(absoluteFilePath).name;\n\n  const projectRoot = getProjectRoot(absoluteFilePath);\n\n  if (!projectRoot) return null;\n  const mdParse = await readMarkdownFile(absoluteFilePath);\n  if (!mdParse) return null;\n\n  const {\n    privacy,\n    detectedLanguage,\n    labels,\n    createdAt,\n    createdFirstAt,\n    deletedAt,\n    updatedAt,\n    id,\n    slug,\n    cta,\n    headerImage,\n    headerSubtitle,\n    headerTitle,\n    isDraft,\n    itemId,\n    ...frontmatter\n  } = mdParse.parameters;\n\n  // NB: this markdown file is not always located in an operation. Yet we are trying to find it.\n  const operationBasePath = findOperationBasePath(absoluteFilePath);\n  const modelLocation: ModelLocation = {\n    operationName: operationBasePath ? getLastFolder(operationBasePath) : null,\n    projectRelativePath: makeRelative(absoluteFilePath, projectRoot),\n    operationRelativePath: operationBasePath\n      ? makeRelative(absoluteFilePath, operationBasePath)\n      : undefined,\n  };\n\n  const markdownFile: WebMarkdownFile = {\n    ...modelLocation,\n    ...frontmatter,\n    markdown: mdParse.raw,\n    categoryStackCalculated: [],\n    language: \"english\",\n    privacy: privacy as WebMarkdownFile[\"privacy\"],\n    detectedLanguage: detectedLanguage as WebMarkdownFile[\"detectedLanguage\"],\n    labels: labels as WebMarkdownFile[\"labels\"],\n    createdAt: createdAt as WebMarkdownFile[\"createdAt\"],\n    createdFirstAt: createdFirstAt as WebMarkdownFile[\"createdFirstAt\"],\n    deletedAt: deletedAt as WebMarkdownFile[\"deletedAt\"],\n    updatedAt: updatedAt as WebMarkdownFile[\"updatedAt\"],\n    cta: cta as WebMarkdownFile[\"cta\"],\n    headerImage: headerImage as WebMarkdownFile[\"headerImage\"],\n    headerSubTitle: headerSubtitle as WebMarkdownFile[\"headerSubTitle\"],\n    headerTitle: headerTitle as WebMarkdownFile[\"headerTitle\"],\n    isDraft: isDraft as WebMarkdownFile[\"isDraft\"],\n    itemId: itemId as WebMarkdownFile[\"itemId\"],\n    name: filename as WebMarkdownFile[\"name\"],\n    slug: slug as WebMarkdownFile[\"slug\"],\n    id: id as WebMarkdownFile[\"id\"],\n    // NB: have to convert to unknown here first because of the specified markdown prop\n  };\n\n  return omitUndefinedValues(markdownFile);\n}"
+    "rawText": " async (\n  absoluteFilePath: string\n): Promise<null | WebMarkdownFile> => {\n  const filename = path.parse(absoluteFilePath).name;\n\n  const projectRoot = getProjectRoot(absoluteFilePath);\n\n  if (!projectRoot) return null;\n  const mdParse = await readMarkdownFile(absoluteFilePath);\n  if (!mdParse) return null;\n\n  const parsedParameters = frontmatterToObject(\n    mdParse.parameters,\n    webMarkdownFileTsInterface.type.simplifiedSchema as SimplifiedSchema\n  ) as Partial<\n    ExtendedMarkdownProperties & WebMarkdownProperties & PostableProperties\n  >;\n\n  // NB: this markdown file is not always located in an operation. Yet we are trying to find it.\n  const operationBasePath = findOperationBasePath(absoluteFilePath);\n  const modelLocation: ModelLocation = {\n    operationName: operationBasePath ? getLastFolder(operationBasePath) : null,\n    projectRelativePath: makeRelative(absoluteFilePath, projectRoot),\n    operationRelativePath: operationBasePath\n      ? makeRelative(absoluteFilePath, operationBasePath)\n      : undefined,\n  };\n\n  const name = mdParse.fileName || \"untitled\";\n  const markdownFile: WebMarkdownFile = {\n    ...modelLocation,\n    ...parsedParameters,\n    markdown: mdParse.raw,\n    categoryStackCalculated: [],\n    ...parsedParameters,\n    id: name,\n    createdFirstAt: Date.now(),\n    deletedAt: 0,\n    createdAt: Date.now(),\n    privacy: parsedParameters.privacy || \"public\",\n    language: parsedParameters.language || \"english\",\n    updatedAt: parsedParameters.updatedAt || Date.now(),\n    name,\n    slug: name,\n  };\n\n  return omitUndefinedValues(markdownFile);\n}"
   },
   "readMarkdownFile": {
     "name": "readMarkdownFile",
     "slug": "TsFunction",
-    "id": "wmmnjoyrxtmfspobaafajnvu",
+    "id": "pnzmrjtulwftzjvbzcxfdfnr",
     "description": "Reads and parses a markdown file",
     "operationName": "read-markdown-file",
     "rawText": " async (\n  filePath: Path\n): Promise<MarkdownParse | null> => {\n  // TODO: is this needed?\n  const pathParse = path.parse(filePath);\n  const isMarkdownFile = [\"md\", \"mdx\"].includes(pathParse.ext.slice(1));\n  if (!isMarkdownFile) return null;\n  if (!fs.existsSync(filePath)) return null;\n  const readable = await canRead(filePath);\n  if (!readable) return null;\n  const fileString = await fs.readFile(filePath, \"utf8\");\n  if (!fileString) return null;\n\n  const fileName = path.parse(filePath).name;\n\n  const markdownParse = mdToJsonParse(fileString, fileName);\n  return markdownParse;\n}"
@@ -4866,7 +4866,7 @@
   "getMarkdownPageInfo": {
     "name": "getMarkdownPageInfo",
     "slug": "TsFunction",
-    "id": "qyabvvjhjblzfdeiynclvfgq",
+    "id": "kllskvyovqyjhysbfcewajpj",
     "description": "If a markdown page is found, this function fetches all metadata needed to render that markdown page",
     "operationName": "markdown-reader-functions",
     "rawText": " async (\n  projectRoot: string,\n  webPages: WebPage<any>[],\n  queryPath: string,\n  contentPage: ReaderWebPage\n): Promise<{\n  markdownFile: WebMarkdownFile | null;\n  nextQueryPath: string | null;\n  previousQueryPath: string | null;\n  projectRelativeMarkdownPath: string | null;\n}> => {\n  const parentQuery = getOneFolderUpPath(queryPath);\n  const siblings = getChildren(webPages, parentQuery);\n  const thisPageKey = queryPath.split(\"/\").pop();\n  const meIndex = siblings.findIndex((sibling) => thisPageKey === sibling);\n\n  const previousFolder = siblings[meIndex - 1];\n  const previousQueryPath = previousFolder\n    ? `${parentQuery}/${previousFolder}`\n    : null;\n  const nextFolder = siblings[meIndex + 1];\n  const nextQueryPath = nextFolder ? `${parentQuery}/${nextFolder}` : null;\n\n  const absoluteMarkdownPath = contentPage.pageData?.projectRelativeFilePath\n    ? path.join(projectRoot, contentPage.pageData.projectRelativeFilePath)\n    : undefined;\n\n  const markdownFile = absoluteMarkdownPath\n    ? await readMarkdownFileToModel(absoluteMarkdownPath)\n    : null;\n\n  const projectRelativeMarkdownPath = absoluteMarkdownPath\n    ? makeRelative(absoluteMarkdownPath, projectRoot)\n    : null;\n\n  return {\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n  };\n}"
@@ -4986,14 +4986,14 @@
   "todoPagesConfigRecencysConst": {
     "name": "todoPagesConfigRecencysConst",
     "slug": "TsVariable",
-    "id": "uidmurxfusjsvsurivilvtgl",
+    "id": "yuniqucsmltgqrbrxsamdgfi",
     "description": "",
     "operationName": "todo-types"
   },
   "todoPagesConfigRecencys": {
     "name": "todoPagesConfigRecencys",
     "slug": "TsVariable",
-    "id": "swbdlnauywxhnjkvjwgmitrm",
+    "id": "flmqcczsljdcvvlggradcjdd",
     "description": "",
     "operationName": "todo-types"
   },
@@ -5072,7 +5072,7 @@
   "getNestedPathObject": {
     "name": "getNestedPathObject",
     "slug": "TsFunction",
-    "id": "xjvrheotuhunlisjbdgynmdo",
+    "id": "usqcijfaajbctvtxegbsqhhx",
     "description": "",
     "operationName": "peer-functions",
     "rawText": " async (\n  baseFolderPath: string\n): Promise<NestedPathObject> => {\n  // 1 - explore\n\n  const exploreResult = await explore({\n    basePath: baseFolderPath,\n    includeFoldersWithResults: true,\n  });\n  // 2 - get file and folder paths from explore result\n  const explorePaths = exploreResult.map((textJson) => textJson.path);\n  const relativeExplorePaths = explorePaths.map((explorePath) => {\n    const baseFolderRelativeExplorePath = makeRelative(\n      explorePath,\n      baseFolderPath\n    );\n\n    return baseFolderRelativeExplorePath;\n  });\n\n  // 3- convert file/folder paths array into `NestedPathObject`\n  const nestedPathObject =\n    queryPathsArrayToNestedPathObject(relativeExplorePaths);\n\n  // 4 - return that\n  return nestedPathObject;\n}"
@@ -5212,7 +5212,7 @@
   "publicPersonKeys": {
     "name": "publicPersonKeys",
     "slug": "TsVariable",
-    "id": "mxqtimqgqlxixvdwuubrjnbl",
+    "id": "ggkosvteucacrgnkafjaelma",
     "description": "Can be seen for every person, without authentication\n\nNB: I wish it were possible to ensure these keys exist on the person here, but we can't validate that while still keeping it a const I guess",
     "operationName": "peer-types"
   },
@@ -5449,6 +5449,62 @@
     "operationName": "social-media-functions",
     "rawText": " (): Promise<\n  SimplifiedSchema | undefined\n> => {\n  return getFrontmatterSchema(\"Postable\");\n}"
   },
+  "frontmatterParseToString": {
+    "name": "frontmatterParseToString",
+    "slug": "TsFunction",
+    "id": "fvrifhjrdujuoivgwqtzsjhi",
+    "description": "Parses frontmatter object into a frontmatter string",
+    "operationName": "frontmatter-util",
+    "rawText": " (frontmatter: Frontmatter): string => {\n  const keys = Object.keys(frontmatter);\n\n  const keyValueLines = keys\n    .map((key) => {\n      const value = frontmatter[key];\n\n      const parsedFrontmatterLine = `${key}: ${value}`;\n\n      return parsedFrontmatterLine;\n    })\n    .filter(notEmpty);\n\n  return keyValueLines.length === 0\n    ? \"\"\n    : `---\\n${keyValueLines.join(\"\\n\")}\\n---\\n`;\n}"
+  },
+  "getFrontmatterValueString": {
+    "name": "getFrontmatterValueString",
+    "slug": "TsFunction",
+    "id": "oahrksuscpolgactjmhjgvzn",
+    "description": "",
+    "operationName": "frontmatter-util",
+    "rawText": " (\n  value: FrontmatterValue\n): string | null => {\n  if (value === undefined) return null;\n  if (value === null) return \"null\";\n  if (typeof value === \"number\") return String(value);\n  if (typeof value === \"boolean\") return String(value);\n  if (typeof value === \"boolean\") return String(value);\n  if (Array.isArray(value))\n    return value.map(quotedOrNot).map(stringifyNewlines).join(\", \");\n  if (typeof value === \"string\") return stringifyNewlines(quotedOrNot(value));\n  // NB: according to current support this should never happen\n  if (typeof value === \"object\") return `\"${JSON.stringify(value)}\"`;\n\n  return null;\n}"
+  },
+  "objectToFrontmatter": {
+    "name": "objectToFrontmatter",
+    "slug": "TsFunction",
+    "id": "iizvaylqtdoftxaeweszjkby",
+    "description": "",
+    "operationName": "frontmatter-util",
+    "rawText": " (\n  parse: FrontmatterParse,\n  schema: SimplifiedSchema\n): Frontmatter => {\n  if (!schema.properties || !schema.properties.length) {\n    return {};\n  }\n\n  const propertyStringValueArray: { [key: string]: string }[] =\n    schema.properties\n      .map((property) => {\n        const value = parse[property.name];\n\n        const assetInputType = getAssetInputType(property.name);\n\n        if (\n          (property.schema.type === \"object\" ||\n            property.schema.type === \"array\") &&\n          assetInputType?.type\n        ) {\n          // it's a backendAsset\n\n          const realValue = value as BackendAsset | BackendAsset[] | undefined;\n\n          if (!realValue || typeof realValue !== \"object\") {\n            // must be an array or object, otherwise it's set to nothing\n            return;\n          }\n\n          const backendAssets = makeArray(realValue);\n\n          return {\n            [property.name]: backendAssets\n              .map((backendAsset) => {\n                return `![${backendAsset.alt || \"\"}](${\n                  backendAsset.relativePath || \"\"\n                })`;\n              })\n              .join(\", \"),\n          };\n        }\n\n        if (property.schema.type === \"number\" && property.name.endsWith(\"At\")) {\n          if (typeof value !== \"number\" || (!value && value !== 0)) {\n            // we can only process numbers\n            return;\n          }\n\n          // it's a date, convert to date\n\n          const humanReadableDate = new Date(value).toDateString();\n          return { [property.name]: humanReadableDate };\n        }\n\n        if (property.schema.type === \"boolean\") {\n          if (value === true) return { [property.name]: \"true\" };\n          if (value === false) return { [property.name]: \"false\" };\n          return;\n        }\n\n        if (property.schema.type === \"number\") {\n          if (typeof value !== \"number\" || (!value && value !== 0)) {\n            // we can only process numbers\n            return;\n          }\n\n          return { [property.name]: String(value) };\n        }\n\n        if (property.schema.type === \"null\") {\n          if (value !== null) {\n            return;\n          }\n\n          return { [property.name]: \"null\" };\n        }\n\n        if (property.schema.type === \"string\") {\n          if (typeof value !== \"string\") {\n            return;\n          }\n          return { [property.name]: quotedOrNot(stringifyNewlines(value)) };\n        }\n\n        if (property.schema.type === \"array\") {\n          // turn into comma separated\n\n          if (!Array.isArray(value)) {\n            return;\n          }\n\n          // Let's only support string[] for now!\n          //   const type = property.schema.items?.map(x=>x.schema)?.[0]\n\n          const itemString = value\n            .map((item: any) => {\n              if (typeof item !== \"string\") return;\n\n              return quotedOrNot(stringifyNewlines(item));\n            })\n            .filter(notEmpty)\n            .join(\", \");\n\n          return { [property.name]: itemString };\n        }\n\n        if (property.schema.type === \"object\") {\n          // should not be supported\n          return;\n        }\n\n        return;\n      })\n      .filter(notEmpty);\n\n  const frontmatter = mergeObjectsArray(propertyStringValueArray);\n\n  return frontmatter;\n}"
+  },
+  "parseFrontmatterString": {
+    "name": "parseFrontmatterString",
+    "slug": "TsFunction",
+    "id": "jjvbpoxviqchwwqeqyatdemu",
+    "description": "Parse a string as stored in frontmatter back to the original string",
+    "operationName": "frontmatter-util",
+    "rawText": " (value: string) => {\n  const withoutQuotes = value.includes(\",\")\n    ? value.substring(1, value.length - 1)\n    : value;\n\n  const withNewlines = withoutQuotes.replaceAll(\"\\\\n\", \"\\n\");\n\n  return withNewlines;\n}"
+  },
+  "parse": {
+    "name": "parse",
+    "slug": "TsFunction",
+    "id": "xulhfvhnldgzvnaowmhdtijt",
+    "description": "",
+    "operationName": "parse-address-henrik",
+    "rawText": " async () => {\n  const dataPath = path.join(__dirname, \"..\", \"data\", \"test.csv\");\n  const result = (await readCsvFile(dataPath)) as OldFormat[];\n\n  const newFormatArray: NewFormat[] = result.map(oldToNew);\n\n  const newFormatCsvString: string = createCsvString(newFormatArray);\n\n  const newFilePath = path.join(__dirname, \"..\", \"data\", \"result.csv\");\n\n  await fs.writeFile(newFilePath, newFormatCsvString, \"utf-8\");\n\n  return;\n}"
+  },
+  "quotedOrNot": {
+    "name": "quotedOrNot",
+    "slug": "TsFunction",
+    "id": "fnxqpkrpyfwjjpqfmzsrnspc",
+    "description": "For now, simply quote a string if it contains commas\n\nThere are probably more edgecases that need to be fixed here",
+    "operationName": "frontmatter-util",
+    "rawText": " (string: string) => {\n  const returnString = string?.includes(\",\") ? `\"${string}\"` : string;\n  return returnString;\n}"
+  },
+  "stringifyNewlines": {
+    "name": "stringifyNewlines",
+    "slug": "TsFunction",
+    "id": "rjmxzkguekniwfmheuzveggn",
+    "description": "",
+    "operationName": "frontmatter-util",
+    "rawText": " (string: string) => {\n  return string.replaceAll(\"\\n\", \"\\\\n\");\n}"
+  },
   "StoreProvider": {
     "name": "StoreProvider",
     "slug": "TsVariable",
@@ -5609,10 +5665,10 @@
   "FrontmatterForm": {
     "name": "FrontmatterForm",
     "slug": "TsFunction",
-    "id": "jrawyvmoilmfxukiuihzorov",
+    "id": "adezfkcyfxcagwkgzornyqja",
     "description": "Renders a form for frontmatter without save button",
     "operationName": "writer-input",
-    "rawText": " (props: {\n  modelName?: string;\n  projectRelativeMarkdownFilePath: string;\n  frontmatterSchema: SimplifiedSchema;\n  markdownParse: MarkdownParse;\n  onChange: (value: string) => void;\n}) => {\n  const {\n    onChange,\n    projectRelativeMarkdownFilePath,\n    markdownParse,\n    modelName,\n  } = props;\n  const [immutableFrontmatterSchema] = useState<SimplifiedSchema>(\n    props.frontmatterSchema\n  );\n\n  console.log({\n    parameters: markdownParse.parameters,\n  });\n  const referencableModelData = useReferencableModelData(\n    immutableFrontmatterSchema\n  );\n\n  return (\n    <SimplifiedSchemaForm\n      modelName={modelName}\n      id={projectRelativeMarkdownFilePath}\n      parameters={[\n        {\n          name: \"Frontmatter\",\n          required: true,\n          isDbModel: true,\n          simplifiedSchema: immutableFrontmatterSchema,\n        },\n      ]}\n      onChange={([frontmatter]) => {\n        const newMarkdownParse: MarkdownParse = {\n          ...markdownParse,\n          parameters: frontmatter,\n        };\n\n        const newMarkdownString =\n          markdownParseToMarkdownString(newMarkdownParse);\n\n        onChange(newMarkdownString);\n      }}\n      values={[markdownParse.parameters]}\n      projectRelativeStorageFilePath={projectRelativeMarkdownFilePath}\n      referencableModelData={referencableModelData}\n    />\n  );\n}"
+    "rawText": " (props: {\n  modelName?: string;\n  projectRelativeMarkdownFilePath: string;\n  frontmatterSchema: SimplifiedSchema;\n  markdownParse: MarkdownParse;\n  onChange: (value: string) => void;\n}) => {\n  const {\n    onChange,\n    projectRelativeMarkdownFilePath,\n    markdownParse,\n    modelName,\n    frontmatterSchema,\n  } = props;\n  const [immutableFrontmatterSchema] = useState<SimplifiedSchema>(\n    props.frontmatterSchema\n  );\n\n  const referencableModelData = useReferencableModelData(\n    immutableFrontmatterSchema\n  );\n\n  const uploadAssetsThenSetMarkdownString = async (parameters: any[]) => {\n    const [frontmatter] = parameters;\n\n    const assetParameters = findAssetParametersRecursively(frontmatter);\n\n    // NB: because it's too complex and we don't need this in the case of frontmatter, we can just only look at the base level, because frontmatter has just the base level. We therefore skip any items with a stack.\n\n    await Promise.all(\n      assetParameters.map(async (assetParameter) => {\n        if (assetParameter.stack) {\n          console.log(\n            \"WARNING. Stack detected in assetParameters item, shouldn't happen for frontmatter\"\n          );\n          return;\n        }\n        // 1. get the item\n        const item = frontmatter[assetParameter.parameterName] as\n          | BackendAsset\n          | BackendAsset[]\n          | undefined;\n\n        const isCorrectType = typeof item === \"object\";\n        const hasUploaded =\n          item && isCorrectType\n            ? !!makeArray(item).find((x) => x.relativePath)\n            : false;\n        // 2. process if not already\n        const uploadedItem =\n          item && isCorrectType && !hasUploaded\n            ? (await api.processAssetUpload(makeArray(item))).result\n            : item;\n\n        // 3. return uploaded backend-asset\n\n        const newAsset =\n          !uploadedItem || !isCorrectType\n            ? undefined\n            : assetParameter.assetInputType.isMultiple\n            ? makeArray(uploadedItem)\n            : takeFirst(uploadedItem);\n\n        frontmatter[assetParameter.parameterName] = newAsset;\n      })\n    );\n\n    const realFrontmatter: Frontmatter = objectToFrontmatter(\n      frontmatter,\n      frontmatterSchema\n    );\n\n    const newMarkdownParse: MarkdownParse = {\n      ...markdownParse,\n      parameters: realFrontmatter,\n    };\n\n    const newMarkdownString = markdownParseToMarkdownString(newMarkdownParse);\n\n    onChange(newMarkdownString);\n  };\n\n  const frontmatterParse = frontmatterToObject(\n    markdownParse.parameters,\n    frontmatterSchema\n  );\n\n  console.log({ frontmatterParse, frontmatter: markdownParse.parameters });\n\n  return (\n    <SimplifiedSchemaForm\n      modelName={modelName}\n      id={projectRelativeMarkdownFilePath}\n      parameters={[\n        {\n          name: \"Frontmatter\",\n          required: true,\n          isDbModel: true,\n          simplifiedSchema: immutableFrontmatterSchema,\n        },\n      ]}\n      onChange={uploadAssetsThenSetMarkdownString}\n      values={[frontmatterParse]}\n      projectRelativeStorageFilePath={projectRelativeMarkdownFilePath}\n      referencableModelData={referencableModelData}\n    />\n  );\n}"
   },
   "getContext": {
     "name": "getContext",
@@ -5673,7 +5729,7 @@
   "MarkdownParsePresentation": {
     "name": "MarkdownParsePresentation",
     "slug": "TsFunction",
-    "id": "rlfuftywmikayhdcqrsknkxt",
+    "id": "zdiottrhbblzpcyiemphxuoi",
     "description": "",
     "operationName": "writer-input",
     "rawText": " (props: {\n  markdownParse: MarkdownParse;\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n  projectRelativeBaseFolderPath: string;\n  projectRelativeMarkdownFilePath: string;\n}) => {\n  const {\n    markdownParse,\n    augmentedWordObject,\n    projectRelativeBaseFolderPath,\n    projectRelativeMarkdownFilePath,\n  } = props;\n  const [slide, setSlide] = useState(0);\n\n  if (!markdownParse.content) return null;\n\n  const markdownParagraphs = flattenMarkdownChunks(\n    markdownParse.content\n  ).filter((x) => x.paragraph !== \"\");\n\n  const paragraph = markdownParagraphs[slide];\n\n  if (!paragraph) return <P>No slides</P>;\n\n  const navigationIcons: ClickableIconType[] = [\n    {\n      onClick: () => setSlide(0),\n      emoji: \"⏮\",\n      disabled: slide === 0,\n    },\n\n    {\n      onClick: () => setSlide(slide - 1),\n      emoji: \"⬅\",\n      disabled: slide === 0,\n    },\n\n    {\n      onClick: () => setSlide(slide + 1),\n      emoji: \"➡\",\n      disabled: slide === markdownParagraphs.length - 1,\n    },\n\n    {\n      onClick: () => setSlide(markdownParagraphs.length - 1),\n      emoji: \"⏭\",\n      disabled: slide === markdownParagraphs.length - 1,\n    },\n  ];\n  const navigation = (\n    <Div className=\"flex flex-row gap-3\">\n      {navigationIcons.map((item, index) => (\n        <ClickableIcon {...item} key={`icon${index}`} />\n      ))}\n    </Div>\n  );\n\n  return (\n    <Div className=\"flex flex-col flex-1\">\n      <Div className=\"flex flex-1 flex-col\">\n        <Div className=\"flex flex-col justify-center items-center\">\n          <P className=\"text-4xl\">\n            {\n              paragraph.categoryStackCalculated[\n                paragraph.categoryStackCalculated.length - 1\n              ]\n            }\n          </P>\n\n          <Div className=\"flex flex-row flex-wrap\">\n            {renderBreadCrumbs(paragraph.categoryStackCalculated)}\n          </Div>\n        </Div>\n\n        <Div className=\"flex flex-1 flex-col items-center justify-center overflow-y-auto\">\n          {renderMarkdownContent(paragraph.paragraph, {\n            big: true,\n            projectRelativeBaseFolderPath,\n            projectRelativeMarkdownFilePath,\n            augmentedWordObject,\n            isDev,\n            isStatic: false,\n          })}\n        </Div>\n      </Div>\n\n      {navigation}\n    </Div>\n  );\n}"
@@ -5681,7 +5737,7 @@
   "MarkdownView": {
     "name": "MarkdownView",
     "slug": "TsFunction",
-    "id": "tirquwafzahyvqxknuvkhrgm",
+    "id": "vaerlhxtighflpritsahnqvy",
     "description": "",
     "operationName": "writer-input",
     "rawText": " (props: {\n  view: \"view\" | \"presentation\";\n  markdownParse: MarkdownParse;\n  markdownParseRenderConfig: MarkdownParseRenderConfig;\n}) => {\n  const { markdownParse, markdownParseRenderConfig, view } = props;\n\n  const {\n    projectRelativeBaseFolderPath,\n    projectRelativeMarkdownFilePath,\n    augmentedWordObject,\n  } = markdownParseRenderConfig;\n  return (\n    <>\n      {view === \"view\" ? (\n        <Div className=\"mx-2\">\n          {renderMarkdownParse(markdownParse, markdownParseRenderConfig)}\n        </Div>\n      ) : null}\n\n      {view === \"presentation\" ? (\n        <Div className=\"mx-2 flex flex-1 min-h-[80vh]\">\n          {markdownParse.content ? (\n            <MarkdownParsePresentation\n              markdownParse={markdownParse}\n              augmentedWordObject={augmentedWordObject}\n              projectRelativeBaseFolderPath={projectRelativeBaseFolderPath}\n              projectRelativeMarkdownFilePath={projectRelativeMarkdownFilePath}\n            />\n          ) : (\n            \"Couldn't find any content\"\n          )}\n        </Div>\n      ) : null}\n    </>\n  );\n}"
@@ -6177,7 +6233,7 @@
   "markdownParseToMarkdownModelType": {
     "name": "markdownParseToMarkdownModelType",
     "slug": "TsFunction",
-    "id": "sdyrxfgqvvkvootheobvwskh",
+    "id": "xwbksyhijlseqwmkldmxqgnm",
     "description": "makes a markdownModelType from a markdownParse.",
     "operationName": "markdown-types",
     "rawText": " (\n  markdownParse: MarkdownParse | null\n): Storing<MarkdownModelType> | null => {\n  if (!markdownParse) return null;\n\n  const { parameters, raw, fileName } = markdownParse;\n\n  const name = parameters.name ? String(parameters.name) : fileName!;\n  const slug = kebabCase(name);\n  const id = parameters.id ? String(parameters.id) : generateId();\n  const createdAt = parseMarkdownModelTimestamp(\n    parameters,\n    markdownParse,\n    \"createdAt\"\n  );\n  const createdFirstAt = parseMarkdownModelTimestamp(\n    parameters,\n    markdownParse,\n    \"createdFirstAt\"\n  );\n  const updatedAt = parseMarkdownModelTimestamp(\n    parameters,\n    markdownParse,\n    \"updatedAt\"\n  );\n  const deletedAt = parseMarkdownModelTimestamp(\n    parameters,\n    markdownParse,\n    \"deletedAt\"\n  );\n\n  const openedAt = parseMarkdownModelTimestamp(\n    parameters,\n    markdownParse,\n    \"openedAt\"\n  );\n\n  const markdownModelType: Storing<MarkdownModelType> = {\n    ...parameters,\n    id,\n    createdAt,\n    createdFirstAt,\n    deletedAt,\n    updatedAt,\n    openedAt,\n    markdown: raw,\n    name,\n    slug,\n  };\n\n  return markdownModelType;\n}"
@@ -6185,7 +6241,7 @@
   "parseMarkdownModelTimestamp": {
     "name": "parseMarkdownModelTimestamp",
     "slug": "TsFunction",
-    "id": "mkydqzcvoebbbpwzbqwjgqpb",
+    "id": "rlicjncidockdtgngogcyqdr",
     "description": "First tries to look at the frontmatter value, this is leading because it is what the user sees and the file system of the os could be inconsistent\n\nIf this frontmatter doesn't exist, the markdownParse is checked for a date. This should be information collected from the file system\n\nIf that doesn't succeed, sometimes we'll set it to  the current timestamp",
     "operationName": "markdown-types",
     "rawText": " (\n  parameters: Frontmatter,\n  markdownParse: MarkdownParse,\n  parameterName:\n    | \"createdAt\"\n    | \"createdFirstAt\"\n    | \"updatedAt\"\n    | \"deletedAt\"\n    | \"openedAt\"\n): number => {\n  const parameterValue = parameters[parameterName];\n  const markdownParseValue = markdownParse[parameterName];\n\n  const parsedParameterValue =\n    typeof parameterValue === \"number\" && !isNaN(parameterValue)\n      ? parameterValue\n      : typeof parameterValue === \"string\"\n      ? tryParseDate(parameterValue)\n      : undefined;\n\n  const generatedValue =\n    parameterName === \"deletedAt\" || parameterName === \"openedAt\"\n      ? 0\n      : Date.now();\n\n  const parsedTimestamp =\n    parsedParameterValue !== undefined\n      ? parsedParameterValue\n      : markdownParseValue !== undefined\n      ? markdownParseValue\n      : generatedValue;\n\n  return parsedTimestamp;\n}"
@@ -6193,42 +6249,10 @@
   "tryParseDate": {
     "name": "tryParseDate",
     "slug": "TsFunction",
-    "id": "xfqsuikthzjlhkaadiucnhkn",
+    "id": "rolhwhtapbzgovvjtadvjmsh",
     "description": "Tries to parse a date from a string\n- implements default behavior of `new Date` with a try catch\n- returns a unix timestamp (ms since 1970 AD)\n\nTODO: put in a better location... date-util?",
     "operationName": "markdown-types",
     "rawText": " (dateString: string): number | undefined => {\n  try {\n    return new Date(dateString).valueOf();\n  } catch {}\n}"
-  },
-  "frontmatterParseToString": {
-    "name": "frontmatterParseToString",
-    "slug": "TsFunction",
-    "id": "jpsccsacvgwlsdtupzpqidtw",
-    "description": "Parses frontmatter object into a frontmatter string\n- includes a newline at the end\n- string[] becomes a comma separated string\nTODO: maybe parse xxxAt values into human readable dates",
-    "operationName": "matter-types",
-    "rawText": " (frontmatter: Frontmatter): string => {\n  const keys = Object.keys(frontmatter);\n\n  const keyValueLines = keys\n    .map((key) => {\n      const value = frontmatter[key];\n      const valueString = getFrontmatterValueString(value);\n\n      if (valueString === null) {\n        return null;\n      }\n\n      const parsedFrontmatterLine = `${key}: ${valueString}`;\n\n      return parsedFrontmatterLine;\n    })\n    .filter(notEmpty);\n\n  return keyValueLines.length === 0\n    ? \"\"\n    : `---\\n${keyValueLines.join(\"\\n\")}\\n---\\n`;\n}"
-  },
-  "getFrontmatterValueString": {
-    "name": "getFrontmatterValueString",
-    "slug": "TsFunction",
-    "id": "bfngnnxkoozkejowjmriigxw",
-    "description": "",
-    "operationName": "matter-types",
-    "rawText": " (\n  value: FrontmatterValue\n): string | null => {\n  if (value === undefined) return null;\n  if (value === null) return \"null\";\n  if (typeof value === \"number\") return String(value);\n  if (typeof value === \"boolean\") return String(value);\n  if (typeof value === \"boolean\") return String(value);\n  if (Array.isArray(value))\n    return value.map(quotedOrNot).map(stringifyNewlines).join(\", \");\n  if (typeof value === \"string\") return stringifyNewlines(quotedOrNot(value));\n  // NB: according to current support this should never happen\n  if (typeof value === \"object\") return `\"${JSON.stringify(value)}\"`;\n\n  return null;\n}"
-  },
-  "quotedOrNot": {
-    "name": "quotedOrNot",
-    "slug": "TsFunction",
-    "id": "ttcqotkjseedffupgvvkjezo",
-    "description": "For now, simply quote a string if it contains commas\n\nThere are probably more edgecases that need to be fixed here",
-    "operationName": "matter-types",
-    "rawText": " (string: string) => {\n  const returnString = string?.includes(\",\") ? `\"${string}\"` : string;\n  return returnString;\n}"
-  },
-  "stringifyNewlines": {
-    "name": "stringifyNewlines",
-    "slug": "TsFunction",
-    "id": "lqtnnicdrblfthjsorjyoymq",
-    "description": "",
-    "operationName": "matter-types",
-    "rawText": " (string: string) => {\n  return string.replaceAll(\"\\n\", \"\\\\n\");\n}"
   },
   "generateId": {
     "name": "generateId",
@@ -9639,10 +9663,10 @@
   "getKeysAtPathFromNestedObject": {
     "name": "getKeysAtPathFromNestedObject",
     "slug": "TsFunction",
-    "id": "mrumorrbcbhjjopcabvzgedz",
+    "id": "zrxbaagnkihnldkfscosrvwq",
     "description": "Gets all children keys of a nested object at a certain (nested) location in the nested object\n\n`nestedObject` should extend the `NestedObject`.\n\nThe reduce is a bit vague, I need to  test this function further to make sure it does exactly what I want.",
     "operationName": "recursive-util",
-    "rawText": " <T extends { [key: string]: any }>( //NestedObject<null>\n  nestedObject: T,\n  objectPath: string\n) => {\n  const pathParts = objectPath.split(\"/\");\n  const objectAtLocation = pathParts.reduce((objectSubset, part) => {\n    // basecase should never happen\n    if (!objectSubset) return;\n    const subset = objectSubset[part];\n    return subset;\n  }, nestedObject as T);\n\n  const children = objectAtLocation ? Object.keys(objectAtLocation) : [];\n\n  return children;\n}"
+    "rawText": " <T extends { [key: string]: any }>( //NestedObject<null>\n  nestedObject: T,\n  /**\n   * Something like a/b/c/d\n   */\n  objectPath: string\n) => {\n  const pathParts = objectPath.split(\"/\");\n  const objectAtLocation = pathParts.reduce((objectSubset, part) => {\n    // basecase should never happen\n    if (!objectSubset) return;\n    const subset = objectSubset[part];\n    return subset;\n  }, nestedObject as T);\n\n  const children = objectAtLocation ? Object.keys(objectAtLocation) : [];\n\n  return children;\n}"
   },
   "getMenuPagesObject": {
     "name": "getMenuPagesObject",
@@ -10024,10 +10048,10 @@
   "FunctionForm": {
     "name": "FunctionForm",
     "slug": "TsFunction",
-    "id": "fbuclbxjoqyewrllndavfyxf",
+    "id": "tmvloaqgoexxbyyaftfjuyac",
     "description": "FunctionForm is a very easy way to create a frontend component that is connected with an api that is connected with a function on your backend (that can do anything)\n\nAll you need to provide is a `TsFunction`\n\nThis component only works if your `api` is up-to-date and your function is succesfully indexed using `typerepo`. For authentication, the `api` convention is used. See the `api` docs.\n\n@see TsFunction",
     "operationName": "function-form",
-    "rawText": " <T extends (...params: any[]) => any>(props: {\n  /**\n   * Must be given if you want to store assets with this\n   */\n  projectRelativeStorageFilePath?: string;\n  /**\n   * Must be given if you want to store assets with this\n   */\n  modelName?: string;\n  /**\n   * Add the tsfunction here imported from `your-operation/db/ts-functions/[function-name].json` directly\n   *\n   * Typed as `any` because you can import it from JSON, but this should be a `TsFunction`.\n   *\n   * @see TsFunction\n   */\n  tsFunction: any;\n  /**\n   * For js functions, provide the function to be executed here. If not given, it will try to use the api.\n   *\n   * NB: this should be the same function as the function you provide the index of at `tsFunction`\n   */\n  submitFunction?: T;\n  /**\n   * If you provide a `submitFunction`, you can also provide a callback that does something with the result of the function\n   */\n  withResult?: (result: WithoutPromise<ReturnType<T>>) => void;\n  /**\n   * callback to call after the api has resulted with a result\n   *\n   * Please type this yourself as `RealApiReturnType<\"functionName\">`\n   *\n   * If you don't provide this but an api call is done, we'll call `showStandardResponse`\n   */\n  withApiResult?: (result: any) => void;\n  initialValues?: any[];\n  showResult?: boolean;\n}) => {\n  const {\n    initialValues,\n    modelName,\n    projectRelativeStorageFilePath,\n    tsFunction,\n    submitFunction,\n    withResult,\n    withApiResult,\n    showResult,\n  } = props;\n  const { parameters, name } = tsFunction;\n  const isFirstParameterFunctionContext =\n    parameters?.[0]?.name === \"functionContext\";\n\n  const slicedParameters = isFirstParameterFunctionContext\n    ? parameters?.slice(1)\n    : parameters;\n\n  const [isLoading, setIsLoading] = useState(false);\n\n  const [values, setValues] = useState<any[]>(\n    slicedParameters?.map((_: any, index: number) => initialValues?.[index])\n  );\n\n  const [result, setResult] = useState<RealApiReturnType<any> | undefined>(\n    undefined\n  );\n\n  if (!slicedParameters) {\n    console.log({\n      tsFunction,\n      parameters,\n      slicedParameters,\n      isFirstParameterFunctionContext,\n    });\n    return (\n      <Div>No parameters found, please find the tsFunction in console</Div>\n    );\n  }\n\n  const renderResult = () => {\n    return (\n      <Div>\n        {result?.isUnauthorized ? (\n          <P className=\"text-red-500 font-bold\">Unauthorized!</P>\n        ) : null}\n        {result?.errors?.map((error) => (\n          <P className=\"text-red-500\">{error.error}</P>\n        ))}\n        {result?.message ? (\n          <P\n            className={result.isSuccessful ? \"text-green-500\" : \"text-red-500\"}\n          >\n            {result.message}\n          </P>\n        ) : null}\n\n        {result?.result ? (\n          <textarea\n            className=\"w-full h-[300px]\"\n            value={JSON.stringify(result.result, undefined, 2)}\n          />\n        ) : null}\n      </Div>\n    );\n  };\n  return (\n    <Div>\n      <FormContainer\n        isLoading={isLoading}\n        onSubmit={async () => {\n          setIsLoading(true);\n\n          if (submitFunction) {\n            //@ts-ignore\n            const result = await submitFunction(...values);\n            withResult?.(result);\n\n            setIsLoading(false);\n\n            return;\n          }\n\n          // @ts-ignore\n          const apiResult = await api[name](...values);\n          setResult(apiResult);\n\n          if (withApiResult) {\n            withApiResult(apiResult);\n          } else {\n            showStandardResponse(apiResult);\n          }\n\n          setIsLoading(false);\n        }}\n      >\n        {showResult ? renderResult() : null}\n\n        <SimplifiedSchemaForm\n          projectRelativeStorageFilePath={projectRelativeStorageFilePath}\n          modelName={modelName}\n          parameters={slicedParameters}\n          id={name}\n          onChange={(values) => {\n            setValues(values);\n          }}\n          values={values}\n          referencableModelData={{}}\n        />\n      </FormContainer>\n    </Div>\n  );\n}"
+    "rawText": " <T extends (...params: any[]) => any>(props: {\n  /**\n   * Must be given if you want to store assets with this\n   */\n  projectRelativeStorageFilePath?: string;\n  /**\n   * Must be given if you want to store assets with this\n   */\n  modelName?: string;\n  /**\n   * Add the tsfunction here imported from `your-operation/db/ts-functions/[function-name].json` directly\n   *\n   * Typed as `any` because you can import it from JSON, but this should be a `TsFunction`.\n   *\n   * @see TsFunction\n   */\n  tsFunction: any;\n  /**\n   * For js functions, provide the function to be executed here. If not given, it will try to use the api.\n   *\n   * NB: this should be the same function as the function you provide the index of at `tsFunction`\n   */\n  submitFunction?: T;\n  /**\n   * If you provide a `submitFunction`, you can also provide a callback that does something with the result of the function\n   */\n  withResult?: (result: WithoutPromise<ReturnType<T>>) => void;\n  /**\n   * callback to call after the api has resulted with a result\n   *\n   * Please type this yourself as `RealApiReturnType<\"functionName\">`\n   *\n   * If you don't provide this but an api call is done, we'll call `showStandardResponse`\n   */\n  withApiResult?: (result: any) => void;\n  initialValues?: any[];\n  showResult?: boolean;\n}) => {\n  const {\n    initialValues,\n    modelName,\n    projectRelativeStorageFilePath,\n    tsFunction,\n    submitFunction,\n    withResult,\n    withApiResult,\n    showResult,\n  } = props;\n  const { parameters, name } = tsFunction;\n  const isFirstParameterFunctionContext =\n    parameters?.[0]?.name === \"functionContext\";\n\n  const slicedParameters = isFirstParameterFunctionContext\n    ? parameters?.slice(1)\n    : parameters;\n\n  const [isLoading, setIsLoading] = useState(false);\n\n  const [values, setValues] = useState<any[]>(\n    slicedParameters?.map((_: any, index: number) => initialValues?.[index])\n  );\n\n  const [result, setResult] = useState<RealApiReturnType<any> | undefined>(\n    undefined\n  );\n\n  if (!slicedParameters) {\n    console.log({\n      tsFunction,\n      parameters,\n      slicedParameters,\n      isFirstParameterFunctionContext,\n    });\n    return (\n      <Div>No parameters found, please find the tsFunction in console</Div>\n    );\n  }\n\n  const renderResult = () => {\n    return (\n      <Div>\n        {result?.isUnauthorized ? (\n          <P className=\"text-red-500 font-bold\">Unauthorized!</P>\n        ) : null}\n        {result?.errors?.map((error) => (\n          <P className=\"text-red-500\">{error.error}</P>\n        ))}\n        {result?.message ? (\n          <P\n            className={result.isSuccessful ? \"text-green-500\" : \"text-red-500\"}\n          >\n            {result.message}\n          </P>\n        ) : null}\n\n        {result?.result ? (\n          <textarea\n            className=\"w-full h-[300px]\"\n            value={JSON.stringify(result.result, undefined, 2)}\n          />\n        ) : null}\n      </Div>\n    );\n  };\n  return (\n    <Div>\n      <FormContainer\n        isLoading={isLoading}\n        onSubmit={async () => {\n          setIsLoading(true);\n\n          if (submitFunction) {\n            //@ts-ignore\n            const result = await submitFunction(...values);\n            withResult?.(result);\n\n            setIsLoading(false);\n\n            return;\n          }\n\n          // @ts-ignore\n          const apiFunction = api[name];\n\n          if (!apiFunction || typeof apiFunction !== \"function\") {\n            showStandardResponse({\n              isSuccessful: false,\n              message: \"Could not find this function in the SDK\",\n            });\n            setIsLoading(false);\n            return;\n          }\n\n          // Apply it if it's there\n          const apiResult = await apiFunction(...values);\n          setResult(apiResult);\n\n          if (withApiResult) {\n            withApiResult(apiResult);\n          } else {\n            showStandardResponse(apiResult);\n          }\n\n          setIsLoading(false);\n        }}\n      >\n        {showResult ? renderResult() : null}\n\n        <SimplifiedSchemaForm\n          projectRelativeStorageFilePath={projectRelativeStorageFilePath}\n          modelName={modelName}\n          parameters={slicedParameters}\n          id={name}\n          onChange={(values) => {\n            setValues(values);\n          }}\n          values={values}\n          referencableModelData={{}}\n        />\n      </FormContainer>\n    </Div>\n  );\n}"
   },
   "AuthenticationLayout": {
     "name": "AuthenticationLayout",
@@ -10096,10 +10120,18 @@
   "ReaderPageContent": {
     "name": "ReaderPageContent",
     "slug": "TsFunction",
-    "id": "mmmfveygagwrqgiaqapletnn",
+    "id": "zdemfwlgolopmzfnbqpmlmiu",
+    "description": "This is rendering a `WebMarkdownFile` and optionally navigation.",
+    "operationName": "reader-ui",
+    "rawText": " (props: ReaderPageContentProps) => {\n  const router = useRouter();\n  const queryPath = getQueryPath(router.query);\n  const [_, setIsMobileMenuEnabled] = useStore(\"menu.isMobileMenuEnabled\");\n\n  const {\n    augmentedWordObject,\n    children,\n    description,\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n    title,\n  } = props;\n\n  console.log(\"HALLOOOO\", { markdownFile, props });\n  const [view, setView] = useState(\"view\" as \"view\" | \"presentation\");\n\n  const renderBottomNavigation = () => {\n    return (\n      <Div className=\"flex flex-row w-full justify-between\">\n        {previousQueryPath ? (\n          <ALink href={`${previousQueryPath}`}>\n            <Div className=\"w-60 h-40 border-2 border-black rounded-3xl m-4 p-4 flex flex-col justify-center items-center\">\n              <P className=\"font-bold text-xl\">\n                {previousQueryPath.split(\"/\").pop()}\n              </P>\n              <P className=\"font-bold text-6xl\">⬅</P>\n            </Div>\n          </ALink>\n        ) : (\n          <Div />\n        )}\n\n        {nextQueryPath ? (\n          <ALink href={`${nextQueryPath}`}>\n            <Div className=\"w-60 h-40 border-2 border-black rounded-3xl m-4 p-4 flex flex-col justify-center items-center\">\n              <P className=\"font-bold text-xl\">\n                {nextQueryPath.split(\"/\").pop()}\n              </P>\n              <P className=\"font-bold text-6xl\">➡</P>\n            </Div>\n          </ALink>\n        ) : (\n          <Div />\n        )}\n      </Div>\n    );\n  };\n\n  const markdownParse: MarkdownParse | null = markdownFile?.markdown\n    ? mdToJsonParse(markdownFile?.markdown)\n    : null;\n\n  const renderMarkdownView = () => {\n    const projectRelativeMarkdownFilePath = projectRelativeMarkdownPath;\n    const projectRelativeBaseFolderPath = projectRelativeMarkdownPath\n      ? getFolderJs(projectRelativeMarkdownPath)\n      : undefined;\n\n    if (\n      !markdownParse ||\n      projectRelativeBaseFolderPath === undefined ||\n      projectRelativeMarkdownFilePath === undefined ||\n      projectRelativeMarkdownFilePath === null\n    ) {\n      return null;\n    }\n\n    const markdownParseRenderConfig = {\n      augmentedWordObject,\n      projectRelativeBaseFolderPath,\n      projectRelativeMarkdownFilePath,\n      isDev,\n      isStatic: true,\n    };\n\n    return (\n      <MarkdownView\n        markdownParse={markdownParse}\n        markdownParseRenderConfig={markdownParseRenderConfig}\n        view={view}\n      />\n    );\n  };\n\n  const renderPage = () => {\n    const hasNoMainTitle =\n      markdownParse?.content?.filter((x) => !!x.title && x.level === 1)\n        .length !== 1;\n\n    // console.log({ hasNoMainTitle, f: props.markdownFile?.name });\n\n    return (\n      <Div>\n        <Div className=\"flex flex-row justify-between\">\n          {queryPath.length > 1 ? (\n            <ClickableIcon\n              emoji=\"⬅\"\n              onClick={() => {\n                const parts = queryPath.split(\"/\");\n                parts.pop();\n                const oneFolderUp = parts.join(\"/\");\n                router.push(oneFolderUp.length === 0 ? \"/\" : oneFolderUp);\n              }}\n            />\n          ) : null}\n\n          <Div className=\"flex flex-row\">\n            <Div className=\"lg:hidden\">\n              <ClickableIcon\n                emoji=\"⃛\"\n                onClick={() => {\n                  setIsMobileMenuEnabled(true);\n                }}\n              />\n            </Div>\n            <ClickableIcon\n              emoji=\"👁\"\n              onClick={() => {\n                setView(view === \"presentation\" ? \"view\" : \"presentation\");\n              }}\n            />\n          </Div>\n        </Div>\n\n        {hasNoMainTitle && markdownFile?.name ? (\n          <P className=\"text-3xl\">{humanCase(markdownFile.name)}</P>\n        ) : null}\n\n        {renderMarkdownView()}\n\n        {previousQueryPath || nextQueryPath ? renderBottomNavigation() : null}\n      </Div>\n    );\n  };\n\n  const renderNav = () => {\n    return (\n      <Div>\n        <Div className=\"flex flex-row items-center\">\n          <ClickableIcon\n            emoji=\"⬅\"\n            onClick={() => {\n              const parts = queryPath.split(\"/\");\n              parts.pop();\n              const oneFolderUp = parts.join(\"/\");\n              router.push(oneFolderUp.length === 0 ? \"/\" : oneFolderUp);\n            }}\n          />\n          <P className=\"text-xl lg:text-4xl w-full\">&nbsp;&nbsp;{title}</P>\n\n          <Div className=\"lg:hidden\">\n            <ClickableIcon\n              emoji=\"⃛\"\n              onClick={() => {\n                setIsMobileMenuEnabled(true);\n              }}\n            />\n          </Div>\n        </Div>\n\n        {description && projectRelativeMarkdownPath ? (\n          <Div>\n            {renderMarkdownContent(description, {\n              projectRelativeMarkdownFilePath: projectRelativeMarkdownPath,\n              augmentedWordObject,\n              projectRelativeBaseFolderPath: getFolderJs(\n                projectRelativeMarkdownPath\n              )!,\n            })}\n          </Div>\n        ) : null}\n\n        <Div className=\"flex flex-row flex-wrap\">\n          {children?.map((child, index) => {\n            return (\n              <ALink\n                key={`child${child.projectRelativeMarkdownPath}-${index}`}\n                href={`${queryPath}/${child.folderName}`}\n              >\n                <Div className=\"w-60 border-2 border-black rounded-3xl m-4 p-4 flex flex-col justify-center items-center\">\n                  <P className=\"font-bold text-xl\">{child.title}</P>\n                  {child.firstParagraph && child.projectRelativeMarkdownPath ? (\n                    <Div>\n                      {renderMarkdownContent(child.firstParagraph, {\n                        projectRelativeBaseFolderPath: getFolderJs(\n                          child.projectRelativeMarkdownPath\n                        )!,\n                        projectRelativeMarkdownFilePath:\n                          child.projectRelativeMarkdownPath,\n                        augmentedWordObject,\n                      })}\n                    </Div>\n                  ) : null}\n                </Div>\n              </ALink>\n            );\n          })}\n        </Div>\n      </Div>\n    );\n  };\n\n  console.log({ markdownFile });\n  return (\n    <Div>\n      {markdownFile?.headerImage ||\n      markdownFile?.headerTitle ||\n      markdownFile?.header_markdownCallToActionSlugs ? (\n        <ReaderPageHeader\n          markdownFile={markdownFile}\n          projectRelativeMarkdownPath={projectRelativeMarkdownPath}\n        />\n      ) : null}\n      <Div className=\"pb-4 px-4\">\n        {props.children ? renderNav() : renderPage()}\n      </Div>\n    </Div>\n  );\n}"
+  },
+  "ReaderPageHeader": {
+    "name": "ReaderPageHeader",
+    "slug": "TsFunction",
+    "id": "zacufhmxjxzzwxolprlxucof",
     "description": "",
     "operationName": "reader-ui",
-    "rawText": " (props: ReaderPageContentProps) => {\n  const router = useRouter();\n  const queryPath = getQueryPath(router.query);\n  const [_, setIsMobileMenuEnabled] = useStore(\"menu.isMobileMenuEnabled\");\n\n  const {\n    augmentedWordObject,\n    children,\n    description,\n    markdownFile,\n    nextQueryPath,\n    previousQueryPath,\n    projectRelativeMarkdownPath,\n    title,\n  } = props;\n\n  const [view, setView] = useState(\"view\" as \"view\" | \"presentation\");\n\n  const renderBottomNavigation = () => {\n    return (\n      <Div className=\"flex flex-row w-full justify-between\">\n        {previousQueryPath ? (\n          <ALink href={`${previousQueryPath}`}>\n            <Div className=\"w-60 h-40 border-2 border-black rounded-3xl m-4 p-4 flex flex-col justify-center items-center\">\n              <P className=\"font-bold text-xl\">\n                {previousQueryPath.split(\"/\").pop()}\n              </P>\n              <P className=\"font-bold text-6xl\">⬅</P>\n            </Div>\n          </ALink>\n        ) : (\n          <Div />\n        )}\n\n        {nextQueryPath ? (\n          <ALink href={`${nextQueryPath}`}>\n            <Div className=\"w-60 h-40 border-2 border-black rounded-3xl m-4 p-4 flex flex-col justify-center items-center\">\n              <P className=\"font-bold text-xl\">\n                {nextQueryPath.split(\"/\").pop()}\n              </P>\n              <P className=\"font-bold text-6xl\">➡</P>\n            </Div>\n          </ALink>\n        ) : (\n          <Div />\n        )}\n      </Div>\n    );\n  };\n\n  const markdownParse: MarkdownParse | null = markdownFile?.markdown\n    ? mdToJsonParse(markdownFile?.markdown)\n    : null;\n\n  const renderMarkdownView = () => {\n    const projectRelativeMarkdownFilePath = projectRelativeMarkdownPath;\n    const projectRelativeBaseFolderPath = projectRelativeMarkdownPath\n      ? getFolderJs(projectRelativeMarkdownPath)\n      : undefined;\n\n    if (\n      !markdownParse ||\n      projectRelativeBaseFolderPath === undefined ||\n      projectRelativeMarkdownFilePath === undefined ||\n      projectRelativeMarkdownFilePath === null\n    ) {\n      return null;\n    }\n\n    const markdownParseRenderConfig = {\n      augmentedWordObject,\n      projectRelativeBaseFolderPath,\n      projectRelativeMarkdownFilePath,\n      isDev,\n      isStatic: true,\n    };\n\n    return (\n      <MarkdownView\n        markdownParse={markdownParse}\n        markdownParseRenderConfig={markdownParseRenderConfig}\n        view={view}\n      />\n    );\n  };\n\n  const renderPage = () => {\n    const hasNoMainTitle =\n      markdownParse?.content?.filter((x) => !!x.title && x.level === 1)\n        .length !== 1;\n\n    // console.log({ hasNoMainTitle, f: props.markdownFile?.name });\n\n    return (\n      <Div>\n        <Div className=\"flex flex-row justify-between\">\n          {queryPath.length > 1 ? (\n            <ClickableIcon\n              emoji=\"⬅\"\n              onClick={() => {\n                const parts = queryPath.split(\"/\");\n                parts.pop();\n                const oneFolderUp = parts.join(\"/\");\n                router.push(oneFolderUp.length === 0 ? \"/\" : oneFolderUp);\n              }}\n            />\n          ) : null}\n\n          <Div className=\"flex flex-row\">\n            <Div className=\"lg:hidden\">\n              <ClickableIcon\n                emoji=\"⃛\"\n                onClick={() => {\n                  setIsMobileMenuEnabled(true);\n                }}\n              />\n            </Div>\n            <ClickableIcon\n              emoji=\"👁\"\n              onClick={() => {\n                setView(view === \"presentation\" ? \"view\" : \"presentation\");\n              }}\n            />\n          </Div>\n        </Div>\n\n        {hasNoMainTitle && markdownFile?.name ? (\n          <P className=\"text-3xl\">{humanCase(markdownFile.name)}</P>\n        ) : null}\n\n        {renderMarkdownView()}\n\n        {previousQueryPath || nextQueryPath ? renderBottomNavigation() : null}\n      </Div>\n    );\n  };\n\n  const renderNav = () => {\n    return (\n      <Div>\n        <Div className=\"flex flex-row items-center\">\n          <ClickableIcon\n            emoji=\"⬅\"\n            onClick={() => {\n              const parts = queryPath.split(\"/\");\n              parts.pop();\n              const oneFolderUp = parts.join(\"/\");\n              router.push(oneFolderUp.length === 0 ? \"/\" : oneFolderUp);\n            }}\n          />\n          <P className=\"text-xl lg:text-4xl w-full\">&nbsp;&nbsp;{title}</P>\n\n          <Div className=\"lg:hidden\">\n            <ClickableIcon\n              emoji=\"⃛\"\n              onClick={() => {\n                setIsMobileMenuEnabled(true);\n              }}\n            />\n          </Div>\n        </Div>\n\n        {description && projectRelativeMarkdownPath ? (\n          <Div>\n            {renderMarkdownContent(description, {\n              projectRelativeMarkdownFilePath: projectRelativeMarkdownPath,\n              augmentedWordObject,\n              projectRelativeBaseFolderPath: getFolderJs(\n                projectRelativeMarkdownPath\n              )!,\n            })}\n          </Div>\n        ) : null}\n\n        <Div className=\"flex flex-row flex-wrap\">\n          {children?.map((child, index) => {\n            return (\n              <ALink\n                key={`child${child.projectRelativeMarkdownPath}-${index}`}\n                href={`${queryPath}/${child.folderName}`}\n              >\n                <Div className=\"w-60 border-2 border-black rounded-3xl m-4 p-4 flex flex-col justify-center items-center\">\n                  <P className=\"font-bold text-xl\">{child.title}</P>\n                  {child.firstParagraph && child.projectRelativeMarkdownPath ? (\n                    <Div>\n                      {renderMarkdownContent(child.firstParagraph, {\n                        projectRelativeBaseFolderPath: getFolderJs(\n                          child.projectRelativeMarkdownPath\n                        )!,\n                        projectRelativeMarkdownFilePath:\n                          child.projectRelativeMarkdownPath,\n                        augmentedWordObject,\n                      })}\n                    </Div>\n                  ) : null}\n                </Div>\n              </ALink>\n            );\n          })}\n        </Div>\n      </Div>\n    );\n  };\n\n  return (\n    <Div className=\"pb-4 px-4\">\n      {props.children ? renderNav() : renderPage()}\n    </Div>\n  );\n}"
+    "rawText": " (props: {\n  markdownFile?: WebMarkdownFile | null;\n  projectRelativeMarkdownPath?: string | null;\n}) => {\n  const { markdownFile, projectRelativeMarkdownPath } = props;\n\n  if (!markdownFile) return null;\n\n  const { src } = destructureOptionalObject(\n    useAsset(markdownFile.headerImage, projectRelativeMarkdownPath, !isDev)\n  );\n\n  return (\n    <Div\n      style={{\n        backgroundImage: src ? `url(\"${src}\")` : undefined,\n        backgroundRepeat: \"no-repeat\",\n        backgroundSize: \"cover\",\n      }}\n      className={`w-full ${\n        markdownFile.headerBig ? \"h-screen\" : \"h-[350px]\"\n      } flex flex-col items-center justify-center`}\n    >\n      {markdownFile.headerTitle ? (\n        <P className=\"drop-shadow-lg decoration-8 font-bold text-white text-4xl\">\n          {markdownFile.headerTitle}\n        </P>\n      ) : null}\n      {markdownFile.headerSubTitle ? (\n        <P className=\"drop-shadow-lg text-white text-2xl\">\n          {markdownFile.headerSubTitle}\n        </P>\n      ) : null}\n\n      {markdownFile.header_markdownCallToActions?.map((cta) => {\n        const { title, description, ctaButtonText, hostname, path } = cta;\n        console.log({ cta, ctaButtonText, hostname });\n        return (\n          <ALink\n            href={path}\n            title={description}\n            className=\"bg-blue-500 rounded-full p-4 flex items-center justify-center\"\n          >\n            {title}\n          </ALink>\n        );\n      })}\n    </Div>\n  );\n}"
   },
   "ArrayForm": {
     "name": "ArrayForm",
@@ -10374,14 +10406,6 @@
     "description": "",
     "operationName": "geo-parse",
     "rawText": " async () => {\n  const citiesJson = await readJsonFile<\n    { country: string; name: string; lat: string; lng: string }[]\n  >(getDbPath(\"cities.json\"));\n\n  const kvmdArray: Storing<Location>[] = countriesJson\n    .map((country) => {\n      const cities: Storing<Location>[] =\n        citiesJson\n          ?.map((item) => ({\n            countryCode2Letters: item.country,\n            city: item.name,\n            latitude: item.lat,\n            longitude: item.lng,\n          }))\n\n          .filter((item) => item.countryCode2Letters === country.code2Letters)\n          .map((item) => {\n            const kvmdCity: Storing<Location> = {\n              name: item.city,\n              slug: kebabCase(item.city),\n              id: kebabCase(item.city),\n              categoryStackCalculated: [],\n              comment: null,\n              isHeaderCalculated: false,\n              value: `${item.latitude};${item.longitude}`,\n              parent_locationSlug: kebabCase(country.name),\n            };\n\n            return kvmdCity;\n          }) || [];\n\n      const kvmdCountry: Storing<Location> = {\n        name: country.name,\n        slug: kebabCase(country.name),\n        id: kebabCase(country.name),\n        comment: null,\n        value: `${country.latitude};${country.longitude}`,\n        parent_locationSlug: kebabCase(country.subContinent),\n        categoryStackCalculated: [],\n        isHeaderCalculated: true,\n      };\n\n      const countryCityArray: Storing<Location>[] = [kvmdCountry, ...cities];\n\n      return countryCityArray;\n    })\n    .flat();\n\n  const kvmdParse: KeyValueMarkdownParse = {\n    data: kvmdArray.map((x) => ({\n      ...x,\n      operationName: \"geo-types\",\n      projectRelativePath: \"\",\n      operationRelativePath: \"db/locations.md\",\n    })),\n    parameters: {},\n  };\n\n  const mdString = kvmdParseToMarkdownString(kvmdParse);\n\n  const result = await writeStringToFile(getDbPath(\"locations.md\"), mdString);\n}"
-  },
-  "parse": {
-    "name": "parse",
-    "slug": "TsFunction",
-    "id": "xulhfvhnldgzvnaowmhdtijt",
-    "description": "",
-    "operationName": "parse-address-henrik",
-    "rawText": " async () => {\n  const dataPath = path.join(__dirname, \"..\", \"data\", \"test.csv\");\n  const result = (await readCsvFile(dataPath)) as OldFormat[];\n\n  const newFormatArray: NewFormat[] = result.map(oldToNew);\n\n  const newFormatCsvString: string = createCsvString(newFormatArray);\n\n  const newFilePath = path.join(__dirname, \"..\", \"data\", \"result.csv\");\n\n  await fs.writeFile(newFilePath, newFormatCsvString, \"utf-8\");\n\n  return;\n}"
   },
   "rawPolygonToPolygon": {
     "name": "rawPolygonToPolygon",
@@ -12085,6 +12109,22 @@
     "description": "Asset you can upload\n\nThis is not a database model, it can exist in properties of any db model or type interface.\n\nOnly `alt` and `relativePath` are stored, the other parameters are optionally required for uploading and user interfaces, and are not always there\n\nNB: don't use this in your model, use `StoredAsset` instead.",
     "operationName": "asset-view"
   },
+  "AssetInputType": {
+    "name": "AssetInputType",
+    "slug": "TsInterface",
+    "id": "assetinputtype",
+    "description": "",
+    "operationName": "name-conventions",
+    "rawText": "\n\nexport type AssetInputType = {\n  type: \"image\" | \"video\" | \"audio\" | \"file\" | \"asset\";\n  isMultiple: boolean;\n};"
+  },
+  "AssetParameter": {
+    "name": "AssetParameter",
+    "slug": "TsInterface",
+    "id": "assetparameter",
+    "description": "",
+    "operationName": "asset-functions-js",
+    "rawText": "\n\nexport type AssetParameter = {\n  assetInputType: AssetInputType;\n  parameterName: string;\n  /**\n   * where the object parameter is located\n   */\n  stack?: string[];\n};"
+  },
   "NamedParameters<typeof addToken>": {
     "name": "NamedParameters<typeof addToken>",
     "slug": "TsInterface",
@@ -12099,10 +12139,24 @@
     "description": "",
     "operationName": "asset-functions-js"
   },
+  "NamedParameters<typeof findAssetParametersRecursively>": {
+    "name": "NamedParameters<typeof findAssetParametersRecursively>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-findassetparametersrecursively",
+    "description": "",
+    "operationName": "asset-functions-js"
+  },
   "NamedParameters<typeof getAssetDirectlyApiUrl>": {
     "name": "NamedParameters<typeof getAssetDirectlyApiUrl>",
     "slug": "TsInterface",
     "id": "namedparameterstypeof-getassetdirectlyapiurl",
+    "description": "",
+    "operationName": "asset-functions-js"
+  },
+  "NamedParameters<typeof getConversionInfoFromType>": {
+    "name": "NamedParameters<typeof getConversionInfoFromType>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-getconversioninfofromtype",
     "description": "",
     "operationName": "asset-functions-js"
   },
@@ -12124,13 +12178,6 @@
     "name": "NamedParameters<typeof getNameWithTokenFromRelativePath>",
     "slug": "TsInterface",
     "id": "namedparameterstypeof-getnamewithtokenfromrelativepath",
-    "description": "",
-    "operationName": "asset-functions-js"
-  },
-  "NamedParameters<typeof getPreferredExtensionFromType>": {
-    "name": "NamedParameters<typeof getPreferredExtensionFromType>",
-    "slug": "TsInterface",
-    "id": "namedparameterstypeof-getpreferredextensionfromtype",
     "description": "",
     "operationName": "asset-functions-js"
   },
@@ -12162,21 +12209,12 @@
     "description": "",
     "operationName": "asset-functions-js"
   },
-  "AssetInputType": {
-    "name": "AssetInputType",
+  "NamedParameters<typeof test>": {
+    "name": "NamedParameters<typeof test>",
     "slug": "TsInterface",
-    "id": "assetinputtype",
+    "id": "namedparameterstypeof-test",
     "description": "",
-    "operationName": "name-conventions",
-    "rawText": "\n\nexport type AssetInputType = {\n  type: \"image\" | \"video\" | \"audio\" | \"file\" | \"asset\";\n  isMultiple: boolean;\n};"
-  },
-  "AssetParameter": {
-    "name": "AssetParameter",
-    "slug": "TsInterface",
-    "id": "assetparameter",
-    "description": "",
-    "operationName": "asset-functions-node",
-    "rawText": "\n\nexport type AssetParameter = {\n  assetInputType: AssetInputType;\n  parameterName: string;\n  /**\n   * where the object parameter is located\n   */\n  stack?: string[];\n};"
+    "operationName": "rebuild-operation"
   },
   "BackendAsset": {
     "name": "BackendAsset",
@@ -12242,13 +12280,6 @@
     "description": "",
     "operationName": "asset-functions-node"
   },
-  "NamedParameters<typeof findAssetParametersRecursively>": {
-    "name": "NamedParameters<typeof findAssetParametersRecursively>",
-    "slug": "TsInterface",
-    "id": "namedparameterstypeof-findassetparametersrecursively",
-    "description": "",
-    "operationName": "asset-functions-node"
-  },
   "NamedParameters<typeof getStorageLocationInfo>": {
     "name": "NamedParameters<typeof getStorageLocationInfo>",
     "slug": "TsInterface",
@@ -12283,13 +12314,6 @@
     "id": "namedparameterstypeof-serverdownloadreply",
     "description": "",
     "operationName": "asset-functions-node"
-  },
-  "NamedParameters<typeof test>": {
-    "name": "NamedParameters<typeof test>",
-    "slug": "TsInterface",
-    "id": "namedparameterstypeof-test",
-    "description": "",
-    "operationName": "rebuild-operation"
   },
   "NamedParameters<typeof uploadAssetWithContext>": {
     "name": "NamedParameters<typeof uploadAssetWithContext>",
@@ -13878,7 +13902,7 @@
     "id": "createbundleconfig",
     "description": "",
     "operationName": "bundle-types",
-    "rawText": "\n\nexport type CreateBundleConfig = {\n  /**\n   * You can specify `Slug`s of other `BundleConfig`s here that this bundle should inherit from, recursively.\n   *\n   * Works a little like https://www.typescriptlang.org/tsconfig#extends\n   *\n   * Will only inherit the apps, packages, and modules, nothing else.\n   *\n   * # How it works\n   *\n   * 1) finds all unique `BundleConfig`s that need to be inherited, recursively,\n   * 2) make a `BundleSummary` of every `BundleConfig`\n   * 3) merge the `BundleSummary`s and omit duplicates\n   *\n   * TODO: Implement this\n   */\n  inheritFrom_bundleConfigSlugs?: Slug[];\n  /**\n   * If true, the structure of operation locations is kept the same but still inside packages/apps/modules.\n   */\n  keepStructure?: boolean;\n\n  keepCodestories?: boolean;\n  /**\n   * Default information strategy\n   */\n  informationStrategy?: InformationStrategy;\n\n  /**\n   * Information strategy per model\n   *\n   * For example, this would ensure your diaries are not copied over to the bundle:\n   *\n   * ```json\n   * { \"Diary\": \"ignore\" }\n   * ```\n   *\n   * If you want to be certain something isn't included, instead of putting it into the model specific information strategy, you can also just put it in an operation that isn't required in the bundle.\n   *\n   * This parameter is especially useful if you want to change a information stategy for one model in specific.\n   */\n  modelInformationStrategy?: {\n    [modelName: string]: InformationStrategy;\n  };\n\n  /**\n   * After applying the `informationStrategy`, and `modelInformationStrategy`, these datasets will be added or overwriting the data\n   */\n  additional_datasetSlugs?: Slug[];\n\n  /**\n   * After applying the `informationStrategy`, and `modelInformationStrategy`, these datasets will be found in the then available data in the bundle, and will be filtered out.\n   */\n  filter_datasetSlugs?: Slug[];\n\n  /**\n   * If true, this bundleconfig will be skipped when using `generateAllBundles`\n   */\n  isDraft?: boolean;\n\n  /**\n   * if true, todos are also copied into their original location, which is in `packages` if it's not in an operation, or in the operation in any of the folders if it's an operation.\n   *\n   * The markdown-reader will then add them to a todo menu.\n   *\n   * NB: Only works in conjunction with `keepStructure`\n   */\n  keepTodos?: boolean;\n\n  bundles: FrontBackBundle[];\n  /**\n   * Generated, private by default. If they're already here, uses private/public setting as given.\n   *\n   * When generating, removes the ones that are not dependencies (of dependencies) of your standalone apps\n   */\n  dependencies?: OperationPrivacy[];\n\n  /**\n   * optional. Could also find the main file from here and use that as README.md\n   *\n   * Must be a relative path from project root. Can be multiple!\n   */\n  docsRelativeFolderPath?:\n    | ProjectRelativeFolderPath\n    | ProjectRelativeFolderPath[];\n\n  /**\n   * Optional. path to a readme file for the monorepo root.\n   *\n   * If not given, and if you did provide a path for docs, the main docs intro file will be taken\n   *\n   * Must be a relative path from project  root\n   */\n  readmeRelativeFilePath?: ProjectRelativeFilePath;\n\n  /**\n   * if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n   *\n   * can be handy if you're working with someone else...\n   */\n  foldersFromRepo?: string[];\n};"
+    "rawText": "\n\nexport type CreateBundleConfig = {\n  /**\n   * You can specify `Slug`s of other `BundleConfig`s here that this bundle should inherit from, recursively.\n   *\n   * Works a little like https://www.typescriptlang.org/tsconfig#extends\n   *\n   * Will only inherit the apps, packages, and modules, nothing else.\n   *\n   * # How it works\n   *\n   * 1) finds all unique `BundleConfig`s that need to be inherited, recursively,\n   * 2) make a `BundleSummary` of every `BundleConfig`\n   * 3) merge the `BundleSummary`s and omit duplicates\n   *\n   * TODO: Implement this\n   */\n  inheritFrom_bundleConfigSlugs?: Slug[];\n  /**\n   * If true, the structure of operation locations is kept the same but still inside packages/apps/modules.\n   */\n  keepStructure?: boolean;\n\n  keepCodestories?: boolean;\n  /**\n   * Default information strategy\n   */\n  informationStrategy?: InformationStrategy;\n\n  /**\n   * Information strategy per model\n   *\n   * For example, this would ensure your diaries are not copied over to the bundle:\n   *\n   * ```json\n   * { \"Diary\": \"ignore\" }\n   * ```\n   *\n   * If you want to be certain something isn't included, instead of putting it into the model specific information strategy, you can also just put it in an operation that isn't required in the bundle.\n   *\n   * This parameter is especially useful if you want to change a information stategy for one model in specific.\n   */\n  modelInformationStrategy?: {\n    [modelName: string]: InformationStrategy;\n  };\n\n  /**\n   * After applying the `informationStrategy`, and `modelInformationStrategy`, these datasets will be added or overwriting the data\n   */\n  additional_datasetSlugs?: Slug[];\n\n  /**\n   * After applying the `informationStrategy`, and `modelInformationStrategy`, these datasets will be found in the then available data in the bundle, and will be filtered out.\n   */\n  filter_datasetSlugs?: Slug[];\n\n  /**\n   * If true, this bundleconfig will be skipped when using `generateAllBundles`\n   */\n  isDraft?: boolean;\n\n  /**\n   * if true, todos are also copied into their original location, which is in `packages` if it's not in an operation, or in the operation in any of the folders if it's an operation.\n   *\n   * The markdown-reader will then add them to a todo menu.\n   *\n   * NB: Only works in conjunction with `keepStructure`\n   */\n  keepTodos?: boolean;\n\n  bundles: FrontBackBundle[];\n  /**\n   * Generated, private by default. If they're already here, uses private/public setting as given.\n   *\n   * When generating, removes the ones that are not dependencies (of dependencies) of your standalone apps\n   */\n  dependencies?: OperationPrivacy[];\n\n  /**\n   * optional. Could also find the main file from here and use that as README.md\n   *\n   * Must be a relative path from project root. Can be multiple!\n   */\n  docsRelativeFolderPath?:\n    | ProjectRelativeFolderPath\n    | ProjectRelativeFolderPath[];\n\n  /**\n   * paths to image folders that should randomly be used as default headers or footers in the generated markdown.\n   */\n  imagesProjectRelativeFolderPaths?: ProjectRelativeFolderPath[];\n  /**\n   * Used to determine which images to show\n   */\n  deploymentHostname?: string;\n  /**\n   * Optional. path to a readme file for the monorepo root.\n   *\n   * If not given, and if you did provide a path for docs, the main docs intro file will be taken\n   *\n   * Must be a relative path from project  root\n   */\n  readmeRelativeFilePath?: ProjectRelativeFilePath;\n\n  /**\n   * if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n   *\n   * can be handy if you're working with someone else...\n   */\n  foldersFromRepo?: string[];\n};"
   },
   "CustomisableBundleConfig": {
     "name": "CustomisableBundleConfig",
@@ -16075,7 +16099,7 @@
     "id": "bundlemarkdownreaderconfig",
     "description": "",
     "operationName": "bundle-types",
-    "rawText": "export type BundleMarkdownReaderConfig = {\n  /**\n   * When set to `true`, docs are not shown in docs folder but in the root menu of the site\n   */\n  docsInRoot?: boolean;\n  /**\n   * Show todo menu\n   */\n  showTodos?: boolean;\n  /**\n   * `modules` will be hidden from markdown reader menu\n   */\n  omitModulesMenu?: boolean;\n  /**\n   * `apps` will be hidden from markdown reader menui\n   */\n  omitAppsMenu?: boolean;\n  /**\n   * if true, dictionary is omitted from menu\n   */\n  omitDictionaryMenu?: boolean;\n\n  /**\n   * `packages` will be hidden from markdown reader menu\n   */\n  omitPackagesMenu?: boolean;\n\n  /**\n   * if given, the operations menu will show with these operations\n   */\n  customOperationNames?: string[];\n};"
+    "rawText": "\n\nexport type BundleMarkdownReaderConfig = {\n  /**\n   * When set to `true`, docs are not shown in docs folder but in the root menu of the site\n   */\n  docsInRoot?: boolean;\n  /**\n   * Show todo menu\n   */\n  showTodos?: boolean;\n  /**\n   * `modules` will be hidden from markdown reader menu\n   */\n  omitModulesMenu?: boolean;\n  /**\n   * `apps` will be hidden from markdown reader menui\n   */\n  omitAppsMenu?: boolean;\n  /**\n   * if true, dictionary is omitted from menu\n   */\n  omitDictionaryMenu?: boolean;\n\n  /**\n   * `packages` will be hidden from markdown reader menu\n   */\n  omitPackagesMenu?: boolean;\n\n  /**\n   * if given, the operations menu will show with these operations\n   */\n  customOperationNames?: string[];\n};"
   },
   "NamedParameters<typeof copyStaticAssets>": {
     "name": "NamedParameters<typeof copyStaticAssets>",
@@ -16231,14 +16255,6 @@
     "id": "readerpagecontentprops",
     "description": "",
     "operationName": "reader-ui"
-  },
-  "WebMarkdownFile": {
-    "name": "WebMarkdownFile",
-    "slug": "TsInterface",
-    "id": "webmarkdownfile",
-    "description": "Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter\n\nNB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!",
-    "operationName": "markdown-types",
-    "rawText": "\n\n/**\n * Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter\n *\n * NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!\n */\nexport interface WebMarkdownFile\n  extends MarkdownModelType,\n    ExtendedMarkdownProperties,\n    WebMarkdownProperties,\n    PostableProperties {}"
   },
   "PreviewData": {
     "name": "PreviewData",
@@ -16636,8 +16652,7 @@
     "slug": "TsInterface",
     "id": "mediacredentail",
     "description": "",
-    "operationName": "social-media-types",
-    "rawText": "\n\nexport interface MediaCredentail extends DefaultModelType {\n  mediaType: MediaPlatformEnum;\n  email?: string;\n  password: string;\n  username?: string;\n  phoneNumber?: string;\n}"
+    "operationName": "peer-types"
   },
   "PageVisit": {
     "name": "PageVisit",
@@ -16660,7 +16675,7 @@
     "id": "persona",
     "description": "Highly private model.\n\nConfiguration for a person identity that you say that is you.\n\nAs a OS user you can have multiple personas between which you can easily switch.\n\nThe difference from `Person` is that `Person` stores other people, whereas `Persona` stores different identities you give to yourself.\n\nNB: brands should also be able to be personas, and since some brands are shared between people, you should be able to share Persona's with other `Person`s into their OS...\n\n> Persona: A persona, depending on the context, is the public image of one's personality, the social role that one adopts, or simply a fictional character. The word derives from Latin, where it originally referred to a theatrical mask. On the social web, users develop virtual personas as online identities. (Wikipedia)",
     "operationName": "peer-types",
-    "rawText": "\n/**\n * Highly private model.\n *\n * Configuration for a person identity that you say that is you.\n *\n * As a OS user you can have multiple personas between which you can easily switch.\n *\n * The difference from `Person` is that `Person` stores other people, whereas `Persona` stores different identities you give to yourself.\n *\n * NB: brands should also be able to be personas, and since some brands are shared between people, you should be able to share Persona's with other `Person`s into their OS...\n *\n * > Persona: A persona, depending on the context, is the public image of one's personality, the social role that one adopts, or simply a fictional character. The word derives from Latin, where it originally referred to a theatrical mask. On the social web, users develop virtual personas as online identities. (Wikipedia)\n */\nexport interface Persona extends SlugModelType {\n  /**\n   * If this is set to true, this persona instance will be selected when searching for a persona. Ensure that there is just one default persona!\n   *\n   * If none are `isPrimary`, the first persona instance can be selected\n   */\n  isPrimary?: boolean;\n  /**\n   * If true, this will pop up in persona selection\n   *\n   * If not, you can still find it using auto-complete, though\n   */\n  isFavorite?: boolean;\n\n  /**\n   * Some pictures that can be used that show this person\n   */\n  pictureImages?: BackendAsset[];\n\n  /**\n   * You can give different characteristics to your personas if you wish\n   */\n  dataEntries: PersonInformationValue[];\n\n  /** Interests this persona has\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  interestSlugs?: Slug[];\n  interests?: Interest[];\n\n  /**\n   * Where does this persona reside? can be multiple locations\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  locationSlugs?: Slug[];\n  locations?: Location[];\n\n  /**\n   * Languages that this persona can speak\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  spokenLanguages: Language[];\n\n  /**\n   * NB: should have a custom input in the `SimplifiedSchemaForm`\n   */\n  stripeSecret?: string;\n\n  twilioAccountSid?: string;\n  twilioAuthToken?: string;\n  /**\n   * Provide the phone number you are using by default for sending SMS messages\n   */\n  twilioFromPhoneNumber?: string;\n\n  sendgridApiKey?: string;\n  sendgridFromEmail?: string;\n\n  /**\n   * Github stuff\n   */\n  githubEmail?: string;\n  githubAccessToken?: string;\n  githubOrganisation?: string;\n  useGithubOrganisation?: boolean;\n\n  mediaCredentials: MediaCredentail[];\n}"
+    "rawText": "\n/**\n * Highly private model.\n *\n * Configuration for a person identity that you say that is you.\n *\n * As a OS user you can have multiple personas between which you can easily switch.\n *\n * The difference from `Person` is that `Person` stores other people, whereas `Persona` stores different identities you give to yourself.\n *\n * NB: brands should also be able to be personas, and since some brands are shared between people, you should be able to share Persona's with other `Person`s into their OS...\n *\n * > Persona: A persona, depending on the context, is the public image of one's personality, the social role that one adopts, or simply a fictional character. The word derives from Latin, where it originally referred to a theatrical mask. On the social web, users develop virtual personas as online identities. (Wikipedia)\n */\nexport interface Persona extends SlugModelType {\n  /**\n   * If this is set to true, this persona instance will be selected when searching for a persona. Ensure that there is just one default persona!\n   *\n   * If none are `isPrimary`, the first persona instance can be selected\n   */\n  isPrimary?: boolean;\n  /**\n   * If true, this will pop up in persona selection\n   *\n   * If not, you can still find it using auto-complete, though\n   */\n  isFavorite?: boolean;\n\n  /**\n   * Some pictures that can be used that show this person\n   */\n  pictureImages?: BackendAsset[];\n\n  /**\n   * You can give different characteristics to your personas if you wish\n   */\n  dataEntries: PersonInformationValue[];\n\n  /** Interests this persona has\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  interestSlugs?: Slug[];\n  interests?: Interest[];\n\n  /**\n   * Where does this persona reside? can be multiple locations\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  locationSlugs?: Slug[];\n  locations?: Location[];\n\n  /**\n   * Languages that this persona can speak\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  spokenLanguages: Language[];\n\n  /**\n   * NB: should have a custom input in the `SimplifiedSchemaForm`\n   */\n  stripeSecret?: string;\n\n  twilioAccountSid?: string;\n  twilioAuthToken?: string;\n  /**\n   * Provide the phone number you are using by default for sending SMS messages\n   */\n  twilioFromPhoneNumber?: string;\n\n  sendgridApiKey?: string;\n  sendgridFromEmail?: string;\n\n  /**\n   * Github stuff\n   */\n  githubEmail?: string;\n  githubAccessToken?: string;\n  githubOrganisation?: string;\n  useGithubOrganisation?: boolean;\n\n  mediaCredentialIds?: Id[];\n  mediaCredentials?: MediaCredentail[];\n}"
   },
   "PersonInformation": {
     "name": "PersonInformation",
@@ -16676,7 +16691,7 @@
     "id": "personinformationvalue",
     "description": "key value data storage model for information about a person\n\n- the filename must identify the person this is about (`personSlug`)\n- the categories are the different people and the person information categories\n- the keys are the person information datapoints\n- the values are the values of the datapoints that you stored about this user\n\nExample:\n\nthe file `person-information-values/abraham-lincoln.md` could contain something like this:\n\n```md\n# life\nborn: 11-01-1777\ndied: 20-12-1812\n\n# identification\nfirstName: Abraham\nlastName: Lincoln\n```\n\nNB: It's not going to be easy to keep this model in sync with the model it relies on!\n\nTODO: figure out if this kan be a `KeyValueMarkdownModelType` or `MarkdownModelType`",
     "operationName": "peer-types",
-    "rawText": "\n\n/** key value data storage model for information about a person\n *\n * - the filename must identify the person this is about (`personSlug`)\n * - the categories are the different people and the person information categories\n * - the keys are the person information datapoints\n * - the values are the values of the datapoints that you stored about this user\n *\n * Example:\n *\n * the file `person-information-values/abraham-lincoln.md` could contain something like this:\n *\n * ```md\n * # life\n * born: 11-01-1777\n * died: 20-12-1812\n *\n * # identification\n * firstName: Abraham\n * lastName: Lincoln\n * ```\n *\n * NB: It's not going to be easy to keep this model in sync with the model it relies on!\n *\n * TODO: figure out if this kan be a `KeyValueMarkdownModelType` or `MarkdownModelType`\n */\nexport interface PersonInformationValue extends DefaultModelType {}"
+    "rawText": "\n\n/** key value data storage model for information about a person\n *\n * - the filename must identify the person this is about (`personSlug`)\n * - the categories are the different people and the person information categories\n * - the keys are the person information datapoints\n * - the values are the values of the datapoints that you stored about this user\n *\n * Example:\n *\n * the file `person-information-values/abraham-lincoln.md` could contain something like this:\n *\n * ```md\n * # life\n * born: 11-01-1777\n * died: 20-12-1812\n *\n * # identification\n * firstName: Abraham\n * lastName: Lincoln\n * ```\n *\n * NB: It's not going to be easy to keep this model in sync with the model it relies on!\n *\n * TODO: figure out if this kan be a `KeyValueMarkdownModelType` or `MarkdownModelType`\n */\nexport interface PersonInformationValue extends DefaultModelType {\n  personId: Id;\n  personInformationSlug: Slug;\n  value: string;\n}"
   },
   "PersonPlatformConnection": {
     "name": "PersonPlatformConnection",
@@ -16904,7 +16919,15 @@
     "id": "mediachannel",
     "description": "channel where messages can be posted to\n\nexamples:\n- facebook group\n- slack channel\n- whatsapp pm\n- facebook pm",
     "operationName": "social-media-types",
-    "rawText": "\n/** channel where messages can be posted to\n *\n * examples:\n * - facebook group\n * - slack channel\n * - whatsapp pm\n * - facebook pm\n */\nexport interface MediaChannel extends DefaultModelType {\n  platformSlug: Slug;\n  /** way to identify the channel on the platform\n   *\n   * e.g. on slack we can say `xyz/meet` for the `#meet` channel on the `xyz` slack\n   */\n  platformChannelId: string;\n  url?: string;\n  name: string;\n  slug: string;\n  description?: string;\n\n  /** if true, this channel is a group */\n  isGroup?: boolean;\n\n  /** ids that each identify a `Person` that is part of this channel. Isn't always available */\n  memberPersonIds?: Id[];\n\n  /**\n   * The below parameters should ONLY be used if the instance is a channel for a group.\n   * if this is a channel for a person, the interests should be stored on the person instead.\n   */\n\n  /** group-only: interests this group has */\n  interestSlugs?: Slug[];\n  interests?: Interest[];\n\n  /** group-only: most specific location of the people in this channel (if any) */\n  locationSlug?: Slug;\n  location?: Location;\n\n  /** group-only: preferred spoken language in this channel. `Postable` should be translated into this language */\n  language: Language;\n\n  /**\n   * Which account do you want to use to post something in this channel?\n   *\n   * TODO: maybe refactor this to use `Persona` and match the persona automatically based on interests, location, and language, then get the mediaCredential for the platform from the `Persona` that matches this channel the most...\n   */\n  mediaCredentialId?: Id;\n  mediaCredential?: MediaCredentail;\n\n  /** when did you make your last post? */\n  myLastPostAt: number;\n}"
+    "rawText": "\n/** channel where messages can be posted to\n *\n * examples:\n * - facebook group\n * - slack channel\n * - whatsapp pm\n * - facebook pm\n */\nexport interface MediaChannel extends DefaultModelType {\n  platformSlug: Slug;\n  /** way to identify the channel on the platform\n   *\n   * e.g. on slack we can say `xyz/meet` for the `#meet` channel on the `xyz` slack\n   */\n  platformChannelId: string;\n  url?: string;\n  name: string;\n  slug: string;\n  description?: string;\n\n  /** if true, this channel is a group */\n  isGroup?: boolean;\n\n  /** ids that each identify a `Person` that is part of this channel. Isn't always available */\n  memberPersonIds?: Id[];\n\n  /**\n   * The below parameters should ONLY be used if the instance is a channel for a group.\n   * if this is a channel for a person, the interests should be stored on the person instead.\n   */\n\n  /** group-only: interests this group has */\n  interestSlugs?: Slug[];\n  interests?: Interest[];\n\n  /** group-only: most specific location of the people in this channel (if any) */\n  locationSlug?: Slug;\n  location?: Location;\n\n  /** group-only: preferred spoken language in this channel. `Postable` should be translated into this language */\n  language: Language;\n\n  /**\n   * Which account do you want to use to post something in this channel?\n   *\n   * TODO: maybe refactor this to use `Persona` and match the persona automatically based on interests, location, and language, then get the mediaCredential for the platform from the `Persona` that matches this channel the most...\n   */\n  mediaCredentialId?: Id;\n  mediaCredential?: MediaCredential;\n\n  /** when did you make your last post? */\n  myLastPostAt: number;\n}"
+  },
+  "MediaCredential": {
+    "name": "MediaCredential",
+    "slug": "TsInterface",
+    "id": "mediacredential",
+    "description": "",
+    "operationName": "social-media-types",
+    "rawText": "\n\nexport interface MediaCredential extends DefaultModelType {\n  mediaType: MediaPlatformEnum;\n  email?: string;\n  password: string;\n  username?: string;\n  phoneNumber?: string;\n}"
   },
   "MediaPlatformEnum": {
     "name": "MediaPlatformEnum",
@@ -16929,6 +16952,71 @@
     "description": "",
     "operationName": "social-media-types",
     "rawText": "export interface SocialMediaPostTypeReturnType {\n  isSuccess: boolean;\n  message: string;\n  postUrl?: string;\n}"
+  },
+  "FrontmatterParse": {
+    "name": "FrontmatterParse",
+    "slug": "TsInterface",
+    "id": "frontmatterparse",
+    "description": "",
+    "operationName": "matter-types",
+    "rawText": "export type FrontmatterParse = {\n  [frontmatterKey: string]: any;\n};"
+  },
+  "FrontmatterValue": {
+    "name": "FrontmatterValue",
+    "slug": "TsInterface",
+    "id": "frontmattervalue",
+    "description": "",
+    "operationName": "frontmatter-util",
+    "rawText": "export type FrontmatterValue =\n  | string\n  | number\n  | boolean\n  | string[]\n  | null\n  | undefined;"
+  },
+  "NamedParameters<typeof frontmatterParseToString>": {
+    "name": "NamedParameters<typeof frontmatterParseToString>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-frontmatterparsetostring",
+    "description": "",
+    "operationName": "frontmatter-util"
+  },
+  "NamedParameters<typeof frontmatterToObject>": {
+    "name": "NamedParameters<typeof frontmatterToObject>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-frontmattertoobject",
+    "description": "",
+    "operationName": "frontmatter-util"
+  },
+  "NamedParameters<typeof getFrontmatterValueString>": {
+    "name": "NamedParameters<typeof getFrontmatterValueString>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-getfrontmattervaluestring",
+    "description": "",
+    "operationName": "frontmatter-util"
+  },
+  "NamedParameters<typeof objectToFrontmatter>": {
+    "name": "NamedParameters<typeof objectToFrontmatter>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-objecttofrontmatter",
+    "description": "",
+    "operationName": "frontmatter-util"
+  },
+  "NamedParameters<typeof parseFrontmatterString>": {
+    "name": "NamedParameters<typeof parseFrontmatterString>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-parsefrontmatterstring",
+    "description": "",
+    "operationName": "frontmatter-util"
+  },
+  "NamedParameters<typeof quotedOrNot>": {
+    "name": "NamedParameters<typeof quotedOrNot>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-quotedornot",
+    "description": "",
+    "operationName": "frontmatter-util"
+  },
+  "NamedParameters<typeof stringifyNewlines>": {
+    "name": "NamedParameters<typeof stringifyNewlines>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-stringifynewlines",
+    "description": "",
+    "operationName": "frontmatter-util"
   },
   "NamedParameters<typeof getFileContents>": {
     "name": "NamedParameters<typeof getFileContents>",
@@ -17958,7 +18046,7 @@
     "id": "extendedmarkdownproperties",
     "description": "Some properties for on any `MarkdownModelType` model that are quite general purpose and yet aren't included into the `MarkdownModel` because we may not always want them.",
     "operationName": "markdown-types",
-    "rawText": "\n/**\n * Some properties for on any `MarkdownModelType` model that are quite general purpose and yet aren't included into the `MarkdownModel` because we may not always want them.\n */\nexport interface ExtendedMarkdownProperties {\n  /**\n   * If true, will not show up in markdownReader ui's\n   */\n  isDraft?: boolean;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  updatedAt: number;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  createdAt: number;\n\n  /**\n   * TODO: implement auth layers, then look at this again\n   */\n  privacy: \"private\" | \"request\" | \"public\";\n\n  /**\n   * Either filled in or detected\n   */\n  language: Language;\n  /**\n   * If true, will not auto-detect the language\n   */\n  isLanguageCustom?: boolean;\n}"
+    "rawText": "\n/**\n * Some properties for on any `MarkdownModelType` model that are quite general purpose and yet aren't included into the `MarkdownModel` because we may not always want them.\n */\nexport interface ExtendedMarkdownProperties {\n  /**\n   * If true, will not show up in markdownReader ui's\n   */\n  isDraft?: boolean;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  updatedAt: number;\n  /**\n   * Should be stored as textual date like `YYYY-MM-DD`\n   */\n  createdAt: number;\n\n  /**\n   * TODO: implement auth layers, then look at this again\n   */\n  privacy: \"public\" | \"private\" | \"request\";\n\n  /**\n   * Either filled in or detected\n   */\n  language: Language;\n\n  /**\n   * If true, will not auto-detect the language\n   */\n  isLanguageCustom?: boolean;\n}"
   },
   "MarkdownCallToAction": {
     "name": "MarkdownCallToAction",
@@ -17966,7 +18054,7 @@
     "id": "markdowncalltoaction",
     "description": "",
     "operationName": "markdown-types",
-    "rawText": "\n\nexport interface MarkdownCallToAction extends SlugModelType {\n  url: string;\n  title: string;\n  description: string;\n  /**\n   * if true, CTA will only be placed in footer\n   */\n  onlyFooter: boolean;\n  banner?: string;\n}"
+    "rawText": "\n\nexport interface MarkdownCallToAction extends SlugModelType {\n  /**\n   * DESCRIPTION: Absolute queryPath to the CTA. Leave empty for going to the homepage. Empty paths will be omitted on the domains where you are already on that domain... If there's a path, will be omitted on other domains (`MarkdownCallToAction`s with a different hostname)\n   */\n  path?: string;\n  /**\n   * DESCRIPTION: Hostname as described in `https://www.w3schools.com/js/js_window_location.asp`.\n   */\n  hostname: string;\n\n  title?: string;\n\n  /**\n   * Will be shown in markdown\n   */\n  description?: string;\n\n  /**\n   * Can have a default if not provided\n   */\n  ctaButtonText?: string;\n  /**\n   * if true, CTA will only be placed in footer\n   */\n  onlyFooter?: boolean;\n  onlyHeader?: boolean;\n  /**\n   * If true, will be rendered in a <details>, if possible.\n   */\n  isMinimised?: boolean;\n  bannerImage?: BackendAsset;\n}"
   },
   "MarkdownContentLevel": {
     "name": "MarkdownContentLevel",
@@ -18035,7 +18123,7 @@
     "id": "postableproperties",
     "description": "`Postable` is not extending a modeltype anymore, it can be attached to any `MarkdownModelType` model",
     "operationName": "markdown-types",
-    "rawText": "\n\n/**\n * `Postable` is not extending a modeltype anymore, it can be attached to any `MarkdownModelType` model\n */\nexport interface PostableProperties {\n  /**\n   * A way to store messagepresets in markdown. the headers are the different categories. If the first alinea is bolded, it will be parsed to be the title, and will be removed from the message.\n   */\n  isPreset?: boolean;\n  /**\n   * if `.isPlanned` is set to true, this will be converted into `MediaPost`\n   */\n  isPostable?: boolean;\n  /**\n   * If true, this thing should be parsed into a codestory, after which the `.isPostable: true` will be added.\n   */\n  isCodestory?: boolean;\n  // NB: optionally, connect the post to keep it in the system nearby a certain model instance....\n\n  tsInterfaceIds?: Id[];\n  tsInterfaces?: TsInterface[];\n  tsFunctionIds?: Id[];\n  tsFunctions?: TsFunction[];\n  bundleConfigSlugs?: Slug[];\n  bundleConfigs?: BundleConfig[];\n  operationIds?: Id[];\n  operations?: Operation[];\n  reference_assets: BackendAsset[];\n}"
+    "rawText": "\n\n/**\n * `Postable` is not extending a modeltype anymore, it can be attached to any `MarkdownModelType` model\n */\nexport interface PostableProperties {\n  /**\n   * A way to store messagepresets in markdown. the headers are the different categories. If the first alinea is bolded, it will be parsed to be the title, and will be removed from the message.\n   */\n  isPreset?: boolean;\n  /**\n   * if `.isPlanned` is set to true, this will be converted into `MediaPost`\n   */\n  isPostable?: boolean;\n  /**\n   * If true, this thing should be parsed into a codestory, after which the `.isPostable: true` will be added.\n   */\n  isCodestory?: boolean;\n  // NB: optionally, connect the post to keep it in the system nearby a certain model instance....\n\n  tsInterfaceIds?: Id[];\n  tsInterfaces?: TsInterface[];\n  tsFunctionIds?: Id[];\n  tsFunctions?: TsFunction[];\n  bundleConfigSlugs?: Slug[];\n  bundleConfigs?: BundleConfig[];\n  operationIds?: Id[];\n  operations?: Operation[];\n  reference_assets?: BackendAsset[];\n}"
   },
   "TextJson": {
     "name": "TextJson",
@@ -18045,13 +18133,20 @@
     "operationName": "markdown-types",
     "rawText": "\n/**\n * TODO: Rename\n */\nexport interface TextJson {\n  /**\n   * only available if it's a json file\n   */\n  json?: any;\n  /**\n   * only available if it's a typescript file\n   */\n  typescriptJson?: unknown;\n  /**\n   * only available if it's a markdown file\n   */\n  markdownJson?: MarkdownParse;\n  /**\n   * full absolute path to the file or folder\n   */\n  path: string;\n  isFolder: boolean;\n  /**\n   * only returned if `includeStats` is true\n   */\n  stats?: PathStats;\n  /**\n   * only returned if `includeMetaData` is set to true\n   */\n  metaData?: FileContentInfo;\n  /** if true, this means this path is given back because it was the last opened base path that searching was canceled on because of the cancelRecursionOn prop */\n  isCancelRecursionResult?: boolean;\n}"
   },
+  "WebMarkdownFile": {
+    "name": "WebMarkdownFile",
+    "slug": "TsInterface",
+    "id": "webmarkdownfile",
+    "description": "Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter\n\nNB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!",
+    "operationName": "reader-ui"
+  },
   "WebMarkdownProperties": {
     "name": "WebMarkdownProperties",
     "slug": "TsInterface",
     "id": "webmarkdownproperties",
     "description": "",
     "operationName": "markdown-types",
-    "rawText": "\n\nexport interface WebMarkdownProperties\n  /**\n   * NB: it extends WebsiteHeader here because the MarkdownModelType needs to be flat, and cannot have objects\n   *\n   * We won't make the websiteHeader into an object, although, that would also be a possibility.\n   */\n  extends WebsiteHeader {\n  markdownCallToActionSlugs?: Slug[];\n  markdownCallToActions?: MarkdownCallToAction[];\n  /**\n   * Refers to an `Item` from the shop\n   */\n  shop_itemIds?: Id[];\n  //shop_items:Item[];\n\n  /**\n   * Author, reference to persons\n   */\n  author_personSlugs?: Slug[];\n  //author_persons: Person[];\n\n  /**\n   * Labels referring to interests\n   */\n  interestSlugs?: Slug[];\n  //interests: Interest[];\n\n  /**\n   * Price for this file\n   *\n   * NB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.\n   */\n  price?: Price;\n}"
+    "rawText": "\n\nexport interface WebMarkdownProperties\n  /**\n   * NB: it extends WebsiteHeader here because the MarkdownModelType needs to be flat, and cannot have objects\n   *\n   * We won't make the websiteHeader into an object, although, that would also be a possibility.\n   */\n  extends WebsiteHeaderProperties {\n  markdownCallToActionSlugs?: Slug[];\n  markdownCallToActions?: MarkdownCallToAction[];\n  /**\n   * Refers to an `Item` from the shop\n   */\n  shop_itemIds?: Id[];\n  //shop_items:Item[];\n\n  /**\n   * Author, reference to persons\n   */\n  author_personSlugs?: Slug[];\n  //author_persons: Person[];\n\n  /**\n   * Labels referring to interests\n   */\n  interestSlugs?: Slug[];\n  //interests: Interest[];\n\n  /**\n   * Price for this file\n   *\n   * NB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.\n   */\n  price?: Price;\n}"
   },
   "WebsiteHeader": {
     "name": "WebsiteHeader",
@@ -18059,43 +18154,15 @@
     "id": "websiteheader",
     "description": "",
     "operationName": "markdown-types",
-    "rawText": "\n\nexport type WebsiteHeader = {\n  headerImage?: BackendAsset;\n  headerTitle?: string;\n  headerSubTitle?: string;\n  headerCta?: MarkdownLink;\n};"
+    "rawText": "\n\nexport interface WebsiteHeader extends SlugModelType, WebsiteHeaderProperties {}"
   },
-  "FrontmatterValue": {
-    "name": "FrontmatterValue",
+  "WebsiteHeaderProperties": {
+    "name": "WebsiteHeaderProperties",
     "slug": "TsInterface",
-    "id": "frontmattervalue",
+    "id": "websiteheaderproperties",
     "description": "",
-    "operationName": "matter-types",
-    "rawText": "\n\nexport type FrontmatterValue =\n  | string\n  | number\n  | boolean\n  | string[]\n  | null\n  | undefined;"
-  },
-  "NamedParameters<typeof frontmatterParseToString>": {
-    "name": "NamedParameters<typeof frontmatterParseToString>",
-    "slug": "TsInterface",
-    "id": "namedparameterstypeof-frontmatterparsetostring",
-    "description": "",
-    "operationName": "matter-types"
-  },
-  "NamedParameters<typeof getFrontmatterValueString>": {
-    "name": "NamedParameters<typeof getFrontmatterValueString>",
-    "slug": "TsInterface",
-    "id": "namedparameterstypeof-getfrontmattervaluestring",
-    "description": "",
-    "operationName": "matter-types"
-  },
-  "NamedParameters<typeof quotedOrNot>": {
-    "name": "NamedParameters<typeof quotedOrNot>",
-    "slug": "TsInterface",
-    "id": "namedparameterstypeof-quotedornot",
-    "description": "",
-    "operationName": "matter-types"
-  },
-  "NamedParameters<typeof stringifyNewlines>": {
-    "name": "NamedParameters<typeof stringifyNewlines>",
-    "slug": "TsInterface",
-    "id": "namedparameterstypeof-stringifynewlines",
-    "description": "",
-    "operationName": "matter-types"
+    "operationName": "markdown-types",
+    "rawText": "\n\nexport type WebsiteHeaderProperties = {\n  headerImage?: BackendAsset;\n  headerTitle?: string;\n  headerBig?: boolean;\n  headerSubTitle?: string;\n  header_markdownCallToActionSlugs?: Slug[];\n  header_markdownCallToActions?: MarkdownCallToAction[];\n};"
   },
   "CategoryModelType": {
     "name": "CategoryModelType",
@@ -20985,6 +21052,13 @@
     "description": "",
     "operationName": "reader-ui"
   },
+  "NamedParameters<typeof ReaderPageHeader>": {
+    "name": "NamedParameters<typeof ReaderPageHeader>",
+    "slug": "TsInterface",
+    "id": "namedparameterstypeof-readerpageheader",
+    "description": "",
+    "operationName": "reader-ui"
+  },
   "NamedParameters<typeof getReferencedModelDataItem>": {
     "name": "NamedParameters<typeof getReferencedModelDataItem>",
     "slug": "TsInterface",
@@ -22357,6 +22431,14 @@
     "operationName": "doc-to-md",
     "rawText": "\nexport async function docxToMd(filepath: string): Promise<{\n  success: boolean;\n  response?: string;\n  text?: any;\n}> {\n  return new Promise(async (resolve, reject) => {\n    // mammoth\n    // \t.convertToHtml({ path: sample2 })\n    // \t.then(function (result) {\n    // \t\tvar html = result.value; // The generated HTML\n    // \t\tconsole.log('this is the html: ' + JSON.stringify(html, null, 2));\n    // \t\tvar messages = result.messages; // Any messages, such as warnings during conversion\n    // \t})\n    // \t.done();\n    mammoth\n      .extractRawText({ path: filepath })\n      .then(function (result: any) {\n        var text = result.value; // The raw text\n        var messages = result.messages;\n        var opath = \"output.md\";\n        var ostring = text;\n        fs.writeFileSync(opath, ostring, \"utf8\");\n        resolve({\n          success: true,\n          text,\n        });\n      })\n      .done();\n  });\n}"
   },
+  "frontmatterToObject": {
+    "name": "frontmatterToObject",
+    "slug": "TsFunction",
+    "id": "kccgwokyfmcicejkjrfacsox",
+    "description": "",
+    "operationName": "frontmatter-util",
+    "rawText": " (\n  frontmatter: Frontmatter,\n  schema: SimplifiedSchema\n): FrontmatterParse => {\n  if (!schema.properties || !schema.properties.length) {\n    return {};\n  }\n\n  const valueObjectArray: { [key: string]: any }[] = schema.properties\n    .map((property) => {\n      const value = frontmatter[property.name]\n        ? frontmatter[property.name].trim()\n        : undefined;\n\n      if (value === undefined) return;\n\n      const assetInputType = getAssetInputType(property.name);\n\n      if (\n        (property.schema.type === \"object\" ||\n          property.schema.type === \"array\") &&\n        assetInputType?.type\n      ) {\n        // it's a backendAsset\n\n        const backendAssets: BackendAsset[] = findEmbeds(value).map((x) => {\n          return { alt: x.alt, relativePath: x.src };\n        });\n\n        if (backendAssets.length === 0) return;\n\n        if (assetInputType.isMultiple) {\n          return { [property.name]: backendAssets };\n        }\n\n        return { [property.name]: backendAssets[0] };\n      }\n\n      if (property.schema.type === \"number\" && property.name.endsWith(\"At\")) {\n        const unixTimestamp = tryParseDate(value);\n\n        return { [property.name]: unixTimestamp };\n      }\n\n      if (property.schema.type === \"boolean\") {\n        if (value === \"true\") return { [property.name]: true };\n        if (value === \"false\") return { [property.name]: false };\n        return;\n      }\n\n      if (property.schema.type === \"number\") {\n        const number = Number(value);\n\n        if (isNaN(number)) return;\n\n        return { [property.name]: number };\n      }\n\n      if (property.schema.type === \"null\") {\n        if (value !== \"null\") {\n          return;\n        }\n\n        return { [property.name]: null };\n      }\n\n      if (property.schema.type === \"string\") {\n        return { [property.name]: parseFrontmatterString(value) };\n      }\n\n      if (property.schema.type === \"array\") {\n        // turn into comma separated\n        // Let's only support string[] for now!\n\n        const itemString = value\n          .split(\",\")\n          .map((x) => x.trim())\n          .map(parseFrontmatterString);\n\n        return { [property.name]: itemString };\n      }\n\n      if (property.schema.type === \"object\") {\n        // should not be supported\n        return;\n      }\n\n      return;\n    })\n    .filter(notEmpty);\n\n  const parse = mergeObjectsArray(valueObjectArray);\n\n  return parse;\n}"
+  },
   "fetchWeatherStormGlass": {
     "name": "fetchWeatherStormGlass",
     "slug": "TsFunction",
@@ -23280,6 +23362,12 @@
     "id": "SZLSdBVDzaXWYAEI",
     "description": "I want a type interface collection that is able to collect all data from all social networks and put them together.",
     "operationName": "social-media-types"
+  },
+  "frontmatter-util": {
+    "name": "frontmatter-util",
+    "slug": "Operation",
+    "id": "zwaaklbewcghwrndndsxvnum",
+    "operationName": "frontmatter-util"
   },
   "writer-demo-web": {
     "name": "writer-demo-web",

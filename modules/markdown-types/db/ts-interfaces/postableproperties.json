@@ -1,15 +1,15 @@
 {
-  "createdAt": 1669280027266,
-  "updatedAt": 1669280027266,
+  "createdAt": 1669378601653,
+  "updatedAt": 1669378601653,
   "deletedAt": 0,
-  "createdFirstAt": 1669280027266,
+  "createdFirstAt": 1669378601653,
   "id": "postableproperties",
   "name": "PostableProperties",
   "slug": "postableproperties",
   "operationRelativeTypescriptFilePath": "src/PostableProperties.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * `Postable` is not extending a modeltype anymore, it can be attached to any `MarkdownModelType` model\n */\nexport interface PostableProperties {\n  /**\n   * A way to store messagepresets in markdown. the headers are the different categories. If the first alinea is bolded, it will be parsed to be the title, and will be removed from the message.\n   */\n  isPreset?: boolean;\n  /**\n   * if `.isPlanned` is set to true, this will be converted into `MediaPost`\n   */\n  isPostable?: boolean;\n  /**\n   * If true, this thing should be parsed into a codestory, after which the `.isPostable: true` will be added.\n   */\n  isCodestory?: boolean;\n  // NB: optionally, connect the post to keep it in the system nearby a certain model instance....\n\n  tsInterfaceIds?: Id[];\n  tsInterfaces?: TsInterface[];\n  tsFunctionIds?: Id[];\n  tsFunctions?: TsFunction[];\n  bundleConfigSlugs?: Slug[];\n  bundleConfigs?: BundleConfig[];\n  operationIds?: Id[];\n  operations?: Operation[];\n  reference_assets: BackendAsset[];\n}",
+  "rawText": "\n\n/**\n * `Postable` is not extending a modeltype anymore, it can be attached to any `MarkdownModelType` model\n */\nexport interface PostableProperties {\n  /**\n   * A way to store messagepresets in markdown. the headers are the different categories. If the first alinea is bolded, it will be parsed to be the title, and will be removed from the message.\n   */\n  isPreset?: boolean;\n  /**\n   * if `.isPlanned` is set to true, this will be converted into `MediaPost`\n   */\n  isPostable?: boolean;\n  /**\n   * If true, this thing should be parsed into a codestory, after which the `.isPostable: true` will be added.\n   */\n  isCodestory?: boolean;\n  // NB: optionally, connect the post to keep it in the system nearby a certain model instance....\n\n  tsInterfaceIds?: Id[];\n  tsInterfaces?: TsInterface[];\n  tsFunctionIds?: Id[];\n  tsFunctions?: TsFunction[];\n  bundleConfigSlugs?: Slug[];\n  bundleConfigs?: BundleConfig[];\n  operationIds?: Id[];\n  operations?: Operation[];\n  reference_assets?: BackendAsset[];\n}",
   "extensions": [],
   "isOperationIndex": false,
   "description": "`Postable` is not extending a modeltype anymore, it can be attached to any `MarkdownModelType` model",
@@ -86,9 +86,6 @@
           }
         }
       },
-      "required": [
-        "reference_assets"
-      ],
       "additionalProperties": false,
       "description": "`Postable` is not extending a modeltype anymore, it can be attached to any `MarkdownModelType` model"
     },
@@ -185,7 +182,7 @@
         },
         {
           "name": "reference_assets",
-          "required": true,
+          "required": false,
           "schema": {
             "items": [
               {

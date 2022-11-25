@@ -207,6 +207,7 @@ import { AugmentedWordComponent } from "reader-ui";
 import { Dictionary } from "reader-ui";
 import { DocsReaderLayout } from "reader-ui";
 import { ReaderPageContent } from "reader-ui";
+import { ReaderPageHeader } from "reader-ui";
 import { Completion } from "writer-input";
 import { ContentEditableDivInput } from "writer-input";
 import { ContextTextArea } from "writer-input";
@@ -450,6 +451,7 @@ AugmentedWordComponent,
 Dictionary,
 DocsReaderLayout,
 ReaderPageContent,
+ReaderPageHeader,
 Completion,
 ContentEditableDivInput,
 ContextTextArea,

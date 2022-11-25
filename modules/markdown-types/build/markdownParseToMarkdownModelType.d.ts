@@ -1,5 +1,5 @@
-import { MarkdownModelType, Storing } from "model-types";
 import { Frontmatter } from "matter-types";
+import { MarkdownModelType, Storing } from "model-types";
 import { MarkdownParse } from "./MarkdownParse";
 /**
  * Tries to parse a date from a string

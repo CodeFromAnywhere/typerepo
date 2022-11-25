@@ -1,17 +1,17 @@
 {
-  "createdAt": 1669280032236,
-  "updatedAt": 1669280032236,
+  "createdAt": 1669378607348,
+  "updatedAt": 1669378607348,
   "deletedAt": 0,
-  "createdFirstAt": 1669280032236,
+  "createdFirstAt": 1669378607348,
   "id": "webmarkdownproperties",
   "name": "WebMarkdownProperties",
   "slug": "webmarkdownproperties",
   "operationRelativeTypescriptFilePath": "src/WebMarkdownProperties.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport interface WebMarkdownProperties\n  /**\n   * NB: it extends WebsiteHeader here because the MarkdownModelType needs to be flat, and cannot have objects\n   *\n   * We won't make the websiteHeader into an object, although, that would also be a possibility.\n   */\n  extends WebsiteHeader {\n  markdownCallToActionSlugs?: Slug[];\n  markdownCallToActions?: MarkdownCallToAction[];\n  /**\n   * Refers to an `Item` from the shop\n   */\n  shop_itemIds?: Id[];\n  //shop_items:Item[];\n\n  /**\n   * Author, reference to persons\n   */\n  author_personSlugs?: Slug[];\n  //author_persons: Person[];\n\n  /**\n   * Labels referring to interests\n   */\n  interestSlugs?: Slug[];\n  //interests: Interest[];\n\n  /**\n   * Price for this file\n   *\n   * NB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.\n   */\n  price?: Price;\n}",
+  "rawText": "\n\nexport interface WebMarkdownProperties\n  /**\n   * NB: it extends WebsiteHeader here because the MarkdownModelType needs to be flat, and cannot have objects\n   *\n   * We won't make the websiteHeader into an object, although, that would also be a possibility.\n   */\n  extends WebsiteHeaderProperties {\n  markdownCallToActionSlugs?: Slug[];\n  markdownCallToActions?: MarkdownCallToAction[];\n  /**\n   * Refers to an `Item` from the shop\n   */\n  shop_itemIds?: Id[];\n  //shop_items:Item[];\n\n  /**\n   * Author, reference to persons\n   */\n  author_personSlugs?: Slug[];\n  //author_persons: Person[];\n\n  /**\n   * Labels referring to interests\n   */\n  interestSlugs?: Slug[];\n  //interests: Interest[];\n\n  /**\n   * Price for this file\n   *\n   * NB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE.\n   */\n  price?: Price;\n}",
   "extensions": [
-    "WebsiteHeader"
+    "WebsiteHeaderProperties"
   ],
   "isOperationIndex": false,
   "description": "",
@@ -27,11 +27,23 @@
         "headerTitle": {
           "type": "string"
         },
+        "headerBig": {
+          "type": "boolean"
+        },
         "headerSubTitle": {
           "type": "string"
         },
-        "headerCta": {
-          "$ref": "#/definitions/MarkdownLink"
+        "header_markdownCallToActionSlugs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Slug"
+          }
+        },
+        "header_markdownCallToActions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/MarkdownCallToAction"
+          }
         },
         "markdownCallToActionSlugs": {
           "type": "array",
@@ -142,6 +154,13 @@
           }
         },
         {
+          "name": "headerBig",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
           "name": "headerSubTitle",
           "required": false,
           "schema": {
@@ -149,42 +168,19 @@
           }
         },
         {
-          "name": "headerCta",
+          "name": "header_markdownCallToActionSlugs",
           "required": false,
           "schema": {
-            "fullComment": "Anything in the format `[alt](href)`\n\nIt needs to be clear how this works. There is a convention for this, and I should implement that as good as possible, and document it here",
-            "properties": [
+            "items": [
               {
-                "name": "alt",
-                "required": true,
                 "schema": {
+                  "fullComment": "use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
                   "type": "string"
-                }
-              },
-              {
-                "name": "href",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "type",
-                "required": true,
-                "schema": {
-                  "enum": [
-                    "video",
-                    "audio",
-                    "image",
-                    "text",
-                    "other"
-                  ],
-                  "fullComment": "Can be inferred from href\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
-                  "type": "string"
-                }
+                },
+                "name": "Slug"
               }
             ],
-            "type": "object"
+            "type": "array"
           }
         },
         {

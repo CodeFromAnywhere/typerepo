@@ -231,11 +231,12 @@ Properties:
 | tsFunctionIds (optional) | array |  |
 | bundleConfigSlugs (optional) | array |  |
 | operationIds (optional) | array |  |
-| reference_assets  | array |  |
+| reference_assets (optional) | array |  |
 | headerImage (optional) | object |  |
 | headerTitle (optional) | string |  |
+| headerBig (optional) | boolean |  |
 | headerSubTitle (optional) | string |  |
-| headerCta (optional) | object |  |
+| header_markdownCallToActionSlugs (optional) | array |  |
 | markdownCallToActionSlugs (optional) | array |  |
 | shop_itemIds (optional) | array |  |
 | author_personSlugs (optional) | array |  |

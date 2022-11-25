@@ -1,6 +1,12 @@
-# The developers platform for web3 has arrived
-
-## As fast as no-code, as flexible as any other framework
+---
+headerImage: ![](./t.jpg)
+headerTitle: The developers platform for web3 has arrived
+headerSubTitle: "As fast as no-code, as flexible as any other framework"
+header_markdownCallToActionSlugs: typescript-course, join-our-bootcamp
+markdownCallToActionSlugs: join-our-bootcamp, typescript-course
+privacy: public
+language: english
+---
 
 **Typerepo** aims to make it as easy as possible to build high-quality full-stack mobile- and web-apps.
 

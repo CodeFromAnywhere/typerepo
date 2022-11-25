@@ -1,4 +1,4 @@
-import { WebMarkdownFile } from "code-types";
+import { WebMarkdownFile } from "markdown-types";
 import { ReaderWebPage, WebPage } from "webpage-types";
 /**
  * If a markdown page is found, this function fetches all metadata needed to render that markdown page

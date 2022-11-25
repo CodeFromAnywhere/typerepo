@@ -1,20 +1,20 @@
 [
   {
-    "createdAt": 1669312411319,
-    "updatedAt": 1669312411319,
+    "createdAt": 1669364907673,
+    "updatedAt": 1669364907673,
     "deletedAt": 0,
-    "createdFirstAt": 1669312411319,
+    "createdFirstAt": 1669364907673,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/PageVisit.ts",
-    "comment": "Any visit tracked based on a server request\n\nNB: TODO: it might occur that a page fetches multiple api endpoints, which will create duplicate data here. How do I fix that?",
-    "rawStatement": "export interface PageVisit extends DefaultModelType {\n  deviceId: string;\n  /**\n   * complete url of the page that was visited\n   */\n  path: string;\n  /**\n   * When was the page visited\n   */\n  createdAt: number;\n  ipInfo: IPInfo;\n\n  hello: string;\n}",
+    "operationRelativeTypescriptFilePath": "src/Persona.ts",
+    "comment": "Highly private model.\n\nConfiguration for a person identity that you say that is you.\n\nAs a OS user you can have multiple personas between which you can easily switch.\n\nThe difference from `Person` is that `Person` stores other people, whereas `Persona` stores different identities you give to yourself.\n\nNB: brands should also be able to be personas, and since some brands are shared between people, you should be able to share Persona's with other `Person`s into their OS...\n\n> Persona: A persona, depending on the context, is the public image of one's personality, the social role that one adopts, or simply a fictional character. The word derives from Latin, where it originally referred to a theatrical mask. On the social web, users develop virtual personas as online identities. (Wikipedia)",
+    "rawStatement": "export interface Persona extends SlugModelType {\n  /**\n   * If this is set to true, this persona instance will be selected when searching for a persona. Ensure that there is just one default persona!\n   *\n   * If none are `isPrimary`, the first persona instance can be selected\n   */\n  isPrimary?: boolean;\n  /**\n   * If true, this will pop up in persona selection\n   *\n   * If not, you can still find it using auto-complete, though\n   */\n  isFavorite?: boolean;\n\n  /**\n   * Some pictures that can be used that show this person\n   */\n  pictureImages?: BackendAsset[];\n\n  /**\n   * You can give different characteristics to your personas if you wish\n   */\n  dataEntries: PersonInformationValue[];\n\n  /** Interests this persona has\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  interestSlugs?: Slug[];\n  interests?: Interest[];\n\n  /**\n   * Where does this persona reside? can be multiple locations\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  locationSlugs?: Slug[];\n  locations?: Location[];\n\n  /**\n   * Languages that this persona can speak\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  spokenLanguages: Language[];\n\n  /**\n   * NB: should have a custom input in the `SimplifiedSchemaForm`\n   */\n  stripeSecret?: string;\n\n  twilioAccountSid?: string;\n  twilioAuthToken?: string;\n  /**\n   * Provide the phone number you are using by default for sending SMS messages\n   */\n  twilioFromPhoneNumber?: string;\n\n  sendgridApiKey?: string;\n  sendgridFromEmail?: string;\n\n  /**\n   * Github stuff\n   */\n  githubEmail?: string;\n  githubAccessToken?: string;\n  githubOrganisation?: string;\n  useGithubOrganisation?: boolean;\n\n  mediaCredentialIds?: Id[];\n  mediaCredentials?: MediaCredentail[];\n}",
     "parameters": {},
     "types": [
       "nb"
     ],
-    "firstLine": 4,
-    "lastLine": 8,
-    "id": "gmjivxqieejskmdoqyltkplk"
+    "firstLine": 6,
+    "lastLine": 18,
+    "id": "txjstoglregwchwsjymtffvu"
   }
 ]

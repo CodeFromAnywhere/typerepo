@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669322127865,
-  "updatedAt": 1669322127865,
+  "createdAt": 1669287951786,
+  "updatedAt": 1669287951786,
   "deletedAt": 0,
-  "createdFirstAt": 1669322127865,
+  "createdFirstAt": 1669287951786,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -10,15 +10,22 @@
   "slug": "progress",
   "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
   "type": {
-    "rawType": "any",
+    "rawType": "import(\"/Users/king/King/operations/node_modules/@badrap/bar-of-progress/dist/index\").default",
+    "typeDefinition": {
+      "optional": false
+    },
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": false,
+    "isObject": true,
     "isPrimitive": false,
-    "isEnumLiteral": false
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
   },
   "value": "new ProgressBar()",
   "description": "",
-  "id": "hunewrktrfwwlkmbluetqxtv"
+  "id": "euxlqbhcdpakrgqsctlxojgk"
 }

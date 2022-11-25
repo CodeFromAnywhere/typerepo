@@ -22,31 +22,31 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669280041009,
+    "lastRebuildAt": 1669378626808,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 9,
-        "lines": 399,
-        "characters": 10532,
-        "bytes": 10532
+        "lines": 401,
+        "characters": 10854,
+        "bytes": 10854
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 134,
-        "characters": 3910,
-        "bytes": 3910
+        "lines": 135,
+        "characters": 3931,
+        "bytes": 3931
       },
       "textSize": {
-        "numberOfFiles": 3,
-        "lines": 409,
-        "characters": 9315,
-        "bytes": 9315
+        "numberOfFiles": 4,
+        "lines": 963,
+        "characters": 21695,
+        "bytes": 21695
       },
       "size": {
-        "bytes": 23757,
-        "characters": 23757,
-        "lines": 942,
-        "numberOfFiles": 14
+        "bytes": 36480,
+        "characters": 36480,
+        "lines": 1499,
+        "numberOfFiles": 15
       }
     },
     "folderNameIndexed": "markdown-types",
@@ -55,16 +55,16 @@
     "coreDependenciesIndexed": [],
     "operationDependenciesIndexed": [
       "Language",
+      "BackendAsset",
       "SlugModelType",
       "CategoryStack",
       "Frontmatter",
       "AssetType",
-      "ModelLocation",
+      "kebabCase",
+      "Frontmatter",
       "generateId",
       "MarkdownModelType",
       "Storing",
-      "kebabCase",
-      "Frontmatter",
       "BundleConfig",
       "Id",
       "Slug",
@@ -78,7 +78,9 @@
       "Id",
       "Price",
       "Slug",
-      "BackendAsset"
+      "BackendAsset",
+      "Slug",
+      "SlugModelType"
     ],
     "packageDependenciesIndexed": []
   },

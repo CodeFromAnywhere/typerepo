@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287369708,
-  "updatedAt": 1669287369708,
+  "createdAt": 1669383018795,
+  "updatedAt": 1669383018795,
   "deletedAt": 0,
-  "createdFirstAt": 1669287369708,
+  "createdFirstAt": 1669383018795,
   "id": "finalcreatebundleconfig",
   "name": "FinalCreateBundleConfig",
   "slug": "finalcreatebundleconfig",
@@ -100,6 +100,17 @@
             }
           ],
           "description": "optional. Could also find the main file from here and use that as README.md\n\nMust be a relative path from project root. Can be multiple!"
+        },
+        "imagesProjectRelativeFolderPaths": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ProjectRelativeFolderPath"
+          },
+          "description": "paths to image folders that should randomly be used as default headers or footers in the generated markdown."
+        },
+        "deploymentHostname": {
+          "type": "string",
+          "description": "Used to determine which images to show"
         },
         "readmeRelativeFilePath": {
           "$ref": "#/definitions/ProjectRelativeFilePath",
@@ -523,6 +534,31 @@
             "fullComment": "optional. Could also find the main file from here and use that as README.md\n\nMust be a relative path from project root. Can be multiple!",
             "properties": [],
             "type": "object"
+          }
+        },
+        {
+          "name": "imagesProjectRelativeFolderPaths",
+          "required": false,
+          "schema": {
+            "fullComment": "paths to image folders that should randomly be used as default headers or footers in the generated markdown.",
+            "items": [
+              {
+                "schema": {
+                  "fullComment": "later this could be known by the frontend so it will render a ui to select a folder\n\nWe need to figure out how we can know all type types in between when getting the type definition schema, not only the final type. If I'm lucky there is a way to find it as a #ref in a consistent way.",
+                  "type": "string"
+                },
+                "name": "ProjectRelativeFolderPath"
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "deploymentHostname",
+          "required": false,
+          "schema": {
+            "fullComment": "Used to determine which images to show",
+            "type": "string"
           }
         },
         {

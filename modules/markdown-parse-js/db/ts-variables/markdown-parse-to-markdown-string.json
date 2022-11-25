@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668976713148,
-  "updatedAt": 1668976713148,
+  "createdAt": 1669374103040,
+  "updatedAt": 1669374103040,
   "deletedAt": 0,
-  "createdFirstAt": 1668976713148,
+  "createdFirstAt": 1669374103040,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "markdown-parse-to-markdown-string",
   "operationRelativeTypescriptFilePath": "src/markdownParseToMarkdownString.ts",
   "type": {
-    "rawType": "(markdownParse: import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse) => string",
+    "rawType": "(markdownParse: import(\"/Users/king/King/operations/tools/types/markdown-types/build/MarkdownParse\").MarkdownParse) => string",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
+  "value": "(\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
   "description": "NB: this just uses RAW!\n\nUse `markdownParseToMarkdownStringFromContent` for the real deal",
-  "id": "pfjendzvjafdyskcrsdcwjxa"
+  "id": "iwvxxnsijjwawityehjfdscg"
 }

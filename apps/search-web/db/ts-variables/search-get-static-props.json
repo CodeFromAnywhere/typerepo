@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669322124348,
-  "updatedAt": 1669322124348,
+  "createdAt": 1669287957710,
+  "updatedAt": 1669287957710,
   "deletedAt": 0,
-  "createdFirstAt": 1669322124348,
+  "createdFirstAt": 1669287957710,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "search-get-static-props",
   "operationRelativeTypescriptFilePath": "src/util/searchGetStaticProps.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/bundled/typerepo/apps/search-web/node_modules/next/types/index\").GetStaticProps<import(\"/Users/king/King/bundled/typerepo/apps/search-web/src/util/types\").QueryPageProps, ParsedUrlQuery, import(\"/Users/king/King/bundled/typerepo/apps/search-web/node_modules/next/types/index\").PreviewData>",
+    "rawType": "import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").GetStaticProps<import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").QueryPageProps, import(\"querystring\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").PreviewData>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  context\n) => {\n  const query = takeFirst(context.params?.query) || null;\n\n  const imagePaths = await fs.readdir(\n    path.join(__dirname, \"../../..\", \"public\")\n  );\n  const searchResults = getAllSearchResults(query) || null;\n\n  const timelineItems: {\n    comment: string;\n    filePath: string | undefined;\n    line: number;\n  }[] = []; // = await getTimelineItems();\n\n  const props: QueryPageProps = {\n    query,\n    searchResults,\n    imagePaths,\n    timelineItems,\n  };\n\n  return {\n    props,\n  };\n}",
   "description": "",
-  "id": "wpbzdutwbopguqiuymgaidof"
+  "id": "ieulvenxzeqloprngoluwdhr"
 }

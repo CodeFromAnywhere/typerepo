@@ -16,11 +16,18 @@ export declare const sdk: {
     untypedApiFunction: (fnName: string, config: import("api-types").ApiConfig, ...parameters: any) => Promise<import("api-types").ApiReturnType<any>>;
     addToken: (name: string, previousToken?: string | undefined, attachTokenToFilename?: boolean | undefined) => string;
     ensureToken: (name: string, newToken?: string | undefined, attachTokenToFilename?: boolean | undefined) => string;
+    findAssetParametersRecursively: (object: {
+        [key: string]: any;
+    }, stack?: string[] | undefined) => import("asset-functions-js").AssetParameter[];
     getAssetDirectlyApiUrl: (projectRelativeAssetPath: string) => string;
+    getConversionInfoFromType: (uploadMimeType: string | undefined) => {
+        uploadMimeType: string | undefined;
+        targetFormat: string | undefined;
+        isUnchecked?: boolean | undefined;
+    };
     getExtensionFromAsset: (asset: import("asset-type").Asset) => string | undefined;
     getNameFromRelativePath: (relativePath: string) => string;
     getNameWithTokenFromRelativePath: (relativePath: string, attachTokenToFilename?: boolean | undefined, newToken?: string | undefined) => string;
-    getPreferredExtensionFromType: (type: string | undefined) => string | undefined;
     getReferencedAssetApiUrl: (apiUrl: string, projectRelativeReferencingFilePath: string, referencingFileRelativeAssetPath: string, isDownload?: boolean | undefined) => string;
     getTypeFromUrlOrPath: (urlOrPath: string) => import("asset-type").AssetType;
     readableSize: (sizeBytes: number) => string;
@@ -237,23 +244,23 @@ export declare const sdk: {
     makeFileType: (filePath: string) => Promise<import("make-file-type").FileType | undefined>;
     isResultOfInterface: <TResult>(result: TResult, jsonSchema: unknown) => boolean;
     makeTest: <TResult_1>(testFunction: (() => Promise<TResult_1>) | (() => TResult_1), isValid?: ((result: TResult_1) => boolean) | undefined) => () => Promise<boolean>;
-    chunkToStringRecursively: (chunk: MarkdownChunk) => string;
-    getChunkParagraphsRecursively: (chunk: MarkdownChunk) => string[];
+    chunkToStringRecursively: (chunk: import("markdown-types").MarkdownChunk) => string;
+    getChunkParagraphsRecursively: (chunk: import("markdown-types").MarkdownChunk) => string[];
     getImplicitId: (title: string) => string;
-    getMarkdownIntro: (markdownParse: any) => {
+    getMarkdownIntro: (markdownParse: import("markdown-types").MarkdownParse | null) => {
         title: string | undefined;
         firstParagraph: string | null;
     };
-    getMarkdownParseParagraphs: (markdownParse: MarkdownParse) => string[];
+    getMarkdownParseParagraphs: (markdownParse: import("markdown-types").MarkdownParse) => string[];
     getMarkdownReferencePaths: (markdownString: string) => string[];
     getMarkdownReferencesFromParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownReference[];
-    markdownParseToMarkdownStringFromContent: (markdownParse: MarkdownParse) => string | undefined;
-    markdownParseToMarkdownString: (markdownParse: MarkdownParse) => string;
-    mdContentParseRecursively: (markdownString: string, level: number) => MarkdownChunk[];
-    mdToJsonParse: (markdownString: string, fileName?: string | undefined, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => MarkdownParse;
-    parseFrontmatterMarkdownString: (markdownWithFrontmatter: string, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => MarkdownParse;
+    markdownParseToMarkdownStringFromContent: (markdownParse: import("markdown-types").MarkdownParse) => string | undefined;
+    markdownParseToMarkdownString: (markdownParse: import("markdown-types").MarkdownParse) => string;
+    mdContentParseRecursively: (markdownString: string, level: number) => import("markdown-types").MarkdownChunk[];
+    mdToJsonParse: (markdownString: string, fileName?: string | undefined, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => import("markdown-types").MarkdownParse;
+    parseFrontmatterMarkdownString: (markdownWithFrontmatter: string, config?: import("markdown-parse-js").MarkdownParseConfig | undefined) => import("markdown-types").MarkdownParse;
     parseMarkdownParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownParagraphChunk[];
-    parseMdToChunks: (markdownString: string, level: number) => MarkdownChunk[];
+    parseMdToChunks: (markdownString: string, level: number) => import("markdown-types").MarkdownChunk[];
     removeHeaderPrefix: (string: string) => string;
     markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
     parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
@@ -261,13 +268,9 @@ export declare const sdk: {
     findCodespansFromTokenRecursively: (token: import("marked").marked.Token) => string[];
     findCodespans: (sectionContent: string) => string[];
     findEmbedsFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownEmbed[];
-    findEmbeds: (markdownString: string) => MarkdownEmbed[];
+    findEmbeds: (markdownString: string) => import("markdown-types").MarkdownEmbed[];
     findLinksFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownLink[];
     findLinks: (markdownString: string) => MarkdownLink[];
-    frontmatterParseToString: (frontmatter: import("matter-types").Frontmatter) => string;
-    getFrontmatterValueString: (value: import("matter-types").FrontmatterValue) => string | null;
-    quotedOrNot: (string: string) => string;
-    stringifyNewlines: (string: string) => string;
     cleanupTimer: (uniqueId: string) => void;
     generateUniqueId: () => string;
     getNewPerformance: (label: string, uniqueId: string, isNew?: boolean | undefined) => import("measure-performance").PerformanceItem | undefined;

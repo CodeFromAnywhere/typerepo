@@ -1,2 +1,15 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.chunkToStringRecursively=exports.markdownParseToMarkdownStringFromContent=void 0;var markdownParseToMarkdownStringFromContent=function(n){var r;return null===(r=n.content)||void 0===r?void 0:r.map(exports.chunkToStringRecursively).join("\n\n")};exports.markdownParseToMarkdownStringFromContent=markdownParseToMarkdownStringFromContent;var chunkToStringRecursively=function(n){var r;return"".concat("#".repeat(n.level)," ").concat(n.title||"","\n\n").concat(n.content||"","\n\n").concat(null===(r=n.children)||void 0===r?void 0:r.map(exports.chunkToStringRecursively),"\n\n")};exports.chunkToStringRecursively=chunkToStringRecursively;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.chunkToStringRecursively = exports.markdownParseToMarkdownStringFromContent = void 0;
+var markdownParseToMarkdownStringFromContent = function (markdownParse) {
+    var _a;
+    var result = (_a = markdownParse.content) === null || _a === void 0 ? void 0 : _a.map(exports.chunkToStringRecursively).join("\n\n");
+    return result;
+};
+exports.markdownParseToMarkdownStringFromContent = markdownParseToMarkdownStringFromContent;
+var chunkToStringRecursively = function (chunk) {
+    var _a;
+    return "".concat("#".repeat(chunk.level), " ").concat(chunk.title || "", "\n\n").concat(chunk.content || "", "\n\n").concat((_a = chunk.children) === null || _a === void 0 ? void 0 : _a.map(exports.chunkToStringRecursively), "\n\n");
+};
+exports.chunkToStringRecursively = chunkToStringRecursively;
 //# sourceMappingURL=markdownParseToMarkdownStringFromContent.js.map

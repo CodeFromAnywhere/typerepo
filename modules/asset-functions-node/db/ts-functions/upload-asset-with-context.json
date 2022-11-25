@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669311688537,
-  "updatedAt": 1669311688537,
+  "createdAt": 1669356558537,
+  "updatedAt": 1669356558537,
   "deletedAt": 0,
-  "createdFirstAt": 1669311688537,
+  "createdFirstAt": 1669356558537,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/server-context/uploadAssetWithContext.ts",
   "commentsInside": [],
-  "rawText": " async (\n  functionContext: FunctionContext\n): Promise<UploadAssetResult> => {\n  const file = functionContext.serverContext?.files.file;\n  if (!file) {\n    console.log(\"Got no file, fuktup\");\n    return { isSuccessful: false, message: \"No file found\" };\n  }\n\n  const realFile = (Array.isArray(file)\n    ? file[0]\n    : file) as unknown as ReceivedFile;\n\n  const functionFile = {\n    size: realFile.size,\n    path: realFile.path,\n    name: realFile.name,\n    type: realFile.type,\n  };\n\n  const randomName = generateRandomString(32);\n\n  const temporaryAssetsFolderPath = getTemporaryAssetsFolderPath();\n\n  const preferredExtension = getPreferredExtensionFromType(realFile.type);\n\n  console.log({ preferredExtension });\n\n  if (!preferredExtension) {\n    return {\n      isSuccessful: false,\n      message: \"couldn't figure out what you're trying to upload\",\n    };\n  }\n\n  const temporaryFileName = `${randomName}.${preferredExtension}`;\n  const absoluteTemporaryDestinationPath = path.join(\n    temporaryAssetsFolderPath,\n    temporaryFileName\n  );\n\n  if (!fs.existsSync(temporaryAssetsFolderPath)) {\n    await fs.mkdir(temporaryAssetsFolderPath, { recursive: true });\n  }\n\n  if (preferredExtension === \"mp3\") {\n    // Conversion needed!\n    const resultingPath = await convertToMp3(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else if (preferredExtension === \"mp4\") {\n    // in many cases, conversion needed\n    const resultingPath = await convertToMp4(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else {\n    await fs.rename(functionFile.path, absoluteTemporaryDestinationPath);\n  }\n\n  return {\n    isSuccessful: true,\n    message: \"File received\",\n    temporaryDestination: temporaryFileName,\n  };\n}",
+  "rawText": " async (\n  functionContext: FunctionContext\n): Promise<UploadAssetResult> => {\n  const file = functionContext.serverContext?.files.file;\n  if (!file) {\n    console.log(\"Got no file, fuktup\");\n    return { isSuccessful: false, message: \"No file found\" };\n  }\n\n  const realFile = (Array.isArray(file)\n    ? file[0]\n    : file) as unknown as ReceivedFile;\n\n  const functionFile = {\n    size: realFile.size,\n    path: realFile.path,\n    name: realFile.name,\n    type: realFile.type,\n  };\n\n  const randomName = generateRandomString(32);\n  const temporaryAssetsFolderPath = getTemporaryAssetsFolderPath();\n  const conversionInfo = getConversionInfoFromType(realFile.type);\n\n  console.log({ conversionInfo });\n\n  const temporaryFileName = `${randomName}.${conversionInfo.targetFormat}`;\n  const absoluteTemporaryDestinationPath = path.join(\n    temporaryAssetsFolderPath,\n    temporaryFileName\n  );\n\n  if (!fs.existsSync(temporaryAssetsFolderPath)) {\n    await fs.mkdir(temporaryAssetsFolderPath, { recursive: true });\n  }\n\n  if (conversionInfo.targetFormat === \"mp3\") {\n    // Conversion needed!\n    const resultingPath = await convertToMp3(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else if (conversionInfo.targetFormat === \"mp4\") {\n    // in many cases, conversion needed\n    const resultingPath = await convertToMp4(\n      functionFile.path,\n      absoluteTemporaryDestinationPath\n    );\n  } else {\n    await fs.rename(functionFile.path, absoluteTemporaryDestinationPath);\n  }\n\n  return {\n    isSuccessful: true,\n    message: \"File received\",\n    temporaryDestination: temporaryFileName,\n  };\n}",
   "name": "uploadAssetWithContext",
   "slug": "upload-asset-with-context",
   "parameters": [
@@ -4164,13 +4164,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 2262,
-    "lines": 71,
-    "bytes": 2262,
+    "characters": 2127,
+    "lines": 62,
+    "bytes": 2127,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 32,
-    "linesPerFile": 71,
+    "charactersPerLine": 34,
+    "linesPerFile": 62,
     "numberOfFiles": 1
   },
-  "id": "hjfbivzxgqatqeiuiyujqadc"
+  "id": "mvoqlkxelxfxksmtsolltkae"
 }

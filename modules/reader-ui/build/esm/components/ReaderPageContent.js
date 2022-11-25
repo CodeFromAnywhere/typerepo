@@ -12,11 +12,16 @@ import { useRouter } from "react-with-native-router";
 import { isDev } from "server-api-url";
 import { MarkdownView } from "writer-input";
 import { useStore } from "../store";
+import { ReaderPageHeader } from "./ReaderPageHeader";
+/**
+ * This is rendering a `WebMarkdownFile` and optionally navigation.
+ */
 export var ReaderPageContent = function (props) {
     var router = useRouter();
     var queryPath = getQueryPath(router.query);
     var _a = useStore("menu.isMobileMenuEnabled"), _ = _a[0], setIsMobileMenuEnabled = _a[1];
     var augmentedWordObject = props.augmentedWordObject, children = props.children, description = props.description, markdownFile = props.markdownFile, nextQueryPath = props.nextQueryPath, previousQueryPath = props.previousQueryPath, projectRelativeMarkdownPath = props.projectRelativeMarkdownPath, title = props.title;
+    console.log("HALLOOOO", { markdownFile: markdownFile, props: props });
     var _b = useState("view"), view = _b[0], setView = _b[1];
     var renderBottomNavigation = function () {
         return (React.createElement(Div, { className: "flex flex-row w-full justify-between" },
@@ -108,5 +113,10 @@ export var ReaderPageContent = function (props) {
                         }))) : null)));
             }))));
     };
-    return (React.createElement(Div, { className: "pb-4 px-4" }, props.children ? renderNav() : renderPage()));
+    console.log({ markdownFile: markdownFile });
+    return (React.createElement(Div, null,
+        (markdownFile === null || markdownFile === void 0 ? void 0 : markdownFile.headerImage) ||
+            (markdownFile === null || markdownFile === void 0 ? void 0 : markdownFile.headerTitle) ||
+            (markdownFile === null || markdownFile === void 0 ? void 0 : markdownFile.header_markdownCallToActionSlugs) ? (React.createElement(ReaderPageHeader, { markdownFile: markdownFile, projectRelativeMarkdownPath: projectRelativeMarkdownPath })) : null,
+        React.createElement(Div, { className: "pb-4 px-4" }, props.children ? renderNav() : renderPage())));
 };

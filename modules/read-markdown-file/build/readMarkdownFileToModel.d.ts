@@ -1,4 +1,4 @@
-import { WebMarkdownFile } from "code-types";
+import { WebMarkdownFile } from "markdown-types";
 /**
  * Reads a markdown absolute path to a `MarkdownFile` model
  */

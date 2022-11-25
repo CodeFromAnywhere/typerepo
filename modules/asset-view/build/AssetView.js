@@ -18,10 +18,12 @@ var server_api_url_1 = require("server-api-url");
 var markdown_1 = require("markdown");
 var react_with_native_1 = require("react-with-native");
 var useAsset_1 = require("./useAsset");
+var js_util_1 = require("js-util");
 exports.defaultClassName = "w-20 aspect-auto";
 var AssetView = function (props) {
     var asset = props.asset, className = props.className, projectRelativeReferencingFilePath = props.projectRelativeReferencingFilePath, hideDownloadLink = props.hideDownloadLink;
-    var _a = (0, useAsset_1.useAsset)(asset, projectRelativeReferencingFilePath, !server_api_url_1.isDev), downloadUrl = _a.downloadUrl, rawText = _a.rawText, src = _a.src, type = _a.type, extension = _a.extension;
+    var result = (0, useAsset_1.useAsset)(asset, projectRelativeReferencingFilePath, !server_api_url_1.isDev);
+    var _a = (0, js_util_1.destructureOptionalObject)(result), downloadUrl = _a.downloadUrl, rawText = _a.rawText, src = _a.src, type = _a.type, extension = _a.extension;
     // console.log({ src });
     var sizeText = asset.sizeBytes !== undefined
         ? "(".concat((0, asset_functions_js_1.readableSize)(asset.sizeBytes), ")")
@@ -29,7 +31,9 @@ var AssetView = function (props) {
     var downloadText = " ⬇️ Download";
     return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Span, __assign({ style: { position: "relative" } }, { children: [downloadUrl && !hideDownloadLink ? ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ style: {
                     padding: "5px",
-                } }, { children: (0, jsx_runtime_1.jsxs)(react_with_native_1.A, __assign({ target: "_blank", href: downloadUrl }, { children: [downloadText, " ", sizeText] })) }))) : null, type === "image" && src && ((0, jsx_runtime_1.jsx)("img", { src: src, className: className || "w-40", style: { aspectRatio: "auto" } })), type === "audio" && src && (0, jsx_runtime_1.jsx)("audio", { controls: true, src: src }), type === "video" && src && ((0, jsx_runtime_1.jsx)("video", { style: { aspectRatio: "auto" }, className: className || "w-40", preload: "none", poster: src.replace(".mp4", ".placeholder.jpeg"), controls: true, src: src })), type === "text" && rawText ? ((0, jsx_runtime_1.jsx)(markdown_1.MarkdownCodeblock, { text: rawText, extension: extension })) : null, type === "other" && extension === "pdf" ? null : null, src === undefined ? (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "Asset src not found" }) : null] })));
+                } }, { children: (0, jsx_runtime_1.jsxs)(react_with_native_1.A, __assign({ target: "_blank", href: downloadUrl }, { children: [downloadText, " ", sizeText] })) }))) : null, type === "image" && src && ((0, jsx_runtime_1.jsx)("img", { src: src, className: className || "w-40", style: { aspectRatio: "auto" } })), type === "audio" && src && (0, jsx_runtime_1.jsx)("audio", { controls: true, src: src }), type === "video" && src && ((0, jsx_runtime_1.jsx)("video", { style: { aspectRatio: "auto" }, className: className || "w-40", preload: "none", 
+                // not always available, should I check first somehow?
+                poster: src.replace(".mp4", ".placeholder.jpeg"), controls: true, src: src })), type === "text" && rawText ? ((0, jsx_runtime_1.jsx)(markdown_1.MarkdownCodeblock, { text: rawText, extension: extension })) : null, type === "other" && extension === "pdf" ? null : null, src === undefined ? (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "Asset src not found" }) : null] })));
 };
 exports.AssetView = AssetView;
 //# sourceMappingURL=AssetView.js.map

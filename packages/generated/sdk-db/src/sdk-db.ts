@@ -33,6 +33,7 @@ import type { WordCombination } from "language-types";
 import type { WordMatrix } from "language-types";
 import type { MarkdownCallToAction } from "markdown-types";
 import type { WebMarkdownFile } from "markdown-types";
+import type { WebsiteHeader } from "markdown-types";
 import type { SlugModelType } from "model-types";
 import type { Device } from "peer-types";
 import type { Group } from "peer-types";
@@ -46,15 +47,15 @@ import type { PersonPlatformConnection } from "peer-types";
 import type { Platform } from "peer-types";
 import type { Interest } from "social-media-types";
 import type { MediaChannel } from "social-media-types";
-import type { MediaCredentail } from "social-media-types";
+import type { MediaCredential } from "social-media-types";
 import type { MediaPost } from "social-media-types";
 import type { SelfSprintReview } from "todo-types";
 import type { TodoFile } from "todo-types";
 import type { TodoOffer } from "todo-types";
 
 
-export type DbModels = { AuthorizationModel: AuthorizationModel,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,MarkdownCallToAction: MarkdownCallToAction,WebMarkdownFile: WebMarkdownFile,SlugModelType: SlugModelType,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer };
-export const dbModelKeys = [ "AuthorizationModel","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","MarkdownCallToAction","WebMarkdownFile","SlugModelType","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","Interest","MediaChannel","MediaCredentail","MediaPost","SelfSprintReview","TodoFile","TodoOffer" ] as const;
+export type DbModels = { AuthorizationModel: AuthorizationModel,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,MarkdownCallToAction: MarkdownCallToAction,WebMarkdownFile: WebMarkdownFile,WebsiteHeader: WebsiteHeader,SlugModelType: SlugModelType,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,Interest: Interest,MediaChannel: MediaChannel,MediaCredential: MediaCredential,MediaPost: MediaPost,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer };
+export const dbModelKeys = [ "AuthorizationModel","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","MarkdownCallToAction","WebMarkdownFile","WebsiteHeader","SlugModelType","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","Interest","MediaChannel","MediaCredential","MediaPost","SelfSprintReview","TodoFile","TodoOffer" ] as const;
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
     AuthorizationModel: {
@@ -222,6 +223,11 @@ WebMarkdownFile: {
           dbStorageMethod: "markdown",
           
         },
+WebsiteHeader: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
 SlugModelType: {
           
           dbStorageMethod: "jsonMultiple",
@@ -287,7 +293,7 @@ MediaChannel: {
           dbStorageMethod: "jsonMultiple",
           
         },
-MediaCredentail: {
+MediaCredential: {
           
           dbStorageMethod: "jsonMultiple",
           

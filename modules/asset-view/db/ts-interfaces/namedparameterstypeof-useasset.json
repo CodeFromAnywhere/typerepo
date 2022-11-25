@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669276055686,
-  "updatedAt": 1669276055686,
+  "createdAt": 1669377777858,
+  "updatedAt": 1669377777858,
   "deletedAt": 0,
-  "createdFirstAt": 1669276055686,
+  "createdFirstAt": 1669377777858,
   "id": "namedparameterstypeof-useasset",
   "name": "NamedParameters<typeof useAsset>",
   "slug": "namedparameterstypeof-useasset",
@@ -21,23 +21,22 @@
           "$ref": "#/definitions/Asset"
         },
         "projectRelativeReferencingFilePath": {
-          "type": "string"
+          "type": [
+            "string",
+            "null"
+          ]
         },
         "isNextStaticProductionBuild": {
           "type": "boolean"
         }
       },
-      "required": [
-        "asset",
-        "projectRelativeReferencingFilePath"
-      ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
           "name": "asset",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Asset you can upload\n\nThis is not a database model, it can exist in properties of any db model or type interface.\n\nOnly `alt` and `relativePath` are stored, the other parameters are optionally required for uploading and user interfaces, and are not always there\n\nNB: don't use this in your model, use `StoredAsset` instead.",
             "nb": "don't use this in your model, use `StoredAsset` instead.",
@@ -176,7 +175,7 @@
         },
         {
           "name": "projectRelativeReferencingFilePath",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }

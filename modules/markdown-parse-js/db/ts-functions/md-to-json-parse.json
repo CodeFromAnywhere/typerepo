@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668976719850,
-  "updatedAt": 1668976719850,
+  "createdAt": 1669374237571,
+  "updatedAt": 1669374237571,
   "deletedAt": 0,
-  "createdFirstAt": 1668976719850,
+  "createdFirstAt": 1669374237571,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -254,7 +254,7 @@
   ],
   "description": "makes a markdown parse from a markdown string\n\nTODO: `markdownStringToMarkdownParse` is a better name. First make a refactor script for this, because it is too hard to rename stuff that is used a lot.\n\nTODO: BUG: it doesn't take into account triple backticks! if there is markdown inside of the triple backticks, it can still be seen as main markdown. Triple backticks are stronger!",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse",
+    "rawType": "import(\"/Users/king/King/operations/tools/types/markdown-types/build/MarkdownParse\").MarkdownParse",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -272,5 +272,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "xeuzmaavtsaflhsnvypgawig"
+  "id": "evmyyshejgxwslwdbhqdqate"
 }

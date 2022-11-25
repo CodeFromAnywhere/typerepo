@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287841178,
-  "updatedAt": 1669287841178,
+  "createdAt": 1669377350871,
+  "updatedAt": 1669377350871,
   "deletedAt": 0,
-  "createdFirstAt": 1669287841178,
+  "createdFirstAt": 1669377350871,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -56,7 +56,7 @@
   ],
   "description": "If a markdown page is found, this function fetches all metadata needed to render that markdown page",
   "returnType": {
-    "rawType": "Promise<{ markdownFile: any; nextQueryPath: string | null; previousQueryPath: string | null; projectRelativeMarkdownPath: string | null; }>",
+    "rawType": "Promise<{ markdownFile: import(\"/Users/king/King/operations/tools/types/markdown-types/build/WebMarkdownFile\").WebMarkdownFile | null; nextQueryPath: string | null; previousQueryPath: string | null; projectRelativeMarkdownPath: string | null; }>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -74,5 +74,5 @@
     "linesPerFile": 42,
     "numberOfFiles": 1
   },
-  "id": "qyabvvjhjblzfdeiynclvfgq"
+  "id": "kllskvyovqyjhysbfcewajpj"
 }

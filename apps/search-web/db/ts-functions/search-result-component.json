@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669322120415,
-  "updatedAt": 1669322120415,
+  "createdAt": 1669287943583,
+  "updatedAt": 1669287943583,
   "deletedAt": 0,
-  "createdFirstAt": 1669322120415,
+  "createdFirstAt": 1669287943583,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -56,11 +56,15 @@
   ],
   "description": "If you click on a site that up and running, it should startup via pm2 before being redirected there",
   "returnType": {
-    "rawType": "any",
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": false,
+    "isObject": true,
     "isPrimitive": false,
     "isEnumLiteral": false
   },
@@ -74,5 +78,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "iayvnrsjqupctexmdvrwybnb"
+  "id": "tfqzzqbiazthkhicrujehprc"
 }

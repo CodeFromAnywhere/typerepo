@@ -1,13 +1,13 @@
 import { Id, Price, Slug } from "model-types";
 import { MarkdownCallToAction } from "./MarkdownCallToAction";
-import { WebsiteHeader } from "./WebsiteHeader";
+import { WebsiteHeaderProperties } from "./WebsiteHeader";
 export interface WebMarkdownProperties
 /**
  * NB: it extends WebsiteHeader here because the MarkdownModelType needs to be flat, and cannot have objects
  *
  * We won't make the websiteHeader into an object, although, that would also be a possibility.
  */
- extends WebsiteHeader {
+ extends WebsiteHeaderProperties {
     markdownCallToActionSlugs?: Slug[];
     markdownCallToActions?: MarkdownCallToAction[];
     /**

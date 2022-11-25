@@ -26,6 +26,6 @@ export interface PostableProperties {
     bundleConfigs?: BundleConfig[];
     operationIds?: Id[];
     operations?: Operation[];
-    reference_assets: BackendAsset[];
+    reference_assets?: BackendAsset[];
 }
 //# sourceMappingURL=PostableProperties.d.ts.map
