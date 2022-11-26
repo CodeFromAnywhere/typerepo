@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384516528,
-  "updatedAt": 1669384516528,
+  "createdAt": 1669467045791,
+  "updatedAt": 1669467045791,
   "deletedAt": 0,
-  "createdFirstAt": 1669384516528,
+  "createdFirstAt": 1669467045791,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdownParse: MarkdownParse\n): string => {\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n  return `${frontMatterString}${markdownParse.raw}`;\n}",
   "description": "NB: this just uses RAW!\n\nUse `markdownParseToMarkdownStringFromContent` for the real deal",
-  "id": "wvdvyffbbzuyylyffbbcmwjb"
+  "id": "jjyrnzgplurzypyzpzzkkdyz"
 }

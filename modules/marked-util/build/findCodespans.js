@@ -1,19 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.findCodespans = void 0;
-var marked_1 = require("marked");
-var js_util_1 = require("js-util");
-var findCodespansFromTokenRecursively_1 = require("./findCodespansFromTokenRecursively");
-/**
- * find all backtick-blocks
- */
-var findCodespans = function (sectionContent) {
-    var result = marked_1.marked
-        .lexer(sectionContent)
-        .map(findCodespansFromTokenRecursively_1.findCodespansFromTokenRecursively)
-        .filter(js_util_1.notEmpty)
-        .flat();
-    return result;
-};
-exports.findCodespans = findCodespans;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.findCodespans=void 0;var js_util_1=require("js-util"),flattenMarkdownString_1=require("./flattenMarkdownString"),findCodespans=function(t){return(0,flattenMarkdownString_1.flattenMarkdownString)(t,(function(t){return"codespan"===t.type})).map((function(t){if("codespan"===t.type)return t.text})).filter(js_util_1.notEmpty)};exports.findCodespans=findCodespans;
 //# sourceMappingURL=findCodespans.js.map

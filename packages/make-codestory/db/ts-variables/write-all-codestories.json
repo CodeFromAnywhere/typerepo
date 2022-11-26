@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669467002870,
+  "updatedAt": 1669467002870,
+  "deletedAt": 0,
+  "createdFirstAt": 1669467002870,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "writeAllCodestories",
+  "slug": "write-all-codestories",
+  "operationRelativeTypescriptFilePath": "src/writeAllCodestories.ts",
+  "type": {
+    "rawType": "(isDebug?: boolean | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (isDebug?: boolean) => {\n  const files = await findCodestories();\n\n  await makeCodespanMappedObject();\n\n  const mappedObject = await readJsonFile<{ [key: string]: CodespanItemInfo }>(\n    path.join(__dirname, \"..\", \"assets\", \"codespan-mapped-object-small.json\")\n  );\n\n  if (!mappedObject) {\n    console.log(\"Couldn't find mapped obj\");\n    return;\n  }\n\n  const codestoryPaths = await oneByOne(files, (absolutePath) =>\n    makeCodestory(absolutePath, mappedObject, isDebug)\n  );\n  if (isDebug) {\n    console.log({ codestoryPaths });\n  }\n}",
+  "description": "---\nrunEveryPeriod: 5-minutes\n---",
+  "id": "yqlrskvwqcuvkdprsftigscq"
+}

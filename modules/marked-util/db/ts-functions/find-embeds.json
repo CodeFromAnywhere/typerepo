@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669384565619,
-  "updatedAt": 1669384565619,
+  "createdAt": 1669467094672,
+  "updatedAt": 1669467094672,
   "deletedAt": 0,
-  "createdFirstAt": 1669384565619,
+  "createdFirstAt": 1669467094672,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findEmbeds.ts",
   "commentsInside": [],
-  "rawText": " (markdownString: string): MarkdownEmbed[] => {\n  const result: MarkdownEmbed[] = marked\n    .lexer(markdownString)\n    .map(findEmbedsFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
+  "rawText": " (markdownString: string): MarkdownEmbed[] => {\n  const result = flattenMarkdownString(\n    markdownString,\n    (token) => token.type === \"image\"\n  );\n\n  const embeds: MarkdownEmbed[] = result\n    .map((token) => {\n      if (token.type !== \"image\") return;\n\n      const markdownEmbed: MarkdownEmbed = {\n        alt: token.title,\n        src: token.href,\n        type: getTypeFromUrlOrPath(token.href),\n      };\n\n      return markdownEmbed;\n    })\n    .filter(notEmpty);\n\n  return embeds;\n}",
   "name": "findEmbeds",
   "slug": "find-embeds",
   "parameters": [
@@ -131,15 +131,15 @@
       "type": "array"
     }
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 4,
   "size": {
-    "characters": 235,
-    "lines": 9,
-    "bytes": 235,
+    "characters": 513,
+    "lines": 22,
+    "bytes": 513,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
-    "linesPerFile": 9,
+    "charactersPerLine": 23,
+    "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "truhhrnrthmdmhzdsyfdywtw"
+  "id": "ktjaetvyydceupgcvumpjict"
 }

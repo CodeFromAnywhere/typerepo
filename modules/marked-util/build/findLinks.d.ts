@@ -1,6 +1,6 @@
-import { MarkdownLink } from "code-types";
+import { MarkdownLink } from "markdown-types";
 /**
- * find all embedded assets
+ * find all links
  */
 export declare const findLinks: (markdownString: string) => MarkdownLink[];
 //# sourceMappingURL=findLinks.d.ts.map

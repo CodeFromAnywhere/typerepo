@@ -1,0 +1,4 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.writeCodespanDetails=void 0;var js_util_1=require("js-util"),writeCodespanDetails=function(t){
+// Ensure this section contains not only the description, but also the code of the referred interface/function/variable, and a link to a website where you find the real-time docs.
+var e=[t.description,t.gitRepoUrl?"[Find more on GitHub](".concat(t.gitRepoUrl,")"):void 0,t.rawText?"```tsx\n".concat(t.rawText,"\n```"):void 0].filter(js_util_1.notEmpty).join("\n\n\n\n"),n=e.trim().length>0;return"<details>\n  \n  <summary>".concat(t.name,"</summary>\n  \n  ").concat(n?e:"I didn't write a good description for this yet. Please let me know if you want to know more","\n  \n  </details>\n  ")};exports.writeCodespanDetails=writeCodespanDetails;
+//# sourceMappingURL=writeCodespanDetails.js.map

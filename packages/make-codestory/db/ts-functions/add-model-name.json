@@ -1,0 +1,36 @@
+{
+  "createdAt": 1669466983137,
+  "updatedAt": 1669466983137,
+  "deletedAt": 0,
+  "createdFirstAt": 1669466983137,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/addModelName.ts",
+  "commentsInside": [],
+  "rawText": " <T extends O>(\n  item: T,\n  modelName: string\n): T & { author?: string } => {\n  return { ...item, slug: modelName, modelName: \"lol\" };\n}",
+  "name": "addModelName",
+  "slug": "add-model-name",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/make-codestory/src/addModelName\").O & { author?: string | undefined; }",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 137,
+    "lines": 6,
+    "bytes": 137,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 6,
+    "numberOfFiles": 1
+  },
+  "id": "nrzdkbzacelwlcbjrfeofwzq"
+}

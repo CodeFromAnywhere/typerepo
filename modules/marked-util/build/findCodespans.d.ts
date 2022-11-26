@@ -1,5 +1,5 @@
 /**
- * find all backtick-blocks
+ * find all codespans
  */
-export declare const findCodespans: (sectionContent: string) => string[];
+export declare const findCodespans: (markdownString: string) => string[];
 //# sourceMappingURL=findCodespans.d.ts.map

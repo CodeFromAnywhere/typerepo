@@ -1,0 +1,2 @@
+"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var s,a=1,t=arguments.length;a<t;a++)for(var r in s=arguments[a])Object.prototype.hasOwnProperty.call(s,r)&&(e[r]=s[r]);return e},__assign.apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0}),exports.addModelName=void 0;var addModelName=function(e,s){return __assign(__assign({},e),{slug:s,modelName:"lol"})};exports.addModelName=addModelName;
+//# sourceMappingURL=addModelName.js.map

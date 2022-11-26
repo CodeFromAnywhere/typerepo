@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669466983274,
+  "updatedAt": 1669466983274,
+  "deletedAt": 0,
+  "createdFirstAt": 1669466983274,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "addModelName",
+  "slug": "add-model-name",
+  "operationRelativeTypescriptFilePath": "src/addModelName.ts",
+  "type": {
+    "rawType": "<T extends import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/make-codestory/src/addModelName\").O>(item: T, modelName: string) => T & { author?: string | undefined; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<T extends O>(\n  item: T,\n  modelName: string\n): T & { author?: string } => {\n  return { ...item, slug: modelName, modelName: \"lol\" };\n}",
+  "description": "",
+  "id": "xvfzucygfrapfxjxetxyfqmf"
+}

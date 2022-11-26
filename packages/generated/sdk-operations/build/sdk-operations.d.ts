@@ -7,6 +7,9 @@ export declare const operations: {
     "search-web": string;
     "todo-web": string;
     "writer-web": string;
+    "codestorys-node": string;
+    "collect-static-assets": string;
+    "make-codestory": string;
     all: string;
     api: string;
     "api-store": string;
@@ -30,8 +33,6 @@ export declare const operations: {
     "cleanup-typescript-database": string;
     "clickable-icon": string;
     "code-types": string;
-    "codestorys-node": string;
-    "collect-static-assets": string;
     "comment-util": string;
     "compile-typescript": string;
     "convert-case": string;
@@ -85,7 +86,6 @@ export declare const operations: {
     lint: string;
     log: string;
     mail: string;
-    "make-codestory": string;
     "make-file-type": string;
     "make-test": string;
     markdown: string;

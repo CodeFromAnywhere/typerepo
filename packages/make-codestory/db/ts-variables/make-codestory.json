@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669466994141,
+  "updatedAt": 1669466994141,
+  "deletedAt": 0,
+  "createdFirstAt": 1669466994141,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "makeCodestory",
+  "slug": "make-codestory",
+  "operationRelativeTypescriptFilePath": "src/makeCodestory.ts",
+  "type": {
+    "rawType": "(absolutePath: string, mappedObject: { [key: string]: import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/make-codestory/src/CodespanItemInfo\").CodespanItemInfo; }, isDebug?: boolean | undefined) => Promise<string | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  absolutePath: string,\n  mappedObject: { [key: string]: CodespanItemInfo },\n  isDebug?: boolean\n): Promise<undefined | string> => {\n  //   Use MarkdownParse to split up the markdown into different headers with their content\n  const markdownParse = await readMarkdownFile(absolutePath);\n  if (!markdownParse) return;\n\n  const newMarkdownParse = mapMarkdownParseSections(markdownParse, (content) =>\n    addCodestoryToSection(content, mappedObject, isDebug)\n  );\n\n  const newString = markdownParseToMarkdownStringFromContent(newMarkdownParse);\n\n  const parse = path.parse(absolutePath);\n\n  const newPath = path.join(parse.dir, `${parse.name}.codestory${parse.ext}`);\n\n  await fs.writeFile(newPath, newString || \"\", \"utf8\");\n  return newPath;\n}",
+  "description": "no real reason to do this from text to text, let's do path to path here",
+  "id": "ngnotujugtbyqxvanyueffco"
+}

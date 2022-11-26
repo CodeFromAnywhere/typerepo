@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669384518327,
-  "updatedAt": 1669384518327,
+  "createdAt": 1669467047998,
+  "updatedAt": 1669467047998,
   "deletedAt": 0,
-  "createdFirstAt": 1669384518327,
+  "createdFirstAt": 1669467047998,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/markdownParseToMarkdownStringFromContent.ts",
   "commentsInside": [],
-  "rawText": " (\n  markdownParse: MarkdownParse\n): string | undefined => {\n  const result = markdownParse.content\n    ?.map(chunkToStringRecursively)\n    .join(\"\\n\\n\");\n  return result;\n}",
+  "rawText": " (\n  markdownParse: MarkdownParse\n): string | undefined => {\n  const contentResult = markdownParse.content\n    ?.map(chunkToStringRecursively)\n    .join(\"\\n\\n\");\n\n  const frontMatterString = frontmatterParseToString(markdownParse.parameters);\n\n  return `${frontMatterString}\\n${contentResult}`;\n}",
   "name": "markdownParseToMarkdownStringFromContent",
   "slug": "markdown-parse-to-markdown-string-from-content",
   "parameters": [
@@ -256,13 +256,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 173,
-    "lines": 8,
-    "bytes": 173,
+    "characters": 296,
+    "lines": 11,
+    "bytes": 296,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 22,
-    "linesPerFile": 8,
+    "charactersPerLine": 27,
+    "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "qgrzyqbuueoddtzzgolyrect"
+  "id": "dcheexgconkurlmikvxwvynj"
 }

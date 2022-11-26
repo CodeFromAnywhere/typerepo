@@ -1,0 +1,95 @@
+{
+  "createdAt": 1669467003585,
+  "updatedAt": 1669467003585,
+  "deletedAt": 0,
+  "createdFirstAt": 1669467003585,
+  "id": "namedparameterstypeof-writecodespandetails",
+  "name": "NamedParameters<typeof writeCodespanDetails>",
+  "slug": "namedparameterstypeof-writecodespandetails",
+  "operationRelativeTypescriptFilePath": "src/writeCodespanDetails.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "codespanItemInfo": {
+          "$ref": "#/definitions/CodespanItemInfo"
+        }
+      },
+      "required": [
+        "codespanItemInfo"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "codespanItemInfo",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "name",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "slug",
+                "required": true,
+                "schema": {
+                  "fullComment": "This is the type in this case",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "id",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "description",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "rawText",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "gitRepoUrl",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof writeCodespanDetails>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

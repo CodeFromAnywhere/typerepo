@@ -1,0 +1,36 @@
+{
+  "createdAt": 1669466986858,
+  "updatedAt": 1669466986858,
+  "deletedAt": 0,
+  "createdFirstAt": 1669466986858,
+  "isApiExposed": true,
+  "isExported": false,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/findCodestories.test.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const x = await findCodestories();\n  console.log({ result: x });\n}",
+  "name": "test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 83,
+    "lines": 4,
+    "bytes": 83,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 4,
+    "numberOfFiles": 1
+  },
+  "id": "qifypjmkamtrptfmtzckfvll"
+}

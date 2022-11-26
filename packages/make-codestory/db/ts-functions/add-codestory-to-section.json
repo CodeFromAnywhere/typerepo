@@ -1,0 +1,88 @@
+{
+  "createdAt": 1669466981280,
+  "updatedAt": 1669466981280,
+  "deletedAt": 0,
+  "createdFirstAt": 1669466981280,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/addCodeStoryToSection.ts",
+  "commentsInside": [],
+  "rawText": " (\n  sectionContent: string | undefined,\n  mappedObject: { [key: string]: CodespanItemInfo },\n  isDebug?: boolean\n): string | undefined => {\n  if (!sectionContent) return;\n  // For every piece of content find the codespans\n  const codespans = findCodespans(sectionContent);\n\n  const info = codespans\n    .map((word) => {\n      const details = (\n        mappedObject as unknown as {\n          [key: string]: CodespanItemInfo;\n        }\n      )[word];\n\n      if (!details) return;\n\n      // Augment every section with one <details> section for every referred piece of code.\n      return writeCodespanDetails(details);\n    })\n    .filter(notEmpty);\n  if (isDebug) {\n    console.log({ codespans: codespans.length, infos: info.length });\n  }\n\n  return `${sectionContent}${\n    info.length > 0 ? `\\n\\n${info.join(\"\\n\\n\")}\\n` : \"\"\n  }`;\n}",
+  "name": "addCodestoryToSection",
+  "slug": "add-codestory-to-section",
+  "parameters": [
+    {
+      "name": "sectionContent",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "name": "mappedObject",
+      "schema": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/definitions/CodespanItemInfo"
+        }
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "isDebug",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "string | undefined",
+    "typeDefinition": {
+      "optional": true,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 831,
+    "lines": 31,
+    "bytes": 831,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 31,
+    "numberOfFiles": 1
+  },
+  "id": "scoirgabjjoxcggwfsxteyqw"
+}

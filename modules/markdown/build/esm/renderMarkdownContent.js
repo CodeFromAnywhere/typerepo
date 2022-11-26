@@ -66,7 +66,6 @@ export var renderMarkdownContent = function (content, config) {
                 h6: HtmlHeader,
                 img: function (_a) {
                     var src = _a.src, alt = _a.alt;
-                    console.log({ src: src, alt: alt });
                     if (!src)
                         return React.createElement(Div, null, "Bad asset src");
                     var isRelative = isPathRelative(src);

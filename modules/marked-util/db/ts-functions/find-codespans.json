@@ -1,19 +1,19 @@
 {
-  "createdAt": 1669384562213,
-  "updatedAt": 1669384562213,
+  "createdAt": 1669467090908,
+  "updatedAt": 1669467090908,
   "deletedAt": 0,
-  "createdFirstAt": 1669384562213,
+  "createdFirstAt": 1669467090908,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findCodespans.ts",
   "commentsInside": [],
-  "rawText": " (sectionContent: string): string[] => {\n  const result: string[] = marked\n    .lexer(sectionContent)\n    .map(findCodespansFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
+  "rawText": " (markdownString: string): string[] => {\n  const result = flattenMarkdownString(\n    markdownString,\n    (token) => token.type === \"codespan\"\n  );\n\n  const codespans: string[] = result\n    .map((token) => {\n      if (token.type !== \"codespan\") return;\n\n      return token.text;\n    })\n    .filter(notEmpty);\n\n  return codespans;\n}",
   "name": "findCodespans",
   "slug": "find-codespans",
   "parameters": [
     {
-      "name": "sectionContent",
+      "name": "markdownString",
       "schema": {
         "type": "string"
       },
@@ -23,7 +23,7 @@
       "required": true
     }
   ],
-  "description": "find all backtick-blocks",
+  "description": "find all codespans",
   "returnType": {
     "rawType": "string[]",
     "typeDefinition": {
@@ -61,15 +61,15 @@
       "type": "array"
     }
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 3,
   "size": {
-    "characters": 224,
-    "lines": 9,
-    "bytes": 224,
+    "characters": 348,
+    "lines": 16,
+    "bytes": 348,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 25,
-    "linesPerFile": 9,
+    "charactersPerLine": 22,
+    "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "zuipqkzreucebbnhyckfhvrm"
+  "id": "mygrqlymjzupyngregrrcozn"
 }

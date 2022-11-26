@@ -21,7 +21,6 @@ export var ReaderPageContent = function (props) {
     var queryPath = getQueryPath(router.query);
     var _a = useStore("menu.isMobileMenuEnabled"), _ = _a[0], setIsMobileMenuEnabled = _a[1];
     var augmentedWordObject = props.augmentedWordObject, children = props.children, description = props.description, markdownFile = props.markdownFile, nextQueryPath = props.nextQueryPath, previousQueryPath = props.previousQueryPath, projectRelativeMarkdownPath = props.projectRelativeMarkdownPath, title = props.title;
-    console.log("HALLOOOO", { markdownFile: markdownFile, props: props });
     var _b = useState("view"), view = _b[0], setView = _b[1];
     var renderBottomNavigation = function () {
         return (React.createElement(Div, { className: "flex flex-row w-full justify-between" },

@@ -20,33 +20,36 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "lintProblems": []
+      "lintProblems": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/parsing/file-conversion/md/marked-util/src/flattenMarkedTokenRecursive.ts. Error: Error: Unknown type \"function\""
+      ]
     },
-    "lastRebuildAt": 1669384576661,
+    "lastRebuildAt": 1669467106955,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 6,
-        "lines": 124,
-        "characters": 2999,
-        "bytes": 2999
+        "lines": 200,
+        "characters": 4432,
+        "bytes": 4432
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 124,
-        "characters": 3699,
-        "bytes": 3699
+        "lines": 127,
+        "characters": 3931,
+        "bytes": 3931
       },
       "textSize": {
-        "numberOfFiles": 2,
-        "lines": 107,
-        "characters": 1784,
-        "bytes": 1784
+        "numberOfFiles": 4,
+        "lines": 147,
+        "characters": 2285,
+        "bytes": 2285
       },
       "size": {
-        "bytes": 8482,
-        "characters": 8482,
-        "lines": 355,
-        "numberOfFiles": 10
+        "bytes": 10648,
+        "characters": 10648,
+        "lines": 474,
+        "numberOfFiles": 12
       }
     },
     "folderNameIndexed": "marked-util",
@@ -57,19 +60,13 @@
       "notEmpty",
       "notEmpty",
       "MarkdownEmbed",
-      "MarkdownEmbed",
       "getTypeFromUrlOrPath",
       "notEmpty",
       "MarkdownLink",
-      "MarkdownEmbed",
-      "MarkdownLink",
-      "getTypeFromUrlOrPath"
+      "getTypeFromUrlOrPath",
+      "notEmpty"
     ],
     "packageDependenciesIndexed": [
-      "marked",
-      "marked",
-      "marked",
-      "marked",
       "marked",
       "marked"
     ]

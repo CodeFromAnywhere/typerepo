@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384561063,
-  "updatedAt": 1669384561063,
+  "createdAt": 1669467089653,
+  "updatedAt": 1669467089653,
   "deletedAt": 0,
-  "createdFirstAt": 1669384561063,
+  "createdFirstAt": 1669467089653,
   "id": "namedparameterstypeof-findcodespans",
   "name": "NamedParameters<typeof findCodespans>",
   "slug": "namedparameterstypeof-findcodespans",
@@ -17,19 +17,19 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
-        "sectionContent": {
+        "markdownString": {
           "type": "string"
         }
       },
       "required": [
-        "sectionContent"
+        "markdownString"
       ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
-          "name": "sectionContent",
+          "name": "markdownString",
           "required": true,
           "schema": {
             "type": "string"

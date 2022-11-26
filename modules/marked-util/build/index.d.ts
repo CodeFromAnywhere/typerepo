@@ -1,7 +1,6 @@
 export * from "./findCodespans";
-export * from "./findCodespansFromTokenRecursively";
 export * from "./findEmbeds";
-export * from "./findEmbedsFromTokenRecursively";
 export * from "./findLinks";
-export * from "./findLinksFromTokenRecursively";
+export * from "./flattenMarkdownString";
+export * from "./flattenMarkedTokenRecursive";
 //# sourceMappingURL=index.d.ts.map

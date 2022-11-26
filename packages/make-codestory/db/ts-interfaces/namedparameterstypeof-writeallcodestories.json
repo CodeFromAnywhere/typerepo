@@ -1,0 +1,46 @@
+{
+  "createdAt": 1669467001819,
+  "updatedAt": 1669467001819,
+  "deletedAt": 0,
+  "createdFirstAt": 1669467001819,
+  "id": "namedparameterstypeof-writeallcodestories",
+  "name": "NamedParameters<typeof writeAllCodestories>",
+  "slug": "namedparameterstypeof-writeallcodestories",
+  "operationRelativeTypescriptFilePath": "src/writeAllCodestories.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isDebug": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "isDebug",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof writeAllCodestories>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

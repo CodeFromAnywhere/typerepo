@@ -1,0 +1,74 @@
+{
+  "createdAt": 1669466993087,
+  "updatedAt": 1669466993087,
+  "deletedAt": 0,
+  "createdFirstAt": 1669466993087,
+  "id": "namedparameterstypeof-makecodestory",
+  "name": "NamedParameters<typeof makeCodestory>",
+  "slug": "namedparameterstypeof-makecodestory",
+  "operationRelativeTypescriptFilePath": "src/makeCodestory.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absolutePath": {
+          "type": "string"
+        },
+        "mappedObject": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/CodespanItemInfo"
+          }
+        },
+        "isDebug": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "absolutePath",
+        "mappedObject"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absolutePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "mappedObject",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "isDebug",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof makeCodestory>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

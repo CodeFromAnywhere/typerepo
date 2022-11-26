@@ -25,76 +25,92 @@ find all embedded assets
 
 ## findCodespans()
 
-find all backtick-blocks
+find all codespans
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| sectionContent | string |  |
+| markdownString | string |  |
 | **Output** | string[]   |    |
 
 
 
 ## findLinks()
 
-find all embedded assets
+find all links
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | markdownString | string |  |
-| **Output** | {  }[]   |    |
+| **Output** | { alt: string, <br />href: string, <br />type: video / audio / image / text / other, <br /> }[]   |    |
 
 
 
 ## 📄 findCodespans (exported const)
 
-find all backtick-blocks
+find all codespans
 
 
 ## 📄 findLinks (exported const)
 
-find all embedded assets
+find all links
+
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # findEmbedsTest()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 findEmbedsTest (unexported const)
+
+  </details>
 
 # Internal
 
-<details><summary>Show internal (6)</summary>
+<details><summary>Show internal (4)</summary>
     
-  # findCodespansFromTokenRecursively()
+  # flattenMarkdownString()
 
-
+find all items that match a token, recursively in all nested things
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| token | `marked.Token` |  |
-| **Output** | string[]   |    |
-
-
-
-## findEmbedsFromTokenRecursively()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| token | `marked.Token` |  |
+| - | | |
 | **Output** | {  }[]   |    |
 
 
 
-## findLinksFromTokenRecursively()
+## flattenMarkedTokenRecursive()
+
+Recursively flatten a marked token and return something if a find function is met
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| token | `marked.Token` |  |
+| - | | |
 | **Output** | {  }[]   |    |
 
 
 
-## 📄 findCodespansFromTokenRecursively (exported const)
+## 📄 flattenMarkdownString (exported const)
 
-## 📄 findEmbedsFromTokenRecursively (exported const)
+find all items that match a token, recursively in all nested things
 
-## 📄 findLinksFromTokenRecursively (exported const)
 
+## 📄 flattenMarkedTokenRecursive (exported const)
+
+Recursively flatten a marked token and return something if a find function is met
   </details>
 

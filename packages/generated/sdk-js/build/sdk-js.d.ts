@@ -272,12 +272,11 @@ export declare const sdk: {
     markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
     parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
     tryParseDate: (dateString: string) => number | undefined;
-    findCodespansFromTokenRecursively: (token: import("marked").marked.Token) => string[];
-    findCodespans: (sectionContent: string) => string[];
-    findEmbedsFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownEmbed[];
+    findCodespans: (markdownString: string) => string[];
     findEmbeds: (markdownString: string) => import("markdown-types").MarkdownEmbed[];
-    findLinksFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownLink[];
-    findLinks: (markdownString: string) => MarkdownLink[];
+    findLinks: (markdownString: string) => import("markdown-types").MarkdownLink[];
+    flattenMarkdownString: (markdownString: string, findFunction: (token: import("marked").marked.Token) => boolean) => import("marked").marked.Token[];
+    flattenMarkedTokenRecursive: (token: import("marked").marked.Token, findFunction: (token: import("marked").marked.Token) => boolean) => import("marked").marked.Token[];
     cleanupTimer: (uniqueId: string) => void;
     generateUniqueId: () => string;
     getNewPerformance: (label: string, uniqueId: string, isNew?: boolean | undefined) => import("measure-performance").PerformanceItem | undefined;

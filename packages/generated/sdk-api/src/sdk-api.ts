@@ -1,3 +1,19 @@
+import { codestoriesGetPages } from "codestorys-node";
+import { codestoriesGetStaticPaths } from "codestorys-node";
+import { codestoriesGetStaticProps } from "codestorys-node";
+import { copyCopyPairs } from "collect-static-assets";
+import { copyReaderStaticAssets } from "collect-static-assets";
+import { findReaderStaticAssets } from "collect-static-assets";
+import { findStaticAssets } from "collect-static-assets";
+import { addCodestoryToSection } from "make-codestory";
+import { addModelName } from "make-codestory";
+import { findCodestories } from "make-codestory";
+import { makeCodespanMappedObject } from "make-codestory";
+import { makeCodestory } from "make-codestory";
+import { mapChunkRecursively } from "make-codestory";
+import { mapMarkdownParseSections } from "make-codestory";
+import { writeAllCodestories } from "make-codestory";
+import { writeCodespanDetails } from "make-codestory";
 import { allOperationsRemoveJsSrc } from "all";
 import { allOperationsToMarkdown } from "all";
 import { clearAllTsDatabases } from "all";
@@ -43,13 +59,6 @@ import { execAsync } from "child-process-helper";
 import { spawnAsync } from "child-process-helper";
 import { cleanupTsDatabase } from "cleanup-typescript-database";
 import { shouldDeleteTsModel } from "cleanup-typescript-database";
-import { codestoriesGetPages } from "codestorys-node";
-import { codestoriesGetStaticPaths } from "codestorys-node";
-import { codestoriesGetStaticProps } from "codestorys-node";
-import { copyCopyPairs } from "collect-static-assets";
-import { copyReaderStaticAssets } from "collect-static-assets";
-import { findReaderStaticAssets } from "collect-static-assets";
-import { findStaticAssets } from "collect-static-assets";
 import { csvItemArrayToCsvString } from "csv-util";
 import { tryParseCsv } from "csv-util";
 import { generateCsvInstance } from "database";
@@ -244,15 +253,6 @@ import { runTestsForOperation } from "k-test";
 import { runTests } from "k-test";
 import { preIndexLint } from "lint";
 import { sendMail } from "mail";
-import { addCodestoryToSection } from "make-codestory";
-import { addModelName } from "make-codestory";
-import { findCodestories } from "make-codestory";
-import { makeCodespanMappedObject } from "make-codestory";
-import { makeCodestory } from "make-codestory";
-import { mapChunkRecursively } from "make-codestory";
-import { mapMarkdownParseSections } from "make-codestory";
-import { writeAllCodestories } from "make-codestory";
-import { writeCodespanDetails } from "make-codestory";
 import { addDependantCount } from "markdown-parsings";
 import { bundleFolderWithMarkdown } from "markdown-parsings";
 import { bundleToBookMarkdown } from "markdown-parsings";
@@ -584,12 +584,11 @@ import { removeHeaderPrefix } from "markdown-parse-js";
 import { markdownParseToMarkdownModelType } from "markdown-types";
 import { parseMarkdownModelTimestamp } from "markdown-types";
 import { tryParseDate } from "markdown-types";
-import { findCodespansFromTokenRecursively } from "marked-util";
 import { findCodespans } from "marked-util";
-import { findEmbedsFromTokenRecursively } from "marked-util";
 import { findEmbeds } from "marked-util";
-import { findLinksFromTokenRecursively } from "marked-util";
 import { findLinks } from "marked-util";
+import { flattenMarkdownString } from "marked-util";
+import { flattenMarkedTokenRecursive } from "marked-util";
 import { cleanupTimer } from "measure-performance";
 import { generateUniqueId } from "measure-performance";
 import { getNewPerformance } from "measure-performance";
@@ -664,7 +663,23 @@ import { useCustomUrlStore } from "use-url-store";
 import { crudPageToWebPages } from "webpage-types";
 import { functionFormPageToWebPage } from "webpage-types";
 
-export const sdk = { allOperationsRemoveJsSrc,
+export const sdk = { codestoriesGetPages,
+codestoriesGetStaticPaths,
+codestoriesGetStaticProps,
+copyCopyPairs,
+copyReaderStaticAssets,
+findReaderStaticAssets,
+findStaticAssets,
+addCodestoryToSection,
+addModelName,
+findCodestories,
+makeCodespanMappedObject,
+makeCodestory,
+mapChunkRecursively,
+mapMarkdownParseSections,
+writeAllCodestories,
+writeCodespanDetails,
+allOperationsRemoveJsSrc,
 allOperationsToMarkdown,
 clearAllTsDatabases,
 codeAll,
@@ -709,13 +724,6 @@ execAsync,
 spawnAsync,
 cleanupTsDatabase,
 shouldDeleteTsModel,
-codestoriesGetPages,
-codestoriesGetStaticPaths,
-codestoriesGetStaticProps,
-copyCopyPairs,
-copyReaderStaticAssets,
-findReaderStaticAssets,
-findStaticAssets,
 csvItemArrayToCsvString,
 tryParseCsv,
 generateCsvInstance,
@@ -910,15 +918,6 @@ runTestsForOperation,
 runTests,
 preIndexLint,
 sendMail,
-addCodestoryToSection,
-addModelName,
-findCodestories,
-makeCodespanMappedObject,
-makeCodestory,
-mapChunkRecursively,
-mapMarkdownParseSections,
-writeAllCodestories,
-writeCodespanDetails,
 addDependantCount,
 bundleFolderWithMarkdown,
 bundleToBookMarkdown,
@@ -1250,12 +1249,11 @@ removeHeaderPrefix,
 markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
-findCodespansFromTokenRecursively,
 findCodespans,
-findEmbedsFromTokenRecursively,
 findEmbeds,
-findLinksFromTokenRecursively,
 findLinks,
+flattenMarkdownString,
+flattenMarkedTokenRecursive,
 cleanupTimer,
 generateUniqueId,
 getNewPerformance,

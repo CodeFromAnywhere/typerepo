@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384511691,
-  "updatedAt": 1669384511691,
+  "createdAt": 1669467039909,
+  "updatedAt": 1669467039909,
   "deletedAt": 0,
-  "createdFirstAt": 1669384511691,
+  "createdFirstAt": 1669467039909,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdownParse: MarkdownParse\n): string[] => {\n  const paragraphs =\n    markdownParse.content?.map(getChunkParagraphsRecursively).flat() || [];\n\n  return paragraphs;\n}",
   "description": "Gets all paragraphs (recursively) from a `MarkdownParse`",
-  "id": "mvpjmbainrdbyxlfohbvnzmi"
+  "id": "zuetnzstcwdrxaupjtiwpybo"
 }

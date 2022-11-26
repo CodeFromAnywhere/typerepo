@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669467004636,
+  "updatedAt": 1669467004636,
+  "deletedAt": 0,
+  "createdFirstAt": 1669467004636,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "writeCodespanDetails",
+  "slug": "write-codespan-details",
+  "operationRelativeTypescriptFilePath": "src/writeCodespanDetails.ts",
+  "type": {
+    "rawType": "(codespanItemInfo: import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/make-codestory/src/CodespanItemInfo\").CodespanItemInfo) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  codespanItemInfo: CodespanItemInfo\n): string => {\n  // Ensure this section contains not only the description, but also the code of the referred interface/function/variable, and a link to a website where you find the real-time docs.\n\n  const description = codespanItemInfo.description;\n  const githubRepo = codespanItemInfo.gitRepoUrl\n    ? `[Find more on GitHub](${codespanItemInfo.gitRepoUrl})`\n    : undefined;\n\n  const rawText = codespanItemInfo.rawText\n    ? `\\`\\`\\`tsx\\n${codespanItemInfo.rawText}\\n\\`\\`\\``\n    : undefined;\n\n  const sections = [description, githubRepo, rawText]\n    .filter(notEmpty)\n    .join(\"\\n\\n\\n\\n\");\n\n  const hasContent = sections.trim().length > 0;\n\n  return `<details>\n  \n  <summary>${codespanItemInfo.name}</summary>\n  \n  ${\n    hasContent\n      ? sections\n      : \"I didn't write a good description for this yet. Please let me know if you want to know more\"\n  }\n  \n  </details>\n  `;\n}",
+  "description": "",
+  "id": "fzwljyubebmwjxmvfxudipai"
+}

@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var writeAllCodestories_1=require("./writeAllCodestories");(0,writeAllCodestories_1.writeAllCodestories)(!0);
+//# sourceMappingURL=writeAllCodestories.test.js.map

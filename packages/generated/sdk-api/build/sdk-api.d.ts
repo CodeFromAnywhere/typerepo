@@ -15,6 +15,32 @@ import { getEncoding } from "text-or-binary";
 import { isBinary } from "text-or-binary";
 import { isText } from "text-or-binary";
 export declare const sdk: {
+    codestoriesGetPages: (config?: {
+        manualProjectRoot?: string | undefined;
+    } | undefined) => Promise<import("webpage-types").FileWebPage[] | undefined>;
+    codestoriesGetStaticPaths: import("next-types").GetStaticPaths<import("next-types").ParsedUrlQuery>;
+    codestoriesGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
+        props: import("markdown-reader-types").MarkdownReaderPageProps;
+    }>;
+    copyCopyPairs: (copyPairs: import("collect-static-assets").CopyPair[]) => Promise<void[]>;
+    copyReaderStaticAssets: (operationBasePath: string, allWebPages: import("webpage-types").WebPage<unknown>[]) => Promise<void>;
+    findReaderStaticAssets: (readerWebPages: import("webpage-types").FileWebPage[]) => Promise<string[] | undefined>;
+    findStaticAssets: (absoluteMarkdownFilePath: string) => Promise<string[]>;
+    addCodestoryToSection: (sectionContent: string | undefined, mappedObject: {
+        [key: string]: import("make-codestory").CodespanItemInfo;
+    }, isDebug?: boolean | undefined) => string | undefined;
+    addModelName: <T extends import("make-codestory").O>(item: T, modelName: string) => T & {
+        author?: string | undefined;
+    };
+    findCodestories: () => Promise<string[]>;
+    makeCodespanMappedObject: () => Promise<void>;
+    makeCodestory: (absolutePath: string, mappedObject: {
+        [key: string]: import("make-codestory").CodespanItemInfo;
+    }, isDebug?: boolean | undefined) => Promise<string | undefined>;
+    mapChunkRecursively: (chunk: import("markdown-types").MarkdownChunk, mapFunction: (content?: string | undefined) => string | undefined) => import("markdown-types").MarkdownChunk;
+    mapMarkdownParseSections: (markdownParse: import("markdown-types").MarkdownParse, mapFunction: (content?: string | undefined) => string | undefined) => import("markdown-types").MarkdownParse;
+    writeAllCodestories: (isDebug?: boolean | undefined) => Promise<void>;
+    writeCodespanDetails: (codespanItemInfo: import("make-codestory").CodespanItemInfo) => string;
     allOperationsRemoveJsSrc: (debug?: boolean | undefined) => Promise<void>;
     allOperationsToMarkdown: () => Promise<void>;
     clearAllTsDatabases: () => Promise<void>;
@@ -152,19 +178,8 @@ export declare const sdk: {
         amountRemoved: number;
     } | undefined>;
     shouldDeleteTsModel: (tsModel: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsComment | import("code-types").TsBuildError | import("code-types").TsLintWarning | import("code-types").TsExport | import("code-types").TsImport | import("code-types").TsVariable, operationName: string, operationRelativePaths: string[]) => boolean;
-    codestoriesGetPages: (config?: {
-        manualProjectRoot?: string | undefined;
-    } | undefined) => Promise<import("webpage-types").FileWebPage[] | undefined>;
-    codestoriesGetStaticPaths: import("next-types").GetStaticPaths<import("next-types").ParsedUrlQuery>;
-    codestoriesGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
-        props: import("markdown-reader-types").MarkdownReaderPageProps;
-    }>;
-    copyCopyPairs: (copyPairs: import("collect-static-assets").CopyPair[]) => Promise<void[]>;
-    copyReaderStaticAssets: (operationBasePath: string, allWebPages: import("webpage-types").WebPage<unknown>[]) => Promise<void>;
-    findReaderStaticAssets: (readerWebPages: import("webpage-types").FileWebPage[]) => Promise<string[] | undefined>;
-    findStaticAssets: (absoluteMarkdownFilePath: string) => Promise<string[]>;
-    csvItemArrayToCsvString: <T extends import("csv-util").CsvItemType>(csvModelData: T[]) => string;
-    tryParseCsv: <T_1 extends import("csv-util").CsvItemType>(csvString: string) => T_1[] | null;
+    csvItemArrayToCsvString: <T_1 extends import("csv-util").CsvItemType>(csvModelData: T_1[]) => string;
+    tryParseCsv: <T_2 extends import("csv-util").CsvItemType>(csvString: string) => T_2[] | null;
     generateCsvInstance: () => import("model-types").Creation<import("database").CsvTestModel>;
     generateJsonSingleInstance: () => import("model-types").Creation<import("database").DefaultTestModel>;
     generateKvmdInstance: () => import("model-types").Creation<import("database").KvmdTestModel>;
@@ -263,7 +278,7 @@ export declare const sdk: {
         flat: (import("webpage-types").FileWebPage | import("webpage-types").WebPage<null>)[];
     }>;
     getTodoPaths: (config?: import("todo-types").TodoPagesConfig | undefined) => Promise<string[]>;
-    hasSameProjectPath: (projectRelativePath: string) => <T_2 extends import("model-types").TsIndexModelType>(x: T_2) => boolean;
+    hasSameProjectPath: (projectRelativePath: string) => <T_3 extends import("model-types").TsIndexModelType>(x: T_3) => boolean;
     findAllDependencyOperations: ({ imports, operations, operationNames, ignoreOperationNames, ignoreFilter, }: {
         imports: import("code-types").TsImport[];
         operations: import("code-types").Operation[];
@@ -313,15 +328,15 @@ export declare const sdk: {
     }>;
     createDb: <TModels extends import("fs-orm").AnyModelObject>(dbConfig?: import("fs-orm").DbConfig<TModels> | undefined) => import("fs-orm").Db<TModels>;
     findParent: (arrayItem: import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>, newCategoryStack: import("model-types").CategoryStack) => boolean;
-    getAugmentedData: <T_3>(dbFileLocation: import("model-types").DbFileLocation, dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv") => Promise<T_3[] | null>;
+    getAugmentedData: <T_4>(dbFileLocation: import("model-types").DbFileLocation, dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv") => Promise<T_4[] | null>;
     getDatabaseFiles: (modelName: string, mergedConfig: import("fs-orm").MergedQueryConfig) => Promise<import("model-types").DbFileLocation[]>;
     getDatabaseRootFolder: (operationName: string | null | undefined, manualProjectRoot?: string | undefined) => Promise<string | undefined>;
     getDbFileLocation: (storedItem: import("model-types").Storing<import("model-types").AugmentedAnyModelType>, operationName: string | null, mergedConfig: import("fs-orm").MergedQueryConfig, modelName: string) => Promise<import("model-types").DbFileLocation | undefined>;
     getDbStorageMethodExtension: (dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv") => string;
     getDefaultLocationPattern: (dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv", modelName: string) => string | undefined;
-    getItemModelLocation: <T_4 extends {
+    getItemModelLocation: <T_5 extends {
         [key: string]: any;
-    }>(item: T_4) => import("model-types").ModelLocation;
+    }>(item: T_5) => import("model-types").ModelLocation;
     getLength: (array: any[]) => number;
     getLocationPattern: (dbStorageMethod: "markdown" | "jsonMultiple" | "jsonSingle" | "keyValueMarkdown" | "csv", modelName: string, mergedConfig: import("fs-orm").MergedQueryConfig) => string | undefined;
     getMergedConfigOperationPath: (mergedConfig: import("fs-orm").MergedQueryConfig, manualProjectRoot?: string | undefined) => Promise<string | false | undefined>;
@@ -346,10 +361,10 @@ export declare const sdk: {
         projectRoot: string;
         rootFolder: import("fs-orm").RootDbFolder;
     }) => Promise<import("model-types").DbFileLocation[]>;
-    groupByFile: <T_5 extends {
+    groupByFile: <T_6 extends {
         [key: string]: any;
-    }>(creationItems: import("model-types").Creation<T_5>[], mergedConfig: import("fs-orm").MergedQueryConfig, modelName: string) => Promise<import("fs-orm").ItemPerFileObject<T_5>>;
-    makeStoringItem: <T_6 extends import("model-types").AugmentedAnyModelType>(item: T_6) => import("model-types").Storing<T_6>;
+    }>(creationItems: import("model-types").Creation<T_6>[], mergedConfig: import("fs-orm").MergedQueryConfig, modelName: string) => Promise<import("fs-orm").ItemPerFileObject<T_6>>;
+    makeStoringItem: <T_7 extends import("model-types").AugmentedAnyModelType>(item: T_7) => import("model-types").Storing<T_7>;
     mergeConfigs: <TModels_1 extends import("fs-orm").AnyModelObject>(modelName: Extract<keyof TModels_1, string>, dbConfig?: import("fs-orm").DbConfig<TModels_1> | undefined, config?: import("fs-orm").CustomQueryConfig | import("fs-orm").GetQueryConfig<TModels_1[keyof TModels_1]> | undefined) => import("fs-orm").MergedQueryConfig;
     removeKeyValueMarkdown: (storedData: import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[], slug: string) => import("fs-orm").DbQueryResult & {
         newStoredData: import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
@@ -363,8 +378,8 @@ export declare const sdk: {
         newStoredData: import("model-types").Storing<import("model-types").AugmentedAnyModelType>[];
     };
     getExtension: (fileNameOrPath: string) => string;
-    getFileOrFolderName: <T_7 extends string | undefined>(fileOrFolderPath: T_7) => T_7;
-    getFolderJs: <T_8 extends string | undefined>(filePath: T_8) => T_8;
+    getFileOrFolderName: <T_8 extends string | undefined>(fileOrFolderPath: T_8) => T_8;
+    getFolderJs: <T_9 extends string | undefined>(filePath: T_9) => T_9;
     getSubExtension: (filename: string) => string | undefined;
     isPathRelative: (path: string) => boolean;
     removeTrailingSlash: (p: string) => string;
@@ -603,21 +618,6 @@ export declare const sdk: {
         operationFolderPath: string;
     }) => Promise<string[]>;
     sendMail: (mailData: import("mail").MailDataFromOptional | import("mail").MailDataFromOptional[], isMultiple?: boolean | undefined) => Promise<import("@sendgrid/mail").ClientResponse | undefined>;
-    addCodestoryToSection: (sectionContent: string | undefined, mappedObject: {
-        [key: string]: import("make-codestory").CodespanItemInfo;
-    }, isDebug?: boolean | undefined) => string | undefined;
-    addModelName: <T_9 extends import("make-codestory").O>(item: T_9, modelName: string) => T_9 & {
-        author?: string | undefined;
-    };
-    findCodestories: () => Promise<string[]>;
-    makeCodespanMappedObject: () => Promise<void>;
-    makeCodestory: (absolutePath: string, mappedObject: {
-        [key: string]: import("make-codestory").CodespanItemInfo;
-    }, isDebug?: boolean | undefined) => Promise<string | undefined>;
-    mapChunkRecursively: (chunk: import("markdown-types").MarkdownChunk, mapFunction: (content?: string | undefined) => string | undefined) => import("markdown-types").MarkdownChunk;
-    mapMarkdownParseSections: (markdownParse: import("markdown-types").MarkdownParse, mapFunction: (content?: string | undefined) => string | undefined) => import("markdown-types").MarkdownParse;
-    writeAllCodestories: (isDebug?: boolean | undefined) => Promise<void>;
-    writeCodespanDetails: (codespanItemInfo: import("make-codestory").CodespanItemInfo) => string;
     addDependantCount: (type: "tsFunction" | "tsVariable" | "tsInterface", imports: import("code-types").TsImport[]) => (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable) => Promise<import("markdown-parsings").DependantCountObject>;
     bundleFolderWithMarkdown: (outlineTitle: string, markdownStrings: string[], resultFileName?: string | undefined) => Promise<{
         markdownParse: MarkdownParse;
@@ -1361,12 +1361,11 @@ export declare const sdk: {
     markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
     parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
     tryParseDate: (dateString: string) => number | undefined;
-    findCodespansFromTokenRecursively: (token: import("marked").marked.Token) => string[];
-    findCodespans: (sectionContent: string) => string[];
-    findEmbedsFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownEmbed[];
+    findCodespans: (markdownString: string) => string[];
     findEmbeds: (markdownString: string) => import("markdown-types").MarkdownEmbed[];
-    findLinksFromTokenRecursively: (token: import("marked").marked.Token) => MarkdownLink[];
-    findLinks: (markdownString: string) => MarkdownLink[];
+    findLinks: (markdownString: string) => import("markdown-types").MarkdownLink[];
+    flattenMarkdownString: (markdownString: string, findFunction: (token: import("marked").marked.Token) => boolean) => import("marked").marked.Token[];
+    flattenMarkedTokenRecursive: (token: import("marked").marked.Token, findFunction: (token: import("marked").marked.Token) => boolean) => import("marked").marked.Token[];
     cleanupTimer: (uniqueId: string) => void;
     generateUniqueId: () => string;
     getNewPerformance: (label: string, uniqueId: string, isNew?: boolean | undefined) => import("measure-performance").PerformanceItem | undefined;

@@ -172,12 +172,11 @@ import { removeHeaderPrefix } from "markdown-parse-js";
 import { markdownParseToMarkdownModelType } from "markdown-types";
 import { parseMarkdownModelTimestamp } from "markdown-types";
 import { tryParseDate } from "markdown-types";
-import { findCodespansFromTokenRecursively } from "marked-util";
 import { findCodespans } from "marked-util";
-import { findEmbedsFromTokenRecursively } from "marked-util";
 import { findEmbeds } from "marked-util";
-import { findLinksFromTokenRecursively } from "marked-util";
 import { findLinks } from "marked-util";
+import { flattenMarkdownString } from "marked-util";
+import { flattenMarkedTokenRecursive } from "marked-util";
 import { cleanupTimer } from "measure-performance";
 import { generateUniqueId } from "measure-performance";
 import { getNewPerformance } from "measure-performance";
@@ -426,12 +425,11 @@ removeHeaderPrefix,
 markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
-findCodespansFromTokenRecursively,
 findCodespans,
-findEmbedsFromTokenRecursively,
 findEmbeds,
-findLinksFromTokenRecursively,
 findLinks,
+flattenMarkdownString,
+flattenMarkedTokenRecursive,
 cleanupTimer,
 generateUniqueId,
 getNewPerformance,

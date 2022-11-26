@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669385389039,
-  "updatedAt": 1669385389039,
+  "createdAt": 1669467151683,
+  "updatedAt": 1669467151683,
   "deletedAt": 0,
-  "createdFirstAt": 1669385389039,
+  "createdFirstAt": 1669467151683,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/Parameter.tsx",
   "commentsInside": [],
-  "rawText": " (props: { text: string }) => {\n  const { text } = props;\n  if (!text) return null;\n  const [parameter, value] = text\n    .slice(1)\n    .split(\":\")\n    .map((x) => x.trim());\n  return (\n    <Div className=\"rounded-md bg-purple-400 dark:bg-purple-800\">\n      {parameter ? <Div>{parameter}</Div> : null}\n      {value ? <Div className=\"bg-white bg-opacity-50\">{value}</Div> : null}\n    </Div>\n  );\n}",
+  "rawText": " (props: { text: string }) => {\n  const { text } = props;\n  if (!text) return null;\n  const [parameter, value] = text\n    .slice(1)\n    .split(\":\")\n    .map((x) => x.trim());\n  return (\n    <Span className=\"rounded-md bg-purple-400 dark:bg-purple-800 px-1\">\n      {parameter ? <Span>{parameter}</Span> : null}\n      {value ? <Span className=\"bg-white bg-opacity-50\">{value}</Span> : null}\n    </Span>\n  );\n}",
   "name": "Parameter",
   "slug": "parameter",
   "parameters": [
@@ -57,13 +57,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 577,
+    "characters": 588,
     "lines": 14,
-    "bytes": 577,
+    "bytes": 588,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 41,
+    "charactersPerLine": 42,
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "gmjynndzynuzrxradryktsps"
+  "id": "lnsangnogiflskeqyrsamvru"
 }

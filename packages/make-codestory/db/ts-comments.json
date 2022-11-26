@@ -1,0 +1,20 @@
+[
+  {
+    "createdAt": 1669467003005,
+    "updatedAt": 1669467003005,
+    "deletedAt": 0,
+    "createdFirstAt": 1669467003005,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/writeAllCodestories.ts",
+    "comment": "",
+    "rawStatement": "export const writeAllCodestories = async (isDebug?: boolean) => {\n  const files = await findCodestories();\n\n  await makeCodespanMappedObject();\n\n  const mappedObject = await readJsonFile<{ [key: string]: CodespanItemInfo }>(\n    path.join(__dirname, \"..\", \"assets\", \"codespan-mapped-object-small.json\")\n  );\n\n  if (!mappedObject) {\n    console.log(\"Couldn't find mapped obj\");\n    return;\n  }\n\n  const codestoryPaths = await oneByOne(files, (absolutePath) =>\n    makeCodestory(absolutePath, mappedObject, isDebug)\n  );\n  if (isDebug) {\n    console.log({ codestoryPaths });\n  }\n};",
+    "parameters": {
+      "runEveryPeriod": "5-minutes"
+    },
+    "types": [],
+    "firstLine": 9,
+    "lastLine": 14,
+    "id": "teiwrazcimtifoqysosqmspm"
+  }
+]

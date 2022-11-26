@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384508247,
-  "updatedAt": 1669384508247,
+  "createdAt": 1669467035802,
+  "updatedAt": 1669467035802,
   "deletedAt": 0,
-  "createdFirstAt": 1669384508247,
+  "createdFirstAt": 1669467035802,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(title: string): string => {\n  return slugify(title);\n}",
   "description": "Implicit ids are a convention in markdown. A title gets an implicit id by removing spaces and making the title lowercase.\n\nSee https://stackoverflow.com/questions/6695439/how-to-link-to-a-named-anchor-in-multimarkdown",
-  "id": "deenavxhzlfcjokppvllnpfh"
+  "id": "fvvhcinhfryrzuwuabsssilo"
 }

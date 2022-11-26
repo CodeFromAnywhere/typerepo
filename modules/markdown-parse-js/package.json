@@ -46,7 +46,7 @@
     "folderNameIndexed": "markdown-parse-js",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669384543618,
+    "lastRebuildAt": 1669467076698,
     "operationDependenciesIndexed": [
       "MarkdownChunk",
       "notEmpty",
@@ -57,6 +57,7 @@
       "frontmatterParseToString",
       "makeTest",
       "MarkdownParse",
+      "frontmatterParseToString",
       "MarkdownChunk",
       "MarkdownParse",
       "MarkdownChunk",
@@ -77,15 +78,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 19,
-        "lines": 517,
-        "characters": 14766,
-        "bytes": 14766
+        "lines": 521,
+        "characters": 14950,
+        "bytes": 14950
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 122,
-        "characters": 3145,
-        "bytes": 3145
+        "lines": 145,
+        "characters": 3633,
+        "bytes": 3633
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -94,9 +95,9 @@
         "bytes": 8452
       },
       "size": {
-        "bytes": 26363,
-        "characters": 26363,
-        "lines": 985,
+        "bytes": 27035,
+        "characters": 27035,
+        "lines": 1012,
         "numberOfFiles": 23
       }
     },
