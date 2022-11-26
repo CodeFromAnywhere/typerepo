@@ -1,6 +1,5 @@
 ---
 headerImage: ![](./t.png)
-headerBig: false
 headerTitle: The developers platform for web3 has arrived
 headerSubTitle: "As fast as no-code, as flexible as any other framework"
 header_markdownCallToActionSlugs: typescript-course, join-our-bootcamp
@@ -9,9 +8,36 @@ privacy: public
 language: english
 ---
 
-**Typerepo** aims to make it as easy as possible to build high-quality full-stack mobile- and web-apps.
+Welcome to **Typerepo**. Typerepo was developed by [Code From Anywhere](https://codefromanywhere.com) to build out all their full stack platforms with. We made it public because we believe in the power of community and want you to build something amazing with it.
+
+Are you a software developer working on an MVP? Do you not want to reinvent the wheel for all common capabilities of your platform like auth, monetisation, and front-backend integration? Then **Typerepo** is for you.
+
+**What is typerepo?** Typerepo aims to make it as easy as possible to build high-quality full-stack mobile- and web-apps. Think of Typerepo as a [ruby on rails](https://rubyonrails.org/) on steroids, full stack, for typescript...
 
 Typerepo is a collection of tools, conventions and a large SDK that brings together the well-known **Typescript** frameworks: **Node.js**, **Expo.dev** and **Next.js** under 1 bigger whole.
+
+# Getting started
+
+```bash
+git clone https://github.com/CodeFromAnywhere/typerepo.git
+cd typerepo
+yarn
+yarn dev
+```
+
+This will start up the typerepo server + dev admin, from where you can further launch all tools.
+
+Make sure you have `node` 17+ (we are using the new fetch api)
+
+Read our [docs](docs) to find our API reference, guides, tutorials, and examples!
+
+# Community
+
+Join our community where dozens of developers are building the tech of tomorrow. [**Join us now on Slack**](https://join.slack.com/t/codefromanywhere/shared_invite/zt-1kstsx8dc-BsfwKJtEYAxh_N1BxSnoRg)
+
+![](./readmemd1.mp4)
+
+# Features
 
 ✅ **Automatic form generation** Generate forms from your functions without writing any frontend code
 
@@ -40,7 +66,9 @@ Typerepo is a collection of tools, conventions and a large SDK that brings toget
 
 ![](./screen-recording-2022-11-24-at-185502.mp4)
 
-✅ **Web3 first** from the ground up, typerepo was built to support decentralised systems and peer to peer as a first-class citizen
+# What's to come
+
+🟠 **Web3 first** from the ground up, typerepo was built to support decentralised systems and peer to peer as a first-class citizen
 
 ![](./readmemd.wav)
 
@@ -57,13 +85,3 @@ Typerepo is a collection of tools, conventions and a large SDK that brings toget
 ![](./readmemd1.wav)
 
 Many more things are coming!
-
-## [Getting started](docs)
-
-Please see the [docs here](docs)
-
-## Community
-
-![](./readmemd1.mp4)
-
-Join our community where dozens of developers are building the tech of tomorrow. Join us now on [Discord](https://discord.com/codefromanywhere)

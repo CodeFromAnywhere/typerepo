@@ -1,28 +1,12 @@
 # Getting started
 
-## Installation instructions `*`
+There's quite a big learning curve for typerepo, so it's best to look at our live coding and tutorials first.
 
-```bash
-git clone https://github.com/CodeFromAnywhere/typerepo.git
-cd typerepo
-yarn
-yarn dev
-```
+https://www.youtube.com/channel/UCDw844XEAwsJLkftu9pq2vA
 
-`*` = Make sure you have `node` 17+ (we are using the new fetch api)
+For now, I'll simply refer you to the youtube channel, but later I'm going to make a better tutorial. Coming soon.
 
-## How does it work?
+Also keep an eye on:
 
-Well there's just too much to explain... I'll probably do some more demo's soon, but the most important is probably the following:
-
-- Define endpoints (and other type interfaces) in a central place
-- Write your endpoint with complete typesafety
-- Call your endpoint with complete type-safety and autocompletion (no boilerplate needed!)
-- If you need more help, just look in the auto-generated docs!
-
-## The Core TypeRepo Philosophy
-
-- Codebase introspection (Documentation generation)
-- Full-stack code-sharing (full-stack auto-completion using Typescript)
-- Maximise learnability, minimise tech debt, simplify onboarding
-- Decentralised, Open Source, Automatic
+- codefromanywhere.com
+- codestorys.com
