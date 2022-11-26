@@ -1,6 +1,6 @@
 ---
 headerImage: ![](./banner.png)
-headerTitle: The developers platform for web3 has arrived
+headerTitle: The developers framework for web3 has arrived
 headerSubTitle: "As fast as no-code, as flexible as any other framework"
 header_markdownCallToActionSlugs: typescript-course, join-our-bootcamp
 markdownCallToActionSlugs: join-our-bootcamp, typescript-course
@@ -35,13 +35,7 @@ Make sure you have `node` 17+ (we are using the new fetch api)
 
 Read our [docs](docs) to find our API reference, guides, tutorials, and examples!
 
-# Community
-
-Join our community where dozens of developers are building the tech of tomorrow. [**Join us now on Slack**](https://join.slack.com/t/codefromanywhere/shared_invite/zt-1kstsx8dc-BsfwKJtEYAxh_N1BxSnoRg)
-
-![](./readmemd1.mp4)
-
-# Features
+# Features & Demos
 
 ✅ **Automatic form generation** Generate forms from your functions without writing any frontend code
 
@@ -89,3 +83,9 @@ Join our community where dozens of developers are building the tech of tomorrow.
 ![](./readmemd1.wav)
 
 Many more things are coming!
+
+# Community
+
+Join our community where dozens of developers are building the tech of tomorrow. [**Join us now on Slack**](https://join.slack.com/t/codefromanywhere/shared_invite/zt-1kstsx8dc-BsfwKJtEYAxh_N1BxSnoRg)
+
+![](./readmemd1.mp4)
