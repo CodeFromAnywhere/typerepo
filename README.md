@@ -8,6 +8,8 @@ privacy: public
 language: english
 ---
 
+# Typerepo
+
 Welcome to **Typerepo**. Typerepo was developed by [Code From Anywhere](https://codefromanywhere.com) to build out all their full stack platforms with. We made it public because we believe in the power of community and want you to build something amazing with it.
 
 Are you a software developer working on an MVP? Do you not want to reinvent the wheel for all common capabilities of your platform like auth, monetisation, and front-backend integration? Then **Typerepo** is for you.
@@ -15,6 +17,8 @@ Are you a software developer working on an MVP? Do you not want to reinvent the 
 **What is typerepo?** Typerepo aims to make it as easy as possible to build high-quality full-stack mobile- and web-apps. Think of Typerepo as a [ruby on rails](https://rubyonrails.org/) on steroids, full stack, for typescript...
 
 Typerepo is a collection of tools, conventions and a large SDK that brings together the well-known **Typescript** frameworks: **Node.js**, **Expo.dev** and **Next.js** under 1 bigger whole.
+
+![Our tech stack](./our-tech-stack.png)
 
 # Getting started
 
