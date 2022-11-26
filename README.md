@@ -1,5 +1,5 @@
 ---
-headerImage: ![](./t.png)
+headerImage: ![](./banner.png)
 headerTitle: The developers platform for web3 has arrived
 headerSubTitle: "As fast as no-code, as flexible as any other framework"
 header_markdownCallToActionSlugs: typescript-course, join-our-bootcamp
