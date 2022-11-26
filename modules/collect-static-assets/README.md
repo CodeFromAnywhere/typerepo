@@ -6,9 +6,25 @@ collect-static-assets (`OperationClassification` node-cjs)
 
 # Api reference
 
+## findStaticAssets()
+
+Returns the absolute paths of all static assets (embeds and links) in a markdown file of which the path is provided.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| absoluteMarkdownFilePath | string |  |
+| **Output** |    |    |
+
+
+
+## 📄 findStaticAssets (exported const)
+
+Returns the absolute paths of all static assets (embeds and links) in a markdown file of which the path is provided.
+
 # Internal
 
-<details><summary>Show internal (9)</summary>
+<details><summary>Show internal (7)</summary>
     
   # copyCopyPairs()
 
@@ -47,18 +63,6 @@ we can just take the project-relative file path of the asset, and put it in /pub
 
 
 
-## findStaticAssets()
-
-Returns the absolute paths of all static assets (embeds and links) in a markdown file of which the path is provided.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| absoluteMarkdownFilePath | string |  |
-| **Output** |    |    |
-
-
-
 ## 🔹 CopyPair
 
 Properties: 
@@ -81,10 +85,5 @@ markdown-renderer turns a relative link into this: ?mdpath=x&relativePath=y
 for static, we need to turn it into something similar, but we need to guarantee no file collisions. simple!
 
 we can just take the project-relative file path of the asset, and put it in /public/images in next.js. the final url of the asset in public next.js then becomes `images/[path/to/asset.jpg]`
-
-
-## 📄 findStaticAssets (exported const)
-
-Returns the absolute paths of all static assets (embeds and links) in a markdown file of which the path is provided.
   </details>
 

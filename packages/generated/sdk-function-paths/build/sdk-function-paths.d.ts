@@ -66,6 +66,7 @@ export declare const sdkFunctionPaths: {
     removeTokenIfPresent: string;
     test: string;
     compressAsset: string;
+    convertToMp3: string;
     convertToMp4: string;
     deleteReferencedAsset: string;
     downloadRemoteAsset: string;
@@ -262,6 +263,13 @@ export declare const sdkFunctionPaths: {
     getDependencyTree: string;
     test2: string;
     folderGetUpdatedAt: string;
+    frontmatterParseToString: string;
+    frontmatterToObject: string;
+    getFrontmatterValueString: string;
+    objectToFrontmatter: string;
+    parseFrontmatterString: string;
+    quotedOrNot: string;
+    stringifyNewlines: string;
     addDefaultValues: string;
     alterAny: string;
     alterCsv: string;
@@ -572,6 +580,7 @@ export declare const sdkFunctionPaths: {
     makeCodestory: string;
     mapChunkRecursively: string;
     mapMarkdownParseSections: string;
+    writeAllCodestoriesCli: string;
     writeAllCodestories: string;
     writeCodespanDetails: string;
     makeFileType: string;

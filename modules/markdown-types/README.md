@@ -24,6 +24,61 @@ Properties:
 
 
 
+## 🔸 WebMarkdownFile
+
+markdown model
+
+
+
+Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter
+
+NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| isPreset (optional) | boolean |  |
+| isPostable (optional) | boolean |  |
+| isCodestory (optional) | boolean |  |
+| tsInterfaceIds (optional) | array |  |
+| tsFunctionIds (optional) | array |  |
+| bundleConfigSlugs (optional) | array |  |
+| operationIds (optional) | array |  |
+| reference_assets (optional) | array |  |
+| headerImage (optional) | object |  |
+| headerTitle (optional) | string |  |
+| headerBig (optional) | boolean |  |
+| headerSubTitle (optional) | string |  |
+| header_markdownCallToActionSlugs (optional) | array |  |
+| markdownCallToActionSlugs (optional) | array |  |
+| shop_itemIds (optional) | array |  |
+| author_personSlugs (optional) | array |  |
+| interestSlugs (optional) | array |  |
+| price (optional) | number |  |
+| isDraft (optional) | boolean |  |
+| updatedAt  | number |  |
+| createdAt  | number |  |
+| privacy  | string |  |
+| language  | string |  |
+| isLanguageCustom (optional) | boolean |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| markdown  | string |  |
+| categoryStackCalculated  | array |  |
+
+
+
 ## 🔹 ExtendedMarkdownProperties
 
 Some properties for on any `MarkdownModelType` model that are quite general purpose and yet aren't included into the `MarkdownModel` because we may not always want them.
@@ -103,61 +158,6 @@ Properties:
 
 
 
-## 🔸 WebMarkdownFile
-
-markdown model
-
-
-
-Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter
-
-NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| isPreset (optional) | boolean |  |
-| isPostable (optional) | boolean |  |
-| isCodestory (optional) | boolean |  |
-| tsInterfaceIds (optional) | array |  |
-| tsFunctionIds (optional) | array |  |
-| bundleConfigSlugs (optional) | array |  |
-| operationIds (optional) | array |  |
-| reference_assets (optional) | array |  |
-| headerImage (optional) | object |  |
-| headerTitle (optional) | string |  |
-| headerBig (optional) | boolean |  |
-| headerSubTitle (optional) | string |  |
-| header_markdownCallToActionSlugs (optional) | array |  |
-| markdownCallToActionSlugs (optional) | array |  |
-| shop_itemIds (optional) | array |  |
-| author_personSlugs (optional) | array |  |
-| interestSlugs (optional) | array |  |
-| price (optional) | number |  |
-| isDraft (optional) | boolean |  |
-| updatedAt  | number |  |
-| createdAt  | number |  |
-| privacy  | string |  |
-| language  | string |  |
-| isLanguageCustom (optional) | boolean |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| markdown  | string |  |
-| categoryStackCalculated  | array |  |
-
-
-
 ## 🔹 WebMarkdownProperties
 
 Properties: 
@@ -176,9 +176,34 @@ Properties:
 | price (optional) | number |  |
 
 
+
+## tryParseDate()
+
+Tries to parse a date from a string
+- implements default behavior of `new Date` with a try catch
+- returns a unix timestamp (ms since 1970 AD)
+
+TODO: put in a better location... date-util?
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| dateString | string |  |
+| **Output** | number   |    |
+
+
+
+## 📄 tryParseDate (exported const)
+
+Tries to parse a date from a string
+- implements default behavior of `new Date` with a try catch
+- returns a unix timestamp (ms since 1970 AD)
+
+TODO: put in a better location... date-util?
+
 # Internal
 
-<details><summary>Show internal (14)</summary>
+<details><summary>Show internal (12)</summary>
     
   # markdownParseToMarkdownModelType()
 
@@ -205,22 +230,6 @@ If that doesn't succeed, sometimes we'll set it to  the current timestamp
 | ---------- | -- | -- |
 | parameters | `Frontmatter` |  |,| markdownParse | `MarkdownParse` |  |,| parameterName | createdAt / createdFirstAt / updatedAt / deletedAt / openedAt |  |
 | **Output** | {  }   |    |
-
-
-
-## tryParseDate()
-
-Tries to parse a date from a string
-- implements default behavior of `new Date` with a try catch
-- returns a unix timestamp (ms since 1970 AD)
-
-TODO: put in a better location... date-util?
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| dateString | string |  |
-| **Output** | number   |    |
 
 
 
@@ -252,10 +261,14 @@ Properties:
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
 | categoryStackCalculated (optional) | array |  |
-| url  | string |  |
-| title  | string |  |
-| description  | string |  |
-| onlyFooter  | boolean |  |
+| path (optional) | string | Absolute queryPath to the CTA. Leave empty for going to the homepage. Empty paths will be omitted on the domains where you are already on that domain... If there's a path, will be omitted on other domains (`MarkdownCallToAction`s with a different hostname) |
+| hostname  | string | Hostname as described in `https://www.w3schools.com/js/js_window_location.asp`. |
+| title (optional) | string |  |
+| description (optional) | string |  |
+| ctaButtonText (optional) | string |  |
+| onlyFooter (optional) | boolean |  |
+| onlyHeader (optional) | boolean |  |
+| isMinimised (optional) | boolean |  |
 | bannerImage (optional) | object |  |
 
 
@@ -400,14 +413,5 @@ First tries to look at the frontmatter value, this is leading because it is what
 If this frontmatter doesn't exist, the markdownParse is checked for a date. This should be information collected from the file system
 
 If that doesn't succeed, sometimes we'll set it to  the current timestamp
-
-
-## 📄 tryParseDate (exported const)
-
-Tries to parse a date from a string
-- implements default behavior of `new Date` with a try catch
-- returns a unix timestamp (ms since 1970 AD)
-
-TODO: put in a better location... date-util?
   </details>
 

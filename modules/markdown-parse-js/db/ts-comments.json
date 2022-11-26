@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1669374265497,
-    "updatedAt": 1669374265497,
+    "createdAt": 1669384532454,
+    "updatedAt": 1669384532454,
     "deletedAt": 0,
-    "createdFirstAt": 1669374265497,
+    "createdFirstAt": 1669384532454,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/getChunkParagraphsRecursively.ts",
-    "comment": "Get all paragraphs (`content` values) recursively from a `MarkdownChunk`",
-    "rawStatement": "export const getChunkParagraphsRecursively = (\n  chunk: MarkdownChunk\n): string[] => {\n  const childrenParagraphs =\n    chunk.children?.map(getChunkParagraphsRecursively).flat() || [];\n  const thisParagraph = chunk.content;\n  const paragraphs = [thisParagraph, ...childrenParagraphs].filter(notEmpty);\n  return paragraphs;\n};",
+    "operationRelativeTypescriptFilePath": "src/removeHeaderPrefix.ts",
+    "comment": "removes header prefix (##### etc) and trims whats behind that",
+    "rawStatement": "export const removeHeaderPrefix = (string: string) => {\n  const trimmed = string.split(\"\").reduce(\n    (cum, letter) => {\n      const isHeaderPrefix = cum.isHeaderPrefix && letter === \"#\";\n      return {\n        string: isHeaderPrefix ? \"\" : cum.string.concat(letter),\n        isHeaderPrefix,\n      };\n    },\n    { string: \"\", isHeaderPrefix: true }\n  );\n\n  return trimmed.string.trim();\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 4,
-    "lastLine": 6,
-    "id": "cjcbvgxiypkqwsbtxroxunjx"
+    "firstLine": 3,
+    "lastLine": 5,
+    "id": "plcrlfecldxawshswevviwek"
   }
 ]

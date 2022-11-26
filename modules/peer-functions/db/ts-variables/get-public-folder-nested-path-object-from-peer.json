@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668835445830,
-  "updatedAt": 1668835445830,
+  "createdAt": 1669384829569,
+  "updatedAt": 1669384829569,
   "deletedAt": 0,
-  "createdFirstAt": 1668835445830,
+  "createdFirstAt": 1669384829569,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  peerSlug: string\n): Promise<\n  | undefined\n  | { peerApiResult: RealApiReturnType<\"getPublicFolderNestedPathObject\"> }\n> => {\n  const { peerPeople } = await getPeerPeople();\n  const peer = peerPeople.find((x) => x.slug === peerSlug);\n  const name = peer?.name;\n  if (!name) {\n    console.log(\"Peer not found\");\n    return;\n  }\n\n  // TODO:\n  const ip = \"\";\n  // call `getPublicFolderNestedPathObject` with api with other ip\n  const peerApiResult = await apiWithConfig.getPublicFolderNestedPathObject({\n    apiUrl: `http://${ip}:${ports[\"function-server\"]}`,\n    // authToken: peer.authToken,\n    timeout: 5000,\n  });\n\n  return { peerApiResult };\n}",
   "description": "Peer = {\nname: \"22.2.2.2.2.2\",\nslug: \"22-22-22-22\"\n}",
-  "id": "auuhpqqubhiukwhfilqzjfwv"
+  "id": "xwlptbodphosptnrgudwtaci"
 }

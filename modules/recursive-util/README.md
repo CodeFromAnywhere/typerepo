@@ -17,79 +17,6 @@ recursive-util (`OperationClassification` cjs)
 
 ## 📄 getMenuPagesObject (exported const)
 
-## getKeysAtPathFromNestedObject()
-
-Gets all children keys of a nested object at a certain (nested) location in the nested object
-
-`nestedObject` should extend the `NestedObject`.
-
-The reduce is a bit vague, I need to  test this function further to make sure it does exactly what I want.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## 📄 getKeysAtPathFromNestedObject (exported const)
-
-Gets all children keys of a nested object at a certain (nested) location in the nested object
-
-`nestedObject` should extend the `NestedObject`.
-
-The reduce is a bit vague, I need to  test this function further to make sure it does exactly what I want.
-
-# Internal
-
-<details><summary>Show internal (12)</summary>
-    
-  # makeNestedObjectFromQueryPathObject()
-
-
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }   |    |
-
-
-
-## nestedObjectToChildObject()
-
-if T is an object, provide __check as one of its properties, to make it possible to check that it's a leaf. This property will be omitted in the ChildObject array
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }[]   |    |
-
-
-
-## nestedPathObjectToNestedMenuRecursive()
-
-Transform a nested path object into a nested menu (MenuType), recursively
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## nestifyQueryPathObjectRecursive()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }[]   |    |
-
-
-
 ## queryPathsArrayToNestedPathObject()
 
 Handy function to transform an array of `querypaths` into a nested menu, assuming you want to create a new sub-menu for every path
@@ -118,29 +45,6 @@ Output:
 
 
 
-## reduceQueryPathsRecursively()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| queryPaths | string[] |  |,| initialValue | `NestedPathObject` |  |
-| **Output** | {  }   |    |
-
-
-
-## 📄 makeNestedObjectFromQueryPathObject (exported const)
-
-## 📄 nestedObjectToChildObject (exported const)
-
-if T is an object, provide __check as one of its properties, to make it possible to check that it's a leaf. This property will be omitted in the ChildObject array
-
-
-## 📄 nestedPathObjectToNestedMenuRecursive (exported const)
-
-Transform a nested path object into a nested menu (MenuType), recursively
-
-
-## 📄 nestifyQueryPathObjectRecursive (exported const)
-
 ## 📄 queryPathsArrayToNestedPathObject (exported const)
 
 Handy function to transform an array of `querypaths` into a nested menu, assuming you want to create a new sub-menu for every path
@@ -161,6 +65,102 @@ Output:
 }
 }
 
+
+## getKeysAtPathFromNestedObject()
+
+Gets all children keys of a nested object at a certain (nested) location in the nested object
+
+`nestedObject` should extend the `NestedObject`.
+
+The reduce is a bit vague, I need to  test this function further to make sure it does exactly what I want.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## nestedPathObjectToNestedMenuRecursive()
+
+Transform a nested path object into a nested menu (MenuType), recursively
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 getKeysAtPathFromNestedObject (exported const)
+
+Gets all children keys of a nested object at a certain (nested) location in the nested object
+
+`nestedObject` should extend the `NestedObject`.
+
+The reduce is a bit vague, I need to  test this function further to make sure it does exactly what I want.
+
+
+## 📄 nestedPathObjectToNestedMenuRecursive (exported const)
+
+Transform a nested path object into a nested menu (MenuType), recursively
+
+# Internal
+
+<details><summary>Show internal (8)</summary>
+    
+  # makeNestedObjectFromQueryPathObject()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
+## nestedObjectToChildObject()
+
+if T is an object, provide __check as one of its properties, to make it possible to check that it's a leaf. This property will be omitted in the ChildObject array
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }[]   |    |
+
+
+
+## nestifyQueryPathObjectRecursive()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }[]   |    |
+
+
+
+## reduceQueryPathsRecursively()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| queryPaths | string[] |  |,| initialValue | `NestedPathObject` |  |
+| **Output** | {  }   |    |
+
+
+
+## 📄 makeNestedObjectFromQueryPathObject (exported const)
+
+## 📄 nestedObjectToChildObject (exported const)
+
+if T is an object, provide __check as one of its properties, to make it possible to check that it's a leaf. This property will be omitted in the ChildObject array
+
+
+## 📄 nestifyQueryPathObjectRecursive (exported const)
 
 ## 📄 reduceQueryPathsRecursively (exported const)
 

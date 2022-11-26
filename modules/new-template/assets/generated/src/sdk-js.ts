@@ -1,10 +1,11 @@
 import { addToken } from "asset-functions-js";
 import { ensureToken } from "asset-functions-js";
+import { findAssetParametersRecursively } from "asset-functions-js";
 import { getAssetDirectlyApiUrl } from "asset-functions-js";
+import { getConversionInfoFromType } from "asset-functions-js";
 import { getExtensionFromAsset } from "asset-functions-js";
 import { getNameFromRelativePath } from "asset-functions-js";
 import { getNameWithTokenFromRelativePath } from "asset-functions-js";
-import { getPreferredExtensionFromType } from "asset-functions-js";
 import { getReferencedAssetApiUrl } from "asset-functions-js";
 import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
@@ -128,6 +129,13 @@ import { isValidEntry } from "rest-util";
 import { toQueryString } from "rest-util";
 import { findSentenceMatches } from "search";
 import { searchRecursiveObjectArray } from "search";
+import { frontmatterParseToString } from "frontmatter-util";
+import { frontmatterToObject } from "frontmatter-util";
+import { getFrontmatterValueString } from "frontmatter-util";
+import { objectToFrontmatter } from "frontmatter-util";
+import { parseFrontmatterString } from "frontmatter-util";
+import { quotedOrNot } from "frontmatter-util";
+import { stringifyNewlines } from "frontmatter-util";
 import { getFunctionExersize } from "code-types";
 import { createInvoiceContactMarkdown } from "invoice-types";
 import { createInvoiceMarkdown } from "invoice-types";
@@ -138,10 +146,6 @@ import { printDate } from "invoice-types";
 import { markdownParseToMarkdownModelType } from "markdown-types";
 import { parseMarkdownModelTimestamp } from "markdown-types";
 import { tryParseDate } from "markdown-types";
-import { frontmatterParseToString } from "matter-types";
-import { getFrontmatterValueString } from "matter-types";
-import { quotedOrNot } from "matter-types";
-import { stringifyNewlines } from "matter-types";
 import { generateId } from "model-types";
 import { generatePassword } from "model-types";
 import { generateRandomString } from "model-types";
@@ -267,14 +271,31 @@ import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
 import { runChildProcess } from "run-child-process";
+import { clickOnSpanTag } from "puppeteer-utils";
+import { facebookLogin } from "puppeteer-utils";
+import { foundOrNotXpath } from "puppeteer-utils";
+import { foundOrNot } from "puppeteer-utils";
+import { getChromeExecutablePath } from "puppeteer-utils";
+import { gmailLogin } from "puppeteer-utils";
+import { logConsoleIfDebug } from "puppeteer-utils";
+import { retryClickAndWaitSelector } from "puppeteer-utils";
+import { retryWaitSelector } from "puppeteer-utils";
+import { setInnerHtml } from "puppeteer-utils";
+import { setInputValue } from "puppeteer-utils";
+import { trueClick } from "puppeteer-utils";
+import { twitterLogin } from "puppeteer-utils";
+import { typeInTheInputField } from "puppeteer-utils";
+import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
+import { waitMilliseconds } from "puppeteer-utils";
 
 export const sdk = { addToken,
 ensureToken,
+findAssetParametersRecursively,
 getAssetDirectlyApiUrl,
+getConversionInfoFromType,
 getExtensionFromAsset,
 getNameFromRelativePath,
 getNameWithTokenFromRelativePath,
-getPreferredExtensionFromType,
 getReferencedAssetApiUrl,
 getTypeFromUrlOrPath,
 readableSize,
@@ -398,6 +419,13 @@ isValidEntry,
 toQueryString,
 findSentenceMatches,
 searchRecursiveObjectArray,
+frontmatterParseToString,
+frontmatterToObject,
+getFrontmatterValueString,
+objectToFrontmatter,
+parseFrontmatterString,
+quotedOrNot,
+stringifyNewlines,
 getFunctionExersize,
 createInvoiceContactMarkdown,
 createInvoiceMarkdown,
@@ -408,10 +436,6 @@ printDate,
 markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
-frontmatterParseToString,
-getFrontmatterValueString,
-quotedOrNot,
-stringifyNewlines,
 generateId,
 generatePassword,
 generateRandomString,
@@ -536,6 +560,22 @@ isPlural,
 isSingular,
 pluralize,
 singularize,
-runChildProcess};
+runChildProcess,
+clickOnSpanTag,
+facebookLogin,
+foundOrNotXpath,
+foundOrNot,
+getChromeExecutablePath,
+gmailLogin,
+logConsoleIfDebug,
+retryClickAndWaitSelector,
+retryWaitSelector,
+setInnerHtml,
+setInputValue,
+trueClick,
+twitterLogin,
+typeInTheInputField,
+typeOnTheTargetWithXpathSelector,
+waitMilliseconds};
 
 export type SdkType = typeof sdk;

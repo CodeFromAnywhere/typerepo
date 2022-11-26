@@ -241,6 +241,7 @@ import { AugmentedWordComponent } from "reader-ui";
 import { Dictionary } from "reader-ui";
 import { DocsReaderLayout } from "reader-ui";
 import { ReaderPageContent } from "reader-ui";
+import { ReaderPageHeader } from "reader-ui";
 import { AverageMetricDougnut } from "passionfruit-ui";
 import { AverageTransparencyDougnut } from "passionfruit-ui";
 import { CardRow } from "passionfruit-ui";
@@ -536,6 +537,7 @@ AugmentedWordComponent,
 Dictionary,
 DocsReaderLayout,
 ReaderPageContent,
+ReaderPageHeader,
 AverageMetricDougnut,
 AverageTransparencyDougnut,
 CardRow,

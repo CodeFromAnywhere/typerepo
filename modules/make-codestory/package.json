@@ -30,31 +30,31 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669288792342,
+    "lastRebuildAt": 1669384478353,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 13,
-        "lines": 272,
-        "characters": 7839,
-        "bytes": 7839
+        "numberOfFiles": 14,
+        "lines": 316,
+        "characters": 8963,
+        "bytes": 8963
       },
       "dataSize": {
-        "numberOfFiles": 5,
-        "lines": 141,
-        "characters": 37427111,
-        "bytes": 37427111
+        "numberOfFiles": 3,
+        "lines": 149,
+        "characters": 2201996,
+        "bytes": 2201996
       },
       "textSize": {
-        "numberOfFiles": 9,
-        "lines": 334,
-        "characters": 15753,
-        "bytes": 15753
+        "numberOfFiles": 8,
+        "lines": 239,
+        "characters": 9196,
+        "bytes": 9196
       },
       "size": {
-        "bytes": 37450703,
-        "characters": 37450703,
-        "lines": 747,
-        "numberOfFiles": 27
+        "bytes": 2220155,
+        "characters": 2220155,
+        "lines": 704,
+        "numberOfFiles": 25
       }
     },
     "folderNameIndexed": "make-codestory",
@@ -82,7 +82,10 @@
       "path",
       "MarkdownChunk",
       "MarkdownParse",
+      "fs",
+      "path",
       "oneByOne",
+      "readJsonFile",
       "notEmpty"
     ],
     "packageDependenciesIndexed": []
@@ -102,7 +105,8 @@
     "marked": "*",
     "marked-util": "0.0.1",
     "explore-project": "0.0.1",
-    "markdown-types": "0.0.1"
+    "markdown-types": "0.0.1",
+    "read-json-file": "0.0.1"
   },
   "slug": "make-codestory",
   "id": "fwszeynoqsiqirywndizvimt"

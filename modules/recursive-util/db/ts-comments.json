@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1669358686852,
-    "updatedAt": 1669358686852,
+    "createdAt": 1669385442828,
+    "updatedAt": 1669385442828,
     "deletedAt": 0,
-    "createdFirstAt": 1669358686852,
+    "createdFirstAt": 1669385442828,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/getKeysAtPathFromNestedObject.ts",
-    "comment": "Gets all children keys of a nested object at a certain (nested) location in the nested object\n\n`nestedObject` should extend the `NestedObject`.\n\nThe reduce is a bit vague, I need to  test this function further to make sure it does exactly what I want.",
-    "rawStatement": "export const getKeysAtPathFromNestedObject = <T extends { [key: string]: any }>( //NestedObject<null>\n  nestedObject: T,\n  /**\n   * Something like a/b/c/d\n   */\n  objectPath: string\n) => {\n  const pathParts = objectPath.split(\"/\");\n  const objectAtLocation = pathParts.reduce((objectSubset, part) => {\n    // basecase should never happen\n    if (!objectSubset) return;\n    const subset = objectSubset[part];\n    return subset;\n  }, nestedObject as T);\n\n  const children = objectAtLocation ? Object.keys(objectAtLocation) : [];\n\n  return children;\n};",
+    "operationRelativeTypescriptFilePath": "src/queryPathsArrayToNestedPathObject.ts",
+    "comment": "Handy function to transform an array of `querypaths` into a nested menu, assuming you want to create a new sub-menu for every path\n\nMay also work for relative filePaths\n\nInput:\n\n[\"hello/world\",\"hello/moon\",\"hello/sun\"]\n\nOutput:\n\n{\n\"hello\":{\n\"moon\":null,\n\"world\":null,\n\"sun\":null\n}\n}",
+    "rawStatement": "export const queryPathsArrayToNestedPathObject = (\n  queryPaths: string[]\n): NestedPathObject => {\n  const nestedPathObject: NestedPathObject = reduceQueryPathsRecursively(\n    queryPaths,\n    {}\n  );\n  return nestedPathObject;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 1,
-    "lastLine": 7,
-    "id": "zahxturjifqwgrlgyvwwkaee"
+    "firstLine": 4,
+    "lastLine": 23,
+    "id": "znrsnbmqpghvldzlsqzosgfm"
   }
 ]

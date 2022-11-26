@@ -38,31 +38,31 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/reader-ui/src/components/Layout.tsx. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
       ]
     },
-    "lastRebuildAt": 1669288132947,
+    "lastRebuildAt": 1669385570006,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 6,
-        "lines": 458,
-        "characters": 13915,
-        "bytes": 13915
+        "numberOfFiles": 7,
+        "lines": 533,
+        "characters": 16239,
+        "bytes": 16239
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 163,
-        "characters": 4165,
-        "bytes": 4165
+        "lines": 168,
+        "characters": 4288,
+        "bytes": 4288
       },
       "textSize": {
         "numberOfFiles": 3,
-        "lines": 164,
-        "characters": 5723,
-        "bytes": 5723
+        "lines": 181,
+        "characters": 6109,
+        "bytes": 6109
       },
       "size": {
-        "bytes": 23803,
-        "characters": 23803,
-        "lines": 785,
-        "numberOfFiles": 11
+        "bytes": 26636,
+        "characters": 26636,
+        "lines": 882,
+        "numberOfFiles": 12
       }
     },
     "folderNameIndexed": "reader-ui",
@@ -111,7 +111,14 @@
       "useRouter",
       "isDev",
       "MarkdownView",
-      "ReaderPageContentProps"
+      "ReaderPageContentProps",
+      "useAsset",
+      "destructureOptionalObject",
+      "WebMarkdownFile",
+      "ALink",
+      "Div",
+      "P",
+      "isDev"
     ],
     "packageDependenciesIndexed": []
   },
@@ -136,7 +143,8 @@
     "react-with-native-router": "1.0.14",
     "writer-input": "1.0.0",
     "react": "*",
-    "markdown-types": "0.0.1"
+    "markdown-types": "0.0.1",
+    "asset-view": "0.0.0"
   },
   "slug": "reader-ui",
   "id": "dmrxxyobafgmvgnfcrwzhoqw"

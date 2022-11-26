@@ -37,6 +37,17 @@ get file paths within your project
 
 ## 📄 getTodoPaths (exported const)
 
+## getFrontmattersMappedObject()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| projectRoot | string |  |,| markdownPaths (optional) | string[] |  |
+| **Output** |    |    |
+
+
+
+## 📄 getFrontmattersMappedObject (exported const)
+
 # Tests
 
 <details><summary>Show test information(2)</summary>
@@ -59,7 +70,7 @@ get file paths within your project
 
 # Internal
 
-<details><summary>Show internal (19)</summary>
+<details><summary>Show internal (17)</summary>
     
   # exploreOperation()
 
@@ -156,15 +167,6 @@ returns the paths of instances in a file, like functions, variables or interface
 
 
 
-## getTodoFrontmattersMappedObject()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| projectRoot | string |  |,| todoPaths (optional) | string[] |  |
-| **Output** |    |    |
-
-
-
 ## getTodoPages()
 
 `getTodoPages(): WebPage[]` function:
@@ -247,8 +249,6 @@ gets the exploration type from an absolute type
 
 returns the paths of instances in a file, like functions, variables or interfaces
 
-
-## 📄 getTodoFrontmattersMappedObject (exported const)
 
 ## 📄 getTodoPages (exported const)
 

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669276052943,
-  "updatedAt": 1669276052943,
+  "createdAt": 1669384246682,
+  "updatedAt": 1669384246682,
   "deletedAt": 0,
-  "createdFirstAt": 1669276052943,
+  "createdFirstAt": 1669384246682,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends AugmentedAnyModelType>(props: {\n  item: T;\n  backendAsset?: BackendAsset;\n  hideDownloadLink?: boolean;\n  className?: string;\n}) => {\n  const { backendAsset, item, hideDownloadLink, className } = props;\n\n  return backendAsset ? (\n    <AssetView\n      asset={backendAsset}\n      projectRelativeReferencingFilePath={item.projectRelativePath}\n      hideDownloadLink={hideDownloadLink}\n      className={className}\n    />\n  ) : null;\n}",
   "description": "",
-  "id": "qqtskepiyxjircevjcmmwdff"
+  "id": "icyqdphrabeepbfatxgoqcew"
 }

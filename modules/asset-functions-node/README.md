@@ -74,26 +74,6 @@ processes all assets in an item and returns the new item
 
 processes all assets in an item and returns the new item
 
-# Tests
-
-<details><summary>Show test information(2)</summary>
-    
-  # test()
-
-
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## 📄 test (unexported const)
-
-  </details>
-
 # Internal
 
 All temporary assets that were created more than 24 hours ago and are still there, will be removed by this function.
@@ -149,18 +129,6 @@ NB: this function only works by providing a file as blobs under the "file" prope
 
 
 
-## 🔹 AssetParameter
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| assetInputType  | object |  |
-| parameterName  | string |  |
-| stack (optional) | array |  |
-
-
-
 ## 🔹 ReceivedFile
 
 This is the format that I receive for a file with server.js, even though they say it's a formidable.file, which it's not...
@@ -200,6 +168,13 @@ Uses ffmpeg to convert a file to mp3
 Returns the new file path on success
 
 
+## 📄 convertToMp4 (exported const)
+
+Uses ffmpeg to convert a file to mp3
+
+Returns the new file path on success
+
+
 ## 📄 deleteReferencedAsset (exported const)
 
 ## 📄 downloadRemoteAsset (exported const)
@@ -228,11 +203,6 @@ Media:`.png`, `.mp4`, `.mp3`, `.zip`, `.pdf`
 - find all media in every other folder that is not an operation
 
 Return all of this as project relative path array
-
-
-## 📄 findAssetParametersRecursively (exported const)
-
-Recursively finds all asset parameters in an object (for example in a database model item)
 
 
 ## 📄 getAssetDirectlyGetApi (exported const)

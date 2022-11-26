@@ -1,6 +1,6 @@
 import { BackendAsset } from "asset-type";
 import { Location } from "geo-types";
-import { Language, Slug, SlugModelType } from "model-types";
+import { Id, Language, Slug, SlugModelType } from "model-types";
 import { Interest, MediaCredentail } from "social-media-types";
 import { PersonInformationValue } from "./PersonInformationValue";
 /**
@@ -75,6 +75,7 @@ export interface Persona extends SlugModelType {
     githubAccessToken?: string;
     githubOrganisation?: string;
     useGithubOrganisation?: boolean;
-    mediaCredentials: MediaCredentail[];
+    mediaCredentialIds?: Id[];
+    mediaCredentials?: MediaCredentail[];
 }
 //# sourceMappingURL=Persona.d.ts.map

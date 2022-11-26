@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287866020,
-  "updatedAt": 1669287866020,
+  "createdAt": 1669384728949,
+  "updatedAt": 1669384728949,
   "deletedAt": 0,
-  "createdFirstAt": 1669287866020,
+  "createdFirstAt": 1669384728949,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(parameters: Frontmatter) => {\n  return !Boolean(parameters.isDraft) && parameters.privacy !== \"private\";\n}",
   "description": "markdown file should only be exposed if it doesn't say `privacy: private` or `isDraft: true` in your frontmatter.",
-  "id": "cqkvtbrgpawehouexgsiblmz"
+  "id": "cebcnrmaglzfnusynthcqkyq"
 }

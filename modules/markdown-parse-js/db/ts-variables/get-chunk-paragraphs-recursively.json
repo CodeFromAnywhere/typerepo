@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669374265327,
-  "updatedAt": 1669374265327,
+  "createdAt": 1669384506596,
+  "updatedAt": 1669384506596,
   "deletedAt": 0,
-  "createdFirstAt": 1669374265327,
+  "createdFirstAt": 1669384506596,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  chunk: MarkdownChunk\n): string[] => {\n  const childrenParagraphs =\n    chunk.children?.map(getChunkParagraphsRecursively).flat() || [];\n  const thisParagraph = chunk.content;\n  const paragraphs = [thisParagraph, ...childrenParagraphs].filter(notEmpty);\n  return paragraphs;\n}",
   "description": "Get all paragraphs (`content` values) recursively from a `MarkdownChunk`",
-  "id": "yjwxarkeiyhhwpjgepyfiohs"
+  "id": "vaaymqmmrarmwpgckakkootq"
 }

@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMarkdownIntro = void 0;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getMarkdownIntro=void 0;
 /**
  This function takes a markdown parse and gets the first paragraph and a title from it, if available.
 
@@ -8,14 +6,5 @@ exports.getMarkdownIntro = void 0;
 
 TODO: It would be better to find the first paragraph based on the level.
  */
-var getMarkdownIntro = function (markdownParse) {
-    var _a, _b, _c;
-    var firstChunk = (_a = markdownParse === null || markdownParse === void 0 ? void 0 : markdownParse.content) === null || _a === void 0 ? void 0 : _a[0];
-    var title = firstChunk === null || firstChunk === void 0 ? void 0 : firstChunk.title;
-    var firstParagraph = (firstChunk === null || firstChunk === void 0 ? void 0 : firstChunk.title)
-        ? ((_c = (_b = firstChunk === null || firstChunk === void 0 ? void 0 : firstChunk.children) === null || _b === void 0 ? void 0 : _b[0]) === null || _c === void 0 ? void 0 : _c.content) || null
-        : (firstChunk === null || firstChunk === void 0 ? void 0 : firstChunk.content) || null;
-    return { title: title, firstParagraph: firstParagraph };
-};
-exports.getMarkdownIntro = getMarkdownIntro;
+var getMarkdownIntro=function(t){var n,o,l,e=null===(n=null==t?void 0:t.content)||void 0===n?void 0:n[0];return{title:null==e?void 0:e.title,firstParagraph:(null==e?void 0:e.title)?(null===(l=null===(o=null==e?void 0:e.children)||void 0===o?void 0:o[0])||void 0===l?void 0:l.content)||null:(null==e?void 0:e.content)||null}};exports.getMarkdownIntro=getMarkdownIntro;
 //# sourceMappingURL=getMarkdownIntro.js.map

@@ -99,6 +99,8 @@ Properties:
 | bundles  | array |  |
 | dependencies (optional) | array |  |
 | docsRelativeFolderPath (optional) | object |  |
+| imagesProjectRelativeFolderPaths (optional) | array |  |
+| deploymentHostname (optional) | string |  |
 | readmeRelativeFilePath (optional) | string |  |
 | foldersFromRepo (optional) | array |  |
 
@@ -189,6 +191,8 @@ Properties:
 | bundles  | array |  |
 | dependencies (optional) | array |  |
 | docsRelativeFolderPath (optional) | object |  |
+| imagesProjectRelativeFolderPaths (optional) | array |  |
+| deploymentHostname (optional) | string |  |
 | readmeRelativeFilePath (optional) | string |  |
 
 

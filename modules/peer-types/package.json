@@ -44,7 +44,7 @@
     "folderNameIndexed": "peer-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669276427322,
+    "lastRebuildAt": 1669384947216,
     "operationDependenciesIndexed": [
       "DefaultModelType",
       "Id",
@@ -62,6 +62,7 @@
       "BackendAsset",
       "BackendAsset",
       "Location",
+      "Id",
       "Language",
       "Slug",
       "SlugModelType",
@@ -70,7 +71,9 @@
       "KeyValueMarkdownModelType",
       "Slug",
       "DefaultModelType",
+      "Id",
       "KeyValueMarkdownModelType",
+      "Slug",
       "DefaultModelType",
       "Id",
       "Slug",
@@ -86,26 +89,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 17,
-        "lines": 812,
-        "characters": 23679,
-        "bytes": 23679
+        "lines": 825,
+        "characters": 23816,
+        "bytes": 23816
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 117,
-        "characters": 3703,
-        "bytes": 3703
+        "lines": 152,
+        "characters": 4417,
+        "bytes": 4417
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 724,
-        "characters": 15794,
-        "bytes": 15794
+        "lines": 728,
+        "characters": 15917,
+        "bytes": 15917
       },
       "size": {
-        "bytes": 43176,
-        "characters": 43176,
-        "lines": 1653,
+        "bytes": 44150,
+        "characters": 44150,
+        "lines": 1705,
         "numberOfFiles": 20
       }
     },

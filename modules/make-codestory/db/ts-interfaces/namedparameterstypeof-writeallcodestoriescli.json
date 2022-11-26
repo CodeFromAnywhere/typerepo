@@ -1,0 +1,33 @@
+{
+  "createdAt": 1669384454550,
+  "updatedAt": 1669384454550,
+  "deletedAt": 0,
+  "createdFirstAt": 1669384454550,
+  "id": "namedparameterstypeof-writeallcodestoriescli",
+  "name": "NamedParameters<typeof writeAllCodestoriesCli>",
+  "slug": "namedparameterstypeof-writeallcodestoriescli",
+  "operationRelativeTypescriptFilePath": "src/cli/writeAllCodestories.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof writeAllCodestoriesCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -6,20 +6,21 @@ marked-util (`OperationClassification` cjs)
 
 # Api reference
 
-# Internal
+## findEmbeds()
 
-<details><summary>Show internal (12)</summary>
-    
-  # findCodespansFromTokenRecursively()
-
-
+find all embedded assets
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| token | `marked.Token` |  |
-| **Output** | string[]   |    |
+| markdownString | string |  |
+| **Output** | { alt: string, <br />src: string, <br />type: video / audio / image / text / other, <br /> }[]   |    |
 
+
+
+## 📄 findEmbeds (exported const)
+
+find all embedded assets
 
 
 ## findCodespans()
@@ -34,36 +35,6 @@ find all backtick-blocks
 
 
 
-## findEmbedsFromTokenRecursively()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| token | `marked.Token` |  |
-| **Output** | { alt: string, <br />src: string, <br />type: video / audio / image / text / other, <br /> }[]   |    |
-
-
-
-## findEmbeds()
-
-find all embedded assets
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| markdownString | string |  |
-| **Output** | { alt: string, <br />src: string, <br />type: video / audio / image / text / other, <br /> }[]   |    |
-
-
-
-## findLinksFromTokenRecursively()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| token | `marked.Token` |  |
-| **Output** | { alt: string, <br />href: string, <br />type: video / audio / image / text / other, <br /> }[]   |    |
-
-
-
 ## findLinks()
 
 find all embedded assets
@@ -72,28 +43,58 @@ find all embedded assets
 | Input      |    |    |
 | ---------- | -- | -- |
 | markdownString | string |  |
-| **Output** | { alt: string, <br />href: string, <br />type: video / audio / image / text / other, <br /> }[]   |    |
+| **Output** | {  }[]   |    |
 
 
-
-## 📄 findCodespansFromTokenRecursively (exported const)
 
 ## 📄 findCodespans (exported const)
 
 find all backtick-blocks
 
 
-## 📄 findEmbedsFromTokenRecursively (exported const)
-
-## 📄 findEmbeds (exported const)
-
-find all embedded assets
-
-
-## 📄 findLinksFromTokenRecursively (exported const)
-
 ## 📄 findLinks (exported const)
 
 find all embedded assets
+
+# Internal
+
+<details><summary>Show internal (6)</summary>
+    
+  # findCodespansFromTokenRecursively()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| token | `marked.Token` |  |
+| **Output** | string[]   |    |
+
+
+
+## findEmbedsFromTokenRecursively()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| token | `marked.Token` |  |
+| **Output** | {  }[]   |    |
+
+
+
+## findLinksFromTokenRecursively()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| token | `marked.Token` |  |
+| **Output** | {  }[]   |    |
+
+
+
+## 📄 findCodespansFromTokenRecursively (exported const)
+
+## 📄 findEmbedsFromTokenRecursively (exported const)
+
+## 📄 findLinksFromTokenRecursively (exported const)
+
   </details>
 

@@ -31,7 +31,8 @@
     "augmented-word-node": "0.0.1",
     "webpage-types": "0.0.1",
     "recursive-types": "0.0.1",
-    "recursive-util": "0.0.1"
+    "recursive-util": "0.0.1",
+    "markdown-types": "0.0.1"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
@@ -67,7 +68,7 @@
     "folderNameIndexed": "markdown-reader-functions",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669287871860,
+    "lastRebuildAt": 1669384736147,
     "operationDependenciesIndexed": [
       "copyAllRelativeFiles",
       "fs",
@@ -162,14 +163,14 @@
       "codeSize": {
         "numberOfFiles": 23,
         "lines": 963,
-        "characters": 29377,
-        "bytes": 29377
+        "characters": 29381,
+        "bytes": 29381
       },
       "dataSize": {
         "numberOfFiles": 4,
         "lines": 3989,
-        "characters": 145900,
-        "bytes": 145900
+        "characters": 145910,
+        "bytes": 145910
       },
       "textSize": {
         "numberOfFiles": 1,
@@ -178,8 +179,8 @@
         "bytes": 11309
       },
       "size": {
-        "bytes": 186586,
-        "characters": 186586,
+        "bytes": 186600,
+        "characters": 186600,
         "lines": 5428,
         "numberOfFiles": 28
       }

@@ -36,39 +36,6 @@ Properties:
 
 
 
-## 🔸 MediaCredentail
-
-jsonMultiple model
-
-
-
-
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| mediaType  | string |  |
-| email (optional) | string |  |
-| password  | string |  |
-| username (optional) | string |  |
-| phoneNumber (optional) | string |  |
-
-
-
 ## 🔹 MediaPlatformEnum
 
 ## 🔸 MediaPost
@@ -116,7 +83,7 @@ Properties:
 
 # Internal
 
-<details><summary>Show internal (3)</summary>
+<details><summary>Show internal (4)</summary>
     
   # 🔸 MediaChannel
 
@@ -162,6 +129,39 @@ Properties:
 | language  | string |  |
 | mediaCredentialId (optional) | string |  |
 | myLastPostAt  | number |  |
+
+
+
+## 🔸 MediaCredential
+
+jsonMultiple model
+
+
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| mediaType  | string |  |
+| email (optional) | string |  |
+| password  | string |  |
+| username (optional) | string |  |
+| phoneNumber (optional) | string |  |
 
 
 

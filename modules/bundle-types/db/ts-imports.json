@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1669287360034,
-    "updatedAt": 1669287360034,
+    "createdAt": 1669384668928,
+    "updatedAt": 1669384668928,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360034,
+    "createdFirstAt": 1669384668928,
     "name": "SlugModelType",
     "slug": "slug-model-type",
     "type": "type",
@@ -15,13 +15,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "giiinuqjsecvbvbwsykzbyxv"
+    "id": "lnqejzxrfbsuvsygusxlompb"
   },
   {
-    "createdAt": 1669287360034,
-    "updatedAt": 1669287360034,
+    "createdAt": 1669384668928,
+    "updatedAt": 1669384668928,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360034,
+    "createdFirstAt": 1669384668928,
     "name": "Json",
     "slug": "json",
     "type": "type",
@@ -33,13 +33,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "sybavyugmkszwvbebnfnfjuc"
+    "id": "yuzlhzcpsyxpcjbetymjpave"
   },
   {
-    "createdAt": 1669287360034,
-    "updatedAt": 1669287360034,
+    "createdAt": 1669384668928,
+    "updatedAt": 1669384668928,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360034,
+    "createdFirstAt": 1669384668928,
     "name": "CustomisableBundleConfig",
     "slug": "customisable-bundle-config",
     "module": "./CustomisableBundleConfig",
@@ -49,13 +49,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "gsrhnkhqoxsgblbirlubfetb"
+    "id": "jpmotswqblifbrytyebwyesb"
   },
   {
-    "createdAt": 1669287360034,
-    "updatedAt": 1669287360034,
+    "createdAt": 1669384668929,
+    "updatedAt": 1669384668929,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360034,
+    "createdFirstAt": 1669384668929,
     "name": "CreateBundleConfig",
     "slug": "create-bundle-config",
     "module": "./CreateBundleConfig",
@@ -65,13 +65,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "iamtptcrxqdhxqvyioeaapsu"
+    "id": "bczqscdxytmmqothaeddjkfm"
   },
   {
-    "createdAt": 1669287360035,
-    "updatedAt": 1669287360035,
+    "createdAt": 1669384668929,
+    "updatedAt": 1669384668929,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360035,
+    "createdFirstAt": 1669384668929,
     "name": "PublicBundleConfig",
     "slug": "public-bundle-config",
     "module": "./PublicBundleConfig",
@@ -81,13 +81,31 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "seyqvajtobejbqbdlfhwhkoj"
+    "id": "xgohpsjexjmnpjhkbeyxsqwa"
   },
   {
-    "createdAt": 1669287360035,
-    "updatedAt": 1669287360035,
+    "createdAt": 1669384668929,
+    "updatedAt": 1669384668929,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360035,
+    "createdFirstAt": 1669384668929,
+    "name": "Slug",
+    "slug": "slug",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "model-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/BundleMarkdownReaderConfig.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "dgaheargvkpyifvngyrcaahb"
+  },
+  {
+    "createdAt": 1669384668929,
+    "updatedAt": 1669384668929,
+    "deletedAt": 0,
+    "createdFirstAt": 1669384668929,
     "name": "OperationPrivacy",
     "slug": "operation-privacy",
     "module": "./types",
@@ -97,13 +115,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "olkpysahfqaggpwwrueickgy"
+    "id": "zxfxmitpsmoskwkzckmdkqiy"
   },
   {
-    "createdAt": 1669287360035,
-    "updatedAt": 1669287360035,
+    "createdAt": 1669384668930,
+    "updatedAt": 1669384668930,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360035,
+    "createdFirstAt": 1669384668930,
     "name": "ProjectRelativeFilePath",
     "slug": "project-relative-file-path",
     "module": "./types",
@@ -113,13 +131,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "oaaoncanigtqmrfjjnmuycqx"
+    "id": "dtruzirgsxhfuloivheyglmi"
   },
   {
-    "createdAt": 1669287360035,
-    "updatedAt": 1669287360035,
+    "createdAt": 1669384668930,
+    "updatedAt": 1669384668930,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360035,
+    "createdFirstAt": 1669384668930,
     "name": "ProjectRelativeFolderPath",
     "slug": "project-relative-folder-path",
     "module": "./types",
@@ -129,13 +147,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "doqcuwyktsyzkjmfukcbnzcy"
+    "id": "qzxjkcdosundjipxksmiefeo"
   },
   {
-    "createdAt": 1669287360035,
-    "updatedAt": 1669287360035,
+    "createdAt": 1669384668930,
+    "updatedAt": 1669384668930,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360035,
+    "createdFirstAt": 1669384668930,
     "name": "InformationStrategy",
     "slug": "information-strategy",
     "module": "./InformationStrategy",
@@ -145,13 +163,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "rtjmbqufodslcxmthvjizeus"
+    "id": "xmxccoqkpdmzfgezphuuacex"
   },
   {
-    "createdAt": 1669287360035,
-    "updatedAt": 1669287360035,
+    "createdAt": 1669384668930,
+    "updatedAt": 1669384668930,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360035,
+    "createdFirstAt": 1669384668930,
     "name": "FrontBackBundle",
     "slug": "front-back-bundle",
     "module": "./FrontBackBundle",
@@ -161,13 +179,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "necnsxatjxhtuurossupzisv"
+    "id": "ucccfsugsuaklalnhwskdxmb"
   },
   {
-    "createdAt": 1669287360035,
-    "updatedAt": 1669287360035,
+    "createdAt": 1669384668930,
+    "updatedAt": 1669384668930,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360035,
+    "createdFirstAt": 1669384668930,
     "name": "Slug",
     "slug": "slug",
     "type": "type",
@@ -179,13 +197,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "btxnnrvkflvxecjngggblphl"
+    "id": "cwdrrpnzafisxtzqxesolabg"
   },
   {
-    "createdAt": 1669287360035,
-    "updatedAt": 1669287360035,
+    "createdAt": 1669384668931,
+    "updatedAt": 1669384668931,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360035,
+    "createdFirstAt": 1669384668931,
     "name": "EnvironmentVariableObject",
     "slug": "environment-variable-object",
     "module": "./BundleConfig",
@@ -195,13 +213,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "fmikkkascoouuglftbwqyhzd"
+    "id": "qkbuodnyzzbskgxgnqtyfoxu"
   },
   {
-    "createdAt": 1669287360036,
-    "updatedAt": 1669287360036,
+    "createdAt": 1669384668931,
+    "updatedAt": 1669384668931,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360036,
+    "createdFirstAt": 1669384668931,
     "name": "InformationStrategy",
     "slug": "information-strategy",
     "module": "./InformationStrategy",
@@ -211,13 +229,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "bszmqkrxhzgdadxepxuderrh"
+    "id": "nmzrsafxivwvmbfaxniqfelk"
   },
   {
-    "createdAt": 1669287360036,
-    "updatedAt": 1669287360036,
+    "createdAt": 1669384668931,
+    "updatedAt": 1669384668931,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360036,
+    "createdFirstAt": 1669384668931,
     "name": "BundleConfig",
     "slug": "bundle-config",
     "module": "./BundleConfig",
@@ -227,13 +245,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "kmhuawovehlydikqltqxoepa"
+    "id": "kbglghzrebswonvcqdcsckoj"
   },
   {
-    "createdAt": 1669287360036,
-    "updatedAt": 1669287360036,
+    "createdAt": 1669384668931,
+    "updatedAt": 1669384668931,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360036,
+    "createdFirstAt": 1669384668931,
     "name": "FinalCreateBundleConfig",
     "slug": "final-create-bundle-config",
     "module": "./CreateBundleConfig",
@@ -243,13 +261,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "tvqpkniktxyjyyttmvevuaio"
+    "id": "vcbsflpqoybekkorbctivrhn"
   },
   {
-    "createdAt": 1669287360036,
-    "updatedAt": 1669287360036,
+    "createdAt": 1669384668931,
+    "updatedAt": 1669384668931,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360036,
+    "createdFirstAt": 1669384668931,
     "name": "FinalCustomisableBundleConfig",
     "slug": "final-customisable-bundle-config",
     "module": "./CustomisableBundleConfig",
@@ -259,13 +277,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ifxjpsbjdahjolpdznjiyxyi"
+    "id": "zdyrwrvcgnriixwvakouacjj"
   },
   {
-    "createdAt": 1669287360036,
-    "updatedAt": 1669287360036,
+    "createdAt": 1669384668931,
+    "updatedAt": 1669384668931,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360036,
+    "createdFirstAt": 1669384668931,
     "name": "SlugModelType",
     "slug": "slug-model-type",
     "type": "type",
@@ -277,13 +295,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wpnoxeicocqjzqrwafdmyuxx"
+    "id": "ncgjduyogamnwfxhqhhpsels"
   },
   {
-    "createdAt": 1669287360036,
-    "updatedAt": 1669287360036,
+    "createdAt": 1669384668931,
+    "updatedAt": 1669384668931,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360036,
+    "createdFirstAt": 1669384668931,
     "name": "OperationPrivacy",
     "slug": "operation-privacy",
     "module": "./types",
@@ -293,13 +311,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "bmyzkomynabxggtxaxdvmjiy"
+    "id": "fccwqwtxhyonkgrfwgqwnmng"
   },
   {
-    "createdAt": 1669287360036,
-    "updatedAt": 1669287360036,
+    "createdAt": 1669384668931,
+    "updatedAt": 1669384668931,
     "deletedAt": 0,
-    "createdFirstAt": 1669287360036,
+    "createdFirstAt": 1669384668931,
     "name": "BundleMarkdownReaderConfig",
     "slug": "bundle-markdown-reader-config",
     "module": "./BundleMarkdownReaderConfig",
@@ -309,6 +327,6 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ybagvmuljngggwqidaumrcmw"
+    "id": "ojccozegviemkenonhxyokwi"
   }
 ]

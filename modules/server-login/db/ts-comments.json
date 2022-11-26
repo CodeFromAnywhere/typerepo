@@ -1,20 +1,20 @@
 [
   {
-    "createdAt": 1669311240526,
-    "updatedAt": 1669311240526,
+    "createdAt": 1669385356424,
+    "updatedAt": 1669385356424,
     "deletedAt": 0,
-    "createdFirstAt": 1669311240526,
+    "createdFirstAt": 1669385356424,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/signupWithPasswordWithContext.ts",
-    "comment": "\nFor now only username/pass is supported due to direct verification\n\nThis function makes an authenticationmethod for the device and then signs up by creating a person for it and attaching it to the device.",
-    "rawStatement": "export const signupWithPasswordWithContext = async (\n  functionContext: FunctionContext,\n  name: string,\n  handle: string,\n  pictureImage: BackendAsset | undefined,\n  password: string,\n  repeatPassword: string\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  // processing is a oneliner for this type of functions!\n  pictureImage = await processAsset(pictureImage);\n\n  // only supported for now\n  const method: AuthenticationMethodMethod = \"usernamePassword\";\n\n  if (password !== repeatPassword) {\n    return { isSuccessful: false, message: \"Those passwords don't match\" };\n  }\n\n  const addDeviceAuthResult = await addDeviceAuthenticationMethodWithContext(\n    functionContext,\n    method,\n    handle,\n    password\n  );\n\n  // console.log({ addDeviceAuthResult });\n  const {\n    functionContext: newFunctionContext,\n    authenticationMethod,\n    isSuccessful,\n    message,\n  } = addDeviceAuthResult;\n\n  if (!authenticationMethod?.isAuthenticated || !newFunctionContext) {\n    console.log(\"NOT AUTHENTICATED AFTER ADDING DEVICE\", {\n      authenticationMethod,\n      newFunctionContext,\n    });\n    return { isSuccessful: false, message: message || \"Strange\" };\n  }\n\n  const signupResult = await signupWithContext(newFunctionContext, {\n    name,\n    slug: slugify(name),\n    pictureImage,\n  });\n\n  return signupResult;\n};",
-    "parameters": {
-      "publicAuthorization": "read, search, execute"
-    },
-    "types": [],
-    "firstLine": 10,
-    "lastLine": 18,
-    "id": "ahoowggmbvffrmmfacflimmt"
+    "operationRelativeTypescriptFilePath": "src/validation/isPhoneNumber.ts",
+    "comment": "TODO: Implement this",
+    "rawStatement": "export const isPhoneNumber = (phoneNumber: string): boolean => {\n  return true;\n};",
+    "parameters": {},
+    "types": [
+      "todo"
+    ],
+    "firstLine": 1,
+    "lastLine": 3,
+    "id": "xlbptzskbqlxytonnqbbvjeb"
   }
 ]

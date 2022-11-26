@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669235147545,
-  "updatedAt": 1669235147545,
+  "createdAt": 1669384569016,
+  "updatedAt": 1669384569016,
   "deletedAt": 0,
-  "createdFirstAt": 1669235147545,
+  "createdFirstAt": 1669384569016,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "find-links",
   "operationRelativeTypescriptFilePath": "src/findLinks.ts",
   "type": {
-    "rawType": "(markdownString: string) => import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownLink[]",
+    "rawType": "(markdownString: string) => MarkdownLink[]",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "(markdownString: string): MarkdownLink[] => {\n  const result: MarkdownLink[] = marked\n    .lexer(markdownString)\n    .map(findLinksFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
   "description": "find all embedded assets",
-  "id": "wfhuyjrebohllbnvgnednnto"
+  "id": "uiyepeivktmghppotjcbxtnz"
 }

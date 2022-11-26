@@ -1,5 +1,5 @@
 ---
-publicAuthorization: "read, search, execute"
+publicAuthorization: read, search, execute
 ---
 # Server login
 

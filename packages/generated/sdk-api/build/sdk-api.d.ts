@@ -100,6 +100,7 @@ export declare const sdk: {
     ask: (question: string) => Promise<string>;
     getArgumentOrAsk: (argumentPosition: number, question: string, isNonInteractive?: boolean | undefined) => Promise<string>;
     compressAsset: (absolutePath: string, compressionConfig: import("asset-type").CompressionConfig) => Promise<string>;
+    convertToMp3: (sourcePath: string, destinationPath: string) => Promise<string | undefined>;
     convertToMp4: (sourcePath: string, destinationPath: string) => Promise<string | undefined>;
     deleteReferencedAsset: (projectRelativeReferencingFilePath: string, referencingFileRelativeAssetPath: string) => Promise<{
         isSuccessful: boolean;
@@ -246,7 +247,7 @@ export declare const sdk: {
         typeIndexType?: keyof import("code-types").IndexModels | null | undefined;
     } & import("read-typescript-file").IndexFilter) => Promise<import("code-types").ExplorationDetails>;
     getFrontmattersMappedObject: (projectRoot: string, markdownPaths?: string[] | undefined) => Promise<{
-        [x: string]: any;
+        [x: string]: import("matter-types").Frontmatter | undefined;
     }>;
     getInstanceNames: (array: any[], relativePathFromProjectRoot: string) => string[];
     getProjectRelativePaths: (config?: {
@@ -792,7 +793,7 @@ export declare const sdk: {
         withAppsCalculated?: boolean | undefined;
     } | undefined) => Promise<import("peer-types").Person[]>;
     getFirstEmoji: (text?: string | undefined) => string | undefined;
-    getNestedPathObject: (baseFolderPath: string) => Promise<NestedPathObject>;
+    getNestedPathObject: (baseFolderPath: string) => Promise<import("recursive-types").NestedPathObject>;
     getPeerMessages: () => Promise<import("peer-types").PeerMessage[]>;
     getPeerPeople: () => Promise<{
         success: boolean;
@@ -1149,6 +1150,13 @@ export declare const sdk: {
     isGeneratedOperationName: (operationName: string) => boolean;
     isGeneratedOperation: (operationBasePath: string) => boolean;
     isIndexableFileId: (fileId: string) => boolean;
+    frontmatterParseToString: (frontmatter: import("matter-types").Frontmatter) => string;
+    frontmatterToObject: (frontmatter: import("matter-types").Frontmatter, schema: import("code-types").SimplifiedSchema) => import("matter-types").FrontmatterParse;
+    getFrontmatterValueString: (value: import("frontmatter-util").FrontmatterValue) => string | null;
+    objectToFrontmatter: (parse: import("matter-types").FrontmatterParse, schema: import("code-types").SimplifiedSchema) => import("matter-types").Frontmatter;
+    parseFrontmatterString: (value: string) => string;
+    quotedOrNot: (string: string) => string;
+    stringifyNewlines: (string: string) => string;
     canAccessSync: (p: import("fs").PathLike, mode: number) => boolean;
     canAccess: (p: import("fs").PathLike, mode: number) => Promise<boolean>;
     canExecuteSync: (p: import("fs").PathLike) => boolean;

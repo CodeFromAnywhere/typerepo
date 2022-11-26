@@ -328,6 +328,7 @@ Properties:
 | deviceId  | string |  |
 | path  | string |  |
 | ipInfo  | object |  |
+| hello  | string |  |
 
 
 
@@ -525,7 +526,7 @@ Properties:
 | githubAccessToken (optional) | string |  |
 | githubOrganisation (optional) | string |  |
 | useGithubOrganisation (optional) | boolean |  |
-| mediaCredentials  | array |  |
+| mediaCredentialIds (optional) | array |  |
 
 
 
@@ -615,6 +616,9 @@ Properties:
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
 | categoryStackCalculated (optional) | array |  |
+| personId  | string |  |
+| personInformationSlug  | string |  |
+| value  | string |  |
 
 
 

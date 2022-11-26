@@ -78,6 +78,14 @@ export declare type CreateBundleConfig = {
      */
     docsRelativeFolderPath?: ProjectRelativeFolderPath | ProjectRelativeFolderPath[];
     /**
+     * paths to image folders that should randomly be used as default headers or footers in the generated markdown.
+     */
+    imagesProjectRelativeFolderPaths?: ProjectRelativeFolderPath[];
+    /**
+     * Used to determine which images to show
+     */
+    deploymentHostname?: string;
+    /**
      * Optional. path to a readme file for the monorepo root.
      *
      * If not given, and if you did provide a path for docs, the main docs intro file will be taken

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669288774048,
-  "updatedAt": 1669288774048,
+  "createdAt": 1669384463153,
+  "updatedAt": 1669384463153,
   "deletedAt": 0,
-  "createdFirstAt": 1669288774048,
+  "createdFirstAt": 1669384463153,
   "id": "namedparameterstypeof-makecodestory",
   "name": "NamedParameters<typeof makeCodestory>",
   "slug": "namedparameterstypeof-makecodestory",
@@ -19,10 +19,20 @@
       "properties": {
         "absolutePath": {
           "type": "string"
+        },
+        "mappedObject": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/CodespanItemInfo"
+          }
+        },
+        "isDebug": {
+          "type": "boolean"
         }
       },
       "required": [
-        "absolutePath"
+        "absolutePath",
+        "mappedObject"
       ],
       "additionalProperties": false
     },
@@ -33,6 +43,21 @@
           "required": true,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "mappedObject",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "isDebug",
+          "required": false,
+          "schema": {
+            "type": "boolean"
           }
         }
       ],

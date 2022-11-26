@@ -38,6 +38,13 @@ import { hasSubExtension } from "filename-conventions";
 import { isGeneratedOperationName } from "filename-conventions";
 import { isGeneratedOperation } from "filename-conventions";
 import { isIndexableFileId } from "filename-conventions";
+import { frontmatterParseToString } from "frontmatter-util";
+import { frontmatterToObject } from "frontmatter-util";
+import { getFrontmatterValueString } from "frontmatter-util";
+import { objectToFrontmatter } from "frontmatter-util";
+import { parseFrontmatterString } from "frontmatter-util";
+import { quotedOrNot } from "frontmatter-util";
+import { stringifyNewlines } from "frontmatter-util";
 import { canAccessSync } from "fs-util";
 import { canAccess } from "fs-util";
 import { canExecuteSync } from "fs-util";
@@ -285,6 +292,13 @@ hasSubExtension,
 isGeneratedOperationName,
 isGeneratedOperation,
 isIndexableFileId,
+frontmatterParseToString,
+frontmatterToObject,
+getFrontmatterValueString,
+objectToFrontmatter,
+parseFrontmatterString,
+quotedOrNot,
+stringifyNewlines,
 canAccessSync,
 canAccess,
 canExecuteSync,

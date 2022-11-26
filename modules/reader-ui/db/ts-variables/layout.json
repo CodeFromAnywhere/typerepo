@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669288127236,
-  "updatedAt": 1669288127236,
+  "createdAt": 1669385562170,
+  "updatedAt": 1669385562170,
   "deletedAt": 0,
-  "createdFirstAt": 1669288127236,
+  "createdFirstAt": 1669385562170,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: {\n  publicBundleConfig: MarkdownReaderPageProps[\"publicBundleConfig\"];\n  children: any;\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n  menu: MenuObjectType<FilePage>;\n}) => {\n  const { children, augmentedWordObject, publicBundleConfig, menu } = props;\n\n  return (\n    <LayoutGrid\n      menu={{\n        augmentedWords: Object.values(augmentedWordObject || {}),\n        webPagesFlat: menu.flat,\n        webPagesNested: menu.nested,\n        isLoading: false,\n      }}\n      header={<Header publicBundleConfig={publicBundleConfig} />}\n    >\n      {children}\n    </LayoutGrid>\n  );\n}",
   "description": "",
-  "id": "hifsansdxmspgoyzdakjglfd"
+  "id": "gzveuwszcyeycjphstlmulik"
 }

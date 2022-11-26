@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287915536,
-  "updatedAt": 1669287915536,
+  "createdAt": 1669384777225,
+  "updatedAt": 1669384777225,
   "deletedAt": 0,
-  "createdFirstAt": 1669287915536,
+  "createdFirstAt": 1669384777225,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const router = useRouter();\n  const paths = router.asPath.slice(1).split(\"?\")[0];\n  const [todoPagesConfig] = useStore(\"todoPagesConfig\");\n  const todoPagesQuery = queries.useGetTodoPages(todoPagesConfig);\n  const webPages = todoPagesQuery.data?.result?.flat;\n  const filePage = webPages?.find((x) => x.queryPath === paths);\n  const folderPages = webPages?.filter((x) => x.queryPath.startsWith(paths));\n\n  const projectRelativeFilePath = filePage?.pageData?.projectRelativeFilePath;\n  if (!projectRelativeFilePath) {\n    if (folderPages?.length) {\n      return (\n        <Div className=\"p-4\">\n          {folderPages.map((item) => {\n            return (\n              <P className=\"my-2\">\n                -{\" \"}\n                <ALink key={item.queryPath} href={item.queryPath}>\n                  {item.menuTitle}\n                </ALink>\n              </P>\n            );\n          })}\n        </Div>\n      );\n    }\n    return <Div>Couldn't find that page</Div>;\n  }\n  return (\n    <WriterLayout>\n      <FileWriter\n        markdownModelName=\"TodoFile\"\n        projectRelativeFilePath={projectRelativeFilePath}\n      />\n    </WriterLayout>\n  );\n}",
   "description": "",
-  "id": "wsodzhnpzkzaflffvaoqjgir"
+  "id": "bpgonvgfhfeutftrnomsggef"
 }

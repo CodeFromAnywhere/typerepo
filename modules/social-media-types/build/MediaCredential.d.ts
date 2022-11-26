@@ -1,6 +1,6 @@
 import { DefaultModelType } from "model-types";
 import { MediaPlatformEnum } from "./MediaPlatformEnum";
-export interface MediaCredentail extends DefaultModelType {
+export interface MediaCredential extends DefaultModelType {
     mediaType: MediaPlatformEnum;
     email?: string;
     password: string;

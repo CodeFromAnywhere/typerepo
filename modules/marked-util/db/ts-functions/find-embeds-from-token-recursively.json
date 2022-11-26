@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669235145918,
-  "updatedAt": 1669235145918,
+  "createdAt": 1669384567320,
+  "updatedAt": 1669384567320,
   "deletedAt": 0,
-  "createdFirstAt": 1669235145918,
+  "createdFirstAt": 1669384567320,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -22,63 +22,11 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownEmbed[]",
+    "rawType": "MarkdownEmbed[]",
     "typeDefinition": {
       "optional": false,
       "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "alt": {
-            "type": "string",
-            "allOf": [
-              {
-                "transform": [
-                  "trim"
-                ]
-              },
-              {
-                "minLength": 1
-              }
-            ]
-          },
-          "src": {
-            "type": "string",
-            "allOf": [
-              {
-                "transform": [
-                  "trim"
-                ]
-              },
-              {
-                "minLength": 1
-              }
-            ]
-          },
-          "type": {
-            "enum": [
-              "video",
-              "audio",
-              "image",
-              "text",
-              "other"
-            ],
-            "x-enumNames": [
-              "video",
-              "audio",
-              "image",
-              "text",
-              "other"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "alt",
-          "src",
-          "type"
-        ]
-      }
+      "items": {}
     },
     "typeCoverage": 0,
     "isArray": true,
@@ -90,36 +38,7 @@
       "items": [
         {
           "schema": {
-            "properties": [
-              {
-                "name": "alt",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "src",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "type",
-                "required": true,
-                "schema": {
-                  "enum": [
-                    "video",
-                    "audio",
-                    "image",
-                    "text",
-                    "other"
-                  ],
-                  "type": "string"
-                }
-              }
-            ],
+            "properties": [],
             "type": "object"
           },
           "name": null
@@ -138,5 +57,5 @@
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "uhmmffozjacilhwrjybchqjy"
+  "id": "tgerrkxsrdayrhapndiyckve"
 }

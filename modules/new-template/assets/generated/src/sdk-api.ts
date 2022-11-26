@@ -1,10 +1,10 @@
 import { compressAsset } from "asset-functions-node";
 import { convertToMp3 } from "asset-functions-node";
+import { convertToMp4 } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
 import { findAbsoluteAssetPathFromReference } from "asset-functions-node";
 import { findAllProjectMedia } from "asset-functions-node";
-import { findAssetParametersRecursively } from "asset-functions-node";
 import { getAssetDirectlyGetApi } from "asset-functions-node";
 import { getReferencedAssetGetApi } from "asset-functions-node";
 import { getStorageLocationInfo } from "asset-functions-node";
@@ -526,6 +526,36 @@ import { getDbPath } from "geo-parse";
 import { rawPolygonToPolygon } from "geo-parse";
 import { dev } from "k-dev";
 import { nodemon } from "nodemon";
+import { loginToDevto } from "dev-to-controller";
+import { publishBlogOnDevTo } from "dev-to-controller";
+import { typeIntoTheField } from "dev-to-controller";
+import { facebookPostOnTheGroup } from "facebook-controller";
+import { facebookPost } from "facebook-controller";
+import { facebookTimeLinePost } from "facebook-controller";
+import { getLatestFacebookPostUrl } from "facebook-controller";
+import { sendFacebookMessage } from "facebook-controller";
+import { searchAndDownloadGifs } from "gif-controller";
+import { buildQuery } from "google-translate-controller";
+import { errArrayLenZero } from "google-translate-controller";
+import { errFileSize } from "google-translate-controller";
+import { errFileType } from "google-translate-controller";
+import { errInvalidType } from "google-translate-controller";
+import { errTextLenZero } from "google-translate-controller";
+import { errTextOverflow } from "google-translate-controller";
+import { generateArrayFromJson } from "google-translate-controller";
+import { getStringForTranslation } from "google-translate-controller";
+import { launch } from "google-translate-controller";
+import { startTranslation } from "google-translate-controller";
+import { storeResult } from "google-translate-controller";
+import { translateText } from "google-translate-controller";
+import { publishBlogOnMedium } from "medium-controller";
+import { publishBlogOnReddit } from "reddit-controller";
+import { getTwitterPostUrl } from "twitter-controller";
+import { postTweetOnTwitter } from "twitter-controller";
+import { youtubeSearchAndDownload } from "youtube-controller";
+import { youtubeSearch } from "youtube-controller";
+import { youtubeToMp3 } from "youtube-controller";
+import { youtubeToMp4 } from "youtube-controller";
 import { createFolder } from "markdown-translator";
 import { getAllMarkdownFiles } from "markdown-translator";
 import { getFileInfo } from "markdown-translator";
@@ -534,9 +564,26 @@ import { markdownStoreAndRecord } from "markdown-translator";
 import { parseMarkdownWordByWord } from "markdown-translator";
 import { recordMdFile } from "markdown-translator";
 import { startMarkdownTranslator } from "markdown-translator";
-import { startTranslation } from "markdown-translator";
 import { translatedArrayToKeyValue } from "markdown-translator";
 import { watchMdFile } from "markdown-translator";
+import { addSocialMediaCredential } from "social-media-wrapper";
+import { canBePosted } from "social-media-wrapper";
+import { createAllSocialMediaPost } from "social-media-wrapper";
+import { createSocialMediaPost } from "social-media-wrapper";
+import { devtoCotentAnalyzer } from "social-media-wrapper";
+import { facebookContentAnalyzer } from "social-media-wrapper";
+import { getSocialMediaCredentials } from "social-media-wrapper";
+import { mediumCotentAnalyzer } from "social-media-wrapper";
+import { postSocialMediaPostToDevto } from "social-media-wrapper";
+import { postSocialMediaPostToFacebook } from "social-media-wrapper";
+import { postSocialMediaPostToMedium } from "social-media-wrapper";
+import { postSocialMediaPostToReddit } from "social-media-wrapper";
+import { postSocialMediaPostToTwitter } from "social-media-wrapper";
+import { redditContentAnalyzer } from "social-media-wrapper";
+import { socialMediaPostPlanner } from "social-media-wrapper";
+import { startSocialMediaController } from "social-media-wrapper";
+import { twitterContentAnalyzer } from "social-media-wrapper";
+import { updateSocialMediaPost } from "social-media-wrapper";
 import { makeExercises } from "course-basics";
 import { driverLogin } from "himalayajeep-functions";
 import { driverSignup } from "himalayajeep-functions";
@@ -544,6 +591,12 @@ import { earthDistance } from "himalayajeep-functions";
 import { getMyJeep } from "himalayajeep-functions";
 import { getPublicJeeps } from "himalayajeep-functions";
 import { updateMyProfile } from "himalayajeep-functions";
+import { checkAllOperationStatus } from "github-operation-sync";
+import { operationCheckGithubStatus } from "github-operation-sync";
+import { operationGithubPull } from "github-operation-sync";
+import { operationGithubPush } from "github-operation-sync";
+import { pullMultipleOperations } from "github-operation-sync";
+import { pushMultipleOperations } from "github-operation-sync";
 import { calculateFullCompany } from "foodchain-recipes";
 import { companyAttachContributionInformation } from "foodchain-recipes";
 import { companyAttachEsgMetricProofStates } from "foodchain-recipes";
@@ -569,11 +622,12 @@ import { requirementAppliesToCompany } from "foodchain-recipes-js";
 import { parseAddress } from "parse-address-henrik";
 import { addToken } from "asset-functions-js";
 import { ensureToken } from "asset-functions-js";
+import { findAssetParametersRecursively } from "asset-functions-js";
 import { getAssetDirectlyApiUrl } from "asset-functions-js";
+import { getConversionInfoFromType } from "asset-functions-js";
 import { getExtensionFromAsset } from "asset-functions-js";
 import { getNameFromRelativePath } from "asset-functions-js";
 import { getNameWithTokenFromRelativePath } from "asset-functions-js";
-import { getPreferredExtensionFromType } from "asset-functions-js";
 import { getReferencedAssetApiUrl } from "asset-functions-js";
 import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
@@ -697,6 +751,13 @@ import { isValidEntry } from "rest-util";
 import { toQueryString } from "rest-util";
 import { findSentenceMatches } from "search";
 import { searchRecursiveObjectArray } from "search";
+import { frontmatterParseToString } from "frontmatter-util";
+import { frontmatterToObject } from "frontmatter-util";
+import { getFrontmatterValueString } from "frontmatter-util";
+import { objectToFrontmatter } from "frontmatter-util";
+import { parseFrontmatterString } from "frontmatter-util";
+import { quotedOrNot } from "frontmatter-util";
+import { stringifyNewlines } from "frontmatter-util";
 import { getFunctionExersize } from "code-types";
 import { createInvoiceContactMarkdown } from "invoice-types";
 import { createInvoiceMarkdown } from "invoice-types";
@@ -707,10 +768,6 @@ import { printDate } from "invoice-types";
 import { markdownParseToMarkdownModelType } from "markdown-types";
 import { parseMarkdownModelTimestamp } from "markdown-types";
 import { tryParseDate } from "markdown-types";
-import { frontmatterParseToString } from "matter-types";
-import { getFrontmatterValueString } from "matter-types";
-import { quotedOrNot } from "matter-types";
-import { stringifyNewlines } from "matter-types";
 import { generateId } from "model-types";
 import { generatePassword } from "model-types";
 import { generateRandomString } from "model-types";
@@ -836,14 +893,30 @@ import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
 import { runChildProcess } from "run-child-process";
+import { clickOnSpanTag } from "puppeteer-utils";
+import { facebookLogin } from "puppeteer-utils";
+import { foundOrNotXpath } from "puppeteer-utils";
+import { foundOrNot } from "puppeteer-utils";
+import { getChromeExecutablePath } from "puppeteer-utils";
+import { gmailLogin } from "puppeteer-utils";
+import { logConsoleIfDebug } from "puppeteer-utils";
+import { retryClickAndWaitSelector } from "puppeteer-utils";
+import { retryWaitSelector } from "puppeteer-utils";
+import { setInnerHtml } from "puppeteer-utils";
+import { setInputValue } from "puppeteer-utils";
+import { trueClick } from "puppeteer-utils";
+import { twitterLogin } from "puppeteer-utils";
+import { typeInTheInputField } from "puppeteer-utils";
+import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
+import { waitMilliseconds } from "puppeteer-utils";
 
 export const sdk = { compressAsset,
 convertToMp3,
+convertToMp4,
 deleteReferencedAsset,
 downloadRemoteAsset,
 findAbsoluteAssetPathFromReference,
 findAllProjectMedia,
-findAssetParametersRecursively,
 getAssetDirectlyGetApi,
 getReferencedAssetGetApi,
 getStorageLocationInfo,
@@ -1365,6 +1438,36 @@ getDbPath,
 rawPolygonToPolygon,
 dev,
 nodemon,
+loginToDevto,
+publishBlogOnDevTo,
+typeIntoTheField,
+facebookPostOnTheGroup,
+facebookPost,
+facebookTimeLinePost,
+getLatestFacebookPostUrl,
+sendFacebookMessage,
+searchAndDownloadGifs,
+buildQuery,
+errArrayLenZero,
+errFileSize,
+errFileType,
+errInvalidType,
+errTextLenZero,
+errTextOverflow,
+generateArrayFromJson,
+getStringForTranslation,
+launch,
+startTranslation,
+storeResult,
+translateText,
+publishBlogOnMedium,
+publishBlogOnReddit,
+getTwitterPostUrl,
+postTweetOnTwitter,
+youtubeSearchAndDownload,
+youtubeSearch,
+youtubeToMp3,
+youtubeToMp4,
 createFolder,
 getAllMarkdownFiles,
 getFileInfo,
@@ -1373,9 +1476,26 @@ markdownStoreAndRecord,
 parseMarkdownWordByWord,
 recordMdFile,
 startMarkdownTranslator,
-startTranslation,
 translatedArrayToKeyValue,
 watchMdFile,
+addSocialMediaCredential,
+canBePosted,
+createAllSocialMediaPost,
+createSocialMediaPost,
+devtoCotentAnalyzer,
+facebookContentAnalyzer,
+getSocialMediaCredentials,
+mediumCotentAnalyzer,
+postSocialMediaPostToDevto,
+postSocialMediaPostToFacebook,
+postSocialMediaPostToMedium,
+postSocialMediaPostToReddit,
+postSocialMediaPostToTwitter,
+redditContentAnalyzer,
+socialMediaPostPlanner,
+startSocialMediaController,
+twitterContentAnalyzer,
+updateSocialMediaPost,
 makeExercises,
 driverLogin,
 driverSignup,
@@ -1383,6 +1503,12 @@ earthDistance,
 getMyJeep,
 getPublicJeeps,
 updateMyProfile,
+checkAllOperationStatus,
+operationCheckGithubStatus,
+operationGithubPull,
+operationGithubPush,
+pullMultipleOperations,
+pushMultipleOperations,
 calculateFullCompany,
 companyAttachContributionInformation,
 companyAttachEsgMetricProofStates,
@@ -1408,11 +1534,12 @@ requirementAppliesToCompany,
 parseAddress,
 addToken,
 ensureToken,
+findAssetParametersRecursively,
 getAssetDirectlyApiUrl,
+getConversionInfoFromType,
 getExtensionFromAsset,
 getNameFromRelativePath,
 getNameWithTokenFromRelativePath,
-getPreferredExtensionFromType,
 getReferencedAssetApiUrl,
 getTypeFromUrlOrPath,
 readableSize,
@@ -1536,6 +1663,13 @@ isValidEntry,
 toQueryString,
 findSentenceMatches,
 searchRecursiveObjectArray,
+frontmatterParseToString,
+frontmatterToObject,
+getFrontmatterValueString,
+objectToFrontmatter,
+parseFrontmatterString,
+quotedOrNot,
+stringifyNewlines,
 getFunctionExersize,
 createInvoiceContactMarkdown,
 createInvoiceMarkdown,
@@ -1546,10 +1680,6 @@ printDate,
 markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
-frontmatterParseToString,
-getFrontmatterValueString,
-quotedOrNot,
-stringifyNewlines,
 generateId,
 generatePassword,
 generateRandomString,
@@ -1674,6 +1804,22 @@ isPlural,
 isSingular,
 pluralize,
 singularize,
-runChildProcess};
+runChildProcess,
+clickOnSpanTag,
+facebookLogin,
+foundOrNotXpath,
+foundOrNot,
+getChromeExecutablePath,
+gmailLogin,
+logConsoleIfDebug,
+retryClickAndWaitSelector,
+retryWaitSelector,
+setInnerHtml,
+setInputValue,
+trueClick,
+twitterLogin,
+typeInTheInputField,
+typeOnTheTargetWithXpathSelector,
+waitMilliseconds};
 
 export type SdkType = typeof sdk;

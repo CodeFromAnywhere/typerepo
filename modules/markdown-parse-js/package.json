@@ -10,7 +10,9 @@
     "matter-types": "0.0.1",
     "js-util": "0.0.1",
     "parse-primitive": "0.0.1",
-    "convert-case": "0.0.1"
+    "convert-case": "0.0.1",
+    "markdown-types": "0.0.1",
+    "frontmatter-util": "0.0.1"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
@@ -44,34 +46,57 @@
     "folderNameIndexed": "markdown-parse-js",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668976738440,
-    "operationDependenciesIndexed": [],
+    "lastRebuildAt": 1669384543618,
+    "operationDependenciesIndexed": [
+      "MarkdownChunk",
+      "notEmpty",
+      "slugify",
+      "MarkdownParse",
+      "MarkdownParse",
+      "notEmpty",
+      "frontmatterParseToString",
+      "makeTest",
+      "MarkdownParse",
+      "MarkdownChunk",
+      "MarkdownParse",
+      "MarkdownChunk",
+      "makeTest",
+      "MarkdownParse",
+      "MarkdownParse",
+      "Frontmatter",
+      "mergeObjectsArray",
+      "makeTest",
+      "MarkdownChunk",
+      "makeTest",
+      "makeTest",
+      "SimplifiedSchema"
+    ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion/md",
     "markdown": "js-only operation containing all kinds of functions that help parsing markdown\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 19,
-        "lines": 532,
-        "characters": 15193,
-        "bytes": 15193
+        "lines": 517,
+        "characters": 14766,
+        "bytes": 14766
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 142,
-        "characters": 3357,
-        "bytes": 3357
+        "lines": 122,
+        "characters": 3145,
+        "bytes": 3145
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 14,
-        "characters": 251,
-        "bytes": 251
+        "lines": 346,
+        "characters": 8452,
+        "bytes": 8452
       },
       "size": {
-        "bytes": 18801,
-        "characters": 18801,
-        "lines": 688,
+        "bytes": 26363,
+        "characters": 26363,
+        "lines": 985,
         "numberOfFiles": 23
       }
     },

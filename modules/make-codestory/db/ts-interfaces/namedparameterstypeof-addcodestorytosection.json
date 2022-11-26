@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669288762889,
-  "updatedAt": 1669288762889,
+  "createdAt": 1669384450740,
+  "updatedAt": 1669384450740,
   "deletedAt": 0,
-  "createdFirstAt": 1669288762889,
+  "createdFirstAt": 1669384450740,
   "id": "namedparameterstypeof-addcodestorytosection",
   "name": "NamedParameters<typeof addCodestoryToSection>",
   "slug": "namedparameterstypeof-addcodestorytosection",
@@ -19,8 +19,20 @@
       "properties": {
         "sectionContent": {
           "type": "string"
+        },
+        "mappedObject": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/CodespanItemInfo"
+          }
+        },
+        "isDebug": {
+          "type": "boolean"
         }
       },
+      "required": [
+        "mappedObject"
+      ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
@@ -30,6 +42,21 @@
           "required": false,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "mappedObject",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "isDebug",
+          "required": false,
+          "schema": {
+            "type": "boolean"
           }
         }
       ],

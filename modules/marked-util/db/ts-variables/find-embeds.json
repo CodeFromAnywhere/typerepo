@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669361554834,
-  "updatedAt": 1669361554834,
+  "createdAt": 1669384565728,
+  "updatedAt": 1669384565728,
   "deletedAt": 0,
-  "createdFirstAt": 1669361554834,
+  "createdFirstAt": 1669384565728,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(markdownString: string): MarkdownEmbed[] => {\n  const result: MarkdownEmbed[] = marked\n    .lexer(markdownString)\n    .map(findEmbedsFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
   "description": "find all embedded assets",
-  "id": "qtpmdqppgpqvjmlazvcisjvn"
+  "id": "kliheyjdoreqrjznjqnbemji"
 }

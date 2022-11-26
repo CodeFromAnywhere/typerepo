@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668976711332,
-  "updatedAt": 1668976711332,
+  "createdAt": 1669384514850,
+  "updatedAt": 1669384514850,
   "deletedAt": 0,
-  "createdFirstAt": 1668976711332,
+  "createdFirstAt": 1669384514850,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  paragraph: string\n): MarkdownReference[] => {\n  const references = parseMarkdownParagraph(paragraph)\n    .map((x) => x.reference)\n    .filter(notEmpty);\n\n  return references;\n}",
   "description": "Gets all markdown references from a paragraph",
-  "id": "ilmzswuybdlhoywjojdufsve"
+  "id": "rdtixfmgbfnqrrlswmqpuepr"
 }

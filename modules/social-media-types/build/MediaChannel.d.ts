@@ -1,5 +1,5 @@
 import { DefaultModelType, Id, Language, Slug } from "model-types";
-import { MediaCredentail } from "./MediaCredential";
+import { MediaCredential } from "./MediaCredential";
 import { Location } from "geo-types";
 import { Interest } from "./Interest";
 /** channel where messages can be posted to
@@ -43,7 +43,7 @@ export interface MediaChannel extends DefaultModelType {
      * TODO: maybe refactor this to use `Persona` and match the persona automatically based on interests, location, and language, then get the mediaCredential for the platform from the `Persona` that matches this channel the most...
      */
     mediaCredentialId?: Id;
-    mediaCredential?: MediaCredentail;
+    mediaCredential?: MediaCredential;
     /** when did you make your last post? */
     myLastPostAt: number;
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287764103,
-  "updatedAt": 1669287764103,
+  "createdAt": 1669384630490,
+  "updatedAt": 1669384630490,
   "deletedAt": 0,
-  "createdFirstAt": 1669287764103,
+  "createdFirstAt": 1669384630490,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (config?: {\n  manualProjectRoot?: string;\n}): Promise<undefined | ReaderWebPage[]> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const codestoriesPaths = await getTodoPaths({\n    subExtension: \"codestory\",\n    sort: \"recent\",\n  });\n\n  const pages: ReaderWebPage[] = (\n    await Promise.all(\n      codestoriesPaths.map(async (projectRelativeFilePath) => {\n        const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n        const markdownParse: MarkdownParse | null = fs.existsSync(absolutePath)\n          ? await readMarkdownFile(absolutePath)\n          : null;\n        if (!markdownParse) return;\n        const readmeInfo = getMarkdownIntro(markdownParse);\n\n        const images: MarkdownEmbed[] = findEmbeds(markdownParse.raw).filter(\n          (x) => x.type === \"image\"\n        );\n\n        const firstImage = images.length > 0 ? images[0] : undefined;\n\n        const readerWebPage: ReaderWebPage = {\n          pageData: {\n            projectRelativeFilePath,\n            imagePath: firstImage?.src,\n            shortDescription: readmeInfo.firstParagraph,\n          },\n          queryPath: projectRelativeFilePath.replaceAll(\"/\", \"-\"),\n          isMenuHidden: false,\n          menuTitle:\n            readmeInfo.title || path.parse(projectRelativeFilePath).name,\n        };\n        return readerWebPage;\n      })\n    )\n  ).filter(notEmpty);\n\n  const filteredPages = pages.filter(\n    onlyUnique2<ReaderWebPage>((a, b) => a.queryPath === b.queryPath)\n  );\n\n  return filteredPages;\n}",
+  "value": "async (config?: {\n  manualProjectRoot?: string;\n}): Promise<undefined | ReaderWebPage[]> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const projectRelativePaths = await getProjectRelativePaths();\n\n  const codestoriesPaths =\n    projectRelativePaths?.filter((x) => x.endsWith(\".codestory.md\")) || [];\n\n  const pages: ReaderWebPage[] = (\n    await Promise.all(\n      codestoriesPaths.map(async (projectRelativeFilePath) => {\n        const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n        const markdownParse: MarkdownParse | null = fs.existsSync(absolutePath)\n          ? await readMarkdownFile(absolutePath)\n          : null;\n        if (!markdownParse) return;\n        const readmeInfo = getMarkdownIntro(markdownParse);\n\n        const images: MarkdownEmbed[] = findEmbeds(markdownParse.raw).filter(\n          (x) => x.type === \"image\"\n        );\n\n        const firstImage = images.length > 0 ? images[0] : undefined;\n\n        const readerWebPage: ReaderWebPage = {\n          pageData: {\n            projectRelativeFilePath,\n            imagePath: firstImage?.src || null,\n            shortDescription: readmeInfo.firstParagraph || null,\n          },\n          queryPath: projectRelativeFilePath.replaceAll(\"/\", \"-\"),\n          isMenuHidden: false,\n          menuTitle:\n            readmeInfo.title || path.parse(projectRelativeFilePath).name,\n        };\n        return readerWebPage;\n      })\n    )\n  ).filter(notEmpty);\n\n  const filteredPages = pages.filter(\n    onlyUnique2<ReaderWebPage>((a, b) => a.queryPath === b.queryPath)\n  );\n\n  return filteredPages;\n}",
   "description": "",
-  "id": "eontzfbsvhvestvcantpmopy"
+  "id": "hrppqunqdevdswishnjqpoyt"
 }

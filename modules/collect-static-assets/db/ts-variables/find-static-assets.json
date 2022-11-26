@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669276102259,
-  "updatedAt": 1669276102259,
+  "createdAt": 1669384430388,
+  "updatedAt": 1669384430388,
   "deletedAt": 0,
-  "createdFirstAt": 1669276102259,
+  "createdFirstAt": 1669384430388,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  absoluteMarkdownFilePath: string\n): Promise<string[]> => {\n  const content: string = await fs.readFile(absoluteMarkdownFilePath, \"utf8\");\n\n  const relativeEmbeds = findEmbeds(content)\n    .filter((x) => isPathRelative(x.src))\n    .map((x) => x.src);\n\n  const relativeLinks = findLinks(content)\n    .filter(\n      (x) => isPathRelative(x.href)\n      // NB: bit shitty that we can't link to typescript files or pdfs this way, but it's ok, we can embed them. Once needed, this must be improved, not now.\n    )\n    .filter((x) => x.type !== \"text\" && x.type !== \"other\")\n    .map((x) => x.href);\n\n  const absoluteMarkdownFolderPath = getFolderJs(absoluteMarkdownFilePath);\n  const absoluteAssetPaths = [relativeLinks, relativeEmbeds]\n    .flat()\n    .map((relativePath) => path.join(absoluteMarkdownFolderPath, relativePath));\n\n  return absoluteAssetPaths;\n}",
   "description": "Returns the absolute paths of all static assets (embeds and links) in a markdown file of which the path is provided.",
-  "id": "hzlrmdniqadidcqdtdyjrcop"
+  "id": "tqafjsvtnyavwlecnstsmvyi"
 }

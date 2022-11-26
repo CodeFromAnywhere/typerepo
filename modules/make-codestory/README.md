@@ -9,11 +9,52 @@ make-codestory (`OperationClassification` node-cjs)
 
 # Api reference
 
-# Internal
+# CLI
+
+<details><summary>Show CLI information (2)</summary>
+    
+  # writeAllCodestoriesCli()
+
+Arguments:none
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
+| **Output** |    |    |
+
+
+
+## 📄 writeAllCodestoriesCli (unexported const)
+
+Arguments:none
+  </details>
+
+# Tests
+
+<details><summary>Show test information(2)</summary>
+    
+  # test()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 test (unexported const)
+
+  </details>
+
+# Internal
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| isDebug (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -48,7 +89,7 @@ Properties:
 
 ## 📄 findCodestories (exported const)
 
-Finds all mdfiles in /text or /operations that have a frontmatterprop `.isCodestory: true`
+Finds all mdfiles (absolute paths) in /text or /operations that have a frontmatterprop `.isCodestory: true`
 
 
 ## 📄 makeCodespanMappedObject (exported const)

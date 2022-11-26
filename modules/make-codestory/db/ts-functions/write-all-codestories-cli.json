@@ -1,0 +1,36 @@
+{
+  "createdAt": 1669384455522,
+  "updatedAt": 1669384455522,
+  "deletedAt": 0,
+  "createdFirstAt": 1669384455522,
+  "isApiExposed": true,
+  "isExported": false,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/cli/writeAllCodestories.cli.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  writeAllCodestories();\n}",
+  "name": "writeAllCodestoriesCli",
+  "slug": "write-all-codestories-cli",
+  "parameters": [],
+  "description": "Arguments:none",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 55,
+    "lines": 3,
+    "bytes": 55,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 18,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "wuouynjjjvfkgrjzhindtatx"
+}

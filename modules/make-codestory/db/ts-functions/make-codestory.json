@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669288774866,
-  "updatedAt": 1669288774866,
+  "createdAt": 1669384463988,
+  "updatedAt": 1669384463988,
   "deletedAt": 0,
-  "createdFirstAt": 1669288774866,
+  "createdFirstAt": 1669384463988,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/makeCodestory.ts",
   "commentsInside": [],
-  "rawText": " async (\n  absolutePath: string\n): Promise<undefined | string> => {\n  //   Use MarkdownParse to split up the markdown into different headers with their content\n  const markdownParse = await readMarkdownFile(absolutePath);\n  if (!markdownParse) return;\n\n  const newMarkdownParse = mapMarkdownParseSections(markdownParse, (content) =>\n    addCodestoryToSection(content)\n  );\n\n  const newString = markdownParseToMarkdownStringFromContent(newMarkdownParse);\n\n  const parse = path.parse(absolutePath);\n\n  const newPath = path.join(parse.dir, `${parse.name}.codestory${parse.ext}`);\n\n  await fs.writeFile(newPath, newString || \"\", \"utf8\");\n  return newPath;\n}",
+  "rawText": " async (\n  absolutePath: string,\n  mappedObject: { [key: string]: CodespanItemInfo },\n  isDebug?: boolean\n): Promise<undefined | string> => {\n  //   Use MarkdownParse to split up the markdown into different headers with their content\n  const markdownParse = await readMarkdownFile(absolutePath);\n  if (!markdownParse) return;\n\n  const newMarkdownParse = mapMarkdownParseSections(markdownParse, (content) =>\n    addCodestoryToSection(content, mappedObject, isDebug)\n  );\n\n  const newString = markdownParseToMarkdownStringFromContent(newMarkdownParse);\n\n  const parse = path.parse(absolutePath);\n\n  const newPath = path.join(parse.dir, `${parse.name}.codestory${parse.ext}`);\n\n  await fs.writeFile(newPath, newString || \"\", \"utf8\");\n  return newPath;\n}",
   "name": "makeCodestory",
   "slug": "make-codestory",
   "parameters": [
@@ -21,6 +21,30 @@
         "type": "string"
       },
       "required": true
+    },
+    {
+      "name": "mappedObject",
+      "schema": {
+        "type": "object",
+        "additionalProperties": {
+          "$ref": "#/definitions/CodespanItemInfo"
+        }
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "isDebug",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
     }
   ],
   "description": "no real reason to do this from text to text, let's do path to path here",
@@ -35,13 +59,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 724,
-    "lines": 20,
-    "bytes": 724,
+    "characters": 821,
+    "lines": 22,
+    "bytes": 821,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 36,
-    "linesPerFile": 20,
+    "charactersPerLine": 37,
+    "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "esetgxywnqksnjxcvlzvojen"
+  "id": "szbpwqwmcakagmmjkakuujsm"
 }

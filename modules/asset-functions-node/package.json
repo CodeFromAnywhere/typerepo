@@ -48,7 +48,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/asset/asset-functions-node/src/processItemAssets.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
+        "No schema/definitions found for /Users/king/King/operations/tools/asset/asset-functions-node/src/server-context/getReferencedAssetGetApi.ts. Error: Error: Unknown node \"this\" of kind \"ThisType\""
       ],
       "lintProblems": []
     },
@@ -56,7 +56,7 @@
     "coreDependenciesIndexed": [],
     "folderNameIndexed": "asset-functions-node",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669054932501,
+    "lastRebuildAt": 1669384227947,
     "operationDependenciesIndexed": [
       "CompressionConfig",
       "fs",
@@ -71,9 +71,6 @@
       "explore",
       "pathArrayIsOperation",
       "operations",
-      "notEmpty",
-      "AssetInputType",
-      "getAssetInputType",
       "sourceFolderName",
       "databaseFolderName",
       "path",
@@ -98,6 +95,7 @@
       "BackendAsset",
       "notEmpty",
       "AugmentedAnyModelType",
+      "findAssetParametersRecursively",
       "getParameterAtLocation",
       "getProjectRoot",
       "makeRelative",
@@ -113,7 +111,7 @@
       "path",
       "UploadAssetResult",
       "generateRandomString",
-      "getPreferredExtensionFromType",
+      "getConversionInfoFromType",
       "FunctionContext",
       "fs",
       "path",
@@ -128,28 +126,28 @@
     "relativeOperationLocationPathIndexed": "operations/tools/asset",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 17,
-        "lines": 983,
-        "characters": 28248,
-        "bytes": 28248
+        "numberOfFiles": 16,
+        "lines": 919,
+        "characters": 26960,
+        "bytes": 26960
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 130,
-        "characters": 4268,
-        "bytes": 4268
+        "lines": 196,
+        "characters": 5635,
+        "bytes": 5635
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 332,
-        "characters": 10182,
-        "bytes": 10182
+        "lines": 302,
+        "characters": 9750,
+        "bytes": 9750
       },
       "size": {
-        "bytes": 42698,
-        "characters": 42698,
-        "lines": 1445,
-        "numberOfFiles": 21
+        "bytes": 42345,
+        "characters": 42345,
+        "lines": 1417,
+        "numberOfFiles": 20
       }
     },
     "hasGeneratedDependenciesIndexed": true,

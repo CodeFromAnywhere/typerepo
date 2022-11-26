@@ -59,7 +59,7 @@
     "folderNameIndexed": "explore-project",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669287710127,
+    "lastRebuildAt": 1669384318171,
     "operationDependenciesIndexed": [
       "path",
       "explore",
@@ -92,6 +92,9 @@
       "IndexModels",
       "getProjectRoot",
       "databaseFolderName",
+      "path",
+      "mergeObjectsArray",
+      "readMarkdownFile",
       "FolderExploration",
       "path",
       "writeToAssets",
@@ -104,9 +107,6 @@
       "destructureOptionalObject",
       "explore",
       "findAllTodoFolderPaths",
-      "path",
-      "mergeObjectsArray",
-      "readMarkdownFile",
       "writeToAssets",
       "humanCase",
       "db",
@@ -132,9 +132,9 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 12,
-        "lines": 880,
-        "characters": 27146,
-        "bytes": 27146
+        "lines": 897,
+        "characters": 27577,
+        "bytes": 27577
       },
       "dataSize": {
         "numberOfFiles": 6,
@@ -145,13 +145,13 @@
       "textSize": {
         "numberOfFiles": 2,
         "lines": 269,
-        "characters": 7974,
-        "bytes": 7974
+        "characters": 7970,
+        "bytes": 7970
       },
       "size": {
-        "bytes": 1803418,
-        "characters": 1803418,
-        "lines": 14937,
+        "bytes": 1803845,
+        "characters": 1803845,
+        "lines": 14954,
         "numberOfFiles": 20
       }
     },

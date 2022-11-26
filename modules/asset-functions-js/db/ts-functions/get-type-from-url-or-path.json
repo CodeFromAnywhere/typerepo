@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669054862836,
-  "updatedAt": 1669054862836,
+  "createdAt": 1669384155782,
+  "updatedAt": 1669384155782,
   "deletedAt": 0,
-  "createdFirstAt": 1669054862836,
+  "createdFirstAt": 1669384155782,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -29,16 +29,16 @@
     "typeDefinition": {
       "optional": false,
       "enum": [
+        "image",
         "video",
         "audio",
-        "image",
         "text",
         "other"
       ],
       "x-enumNames": [
+        "image",
         "video",
         "audio",
-        "image",
         "text",
         "other"
       ],
@@ -52,9 +52,9 @@
     "isEnumLiteral": false,
     "simplifiedSchema": {
       "enum": [
+        "image",
         "video",
         "audio",
-        "image",
         "text",
         "other"
       ],
@@ -71,5 +71,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "rxdcnahpuqyvkftrytkfqtpe"
+  "id": "usffnjcozbjlefptbenjabnj"
 }

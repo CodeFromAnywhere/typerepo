@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287767626,
-  "updatedAt": 1669287767626,
+  "createdAt": 1669384634707,
+  "updatedAt": 1669384634707,
   "deletedAt": 0,
-  "createdFirstAt": 1669287767626,
+  "createdFirstAt": 1669384634707,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await codestoriesGetPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(flat, context);\n}",
   "description": "",
-  "id": "bdbtgxjwhrzsxzkctpakqrps"
+  "id": "ogesqmiacleytjwqfgvvspcv"
 }

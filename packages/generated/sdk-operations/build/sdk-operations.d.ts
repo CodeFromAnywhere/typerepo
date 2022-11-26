@@ -51,6 +51,7 @@ export declare const operations: {
     "filename-conventions": string;
     "find-all-dependency-operations": string;
     "folder-get-updated-at": string;
+    "frontmatter-util": string;
     "fs-orm": string;
     "fs-util": string;
     "fs-util-js": string;

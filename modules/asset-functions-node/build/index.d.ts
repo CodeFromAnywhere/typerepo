@@ -4,7 +4,6 @@ export * from "./convertToMp4";
 export * from "./deleteReferencedAsset";
 export * from "./downloadRemoteAsset";
 export * from "./findAllProjectMedia";
-export * from "./findAssetParametersRecursively";
 export * from "./getStorageLocationInfo";
 export * from "./getTemporaryAssetsFolderPath";
 export * from "./processAsset";

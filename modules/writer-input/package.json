@@ -27,7 +27,12 @@
     "writer-types": "0.0.1",
     "react": "*",
     "augmented-word-types": "0.0.1",
-    "cool-toast": "0.0.0"
+    "cool-toast": "0.0.0",
+    "asset-functions-js": "0.0.1",
+    "asset-type": "0.0.1",
+    "frontmatter-util": "0.0.1",
+    "markdown-types": "0.0.1",
+    "matter-types": "0.0.1"
   },
   "devDependencies": {
     "@types/marked": "^4.0.7",
@@ -60,7 +65,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-input/src/FrontmatterForm.tsx. Error: Error: Unknown type \"function\""
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-input/src/types.ts. Error: Error: Unknown type \"function\""
       ],
       "lintProblems": []
     },
@@ -79,7 +84,7 @@
     "folderNameIndexed": "writer-input",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669055459504,
+    "lastRebuildAt": 1669385177941,
     "operationDependenciesIndexed": [
       "ClickableIcon",
       "Div",
@@ -87,9 +92,17 @@
       "errorToast",
       "api",
       "getFileOrFolderName",
-      "MarkdownParse",
+      "api",
+      "findAssetParametersRecursively",
+      "BackendAsset",
       "SimplifiedSchema",
+      "frontmatterToObject",
+      "objectToFrontmatter",
+      "makeArray",
+      "takeFirst",
       "markdownParseToMarkdownString",
+      "MarkdownParse",
+      "Frontmatter",
       "SimplifiedSchemaForm",
       "useReferencableModelData",
       "Div",
@@ -188,15 +201,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 30,
-        "lines": 2263,
-        "characters": 64392,
-        "bytes": 64392
+        "lines": 2326,
+        "characters": 66565,
+        "bytes": 66565
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 128,
-        "characters": 3765,
-        "bytes": 3765
+        "lines": 246,
+        "characters": 6303,
+        "bytes": 6303
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -205,9 +218,9 @@
         "bytes": 17169
       },
       "size": {
-        "bytes": 85326,
-        "characters": 85326,
-        "lines": 2999,
+        "bytes": 90037,
+        "characters": 90037,
+        "lines": 3180,
         "numberOfFiles": 34
       }
     },

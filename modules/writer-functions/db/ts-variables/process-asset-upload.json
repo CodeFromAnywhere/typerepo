@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669288001852,
-  "updatedAt": 1669288001852,
+  "createdAt": 1669385043849,
+  "updatedAt": 1669385043849,
   "deletedAt": 0,
-  "createdFirstAt": 1669288001852,
+  "createdFirstAt": 1669385043849,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (assets: BackendAsset[]) => {\n  const processed = (\n    await Promise.all(assets.map((asset) => processAsset(asset)))\n  ).filter(notEmpty);\n\n  return processed;\n}",
   "description": "Used for the markdown reader to immediately process a asset upload. If we want to validate this, it would be good to allow a second parameter that checks if you have access to the file",
-  "id": "klvdvtuywnzhkawhqvzspxvb"
+  "id": "twxubodkedshlwtpxygqmzof"
 }

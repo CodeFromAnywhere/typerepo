@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669054862935,
-  "updatedAt": 1669054862935,
+  "createdAt": 1669384155922,
+  "updatedAt": 1669384155922,
   "deletedAt": 0,
-  "createdFirstAt": 1669054862935,
+  "createdFirstAt": 1669384155922,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(urlOrPath: string): AssetType => {\n  const extension = getExtension(urlOrPath);\n  if ([\"mp3\", \"m4a\", \"wav\"].includes(extension)) return \"audio\";\n  if ([\"mp4\", \"avi\"].includes(extension)) return \"video\";\n  if ([\"jpeg\", \"jpg\", \"png\", \"gif\", \"svg\"].includes(extension)) return \"image\";\n  if (isText(urlOrPath)) return \"text\";\n  return \"other\";\n}",
   "description": "We are assuming the asset name and extsion appear at the end of the URL",
-  "id": "jourvtapwwsfjpasevvacjus"
+  "id": "hrfgssaoydeavrjybqkgpfzu"
 }

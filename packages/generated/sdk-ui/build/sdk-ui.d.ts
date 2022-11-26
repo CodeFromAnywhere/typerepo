@@ -556,7 +556,10 @@ export declare const sdk: {
     }) => JSX.Element;
     DocsReaderLayout: (props: import("markdown-reader-types").MarkdownReaderPageProps) => JSX.Element;
     ReaderPageContent: (props: import("markdown-reader-types").ReaderPageContentProps) => JSX.Element;
-    ReaderPageHeader: any;
+    ReaderPageHeader: (props: {
+        markdownFile?: import("markdown-types").WebMarkdownFile | null | undefined;
+        projectRelativeMarkdownPath?: string | null | undefined;
+    }) => JSX.Element | null;
     Completion: (props: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;

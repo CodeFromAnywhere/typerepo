@@ -61,6 +61,13 @@ export declare const sdk: {
     isGeneratedOperationName: (operationName: string) => boolean;
     isGeneratedOperation: (operationBasePath: string) => boolean;
     isIndexableFileId: (fileId: string) => boolean;
+    frontmatterParseToString: (frontmatter: import("matter-types").Frontmatter) => string;
+    frontmatterToObject: (frontmatter: import("matter-types").Frontmatter, schema: import("code-types").SimplifiedSchema) => import("matter-types").FrontmatterParse;
+    getFrontmatterValueString: (value: import("frontmatter-util").FrontmatterValue) => string | null;
+    objectToFrontmatter: (parse: import("matter-types").FrontmatterParse, schema: import("code-types").SimplifiedSchema) => import("matter-types").Frontmatter;
+    parseFrontmatterString: (value: string) => string;
+    quotedOrNot: (string: string) => string;
+    stringifyNewlines: (string: string) => string;
     canAccessSync: (p: import("fs").PathLike, mode: number) => boolean;
     canAccess: (p: import("fs").PathLike, mode: number) => Promise<boolean>;
     canExecuteSync: (p: import("fs").PathLike) => boolean;

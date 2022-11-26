@@ -65,6 +65,7 @@ export declare const sdkInterfacePaths: {
     FunctionContext: string;
     "NamedParameters<typeof compressAsset>": string;
     "NamedParameters<typeof downloadRemoteAsset>": string;
+    "NamedParameters<typeof convertToMp3>": string;
     "NamedParameters<typeof convertToMp4>": string;
     "NamedParameters<typeof deleteReferencedAsset>": string;
     "NamedParameters<typeof findAbsoluteAssetPathFromReference>": string;
@@ -353,6 +354,15 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof findDependantsRecursivelyTest>": string;
     "NamedParameters<typeof test2>": string;
     "NamedParameters<typeof folderGetUpdatedAt>": string;
+    FrontmatterParse: string;
+    FrontmatterValue: string;
+    "NamedParameters<typeof frontmatterParseToString>": string;
+    "NamedParameters<typeof frontmatterToObject>": string;
+    "NamedParameters<typeof getFrontmatterValueString>": string;
+    "NamedParameters<typeof objectToFrontmatter>": string;
+    "NamedParameters<typeof parseFrontmatterString>": string;
+    "NamedParameters<typeof quotedOrNot>": string;
+    "NamedParameters<typeof stringifyNewlines>": string;
     AnyModelObject: string;
     CategoryStack: string;
     DbFileLocation: string;
@@ -616,6 +626,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof makeCodespanMappedObject>": string;
     "NamedParameters<typeof makeCodestory>": string;
     "NamedParameters<typeof writeAllCodestories>": string;
+    "NamedParameters<typeof writeAllCodestoriesCli>": string;
     "NamedParameters<typeof writeCodespanDetails>": string;
     "NamedParameters<typeof makeFileType>": string;
     CodeblockMode: string;
@@ -741,7 +752,6 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof findEmbedsFromTokenRecursively>": string;
     "NamedParameters<typeof findLinks>": string;
     "NamedParameters<typeof findLinksFromTokenRecursively>": string;
-    FrontmatterParse: string;
     "NamedParameters<typeof cleanupTimer>": string;
     "NamedParameters<typeof generateUniqueId>": string;
     "NamedParameters<typeof getNewPerformance>": string;

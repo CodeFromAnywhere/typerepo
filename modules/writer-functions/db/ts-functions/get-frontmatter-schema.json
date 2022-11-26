@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669287989663,
-  "updatedAt": 1669287989663,
+  "createdAt": 1669385031186,
+  "updatedAt": 1669385031186,
   "deletedAt": 0,
-  "createdFirstAt": 1669287989663,
+  "createdFirstAt": 1669385031186,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFrontmatterSchema.ts",
   "commentsInside": [],
-  "rawText": " async (\n  markdownModelName: keyof DbModels | undefined\n): Promise<SimplifiedSchema | undefined> => {\n  if (markdownModelName === undefined) return;\n\n  const tsInterfaces = await db.get(\"TsInterface\");\n  const markdownModelTsInterfaces = tsInterfaces.filter(\n    (x) => x.name === markdownModelName && x.isExported\n  );\n\n  console.log({ markdownModelTsInterfaces });\n\n  const markdownModelTsInterface = markdownModelTsInterfaces[0];\n\n  if (!markdownModelTsInterface) return;\n\n  const fullSimplifiedSchema = markdownModelTsInterface.type?.simplifiedSchema;\n\n  if (!fullSimplifiedSchema) return;\n\n  const newProperties = fullSimplifiedSchema.properties?.filter(\n    (x) => ![\"markdown\", \"name\"].includes(x.name)\n  );\n\n  const frontmatterSchema: SimplifiedSchema = {\n    ...fullSimplifiedSchema,\n    properties: newProperties,\n  };\n\n  return frontmatterSchema;\n}",
+  "rawText": " async (\n  markdownModelName: keyof DbModels | undefined\n): Promise<SimplifiedSchema | undefined> => {\n  if (markdownModelName === undefined) return;\n\n  const tsInterfaces = await db.get(\"TsInterface\");\n  const markdownModelTsInterfaces = tsInterfaces.filter(\n    (x) => x.name === markdownModelName && x.isExported\n  );\n\n  // console.log({ markdownModelTsInterfaces });\n\n  const markdownModelTsInterface = markdownModelTsInterfaces[0];\n\n  if (!markdownModelTsInterface) return;\n\n  const fullSimplifiedSchema = markdownModelTsInterface.type?.simplifiedSchema;\n\n  if (!fullSimplifiedSchema) return;\n\n  const newProperties = fullSimplifiedSchema.properties?.filter(\n    (x) => ![\"markdown\", \"name\"].includes(x.name)\n  );\n\n  const frontmatterSchema: SimplifiedSchema = {\n    ...fullSimplifiedSchema,\n    properties: newProperties,\n  };\n\n  return frontmatterSchema;\n}",
   "name": "getFrontmatterSchema",
   "slug": "get-frontmatter-schema",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 1001,
+    "characters": 1004,
     "lines": 31,
-    "bytes": 1001,
+    "bytes": 1004,
     "bytesPerCharacter": 1,
     "charactersPerLine": 32,
     "linesPerFile": 31,
     "numberOfFiles": 1
   },
-  "id": "eojgxkkrwxwockvwkrobrplv"
+  "id": "czsmmxbzrtthzsdqxhfodlai"
 }

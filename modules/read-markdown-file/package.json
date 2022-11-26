@@ -10,7 +10,9 @@
     "markdown-parse-js": "0.0.1",
     "get-path": "0.0.1",
     "js-util": "0.0.1",
-    "model-types": "0.0.1"
+    "model-types": "0.0.1",
+    "markdown-types": "0.0.1",
+    "frontmatter-util": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -41,7 +43,7 @@
     "folderNameIndexed": "read-markdown-file",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668335011745,
+    "lastRebuildAt": 1669384607658,
     "operationDependenciesIndexed": [
       "canRead",
       "fs",
@@ -49,29 +51,34 @@
       "Path",
       "MarkdownParse",
       "mdToJsonParse",
+      "ExtendedMarkdownProperties",
+      "PostableProperties",
       "WebMarkdownFile",
+      "WebMarkdownProperties",
       "getLastFolder",
       "path",
       "omitUndefinedValues",
       "findOperationBasePath",
       "getProjectRoot",
       "makeRelative",
-      "ModelLocation"
+      "ModelLocation",
+      "frontmatterToObject",
+      "SimplifiedSchema"
     ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/parsing/read-files",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 2,
-        "lines": 104,
-        "characters": 3512,
-        "bytes": 3512
+        "lines": 93,
+        "characters": 3114,
+        "bytes": 3114
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 131,
-        "characters": 3530,
-        "bytes": 3530
+        "lines": 130,
+        "characters": 3625,
+        "bytes": 3625
       },
       "textSize": {
         "numberOfFiles": 1,
@@ -80,9 +87,9 @@
         "bytes": 645
       },
       "size": {
-        "bytes": 7687,
-        "characters": 7687,
-        "lines": 277,
+        "bytes": 7384,
+        "characters": 7384,
+        "lines": 265,
         "numberOfFiles": 5
       }
     },

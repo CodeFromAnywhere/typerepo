@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669276097241,
-  "updatedAt": 1669276097241,
+  "createdAt": 1669384425265,
+  "updatedAt": 1669384425265,
   "deletedAt": 0,
-  "createdFirstAt": 1669276097241,
+  "createdFirstAt": 1669384425265,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(copyPairs: CopyPair[]) => {\n  const copyPromises = copyPairs.map(async (copyPair) => {\n    const absoluteDestinationFolderPath = path.parse(\n      copyPair.absoluteDestinationPath\n    ).dir;\n\n    // first make the folder if not already there\n    if (!fs.existsSync(absoluteDestinationFolderPath)) {\n      await fs.mkdir(absoluteDestinationFolderPath, { recursive: true });\n    }\n\n    await fs.cpAsync(\n      copyPair.absoluteSourcePath,\n      copyPair.absoluteDestinationPath,\n      {\n        preserveTimestamps: true,\n      }\n    );\n  });\n\n  return Promise.all(copyPromises);\n}",
   "description": "",
-  "id": "yukaqugjcmiwkkuefcrbwopq"
+  "id": "epehnllebiikznsiuhabetca"
 }

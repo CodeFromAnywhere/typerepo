@@ -1,4 +1,4 @@
-import { DefaultModelType } from "model-types";
+import { DefaultModelType, Id, Slug } from "model-types";
 /** key value data storage model for information about a person
  *
  * - the filename must identify the person this is about (`personSlug`)
@@ -25,5 +25,8 @@ import { DefaultModelType } from "model-types";
  * TODO: figure out if this kan be a `KeyValueMarkdownModelType` or `MarkdownModelType`
  */
 export interface PersonInformationValue extends DefaultModelType {
+    personId: Id;
+    personInformationSlug: Slug;
+    value: string;
 }
 //# sourceMappingURL=PersonInformationValue.d.ts.map

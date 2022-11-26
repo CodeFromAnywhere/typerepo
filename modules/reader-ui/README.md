@@ -45,6 +45,17 @@ Boom!
 
 # Api reference
 
+## `<DocsReaderLayout />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | `MarkdownReaderPageProps` |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## 📄 DocsReaderLayout (exported const)
+
 # Internal
 
 <details><summary>Show internal (13)</summary>
@@ -70,15 +81,6 @@ Boom!
 
 
 
-## `<DocsReaderLayout />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | `MarkdownReaderPageProps` |  |
-| **Output** | `JSX.Element`   |    |
-
-
-
 ## `<Header />`
 
 | Input      |    |    |
@@ -99,9 +101,21 @@ Boom!
 
 ## `<ReaderPageContent />`
 
+This is rendering a `WebMarkdownFile` and optionally navigation.
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
 | props | `ReaderPageContentProps` |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## `<ReaderPageHeader />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { markdownFile?: {  }, <br />projectRelativeMarkdownPath?: string, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
 
 
@@ -110,13 +124,16 @@ Boom!
 
 ## 📄 Dictionary (exported const)
 
-## 📄 DocsReaderLayout (exported const)
-
 ## 📄 Header (exported const)
 
 ## 📄 Layout (exported const)
 
 ## 📄 ReaderPageContent (exported const)
+
+This is rendering a `WebMarkdownFile` and optionally navigation.
+
+
+## 📄 ReaderPageHeader (exported const)
 
 ## 📄 { useStore, StoreProvider } (exported const)
 

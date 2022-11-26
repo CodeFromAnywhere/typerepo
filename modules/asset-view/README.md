@@ -12,6 +12,15 @@ asset-view (`OperationClassification` ui-cjs)
 
 # Api reference
 
+## `<AssetView />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { asset: `Asset`, <br />className?: string, <br />projectRelativeReferencingFilePath: string, <br />hideDownloadLink?: boolean, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## itemGetBackendAssetUrl()
 
 Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.
@@ -35,6 +44,8 @@ If you provide an array it'll take the first asset.
 
 
 
+## 📄 AssetView (exported const)
+
 ## 📄 itemGetBackendAssetUrl (exported const)
 
 Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.
@@ -43,15 +54,6 @@ If you provide an array it'll take the first asset.
 
 
 ## 📄 ModelItemAssetView (exported const)
-
-## `<AssetView />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | { asset: `Asset`, <br />className?: string, <br />projectRelativeReferencingFilePath: string, <br />hideDownloadLink?: boolean, <br /> } |  |
-| **Output** | `JSX.Element`   |    |
-
-
 
 ## `<InteractiveAsset />`
 
@@ -69,8 +71,6 @@ shows an `Asset` with interactivity
 | **Output** | `JSX.Element`   |    |
 
 
-
-## 📄 AssetView (exported const)
 
 ## 📄 InteractiveAsset (exported const)
 
@@ -101,7 +101,7 @@ shows an `Asset` with interactivity
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| asset | `Asset` |  |,| projectRelativeReferencingFilePath | string |  |,| isNextStaticProductionBuild (optional) | boolean |  |
+| asset (optional) | `Asset` |  |,| projectRelativeReferencingFilePath (optional) | string |  |,| isNextStaticProductionBuild (optional) | boolean |  |
 | **Output** | { rawText?: {  }, <br />type?: video / audio / image / text / other, <br />downloadUrl?: string, <br />src: string, <br />extension?: string, <br /> }   |    |
 
 

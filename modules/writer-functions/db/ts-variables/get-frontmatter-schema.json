@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287989803,
-  "updatedAt": 1669287989803,
+  "createdAt": 1669385031304,
+  "updatedAt": 1669385031304,
   "deletedAt": 0,
-  "createdFirstAt": 1669287989803,
+  "createdFirstAt": 1669385031304,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  markdownModelName: keyof DbModels | undefined\n): Promise<SimplifiedSchema | undefined> => {\n  if (markdownModelName === undefined) return;\n\n  const tsInterfaces = await db.get(\"TsInterface\");\n  const markdownModelTsInterfaces = tsInterfaces.filter(\n    (x) => x.name === markdownModelName && x.isExported\n  );\n\n  console.log({ markdownModelTsInterfaces });\n\n  const markdownModelTsInterface = markdownModelTsInterfaces[0];\n\n  if (!markdownModelTsInterface) return;\n\n  const fullSimplifiedSchema = markdownModelTsInterface.type?.simplifiedSchema;\n\n  if (!fullSimplifiedSchema) return;\n\n  const newProperties = fullSimplifiedSchema.properties?.filter(\n    (x) => ![\"markdown\", \"name\"].includes(x.name)\n  );\n\n  const frontmatterSchema: SimplifiedSchema = {\n    ...fullSimplifiedSchema,\n    properties: newProperties,\n  };\n\n  return frontmatterSchema;\n}",
+  "value": "async (\n  markdownModelName: keyof DbModels | undefined\n): Promise<SimplifiedSchema | undefined> => {\n  if (markdownModelName === undefined) return;\n\n  const tsInterfaces = await db.get(\"TsInterface\");\n  const markdownModelTsInterfaces = tsInterfaces.filter(\n    (x) => x.name === markdownModelName && x.isExported\n  );\n\n  // console.log({ markdownModelTsInterfaces });\n\n  const markdownModelTsInterface = markdownModelTsInterfaces[0];\n\n  if (!markdownModelTsInterface) return;\n\n  const fullSimplifiedSchema = markdownModelTsInterface.type?.simplifiedSchema;\n\n  if (!fullSimplifiedSchema) return;\n\n  const newProperties = fullSimplifiedSchema.properties?.filter(\n    (x) => ![\"markdown\", \"name\"].includes(x.name)\n  );\n\n  const frontmatterSchema: SimplifiedSchema = {\n    ...fullSimplifiedSchema,\n    properties: newProperties,\n  };\n\n  return frontmatterSchema;\n}",
   "description": "Gets the frontmatterSchema of any markdown model. This should contain all elements that are required to be in the frontmatter of the markdown",
-  "id": "pwpxgtgroxgsfyrrdgwljztk"
+  "id": "gorpznpcqudszfnqjhzqyqor"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669235141207,
-  "updatedAt": 1669235141207,
+  "createdAt": 1669384562325,
+  "updatedAt": 1669384562325,
   "deletedAt": 0,
-  "createdFirstAt": 1669235141207,
+  "createdFirstAt": 1669384562325,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(sectionContent: string): string[] => {\n  const result: string[] = marked\n    .lexer(sectionContent)\n    .map(findCodespansFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
   "description": "find all backtick-blocks",
-  "id": "iiginbetqjvcpgetsywicgmb"
+  "id": "ytmkduolxvxfijnhlchhzjwk"
 }

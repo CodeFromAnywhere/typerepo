@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669235147440,
-  "updatedAt": 1669235147440,
+  "createdAt": 1669384568909,
+  "updatedAt": 1669384568909,
   "deletedAt": 0,
-  "createdFirstAt": 1669235147440,
+  "createdFirstAt": 1669384568909,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -25,63 +25,11 @@
   ],
   "description": "find all embedded assets",
   "returnType": {
-    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownLink[]",
+    "rawType": "MarkdownLink[]",
     "typeDefinition": {
       "optional": false,
       "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "alt": {
-            "type": "string",
-            "allOf": [
-              {
-                "transform": [
-                  "trim"
-                ]
-              },
-              {
-                "minLength": 1
-              }
-            ]
-          },
-          "href": {
-            "type": "string",
-            "allOf": [
-              {
-                "transform": [
-                  "trim"
-                ]
-              },
-              {
-                "minLength": 1
-              }
-            ]
-          },
-          "type": {
-            "enum": [
-              "video",
-              "audio",
-              "image",
-              "text",
-              "other"
-            ],
-            "x-enumNames": [
-              "video",
-              "audio",
-              "image",
-              "text",
-              "other"
-            ],
-            "type": "string"
-          }
-        },
-        "required": [
-          "alt",
-          "href",
-          "type"
-        ]
-      }
+      "items": {}
     },
     "typeCoverage": 0,
     "isArray": true,
@@ -93,36 +41,7 @@
       "items": [
         {
           "schema": {
-            "properties": [
-              {
-                "name": "alt",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "href",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "type",
-                "required": true,
-                "schema": {
-                  "enum": [
-                    "video",
-                    "audio",
-                    "image",
-                    "text",
-                    "other"
-                  ],
-                  "type": "string"
-                }
-              }
-            ],
+            "properties": [],
             "type": "object"
           },
           "name": null
@@ -141,5 +60,5 @@
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "bjicmmhuclhhixlxcblpcywg"
+  "id": "hrdvzjpscfdhepljxrrchjlk"
 }

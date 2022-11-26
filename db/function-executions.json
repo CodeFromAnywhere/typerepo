@@ -1,0 +1,504 @@
+[
+  {
+    "createdAt": 1669454007952,
+    "updatedAt": 1669454007952,
+    "deletedAt": 0,
+    "createdFirstAt": 1669454007952,
+    "functionName": "getMeWithContext",
+    "tsFunctionId": "trtngknndtvxrcqlbcnvdtve",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "authorizations": [],
+      "device": {
+        "createdAt": 1669454007929,
+        "updatedAt": 1669454007929,
+        "deletedAt": 0,
+        "createdFirstAt": 1669454007929,
+        "authToken": "ucxldwjadcouftbhsutklvff",
+        "authenticationMethods": [],
+        "ip": "::1",
+        "lastOnlineAt": 0,
+        "lastSyncDatabaseAtObject": {},
+        "name": "mac-os-chrome-undefined-undefined-undefined-1-mynj",
+        "origins": [
+          "http://localhost:42001"
+        ],
+        "previousIps": [],
+        "userAgent": {
+          "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+          "browser": {
+            "name": "Chrome",
+            "version": "107.0.0.0",
+            "major": "107"
+          },
+          "engine": {
+            "name": "Blink",
+            "version": "107.0.0.0"
+          },
+          "os": {
+            "name": "Mac OS",
+            "version": "10.15.7"
+          },
+          "device": {},
+          "cpu": {}
+        },
+        "userAgentString": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+        "hasPapi": false,
+        "slug": "mac-os-chrome-undefined-undefined-undefined-1-mynj",
+        "id": "kadfrgcqbpngazqcvbeddowv",
+        "operationName": null,
+        "projectRelativePath": "/db/devices.json",
+        "persons": []
+      },
+      "groups": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 31
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 6
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 1
+      }
+    ],
+    "id": "gtltwpdbfzazsixnczjadnjk"
+  },
+  {
+    "createdAt": 1669454008035,
+    "updatedAt": 1669454008035,
+    "deletedAt": 0,
+    "createdFirstAt": 1669454008035,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "koourpyqhnekbwoupcecifwu",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "omitDictionaryMenu": false
+      },
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json",
+      "categoryStackCalculated": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 3
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 2
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 86
+      }
+    ],
+    "id": "vndyjlfhfklhemsggcibeubs"
+  },
+  {
+    "createdAt": 1669454008067,
+    "updatedAt": 1669454008067,
+    "deletedAt": 0,
+    "createdFirstAt": 1669454008067,
+    "functionName": "getAllAppOperations",
+    "tsFunctionId": "pcvvcdqxazfsylbkmzbtjbgz",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": [
+      {
+        "name": "function-server",
+        "port": 42000,
+        "description": "Server that exposes all typerepo api functions wrapped into easily accessible endpoints.\n",
+        "isOnline": true
+      },
+      {
+        "name": "search-web",
+        "port": 42001,
+        "description": "# 🔎 search\n\nSearch everywhere\n\nNB: This is an experimental part of typerepo!",
+        "emoji": "🔎",
+        "isOnline": true
+      },
+      {
+        "name": "db-web",
+        "port": 42002,
+        "description": "# 🗄 database\n\nWraps `db-ui` to expose it on a next.js react website for in the browser.\n",
+        "isOnline": false
+      },
+      {
+        "name": "markdown-reader-web",
+        "port": 42004,
+        "description": "# 📚 markdown-reader-web\n",
+        "emoji": "📚",
+        "isOnline": true
+      },
+      {
+        "name": "writer-web",
+        "port": 42007,
+        "description": "✍️ writer-web",
+        "emoji": "✍️",
+        "isOnline": false
+      },
+      {
+        "name": "function-web",
+        "port": 42011,
+        "description": "# ⚡️ function-web\n\nNB: This is an experimental part of typerepo!",
+        "emoji": "⚡",
+        "isOnline": false
+      },
+      {
+        "name": "todo-web",
+        "port": 42014,
+        "description": "# 👬 todo-web\n\nNB: This is an experimental part of typerepo!",
+        "emoji": "👬",
+        "isOnline": false
+      },
+      {
+        "name": "codestorys-web",
+        "port": 42016,
+        "description": "# 🧙‍♂️ codestories-web\n\nNB: this is an experimental part of typerepo!",
+        "emoji": "🧙‍♂️",
+        "isOnline": false
+      }
+    ],
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 15
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 119
+      }
+    ],
+    "id": "odjjcrgjvnzveioyugyhasid"
+  },
+  {
+    "createdAt": 1669454093651,
+    "updatedAt": 1669454093651,
+    "deletedAt": 0,
+    "createdFirstAt": 1669454093651,
+    "functionName": "getMeWithContext",
+    "tsFunctionId": "trtngknndtvxrcqlbcnvdtve",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "authorizations": [],
+      "device": {
+        "createdAt": 1669454007929,
+        "updatedAt": 1669454007929,
+        "deletedAt": 0,
+        "createdFirstAt": 1669454007929,
+        "authToken": "ucxldwjadcouftbhsutklvff",
+        "authenticationMethods": [],
+        "ip": "::1",
+        "lastOnlineAt": 0,
+        "lastSyncDatabaseAtObject": {},
+        "name": "mac-os-chrome-undefined-undefined-undefined-1-mynj",
+        "origins": [
+          "http://localhost:42001"
+        ],
+        "previousIps": [],
+        "userAgent": {
+          "ua": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+          "browser": {
+            "name": "Chrome",
+            "version": "107.0.0.0",
+            "major": "107"
+          },
+          "engine": {
+            "name": "Blink",
+            "version": "107.0.0.0"
+          },
+          "os": {
+            "name": "Mac OS",
+            "version": "10.15.7"
+          },
+          "device": {},
+          "cpu": {}
+        },
+        "userAgentString": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",
+        "hasPapi": false,
+        "slug": "mac-os-chrome-undefined-undefined-undefined-1-mynj",
+        "id": "kadfrgcqbpngazqcvbeddowv",
+        "operationName": null,
+        "projectRelativePath": "/db/devices.json",
+        "persons": []
+      },
+      "groups": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 4
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 6
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "emsjwilslvfkjsdivtceaxar"
+  },
+  {
+    "createdAt": 1669454093727,
+    "updatedAt": 1669454093727,
+    "deletedAt": 0,
+    "createdFirstAt": 1669454093727,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "koourpyqhnekbwoupcecifwu",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "omitDictionaryMenu": false
+      },
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json",
+      "categoryStackCalculated": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 14
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 2
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 80
+      }
+    ],
+    "id": "crrasswogaprbujdepsdsewj"
+  },
+  {
+    "createdAt": 1669454093758,
+    "updatedAt": 1669454093758,
+    "deletedAt": 0,
+    "createdFirstAt": 1669454093758,
+    "functionName": "getAllAppOperations",
+    "tsFunctionId": "pcvvcdqxazfsylbkmzbtjbgz",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": [
+      {
+        "name": "function-server",
+        "port": 42000,
+        "description": "Server that exposes all typerepo api functions wrapped into easily accessible endpoints.\n",
+        "isOnline": true
+      },
+      {
+        "name": "search-web",
+        "port": 42001,
+        "description": "# 🔎 search\n\nSearch everywhere\n\nNB: This is an experimental part of typerepo!",
+        "emoji": "🔎",
+        "isOnline": true
+      },
+      {
+        "name": "db-web",
+        "port": 42002,
+        "description": "# 🗄 database\n\nWraps `db-ui` to expose it on a next.js react website for in the browser.\n",
+        "isOnline": false
+      },
+      {
+        "name": "markdown-reader-web",
+        "port": 42004,
+        "description": "# 📚 markdown-reader-web\n",
+        "emoji": "📚",
+        "isOnline": true
+      },
+      {
+        "name": "writer-web",
+        "port": 42007,
+        "description": "✍️ writer-web",
+        "emoji": "✍️",
+        "isOnline": false
+      },
+      {
+        "name": "function-web",
+        "port": 42011,
+        "description": "# ⚡️ function-web\n\nNB: This is an experimental part of typerepo!",
+        "emoji": "⚡",
+        "isOnline": false
+      },
+      {
+        "name": "todo-web",
+        "port": 42014,
+        "description": "# 👬 todo-web\n\nNB: This is an experimental part of typerepo!",
+        "emoji": "👬",
+        "isOnline": false
+      },
+      {
+        "name": "codestorys-web",
+        "port": 42016,
+        "description": "# 🧙‍♂️ codestories-web\n\nNB: this is an experimental part of typerepo!",
+        "emoji": "🧙‍♂️",
+        "isOnline": false
+      }
+    ],
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 2
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 112
+      }
+    ],
+    "id": "ptdqpltwkvmnyugfdjvfxsey"
+  }
+]

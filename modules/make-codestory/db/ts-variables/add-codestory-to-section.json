@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669288764281,
-  "updatedAt": 1669288764281,
+  "createdAt": 1669384451898,
+  "updatedAt": 1669384451898,
   "deletedAt": 0,
-  "createdFirstAt": 1669288764281,
+  "createdFirstAt": 1669384451898,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "add-codestory-to-section",
   "operationRelativeTypescriptFilePath": "src/addCodeStoryToSection.ts",
   "type": {
-    "rawType": "(sectionContent?: string | undefined) => string | undefined",
+    "rawType": "(sectionContent: string | undefined, mappedObject: { [key: string]: import(\"/Users/king/King/operations/tools/parsing/file-conversion/md/make-codestory/src/CodespanItemInfo\").CodespanItemInfo; }, isDebug?: boolean | undefined) => string | undefined",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  sectionContent?: string | undefined\n): string | undefined => {\n  if (!sectionContent) return;\n  // For every piece of content find the codespans\n  const codespans = findCodespans(sectionContent);\n\n  const info = codespans\n    .map((word) => {\n      const details = (\n        mappedObject as unknown as {\n          [key: string]: CodespanItemInfo;\n        }\n      )[word];\n\n      if (!details) return;\n\n      // Augment every section with one <details> section for every referred piece of code.\n      return writeCodespanDetails(details);\n    })\n    .filter(notEmpty);\n  console.log({ codespans: codespans.length, infos: info.length });\n\n  return `${sectionContent}${\n    info.length > 0 ? `\\n\\n${info.join(\"\\n\\n\")}\\n` : \"\"\n  }`;\n}",
+  "value": "(\n  sectionContent: string | undefined,\n  mappedObject: { [key: string]: CodespanItemInfo },\n  isDebug?: boolean\n): string | undefined => {\n  if (!sectionContent) return;\n  // For every piece of content find the codespans\n  const codespans = findCodespans(sectionContent);\n\n  const info = codespans\n    .map((word) => {\n      const details = (\n        mappedObject as unknown as {\n          [key: string]: CodespanItemInfo;\n        }\n      )[word];\n\n      if (!details) return;\n\n      // Augment every section with one <details> section for every referred piece of code.\n      return writeCodespanDetails(details);\n    })\n    .filter(notEmpty);\n  if (isDebug) {\n    console.log({ codespans: codespans.length, infos: info.length });\n  }\n\n  return `${sectionContent}${\n    info.length > 0 ? `\\n\\n${info.join(\"\\n\\n\")}\\n` : \"\"\n  }`;\n}",
   "description": "",
-  "id": "pqolkhzrwmyyjhxlmfaezsqr"
+  "id": "hbakpromvdlheenpdukuatrh"
 }

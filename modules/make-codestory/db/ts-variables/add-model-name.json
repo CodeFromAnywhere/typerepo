@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669288766020,
-  "updatedAt": 1669288766020,
+  "createdAt": 1669384453775,
+  "updatedAt": 1669384453775,
   "deletedAt": 0,
-  "createdFirstAt": 1669288766020,
+  "createdFirstAt": 1669384453775,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends O>(\n  item: T,\n  modelName: string\n): T & { author?: string } => {\n  return { ...item, slug: modelName, modelName: \"lol\" };\n}",
   "description": "",
-  "id": "lduiskorcogomnlhxsdkobwz"
+  "id": "fahagiagqfzkmhpsktrxqulo"
 }

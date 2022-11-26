@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1669361554952,
-    "updatedAt": 1669361554952,
+    "createdAt": 1669384569123,
+    "updatedAt": 1669384569123,
     "deletedAt": 0,
-    "createdFirstAt": 1669361554952,
+    "createdFirstAt": 1669384569123,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/findEmbeds.ts",
+    "operationRelativeTypescriptFilePath": "src/findLinks.ts",
     "comment": "find all embedded assets",
-    "rawStatement": "export const findEmbeds = (markdownString: string): MarkdownEmbed[] => {\n  const result: MarkdownEmbed[] = marked\n    .lexer(markdownString)\n    .map(findEmbedsFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n};",
+    "rawStatement": "export const findLinks = (markdownString: string): MarkdownLink[] => {\n  const result: MarkdownLink[] = marked\n    .lexer(markdownString)\n    .map(findLinksFromTokenRecursively)\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n};",
     "parameters": {},
     "types": [],
     "firstLine": 6,
     "lastLine": 8,
-    "id": "uftqbkmkuvucklysrzdmanrf"
+    "id": "fpfgrzcpqbummxuksrenelqy"
   }
 ]

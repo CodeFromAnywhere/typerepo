@@ -1,51 +1,8 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.useAsset = void 0;
-var asset_functions_js_1 = require("asset-functions-js");
-var server_api_url_1 = require("server-api-url");
-var path_browserify_1 = __importDefault(require("path-browserify"));
-var useAssetInfo_1 = require("./useAssetInfo");
-var useAsset = function (asset, projectRelativeReferencingFilePath, isNextStaticProductionBuild) {
-    if (!asset || !projectRelativeReferencingFilePath)
-        return;
-    // console.log({ apiUrl });
-    /**
+"use strict";var __importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.useAsset=void 0;var asset_functions_js_1=require("asset-functions-js"),server_api_url_1=require("server-api-url"),path_browserify_1=__importDefault(require("path-browserify")),useAssetInfo_1=require("./useAssetInfo"),useAsset=function(e,t,s){if(e&&t){
+// console.log({ apiUrl });
+/**
      * NB: `relativePath` is required
      */
-    var getRemoteUrl = function (isDownload) {
-        return (0, asset_functions_js_1.getReferencedAssetApiUrl)(server_api_url_1.apiUrl, projectRelativeReferencingFilePath, asset.relativePath, isDownload);
-    };
-    var getPublicUrl = function (relativePath) {
-        return "markdown-assets/".concat(path_browserify_1.default.join(path_browserify_1.default.parse(projectRelativeReferencingFilePath).dir, relativePath));
-    };
-    /**
-     * NB: `asset.temporaryDestination` is not a URL that can be used to retreive the image as "src"
-     */
-    var src = asset.absoluteUrl
-        ? asset.absoluteUrl
-        : asset.blobPath
-            ? asset.blobPath
-            : isNextStaticProductionBuild && asset.relativePath
-                ? getPublicUrl(asset.relativePath)
-                : getRemoteUrl(false);
-    // console.log("UseAssetSRC:", src);
-    var downloadRemotely = !asset.blobPath && !!asset.relativePath;
-    var downloadUrl = isNextStaticProductionBuild && asset.relativePath
-        ? getPublicUrl(asset.relativePath)
-        : downloadRemotely
-            ? getRemoteUrl(true)
-            : // NB: other type is ugly when downloading. Also doesn't make sense much to want to download an asset after uploading
-                asset.type !== "other"
-                    ? asset.blobPath
-                    : undefined;
-    var extension = (0, asset_functions_js_1.getExtensionFromAsset)(asset);
-    var assetInfo = (0, useAssetInfo_1.useAssetInfo)(src, asset.originalFilename);
-    var rawText = (assetInfo === null || assetInfo === void 0 ? void 0 : assetInfo.rawText) || null;
-    var type = asset.type || (assetInfo === null || assetInfo === void 0 ? void 0 : assetInfo.type);
-    return { rawText: rawText, type: type, downloadUrl: downloadUrl, src: src, extension: extension };
-};
-exports.useAsset = useAsset;
+var r=function(s){return(0,asset_functions_js_1.getReferencedAssetApiUrl)(server_api_url_1.apiUrl,t,e.relativePath,s)},a=function(e){return"markdown-assets/".concat(path_browserify_1.default.join(path_browserify_1.default.parse(t).dir,e))},i=e.absoluteUrl?e.absoluteUrl:e.blobPath?e.blobPath:s&&e.relativePath?a(e.relativePath):r(!1),o=!e.blobPath&&!!e.relativePath,u=s&&e.relativePath?a(e.relativePath):o?r(!0):// NB: other type is ugly when downloading. Also doesn't make sense much to want to download an asset after uploading
+"other"!==e.type?e.blobPath:void 0,n=(0,asset_functions_js_1.getExtensionFromAsset)(e),l=(0,useAssetInfo_1.useAssetInfo)(i,e.originalFilename);return{rawText:(null==l?void 0:l.rawText)||null,type:e.type||(null==l?void 0:l.type),downloadUrl:u,src:i,extension:n}}};exports.useAsset=useAsset;
 //# sourceMappingURL=useAsset.js.map

@@ -1,20 +1,20 @@
 [
   {
-    "createdAt": 1669379281916,
-    "updatedAt": 1669379281916,
+    "createdAt": 1669384166096,
+    "updatedAt": 1669384166096,
     "deletedAt": 0,
-    "createdFirstAt": 1669379281916,
+    "createdFirstAt": 1669384166096,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/getConversionInfoFromType.ts",
-    "comment": "Received files contain a \"type\" like \"audio/mp3\" or \"image/jpeg\", etc...\n\nHere the extension is decided.\n\nNB: we also need to convert the file itself in case of mp3",
-    "rawStatement": "export const getConversionInfoFromType = (\n  uploadMimeType: string | undefined\n): {\n  uploadMimeType: string | undefined;\n  targetFormat: string | undefined;\n  isUnchecked?: boolean;\n} => {\n  const parts = uploadMimeType?.split(\"/\") || [];\n  const firstPart = parts.length > 0 ? parts[0] : undefined;\n  const lastPart = parts.length > 0 ? parts[parts.length - 1] : undefined;\n\n  console.log({ uploadMimeType, lastPart });\n  if (uploadMimeType === \"audio/mp4\") {\n    return { uploadMimeType, targetFormat: \"mp3\" };\n  }\n\n  if (lastPart === \"wav\") {\n    return { uploadMimeType, targetFormat: \"mp3\" };\n  }\n\n  if (lastPart === \"x-m4a\") {\n    return { uploadMimeType, targetFormat: \"mp3\" };\n  }\n\n  if (firstPart === \"audio\") {\n    return { uploadMimeType, targetFormat: \"mp3\" };\n  }\n\n  if (lastPart === \"quicktime\") {\n    return { uploadMimeType, targetFormat: \"mp4\" };\n  }\n\n  if (firstPart === \"video\") {\n    return { uploadMimeType, targetFormat: \"mp4\" };\n  }\n\n  if (firstPart === \"image\") {\n    return { uploadMimeType, targetFormat: \"jpg\" };\n  }\n\n  return { uploadMimeType, targetFormat: lastPart, isUnchecked: true };\n};",
+    "operationRelativeTypescriptFilePath": "src/token/tokenPrefix.ts",
+    "comment": "NB: any filename should not be expected to enter this as part of its name. Otherwise it breaks the code and the filename will be changed to the thing before this string.\n\nNB: don't put any things inhere that are different, slugified, as the name will be slugified!",
+    "rawStatement": "export const tokenPrefix = \"-id-281271\";",
     "parameters": {},
     "types": [
       "nb"
     ],
     "firstLine": 1,
-    "lastLine": 7,
-    "id": "xdyrgsejrnqqggifwqoxuzmf"
+    "lastLine": 5,
+    "id": "wovipncukvjcyajzyrwndxaq"
   }
 ]

@@ -19,6 +19,7 @@ import { askOk } from "ask";
 import { ask } from "ask";
 import { getArgumentOrAsk } from "ask";
 import { compressAsset } from "asset-functions-node";
+import { convertToMp3 } from "asset-functions-node";
 import { convertToMp4 } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
@@ -449,6 +450,13 @@ import { hasSubExtension } from "filename-conventions";
 import { isGeneratedOperationName } from "filename-conventions";
 import { isGeneratedOperation } from "filename-conventions";
 import { isIndexableFileId } from "filename-conventions";
+import { frontmatterParseToString } from "frontmatter-util";
+import { frontmatterToObject } from "frontmatter-util";
+import { getFrontmatterValueString } from "frontmatter-util";
+import { objectToFrontmatter } from "frontmatter-util";
+import { parseFrontmatterString } from "frontmatter-util";
+import { quotedOrNot } from "frontmatter-util";
+import { stringifyNewlines } from "frontmatter-util";
 import { canAccessSync } from "fs-util";
 import { canAccess } from "fs-util";
 import { canExecuteSync } from "fs-util";
@@ -677,6 +685,7 @@ askOk,
 ask,
 getArgumentOrAsk,
 compressAsset,
+convertToMp3,
 convertToMp4,
 deleteReferencedAsset,
 downloadRemoteAsset,
@@ -1107,6 +1116,13 @@ hasSubExtension,
 isGeneratedOperationName,
 isGeneratedOperation,
 isIndexableFileId,
+frontmatterParseToString,
+frontmatterToObject,
+getFrontmatterValueString,
+objectToFrontmatter,
+parseFrontmatterString,
+quotedOrNot,
+stringifyNewlines,
 canAccessSync,
 canAccess,
 canExecuteSync,

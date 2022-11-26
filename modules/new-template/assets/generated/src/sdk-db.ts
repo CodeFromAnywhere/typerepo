@@ -23,7 +23,7 @@ import type { Platform } from "peer-types";
 import type { RecurringReminder } from "reminder-types";
 import type { Interest } from "social-media-types";
 import type { MediaChannel } from "social-media-types";
-import type { MediaCredentail } from "social-media-types";
+import type { MediaCredential } from "social-media-types";
 import type { MediaPost } from "social-media-types";
 import type { BundleConfig } from "bundle-types";
 import type { FrontBackBundle } from "bundle-types";
@@ -57,6 +57,7 @@ import type { WordCombination } from "language-types";
 import type { WordMatrix } from "language-types";
 import type { MarkdownCallToAction } from "markdown-types";
 import type { WebMarkdownFile } from "markdown-types";
+import type { WebsiteHeader } from "markdown-types";
 import type { SlugModelType } from "model-types";
 import type { AppDeveloper } from "os-types";
 import type { Assignment } from "os-types";
@@ -99,6 +100,7 @@ import type { PlayItem } from "play-media-types";
 import type { PlayList } from "play-media-types";
 import type { PlaySchedule } from "play-media-types";
 import type { RelationModelType } from "play-media-types";
+import type { Todo } from "google-translate-controller";
 import type { JeepType } from "himalayajeep-types";
 import type { LocationType } from "himalayajeep-types";
 import type { OperationConfig } from "migrate-operation-model";
@@ -120,8 +122,8 @@ import type { SustainabilityPlan } from "foodchain-types";
 import type { ValueChainPhase } from "foodchain-types";
 
 
-export type DbModels = { PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentRequest: PaymentRequest,PaymentSubscription: PaymentSubscription,PaymentTransaction: PaymentTransaction,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer,AuthorizationModel: AuthorizationModel,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,RecurringReminder: RecurringReminder,Interest: Interest,MediaChannel: MediaChannel,MediaCredentail: MediaCredentail,MediaPost: MediaPost,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,MarkdownCallToAction: MarkdownCallToAction,WebMarkdownFile: WebMarkdownFile,SlugModelType: SlugModelType,AppDeveloper: AppDeveloper,Assignment: Assignment,Bag: Bag,Calendar: Calendar,Deliverable: Deliverable,Diary: Diary,Feeling: Feeling,FeelingLog: FeelingLog,Folder: Folder,Host: Host,Inventory: Inventory,Item: Item,ItemCategory: ItemCategory,KvmdShortcut: KvmdShortcut,Label: Label,Light: Light,Listing: Listing,LoginCredential: LoginCredential,Material: Material,MessagePreset: MessagePreset,PersonalCarbonFootprintProfile: PersonalCarbonFootprintProfile,ProgressReport: ProgressReport,Question: Question,Reservation: Reservation,Resource: Resource,Shit: Shit,ShitLog: ShitLog,ShoppingList: ShoppingList,Shortcut: Shortcut,Student: Student,Student2: Student2,TaskError: TaskError,Trackable: Trackable,User: User,UserCredential: UserCredential,Artist: Artist,PlayCategory: PlayCategory,PlayItem: PlayItem,PlayList: PlayList,PlaySchedule: PlaySchedule,RelationModelType: RelationModelType,JeepType: JeepType,LocationType: LocationType,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,Activity: Activity,CompanyRequirement: CompanyRequirement,CompanySize: CompanySize,CompanyType: CompanyType,Company: Company,ContactInformation: ContactInformation,Contribution: Contribution,EsgMetric: EsgMetric,ProductCategory: ProductCategory,Product: Product,ProofState: ProofState,Proof: Proof,SustainabilityPlan: SustainabilityPlan,ValueChainPhase: ValueChainPhase };
-export const dbModelKeys = [ "PaymentCoupon","PaymentEvent","PaymentPlan","PaymentRequest","PaymentSubscription","PaymentTransaction","SelfSprintReview","TodoFile","TodoOffer","AuthorizationModel","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","RecurringReminder","Interest","MediaChannel","MediaCredentail","MediaPost","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","MarkdownCallToAction","WebMarkdownFile","SlugModelType","AppDeveloper","Assignment","Bag","Calendar","Deliverable","Diary","Feeling","FeelingLog","Folder","Host","Inventory","Item","ItemCategory","KvmdShortcut","Label","Light","Listing","LoginCredential","Material","MessagePreset","PersonalCarbonFootprintProfile","ProgressReport","Question","Reservation","Resource","Shit","ShitLog","ShoppingList","Shortcut","Student","Student2","TaskError","Trackable","User","UserCredential","Artist","PlayCategory","PlayItem","PlayList","PlaySchedule","RelationModelType","JeepType","LocationType","OperationConfig","OperationIndex","PackageJson","Activity","CompanyRequirement","CompanySize","CompanyType","Company","ContactInformation","Contribution","EsgMetric","ProductCategory","Product","ProofState","Proof","SustainabilityPlan","ValueChainPhase" ] as const;
+export type DbModels = { PaymentCoupon: PaymentCoupon,PaymentEvent: PaymentEvent,PaymentPlan: PaymentPlan,PaymentRequest: PaymentRequest,PaymentSubscription: PaymentSubscription,PaymentTransaction: PaymentTransaction,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer,AuthorizationModel: AuthorizationModel,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,RecurringReminder: RecurringReminder,Interest: Interest,MediaChannel: MediaChannel,MediaCredential: MediaCredential,MediaPost: MediaPost,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,MarkdownCallToAction: MarkdownCallToAction,WebMarkdownFile: WebMarkdownFile,WebsiteHeader: WebsiteHeader,SlugModelType: SlugModelType,AppDeveloper: AppDeveloper,Assignment: Assignment,Bag: Bag,Calendar: Calendar,Deliverable: Deliverable,Diary: Diary,Feeling: Feeling,FeelingLog: FeelingLog,Folder: Folder,Host: Host,Inventory: Inventory,Item: Item,ItemCategory: ItemCategory,KvmdShortcut: KvmdShortcut,Label: Label,Light: Light,Listing: Listing,LoginCredential: LoginCredential,Material: Material,MessagePreset: MessagePreset,PersonalCarbonFootprintProfile: PersonalCarbonFootprintProfile,ProgressReport: ProgressReport,Question: Question,Reservation: Reservation,Resource: Resource,Shit: Shit,ShitLog: ShitLog,ShoppingList: ShoppingList,Shortcut: Shortcut,Student: Student,Student2: Student2,TaskError: TaskError,Trackable: Trackable,User: User,UserCredential: UserCredential,Artist: Artist,PlayCategory: PlayCategory,PlayItem: PlayItem,PlayList: PlayList,PlaySchedule: PlaySchedule,RelationModelType: RelationModelType,Todo: Todo,JeepType: JeepType,LocationType: LocationType,OperationConfig: OperationConfig,OperationIndex: OperationIndex,PackageJson: PackageJson,Activity: Activity,CompanyRequirement: CompanyRequirement,CompanySize: CompanySize,CompanyType: CompanyType,Company: Company,ContactInformation: ContactInformation,Contribution: Contribution,EsgMetric: EsgMetric,ProductCategory: ProductCategory,Product: Product,ProofState: ProofState,Proof: Proof,SustainabilityPlan: SustainabilityPlan,ValueChainPhase: ValueChainPhase };
+export const dbModelKeys = [ "PaymentCoupon","PaymentEvent","PaymentPlan","PaymentRequest","PaymentSubscription","PaymentTransaction","SelfSprintReview","TodoFile","TodoOffer","AuthorizationModel","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","RecurringReminder","Interest","MediaChannel","MediaCredential","MediaPost","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","MarkdownCallToAction","WebMarkdownFile","WebsiteHeader","SlugModelType","AppDeveloper","Assignment","Bag","Calendar","Deliverable","Diary","Feeling","FeelingLog","Folder","Host","Inventory","Item","ItemCategory","KvmdShortcut","Label","Light","Listing","LoginCredential","Material","MessagePreset","PersonalCarbonFootprintProfile","ProgressReport","Question","Reservation","Resource","Shit","ShitLog","ShoppingList","Shortcut","Student","Student2","TaskError","Trackable","User","UserCredential","Artist","PlayCategory","PlayItem","PlayList","PlaySchedule","RelationModelType","Todo","JeepType","LocationType","OperationConfig","OperationIndex","PackageJson","Activity","CompanyRequirement","CompanySize","CompanyType","Company","ContactInformation","Contribution","EsgMetric","ProductCategory","Product","ProofState","Proof","SustainabilityPlan","ValueChainPhase" ] as const;
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
     PaymentCoupon: {
@@ -239,7 +241,7 @@ MediaChannel: {
           dbStorageMethod: "jsonMultiple",
           
         },
-MediaCredentail: {
+MediaCredential: {
           
           dbStorageMethod: "jsonMultiple",
           
@@ -407,6 +409,11 @@ MarkdownCallToAction: {
 WebMarkdownFile: {
           
           dbStorageMethod: "markdown",
+          
+        },
+WebsiteHeader: {
+          
+          dbStorageMethod: "jsonMultiple",
           
         },
 SlugModelType: {
@@ -615,6 +622,11 @@ PlaySchedule: {
           
         },
 RelationModelType: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+Todo: {
           
           dbStorageMethod: "jsonMultiple",
           

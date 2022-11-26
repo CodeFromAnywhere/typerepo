@@ -7,7 +7,11 @@
  * The reduce is a bit vague, I need to  test this function further to make sure it does exactly what I want.
  */
 var getKeysAtPathFromNestedObject=function(//NestedObject<null>
-e,t){var r=t.split("/").reduce((function(e,t){
+e,
+/**
+ * Something like a/b/c/d
+ */
+t){var r=t.split("/").reduce((function(e,t){
 // basecase should never happen
 if(e)return e[t]}),e);return r?Object.keys(r):[]};exports.getKeysAtPathFromNestedObject=getKeysAtPathFromNestedObject;
 //# sourceMappingURL=getKeysAtPathFromNestedObject.js.map
