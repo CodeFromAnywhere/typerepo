@@ -1,36 +1,86 @@
 [
   {
-    "createdAt": 1669962567232,
-    "updatedAt": 1669962567232,
+    "createdAt": 1669983244674,
+    "updatedAt": 1669983244674,
     "deletedAt": 0,
-    "createdFirstAt": 1669962567232,
+    "createdFirstAt": 1669983244674,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
-    "comment": "To look up more info about an IP\n\nhttps://github.com/geoip-lite/node-geoip",
-    "rawStatement": "import { db } from \"database\";",
+    "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
+    "comment": "external",
+    "rawStatement": "import { Context } from \"server/typings/common\";",
     "parameters": {},
     "types": [],
-    "firstLine": 2,
-    "lastLine": 6,
-    "id": "agzvmgikeafjrzsfzvpbduwt"
+    "firstLine": 1,
+    "lastLine": 1,
+    "id": "dspixcfttogkpyettedonvjp"
   },
   {
-    "createdAt": 1669962567232,
-    "updatedAt": 1669962567232,
+    "createdAt": 1669983244674,
+    "updatedAt": 1669983244674,
     "deletedAt": 0,
-    "createdFirstAt": 1669962567232,
+    "createdFirstAt": 1669983244674,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
-    "comment": "Returns device with all attached (logged in) `Person`s, and `currentPersonCalculated`\n\nEither finds the device and updates it according to the new request metadata, or creates a new device.\n\nShould never return `undefined` if the database functions...\n\nTODO: Use cookies (https://serverjs.io/documentation/reply/#cookie-) to login\n\nNeeded for having `authToken` with GET as well in a safe manner (e.g. for images)",
-    "rawStatement": "export const upsertDevice = async (\n  serverContext: Context\n): Promise<Device | undefined> => {\n  // in your function\n  const executionId = generateUniqueId();\n  const performance: (PerformanceItem | undefined)[] = [];\n\n  performance.push(getNewPerformance(\"start\", executionId, true));\n\n  const authToken: string | undefined = serverContext.data?.authToken;\n  const ip = serverContext.ip;\n\n  if (!authToken || authToken.length < 24) {\n    console.log(\"warn upsert device: no authToken\");\n    return;\n  }\n\n  // NB: range: [ <low bound of IP block>, <high bound of IP block> ], the rest is described in the type interface\n  const ipLookup = (geoip.lookup(ip) || {}) as Partial<geoip.Lookup>;\n  const {\n    city,\n    area: positionRadiusKm,\n    ll,\n    country,\n    region,\n    timezone,\n  } = ipLookup;\n\n  const position: Position | undefined =\n    !!ll?.[0] && !!ll?.[1] ? { latitude: ll[0], longitude: ll[1] } : undefined;\n\n  const userAgent: IResult = parseUserAgent(\n    serverContext.req.get(\"User-Agent\")\n  );\n  performance.push(getNewPerformance(\"lookupIp\", executionId));\n\n  const devices = await db.get(\"Device\", { include: deviceInclude });\n\n  // HACK HACK HACK HACK HACK\n  // NB: Done because of the server crash that, probably, happens because there is no db-lock system yet\n  const firstDevice = devices[0];\n  if (firstDevice) return firstDevice;\n  // HACK HACK HACK HACK HACK\n\n  const alreadyDevice = devices.find((x) => x.authToken === authToken);\n\n  performance.push(getNewPerformance(\"findAlreadyDevice\", executionId));\n\n  const ipInfo: IPInfo = {\n    ip,\n    city,\n    position,\n    positionRadiusKm,\n    country,\n    region,\n    timezone,\n  };\n\n  const origin = serverContext.req.get(\"Origin\") as string;\n  const referer = serverContext.req.get(\"Referrer\") as string;\n\n  // server.reply\n  //   .cookie(\n  //     \"testje\",\n  //     authToken,\n\n  //     {\n  //       /**\n  //        * NB: VERY IMPORTANT In order to receive the cookie at other port or domain\n  //        */\n  //       sameSite: \"none\",\n  //       secure: true,\n  //       /**\n  //        * It turned out that Chrome won't set the cookie if the domain contains a port. Setting it for localhost (without port) is not a problem\n  //        */\n  //       domain: \"localhost\",\n  //     }\n  //   )\n\n  performance.push(getNewPerformance(\"gatherIpInfo\", executionId));\n\n  // NB: either a new device creation or updating an existing device\n  if (alreadyDevice) {\n    // console.log(\"device already\");\n    const currentIpInfo: IPInfo = {\n      ip: alreadyDevice.ip,\n      city: alreadyDevice.city,\n      position: alreadyDevice.position,\n      positionRadiusKm: alreadyDevice.positionRadiusKm,\n      country: alreadyDevice.country,\n      region: alreadyDevice.region,\n      timezone: alreadyDevice.timezone,\n    };\n\n    const previousIpsHasAlready =\n      !currentIpInfo.ip ||\n      alreadyDevice.previousIps.find((x) => x.ip === currentIpInfo.ip);\n    const newPreviousIps = previousIpsHasAlready\n      ? alreadyDevice.previousIps\n      : alreadyDevice.previousIps.concat(currentIpInfo);\n\n    const newIpStuff =\n      alreadyDevice.ip === ip ? {} : { ...ipInfo, previousIps: newPreviousIps };\n\n    const newOrigins = alreadyDevice.origins.includes(origin)\n      ? alreadyDevice.origins\n      : alreadyDevice.origins.concat(origin);\n\n    const currentPersonCalculated = alreadyDevice.currentPersonId\n      ? alreadyDevice.persons?.find(\n          (x) => x.id === alreadyDevice.currentPersonId\n        )\n      : undefined;\n\n    const updatedDevice: Device = {\n      ...alreadyDevice,\n      ...newIpStuff,\n      currentPersonCalculated,\n      origins: newOrigins,\n      userAgent,\n      userAgentString: userAgent.ua,\n    };\n\n    performance.push(\n      getNewPerformance(\"alreadyDevice_makeUpdatedDevice\", executionId)\n    );\n\n    await db.update(\n      \"Device\",\n      (item) => item.authToken === authToken,\n      () => updatedDevice\n    );\n\n    performance.push(\n      getNewPerformance(\"alreadyDevice_updateDevice\", executionId)\n    );\n\n    savePageVisit(alreadyDevice.id, ipInfo, referer);\n    // console.log(\"upsertDevice, already device\", performance);\n\n    return updatedDevice;\n  }\n\n  // console.log(\"new device\");\n  const newDevice: Creation<Device> = {\n    authToken,\n    authenticationMethods: [],\n    ...ipInfo,\n    lastOnlineAt: 0,\n    lastSyncDatabaseAtObject: {},\n    name: calculateDeviceName(ipInfo, userAgent),\n    origins: [origin],\n    previousIps: [],\n    userAgent,\n    userAgentString: userAgent.ua,\n    hasPapi: false,\n  };\n\n  performance.push(getNewPerformance(\"calculateNewDevice\", executionId));\n\n  //  console.log({ newDevice });\n  // Create new device\n  //@ts-ignore\n  const upsertResult = await db.upsert(\"Device\", newDevice, {\n    onlyInsert: true,\n  });\n\n  performance.push(getNewPerformance(\"upsertNewDevice\", executionId));\n\n  // console.log({ upsertResult });\n\n  const fullNewDevice = (\n    await db.get(\"Device\", { include: deviceInclude })\n  ).find((x) => x.authToken === authToken);\n\n  performance.push(getNewPerformance(\"getFullNewDevice\", executionId));\n\n  if (fullNewDevice) {\n    savePageVisit(fullNewDevice.id, ipInfo, referer);\n  }\n\n  const currentPersonCalculated = fullNewDevice?.currentPersonId\n    ? fullNewDevice.persons?.find((x) => x.id === fullNewDevice.currentPersonId)\n    : undefined;\n\n  const finalNewDevice: Device | undefined = fullNewDevice\n    ? { ...fullNewDevice, currentPersonCalculated }\n    : undefined;\n\n  performance.push(getNewPerformance(\"calculateMetadata\", executionId));\n\n  // console.log(\"upsertDevice\", performance);\n  return finalNewDevice;\n};",
+    "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
+    "comment": "NB: uses SDK-api!",
+    "rawStatement": "import { sdk } from \"sdk-api\";",
+    "parameters": {},
+    "types": [
+      "nb"
+    ],
+    "firstLine": 3,
+    "lastLine": 3,
+    "id": "kiecbfxnkwpnvdchoziwzent"
+  },
+  {
+    "createdAt": 1669983244674,
+    "updatedAt": 1669983244674,
+    "deletedAt": 0,
+    "createdFirstAt": 1669983244674,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
+    "comment": "monorepo",
+    "rawStatement": "import { notEmpty } from \"js-util\";",
+    "parameters": {},
+    "types": [],
+    "firstLine": 10,
+    "lastLine": 10,
+    "id": "qaowtdrqpomtlevmtdupmtoq"
+  },
+  {
+    "createdAt": 1669983244674,
+    "updatedAt": 1669983244674,
+    "deletedAt": 0,
+    "createdFirstAt": 1669983244674,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
+    "comment": "relative",
+    "rawStatement": "import { upsertDevice } from \"./upsertDevice\";",
+    "parameters": {},
+    "types": [],
+    "firstLine": 17,
+    "lastLine": 17,
+    "id": "ufcytgykbyglhbivgyrygfjr"
+  },
+  {
+    "createdAt": 1669983244674,
+    "updatedAt": 1669983244674,
+    "deletedAt": 0,
+    "createdFirstAt": 1669983244674,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/executeFunctionWithParameters.ts",
+    "comment": "steps for someone to use the API\n\n1) auth\n2) cache lookup\n3) input validation\n4) running function\n5) store cache\n6) store performance\n7) returning result\n\nTODO: make it possible to return result BEFORE storing cache and performance. we probably need to use the server.reply for this, which makes this function unusable in any other setting than an api, so let's make it optional",
+    "rawStatement": "export const executeFunctionWithParameters = async <\n  TFunctionName extends keyof typeof sdk\n>(\n  functionName: TFunctionName,\n  parameters: undefined | any[],\n  serverContext: Context\n): Promise<RealApiReturnType<any>> => {\n  const publicBundleConfig = await getPublicBundleConfig();\n  const executionId = generateId();\n\n  if (isGetEndpoint(functionName)) {\n    // NB: shortcut for now, until we have cookie support:\n\n    const result = await (sdk[functionName] as any)(serverContext);\n\n    return result;\n  }\n\n  const performance: (PerformanceItem | undefined)[] = [];\n\n  performance.push(getNewPerformance(\"start\", executionId, true));\n\n  // 1) upsert device\n  const device = await upsertDevice(serverContext);\n  if (!device) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't create device\",\n    };\n  }\n\n  performance.push(getNewPerformance(\"upsertDevice\", executionId));\n\n  // 2) get ts function\n  const tsFunction = await getTsFunction(functionName);\n  if (!tsFunction) {\n    return {\n      isSuccessful: false,\n      message: `TsFunction file could not be found in \"sdk-function-paths\" (${functionName}). Maybe you need to rebuild your operation and update your SDK?`,\n    };\n  }\n  performance.push(getNewPerformance(\"getTsFunction\", executionId));\n\n  const { hasAuthorization, authorizations, groups } = getAuthorizationInfo(\n    device,\n    tsFunction\n  );\n\n  //new way: hasAuthorization\n  /*\n    if (!hasAuthorization) {\n    return {\n      isSuccessful: false,\n      isUnauthorized: true,\n      message:\n        \"You are not authorized to execute this function, you might need to login.\",\n    };\n  }\n*/\n\n  // console.log({ skug: publicBundleConfig?.slug });\n  // 3) auth\n  //OLD way:\n  const authToken: string | undefined = serverContext.data?.authToken;\n  if (\n    publicBundleConfig?.slug === \"passionfruit\" &&\n    privateAuthToken !== authToken\n  ) {\n    return {\n      isSuccessful: false,\n      isUnauthorized: true,\n      message:\n        \"You are not authorized to execute this function, you might need to login.\",\n    };\n  }\n\n  performance.push(getNewPerformance(\"auth\", executionId));\n\n  // 4) cache lookup\n  const cacheLookupResult = cacheLookup(functionName, parameters);\n  if (cacheLookupResult.hasValidCache) {\n    return {\n      result: cacheLookupResult.result,\n      isSuccessful: true,\n      isCached: true,\n    };\n  }\n  performance.push(getNewPerformance(\"cacheLookup\", executionId));\n\n  // 5) validation\n  const validationResult = validateInput(functionName, parameters, tsFunction);\n\n  // if (!validationResult.isValid) {\n  //   return {\n  //     isSuccessful: false,\n  //     errors: validationResult.errors,\n  //     message: `Your input has some errors. Input ${JSON.stringify(\n  //       parameters\n  //     )}.`,\n  //   };\n  // }\n  performance.push(getNewPerformance(\"inputValidation\", executionId));\n\n  // 6) running function\n  const fn = sdk[functionName];\n\n  if (typeof fn !== \"function\") {\n    return {\n      isSuccessful: false,\n      message: `Function not found in the api-sdk: ${functionName}`,\n    };\n  }\n\n  /**\n   * Convention\n   */\n\n  const needsReturnRaw =\n    functionName.endsWith(apiConventions.rawFunctionConventionSuffix) ||\n    functionName.endsWith(apiConventions.getFunctionConventionSuffix);\n\n  const needsFunctionContext =\n    functionName.endsWith(apiConventions.contextFunctionConventionSuffix) ||\n    needsReturnRaw;\n\n  const functionContext: FunctionContext = {\n    tsFunction,\n    authorizations,\n    device,\n    groups,\n    hasAuthorization,\n    authToken: device.authToken,\n    serverContext,\n  };\n\n  const parametersWithContext = needsFunctionContext\n    ? [functionContext].concat(parameters || [])\n    : parameters;\n\n  // console.log(`We are authorized to execute ${functionName}! Let's do it`);\n  // @ts-ignore\n  const result = await fn(...parametersWithContext);\n  performance.push(getNewPerformance(\"function\", executionId));\n\n  cleanupTimer(executionId);\n\n  const resultValidation = validateResult(functionName, result, tsFunction);\n\n  // console.log({ serverwithPar: performance });\n  // 6) store performance\n  storeFunctionExecution(\n    tsFunction,\n    parameters,\n    result,\n    performance.filter(notEmpty),\n    false\n  );\n\n  // need to return this immediately without the surrounding object, because it might do stuff with that server context that needs to be returned\n  if (needsReturnRaw) return result;\n\n  if (result === undefined) {\n    return {\n      isSuccessful: true,\n      isCached: false,\n      message: \"Function was executed but did not give any response\",\n      result: undefined,\n    };\n  }\n\n  return {\n    isSuccessful: true,\n    isCached: false,\n    result,\n  };\n};",
     "parameters": {},
     "types": [
       "todo"
     ],
     "firstLine": 29,
-    "lastLine": 39,
-    "id": "xsljaaegyqduzlykoswzqtng"
+    "lastLine": 42,
+    "id": "ljfatsylhzuxcphirwpqmrgi"
   }
 ]

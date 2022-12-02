@@ -1,6 +1,6 @@
 # Tabs
 
-tabs (`OperationClassification` undefined)
+tabs (`OperationClassification` ui-cjs)
 
 
 

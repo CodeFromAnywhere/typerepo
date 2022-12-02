@@ -1,6 +1,6 @@
 # Swipe homepage
 
-swipe-homepage (`OperationClassification` ui-cjs)
+swipe-homepage (`OperationClassification` undefined)
 
 
 
@@ -39,8 +39,11 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| image  | string |  |
-| description  | string |  |
+| imagePath (optional) | string |  |
+| description (optional) | string |  |
+| markdown (optional) | string |  |
+| isMarkdownNoLimit (optional) | boolean |  |
+| markdownSourcePath (optional) | string |  |
 | title  | string |  |
 | href (optional) | string |  |
 

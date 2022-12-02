@@ -14,27 +14,11 @@ This is a ui-esm operation. This means it's a ui operation that builds to javasc
 
 # Api reference
 
-# Internal
-
-<details><summary>Show internal (7)</summary>
-    
-  # `<FileWriter />`
-
-
-
+## `<FileWriter />`
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** | `JSX.Element`   |    |
-
-
-
-## `<OpenFileWriterPages />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | { pagesObject: `PagesObjectShape`, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
 
 
@@ -50,14 +34,28 @@ This is a ui-esm operation. This means it's a ui operation that builds to javasc
 
 ## 📄 FileWriter (exported const)
 
+## 📄 WriterLayout (exported const)
+
+# Internal
+
+<details><summary>Show internal (3)</summary>
+    
+  # `<OpenFileWriterPages />`
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { pagesObject: `PagesObjectShape`, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## 📄 OpenFileWriterPages (exported const)
 
 ## 📄 { useStore, StoreProvider } (exported const)
 
 Combining two store types to create an aggregated store
-
-
-## 📄 WriterLayout (exported const)
-
   </details>
 

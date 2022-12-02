@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669885145394,
-  "updatedAt": 1669885145394,
+  "createdAt": 1669985494502,
+  "updatedAt": 1669985494502,
   "deletedAt": 0,
-  "createdFirstAt": 1669885145394,
+  "createdFirstAt": 1669985494502,
   "id": "namedparameterstypeof-swipehomepage",
   "name": "NamedParameters<typeof SwipeHomepage>",
   "slug": "namedparameterstypeof-swipehomepage",
@@ -106,15 +106,36 @@
                         "fullComment": "",
                         "properties": [
                           {
-                            "name": "image",
-                            "required": true,
+                            "name": "imagePath",
+                            "required": false,
                             "schema": {
                               "type": "string"
                             }
                           },
                           {
                             "name": "description",
-                            "required": true,
+                            "required": false,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "markdown",
+                            "required": false,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "isMarkdownNoLimit",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          },
+                          {
+                            "name": "markdownSourcePath",
+                            "required": false,
                             "schema": {
                               "type": "string"
                             }

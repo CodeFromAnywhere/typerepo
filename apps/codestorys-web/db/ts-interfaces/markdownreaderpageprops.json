@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884195619,
-  "updatedAt": 1669884195619,
+  "createdAt": 1669985421459,
+  "updatedAt": 1669985421459,
   "deletedAt": 0,
-  "createdFirstAt": 1669884195619,
+  "createdFirstAt": 1669985421459,
   "id": "markdownreaderpageprops",
   "name": "MarkdownReaderPageProps",
   "slug": "markdownreaderpageprops",
@@ -177,6 +177,15 @@
                                   "name": "shortDescription",
                                   "required": false,
                                   "schema": {
+                                    "fullComment": "One line description of the content",
+                                    "type": "string"
+                                  }
+                                },
+                                {
+                                  "name": "introDescription",
+                                  "required": false,
+                                  "schema": {
+                                    "fullComment": "Intor, usually the first alinea of the page, may contain markdown",
                                     "type": "string"
                                   }
                                 }

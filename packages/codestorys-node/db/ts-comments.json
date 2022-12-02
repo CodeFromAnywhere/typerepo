@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1669884179249,
-    "updatedAt": 1669884179249,
+    "createdAt": 1669986462989,
+    "updatedAt": 1669986462989,
     "deletedAt": 0,
-    "createdFirstAt": 1669884179249,
+    "createdFirstAt": 1669986462989,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/codestoriesGetStaticProps.ts",
     "comment": "",
-    "rawStatement": "export const codestoriesGetStaticProps = async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await codestoriesGetPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(\n    context,\n    flat,\n    \"codestories-web\"\n  );\n};",
+    "rawStatement": "export const codestoriesGetStaticProps = async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await codestoriesGetPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(context, flat, \"codestorys-web\");\n};",
     "parameters": {},
     "types": [],
     "firstLine": 5,
     "lastLine": 6,
-    "id": "ltdenmgyrrhyunewgjcibuti"
+    "id": "vssexrnbsgfhvnoddekieyko"
   }
 ]

@@ -47,6 +47,22 @@ input: /Users/king/Documents/some/folder/xyz.txt
 output: folder
 
 
+## getFolder()
+
+if the path exists:
+- if the pathString is a folder, that is returned.
+- if the pathstring is not a folder, returns the pathstring without the file suffix
+
+if the path doesn't exist: returns pathString witout last chunk (this would only work for file paths)
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| pathString | string |  |
+| **Output** |    |    |
+
+
+
 ## writeJsonToFile()
 
 write json to a file
@@ -61,6 +77,22 @@ makes the dir and file if they don't exist
 
 
 
+## 📄 getFolder (exported const)
+
+if the path exists:
+- if the pathString is a folder, that is returned.
+- if the pathstring is not a folder, returns the pathstring without the file suffix
+
+if the path doesn't exist: returns pathString witout last chunk (this would only work for file paths)
+
+
+## 📄 writeJsonToFile (exported const)
+
+write json to a file
+
+makes the dir and file if they don't exist
+
+
 ## writeStringToFile()
 
 write string to a file
@@ -73,13 +105,6 @@ makes the dir and file if they don't exist
 | - | | |
 | **Output** |    |    |
 
-
-
-## 📄 writeJsonToFile (exported const)
-
-write json to a file
-
-makes the dir and file if they don't exist
 
 
 ## 📄 writeStringToFile (exported const)
@@ -101,34 +126,9 @@ File is readable to the calling process
 
 
 
-## getFolder()
-
-if the path exists:
-- if the pathString is a folder, that is returned.
-- if the pathstring is not a folder, returns the pathstring without the file suffix
-
-if the path doesn't exist: returns pathString witout last chunk (this would only work for file paths)
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| pathString | string |  |
-| **Output** |    |    |
-
-
-
 ## 📄 canRead (exported const)
 
 File is readable to the calling process
-
-
-## 📄 getFolder (exported const)
-
-if the path exists:
-- if the pathString is a folder, that is returned.
-- if the pathstring is not a folder, returns the pathstring without the file suffix
-
-if the path doesn't exist: returns pathString witout last chunk (this would only work for file paths)
 
 
 ## 🔹 Path

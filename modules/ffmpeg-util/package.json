@@ -6,6 +6,9 @@
   "version": "0.0.1",
   "main": "build/index.js",
   "source": "src/index.ts",
+  "bin": {
+    "compressImages": "build/cli/compressImages.cli.js"
+  },
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc"

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669884178991,
-  "updatedAt": 1669884178991,
+  "createdAt": 1669986462704,
+  "updatedAt": 1669986462704,
   "deletedAt": 0,
-  "createdFirstAt": 1669884178991,
+  "createdFirstAt": 1669986462704,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/codestoriesGetStaticProps.ts",
   "commentsInside": [],
-  "rawText": " async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await codestoriesGetPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(\n    context,\n    flat,\n    \"codestories-web\"\n  );\n}",
+  "rawText": " async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await codestoriesGetPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(context, flat, \"codestorys-web\");\n}",
   "name": "codestoriesGetStaticProps",
   "slug": "codestories-get-static-props",
   "parameters": [
@@ -89,15 +89,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 1,
   "size": {
-    "characters": 248,
-    "lines": 12,
-    "bytes": 248,
+    "characters": 231,
+    "lines": 8,
+    "bytes": 231,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 21,
-    "linesPerFile": 12,
+    "charactersPerLine": 29,
+    "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "jhsyuishrviaferqlphvvqzd"
+  "id": "hyvnjgbelhpqysvgjpfpqvys"
 }

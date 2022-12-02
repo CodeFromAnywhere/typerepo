@@ -1,0 +1,1 @@
+![](./indexation.drawio.svg)

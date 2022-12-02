@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669639181504,
-  "updatedAt": 1669639181504,
+  "createdAt": 1669989489741,
+  "updatedAt": 1669989489741,
   "deletedAt": 0,
-  "createdFirstAt": 1669639181504,
+  "createdFirstAt": 1669989489741,
   "id": "bundleconfig",
   "name": "BundleConfig",
   "slug": "bundleconfig",
@@ -884,26 +884,41 @@
                 }
               },
               {
-                "name": "docsRelativeFolderPath",
-                "required": false,
+                "name": "markdownBasePaths",
+                "required": true,
                 "schema": {
-                  "fullComment": "optional. Could also find the main file from here and use that as README.md\n\nMust be a relative path from project root. Can be multiple!",
-                  "properties": [],
-                  "type": "object"
-                }
-              },
-              {
-                "name": "imagesProjectRelativeFolderPaths",
-                "required": false,
-                "schema": {
-                  "fullComment": "paths to image folders that should randomly be used as default headers or footers in the generated markdown.",
                   "items": [
                     {
                       "schema": {
-                        "fullComment": "later this could be known by the frontend so it will render a ui to select a folder\n\nWe need to figure out how we can know all type types in between when getting the type definition schema, not only the final type. If I'm lucky there is a way to find it as a #ref in a consistent way.",
-                        "type": "string"
+                        "properties": [
+                          {
+                            "name": "queryPath",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "Optional; can be a queryPath for the markdown-reader, or for your own usage",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "originalRelativeMarkdownFolderPath",
+                            "required": true,
+                            "schema": {
+                              "fullComment": "Original locataion of the markdown folder",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "bundleRelativeMarkdownFolderPath",
+                            "required": true,
+                            "schema": {
+                              "fullComment": "Destination location of the markdown folder in the bundle",
+                              "type": "string"
+                            }
+                          }
+                        ],
+                        "type": "object"
                       },
-                      "name": "ProjectRelativeFolderPath"
+                      "name": null
                     }
                   ],
                   "type": "array"
@@ -913,7 +928,7 @@
                 "name": "readmeRelativeFilePath",
                 "required": false,
                 "schema": {
-                  "fullComment": "Optional. path to a readme file for the monorepo root.\n\nIf not given, and if you did provide a path for docs, the main docs intro file will be taken\n\nMust be a relative path from project  root\n\n",
+                  "fullComment": "Optional. Path to a readme file for the monorepo root.\n\nIf not given, and if you did provide a path for docs, the main docs intro file will be taken\n\nMust be a relative path from project  root\n\n",
                   "type": "string"
                 }
               },
@@ -921,7 +936,7 @@
                 "name": "foldersFromRepo",
                 "required": false,
                 "schema": {
-                  "fullComment": "if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n\ncan be handy if you're working with someone else...",
+                  "fullComment": "if given, it will fetch these folders from the repo and paste them in the bundle whenever the bundle is generated\n\ncan be handy if you're working with someone else...\n\nShould later be deprecated once the p2p operation sync is done",
                   "items": [
                     {
                       "schema": {

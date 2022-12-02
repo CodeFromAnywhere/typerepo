@@ -1,3 +1,3 @@
-# ❌ No description set yet
+# ffmpeg-util
 
-Please set a description for this operation in OPERATION.md
+wrapper around fluent-ffmpeg to get useful ffmpeg things

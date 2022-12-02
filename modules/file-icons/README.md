@@ -1,6 +1,6 @@
 # File icons
 
-file-icons (`OperationClassification` cjs)
+file-icons (`OperationClassification` ui-cjs)
 
 
 ## 🌈 file-icons

@@ -335,6 +335,7 @@ export declare const sdk: {
     getMarkdownReaderPages: (config: {
         projectRoot: string;
         basePaths: string[];
+        queryPathCustomPrefix?: ((basePath?: string | undefined) => string | undefined) | undefined;
         mapQueryPath?: ((queryPath: string) => string) | undefined;
     }) => Promise<import("webpage-types").FileWebPage[]>;
     getMarkdownReaderQueryPaths: (config?: {
@@ -578,13 +579,6 @@ export declare const sdk: {
     }) => JSX.Element | null;
     useReferencableModelData: (simplifiedSchema: import("code-types").SimplifiedSchema) => import("simplified-schema-form").ReferencableModelData | undefined;
     useTsInterfaceForm: <T_10 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_10 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_10 | undefined, onChange?: ((value: T_10) => void) | undefined];
-    SwipeHomepage: (props: {
-        ctas: {
-            text: string;
-            href: string;
-        }[];
-        items: import("swipe-homepage").SwipeItem[];
-    }) => JSX.Element;
     Tooltip: (props: {
         tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;
         children: import("react").ReactNode;
@@ -639,6 +633,13 @@ export declare const sdk: {
         markdownFile?: import("markdown-types").WebMarkdownFile | null | undefined;
         projectRelativeMarkdownPath?: string | null | undefined;
     }) => JSX.Element | null;
+    SwipeHomepage: (props: {
+        ctas: {
+            text: string;
+            href: string;
+        }[];
+        items: import("swipe-homepage").SwipeItem[];
+    }) => JSX.Element;
     Timeline: (props: {
         items: import("timeline").TimelineItemType[];
     }) => JSX.Element;

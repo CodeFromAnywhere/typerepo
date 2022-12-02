@@ -13,5 +13,7 @@ export declare const operationToMarkdown: (config: {
      * - parse: returns the `MarkdownParse`
      */
     returnType?: "string" | "parse" | "save" | undefined;
+    includeDocs?: boolean | undefined;
+    includeInfo?: boolean | undefined;
 }) => Promise<string | MarkdownParse | undefined>;
 //# sourceMappingURL=operationToMarkdown.d.ts.map

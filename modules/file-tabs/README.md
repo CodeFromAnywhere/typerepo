@@ -1,6 +1,6 @@
 # File tabs
 
-file-tabs (`OperationClassification` cjs)
+file-tabs (`OperationClassification` ui-cjs)
 
 
 ## 📁 file-tabs

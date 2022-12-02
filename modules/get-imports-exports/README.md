@@ -6,6 +6,26 @@ get-imports-exports (`OperationClassification` node-cjs)
 
 # Api reference
 
+## findAndWriteImportsExports()
+
+takes an operation base path and finds all imports and exports in all the files, and writes it to the ts-imports/ts-exports indexes
+
+NB: has a side effect: it also updates the package.json to include all needed dependencies.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationBasePath | string |  |,| manualProjectRoot (optional) | string | Manual project root of the operation where the imports and exports needs to be detected and written to database |
+| **Output** |    |    |
+
+
+
+## 📄 findAndWriteImportsExports (exported const)
+
+takes an operation base path and finds all imports and exports in all the files, and writes it to the ts-imports/ts-exports indexes
+
+NB: has a side effect: it also updates the package.json to include all needed dependencies.
+
 # CLI
 
 <details><summary>Show CLI information (1)</summary>
@@ -48,7 +68,7 @@ get-imports-exports (`OperationClassification` node-cjs)
 
 # Internal
 
-<details><summary>Show internal (30)</summary>
+<details><summary>Show internal (28)</summary>
     
   # calculatePackageJsonDependencies()
 
@@ -67,20 +87,6 @@ Also keeps the dependencies that were already there, nothing is removed.
 | ---------- | -- | -- |
 | dependencies (optional) | `PackageInfoObject` | Current dependencies object in your operation |,| imports | `Creation<TsImport>`[] | All imports found in your operation |,| operations | `Operation`[] | All package-json's in your monorepo |,| operationName | string |  |
 | **Output** | { newDependencies: {  }, <br />hasGeneratedDependenciesIndexed: boolean, <br /> }   |    |
-
-
-
-## findAndWriteImportsExports()
-
-takes an operation base path and finds all imports and exports in all the files, and writes it to the ts-imports/ts-exports indexes
-
-NB: has a side effect: it also updates the package.json to include all needed dependencies.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationBasePath | string |  |,| manualProjectRoot (optional) | string | Manual project root of the operation where the imports and exports needs to be detected and written to database |
-| **Output** |    |    |
 
 
 
@@ -244,13 +250,6 @@ Generated packages are not added to dependencies. Instead a config is added sayi
 For external modules, uses the version that was already present in dependencies, or uses "*"
 
 Also keeps the dependencies that were already there, nothing is removed.
-
-
-## 📄 findAndWriteImportsExports (exported const)
-
-takes an operation base path and finds all imports and exports in all the files, and writes it to the ts-imports/ts-exports indexes
-
-NB: has a side effect: it also updates the package.json to include all needed dependencies.
 
 
 ## 📄 getDefaultSymbolType (exported const)

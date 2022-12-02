@@ -53,6 +53,15 @@ If you provide an array it'll take the first asset.
 
 
 
+## getSrc()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| asset | `Asset` |  |,| projectRelativeReferencingFilePath | string |  |,| isNextStaticProductionBuild (optional) | boolean |  |
+| **Output** | { src: string, <br />downloadUrl?: string, <br /> }   |    |
+
+
+
 ## `<InteractiveAsset />`
 
 shows an `Asset` with interactivity
@@ -81,6 +90,8 @@ shows an `Asset` with interactivity
 
 ## 📄 AssetView (exported const)
 
+## 📄 getSrc (exported const)
+
 ## 📄 InteractiveAsset (exported const)
 
 shows an `Asset` with interactivity
@@ -95,21 +106,12 @@ shows an `Asset` with interactivity
 
 # Internal
 
-<details><summary>Show internal (5)</summary>
+<details><summary>Show internal (3)</summary>
     
-  # getSrc()
+  # useAssetInfo()
 
 
 
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| asset | `Asset` |  |,| projectRelativeReferencingFilePath | string |  |,| isNextStaticProductionBuild (optional) | boolean |  |
-| **Output** | { src: string, <br />downloadUrl?: string, <br /> }   |    |
-
-
-
-## useAssetInfo()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -119,8 +121,6 @@ shows an `Asset` with interactivity
 
 
 ## 📄 defaultClassName (exported const)
-
-## 📄 getSrc (exported const)
 
 ## 📄 useAssetInfo (exported const)
 

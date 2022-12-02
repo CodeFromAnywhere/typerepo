@@ -8,9 +8,20 @@ db-crud (`OperationClassification` ui-cjs)
 
 ## 📄 dbCrudInitialValues (exported const)
 
+## `<DbPage />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## 📄 DbPage (exported const)
+
 # Internal
 
-<details><summary>Show internal (45)</summary>
+<details><summary>Show internal (43)</summary>
     
   # `<CrudGrid />`
 
@@ -56,15 +67,6 @@ db-crud (`OperationClassification` ui-cjs)
 | Input      |    |    |
 | ---------- | -- | -- |
 | props | { modelName: string, <br /> } |  |
-| **Output** | `JSX.Element`   |    |
-
-
-
-## `<DbPage />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
 | **Output** | `JSX.Element`   |    |
 
 
@@ -246,8 +248,6 @@ Properties:
 ## 📄 CrudTree (exported const)
 
 ## 📄 DatasetForm (exported const)
-
-## 📄 DbPage (exported const)
 
 ## 📄 defaultLimit (exported const)
 

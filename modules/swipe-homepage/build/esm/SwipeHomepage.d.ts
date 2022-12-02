@@ -1,7 +1,10 @@
 /// <reference types="react" />
 export declare type SwipeItem = {
-    image: string;
-    description: string;
+    imagePath?: string | null;
+    description?: string;
+    markdown?: string;
+    isMarkdownNoLimit?: boolean;
+    markdownSourcePath?: string;
     title: string;
     /**
      * if given,href for the title and description (when clicking on one of those)
@@ -23,4 +26,3 @@ export declare const SwipeHomepage: (props: {
     }[];
     items: SwipeItem[];
 }) => JSX.Element;
-//# sourceMappingURL=SwipeHomepage.d.ts.map

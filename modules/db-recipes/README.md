@@ -39,6 +39,18 @@ wrapper function that takes that data but also the interface of the function and
 
 
 
+## validateResult()
+
+wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | { isValid: boolean, <br />errors?: { fieldStack: string[], <br />error: string, <br /> }[], <br /> }   |    |
+
+
+
 ## 📄 cacheLookup (exported const)
 
 Wrapper function to cache any function and invalidate it, in some way
@@ -49,6 +61,11 @@ optimistic caching after cache invalidation
 
 
 ## 📄 validateInput (exported const)
+
+wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
+
+
+## 📄 validateResult (exported const)
 
 wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
 
@@ -98,7 +115,7 @@ wrapper function that takes that data but also the interface of the function and
 
 # Internal
 
-<details><summary>Show internal (31)</summary>
+<details><summary>Show internal (29)</summary>
     
   # calculateOperatingSystemBundle()
 
@@ -263,18 +280,6 @@ upserts an instance of an db data interface from the db in a typesafe way
 
 
 
-## validateResult()
-
-wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | { isValid: boolean, <br />errors?: { fieldStack: string[], <br />error: string, <br /> }[], <br /> }   |    |
-
-
-
 ## wrapFunction()
 
 | Input      |    |    |
@@ -363,11 +368,6 @@ gets a src relative folder path (so maybe "" for a file `src/util.ts` or "util" 
 ## 📄 upsertDbModel (exported const)
 
 upserts an instance of an db data interface from the db in a typesafe way
-
-
-## 📄 validateResult (exported const)
-
-wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
 
 
 ## 📄 wrapFunction (exported const)

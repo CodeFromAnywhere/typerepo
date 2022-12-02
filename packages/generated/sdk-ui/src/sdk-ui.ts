@@ -194,7 +194,6 @@ import { renderParameterTitle } from "simplified-schema-form";
 import { SimplifiedSchemaForm } from "simplified-schema-form";
 import { useReferencableModelData } from "simplified-schema-form";
 import { useTsInterfaceForm } from "simplified-schema-form";
-import { SwipeHomepage } from "swipe-homepage";
 import { Tooltip } from "tooltip";
 import { useOnScreen } from "use-on-screen";
 import { FileWriter } from "file-writer";
@@ -217,6 +216,7 @@ import { Dictionary } from "reader-ui";
 import { DocsReaderLayout } from "reader-ui";
 import { ReaderPageContent } from "reader-ui";
 import { ReaderPageHeader } from "reader-ui";
+import { SwipeHomepage } from "swipe-homepage";
 import { Timeline } from "timeline";
 import { Completion } from "writer-input";
 import { ContentEditableDivInput } from "writer-input";
@@ -452,7 +452,6 @@ renderParameterTitle,
 SimplifiedSchemaForm,
 useReferencableModelData,
 useTsInterfaceForm,
-SwipeHomepage,
 Tooltip,
 useOnScreen,
 FileWriter,
@@ -475,6 +474,7 @@ Dictionary,
 DocsReaderLayout,
 ReaderPageContent,
 ReaderPageHeader,
+SwipeHomepage,
 Timeline,
 Completion,
 ContentEditableDivInput,

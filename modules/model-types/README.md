@@ -6,19 +6,6 @@ model-types (`OperationClassification` cjs)
 
 # Api reference
 
-## 🔹 AugmentedAnyModelType
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-
-
-
 ## 🔹 DefaultModelType
 
 Use this model by default
@@ -43,15 +30,16 @@ Properties:
 
 
 
-## generateId()
+## 🔹 AugmentedAnyModelType
 
-24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
+Properties: 
 
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `String`   |    |
+ | Name | Type | Description |
+|---|---|---|
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
 
 
 
@@ -100,6 +88,23 @@ We can always migrate later to a bigger amount, but I don't see good reason to k
 
 
 
+## generateId()
+
+24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `String`   |    |
+
+
+
+## 📄 generateId (exported const)
+
+24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
+
+
 ## 🔹 Slug
 
 use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.
@@ -109,11 +114,6 @@ use this for any identifier that's not an Id-type. Usually this is a kebab-case 
 
 
 
-
-
-## 📄 generateId (exported const)
-
-24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
 
 
 ## 🔸 SlugModelType
@@ -221,6 +221,15 @@ a string that is known to contain markdown.
 
 
 
+## generateRandomString()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| length | number |  |
+| **Output** | `String`   |    |
+
+
+
 ## 🔹 CategoryStack
 
 Taken from the location in the folder of the db-model.
@@ -242,34 +251,6 @@ all currently supported languages
 
 
 
-
-
-
-## generateRandomString()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| length | number |  |
-| **Output** | `String`   |    |
-
-
-
-## 🔹 ModelLocation
-
-Parameters that tell you about the location an instance of a model.
-Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
 
 
 
@@ -333,6 +314,25 @@ Properties:
 |---|---|---|
 | parameters  | object |  |
 | data  | array |  |
+
+
+
+## 🔹 ModelLocation
+
+Parameters that tell you about the location an instance of a model.
+Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
 
 
 

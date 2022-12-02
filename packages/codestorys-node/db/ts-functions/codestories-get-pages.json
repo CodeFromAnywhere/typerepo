@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669884175074,
-  "updatedAt": 1669884175074,
+  "createdAt": 1669985533308,
+  "updatedAt": 1669985533308,
   "deletedAt": 0,
-  "createdFirstAt": 1669884175074,
+  "createdFirstAt": 1669985533308,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/codestoriesGetPages.ts",
   "commentsInside": [],
-  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}): Promise<undefined | ReaderWebPage[]> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const projectRelativePaths = await getProjectRelativePaths();\n\n  const codestoriesPaths =\n    projectRelativePaths?.filter((x) => x.endsWith(\".codestory.md\")) || [];\n\n  const pages: ReaderWebPage[] = (\n    await Promise.all(\n      codestoriesPaths.map(async (projectRelativeFilePath) => {\n        const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n        const markdownCallToActions: any[] = [];\n        const webMarkdownFile: WebMarkdownFile | null = fs.existsSync(\n          absolutePath\n        )\n          ? await readMarkdownFileToModel(\n              absolutePath,\n              \"codestorys-web\",\n              markdownCallToActions\n            )\n          : null;\n        if (!webMarkdownFile) return;\n\n        const readerWebPage: ReaderWebPage = {\n          pageData: {\n            projectRelativeFilePath,\n            imagePath:\n              webMarkdownFile.headerImage?.absoluteUrl ||\n              webMarkdownFile.headerImage?.relativePath ||\n              null,\n            shortDescription: webMarkdownFile?.headerSubTitle || null,\n          },\n          queryPath: projectRelativeFilePath.replaceAll(\"/\", \"-\"),\n          isMenuHidden: false,\n          menuTitle:\n            webMarkdownFile?.headerTitle ||\n            webMarkdownFile?.name ||\n            path.parse(projectRelativeFilePath).name,\n        };\n        return readerWebPage;\n      })\n    )\n  ).filter(notEmpty);\n\n  const filteredPages = pages.filter(\n    onlyUnique2<ReaderWebPage>((a, b) => a.queryPath === b.queryPath)\n  );\n\n  return filteredPages;\n}",
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}): Promise<undefined | ReaderWebPage[]> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const projectRelativePaths = await getProjectRelativePaths();\n\n  const codestoriesPaths =\n    projectRelativePaths?.filter((x) => x.endsWith(\".codestory.md\")) || [];\n\n  const pages: ReaderWebPage[] = (\n    await Promise.all(\n      codestoriesPaths.map(async (projectRelativeFilePath) => {\n        const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n        const markdownCallToActions: any[] = [];\n        const webMarkdownFile: WebMarkdownFile | null = fs.existsSync(\n          absolutePath\n        )\n          ? await readMarkdownFileToModel(\n              absolutePath,\n              \"codestorys-web\",\n              markdownCallToActions\n            )\n          : null;\n        if (!webMarkdownFile) return;\n\n        const readerWebPage: ReaderWebPage = {\n          pageData: {\n            projectRelativeFilePath,\n            imagePath:\n              webMarkdownFile.headerImage?.absoluteUrl ||\n              webMarkdownFile.headerImage?.relativePath ||\n              null,\n            shortDescription: webMarkdownFile?.headerSubTitle || null,\n            introDescription: webMarkdownFile?.markdown,\n          },\n          queryPath: projectRelativeFilePath.replaceAll(\"/\", \"-\"),\n          isMenuHidden: false,\n          menuTitle:\n            webMarkdownFile?.headerTitle ||\n            webMarkdownFile?.name ||\n            path.parse(projectRelativeFilePath).name,\n        };\n        return readerWebPage;\n      })\n    )\n  ).filter(notEmpty);\n\n  const filteredPages = pages.filter(\n    onlyUnique2<ReaderWebPage>((a, b) => a.queryPath === b.queryPath)\n  );\n\n  return filteredPages;\n}",
   "name": "codestoriesGetPages",
   "slug": "codestories-get-pages",
   "parameters": [
@@ -50,13 +50,13 @@
   },
   "maxIndentationDepth": 7,
   "size": {
-    "characters": 1747,
-    "lines": 54,
-    "bytes": 1747,
+    "characters": 1804,
+    "lines": 55,
+    "bytes": 1804,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 32,
-    "linesPerFile": 54,
+    "charactersPerLine": 33,
+    "linesPerFile": 55,
     "numberOfFiles": 1
   },
-  "id": "coovvwjjakizgcxpohdckchp"
+  "id": "sctaqsyabzuidqgijrzbetuf"
 }

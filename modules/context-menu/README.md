@@ -1,6 +1,6 @@
 # Context menu
 
-context-menu (`OperationClassification` undefined)
+context-menu (`OperationClassification` ui-cjs)
 
 
 

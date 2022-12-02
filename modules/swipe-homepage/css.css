@@ -525,8 +525,8 @@ video {
   top: 5rem;
 }
 
-.right-20 {
-  right: 5rem;
+.left-20 {
+  left: 5rem;
 }
 
 .bottom-10 {
@@ -566,6 +566,10 @@ video {
   width: 100vw;
 }
 
+.w-\[80vw\] {
+  width: 80vw;
+}
+
 .w-full {
   width: 100%;
 }
@@ -576,6 +580,10 @@ video {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
 }
 
 .snap-y {
@@ -690,4 +698,11 @@ video {
 .hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+@media (prefers-color-scheme: dark) {
+  .dark\:text-white {
+    --tw-text-opacity: 1;
+    color: rgb(255 255 255 / var(--tw-text-opacity));
+  }
 }

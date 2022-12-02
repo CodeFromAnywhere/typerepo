@@ -1,4 +1,4 @@
-import { TextJson } from "code-types";
+import { TextJson } from "markdown-types";
 import { SearchableExtension, SearchLevel } from "filename-conventions";
 export declare type BaseConfig = undefined | {
     basePath?: string | string[];

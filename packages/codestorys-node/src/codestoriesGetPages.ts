@@ -1,13 +1,11 @@
 import { getProjectRelativePaths, getTodoPaths } from "explore-project";
 import { getProjectRoot } from "get-path";
 import { notEmpty, onlyUnique2 } from "js-util";
-import { findEmbeds } from "marked-util";
 // relative
 import { fs, path } from "fs-util";
 import { ReaderWebPage } from "webpage-types";
-import { readMarkdownFile, readMarkdownFileToModel } from "read-markdown-file";
-import { getMarkdownIntro } from "markdown-parse-js";
-import { MarkdownEmbed, MarkdownParse, WebMarkdownFile } from "markdown-types";
+import { readMarkdownFileToModel } from "read-markdown-file";
+import { WebMarkdownFile } from "markdown-types";
 
 export const codestoriesGetPages = async (config?: {
   manualProjectRoot?: string;
@@ -44,6 +42,7 @@ export const codestoriesGetPages = async (config?: {
               webMarkdownFile.headerImage?.relativePath ||
               null,
             shortDescription: webMarkdownFile?.headerSubTitle || null,
+            introDescription: webMarkdownFile?.markdown,
           },
           queryPath: projectRelativeFilePath.replaceAll("/", "-"),
           isMenuHidden: false,

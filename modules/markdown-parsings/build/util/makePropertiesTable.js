@@ -1,2 +1,13 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.makePropertiesTable=void 0;var propertyToTableRow_1=require("./propertyToTableRow"),makePropertiesTable=function(e){return e&&e.length>0?"Properties: \n\n | Name | Type | Description |\n|---|---|---|\n".concat(e.map(propertyToTableRow_1.propertyToTableRow).join("\n"),"\n"):""};exports.makePropertiesTable=makePropertiesTable;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.makePropertiesTable = void 0;
+var propertyToTableRow_1 = require("./propertyToTableRow");
+var makePropertiesTable = function (properties) {
+    return properties && properties.length > 0
+        ? "Properties: \n\n | Name | Type | Description |\n|---|---|---|\n".concat(properties
+            .map(propertyToTableRow_1.propertyToTableRow)
+            .join("\n"), "\n")
+        : "";
+};
+exports.makePropertiesTable = makePropertiesTable;
 //# sourceMappingURL=makePropertiesTable.js.map

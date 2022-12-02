@@ -6,6 +6,17 @@ short-markdown-types (`OperationClassification` cjs)
 
 # Api reference
 
+## 🔹 ShortMarkdown
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| audioWithViewsArray  | array |  |
+| backgroundMusicTrack (optional) | array |  |
+
+
+
 ## 🔹 AudioWithViews
 
 Properties: 
@@ -16,17 +27,6 @@ Properties:
 | audioKey (optional) | string |  |
 | audioDurationMs (optional) | number |  |
 | viewEmbeds  | array |  |
-
-
-
-## 🔹 ShortMarkdown
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| audioWithViewsArray  | array |  |
-| backgroundMusicTrack (optional) | array |  |
 
 
 

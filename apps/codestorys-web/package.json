@@ -34,7 +34,7 @@
     "markdown-reader-types": "0.0.1",
     "next-a-link": "0.0.1",
     "asset-view": "0.0.0",
-    "swipe-homepage": "0.0.0",
+    "swipe-homepage": "1.0.0",
     "codestorys-node": "0.0.1"
   },
   "devDependencies": {
@@ -63,7 +63,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/reader/codestorys-web/src/pages/_app.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/reader/codestorys-web/src/pages/[...paths].tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
       ],
       "lintProblems": []
     },

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669962351150,
-  "updatedAt": 1669962351150,
+  "createdAt": 1669985935428,
+  "updatedAt": 1669985935428,
   "deletedAt": 0,
-  "createdFirstAt": 1669962351150,
+  "createdFirstAt": 1669985935428,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/validateInput.ts",
   "commentsInside": [],
-  "rawText": " <TFunctionName extends keyof typeof sdk>(\n  functionName: TFunctionName,\n  parameters: undefined | any[],\n  tsFunction: TsFunction\n): ValidationResult => {\n  const invalidParameters =\n    tsFunction.parameters\n      ?.map((parameter, index) => {\n        if (!parameter.schema) return;\n\n        const validate = ajv.compile(parameter.schema);\n\n        const value = parameters?.[index];\n\n        const isValid = validate(value);\n\n        if (isValid) return;\n\n        return { isValid, parameter, value };\n      })\n      .filter(notEmpty) || [];\n\n  const isValid = invalidParameters.length === 0;\n  if (!isValid) {\n    log(\n      `According to the schema, you have given invalid arguments to the function`,\n      { type: \"warning\" }\n    );\n    console.dir({ invalidParameters }, { depth: 99 });\n  }\n\n  return { isValid };\n}",
+  "rawText": " <TFunctionName extends keyof typeof sdk>(\n  functionName: TFunctionName,\n  parameters: undefined | any[],\n  tsFunction: TsFunction\n): ValidationResult => {\n  const invalidParameters =\n    tsFunction.parameters\n      ?.map((parameter, index) => {\n        if (!parameter.schema) return;\n\n        // NB: we have a problem now because of the references missing. Recursively including all references every time can be hard though, that is another indexation step probably... May also become quite slow given the side of these schemas. We can either try and create a mapped validation object that includes the schemas for every function or we can try to use typescript-json instead, that may be easier, and better since we already need that for the backend as well. The last option would be to validate it ourselves using our own SimplifiedSchema. A validator for that would be useful anyway because it can also be used at the frontend with SimplifiedSchemaForm.\n        // const validate = ajv.compile(parameter.schema);\n        // const isValid = validate(value);\n\n        const value = parameters?.[index];\n\n        const isValid = true;\n        if (isValid) return;\n\n        return { isValid, parameter, value };\n      })\n      .filter(notEmpty) || [];\n\n  const isValid = invalidParameters.length === 0;\n  if (!isValid) {\n    log(\n      `According to the schema, you have given invalid arguments to the function`,\n      { type: \"warning\" }\n    );\n    console.dir({ invalidParameters }, { depth: 99 });\n  }\n\n  return { isValid };\n}",
   "name": "validateInput",
   "slug": "validate-input",
   "parameters": [],
@@ -128,13 +128,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 961,
-    "lines": 33,
-    "bytes": 961,
+    "characters": 1667,
+    "lines": 34,
+    "bytes": 1667,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 29,
-    "linesPerFile": 33,
+    "charactersPerLine": 49,
+    "linesPerFile": 34,
     "numberOfFiles": 1
   },
-  "id": "whfzrozvhopbcpyfskuyyuki"
+  "id": "cuibyniohcvpikyllnwsrlsi"
 }

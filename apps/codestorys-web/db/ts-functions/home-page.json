@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669884196994,
-  "updatedAt": 1669884196994,
+  "createdAt": 1669985422894,
+  "updatedAt": 1669985422894,
   "deletedAt": 0,
-  "createdFirstAt": 1669884196994,
+  "createdFirstAt": 1669985422894,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/HomePage.tsx",
   "commentsInside": [],
-  "rawText": " (props: MarkdownReaderPageProps) => {\n  const items: SwipeItem[] = props.menu.flat\n    .map((item) => {\n      // TODO: use useAsset and extrahere a function from there to get the actual URL from the imagePath... pit it on image.\n      const swipeItem: SwipeItem = {\n        description: item.pageData.shortDescription || \"No description\",\n        title: item.menuTitle || \"No title\",\n        image: item.pageData.imagePath || \"\",\n        href: item.queryPath,\n      };\n\n      return swipeItem;\n    })\n    .concat({\n      title: \"What's a codestory?\",\n      image: \"\",\n      description:\n        \"It's a story about my coding session, where I mention my observations, my ideas, thought processes, choices, implementation details, and results.\",\n      href: \"info\",\n    });\n\n  console.log({ items });\n  return <SwipeHomepage items={items} ctas={[]} />;\n}",
+  "rawText": " (props: MarkdownReaderPageProps) => {\n  const items: SwipeItem[] = props.menu.flat.map((item) => {\n    // TODO: use useAsset and extrahere a function from there to get the actual URL from the imagePath... pit it on image.\n    const swipeItem: SwipeItem = {\n      description: item.pageData.shortDescription || undefined,\n\n      title: item.menuTitle || \"No title\",\n      imagePath: item.pageData.imagePath\n        ? getSrc(\n            { relativePath: item.pageData.imagePath },\n            item.pageData.projectRelativeFilePath,\n            !isDev\n          ).src\n        : undefined,\n      href: item.queryPath,\n      markdown: item.pageData.imagePath\n        ? undefined\n        : item.pageData.introDescription || undefined,\n      markdownSourcePath: item.pageData.projectRelativeFilePath,\n    };\n\n    return swipeItem;\n  });\n\n  const allItems = items.concat({\n    title: \"What's a codestory?\",\n    markdownSourcePath: __dirname,\n    isMarkdownNoLimit: true,\n    markdown:\n      \"A **Code Story** is a story about a coding session, where the developer mentions their observations, ideas, thought processes, choices, implementation details, and results. The reason for a codestory is multifold: It can be a good way for the developer to practice English, but it can also improve team communication a lot. Besides that, it is a great marketing tool if you're building a product that should attract developers. \\n\\nAll of these mentioned reasons was my motivation to build a platform for it. If you want to create your own codestories blog, check out [typerepo](https://typerepo.com). It is included in there!\",\n    href: \"info\",\n  });\n\n  return <SwipeHomepage items={allItems} ctas={[]} />;\n}",
   "name": "HomePage",
   "slug": "home-page",
   "parameters": [
@@ -173,15 +173,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 4,
+  "maxIndentationDepth": 6,
   "size": {
-    "characters": 853,
-    "lines": 24,
-    "bytes": 853,
+    "characters": 1695,
+    "lines": 35,
+    "bytes": 1695,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 36,
-    "linesPerFile": 24,
+    "charactersPerLine": 48,
+    "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "eytdzslecmdrhnioaeoywaki"
+  "id": "xgxsdcxlyolrekbwqflolzdw"
 }

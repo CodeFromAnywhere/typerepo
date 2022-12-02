@@ -1,8 +1,51 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.simplifiedSchemaToMarkdownString=void 0;var js_util_1=require("js-util"),markdown_parse_js_1=require("markdown-parse-js"),makePropertiesTable_1=require("./util/makePropertiesTable"),noNewlines_1=require("./util/noNewlines"),simplifiedSchemaToMarkdownString=function(e,
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.simplifiedSchemaToMarkdownString = void 0;
+var js_util_1 = require("js-util");
+var markdown_parse_js_1 = require("markdown-parse-js");
+var makePropertiesTable_1 = require("./util/makePropertiesTable");
+var noNewlines_1 = require("./util/noNewlines");
+/**
+ * Should render a string with one or more markdown tables to represent the simplifiedSchema
+ *
+ */
+var simplifiedSchemaToMarkdownString = function (simplifiedSchema, 
 /**
  * if not given, no title is printed
  */
-i,r,
+name, isRequired, 
 /** the headers level, defaults to 1 */
-n){if(!e)return"";var t=e.circularRefName?"[".concat(e.circularRefName,"](#").concat((0,markdown_parse_js_1.getImplicitId)(e.circularRefName),")"):"",a=e.enum?"(Enum: ".concat(e.enum.map(String).join(" | "),") "):"",o="".concat(r?"":" (optional)"),c=i?i.replaceAll("\n",""):void 0,s="".concat(e.type).concat(a).concat(t);return[i?"".concat("#".repeat(n||1)," ").concat(c).concat(o,": ").concat(s):void 0,e.items?e.items.map((function(e){return"- ".concat(e.name,": ").concat(e.schema.type)})).join("\n"):"",e.description?"> ".concat((0,noNewlines_1.noNewlines)(e.description)):"",(0,makePropertiesTable_1.makePropertiesTable)(e.properties)].filter(js_util_1.notEmpty).join("\n\n")};exports.simplifiedSchemaToMarkdownString=simplifiedSchemaToMarkdownString;
+level) {
+    if (!simplifiedSchema)
+        return "";
+    var refLinkString = simplifiedSchema.circularRefName
+        ? "[".concat(simplifiedSchema.circularRefName, "](#").concat((0, markdown_parse_js_1.getImplicitId)(simplifiedSchema.circularRefName), ")")
+        : "";
+    var enumString = simplifiedSchema.enum
+        ? "(Enum: ".concat(simplifiedSchema.enum.map(String).join(" | "), ") ")
+        : "";
+    var optionalSubtitle = "".concat(isRequired ? "" : " (optional)");
+    var nameWithoutNewlines = name ? name.replaceAll("\n", "") : undefined;
+    var type = "".concat(simplifiedSchema.type).concat(enumString).concat(refLinkString);
+    var title = name
+        ? "".concat("#".repeat(level || 1), " ").concat(nameWithoutNewlines).concat(optionalSubtitle, ": ").concat(type)
+        : undefined;
+    var arrayString = simplifiedSchema.items
+        ? simplifiedSchema.items
+            .map(function (item) {
+            var itemString = "- ".concat(item.name, ": ").concat(item.schema.type);
+            return itemString;
+        })
+            .join("\n")
+        : "";
+    var description = simplifiedSchema.description
+        ? "> ".concat((0, noNewlines_1.noNewlines)(simplifiedSchema.description))
+        : "";
+    var objectString = (0, makePropertiesTable_1.makePropertiesTable)(simplifiedSchema.properties);
+    var togetherString = [title, arrayString, description, objectString]
+        .filter(js_util_1.notEmpty)
+        .join("\n\n");
+    return togetherString;
+};
+exports.simplifiedSchemaToMarkdownString = simplifiedSchemaToMarkdownString;
 //# sourceMappingURL=simplifiedSchemaToMarkdownString.js.map

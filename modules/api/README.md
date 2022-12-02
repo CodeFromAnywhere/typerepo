@@ -7,16 +7,6 @@ Operation that makes the typerepo API exposable on the frontend in a completely 
 
 
 
-# Docs
-
-<details><summary>demo.md</summary>
-    
-  Please check this video for an explanation about the queries
-
-https://youtu.be/gGfGVvRn5xw
-
-  </details>
-
 # Api reference
 
 ## 📄 queries (exported const)
