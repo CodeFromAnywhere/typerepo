@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200475392,
-  "updatedAt": 1669200475392,
+  "createdAt": 1669962176992,
+  "updatedAt": 1669962176992,
   "deletedAt": 0,
-  "createdFirstAt": 1669200475392,
+  "createdFirstAt": 1669962176992,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  item: TsFunction | TsVariable | TsInterface,\n  conventionFile: \"test\" | \"cli\"\n) => {\n  const fileId = getSrcRelativeFileId(item.operationRelativeTypescriptFilePath);\n  return hasSubExtension(fileId, [conventionFile], true);\n}",
   "description": "",
-  "id": "vswfoqdejdowegtbvztvljsi"
+  "id": "fclruntshmasfwibcoznwrlm"
 }

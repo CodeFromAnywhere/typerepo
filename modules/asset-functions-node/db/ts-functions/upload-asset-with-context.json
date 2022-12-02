@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384218997,
-  "updatedAt": 1669384218997,
+  "createdAt": 1669962019132,
+  "updatedAt": 1669962019132,
   "deletedAt": 0,
-  "createdFirstAt": 1669384218997,
+  "createdFirstAt": 1669962019132,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -3013,6 +3013,14 @@
                                 "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                                 "type": "string"
                               }
+                            },
+                            {
+                              "name": "absoluteUrl",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
+                                "type": "string"
+                              }
                             }
                           ],
                           "type": "object"
@@ -4195,5 +4203,5 @@
     "linesPerFile": 62,
     "numberOfFiles": 1
   },
-  "id": "wryugcgxmzozvnqwvchpthog"
+  "id": "oiebchwijqtsfpslhweydsva"
 }

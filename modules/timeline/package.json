@@ -29,41 +29,44 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "lintProblems": []
+      "lintProblems": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/search/timeline/src/TimelineItemType.ts. Error: Error: Unknown type \"function\""
+      ]
     },
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668335168172,
+    "lastRebuildAt": 1669884652719,
     "markdown": "# ⏰ Timeline\n\n- find statements in markdown (`> xxx`)\n- find functions, interfaces, variables and show them\n- find todos inside (doc) comments and the file around it\n- find type build errors from typescript and the file around it\n- show the above in a tik-tok kinda timeline that you can swipe (or click to enter the codebase)\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
     "hasGeneratedDependenciesIndexed": false,
     "hasGeneratedImportsIndexed": false,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 2,
-        "lines": 79,
-        "characters": 2243,
-        "bytes": 2243
+        "lines": 90,
+        "characters": 2626,
+        "bytes": 2626
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 116,
-        "characters": 3312,
-        "bytes": 3312
+        "lines": 120,
+        "characters": 3567,
+        "bytes": 3567
       },
       "textSize": {
         "numberOfFiles": 3,
-        "lines": 57,
-        "characters": 2514,
-        "bytes": 2514
+        "lines": 68,
+        "characters": 2669,
+        "bytes": 2669
       },
       "size": {
-        "bytes": 8069,
-        "characters": 8069,
-        "lines": 252,
+        "bytes": 8862,
+        "characters": 8862,
+        "lines": 278,
         "numberOfFiles": 7
       }
     },
     "folderNameIndexed": "timeline",
-    "relativeOperationLocationPathIndexed": "operations/tools/search",
+    "relativeOperationLocationPathIndexed": "operations/tools/purpose/search",
     "classificationIndexed": "ui-esm",
     "coreDependenciesIndexed": [],
     "operationDependenciesIndexed": [
@@ -71,10 +74,10 @@
       "Div",
       "MarkdownCodeblock",
       "api",
+      "PostableProperties",
       "AugmentedAnyModelType",
       "Person",
       "MediaPost",
-      "Postable",
       "OpenableFile"
     ],
     "packageDependenciesIndexed": []
@@ -87,6 +90,7 @@
     "model-types": "0.0.1",
     "peer-types": "0.0.1",
     "social-media-types": "0.0.1",
-    "vscode-open": "0.0.1"
+    "vscode-open": "0.0.1",
+    "markdown-types": "0.0.1"
   }
 }

@@ -1,4 +1,7 @@
 export * from "./copyStaticAssets";
+export * from "./docsGetPages";
+export * from "./docsGetStaticPaths";
+export * from "./docsGetStaticProps";
 export * from "./getAllMarkdownReaderPages";
 export * from "./getChildren";
 export * from "./getFolderExplorationInfo";

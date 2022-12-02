@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384302803,
-  "updatedAt": 1669384302803,
+  "createdAt": 1669883347166,
+  "updatedAt": 1669883347166,
   "deletedAt": 0,
-  "createdFirstAt": 1669384302803,
+  "createdFirstAt": 1669883347166,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const result = await getProjectRelativePaths();\n\n  writeToAssets(__filename, result, \"getProjectRelativePaths.json\");\n}",
   "description": "",
-  "id": "ugghggsfyjiduiifyaebqmus"
+  "id": "vgsebdfhcmyndnnhguxqktxd"
 }

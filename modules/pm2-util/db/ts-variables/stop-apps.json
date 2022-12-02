@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773984723,
-  "updatedAt": 1668773984723,
+  "createdAt": 1669883412274,
+  "updatedAt": 1669883412274,
   "deletedAt": 0,
-  "createdFirstAt": 1668773984723,
+  "createdFirstAt": 1669883412274,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (operationNames: string[]) => {\n  return pm2ConnectDisconnect((resolve) => {\n    operationNames.map((operationName) => {\n      stop(`${appPrefix}${operationName}`, (error, proc) => {});\n    });\n\n    resolve({ isSuccessful: true });\n  });\n}",
   "description": "Stops an app with pm2\n\nTODO: for some reason i'm getting `TypeError: Cannot read properties of undefined (reading '_operate')` and I can't find why because all other commands mostly work and I'm doing it the same way.",
-  "id": "jtlyjxlkenkejhshycqwvlga"
+  "id": "ptwwcqhncgqnjulgxeplbcue"
 }

@@ -58,6 +58,7 @@
   "language": "english",
   "slug": "db-web",
   "operation": {
+    "port": 42002,
     "indirectDependencies": [
       "db-crud"
     ],
@@ -74,7 +75,7 @@
     "folderNameIndexed": "db-web",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669276132322,
+    "lastRebuildAt": 1669884060884,
     "operationDependenciesIndexed": [
       "queries",
       "AuthenticationLayout",
@@ -100,27 +101,27 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 168,
-        "characters": 5217,
-        "bytes": 5217
+        "lines": 166,
+        "characters": 5219,
+        "bytes": 5219
       },
       "dataSize": {
-        "numberOfFiles": 9,
-        "lines": 217,
-        "characters": 5798,
-        "bytes": 5798
+        "numberOfFiles": 3,
+        "lines": 157,
+        "characters": 4376,
+        "bytes": 4376
       },
       "textSize": {
-        "numberOfFiles": 5,
-        "lines": 210,
-        "characters": 7854,
-        "bytes": 7854
+        "numberOfFiles": 4,
+        "lines": 89,
+        "characters": 2761,
+        "bytes": 2761
       },
       "size": {
-        "bytes": 18869,
-        "characters": 18869,
-        "lines": 595,
-        "numberOfFiles": 19
+        "bytes": 12356,
+        "characters": 12356,
+        "lines": 412,
+        "numberOfFiles": 12
       }
     },
     "hasGeneratedImportsIndexed": false

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669291082321,
-  "updatedAt": 1669291082321,
+  "createdAt": 1669884199157,
+  "updatedAt": 1669884199157,
   "deletedAt": 0,
-  "createdFirstAt": 1669291082321,
+  "createdFirstAt": 1669884199157,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: { children: React.ReactNode }) => {\n  return (\n    <Div>\n      <Div className=\"h-32 bg-yellow-700 flex flex-col items-center justify-center\">\n        <P className=\"text-white text-3xl\">Codestories</P>\n        <P className=\"text-white\">The adventures of a brave coder</P>\n      </Div>\n      {props.children}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "usqvezfpzuihkseinjaeaxcl"
+  "id": "rjmeyaicanivumwlgqnmbeue"
 }

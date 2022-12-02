@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384835024,
-  "updatedAt": 1669384835024,
+  "createdAt": 1669884356436,
+  "updatedAt": 1669884356436,
   "deletedAt": 0,
-  "createdFirstAt": 1669384835024,
+  "createdFirstAt": 1669884356436,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(port: number): Promise<boolean> => {\n  return new Promise<boolean>((resolve, reject) => {\n    const server = net.createServer();\n\n    server.once(\"error\", function (err) {\n      if ((err as any).code === \"EADDRINUSE\") {\n        resolve(true);\n      }\n    });\n\n    server.once(\"listening\", function () {\n      // close the server if listening doesn't fail\n      server.close();\n\n      resolve(false);\n    });\n\n    server.listen(port);\n  });\n}",
   "description": "Checks if a port is used or not",
-  "id": "idanyqpiuxmlhclxjdammpsp"
+  "id": "kkllsjvtcrpipatkusaqvdoz"
 }

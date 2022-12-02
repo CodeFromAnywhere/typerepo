@@ -92,6 +92,7 @@ Properties:
 | temporaryDestination (optional) | string |  |
 | projectRelativeReferencingFilePath (optional) | string |  |
 | modelName (optional) | string |  |
+| absoluteUrl (optional) | string |  |
 
 
 
@@ -119,9 +120,9 @@ Properties:
 | temporaryDestination (optional) | string |  |
 | projectRelativeReferencingFilePath (optional) | string |  |
 | modelName (optional) | string |  |
+| absoluteUrl (optional) | string |  |
 | blobPath (optional) | string |  |
 | type (optional) | string |  |
-| absoluteUrl (optional) | string |  |
 | originalFilename (optional) | string |  |
 | sizeBytes (optional) | number |  |
 | blob (optional) | object |  |

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384682411,
-  "updatedAt": 1669384682411,
+  "createdAt": 1669639185561,
+  "updatedAt": 1669639185561,
   "deletedAt": 0,
-  "createdFirstAt": 1669384682411,
+  "createdFirstAt": 1669639185561,
   "id": "finalcreatebundleconfig",
   "name": "FinalCreateBundleConfig",
   "slug": "finalcreatebundleconfig",
@@ -107,10 +107,6 @@
             "$ref": "#/definitions/ProjectRelativeFolderPath"
           },
           "description": "paths to image folders that should randomly be used as default headers or footers in the generated markdown."
-        },
-        "deploymentHostname": {
-          "type": "string",
-          "description": "Used to determine which images to show"
         },
         "readmeRelativeFilePath": {
           "$ref": "#/definitions/ProjectRelativeFilePath",
@@ -551,14 +547,6 @@
               }
             ],
             "type": "array"
-          }
-        },
-        {
-          "name": "deploymentHostname",
-          "required": false,
-          "schema": {
-            "fullComment": "Used to determine which images to show",
-            "type": "string"
           }
         },
         {

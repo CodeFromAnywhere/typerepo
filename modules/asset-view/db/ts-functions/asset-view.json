@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384242712,
-  "updatedAt": 1669384242712,
+  "createdAt": 1669887693998,
+  "updatedAt": 1669887693998,
   "deletedAt": 0,
-  "createdFirstAt": 1669384242712,
+  "createdFirstAt": 1669887693998,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -95,6 +95,14 @@
                   }
                 },
                 {
+                  "name": "absoluteUrl",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
+                    "type": "string"
+                  }
+                },
+                {
                   "name": "blobPath",
                   "required": false,
                   "schema": {
@@ -114,14 +122,6 @@
                       "other"
                     ],
                     "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
-                    "type": "string"
-                  }
-                },
-                {
-                  "name": "absoluteUrl",
-                  "required": false,
-                  "schema": {
-                    "fullComment": "Can be available in case it's an asset from an external source URL for example within md.",
                     "type": "string"
                   }
                 },
@@ -228,5 +228,5 @@
     "linesPerFile": 71,
     "numberOfFiles": 1
   },
-  "id": "wpnnzrkeorggoffzmnttkjpd"
+  "id": "ypvtferhaiiksusobmpnowac"
 }

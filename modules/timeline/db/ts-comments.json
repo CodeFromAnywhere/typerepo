@@ -1,0 +1,34 @@
+[
+  {
+    "createdAt": 1669884650038,
+    "updatedAt": 1669884650038,
+    "deletedAt": 0,
+    "createdFirstAt": 1669884650038,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/TimelineItemType.ts",
+    "comment": "Any data that could map to the presentational type",
+    "rawStatement": "export type TimelineData = {\n  postable?: PostableProperties;\n  mediaPost?: MediaPost;\n  openableFile?: OpenableFile;\n  person?: Person;\n  anyModel?: AugmentedAnyModelType;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 7,
+    "lastLine": 9,
+    "id": "gnuchvwgxbxfvpmqenktanol"
+  },
+  {
+    "createdAt": 1669884650038,
+    "updatedAt": 1669884650038,
+    "deletedAt": 0,
+    "createdFirstAt": 1669884650038,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/TimelineItemType.ts",
+    "comment": "Presentational type",
+    "rawStatement": "export type TimelineItemType = {\n  audioUrl?: string;\n  videoUrl?: string;\n  imageUrl?: string;\n  markdown?: string;\n  component?: () => JSX.Element;\n  // and ensure it has interaction\n  linkUrl?: string;\n  projectRelativeFilePath?: string;\n  line?: number;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 18,
+    "lastLine": 20,
+    "id": "nweyhrfvdzkxfefxqxljctbj"
+  }
+]

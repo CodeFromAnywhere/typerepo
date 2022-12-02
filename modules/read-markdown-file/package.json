@@ -41,9 +41,9 @@
     "classificationIndexed": "node-cjs",
     "coreDependenciesIndexed": [],
     "folderNameIndexed": "read-markdown-file",
-    "hasGeneratedDependenciesIndexed": false,
+    "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669384607658,
+    "lastRebuildAt": 1669639015703,
     "operationDependenciesIndexed": [
       "canRead",
       "fs",
@@ -52,12 +52,17 @@
       "MarkdownParse",
       "mdToJsonParse",
       "ExtendedMarkdownProperties",
+      "MarkdownCallToAction",
       "PostableProperties",
       "WebMarkdownFile",
       "WebMarkdownProperties",
+      "operations",
+      "fs",
       "getLastFolder",
       "path",
+      "notEmpty",
       "omitUndefinedValues",
+      "sum",
       "findOperationBasePath",
       "getProjectRoot",
       "makeRelative",
@@ -70,26 +75,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 2,
-        "lines": 93,
-        "characters": 3114,
-        "bytes": 3114
+        "lines": 163,
+        "characters": 5441,
+        "bytes": 5441
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 130,
-        "characters": 3625,
-        "bytes": 3625
+        "lines": 135,
+        "characters": 3773,
+        "bytes": 3773
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 42,
-        "characters": 645,
-        "bytes": 645
+        "lines": 46,
+        "characters": 918,
+        "bytes": 918
       },
       "size": {
-        "bytes": 7384,
-        "characters": 7384,
-        "lines": 265,
+        "bytes": 10132,
+        "characters": 10132,
+        "lines": 344,
         "numberOfFiles": 5
       }
     },

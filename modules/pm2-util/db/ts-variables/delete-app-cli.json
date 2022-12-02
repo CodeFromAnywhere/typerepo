@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773967852,
-  "updatedAt": 1668773967852,
+  "createdAt": 1669883384644,
+  "updatedAt": 1669883384644,
   "deletedAt": 0,
-  "createdFirstAt": 1668773967852,
+  "createdFirstAt": 1669883384644,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const [operationName] = process.argv.slice(2);\n  console.log(`going to delete app ${operationName}`);\n  const result = await deleteApp(operationName);\n  console.log({ result });\n}",
   "description": "Arguments\n- Operation Name",
-  "id": "ndmnuxrcreefrsahzyoflcdo"
+  "id": "eiajvmwbzakzeuaxiccqtyvs"
 }

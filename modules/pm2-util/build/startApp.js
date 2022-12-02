@@ -45,34 +45,34 @@ var get_path_1 = require("get-path");
 var get_package_json_1 = require("get-package-json");
 var types_1 = require("./types");
 var pm2ConnectDisconnect_1 = require("./pm2ConnectDisconnect");
-var port_conventions_1 = require("port-conventions");
 var peer_functions_1 = require("peer-functions");
 var startApp = function (operationName, isDev) { return __awaiter(void 0, void 0, void 0, function () {
     var operationFolderPath, packageJson, port, isAlready, action, result;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
+    var _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
             case 0: return [4 /*yield*/, (0, get_path_1.getOperationPath)(operationName)];
             case 1:
-                operationFolderPath = _a.sent();
+                operationFolderPath = _b.sent();
                 if (!operationFolderPath) {
                     return [2 /*return*/, { isSuccessful: false, message: "No operation folder path" }];
                 }
                 return [4 /*yield*/, (0, get_package_json_1.getPackageJson)({ operationFolderPath: operationFolderPath })];
             case 2:
-                packageJson = _a.sent();
+                packageJson = _b.sent();
                 if (!packageJson) {
                     return [2 /*return*/, { isSuccessful: false, message: "no package json found" }];
                 }
-                port = port_conventions_1.ports[operationName];
+                port = (_a = packageJson === null || packageJson === void 0 ? void 0 : packageJson.operation) === null || _a === void 0 ? void 0 : _a.port;
                 if (!port) {
                     return [2 /*return*/, {
                             isSuccessful: false,
-                            message: "Operation must be in port-conventions ports object",
+                            message: "Operation must have a port assigned",
                         }];
                 }
                 return [4 /*yield*/, (0, peer_functions_1.isPortUsed)(port)];
             case 3:
-                isAlready = _a.sent();
+                isAlready = _b.sent();
                 if (isAlready) {
                     return [2 /*return*/, {
                             isSuccessful: true,
@@ -96,7 +96,7 @@ var startApp = function (operationName, isDev) { return __awaiter(void 0, void 0
                 };
                 return [4 /*yield*/, (0, pm2ConnectDisconnect_1.pm2ConnectDisconnect)(action)];
             case 4:
-                result = _a.sent();
+                result = _b.sent();
                 return [2 /*return*/, result];
         }
     });

@@ -32,11 +32,14 @@
     "asset-type": "0.0.1",
     "frontmatter-util": "0.0.1",
     "markdown-types": "0.0.1",
-    "matter-types": "0.0.1"
+    "matter-types": "0.0.1",
+    "short-markdown-types": "0.0.1",
+    "asset-view": "0.0.0",
+    "use-on-screen": "0.0.0"
   },
   "devDependencies": {
     "@types/marked": "^4.0.7",
-    "@types/react": "^17.0.33",
+    "@types/react": "17.0.30",
     "@types/react-dom": "^17.0.10",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -59,7 +62,8 @@
   "slug": "writer-input",
   "operation": {
     "indirectDependencies": [
-      "writer-functions"
+      "writer-functions",
+      "short-markdown-parser-node"
     ],
     "buildResultIndexed": {
       "buildSucceeded": true,
@@ -74,6 +78,13 @@
       "useState",
       "useState",
       "useState",
+      "useState",
+      "useEffect",
+      "useRef",
+      "useEffect",
+      "useState",
+      "useEffect",
+      "useState",
       "useEffect",
       "useEffect",
       "useRef",
@@ -84,7 +95,7 @@
     "folderNameIndexed": "writer-input",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669385177941,
+    "lastRebuildAt": 1669962512044,
     "operationDependenciesIndexed": [
       "ClickableIcon",
       "Div",
@@ -118,6 +129,20 @@
       "flattenMarkdownChunks",
       "Div",
       "MarkdownParse",
+      "getSrc",
+      "notEmpty",
+      "Div",
+      "ShortMarkdown",
+      "Div",
+      "P",
+      "ViewEmbed",
+      "getSrc",
+      "isDev",
+      "useOnScreen",
+      "queries",
+      "FancyLoader",
+      "Div",
+      "DbModels",
       "createStore",
       "SubtextConfig",
       "SubwordConfig",
@@ -200,28 +225,28 @@
     "markdown": "# Writer Input\n\ncomponent to create a writer input\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 30,
-        "lines": 2326,
-        "characters": 66565,
-        "bytes": 66565
+        "numberOfFiles": 34,
+        "lines": 2678,
+        "characters": 76547,
+        "bytes": 76547
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 246,
-        "characters": 6303,
-        "bytes": 6303
+        "lines": 267,
+        "characters": 6799,
+        "bytes": 6799
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 608,
-        "characters": 17169,
-        "bytes": 17169
+        "lines": 680,
+        "characters": 19322,
+        "bytes": 19322
       },
       "size": {
-        "bytes": 90037,
-        "characters": 90037,
-        "lines": 3180,
-        "numberOfFiles": 34
+        "bytes": 102668,
+        "characters": 102668,
+        "lines": 3625,
+        "numberOfFiles": 38
       }
     },
     "hasGeneratedImportsIndexed": false

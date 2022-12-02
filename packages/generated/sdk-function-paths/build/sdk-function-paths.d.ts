@@ -83,8 +83,6 @@ export declare const sdkFunctionPaths: {
     readableSize: string;
     removeTokenIfPresent: string;
     compressAsset: string;
-    convertToMp3: string;
-    convertToMp4: string;
     deleteReferencedAsset: string;
     downloadRemoteAsset: string;
     findAbsoluteAssetPathFromReference: string;
@@ -113,6 +111,7 @@ export declare const sdkFunctionPaths: {
     Video: string;
     WebcamCapture: string;
     AssetView: string;
+    getSrc: string;
     InteractiveAsset: string;
     itemGetBackendAssetUrl: string;
     ModelItemAssetView: string;
@@ -154,6 +153,9 @@ export declare const sdkFunctionPaths: {
     getCompileErrors: string;
     getTypescriptErrorsFromFiles: string;
     writeBuildErrors: string;
+    useContextMenu: string;
+    useContextPopper: string;
+    useContext: string;
     camelCase: string;
     capitalCase: string;
     capitaliseFirstLetter: string;
@@ -231,6 +233,7 @@ export declare const sdkFunctionPaths: {
     tsInterfaceToDbMenu: string;
     upsertDbModel: string;
     validateInput: string;
+    validateResult: string;
     wrapFunction: string;
     filterInterfacesFromOperationNames: string;
     getDbModelsFromOperations: string;
@@ -248,6 +251,8 @@ export declare const sdkFunctionPaths: {
     getTodoPaths: string;
     hasSameProjectPath: string;
     FancyLoader: string;
+    convertToMp3: string;
+    convertToMp4: string;
     getFileType: string;
     MatchingText: string;
     PathSearchResults: string;
@@ -656,6 +661,9 @@ export declare const sdkFunctionPaths: {
     upMarkdownChunkLevelRecursively: string;
     copyStaticAssetsCli: string;
     copyStaticAssets: string;
+    docsGetPages: string;
+    docsGetStaticPaths: string;
+    docsGetStaticProps: string;
     getAllMarkdownReaderPages: string;
     getChildren: string;
     getFolderExplorationInfo: string;
@@ -908,6 +916,11 @@ export declare const sdkFunctionPaths: {
     isValidEntry: string;
     toQueryString: string;
     runChildProcess: string;
+    sayDutch: string;
+    sayLanguage: string;
+    sayNepali: string;
+    saySomething: string;
+    textToMp3: string;
     findFirstCommentTypes: string;
     getDataParameterNames: string;
     getPossibleReferenceParameterNames: string;
@@ -944,6 +957,13 @@ export declare const sdkFunctionPaths: {
     updateMeWithContext: string;
     setJsonKey: string;
     setKeyAtLocation: string;
+    findAudioWithViewsArray: string;
+    markdownParseToShortMarkdown: string;
+    shortMarkdownToMarkdownParse: string;
+    augmentShortMarkdown: string;
+    generateAugmentedShortMarkdownTest: string;
+    generateAugmentedShortMarkdown: string;
+    getOrGenerateShortMarkdown: string;
     ArrayForm: string;
     FormContainer: string;
     getReferencedModelDataItem: string;
@@ -958,6 +978,7 @@ export declare const sdkFunctionPaths: {
     parseIfJson: string;
     parsePrimitiveJson: string;
     stringToJson: string;
+    SwipeHomepage: string;
     getChunkBegin: string;
     getChunkEnd: string;
     getEncoding: string;
@@ -967,12 +988,14 @@ export declare const sdkFunctionPaths: {
     isFirstByteOf4ByteChar: string;
     isLaterByteOfUtf8: string;
     isText: string;
+    Timeline: string;
     Tooltip: string;
     tryParseJson: string;
     getAllTsMorphSourceFiles: string;
     getHasGeneric: string;
     getTsMorphProject: string;
     createCodeblockMarkdown: string;
+    useOnScreen: string;
     useCustomUrlStore: string;
     getOpenableFilePath: string;
     vscodeOpen: string;
@@ -1026,6 +1049,9 @@ export declare const sdkFunctionPaths: {
     MarkedToken: string;
     omitSpecialCharactersFromStart: string;
     parseTextContentToHtmlString: string;
+    ShortMarkdownPlayer: string;
+    ShortMarkdownSlide: string;
+    ShortStudio: string;
     SmartContentEditableDivInput: string;
     SpannedSentence: string;
     SubtextContainer: string;
@@ -1036,6 +1062,7 @@ export declare const sdkFunctionPaths: {
     trimAround: string;
     trimLeft: string;
     TypescriptCompletions: string;
+    useMultiAudio: string;
     WriterConfigForm: string;
     WriterInput: string;
 };

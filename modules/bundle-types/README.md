@@ -26,6 +26,7 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | name  | string |  |
+| deploymentHostname (optional) | string |  |
 | description (optional) | string |  |
 | emoji (optional) | string |  |
 | primaryColor (optional) | string |  |
@@ -56,6 +57,7 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | name  | string |  |
+| deploymentHostname (optional) | string |  |
 | description (optional) | string |  |
 | emoji (optional) | string |  |
 | primaryColor (optional) | string |  |
@@ -100,7 +102,6 @@ Properties:
 | dependencies (optional) | array |  |
 | docsRelativeFolderPath (optional) | object |  |
 | imagesProjectRelativeFolderPaths (optional) | array |  |
-| deploymentHostname (optional) | string |  |
 | readmeRelativeFilePath (optional) | string |  |
 | foldersFromRepo (optional) | array |  |
 
@@ -157,6 +158,7 @@ Properties:
 | slug  | string |  |
 | name  | string |  |
 | language  | string |  |
+| deploymentHostname (optional) | string |  |
 | description (optional) | string |  |
 | emoji (optional) | string |  |
 | primaryColor (optional) | string |  |
@@ -192,7 +194,6 @@ Properties:
 | dependencies (optional) | array |  |
 | docsRelativeFolderPath (optional) | object |  |
 | imagesProjectRelativeFolderPaths (optional) | array |  |
-| deploymentHostname (optional) | string |  |
 | readmeRelativeFilePath (optional) | string |  |
 
 

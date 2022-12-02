@@ -15,7 +15,7 @@ export const SearchBar = (props: {
     router.push(`/${search}`);
   };
   return (
-    <Div className="rounded-full border border-zinc-700 dark:border-zinc-300 p-2 px-4 text-3xl hover:bg-zinc-200 dark:hover:bg-zinc-800 bg-zinc-100 dark:bg-zinc-600 dark flex flex-row max-w-xl mx-4">
+    <Div className="rounded-full border border-zinc-700 dark:border-zinc-300 p-2 px-4 text-3xl hover:bg-zinc-200 dark:hover:bg-zinc-800 bg-zinc-100 bg-opacity-75 dark:bg-zinc-600 dark flex flex-row max-w-xl">
       <Form
         onSubmit={(e) => {
           e.preventDefault();
@@ -24,7 +24,7 @@ export const SearchBar = (props: {
       >
         <Input
           placeholder={placeholder || "Go crazy"}
-          className="flex flex-1 bg-transparent focus:outline-none"
+          className="flex px-3 flex-1 bg-transparent focus:outline-none"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />

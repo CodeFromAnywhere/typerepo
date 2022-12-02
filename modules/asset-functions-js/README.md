@@ -14,6 +14,18 @@ This is a js operation. This means you cannot use any react or node, it's pure t
 
 # Api reference
 
+## findAssetParametersRecursively()
+
+Recursively finds all asset parameters in an object (for example in a database model item)
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| object | {  } |  |,| stack (optional) | string[] |  |
+| **Output** | { assetInputType: { type: image / video / audio / file / asset, <br />isMultiple: boolean, <br /> }, <br />parameterName: string, <br />stack?: string[], <br /> }[]   |    |
+
+
+
 ## getReferencedAssetApiUrl()
 
 | Input      |    |    |
@@ -33,6 +45,11 @@ We are assuming the asset name and extsion appear at the end of the URL
 | urlOrPath | string |  |
 | **Output** | image / video / audio / text / other   |    |
 
+
+
+## 📄 findAssetParametersRecursively (exported const)
+
+Recursively finds all asset parameters in an object (for example in a database model item)
 
 
 ## 📄 getReferencedAssetApiUrl (exported const)
@@ -74,6 +91,22 @@ if already present, token is used from the name instead of this one |,| attachTo
 | ---------- | -- | -- |
 | projectRelativeAssetPath | string |  |
 | **Output** | `String`   |    |
+
+
+
+## getConversionInfoFromType()
+
+Received files contain a "type" like "audio/mp3" or "image/jpeg", etc...
+
+Here the extension is decided.
+
+NB: we also need to convert the file itself in case of mp3
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| uploadMimeType (optional) | string |  |
+| **Output** | { uploadMimeType?: string, <br />targetFormat?: string, <br />isUnchecked?: boolean, <br /> }   |    |
 
 
 
@@ -133,6 +166,15 @@ Remove the token (if present), then add it again
 
 ## 📄 getAssetDirectlyApiUrl (exported const)
 
+## 📄 getConversionInfoFromType (exported const)
+
+Received files contain a "type" like "audio/mp3" or "image/jpeg", etc...
+
+Here the extension is decided.
+
+NB: we also need to convert the file itself in case of mp3
+
+
 ## 📄 getExtensionFromAsset (exported const)
 
 Returns a preliminary filename, based on the `Asset`
@@ -171,37 +213,12 @@ then ensures the token is attached (if not already there)
 
 # Internal
 
-<details><summary>Show internal (8)</summary>
+<details><summary>Show internal (4)</summary>
     
-  # findAssetParametersRecursively()
-
-Recursively finds all asset parameters in an object (for example in a database model item)
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| object | {  } |  |,| stack (optional) | string[] |  |
-| **Output** | { assetInputType: { type: image / video / audio / file / asset, <br />isMultiple: boolean, <br /> }, <br />parameterName: string, <br />stack?: string[], <br /> }[]   |    |
+  # getNameFromRelativePath()
 
 
 
-## getConversionInfoFromType()
-
-Received files contain a "type" like "audio/mp3" or "image/jpeg", etc...
-
-Here the extension is decided.
-
-NB: we also need to convert the file itself in case of mp3
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| uploadMimeType (optional) | string |  |
-| **Output** | { uploadMimeType?: string, <br />targetFormat?: string, <br />isUnchecked?: boolean, <br /> }   |    |
-
-
-
-## getNameFromRelativePath()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -220,20 +237,6 @@ Properties:
 | parameterName  | string |  |
 | stack (optional) | array |  |
 
-
-
-## 📄 findAssetParametersRecursively (exported const)
-
-Recursively finds all asset parameters in an object (for example in a database model item)
-
-
-## 📄 getConversionInfoFromType (exported const)
-
-Received files contain a "type" like "audio/mp3" or "image/jpeg", etc...
-
-Here the extension is decided.
-
-NB: we also need to convert the file itself in case of mp3
 
 
 ## 📄 getNameFromRelativePath (exported const)

@@ -18,10 +18,6 @@ export interface Asset extends BackendAsset {
      */
     type?: AssetType;
     /**
-     * Can be available in case it's an asset from an external source URL for example within md.
-     */
-    absoluteUrl?: string;
-    /**
      * if the file was selected from the system, this should be the original filename, including extension
      */
     originalFilename?: string;

@@ -34,7 +34,7 @@ wrapper function that takes that data but also the interface of the function and
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| functionName | string |  |,| parameters (optional) | {  }[] |  |,| tsFunction | `TsFunction` |  |
+| - | | |
 | **Output** | { isValid: boolean, <br />errors?: { fieldStack: string[], <br />error: string, <br /> }[], <br /> }   |    |
 
 
@@ -98,7 +98,7 @@ wrapper function that takes that data but also the interface of the function and
 
 # Internal
 
-<details><summary>Show internal (29)</summary>
+<details><summary>Show internal (31)</summary>
     
   # calculateOperatingSystemBundle()
 
@@ -213,7 +213,7 @@ For getting all required `ReferencableModelData` for the prop in `SimplifiedSche
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| dbModelName | PaymentCoupon / PaymentEvent / PaymentPlan / PaymentRequest / PaymentSubscription / PaymentTransaction / SelfSprintReview / TodoFile / TodoOffer / AuthorizationModel / Device / Group / PageVisit / PeerMessage / Person / Persona / PersonInformation / PersonInformationValue / PersonPlatformConnection / Platform / RecurringReminder / Interest / MediaChannel / MediaCredentail / MediaPost / Postable / BundleConfig / FrontBackBundle / Dataset / FunctionExecution / Operation / SocialMediaCallToAction / TsBuildError / TsComment / TsConfig / TsExport / TsFunction / TsImport / TsInterface / TsLintWarning / TsVariable / TypescriptFile / WebMarkdownFile / WebsiteCallToAction / Address / Area / City / Country / Location / KvmdWord / MarkdownWord / NepaliEnglishTranslationMatrix / Statement / TokiPonaMatrix / Translation / Word / WordCategory / WordCombination / WordMatrix / SlugModelType / AppDeveloper / Assignment / Bag / Calendar / Deliverable / Diary / Feeling / FeelingLog / Folder / Host / Inventory / Item / ItemCategory / KvmdShortcut / Label / Light / Listing / LoginCredential / Material / MessagePreset / PersonalCarbonFootprintProfile / ProgressReport / Question / Reservation / Resource / Shit / ShitLog / ShoppingList / Shortcut / Student / Student2 / TaskError / Trackable / User / UserCredential / Artist / PlayCategory / PlayItem / PlayList / PlaySchedule / RelationModelType / JeepType / LocationType / OperationConfig / OperationIndex / PackageJson / Activity / CompanyRequirement / CompanySize / CompanyType / Company / ContactInformation / Contribution / EsgMetric / ProductCategory / Product / ProofState / Proof / SustainabilityPlan / ValueChainPhase |  |
+| - | | |
 | **Output** |    |    |
 
 
@@ -260,6 +260,18 @@ upserts an instance of an db data interface from the db in a typesafe way
 | ---------- | -- | -- |
 | - | | |
 | **Output** |    |    |
+
+
+
+## validateResult()
+
+wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | { isValid: boolean, <br />errors?: { fieldStack: string[], <br />error: string, <br /> }[], <br /> }   |    |
 
 
 
@@ -351,6 +363,11 @@ gets a src relative folder path (so maybe "" for a file `src/util.ts` or "util" 
 ## 📄 upsertDbModel (exported const)
 
 upserts an instance of an db data interface from the db in a typesafe way
+
+
+## 📄 validateResult (exported const)
+
+wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.
 
 
 ## 📄 wrapFunction (exported const)

@@ -12,7 +12,7 @@ export const searchGetStaticProps: GetStaticProps<QueryPageProps> = async (
   const query = takeFirst(context.params?.query) || null;
 
   const imagePaths = await fs.readdir(
-    path.join(__dirname, "../../..", "public")
+    path.join(__dirname, "../../..", "public/headers")
   );
   const searchResults = getAllSearchResults(query) || null;
 

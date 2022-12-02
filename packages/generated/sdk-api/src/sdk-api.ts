@@ -35,8 +35,6 @@ import { askOk } from "ask";
 import { ask } from "ask";
 import { getArgumentOrAsk } from "ask";
 import { compressAsset } from "asset-functions-node";
-import { convertToMp3 } from "asset-functions-node";
-import { convertToMp4 } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
 import { findAbsoluteAssetPathFromReference } from "asset-functions-node";
@@ -85,6 +83,7 @@ import { makeSrcRelativeFolder } from "db-recipes";
 import { tsInterfaceToDbMenu } from "db-recipes";
 import { upsertDbModel } from "db-recipes";
 import { validateInput } from "db-recipes";
+import { validateResult } from "db-recipes";
 import { filterInterfacesFromOperationNames } from "db-util";
 import { getDbModelsFromOperations } from "db-util";
 import { comparePassword } from "encrypt-password";
@@ -100,6 +99,8 @@ import { getProjectRelativePaths } from "explore-project";
 import { getTodoPages } from "explore-project";
 import { getTodoPaths } from "explore-project";
 import { hasSameProjectPath } from "explore-project";
+import { convertToMp3 } from "ffmpeg-util";
+import { convertToMp4 } from "ffmpeg-util";
 import { findAllDependencyOperations } from "find-all-dependency-operations";
 import { findDependantsRecursively } from "find-all-dependency-operations";
 import { findDependants } from "find-all-dependency-operations";
@@ -361,6 +362,11 @@ import { isEqualArray } from "rename-template-files";
 import { renameTemplateFiles } from "rename-template-files";
 import { renameTemplateToNormalFile } from "rename-template-files";
 import { renameToTemplateFile } from "rename-template-files";
+import { sayDutch } from "say";
+import { sayLanguage } from "say";
+import { sayNepali } from "say";
+import { saySomething } from "say";
+import { textToMp3 } from "say";
 import { addAuthenticationMethod } from "server-login";
 import { addDeviceAuthenticationMethodConfirm } from "server-login";
 import { addDeviceAuthenticationMethodWithContext } from "server-login";
@@ -383,6 +389,12 @@ import { switchCurrentPersonWithContext } from "server-login";
 import { updateMeWithContext } from "server-login";
 import { setJsonKey } from "set-json-key";
 import { setKeyAtLocation } from "set-json-key";
+import { findAudioWithViewsArray } from "short-markdown-parser-js";
+import { markdownParseToShortMarkdown } from "short-markdown-parser-js";
+import { shortMarkdownToMarkdownParse } from "short-markdown-parser-js";
+import { augmentShortMarkdown } from "short-markdown-parser-node";
+import { generateAugmentedShortMarkdown } from "short-markdown-parser-node";
+import { getOrGenerateShortMarkdown } from "short-markdown-parser-node";
 import { sendSms } from "sms";
 import { getAllTsMorphSourceFiles } from "ts-morph-util";
 import { getHasGeneric } from "ts-morph-util";
@@ -700,8 +712,6 @@ askOk,
 ask,
 getArgumentOrAsk,
 compressAsset,
-convertToMp3,
-convertToMp4,
 deleteReferencedAsset,
 downloadRemoteAsset,
 findAbsoluteAssetPathFromReference,
@@ -750,6 +760,7 @@ makeSrcRelativeFolder,
 tsInterfaceToDbMenu,
 upsertDbModel,
 validateInput,
+validateResult,
 filterInterfacesFromOperationNames,
 getDbModelsFromOperations,
 comparePassword,
@@ -765,6 +776,8 @@ getProjectRelativePaths,
 getTodoPages,
 getTodoPaths,
 hasSameProjectPath,
+convertToMp3,
+convertToMp4,
 findAllDependencyOperations,
 findDependantsRecursively,
 findDependants,
@@ -1026,6 +1039,11 @@ isEqualArray,
 renameTemplateFiles,
 renameTemplateToNormalFile,
 renameToTemplateFile,
+sayDutch,
+sayLanguage,
+sayNepali,
+saySomething,
+textToMp3,
 addAuthenticationMethod,
 addDeviceAuthenticationMethodConfirm,
 addDeviceAuthenticationMethodWithContext,
@@ -1048,6 +1066,12 @@ switchCurrentPersonWithContext,
 updateMeWithContext,
 setJsonKey,
 setKeyAtLocation,
+findAudioWithViewsArray,
+markdownParseToShortMarkdown,
+shortMarkdownToMarkdownParse,
+augmentShortMarkdown,
+generateAugmentedShortMarkdown,
+getOrGenerateShortMarkdown,
 sendSms,
 getAllTsMorphSourceFiles,
 getHasGeneric,

@@ -32,7 +32,8 @@
     "webpage-types": "0.0.1",
     "recursive-types": "0.0.1",
     "recursive-util": "0.0.1",
-    "markdown-types": "0.0.1"
+    "markdown-types": "0.0.1",
+    "database": "0.0.1"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
@@ -68,7 +69,7 @@
     "folderNameIndexed": "markdown-reader-functions",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669384736147,
+    "lastRebuildAt": 1669884300401,
     "operationDependenciesIndexed": [
       "copyAllRelativeFiles",
       "fs",
@@ -81,6 +82,15 @@
       "onlyUnique2",
       "getMarkdownReferencePaths",
       "ReaderWebPage",
+      "path",
+      "getProjectRoot",
+      "isBundle",
+      "GetStaticPaths",
+      "GetStaticPathsContext",
+      "GetStaticPathsResult",
+      "getProjectRoot",
+      "MarkdownReaderPageProps",
+      "GetStaticPropsContext",
       "writeToAssets",
       "getProjectRoot",
       "notEmpty",
@@ -111,6 +121,7 @@
       "getOneFolderUpPath",
       "path",
       "readMarkdownFileToModel",
+      "MarkdownCallToAction",
       "WebMarkdownFile",
       "makeRelative",
       "ReaderWebPage",
@@ -146,6 +157,7 @@
       "MarkdownReaderPageProps",
       "getProjectRoot",
       "readJsonFile",
+      "db",
       "getQueryPath",
       "getAugmentedWordObject",
       "path",
@@ -161,28 +173,28 @@
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/reader",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 23,
-        "lines": 963,
-        "characters": 29381,
-        "bytes": 29381
+        "numberOfFiles": 26,
+        "lines": 1109,
+        "characters": 33125,
+        "bytes": 33125
       },
       "dataSize": {
         "numberOfFiles": 4,
-        "lines": 3989,
-        "characters": 145910,
-        "bytes": 145910
+        "lines": 4001,
+        "characters": 146207,
+        "bytes": 146207
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 476,
-        "characters": 11309,
-        "bytes": 11309
+        "lines": 515,
+        "characters": 12488,
+        "bytes": 12488
       },
       "size": {
-        "bytes": 186600,
-        "characters": 186600,
-        "lines": 5428,
-        "numberOfFiles": 28
+        "bytes": 191820,
+        "characters": 191820,
+        "lines": 5625,
+        "numberOfFiles": 31
       }
     },
     "hasGeneratedImportsIndexed": false

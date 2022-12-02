@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669384630367,
-  "updatedAt": 1669384630367,
+  "createdAt": 1669884175074,
+  "updatedAt": 1669884175074,
   "deletedAt": 0,
-  "createdFirstAt": 1669384630367,
+  "createdFirstAt": 1669884175074,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/codestoriesGetPages.ts",
   "commentsInside": [],
-  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}): Promise<undefined | ReaderWebPage[]> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const projectRelativePaths = await getProjectRelativePaths();\n\n  const codestoriesPaths =\n    projectRelativePaths?.filter((x) => x.endsWith(\".codestory.md\")) || [];\n\n  const pages: ReaderWebPage[] = (\n    await Promise.all(\n      codestoriesPaths.map(async (projectRelativeFilePath) => {\n        const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n        const markdownParse: MarkdownParse | null = fs.existsSync(absolutePath)\n          ? await readMarkdownFile(absolutePath)\n          : null;\n        if (!markdownParse) return;\n        const readmeInfo = getMarkdownIntro(markdownParse);\n\n        const images: MarkdownEmbed[] = findEmbeds(markdownParse.raw).filter(\n          (x) => x.type === \"image\"\n        );\n\n        const firstImage = images.length > 0 ? images[0] : undefined;\n\n        const readerWebPage: ReaderWebPage = {\n          pageData: {\n            projectRelativeFilePath,\n            imagePath: firstImage?.src || null,\n            shortDescription: readmeInfo.firstParagraph || null,\n          },\n          queryPath: projectRelativeFilePath.replaceAll(\"/\", \"-\"),\n          isMenuHidden: false,\n          menuTitle:\n            readmeInfo.title || path.parse(projectRelativeFilePath).name,\n        };\n        return readerWebPage;\n      })\n    )\n  ).filter(notEmpty);\n\n  const filteredPages = pages.filter(\n    onlyUnique2<ReaderWebPage>((a, b) => a.queryPath === b.queryPath)\n  );\n\n  return filteredPages;\n}",
+  "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}): Promise<undefined | ReaderWebPage[]> => {\n  const projectRoot = config?.manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const projectRelativePaths = await getProjectRelativePaths();\n\n  const codestoriesPaths =\n    projectRelativePaths?.filter((x) => x.endsWith(\".codestory.md\")) || [];\n\n  const pages: ReaderWebPage[] = (\n    await Promise.all(\n      codestoriesPaths.map(async (projectRelativeFilePath) => {\n        const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n        const markdownCallToActions: any[] = [];\n        const webMarkdownFile: WebMarkdownFile | null = fs.existsSync(\n          absolutePath\n        )\n          ? await readMarkdownFileToModel(\n              absolutePath,\n              \"codestorys-web\",\n              markdownCallToActions\n            )\n          : null;\n        if (!webMarkdownFile) return;\n\n        const readerWebPage: ReaderWebPage = {\n          pageData: {\n            projectRelativeFilePath,\n            imagePath:\n              webMarkdownFile.headerImage?.absoluteUrl ||\n              webMarkdownFile.headerImage?.relativePath ||\n              null,\n            shortDescription: webMarkdownFile?.headerSubTitle || null,\n          },\n          queryPath: projectRelativeFilePath.replaceAll(\"/\", \"-\"),\n          isMenuHidden: false,\n          menuTitle:\n            webMarkdownFile?.headerTitle ||\n            webMarkdownFile?.name ||\n            path.parse(projectRelativeFilePath).name,\n        };\n        return readerWebPage;\n      })\n    )\n  ).filter(notEmpty);\n\n  const filteredPages = pages.filter(\n    onlyUnique2<ReaderWebPage>((a, b) => a.queryPath === b.queryPath)\n  );\n\n  return filteredPages;\n}",
   "name": "codestoriesGetPages",
   "slug": "codestories-get-pages",
   "parameters": [
@@ -48,15 +48,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 6,
+  "maxIndentationDepth": 7,
   "size": {
-    "characters": 1646,
-    "lines": 49,
-    "bytes": 1646,
+    "characters": 1747,
+    "lines": 54,
+    "bytes": 1747,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 34,
-    "linesPerFile": 49,
+    "charactersPerLine": 32,
+    "linesPerFile": 54,
     "numberOfFiles": 1
   },
-  "id": "zvcijklmdsgqhsyuntabgtqw"
+  "id": "coovvwjjakizgcxpohdckchp"
 }

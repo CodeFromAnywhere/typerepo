@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773979621,
-  "updatedAt": 1668773979621,
+  "createdAt": 1669883404230,
+  "updatedAt": 1669883404230,
   "deletedAt": 0,
-  "createdFirstAt": 1668773979621,
+  "createdFirstAt": 1669883404230,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async <\n  TResult extends {\n    isSuccessful: boolean;\n    error?: Error;\n    proc?: pm2.Proc;\n    [key: string]: any;\n  }\n>(\n  action: (resolve: (value: TResult) => void) => void\n) => {\n  const result = await new Promise<{\n    isSuccessful: boolean;\n    error?: Error;\n    proc?: pm2.Proc;\n  }>(async (resolve) => {\n    const { error } = await pm2Connect();\n    if (error) resolve({ isSuccessful: false, error });\n    action((value: TResult) => {\n      resolve(value);\n      pm2.disconnect();\n    });\n  });\n\n  return result;\n}",
   "description": "Function that lets you connect, execute a pm2 action, and disconnect after",
-  "id": "kgiqsqidkrahweslelcozwgf"
+  "id": "wrenflwgzytrplshchqrnhdp"
 }

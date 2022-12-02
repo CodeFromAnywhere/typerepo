@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384676977,
-  "updatedAt": 1669384676977,
+  "createdAt": 1669639181504,
+  "updatedAt": 1669639181504,
   "deletedAt": 0,
-  "createdFirstAt": 1669384676977,
+  "createdFirstAt": 1669639181504,
   "id": "bundleconfig",
   "name": "BundleConfig",
   "slug": "bundleconfig",
@@ -25,6 +25,10 @@
       "properties": {
         "name": {
           "type": "string"
+        },
+        "deploymentHostname": {
+          "type": "string",
+          "description": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))"
         },
         "description": {
           "type": "string",
@@ -126,6 +130,14 @@
           "name": "name",
           "required": true,
           "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "deploymentHostname",
+          "required": false,
+          "schema": {
+            "fullComment": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))",
             "type": "string"
           }
         },
@@ -895,14 +907,6 @@
                     }
                   ],
                   "type": "array"
-                }
-              },
-              {
-                "name": "deploymentHostname",
-                "required": false,
-                "schema": {
-                  "fullComment": "Used to determine which images to show",
-                  "type": "string"
                 }
               },
               {

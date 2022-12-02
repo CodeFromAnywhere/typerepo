@@ -28,6 +28,7 @@ export const runFunctionServer = (
 
   startApp("search-web", true).then((result) => {
     if (!result?.isSuccessful) {
+      console.log({ result });
       log(
         `Something went wrong starting "search-web". Maybe you don't have it?`,
         { type: "error" }

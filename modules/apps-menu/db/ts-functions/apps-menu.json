@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668836182935,
-  "updatedAt": 1668836182935,
+  "createdAt": 1669885234881,
+  "updatedAt": 1669885234881,
   "deletedAt": 0,
-  "createdFirstAt": 1668836182935,
+  "createdFirstAt": 1669885234881,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/AppsMenu.tsx",
   "commentsInside": [],
-  "rawText": " () => {\n  const [loading, setLoading] = useState<{ [appName: string]: boolean }>({});\n\n  const appsQuery = queries.useGetAllAppOperations();\n  const alert = useAlert();\n  return (\n    <Div className=\"flex flex-row justify-center gap gap-2\">\n      {appsQuery.data?.result\n        ?.filter((x) => x.name !== \"function-server\")\n        .map((appOperation) => {\n          return (\n            <Div\n              key={appOperation.name}\n              className=\"flex flex-col items-center cursor-pointer\"\n              onClick={async () => {\n                const goToSite = () => {\n                  const url = `http://localhost:${appOperation.port}`;\n                  window.open(url, \"_blank\");\n                };\n\n                if (!appOperation.isOnline) {\n                  setLoading({ ...loading, [appOperation.name]: true });\n                  const { result, isSuccessful, message } = await api.startApp(\n                    appOperation.name,\n                    true\n                  );\n\n                  if (!isSuccessful || !result?.isSuccessful) {\n                    alert?.(\n                      `Error`,\n                      result?.error?.message || message || \"No message\"\n                    );\n                    setLoading({ ...loading, [appOperation.name]: false });\n                    return;\n                  }\n\n                  // TODO: apparently we need to wait a second before the next.js project is really start up... we can easily improve this by watching the stdout on the server and look for a message that says \"it's running on http://localhost:PORT\"\n                  setTimeout(() => {\n                    goToSite();\n                    appsQuery.refetch();\n                    setLoading({ ...loading, [appOperation.name]: false });\n                  }, 1000);\n\n                  return;\n                }\n                // if the app is already turned on, don't load, don't open api, just go there...\n                goToSite();\n              }}\n            >\n              <Tooltip\n                placement=\"top\"\n                tooltip={renderMarkdownContent(\n                  appOperation.description ||\n                    appOperation.name ||\n                    \"No description set\",\n                  {\n                    projectRelativeBaseFolderPath: \"\",\n                    projectRelativeMarkdownFilePath: \"\",\n                  }\n                )}\n              >\n                <Div className=\"bg-white border border-black mb-2 rounded-lg w-12 h-12 flex items-center justify-center hover:scale-150 transition-all\">\n                  {loading[appOperation.name] === true ? (\n                    <FancyLoader medium />\n                  ) : (\n                    <P title={appOperation.name} className=\"text-4xl\">\n                      {appOperation.emoji ||\n                        appOperation.name.charAt(0).toLocaleUpperCase()}\n                    </P>\n                  )}\n                </Div>\n              </Tooltip>\n\n              {appOperation.isOnline ? (\n                <Div className=\"w-2 h-2 rounded-full bg-gray-700 dark:bg-gray-200\" />\n              ) : (\n                <Div className=\"w-2 h-2\" />\n              )}\n            </Div>\n          );\n        })}\n    </Div>\n  );\n}",
+  "rawText": " () => {\n  const [loading, setLoading] = useState<{ [appName: string]: boolean }>({});\n  const appsQuery = queries.useGetAllAppOperations();\n  const alert = useAlert();\n  return (\n    <Div className=\"flex flex-row flex-wrap justify-center gap gap-2\">\n      {appsQuery.data?.result\n        ?.filter((x) => x.name !== \"function-server\")\n        .map((appOperation) => {\n          return (\n            <Div\n              key={appOperation.name}\n              className=\"z-50 flex flex-col items-center cursor-pointer\"\n              onClick={async () => {\n                const goToSite = () => {\n                  const url = `http://localhost:${appOperation.port}`;\n                  window.open(url, \"_blank\");\n                };\n\n                if (!appOperation.isOnline) {\n                  setLoading({ ...loading, [appOperation.name]: true });\n                  const { result, isSuccessful, message } = await api.startApp(\n                    appOperation.name,\n                    true\n                  );\n\n                  if (!isSuccessful || !result?.isSuccessful) {\n                    alert?.(\n                      `Error`,\n                      result?.error?.message || message || \"No message\"\n                    );\n                    setLoading({ ...loading, [appOperation.name]: false });\n                    return;\n                  }\n\n                  // TODO: apparently we need to wait a second before the next.js project is really start up... we can easily improve this by watching the stdout on the server and look for a message that says \"it's running on http://localhost:PORT\"\n                  setTimeout(() => {\n                    goToSite();\n                    appsQuery.refetch();\n                    setLoading({ ...loading, [appOperation.name]: false });\n                  }, 1000);\n\n                  return;\n                }\n                // if the app is already turned on, don't load, don't open api, just go there...\n                goToSite();\n              }}\n            >\n              <Tooltip\n                placement=\"top\"\n                tooltip={renderMarkdownContent(\n                  appOperation.description ||\n                    appOperation.name ||\n                    \"No description set\",\n                  {\n                    projectRelativeBaseFolderPath: \"\",\n                    projectRelativeMarkdownFilePath: \"\",\n                  }\n                )}\n              >\n                <Div className=\"bg-white border border-black mb-2 rounded-lg w-12 h-12 flex items-center justify-center hover:scale-150 hover:mt-3 hover:-mb-3 transition-all\">\n                  {loading[appOperation.name] === true ? (\n                    <FancyLoader medium />\n                  ) : (\n                    <P title={appOperation.name} className=\"text-4xl\">\n                      {appOperation.emoji ||\n                        appOperation.name.charAt(0).toLocaleUpperCase()}\n                    </P>\n                  )}\n                </Div>\n              </Tooltip>\n\n              {appOperation.isOnline ? (\n                <Div className=\"w-2 h-2 rounded-full bg-gray-700 dark:bg-gray-200\" />\n              ) : (\n                <Div className=\"w-2 h-2\" />\n              )}\n            </Div>\n          );\n        })}\n    </Div>\n  );\n}",
   "name": "AppsMenu",
   "slug": "apps-menu",
   "parameters": [],
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 12,
   "size": {
-    "characters": 3260,
-    "lines": 84,
-    "bytes": 3260,
+    "characters": 3297,
+    "lines": 83,
+    "bytes": 3297,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 39,
-    "linesPerFile": 84,
+    "charactersPerLine": 40,
+    "linesPerFile": 83,
     "numberOfFiles": 1
   },
-  "id": "ikvgngzcrhkqraswbrigqrdb"
+  "id": "jplswhroyjilvbqrqbvstrhi"
 }

@@ -35,7 +35,8 @@
     "authentication": "0.0.1",
     "api-store": "0.0.1",
     "nested-menu": "0.0.1",
-    "writer-input": "1.0.0"
+    "writer-input": "1.0.0",
+    "context-menu": "0.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -56,29 +57,30 @@
   "language": "english",
   "slug": "search-web",
   "operation": {
+    "port": 42001,
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/bundled/typerepo/apps/search-web/src/pages/_app.tsx. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/search/search-web/src/util/searchGetStaticProps.ts. Error: TypeError: Invalid value used as weak map key"
       ],
       "lintProblems": []
     },
     "classificationIndexed": "ui-web",
     "coreDependenciesIndexed": [
-      "useEffect",
       "useState",
       "useState"
     ],
     "folderNameIndexed": "search-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669287964584,
+    "lastRebuildAt": 1669884620718,
     "operationDependenciesIndexed": [
       "AppsMenu",
       "pickRandomArrayItem",
       "Div",
       "Timeline",
+      "useContextMenu",
       "Div",
       "Form",
       "Input",
@@ -114,15 +116,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 11,
-        "lines": 469,
-        "characters": 13320,
-        "bytes": 13320
+        "lines": 489,
+        "characters": 14025,
+        "bytes": 14025
       },
       "dataSize": {
-        "numberOfFiles": 9,
-        "lines": 277,
-        "characters": 18345,
-        "bytes": 18345
+        "numberOfFiles": 8,
+        "lines": 285,
+        "characters": 6971,
+        "bytes": 6971
       },
       "textSize": {
         "numberOfFiles": 5,
@@ -131,10 +133,10 @@
         "bytes": 5606
       },
       "size": {
-        "bytes": 37271,
-        "characters": 37271,
-        "lines": 989,
-        "numberOfFiles": 25
+        "bytes": 26602,
+        "characters": 26602,
+        "lines": 1017,
+        "numberOfFiles": 24
       }
     },
     "hasGeneratedImportsIndexed": false

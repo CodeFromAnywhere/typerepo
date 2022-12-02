@@ -6,6 +6,17 @@ markdown-reader-functions (`OperationClassification` ui-cjs)
 
 # Api reference
 
+## docsGetStaticProps()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| context | `GetStaticPropsContext` |  |,| basePaths | { projectRelativeBasePath: string, <br />queryPath: string, <br /> }[] |  |,| webOperationName | string | Operation of the website that is going to be deployed |
+| **Output** |    |    |
+
+
+
+## 📄 docsGetStaticProps (exported const)
+
 ## getPublicMarkdownFilePaths()
 
 Returns all absolute markdown file paths within a basePath which are not drafts and which are not marked private (through frontmatter)
@@ -27,7 +38,7 @@ Takes the routes and pages you want to show, and returns the MarkdownReaderPageP
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| fileWebPages | `WebPage<any>`[] |  |,| context | `GetStaticPropsContext` |  |
+| context | `GetStaticPropsContext` |  |,| fileWebPages | `WebPage<any>`[] |  |,| webOperationName | string |  |
 | **Output** |    |    |
 
 
@@ -132,7 +143,7 @@ Works for files and folders
 
 # Internal
 
-<details><summary>Show internal (31)</summary>
+<details><summary>Show internal (35)</summary>
     
   # copyStaticAssets()
 
@@ -146,6 +157,27 @@ To get a file from public assets after running this function, you need to get it
 | Input      |    |    |
 | ---------- | -- | -- |
 | readerWebPages | `ReaderWebPage`[] |  |,| config (optional) | { operationName?: string, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## docsGetPages()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| basePaths | { projectRelativeBasePath: string, <br />queryPath: string, <br /> }[] |  |
+| **Output** |    |    |
+
+
+
+## docsGetStaticPaths()
+
+Function that tells Next.js what the pages are that need to be statically generated
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| context | `GetStaticPathsContext` |  |,| basePaths | { projectRelativeBasePath: string, <br />queryPath: string, <br /> }[] |  |
 | **Output** |    |    |
 
 
@@ -258,7 +290,7 @@ If a markdown page is found, this function fetches all metadata needed to render
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| projectRoot | string |  |,| webPages | `WebPage<any>`[] |  |,| queryPath | string |  |,| contentPage | `ReaderWebPage` |  |
+| config | { projectRoot: string, <br />webPages: `WebPage<any>`[], <br />queryPath: string, <br />contentPage: `ReaderWebPage`, <br />webOperationName: string, <br />markdownCallToActions: `MarkdownCallToAction`[], <br /> } |  |
 | **Output** |    |    |
 
 
@@ -378,6 +410,13 @@ uses `getMarkdownReferencePaths` for all markdown files in the `markdown-reader-
 NB: Removes all files in the public folder first.
 
 To get a file from public assets after running this function, you need to get it from the `projectRelativeFilePath`, not the file relative, so you need to render it differently.
+
+
+## 📄 docsGetPages (exported const)
+
+## 📄 docsGetStaticPaths (exported const)
+
+Function that tells Next.js what the pages are that need to be statically generated
 
 
 ## 📄 getAllMarkdownReaderPages (exported const)

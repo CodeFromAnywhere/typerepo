@@ -1,5 +1,5 @@
 import { RealApiReturnType } from "api-types";
-import { NestedPathObject } from "nested-menu";
+import { NestedPathObject } from "recursive-types";
 /**
 
 Peer = {

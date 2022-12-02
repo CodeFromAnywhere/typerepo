@@ -54,7 +54,7 @@ export var HtmlHeader = function (_a) {
  */
 export var renderMarkdownContent = function (content, config) {
     if (!content)
-        return "[No content]";
+        return React.createElement(Div, null, "No content");
     // console.log("Need to render:", content);
     return (React.createElement(Span, null,
         React.createElement(ReactMarkdown, { className: (config === null || config === void 0 ? void 0 : config.big) ? "max-w-lg" : undefined, rehypePlugins: [rehypeHighlight, remarkGfm, rehypeRaw], components: {

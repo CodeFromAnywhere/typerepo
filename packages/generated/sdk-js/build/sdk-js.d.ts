@@ -227,9 +227,9 @@ export declare const sdk: {
     takeFirst: <T_26>(arrayOrNot: T_26 | T_26[]) => T_26;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
-    flattenMarkdownChunks: (markdownChunks: MarkdownChunk[]) => MarkdownParagraph[];
-    getKvmdItemsRecursively: (chunk: MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
-    getParagraphsRecursively: (chunk: MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => MarkdownParagraph[];
+    flattenMarkdownChunks: (markdownChunks: import("markdown-types").MarkdownChunk[]) => import("markdown-types").MarkdownParagraph[];
+    getKvmdItemsRecursively: (chunk: import("markdown-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
+    getParagraphsRecursively: (chunk: import("markdown-types").MarkdownChunk, categoryStackCalculatedUntilNow?: import("model-types").CategoryStack | undefined) => import("markdown-types").MarkdownParagraph[];
     kvmdDataMap: <T_27 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {

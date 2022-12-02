@@ -9,9 +9,7 @@ ORM that lets you create a database with models that are stored on the file syst
 
 # Docs
 
-<details><summary>README.md</summary>
-    
-  Welcome to Typebase. Typebase is an ORM (Object Relational Mapping) that lets you create a database with models that are stored on the file system in multiple formats, that are easy to understand and well structured.
+Welcome to Typebase. Typebase is an ORM (Object Relational Mapping) that lets you create a database with models that are stored on the file system in multiple formats, that are easy to understand and well structured.
 
 > Object Relational Mapping: A mapping from stored data to set of functions that can access that stored data in a specific programming language.
 

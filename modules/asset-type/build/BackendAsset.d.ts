@@ -58,5 +58,13 @@ export interface BackendAsset {
      * Model that the asset is related to
      */
     modelName?: string;
+    /**
+     * NOT STORED
+     *
+     * Can be available in case it's an asset from an external source URL for example within md.
+     *
+     * Also can be set in case it's a static asset from a next project
+     */
+    absoluteUrl?: string;
 }
 //# sourceMappingURL=BackendAsset.d.ts.map

@@ -22,7 +22,7 @@ renders a markdown striing (without frontmatter)
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** | {  }   |    |
+| **Output** | `JSX.Element`   |    |
 
 
 

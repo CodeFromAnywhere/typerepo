@@ -1,7 +1,7 @@
 import { Authorization } from "auth-types";
 import { TsFunction } from "code-types";
 import { Device, Group } from "peer-types";
-export declare type AuthorizationInfo = {
+export type AuthorizationInfo = {
     /**
      * Whether or not the device is authorized to execute this function
      */

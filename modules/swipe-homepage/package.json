@@ -1,0 +1,73 @@
+{
+  "createdAt": 1669639394942,
+  "updatedAt": 1669639394942,
+  "deletedAt": 0,
+  "createdFirstAt": 1669639394942,
+  "version": "0.0.0",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "dependencies": {
+    "react-with-native": "1.4.9",
+    "next-a-link": "0.0.1"
+  },
+  "name": "swipe-homepage",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669885153366,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 84,
+        "characters": 2725,
+        "bytes": 2725
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 111,
+        "characters": 3464,
+        "bytes": 3464
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 57,
+        "characters": 1199,
+        "bytes": 1199
+      },
+      "size": {
+        "bytes": 7388,
+        "characters": 7388,
+        "lines": 252,
+        "numberOfFiles": 5
+      }
+    },
+    "folderNameIndexed": "swipe-homepage",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/dumb",
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "Div",
+      "P",
+      "ALink"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "slug": "swipe-homepage",
+  "id": "wgplgwmfzpmqflbmwpkvaekb"
+}

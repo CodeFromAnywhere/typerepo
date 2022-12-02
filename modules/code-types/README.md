@@ -126,6 +126,7 @@ Properties:
 | path (optional) | string |  |
 | main (optional) | string |  |
 | source (optional) | string |  |
+| contributors (optional) | array |  |
 | description (optional) | string |  |
 | version (optional) | string |  |
 | private (optional) | boolean |  |
@@ -670,33 +671,6 @@ Properties:
 
 
 
-## 🔹 DbStorageMethod
-
-The following strategies are available to store the data.
-
-- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`
-
-- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`
-
-- **markdown**: stores the data in a markdown file. Takes "markdown" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`
-
-- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`
-
-- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`
-
-
-### Definitions:
-
-- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`
-- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used
-
-
-
-
-
-
-
-
 ## 🔹 IndexModels
 
 Properties: 
@@ -838,11 +812,21 @@ Properties:
 
 ## 📄 commentTypes (exported const)
 
-## 📄 dbStorageMethods (exported const)
-
 ## 📄 operationClassificationConst (exported const)
 
 ## 📄 typescriptIndexModels (exported const)
+
+## 🔹 CommitInfo
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| commitSha  | string |  |
+| committedAt (optional) | number |  |
+| commitMessage  | string |  |
+
+
 
 ## 🔹 DatasetFilter
 
@@ -878,6 +862,33 @@ Properties:
 | objectParameterKey  | string |  |
 | sortDirection (optional) | string |  |
 | sortFunctionName (optional) | string |  |
+
+
+
+## 🔹 DbStorageMethod
+
+The following strategies are available to store the data.
+
+- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`
+
+- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`
+
+- **markdown**: stores the data in a markdown file. Takes "markdown" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`
+
+- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`
+
+- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`
+
+
+### Definitions:
+
+- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`
+- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used
+
+
+
+
+
 
 
 
@@ -1133,13 +1144,15 @@ Properties:
 
 
 
+## 📄 dbStorageMethods (exported const)
+
 ## 📄 modelViews (exported const)
 
 ## 📄 runEveryPeriodStringArray (exported const)
 
 # Internal
 
-<details><summary>Show internal (24)</summary>
+<details><summary>Show internal (26)</summary>
     
   # getFunctionExersize()
 
@@ -1257,6 +1270,19 @@ Properties:
 
 
 
+## 🔹 ContributorPersonInfo
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| name  | string |  |
+| url (optional) | string |  |
+| email (optional) | string |  |
+| contributionAmount (optional) | number |  |
+
+
+
 ## 🔹 DatasetConfigKey
 
 ## 🔹 DatasetConfigShape
@@ -1311,6 +1337,29 @@ Models should be able to be shown in multiple different views:
 
 
 
+
+
+
+## 🔹 OperationRepositoryInfo
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| type (optional) | string |  |
+| url  | string |  |
+| directory (optional) | string |  |
+| lastPullTimeAt (optional) | number |  |
+| lastCommitInfo (optional) | object |  |
+| htmlUrl (optional) | string |  |
+| collaborators (optional) | array |  |
+| forksCount (optional) | number |  |
+| stargazersCount (optional) | number |  |
+| watchersCount (optional) | number |  |
+| openIssuesCount (optional) | number |  |
+| size (optional) | number |  |
+| visibility (optional) | string |  |
+| defaultBranch (optional) | string |  |
 
 
 

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669287347624,
-  "updatedAt": 1669287347624,
+  "createdAt": 1669884879285,
+  "updatedAt": 1669884879285,
   "deletedAt": 0,
-  "createdFirstAt": 1669287347624,
+  "createdFirstAt": 1669884879285,
   "id": "explorationdetails",
   "name": "ExplorationDetails",
   "slug": "explorationdetails",
@@ -5367,6 +5367,56 @@
                       }
                     },
                     {
+                      "name": "contributors",
+                      "required": false,
+                      "schema": {
+                        "items": [
+                          {
+                            "schema": {
+                              "fullComment": "",
+                              "properties": [
+                                {
+                                  "name": "name",
+                                  "required": true,
+                                  "schema": {
+                                    "fullComment": "NPM convention, name of the contributor",
+                                    "type": "string"
+                                  }
+                                },
+                                {
+                                  "name": "url",
+                                  "required": false,
+                                  "schema": {
+                                    "fullComment": "NPM convention, url with more info of the contributor",
+                                    "type": "string"
+                                  }
+                                },
+                                {
+                                  "name": "email",
+                                  "required": false,
+                                  "schema": {
+                                    "fullComment": "NPM convention, email of the contributor",
+                                    "type": "string"
+                                  }
+                                },
+                                {
+                                  "name": "contributionAmount",
+                                  "required": false,
+                                  "schema": {
+                                    "fullComment": "Relative amount of estimated contribution to this operation, should be a number between 0 and 1",
+                                    "type": "number"
+                                  }
+                                }
+                              ],
+                              "type": "object"
+                            },
+                            "name": "ContributorPersonInfo"
+                          }
+                        ],
+                        "type": "array"
+                      }
+                    },
+                    {
                       "name": "description",
                       "required": false,
                       "schema": {
@@ -5400,6 +5450,8 @@
                       "name": "repository",
                       "required": false,
                       "schema": {
+                        "fullComment": "NB: this data becomes public, even for private repositories. If you don't want this, you're out of luck.",
+                        "nb": "this data becomes public, even for private repositories. If you don't want this, you're out of luck.",
                         "properties": [],
                         "type": "object"
                       }
@@ -5475,6 +5527,14 @@
                       "schema": {
                         "fullComment": "custom keys, both indexed and generated",
                         "properties": [
+                          {
+                            "name": "port",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "Can be set in case this is a ui-web operation",
+                              "type": "number"
+                            }
+                          },
                           {
                             "name": "codeOwner_personId",
                             "required": false,
@@ -5589,13 +5649,6 @@
                                 }
                               ],
                               "type": "object"
-                            }
-                          },
-                          {
-                            "name": "lastPullTimeAtIndexed",
-                            "required": false,
-                            "schema": {
-                              "type": "number"
                             }
                           },
                           {

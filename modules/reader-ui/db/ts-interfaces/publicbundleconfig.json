@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669467196640,
-  "updatedAt": 1669467196640,
+  "createdAt": 1669639438496,
+  "updatedAt": 1669639438496,
   "deletedAt": 0,
-  "createdFirstAt": 1669467196640,
+  "createdFirstAt": 1669639438496,
   "id": "publicbundleconfig",
   "name": "PublicBundleConfig",
   "slug": "publicbundleconfig",
@@ -20,6 +20,10 @@
         "name": {
           "type": "string",
           "description": "Human readable name of the monorepo (A kebab-case version of this will be used as root foldername)"
+        },
+        "deploymentHostname": {
+          "type": "string",
+          "description": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))"
         },
         "description": {
           "type": "string",
@@ -56,6 +60,14 @@
           "required": true,
           "schema": {
             "fullComment": "Human readable name of the monorepo (A kebab-case version of this will be used as root foldername)",
+            "type": "string"
+          }
+        },
+        {
+          "name": "deploymentHostname",
+          "required": false,
+          "schema": {
+            "fullComment": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))",
             "type": "string"
           }
         },

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384846167,
-  "updatedAt": 1669384846167,
+  "createdAt": 1669884367449,
+  "updatedAt": 1669884367449,
   "deletedAt": 0,
-  "createdFirstAt": 1669384846167,
+  "createdFirstAt": 1669884367449,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -688,6 +688,14 @@
                         "required": false,
                         "schema": {
                           "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "absoluteUrl",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
                           "type": "string"
                         }
                       }
@@ -1993,6 +2001,14 @@
                           "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                           "type": "string"
                         }
+                      },
+                      {
+                        "name": "absoluteUrl",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
+                          "type": "string"
+                        }
                       }
                     ],
                     "type": "object"
@@ -2658,5 +2674,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "woestepgbbmmhbifixtydnvj"
+  "id": "xumsuawkuwogzthwttwnzurb"
 }

@@ -14,6 +14,7 @@ import {
 // const font = Raleway();
 
 // CSS
+import "swipe-homepage/css.css";
 import "../globals.css";
 import "authentication/css.css";
 import "layout/css.css";

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669131413137,
-  "updatedAt": 1669131413137,
+  "createdAt": 1669885310115,
+  "updatedAt": 1669885310115,
   "deletedAt": 0,
-  "createdFirstAt": 1669131413137,
+  "createdFirstAt": 1669885310115,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: CrudViewProps) => {\n  const { actions, data, highlight, tsInterface, onEndReached } = props;\n\n  return (\n    <Div className=\"flex flex-row flex-wrap\">\n      {data?.map((item) => {\n        const imageUrl = itemGetBackendAssetUrl({\n          item,\n          backendAsset: (item as any).pictureImage,\n        });\n        return imageUrl && typeof imageUrl === \"string\" ? (\n          <SpaceCard\n            ctaText=\"More info\"\n            imageUrl={imageUrl}\n            darkened={false}\n            secondaryImageUrl={imageUrl}\n            subtitle=\"Subtitle\"\n            title=\"Title\"\n          />\n        ) : (\n          \"no img url\"\n        );\n      })}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "ejwkrgkyacssfedtwaydqlax"
+  "id": "vghcecmpmrykhnqxhhiihgcr"
 }

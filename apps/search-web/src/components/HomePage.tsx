@@ -1,12 +1,11 @@
 import { AppsMenu } from "apps-menu";
 import { pickRandomArrayItem } from "js-util";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Div } from "react-with-native";
 import { QueryPageProps } from "../util/types";
 import { SearchBar } from "./SearchBar";
 import { Timeline } from "timeline";
-import { useStore } from "../util/store";
-
+import { useContextMenu } from "context-menu";
 export const mindspaces = [
   "Typerepo",
   "search-ui",
@@ -21,6 +20,7 @@ const quotes = ["A day without coding is a day unlived"];
 
 export const HomePage = (props: QueryPageProps) => {
   const { imagePaths } = props;
+
   const hour = new Date(Date.now()).getHours();
   const quote = quotes[hour % quotes.length];
   const imagePath = imagePaths[hour % imagePaths.length];
@@ -33,26 +33,34 @@ export const HomePage = (props: QueryPageProps) => {
   const yourLocation = "Napoli 🇮🇹";
   const dayPart = "day";
 
+  const { renderContextMenu, openContextMenuProps } = useContextMenu({
+    items: [
+      {
+        onClick: () => console.log("Pressed"),
+        getTitle: () => "Test 123",
+        getIsEnabled: (id) => false,
+      },
+      { onClick: () => console.log("Pressed"), getTitle: (id) => id || "yoyo" },
+      { onClick: () => console.log("Pressed"), getTitle: () => "Test 123" },
+      { onClick: () => console.log("Pressed"), getTitle: () => "Test 123" },
+    ],
+  });
+
   return (
     <Div className="">
+      {renderContextMenu()}
       <Timeline
         items={[
           {
+            imageUrl: `headers/${imagePath}`,
             component: () => {
               return (
                 <Div
                   className="flex flex-1 min-h-screen items-center flex-col justify-around"
                   // style={{ background: `url(${imagePath})` }}
                 >
-                  <img
-                    src={imagePath}
-                    className="rounded-sm"
-                    width={300}
-                    height={300}
-                  />
-
                   <Div
-                    className="text-3xl cursor-grab"
+                    className="text-3xl text-white drop-shadow cursor-grab"
                     onMouseDown={(e) => {
                       const timeout = setTimeout(() => {
                         setMouseDown(true);
@@ -74,16 +82,27 @@ export const HomePage = (props: QueryPageProps) => {
                     {mouseDown ? `${dayPart} in ${yourLocation}` : mindspace},{" "}
                     {yourName}
                   </Div>
-                  <Div className="italic">{quote}</Div>
+
+                  <div
+                    className="bg-blue-300 rounded-full p-4"
+                    {...openContextMenuProps}
+                    id="gek"
+                  >
+                    Test this for a context-menu
+                  </div>
+
+                  <Div className="italic text-white">{quote}</Div>
                   <SearchBar placeholder={mindspace} />
-                  <AppsMenu />
+                  <Div className="max-w-xl">
+                    <AppsMenu />
+                  </Div>
                 </Div>
               );
             },
           },
-          // {
-          //   markdown: `import * as React from "react";\n\nexport const test = () => true;`,
-          // },
+          {
+            markdown: `I see dead people`,
+          },
           ...props.timelineItems?.map((x) => {
             return {
               markdown: x.comment,

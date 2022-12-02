@@ -1,0 +1,161 @@
+{
+  "createdAt": 1669885145394,
+  "updatedAt": 1669885145394,
+  "deletedAt": 0,
+  "createdFirstAt": 1669885145394,
+  "id": "namedparameterstypeof-swipehomepage",
+  "name": "NamedParameters<typeof SwipeHomepage>",
+  "slug": "namedparameterstypeof-swipehomepage",
+  "operationRelativeTypescriptFilePath": "src/SwipeHomepage.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "ctas": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string"
+                  },
+                  "href": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "text",
+                  "href"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/SwipeItem"
+              }
+            }
+          },
+          "required": [
+            "ctas",
+            "items"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "ctas",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "properties": [
+                          {
+                            "name": "text",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "href",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "items",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "fullComment": "",
+                        "properties": [
+                          {
+                            "name": "image",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "description",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "title",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "href",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "if given,href for the title and description (when clicking on one of those)",
+                              "type": "string"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": "SwipeItem"
+                    }
+                  ],
+                  "type": "array"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof SwipeHomepage>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -25,7 +25,8 @@
     "server": "*",
     "function-context-type": "0.0.1",
     "rest-util": "0.0.1",
-    "measure-performance": "0.0.1"
+    "measure-performance": "0.0.1",
+    "function-functions-node": "0.0.1"
   },
   "description": "This operation wraps the sdk and creates a server-endpoint for every sdk function form the sdk package. It also adds raw context functions (both get and post) It can be included into any server so the endpoints can be exposed that way.",
   "devDependencies": {
@@ -56,7 +57,7 @@
     "folderNameIndexed": "function-server-endpoints",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669276705893,
+    "lastRebuildAt": 1669962576413,
     "operationDependenciesIndexed": [
       "slugify",
       "generateRandomString",
@@ -66,14 +67,16 @@
       "notEmpty",
       "privateEnvironmentVariables",
       "privateLocalEnvironmentVariables",
+      "getPublicBundleConfig",
       "cacheLookup",
       "validateInput",
+      "validateResult",
       "generateId",
+      "PerformanceItem",
       "apiConventions",
       "RealApiReturnType",
       "cleanupTimer",
       "getNewPerformance",
-      "PerformanceItem",
       "FunctionContext",
       "sdk",
       "functionApiKeys",
@@ -92,11 +95,11 @@
       "path",
       "readJsonFile",
       "apiConventions",
+      "db",
       "Creation",
       "Id",
       "IPInfo",
       "PageVisit",
-      "db",
       "FunctionExecution",
       "TsFunction",
       "PerformanceItem",
@@ -126,15 +129,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 11,
-        "lines": 685,
-        "characters": 19636,
-        "bytes": 19636
+        "lines": 694,
+        "characters": 20002,
+        "bytes": 20002
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 194,
-        "characters": 4957,
-        "bytes": 4957
+        "lines": 196,
+        "characters": 5028,
+        "bytes": 5028
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -143,9 +146,9 @@
         "bytes": 5207
       },
       "size": {
-        "bytes": 29800,
-        "characters": 29800,
-        "lines": 1077,
+        "bytes": 30237,
+        "characters": 30237,
+        "lines": 1088,
         "numberOfFiles": 15
       }
     },

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773972996,
-  "updatedAt": 1668773972996,
+  "createdAt": 1669883393016,
+  "updatedAt": 1669883393016,
   "deletedAt": 0,
-  "createdFirstAt": 1668773972996,
+  "createdFirstAt": 1669883393016,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const operationNames = process.argv.slice(2);\n  stopAllAppsExcept(operationNames);\n}",
   "description": "Arguments: operation names that you don't want to stop",
-  "id": "arejdzlwlqaxlqyywblyykbd"
+  "id": "msctkrizxscoozygselptpbd"
 }

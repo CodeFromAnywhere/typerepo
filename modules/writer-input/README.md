@@ -46,7 +46,7 @@ Writer input for any utf8 based text, file or no file
 
 # Internal
 
-<details><summary>Show internal (69)</summary>
+<details><summary>Show internal (77)</summary>
     
   # `<Completion />`
 
@@ -284,6 +284,42 @@ Three newlines means there should be two breaks...
 
 
 
+## `<ShortMarkdownPlayer />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { shortMarkdown?: `ShortMarkdown`, <br />projectRelativeFilePath?: string, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## `<ShortMarkdownSlide />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## `<ShortStudio />`
+
+the newer one, eventually to replace `ContextTextArea`
+<SmartContentEditableDivInput
+writerType={writerType}
+value={value}
+onChange={onChange}
+markdownParseRenderConfig={markdownParseRenderConfig}
+/>
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## `<SmartContentEditableDivInput />`
 
 Uses ContentEditableDivInput, and attaches the Completions to it based on the content type. Also all other data required...
@@ -405,6 +441,20 @@ In `typescript`, every word should be autocompletable with the typescript stuff,
 | ---------- | -- | -- |
 | props | { context: {  }, <br />augmentedWords?: `AugmentedWord`[], <br />augmentedWordObject?: `MappedObject<AugmentedWord>`, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
+
+
+
+## useMultiAudio()
+
+- Implement a component that preloads all audios for the `ShortMarkdown` and lets you play one with a callback (look at https://stackoverflow.com/questions/47686345/playing-sound-in-react-js)
+- If slide has audio belonging to it, find it and play it. Start at certain point, depending on which part you are at.
+- Select the correct audio for every slide, and get the API url for it. Load it in into an `<audio>` element once you go to the slide.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| urls | string[] |  |
+| **Output** | { players: { url: string, <br />playing: boolean, <br /> }[], <br />toggle: {  }, <br /> }   |    |
 
 
 
@@ -537,6 +587,21 @@ NB: because we're parsing text from div.innerText, sometimes there are two newli
 Three newlines means there should be two breaks...
 
 
+## 📄 ShortMarkdownPlayer (exported const)
+
+## 📄 ShortMarkdownSlide (exported const)
+
+## 📄 ShortStudio (exported const)
+
+the newer one, eventually to replace `ContextTextArea`
+<SmartContentEditableDivInput
+writerType={writerType}
+value={value}
+onChange={onChange}
+markdownParseRenderConfig={markdownParseRenderConfig}
+/>
+
+
 ## 📄 SmartContentEditableDivInput (exported const)
 
 Uses ContentEditableDivInput, and attaches the Completions to it based on the content type. Also all other data required...
@@ -591,6 +656,13 @@ Trims a character from a word at the left until that character is not found anym
 ## 📄 TypescriptCompletions (exported const)
 
 In `typescript`, every word should be autocompletable with the typescript stuff, without backticks.
+
+
+## 📄 useMultiAudio (exported const)
+
+- Implement a component that preloads all audios for the `ShortMarkdown` and lets you play one with a callback (look at https://stackoverflow.com/questions/47686345/playing-sound-in-react-js)
+- If slide has audio belonging to it, find it and play it. Start at certain point, depending on which part you are at.
+- Select the correct audio for every slide, and get the API url for it. Load it in into an `<audio>` element once you go to the slide.
 
 
 ## 📄 { useStore, StoreProvider } (exported const)

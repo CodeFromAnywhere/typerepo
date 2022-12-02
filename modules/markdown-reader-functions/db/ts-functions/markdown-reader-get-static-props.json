@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669384718608,
-  "updatedAt": 1669384718608,
+  "createdAt": 1669884279900,
+  "updatedAt": 1669884279900,
   "deletedAt": 0,
-  "createdFirstAt": 1669384718608,
+  "createdFirstAt": 1669884279900,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/markdownReaderGetStaticProps.ts",
   "commentsInside": [],
-  "rawText": " async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await getAllMarkdownReaderPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(flat, context);\n}",
+  "rawText": " async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await getAllMarkdownReaderPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(\n    context,\n    flat,\n    \"markdown-reader-web\"\n  );\n}",
   "name": "markdownReaderGetStaticProps",
   "slug": "markdown-reader-get-static-props",
   "parameters": [
@@ -89,15 +89,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 1,
+  "maxIndentationDepth": 2,
   "size": {
-    "characters": 219,
-    "lines": 8,
-    "bytes": 219,
+    "characters": 258,
+    "lines": 12,
+    "bytes": 258,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 8,
+    "charactersPerLine": 22,
+    "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "kdtxpcixjogamkdeyupqbytc"
+  "id": "jqplfjwjgtacsghuudgxerrk"
 }

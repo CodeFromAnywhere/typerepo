@@ -10,5 +10,9 @@ export const codestoriesGetStaticProps = async (
   props: MarkdownReaderPageProps;
 }> => {
   const flat = (await codestoriesGetPages()) || [];
-  return markdownReaderGetStaticPropsFromPages(flat, context);
+  return markdownReaderGetStaticPropsFromPages(
+    context,
+    flat,
+    "codestories-web"
+  );
 };

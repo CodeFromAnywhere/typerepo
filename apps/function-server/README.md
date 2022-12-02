@@ -42,6 +42,8 @@ Please note: Typerepo might revert back to something like express.js later, as i
 
 Nevertheless, server.js works fine and most things are documented.
 
+![](./test.drawio.svg)
+
   </details>
 
 # Api reference

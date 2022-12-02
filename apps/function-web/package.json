@@ -66,6 +66,7 @@
   },
   "version": "0.0.1",
   "operation": {
+    "port": 42011,
     "indirectDependencies": [
       "db-recipes",
       "vscode-open",

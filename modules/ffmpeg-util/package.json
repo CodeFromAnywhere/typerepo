@@ -1,0 +1,67 @@
+{
+  "createdAt": 1669883780948,
+  "updatedAt": 1669883780948,
+  "deletedAt": 0,
+  "createdFirstAt": 1669883780948,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "name": "ffmpeg-util",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1669962054176,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 52,
+        "characters": 1258,
+        "bytes": 1258
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 103,
+        "characters": 3294,
+        "bytes": 3294
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 54,
+        "characters": 871,
+        "bytes": 871
+      },
+      "size": {
+        "bytes": 5423,
+        "characters": 5423,
+        "lines": 209,
+        "numberOfFiles": 6
+      }
+    },
+    "folderNameIndexed": "ffmpeg-util",
+    "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion/audio-video",
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "fs"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "dependencies": {
+    "fs-util": "1.0.5"
+  },
+  "slug": "ffmpeg-util",
+  "id": "ahawlqtlqdfmfhkvnfcgmbph"
+}

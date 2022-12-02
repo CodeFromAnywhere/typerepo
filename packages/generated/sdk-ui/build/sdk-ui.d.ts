@@ -7,6 +7,7 @@ import { isObject } from "react-with-native-form";
 import { Modal } from "react-with-native-modal";
 import { useNavigation } from "react-with-native-router";
 import { useIsInViewport } from "react-with-native-table";
+import { useOnScreen } from "use-on-screen";
 export declare const sdk: {
     AppsMenu: () => JSX.Element;
     AssetInput: (props: {
@@ -45,6 +46,10 @@ export declare const sdk: {
         projectRelativeReferencingFilePath: string;
         hideDownloadLink?: boolean | undefined;
     }) => JSX.Element;
+    getSrc: (asset: import("asset-type").Asset, projectRelativeReferencingFilePath: string, isNextStaticProductionBuild?: boolean | undefined) => {
+        src: string;
+        downloadUrl: string | undefined;
+    };
     InteractiveAsset: (props: {
         asset: import("asset-type").Asset;
         attachTokenToFilename?: boolean | undefined;
@@ -106,6 +111,51 @@ export declare const sdk: {
     }) => JSX.Element;
     renderBreadCrumbs: (chunks: string[]) => JSX.Element[];
     ClickableIcon: (button: import("clickable-icon").ClickableIconType) => JSX.Element;
+    useContextMenu: (props: {
+        items: import("context-menu").ContextMenuItem[];
+        longTouchDurationMs?: number | undefined;
+        className?: string | undefined;
+        itemClassName?: string | undefined;
+        customItemRender?: ((contextMenuItem: import("context-menu").ContextMenuItem, index: number, onClose: () => void, id: string | undefined) => JSX.Element | null) | undefined;
+    }) => {
+        renderContextMenu: () => JSX.Element | null;
+        openContextMenuProps: {
+            ref: import("react").RefObject<HTMLDivElement>;
+            onContextMenu: (event: import("react").MouseEvent<Element, MouseEvent>) => void;
+            onTouchStart: (event: import("react").TouchEvent<Element>) => void;
+            onTouchEnd: () => void;
+            onClick: (mouseEvent: import("react").MouseEvent<Element, MouseEvent>) => void;
+            style: import("react").CSSProperties;
+        };
+    };
+    useContextPopper: (props: {
+        renderPopper: (props: {
+            id?: string | undefined;
+        }) => JSX.Element;
+        longTouchDurationMs?: number | undefined;
+    }) => {
+        renderContextPopper: () => JSX.Element | null;
+        onClose: () => void;
+        openContextPopperProps: {
+            ref: import("react").RefObject<HTMLDivElement>;
+            onContextMenu: (event: import("react").MouseEvent<Element, MouseEvent>) => void;
+            onTouchStart: (event: import("react").TouchEvent<Element>) => void;
+            onTouchEnd: () => void;
+            onClick: (mouseEvent: import("react").MouseEvent<Element, MouseEvent>) => void;
+            style: import("react").CSSProperties;
+        };
+    };
+    useContext: (callback: (position: import("context-menu").ContextEvent) => any, config?: {
+        longTouchDurationMs?: number | undefined;
+    } | undefined) => {
+        onContextMenu: (event: import("react").MouseEvent<Element, MouseEvent>) => void;
+        onTouchStart: (event: import("react").TouchEvent<Element>) => void;
+        onTouchEnd: () => void;
+        onClick: (mouseEvent: import("react").MouseEvent<Element, MouseEvent>) => void;
+        style: {
+            userSelect: import("csstype").Property.UserSelect | undefined;
+        };
+    };
     errorToast: (message?: string | undefined) => void;
     infoToast: (message?: string | undefined) => void;
     showStandardResponse: (apiResult: import("api-types").StandardizedApiReturnType) => void;
@@ -239,6 +289,20 @@ export declare const sdk: {
     copyStaticAssets: (readerWebPages: import("webpage-types").FileWebPage[], config?: {
         operationName?: string | undefined;
     } | undefined) => Promise<boolean | undefined>;
+    docsGetPages: (basePaths: {
+        projectRelativeBasePath: string;
+        queryPath: string;
+    }[]) => Promise<import("webpage-types").FileWebPage[]>;
+    docsGetStaticPaths: (context: import("next-types").GetStaticPathsContext, basePaths: {
+        projectRelativeBasePath: string;
+        queryPath: string;
+    }[]) => Promise<import("next-types").GetStaticPathsResult<import("next-types").ParsedUrlQuery>>;
+    docsGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>, basePaths: {
+        projectRelativeBasePath: string;
+        queryPath: string;
+    }[], webOperationName: string) => Promise<{
+        props: import("markdown-reader-types").MarkdownReaderPageProps;
+    }>;
     getAllMarkdownReaderPages: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<import("webpage-types").WebPage<any>[] | undefined>;
@@ -255,7 +319,14 @@ export declare const sdk: {
         }[];
     }>;
     getMarkdownModelPages: (projectRoot: string) => Promise<import("webpage-types").FileWebPage[]>;
-    getMarkdownPageInfo: (projectRoot: string, webPages: import("webpage-types").WebPage<any>[], queryPath: string, contentPage: import("webpage-types").FileWebPage) => Promise<{
+    getMarkdownPageInfo: (config: {
+        projectRoot: string;
+        webPages: import("webpage-types").WebPage<any>[];
+        queryPath: string;
+        contentPage: import("webpage-types").FileWebPage;
+        webOperationName: string;
+        markdownCallToActions: import("markdown-types").MarkdownCallToAction[];
+    }) => Promise<{
         markdownFile: import("markdown-types").WebMarkdownFile | null;
         nextQueryPath: string | null;
         previousQueryPath: string | null;
@@ -276,7 +347,7 @@ export declare const sdk: {
     }[]>;
     getReaderTodoPages: (projectRoot: string) => Promise<import("webpage-types").FileWebPage[]>;
     markdownReaderGetStaticPaths: import("next-types").GetStaticPaths<import("next-types").ParsedUrlQuery>;
-    markdownReaderGetStaticPropsFromPages: (fileWebPages: import("webpage-types").WebPage<any>[], context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
+    markdownReaderGetStaticPropsFromPages: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>, fileWebPages: import("webpage-types").WebPage<any>[], webOperationName: string) => Promise<{
         props: import("markdown-reader-types").MarkdownReaderPageProps;
     }>;
     markdownReaderGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
@@ -507,11 +578,19 @@ export declare const sdk: {
     }) => JSX.Element | null;
     useReferencableModelData: (simplifiedSchema: import("code-types").SimplifiedSchema) => import("simplified-schema-form").ReferencableModelData | undefined;
     useTsInterfaceForm: <T_10 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_10 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_10 | undefined, onChange?: ((value: T_10) => void) | undefined];
+    SwipeHomepage: (props: {
+        ctas: {
+            text: string;
+            href: string;
+        }[];
+        items: import("swipe-homepage").SwipeItem[];
+    }) => JSX.Element;
     Tooltip: (props: {
         tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;
         children: import("react").ReactNode;
         placement?: import("@popperjs/core").Placement | undefined;
     }) => JSX.Element;
+    useOnScreen: typeof useOnScreen;
     FileWriter: (props: {
         markdownModelName?: string | number | symbol | undefined;
         projectRelativeFilePath: string;
@@ -542,7 +621,7 @@ export declare const sdk: {
         renderSpacer?: boolean | undefined;
     } | undefined) => JSX.Element | null;
     renderMarkdownChunk: (chunk: import("markdown-types").MarkdownChunk, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
-    renderMarkdownContent: (content: string, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element | "[No content]";
+    renderMarkdownContent: (content: string, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownParse: (markdownParse: import("markdown-types").MarkdownParse, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownTitle: (title: string, level: number) => JSX.Element;
     useOpenHashDetails: () => void;
@@ -560,6 +639,9 @@ export declare const sdk: {
         markdownFile?: import("markdown-types").WebMarkdownFile | null | undefined;
         projectRelativeMarkdownPath?: string | null | undefined;
     }) => JSX.Element | null;
+    Timeline: (props: {
+        items: import("timeline").TimelineItemType[];
+    }) => JSX.Element;
     Completion: (props: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
@@ -628,6 +710,23 @@ export declare const sdk: {
     }) => JSX.Element;
     omitSpecialCharactersFromStart: (word?: string | undefined) => string | undefined;
     parseTextContentToHtmlString: import("writer-input").ParseTextContentToHtmlString;
+    ShortMarkdownPlayer: (props: {
+        shortMarkdown?: import("short-markdown-types").ShortMarkdown | undefined;
+        projectRelativeFilePath?: string | undefined;
+    }) => JSX.Element | null;
+    ShortMarkdownSlide: (props: {
+        item: import("short-markdown-types").ViewEmbed;
+        index: number;
+        projectRelativeFilePath: string;
+        setSlide: (index: number) => void;
+        isAutoplay?: boolean | undefined;
+    }) => JSX.Element;
+    ShortStudio: (props: {
+        onChange: (value: string) => void;
+        value: string;
+        projectRelativeFilePath: string;
+        markdownModelName?: string | number | symbol | undefined;
+    }) => JSX.Element;
     SmartContentEditableDivInput: (props: {
         writerType: import("filename-conventions").WriterType;
         value: string;
@@ -662,6 +761,13 @@ export declare const sdk: {
         augmentedWords?: import("augmented-word-types").AugmentedWord[] | undefined;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
     }) => JSX.Element;
+    useMultiAudio: (urls: string[]) => {
+        players: {
+            url: string;
+            playing: boolean;
+        }[];
+        toggle: (targetIndex: number) => () => void;
+    };
     WriterConfigForm: () => JSX.Element;
     WriterInput: (props: {
         isSaved?: boolean | undefined;

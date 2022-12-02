@@ -1,0 +1,31 @@
+{
+  "createdAt": 1669962353850,
+  "updatedAt": 1669962353850,
+  "deletedAt": 0,
+  "createdFirstAt": 1669962353850,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "ajv",
+  "slug": "ajv",
+  "operationRelativeTypescriptFilePath": "src/validateResult.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/database/db-recipes/node_modules/ajv/dist/ajv\").default",
+    "typeDefinition": {
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "new Ajv()",
+  "description": "",
+  "id": "zjjzhrcpjmqjwivhwaopjxmc"
+}

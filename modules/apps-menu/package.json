@@ -43,38 +43,49 @@
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
-    "coreDependenciesIndexed": [],
+    "coreDependenciesIndexed": [
+      "useState"
+    ],
     "folderNameIndexed": "apps-menu",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668836187133,
-    "operationDependenciesIndexed": [],
+    "lastRebuildAt": 1669885241174,
+    "operationDependenciesIndexed": [
+      "Div",
+      "P",
+      "queries",
+      "api",
+      "Tooltip",
+      "renderMarkdownContent",
+      "useAlert",
+      "FancyLoader"
+    ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/wise",
     "markdown": "# ❌ No description set yet\n\nPlease set a description for this operation in OPERATION.md\n",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 1,
-        "lines": 93,
-        "characters": 3581,
-        "bytes": 3581
+        "lines": 92,
+        "characters": 3618,
+        "bytes": 3618
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 132,
-        "characters": 4066,
-        "bytes": 4066
+        "lines": 121,
+        "characters": 3899,
+        "bytes": 3899
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 19,
-        "characters": 262,
-        "bytes": 262
+        "lines": 30,
+        "characters": 417,
+        "bytes": 417
       },
       "size": {
-        "bytes": 7909,
-        "characters": 7909,
-        "lines": 244,
+        "bytes": 7934,
+        "characters": 7934,
+        "lines": 243,
         "numberOfFiles": 5
       }
     },

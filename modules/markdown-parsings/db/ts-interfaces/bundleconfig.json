@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200442782,
-  "updatedAt": 1669200442782,
+  "createdAt": 1669962141549,
+  "updatedAt": 1669962141549,
   "deletedAt": 0,
-  "createdFirstAt": 1669200442782,
+  "createdFirstAt": 1669962141549,
   "id": "bundleconfig",
   "name": "BundleConfig",
   "slug": "bundleconfig",
@@ -19,6 +19,10 @@
       "properties": {
         "name": {
           "type": "string"
+        },
+        "deploymentHostname": {
+          "type": "string",
+          "description": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))"
         },
         "description": {
           "type": "string",
@@ -120,6 +124,14 @@
           "name": "name",
           "required": true,
           "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "deploymentHostname",
+          "required": false,
+          "schema": {
+            "fullComment": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))",
             "type": "string"
           }
         },
@@ -506,6 +518,13 @@
                 }
               },
               {
+                "name": "keepCodestories",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
                 "name": "informationStrategy",
                 "required": false,
                 "schema": {
@@ -865,6 +884,23 @@
                   "fullComment": "optional. Could also find the main file from here and use that as README.md\n\nMust be a relative path from project root. Can be multiple!",
                   "properties": [],
                   "type": "object"
+                }
+              },
+              {
+                "name": "imagesProjectRelativeFolderPaths",
+                "required": false,
+                "schema": {
+                  "fullComment": "paths to image folders that should randomly be used as default headers or footers in the generated markdown.",
+                  "items": [
+                    {
+                      "schema": {
+                        "fullComment": "later this could be known by the frontend so it will render a ui to select a folder\n\nWe need to figure out how we can know all type types in between when getting the type definition schema, not only the final type. If I'm lucky there is a way to find it as a #ref in a consistent way.",
+                        "type": "string"
+                      },
+                      "name": "ProjectRelativeFolderPath"
+                    }
+                  ],
+                  "type": "array"
                 }
               },
               {

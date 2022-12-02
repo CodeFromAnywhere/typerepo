@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384816266,
-  "updatedAt": 1669384816266,
+  "createdAt": 1669884335544,
+  "updatedAt": 1669884335544,
   "deletedAt": 0,
-  "createdFirstAt": 1669384816266,
+  "createdFirstAt": 1669884335544,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  devices: Device[],\n  config?: {\n    onlyWithDevices?: boolean;\n    onlyWithPapi?: boolean;\n    onlyOnline?: boolean;\n    withAppsCalculated?: boolean;\n  }\n) => {\n  const { onlyOnline, onlyWithDevices, onlyWithPapi, withAppsCalculated } =\n    destructureOptionalObject(config);\n  return (\n    await Promise.all(\n      (\n        await db.get(\"Person\")\n      ).map(async (x) => {\n        const person: Person = {\n          ...x,\n          devicesCalculated: await Promise.all(\n            devices\n              .filter((x) => x.personIds?.includes(x.id))\n              .filter((x) => (onlyWithPapi ? x.hasPapi : true))\n              .map(augmentDevice)\n              .sort(sortDevices)\n              .filter((x) => (onlyOnline ? x.isOnlineCalculated : true))\n              .map((x) => (withAppsCalculated ? deviceGetAppsCalculated(x) : x))\n          ),\n        };\n\n        return person;\n      })\n    )\n  ).filter((x) => {\n    if (!onlyWithDevices) return true;\n    return x.devicesCalculated && x.devicesCalculated.length > 0;\n  });\n}",
   "description": "",
-  "id": "klkncpmgwdrcejzspuhebnej"
+  "id": "nnstmquegfbjaaknqrpvrccj"
 }

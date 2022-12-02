@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773974037,
-  "updatedAt": 1668773974037,
+  "createdAt": 1669883394903,
+  "updatedAt": 1669883394903,
   "deletedAt": 0,
-  "createdFirstAt": 1668773974037,
+  "createdFirstAt": 1669883394903,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const operationNames = process.argv.slice(2);\n  const result = await stopApps(operationNames);\n  console.log({ result });\n}",
   "description": "Arguments\n- Operation Names to stop",
-  "id": "dhdbfcazrbxusamjzhstzajr"
+  "id": "dzuqureftyqmezdletmnaztt"
 }

@@ -28,7 +28,8 @@
     "fs-util-js": "0.0.1",
     "nested-menu": "0.0.1",
     "json-schema": "*",
-    "recursive-types": "0.0.1"
+    "recursive-types": "0.0.1",
+    "markdown-types": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -63,7 +64,7 @@
     "folderNameIndexed": "markdown-parsings",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669200512962,
+    "lastRebuildAt": 1669962217656,
     "operationDependenciesIndexed": [
       "TsFunction",
       "TsImport",
@@ -108,7 +109,6 @@
       "hasSubExtension",
       "getSrcRelativeFileId",
       "FolderSummary",
-      "MarkdownParse",
       "OperationClassification",
       "path",
       "writeStringToFile",
@@ -134,7 +134,6 @@
       "notEmpty",
       "MarkdownParse",
       "MarkdownParse",
-      "MarkdownParse",
       "MarkdownChunk",
       "MarkdownParse",
       "mergeObjectsArray",
@@ -157,26 +156,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 39,
-        "lines": 1391,
-        "characters": 39867,
-        "bytes": 39867
+        "lines": 1383,
+        "characters": 39856,
+        "bytes": 39856
       },
       "dataSize": {
         "numberOfFiles": 4,
-        "lines": 6276,
-        "characters": 250788,
-        "bytes": 250788
+        "lines": 6275,
+        "characters": 250773,
+        "bytes": 250773
       },
       "textSize": {
         "numberOfFiles": 8,
-        "lines": 2397,
-        "characters": 66109,
-        "bytes": 66109
+        "lines": 2402,
+        "characters": 66206,
+        "bytes": 66206
       },
       "size": {
-        "bytes": 356764,
-        "characters": 356764,
-        "lines": 10064,
+        "bytes": 356835,
+        "characters": 356835,
+        "lines": 10060,
         "numberOfFiles": 51
       }
     },

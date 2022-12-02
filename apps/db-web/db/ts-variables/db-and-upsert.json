@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669276125436,
-  "updatedAt": 1669276125436,
+  "createdAt": 1669884053017,
+  "updatedAt": 1669884053017,
   "deletedAt": 0,
-  "createdFirstAt": 1669276125436,
+  "createdFirstAt": 1669884053017,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const router = useRouter();\n  const paths = router.asPath.slice(1);\n  const modelNameWithQuery = paths.split(\"/\").pop()!;\n  const modelName = modelNameWithQuery.split(\"?\")[0];\n  const modelNames = [...dbModelKeys] as string[];\n\n  if (!modelNames.includes(modelName) || !modelName || modelName === \"\") {\n    return \"Please select a model on the right\";\n  }\n\n  if (paths.startsWith(\"upsert/\")) {\n    return <UpsertPage />;\n  }\n\n  return <DbPage />;\n}",
   "description": "This should catch all dbQueryPaths because those aren't default ones",
-  "id": "asjrlrakxhwssyzjzwaovsyq"
+  "id": "aplqdwuibiikfubcesztilvl"
 }

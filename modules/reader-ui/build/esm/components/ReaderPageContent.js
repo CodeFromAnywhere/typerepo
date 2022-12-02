@@ -112,7 +112,7 @@ export var ReaderPageContent = function (props) {
                         }))) : null)));
             }))));
     };
-    console.log({ markdownFile: markdownFile });
+    // console.log({ markdownFile });
     return (React.createElement(Div, null,
         (markdownFile === null || markdownFile === void 0 ? void 0 : markdownFile.headerImage) ||
             (markdownFile === null || markdownFile === void 0 ? void 0 : markdownFile.headerTitle) ||

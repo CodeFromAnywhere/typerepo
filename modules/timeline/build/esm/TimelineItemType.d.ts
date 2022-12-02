@@ -1,13 +1,14 @@
 /// <reference types="react" />
+import { PostableProperties } from "markdown-types";
 import { AugmentedAnyModelType } from "model-types";
 import { Person } from "peer-types";
-import { MediaPost, Postable } from "social-media-types";
+import { MediaPost } from "social-media-types";
 import { OpenableFile } from "vscode-open";
 /**
  * Any data that could map to the presentational type
  */
 export declare type TimelineData = {
-    postable?: Postable;
+    postable?: PostableProperties;
     mediaPost?: MediaPost;
     openableFile?: OpenableFile;
     person?: Person;
@@ -23,4 +24,6 @@ export declare type TimelineItemType = {
     markdown?: string;
     component?: () => JSX.Element;
     linkUrl?: string;
+    projectRelativeFilePath?: string;
+    line?: number;
 };

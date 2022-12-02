@@ -5,25 +5,27 @@
   "createdFirstAt": 1668328692437,
   "id": "dbWxqZljJGXXfdTi",
   "dependencies": {
-    "database": "0.0.1",
-    "code-types": "0.0.1",
-    "convert-case": "0.0.1",
-    "bundle-util": "0.0.1",
-    "get-path": "0.0.1",
-    "k-explore": "0.0.2",
-    "fs-util": "1.0.5",
-    "db-util": "0.0.1",
-    "fs-orm": "1.0.1",
-    "model-types": "0.0.1",
-    "js-util": "0.0.1",
-    "name-conventions": "0.0.1",
+    "ajv": "^8.11.2",
     "asset-functions-node": "0.0.1",
     "bundle-types": "0.0.1",
+    "bundle-util": "0.0.1",
+    "code-types": "0.0.1",
+    "convert-case": "0.0.1",
+    "database": "0.0.1",
+    "db-util": "0.0.1",
+    "fs-orm": "1.0.1",
+    "fs-util": "1.0.5",
+    "get-path": "0.0.1",
+    "js-util": "0.0.1",
+    "k-explore": "0.0.2",
+    "model-types": "0.0.1",
+    "name-conventions": "0.0.1",
     "nested-menu": "0.0.1",
     "read-json-file": "0.0.1",
-    "webpage-types": "0.0.1",
     "recursive-types": "0.0.1",
-    "recursive-util": "0.0.1"
+    "recursive-util": "0.0.1",
+    "webpage-types": "0.0.1",
+    "log": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -61,7 +63,7 @@
       "bundle-types"
     ],
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669132708561,
+    "lastRebuildAt": 1669962364880,
     "operationDependenciesIndexed": [
       "BundleConfig",
       "db",
@@ -124,34 +126,40 @@
       "makeArray",
       "notEmpty",
       "processItemAssets",
-      "TsFunction"
+      "TsFunction",
+      "sdk",
+      "notEmpty",
+      "log",
+      "TsFunction",
+      "sdk",
+      "log"
     ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/database",
     "markdown": "Useful library of functions that wrap the `fs-orm` database.\n\nTODO: should probably be split up further to differentiate between db-ui functions and a more general purpose library\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 17,
-        "lines": 672,
-        "characters": 20013,
-        "bytes": 20013
+        "numberOfFiles": 18,
+        "lines": 752,
+        "characters": 22191,
+        "bytes": 22191
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 204,
-        "characters": 5120,
-        "bytes": 5120
+        "lines": 202,
+        "characters": 5052,
+        "bytes": 5052
       },
       "textSize": {
-        "numberOfFiles": 3,
-        "lines": 383,
-        "characters": 10707,
-        "bytes": 10707
+        "numberOfFiles": 2,
+        "lines": 381,
+        "characters": 8403,
+        "bytes": 8403
       },
       "size": {
-        "bytes": 35840,
-        "characters": 35840,
-        "lines": 1259,
+        "bytes": 35646,
+        "characters": 35646,
+        "lines": 1335,
         "numberOfFiles": 22
       }
     },

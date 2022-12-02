@@ -9,6 +9,17 @@ Wrapper around pm2 to easily manage proceses within King OS
 
 # Api reference
 
+## startApp()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationName | string |  |,| isDev (optional) | boolean |  |
+| **Output** |    |    |
+
+
+
+## 📄 startApp (exported const)
+
 # CLI
 
 <details><summary>Show CLI information (12)</summary>
@@ -127,7 +138,7 @@ Arguments
 
 # Internal
 
-<details><summary>Show internal (21)</summary>
+<details><summary>Show internal (19)</summary>
     
   # deleteApp()
 
@@ -206,15 +217,6 @@ Restarts an app with pm2
 
 
 
-## startApp()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| operationName | string |  |,| isDev (optional) | boolean |  |
-| **Output** |    |    |
-
-
-
 ## stopAllAppsExcept()
 
 Stops all apps except some specified ones
@@ -270,8 +272,6 @@ Function that lets you connect, execute a pm2 action, and disconnect after
 
 Restarts an app with pm2
 
-
-## 📄 startApp (exported const)
 
 ## 📄 stopAllAppsExcept (exported const)
 

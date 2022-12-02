@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200480455,
-  "updatedAt": 1669200480455,
+  "createdAt": 1669962182349,
+  "updatedAt": 1669962182349,
   "deletedAt": 0,
-  "createdFirstAt": 1669200480455,
+  "createdFirstAt": 1669962182349,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -16930,7 +16930,7 @@
   ],
   "description": "converts an operation and all its contents into a flat markdown file that contains the needed information. configurable.\n\nmarkdown for reading (so there are no links)",
   "returnType": {
-    "rawType": "Promise<string | import(\"/Users/king/King/operations/tools/types/code-types/build/MarkdownParse\").MarkdownParse | undefined>",
+    "rawType": "Promise<string | import(\"/Users/king/King/operations/tools/types/markdown-types/build/MarkdownParse\").MarkdownParse | undefined>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -16948,5 +16948,5 @@
     "linesPerFile": 137,
     "numberOfFiles": 1
   },
-  "id": "usykbqoxvysleqfqpfoltbyb"
+  "id": "fpxkvrfpuletrlhbxtdygwgf"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669467195827,
-  "updatedAt": 1669467195827,
+  "createdAt": 1669639437574,
+  "updatedAt": 1669639437574,
   "deletedAt": 0,
-  "createdFirstAt": 1669467195827,
+  "createdFirstAt": 1669639437574,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: MarkdownReaderPageProps) => {\n  const router = useRouter();\n  const queryPath = getQueryPath(router.query);\n  const word: string | undefined = Array.isArray(router.query?.word)\n    ? router.query?.word?.[0]\n    : router.query.word;\n\n  return (\n    <Layout\n      publicBundleConfig={props.publicBundleConfig}\n      augmentedWordObject={props.content?.augmentedWordObject}\n      menu={props.menu}\n    >\n      {queryPath === \"dictionary\" && props.content?.augmentedWordObject ? (\n        <Dictionary\n          augmentedWordObject={props.content?.augmentedWordObject}\n          word={word}\n        />\n      ) : (\n        <ReaderPageContent {...props.content} />\n      )}\n    </Layout>\n  );\n}",
   "description": "",
-  "id": "rnpxcazjqsqdqthujfblvrup"
+  "id": "kgpulqxhvhdqvqtqjpewllnb"
 }

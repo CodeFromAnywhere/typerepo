@@ -111,12 +111,11 @@ import { parseFrontmatterMarkdownString } from "markdown-parse-js";
 import { parseMarkdownParagraph } from "markdown-parse-js";
 import { parseMdToChunks } from "markdown-parse-js";
 import { removeHeaderPrefix } from "markdown-parse-js";
-import { findCodespansFromTokenRecursively } from "marked-util";
 import { findCodespans } from "marked-util";
-import { findEmbedsFromTokenRecursively } from "marked-util";
 import { findEmbeds } from "marked-util";
-import { findLinksFromTokenRecursively } from "marked-util";
 import { findLinks } from "marked-util";
+import { flattenMarkdownString } from "marked-util";
+import { flattenMarkedTokenRecursive } from "marked-util";
 import { parsePrimitiveArray } from "parse-primitive";
 import { parsePrimitiveBoolean } from "parse-primitive";
 import { parsePrimitiveString } from "parse-primitive";
@@ -401,12 +400,11 @@ parseFrontmatterMarkdownString,
 parseMarkdownParagraph,
 parseMdToChunks,
 removeHeaderPrefix,
-findCodespansFromTokenRecursively,
 findCodespans,
-findEmbedsFromTokenRecursively,
 findEmbeds,
-findLinksFromTokenRecursively,
 findLinks,
+flattenMarkdownString,
+flattenMarkedTokenRecursive,
 parsePrimitiveArray,
 parsePrimitiveBoolean,
 parsePrimitiveString,

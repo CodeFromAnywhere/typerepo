@@ -1,4 +1,4 @@
-import { MarkdownParse } from "code-types";
+import { MarkdownParse } from "markdown-types";
 import { OperationSummary } from "./OperationSummary";
 /**
  * converts an operation and all its contents into a flat markdown file that contains the needed information. configurable.

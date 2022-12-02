@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669131438899,
-  "updatedAt": 1669131438899,
+  "createdAt": 1669885343899,
+  "updatedAt": 1669885343899,
   "deletedAt": 0,
-  "createdFirstAt": 1669131438899,
+  "createdFirstAt": 1669885343899,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const router = useRouter();\n  const paths = router.query.paths ? makeArray(router.query.paths) : [];\n  const modelQuery = paths.pop();\n  return modelQuery;\n}",
   "description": "takes the model from the url",
-  "id": "adrxelvrtwqnbospssilfbvp"
+  "id": "pinsbsnadedvlvxlvoozxmdu"
 }

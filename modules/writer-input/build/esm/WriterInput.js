@@ -15,6 +15,7 @@ import { WriterConfigForm } from "./config/WriterConfigForm";
 import { useStore } from "./store";
 import { MarkdownView } from "./MarkdownView";
 import { EditWriterInput } from "./EditWriterInput";
+import { ShortStudio } from "./ShortStudio";
 var vscodeOpen = api.vscodeOpen;
 /**
 Writer input for any utf8 based text, file or no file
@@ -58,6 +59,9 @@ export var WriterInput = function (props) {
             isStatic: false,
         };
         return (React.createElement(Div, { className: "flex flex-col flex-1 px-4" },
+            writerView === "shortStudio" ? (React.createElement(ShortStudio, { onChange: onChange, value: value, projectRelativeFilePath: projectRelativeFilePath, markdownModelName: markdownModelName })) : null,
+            writerView === "postable" ? React.createElement(Div, null, "This is postable") : null,
+            writerView === "todoOffers" ? React.createElement(Div, null, "This is todo offers") : null,
             writerView === "config" ? React.createElement(WriterConfigForm, null) : null,
             writerView === "frontmatter" &&
                 !frontmatterSchemaQuery.isLoading &&
@@ -113,6 +117,33 @@ export var WriterInput = function (props) {
                     emoji: "⚙️",
                     title: "Configuration",
                     isActive: writerView === "config",
+                },
+                {
+                    onClick: function () {
+                        setWriterView("postable");
+                    },
+                    emoji: "💬",
+                    title: "Postables",
+                    isActive: writerView === "postable",
+                    isEnabled: projectRelativeFilePath === null || projectRelativeFilePath === void 0 ? void 0 : projectRelativeFilePath.endsWith(".postable.md"),
+                },
+                {
+                    onClick: function () {
+                        setWriterView("shortStudio");
+                    },
+                    emoji: "🎙",
+                    title: "Short Studio",
+                    isActive: writerView === "shortStudio",
+                    isEnabled: projectRelativeFilePath === null || projectRelativeFilePath === void 0 ? void 0 : projectRelativeFilePath.endsWith(".short.md"),
+                },
+                {
+                    onClick: function () {
+                        setWriterView("todoOffers");
+                    },
+                    emoji: "📖",
+                    title: "Todo Offers",
+                    isActive: writerView === "todoOffers",
+                    isEnabled: projectRelativeFilePath === null || projectRelativeFilePath === void 0 ? void 0 : projectRelativeFilePath.includes("/todo/"),
                 },
                 {
                     onClick: function () {

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384688025,
-  "updatedAt": 1669384688025,
+  "createdAt": 1669639189556,
+  "updatedAt": 1669639189556,
   "deletedAt": 0,
-  "createdFirstAt": 1669384688025,
+  "createdFirstAt": 1669639189556,
   "id": "finalbundleconfig",
   "name": "FinalBundleConfig",
   "slug": "finalbundleconfig",
@@ -73,6 +73,10 @@
         "language": {
           "$ref": "#/definitions/Language",
           "default": "en"
+        },
+        "deploymentHostname": {
+          "type": "string",
+          "description": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))"
         },
         "description": {
           "type": "string",
@@ -662,14 +666,6 @@
                 }
               },
               {
-                "name": "deploymentHostname",
-                "required": false,
-                "schema": {
-                  "fullComment": "Used to determine which images to show",
-                  "type": "string"
-                }
-              },
-              {
                 "name": "readmeRelativeFilePath",
                 "required": false,
                 "schema": {
@@ -814,6 +810,14 @@
               "swahili"
             ],
             "fullComment": "all currently supported languages",
+            "type": "string"
+          }
+        },
+        {
+          "name": "deploymentHostname",
+          "required": false,
+          "schema": {
+            "fullComment": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))",
             "type": "string"
           }
         },

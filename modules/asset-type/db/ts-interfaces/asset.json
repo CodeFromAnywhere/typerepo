@@ -1,15 +1,15 @@
 {
-  "createdAt": 1669276019105,
-  "updatedAt": 1669276019105,
+  "createdAt": 1669638937575,
+  "updatedAt": 1669638937575,
   "deletedAt": 0,
-  "createdFirstAt": 1669276019105,
+  "createdFirstAt": 1669638937575,
   "id": "asset",
   "name": "Asset",
   "slug": "asset",
   "operationRelativeTypescriptFilePath": "src/Asset.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\nAsset you can upload\n\nThis is not a database model, it can exist in properties of any db model or type interface.\n\nOnly `alt` and `relativePath` are stored, the other parameters are optionally required for uploading and user interfaces, and are not always there\n\nNB: don't use this in your model, use `StoredAsset` instead.\n */\nexport interface Asset extends BackendAsset {\n  /**\n   * path to the local blob if uploading\n   */\n  blobPath?: string;\n\n  /**\n   * can be calculated from the path, or come directly from the blob\n   */\n  type?: AssetType;\n  /**\n   * Can be available in case it's an asset from an external source URL for example within md.\n   */\n  absoluteUrl?: string;\n  /**\n   * if the file was selected from the system, this should be the original filename, including extension\n   */\n  originalFilename?: string;\n\n  /**\n   * can be calculated from the file stats.\n   */\n  sizeBytes?: number;\n\n  /**\n   * Blob that is available after selecting from the local file system\n   */\n  blob?: Blob;\n\n  /**\n   * number between 0 and 1 indicating uploadProgress\n   */\n  uploadProgress?: number;\n}",
+  "rawText": "\n\n/**\nAsset you can upload\n\nThis is not a database model, it can exist in properties of any db model or type interface.\n\nOnly `alt` and `relativePath` are stored, the other parameters are optionally required for uploading and user interfaces, and are not always there\n\nNB: don't use this in your model, use `StoredAsset` instead.\n */\nexport interface Asset extends BackendAsset {\n  /**\n   * path to the local blob if uploading\n   */\n  blobPath?: string;\n\n  /**\n   * can be calculated from the path, or come directly from the blob\n   */\n  type?: AssetType;\n  /**\n   * if the file was selected from the system, this should be the original filename, including extension\n   */\n  originalFilename?: string;\n\n  /**\n   * can be calculated from the file stats.\n   */\n  sizeBytes?: number;\n\n  /**\n   * Blob that is available after selecting from the local file system\n   */\n  blob?: Blob;\n\n  /**\n   * number between 0 and 1 indicating uploadProgress\n   */\n  uploadProgress?: number;\n}",
   "extensions": [
     "BackendAsset"
   ],
@@ -45,6 +45,10 @@
           "type": "string",
           "description": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to"
         },
+        "absoluteUrl": {
+          "type": "string",
+          "description": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project"
+        },
         "blobPath": {
           "type": "string",
           "description": "path to the local blob if uploading"
@@ -52,10 +56,6 @@
         "type": {
           "$ref": "#/definitions/AssetType",
           "description": "can be calculated from the path, or come directly from the blob"
-        },
-        "absoluteUrl": {
-          "type": "string",
-          "description": "Can be available in case it's an asset from an external source URL for example within md."
         },
         "originalFilename": {
           "type": "string",
@@ -144,6 +144,14 @@
           }
         },
         {
+          "name": "absoluteUrl",
+          "required": false,
+          "schema": {
+            "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
+            "type": "string"
+          }
+        },
+        {
           "name": "blobPath",
           "required": false,
           "schema": {
@@ -163,14 +171,6 @@
               "other"
             ],
             "fullComment": "can be calculated from the path, or come directly from the blob\n\nPossible Asset Types\n\nLater, maybe also support: \"markdown\",\"json\",\"typescript\"",
-            "type": "string"
-          }
-        },
-        {
-          "name": "absoluteUrl",
-          "required": false,
-          "schema": {
-            "fullComment": "Can be available in case it's an asset from an external source URL for example within md.",
             "type": "string"
           }
         },

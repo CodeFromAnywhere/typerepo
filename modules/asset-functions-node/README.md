@@ -161,20 +161,6 @@ Audio, image, video can be compressed. This should be done to logical defaults, 
 Returns the new absolute path of the compressed asset (which can be the same as the initial path)
 
 
-## 📄 convertToMp3 (exported const)
-
-Uses ffmpeg to convert a file to mp3
-
-Returns the new file path on success
-
-
-## 📄 convertToMp4 (exported const)
-
-Uses ffmpeg to convert a file to mp3
-
-Returns the new file path on success
-
-
 ## 📄 deleteReferencedAsset (exported const)
 
 ## 📄 downloadRemoteAsset (exported const)

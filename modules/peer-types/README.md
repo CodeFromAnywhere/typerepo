@@ -328,7 +328,6 @@ Properties:
 | deviceId  | string |  |
 | path  | string |  |
 | ipInfo  | object |  |
-| hello  | string |  |
 
 
 

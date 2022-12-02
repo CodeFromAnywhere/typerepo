@@ -35,6 +35,7 @@ export declare const operations: {
     "code-types": string;
     "comment-util": string;
     "compile-typescript": string;
+    "context-menu": string;
     "convert-case": string;
     "cool-toast": string;
     "csv-util": string;
@@ -45,6 +46,7 @@ export declare const operations: {
     "encrypt-password": string;
     "explore-project": string;
     "fancy-loader": string;
+    "ffmpeg-util": string;
     "file-icons": string;
     "file-search": string;
     "file-tabs": string;
@@ -143,15 +145,20 @@ export declare const operations: {
     "rename-template-files": string;
     "rest-util": string;
     "run-child-process": string;
+    say: string;
     "schema-util": string;
     search: string;
     "server-api-url": string;
     "server-login": string;
     "set-json-key": string;
+    "short-markdown-parser-js": string;
+    "short-markdown-parser-node": string;
+    "short-markdown-types": string;
     "simplified-schema-form": string;
     sms: string;
     "social-media-types": string;
     "string-to-json": string;
+    "swipe-homepage": string;
     tabs: string;
     "text-or-binary": string;
     timeline: string;
@@ -160,6 +167,7 @@ export declare const operations: {
     "try-parse-json": string;
     "ts-morph-util": string;
     "ui-util": string;
+    "use-on-screen": string;
     "use-url-store": string;
     "vscode-open": string;
     "watch-all": string;

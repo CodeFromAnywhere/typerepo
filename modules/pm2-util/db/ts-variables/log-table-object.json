@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773986996,
-  "updatedAt": 1668773986996,
+  "createdAt": 1669883416012,
+  "updatedAt": 1669883416012,
   "deletedAt": 0,
-  "createdFirstAt": 1668773986996,
+  "createdFirstAt": 1669883416012,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(object: { [key: string]: any } | undefined) => {\n  if (!object) return;\n\n  const table = Object.keys(object).map((key) => {\n    return { property: key, value: object[key] };\n  });\n\n  return table;\n}",
   "description": "",
-  "id": "iuumfojxqnuvlnwcgbkbfhrs"
+  "id": "shmsznbtuezaayfsumnwyhoe"
 }

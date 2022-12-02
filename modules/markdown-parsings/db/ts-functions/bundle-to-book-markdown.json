@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200443725,
-  "updatedAt": 1669200443725,
+  "createdAt": 1669962142535,
+  "updatedAt": 1669962142535,
   "deletedAt": 0,
-  "createdFirstAt": 1669200443725,
+  "createdFirstAt": 1669962142535,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -50,6 +50,14 @@
                   "name": "name",
                   "required": true,
                   "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "deploymentHostname",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Used to determine which call to actions are relevant (must be hostname without schema (name + tld))",
                     "type": "string"
                   }
                 },
@@ -432,6 +440,13 @@
                         "required": false,
                         "schema": {
                           "fullComment": "If true, the structure of operation locations is kept the same but still inside packages/apps/modules.",
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "keepCodestories",
+                        "required": false,
+                        "schema": {
                           "type": "boolean"
                         }
                       },
@@ -890,5 +905,5 @@
     "linesPerFile": 56,
     "numberOfFiles": 1
   },
-  "id": "fcqlibtzkpsdiznbafkukeot"
+  "id": "yijdcoxrhkiuppmkcsayzffs"
 }

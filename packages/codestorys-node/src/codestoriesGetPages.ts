@@ -5,9 +5,9 @@ import { findEmbeds } from "marked-util";
 // relative
 import { fs, path } from "fs-util";
 import { ReaderWebPage } from "webpage-types";
-import { readMarkdownFile } from "read-markdown-file";
+import { readMarkdownFile, readMarkdownFileToModel } from "read-markdown-file";
 import { getMarkdownIntro } from "markdown-parse-js";
-import { MarkdownEmbed, MarkdownParse } from "markdown-types";
+import { MarkdownEmbed, MarkdownParse, WebMarkdownFile } from "markdown-types";
 
 export const codestoriesGetPages = async (config?: {
   manualProjectRoot?: string;
@@ -24,28 +24,33 @@ export const codestoriesGetPages = async (config?: {
     await Promise.all(
       codestoriesPaths.map(async (projectRelativeFilePath) => {
         const absolutePath = path.join(projectRoot, projectRelativeFilePath);
-        const markdownParse: MarkdownParse | null = fs.existsSync(absolutePath)
-          ? await readMarkdownFile(absolutePath)
+        const markdownCallToActions: any[] = [];
+        const webMarkdownFile: WebMarkdownFile | null = fs.existsSync(
+          absolutePath
+        )
+          ? await readMarkdownFileToModel(
+              absolutePath,
+              "codestorys-web",
+              markdownCallToActions
+            )
           : null;
-        if (!markdownParse) return;
-        const readmeInfo = getMarkdownIntro(markdownParse);
-
-        const images: MarkdownEmbed[] = findEmbeds(markdownParse.raw).filter(
-          (x) => x.type === "image"
-        );
-
-        const firstImage = images.length > 0 ? images[0] : undefined;
+        if (!webMarkdownFile) return;
 
         const readerWebPage: ReaderWebPage = {
           pageData: {
             projectRelativeFilePath,
-            imagePath: firstImage?.src || null,
-            shortDescription: readmeInfo.firstParagraph || null,
+            imagePath:
+              webMarkdownFile.headerImage?.absoluteUrl ||
+              webMarkdownFile.headerImage?.relativePath ||
+              null,
+            shortDescription: webMarkdownFile?.headerSubTitle || null,
           },
           queryPath: projectRelativeFilePath.replaceAll("/", "-"),
           isMenuHidden: false,
           menuTitle:
-            readmeInfo.title || path.parse(projectRelativeFilePath).name,
+            webMarkdownFile?.headerTitle ||
+            webMarkdownFile?.name ||
+            path.parse(projectRelativeFilePath).name,
         };
         return readerWebPage;
       })

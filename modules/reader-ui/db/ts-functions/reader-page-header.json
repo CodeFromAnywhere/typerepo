@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669467204464,
-  "updatedAt": 1669467204464,
+  "createdAt": 1669639446770,
+  "updatedAt": 1669639446770,
   "deletedAt": 0,
-  "createdFirstAt": 1669467204464,
+  "createdFirstAt": 1669639446770,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/components/ReaderPageHeader.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  markdownFile?: WebMarkdownFile | null;\n  projectRelativeMarkdownPath?: string | null;\n}) => {\n  const { markdownFile, projectRelativeMarkdownPath } = props;\n\n  if (!markdownFile) return null;\n\n  const { src } = destructureOptionalObject(\n    useAsset(markdownFile.headerImage, projectRelativeMarkdownPath, !isDev)\n  );\n\n  return (\n    <Div\n      style={{\n        backgroundImage: src ? `url(\"${src}\")` : undefined,\n        backgroundRepeat: \"no-repeat\",\n        backgroundSize: \"cover\",\n      }}\n      className={`w-full ${\n        markdownFile.headerBig ? \"h-screen\" : \"h-[350px]\"\n      } flex flex-col items-center justify-center`}\n    >\n      {markdownFile.headerTitle ? (\n        <P className=\"drop-shadow-lg decoration-8 font-bold text-white text-4xl\">\n          {markdownFile.headerTitle}\n        </P>\n      ) : null}\n      {markdownFile.headerSubTitle ? (\n        <P className=\"drop-shadow-lg text-white text-2xl\">\n          {markdownFile.headerSubTitle}\n        </P>\n      ) : null}\n\n      {markdownFile.header_markdownCallToActions?.map((cta) => {\n        const { title, description, ctaButtonText, hostname, path } = cta;\n        console.log({ cta, ctaButtonText, hostname });\n        return (\n          <ALink\n            href={path}\n            title={description}\n            className=\"bg-blue-500 rounded-full p-4 flex items-center justify-center\"\n          >\n            {title}\n          </ALink>\n        );\n      })}\n    </Div>\n  );\n}",
+  "rawText": " (props: {\n  markdownFile?: WebMarkdownFile | null;\n  projectRelativeMarkdownPath?: string | null;\n}) => {\n  const { markdownFile, projectRelativeMarkdownPath } = props;\n\n  if (!markdownFile) return null;\n\n  const { src } = destructureOptionalObject(\n    useAsset(markdownFile.headerImage, projectRelativeMarkdownPath, !isDev)\n  );\n\n  const backgroundImage = src ? `url(\"${src}\")` : undefined;\n\n  return (\n    <Div\n      style={{\n        backgroundImage,\n        backgroundRepeat: \"no-repeat\",\n        backgroundSize: \"cover\",\n        backgroundPosition: \"center 75%\",\n      }}\n      className={`w-full ${\n        markdownFile.headerBig ? \"h-screen\" : \"h-[350px]\"\n      } flex flex-col items-center justify-center`}\n    >\n      {markdownFile.headerTitle ? (\n        <P className=\"drop-shadow-lg decoration-8 font-bold text-white text-4xl\">\n          {markdownFile.headerTitle}\n        </P>\n      ) : null}\n      {markdownFile.headerSubTitle ? (\n        <P className=\"drop-shadow-lg text-white text-2xl\">\n          {markdownFile.headerSubTitle}\n        </P>\n      ) : null}\n\n      {markdownFile.header_markdownCallToActions?.map((cta) => {\n        const { title, description, ctaButtonText, hostname, path } = cta;\n        console.log({ cta, ctaButtonText, hostname });\n        return (\n          <ALink\n            href={path}\n            title={description}\n            className=\"bg-blue-500 rounded-full p-4 flex items-center justify-center\"\n          >\n            {title}\n          </ALink>\n        );\n      })}\n    </Div>\n  );\n}",
   "name": "ReaderPageHeader",
   "slug": "reader-page-header",
   "parameters": [
@@ -75,13 +75,13 @@
   },
   "maxIndentationDepth": 6,
   "size": {
-    "characters": 1465,
-    "lines": 50,
-    "bytes": 1465,
+    "characters": 1534,
+    "lines": 53,
+    "bytes": 1534,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
-    "linesPerFile": 50,
+    "linesPerFile": 53,
     "numberOfFiles": 1
   },
-  "id": "liwdxfqcbcfnzvptpzplnryv"
+  "id": "ddetfthgwtbkduoatfgwkybo"
 }

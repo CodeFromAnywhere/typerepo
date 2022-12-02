@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669385166802,
-  "updatedAt": 1669385166802,
+  "createdAt": 1669962500043,
+  "updatedAt": 1669962500043,
   "deletedAt": 0,
-  "createdFirstAt": 1669385166802,
+  "createdFirstAt": 1669962500043,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -20,14 +20,20 @@
             "presentation",
             "config",
             "edit",
-            "frontmatter"
+            "frontmatter",
+            "todoOffers",
+            "postable",
+            "shortStudio"
           ],
           "x-enumNames": [
             "view",
             "presentation",
             "config",
             "edit",
-            "frontmatter"
+            "frontmatter",
+            "todoOffers",
+            "postable",
+            "shortStudio"
           ],
           "type": "string"
         },
@@ -374,7 +380,10 @@
               "presentation",
               "config",
               "edit",
-              "frontmatter"
+              "frontmatter",
+              "todoOffers",
+              "postable",
+              "shortStudio"
             ],
             "type": "string"
           }
@@ -708,5 +717,5 @@
   },
   "value": "{\n  writerView: \"view\",\n  subtextConfig: {},\n  subwordConfig: {},\n}",
   "description": "",
-  "id": "fzmamubyfzfrnmwsdjjcqsuj"
+  "id": "hfpekcbugaferdzsmytwaynp"
 }

@@ -12,4 +12,5 @@ export * from "./makeSrcRelativeFolder";
 export * from "./tsInterfaceToDbMenu";
 export * from "./upsertDbModel";
 export * from "./validateInput";
+export * from "./validateResult";
 //# sourceMappingURL=index.d.ts.map

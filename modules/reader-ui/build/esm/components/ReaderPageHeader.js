@@ -10,10 +10,13 @@ export var ReaderPageHeader = function (props) {
     if (!markdownFile)
         return null;
     var src = destructureOptionalObject(useAsset(markdownFile.headerImage, projectRelativeMarkdownPath, !isDev)).src;
+    var backgroundImage = src ? "url(\"".concat(src, "\")") : undefined;
+    console.log({ backgroundImage: backgroundImage });
     return (React.createElement(Div, { style: {
-            backgroundImage: src ? "url(\"".concat(src, "\")") : undefined,
+            backgroundImage: backgroundImage,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
+            backgroundPosition: "center 75%",
         }, className: "w-full ".concat(markdownFile.headerBig ? "h-screen" : "h-[350px]", " flex flex-col items-center justify-center") },
         markdownFile.headerTitle ? (React.createElement(P, { className: "drop-shadow-lg decoration-8 font-bold text-white text-4xl" }, markdownFile.headerTitle)) : null,
         markdownFile.headerSubTitle ? (React.createElement(P, { className: "drop-shadow-lg text-white text-2xl" }, markdownFile.headerSubTitle)) : null, (_a = markdownFile.header_markdownCallToActions) === null || _a === void 0 ? void 0 :

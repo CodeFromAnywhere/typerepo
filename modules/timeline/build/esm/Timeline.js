@@ -7,7 +7,15 @@ var colors = ["red", "green", "blue", "yellow", "orange", "purple", "brown"];
 export var Timeline = function (props) {
     var items = props.items;
     return (React.createElement(Div, { className: "h-screen overflow-auto snap-mandatory snap-y" }, items.map(function (item) {
-        return (React.createElement(Div, { className: "snap-center h-screen w-screen flex justify-center items-center", style: { backgroundColor: pickRandomArrayItem(colors) } }, item.component ? (item.component()) : (React.createElement(Div, { className: "max-w-[80vw]", onClick: function () {
+        return (React.createElement(Div, { className: "snap-center h-screen w-screen flex justify-center items-center", style: {
+                backgroundColor: pickRandomArrayItem(colors),
+                backgroundImage: item.imageUrl
+                    ? "url(\"".concat(item.imageUrl, "\")")
+                    : undefined,
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+                backgroundPosition: "center 75%",
+            } }, item.component ? (item.component()) : (React.createElement(Div, { className: "max-w-[80vw]", onClick: function () {
                 console.log("supposed to open", item);
                 api.vscodeOpen({
                     files: [

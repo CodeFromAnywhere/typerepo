@@ -59,6 +59,7 @@ var runFunctionServer = function (isWatching, isRestart) {
     var header = server_1.default.reply.header;
     (0, pm2_util_1.startApp)("search-web", true).then(function (result) {
         if (!(result === null || result === void 0 ? void 0 : result.isSuccessful)) {
+            console.log({ result: result });
             (0, log_1.log)("Something went wrong starting \"search-web\". Maybe you don't have it?", { type: "error" });
             return;
         }

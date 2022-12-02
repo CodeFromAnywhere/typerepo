@@ -1,0 +1,84 @@
+{
+  "createdAt": 1669803404148,
+  "updatedAt": 1669803404148,
+  "deletedAt": 0,
+  "createdFirstAt": 1669803404148,
+  "version": "0.0.0",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsc-watch --onSuccess 'yarn css'",
+    "css": "tailwindcss -o css.css",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "dependencies": {
+    "react-with-native": "1.4.9",
+    "react": "*",
+    "react-popper": "*"
+  },
+  "name": "context-menu",
+  "operation": {
+    "buildResultIndexed": {
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/dumb/context-menu/src/useContextPopper.tsx. Error: Error: Unknown type \"function\""
+      ],
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "hasGeneratedDependenciesIndexed": false,
+    "lastRebuildAt": 1669885126398,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 4,
+        "lines": 313,
+        "characters": 8810,
+        "bytes": 8810
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 78,
+        "characters": 2797,
+        "bytes": 2797
+      },
+      "textSize": {
+        "numberOfFiles": 4,
+        "lines": 1695,
+        "characters": 47937,
+        "bytes": 47937
+      },
+      "size": {
+        "bytes": 59544,
+        "characters": 59544,
+        "lines": 2086,
+        "numberOfFiles": 10
+      }
+    },
+    "folderNameIndexed": "context-menu",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/dumb",
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [
+      "useState",
+      "useEffect",
+      "useMemo",
+      "useRef",
+      "useState"
+    ],
+    "operationDependenciesIndexed": [
+      "Div",
+      "P"
+    ],
+    "packageDependenciesIndexed": [
+      "usePopper"
+    ]
+  },
+  "slug": "context-menu",
+  "id": "enhounuvwosisfhtmpvpvuoc"
+}

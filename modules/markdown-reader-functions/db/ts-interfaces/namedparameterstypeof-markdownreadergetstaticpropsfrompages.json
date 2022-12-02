@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384719456,
-  "updatedAt": 1669384719456,
+  "createdAt": 1669884280883,
+  "updatedAt": 1669884280883,
   "deletedAt": 0,
-  "createdFirstAt": 1669384719456,
+  "createdFirstAt": 1669884280883,
   "id": "namedparameterstypeof-markdownreadergetstaticpropsfrompages",
   "name": "NamedParameters<typeof markdownReaderGetStaticPropsFromPages>",
   "slug": "namedparameterstypeof-markdownreadergetstaticpropsfrompages",
@@ -17,24 +17,91 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "context": {
+          "$ref": "#/definitions/GetStaticPropsContext"
+        },
         "fileWebPages": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/WebPage%3Cany%3E"
           }
         },
-        "context": {
-          "$ref": "#/definitions/GetStaticPropsContext"
+        "webOperationName": {
+          "type": "string"
         }
       },
       "required": [
+        "context",
         "fileWebPages",
-        "context"
+        "webOperationName"
       ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
+        {
+          "name": "context",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "params",
+                "required": false,
+                "schema": {
+                  "fullComment": "",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "preview",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "previewData",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "locale",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "locales",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "defaultLocale",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
         {
           "name": "fileWebPages",
           "required": true,
@@ -127,66 +194,10 @@
           }
         },
         {
-          "name": "context",
+          "name": "webOperationName",
           "required": true,
           "schema": {
-            "fullComment": "",
-            "properties": [
-              {
-                "name": "params",
-                "required": false,
-                "schema": {
-                  "fullComment": "",
-                  "properties": [],
-                  "type": "object"
-                }
-              },
-              {
-                "name": "preview",
-                "required": false,
-                "schema": {
-                  "type": "boolean"
-                }
-              },
-              {
-                "name": "previewData",
-                "required": false,
-                "schema": {
-                  "properties": [],
-                  "type": "object"
-                }
-              },
-              {
-                "name": "locale",
-                "required": false,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "locales",
-                "required": false,
-                "schema": {
-                  "items": [
-                    {
-                      "schema": {
-                        "type": "string"
-                      },
-                      "name": null
-                    }
-                  ],
-                  "type": "array"
-                }
-              },
-              {
-                "name": "defaultLocale",
-                "required": false,
-                "schema": {
-                  "type": "string"
-                }
-              }
-            ],
-            "type": "object"
+            "type": "string"
           }
         }
       ],

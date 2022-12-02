@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773968985,
-  "updatedAt": 1668773968985,
+  "createdAt": 1669883386514,
+  "updatedAt": 1669883386514,
   "deletedAt": 0,
-  "createdFirstAt": 1668773968985,
+  "createdFirstAt": 1669883386514,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const result = await listApps();\n  console.table(result.apps || result.message);\n}",
   "description": "Arguments:none",
-  "id": "ofzprstimfgzsmiloiahfowm"
+  "id": "nukljyufvygdtenkgtzzotor"
 }

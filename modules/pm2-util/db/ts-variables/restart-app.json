@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773980722,
-  "updatedAt": 1668773980722,
+  "createdAt": 1669883406161,
+  "updatedAt": 1669883406161,
   "deletedAt": 0,
-  "createdFirstAt": 1668773980722,
+  "createdFirstAt": 1669883406161,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (operationName: string) => {\n  return pm2ConnectDisconnect((resolve) => {\n    restart(`${appPrefix}${operationName}`, (error, proc) => {\n      resolve({ isSuccessful: !error, proc, error });\n    });\n  });\n}",
   "description": "Restarts an app with pm2",
-  "id": "ykahcvejsukdwxdsmeqhfswq"
+  "id": "nsddjfilbyevvkctghgkymak"
 }

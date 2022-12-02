@@ -4,14 +4,12 @@ import { useSelect } from "react-with-native-select";
 import { destructureOptionalObject } from "js-util";
 
 export const DbLayout = (props: { pageProps: any; nextPage: any }) => {
-  const [SelectMenu, menuType] = useSelect(
-    [
-      { label: "🪺 Nested", value: "nested" },
-      { label: "⚡️ Operaton-based", value: "operation" },
-      { label: "👩‍🌾 Flat", value: "flat" },
-    ],
-    undefined
-  );
+  const items = [
+    { label: "🪺 Nested", value: "nested" },
+    { label: "⚡️ Operaton-based", value: "operation" },
+    { label: "👩‍🌾 Flat", value: "flat" },
+  ];
+  const [SelectMenu, menuType] = useSelect(items, items[0]);
 
   const dbMenuQuery = queries.useGetNestedDatabaseMenu({
     noOperationName: menuType?.value === "flat",

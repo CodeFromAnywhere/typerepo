@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384817928,
-  "updatedAt": 1669384817928,
+  "createdAt": 1669884337500,
+  "updatedAt": 1669884337500,
   "deletedAt": 0,
-  "createdFirstAt": 1669384817928,
+  "createdFirstAt": 1669884337500,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(text?: string): string | undefined => {\n  if (!text) return;\n  return text?.match(emojiRegex())?.[0];\n}",
   "description": "",
-  "id": "dnicnaocytumshvoxsevqjvs"
+  "id": "uccviyzqwqkflqosldjmieuh"
 }

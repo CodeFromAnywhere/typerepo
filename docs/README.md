@@ -1,6 +1,6 @@
 ---
 headerImage: ![](./banner.png)
-headerTitle: The developers framework for web3 has arrived
+headerTitle: You're a wizard, dev
 headerSubTitle: "As fast as no-code, as flexible as any other framework"
 header_markdownCallToActionSlugs: typescript-course, join-our-bootcamp
 markdownCallToActionSlugs: join-our-bootcamp, typescript-course
@@ -19,6 +19,10 @@ Are you a software developer working on an MVP? Do you not want to reinvent the 
 Typerepo is a collection of tools, conventions and a large SDK that brings together the well-known **Typescript** frameworks: **Node.js**, **Expo.dev** and **Next.js** under 1 bigger whole.
 
 ![Our tech stack](./our-tech-stack.png)
+
+# What's the magic?
+
+![](./overview.drawio.svg)
 
 # Getting started
 
@@ -84,8 +88,10 @@ Read our [Getting Started](./getting-started) to find our API reference, guides,
 
 Many more things are coming!
 
-# Community
+# Join us, you're a wizard!
 
 Join our community where dozens of developers are building the tech of tomorrow. [**Join us now on Slack**](https://join.slack.com/t/codefromanywhere/shared_invite/zt-1kstsx8dc-BsfwKJtEYAxh_N1BxSnoRg)
 
 ![](./readmemd1.mp4)
+
+![](./imawhat.gif)

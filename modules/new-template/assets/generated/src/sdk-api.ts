@@ -1,6 +1,4 @@
 import { compressAsset } from "asset-functions-node";
-import { convertToMp3 } from "asset-functions-node";
-import { convertToMp4 } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
 import { findAbsoluteAssetPathFromReference } from "asset-functions-node";
@@ -119,8 +117,38 @@ import { setVolume } from "volume";
 import { upVolume } from "volume";
 import { getOpenableFilePath } from "vscode-open";
 import { vscodeOpen } from "vscode-open";
+import { loginToDevto } from "dev-to-controller";
+import { publishBlogOnDevTo } from "dev-to-controller";
+import { typeIntoTheField } from "dev-to-controller";
+import { facebookPostOnTheGroup } from "facebook-controller";
+import { facebookPost } from "facebook-controller";
+import { facebookTimeLinePost } from "facebook-controller";
+import { getLatestFacebookPostUrl } from "facebook-controller";
+import { sendFacebookMessage } from "facebook-controller";
+import { searchAndDownloadGifs } from "gif-controller";
+import { buildQuery } from "google-translate-controller";
+import { errArrayLenZero } from "google-translate-controller";
+import { errFileSize } from "google-translate-controller";
+import { errFileType } from "google-translate-controller";
+import { errInvalidType } from "google-translate-controller";
+import { errTextLenZero } from "google-translate-controller";
+import { errTextOverflow } from "google-translate-controller";
+import { generateArrayFromJson } from "google-translate-controller";
+import { getStringForTranslation } from "google-translate-controller";
+import { launch } from "google-translate-controller";
+import { startTranslation } from "google-translate-controller";
+import { storeResult } from "google-translate-controller";
+import { translateText } from "google-translate-controller";
 import { sendMail } from "mail";
+import { publishBlogOnMedium } from "medium-controller";
+import { publishBlogOnReddit } from "reddit-controller";
 import { sendSms } from "sms";
+import { getTwitterPostUrl } from "twitter-controller";
+import { postTweetOnTwitter } from "twitter-controller";
+import { youtubeSearchAndDownload } from "youtube-controller";
+import { youtubeSearch } from "youtube-controller";
+import { youtubeToMp3 } from "youtube-controller";
+import { youtubeToMp4 } from "youtube-controller";
 import { getPort } from "get-port";
 import { getBundleSummary } from "bundle-util";
 import { getDbModelsForBundle } from "bundle-util";
@@ -158,6 +186,16 @@ import { detectLanguage } from "detect-language";
 import { generateSimpleSentence } from "generate-simple-sentence";
 import { makeAudioCourse } from "generate-simple-sentence";
 import { sleep } from "generate-simple-sentence";
+import { createFolder } from "markdown-translator";
+import { getAllMarkdownFiles } from "markdown-translator";
+import { getFileInfo } from "markdown-translator";
+import { getTranslatedWord } from "markdown-translator";
+import { markdownStoreAndRecord } from "markdown-translator";
+import { parseMarkdownWordByWord } from "markdown-translator";
+import { recordMdFile } from "markdown-translator";
+import { startMarkdownTranslator } from "markdown-translator";
+import { translatedArrayToKeyValue } from "markdown-translator";
+import { watchMdFile } from "markdown-translator";
 import { createWordSimplificationMap } from "simplify-text";
 import { findBetterWords } from "simplify-text";
 import { getSynonymFrequencyDataset } from "simplify-text";
@@ -172,6 +210,8 @@ import { getPaymentWebPages } from "payment-node";
 import { succeed } from "payment-node";
 import { mapArrayJson } from "edit-json-file";
 import { mapObjectJson } from "edit-json-file";
+import { convertToMp3 } from "ffmpeg-util";
+import { convertToMp4 } from "ffmpeg-util";
 import { videoToMp3 } from "video-to-mp3";
 import { unzip } from "unzip";
 import { zip } from "zip";
@@ -236,6 +276,12 @@ import { tsFunctionToMarkdownString } from "markdown-parsings";
 import { tsInterfaceToMarkdownString } from "markdown-parsings";
 import { tsVariableToMarkdownString } from "markdown-parsings";
 import { upMarkdownChunkLevelRecursively } from "markdown-parsings";
+import { findAudioWithViewsArray } from "short-markdown-parser-js";
+import { markdownParseToShortMarkdown } from "short-markdown-parser-js";
+import { shortMarkdownToMarkdownParse } from "short-markdown-parser-js";
+import { augmentShortMarkdown } from "short-markdown-parser-node";
+import { generateAugmentedShortMarkdown } from "short-markdown-parser-node";
+import { getOrGenerateShortMarkdown } from "short-markdown-parser-node";
 import { readCsvFileSync } from "read-csv-file";
 import { readCsvFile } from "read-csv-file";
 import { readJsonFileSync } from "read-json-file";
@@ -270,6 +316,7 @@ import { makeSrcRelativeFolder } from "db-recipes";
 import { tsInterfaceToDbMenu } from "db-recipes";
 import { upsertDbModel } from "db-recipes";
 import { validateInput } from "db-recipes";
+import { validateResult } from "db-recipes";
 import { addDefaultValues } from "fs-orm";
 import { alterAny } from "fs-orm";
 import { alterCsv } from "fs-orm";
@@ -338,6 +385,7 @@ import { removePeer } from "peer-functions";
 import { sortDevices } from "peer-functions";
 import { updatePeer } from "peer-functions";
 import { getPrimaryPersona } from "persona-functions-node";
+import { youtubeToPlayItem } from "play-import-node";
 import { getDayNumber } from "reminder-node";
 import { remindMe } from "reminder-node";
 import { getPostableFrontmatterSchema } from "social-media-functions";
@@ -511,7 +559,8 @@ import { updateMeWithContext } from "server-login";
 import { sayDutch } from "say";
 import { sayLanguage } from "say";
 import { sayNepali } from "say";
-import { say } from "say";
+import { saySomething } from "say";
+import { textToMp3 } from "say";
 import { askOk } from "ask";
 import { ask } from "ask";
 import { getArgumentOrAsk } from "ask";
@@ -526,46 +575,23 @@ import { getDbPath } from "geo-parse";
 import { rawPolygonToPolygon } from "geo-parse";
 import { dev } from "k-dev";
 import { nodemon } from "nodemon";
-import { loginToDevto } from "dev-to-controller";
-import { publishBlogOnDevTo } from "dev-to-controller";
-import { typeIntoTheField } from "dev-to-controller";
-import { facebookPostOnTheGroup } from "facebook-controller";
-import { facebookPost } from "facebook-controller";
-import { facebookTimeLinePost } from "facebook-controller";
-import { getLatestFacebookPostUrl } from "facebook-controller";
-import { sendFacebookMessage } from "facebook-controller";
-import { searchAndDownloadGifs } from "gif-controller";
-import { buildQuery } from "google-translate-controller";
-import { errArrayLenZero } from "google-translate-controller";
-import { errFileSize } from "google-translate-controller";
-import { errFileType } from "google-translate-controller";
-import { errInvalidType } from "google-translate-controller";
-import { errTextLenZero } from "google-translate-controller";
-import { errTextOverflow } from "google-translate-controller";
-import { generateArrayFromJson } from "google-translate-controller";
-import { getStringForTranslation } from "google-translate-controller";
-import { launch } from "google-translate-controller";
-import { startTranslation } from "google-translate-controller";
-import { storeResult } from "google-translate-controller";
-import { translateText } from "google-translate-controller";
-import { publishBlogOnMedium } from "medium-controller";
-import { publishBlogOnReddit } from "reddit-controller";
-import { getTwitterPostUrl } from "twitter-controller";
-import { postTweetOnTwitter } from "twitter-controller";
-import { youtubeSearchAndDownload } from "youtube-controller";
-import { youtubeSearch } from "youtube-controller";
-import { youtubeToMp3 } from "youtube-controller";
-import { youtubeToMp4 } from "youtube-controller";
-import { createFolder } from "markdown-translator";
-import { getAllMarkdownFiles } from "markdown-translator";
-import { getFileInfo } from "markdown-translator";
-import { getTranslatedWord } from "markdown-translator";
-import { markdownStoreAndRecord } from "markdown-translator";
-import { parseMarkdownWordByWord } from "markdown-translator";
-import { recordMdFile } from "markdown-translator";
-import { startMarkdownTranslator } from "markdown-translator";
-import { translatedArrayToKeyValue } from "markdown-translator";
-import { watchMdFile } from "markdown-translator";
+import { checkAndGetFileUrl } from "slack-controller";
+import { elementExists } from "slack-controller";
+import { getAllMessages } from "slack-controller";
+import { getLatestMessages } from "slack-controller";
+import { getSlackChannelMemberList } from "slack-controller";
+import { getSlackChannels } from "slack-controller";
+import { getSlackMessageFrom } from "slack-controller";
+import { getSlackWorkspaces } from "slack-controller";
+import { scrapeMessage } from "slack-controller";
+import { scrollToTop } from "slack-controller";
+import { selectChannel } from "slack-controller";
+import { selectWorkSpace } from "slack-controller";
+import { sendSlackMessage } from "slack-controller";
+import { slackLogin } from "slack-controller";
+import { storeAllSlackChannel } from "slack-controller";
+import { storeSlackChannelMember } from "slack-controller";
+import { getSocialMediaMenu } from "social-media-node";
 import { addSocialMediaCredential } from "social-media-wrapper";
 import { canBePosted } from "social-media-wrapper";
 import { createAllSocialMediaPost } from "social-media-wrapper";
@@ -573,6 +599,8 @@ import { createSocialMediaPost } from "social-media-wrapper";
 import { devtoCotentAnalyzer } from "social-media-wrapper";
 import { facebookContentAnalyzer } from "social-media-wrapper";
 import { getSocialMediaCredentials } from "social-media-wrapper";
+import { getTodoFilePostables } from "social-media-wrapper";
+import { getWebMarkdownFilePostables } from "social-media-wrapper";
 import { mediumCotentAnalyzer } from "social-media-wrapper";
 import { postSocialMediaPostToDevto } from "social-media-wrapper";
 import { postSocialMediaPostToFacebook } from "social-media-wrapper";
@@ -591,12 +619,18 @@ import { earthDistance } from "himalayajeep-functions";
 import { getMyJeep } from "himalayajeep-functions";
 import { getPublicJeeps } from "himalayajeep-functions";
 import { updateMyProfile } from "himalayajeep-functions";
-import { checkAllOperationStatus } from "github-operation-sync";
-import { operationCheckGithubStatus } from "github-operation-sync";
+import { getAllOperations } from "github-operation-sync";
+import { getAllPackagesNames } from "github-operation-sync";
+import { getGithubPersonalAccessToken } from "github-operation-sync";
+import { getGithubRepoLastCommitInfo } from "github-operation-sync";
+import { getRepoNameFromRepositoryUrl } from "github-operation-sync";
+import { initializeGitOrUseExistingAndPull } from "github-operation-sync";
 import { operationGithubPull } from "github-operation-sync";
 import { operationGithubPush } from "github-operation-sync";
 import { pullMultipleOperations } from "github-operation-sync";
 import { pushMultipleOperations } from "github-operation-sync";
+import { readAndWriteToPackageJsonExample } from "github-operation-sync";
+import { updateAllOperationStatus } from "github-operation-sync";
 import { calculateFullCompany } from "foodchain-recipes";
 import { companyAttachContributionInformation } from "foodchain-recipes";
 import { companyAttachEsgMetricProofStates } from "foodchain-recipes";
@@ -733,12 +767,11 @@ import { parseFrontmatterMarkdownString } from "markdown-parse-js";
 import { parseMarkdownParagraph } from "markdown-parse-js";
 import { parseMdToChunks } from "markdown-parse-js";
 import { removeHeaderPrefix } from "markdown-parse-js";
-import { findCodespansFromTokenRecursively } from "marked-util";
 import { findCodespans } from "marked-util";
-import { findEmbedsFromTokenRecursively } from "marked-util";
 import { findEmbeds } from "marked-util";
-import { findLinksFromTokenRecursively } from "marked-util";
 import { findLinks } from "marked-util";
+import { flattenMarkdownString } from "marked-util";
+import { flattenMarkedTokenRecursive } from "marked-util";
 import { parsePrimitiveArray } from "parse-primitive";
 import { parsePrimitiveBoolean } from "parse-primitive";
 import { parsePrimitiveString } from "parse-primitive";
@@ -911,8 +944,6 @@ import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
 import { waitMilliseconds } from "puppeteer-utils";
 
 export const sdk = { compressAsset,
-convertToMp3,
-convertToMp4,
 deleteReferencedAsset,
 downloadRemoteAsset,
 findAbsoluteAssetPathFromReference,
@@ -1031,8 +1062,38 @@ setVolume,
 upVolume,
 getOpenableFilePath,
 vscodeOpen,
+loginToDevto,
+publishBlogOnDevTo,
+typeIntoTheField,
+facebookPostOnTheGroup,
+facebookPost,
+facebookTimeLinePost,
+getLatestFacebookPostUrl,
+sendFacebookMessage,
+searchAndDownloadGifs,
+buildQuery,
+errArrayLenZero,
+errFileSize,
+errFileType,
+errInvalidType,
+errTextLenZero,
+errTextOverflow,
+generateArrayFromJson,
+getStringForTranslation,
+launch,
+startTranslation,
+storeResult,
+translateText,
 sendMail,
+publishBlogOnMedium,
+publishBlogOnReddit,
 sendSms,
+getTwitterPostUrl,
+postTweetOnTwitter,
+youtubeSearchAndDownload,
+youtubeSearch,
+youtubeToMp3,
+youtubeToMp4,
 getPort,
 getBundleSummary,
 getDbModelsForBundle,
@@ -1070,6 +1131,16 @@ detectLanguage,
 generateSimpleSentence,
 makeAudioCourse,
 sleep,
+createFolder,
+getAllMarkdownFiles,
+getFileInfo,
+getTranslatedWord,
+markdownStoreAndRecord,
+parseMarkdownWordByWord,
+recordMdFile,
+startMarkdownTranslator,
+translatedArrayToKeyValue,
+watchMdFile,
 createWordSimplificationMap,
 findBetterWords,
 getSynonymFrequencyDataset,
@@ -1084,6 +1155,8 @@ getPaymentWebPages,
 succeed,
 mapArrayJson,
 mapObjectJson,
+convertToMp3,
+convertToMp4,
 videoToMp3,
 unzip,
 zip,
@@ -1148,6 +1221,12 @@ tsFunctionToMarkdownString,
 tsInterfaceToMarkdownString,
 tsVariableToMarkdownString,
 upMarkdownChunkLevelRecursively,
+findAudioWithViewsArray,
+markdownParseToShortMarkdown,
+shortMarkdownToMarkdownParse,
+augmentShortMarkdown,
+generateAugmentedShortMarkdown,
+getOrGenerateShortMarkdown,
 readCsvFileSync,
 readCsvFile,
 readJsonFileSync,
@@ -1182,6 +1261,7 @@ makeSrcRelativeFolder,
 tsInterfaceToDbMenu,
 upsertDbModel,
 validateInput,
+validateResult,
 addDefaultValues,
 alterAny,
 alterCsv,
@@ -1250,6 +1330,7 @@ removePeer,
 sortDevices,
 updatePeer,
 getPrimaryPersona,
+youtubeToPlayItem,
 getDayNumber,
 remindMe,
 getPostableFrontmatterSchema,
@@ -1423,7 +1504,8 @@ updateMeWithContext,
 sayDutch,
 sayLanguage,
 sayNepali,
-say,
+saySomething,
+textToMp3,
 askOk,
 ask,
 getArgumentOrAsk,
@@ -1438,46 +1520,23 @@ getDbPath,
 rawPolygonToPolygon,
 dev,
 nodemon,
-loginToDevto,
-publishBlogOnDevTo,
-typeIntoTheField,
-facebookPostOnTheGroup,
-facebookPost,
-facebookTimeLinePost,
-getLatestFacebookPostUrl,
-sendFacebookMessage,
-searchAndDownloadGifs,
-buildQuery,
-errArrayLenZero,
-errFileSize,
-errFileType,
-errInvalidType,
-errTextLenZero,
-errTextOverflow,
-generateArrayFromJson,
-getStringForTranslation,
-launch,
-startTranslation,
-storeResult,
-translateText,
-publishBlogOnMedium,
-publishBlogOnReddit,
-getTwitterPostUrl,
-postTweetOnTwitter,
-youtubeSearchAndDownload,
-youtubeSearch,
-youtubeToMp3,
-youtubeToMp4,
-createFolder,
-getAllMarkdownFiles,
-getFileInfo,
-getTranslatedWord,
-markdownStoreAndRecord,
-parseMarkdownWordByWord,
-recordMdFile,
-startMarkdownTranslator,
-translatedArrayToKeyValue,
-watchMdFile,
+checkAndGetFileUrl,
+elementExists,
+getAllMessages,
+getLatestMessages,
+getSlackChannelMemberList,
+getSlackChannels,
+getSlackMessageFrom,
+getSlackWorkspaces,
+scrapeMessage,
+scrollToTop,
+selectChannel,
+selectWorkSpace,
+sendSlackMessage,
+slackLogin,
+storeAllSlackChannel,
+storeSlackChannelMember,
+getSocialMediaMenu,
 addSocialMediaCredential,
 canBePosted,
 createAllSocialMediaPost,
@@ -1485,6 +1544,8 @@ createSocialMediaPost,
 devtoCotentAnalyzer,
 facebookContentAnalyzer,
 getSocialMediaCredentials,
+getTodoFilePostables,
+getWebMarkdownFilePostables,
 mediumCotentAnalyzer,
 postSocialMediaPostToDevto,
 postSocialMediaPostToFacebook,
@@ -1503,12 +1564,18 @@ earthDistance,
 getMyJeep,
 getPublicJeeps,
 updateMyProfile,
-checkAllOperationStatus,
-operationCheckGithubStatus,
+getAllOperations,
+getAllPackagesNames,
+getGithubPersonalAccessToken,
+getGithubRepoLastCommitInfo,
+getRepoNameFromRepositoryUrl,
+initializeGitOrUseExistingAndPull,
 operationGithubPull,
 operationGithubPush,
 pullMultipleOperations,
 pushMultipleOperations,
+readAndWriteToPackageJsonExample,
+updateAllOperationStatus,
 calculateFullCompany,
 companyAttachContributionInformation,
 companyAttachEsgMetricProofStates,
@@ -1645,12 +1712,11 @@ parseFrontmatterMarkdownString,
 parseMarkdownParagraph,
 parseMdToChunks,
 removeHeaderPrefix,
-findCodespansFromTokenRecursively,
 findCodespans,
-findEmbedsFromTokenRecursively,
 findEmbeds,
-findLinksFromTokenRecursively,
 findLinks,
+flattenMarkdownString,
+flattenMarkedTokenRecursive,
 parsePrimitiveArray,
 parsePrimitiveBoolean,
 parsePrimitiveString,

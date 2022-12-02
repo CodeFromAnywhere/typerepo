@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384248517,
-  "updatedAt": 1669384248517,
+  "createdAt": 1669887700825,
+  "updatedAt": 1669887700825,
   "deletedAt": 0,
-  "createdFirstAt": 1669384248517,
+  "createdFirstAt": 1669887700825,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(config: {\n  item: AugmentedAnyModelType;\n  backendAsset?: BackendAsset | BackendAsset[];\n  isDownload?: boolean;\n}) => {\n  const { backendAsset, item, isDownload } = config;\n\n  const realBackendAsset = backendAsset ? takeFirst(backendAsset) : undefined;\n\n  if (!realBackendAsset?.relativePath) {\n    return undefined;\n  }\n\n  const url = getReferencedAssetApiUrl(\n    apiUrl,\n    item.projectRelativePath,\n    realBackendAsset.relativePath,\n    isDownload\n  );\n  return url;\n}",
   "description": "Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.\n\nIf you provide an array it'll take the first asset.",
-  "id": "ddnvxhjwwotyemvdioreismp"
+  "id": "fvijklxhfxrfhuazjzpwlrxn"
 }

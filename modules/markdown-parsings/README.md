@@ -481,10 +481,7 @@ Creates a single audiofile of a Sayable[] and stores that in a configured locati
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| {
-  sayables,
-  destinationAbsoluteFilePath,
-} | { destinationAbsoluteFilePath: string, <br />sayables: `Sayable`[], <br /> } |  |
+| config | { destinationAbsoluteFilePath: string, <br />sayables: `Sayable`[], <br /> } |  |
 | **Output** |    |    |
 
 
@@ -641,6 +638,14 @@ Properties:
 
 
 ## 🔹 Sayable
+
+GOAL:
+- distribute read only (and audio only) material of my codebase
+- it is also a fundament for other applications in the future
+
+
+
+
 
 Properties: 
 

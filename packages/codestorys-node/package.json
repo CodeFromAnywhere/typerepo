@@ -23,19 +23,19 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669384639536,
+    "lastRebuildAt": 1669884183844,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 105,
-        "characters": 3403,
-        "bytes": 3403
+        "lines": 114,
+        "characters": 3581,
+        "bytes": 3581
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 132,
-        "characters": 4080,
-        "bytes": 4080
+        "lines": 133,
+        "characters": 4113,
+        "bytes": 4113
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -44,9 +44,9 @@
         "bytes": 1055
       },
       "size": {
-        "bytes": 8538,
-        "characters": 8538,
-        "lines": 296,
+        "bytes": 8749,
+        "characters": 8749,
+        "lines": 306,
         "numberOfFiles": 7
       }
     },
@@ -65,9 +65,11 @@
       "path",
       "ReaderWebPage",
       "readMarkdownFile",
+      "readMarkdownFileToModel",
       "getMarkdownIntro",
       "MarkdownEmbed",
       "MarkdownParse",
+      "WebMarkdownFile",
       "GetStaticPaths",
       "GetStaticPathsContext",
       "MarkdownReaderPageProps",

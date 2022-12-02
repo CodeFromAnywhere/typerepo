@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669132701980,
-  "updatedAt": 1669132701980,
+  "createdAt": 1669962355989,
+  "updatedAt": 1669962355989,
   "deletedAt": 0,
-  "createdFirstAt": 1669132701980,
+  "createdFirstAt": 1669962355989,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<TFunc extends (...parameters: any[]) => any>(\n  originalFunction: TFunc\n) => {\n  const wrappedFunction = (\n    ...parameters: Parameters<TFunc>\n  ): ReturnType<TFunc> => {\n    /**\ndo other stuff, both with await and without awaiting\n\n- logging io + cache lookup (@pure tag)\n- logging performance\n- logging errors\n- input validation\n- output validation\n- tracking usage quantity, checking if there is still permission for execution based on credit balance\n*/\n    console.log(\"I'm wrapping this function\", originalFunction.name);\n    return originalFunction(...parameters);\n  };\n\n  return wrappedFunction;\n}",
   "description": "",
-  "id": "ghxfrkamudspuopsnclhyobp"
+  "id": "ocdpkjnayrljxtmmfogqcvvx"
 }

@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1669384591698,
-    "updatedAt": 1669384591698,
+    "createdAt": 1669638997535,
+    "updatedAt": 1669638997535,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591698,
+    "createdFirstAt": 1669638997535,
     "name": "canRead",
     "slug": "can-read",
     "type": "value",
@@ -14,13 +14,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xecsebpquicwgaldjnjazfjn"
+    "id": "zmzlspnxzgdobewntiuigaoh"
   },
   {
-    "createdAt": 1669384591698,
-    "updatedAt": 1669384591698,
+    "createdAt": 1669638997535,
+    "updatedAt": 1669638997535,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591698,
+    "createdFirstAt": 1669638997535,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -31,13 +31,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wydisamnzdyzzxeowrzmxoel"
+    "id": "ryggbpgurgumeggwiiwrwqzf"
   },
   {
-    "createdAt": 1669384591699,
-    "updatedAt": 1669384591699,
+    "createdAt": 1669638997535,
+    "updatedAt": 1669638997535,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591699,
+    "createdFirstAt": 1669638997535,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -48,13 +48,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pwxcxzpbixfcenkknqoostut"
+    "id": "tfkihjmhqodavlpuerxlwjed"
   },
   {
-    "createdAt": 1669384591699,
-    "updatedAt": 1669384591699,
+    "createdAt": 1669638997536,
+    "updatedAt": 1669638997536,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591699,
+    "createdFirstAt": 1669638997536,
     "name": "Path",
     "slug": "path",
     "type": "type",
@@ -66,13 +66,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "icrmfgiuptggyhormgarcawv"
+    "id": "salqvflvjlfsdetdadsrgedx"
   },
   {
-    "createdAt": 1669384591699,
-    "updatedAt": 1669384591699,
+    "createdAt": 1669638997536,
+    "updatedAt": 1669638997536,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591699,
+    "createdFirstAt": 1669638997536,
     "name": "MarkdownParse",
     "slug": "markdown-parse",
     "type": "type",
@@ -84,13 +84,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "mnialetqstntgphihpmloirj"
+    "id": "icncmewgwvfrorluvalcknnx"
   },
   {
-    "createdAt": 1669384591699,
-    "updatedAt": 1669384591699,
+    "createdAt": 1669638997536,
+    "updatedAt": 1669638997536,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591699,
+    "createdFirstAt": 1669638997536,
     "name": "mdToJsonParse",
     "slug": "md-to-json-parse",
     "type": "value",
@@ -101,13 +101,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "orebxvyrgjiarabyjaxfxxje"
+    "id": "ffztagryxjniqolzamwtrhfm"
   },
   {
-    "createdAt": 1669384591699,
-    "updatedAt": 1669384591699,
+    "createdAt": 1669638997536,
+    "updatedAt": 1669638997536,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591699,
+    "createdFirstAt": 1669638997536,
     "name": "ExtendedMarkdownProperties",
     "slug": "extended-markdown-properties",
     "type": "type",
@@ -119,13 +119,31 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ikcuzeetrpmhmqoxakakcdwg"
+    "id": "bfvljazfnxqxomxyyijzeikb"
   },
   {
-    "createdAt": 1669384591699,
-    "updatedAt": 1669384591699,
+    "createdAt": 1669638997536,
+    "updatedAt": 1669638997536,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591699,
+    "createdFirstAt": 1669638997536,
+    "name": "MarkdownCallToAction",
+    "slug": "markdown-call-to-action",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "markdown-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/readMarkdownFileToModel.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "ifktgisojoweuyzozcaiyekn"
+  },
+  {
+    "createdAt": 1669638997536,
+    "updatedAt": 1669638997536,
+    "deletedAt": 0,
+    "createdFirstAt": 1669638997536,
     "name": "PostableProperties",
     "slug": "postable-properties",
     "type": "type",
@@ -137,13 +155,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pfhqaxaddyhzrlqkilaavmwo"
+    "id": "hsauhxtytwfuwjafyjlnlxru"
   },
   {
-    "createdAt": 1669384591700,
-    "updatedAt": 1669384591700,
+    "createdAt": 1669638997537,
+    "updatedAt": 1669638997537,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591700,
+    "createdFirstAt": 1669638997537,
     "name": "WebMarkdownFile",
     "slug": "web-markdown-file",
     "type": "type",
@@ -155,13 +173,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zjozypfjcdhdypdbxkjtipbk"
+    "id": "gxrsvxmhcbdgrznizlzxzkru"
   },
   {
-    "createdAt": 1669384591700,
-    "updatedAt": 1669384591700,
+    "createdAt": 1669638997537,
+    "updatedAt": 1669638997537,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591700,
+    "createdFirstAt": 1669638997537,
     "name": "WebMarkdownProperties",
     "slug": "web-markdown-properties",
     "type": "type",
@@ -173,13 +191,47 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wghobnisvqtxrtvhajnamcfa"
+    "id": "hxzrvxvgujmdmjwapkwhuiid"
   },
   {
-    "createdAt": 1669384591700,
-    "updatedAt": 1669384591700,
+    "createdAt": 1669638997537,
+    "updatedAt": 1669638997537,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591700,
+    "createdFirstAt": 1669638997537,
+    "name": "operations",
+    "slug": "operations",
+    "type": "value",
+    "module": "sdk-operations",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/readMarkdownFileToModel.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "lujzlzeukanwptzihdldtuiy"
+  },
+  {
+    "createdAt": 1669638997537,
+    "updatedAt": 1669638997537,
+    "deletedAt": 0,
+    "createdFirstAt": 1669638997537,
+    "name": "fs",
+    "slug": "fs",
+    "type": "value",
+    "module": "fs-util",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/readMarkdownFileToModel.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "tleysdrrpkukprhbvulzsiwv"
+  },
+  {
+    "createdAt": 1669638997537,
+    "updatedAt": 1669638997537,
+    "deletedAt": 0,
+    "createdFirstAt": 1669638997537,
     "name": "getLastFolder",
     "slug": "get-last-folder",
     "type": "value",
@@ -190,13 +242,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "cxeapsuidinyywrilvavdspf"
+    "id": "npmcoicnvblkojhcjpsuvrdv"
   },
   {
-    "createdAt": 1669384591700,
-    "updatedAt": 1669384591700,
+    "createdAt": 1669638997537,
+    "updatedAt": 1669638997537,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591700,
+    "createdFirstAt": 1669638997537,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -207,13 +259,30 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "blfjwluqfijbxknpmmgdqyyq"
+    "id": "imimzfpebkfqqstdcrrzcqrr"
   },
   {
-    "createdAt": 1669384591700,
-    "updatedAt": 1669384591700,
+    "createdAt": 1669638997537,
+    "updatedAt": 1669638997537,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591700,
+    "createdFirstAt": 1669638997537,
+    "name": "notEmpty",
+    "slug": "not-empty",
+    "type": "value",
+    "module": "js-util",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/readMarkdownFileToModel.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "szpjbvrcomzztrvggskisfwo"
+  },
+  {
+    "createdAt": 1669638997537,
+    "updatedAt": 1669638997537,
+    "deletedAt": 0,
+    "createdFirstAt": 1669638997537,
     "name": "omitUndefinedValues",
     "slug": "omit-undefined-values",
     "type": "value",
@@ -224,13 +293,30 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gdduwkcwjrqvqqpqjvmjbndi"
+    "id": "yawdpskivmtqscrytjocsfwl"
   },
   {
-    "createdAt": 1669384591700,
-    "updatedAt": 1669384591700,
+    "createdAt": 1669638997538,
+    "updatedAt": 1669638997538,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591700,
+    "createdFirstAt": 1669638997538,
+    "name": "sum",
+    "slug": "sum",
+    "type": "value",
+    "module": "js-util",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/readMarkdownFileToModel.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "hlqtybkkizzqafjfhwonyahd"
+  },
+  {
+    "createdAt": 1669638997538,
+    "updatedAt": 1669638997538,
+    "deletedAt": 0,
+    "createdFirstAt": 1669638997538,
     "name": "findOperationBasePath",
     "slug": "find-operation-base-path",
     "type": "value",
@@ -241,13 +327,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xmdrvksjmmsenhilbrpzuxbr"
+    "id": "ypcikyzgntpupvdzjknfxnul"
   },
   {
-    "createdAt": 1669384591700,
-    "updatedAt": 1669384591700,
+    "createdAt": 1669638997538,
+    "updatedAt": 1669638997538,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591700,
+    "createdFirstAt": 1669638997538,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -258,13 +344,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "itscyshdyvvntkrearrzkhgh"
+    "id": "xugzhodsckznpqvzsqxlawbq"
   },
   {
-    "createdAt": 1669384591701,
-    "updatedAt": 1669384591701,
+    "createdAt": 1669638997538,
+    "updatedAt": 1669638997538,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591701,
+    "createdFirstAt": 1669638997538,
     "name": "makeRelative",
     "slug": "make-relative",
     "type": "value",
@@ -275,13 +361,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ayzlxzvbxegebdsjuxqxadcg"
+    "id": "wvjdbcbxexpcrujeitidlrah"
   },
   {
-    "createdAt": 1669384591701,
-    "updatedAt": 1669384591701,
+    "createdAt": 1669638997538,
+    "updatedAt": 1669638997538,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591701,
+    "createdFirstAt": 1669638997538,
     "name": "ModelLocation",
     "slug": "model-location",
     "type": "type",
@@ -293,13 +379,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ywhjhsgyhaewmdfxqsbnnaix"
+    "id": "wffvtialkyxruzeojdwodrfo"
   },
   {
-    "createdAt": 1669384591701,
-    "updatedAt": 1669384591701,
+    "createdAt": 1669638997538,
+    "updatedAt": 1669638997538,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591701,
+    "createdFirstAt": 1669638997538,
     "name": "readMarkdownFile",
     "slug": "read-markdown-file",
     "module": "./readMarkdownFile",
@@ -309,13 +395,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "apoekcdxjcdajhaniizxixyt"
+    "id": "fqtksvhymlosgfxstyunwouv"
   },
   {
-    "createdAt": 1669384591701,
-    "updatedAt": 1669384591701,
+    "createdAt": 1669638997538,
+    "updatedAt": 1669638997538,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591701,
+    "createdFirstAt": 1669638997538,
     "name": "frontmatterToObject",
     "slug": "frontmatter-to-object",
     "type": "value",
@@ -326,13 +412,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "iecwyyjaiddszkbnbopkepnl"
+    "id": "okbfjictdvhdjwgmohqboypc"
   },
   {
-    "createdAt": 1669384591701,
-    "updatedAt": 1669384591701,
+    "createdAt": 1669638997538,
+    "updatedAt": 1669638997538,
     "deletedAt": 0,
-    "createdFirstAt": 1669384591701,
+    "createdFirstAt": 1669638997538,
     "name": "SimplifiedSchema",
     "slug": "simplified-schema",
     "type": "type",
@@ -344,6 +430,6 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "alrvpxdbyklslmygtntwbbcz"
+    "id": "vnvevjgaoufsjiirvfxylfes"
   }
 ]

@@ -33,8 +33,9 @@
     "rehype-highlight": "^5.0.2",
     "markdown-reader-types": "0.0.1",
     "next-a-link": "0.0.1",
-    "codestorys-node": "0.0.1",
-    "asset-view": "0.0.0"
+    "asset-view": "0.0.0",
+    "swipe-homepage": "0.0.0",
+    "codestorys-node": "0.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -54,6 +55,7 @@
     "lint": "next lint"
   },
   "operation": {
+    "port": 42016,
     "indirectDependencies": [
       "collect-static-assets"
     ],
@@ -70,13 +72,11 @@
     "folderNameIndexed": "codestorys-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669291088365,
+    "lastRebuildAt": 1669884206001,
     "operationDependenciesIndexed": [
       "MarkdownReaderPageProps",
-      "Div",
-      "P",
-      "ALink",
-      "AssetView",
+      "SwipeHomepage",
+      "SwipeItem",
       "Div",
       "P",
       "MarkdownReaderPageProps",
@@ -95,15 +95,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 170,
-        "characters": 5279,
-        "bytes": 5279
+        "lines": 152,
+        "characters": 4669,
+        "bytes": 4669
       },
       "dataSize": {
-        "numberOfFiles": 21,
-        "lines": 225,
-        "characters": 7389,
-        "bytes": 7389
+        "numberOfFiles": 28,
+        "lines": 236,
+        "characters": 8439,
+        "bytes": 8439
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -112,10 +112,10 @@
         "bytes": 1206
       },
       "size": {
-        "bytes": 13874,
-        "characters": 13874,
-        "lines": 464,
-        "numberOfFiles": 28
+        "bytes": 14314,
+        "characters": 14314,
+        "lines": 457,
+        "numberOfFiles": 35
       }
     },
     "hasGeneratedImportsIndexed": false

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668773971748,
-  "updatedAt": 1668773971748,
+  "createdAt": 1669883391111,
+  "updatedAt": 1669883391111,
   "deletedAt": 0,
-  "createdFirstAt": 1668773971748,
+  "createdFirstAt": 1669883391111,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const [operationName, isDevString] = process.argv.slice(2);\n  const isDev = isDevString === \"true\";\n  const result = await startApp(operationName, isDev);\n\n  const table = logTableObject(\n    takeFirst(result?.proc) || result?.error || result\n  );\n  console.table(table);\n}",
   "description": "Arguments\n- Operation Name\n- isDev (true)",
-  "id": "hisbolhrerkpxseblzdvxaok"
+  "id": "ciorzlqjarzkvawwknhxnlxc"
 }
