@@ -1,1 +1,5 @@
 The functions in this package helps you to automate the dull task of generating your SDK files and operation. Every time you create a function or interface (or something else), you can update the SDK's by running `generateSdkOperations`. It's in the bin, just run `npx generateSdkOperations`
+
+Check this diagram for an overview of some of the motivations behind indexation.
+
+![](./indexation.drawio.svg)
