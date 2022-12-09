@@ -26,44 +26,57 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669962054176,
+    "lastRebuildAt": 1670063325352,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 2,
-        "lines": 52,
-        "characters": 1258,
-        "bytes": 1258
+        "numberOfFiles": 6,
+        "lines": 224,
+        "characters": 5761,
+        "bytes": 5761
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 103,
-        "characters": 3294,
-        "bytes": 3294
+        "lines": 112,
+        "characters": 3480,
+        "bytes": 3480
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 54,
-        "characters": 871,
-        "bytes": 871
+        "lines": 118,
+        "characters": 2155,
+        "bytes": 2155
       },
       "size": {
-        "bytes": 5423,
-        "characters": 5423,
-        "lines": 209,
-        "numberOfFiles": 6
+        "bytes": 11396,
+        "characters": 11396,
+        "lines": 454,
+        "numberOfFiles": 10
       }
     },
     "folderNameIndexed": "ffmpeg-util",
-    "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion/audio-video",
+    "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion",
     "classificationIndexed": "node-cjs",
     "coreDependenciesIndexed": [],
     "operationDependenciesIndexed": [
-      "fs"
+      "fs",
+      "getFirstAvailableFilename",
+      "path",
+      "replaceLastOccurence",
+      "explore",
+      "notEmpty",
+      "fs",
+      "path",
+      "log",
+      "oneByOne"
     ],
     "packageDependenciesIndexed": []
   },
   "dependencies": {
-    "fs-util": "1.0.5"
+    "fs-util": "1.0.5",
+    "js-util": "0.0.1",
+    "k-explore": "0.0.2",
+    "log": "0.0.1",
+    "one-by-one": "0.0.1"
   },
   "slug": "ffmpeg-util",
   "id": "ahawlqtlqdfmfhkvnfcgmbph"

@@ -1,14 +1,11 @@
 import * as React from "react";
-import { pickRandomArrayItem } from "js-util";
-import { Div } from "react-with-native";
 import { MarkdownCodeblock } from "markdown";
 import { api } from "api";
-var colors = ["red", "green", "blue", "yellow", "orange", "purple", "brown"];
+import { Div } from "react-with-native";
 export var Timeline = function (props) {
     var items = props.items;
-    return (React.createElement(Div, { className: "h-screen overflow-auto snap-mandatory snap-y" }, items.map(function (item) {
-        return (React.createElement(Div, { className: "snap-center h-screen w-screen flex justify-center items-center", style: {
-                backgroundColor: pickRandomArrayItem(colors),
+    return (React.createElement("div", { className: "flex snap-x snap-mandatory h-screen w-full mx:auto overflow-scroll" }, items.map(function (item, index) {
+        return (React.createElement(Div, { key: "timeline-item-".concat(index), className: "snap-start shrink-0 bg-green-200 w-screen h-screen place-items-center", style: {
                 backgroundImage: item.imageUrl
                     ? "url(\"".concat(item.imageUrl, "\")")
                     : undefined,

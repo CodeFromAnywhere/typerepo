@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1669288038274,
-    "updatedAt": 1669288038274,
+    "createdAt": 1670218912736,
+    "updatedAt": 1670218912736,
     "deletedAt": 0,
-    "createdFirstAt": 1669288038274,
+    "createdFirstAt": 1670218912736,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
@@ -11,15 +11,15 @@
     "rawStatement": "import \"simplified-schema-form/css.css\";",
     "parameters": {},
     "types": [],
-    "firstLine": 29,
-    "lastLine": 29,
-    "id": "uokrotmeucubsbstokabccwh"
+    "firstLine": 31,
+    "lastLine": 31,
+    "id": "jwbxcirsxfjjzhhxqgbpdjxv"
   },
   {
-    "createdAt": 1669288038274,
-    "updatedAt": 1669288038274,
+    "createdAt": 1670218912737,
+    "updatedAt": 1670218912737,
     "deletedAt": 0,
-    "createdFirstAt": 1669288038274,
+    "createdFirstAt": 1670218912737,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
@@ -27,24 +27,24 @@
     "rawStatement": "Router.events.on(\"routeChangeStart\", progress.start);",
     "parameters": {},
     "types": [],
-    "firstLine": 48,
-    "lastLine": 48,
-    "id": "kkfmacnzuwlqvceucjcwytte"
+    "firstLine": 51,
+    "lastLine": 51,
+    "id": "rmlxwaubkxsfptokcwzskinj"
   },
   {
-    "createdAt": 1669288038275,
-    "updatedAt": 1669288038275,
+    "createdAt": 1670218912737,
+    "updatedAt": 1670218912737,
     "deletedAt": 0,
-    "createdFirstAt": 1669288038275,
+    "createdFirstAt": 1670218912737,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
     "comment": "Only holds serverRuntimeConfig and publicRuntimeConfig",
-    "rawStatement": "function MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>Writer</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <ModalProvider>\n          <StoreProvider>\n            <MyLayout pageProps={pageProps} nextPage={Component} />\n          </StoreProvider>\n        </ModalProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
+    "rawStatement": "function MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>Writer</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <StoreProvider>\n          <ModalProvider>\n            <MyLayout pageProps={pageProps} nextPage={Component} />\n          </ModalProvider>\n        </StoreProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
     "parameters": {},
     "types": [],
-    "firstLine": 55,
-    "lastLine": 55,
-    "id": "pwbogwgwzrpgjmsflrppiueb"
+    "firstLine": 58,
+    "lastLine": 58,
+    "id": "vqobyxlumxdtlgidhbaudqmm"
   }
 ]

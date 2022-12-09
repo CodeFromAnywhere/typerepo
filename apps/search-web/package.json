@@ -36,7 +36,9 @@
     "api-store": "0.0.1",
     "nested-menu": "0.0.1",
     "writer-input": "1.0.0",
-    "context-menu": "0.0.0"
+    "context-menu": "0.0.0",
+    "share": "1.0.0",
+    "file-tabs": "0.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -74,12 +76,13 @@
     "folderNameIndexed": "search-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669884620718,
+    "lastRebuildAt": 1670527621566,
     "operationDependenciesIndexed": [
       "AppsMenu",
       "pickRandomArrayItem",
       "Div",
       "Timeline",
+      "Share",
       "useContextMenu",
       "Div",
       "Form",
@@ -103,7 +106,8 @@
       "createStore",
       "apiStoreInitialValues",
       "nestedMenuStoreInitialValues",
-      "writerInitialValues"
+      "writerInitialValues",
+      "fileTabsInitialValues"
     ],
     "packageDependenciesIndexed": [
       "AppProps",
@@ -116,15 +120,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 11,
-        "lines": 489,
-        "characters": 14025,
-        "bytes": 14025
+        "lines": 483,
+        "characters": 13691,
+        "bytes": 13691
       },
       "dataSize": {
-        "numberOfFiles": 8,
-        "lines": 285,
-        "characters": 6971,
-        "bytes": 6971
+        "numberOfFiles": 9,
+        "lines": 283,
+        "characters": 6913,
+        "bytes": 6913
       },
       "textSize": {
         "numberOfFiles": 5,
@@ -133,10 +137,10 @@
         "bytes": 5606
       },
       "size": {
-        "bytes": 26602,
-        "characters": 26602,
-        "lines": 1017,
-        "numberOfFiles": 24
+        "bytes": 26210,
+        "characters": 26210,
+        "lines": 1009,
+        "numberOfFiles": 25
       }
     },
     "hasGeneratedImportsIndexed": false

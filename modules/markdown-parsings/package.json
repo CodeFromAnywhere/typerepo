@@ -64,7 +64,7 @@
     "folderNameIndexed": "markdown-parsings",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669962217656,
+    "lastRebuildAt": 1670590156916,
     "operationDependenciesIndexed": [
       "TsFunction",
       "TsImport",
@@ -78,6 +78,11 @@
       "getBundleSummary",
       "MarkdownParse",
       "notEmpty",
+      "fs",
+      "getProjectRoot",
+      "makeRelative",
+      "explore",
+      "writeToAssets",
       "MarkdownParse",
       "mdToJsonParse",
       "NestedObject",
@@ -155,10 +160,10 @@
     "relativeOperationLocationPathIndexed": "operations/tools/parsing/file-conversion/md",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 39,
-        "lines": 1383,
-        "characters": 39856,
-        "bytes": 39856
+        "numberOfFiles": 40,
+        "lines": 1425,
+        "characters": 40984,
+        "bytes": 40984
       },
       "dataSize": {
         "numberOfFiles": 4,
@@ -167,16 +172,16 @@
         "bytes": 250773
       },
       "textSize": {
-        "numberOfFiles": 8,
-        "lines": 2402,
-        "characters": 66206,
-        "bytes": 66206
+        "numberOfFiles": 9,
+        "lines": 2708,
+        "characters": 78622,
+        "bytes": 78622
       },
       "size": {
-        "bytes": 356835,
-        "characters": 356835,
-        "lines": 10060,
-        "numberOfFiles": 51
+        "bytes": 370379,
+        "characters": 370379,
+        "lines": 10408,
+        "numberOfFiles": 53
       }
     },
     "hasGeneratedImportsIndexed": false

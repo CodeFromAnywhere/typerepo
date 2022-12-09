@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669885291636,
-  "updatedAt": 1669885291636,
+  "createdAt": 1670528881163,
+  "updatedAt": 1670528881163,
   "deletedAt": 0,
-  "createdFirstAt": 1669885291636,
+  "createdFirstAt": 1670528881163,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/DbPage.tsx",
   "commentsInside": [],
-  "rawText": " () => {\n  const router = useRouter();\n  const paths = router.query.paths ? makeArray(router.query.paths) : [];\n  const modelQuery = paths.pop();\n  console.log({ modelQuery });\n  const [slug] = useUrl(\"slug\");\n  const [id] = useUrl(\"id\");\n\n  return (\n    <Div scroll>\n      <ModelComponent modelName={modelQuery} highlight={{ slug, id }} />\n    </Div>\n  );\n}",
+  "rawText": " (props: {\n  filter?: (item: AugmentedAnyModelType) => boolean;\n  modelName?: string;\n}) => {\n  const router = useRouter();\n  const { modelName, filter } = props;\n  const paths = router.query.paths ? makeArray(router.query.paths) : [];\n  const modelQuery = modelName || paths.pop();\n  const [slug] = useUrl(\"slug\");\n  const [id] = useUrl(\"id\");\n\n  return (\n    <Div scroll>\n      <ModelComponent modelName={modelQuery} highlight={{ slug, id }} />\n    </Div>\n  );\n}",
   "name": "DbPage",
   "slug": "db-page",
   "parameters": [],
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 358,
-    "lines": 14,
-    "bytes": 358,
+    "characters": 464,
+    "lines": 17,
+    "bytes": 464,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
-    "linesPerFile": 14,
+    "charactersPerLine": 27,
+    "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "lleygrmsebwxwclzdnyrwfqw"
+  "id": "hjmthyqqqokhubgdaziphffv"
 }

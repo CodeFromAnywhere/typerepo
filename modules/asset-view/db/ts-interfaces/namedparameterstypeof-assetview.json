@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669887692757,
-  "updatedAt": 1669887692757,
+  "createdAt": 1670526876392,
+  "updatedAt": 1670526876392,
   "deletedAt": 0,
-  "createdFirstAt": 1669887692757,
+  "createdFirstAt": 1670526876392,
   "id": "namedparameterstypeof-assetview",
   "name": "NamedParameters<typeof AssetView>",
   "slug": "namedparameterstypeof-assetview",
@@ -27,15 +27,15 @@
               "type": "string"
             },
             "projectRelativeReferencingFilePath": {
-              "type": "string"
+              "type": "string",
+              "description": "Must be provided for relative assets to know the location"
             },
             "hideDownloadLink": {
               "type": "boolean"
             }
           },
           "required": [
-            "asset",
-            "projectRelativeReferencingFilePath"
+            "asset"
           ],
           "additionalProperties": false
         }
@@ -200,8 +200,9 @@
               },
               {
                 "name": "projectRelativeReferencingFilePath",
-                "required": true,
+                "required": false,
                 "schema": {
+                  "fullComment": "Must be provided for relative assets to know the location",
                   "type": "string"
                 }
               },

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669887702844,
-  "updatedAt": 1669887702844,
+  "createdAt": 1670526896988,
+  "updatedAt": 1670526896988,
   "deletedAt": 0,
-  "createdFirstAt": 1669887702844,
+  "createdFirstAt": 1670526896988,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -180,7 +180,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "{ rawText: string | null; type: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").AssetType | undefined; downloadUrl: string | undefined; src: string; extension: string | undefined; } | undefined",
+    "rawType": "{ rawText: string | null; type: import(\"/Users/king/King/operations/tools/asset/asset-type/build/Asset\").AssetType | undefined; downloadUrl: string | undefined; src: string | undefined; extension: string | undefined; } | undefined",
     "typeDefinition": {
       "type": "object",
       "properties": {
@@ -244,9 +244,6 @@
           ]
         }
       },
-      "required": [
-        "src"
-      ],
       "optional": true
     },
     "typeCoverage": 0,
@@ -288,7 +285,7 @@
         },
         {
           "name": "src",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
@@ -314,5 +311,5 @@
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "sllmrfqqjanlzncorohvreya"
+  "id": "kvtybauwkhuybtnvwoodgtpu"
 }

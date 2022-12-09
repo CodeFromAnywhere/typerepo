@@ -1,3 +1,10 @@
+import { controlChatGpt } from "ai-functions-node";
+import { getContextualPromptResults } from "ai-functions-node";
+import { getContextualPrompt } from "ai-functions-node";
+import { getContextualPromptsArray } from "ai-functions-node";
+import { getContextualPrompts } from "ai-functions-node";
+import { getFolderRelativeScopeDbFilePath } from "ai-functions-node";
+import { processChatGptPrompt } from "ai-functions-node";
 import { compressAsset } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
@@ -210,8 +217,6 @@ import { getPaymentWebPages } from "payment-node";
 import { succeed } from "payment-node";
 import { mapArrayJson } from "edit-json-file";
 import { mapObjectJson } from "edit-json-file";
-import { convertToMp3 } from "ffmpeg-util";
-import { convertToMp4 } from "ffmpeg-util";
 import { videoToMp3 } from "video-to-mp3";
 import { unzip } from "unzip";
 import { zip } from "zip";
@@ -219,6 +224,10 @@ import { csvItemArrayToCsvString } from "csv-util";
 import { tryParseCsv } from "csv-util";
 import { convertCsvToJson } from "xls-to-csv-json";
 import { convertXlsToJson } from "xls-to-csv-json";
+import { compressImage } from "ffmpeg-util";
+import { compressImages } from "ffmpeg-util";
+import { convertToMp3 } from "ffmpeg-util";
+import { convertToMp4 } from "ffmpeg-util";
 import { copyCopyPairs } from "collect-static-assets";
 import { copyReaderStaticAssets } from "collect-static-assets";
 import { findReaderStaticAssets } from "collect-static-assets";
@@ -280,8 +289,13 @@ import { findAudioWithViewsArray } from "short-markdown-parser-js";
 import { markdownParseToShortMarkdown } from "short-markdown-parser-js";
 import { shortMarkdownToMarkdownParse } from "short-markdown-parser-js";
 import { augmentShortMarkdown } from "short-markdown-parser-node";
+import { fetchVoices } from "short-markdown-parser-node";
 import { generateAugmentedShortMarkdown } from "short-markdown-parser-node";
 import { getOrGenerateShortMarkdown } from "short-markdown-parser-node";
+import { parseDialogue } from "short-markdown-parser-node";
+import { uberduckGetPath } from "short-markdown-parser-node";
+import { uberduckSpeak } from "short-markdown-parser-node";
+import { voiceCloneDialogue } from "short-markdown-parser-node";
 import { readCsvFileSync } from "read-csv-file";
 import { readCsvFile } from "read-csv-file";
 import { readJsonFileSync } from "read-json-file";
@@ -350,6 +364,7 @@ import { removeMultiple } from "fs-orm";
 import { upsertItems } from "fs-orm";
 import { upsertKeyValueMarkdown } from "fs-orm";
 import { upsert } from "fs-orm";
+import { waitForLockfile } from "fs-orm";
 import { validateModel } from "validate-model";
 import { validate } from "validate-model";
 import { getFunctionExecutions } from "function-functions-node";
@@ -684,6 +699,7 @@ import { findFileNameCaseInsensitive } from "fs-util";
 import { getAllFoldersUntilFolder } from "fs-util";
 import { getFileName } from "fs-util";
 import { getFirstAvailableFilename } from "fs-util";
+import { getFolderSizeObject } from "fs-util";
 import { getFolder } from "fs-util";
 import { getLastFolder } from "fs-util";
 import { getOneFolderUpPath } from "fs-util";
@@ -732,6 +748,7 @@ import { tsconfigCompilesEsm } from "get-path";
 import { getDependenciesSummary } from "operation-util";
 import { getOperationMetaData } from "operation-util";
 import { recalculateOperationIndexJson } from "operation-util";
+import { getFileTypeFromPath } from "filename-conventions";
 import { getWriterType } from "filename-conventions";
 import { hasSubExtension } from "filename-conventions";
 import { isGeneratedOperationName } from "filename-conventions";
@@ -943,7 +960,14 @@ import { typeInTheInputField } from "puppeteer-utils";
 import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
 import { waitMilliseconds } from "puppeteer-utils";
 
-export const sdk = { compressAsset,
+export const sdk = { controlChatGpt,
+getContextualPromptResults,
+getContextualPrompt,
+getContextualPromptsArray,
+getContextualPrompts,
+getFolderRelativeScopeDbFilePath,
+processChatGptPrompt,
+compressAsset,
 deleteReferencedAsset,
 downloadRemoteAsset,
 findAbsoluteAssetPathFromReference,
@@ -1155,8 +1179,6 @@ getPaymentWebPages,
 succeed,
 mapArrayJson,
 mapObjectJson,
-convertToMp3,
-convertToMp4,
 videoToMp3,
 unzip,
 zip,
@@ -1164,6 +1186,10 @@ csvItemArrayToCsvString,
 tryParseCsv,
 convertCsvToJson,
 convertXlsToJson,
+compressImage,
+compressImages,
+convertToMp3,
+convertToMp4,
 copyCopyPairs,
 copyReaderStaticAssets,
 findReaderStaticAssets,
@@ -1225,8 +1251,13 @@ findAudioWithViewsArray,
 markdownParseToShortMarkdown,
 shortMarkdownToMarkdownParse,
 augmentShortMarkdown,
+fetchVoices,
 generateAugmentedShortMarkdown,
 getOrGenerateShortMarkdown,
+parseDialogue,
+uberduckGetPath,
+uberduckSpeak,
+voiceCloneDialogue,
 readCsvFileSync,
 readCsvFile,
 readJsonFileSync,
@@ -1295,6 +1326,7 @@ removeMultiple,
 upsertItems,
 upsertKeyValueMarkdown,
 upsert,
+waitForLockfile,
 validateModel,
 validate,
 getFunctionExecutions,
@@ -1629,6 +1661,7 @@ findFileNameCaseInsensitive,
 getAllFoldersUntilFolder,
 getFileName,
 getFirstAvailableFilename,
+getFolderSizeObject,
 getFolder,
 getLastFolder,
 getOneFolderUpPath,
@@ -1677,6 +1710,7 @@ tsconfigCompilesEsm,
 getDependenciesSummary,
 getOperationMetaData,
 recalculateOperationIndexJson,
+getFileTypeFromPath,
 getWriterType,
 hasSubExtension,
 isGeneratedOperationName,

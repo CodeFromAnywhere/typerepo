@@ -46,7 +46,7 @@ export declare const useContextMenu: (props: {
                 
      * ```
      */
-    customItemRender?: ((contextMenuItem: ContextMenuItem, index: number, onClose: () => void, id: string | undefined) => JSX.Element | null) | undefined;
+    customItemRender?: ((contextMenuItem: ContextMenuItem, index: number, onClose: () => any, id: string | undefined) => JSX.Element | null) | undefined;
 }) => {
     renderContextMenu: () => JSX.Element | null;
     openContextMenuProps: {
@@ -57,5 +57,7 @@ export declare const useContextMenu: (props: {
         onClick: (mouseEvent: import("react").MouseEvent<Element, MouseEvent>) => void;
         style: import("react").CSSProperties;
     };
+    onClose: () => void;
+    isOpen: boolean;
 };
 //# sourceMappingURL=useContextMenu.d.ts.map

@@ -3,9 +3,12 @@ import { apiStoreInitialValues } from "api-store";
 import { nestedMenuStoreInitialValues } from "nested-menu";
 import { writerInitialValues } from "writer-input";
 import { fileTabsInitialValues } from "file-tabs";
+import { dbCrudInitialValues } from "db-crud";
+
 export const { StoreProvider, useStore } = createStore({
   ...apiStoreInitialValues,
   ...nestedMenuStoreInitialValues,
   ...writerInitialValues,
   ...fileTabsInitialValues,
+  ...dbCrudInitialValues,
 });

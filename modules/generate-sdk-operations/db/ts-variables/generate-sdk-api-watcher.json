@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669276632756,
-  "updatedAt": 1669276632756,
+  "createdAt": 1670064208070,
+  "updatedAt": 1670064208070,
   "deletedAt": 0,
-  "createdFirstAt": 1669276632756,
+  "createdFirstAt": 1670064208070,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -46,5 +46,5 @@
   },
   "value": "async () => {\n  if (isRegenerating === true) {\n    // Don't run if it's already running\n    return;\n  }\n  // console.log(\"Generate sdk-api...\");\n\n  // isRegenerating = true;\n  // await generateSdkApi();\n\n  // console.log(\"DONE, exiting server\");\n  // isRegenerating = false;\n  process.exit();\n}",
   "description": "",
-  "id": "nulajfeifntzqucnrxqqqktd"
+  "id": "fghqhqsnofsxdqkhokjgilsz"
 }

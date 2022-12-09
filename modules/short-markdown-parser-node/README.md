@@ -8,9 +8,9 @@ short-markdown-parser-node (`OperationClassification` node-cjs)
 
 # Tests
 
-<details><summary>Show test information(2)</summary>
+<details><summary>Show test information(4)</summary>
     
-  # generateAugmentedShortMarkdownTest()
+  # fetchVoicesTest()
 
 
 
@@ -22,13 +22,24 @@ short-markdown-parser-node (`OperationClassification` node-cjs)
 
 
 
+## generateAugmentedShortMarkdownTest()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 fetchVoicesTest (exported const)
+
 ## 📄 generateAugmentedShortMarkdownTest (unexported const)
 
   </details>
 
 # Internal
 
-<details><summary>Show internal (7)</summary>
+<details><summary>Show internal (22)</summary>
     
   # augmentShortMarkdown()
 
@@ -38,6 +49,24 @@ short-markdown-parser-node (`OperationClassification` node-cjs)
 | Input      |    |    |
 | ---------- | -- | -- |
 | shortMarkdown | `ShortMarkdown` |  |,| projectRelativeFilePath | string |  |
+| **Output** |    |    |
+
+
+
+## fetchVoicesTest()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## fetchVoices()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| dialogue | `DialogueSentence`[] |  |
 | **Output** |    |    |
 
 
@@ -63,7 +92,60 @@ The first step is to ensure that this would actually work. It needs to generate 
 
 
 
+## parseDialogue()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| textMarkdown | string |  |
+| **Output** | { voice?: string, <br />sentence: string, <br /> }[]   |    |
+
+
+
+## uberduckGetPath()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| uuid | string |  |
+| **Output** | string   |    |
+
+
+
+## uberduckSpeak()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| uberduckVoice | string |  |,| text | string |  |
+| **Output** | string   |    |
+
+
+
+## voiceCloneDialogue()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| textContent | string |  |
+| **Output** |    |    |
+
+
+
+## 🔹 DialogueSentence
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| remotePath (optional) | string |  |
+| uuid (optional) | string |  |
+| voice (optional) | string |  |
+| sentence  | string |  |
+
+
+
 ## 📄 augmentShortMarkdown (exported const)
+
+## 📄 fetchVoicesTest (exported const)
+
+## 📄 fetchVoices (exported const)
 
 ## 📄 generateAugmentedShortMarkdown (exported const)
 
@@ -73,6 +155,18 @@ The first step is to ensure that this would actually work. It needs to generate 
 ## 📄 getOrGenerateShortMarkdown (exported const)
 
 ## 📄 MINIMUM_DURATION_MS (exported const)
+
+## 📄 parseDialogue (exported const)
+
+## 📄 uberduckApiKey (exported const)
+
+## 📄 uberduckGetPath (exported const)
+
+## 📄 uberduckSecret (exported const)
+
+## 📄 uberduckSpeak (exported const)
+
+## 📄 voiceCloneDialogue (exported const)
 
   </details>
 

@@ -1,15 +1,15 @@
 {
-  "createdAt": 1669884820284,
-  "updatedAt": 1669884820284,
+  "createdAt": 1670218882554,
+  "updatedAt": 1670218882554,
   "deletedAt": 0,
-  "createdFirstAt": 1669884820284,
+  "createdFirstAt": 1670218882554,
   "id": "writerviewenum",
   "name": "WriterViewEnum",
   "slug": "writerviewenum",
   "operationRelativeTypescriptFilePath": "src/types.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type WriterViewEnum =\n  | \"config\"\n  | \"view\"\n  | \"edit\"\n  | \"presentation\"\n  | \"frontmatter\"\n  | \"todoOffers\"\n  | \"postable\"\n  | \"shortStudio\";",
+  "rawText": "\n\nexport type WriterViewEnum =\n  | \"config\"\n  | \"view\"\n  | \"edit\"\n  | \"presentation\"\n  | \"frontmatter\"\n  | \"todoOffers\"\n  | \"postable\"\n  | \"shortStudio\"\n  | \"prompts\"\n  | \"prompt-results\";",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -26,7 +26,9 @@
         "frontmatter",
         "todoOffers",
         "postable",
-        "shortStudio"
+        "shortStudio",
+        "prompts",
+        "prompt-results"
       ]
     },
     "simplifiedSchema": {
@@ -38,7 +40,9 @@
         "frontmatter",
         "todoOffers",
         "postable",
-        "shortStudio"
+        "shortStudio",
+        "prompts",
+        "prompt-results"
       ],
       "type": "string"
     },

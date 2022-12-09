@@ -21,7 +21,8 @@
   "dependencies": {
     "react-with-native": "1.4.9",
     "react": "*",
-    "react-popper": "*"
+    "react-popper": "*",
+    "fancy-loader": "0.0.1"
   },
   "name": "context-menu",
   "operation": {
@@ -34,37 +35,38 @@
       "lintProblems": []
     },
     "hasGeneratedDependenciesIndexed": false,
-    "lastRebuildAt": 1669885126398,
+    "lastRebuildAt": 1670528592103,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 4,
-        "lines": 313,
-        "characters": 8810,
-        "bytes": 8810
+        "numberOfFiles": 5,
+        "lines": 364,
+        "characters": 10015,
+        "bytes": 10015
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 78,
-        "characters": 2797,
-        "bytes": 2797
+        "lines": 127,
+        "characters": 3899,
+        "bytes": 3899
       },
       "textSize": {
         "numberOfFiles": 4,
-        "lines": 1695,
-        "characters": 47937,
-        "bytes": 47937
+        "lines": 1733,
+        "characters": 48523,
+        "bytes": 48523
       },
       "size": {
-        "bytes": 59544,
-        "characters": 59544,
-        "lines": 2086,
-        "numberOfFiles": 10
+        "bytes": 62437,
+        "characters": 62437,
+        "lines": 2224,
+        "numberOfFiles": 11
       }
     },
     "folderNameIndexed": "context-menu",
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/dumb",
     "classificationIndexed": "ui-cjs",
     "coreDependenciesIndexed": [
+      "useState",
       "useState",
       "useEffect",
       "useMemo",
@@ -73,7 +75,10 @@
     ],
     "operationDependenciesIndexed": [
       "Div",
-      "P"
+      "P",
+      "Span",
+      "FancyLoader",
+      "Div"
     ],
     "packageDependenciesIndexed": [
       "usePopper"

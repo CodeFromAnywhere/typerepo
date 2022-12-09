@@ -1,13 +1,9 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateResult = void 0;
 var sdk_api_1 = require("sdk-api");
-var ajv_1 = __importDefault(require("ajv"));
+//import Ajv from "ajv";
 var log_1 = require("log");
-var ajv = new ajv_1.default();
 /** wrapper function that takes that data but also the interface of the function and validates the parameters before it executes the function.*/
 var validateResult = function (functionName, result, tsFunction) {
     var fn = sdk_api_1.sdk[functionName];
@@ -22,8 +18,8 @@ var validateResult = function (functionName, result, tsFunction) {
         (0, log_1.log)("Not able to validate ".concat(functionName, " result"), { type: "debug" });
         return { isValid: true };
     }
-    var validate = ajv.compile(schema);
-    var isValid = validate(result);
+    //const validate = ajv.compile(schema);
+    var isValid = true; //validate(result);
     if (!isValid) {
         (0, log_1.log)("According to the schema, you have given invalid arguments to the function", { type: "warning" });
     }

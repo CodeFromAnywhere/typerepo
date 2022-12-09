@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669885021162,
-  "updatedAt": 1669885021162,
+  "createdAt": 1670528258811,
+  "updatedAt": 1670528258811,
   "deletedAt": 0,
-  "createdFirstAt": 1669885021162,
+  "createdFirstAt": 1670528258811,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const [isWatchingString, isRestartString] = process.argv.slice(2);\n\n  runFunctionServer(\n    isWatchingString === \"true\" ? true : false,\n    isRestartString === \"true\" ? true : false\n  );\n}",
   "description": "Argument:\n- pass true if you want the server to be watching\n- pass true true if you want the server to be watching and this is a restart (so don't launch things like browser)\n- if you pass nothing, there will be no browser start and no watcher",
-  "id": "drenzqrfadjbskgelbqpkfmo"
+  "id": "cqtfehojavbpitldnxmjfvek"
 }

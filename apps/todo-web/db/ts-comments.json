@@ -1,25 +1,25 @@
 [
   {
-    "createdAt": 1669384780054,
-    "updatedAt": 1669384780054,
+    "createdAt": 1670218700109,
+    "updatedAt": 1670218700109,
     "deletedAt": 0,
-    "createdFirstAt": 1669384780054,
+    "createdFirstAt": 1670218700109,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
     "comment": "/rwn",
-    "rawStatement": "import \"simplified-schema-form/css.css\";",
+    "rawStatement": "import \"share/css.css\";",
     "parameters": {},
     "types": [],
     "firstLine": 20,
     "lastLine": 20,
-    "id": "bjtwrndbloajzfsreeisbzhz"
+    "id": "lbizgliwyuipgchdabuyyhnf"
   },
   {
-    "createdAt": 1669384780054,
-    "updatedAt": 1669384780054,
+    "createdAt": 1670218700109,
+    "updatedAt": 1670218700109,
     "deletedAt": 0,
-    "createdFirstAt": 1669384780054,
+    "createdFirstAt": 1670218700109,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
@@ -27,24 +27,24 @@
     "rawStatement": "Router.events.on(\"routeChangeStart\", progress.start);",
     "parameters": {},
     "types": [],
-    "firstLine": 42,
-    "lastLine": 42,
-    "id": "lpibpbevwnujplgsxsisyfco"
+    "firstLine": 47,
+    "lastLine": 47,
+    "id": "ztyinjujmunrqvthubkxdond"
   },
   {
-    "createdAt": 1669384780054,
-    "updatedAt": 1669384780054,
+    "createdAt": 1670218700109,
+    "updatedAt": 1670218700109,
     "deletedAt": 0,
-    "createdFirstAt": 1669384780054,
+    "createdFirstAt": 1670218700109,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
     "comment": "Only holds serverRuntimeConfig and publicRuntimeConfig",
-    "rawStatement": "function MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>Todone</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <ModalProvider>\n          <StoreProvider>\n            <MyLayout pageProps={pageProps} nextPage={Component} />\n          </StoreProvider>\n        </ModalProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
+    "rawStatement": "function MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>Todone</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <StoreProvider>\n          <ModalProvider>\n            <MyLayout pageProps={pageProps} nextPage={Component} />\n          </ModalProvider>\n        </StoreProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
     "parameters": {},
     "types": [],
-    "firstLine": 49,
-    "lastLine": 49,
-    "id": "emoujzvypslafinhyxxjlbli"
+    "firstLine": 54,
+    "lastLine": 54,
+    "id": "rtrzwpzscjmfwgzepecyouuc"
   }
 ]

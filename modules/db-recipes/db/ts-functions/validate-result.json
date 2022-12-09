@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669962353716,
-  "updatedAt": 1669962353716,
+  "createdAt": 1670218580552,
+  "updatedAt": 1670218580552,
   "deletedAt": 0,
-  "createdFirstAt": 1669962353716,
+  "createdFirstAt": 1670218580552,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/validateResult.ts",
   "commentsInside": [],
-  "rawText": " <TFunctionName extends keyof typeof sdk>(\n  functionName: TFunctionName,\n  result: any,\n  tsFunction: TsFunction\n): ValidationResult => {\n  const fn = sdk[functionName];\n\n  type ResultType = ReturnType<typeof fn>;\n  /**\n   * NB: https://www.npmjs.com/package/typescript-json\n   *\n   * this seems a great way to validate the return type, not sure what it would do to my compile times and runtime performance and if it works at all, but if it works, it'd be great because we basically create 100% typesafety, not only for the input, but also for the output!\n   */\n  // const isValid = TSON.equal<ResultType>(result)\n\n  const schema = tsFunction.returnType.typeDefinition;\n\n  if (!schema) {\n    log(`Not able to validate ${functionName} result`, { type: \"debug\" });\n    return { isValid: true };\n  }\n\n  const validate = ajv.compile(schema);\n\n  const isValid = validate(result);\n\n  if (!isValid) {\n    log(\n      `According to the schema, you have given invalid arguments to the function`,\n      { type: \"warning\" }\n    );\n  }\n\n  return { isValid };\n}",
+  "rawText": " <TFunctionName extends keyof typeof sdk>(\n  functionName: TFunctionName,\n  result: any,\n  tsFunction: TsFunction\n): ValidationResult => {\n  const fn = sdk[functionName];\n\n  type ResultType = ReturnType<typeof fn>;\n  /**\n   * NB: https://www.npmjs.com/package/typescript-json\n   *\n   * this seems a great way to validate the return type, not sure what it would do to my compile times and runtime performance and if it works at all, but if it works, it'd be great because we basically create 100% typesafety, not only for the input, but also for the output!\n   */\n  // const isValid = TSON.equal<ResultType>(result)\n\n  const schema = tsFunction.returnType.typeDefinition;\n\n  if (!schema) {\n    log(`Not able to validate ${functionName} result`, { type: \"debug\" });\n    return { isValid: true };\n  }\n\n  //const validate = ajv.compile(schema);\n\n  const isValid = true; //validate(result);\n\n  if (!isValid) {\n    log(\n      `According to the schema, you have given invalid arguments to the function`,\n      { type: \"warning\" }\n    );\n  }\n\n  return { isValid };\n}",
   "name": "validateResult",
   "slug": "validate-result",
   "parameters": [],
@@ -128,13 +128,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 1186,
+    "characters": 1196,
     "lines": 35,
-    "bytes": 1186,
+    "bytes": 1196,
     "bytesPerCharacter": 1,
     "charactersPerLine": 34,
     "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "csforasxbbwgcftzxohluewh"
+  "id": "aewmznkzuxvmgyqyyhlvztxi"
 }

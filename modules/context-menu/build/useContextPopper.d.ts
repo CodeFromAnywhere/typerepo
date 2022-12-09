@@ -8,6 +8,7 @@ export declare const useContextPopper: (props: {
     }) => JSX.Element;
     longTouchDurationMs?: number | undefined;
 }) => {
+    isOpen: boolean;
     /**
      * Render this function anywhere in your component. Ensure it's high enough up the tree to make sure the positioning is correct. Not tested in modals and scrollable divs...
      */

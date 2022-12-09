@@ -23,19 +23,19 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669884183844,
+    "lastRebuildAt": 1670063580150,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 114,
-        "characters": 3581,
-        "bytes": 3581
+        "lines": 109,
+        "characters": 3477,
+        "bytes": 3477
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 133,
-        "characters": 4113,
-        "bytes": 4113
+        "lines": 135,
+        "characters": 4171,
+        "bytes": 4171
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -44,9 +44,9 @@
         "bytes": 1055
       },
       "size": {
-        "bytes": 8749,
-        "characters": 8749,
-        "lines": 306,
+        "bytes": 8703,
+        "characters": 8703,
+        "lines": 303,
         "numberOfFiles": 7
       }
     },
@@ -60,15 +60,10 @@
       "getProjectRoot",
       "notEmpty",
       "onlyUnique2",
-      "findEmbeds",
       "fs",
       "path",
       "ReaderWebPage",
-      "readMarkdownFile",
       "readMarkdownFileToModel",
-      "getMarkdownIntro",
-      "MarkdownEmbed",
-      "MarkdownParse",
       "WebMarkdownFile",
       "GetStaticPaths",
       "GetStaticPathsContext",

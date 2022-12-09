@@ -182,6 +182,23 @@ DB main storage convention
 
 
 
+## upsert()
+
+Takes stored data and an item
+
+- updates the data and sets some rows to "item" if the item is found (through the id or slug)
+- otherwise inserts
+
+NB: this function works for any storage method except for key value markdown
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| storedData | `Storing<AugmentedAnyModelType>`[] | The items that were already there |,| storingItems | {  } | The items that need to be overwritten or inserted |,| onlyInsert (optional) | boolean | If true, the upserting will fail if there are occuring items with equal slugs/ids |
+| **Output** |    |    |
+
+
+
 ## 🔹 MergedQueryConfig
 
 Properties: 
@@ -303,6 +320,15 @@ DB main storage convention
 
 ## 📄 mergeConfigs (exported const)
 
+## 📄 upsert (exported const)
+
+Takes stored data and an item
+
+- updates the data and sets some rows to "item" if the item is found (through the id or slug)
+- otherwise inserts
+
+NB: this function works for any storage method except for key value markdown
+
 # Tests
 
 <details><summary>Show test information(3)</summary>
@@ -327,7 +353,7 @@ DB main storage convention
 
 # Internal
 
-<details><summary>Show internal (68)</summary>
+<details><summary>Show internal (69)</summary>
     
   # addDefaultValues()
 
@@ -710,19 +736,11 @@ BEWARE:
 
 
 
-## upsert()
-
-Takes stored data and an item
-
-- updates the data and sets some rows to "item" if the item is found (through the id or slug)
-- otherwise inserts
-
-NB: this function works for any storage method except for key value markdown
-
+## waitForLockfile()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| storedData | `Storing<AugmentedAnyModelType>`[] | The items that were already there |,| storingItems | {  } | The items that need to be overwritten or inserted |,| onlyInsert (optional) | boolean | If true, the upserting will fail if there are occuring items with equal slugs/ids |
+| lockfilePath | string |  |
 | **Output** |    |    |
 
 
@@ -949,6 +967,8 @@ Three things need to happen in order to store an item
 3) calculated data is omitted
 
 
+## 📄 maxQueryTimeSeconds (exported const)
+
 ## 📄 removeKeyValueMarkdown (exported const)
 
 Takes stored data and a slug to remove
@@ -978,13 +998,7 @@ BEWARE:
 - you cannot insert a header, always insert an item with `isHeaderCalculated:false`
 
 
-## 📄 upsert (exported const)
+## 📄 waitForLockfile (exported const)
 
-Takes stored data and an item
-
-- updates the data and sets some rows to "item" if the item is found (through the id or slug)
-- otherwise inserts
-
-NB: this function works for any storage method except for key value markdown
   </details>
 

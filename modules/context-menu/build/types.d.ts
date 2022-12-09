@@ -7,7 +7,7 @@ export declare type ContextEvent = {
 };
 export declare type ContextMenuItem = {
     getIsEnabled?: (id: string | undefined) => boolean;
-    onClick: (id: string | undefined) => void;
+    onClick: (id: string | undefined) => any | Promise<any>;
     getTitle: (id: string | undefined) => string;
 };
 //# sourceMappingURL=types.d.ts.map

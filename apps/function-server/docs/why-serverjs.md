@@ -5,5 +5,3 @@ With normal [express.js](https://expressjs.com) we are required to return our en
 Please note: Typerepo might revert back to something like express.js later, as it's not 100% required anymore, since we can simply wrap our general purpose functions into a express endpoint as well. The advantage of express.js would be that it's much better documented and it has first-class support for everything.
 
 Nevertheless, server.js works fine and most things are documented.
-
-![](./test.drawio.svg)

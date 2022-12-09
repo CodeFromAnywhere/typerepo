@@ -14,7 +14,7 @@ Method to encrypt any password. Uses `bcrypt`
 | Input      |    |    |
 | ---------- | -- | -- |
 | rawPassword | string |  |
-| **Output** |    |    |
+| **Output** | `String`   |    |
 
 
 
@@ -34,7 +34,7 @@ Method to check if a raw password should be the same as the encrypted variant. U
 | Input      |    |    |
 | ---------- | -- | -- |
 | rawPassword | string |  |,| encryptedPassword | string |  |
-| **Output** |    |    |
+| **Output** | {  }   |    |
 
 
 

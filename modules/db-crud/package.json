@@ -61,31 +61,31 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/db-crud/src/useUrl.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
       ]
     },
-    "lastRebuildAt": 1669885352817,
+    "lastRebuildAt": 1670528975308,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 23,
-        "lines": 1157,
-        "characters": 33456,
-        "bytes": 33456
+        "lines": 1161,
+        "characters": 33615,
+        "bytes": 33615
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 269,
-        "characters": 7069,
-        "bytes": 7069
+        "lines": 270,
+        "characters": 7102,
+        "bytes": 7102
       },
       "textSize": {
-        "numberOfFiles": 4,
-        "lines": 395,
-        "characters": 10233,
-        "bytes": 10233
+        "numberOfFiles": 5,
+        "lines": 397,
+        "characters": 10284,
+        "bytes": 10284
       },
       "size": {
-        "bytes": 50758,
-        "characters": 50758,
-        "lines": 1821,
-        "numberOfFiles": 29
+        "bytes": 51001,
+        "characters": 51001,
+        "lines": 1828,
+        "numberOfFiles": 30
       }
     },
     "folderNameIndexed": "db-crud",
@@ -102,6 +102,7 @@
     ],
     "operationDependenciesIndexed": [
       "makeArray",
+      "AugmentedAnyModelType",
       "Div",
       "useRouter",
       "LabeledButton",

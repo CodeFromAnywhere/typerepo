@@ -39,12 +39,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.executeFunctionWithParameters = void 0;
 // NB: uses SDK-api!
 var sdk_api_1 = require("sdk-api");
-var js_util_1 = require("js-util");
 var sdk_env_private_1 = require("sdk-env-private");
+// monorepo
+var js_util_1 = require("js-util");
 var function_functions_node_1 = require("function-functions-node");
 var db_recipes_1 = require("db-recipes");
 var model_types_1 = require("model-types");
 var api_types_1 = require("api-types");
+// relative
 var upsertDevice_1 = require("./upsertDevice");
 var measure_performance_1 = require("measure-performance");
 var getTsFunction_1 = require("./getTsFunction");
@@ -68,7 +70,7 @@ TODO: make it possible to return result BEFORE storing cache and performance. we
 
 */
 var executeFunctionWithParameters = function (functionName, parameters, serverContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var publicBundleConfig, executionId, result_1, performance, device, tsFunction, _a, hasAuthorization, authorizations, groups, authToken, cacheLookupResult, validationResult, fn, needsReturnRaw, needsFunctionContext, functionContext, parametersWithContext, result, resultValidation;
+    var publicBundleConfig, executionId, result_1, performance, device, tsFunction, cacheLookupResult, validationResult, fn, _a, hasAuthorization, authorizations, groups, authToken, needsReturnRaw, needsFunctionContext, functionContext, parametersWithContext, result, resultValidation;
     var _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -88,6 +90,7 @@ var executeFunctionWithParameters = function (functionName, parameters, serverCo
             case 4:
                 device = _c.sent();
                 if (!device) {
+                    console.log("Couldn't create device");
                     return [2 /*return*/, {
                             isSuccessful: false,
                             message: "Couldn't create device",
@@ -104,17 +107,6 @@ var executeFunctionWithParameters = function (functionName, parameters, serverCo
                         }];
                 }
                 performance.push((0, measure_performance_1.getNewPerformance)("getTsFunction", executionId));
-                _a = (0, getAuthorizationInfo_1.getAuthorizationInfo)(device, tsFunction), hasAuthorization = _a.hasAuthorization, authorizations = _a.authorizations, groups = _a.groups;
-                authToken = (_b = serverContext.data) === null || _b === void 0 ? void 0 : _b.authToken;
-                if ((publicBundleConfig === null || publicBundleConfig === void 0 ? void 0 : publicBundleConfig.slug) === "passionfruit" &&
-                    privateAuthToken !== authToken) {
-                    return [2 /*return*/, {
-                            isSuccessful: false,
-                            isUnauthorized: true,
-                            message: "You are not authorized to execute this function, you might need to login.",
-                        }];
-                }
-                performance.push((0, measure_performance_1.getNewPerformance)("auth", executionId));
                 cacheLookupResult = (0, db_recipes_1.cacheLookup)(functionName, parameters);
                 if (cacheLookupResult.hasValidCache) {
                     return [2 /*return*/, {
@@ -142,6 +134,24 @@ var executeFunctionWithParameters = function (functionName, parameters, serverCo
                             message: "Function not found in the api-sdk: ".concat(functionName),
                         }];
                 }
+                _a = (0, getAuthorizationInfo_1.getAuthorizationInfo)(device, tsFunction, fn), hasAuthorization = _a.hasAuthorization, authorizations = _a.authorizations, groups = _a.groups;
+                if ((publicBundleConfig === null || publicBundleConfig === void 0 ? void 0 : publicBundleConfig.slug) !== "passionfruit" && !hasAuthorization) {
+                    return [2 /*return*/, {
+                            isSuccessful: false,
+                            isUnauthorized: true,
+                            message: "You are not authorized to execute this function, you might need to login.",
+                        }];
+                }
+                authToken = (_b = serverContext.data) === null || _b === void 0 ? void 0 : _b.authToken;
+                if ((publicBundleConfig === null || publicBundleConfig === void 0 ? void 0 : publicBundleConfig.slug) === "passionfruit" &&
+                    privateAuthToken !== authToken) {
+                    return [2 /*return*/, {
+                            isSuccessful: false,
+                            isUnauthorized: true,
+                            message: "You are not authorized to execute this function, you might need to login.",
+                        }];
+                }
+                performance.push((0, measure_performance_1.getNewPerformance)("auth", executionId));
                 needsReturnRaw = functionName.endsWith(api_types_1.apiConventions.rawFunctionConventionSuffix) ||
                     functionName.endsWith(api_types_1.apiConventions.getFunctionConventionSuffix);
                 needsFunctionContext = functionName.endsWith(api_types_1.apiConventions.contextFunctionConventionSuffix) ||

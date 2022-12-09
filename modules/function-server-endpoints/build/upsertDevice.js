@@ -58,6 +58,7 @@ exports.upsertDevice = void 0;
  */
 var database_1 = require("database");
 var geoip_lite_1 = __importDefault(require("geoip-lite"));
+var model_types_1 = require("model-types");
 var ua_parser_js_1 = __importDefault(require("ua-parser-js"));
 var calculateDeviceName_1 = require("./calculateDeviceName");
 var savePageVisit_1 = require("./savePageVisit");
@@ -78,7 +79,7 @@ var deviceInclude = {
  * Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
  */
 var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, devices, firstDevice, alreadyDevice, ipInfo, origin, referer, currentIpInfo_1, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, currentPersonCalculated_1, updatedDevice_1, newDevice, upsertResult, fullNewDevice, currentPersonCalculated, finalNewDevice;
+    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, devices, alreadyDevice, ipInfo, origin, referer, currentIpInfo_1, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, currentPersonCalculated_1, updatedDevice_1, newDevice, upsertResult, fullNewDevice, currentPersonCalculated, finalNewDevice;
     var _a, _b, _c;
     return __generator(this, function (_d) {
         switch (_d.label) {
@@ -100,9 +101,6 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, database_1.db.get("Device", { include: deviceInclude })];
             case 1:
                 devices = _d.sent();
-                firstDevice = devices[0];
-                if (firstDevice)
-                    return [2 /*return*/, firstDevice];
                 alreadyDevice = devices.find(function (x) { return x.authToken === authToken; });
                 performance.push((0, measure_performance_1.getNewPerformance)("findAlreadyDevice", executionId));
                 ipInfo = {
@@ -165,13 +163,14 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 // console.log("upsertDevice, already device", performance);
                 return [2 /*return*/, updatedDevice_1];
             case 3:
-                newDevice = __assign(__assign({ authToken: authToken, authenticationMethods: [] }, ipInfo), { lastOnlineAt: 0, lastSyncDatabaseAtObject: {}, name: (0, calculateDeviceName_1.calculateDeviceName)(ipInfo, userAgent), origins: [origin], previousIps: [], userAgent: userAgent, userAgentString: userAgent.ua, hasPapi: false });
+                newDevice = __assign(__assign({ id: (0, model_types_1.generateId)(), authToken: authToken, authenticationMethods: [] }, ipInfo), { lastOnlineAt: 0, lastSyncDatabaseAtObject: {}, name: (0, calculateDeviceName_1.calculateDeviceName)(ipInfo, userAgent), origins: [origin], previousIps: [], userAgent: userAgent, userAgentString: userAgent.ua, hasPapi: false });
                 performance.push((0, measure_performance_1.getNewPerformance)("calculateNewDevice", executionId));
                 return [4 /*yield*/, database_1.db.upsert("Device", newDevice, {
                         onlyInsert: true,
                     })];
             case 4:
                 upsertResult = _d.sent();
+                console.log({ upsertResult: upsertResult });
                 performance.push((0, measure_performance_1.getNewPerformance)("upsertNewDevice", executionId));
                 return [4 /*yield*/, database_1.db.get("Device", { include: deviceInclude })];
             case 5:

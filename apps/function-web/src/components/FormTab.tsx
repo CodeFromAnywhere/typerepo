@@ -50,6 +50,7 @@ export const FormTab = (props: { tsFunction: TsFunction }) => {
           undefined
           // provide this later, for js functions
         }
+        projectRelativeStorageFilePath=""
         withApiResult={(result: RealApiReturnType<any> | undefined) => {
           setResultJson({ ...resultJson, [executionId]: result });
           if (

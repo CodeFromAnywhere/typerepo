@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669962553901,
-  "updatedAt": 1669962553901,
+  "createdAt": 1670528328989,
+  "updatedAt": 1670528328989,
   "deletedAt": 0,
-  "createdFirstAt": 1669962553901,
+  "createdFirstAt": 1670528328989,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getAuthorizationInfo.ts",
   "commentsInside": [],
-  "rawText": " (\n  device: Device,\n  tsFunction: TsFunction\n): AuthorizationInfo => {\n  const everyPersonsGroups =\n    device?.persons\n      ?.map((x) => x.groups)\n      .flat()\n      .filter(notEmpty)\n      .filter(onlyUnique2<Group>((a, b) => a.slug === b.slug)) || [];\n\n  const everyPersonsAuthorizations =\n    device?.persons?.map((x) => x.authorizations).flat() || [];\n\n  const customGroupAuthorizations = everyPersonsGroups\n    .map((group) => group.customAuthorizations)\n    .flat();\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations: Authorization[] = [\n    ...everyPersonsAuthorizations,\n    ...customGroupAuthorizations,\n  ].filter(notEmpty);\n\n  const hasAuthorization = !!authorizations.find((auth) => {\n    const authAppliesToThisFunction =\n      auth.tsFunctionId === tsFunction.id ||\n      auth.authorizedOperationName === tsFunction?.operationName ||\n      (auth.authorizedProjectRelativePath &&\n        tsFunction.projectRelativePath.startsWith(\n          auth.authorizedProjectRelativePath\n        ));\n\n    return authAppliesToThisFunction && auth.canExecute;\n  });\n\n  return { hasAuthorization, authorizations, groups: everyPersonsGroups };\n}",
+  "rawText": " (\n  device: Device,\n  tsFunction: TsFunction,\n  fn: { (...parameters: any): any; [key: string]: any }\n): AuthorizationInfo => {\n  const everyPersonsGroups =\n    device?.persons\n      ?.map((x) => x.groups)\n      .flat()\n      .filter(notEmpty)\n      .filter(onlyUnique2<Group>((a, b) => a.slug === b.slug)) || [];\n\n  const everyPersonsAuthorizations =\n    device?.persons?.map((x) => x.authorizations).flat() || [];\n\n  const customGroupAuthorizations = everyPersonsGroups\n    .map((group) => group.customAuthorizations)\n    .flat();\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations: Authorization[] = [\n    ...everyPersonsAuthorizations,\n    ...customGroupAuthorizations,\n  ].filter(notEmpty);\n\n  const hasAuthorization = !!authorizations.find((auth) => {\n    const authAppliesToThisFunction =\n      auth.tsFunctionId === tsFunction.id ||\n      auth.authorizedOperationName === tsFunction?.operationName ||\n      (auth.authorizedProjectRelativePath &&\n        tsFunction.projectRelativePath.startsWith(\n          auth.authorizedProjectRelativePath\n        ));\n\n    return authAppliesToThisFunction && auth.canExecute;\n  });\n\n  /**\n   * Function might ne an `ApiFunction`\n   */\n  const isPublic = fn.isPublic;\n\n  return {\n    hasAuthorization: isPublic || hasAuthorization,\n    authorizations,\n    groups: everyPersonsGroups,\n  };\n}",
   "name": "getAuthorizationInfo",
   "slug": "get-authorization-info",
   "parameters": [
@@ -978,6 +978,14 @@
                               }
                             },
                             {
+                              "name": "credential",
+                              "required": false,
+                              "schema": {
+                                "fullComment": "original credential. should only be available on the device, not on the person",
+                                "type": "string"
+                              }
+                            },
+                            {
                               "name": "otp",
                               "required": false,
                               "schema": {
@@ -1290,6 +1298,14 @@
                         "required": false,
                         "schema": {
                           "fullComment": "This can be a password or token, depending on the method.\n\nIn case of OTP, this isn't required (e.g. for `phoneNumber`)",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "credential",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "original credential. should only be available on the device, not on the person",
                           "type": "string"
                         }
                       },
@@ -3524,6 +3540,17 @@
         "type": "object"
       },
       "required": true
+    },
+    {
+      "name": "fn",
+      "schema": {
+        "type": "object"
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
     }
   ],
   "description": "returns `AuthorizationInfo` for a device + function",
@@ -3799,13 +3826,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 1314,
-    "lines": 38,
-    "bytes": 1314,
+    "characters": 1501,
+    "lines": 48,
+    "bytes": 1501,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 35,
-    "linesPerFile": 38,
+    "charactersPerLine": 31,
+    "linesPerFile": 48,
     "numberOfFiles": 1
   },
-  "id": "jgveodasxkskjziervhwyieg"
+  "id": "rtokfmqoxrdgboyaldjymihh"
 }

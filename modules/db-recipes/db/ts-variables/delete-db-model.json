@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962325577,
-  "updatedAt": 1669962325577,
+  "createdAt": 1670218551302,
+  "updatedAt": 1670218551302,
   "deletedAt": 0,
-  "createdFirstAt": 1669962325577,
+  "createdFirstAt": 1670218551302,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async <KInterface extends DbModelEnum>(\n  interfaceName: KInterface,\n  id: string\n): Promise<DbQueryResult> => {\n  const deleteResult = await db.remove(\n    interfaceName,\n    (content) => content.id === id\n  );\n  return deleteResult;\n}",
   "description": "deletes an instance of an db data interface from the db in a typesafe way",
-  "id": "eckutxjbmsmrhxrcvlhyolnl"
+  "id": "czmbyzshywhhwuxlghzjtehz"
 }

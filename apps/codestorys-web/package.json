@@ -35,7 +35,8 @@
     "next-a-link": "0.0.1",
     "asset-view": "0.0.0",
     "swipe-homepage": "1.0.0",
-    "codestorys-node": "0.0.1"
+    "codestorys-node": "0.0.1",
+    "server-api-url": "0.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -63,7 +64,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/reader/codestorys-web/src/pages/[...paths].tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/codebase-introspection/reader/codestorys-web/src/pages/_app.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
       ],
       "lintProblems": []
     },
@@ -72,11 +73,13 @@
     "folderNameIndexed": "codestorys-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669884206001,
+    "lastRebuildAt": 1670063604555,
     "operationDependenciesIndexed": [
       "MarkdownReaderPageProps",
       "SwipeHomepage",
       "SwipeItem",
+      "getSrc",
+      "isDev",
       "Div",
       "P",
       "MarkdownReaderPageProps",
@@ -95,15 +98,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 152,
-        "characters": 4669,
-        "bytes": 4669
+        "lines": 166,
+        "characters": 5589,
+        "bytes": 5589
       },
       "dataSize": {
-        "numberOfFiles": 28,
-        "lines": 236,
-        "characters": 8439,
-        "bytes": 8439
+        "numberOfFiles": 22,
+        "lines": 234,
+        "characters": 8178,
+        "bytes": 8178
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -112,10 +115,10 @@
         "bytes": 1206
       },
       "size": {
-        "bytes": 14314,
-        "characters": 14314,
-        "lines": 457,
-        "numberOfFiles": 35
+        "bytes": 14973,
+        "characters": 14973,
+        "lines": 469,
+        "numberOfFiles": 29
       }
     },
     "hasGeneratedImportsIndexed": false

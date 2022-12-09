@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669985423043,
-  "updatedAt": 1669985423043,
+  "createdAt": 1670063594566,
+  "updatedAt": 1670063594566,
   "deletedAt": 0,
-  "createdFirstAt": 1669985423043,
+  "createdFirstAt": 1670063594566,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: MarkdownReaderPageProps) => {\n  const items: SwipeItem[] = props.menu.flat.map((item) => {\n    // TODO: use useAsset and extrahere a function from there to get the actual URL from the imagePath... pit it on image.\n    const swipeItem: SwipeItem = {\n      description: item.pageData.shortDescription || undefined,\n\n      title: item.menuTitle || \"No title\",\n      imagePath: item.pageData.imagePath\n        ? getSrc(\n            { relativePath: item.pageData.imagePath },\n            item.pageData.projectRelativeFilePath,\n            !isDev\n          ).src\n        : undefined,\n      href: item.queryPath,\n      markdown: item.pageData.imagePath\n        ? undefined\n        : item.pageData.introDescription || undefined,\n      markdownSourcePath: item.pageData.projectRelativeFilePath,\n    };\n\n    return swipeItem;\n  });\n\n  const allItems = items.concat({\n    title: \"What's a codestory?\",\n    markdownSourcePath: __dirname,\n    isMarkdownNoLimit: true,\n    markdown:\n      \"A **Code Story** is a story about a coding session, where the developer mentions their observations, ideas, thought processes, choices, implementation details, and results. The reason for a codestory is multifold: It can be a good way for the developer to practice English, but it can also improve team communication a lot. Besides that, it is a great marketing tool if you're building a product that should attract developers. \\n\\nAll of these mentioned reasons was my motivation to build a platform for it. If you want to create your own codestories blog, check out [typerepo](https://typerepo.com). It is included in there!\",\n    href: \"info\",\n  });\n\n  return <SwipeHomepage items={allItems} ctas={[]} />;\n}",
   "description": "",
-  "id": "rxeyfusnbnysqwpqpkpcpwfj"
+  "id": "nujsvzryujbaslhnpytbqnka"
 }

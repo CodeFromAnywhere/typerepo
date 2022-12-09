@@ -30,8 +30,8 @@ Recursively finds all asset parameters in an object (for example in a database m
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| apiUrl | string |  |,| projectRelativeReferencingFilePath | string |  |,| referencingFileRelativeAssetPath | string |  |,| isDownload (optional) | boolean | If true, asset will be returned as download |
-| **Output** | `String`   |    |
+| apiUrl (optional) | string |  |,| projectRelativeReferencingFilePath | string |  |,| referencingFileRelativeAssetPath | string |  |,| isDownload (optional) | boolean | If true, asset will be returned as download |
+| **Output** | string   |    |
 
 
 
@@ -90,7 +90,7 @@ if already present, token is used from the name instead of this one |,| attachTo
 | Input      |    |    |
 | ---------- | -- | -- |
 | projectRelativeAssetPath | string |  |
-| **Output** | `String`   |    |
+| **Output** | string   |    |
 
 
 

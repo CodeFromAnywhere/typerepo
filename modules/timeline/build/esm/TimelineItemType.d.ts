@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { PostableProperties } from "markdown-types";
 import { AugmentedAnyModelType } from "model-types";
 import { Person } from "peer-types";

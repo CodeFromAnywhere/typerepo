@@ -32,7 +32,8 @@
     "writer-input": "1.0.0",
     "file-tabs": "0.0.0",
     "react-with-native-notification": "1.0.42",
-    "clickable-icon": "0.0.1"
+    "clickable-icon": "0.0.1",
+    "db-crud": "0.0.0"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -64,19 +65,19 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669288042834,
+    "lastRebuildAt": 1670218917602,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 155,
-        "characters": 4616,
-        "bytes": 4616
+        "lines": 161,
+        "characters": 4746,
+        "bytes": 4746
       },
       "dataSize": {
-        "numberOfFiles": 10,
-        "lines": 248,
-        "characters": 6616,
-        "bytes": 6616
+        "numberOfFiles": 9,
+        "lines": 254,
+        "characters": 6242,
+        "bytes": 6242
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -85,10 +86,10 @@
         "bytes": 721
       },
       "size": {
-        "bytes": 11953,
-        "characters": 11953,
-        "lines": 449,
-        "numberOfFiles": 17
+        "bytes": 11709,
+        "characters": 11709,
+        "lines": 461,
+        "numberOfFiles": 16
       }
     },
     "folderNameIndexed": "writer-web",
@@ -105,6 +106,7 @@
       "nestedMenuStoreInitialValues",
       "writerInitialValues",
       "fileTabsInitialValues",
+      "dbCrudInitialValues",
       "AlertProvider",
       "ModalProvider",
       "ToastContainer",

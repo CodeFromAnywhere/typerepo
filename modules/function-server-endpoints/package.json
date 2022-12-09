@@ -48,7 +48,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/api/function-server-endpoints/src/executeFunctionWithParameters.ts. Error: Error: Unknown node \"this\" of kind \"ThisType\""
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/api/function-server-endpoints/src/upsertDevice.ts. Error: Error: Unknown node \"this\" of kind \"ThisType\""
       ],
       "lintProblems": []
     },
@@ -57,16 +57,16 @@
     "folderNameIndexed": "function-server-endpoints",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669962576413,
+    "lastRebuildAt": 1670528363770,
     "operationDependenciesIndexed": [
       "slugify",
       "generateRandomString",
       "IPInfo",
       "IResult",
       "sdk",
-      "notEmpty",
       "privateEnvironmentVariables",
       "privateLocalEnvironmentVariables",
+      "notEmpty",
       "getPublicBundleConfig",
       "cacheLookup",
       "validateInput",
@@ -129,26 +129,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 11,
-        "lines": 694,
-        "characters": 20002,
-        "bytes": 20002
+        "lines": 712,
+        "characters": 20443,
+        "bytes": 20443
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 196,
-        "characters": 5028,
-        "bytes": 5028
+        "lines": 197,
+        "characters": 5052,
+        "bytes": 5052
       },
       "textSize": {
         "numberOfFiles": 2,
         "lines": 198,
-        "characters": 5207,
-        "bytes": 5207
+        "characters": 5224,
+        "bytes": 5224
       },
       "size": {
-        "bytes": 30237,
-        "characters": 30237,
-        "lines": 1088,
+        "bytes": 30719,
+        "characters": 30719,
+        "lines": 1107,
         "numberOfFiles": 15
       }
     },

@@ -1,6 +1,6 @@
 Typerepo is using the `OperationClassification` in many places, in order to determine certain characteristics about your code. It is very important to understand what it does!
 
-`OperationClassification` tells you to what kind of environment the operation can be exposed to. It tells you things about how it will be built. There are three categories: Full stack, frontend only, and backend only. The aim is to do as much as possible in the full stack realm so it can be reused anywhere. If that is not possible, `ui-esm` is preferred for the frontend, or `node-esm` for things that require backend.
+`OperationClassification` tells you to what kind of environment the operation can be exposed to. It tells you things about how it will be built. There are three categories: Full stack, frontend only, and backend only. The aim is to do as much as possible in the full stack realm so it can be reused anywhere. If that is not possible, `ui-cjs` is preferred for the frontend, or `node-cjs` for things that require backend.
 
 # Possible values
 

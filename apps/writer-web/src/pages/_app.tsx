@@ -19,6 +19,8 @@ import "react-datetime/css/react-datetime.css";
 import "rc-time-picker/assets/index.css";
 import "react-datepicker/dist/react-datepicker.css";
 
+import "share/css.css";
+
 import "file-tabs/css.css";
 import "writer-input/css.css";
 import "labeled-button/css.css";
@@ -28,6 +30,7 @@ import "big-button/css.css";
 
 ///rwn
 import "simplified-schema-form/css.css";
+import "context-menu/css.css";
 
 import "react-with-native/css.css";
 import "react-with-native-modal/css.css";
@@ -67,11 +70,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ToastContainer />
       <AlertProvider>
-        <ModalProvider>
-          <StoreProvider>
+        <StoreProvider>
+          <ModalProvider>
             <MyLayout pageProps={pageProps} nextPage={Component} />
-          </StoreProvider>
-        </ModalProvider>
+          </ModalProvider>
+        </StoreProvider>
       </AlertProvider>
     </QueryClientProvider>
   );

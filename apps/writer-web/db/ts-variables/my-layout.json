@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669288030148,
-  "updatedAt": 1669288030148,
+  "createdAt": 1670218906771,
+  "updatedAt": 1670218906771,
   "deletedAt": 0,
-  "createdFirstAt": 1669288030148,
+  "createdFirstAt": 1670218906771,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n  const writerWebPagesMenuQuery = queries.useGetWriterWebPagesMenu();\n\n  const menu = writerWebPagesMenuQuery.data?.result;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        menuHeader: () => {\n          return (\n            <Div>\n              <P>\n                Filters: filetype (select-multiple), recently edited, recently\n                created, author\n              </P>\n              <P>\n                Other: In search-mode, by default show the 100 most recent,\n                sorted on recency\n              </P>\n            </Div>\n          );\n        },\n        isLoading: writerWebPagesMenuQuery.isLoading,\n        webPagesFlat: menu?.flat,\n        webPagesNested: menu?.nested,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
   "description": "",
-  "id": "dtzunnhuzgudckkzcexhqdqf"
+  "id": "nwlmbncxyfgkkgwylndpvkwj"
 }

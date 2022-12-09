@@ -113,7 +113,7 @@ var runFunctionServer = function (isWatching, isRestart) {
         },
     };
     // @ts-ignore
-    (0, server_1.default)(serverOptions, cors, function_server_endpoints_1.functionPostEndpoints, function_server_endpoints_1.functionGetEndpoints, server_1.default.router.get("*", function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
+    (0, server_1.default)(serverOptions, cors, function_server_endpoints_1.functionPostEndpoints, function_server_endpoints_1.functionGetEndpoints, server_1.default.router.get("/", function () { return "Hello world, your Typerepo is running!"; }), server_1.default.router.get("*", function (ctx) { return __awaiter(void 0, void 0, void 0, function () {
         return __generator(this, function (_a) {
             return [2 /*return*/, {
                     success: false,

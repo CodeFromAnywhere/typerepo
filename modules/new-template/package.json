@@ -45,7 +45,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/new-template/src/cli/newTemplate.cli.ts. Error: Error: Unknown node \\\"(basePath) => {\\n  if (basePath) {\\n    console.log(`Generated template`, { type });\\n  } else {\\n    console.log(\\\"Something went wrong\\\");\\n  }\\n}\"]",
+      "indexInteracesErrors": [
+        "couldn't load file /Users/king/King/operations/tools/typescript/new-template/assets/templates/ui-esm/src/index.ts"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "node-cjs",

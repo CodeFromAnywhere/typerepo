@@ -5,7 +5,8 @@ export declare const compressImage: (absoluteSourceImagePath: string, config?: {
         y: number;
     };
     quality?: number;
-    targetFormat?: "webp" | "png";
+    targetFormat?: "webp" | "png" | "mp4";
     keepOriginal?: boolean;
+    isDebug?: boolean;
 }) => Promise<string | undefined>;
 //# sourceMappingURL=compressImage.d.ts.map

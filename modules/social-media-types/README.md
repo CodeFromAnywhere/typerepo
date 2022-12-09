@@ -176,8 +176,9 @@ Properties:
 | name  | string |  |
 | slug  | string |  |
 | description (optional) | string |  |
+| personId (optional) | string |  |
 | isGroup (optional) | boolean |  |
-| memberPersonIds (optional) | array |  |
+| member_personIds (optional) | array |  |
 | interestSlugs (optional) | array |  |
 | locationSlug (optional) | string |  |
 | language  | string |  |

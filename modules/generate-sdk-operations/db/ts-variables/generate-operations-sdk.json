@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669276629418,
-  "updatedAt": 1669276629418,
+  "createdAt": 1670064203591,
+  "updatedAt": 1670064203591,
   "deletedAt": 0,
-  "createdFirstAt": 1669276629418,
+  "createdFirstAt": 1670064203591,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const skipYarnInstall = config?.skipYarnInstall;\n  const dryrun = config?.dryrun;\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  if (!projectRoot) return;\n\n  const operationFolderPaths = await exploreOperationFolders({\n    basePath: getPathsWithOperations({ manualProjectRoot }),\n  });\n\n  const operationNamePathRows = operationFolderPaths.map(\n    (operationFolderPath) => {\n      const operationName = getLastFolder(operationFolderPath);\n\n      return `\"${operationName}\": \"${makeRelative(\n        operationFolderPath,\n        projectRoot\n      )}\"`;\n    }\n  );\n  const operationObjectString = `export const operations = { ${operationNamePathRows.join(\n    \",\\n\"\n  )} };`;\n\n  await newOperationWithFiles(\n    \"sdk-operations\",\n    await getSdkDescription(\"sdk-operations\"),\n    { \"src/sdk-operations.ts\": operationObjectString },\n    { overwriteIfExists: true, skipYarnInstall, manualProjectRoot, dryrun }\n  );\n}",
   "description": "`sdk-operations` indexes all operations and builds an object containing all operations.",
-  "id": "lbrdkwqzgqrifojpurfurwvr"
+  "id": "rhcurtsglakjfntgoyftbbvr"
 }

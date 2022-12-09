@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669887702843,
-  "updatedAt": 1669887702843,
+  "createdAt": 1670526896988,
+  "updatedAt": 1670526896988,
   "deletedAt": 0,
-  "createdFirstAt": 1669887702843,
+  "createdFirstAt": 1670526896988,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -177,7 +177,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "{ src: string; downloadUrl: string | undefined; }",
+    "rawType": "{ src: string | undefined; downloadUrl: string | undefined; }",
     "typeDefinition": {
       "type": "object",
       "properties": {
@@ -208,9 +208,6 @@
           ]
         }
       },
-      "required": [
-        "src"
-      ],
       "optional": false
     },
     "typeCoverage": 0,
@@ -223,7 +220,7 @@
       "properties": [
         {
           "name": "src",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
@@ -249,5 +246,5 @@
     "linesPerFile": 48,
     "numberOfFiles": 1
   },
-  "id": "zydnjzkoafjlxejjxhnlcnmy"
+  "id": "ronnamkmpoovmdmywfflfcmo"
 }

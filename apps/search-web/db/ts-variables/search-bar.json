@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884594457,
-  "updatedAt": 1669884594457,
+  "createdAt": 1670527591490,
+  "updatedAt": 1670527591490,
   "deletedAt": 0,
-  "createdFirstAt": 1669884594457,
+  "createdFirstAt": 1670527591490,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: {\n  initialValue?: string;\n  placeholder?: string;\n}) => {\n  const { initialValue, placeholder } = props;\n  const [search, setSearch] = useState(initialValue || \"\");\n  const router = useRouter();\n\n  const go = () => {\n    if (search.length === 0) return;\n    router.push(`/${search}`);\n  };\n  return (\n    <Div className=\"rounded-full border border-zinc-700 dark:border-zinc-300 p-2 px-4 text-3xl hover:bg-zinc-200 dark:hover:bg-zinc-800 bg-zinc-100 bg-opacity-75 dark:bg-zinc-600 dark flex flex-row max-w-xl\">\n      <Form\n        onSubmit={(e) => {\n          e.preventDefault();\n          go();\n        }}\n      >\n        <Input\n          placeholder={placeholder || \"Go crazy\"}\n          className=\"flex px-3 flex-1 bg-transparent focus:outline-none\"\n          value={search}\n          onChange={(e) => setSearch(e.target.value)}\n        />\n      </Form>\n      <Div\n        className={search.length === 0 ? \"cursor-default\" : \"cursor-progress\"}\n        onMouseEnter={go}\n      >\n        🔎\n      </Div>\n    </Div>\n  );\n}",
   "description": "",
-  "id": "mywnnosmvmmkehzsyrnqoqrg"
+  "id": "bfiahrvxyztoeotucmbwiehw"
 }

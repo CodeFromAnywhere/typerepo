@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384772141,
-  "updatedAt": 1669384772141,
+  "createdAt": 1670218691153,
+  "updatedAt": 1670218691153,
   "deletedAt": 0,
-  "createdFirstAt": 1669384772141,
+  "createdFirstAt": 1670218691153,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n  const [todoPagesConfig] = useStore(\"todoPagesConfig\");\n  const todoPagesQuery = queries.useGetTodoPages(todoPagesConfig);\n  const todoPages = todoPagesQuery.data?.result;\n\n  // console.log({ todoPages });\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        webPagesFlat: todoPages?.flat,\n        webPagesNested: todoPages?.nested,\n        isLoading: todoPagesQuery.isLoading,\n        menuHeader: TodoMenuHeader,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
   "description": "",
-  "id": "fqxlzvtbwuwuajkhfluqspfi"
+  "id": "ullepnfitsijjsvkjntpmmsm"
 }

@@ -1,14 +1,3 @@
 #!/usr/bin/env node
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var get_path_1 = require("get-path");
-var path_sdks_1 = require("../path-sdks");
-var generateInterfacePathsSdkCli = function () {
-    var _a = process.argv.slice(2), dryrunString = _a[0], customProjectRoot = _a[1];
-    var dryrun = dryrunString === "true";
-    var defaultProjectRoot = (0, get_path_1.getProjectRoot)(process.cwd());
-    var manualProjectRoot = customProjectRoot || defaultProjectRoot;
-    (0, path_sdks_1.generateInterfacePathsSdk)({ dryrun: dryrun, manualProjectRoot: manualProjectRoot });
-};
-generateInterfacePathsSdkCli();
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var get_path_1=require("get-path"),path_sdks_1=require("../path-sdks"),generateInterfacePathsSdkCli=function(){var e=process.argv.slice(2),t=e[0],r=e[1],a="true"===t,s=(0,get_path_1.getProjectRoot)(process.cwd()),c=r||s;(0,path_sdks_1.generateInterfacePathsSdk)({dryrun:a,manualProjectRoot:c})};generateInterfacePathsSdkCli();
 //# sourceMappingURL=generateInterfacePathsSdk.cli.js.map

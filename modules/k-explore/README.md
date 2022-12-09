@@ -89,7 +89,7 @@ returns the file type or null if it's unknown
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** |    |    |
+| **Output** | ul / code / data / text   |    |
 
 
 

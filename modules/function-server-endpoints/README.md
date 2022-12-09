@@ -63,7 +63,7 @@ returns `AuthorizationInfo` for a device + function
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| device | `Device` |  |,| tsFunction | `TsFunction` |  |
+| device | `Device` |  |,| tsFunction | `TsFunction` |  |,| fn | {  } |  |
 | **Output** | { hasAuthorization: boolean, <br />authorizations: { isProjectWide?: boolean, <br />authorizedOperationName?: string, <br />tsFunctionId?: string, <br />tsVariableId?: string, <br />tsInterfaceId?: string, <br />datasetId?: string, <br />authorizedProjectRelativePath?: string, <br />canExecute?: boolean, <br />canWriteCreate?: boolean, <br />canWriteUpdate?: boolean, <br />canWriteDelete?: boolean, <br />canRead?: boolean, <br />canSearch?: boolean, <br /> }[], <br />groups: {  }[], <br /> }   |    |
 
 

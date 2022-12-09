@@ -1,3 +1,4 @@
+export * from "./ContextMenuItemComponent";
 export * from "./types";
 export * from "./useContext";
 export * from "./useContextMenu";

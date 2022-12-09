@@ -100,7 +100,8 @@ Properties:
 | keepTodos (optional) | boolean |  |
 | bundles  | array |  |
 | dependencies (optional) | array |  |
-| markdownBasePaths  | array |  |
+| docsRelativeFolderPath (optional) | object |  |
+| imagesProjectRelativeFolderPaths (optional) | array |  |
 | readmeRelativeFilePath (optional) | string |  |
 | foldersFromRepo (optional) | array |  |
 
@@ -191,7 +192,8 @@ Properties:
 | keepTodos (optional) | boolean |  |
 | bundles  | array |  |
 | dependencies (optional) | array |  |
-| markdownBasePaths  | array |  |
+| docsRelativeFolderPath (optional) | object |  |
+| imagesProjectRelativeFolderPaths (optional) | array |  |
 | readmeRelativeFilePath (optional) | string |  |
 
 

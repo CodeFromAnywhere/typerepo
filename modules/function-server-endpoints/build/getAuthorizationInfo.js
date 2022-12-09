@@ -14,7 +14,7 @@ var js_util_1 = require("js-util");
 /**
  * returns `AuthorizationInfo` for a device + function
  */
-var getAuthorizationInfo = function (device, tsFunction) {
+var getAuthorizationInfo = function (device, tsFunction, fn) {
     var _a, _b;
     var everyPersonsGroups = ((_a = device === null || device === void 0 ? void 0 : device.persons) === null || _a === void 0 ? void 0 : _a.map(function (x) { return x.groups; }).flat().filter(js_util_1.notEmpty).filter((0, js_util_1.onlyUnique2)(function (a, b) { return a.slug === b.slug; }))) || [];
     var everyPersonsAuthorizations = ((_b = device === null || device === void 0 ? void 0 : device.persons) === null || _b === void 0 ? void 0 : _b.map(function (x) { return x.authorizations; }).flat()) || [];
@@ -30,7 +30,15 @@ var getAuthorizationInfo = function (device, tsFunction) {
                 tsFunction.projectRelativePath.startsWith(auth.authorizedProjectRelativePath));
         return authAppliesToThisFunction && auth.canExecute;
     });
-    return { hasAuthorization: hasAuthorization, authorizations: authorizations, groups: everyPersonsGroups };
+    /**
+     * Function might ne an `ApiFunction`
+     */
+    var isPublic = fn.isPublic;
+    return {
+        hasAuthorization: isPublic || hasAuthorization,
+        authorizations: authorizations,
+        groups: everyPersonsGroups,
+    };
 };
 exports.getAuthorizationInfo = getAuthorizationInfo;
 //# sourceMappingURL=getAuthorizationInfo.js.map

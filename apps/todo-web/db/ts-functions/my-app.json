@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384779689,
-  "updatedAt": 1669384779689,
+  "createdAt": 1670218699765,
+  "updatedAt": 1670218699765,
   "deletedAt": 0,
-  "createdFirstAt": 1669384779689,
+  "createdFirstAt": 1670218699765,
   "isApiExposed": false,
   "name": "MyApp",
   "slug": "my-app",
@@ -34,7 +34,7 @@
     "linesPerFile": 26,
     "numberOfFiles": 1
   },
-  "rawText": "\n\n// Only holds serverRuntimeConfig and publicRuntimeConfig\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>Todone</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <ModalProvider>\n          <StoreProvider>\n            <MyLayout pageProps={pageProps} nextPage={Component} />\n          </StoreProvider>\n        </ModalProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
+  "rawText": "\n\n// Only holds serverRuntimeConfig and publicRuntimeConfig\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <title>Todone</title>\n\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <StoreProvider>\n          <ModalProvider>\n            <MyLayout pageProps={pageProps} nextPage={Component} />\n          </ModalProvider>\n        </StoreProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
   "maxIndentationDepth": 6,
-  "id": "vssnfgunmiqozdxyjrzaieta"
+  "id": "qcbkrynrpleiylujufydesdb"
 }

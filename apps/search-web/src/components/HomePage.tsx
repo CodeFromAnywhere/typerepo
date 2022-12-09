@@ -5,7 +5,9 @@ import { Div } from "react-with-native";
 import { QueryPageProps } from "../util/types";
 import { SearchBar } from "./SearchBar";
 import { Timeline } from "timeline";
+import { Share } from "share";
 import { useContextMenu } from "context-menu";
+import { useStore } from "../util/store";
 export const mindspaces = [
   "Typerepo",
   "search-ui",
@@ -33,22 +35,8 @@ export const HomePage = (props: QueryPageProps) => {
   const yourLocation = "Napoli 🇮🇹";
   const dayPart = "day";
 
-  const { renderContextMenu, openContextMenuProps } = useContextMenu({
-    items: [
-      {
-        onClick: () => console.log("Pressed"),
-        getTitle: () => "Test 123",
-        getIsEnabled: (id) => false,
-      },
-      { onClick: () => console.log("Pressed"), getTitle: (id) => id || "yoyo" },
-      { onClick: () => console.log("Pressed"), getTitle: () => "Test 123" },
-      { onClick: () => console.log("Pressed"), getTitle: () => "Test 123" },
-    ],
-  });
-
   return (
     <Div className="">
-      {renderContextMenu()}
       <Timeline
         items={[
           {
@@ -82,14 +70,6 @@ export const HomePage = (props: QueryPageProps) => {
                     {mouseDown ? `${dayPart} in ${yourLocation}` : mindspace},{" "}
                     {yourName}
                   </Div>
-
-                  <div
-                    className="bg-blue-300 rounded-full p-4"
-                    {...openContextMenuProps}
-                    id="gek"
-                  >
-                    Test this for a context-menu
-                  </div>
 
                   <Div className="italic text-white">{quote}</Div>
                   <SearchBar placeholder={mindspace} />

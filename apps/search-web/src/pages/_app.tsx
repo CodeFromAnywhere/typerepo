@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { AlertProvider } from "react-with-native-alert";
 import { ModalProvider } from "react-with-native-modal";
 import { useRouter } from "react-with-native-router";
+
 import { StoreProvider } from "../util/store";
 import { ToastContainer } from "react-with-native-notification";
 import { MeAuthenticationInfo } from "authentication";
@@ -35,6 +36,15 @@ import "big-button/css.css";
 import "fancy-loader/css.css";
 import "apps-menu/css.css";
 import "tooltip/css.css";
+import "share/css.css";
+
+import "file-tabs/css.css";
+import "writer-input/css.css";
+import "labeled-button/css.css";
+import "function-form/css.css";
+import "simplified-schema-form/css.css";
+import "big-button/css.css";
+
 import { Div } from "react-with-native";
 
 const progress = new ProgressBar();
@@ -99,19 +109,19 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ToastContainer />
       <AlertProvider>
-        <ModalProvider>
-          <StoreProvider>
+        <StoreProvider>
+          <ModalProvider>
             <AuthenticationLayout
               customHeader={
-                <Div className="absolute top-0 right-0 w-40 rounded-full bg-green-400">
+                <Div className="absolute top-0 right-0 p-4 z-50 rounded-bl-full bg-green-400">
                   <MeAuthenticationInfo />
                 </Div>
               }
               nextPage={Component}
               pageProps={pageProps}
             />
-          </StoreProvider>
-        </ModalProvider>
+          </ModalProvider>
+        </StoreProvider>
       </AlertProvider>
     </QueryClientProvider>
   );

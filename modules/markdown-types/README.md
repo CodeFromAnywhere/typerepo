@@ -55,6 +55,7 @@ Properties:
 | headerBig (optional) | boolean |  |
 | headerSubTitle (optional) | string |  |
 | header_markdownCallToActionSlugs (optional) | array |  |
+| domain (optional) | string |  |
 | markdownCallToActionSlugs (optional) | array |  |
 | shop_itemIds (optional) | array |  |
 | author_personSlugs (optional) | array |  |
@@ -178,6 +179,42 @@ Properties:
 
 
 
+## 🔹 WebMarkdownProperties
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| headerImage (optional) | object |  |
+| headerTitle (optional) | string |  |
+| headerBig (optional) | boolean |  |
+| headerSubTitle (optional) | string |  |
+| header_markdownCallToActionSlugs (optional) | array |  |
+| domain (optional) | string |  |
+| markdownCallToActionSlugs (optional) | array |  |
+| shop_itemIds (optional) | array |  |
+| author_personSlugs (optional) | array |  |
+| interestSlugs (optional) | array |  |
+| price (optional) | number |  |
+
+
+
+## tryParseDate()
+
+Tries to parse a date from a string
+- implements default behavior of `new Date` with a try catch
+- returns a unix timestamp (ms since 1970 AD)
+
+TODO: put in a better location... date-util?
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| dateString | string |  |
+| **Output** | number   |    |
+
+
+
 ## 🔹 MarkdownEmbed
 
 Anything in the format `![alt](src)`
@@ -195,53 +232,6 @@ Properties:
 | alt  | string |  |
 | src  | string |  |
 | type  | string |  |
-
-
-
-## 🔹 WebMarkdownProperties
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| headerImage (optional) | object |  |
-| headerTitle (optional) | string |  |
-| headerBig (optional) | boolean |  |
-| headerSubTitle (optional) | string |  |
-| header_markdownCallToActionSlugs (optional) | array |  |
-| markdownCallToActionSlugs (optional) | array |  |
-| shop_itemIds (optional) | array |  |
-| author_personSlugs (optional) | array |  |
-| interestSlugs (optional) | array |  |
-| price (optional) | number |  |
-
-
-
-## markdownParseToMarkdownModelType()
-
-makes a markdownModelType from a markdownParse.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| markdownParse | {  } |  |
-| **Output** |    |    |
-
-
-
-## tryParseDate()
-
-Tries to parse a date from a string
-- implements default behavior of `new Date` with a try catch
-- returns a unix timestamp (ms since 1970 AD)
-
-TODO: put in a better location... date-util?
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| dateString | string |  |
-| **Output** | number   |    |
 
 
 
@@ -277,9 +267,27 @@ Properties:
 
 
 
-## 📄 markdownParseToMarkdownModelType (exported const)
+## 🔹 TextJson
 
-makes a markdownModelType from a markdownParse.
+TODO: Rename
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| json (optional) | object |  |
+| typescriptJson (optional) | object |  |
+| markdownJson (optional) | object |  |
+| path  | string |  |
+| isFolder  | boolean |  |
+| stats (optional) | object |  |
+| metaData (optional) | object |  |
+| isCancelRecursionResult (optional) | boolean |  |
+
 
 
 ## 📄 tryParseDate (exported const)
@@ -292,9 +300,21 @@ TODO: put in a better location... date-util?
 
 # Internal
 
-<details><summary>Show internal (7)</summary>
+<details><summary>Show internal (8)</summary>
     
-  # parseMarkdownModelTimestamp()
+  # markdownParseToMarkdownModelType()
+
+makes a markdownModelType from a markdownParse.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| markdownParse | {  } |  |
+| **Output** |    |    |
+
+
+
+## parseMarkdownModelTimestamp()
 
 First tries to look at the frontmatter value, this is leading because it is what the user sees and the file system of the os could be inconsistent
 
@@ -330,29 +350,6 @@ Properties:
 |---|---|---|
 | level  | number |  |
 | title  | string |  |
-
-
-
-## 🔹 TextJson
-
-TODO: Rename
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| json (optional) | object |  |
-| typescriptJson (optional) | object |  |
-| markdownJson (optional) | object |  |
-| path  | string |  |
-| isFolder  | boolean |  |
-| stats (optional) | object |  |
-| metaData (optional) | object |  |
-| isCancelRecursionResult (optional) | boolean |  |
 
 
 
@@ -404,6 +401,11 @@ Properties:
 | headerSubTitle (optional) | string |  |
 | header_markdownCallToActionSlugs (optional) | array |  |
 
+
+
+## 📄 markdownParseToMarkdownModelType (exported const)
+
+makes a markdownModelType from a markdownParse.
 
 
 ## 📄 parseMarkdownModelTimestamp (exported const)

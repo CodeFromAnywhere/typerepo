@@ -9,12 +9,24 @@
     "runFunctionServerDev": "./build/cli/runFunctionServerDev.cli.js"
   },
   "dependencies": {
+    "child-process-helper": "0.0.1",
+    "code-types": "0.0.1",
     "cors": "^2.8.5",
+    "database": "0.0.1",
     "dotenv": "^16.0.0",
+    "fs-util": "1.0.5",
     "function-server-endpoints": "0.0.0",
+    "get-path": "0.0.1",
+    "js-util": "0.0.1",
+    "localtunnel": "^2.0.2",
+    "log": "0.0.1",
     "md5": "^2.3.0",
     "multer": "^1.4.5-lts.1",
     "node-cron": "^3.0.2",
+    "nodemon": "0.0.1",
+    "one-by-one": "0.0.1",
+    "pm2-util": "0.0.1",
+    "port-conventions": "0.0.1",
     "reflect-metadata": "^0.1.13",
     "sensible-core": "*",
     "sensible-server": "*",
@@ -22,18 +34,7 @@
     "sequelize-typescript": "^2.1.3",
     "server": "^1.0.37",
     "typescript": "^4.6.4",
-    "one-by-one": "0.0.1",
-    "log": "0.0.1",
-    "port-conventions": "0.0.1",
-    "get-path": "0.0.1",
-    "fs-util": "1.0.5",
-    "database": "0.0.1",
-    "js-util": "0.0.1",
-    "code-types": "0.0.1",
-    "child-process-helper": "0.0.1",
-    "pm2-util": "0.0.1",
-    "watch-all": "0.0.1",
-    "nodemon": "0.0.1"
+    "watch-all": "0.0.1"
   },
   "devDependencies": {
     "@types/multer": "^1.4.7",
@@ -48,6 +49,7 @@
   },
   "main": "build/index.js",
   "scripts": {
+    "lt": "lt --port 42000 --subdomain wiz93",
     "pm2": "node build/cli/runFunctionServer.cli.js",
     "dev": "node build/cli/runFunctionServerDev.cli.js",
     "devThatDoesntWork": "ts-node-dev src/cli.ts --deps",
@@ -78,7 +80,7 @@
     "folderNameIndexed": "function-server",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669885035472,
+    "lastRebuildAt": 1670528277879,
     "operationDependenciesIndexed": [
       "functionPostEndpoints",
       "functionGetEndpoints",
@@ -108,27 +110,27 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 230,
-        "characters": 6696,
-        "bytes": 6696
+        "lines": 232,
+        "characters": 6773,
+        "bytes": 6773
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 174,
-        "characters": 4641,
-        "bytes": 4641
+        "lines": 176,
+        "characters": 4717,
+        "bytes": 4717
       },
       "textSize": {
-        "numberOfFiles": 4,
-        "lines": 201,
-        "characters": 9298,
-        "bytes": 9298
+        "numberOfFiles": 5,
+        "lines": 176,
+        "characters": 7581,
+        "bytes": 7581
       },
       "size": {
-        "bytes": 20635,
-        "characters": 20635,
-        "lines": 605,
-        "numberOfFiles": 11
+        "bytes": 19071,
+        "characters": 19071,
+        "lines": 584,
+        "numberOfFiles": 12
       }
     },
     "hasGeneratedImportsIndexed": false

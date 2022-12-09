@@ -98,6 +98,8 @@ export const runFunctionServer = (
     cors,
     functionPostEndpoints,
     functionGetEndpoints,
+
+    server.router.get("/", () => "Hello world, your Typerepo is running!"),
     server.router.get("*", async (ctx) => {
       return {
         success: false,

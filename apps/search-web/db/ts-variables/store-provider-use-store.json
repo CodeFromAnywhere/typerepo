@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884615242,
-  "updatedAt": 1669884615242,
+  "createdAt": 1670527615188,
+  "updatedAt": 1670527615188,
   "deletedAt": 0,
-  "createdFirstAt": 1669884615242,
+  "createdFirstAt": 1670527615188,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -18,7 +18,7 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "value": "createStore({\n  ...apiStoreInitialValues,\n  ...nestedMenuStoreInitialValues,\n  ...writerInitialValues,\n})",
+  "value": "createStore(initialValues)",
   "description": "",
-  "id": "dcqsfwviwhmoxvoaftmzvtgn"
+  "id": "vheumgnxmkibttbrjmlbkedc"
 }

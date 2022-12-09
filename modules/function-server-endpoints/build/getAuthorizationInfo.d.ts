@@ -24,5 +24,8 @@ export type AuthorizationInfo = {
 /**
  * returns `AuthorizationInfo` for a device + function
  */
-export declare const getAuthorizationInfo: (device: Device, tsFunction: TsFunction) => AuthorizationInfo;
+export declare const getAuthorizationInfo: (device: Device, tsFunction: TsFunction, fn: {
+    (...parameters: any): any;
+    [key: string]: any;
+}) => AuthorizationInfo;
 //# sourceMappingURL=getAuthorizationInfo.d.ts.map

@@ -77,7 +77,7 @@ TODO: test first, not sure about the Operation one
 
 # CLI
 
-<details><summary>Show CLI information (6)</summary>
+<details><summary>Show CLI information (8)</summary>
     
   # rebuildOperationCli()
 
@@ -101,6 +101,8 @@ another handy one is `rebuildOperation .` because it will rebuild the operation 
 
 
 
+## 📄 cwdProjectRoot (unexported const)
+
 ## 📄 isRebuildingProcessUpdated (unexported const)
 
 ## 📄 [isUpdatedString] (unexported const)
@@ -122,6 +124,10 @@ for example:
 `rebuildOperation ./packages/operation-x` would rebuild `operation-x` in your packages folder
 
 another handy one is `rebuildOperation .` because it will rebuild the operation in your current folder.
+
+
+## 📄 thisProjectRoot (unexported const)
+
   </details>
 
 # Tests

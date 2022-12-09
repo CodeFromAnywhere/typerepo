@@ -2,6 +2,7 @@
   "name": "ui-esm-template",
   "version": "1.0.0",
   "main": "./build/esm/index.js",
+  "source": "./src/index.ts",
   "types": "./build/esm/index.d.ts",
   "files": ["/build"],
   "license": "MIT",

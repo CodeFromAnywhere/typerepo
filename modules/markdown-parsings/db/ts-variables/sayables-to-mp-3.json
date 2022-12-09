@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962161579,
-  "updatedAt": 1669962161579,
+  "createdAt": 1670590062173,
+  "updatedAt": 1670590062173,
   "deletedAt": 0,
-  "createdFirstAt": 1669962161579,
+  "createdFirstAt": 1670590062173,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(config: {\n  destinationAbsoluteFilePath: string;\n  sayables: Sayable[];\n}) => {\n  const { sayables, destinationAbsoluteFilePath } = config;\n  /**\n  \n  \n  \n   */\n}",
   "description": "Creates a single audiofile of a Sayable[] and stores that in a configured location",
-  "id": "vczdnwupigtguhbworybtvby"
+  "id": "qazqhhjsxkpdmiizebvgeqfj"
 }

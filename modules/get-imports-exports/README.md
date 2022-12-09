@@ -62,13 +62,13 @@ NB: has a side effect: it also updates the package.json to include all needed de
 
 ## 📄 getImportsExportsTest (exported const)
 
-## 📄 test (unexported const)
+## 📄 test (exported const)
 
   </details>
 
 # Internal
 
-<details><summary>Show internal (28)</summary>
+<details><summary>Show internal (30)</summary>
     
   # calculatePackageJsonDependencies()
 
@@ -152,6 +152,10 @@ Uses ts-morph to get all exports inside all files in a project or an array of so
 Doesn't use index, it actually looks in all files except index,
 so some of them may not be exported from the package itself depending on your indexing strategy!
 
+NB: uses a lot of memory!
+
+#performance
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -213,7 +217,7 @@ returns true if the absolute import is built in into node
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| moduleString | string |  |
 | **Output** | {  }   |    |
 
 
@@ -252,6 +256,8 @@ For external modules, uses the version that was already present in dependencies,
 Also keeps the dependencies that were already there, nothing is removed.
 
 
+## 📄 CONCURRENTLY_INDEXED_FILES_AMOUNT (exported const)
+
 ## 📄 getDefaultSymbolType (exported const)
 
 gets type of a symbol and if the type has a generic, without recursing.
@@ -278,6 +284,10 @@ get the ImportSpecifier(s) of with a certain name.
 Uses ts-morph to get all exports inside all files in a project or an array of source files.
 Doesn't use index, it actually looks in all files except index,
 so some of them may not be exported from the package itself depending on your indexing strategy!
+
+NB: uses a lot of memory!
+
+#performance
 
 
 ## 📄 getPackageNameFromAbsoluteImport (exported const)
@@ -307,6 +317,8 @@ returns true if the absolute import is built in into node
 
 returns true if the import was found in an optional file, e.g. this import is not always included in the bundle, so should not be a dependency
 
+
+## 📄 test (exported const)
 
 ## 📄 writeResult (exported const)
 

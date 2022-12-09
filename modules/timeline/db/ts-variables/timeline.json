@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884646987,
-  "updatedAt": 1669884646987,
+  "createdAt": 1670527646279,
+  "updatedAt": 1670527646279,
   "deletedAt": 0,
-  "createdFirstAt": 1669884646987,
+  "createdFirstAt": 1670527646279,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: { items: TimelineItemType[] }) => {\n  const { items } = props;\n  return (\n    <Div className=\"h-screen overflow-auto snap-mandatory snap-y\">\n      {items.map((item) => {\n        return (\n          <Div\n            className=\"snap-center h-screen w-screen flex justify-center items-center\"\n            style={{\n              backgroundColor: pickRandomArrayItem(colors),\n              backgroundImage: item.imageUrl\n                ? `url(\"${item.imageUrl}\")`\n                : undefined,\n              backgroundRepeat: \"no-repeat\",\n              backgroundSize: \"cover\",\n              backgroundPosition: \"center 75%\",\n            }}\n          >\n            {item.component ? (\n              item.component()\n            ) : (\n              <Div\n                className=\"max-w-[80vw]\"\n                onClick={() => {\n                  console.log(\"supposed to open\", item);\n                  api.vscodeOpen({\n                    files: [\n                      {\n                        projectRelativePath: item.projectRelativeFilePath,\n                        line: item.line,\n                      },\n                    ],\n                  });\n                }}\n              >\n                <MarkdownCodeblock\n                  text={item.markdown || \"Nothing to show\"}\n                  isModeStatic\n                  minimalMode=\"scroll\"\n                  extension=\"tsx\"\n                />\n              </Div>\n            )}\n          </Div>\n        );\n      })}\n    </Div>\n  );\n}",
+  "value": "(props: { items: TimelineItemType[] }) => {\n  const { items } = props;\n  return (\n    <div className=\"flex snap-x snap-mandatory h-screen w-full mx:auto overflow-scroll\">\n      {items.map((item, index) => {\n        return (\n          <Div\n            key={`timeline-item-${index}`}\n            className=\"snap-start shrink-0 bg-green-200 w-screen h-screen place-items-center\"\n            style={{\n              backgroundImage: item.imageUrl\n                ? `url(\"${item.imageUrl}\")`\n                : undefined,\n              backgroundRepeat: \"no-repeat\",\n              backgroundSize: \"cover\",\n              backgroundPosition: \"center 75%\",\n            }}\n          >\n            {item.component ? (\n              item.component()\n            ) : (\n              <Div\n                className=\"max-w-[80vw]\"\n                onClick={() => {\n                  console.log(\"supposed to open\", item);\n                  api.vscodeOpen({\n                    files: [\n                      {\n                        projectRelativePath: item.projectRelativeFilePath,\n                        line: item.line,\n                      },\n                    ],\n                  });\n                }}\n              >\n                <MarkdownCodeblock\n                  text={item.markdown || \"Nothing to show\"}\n                  isModeStatic\n                  minimalMode=\"scroll\"\n                  extension=\"tsx\"\n                />\n              </Div>\n            )}\n          </Div>\n        );\n      })}\n    </div>\n  );\n}",
   "description": "",
-  "id": "qnuhtixnlsxggjgcuynuubsb"
+  "id": "gopagmzwxpoozeujjgdcwgpo"
 }

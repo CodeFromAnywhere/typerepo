@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884609029,
-  "updatedAt": 1669884609029,
+  "createdAt": 1670527608066,
+  "updatedAt": 1670527608066,
   "deletedAt": 0,
-  "createdFirstAt": 1669884609029,
+  "createdFirstAt": 1670527608066,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -26,7 +26,7 @@
       "required": true
     }
   ],
-  "description": "Searches filepaths, then links to any `ui-web` that has this file available as a page, or vscode.\n\nFor this we need to get the `MarkdownReaderPage` and other pages that are available in ui's and see the files they are linked to.\n\nI want to be able to:\n\n- search functions, interfaces, variables\n- search operations\n- search markdown files, anywhere\n- search db-ui models\n\nBut there's more. To make a good serach...\n\nTODO:\n- gather everything i've made before about search",
+  "description": "Searches filepaths, then links to any `ui-web` that has this file available as a page, or VSCode.\n\nFor this we need to get the `MarkdownReaderPage` and other pages that are available in ui's and see the files they are linked to.\n\nI want to be able to:\n\n- search functions, interfaces, variables\n- search operations\n- search markdown files, anywhere\n- search db-ui models\n\nBut there's more. To make a good serach...\n\nTODO:\n- gather everything i've made before about search",
   "returnType": {
     "rawType": "import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").SearchResult[] | undefined",
     "typeDefinition": {
@@ -66,5 +66,5 @@
     "linesPerFile": 44,
     "numberOfFiles": 1
   },
-  "id": "htpmmftglbmqwexysfxqujpk"
+  "id": "dktpevfeijbltuuhdtxkxfsz"
 }

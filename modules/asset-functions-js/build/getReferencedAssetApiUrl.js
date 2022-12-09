@@ -7,6 +7,8 @@ var getReferencedAssetApiUrl = function (apiUrl, projectRelativeReferencingFileP
  * If true, asset will be returned as download
  */
 isDownload) {
+    if (!apiUrl)
+        return undefined;
     return (0, api_1.getGetApiUrl)(apiUrl, "getReferencedAssetGetApi", {
         projectRelativeReferencingFilePath: projectRelativeReferencingFilePath,
         referencingFileRelativeAssetPath: referencingFileRelativeAssetPath,

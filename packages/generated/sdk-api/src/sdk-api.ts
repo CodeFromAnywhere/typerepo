@@ -14,6 +14,13 @@ import { mapChunkRecursively } from "make-codestory";
 import { mapMarkdownParseSections } from "make-codestory";
 import { writeAllCodestories } from "make-codestory";
 import { writeCodespanDetails } from "make-codestory";
+import { controlChatGpt } from "ai-functions-node";
+import { getContextualPromptResults } from "ai-functions-node";
+import { getContextualPrompt } from "ai-functions-node";
+import { getContextualPromptsArray } from "ai-functions-node";
+import { getContextualPrompts } from "ai-functions-node";
+import { getFolderRelativeScopeDbFilePath } from "ai-functions-node";
+import { processChatGptPrompt } from "ai-functions-node";
 import { allOperationsRemoveJsSrc } from "all";
 import { allOperationsToMarkdown } from "all";
 import { clearAllTsDatabases } from "all";
@@ -99,6 +106,8 @@ import { getProjectRelativePaths } from "explore-project";
 import { getTodoPages } from "explore-project";
 import { getTodoPaths } from "explore-project";
 import { hasSameProjectPath } from "explore-project";
+import { compressImage } from "ffmpeg-util";
+import { compressImages } from "ffmpeg-util";
 import { convertToMp3 } from "ffmpeg-util";
 import { convertToMp4 } from "ffmpeg-util";
 import { findAllDependencyOperations } from "find-all-dependency-operations";
@@ -142,6 +151,7 @@ import { removeMultiple } from "fs-orm";
 import { upsertItems } from "fs-orm";
 import { upsertKeyValueMarkdown } from "fs-orm";
 import { upsert } from "fs-orm";
+import { waitForLockfile } from "fs-orm";
 import { getExtension } from "fs-util-js";
 import { getFileOrFolderName } from "fs-util-js";
 import { getFolderJs } from "fs-util-js";
@@ -393,8 +403,13 @@ import { findAudioWithViewsArray } from "short-markdown-parser-js";
 import { markdownParseToShortMarkdown } from "short-markdown-parser-js";
 import { shortMarkdownToMarkdownParse } from "short-markdown-parser-js";
 import { augmentShortMarkdown } from "short-markdown-parser-node";
+import { fetchVoices } from "short-markdown-parser-node";
 import { generateAugmentedShortMarkdown } from "short-markdown-parser-node";
 import { getOrGenerateShortMarkdown } from "short-markdown-parser-node";
+import { parseDialogue } from "short-markdown-parser-node";
+import { uberduckGetPath } from "short-markdown-parser-node";
+import { uberduckSpeak } from "short-markdown-parser-node";
+import { voiceCloneDialogue } from "short-markdown-parser-node";
 import { sendSms } from "sms";
 import { getAllTsMorphSourceFiles } from "ts-morph-util";
 import { getHasGeneric } from "ts-morph-util";
@@ -457,6 +472,7 @@ import { lowerCaseArray } from "convert-case";
 import { pascalCase } from "convert-case";
 import { slugify } from "convert-case";
 import { snakeCase } from "convert-case";
+import { getFileTypeFromPath } from "filename-conventions";
 import { getWriterType } from "filename-conventions";
 import { hasSubExtension } from "filename-conventions";
 import { isGeneratedOperationName } from "filename-conventions";
@@ -484,6 +500,7 @@ import { findFileNameCaseInsensitive } from "fs-util";
 import { getAllFoldersUntilFolder } from "fs-util";
 import { getFileName } from "fs-util";
 import { getFirstAvailableFilename } from "fs-util";
+import { getFolderSizeObject } from "fs-util";
 import { getFolder } from "fs-util";
 import { getLastFolder } from "fs-util";
 import { getOneFolderUpPath } from "fs-util";
@@ -691,6 +708,13 @@ mapChunkRecursively,
 mapMarkdownParseSections,
 writeAllCodestories,
 writeCodespanDetails,
+controlChatGpt,
+getContextualPromptResults,
+getContextualPrompt,
+getContextualPromptsArray,
+getContextualPrompts,
+getFolderRelativeScopeDbFilePath,
+processChatGptPrompt,
 allOperationsRemoveJsSrc,
 allOperationsToMarkdown,
 clearAllTsDatabases,
@@ -776,6 +800,8 @@ getProjectRelativePaths,
 getTodoPages,
 getTodoPaths,
 hasSameProjectPath,
+compressImage,
+compressImages,
 convertToMp3,
 convertToMp4,
 findAllDependencyOperations,
@@ -819,6 +845,7 @@ removeMultiple,
 upsertItems,
 upsertKeyValueMarkdown,
 upsert,
+waitForLockfile,
 getExtension,
 getFileOrFolderName,
 getFolderJs,
@@ -1070,8 +1097,13 @@ findAudioWithViewsArray,
 markdownParseToShortMarkdown,
 shortMarkdownToMarkdownParse,
 augmentShortMarkdown,
+fetchVoices,
 generateAugmentedShortMarkdown,
 getOrGenerateShortMarkdown,
+parseDialogue,
+uberduckGetPath,
+uberduckSpeak,
+voiceCloneDialogue,
 sendSms,
 getAllTsMorphSourceFiles,
 getHasGeneric,
@@ -1134,6 +1166,7 @@ lowerCaseArray,
 pascalCase,
 slugify,
 snakeCase,
+getFileTypeFromPath,
 getWriterType,
 hasSubExtension,
 isGeneratedOperationName,
@@ -1161,6 +1194,7 @@ findFileNameCaseInsensitive,
 getAllFoldersUntilFolder,
 getFileName,
 getFirstAvailableFilename,
+getFolderSizeObject,
 getFolder,
 getLastFolder,
 getOneFolderUpPath,

@@ -28,6 +28,7 @@ import { findFileNameCaseInsensitive } from "fs-util";
 import { getAllFoldersUntilFolder } from "fs-util";
 import { getFileName } from "fs-util";
 import { getFirstAvailableFilename } from "fs-util";
+import { getFolderSizeObject } from "fs-util";
 import { getFolder } from "fs-util";
 import { getLastFolder } from "fs-util";
 import { getOneFolderUpPath } from "fs-util";
@@ -76,6 +77,7 @@ import { tsconfigCompilesEsm } from "get-path";
 import { getDependenciesSummary } from "operation-util";
 import { getOperationMetaData } from "operation-util";
 import { recalculateOperationIndexJson } from "operation-util";
+import { getFileTypeFromPath } from "filename-conventions";
 import { getWriterType } from "filename-conventions";
 import { hasSubExtension } from "filename-conventions";
 import { isGeneratedOperationName } from "filename-conventions";
@@ -317,6 +319,7 @@ findFileNameCaseInsensitive,
 getAllFoldersUntilFolder,
 getFileName,
 getFirstAvailableFilename,
+getFolderSizeObject,
 getFolder,
 getLastFolder,
 getOneFolderUpPath,
@@ -365,6 +368,7 @@ tsconfigCompilesEsm,
 getDependenciesSummary,
 getOperationMetaData,
 recalculateOperationIndexJson,
+getFileTypeFromPath,
 getWriterType,
 hasSubExtension,
 isGeneratedOperationName,

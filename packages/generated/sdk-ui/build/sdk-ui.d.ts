@@ -43,11 +43,11 @@ export declare const sdk: {
     AssetView: (props: {
         asset: import("asset-type").Asset;
         className?: string | undefined;
-        projectRelativeReferencingFilePath: string;
+        projectRelativeReferencingFilePath?: string | undefined;
         hideDownloadLink?: boolean | undefined;
     }) => JSX.Element;
     getSrc: (asset: import("asset-type").Asset, projectRelativeReferencingFilePath: string, isNextStaticProductionBuild?: boolean | undefined) => {
-        src: string;
+        src: string | undefined;
         downloadUrl: string | undefined;
     };
     InteractiveAsset: (props: {
@@ -76,7 +76,7 @@ export declare const sdk: {
         rawText: string | null;
         type: import("asset-type").AssetType | undefined;
         downloadUrl: string | undefined;
-        src: string;
+        src: string | undefined;
         extension: string | undefined;
     } | undefined;
     AuthenticationMethodsCrud: () => JSX.Element;
@@ -111,12 +111,18 @@ export declare const sdk: {
     }) => JSX.Element;
     renderBreadCrumbs: (chunks: string[]) => JSX.Element[];
     ClickableIcon: (button: import("clickable-icon").ClickableIconType) => JSX.Element;
+    ContextMenuItemComponent: (props: {
+        item: import("context-menu").ContextMenuItem;
+        id: string | undefined;
+        onClose: () => void;
+        itemClassName?: string | undefined;
+    }) => JSX.Element;
     useContextMenu: (props: {
         items: import("context-menu").ContextMenuItem[];
         longTouchDurationMs?: number | undefined;
         className?: string | undefined;
         itemClassName?: string | undefined;
-        customItemRender?: ((contextMenuItem: import("context-menu").ContextMenuItem, index: number, onClose: () => void, id: string | undefined) => JSX.Element | null) | undefined;
+        customItemRender?: ((contextMenuItem: import("context-menu").ContextMenuItem, index: number, onClose: () => any, id: string | undefined) => JSX.Element | null) | undefined;
     }) => {
         renderContextMenu: () => JSX.Element | null;
         openContextMenuProps: {
@@ -127,6 +133,8 @@ export declare const sdk: {
             onClick: (mouseEvent: import("react").MouseEvent<Element, MouseEvent>) => void;
             style: import("react").CSSProperties;
         };
+        onClose: () => void;
+        isOpen: boolean;
     };
     useContextPopper: (props: {
         renderPopper: (props: {
@@ -134,6 +142,7 @@ export declare const sdk: {
         }) => JSX.Element;
         longTouchDurationMs?: number | undefined;
     }) => {
+        isOpen: boolean;
         renderContextPopper: () => JSX.Element | null;
         onClose: () => void;
         openContextPopperProps: {
@@ -168,7 +177,10 @@ export declare const sdk: {
     DatasetForm: (props: {
         modelName: string;
     }) => JSX.Element;
-    DbPage: () => JSX.Element;
+    DbPage: (props: {
+        filter?: ((item: import("model-types").AugmentedAnyModelType) => boolean) | undefined;
+        modelName?: string | undefined;
+    }) => JSX.Element;
     getPropertiesDataParameterNames: (properties: import("schema-util").SchemaProperty[]) => string[];
     IndexInstanceContainer: ({ title, children, buttons, }: {
         title: string;
@@ -209,7 +221,7 @@ export declare const sdk: {
     UpsertPage: () => JSX.Element;
     useInfiniteGetDbModel: () => import("react-query").UseInfiniteQueryResult<import("api-types").ApiReturnType<"getDbModel">, unknown>;
     useModelFromUrl: () => string | undefined;
-    useUrl: <T_2 extends "path" | "id" | "slug" | "name" | "type">(queryKey: T_2) => {
+    useUrl: <T_2 extends "id" | "slug" | "name" | "path" | "type">(queryKey: T_2) => {
         path: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
         name: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
         type: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
@@ -248,6 +260,7 @@ export declare const sdk: {
         withApiResult?: ((result: any) => void) | undefined;
         initialValues?: any[] | undefined;
         showResult?: boolean | undefined;
+        referencableModelData?: import("simplified-schema-form").ReferencableModelData | undefined;
     }) => JSX.Element;
     converse: (searchMessage: string) => Promise<false | undefined>;
     executeSdkFunction: (operationString: string, parameters: string[] | undefined) => Promise<any>;
@@ -286,6 +299,7 @@ export declare const sdk: {
         header: import("react").ReactNode;
         menu?: import("menu").MenuProps | undefined;
     }) => JSX.Element;
+    PingApi: () => JSX.Element;
     copyStaticAssets: (readerWebPages: import("webpage-types").FileWebPage[], config?: {
         operationName?: string | undefined;
     } | undefined) => Promise<boolean | undefined>;
@@ -434,7 +448,7 @@ export declare const sdk: {
     AlertProvider: ({ children }: {
         children: any;
     }) => JSX.Element;
-    useAlert: () => ((title: string, message?: string | undefined, buttons?: import("react-native").AlertButton[] | undefined, options?: import("react-native").AlertOptions | undefined) => void) | null;
+    useAlert: () => import("react-with-native-alert").AlertFn | null;
     DataForm: <TInputs, TState extends {
         [key: string]: any;
     }>({ fields, defaultValues, initialValues, onSubmit, withSubmitProps, noSubmit, submitButtonText, submitButtonColor, title, backButton, plugins, renderSubmitComponent, renderInputContainer, stickySubmit, renderTitle, submitClassName, errorClassName, successClassName, }: import("react-with-native-form").DataFormProps<TInputs, TState>) => JSX.Element;
@@ -597,9 +611,9 @@ export declare const sdk: {
         children: JSX.Element;
     }) => JSX.Element;
     getRealSrc: (src: string | undefined, config: import("markdown").MarkdownParseRenderConfig) => string | undefined;
-    getUrlFromRelativeUrl: (relativeUrl: string, relativeUrlStrategy: "api" | "static", projectRelativeBaseFolderPath: string, projectRelativeMarkdownFilePath: string) => string;
-    getYoutubeId: (url: string | undefined) => string | undefined;
-    HtmlHeader: keyof JSX.IntrinsicElements | import("react-markdown/lib/ast-to-react").HeadingComponent | undefined;
+    getUrlFromRelativeUrl: (relativeUrl: string, relativeUrlStrategy: "api" | "static", projectRelativeBaseFolderPath: string, projectRelativeMarkdownFilePath: string) => string | undefined;
+    getYoutubeId: any;
+    HtmlHeader: any;
     MarkdownCodeblock: (props: {
         text: string;
         extension?: string | undefined;
@@ -633,6 +647,35 @@ export declare const sdk: {
         markdownFile?: import("markdown-types").WebMarkdownFile | null | undefined;
         projectRelativeMarkdownPath?: string | null | undefined;
     }) => JSX.Element | null;
+    Share: (props: {
+        contextText?: string | undefined;
+    }) => JSX.Element;
+    useAllText: () => string | undefined;
+    useLastSelection: () => string | null;
+    ShortMarkdownPlayer: (props: {
+        shortMarkdown?: import("short-markdown-types").ShortMarkdown | undefined;
+        projectRelativeFilePath?: string | undefined;
+    }) => JSX.Element | null;
+    ShortMarkdownSlide: (props: {
+        item: import("short-markdown-types").ViewEmbed;
+        index: number;
+        projectRelativeFilePath: string;
+        setSlide: (index: number) => void;
+        isAutoplay?: boolean | undefined;
+    }) => JSX.Element;
+    ShortStudio: (props: {
+        onChange: (value: string) => void;
+        value: string;
+        projectRelativeFilePath: string;
+        markdownModelName?: string | number | symbol | undefined;
+    }) => JSX.Element;
+    useMultiAudio: (urls: string[]) => {
+        players: {
+            url: string;
+            playing: boolean;
+        }[];
+        toggle: (targetIndex: number) => () => void;
+    };
     SwipeHomepage: (props: {
         ctas: {
             text: string;
@@ -711,23 +754,6 @@ export declare const sdk: {
     }) => JSX.Element;
     omitSpecialCharactersFromStart: (word?: string | undefined) => string | undefined;
     parseTextContentToHtmlString: import("writer-input").ParseTextContentToHtmlString;
-    ShortMarkdownPlayer: (props: {
-        shortMarkdown?: import("short-markdown-types").ShortMarkdown | undefined;
-        projectRelativeFilePath?: string | undefined;
-    }) => JSX.Element | null;
-    ShortMarkdownSlide: (props: {
-        item: import("short-markdown-types").ViewEmbed;
-        index: number;
-        projectRelativeFilePath: string;
-        setSlide: (index: number) => void;
-        isAutoplay?: boolean | undefined;
-    }) => JSX.Element;
-    ShortStudio: (props: {
-        onChange: (value: string) => void;
-        value: string;
-        projectRelativeFilePath: string;
-        markdownModelName?: string | number | symbol | undefined;
-    }) => JSX.Element;
     SmartContentEditableDivInput: (props: {
         writerType: import("filename-conventions").WriterType;
         value: string;
@@ -762,13 +788,6 @@ export declare const sdk: {
         augmentedWords?: import("augmented-word-types").AugmentedWord[] | undefined;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
     }) => JSX.Element;
-    useMultiAudio: (urls: string[]) => {
-        players: {
-            url: string;
-            playing: boolean;
-        }[];
-        toggle: (targetIndex: number) => () => void;
-    };
     WriterConfigForm: () => JSX.Element;
     WriterInput: (props: {
         isSaved?: boolean | undefined;

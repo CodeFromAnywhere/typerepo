@@ -35,7 +35,16 @@
     "matter-types": "0.0.1",
     "short-markdown-types": "0.0.1",
     "asset-view": "0.0.0",
-    "use-on-screen": "0.0.0"
+    "use-on-screen": "0.0.0",
+    "ai-types": "0.0.1",
+    "react-with-native-alert": "1.0.33",
+    "react-with-native-select": "2.0.7",
+    "share": "1.0.0",
+    "db-crud": "0.0.0",
+    "context-menu": "0.0.0",
+    "react-native": "*",
+    "short-markdown-writer-input": "1.0.0",
+    "prompt-components": "1.0.0"
   },
   "devDependencies": {
     "@types/marked": "^4.0.7",
@@ -63,7 +72,7 @@
   "operation": {
     "indirectDependencies": [
       "writer-functions",
-      "short-markdown-parser-node"
+      "ai-functions-node"
     ],
     "buildResultIndexed": {
       "buildSucceeded": true,
@@ -78,13 +87,6 @@
       "useState",
       "useState",
       "useState",
-      "useState",
-      "useEffect",
-      "useRef",
-      "useEffect",
-      "useState",
-      "useEffect",
-      "useState",
       "useEffect",
       "useEffect",
       "useRef",
@@ -95,14 +97,17 @@
     "folderNameIndexed": "writer-input",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669962512044,
+    "lastRebuildAt": 1670527834389,
     "operationDependenciesIndexed": [
+      "api",
+      "queries",
       "ClickableIcon",
+      "errorToast",
+      "getFileTypeFromPath",
+      "getFileOrFolderName",
+      "FilePromptSelect",
       "Div",
       "DbModels",
-      "errorToast",
-      "api",
-      "getFileOrFolderName",
       "api",
       "findAssetParametersRecursively",
       "BackendAsset",
@@ -129,20 +134,6 @@
       "flattenMarkdownChunks",
       "Div",
       "MarkdownParse",
-      "getSrc",
-      "notEmpty",
-      "Div",
-      "ShortMarkdown",
-      "Div",
-      "P",
-      "ViewEmbed",
-      "getSrc",
-      "isDev",
-      "useOnScreen",
-      "queries",
-      "FancyLoader",
-      "Div",
-      "DbModels",
       "createStore",
       "SubtextConfig",
       "SubwordConfig",
@@ -155,18 +146,21 @@
       "MappedObject",
       "AugmentedWord",
       "Div",
-      "MarkdownParseRenderConfig",
-      "FancyLoader",
+      "DbModels",
       "api",
       "queries",
+      "AugmentedWord",
+      "DbPage",
+      "FancyLoader",
       "getWriterType",
       "WriterType",
-      "MappedObject",
-      "AugmentedWord",
       "getFolderJs",
-      "DbModels",
+      "MappedObject",
+      "MarkdownParseRenderConfig",
       "mdToJsonParse",
+      "ContextualPromptResultsTab",
       "isDev",
+      "ShortStudio",
       "WriterViewEnum",
       "SubtextConfig",
       "SubwordConfig",
@@ -206,7 +200,12 @@
       "MarkdownParseRenderConfig",
       "SubtextConfig",
       "SubwordConfig",
+      "useLastSelection",
+      "useAlert",
       "useHotkeys",
+      "queries",
+      "getFileTypeFromPath",
+      "useSelectionPromptsMenu",
       "Div",
       "WriterType",
       "tryParseJson"
@@ -225,28 +224,28 @@
     "markdown": "# Writer Input\n\ncomponent to create a writer input\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 34,
-        "lines": 2678,
-        "characters": 76547,
-        "bytes": 76547
+        "numberOfFiles": 30,
+        "lines": 2449,
+        "characters": 70582,
+        "bytes": 70582
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 267,
-        "characters": 6799,
-        "bytes": 6799
+        "lines": 291,
+        "characters": 7402,
+        "bytes": 7402
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 680,
-        "characters": 19322,
-        "bytes": 19322
+        "lines": 651,
+        "characters": 19026,
+        "bytes": 19026
       },
       "size": {
-        "bytes": 102668,
-        "characters": 102668,
-        "lines": 3625,
-        "numberOfFiles": 38
+        "bytes": 97010,
+        "characters": 97010,
+        "lines": 3391,
+        "numberOfFiles": 34
       }
     },
     "hasGeneratedImportsIndexed": false

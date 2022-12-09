@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962500043,
-  "updatedAt": 1669962500043,
+  "createdAt": 1670527818229,
+  "updatedAt": 1670527818229,
   "deletedAt": 0,
-  "createdFirstAt": 1669962500043,
+  "createdFirstAt": 1670527818229,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -23,7 +23,9 @@
             "frontmatter",
             "todoOffers",
             "postable",
-            "shortStudio"
+            "shortStudio",
+            "prompts",
+            "prompt-results"
           ],
           "x-enumNames": [
             "view",
@@ -33,7 +35,9 @@
             "frontmatter",
             "todoOffers",
             "postable",
-            "shortStudio"
+            "shortStudio",
+            "prompts",
+            "prompt-results"
           ],
           "type": "string"
         },
@@ -383,7 +387,9 @@
               "frontmatter",
               "todoOffers",
               "postable",
-              "shortStudio"
+              "shortStudio",
+              "prompts",
+              "prompt-results"
             ],
             "type": "string"
           }
@@ -717,5 +723,5 @@
   },
   "value": "{\n  writerView: \"view\",\n  subtextConfig: {},\n  subwordConfig: {},\n}",
   "description": "",
-  "id": "hfpekcbugaferdzsmytwaynp"
+  "id": "sugzjzulifrvyefmgcbgrijh"
 }

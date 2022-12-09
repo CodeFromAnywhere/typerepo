@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884177226,
-  "updatedAt": 1669884177226,
+  "createdAt": 1670063572974,
+  "updatedAt": 1670063572974,
   "deletedAt": 0,
-  "createdFirstAt": 1669884177226,
+  "createdFirstAt": 1670063572974,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  context: GetStaticPathsContext\n) => {\n  const queryPaths = ((await codestoriesGetPages()) || []).map(\n    (x) => x.queryPath\n  );\n\n  // console.log({ paths });\n  if (!queryPaths) {\n    return { paths: [], fallback: \"blocking\" };\n  }\n\n  const staticPaths = queryPaths\n    .filter((x) => x !== \"\")\n    .map((p) => ({ params: { paths: p.split(\"/\") } }));\n\n  return {\n    paths: staticPaths,\n    fallback: \"blocking\",\n  };\n}",
   "description": "Function that tells Next.js what the pages are that need to be statically generated",
-  "id": "wkkvgubsvkulpulrazaqjcfg"
+  "id": "nocevbdeqjboqpaobsyrcwzf"
 }

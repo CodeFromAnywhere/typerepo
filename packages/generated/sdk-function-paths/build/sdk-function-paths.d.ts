@@ -43,6 +43,14 @@ export declare const sdkFunctionPaths: {
     writeAllCodestoriesCli: string;
     writeAllCodestories: string;
     writeCodespanDetails: string;
+    controlChatGptCli: string;
+    controlChatGpt: string;
+    getContextualPromptResults: string;
+    getContextualPrompt: string;
+    getContextualPromptsArray: string;
+    getContextualPrompts: string;
+    getFolderRelativeScopeDbFilePath: string;
+    processChatGptPrompt: string;
     allOperationsRemoveJsSrc: string;
     allOperationsToMarkdown: string;
     clearAllTsDatabases: string;
@@ -153,6 +161,7 @@ export declare const sdkFunctionPaths: {
     getCompileErrors: string;
     getTypescriptErrorsFromFiles: string;
     writeBuildErrors: string;
+    ContextMenuItemComponent: string;
     useContextMenu: string;
     useContextPopper: string;
     useContext: string;
@@ -251,6 +260,9 @@ export declare const sdkFunctionPaths: {
     getTodoPaths: string;
     hasSameProjectPath: string;
     FancyLoader: string;
+    compressImage: string;
+    compressImagesCli: string;
+    compressImages: string;
     convertToMp3: string;
     convertToMp4: string;
     getFileType: string;
@@ -263,6 +275,7 @@ export declare const sdkFunctionPaths: {
     FileWriter: string;
     OpenFileWriterPages: string;
     WriterLayout: string;
+    getFileTypeFromPath: string;
     getWriterType: string;
     hasSubExtension: string;
     isGeneratedOperationName: string;
@@ -317,6 +330,7 @@ export declare const sdkFunctionPaths: {
     removeMultiple: string;
     upsertItems: string;
     upsertKeyValueMarkdown: string;
+    waitForLockfile: string;
     canAccessSync: string;
     canAccess: string;
     canExecuteSync: string;
@@ -332,6 +346,8 @@ export declare const sdkFunctionPaths: {
     getAllFoldersUntilFolder: string;
     getFileName: string;
     getFirstAvailableFilename: string;
+    getFolderSizeObject: string;
+    getFolderSize: string;
     getFolder: string;
     getLastFolder: string;
     getOneFolderUpPath: string;
@@ -583,6 +599,7 @@ export declare const sdkFunctionPaths: {
     AuthenticationLayout: string;
     Header: string;
     LayoutGrid: string;
+    PingApi: string;
     preIndexLint: string;
     getCallerFileName: string;
     log: string;
@@ -622,6 +639,7 @@ export declare const sdkFunctionPaths: {
     bundleFolderWithMarkdown: string;
     bundleToBookMarkdown: string;
     bundleToMarkdown: string;
+    concatMarkdownFiles: string;
     createMinimizedSectionMarkdown: string;
     createMinimizedSection: string;
     deployToVercel: string;
@@ -957,13 +975,26 @@ export declare const sdkFunctionPaths: {
     updateMeWithContext: string;
     setJsonKey: string;
     setKeyAtLocation: string;
+    Share: string;
+    useAllText: string;
+    useLastSelection: string;
     findAudioWithViewsArray: string;
     markdownParseToShortMarkdown: string;
     shortMarkdownToMarkdownParse: string;
     augmentShortMarkdown: string;
+    fetchVoicesTest: string;
+    fetchVoices: string;
     generateAugmentedShortMarkdownTest: string;
     generateAugmentedShortMarkdown: string;
     getOrGenerateShortMarkdown: string;
+    parseDialogue: string;
+    uberduckGetPath: string;
+    uberduckSpeak: string;
+    voiceCloneDialogue: string;
+    ShortMarkdownPlayer: string;
+    ShortMarkdownSlide: string;
+    ShortStudio: string;
+    useMultiAudio: string;
     ArrayForm: string;
     FormContainer: string;
     getReferencedModelDataItem: string;
@@ -1049,9 +1080,6 @@ export declare const sdkFunctionPaths: {
     MarkedToken: string;
     omitSpecialCharactersFromStart: string;
     parseTextContentToHtmlString: string;
-    ShortMarkdownPlayer: string;
-    ShortMarkdownSlide: string;
-    ShortStudio: string;
     SmartContentEditableDivInput: string;
     SpannedSentence: string;
     SubtextContainer: string;
@@ -1062,7 +1090,6 @@ export declare const sdkFunctionPaths: {
     trimAround: string;
     trimLeft: string;
     TypescriptCompletions: string;
-    useMultiAudio: string;
     WriterConfigForm: string;
     WriterInput: string;
 };

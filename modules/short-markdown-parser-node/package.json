@@ -25,7 +25,10 @@
     "read-markdown-file": "0.0.1",
     "short-markdown-parser-js": "0.0.1",
     "fluent-ffmpeg": "*",
-    "read-json-file": "0.0.1"
+    "read-json-file": "0.0.1",
+    "js-util": "0.0.1",
+    "try-parse-json": "0.0.1",
+    "one-by-one": "0.0.1"
   },
   "operation": {
     "hasGeneratedDependenciesIndexed": false,
@@ -34,31 +37,31 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669962291977,
+    "lastRebuildAt": 1670216344952,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 4,
-        "lines": 154,
-        "characters": 4699,
-        "bytes": 4699
+        "numberOfFiles": 12,
+        "lines": 379,
+        "characters": 12049,
+        "bytes": 12049
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 131,
-        "characters": 3983,
-        "bytes": 3983
+        "lines": 140,
+        "characters": 4182,
+        "bytes": 4182
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 83,
-        "characters": 1535,
-        "bytes": 1535
+        "lines": 177,
+        "characters": 3071,
+        "bytes": 3071
       },
       "size": {
-        "bytes": 10217,
-        "characters": 10217,
-        "lines": 368,
-        "numberOfFiles": 8
+        "bytes": 19302,
+        "characters": 19302,
+        "lines": 696,
+        "numberOfFiles": 16
       }
     },
     "folderNameIndexed": "short-markdown-parser-node",
@@ -75,6 +78,7 @@
       "getProjectRoot",
       "makeRelative",
       "path",
+      "path",
       "getProjectRoot",
       "readMarkdownFile",
       "markdownParseToShortMarkdown",
@@ -82,10 +86,16 @@
       "path",
       "getProjectRoot",
       "readJsonFile",
-      "ShortMarkdown"
+      "ShortMarkdown",
+      "notEmpty",
+      "tryParseJson",
+      "tryParseJson",
+      "oneByOne"
     ],
     "packageDependenciesIndexed": [
-      "ffprobe"
+      "ffprobe",
+      "execSync",
+      "execSync"
     ]
   },
   "slug": "short-markdown-parser-node",

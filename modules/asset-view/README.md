@@ -12,6 +12,15 @@ asset-view (`OperationClassification` ui-cjs)
 
 # Api reference
 
+## getSrc()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| asset | `Asset` |  |,| projectRelativeReferencingFilePath | string |  |,| isNextStaticProductionBuild (optional) | boolean |  |
+| **Output** | { src?: string, <br />downloadUrl?: string, <br /> }   |    |
+
+
+
 ## itemGetBackendAssetUrl()
 
 Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.
@@ -35,6 +44,8 @@ If you provide an array it'll take the first asset.
 
 
 
+## 📄 getSrc (exported const)
+
 ## 📄 itemGetBackendAssetUrl (exported const)
 
 Get remote url for a `BackendAsset` in an `AugmentedAnyModelType` database model item.
@@ -48,17 +59,8 @@ If you provide an array it'll take the first asset.
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| props | { asset: `Asset`, <br />className?: string, <br />projectRelativeReferencingFilePath: string, <br />hideDownloadLink?: boolean, <br /> } |  |
+| props | { asset: `Asset`, <br />className?: string, <br />projectRelativeReferencingFilePath?: string, <br />hideDownloadLink?: boolean, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
-
-
-
-## getSrc()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| asset | `Asset` |  |,| projectRelativeReferencingFilePath | string |  |,| isNextStaticProductionBuild (optional) | boolean |  |
-| **Output** | { src: string, <br />downloadUrl?: string, <br /> }   |    |
 
 
 
@@ -84,13 +86,11 @@ shows an `Asset` with interactivity
 | Input      |    |    |
 | ---------- | -- | -- |
 | asset (optional) | `Asset` |  |,| projectRelativeReferencingFilePath (optional) | string |  |,| isNextStaticProductionBuild (optional) | boolean |  |
-| **Output** | { rawText?: {  }, <br />type?: video / audio / image / text / other, <br />downloadUrl?: string, <br />src: string, <br />extension?: string, <br /> }   |    |
+| **Output** | { rawText?: {  }, <br />type?: video / audio / image / text / other, <br />downloadUrl?: string, <br />src?: string, <br />extension?: string, <br /> }   |    |
 
 
 
 ## 📄 AssetView (exported const)
-
-## 📄 getSrc (exported const)
 
 ## 📄 InteractiveAsset (exported const)
 

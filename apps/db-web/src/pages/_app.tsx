@@ -22,7 +22,14 @@ import "rc-time-picker/assets/index.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 ///rwn
+import "share/css.css";
+
+import "file-tabs/css.css";
+import "writer-input/css.css";
+import "labeled-button/css.css";
+import "function-form/css.css";
 import "simplified-schema-form/css.css";
+import "big-button/css.css";
 
 import "react-with-native/css.css";
 import "react-with-native-modal/css.css";
@@ -35,7 +42,7 @@ import "react-with-native-select/css.css";
 import "react-with-native-store/css.css";
 import "react-with-native-ui/css.css";
 import "react-with-native-table/css.css";
-import "big-button/css.css";
+
 import "fancy-loader/css.css";
 import "asset-input/css.css";
 
@@ -64,11 +71,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ToastContainer />
       <AlertProvider>
-        <ModalProvider>
-          <StoreProvider>
+        <StoreProvider>
+          <ModalProvider>
             <DbLayout pageProps={pageProps} nextPage={Component} />
-          </StoreProvider>
-        </ModalProvider>
+          </ModalProvider>
+        </StoreProvider>
       </AlertProvider>
     </QueryClientProvider>
   );

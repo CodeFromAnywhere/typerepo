@@ -10,6 +10,8 @@ export declare const operations: {
     "codestorys-node": string;
     "collect-static-assets": string;
     "make-codestory": string;
+    "ai-functions-node": string;
+    "ai-types": string;
     all: string;
     api: string;
     "api-store": string;
@@ -62,6 +64,7 @@ export declare const operations: {
     "function-form": string;
     "function-functions-node": string;
     "function-server-endpoints": string;
+    "function-server-types": string;
     "function-types": string;
     "function-util": string;
     "generate-index": string;
@@ -121,6 +124,7 @@ export declare const operations: {
     pluralize: string;
     "pm2-util": string;
     "port-conventions": string;
+    "prompt-components": string;
     "react-with-native": string;
     "react-with-native-alert": string;
     "react-with-native-form": string;
@@ -151,9 +155,11 @@ export declare const operations: {
     "server-api-url": string;
     "server-login": string;
     "set-json-key": string;
+    share: string;
     "short-markdown-parser-js": string;
     "short-markdown-parser-node": string;
     "short-markdown-types": string;
+    "short-markdown-writer-input": string;
     "simplified-schema-form": string;
     sms: string;
     "social-media-types": string;
