@@ -1,0 +1,61 @@
+{
+  "createdAt": 1671105500498,
+  "updatedAt": 1671105500498,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105500498,
+  "id": "namedparameterstypeof-addword",
+  "name": "NamedParameters<typeof addWord>",
+  "slug": "namedparameterstypeof-addword",
+  "operationRelativeTypescriptFilePath": "src/addWord.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "word": {
+          "type": "string",
+          "description": "MUST be an english word or word combination written in the latin alphabet"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "word"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "word",
+          "required": true,
+          "schema": {
+            "fullComment": "MUST be an english word or word combination written in the latin alphabet",
+            "type": "string"
+          }
+        },
+        {
+          "name": "description",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof addWord>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

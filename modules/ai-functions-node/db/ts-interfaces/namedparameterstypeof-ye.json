@@ -1,0 +1,59 @@
+{
+  "createdAt": 1671105547797,
+  "updatedAt": 1671105547797,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105547797,
+  "id": "namedparameterstypeof-ye",
+  "name": "NamedParameters<typeof ye>",
+  "slug": "namedparameterstypeof-ye",
+  "operationRelativeTypescriptFilePath": "src/prompts.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "selectionContent": {
+          "type": "string"
+        },
+        "isDeferred": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "selectionContent"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "selectionContent",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isDeferred",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof ye>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -68,4 +68,6 @@ export declare const WriterInput: (props: {
      * If given, forces the writerview to this value instead of using the current writerViewStore value
      */
     initialWriterView?: WriterViewEnum | undefined;
+    disabledMenuItems?: string[] | undefined;
 }) => JSX.Element;
+//# sourceMappingURL=WriterInput.d.ts.map

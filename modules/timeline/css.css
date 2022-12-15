@@ -541,6 +541,10 @@ video {
   scroll-snap-type: x var(--tw-scroll-snap-strictness);
 }
 
+.snap-y {
+  scroll-snap-type: y var(--tw-scroll-snap-strictness);
+}
+
 .snap-mandatory {
   --tw-scroll-snap-strictness: mandatory;
 }
@@ -549,15 +553,18 @@ video {
   scroll-snap-align: start;
 }
 
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
 .place-items-center {
   place-items: center;
 }
 
 .overflow-scroll {
   overflow: scroll;
-}
-
-.bg-green-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(187 247 208 / var(--tw-bg-opacity));
 }

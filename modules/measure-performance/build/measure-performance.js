@@ -1,8 +1,10 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.cleanupTimer=exports.getNewPerformance=void 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cleanupTimer = exports.getNewPerformance = void 0;
 /**
  * TODO: This stores into memory. May cause memory leaks in the long run if not cleaned up!
  */
-var timer={},getNewPerformance=function(e,r,t){var n=timer[r],o=Date.now();if(timer[r]=o,!t)return{label:e,durationMs:o-n}};
+var timer = {};
 /**
 Function that lets you measure performance inside any function with ease.
 
@@ -36,9 +38,22 @@ Don't forget to run `cleanupTimer`, or you'll run into memory leaks!
 cleanupTimer(executionId);
 ```
 
- */exports.getNewPerformance=getNewPerformance;
+ */
+var getNewPerformance = function (label, uniqueId, isNew) {
+    var timePrevious = timer[uniqueId];
+    var timeNow = Date.now();
+    timer[uniqueId] = timeNow;
+    if (isNew)
+        return;
+    var durationMs = timeNow - timePrevious;
+    return { label: label, durationMs: durationMs };
+};
+exports.getNewPerformance = getNewPerformance;
 /**
  * Ensure you run this after finishing the measurement, or you'll run into memory leaks!
  */
-var cleanupTimer=function(e){delete timer[e]};exports.cleanupTimer=cleanupTimer;
+var cleanupTimer = function (uniqueId) {
+    delete timer[uniqueId];
+};
+exports.cleanupTimer = cleanupTimer;
 //# sourceMappingURL=measure-performance.js.map

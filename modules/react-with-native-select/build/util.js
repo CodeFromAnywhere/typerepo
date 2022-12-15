@@ -1,2 +1,14 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getRealValue=void 0;var getRealValue=function(e){var t=e.value,a=e.selectFirstOption,l=e.options,o=e.title;return t||(a?l[0]:{label:o,value:"",data:void 0})};exports.getRealValue=getRealValue;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getRealValue = void 0;
+var getRealValue = function (_a) {
+    var value = _a.value, selectFirstOption = _a.selectFirstOption, options = _a.options, title = _a.title;
+    var result = value
+        ? value
+        : selectFirstOption
+            ? options[0]
+            : { label: title, value: "", data: undefined };
+    return result;
+};
+exports.getRealValue = getRealValue;
 //# sourceMappingURL=util.js.map

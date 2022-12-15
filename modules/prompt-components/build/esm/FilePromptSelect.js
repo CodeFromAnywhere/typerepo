@@ -64,7 +64,7 @@ export var FilePromptSelect = function (props) {
             }
             setValue(null);
             processPrompt({
-                prompt: prompt,
+                contextualPromptSlug: prompt.slug,
                 contextualContent: {
                     contextContent: contextContent,
                     context_projectRelativeFilePath: context_projectRelativeFilePath,

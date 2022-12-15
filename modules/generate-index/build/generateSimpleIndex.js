@@ -41,6 +41,7 @@ exports.generateSimpleIndex = void 0;
 var fs_util_1 = require("fs-util");
 var log_1 = require("log");
 var get_path_1 = require("get-path");
+var fs_util_js_1 = require("fs-util-js");
 var get_package_source_paths_1 = require("get-package-source-paths");
 var filename_conventions_1 = require("filename-conventions");
 /**
@@ -83,7 +84,7 @@ var generateSimpleIndex = function (_a) {
                 case 2:
                     files = _b.sent();
                     srcRelativeFileIds = files.map(function (fullPath) {
-                        return (0, get_path_1.getSrcRelativeFileId)((0, get_path_1.makeRelative)(fullPath, operationBasePath));
+                        return (0, get_path_1.getSrcRelativeFileId)((0, fs_util_js_1.makeRelative)(fullPath, operationBasePath));
                     });
                     indexationString = srcRelativeFileIds
                         .filter(filename_conventions_1.isIndexableFileId)

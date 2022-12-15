@@ -14,13 +14,58 @@ import { mapChunkRecursively } from "make-codestory";
 import { mapMarkdownParseSections } from "make-codestory";
 import { writeAllCodestories } from "make-codestory";
 import { writeCodespanDetails } from "make-codestory";
+import { addStatement } from "ai-functions-node";
+import { addWord } from "ai-functions-node";
+import { augmentMarkdown } from "ai-functions-node";
+import { biggestFunctionName } from "ai-functions-node";
+import { canSeeFileContent } from "ai-functions-node";
+import { canSeeFile } from "ai-functions-node";
+import { cleanup } from "ai-functions-node";
+import { controlChatGptWrapper } from "ai-functions-node";
 import { controlChatGpt } from "ai-functions-node";
+import { convertTo1337speak } from "ai-functions-node";
+import { deletePromptResult } from "ai-functions-node";
+import { developersQuote } from "ai-functions-node";
+import { diaryToInstagram } from "ai-functions-node";
+import { documentationWriting } from "ai-functions-node";
+import { emojiAugmentation } from "ai-functions-node";
+import { expandFrontmatter } from "ai-functions-node";
+import { explainInDutch } from "ai-functions-node";
+import { explainInNepali } from "ai-functions-node";
+import { explainInPortuguese } from "ai-functions-node";
+import { explain } from "ai-functions-node";
+import { fixGrammarAndSpellingMistakes } from "ai-functions-node";
+import { getContextualPromptResultJsonFilePath } from "ai-functions-node";
 import { getContextualPromptResults } from "ai-functions-node";
 import { getContextualPrompt } from "ai-functions-node";
 import { getContextualPromptsArray } from "ai-functions-node";
 import { getContextualPrompts } from "ai-functions-node";
 import { getFolderRelativeScopeDbFilePath } from "ai-functions-node";
+import { getReaderPageProps } from "ai-functions-node";
+import { gptIdeasRegisterWithContext } from "ai-functions-node";
+import { haiku } from "ai-functions-node";
+import { improveCode } from "ai-functions-node";
+import { keywords } from "ai-functions-node";
+import { makeMarkdownLink } from "ai-functions-node";
+import { marcusAurelius } from "ai-functions-node";
+import { poem } from "ai-functions-node";
 import { processChatGptPrompt } from "ai-functions-node";
+import { removeAllFake } from "ai-functions-node";
+import { rickAndMortyRick } from "ai-functions-node";
+import { rickAndMorty } from "ai-functions-node";
+import { setIsFavoritePromptResult } from "ai-functions-node";
+import { socratesAndSnoopDogg } from "ai-functions-node";
+import { storytelling } from "ai-functions-node";
+import { translateEverythingIntoHindi } from "ai-functions-node";
+import { translateEverythingPortuguese } from "ai-functions-node";
+import { translateEverything } from "ai-functions-node";
+import { translateToPortuguese } from "ai-functions-node";
+import { typescriptExplain } from "ai-functions-node";
+import { williamShakespear } from "ai-functions-node";
+import { writeContextualPromptSdk } from "ai-functions-node";
+import { writeCreatePromptCode } from "ai-functions-node";
+import { ye } from "ai-functions-node";
+import { yodafy } from "ai-functions-node";
 import { allOperationsRemoveJsSrc } from "all";
 import { allOperationsToMarkdown } from "all";
 import { clearAllTsDatabases } from "all";
@@ -60,6 +105,9 @@ import { getAugmentedWords } from "augmented-word-node";
 import { getBundleAugmentedWords } from "augmented-word-node";
 import { getBundleSummary } from "bundle-util";
 import { getDbModelsForBundle } from "bundle-util";
+import { chatGPTAuth } from "chatgpt-controller";
+import { detectChatGptPage } from "chatgpt-controller";
+import { openAIChat } from "chatgpt-controller";
 import { execAsync } from "child-process-helper";
 import { spawnAsync } from "child-process-helper";
 import { cleanupTsDatabase } from "cleanup-typescript-database";
@@ -157,6 +205,7 @@ import { getFileOrFolderName } from "fs-util-js";
 import { getFolderJs } from "fs-util-js";
 import { getSubExtension } from "fs-util-js";
 import { isPathRelative } from "fs-util-js";
+import { makeRelative } from "fs-util-js";
 import { removeTrailingSlash } from "fs-util-js";
 import { withoutExtension } from "fs-util-js";
 import { getFunctionExecutions } from "function-functions-node";
@@ -306,6 +355,29 @@ import { tsFunctionToMarkdownString } from "markdown-parsings";
 import { tsInterfaceToMarkdownString } from "markdown-parsings";
 import { tsVariableToMarkdownString } from "markdown-parsings";
 import { upMarkdownChunkLevelRecursively } from "markdown-parsings";
+import { copyStaticAssets } from "markdown-reader-functions";
+import { docsGetPages } from "markdown-reader-functions";
+import { docsGetStaticPaths } from "markdown-reader-functions";
+import { docsGetStaticProps } from "markdown-reader-functions";
+import { getAllMarkdownReaderPages } from "markdown-reader-functions";
+import { getChildren } from "markdown-reader-functions";
+import { getFolderExplorationInfo } from "markdown-reader-functions";
+import { getMarkdownModelPages } from "markdown-reader-functions";
+import { getMarkdownPageInfo } from "markdown-reader-functions";
+import { getMarkdownReaderPages } from "markdown-reader-functions";
+import { getMarkdownReaderQueryPaths } from "markdown-reader-functions";
+import { getOperationPages } from "markdown-reader-functions";
+import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
+import { getReaderTodoPages } from "markdown-reader-functions";
+import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
+import { markdownReaderGetStaticPropsFromPages } from "markdown-reader-functions";
+import { markdownReaderGetStaticProps } from "markdown-reader-functions";
+import { putReadmeOnTop } from "markdown-reader-functions";
+import { removeExtensionsFromPath } from "markdown-reader-functions";
+import { removeNumberPrefix } from "markdown-reader-functions";
+import { shouldExposeMarkdownFile } from "markdown-reader-functions";
+import { stripReadmeFromFolder } from "markdown-reader-functions";
+import { getQueryPath } from "markdown-reader-functions-js";
 import { minifyBuild } from "minify-build";
 import { getAvailableOperationName } from "new-template";
 import { newOperationWithFiles } from "new-template";
@@ -427,16 +499,20 @@ import { exitIfOperationsChange } from "watch-operations";
 import { gitCommitAllCron } from "watch-operations";
 import { watchOperations } from "watch-operations";
 import { writeToAssets } from "write-to-assets";
+import { copyPath } from "writer-functions";
+import { deleteFileOrFolder } from "writer-functions";
 import { getFileContents } from "writer-functions";
 import { getFrontmatterSchema } from "writer-functions";
 import { getWriterWebPagesMenu } from "writer-functions";
 import { getWriterWebPages } from "writer-functions";
-import { moveFile } from "writer-functions";
+import { movePath } from "writer-functions";
 import { newFile } from "writer-functions";
 import { newFolder } from "writer-functions";
 import { processAssetUpload } from "writer-functions";
-import { renameFilename } from "writer-functions";
+import { renameFileOrFolder } from "writer-functions";
 import { saveFileContents } from "writer-functions";
+import { trashFileOrFolder } from "writer-functions";
+import { updateFrontmatter } from "writer-functions";
 import { getGetApiUrl } from "api";
 import { untypedApiFunction } from "api";
 import { addToken } from "asset-functions-js";
@@ -451,6 +527,9 @@ import { getReferencedAssetApiUrl } from "asset-functions-js";
 import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
 import { removeTokenIfPresent } from "asset-functions-js";
+import { BreadCrumbs } from "breadcrumbs";
+import { renderBreadCrumbs } from "breadcrumbs";
+import { ClickableIcon } from "clickable-icon";
 import { getFunctionExersize } from "code-types";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
@@ -472,6 +551,15 @@ import { lowerCaseArray } from "convert-case";
 import { pascalCase } from "convert-case";
 import { slugify } from "convert-case";
 import { snakeCase } from "convert-case";
+import { errorToast } from "cool-toast";
+import { infoToast } from "cool-toast";
+import { showStandardResponse } from "cool-toast";
+import { successToast } from "cool-toast";
+import { warningToast } from "cool-toast";
+import { FancyLoader } from "fancy-loader";
+import { getFileType } from "file-icons";
+import { MatchingText } from "file-search";
+import { PathSearchResults } from "file-search";
 import { getFileTypeFromPath } from "filename-conventions";
 import { getWriterType } from "filename-conventions";
 import { hasSubExtension } from "filename-conventions";
@@ -512,6 +600,11 @@ import { renameAndCreate } from "fs-util";
 import { writeJsonToFile } from "fs-util";
 import { writeStringToFile } from "fs-util";
 import { writeToFiles } from "fs-util";
+import { converse } from "function-util";
+import { executeSdkFunction } from "function-util";
+import { getCachedExportedFunctions } from "function-util";
+import { getMenu } from "function-util";
+import { getSdkFunctionPaths } from "function-util";
 import { findFolderWhereMatch } from "get-path";
 import { findOperationBasePathWithClassification } from "get-path";
 import { findOperationBasePath } from "get-path";
@@ -534,7 +627,6 @@ import { isBundle } from "get-path";
 import { isOperation } from "get-path";
 import { isUiOperation } from "get-path";
 import { isWorkspaceRoot } from "get-path";
-import { makeRelative } from "get-path";
 import { packageCompilesTs } from "get-path";
 import { tsconfigCompilesEsm } from "get-path";
 import { getTsConfig } from "get-ts-config";
@@ -589,6 +681,7 @@ import { kvmdDataToString } from "key-value-markdown-js";
 import { kvmdParseToMarkdownString } from "key-value-markdown-js";
 import { markdownStringToKvmdParse } from "key-value-markdown-js";
 import { parseKvmdLine } from "key-value-markdown-js";
+import { LabeledButton } from "labeled-button";
 import { getCallerFileName } from "log";
 import { log } from "log";
 import { parseTitle } from "log";
@@ -652,6 +745,34 @@ import { isPlural } from "pluralize";
 import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
+import { clickOnSpanTag } from "puppeteer-utils";
+import { facebookLogin } from "puppeteer-utils";
+import { foundOrNotXpath } from "puppeteer-utils";
+import { foundOrNot } from "puppeteer-utils";
+import { getBrowserPage } from "puppeteer-utils";
+import { getBrowserSession } from "puppeteer-utils";
+import { getBrowserTabs } from "puppeteer-utils";
+import { getChromeExecutablePath } from "puppeteer-utils";
+import { getConnectedBrowsers } from "puppeteer-utils";
+import { gmailLogin } from "puppeteer-utils";
+import { isCaptchaExist } from "puppeteer-utils";
+import { logConsoleIfDebug } from "puppeteer-utils";
+import { openNewBrowser } from "puppeteer-utils";
+import { openPage } from "puppeteer-utils";
+import { racePromises } from "puppeteer-utils";
+import { retryClickAndWaitSelector } from "puppeteer-utils";
+import { retryWaitSelector } from "puppeteer-utils";
+import { runBrowser } from "puppeteer-utils";
+import { setBrowserPage } from "puppeteer-utils";
+import { setBrowserSession } from "puppeteer-utils";
+import { setInnerHtml } from "puppeteer-utils";
+import { setInputValue } from "puppeteer-utils";
+import { solveReptcha } from "puppeteer-utils";
+import { trueClick } from "puppeteer-utils";
+import { twitterLogin } from "puppeteer-utils";
+import { typeInTheInputField } from "puppeteer-utils";
+import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
+import { waitMilliseconds } from "puppeteer-utils";
 import { getKeysAtPathFromNestedObject } from "recursive-util";
 import { getMenuPagesObject } from "recursive-util";
 import { makeNestedObjectFromQueryPathObject } from "recursive-util";
@@ -686,6 +807,7 @@ import { stringToJson } from "string-to-json";
 import { getEncoding } from "text-or-binary";
 import { isBinary } from "text-or-binary";
 import { isText } from "text-or-binary";
+import { Tooltip } from "tooltip";
 import { tryParseJson } from "try-parse-json";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
@@ -708,13 +830,58 @@ mapChunkRecursively,
 mapMarkdownParseSections,
 writeAllCodestories,
 writeCodespanDetails,
+addStatement,
+addWord,
+augmentMarkdown,
+biggestFunctionName,
+canSeeFileContent,
+canSeeFile,
+cleanup,
+controlChatGptWrapper,
 controlChatGpt,
+convertTo1337speak,
+deletePromptResult,
+developersQuote,
+diaryToInstagram,
+documentationWriting,
+emojiAugmentation,
+expandFrontmatter,
+explainInDutch,
+explainInNepali,
+explainInPortuguese,
+explain,
+fixGrammarAndSpellingMistakes,
+getContextualPromptResultJsonFilePath,
 getContextualPromptResults,
 getContextualPrompt,
 getContextualPromptsArray,
 getContextualPrompts,
 getFolderRelativeScopeDbFilePath,
+getReaderPageProps,
+gptIdeasRegisterWithContext,
+haiku,
+improveCode,
+keywords,
+makeMarkdownLink,
+marcusAurelius,
+poem,
 processChatGptPrompt,
+removeAllFake,
+rickAndMortyRick,
+rickAndMorty,
+setIsFavoritePromptResult,
+socratesAndSnoopDogg,
+storytelling,
+translateEverythingIntoHindi,
+translateEverythingPortuguese,
+translateEverything,
+translateToPortuguese,
+typescriptExplain,
+williamShakespear,
+writeContextualPromptSdk,
+writeCreatePromptCode,
+ye,
+yodafy,
 allOperationsRemoveJsSrc,
 allOperationsToMarkdown,
 clearAllTsDatabases,
@@ -754,6 +921,9 @@ getAugmentedWords,
 getBundleAugmentedWords,
 getBundleSummary,
 getDbModelsForBundle,
+chatGPTAuth,
+detectChatGptPage,
+openAIChat,
 execAsync,
 spawnAsync,
 cleanupTsDatabase,
@@ -851,6 +1021,7 @@ getFileOrFolderName,
 getFolderJs,
 getSubExtension,
 isPathRelative,
+makeRelative,
 removeTrailingSlash,
 withoutExtension,
 getFunctionExecutions,
@@ -1000,6 +1171,29 @@ tsFunctionToMarkdownString,
 tsInterfaceToMarkdownString,
 tsVariableToMarkdownString,
 upMarkdownChunkLevelRecursively,
+copyStaticAssets,
+docsGetPages,
+docsGetStaticPaths,
+docsGetStaticProps,
+getAllMarkdownReaderPages,
+getChildren,
+getFolderExplorationInfo,
+getMarkdownModelPages,
+getMarkdownPageInfo,
+getMarkdownReaderPages,
+getMarkdownReaderQueryPaths,
+getOperationPages,
+getPublicMarkdownFilePaths,
+getReaderTodoPages,
+markdownReaderGetStaticPaths,
+markdownReaderGetStaticPropsFromPages,
+markdownReaderGetStaticProps,
+putReadmeOnTop,
+removeExtensionsFromPath,
+removeNumberPrefix,
+shouldExposeMarkdownFile,
+stripReadmeFromFolder,
+getQueryPath,
 minifyBuild,
 getAvailableOperationName,
 newOperationWithFiles,
@@ -1121,16 +1315,20 @@ exitIfOperationsChange,
 gitCommitAllCron,
 watchOperations,
 writeToAssets,
+copyPath,
+deleteFileOrFolder,
 getFileContents,
 getFrontmatterSchema,
 getWriterWebPagesMenu,
 getWriterWebPages,
-moveFile,
+movePath,
 newFile,
 newFolder,
 processAssetUpload,
-renameFilename,
+renameFileOrFolder,
 saveFileContents,
+trashFileOrFolder,
+updateFrontmatter,
 getGetApiUrl,
 untypedApiFunction,
 addToken,
@@ -1145,6 +1343,9 @@ getReferencedAssetApiUrl,
 getTypeFromUrlOrPath,
 readableSize,
 removeTokenIfPresent,
+BreadCrumbs,
+renderBreadCrumbs,
+ClickableIcon,
 getFunctionExersize,
 stripCommentEnd,
 stripCommentStart,
@@ -1166,6 +1367,15 @@ lowerCaseArray,
 pascalCase,
 slugify,
 snakeCase,
+errorToast,
+infoToast,
+showStandardResponse,
+successToast,
+warningToast,
+FancyLoader,
+getFileType,
+MatchingText,
+PathSearchResults,
 getFileTypeFromPath,
 getWriterType,
 hasSubExtension,
@@ -1206,6 +1416,11 @@ renameAndCreate,
 writeJsonToFile,
 writeStringToFile,
 writeToFiles,
+converse,
+executeSdkFunction,
+getCachedExportedFunctions,
+getMenu,
+getSdkFunctionPaths,
 findFolderWhereMatch,
 findOperationBasePathWithClassification,
 findOperationBasePath,
@@ -1228,7 +1443,6 @@ isBundle,
 isOperation,
 isUiOperation,
 isWorkspaceRoot,
-makeRelative,
 packageCompilesTs,
 tsconfigCompilesEsm,
 getTsConfig,
@@ -1283,6 +1497,7 @@ kvmdDataToString,
 kvmdParseToMarkdownString,
 markdownStringToKvmdParse,
 parseKvmdLine,
+LabeledButton,
 getCallerFileName,
 log,
 parseTitle,
@@ -1346,6 +1561,34 @@ isPlural,
 isSingular,
 pluralize,
 singularize,
+clickOnSpanTag,
+facebookLogin,
+foundOrNotXpath,
+foundOrNot,
+getBrowserPage,
+getBrowserSession,
+getBrowserTabs,
+getChromeExecutablePath,
+getConnectedBrowsers,
+gmailLogin,
+isCaptchaExist,
+logConsoleIfDebug,
+openNewBrowser,
+openPage,
+racePromises,
+retryClickAndWaitSelector,
+retryWaitSelector,
+runBrowser,
+setBrowserPage,
+setBrowserSession,
+setInnerHtml,
+setInputValue,
+solveReptcha,
+trueClick,
+twitterLogin,
+typeInTheInputField,
+typeOnTheTargetWithXpathSelector,
+waitMilliseconds,
 getKeysAtPathFromNestedObject,
 getMenuPagesObject,
 makeNestedObjectFromQueryPathObject,
@@ -1380,6 +1623,7 @@ stringToJson,
 getEncoding,
 isBinary,
 isText,
+Tooltip,
 tryParseJson,
 createCodeblockMarkdown,
 useCustomUrlStore,

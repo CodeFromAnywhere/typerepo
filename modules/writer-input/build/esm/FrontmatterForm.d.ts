@@ -11,3 +11,4 @@ export declare const FrontmatterForm: (props: {
     markdownParse: MarkdownParse;
     onChange: (value: string) => void;
 }) => JSX.Element;
+//# sourceMappingURL=FrontmatterForm.d.ts.map

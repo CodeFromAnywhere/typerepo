@@ -10,7 +10,7 @@ share (`OperationClassification` ui-esm)
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| isDisabled (optional) | boolean |  |
 | **Output** | {  }   |    |
 
 

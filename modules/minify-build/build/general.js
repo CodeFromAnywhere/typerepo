@@ -43,6 +43,7 @@ var log_1 = require("log");
 var fs_util_1 = require("fs-util");
 var k_explore_1 = require("k-explore");
 var terser_1 = require("terser");
+var fs_util_js_1 = require("fs-util-js");
 /**
  * takes an operation name or build folder path, then explores all ts files in src folder, finds the matching js file in the build folder, and executes terser from dependency, not from cli
  */
@@ -90,7 +91,7 @@ var minifyBuild = function (_a) {
                         // get relative file path without extension
                         var parsedPath = fs_util_1.path.parse(x.path);
                         var pathWithoutExtension = fs_util_1.path.join(parsedPath.dir, parsedPath.name);
-                        var relativeFileId = (0, get_path_1.makeRelative)(pathWithoutExtension, srcFolderPath);
+                        var relativeFileId = (0, fs_util_js_1.makeRelative)(pathWithoutExtension, srcFolderPath);
                         return relativeFileId;
                     })
                         .map(function (relativeFilePath) {

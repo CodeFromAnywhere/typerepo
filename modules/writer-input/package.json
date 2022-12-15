@@ -55,6 +55,7 @@
     "typescript": "^4.8.4"
   },
   "main": "./build/esm/index.js",
+  "source": "./src/index.ts",
   "peerDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -78,7 +79,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-input/src/types.ts. Error: Error: Unknown type \"function\""
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-input/src/WriterInput.tsx. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
       ],
       "lintProblems": []
     },
@@ -97,7 +98,7 @@
     "folderNameIndexed": "writer-input",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670527834389,
+    "lastRebuildAt": 1671012643028,
     "operationDependenciesIndexed": [
       "api",
       "queries",
@@ -225,15 +226,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 30,
-        "lines": 2449,
-        "characters": 70582,
-        "bytes": 70582
+        "lines": 2436,
+        "characters": 70168,
+        "bytes": 70168
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 291,
-        "characters": 7402,
-        "bytes": 7402
+        "lines": 281,
+        "characters": 7495,
+        "bytes": 7495
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -242,9 +243,9 @@
         "bytes": 19026
       },
       "size": {
-        "bytes": 97010,
-        "characters": 97010,
-        "lines": 3391,
+        "bytes": 96689,
+        "characters": 96689,
+        "lines": 3368,
         "numberOfFiles": 34
       }
     },

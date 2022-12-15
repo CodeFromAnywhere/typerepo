@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668332943807,
-  "updatedAt": 1668332943807,
+  "createdAt": 1671104270942,
+  "updatedAt": 1671104270942,
   "deletedAt": 0,
-  "createdFirstAt": 1668332943807,
+  "createdFirstAt": 1671104270942,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "api-store-initial-values",
   "operationRelativeTypescriptFilePath": "src/store.ts",
   "type": {
-    "rawType": "{ \"api.authToken\": string; }",
+    "rawType": "import(\"/Users/king/King/operations/tools/user-interfaces/api/api-store/src/store\").ApiStoreType",
     "typeDefinition": {
       "type": "object",
       "properties": {
@@ -26,6 +26,12 @@
               "minLength": 1
             }
           ]
+        },
+        "api.customUrl": {
+          "type": "string | null"
+        },
+        "api.timeoutAt": {
+          "type": "number | null"
         }
       },
       "required": [
@@ -47,12 +53,28 @@
           "schema": {
             "type": "string"
           }
+        },
+        {
+          "name": "api.customUrl",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "api.timeoutAt",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
         }
       ],
       "type": "object"
     }
   },
-  "value": "{ \"api.authToken\": \"\" }",
+  "value": "{\n  \"api.authToken\": \"\",\n  \"api.customUrl\": null,\n  \"api.timeoutAt\": null,\n}",
   "description": "",
-  "id": "eujlhquccnyybauazaltpdpu"
+  "id": "limphmxczeihmezbamqfmpnv"
 }

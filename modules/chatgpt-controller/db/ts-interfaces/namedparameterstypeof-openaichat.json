@@ -1,0 +1,73 @@
+{
+  "createdAt": 1671100888809,
+  "updatedAt": 1671100888809,
+  "deletedAt": 0,
+  "createdFirstAt": 1671100888809,
+  "id": "namedparameterstypeof-openaichat",
+  "name": "NamedParameters<typeof openAIChat>",
+  "slug": "namedparameterstypeof-openaichat",
+  "operationRelativeTypescriptFilePath": "src/openAIChat.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "$ref": "#/definitions/OpenAIChatProps"
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "prompt",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "thread",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "isHeadless",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof openAIChat>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

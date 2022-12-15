@@ -36,31 +36,6 @@ recursive. goes up until it finds a folder that's the project root
 if no source path is given, uses the directory name where the function is executed from as a starting point
 
 
-## makeRelative()
-
-Makes a path relative using proper parsing
-
-Resulting path will apply the paths conventions
-- no slash at the end
-- no slash at the beginning
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| absolutePath | string | absolute path of a file or folder without a slash at the end |,| baseFolderPath | string | folder path without a slash at the end |
-| **Output** | `String`   |    |
-
-
-
-## 📄 makeRelative (exported const)
-
-Makes a path relative using proper parsing
-
-Resulting path will apply the paths conventions
-- no slash at the end
-- no slash at the beginning
-
-
 ## findOperationBasePath()
 
 | Input      |    |    |

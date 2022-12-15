@@ -3,6 +3,10 @@
  */
 export declare const getItem: (key: string) => Promise<any>;
 /**
+ * ONLY web
+ */
+export declare const getItemSync: (key: string) => any;
+/**
  * If you don't have access to the `useStore` hook, maybe because you're doing something outside of react... you can directly use the storage with javascript using this function
  *
  * BEWARE! Updating this won't update your react components!

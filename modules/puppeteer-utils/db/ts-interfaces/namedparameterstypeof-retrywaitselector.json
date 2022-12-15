@@ -1,0 +1,96 @@
+{
+  "createdAt": 1671098551215,
+  "updatedAt": 1671098551215,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098551215,
+  "id": "namedparameterstypeof-retrywaitselector",
+  "name": "NamedParameters<typeof retryWaitSelector>",
+  "slug": "namedparameterstypeof-retrywaitselector",
+  "operationRelativeTypescriptFilePath": "src/retryWaitSelector.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "$ref": "#/definitions/Page",
+              "description": "the page element from puppeteer got with browser.pages"
+            },
+            "selector": {
+              "type": "string",
+              "description": "the css selector to search for"
+            },
+            "maxTime": {
+              "type": "number",
+              "description": "maxium time to retry. defaults to 30 seconds."
+            }
+          },
+          "required": [
+            "page",
+            "selector",
+            "maxTime"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "page",
+                "required": true,
+                "schema": {
+                  "fullComment": "the page element from puppeteer got with browser.pages\n\nPage provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "selector",
+                "required": true,
+                "schema": {
+                  "fullComment": "the css selector to search for",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "maxTime",
+                "required": true,
+                "schema": {
+                  "fullComment": "maxium time to retry. defaults to 30 seconds.",
+                  "type": "number"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof retryWaitSelector>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

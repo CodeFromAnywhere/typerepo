@@ -15,3 +15,4 @@ export var Parameter = function (props) {
         parameter ? React.createElement(Span, null, parameter) : null,
         value ? React.createElement(Span, { className: "bg-white bg-opacity-50" }, value) : null));
 };
+//# sourceMappingURL=Parameter.js.map

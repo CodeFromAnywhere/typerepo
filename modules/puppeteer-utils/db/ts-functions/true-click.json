@@ -1,0 +1,81 @@
+{
+  "createdAt": 1671098564697,
+  "updatedAt": 1671098564697,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098564697,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/trueClick.ts",
+  "commentsInside": [],
+  "rawText": " async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: Page;\n  /** the css selector to click */\n  selector: string;\n}): Promise<{ success: boolean }> => {\n  try {\n    const { page, selector } = props;\n    await page.evaluate((sendButtonSelector: string) => {\n      let a = document.querySelector(sendButtonSelector);\n      (a as HTMLElement).click?.();\n    }, selector);\n    return {\n      success: true,\n    };\n  } catch (err) {\n    return {\n      success: false,\n    };\n  }\n}",
+  "name": "trueClick",
+  "slug": "true-click",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "$ref": "#/definitions/Page",
+            "description": "the page element from puppeteer got with browser.pages"
+          },
+          "selector": {
+            "type": "string",
+            "description": "the css selector to click"
+          }
+        },
+        "required": [
+          "page",
+          "selector"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "the page element from puppeteer got with browser.pages\n\nPage provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "selector",
+            "required": true,
+            "schema": {
+              "fullComment": "the css selector to click",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Utility function to call the element onclick event directly.\nSuccess when clicking is improved over puppeteer page.click('selector')",
+  "returnType": {
+    "rawType": "Promise<{ success: boolean; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 643,
+    "lines": 22,
+    "bytes": 643,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 22,
+    "numberOfFiles": 1
+  },
+  "id": "ysybtyeqntxmkzrmkbfdctks"
+}

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1671105574675,
+  "updatedAt": 1671105574675,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105574675,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/writeContextualPromptSdk.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const functionStrings = contextualPrompts\n    .map((contextualPrompt) => {\n      return writeCreatePromptCode(contextualPrompt);\n    })\n    .join(\"\\n\\n\\n\");\n\n  const codeString = `// this file is generated, you can edit it, but it will be re-generated based on the contextual prompts database\n\nimport { processChatGptPrompt } from \"./processChatGptPrompt\";\n\n${functionStrings}`;\n\n  return codeString;\n}",
+  "name": "writeContextualPromptSdk",
+  "slug": "write-contextual-prompt-sdk",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 482,
+    "lines": 17,
+    "bytes": 482,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "wukxxdobdxednfxluzsggome"
+}

@@ -29,7 +29,7 @@ import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import { getFolderJs, isPathRelative } from "fs-util-js";
 import { Div, P } from "react-with-native";
-import { useLastSelection } from "share";
+// import { useLastSelection } from "share";
 import { Tooltip } from "tooltip";
 import { HtmlHeader } from "./HtmlHeader.js";
 import { Parameter } from "./Parameter.js";
@@ -44,7 +44,7 @@ TODO:
 
  */
 export var renderMarkdownContent = function (content, config) {
-    var contextSelection = useLastSelection();
+    var contextSelection = null; //useLastSelection();
     var _a = useSelectionPromptsMenu(config.selectionPrompts || [], {
         contextContent: content,
         context_projectRelativeFilePath: config.projectRelativeMarkdownFilePath,
@@ -215,3 +215,4 @@ export var renderMarkdownContent = function (content, config) {
         renderContextMenu(),
         markdownRender));
 };
+//# sourceMappingURL=renderMarkdownContent.js.map

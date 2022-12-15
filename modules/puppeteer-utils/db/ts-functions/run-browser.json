@@ -1,0 +1,36 @@
+{
+  "createdAt": 1671098554539,
+  "updatedAt": 1671098554539,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098554539,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/runBrowser.ts",
+  "commentsInside": [],
+  "rawText": " async (): Promise<Browser> => {\n  console.log(\"broser is running\");\n  const browser = await puppeteer.launch(browserLunchOptions);\n  return browser;\n}",
+  "name": "runBrowser",
+  "slug": "run-browser",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-core/lib/types\").Browser>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 151,
+    "lines": 5,
+    "bytes": 151,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "vjshgurqksbodynqegumrviy"
+}

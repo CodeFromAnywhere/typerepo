@@ -1,0 +1,144 @@
+{
+  "createdAt": 1671098544517,
+  "updatedAt": 1671098544517,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098544517,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "browserLunchOptions",
+  "slug": "browser-lunch-options",
+  "operationRelativeTypescriptFilePath": "src/openNewBrowser.ts",
+  "type": {
+    "rawType": "{ headless: boolean; devtools: boolean; userDataDir: string; dumpio: boolean; args: string[]; executablePath: string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "headless": {
+          "type": "boolean"
+        },
+        "devtools": {
+          "type": "boolean"
+        },
+        "userDataDir": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "dumpio": {
+          "type": "boolean"
+        },
+        "args": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          }
+        },
+        "executablePath": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "headless",
+        "devtools",
+        "userDataDir",
+        "dumpio",
+        "args",
+        "executablePath"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "headless",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "devtools",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "userDataDir",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "dumpio",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "args",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "executablePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  headless: false,\n  devtools: false,\n  userDataDir: \"./browser-sessions\",\n  dumpio: false,\n  args: [`--window-size=1920,1080`],\n  executablePath: getChromeExecutablePath(),\n}",
+  "description": "",
+  "id": "xwkfuybktaijdsawpxstctjn"
+}

@@ -9,3 +9,4 @@ TODO:
 
  */
 export declare const renderMarkdownContent: (content: string, config: MarkdownParseRenderConfig) => JSX.Element;
+//# sourceMappingURL=renderMarkdownContent.d.ts.map

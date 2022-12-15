@@ -61,11 +61,14 @@ Properties:
 | author_personSlugs (optional) | array |  |
 | interestSlugs (optional) | array |  |
 | price (optional) | number |  |
-| isDraft (optional) | boolean |  |
+| isPrivate (optional) | boolean | Only accessible to admin |
+| isSecret (optional) | boolean | Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true` |
+| authorizedGroup (optional) | string | If authorizedGroup is set, file content will not be available for people that aren't part of this group. |
+| isDraft (optional) | boolean | If true, will not show up in reader ui's |
+| isAvailableFromDateAt (optional) | number | If this is a date in the future, the file won't be available until that date |
 | updatedAt  | number |  |
 | createdAt  | number |  |
-| privacy  | string |  |
-| language  | string |  |
+| language (optional) | string |  |
 | isLanguageCustom (optional) | boolean |  |
 | deletedAt  | number |  |
 | createdFirstAt  | number |  |
@@ -130,11 +133,9 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| isDraft (optional) | boolean |  |
 | updatedAt  | number |  |
 | createdAt  | number |  |
-| privacy  | string |  |
-| language  | string |  |
+| language (optional) | string |  |
 | isLanguageCustom (optional) | boolean |  |
 
 
@@ -196,6 +197,18 @@ Properties:
 | author_personSlugs (optional) | array |  |
 | interestSlugs (optional) | array |  |
 | price (optional) | number |  |
+
+
+
+## markdownParseToMarkdownModelType()
+
+makes a markdownModelType from a markdownParse.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| markdownParse | {  } |  |
+| **Output** |    |    |
 
 
 
@@ -290,6 +303,11 @@ Properties:
 
 
 
+## 📄 markdownParseToMarkdownModelType (exported const)
+
+makes a markdownModelType from a markdownParse.
+
+
 ## 📄 tryParseDate (exported const)
 
 Tries to parse a date from a string
@@ -302,19 +320,7 @@ TODO: put in a better location... date-util?
 
 <details><summary>Show internal (8)</summary>
     
-  # markdownParseToMarkdownModelType()
-
-makes a markdownModelType from a markdownParse.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| markdownParse | {  } |  |
-| **Output** |    |    |
-
-
-
-## parseMarkdownModelTimestamp()
+  # parseMarkdownModelTimestamp()
 
 First tries to look at the frontmatter value, this is leading because it is what the user sees and the file system of the os could be inconsistent
 
@@ -327,6 +333,56 @@ If that doesn't succeed, sometimes we'll set it to  the current timestamp
 | ---------- | -- | -- |
 | parameters | `Frontmatter` |  |,| markdownParse | `MarkdownParse` |  |,| parameterName | createdAt / createdFirstAt / updatedAt / deletedAt / openedAt |  |
 | **Output** | {  }   |    |
+
+
+
+## 🔸 CreatorMarkdownFile
+
+markdown model
+
+
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| isPrivate (optional) | boolean | Only accessible to admin |
+| isSecret (optional) | boolean | Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true` |
+| authorizedGroup (optional) | string | If authorizedGroup is set, file content will not be available for people that aren't part of this group. |
+| isDraft (optional) | boolean | If true, will not show up in reader ui's |
+| isAvailableFromDateAt (optional) | number | If this is a date in the future, the file won't be available until that date |
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| markdown  | string |  |
+| categoryStackCalculated  | array |  |
+
+
+
+## 🔹 CreatorMarkdownProperties
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| isPrivate (optional) | boolean | Only accessible to admin |
+| isSecret (optional) | boolean | Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true` |
+| authorizedGroup (optional) | string | If authorizedGroup is set, file content will not be available for people that aren't part of this group. |
+| isDraft (optional) | boolean | If true, will not show up in reader ui's |
+| isAvailableFromDateAt (optional) | number | If this is a date in the future, the file won't be available until that date |
 
 
 
@@ -401,11 +457,6 @@ Properties:
 | headerSubTitle (optional) | string |  |
 | header_markdownCallToActionSlugs (optional) | array |  |
 
-
-
-## 📄 markdownParseToMarkdownModelType (exported const)
-
-makes a markdownModelType from a markdownParse.
 
 
 ## 📄 parseMarkdownModelTimestamp (exported const)

@@ -4,10 +4,6 @@ import { Language } from "model-types";
  */
 export interface ExtendedMarkdownProperties {
     /**
-     * If true, will not show up in markdownReader ui's
-     */
-    isDraft?: boolean;
-    /**
      * Should be stored as textual date like `YYYY-MM-DD`
      */
     updatedAt: number;
@@ -16,13 +12,9 @@ export interface ExtendedMarkdownProperties {
      */
     createdAt: number;
     /**
-     * TODO: implement auth layers, then look at this again
-     */
-    privacy: "public" | "private" | "request";
-    /**
      * Either filled in or detected
      */
-    language: Language;
+    language?: Language;
     /**
      * If true, will not auto-detect the language
      */

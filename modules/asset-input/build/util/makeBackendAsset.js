@@ -1,2 +1,15 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.makeBackendAsset=void 0;var makeBackendAsset=function(e,t,a){return{alt:e.alt,name:e.name,relativePath:e.relativePath,temporaryDestination:e.temporaryDestination,projectRelativeReferencingFilePath:t,modelName:a}};exports.makeBackendAsset=makeBackendAsset;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.makeBackendAsset = void 0;
+var makeBackendAsset = function (asset, projectRelativeReferencingFilePath, modelName) {
+    return {
+        alt: asset.alt,
+        name: asset.name,
+        relativePath: asset.relativePath,
+        temporaryDestination: asset.temporaryDestination,
+        projectRelativeReferencingFilePath: projectRelativeReferencingFilePath,
+        modelName: modelName,
+    };
+};
+exports.makeBackendAsset = makeBackendAsset;
 //# sourceMappingURL=makeBackendAsset.js.map

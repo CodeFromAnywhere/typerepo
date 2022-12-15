@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1668336594321,
-    "updatedAt": 1668336594321,
+    "createdAt": 1670950644887,
+    "updatedAt": 1670950644887,
     "deletedAt": 0,
-    "createdFirstAt": 1668336594321,
+    "createdFirstAt": 1670950644887,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/BreadCrumbs.tsx",
     "comment": "Shows where we are in the filesystem",
-    "rawStatement": "export const BreadCrumbs = (props: { path: string }) => {\n  const { path } = props;\n  const chunks = (path || \"\").split(\"/\");\n\n  return (\n    <Div className=\"border-b border-b-gray-300 mb-4 bg-[#FFFFFF] dark:bg-gray-900\">\n      <Div className=\"flex flex-row items-center ml-2\">\n        {renderBreadCrumbs(chunks)}\n      </Div>\n    </Div>\n  );\n};",
+    "rawStatement": "export const BreadCrumbs = (props: { path: string }) => {\n  const { path } = props;\n  const chunks = (path || \"\").split(\"/\");\n\n  if (path === \"\") return <Div />;\n  return (\n    <Div className=\"border-b border-b-gray-300 mb-4 bg-[#FFFFFF] dark:bg-gray-900\">\n      <Div className=\"flex flex-row items-center ml-2\">\n        {renderBreadCrumbs(chunks)}\n      </Div>\n    </Div>\n  );\n};",
     "parameters": {},
     "types": [],
     "firstLine": 21,
     "lastLine": 23,
-    "id": "qndvfsgnltxqumghnkdzghms"
+    "id": "lgdbzybgakxgbhllxaxxjojc"
   }
 ]

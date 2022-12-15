@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671017891405,
+  "updatedAt": 1671017891405,
+  "deletedAt": 0,
+  "createdFirstAt": 1671017891405,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "processPrompt",
+  "slug": "process-prompt",
+  "operationRelativeTypescriptFilePath": "src/processPrompt.ts",
+  "type": {
+    "rawType": "(config: { contextualPromptSlug?: string | undefined; customPromptContent?: string | undefined; contextualContent: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualContent\").ContextualContent; showPromptAlert: import(\"/Users/king/King/operations/tools/ai/prompt-components/src/usePromptResultAlert\").ShowPromptAlertFunction; }) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config: {\n  contextualPromptSlug?: Slug;\n  customPromptContent?: string;\n  contextualContent: ContextualContent;\n  showPromptAlert: ShowPromptAlertFunction;\n}) => {\n  const {\n    contextualPromptSlug,\n    showPromptAlert,\n    customPromptContent,\n    contextualContent: {\n      contextContent,\n      context_projectRelativeFilePath,\n      contextSelection,\n    },\n  } = config;\n\n  const apiResult = await api.processChatGptPrompt({\n    contextContent,\n    selectionContent: contextSelection || null,\n    prompt_projectRelativePath: context_projectRelativeFilePath,\n    isDeferred: true,\n    // not sure about these?\n    contextualPromptSlug,\n    customPromptContent,\n    saveNewPromptWithName: null,\n    isHeadless: false,\n  });\n\n  if (!apiResult.isSuccessful || !apiResult.result?.isSuccessful) {\n    showStandardResponse(apiResult);\n    return;\n  }\n\n  const title = contextualPromptSlug\n    ? humanCase(contextualPromptSlug)\n    : \"Untitled prompt\";\n\n  showPromptAlert(\n    title,\n    apiResult?.result?.result?.text || \"No textual result\",\n    apiResult?.result?.result?.thread,\n    context_projectRelativeFilePath\n  );\n}",
+  "description": "Main function to process a prompt. For now it calls `processChatGptPrompt` api and shows an alert afterwards with the result. In some cases we may want to process the prompt differently, e.g. storing it in a queue.",
+  "id": "kqprrigjawrpyxpptmwyqqxg"
+}

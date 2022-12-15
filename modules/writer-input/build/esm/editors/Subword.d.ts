@@ -7,3 +7,4 @@ export declare const Subword: {
     }): JSX.Element;
     example: (() => JSX.Element)[];
 };
+//# sourceMappingURL=Subword.d.ts.map

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098534619,
+  "updatedAt": 1671098534619,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098534619,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getChromeExecutablePath",
+  "slug": "get-chrome-executable-path",
+  "operationRelativeTypescriptFilePath": "src/getChromeExecutablePath.ts",
+  "type": {
+    "rawType": "() => \"/usr/bin/google-chrome-stable\" | \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  if (platform() === \"linux\") {\n    return \"/usr/bin/google-chrome-stable\";\n  } else {\n    return \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\";\n    // return \"/usr/local/bin/chromium\";\n  }\n}",
+  "description": "",
+  "id": "vvpsexweyzhwhkfssnkhfpxu"
+}

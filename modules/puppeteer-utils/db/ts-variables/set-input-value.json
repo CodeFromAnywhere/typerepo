@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098558860,
+  "updatedAt": 1671098558860,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098558860,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "setInputValue",
+  "slug": "set-input-value",
+  "operationRelativeTypescriptFilePath": "src/setInputValue.ts",
+  "type": {
+    "rawType": "(params: SetInputValueType) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (params: SetInputValueType) => {\n  const { page, selector, inputValue } = params;\n  await page.waitForSelector(selector);\n  await page.$eval(\n    selector,\n    (elem: ElementType, args: any) => {\n      elem.value = args.value;\n    },\n    { value: inputValue }\n  );\n}",
+  "description": "",
+  "id": "pxonsirflhjjiavurfanovmy"
+}

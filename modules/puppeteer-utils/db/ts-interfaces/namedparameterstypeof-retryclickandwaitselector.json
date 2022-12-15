@@ -1,0 +1,131 @@
+{
+  "createdAt": 1671098549252,
+  "updatedAt": 1671098549252,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098549252,
+  "id": "namedparameterstypeof-retryclickandwaitselector",
+  "name": "NamedParameters<typeof retryClickAndWaitSelector>",
+  "slug": "namedparameterstypeof-retryclickandwaitselector",
+  "operationRelativeTypescriptFilePath": "src/retryClickAndWaitSelector.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "description": "the page element from puppeteer got with browser.pages"
+            },
+            "selector": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ],
+              "description": "the css selector to search for"
+            },
+            "selectorOptions": {
+              "description": "the options"
+            },
+            "selectorToClick": {
+              "type": "string",
+              "description": "the css selector to click after"
+            },
+            "maxTime": {
+              "type": "number",
+              "description": "maxium time to retry. defaults to 30 seconds."
+            }
+          },
+          "required": [
+            "page",
+            "selector",
+            "selectorToClick",
+            "maxTime"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "page",
+                "required": true,
+                "schema": {
+                  "fullComment": "the page element from puppeteer got with browser.pages",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "selector",
+                "required": true,
+                "schema": {
+                  "fullComment": "the css selector to search for",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "selectorOptions",
+                "required": false,
+                "schema": {
+                  "fullComment": "the options",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "selectorToClick",
+                "required": true,
+                "schema": {
+                  "fullComment": "the css selector to click after",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "maxTime",
+                "required": true,
+                "schema": {
+                  "fullComment": "maxium time to retry. defaults to 30 seconds.",
+                  "type": "number"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof retryClickAndWaitSelector>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

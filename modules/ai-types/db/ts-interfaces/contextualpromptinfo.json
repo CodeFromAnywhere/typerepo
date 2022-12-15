@@ -1,0 +1,134 @@
+{
+  "createdAt": 1671105313413,
+  "updatedAt": 1671105313413,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105313413,
+  "id": "contextualpromptinfo",
+  "name": "ContextualPromptInfo",
+  "slug": "contextualpromptinfo",
+  "operationRelativeTypescriptFilePath": "src/ContextualPrompt.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * To be appended to the generated typescript\n */\nexport type ContextualPromptInfo = {\n  // extra flags, to be added to the config of the function.\n\n  /**\n   * If given, will be used to filter the selection of prompts to match the context type\n   */\n  contextType?: FileType[];\n\n  instantExecution?: boolean;\n\n  isFavorite?: boolean;\n\n  categoryStackCalculated?: string[];\n\n  pricing?: \"bad\" | \"good\" | \"premium\" | \"enterprise\" | \"private\";\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "To be appended to the generated typescript",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "contextType": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FileType"
+          },
+          "description": "If given, will be used to filter the selection of prompts to match the context type"
+        },
+        "instantExecution": {
+          "type": "boolean"
+        },
+        "isFavorite": {
+          "type": "boolean"
+        },
+        "categoryStackCalculated": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "pricing": {
+          "type": "string",
+          "enum": [
+            "bad",
+            "good",
+            "premium",
+            "enterprise",
+            "private"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "description": "To be appended to the generated typescript"
+    },
+    "simplifiedSchema": {
+      "fullComment": "To be appended to the generated typescript",
+      "properties": [
+        {
+          "name": "contextType",
+          "required": false,
+          "schema": {
+            "fullComment": "If given, will be used to filter the selection of prompts to match the context type",
+            "items": [
+              {
+                "schema": {
+                  "enum": [
+                    "code",
+                    "data",
+                    "text"
+                  ],
+                  "fullComment": "",
+                  "type": "string"
+                },
+                "name": "FileType"
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "instantExecution",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isFavorite",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "categoryStackCalculated",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "pricing",
+          "required": false,
+          "schema": {
+            "enum": [
+              "bad",
+              "good",
+              "premium",
+              "enterprise",
+              "private"
+            ],
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "ContextualPromptInfo",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671012351279,
+  "updatedAt": 1671012351279,
+  "deletedAt": 0,
+  "createdFirstAt": 1671012351279,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "FilePromptSelect",
+  "slug": "file-prompt-select",
+  "operationRelativeTypescriptFilePath": "src/FilePromptSelect.tsx",
+  "type": {
+    "rawType": "(props: { items: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPrompt\").ContextualPrompt[] | undefined; contextContent: string; context_projectRelativeFilePath?: string | undefined; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  items: ContextualPrompt[] | undefined;\n  contextContent: string;\n  context_projectRelativeFilePath?: string;\n}) => {\n  const { items, contextContent, context_projectRelativeFilePath } = props;\n\n  const contextSelection = useLastSelection();\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n\n  const selectItems = items?.map((prompt) => {\n    const item: Item<string> = { label: prompt.name, value: prompt.id };\n\n    return item;\n  });\n  const allSelectItems = [{ label: \"Select a prompt\", value: \"\" }].concat(\n    selectItems || []\n  );\n  const [SelectComponent, _, setValue] = useSelect(\n    allSelectItems,\n    undefined,\n    async (selection) => {\n      const id = selection?.value;\n\n      const prompt = items?.find((x) => x.id === id);\n\n      if (!prompt) {\n        alert?.(\"Invalid value\");\n        return;\n      }\n\n      setValue(null);\n\n      processPrompt({\n        contextualPromptSlug: prompt.slug,\n        contextualContent: {\n          contextContent,\n          context_projectRelativeFilePath,\n          contextSelection,\n        },\n        showPromptAlert,\n      });\n    }\n  );\n  return <SelectComponent />;\n}",
+  "description": "Component that shows a selectbox for different prompts that can be applied on this file",
+  "id": "exfjmfiyuwcgqkkaigbynukx"
+}

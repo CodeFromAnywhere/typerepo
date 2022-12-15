@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670589808784,
-  "updatedAt": 1670589808784,
+  "createdAt": 1671105529225,
+  "updatedAt": 1671105529225,
   "deletedAt": 0,
-  "createdFirstAt": 1670589808784,
+  "createdFirstAt": 1671105529225,
   "id": "namedparameterstypeof-getcontextualprompts",
   "name": "NamedParameters<typeof getContextualPrompts>",
   "slug": "namedparameterstypeof-getcontextualprompts",
@@ -23,6 +23,9 @@
         },
         "scopeProjectRelativePath": {
           "type": "string"
+        },
+        "isDev": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false
@@ -47,6 +50,13 @@
           "required": false,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "isDev",
+          "required": false,
+          "schema": {
+            "type": "boolean"
           }
         }
       ],

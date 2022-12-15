@@ -20,3 +20,4 @@ export var renderMarkdownTitle = function (title, level) {
                             : "text-xs";
     return (React.createElement(P, { id: getImplicitId(title), className: levelSize }, title));
 };
+//# sourceMappingURL=renderMarkdownTitle.js.map

@@ -1,0 +1,73 @@
+{
+  "createdAt": 1671098538758,
+  "updatedAt": 1671098538758,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098538758,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/gmailLogin.ts",
+  "commentsInside": [],
+  "rawText": " async (props: GmailLoginPropsType) => {\n  // waiting for email input and set email value\n  const { page, email, password } = props;\n  // setting email address\n  await setInputValue({\n    page,\n    inputValue: email,\n    selector: \"input[type=email]\",\n  });\n\n  // clicking on the next button after email input\n  await clickOnSpanTag({ page, spanText: \"Next\" });\n  await page.setBypassCSP(true);\n  // clicking on the next button after password input\n\n  await page.waitForFunction(\n    `document.querySelector(\"body\").innerText.includes(\"Next\")`\n  );\n\n  // waiting for the password field to load and set the password\n  await setInputValue({\n    page,\n    inputValue: password,\n    selector: \"input[type=password]\",\n  });\n\n  // clicking next button after password entered\n  await clickOnSpanTag({ page, spanText: \"Next\" });\n}",
+  "name": "gmailLogin",
+  "slug": "gmail-login",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "$ref": "#/definitions/GmailLoginPropsType"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Helps to login into gmail account",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 855,
+    "lines": 29,
+    "bytes": 855,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 29,
+    "numberOfFiles": 1
+  },
+  "id": "htgtmpolxcmrqyinouishuld"
+}

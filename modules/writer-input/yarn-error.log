@@ -1,0 +1,284 @@
+Arguments: 
+  /opt/homebrew/Cellar/node/19.2.0/bin/node /opt/homebrew/Cellar/yarn/1.22.19/libexec/bin/yarn.js build
+
+PATH: 
+  /opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Applications/Little Snitch.app/Contents/Components:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/king/King/operations/node_modules/.bin:/Users/king/King/operations/node_modules/.bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  19.2.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  SyntaxError: /Users/king/King/operations/tools/purpose/writer/writer-input/package.json: Expected ',' or '}' after property value in JSON at position 1662
+      at JSON.parse (<anonymous>)
+      at /opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:1629:59
+      at Generator.next (<anonymous>)
+      at step (/opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:310:30)
+      at /opt/homebrew/Cellar/yarn/1.22.19/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "createdAt": 1668328745080,
+    "updatedAt": 1668328745080,
+    "deletedAt": 0,
+    "createdFirstAt": 1668328745080,
+    "id": "cogvbrxlirmddlfvbnrhrdha",
+    "dependencies": {
+      "api": "0.0.1",
+      "breadcrumbs": "0.0.1",
+      "clickable-icon": "0.0.1",
+      "fancy-loader": "0.0.1",
+      "filename-conventions": "0.0.1",
+      "fs-util-js": "0.0.1",
+      "hotkeys": "0.0.0",
+      "js-util": "0.0.1",
+      "key-value-markdown-js": "0.0.1",
+      "labeled-button": "0.0.1",
+      "markdown": "1.0.0",
+      "markdown-parse-js": "0.0.1",
+      "marked": "^4.2.1",
+      "react-with-native": "1.4.9",
+      "react-with-native-store": "2.0.40",
+      "server-api-url": "0.0.1",
+      "simplified-schema-form": "0.0.1",
+      "try-parse-json": "0.0.1",
+      "code-types": "0.0.1",
+      "writer-types": "0.0.1",
+      "react": "*",
+      "augmented-word-types": "0.0.1",
+      "cool-toast": "0.0.0",
+      "asset-functions-js": "0.0.1",
+      "asset-type": "0.0.1",
+      "frontmatter-util": "0.0.1",
+      "markdown-types": "0.0.1",
+      "matter-types": "0.0.1",
+      "short-markdown-types": "0.0.1",
+      "asset-view": "0.0.0",
+      "use-on-screen": "0.0.0",
+      "ai-types": "0.0.1",
+      "react-with-native-alert": "1.0.33",
+      "react-with-native-select": "2.0.7",
+      "share": "1.0.0",
+      "db-crud": "0.0.0",
+      "context-menu": "0.0.0",
+      "react-native": "*",
+      "short-markdown-writer-input": "1.0.0",
+      "prompt-components": "1.0.0"
+    },
+    "devDependencies": {
+      "@types/marked": "^4.0.7",
+      "@types/react": "17.0.30",
+      "@types/react-dom": "^17.0.10",
+      "react": "17.0.2",
+      "react-dom": "17.0.2",
+      "typescript": "^4.8.4"
+    },
+    "main": "./build/esm/index.js",
+    "source":"./src/index.ts"
+    "peerDependencies": {
+      "react": "17.0.2",
+      "react-dom": "17.0.2"
+    },
+    "scripts": {
+      "build": "tsc",
+      "css-watch": "tailwindcss -w -o css.css",
+      "dev": "echo 'not sure if this works' && npx tsc-watch --onSuccess 'yarn css'",
+      "css": "tailwindcss -o css.css"
+    },
+    "version": "1.0.0",
+    "name": "writer-input",
+    "language": "english",
+    "slug": "writer-input",
+    "operation": {
+      "indirectDependencies": [
+        "writer-functions",
+        "ai-functions-node"
+      ],
+      "buildResultIndexed": {
+        "buildSucceeded": true,
+        "indexImportExportError": "",
+        "indexInteracesErrors": [
+          "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-input/src/EditWriterInput.tsx. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+        ],
+        "lintProblems": []
+      },
+      "classificationIndexed": "ui-esm",
+      "coreDependenciesIndexed": [
+        "useState",
+        "useState",
+        "useState",
+        "useEffect",
+        "useEffect",
+        "useRef",
+        "useEffect",
+        "useEffect",
+        "useRef"
+      ],
+      "folderNameIndexed": "writer-input",
+      "hasGeneratedDependenciesIndexed": false,
+      "lastPullTimeAtIndexed": 0,
+      "lastRebuildAt": 1670527834389,
+      "operationDependenciesIndexed": [
+        "api",
+        "queries",
+        "ClickableIcon",
+        "errorToast",
+        "getFileTypeFromPath",
+        "getFileOrFolderName",
+        "FilePromptSelect",
+        "Div",
+        "DbModels",
+        "api",
+        "findAssetParametersRecursively",
+        "BackendAsset",
+        "SimplifiedSchema",
+        "frontmatterToObject",
+        "objectToFrontmatter",
+        "makeArray",
+        "takeFirst",
+        "markdownParseToMarkdownString",
+        "MarkdownParse",
+        "Frontmatter",
+        "SimplifiedSchemaForm",
+        "useReferencableModelData",
+        "Div",
+        "P",
+        "isDev",
+        "MarkdownParse",
+        "renderMarkdownContent",
+        "renderBreadCrumbs",
+        "ClickableIcon",
+        "ClickableIconType",
+        "MappedObject",
+        "AugmentedWord",
+        "flattenMarkdownChunks",
+        "Div",
+        "MarkdownParse",
+        "createStore",
+        "SubtextConfig",
+        "SubwordConfig",
+        "WriterViewEnum",
+        "LabeledButton",
+        "LabeledButtonType",
+        "Div",
+        "P",
+        "WriterType",
+        "MappedObject",
+        "AugmentedWord",
+        "Div",
+        "DbModels",
+        "api",
+        "queries",
+        "AugmentedWord",
+        "DbPage",
+        "FancyLoader",
+        "getWriterType",
+        "WriterType",
+        "getFolderJs",
+        "MappedObject",
+        "MarkdownParseRenderConfig",
+        "mdToJsonParse",
+        "ContextualPromptResultsTab",
+        "isDev",
+        "ShortStudio",
+        "WriterViewEnum",
+        "SubtextConfig",
+        "SubwordConfig",
+        "Div",
+        "SimplifiedSchemaForm",
+        "SimplifiedSchema",
+        "SubtextConfig",
+        "SubwordConfig",
+        "getFolderJs",
+        "MappedObject",
+        "renderMarkdownContent",
+        "AugmentedWord",
+        "Div",
+        "P",
+        "isDev",
+        "notEmpty",
+        "Div",
+        "FinalDivType",
+        "MarkdownParseRenderConfig",
+        "SubtextConfig",
+        "SubwordConfig",
+        "SubtextConfig",
+        "getRealSrc",
+        "MarkdownParseRenderConfig",
+        "SubtextConfig",
+        "SubwordConfig",
+        "Div",
+        "WriterType",
+        "MarkdownParseRenderConfig",
+        "SubtextConfig",
+        "SubwordConfig",
+        "SubtextConfig",
+        "SubwordConfig",
+        "SubtextConfig",
+        "SubwordConfig",
+        "MarkdownParseRenderConfig",
+        "MarkdownParseRenderConfig",
+        "SubtextConfig",
+        "SubwordConfig",
+        "useLastSelection",
+        "useAlert",
+        "useHotkeys",
+        "queries",
+        "getFileTypeFromPath",
+        "useSelectionPromptsMenu",
+        "Div",
+        "WriterType",
+        "tryParseJson"
+      ],
+      "packageDependenciesIndexed": [
+        "MarkdownParseRenderConfig",
+        "renderMarkdownParse",
+        "marked",
+        "marked",
+        "marked",
+        "marked",
+        "marked",
+        "marked"
+      ],
+      "relativeOperationLocationPathIndexed": "operations/tools/purpose/writer",
+      "markdown": "# Writer Input\n\ncomponent to create a writer input\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
+      "sizeIndexed": {
+        "codeSize": {
+          "numberOfFiles": 30,
+          "lines": 2449,
+          "characters": 70582,
+          "bytes": 70582
+        },
+        "dataSize": {
+          "numberOfFiles": 2,
+          "lines": 291,
+          "characters": 7402,
+          "bytes": 7402
+        },
+        "textSize": {
+          "numberOfFiles": 2,
+          "lines": 651,
+          "characters": 19026,
+          "bytes": 19026
+        },
+        "size": {
+          "bytes": 97010,
+          "characters": 97010,
+          "lines": 3391,
+          "numberOfFiles": 34
+        }
+      },
+      "hasGeneratedImportsIndexed": false
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

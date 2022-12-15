@@ -12,3 +12,4 @@ export var renderFrontmatter = function (parameters, config) {
             parameters[key])); })),
         (config === null || config === void 0 ? void 0 : config.renderSpacer) ? React.createElement(P, null, "------------") : null)) : null;
 };
+//# sourceMappingURL=renderFrontMatter.js.map

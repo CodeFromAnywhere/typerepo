@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671101680861,
+  "updatedAt": 1671101680861,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101680861,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/trashFileOrFolder.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root found\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return {\n      isSuccessful: false,\n      message: \"This file or folder doesn't exist\",\n    };\n  }\n  await import(\"trash\").then((trash) => trash.default(absolutePath));\n\n  //await fs.rm(absolutePath, { recursive: true });\n\n  return { isSuccessful: true };\n}",
+  "name": "trashFileOrFolder",
+  "slug": "trash-file-or-folder",
+  "parameters": [
+    {
+      "name": "projectRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "NB: only would work with an ESM module, but I don't have time for this now. Later this could replace `deleteFileOrFolder`",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 726,
+    "lines": 22,
+    "bytes": 726,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 22,
+    "numberOfFiles": 1
+  },
+  "id": "wcjewftfsqkjkelccxslnoqa"
+}

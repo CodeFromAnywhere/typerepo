@@ -1,0 +1,81 @@
+{
+  "createdAt": 1670825455755,
+  "updatedAt": 1670825455755,
+  "deletedAt": 0,
+  "createdFirstAt": 1670825455755,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/test.js"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "name": "chatgpt-controller",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1671097078527,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 4,
+        "lines": 296,
+        "characters": 10230,
+        "bytes": 10230
+      },
+      "dataSize": {
+        "numberOfFiles": 35,
+        "lines": 235,
+        "characters": 55291,
+        "bytes": 55291
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 114,
+        "characters": 1617,
+        "bytes": 1617
+      },
+      "size": {
+        "bytes": 67138,
+        "characters": 67138,
+        "lines": 645,
+        "numberOfFiles": 41
+      }
+    },
+    "folderNameIndexed": "chatgpt-controller",
+    "relativeOperationLocationPathIndexed": "packages/niches/bhagya/doing/control-web",
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "isCaptchaExist",
+      "solveReptcha",
+      "getBrowserSession",
+      "db",
+      "MediaCredential",
+      "openPage"
+    ],
+    "packageDependenciesIndexed": [
+      "Page",
+      "Page"
+    ]
+  },
+  "dependencies": {
+    "clipboardy": "^3.0.0",
+    "database": "0.0.1",
+    "html-to-md": "^0.8.3",
+    "puppeteer": "*",
+    "puppeteer-utils": "1.0.2",
+    "social-media-types": "0.0.1"
+  },
+  "slug": "chatgpt-controller",
+  "id": "xwgqotrxkqssqbtgmmwsaxzq"
+}

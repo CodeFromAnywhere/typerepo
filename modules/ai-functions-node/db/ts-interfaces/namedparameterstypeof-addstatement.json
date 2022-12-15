@@ -1,0 +1,75 @@
+{
+  "createdAt": 1671105496577,
+  "updatedAt": 1671105496577,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105496577,
+  "id": "namedparameterstypeof-addstatement",
+  "name": "NamedParameters<typeof addStatement>",
+  "slug": "namedparameterstypeof-addstatement",
+  "operationRelativeTypescriptFilePath": "src/addStatement.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "statement": {
+          "type": "string",
+          "description": "MUST be an english statement"
+        },
+        "importancy": {
+          "type": "number",
+          "description": "defaults to 0.5"
+        },
+        "agreement": {
+          "type": "number",
+          "description": "defaults to 1"
+        }
+      },
+      "required": [
+        "statement"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "statement",
+          "required": true,
+          "schema": {
+            "fullComment": "MUST be an english statement",
+            "type": "string"
+          }
+        },
+        {
+          "name": "importancy",
+          "required": false,
+          "schema": {
+            "fullComment": "defaults to 0.5",
+            "type": "number"
+          }
+        },
+        {
+          "name": "agreement",
+          "required": false,
+          "schema": {
+            "fullComment": "defaults to 1",
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof addStatement>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "createdAt": 1671098556598,
+  "updatedAt": 1671098556598,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098556598,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/setInnerHtml.ts",
+  "commentsInside": [],
+  "rawText": " async (props: {\n  page: Page;\n  selector: string;\n  value: string;\n}) => {\n  const { page, selector, value } = props;\n  console.log(\"select in fnc\", selector, value);\n  await page.evaluate(\n    ({ value, selector }) => {\n      const h3Element: ElementType | null = document.querySelector(\n        `${selector}`\n      );\n      if (h3Element) {\n        h3Element.click?.();\n        h3Element.focus?.();\n        h3Element.innerHTML = value;\n      }\n    },\n    { value, selector }\n  );\n}",
+  "name": "setInnerHtml",
+  "slug": "set-inner-html",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "$ref": "#/definitions/Page"
+          },
+          "selector": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page",
+          "selector",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "selector",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Help to set the html element on the provided selector",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 537,
+    "lines": 21,
+    "bytes": 537,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "ukikzkvbxhqnwsrhtzggrmqi"
+}

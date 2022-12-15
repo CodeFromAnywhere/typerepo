@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671104680221,
+  "updatedAt": 1671104680221,
+  "deletedAt": 0,
+  "createdFirstAt": 1671104680221,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/storage.native.ts",
+  "commentsInside": [],
+  "rawText": " (key: string) => {\n  return undefined;\n}",
+  "name": "getItemSync",
+  "slug": "get-item-sync",
+  "parameters": [
+    {
+      "name": "key",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "undefined",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 41,
+    "lines": 3,
+    "bytes": 41,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 14,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "qjpcxiwpoydfqtwawqfvxmrc"
+}

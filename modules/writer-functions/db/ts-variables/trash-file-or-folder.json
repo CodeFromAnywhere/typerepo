@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671101681143,
+  "updatedAt": 1671101681143,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101681143,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "trashFileOrFolder",
+  "slug": "trash-file-or-folder",
+  "operationRelativeTypescriptFilePath": "src/trashFileOrFolder.ts",
+  "type": {
+    "rawType": "(projectRelativePath: string) => Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root found\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return {\n      isSuccessful: false,\n      message: \"This file or folder doesn't exist\",\n    };\n  }\n  await import(\"trash\").then((trash) => trash.default(absolutePath));\n\n  //await fs.rm(absolutePath, { recursive: true });\n\n  return { isSuccessful: true };\n}",
+  "description": "NB: only would work with an ESM module, but I don't have time for this now. Later this could replace `deleteFileOrFolder`",
+  "id": "rkbpsxmalragftoadctahmgv"
+}

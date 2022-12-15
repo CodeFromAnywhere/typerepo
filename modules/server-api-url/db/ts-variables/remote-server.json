@@ -1,0 +1,41 @@
+{
+  "createdAt": 1671104801257,
+  "updatedAt": 1671104801257,
+  "deletedAt": 0,
+  "createdFirstAt": 1671104801257,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "remoteServer",
+  "slug": "remote-server",
+  "operationRelativeTypescriptFilePath": "src/apiUrl.ts",
+  "type": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "type": "string",
+      "allOf": [
+        {
+          "transform": [
+            "trim"
+          ]
+        },
+        {
+          "minLength": 1
+        }
+      ]
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "string"
+    }
+  },
+  "value": "process.env.NEXT_PUBLIC_API_URL || publicEnvironmentVariables.remoteServer",
+  "description": "NEEDED FOR MULTI DEPLOYMENTS (passionfruit)",
+  "id": "pxujbqtjroiyupdrglkunbcq"
+}

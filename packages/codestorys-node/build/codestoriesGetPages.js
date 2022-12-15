@@ -1,2 +1,105 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((function(o,i){function a(e){try{u(n.next(e))}catch(e){i(e)}}function l(e){try{u(n.throw(e))}catch(e){i(e)}}function u(e){var t;e.done?o(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(a,l)}u((n=n.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,n,o,i,a={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return i={next:l(0),throw:l(1),return:l(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function l(i){return function(l){return function(i){if(r)throw new TypeError("Generator is already executing.");for(;a;)try{if(r=1,n&&(o=2&i[0]?n.return:i[0]?n.throw||((o=n.return)&&o.call(n),0):n.next)&&!(o=o.call(n,i[1])).done)return o;switch(n=0,o&&(i=[2&i[0],o.value]),i[0]){case 0:case 1:o=i;break;case 4:return a.label++,{value:i[1],done:!1};case 5:a.label++,n=i[1],i=[0];continue;case 7:i=a.ops.pop(),a.trys.pop();continue;default:if(!(o=a.trys,(o=o.length>0&&o[o.length-1])||6!==i[0]&&2!==i[0])){a=0;continue}if(3===i[0]&&(!o||i[1]>o[0]&&i[1]<o[3])){a.label=i[1];break}if(6===i[0]&&a.label<o[1]){a.label=o[1],o=i;break}if(o&&a.label<o[2]){a.label=o[2],a.ops.push(i);break}o[2]&&a.ops.pop(),a.trys.pop();continue}i=t.call(e,a)}catch(e){i=[6,e],n=0}finally{r=o=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,l])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.codestoriesGetPages=void 0;var explore_project_1=require("explore-project"),get_path_1=require("get-path"),js_util_1=require("js-util"),fs_util_1=require("fs-util"),read_markdown_file_1=require("read-markdown-file"),codestoriesGetPages=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,r,n,o;return __generator(this,(function(i){switch(i.label){case 0:return(t=(null==e?void 0:e.manualProjectRoot)||(0,get_path_1.getProjectRoot)())?[4/*yield*/,(0,explore_project_1.getProjectRelativePaths)()]:[2/*return*/];case 1:return r=i.sent(),n=(null==r?void 0:r.filter((function(e){return e.endsWith(".codestory.md")})))||[],[4/*yield*/,Promise.all(n.map((function(e){return __awaiter(void 0,void 0,void 0,(function(){var r,n,o,i,a,l;return __generator(this,(function(u){switch(u.label){case 0:return r=fs_util_1.path.join(t,e),n=[],fs_util_1.fs.existsSync(r)?[4/*yield*/,(0,read_markdown_file_1.readMarkdownFileToModel)(r,"codestorys-web",n)]:[3/*break*/,2];case 1:return i=u.sent(),[3/*break*/,3];case 2:i=null,u.label=3;case 3:return(o=i)?[2/*return*/,{pageData:{projectRelativeFilePath:e,imagePath:(null===(a=o.headerImage)||void 0===a?void 0:a.absoluteUrl)||(null===(l=o.headerImage)||void 0===l?void 0:l.relativePath)||null,shortDescription:(null==o?void 0:o.headerSubTitle)||null,introDescription:null==o?void 0:o.markdown},queryPath:e.replaceAll("/","-"),isMenuHidden:!1,menuTitle:(null==o?void 0:o.headerTitle)||(null==o?void 0:o.name)||fs_util_1.path.parse(e).name}]:[2/*return*/]}}))}))})))];case 2:return o=i.sent().filter(js_util_1.notEmpty),[2/*return*/,o.filter((0,js_util_1.onlyUnique2)((function(e,t){return e.queryPath===t.queryPath})))]}}))}))};exports.codestoriesGetPages=codestoriesGetPages;
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.codestoriesGetPages = void 0;
+var explore_project_1 = require("explore-project");
+var get_path_1 = require("get-path");
+var js_util_1 = require("js-util");
+// relative
+var fs_util_1 = require("fs-util");
+var read_markdown_file_1 = require("read-markdown-file");
+var codestoriesGetPages = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var projectRoot, projectRelativePaths, codestoriesPaths, pages, filteredPages;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                projectRoot = (config === null || config === void 0 ? void 0 : config.manualProjectRoot) || (0, get_path_1.getProjectRoot)();
+                if (!projectRoot)
+                    return [2 /*return*/];
+                return [4 /*yield*/, (0, explore_project_1.getProjectRelativePaths)()];
+            case 1:
+                projectRelativePaths = _a.sent();
+                codestoriesPaths = (projectRelativePaths === null || projectRelativePaths === void 0 ? void 0 : projectRelativePaths.filter(function (x) { return x.endsWith(".codestory.md"); })) || [];
+                return [4 /*yield*/, Promise.all(codestoriesPaths.map(function (projectRelativeFilePath) { return __awaiter(void 0, void 0, void 0, function () {
+                        var absolutePath, markdownCallToActions, webMarkdownFile, _a, readerWebPage;
+                        var _b, _c;
+                        return __generator(this, function (_d) {
+                            switch (_d.label) {
+                                case 0:
+                                    absolutePath = fs_util_1.path.join(projectRoot, projectRelativeFilePath);
+                                    markdownCallToActions = [];
+                                    if (!fs_util_1.fs.existsSync(absolutePath)) return [3 /*break*/, 2];
+                                    return [4 /*yield*/, (0, read_markdown_file_1.readMarkdownFileToModel)(absolutePath, "codestorys-web", markdownCallToActions)];
+                                case 1:
+                                    _a = _d.sent();
+                                    return [3 /*break*/, 3];
+                                case 2:
+                                    _a = null;
+                                    _d.label = 3;
+                                case 3:
+                                    webMarkdownFile = _a;
+                                    if (!webMarkdownFile)
+                                        return [2 /*return*/];
+                                    readerWebPage = {
+                                        pageData: {
+                                            projectRelativeFilePath: projectRelativeFilePath,
+                                            imagePath: ((_b = webMarkdownFile.headerImage) === null || _b === void 0 ? void 0 : _b.absoluteUrl) ||
+                                                ((_c = webMarkdownFile.headerImage) === null || _c === void 0 ? void 0 : _c.relativePath) ||
+                                                null,
+                                            shortDescription: (webMarkdownFile === null || webMarkdownFile === void 0 ? void 0 : webMarkdownFile.headerSubTitle) || null,
+                                            introDescription: webMarkdownFile === null || webMarkdownFile === void 0 ? void 0 : webMarkdownFile.markdown,
+                                        },
+                                        queryPath: projectRelativeFilePath.replaceAll("/", "-"),
+                                        isMenuHidden: false,
+                                        menuTitle: (webMarkdownFile === null || webMarkdownFile === void 0 ? void 0 : webMarkdownFile.headerTitle) ||
+                                            (webMarkdownFile === null || webMarkdownFile === void 0 ? void 0 : webMarkdownFile.name) ||
+                                            fs_util_1.path.parse(projectRelativeFilePath).name,
+                                    };
+                                    return [2 /*return*/, readerWebPage];
+                            }
+                        });
+                    }); }))];
+            case 2:
+                pages = (_a.sent()).filter(js_util_1.notEmpty);
+                filteredPages = pages.filter((0, js_util_1.onlyUnique2)(function (a, b) { return a.queryPath === b.queryPath; }));
+                return [2 /*return*/, filteredPages];
+        }
+    });
+}); };
+exports.codestoriesGetPages = codestoriesGetPages;
 //# sourceMappingURL=codestoriesGetPages.js.map

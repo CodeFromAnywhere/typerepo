@@ -22,4 +22,19 @@ export declare type GetStaticPathsResult<P extends ParsedUrlQuery = ParsedUrlQue
     }>;
     fallback: boolean | "blocking";
 };
+export declare type Redirect = {
+    statusCode: 301 | 302 | 303 | 307 | 308;
+    destination: string;
+    basePath?: false;
+} | {
+    permanent: boolean;
+    destination: string;
+    basePath?: false;
+};
+export declare type GetStaticPropsResult<P> = {
+    props?: P;
+    revalidate?: number | boolean;
+    redirect?: Redirect;
+    notFound?: true;
+};
 //# sourceMappingURL=types.d.ts.map

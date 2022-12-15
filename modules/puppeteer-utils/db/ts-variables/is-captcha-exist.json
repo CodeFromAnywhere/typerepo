@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098540882,
+  "updatedAt": 1671098540882,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098540882,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "isCaptchaExist",
+  "slug": "is-captcha-exist",
+  "operationRelativeTypescriptFilePath": "src/isCaptchaExist.ts",
+  "type": {
+    "rawType": "(page: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Page) => Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").FindRecaptchasResult>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  page: Page\n): Promise<FindRecaptchasResult> => {\n  let recaptchaResult = await page.findRecaptchas();\n  return recaptchaResult;\n}",
+  "description": "",
+  "id": "vrqsrntkwwyyhwtuaoqfiope"
+}

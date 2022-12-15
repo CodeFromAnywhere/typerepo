@@ -14,3 +14,4 @@ export var SpannedSentence = function (props) {
     });
     return React.createElement(React.Fragment, null, wordSpans);
 };
+//# sourceMappingURL=SpannedSentence.js.map

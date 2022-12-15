@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528325269,
-  "updatedAt": 1670528325269,
+  "createdAt": 1670747350961,
+  "updatedAt": 1670747350961,
   "deletedAt": 0,
-  "createdFirstAt": 1670528325269,
+  "createdFirstAt": 1670747350961,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "server.router.post(\n  `/function/:functionName`,\n  async (serverContext) => {\n    const functionName = serverContext.params?.functionName;\n\n    if (\n      !functionName ||\n      !functionApiKeys.includes(functionName) ||\n      isGetEndpoint(functionName)\n    ) {\n      return {\n        success: false,\n        message: `Endpoint not found: POST /function/${functionName}`,\n      };\n    }\n\n    const parameters: any[] | undefined = serverContext.data?.parameters;\n\n    const result = await executeFunctionWithParameters(\n      functionName as keyof typeof sdk,\n      parameters,\n      serverContext\n    );\n\n    return result;\n  }\n)",
   "description": "routes to post and execute operation functions",
-  "id": "vxlongfwjkqtnngdzwiobmun"
+  "id": "tewiwvorhtlthrvubrawqtmh"
 }

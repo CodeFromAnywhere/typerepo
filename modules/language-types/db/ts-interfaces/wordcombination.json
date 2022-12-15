@@ -1,12 +1,12 @@
 {
-  "createdAt": 1670527876736,
-  "updatedAt": 1670527876736,
+  "createdAt": 1670923171857,
+  "updatedAt": 1670923171857,
   "deletedAt": 0,
-  "createdFirstAt": 1670527876736,
+  "createdFirstAt": 1670923171857,
   "id": "wordcombination",
   "name": "WordCombination",
   "slug": "wordcombination",
-  "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
+  "operationRelativeTypescriptFilePath": "src/WordCombination.ts",
   "hasGeneric": false,
   "isExported": true,
   "rawText": "\n\n/**\n * Best way to combine words if you don't want to specify all language specific info for a new word. You can refer to words from the WordMatrix instead!\n */\nexport interface WordCombination extends SlugModelType, WordInfo {\n  /**\n   * Should be autofilled based on the combination of the base words\n   */\n  name: string;\n  /**\n   * Should be auto filled in based on the combination of the base words\n   */\n  slug: string;\n  /**\n   * Which words is this a combination of?\n   */\n  wordMatrixSlugs?: Slug[];\n}",
@@ -106,17 +106,13 @@
         "createdAt",
         "createdFirstAt",
         "deletedAt",
-        "description",
-        "descriptionAudio",
         "id",
         "language",
         "name",
         "operationName",
         "projectRelativePath",
         "slug",
-        "updatedAt",
-        "wordCategorySlugs",
-        "wordCategorys"
+        "updatedAt"
       ],
       "additionalProperties": false,
       "description": "Best way to combine words if you don't want to specify all language specific info for a new word. You can refer to words from the WordMatrix instead!"
@@ -142,7 +138,7 @@
         },
         {
           "name": "description",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Definition of the word (in english)\n\na string that is known to contain markdown.",
             "type": "string"
@@ -150,7 +146,7 @@
         },
         {
           "name": "descriptionAudio",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Part of the asset that should be sent to the backend. The rest should frontend-only\n\nSome values are stored, some are not",
             "properties": [
@@ -284,7 +280,7 @@
         },
         {
           "name": "wordCategorySlugs",
-          "required": true,
+          "required": false,
           "schema": {
             "items": [
               {

@@ -1,0 +1,24 @@
+{
+  "createdAt": 1671105316558,
+  "updatedAt": 1671105316558,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105316558,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "languageModels",
+  "slug": "language-models",
+  "operationRelativeTypescriptFilePath": "src/ContextualPrompt.ts",
+  "type": {
+    "rawType": "readonly [\"chat-gpt\", \"stable-diffusion-2\"]",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "value": "[\"chat-gpt\", \"stable-diffusion-2\"] as const",
+  "description": "",
+  "id": "etasvdwvkrfpziwbesdwshis"
+}

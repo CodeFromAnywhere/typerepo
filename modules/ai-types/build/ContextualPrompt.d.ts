@@ -1,5 +1,20 @@
 import { SlugModelType } from "model-types";
 import { FileType } from "filename-conventions";
+export declare const languageModels: readonly ["chat-gpt", "stable-diffusion-2"];
+export declare type LanguageModel = typeof languageModels[number];
+/**
+ * To be appended to the generated typescript
+ */
+export declare type ContextualPromptInfo = {
+    /**
+     * If given, will be used to filter the selection of prompts to match the context type
+     */
+    contextType?: FileType[];
+    instantExecution?: boolean;
+    isFavorite?: boolean;
+    categoryStackCalculated?: string[];
+    pricing?: "bad" | "good" | "premium" | "enterprise" | "private";
+};
 /**
  * ---
  * dbStorageMethod: jsonSingle
@@ -7,13 +22,17 @@ import { FileType } from "filename-conventions";
  *
  * Model for prompting information from third party sources
  */
-export interface ContextualPrompt extends SlugModelType {
+export interface ContextualPrompt extends SlugModelType, ContextualPromptInfo {
     /**
-     * descriptive name of the prompt
+     * descriptive name of what the prompt does, the same way as you would name a function.
+     *
+     * Used to generate the name of the function
      */
     name: string;
     /**
-     * What the question is that this prompt is answering, short version (without context)
+     * Short description of the function.
+     *
+     * Used to be added to as a doc-comment when generating a function for the prompt
      */
     title?: string;
     /**
@@ -22,6 +41,10 @@ export interface ContextualPrompt extends SlugModelType {
      * Never stored! Is found based on the location of the file in your file system
      */
     scopeProjectRelativePath?: string;
+    /**
+     * Which models can this be applied on?
+     */
+    model?: LanguageModel | LanguageModel[];
     /**
      * Only prompt is stored (string)
      */
@@ -54,12 +77,5 @@ export interface ContextualPrompt extends SlugModelType {
      * If true, will return this prompt in any context prompt, as selection results because it can use any of them as its variable. It will use the smallest one available.
      */
     usesAnyContext?: boolean;
-    /**
-     * If given, will be used to filter the selection of prompts to match the context type
-     */
-    contextType?: FileType;
-    instantExecution?: boolean;
-    isFavorite?: boolean;
-    categoryStackCalculated?: string[];
 }
 //# sourceMappingURL=ContextualPrompt.d.ts.map

@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671105564340,
+  "updatedAt": 1671105564340,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105564340,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/removeAllFake.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  basePath?: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  console.log(\"removing all fake\");\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"no projectroot\" };\n  }\n\n  const absoluteBasePath = basePath\n    ? path.join(projectRoot, basePath)\n    : projectRoot;\n\n  console.log({ absoluteBasePath });\n\n  const absolutePaths = (\n    await explore({\n      basePath: absoluteBasePath,\n      exact: true,\n      search: \"prompt-results.json\",\n      searchLevel: \"fileName\",\n    })\n  ).map((x) => x.path);\n\n  const filtered = await mapMany(\n    absolutePaths,\n    async (absolutePath) => {\n      // remove items with isFake\n\n      const json = await readJsonFile<ContextualPromptResult[]>(absolutePath);\n\n      if (!json) return false;\n\n      const newJson = json.filter((item) => item.isFake !== true);\n\n      if (newJson.length === json.length) return false;\n\n      const writeResult = await writeJsonToFile(absolutePath, newJson);\n\n      return writeResult;\n    },\n    100\n  );\n\n  console.log({ filtered: filtered });\n  return { isSuccessful: true };\n}",
+  "name": "removeAllFake",
+  "slug": "remove-all-fake",
+  "parameters": [
+    {
+      "name": "basePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1136,
+    "lines": 47,
+    "bytes": 1136,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 47,
+    "numberOfFiles": 1
+  },
+  "id": "iarvvqvhhpihncepyrmsvcwj"
+}

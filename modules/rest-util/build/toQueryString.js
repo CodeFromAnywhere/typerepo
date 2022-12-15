@@ -1,5 +1,24 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.toQueryString=void 0;var isValidEntry_1=require("./isValidEntry"),toQueryString=function(t){var r;return t&&(null===(r=Object.entries(t))||void 0===r?void 0:r.filter(isValidEntry_1.isValidEntry).length)>0?"?"+Object.entries(t).filter(isValidEntry_1.isValidEntry).map((function(t){var r=t[0],e=t[1],i=encodeURIComponent(String(e));return"".concat(r,"=").concat(i)})).join("&"):""};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.toQueryString = void 0;
+var isValidEntry_1 = require("./isValidEntry");
 /**
  * returns something like `?x=a&y=b&z=c`
- */exports.toQueryString=toQueryString;
+ */
+var toQueryString = function (query) {
+    var _a;
+    var hasQuery = query && ((_a = Object.entries(query)) === null || _a === void 0 ? void 0 : _a.filter(isValidEntry_1.isValidEntry).length) > 0;
+    return hasQuery
+        ? "?" +
+            Object.entries(query)
+                .filter(isValidEntry_1.isValidEntry)
+                .map(function (_a) {
+                var key = _a[0], value = _a[1];
+                var encodedValue = encodeURIComponent(String(value));
+                return "".concat(key, "=").concat(encodedValue);
+            })
+                .join("&")
+        : "";
+};
+exports.toQueryString = toQueryString;
 //# sourceMappingURL=toQueryString.js.map

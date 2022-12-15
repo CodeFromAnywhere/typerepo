@@ -1,0 +1,83 @@
+{
+  "createdAt": 1671098563471,
+  "updatedAt": 1671098563471,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098563471,
+  "id": "namedparameterstypeof-trueclick",
+  "name": "NamedParameters<typeof trueClick>",
+  "slug": "namedparameterstypeof-trueclick",
+  "operationRelativeTypescriptFilePath": "src/trueClick.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "$ref": "#/definitions/Page",
+              "description": "the page element from puppeteer got with browser.pages"
+            },
+            "selector": {
+              "type": "string",
+              "description": "the css selector to click"
+            }
+          },
+          "required": [
+            "page",
+            "selector"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "page",
+                "required": true,
+                "schema": {
+                  "fullComment": "the page element from puppeteer got with browser.pages\n\nPage provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "selector",
+                "required": true,
+                "schema": {
+                  "fullComment": "the css selector to click",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof trueClick>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

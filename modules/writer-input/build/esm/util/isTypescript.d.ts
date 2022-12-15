@@ -4,3 +4,4 @@ only detect typescript if the string starts with `import`. must be improved late
 
  */
 export declare const isTypescript: (text: string) => boolean;
+//# sourceMappingURL=isTypescript.d.ts.map

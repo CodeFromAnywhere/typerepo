@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670589803997,
-  "updatedAt": 1670589803997,
+  "createdAt": 1671105520170,
+  "updatedAt": 1671105520170,
   "deletedAt": 0,
-  "createdFirstAt": 1670589803997,
+  "createdFirstAt": 1671105520170,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getContextualPrompt.ts",
   "commentsInside": [],
-  "rawText": " async (\n  contextualPromptSlug: string | undefined,\n  customPromptContent: string | null,\n  saveNewPromptWithName: string | null\n): Promise<(Creation<ContextualPrompt> & { slug: string }) | undefined> => {\n  if (contextualPromptSlug) {\n    const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n    const contextualPrompt = contextualPrompts.find(\n      (x) => x.slug === contextualPromptSlug\n    );\n\n    if (!contextualPrompt) {\n      return undefined;\n    }\n\n    return contextualPrompt;\n  }\n\n  if (!customPromptContent || customPromptContent.length === 0) {\n    return undefined;\n  }\n\n  const isNew = saveNewPromptWithName && saveNewPromptWithName.length > 0;\n\n  const name = isNew ? saveNewPromptWithName : generateId();\n  const newContextualPrompt: Creation<ContextualPrompt> & { slug: string } = {\n    name,\n    slug: slugify(name),\n    promptContent: customPromptContent,\n  };\n\n  if (isNew) {\n    await db.upsert(\"ContextualPrompt\", newContextualPrompt);\n  }\n\n  return newContextualPrompt;\n}",
+  "rawText": " async (\n  contextualPromptSlug: string | undefined,\n  customPromptContent: string | undefined,\n  saveNewPromptWithName: string | null\n): Promise<(Creation<ContextualPrompt> & { slug: string }) | undefined> => {\n  if (contextualPromptSlug) {\n    const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n    const contextualPrompt = contextualPrompts.find(\n      (x) => x.slug === contextualPromptSlug\n    );\n\n    if (!contextualPrompt) {\n      return undefined;\n    }\n\n    return contextualPrompt;\n  }\n\n  if (!customPromptContent || customPromptContent.length === 0) {\n    return undefined;\n  }\n\n  const isNew = saveNewPromptWithName && saveNewPromptWithName.length > 0;\n\n  const name = isNew ? saveNewPromptWithName : generateId();\n  const newContextualPrompt: Creation<ContextualPrompt> & { slug: string } = {\n    name,\n    slug: slugify(name),\n    promptContent: customPromptContent,\n  };\n\n  if (isNew) {\n    await db.upsert(\"ContextualPrompt\", newContextualPrompt);\n  }\n\n  return newContextualPrompt;\n}",
   "name": "getContextualPrompt",
   "slug": "get-contextual-prompt",
   "parameters": [
@@ -25,15 +25,12 @@
     {
       "name": "customPromptContent",
       "schema": {
-        "type": [
-          "string",
-          "null"
-        ]
+        "type": "string"
       },
       "simplifiedSchema": {
         "type": "string"
       },
-      "required": true
+      "required": false
     },
     {
       "name": "saveNewPromptWithName",
@@ -61,13 +58,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 1005,
+    "characters": 1010,
     "lines": 38,
-    "bytes": 1005,
+    "bytes": 1010,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
+    "charactersPerLine": 27,
     "linesPerFile": 38,
     "numberOfFiles": 1
   },
-  "id": "opojwkelwhnymzawelitncga"
+  "id": "xlpwmidthpthgzvnjdkdlmdw"
 }

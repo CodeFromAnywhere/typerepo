@@ -1,6 +1,26 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var r,t=1,i=arguments.length;t<i;t++)for(var a in r=arguments[t])Object.prototype.hasOwnProperty.call(r,a)&&(e[a]=r[a]);return e},__assign.apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0}),exports.SimplifiedSchemaFormDebug=void 0;var jsx_runtime_1=require("react/jsx-runtime"),react_1=require("react"),react_with_native_1=require("react-with-native"),ui_util_1=require("ui-util"),markdown_1=require("markdown"),SimplifiedSchemaFormDebug=function(e){var r=e.parameters,t=e.values,i=(0,react_1.useState)(!1),a=i[0],n=i[1];return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,jsx_runtime_1.jsx)(react_with_native_1.P,{children:"values"}),(0,markdown_1.renderMarkdownContent)((0,ui_util_1.createCodeblockMarkdown)(JSON.stringify(t,null,2),"json"),
-// NB: since there won't be any assets in here, it doesn't matter where the md is made
-{projectRelativeBaseFolderPath:"",projectRelativeMarkdownFilePath:""}),(0,jsx_runtime_1.jsx)(react_with_native_1.P,__assign({className:"hover:underline cursor-pointer",onClick:function(){return n(!a)}},{children:"params (toggle)"}))," ",a?(0,markdown_1.renderMarkdownContent)((0,ui_util_1.createCodeblockMarkdown)(JSON.stringify(r,null,2),"json"),
-// NB: since there won't be any assets in here, it doesn't matter where the md is made
-{projectRelativeBaseFolderPath:"",projectRelativeMarkdownFilePath:""}):null]})};exports.SimplifiedSchemaFormDebug=SimplifiedSchemaFormDebug;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SimplifiedSchemaFormDebug = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var react_1 = require("react");
+var react_with_native_1 = require("react-with-native");
+var ui_util_1 = require("ui-util");
+var markdown_1 = require("markdown");
+var SimplifiedSchemaFormDebug = function (_a) {
+    var parameters = _a.parameters, values = _a.values;
+    var _b = (0, react_1.useState)(false), showParams = _b[0], setShowParams = _b[1];
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [(0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "values" }), (0, jsx_runtime_1.jsx)(markdown_1.MarkdownContent, { content: (0, ui_util_1.createCodeblockMarkdown)(JSON.stringify(values, null, 2), "json"), config: {} }), (0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "hover:underline cursor-pointer", onClick: function () { return setShowParams(!showParams); } }, { children: "params (toggle)" })), " ", showParams ? ((0, jsx_runtime_1.jsx)(markdown_1.MarkdownContent, { content: (0, ui_util_1.createCodeblockMarkdown)(JSON.stringify(parameters, null, 2), "json"), config: {} })) : null] }));
+};
+exports.SimplifiedSchemaFormDebug = SimplifiedSchemaFormDebug;
 //# sourceMappingURL=SimplifiedSchemaFormDebug.js.map

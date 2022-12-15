@@ -6,3 +6,4 @@ import { Frontmatter } from "matter-types";
 export declare const renderFrontmatter: (parameters: Frontmatter, config?: {
     renderSpacer?: boolean;
 }) => JSX.Element | null;
+//# sourceMappingURL=renderFrontMatter.d.ts.map

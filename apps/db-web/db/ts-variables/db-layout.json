@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670218608707,
-  "updatedAt": 1670218608707,
+  "createdAt": 1670747306000,
+  "updatedAt": 1670747306000,
   "deletedAt": 0,
-  "createdFirstAt": 1670218608707,
+  "createdFirstAt": 1670747306000,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: { pageProps: any; nextPage: any }) => {\n  const items = [\n    { label: \"🪺 Nested\", value: \"nested\" },\n    { label: \"⚡️ Operaton-based\", value: \"operation\" },\n    { label: \"👩‍🌾 Flat\", value: \"flat\" },\n  ];\n  const [SelectMenu, menuType] = useSelect(items, items[0]);\n\n  const dbMenuQuery = queries.useGetNestedDatabaseMenu({\n    noOperationName: menuType?.value === \"flat\",\n    noOperationPath: menuType?.value !== \"nested\",\n    noSrcRelativeFolder: menuType?.value !== \"nested\",\n    noPrefix: true,\n  });\n\n  const { flat, nested } = destructureOptionalObject(dbMenuQuery.data?.result);\n\n  const { nextPage, pageProps } = props;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        // NB: passionfruit wants this xD just make a layoutconfig in the PublicBundleConfig, or make it editable per user (later)\n        menuPosition: \"left\",\n        menuHeader: () => {\n          return <SelectMenu />;\n        },\n        isLoading: dbMenuQuery.isLoading,\n        webPagesFlat: flat,\n        webPagesNested: nested,\n      }}\n      // other\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
   "description": "",
-  "id": "coozepimjscbdbisztxxfjnv"
+  "id": "dqzpytztqyfzpvehvapljzzp"
 }

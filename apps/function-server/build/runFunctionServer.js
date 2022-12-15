@@ -50,12 +50,15 @@ var child_process_helper_1 = require("child-process-helper");
 var log_1 = require("log");
 var pm2_util_1 = require("pm2-util");
 var scheduleCronJobs_1 = require("./scheduleCronJobs");
+var dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
 /**
  * runs sdk api server using "server" package.
  *
  * server will be exposed on port 42000
  */
 var runFunctionServer = function (isWatching, isRestart) {
+    var _a;
     var header = server_1.default.reply.header;
     (0, pm2_util_1.startApp)("search-web", true).then(function (result) {
         if (!(result === null || result === void 0 ? void 0 : result.isSuccessful)) {
@@ -98,12 +101,15 @@ var runFunctionServer = function (isWatching, isRestart) {
         function () { return header("Access-Control-Allow-Credentials", "true"); },
         function (ctx) { return (ctx.method.toLowerCase() === "options" ? 200 : false); },
     ];
+    var port = ((_a = process.env) === null || _a === void 0 ? void 0 : _a.port)
+        ? Number(process.env.port)
+        : port_conventions_1.ports["function-server"];
     var projectRoot = (0, get_path_1.getProjectRoot)();
     var projectPublicFolder = projectRoot
         ? fs_util_1.path.join(projectRoot, "public")
         : fs_util_1.path.join(__dirname, "..", "public");
     var serverOptions = {
-        port: port_conventions_1.ports["function-server"],
+        port: port,
         public: projectPublicFolder,
         security: { csrf: false },
         parser: {
@@ -130,7 +136,7 @@ var runFunctionServer = function (isWatching, isRestart) {
                     (0, watch_all_1.watchAll)();
                 }
             }
-            console.log("Running on port ".concat(port_conventions_1.ports["function-server"], ". All node functions are now available through /function/[name] or through the \"api\" object..."));
+            console.log("Running on port ".concat(port, ". All node functions are now available through /function/[name] or through the \"api\" object..."));
             return [2 /*return*/];
         });
     }); });

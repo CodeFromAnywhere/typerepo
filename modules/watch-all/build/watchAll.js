@@ -1,6 +1,123 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,n,r){return new(n||(n=Promise))((function(o,a){function i(e){try{c(r.next(e))}catch(e){a(e)}}function u(e){try{c(r.throw(e))}catch(e){a(e)}}function c(e){var t;e.done?o(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,u)}c((r=r.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,r,o,a,i={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function u(a){return function(u){return function(a){if(n)throw new TypeError("Generator is already executing.");for(;i;)try{if(n=1,r&&(o=2&a[0]?r.return:a[0]?r.throw||((o=r.return)&&o.call(r),0):r.next)&&!(o=o.call(r,a[1])).done)return o;switch(r=0,o&&(a=[2&a[0],o.value]),a[0]){case 0:case 1:o=a;break;case 4:return i.label++,{value:a[1],done:!1};case 5:i.label++,r=a[1],a=[0];continue;case 7:a=i.ops.pop(),i.trys.pop();continue;default:if(!(o=i.trys,(o=o.length>0&&o[o.length-1])||6!==a[0]&&2!==a[0])){i=0;continue}if(3===a[0]&&(!o||a[1]>o[0]&&a[1]<o[3])){i.label=a[1];break}if(6===a[0]&&i.label<o[1]){i.label=o[1],o=a;break}if(o&&i.label<o[2]){i.label=o[2],i.ops.push(a);break}o[2]&&i.ops.pop(),i.trys.pop();continue}a=t.call(e,i)}catch(e){a=[6,e],r=0}finally{n=o=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,u])}}},__importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.watchAll=void 0;var chokidar_1=require("chokidar"),log_1=require("log"),fs_1=__importDefault(require("fs")),graceful_fs_1=__importDefault(require("graceful-fs")),get_path_1=require("get-path"),sdk_api_1=require("sdk-api"),database_1=require("database"),js_util_1=require("js-util"),one_by_one_1=require("one-by-one"),watchAll=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,n,r,o,a;return __generator(this,(function(i){switch(i.label){case 0:return(t=(0,get_path_1.getProjectRoot)())?(
-// NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)
-graceful_fs_1.default.gracefulify(fs_1.default),console.log("Searching..."),[4/*yield*/,database_1.db.get("TsFunction")]):[2/*return*/];case 1:return n=i.sent(),r=n.filter((function(e){return"ProjectWatcher"===e.explicitTypeName})),o=r.map((function(e){return e.name})).map((function(e){return sdk_api_1.sdk[e]})).filter(js_util_1.notEmpty),(0,log_1.log)("".concat(o.length," watchers gonna watch ").concat(t),{type:"important"}),1e3,setTimeout((function(){(0,log_1.log)("There they are! \n\n".concat(o.map((function(e){return"👁 👁 ".concat(e.name," ✅")})).join("\n")),{type:"success"})}),1e3),a=Date.now(),(0,chokidar_1.watch)(t,{ignoreInitial:!0,ignored:(null==e?void 0:e.customIgnored)||["**/node_modules/**","**/.next/**","**/.expo/**",
-// "**/build/**", // build change detection is needed for SDK generation
-"**/db/**","**/.git/**","**/.turbo/**","**/generated/**"]}).on("all",(function(e,t,n){if(!(Date.now()<a+1e3)){var r=o.filter((function(n){return n.filter(e,t)}));(0,one_by_one_1.oneByOne)(r,(function(n){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(r){switch(r.label){case 0:return[4/*yield*/,n(e,t)];case 1:return r.sent(),[2/*return*/]}}))}))}))}})),[2/*return*/]}}))}))};exports.watchAll=watchAll;
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.watchAll = void 0;
+var chokidar_1 = require("chokidar");
+var log_1 = require("log");
+var fs_1 = __importDefault(require("fs"));
+var graceful_fs_1 = __importDefault(require("graceful-fs"));
+var get_path_1 = require("get-path");
+var sdk_api_1 = require("sdk-api");
+var database_1 = require("database");
+var js_util_1 = require("js-util");
+var one_by_one_1 = require("one-by-one");
+/**
+ * 👁 👁 Finds all watchers within typerepo and ensures they all start watching their watch
+ */
+var watchAll = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var projectRoot, tsFunctions, projectWatcherTsFunctions, projectWatchers, startupWaitMs, startTimeAt;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                projectRoot = (0, get_path_1.getProjectRoot)();
+                if (!projectRoot)
+                    return [2 /*return*/];
+                // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)
+                graceful_fs_1.default.gracefulify(fs_1.default);
+                console.log("Searching..."); //
+                return [4 /*yield*/, database_1.db.get("TsFunction")];
+            case 1:
+                tsFunctions = _a.sent();
+                projectWatcherTsFunctions = tsFunctions.filter(function (x) { return x.explicitTypeName === "ProjectWatcher"; });
+                projectWatchers = projectWatcherTsFunctions
+                    .map(function (x) { return x.name; })
+                    .map(function (name) { return sdk_api_1.sdk[name]; })
+                    .filter(js_util_1.notEmpty);
+                (0, log_1.log)("".concat(projectWatchers.length, " watchers gonna watch ").concat(projectRoot), {
+                    type: "important",
+                });
+                startupWaitMs = 1000;
+                setTimeout(function () {
+                    (0, log_1.log)("There they are! \n\n".concat(projectWatchers
+                        .map(function (projectWatcher) {
+                        return "\uD83D\uDC41 \uD83D\uDC41 ".concat(projectWatcher.name, " \u2705");
+                    })
+                        .join("\n")), {
+                        type: "success",
+                    });
+                }, startupWaitMs);
+                startTimeAt = Date.now();
+                (0, chokidar_1.watch)(projectRoot, {
+                    ignoreInitial: true,
+                    ignored: (config === null || config === void 0 ? void 0 : config.customIgnored) || [
+                        "**/node_modules/**",
+                        "**/.next/**",
+                        "**/.expo/**",
+                        // "**/build/**", // build change detection is needed for SDK generation
+                        "**/db/**",
+                        "**/.git/**",
+                        "**/.turbo/**",
+                        "**/generated/**",
+                    ],
+                    // alwaysStat: true, // not sure why I would need this, seems inefficient if I don't need it, I can simply run fs.stat
+                }).on("all", function (eventName, path, stats) {
+                    if (Date.now() < startTimeAt + startupWaitMs)
+                        return;
+                    var relevantWatchers = projectWatchers.filter(function (watcher) {
+                        return watcher.filter(eventName, path);
+                    });
+                    (0, one_by_one_1.oneByOne)(relevantWatchers, function (projectWatcher) { return __awaiter(void 0, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0: return [4 /*yield*/, projectWatcher(eventName, path)];
+                                case 1:
+                                    _a.sent();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); });
+                });
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.watchAll = watchAll;
 //# sourceMappingURL=watchAll.js.map

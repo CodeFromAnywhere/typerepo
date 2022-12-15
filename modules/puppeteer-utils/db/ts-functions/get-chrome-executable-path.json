@@ -1,0 +1,55 @@
+{
+  "createdAt": 1671098534475,
+  "updatedAt": 1671098534475,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098534475,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getChromeExecutablePath.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  if (platform() === \"linux\") {\n    return \"/usr/bin/google-chrome-stable\";\n  } else {\n    return \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\";\n    // return \"/usr/local/bin/chromium\";\n  }\n}",
+  "name": "getChromeExecutablePath",
+  "slug": "get-chrome-executable-path",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "\"/usr/bin/google-chrome-stable\" | \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"",
+    "typeDefinition": {
+      "optional": false,
+      "enum": [
+        "/usr/bin/google-chrome-stable",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      ],
+      "x-enumNames": [
+        "/usr/bin/google-chrome-stable",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "enum": [
+        "/usr/bin/google-chrome-stable",
+        "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+      ],
+      "type": "string"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 217,
+    "lines": 8,
+    "bytes": 217,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "ngaifjmpgppctelpwpquneja"
+}

@@ -1,12 +1,102 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,n=1,i=arguments.length;n<i;n++)for(var r in t=arguments[n])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,t,n,i){return new(n||(n=Promise))((function(r,a){function o(e){try{u(i.next(e))}catch(e){a(e)}}function s(e){try{u(i.throw(e))}catch(e){a(e)}}function u(e){var t;e.done?r(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(o,s)}u((i=i.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,i,r,a,o={label:0,sent:function(){if(1&r[0])throw r[1];return r[1]},trys:[],ops:[]};return a={next:s(0),throw:s(1),return:s(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function s(a){return function(s){return function(a){if(n)throw new TypeError("Generator is already executing.");for(;o;)try{if(n=1,i&&(r=2&a[0]?i.return:a[0]?i.throw||((r=i.return)&&r.call(i),0):i.next)&&!(r=r.call(i,a[1])).done)return r;switch(i=0,r&&(a=[2&a[0],r.value]),a[0]){case 0:case 1:r=a;break;case 4:return o.label++,{value:a[1],done:!1};case 5:o.label++,i=a[1],a=[0];continue;case 7:a=o.ops.pop(),o.trys.pop();continue;default:if(!(r=o.trys,(r=r.length>0&&r[r.length-1])||6!==a[0]&&2!==a[0])){o=0;continue}if(3===a[0]&&(!r||a[1]>r[0]&&a[1]<r[3])){o.label=a[1];break}if(6===a[0]&&o.label<r[1]){o.label=r[1],r=a;break}if(r&&o.label<r[2]){o.label=r[2],o.ops.push(a);break}r[2]&&o.ops.pop(),o.trys.pop();continue}a=t.call(e,o)}catch(e){a=[6,e],i=0}finally{n=r=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,s])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.addDeviceAuthenticationMethodConfirm=void 0;var database_1=require("database"),addDeviceAuthenticationMethodConfirm=function(
-/** device id */
-e,t,
-/** one time password */
-n){return __awaiter(void 0,void 0,void 0,(function(){var i,r,a,o,s;return __generator(this,(function(u){switch(u.label){case 0:return[4/*yield*/,database_1.db.get("Device")];case 1:return(i=u.sent().find((function(t){return t.id===e})))?(null==(r=i.authenticationMethods.find((function(e){return e.method===t})))?void 0:r.isAuthenticated)?[2/*return*/,{isSuccessful:!1,message:"You already authenticated with this method, please delete it first before you add another one."}]:r?["email","phoneNumber"].includes(t)?(a=n===r.otp)?(o=__assign(__assign({},r),{otp:void 0,isAuthenticated:!0}),s=i.authenticationMethods.map((function(e){return e.method===t&&e.otp===n?o:e})),[4/*yield*/,database_1.db.update("Device",(function(t){return t.id===e}),(function(e){return __assign(__assign({},e),{authenticationMethods:s})}))]):[3/*break*/,3]:[3/*break*/,4]:[2/*return*/,{isSuccessful:!1,message:"Can't find method"}]:[2/*return*/,{isSuccessful:!1,message:"Couldn't find device"}];case 2:u.sent(),u.label=3;case 3:return[2/*return*/,{isSuccessful:a,message:a?"Successful":"Incorrect code"}];case 4:return[2/*return*/]}}))}))};
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.addDeviceAuthenticationMethodConfirm = void 0;
+var database_1 = require("database");
 /** adds an `authenticatedMethod` to `Device` after the OTP is correct
  *
  * For now, only handles methods `phoneNumber` and `email`
  *
  * TODO: extrahere the core into `addAuthenticationMethodConfirm` and use it in this one and make also `addPersonAuthenticationMethodConfirm`
- */exports.addDeviceAuthenticationMethodConfirm=addDeviceAuthenticationMethodConfirm;
+ */
+var addDeviceAuthenticationMethodConfirm = function (
+/** device id */
+deviceId, method, 
+/** one time password */
+otp) { return __awaiter(void 0, void 0, void 0, function () {
+    var device, authenticatedMethod, isSuccessful, newAuthenticatedMethod_1, newauthenticationMethods_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, database_1.db.get("Device")];
+            case 1:
+                device = (_a.sent()).find(function (x) { return x.id === deviceId; });
+                if (!device) {
+                    return [2 /*return*/, { isSuccessful: false, message: "Couldn't find device" }];
+                }
+                authenticatedMethod = device.authenticationMethods.find(function (m) { return m.method === method; });
+                if (authenticatedMethod === null || authenticatedMethod === void 0 ? void 0 : authenticatedMethod.isAuthenticated) {
+                    return [2 /*return*/, {
+                            isSuccessful: false,
+                            message: "You already authenticated with this method, please delete it first before you add another one.",
+                        }];
+                }
+                if (!authenticatedMethod) {
+                    return [2 /*return*/, { isSuccessful: false, message: "Can't find method" }];
+                }
+                if (!["email", "phoneNumber"].includes(method)) return [3 /*break*/, 4];
+                isSuccessful = otp === authenticatedMethod.otp;
+                if (!isSuccessful) return [3 /*break*/, 3];
+                newAuthenticatedMethod_1 = __assign(__assign({}, authenticatedMethod), { otp: undefined, isAuthenticated: true });
+                newauthenticationMethods_1 = device.authenticationMethods.map(function (x) {
+                    return x.method === method && x.otp === otp ? newAuthenticatedMethod_1 : x;
+                });
+                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.id === deviceId; }, function (old) { return (__assign(__assign({}, old), { authenticationMethods: newauthenticationMethods_1 })); })];
+            case 2:
+                _a.sent();
+                _a.label = 3;
+            case 3: return [2 /*return*/, {
+                    isSuccessful: isSuccessful,
+                    message: isSuccessful ? "Successful" : "Incorrect code",
+                }];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
+exports.addDeviceAuthenticationMethodConfirm = addDeviceAuthenticationMethodConfirm;
 //# sourceMappingURL=confirmAuthenticationMethod.js.map

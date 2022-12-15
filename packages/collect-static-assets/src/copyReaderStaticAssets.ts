@@ -1,8 +1,9 @@
 import { fs, path } from "fs-util";
-import { getProjectRoot, makeRelative } from "get-path";
+import { getProjectRoot } from "get-path";
 import { ReaderWebPage, WebPage } from "webpage-types";
 import { copyCopyPairs } from "./copyCopyPairs";
 import { findReaderStaticAssets } from "./findReaderStaticAssets";
+import { makeRelative } from "fs-util-js";
 
 export const copyReaderStaticAssets = async (
   operationBasePath: string,

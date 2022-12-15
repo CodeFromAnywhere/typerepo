@@ -1,15 +1,15 @@
 {
-  "createdAt": 1670527876735,
-  "updatedAt": 1670527876735,
+  "createdAt": 1670923178670,
+  "updatedAt": 1670923178670,
   "deletedAt": 0,
-  "createdFirstAt": 1670527876735,
+  "createdFirstAt": 1670923178670,
   "id": "wordinfo",
   "name": "WordInfo",
   "slug": "wordinfo",
   "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type WordInfo = {\n  /**\n   * Unique name of the word in English. Can usually be the word itself...\n   */\n  name: string;\n  slug: Slug;\n  /**\n   * Definition of the word (in english)\n   */\n  description: Markdown;\n  descriptionAudio: BackendAsset;\n\n  image?: BackendAsset;\n\n  wordCategorySlugs: Slug[];\n  wordCategorys: WordCategory[];\n\n  type?: WordType;\n};",
+  "rawText": "\n\nexport type WordInfo = {\n  /**\n   * Unique name of the word in English. Can usually be the word itself...\n   */\n  name: string;\n  slug: Slug;\n  /**\n   * Definition of the word (in english)\n   */\n  description?: Markdown;\n  descriptionAudio?: BackendAsset;\n\n  image?: BackendAsset;\n\n  wordCategorySlugs?: Slug[];\n  wordCategorys?: WordCategory[];\n\n  type?: WordType;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -54,11 +54,7 @@
       },
       "required": [
         "name",
-        "slug",
-        "description",
-        "descriptionAudio",
-        "wordCategorySlugs",
-        "wordCategorys"
+        "slug"
       ],
       "additionalProperties": false
     },
@@ -82,7 +78,7 @@
         },
         {
           "name": "description",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Definition of the word (in english)\n\na string that is known to contain markdown.",
             "type": "string"
@@ -90,7 +86,7 @@
         },
         {
           "name": "descriptionAudio",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "Part of the asset that should be sent to the backend. The rest should frontend-only\n\nSome values are stored, some are not",
             "properties": [
@@ -224,7 +220,7 @@
         },
         {
           "name": "wordCategorySlugs",
-          "required": true,
+          "required": false,
           "schema": {
             "items": [
               {

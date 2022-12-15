@@ -12,3 +12,4 @@ export declare const useStore: <K_1 extends "subtextConfig" | "writerView" | "su
 }[K_1]>, StoreProvider: ({ children }: {
     children: any;
 }) => JSX.Element;
+//# sourceMappingURL=store.d.ts.map

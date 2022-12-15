@@ -3,7 +3,10 @@ var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.useStore = exports.StoreProvider = exports.apiStoreInitialValues = void 0;
 var react_with_native_store_1 = require("react-with-native-store");
-exports.apiStoreInitialValues = { "api.authToken": "" };
+exports.apiStoreInitialValues = {
+    "api.authToken": "",
+    "api.customUrl": null,
+};
 /**
  * This is only needed if api storage is ALL you need.
  */

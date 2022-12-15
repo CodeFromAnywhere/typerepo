@@ -1,10 +1,50 @@
+import { addStatement } from "ai-functions-node";
+import { addWord } from "ai-functions-node";
+import { augmentMarkdown } from "ai-functions-node";
+import { biggestFunctionName } from "ai-functions-node";
+import { canSeeFileContent } from "ai-functions-node";
+import { canSeeFile } from "ai-functions-node";
+import { cleanup } from "ai-functions-node";
+import { controlChatGptWrapper } from "ai-functions-node";
 import { controlChatGpt } from "ai-functions-node";
+import { convertTo1337speak } from "ai-functions-node";
+import { developersQuote } from "ai-functions-node";
+import { diaryToInstagram } from "ai-functions-node";
+import { documentationWriting } from "ai-functions-node";
+import { emojiAugmentation } from "ai-functions-node";
+import { expandFrontmatter } from "ai-functions-node";
+import { explainInDutch } from "ai-functions-node";
+import { explainInNepali } from "ai-functions-node";
+import { explainInPortuguese } from "ai-functions-node";
+import { explain } from "ai-functions-node";
+import { fixGrammarAndSpellingMistakes } from "ai-functions-node";
 import { getContextualPromptResults } from "ai-functions-node";
 import { getContextualPrompt } from "ai-functions-node";
 import { getContextualPromptsArray } from "ai-functions-node";
 import { getContextualPrompts } from "ai-functions-node";
 import { getFolderRelativeScopeDbFilePath } from "ai-functions-node";
+import { getReaderPageProps } from "ai-functions-node";
+import { haiku } from "ai-functions-node";
+import { improveCode } from "ai-functions-node";
+import { keywords } from "ai-functions-node";
+import { makeMarkdownLink } from "ai-functions-node";
+import { marcusAurelius } from "ai-functions-node";
+import { poem } from "ai-functions-node";
 import { processChatGptPrompt } from "ai-functions-node";
+import { rickAndMortyRick } from "ai-functions-node";
+import { rickAndMorty } from "ai-functions-node";
+import { socratesAndSnoopDogg } from "ai-functions-node";
+import { storytelling } from "ai-functions-node";
+import { translateEverythingIntoHindi } from "ai-functions-node";
+import { translateEverythingPortuguese } from "ai-functions-node";
+import { translateEverything } from "ai-functions-node";
+import { translateToPortuguese } from "ai-functions-node";
+import { typescriptExplain } from "ai-functions-node";
+import { williamShakespear } from "ai-functions-node";
+import { writeContextualPromptSdk } from "ai-functions-node";
+import { writeCreatePromptCode } from "ai-functions-node";
+import { ye } from "ai-functions-node";
+import { yodafy } from "ai-functions-node";
 import { compressAsset } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
@@ -25,6 +65,7 @@ import { getFileOrFolderName } from "fs-util-js";
 import { getFolderJs } from "fs-util-js";
 import { getSubExtension } from "fs-util-js";
 import { isPathRelative } from "fs-util-js";
+import { makeRelative } from "fs-util-js";
 import { removeTrailingSlash } from "fs-util-js";
 import { withoutExtension } from "fs-util-js";
 import { getAssociatedMd } from "get-associated-md";
@@ -107,6 +148,7 @@ import { brigtnessZero } from "brightness";
 import { decreaseBrightness } from "brightness";
 import { increaseBrightness } from "brightness";
 import { macosSetup } from "clean-macos-setup";
+import { fileExplorerOpen } from "file-explorer-open";
 import { playMusic } from "play-music";
 import { generateRecurringReminders } from "reminders";
 import { remindMeAboutNextMinute } from "reminders";
@@ -378,6 +420,29 @@ import { getBundleAugmentedWords } from "augmented-word-node";
 import { codestoriesGetPages } from "codestorys-node";
 import { codestoriesGetStaticPaths } from "codestorys-node";
 import { codestoriesGetStaticProps } from "codestorys-node";
+import { copyStaticAssets } from "markdown-reader-functions";
+import { docsGetPages } from "markdown-reader-functions";
+import { docsGetStaticPaths } from "markdown-reader-functions";
+import { docsGetStaticProps } from "markdown-reader-functions";
+import { getAllMarkdownReaderPages } from "markdown-reader-functions";
+import { getChildren } from "markdown-reader-functions";
+import { getFolderExplorationInfo } from "markdown-reader-functions";
+import { getMarkdownModelPages } from "markdown-reader-functions";
+import { getMarkdownPageInfo } from "markdown-reader-functions";
+import { getMarkdownReaderPages } from "markdown-reader-functions";
+import { getMarkdownReaderQueryPaths } from "markdown-reader-functions";
+import { getOperationPages } from "markdown-reader-functions";
+import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
+import { getReaderTodoPages } from "markdown-reader-functions";
+import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
+import { markdownReaderGetStaticPropsFromPages } from "markdown-reader-functions";
+import { markdownReaderGetStaticProps } from "markdown-reader-functions";
+import { putReadmeOnTop } from "markdown-reader-functions";
+import { removeExtensionsFromPath } from "markdown-reader-functions";
+import { removeNumberPrefix } from "markdown-reader-functions";
+import { shouldExposeMarkdownFile } from "markdown-reader-functions";
+import { stripReadmeFromFolder } from "markdown-reader-functions";
+import { getQueryPath } from "markdown-reader-functions-js";
 import { addPeerMessage } from "peer-functions";
 import { addPeer } from "peer-functions";
 import { augmentDevice } from "peer-functions";
@@ -404,16 +469,19 @@ import { youtubeToPlayItem } from "play-import-node";
 import { getDayNumber } from "reminder-node";
 import { remindMe } from "reminder-node";
 import { getPostableFrontmatterSchema } from "social-media-functions";
+import { copyPath } from "writer-functions";
+import { deleteFileOrFolder } from "writer-functions";
 import { getFileContents } from "writer-functions";
 import { getFrontmatterSchema } from "writer-functions";
 import { getWriterWebPagesMenu } from "writer-functions";
 import { getWriterWebPages } from "writer-functions";
-import { moveFile } from "writer-functions";
+import { movePath } from "writer-functions";
 import { newFile } from "writer-functions";
 import { newFolder } from "writer-functions";
 import { processAssetUpload } from "writer-functions";
-import { renameFilename } from "writer-functions";
+import { renameFileOrFolder } from "writer-functions";
 import { saveFileContents } from "writer-functions";
+import { trashFileOrFolder } from "writer-functions";
 import { getLight } from "get-light";
 import { getLocation } from "get-location";
 import { fetchWithTimeout } from "is-online";
@@ -742,7 +810,6 @@ import { isBundle } from "get-path";
 import { isOperation } from "get-path";
 import { isUiOperation } from "get-path";
 import { isWorkspaceRoot } from "get-path";
-import { makeRelative } from "get-path";
 import { packageCompilesTs } from "get-path";
 import { tsconfigCompilesEsm } from "get-path";
 import { getDependenciesSummary } from "operation-util";
@@ -799,6 +866,8 @@ import { getFirstQueryStrings } from "rest-util";
 import { getQueryPart } from "rest-util";
 import { isValidEntry } from "rest-util";
 import { toQueryString } from "rest-util";
+import { MatchingText } from "file-search";
+import { PathSearchResults } from "file-search";
 import { findSentenceMatches } from "search";
 import { searchRecursiveObjectArray } from "search";
 import { frontmatterParseToString } from "frontmatter-util";
@@ -862,13 +931,30 @@ import { getGetApiUrl } from "api";
 import { untypedApiFunction } from "api";
 import { makeArraysGetEndpoint } from "endpoint-util";
 import { makeGetEndpoint } from "endpoint-util";
+import { converse } from "function-util";
+import { executeSdkFunction } from "function-util";
+import { getCachedExportedFunctions } from "function-util";
+import { getMenu } from "function-util";
+import { getSdkFunctionPaths } from "function-util";
 import { objectStringToJson } from "string-to-json";
 import { parseIfJson } from "string-to-json";
 import { parsePrimitiveJson } from "string-to-json";
 import { stringToJson } from "string-to-json";
+import { BreadCrumbs } from "breadcrumbs";
+import { renderBreadCrumbs } from "breadcrumbs";
+import { ClickableIcon } from "clickable-icon";
+import { errorToast } from "cool-toast";
+import { infoToast } from "cool-toast";
+import { showStandardResponse } from "cool-toast";
+import { successToast } from "cool-toast";
+import { warningToast } from "cool-toast";
+import { FancyLoader } from "fancy-loader";
+import { getFileType } from "file-icons";
+import { LabeledButton } from "labeled-button";
 import { getFullPath } from "next-paths";
 import { getLastPathsChunk } from "next-paths";
 import { usePath } from "next-paths";
+import { Tooltip } from "tooltip";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
 import { getKeysAtPathFromNestedObject } from "recursive-util";
@@ -960,13 +1046,53 @@ import { typeInTheInputField } from "puppeteer-utils";
 import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
 import { waitMilliseconds } from "puppeteer-utils";
 
-export const sdk = { controlChatGpt,
+export const sdk = { addStatement,
+addWord,
+augmentMarkdown,
+biggestFunctionName,
+canSeeFileContent,
+canSeeFile,
+cleanup,
+controlChatGptWrapper,
+controlChatGpt,
+convertTo1337speak,
+developersQuote,
+diaryToInstagram,
+documentationWriting,
+emojiAugmentation,
+expandFrontmatter,
+explainInDutch,
+explainInNepali,
+explainInPortuguese,
+explain,
+fixGrammarAndSpellingMistakes,
 getContextualPromptResults,
 getContextualPrompt,
 getContextualPromptsArray,
 getContextualPrompts,
 getFolderRelativeScopeDbFilePath,
+getReaderPageProps,
+haiku,
+improveCode,
+keywords,
+makeMarkdownLink,
+marcusAurelius,
+poem,
 processChatGptPrompt,
+rickAndMortyRick,
+rickAndMorty,
+socratesAndSnoopDogg,
+storytelling,
+translateEverythingIntoHindi,
+translateEverythingPortuguese,
+translateEverything,
+translateToPortuguese,
+typescriptExplain,
+williamShakespear,
+writeContextualPromptSdk,
+writeCreatePromptCode,
+ye,
+yodafy,
 compressAsset,
 deleteReferencedAsset,
 downloadRemoteAsset,
@@ -987,6 +1113,7 @@ getFileOrFolderName,
 getFolderJs,
 getSubExtension,
 isPathRelative,
+makeRelative,
 removeTrailingSlash,
 withoutExtension,
 getAssociatedMd,
@@ -1069,6 +1196,7 @@ brigtnessZero,
 decreaseBrightness,
 increaseBrightness,
 macosSetup,
+fileExplorerOpen,
 playMusic,
 generateRecurringReminders,
 remindMeAboutNextMinute,
@@ -1340,6 +1468,29 @@ getBundleAugmentedWords,
 codestoriesGetPages,
 codestoriesGetStaticPaths,
 codestoriesGetStaticProps,
+copyStaticAssets,
+docsGetPages,
+docsGetStaticPaths,
+docsGetStaticProps,
+getAllMarkdownReaderPages,
+getChildren,
+getFolderExplorationInfo,
+getMarkdownModelPages,
+getMarkdownPageInfo,
+getMarkdownReaderPages,
+getMarkdownReaderQueryPaths,
+getOperationPages,
+getPublicMarkdownFilePaths,
+getReaderTodoPages,
+markdownReaderGetStaticPaths,
+markdownReaderGetStaticPropsFromPages,
+markdownReaderGetStaticProps,
+putReadmeOnTop,
+removeExtensionsFromPath,
+removeNumberPrefix,
+shouldExposeMarkdownFile,
+stripReadmeFromFolder,
+getQueryPath,
 addPeerMessage,
 addPeer,
 augmentDevice,
@@ -1366,16 +1517,19 @@ youtubeToPlayItem,
 getDayNumber,
 remindMe,
 getPostableFrontmatterSchema,
+copyPath,
+deleteFileOrFolder,
 getFileContents,
 getFrontmatterSchema,
 getWriterWebPagesMenu,
 getWriterWebPages,
-moveFile,
+movePath,
 newFile,
 newFolder,
 processAssetUpload,
-renameFilename,
+renameFileOrFolder,
 saveFileContents,
+trashFileOrFolder,
 getLight,
 getLocation,
 fetchWithTimeout,
@@ -1704,7 +1858,6 @@ isBundle,
 isOperation,
 isUiOperation,
 isWorkspaceRoot,
-makeRelative,
 packageCompilesTs,
 tsconfigCompilesEsm,
 getDependenciesSummary,
@@ -1761,6 +1914,8 @@ getFirstQueryStrings,
 getQueryPart,
 isValidEntry,
 toQueryString,
+MatchingText,
+PathSearchResults,
 findSentenceMatches,
 searchRecursiveObjectArray,
 frontmatterParseToString,
@@ -1824,13 +1979,30 @@ getGetApiUrl,
 untypedApiFunction,
 makeArraysGetEndpoint,
 makeGetEndpoint,
+converse,
+executeSdkFunction,
+getCachedExportedFunctions,
+getMenu,
+getSdkFunctionPaths,
 objectStringToJson,
 parseIfJson,
 parsePrimitiveJson,
 stringToJson,
+BreadCrumbs,
+renderBreadCrumbs,
+ClickableIcon,
+errorToast,
+infoToast,
+showStandardResponse,
+successToast,
+warningToast,
+FancyLoader,
+getFileType,
+LabeledButton,
 getFullPath,
 getLastPathsChunk,
 usePath,
+Tooltip,
 createCodeblockMarkdown,
 useCustomUrlStore,
 getKeysAtPathFromNestedObject,

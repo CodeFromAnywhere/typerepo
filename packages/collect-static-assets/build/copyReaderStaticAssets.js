@@ -1,8 +1,101 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(t){for(var e,n=1,r=arguments.length;n<r;n++)for(var a in e=arguments[n])Object.prototype.hasOwnProperty.call(e,a)&&(t[a]=e[a]);return t},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(t,e,n,r){return new(n||(n=Promise))((function(a,i){function s(t){try{u(r.next(t))}catch(t){i(t)}}function o(t){try{u(r.throw(t))}catch(t){i(t)}}function u(t){var e;t.done?a(t.value):(e=t.value,e instanceof n?e:new n((function(t){t(e)}))).then(s,o)}u((r=r.apply(t,e||[])).next())}))},__generator=this&&this.__generator||function(t,e){var n,r,a,i,s={label:0,sent:function(){if(1&a[0])throw a[1];return a[1]},trys:[],ops:[]};return i={next:o(0),throw:o(1),return:o(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function o(i){return function(o){return function(i){if(n)throw new TypeError("Generator is already executing.");for(;s;)try{if(n=1,r&&(a=2&i[0]?r.return:i[0]?r.throw||((a=r.return)&&a.call(r),0):r.next)&&!(a=a.call(r,i[1])).done)return a;switch(r=0,a&&(i=[2&i[0],a.value]),i[0]){case 0:case 1:a=i;break;case 4:return s.label++,{value:i[1],done:!1};case 5:s.label++,r=i[1],i=[0];continue;case 7:i=s.ops.pop(),s.trys.pop();continue;default:if(!(a=s.trys,(a=a.length>0&&a[a.length-1])||6!==i[0]&&2!==i[0])){s=0;continue}if(3===i[0]&&(!a||i[1]>a[0]&&i[1]<a[3])){s.label=i[1];break}if(6===i[0]&&s.label<a[1]){s.label=a[1],a=i;break}if(a&&s.label<a[2]){s.label=a[2],s.ops.push(i);break}a[2]&&s.ops.pop(),s.trys.pop();continue}i=e.call(t,s)}catch(t){i=[6,t],r=0}finally{n=a=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,o])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.copyReaderStaticAssets=void 0;var fs_util_1=require("fs-util"),get_path_1=require("get-path"),copyCopyPairs_1=require("./copyCopyPairs"),findReaderStaticAssets_1=require("./findReaderStaticAssets"),copyReaderStaticAssets=function(t,
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.copyReaderStaticAssets = void 0;
+var fs_util_1 = require("fs-util");
+var get_path_1 = require("get-path");
+var copyCopyPairs_1 = require("./copyCopyPairs");
+var findReaderStaticAssets_1 = require("./findReaderStaticAssets");
+var copyReaderStaticAssets = function (operationBasePath, 
 /**
  * non-reader webPages will be filtered out by checking if the projectRelativeFilePath exists on pageData and has the extension .md
  */
-e){return __awaiter(void 0,void 0,void 0,(function(){var n,r,a,i,s;return __generator(this,(function(o){switch(o.label){case 0:return(n=(0,get_path_1.getProjectRoot)())?(r=fs_util_1.path.join(t,"public","markdown-assets"),fs_util_1.fs.existsSync(r)?[4/*yield*/,fs_util_1.fs.rm(r,{recursive:!0})]:[3/*break*/,2]):[2/*return*/];case 1:
-//first clean up if it was generated before
-o.sent(),o.label=2;case 2:return a=e.map((function(t){return __assign(__assign({},t),{pageData:t.pageData})})).filter((function(t){var e,n;return null===(n=null===(e=t.pageData)||void 0===e?void 0:e.projectRelativeFilePath)||void 0===n?void 0:n.endsWith(".md")})).filter((function(t){var e;return fs_util_1.fs.existsSync(fs_util_1.path.join(n,null===(e=t.pageData)||void 0===e?void 0:e.projectRelativeFilePath))})).map((function(t){return t})),console.log({readerPagesThatExist:a.length}),[4/*yield*/,(0,findReaderStaticAssets_1.findReaderStaticAssets)(a)];case 3:return i=o.sent()||[],console.log({foundAssetsThatExist:i.length}),s=i.map((function(t){var e=(0,get_path_1.makeRelative)(t,n);return{absoluteSourcePath:t,absoluteDestinationPath:fs_util_1.path.join(r,e)}})),[4/*yield*/,(0,copyCopyPairs_1.copyCopyPairs)(s)];case 4:return o.sent(),console.log("Copied ".concat(s.length," files into your public folder")),[2/*return*/]}}))}))};exports.copyReaderStaticAssets=copyReaderStaticAssets;
+allWebPages) { return __awaiter(void 0, void 0, void 0, function () {
+    var projectRoot, baseDestinationPath, readerWebPages, absoluteAssetPaths, copyPairs;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                projectRoot = (0, get_path_1.getProjectRoot)();
+                if (!projectRoot)
+                    return [2 /*return*/];
+                baseDestinationPath = fs_util_1.path.join(operationBasePath, "public", "markdown-assets");
+                if (!fs_util_1.fs.existsSync(baseDestinationPath)) return [3 /*break*/, 2];
+                //first clean up if it was generated before
+                return [4 /*yield*/, fs_util_1.fs.rm(baseDestinationPath, { recursive: true })];
+            case 1:
+                //first clean up if it was generated before
+                _a.sent();
+                _a.label = 2;
+            case 2:
+                readerWebPages = allWebPages
+                    .map(function (x) { return (__assign(__assign({}, x), { pageData: x.pageData })); })
+                    // filter out the WebPages that don't have a filePath ending on .md
+                    .filter(function (x) { var _a, _b; return (_b = (_a = x.pageData) === null || _a === void 0 ? void 0 : _a.projectRelativeFilePath) === null || _b === void 0 ? void 0 : _b.endsWith(".md"); })
+                    .filter(function (x) { var _a; return fs_util_1.fs.existsSync(fs_util_1.path.join(projectRoot, (_a = x.pageData) === null || _a === void 0 ? void 0 : _a.projectRelativeFilePath)); })
+                    .map(function (x) { return x; });
+                console.log({ readerPagesThatExist: readerWebPages.length });
+                return [4 /*yield*/, (0, findReaderStaticAssets_1.findReaderStaticAssets)(readerWebPages)];
+            case 3:
+                absoluteAssetPaths = (_a.sent()) || [];
+                console.log({ foundAssetsThatExist: absoluteAssetPaths.length });
+                copyPairs = absoluteAssetPaths.map(function (absoluteAssetPath) {
+                    var projectRelativeAssetPath = (0, get_path_1.makeRelative)(absoluteAssetPath, projectRoot);
+                    var absoluteDestinationPath = fs_util_1.path.join(baseDestinationPath, projectRelativeAssetPath);
+                    return { absoluteSourcePath: absoluteAssetPath, absoluteDestinationPath: absoluteDestinationPath };
+                });
+                return [4 /*yield*/, (0, copyCopyPairs_1.copyCopyPairs)(copyPairs)];
+            case 4:
+                _a.sent();
+                console.log("Copied ".concat(copyPairs.length, " files into your public folder"));
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.copyReaderStaticAssets = copyReaderStaticAssets;
 //# sourceMappingURL=copyReaderStaticAssets.js.map

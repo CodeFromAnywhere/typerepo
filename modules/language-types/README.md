@@ -42,11 +42,164 @@ Properties:
 
 
 
+## 🔸 Statement
+
+jsonSingle model
+
+
+
+
+Statement model:
+
+Motivation:
+
+- create a database of the belief system of one or multiple entities (Person, Algorithm, species, etc.)
+- use this belief system for fact-checking, differentiative checking, value checking, and more.
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| description  | string |  |
+| url (optional) | string |  |
+| author_personId (optional) | string |  |
+| agreement (optional) | number |  |
+| readersAgreement (optional) | number |  |
+| readersAgreementVotedCount (optional) | number |  |
+| importancy (optional) | number |  |
+| isImportancySet (optional) | boolean |  |
+| wordMatrixSlugs (optional) | array |  |
+
+
+
+## 🔸 WordCombination
+
+jsonMultiple model
+
+
+
+Best way to combine words if you don't want to specify all language specific info for a new word. You can refer to words from the WordMatrix instead!
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| name  | string |  |
+| slug  | string |  |
+| description (optional) | string |  |
+| descriptionAudio (optional) | object |  |
+| image (optional) | object |  |
+| wordCategorySlugs (optional) | array |  |
+| type (optional) | string |  |
+| language  | string |  |
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| wordMatrixSlugs (optional) | array |  |
+
+
+
+## 🔸 WordMatrix
+
+jsonMultiple model
+
+
+
+
+WordMatrix is a matrix that contains as much information about a word as possible in as many languages as possible. Easy to use for 1:1 translation
+
+@see Language
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| slug  | string |  |
+| name  | string |  |
+| language  | string |  |
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStackCalculated (optional) | array |  |
+| priorityLevel (optional) | string |  |
+| rank (optional) | number |  |
+| usageCountCalculated (optional) | number |  |
+| conjucations (optional) | array |  |
+| root_wordMatrixSlug (optional) | string | If the word is a certain conjugation of a root word, this should be a reference to the root word |
+| root_word (optional) | object |  |
+| opposite_wordMatrixSlug (optional) | string | If there's another word that's the complete opposite of this one, you can declare it here |
+| common_wordMatrixSlug (optional) | string | f the word is a synonym to a more common word, this should be a reference to the more common synonym. This is a 1:1 synonym only |
+| tokiPona_wordMatrixSlugs (optional) | array | The closest way to express this word in toki pona terms. |
+| emoji_wordMatrixSlugs (optional) | array |  |
+| emoji (optional) | string | Single emoji describing this word 1:1 (if it are more emojis of multiple words, please use the reference instead) |
+| description (optional) | string |  |
+| descriptionAudio (optional) | object |  |
+| image (optional) | object |  |
+| wordCategorySlugs (optional) | array |  |
+| type (optional) | string |  |
+| english (optional) | object |  |
+| dutch (optional) | object |  |
+| nepali (optional) | object |  |
+| portuguese (optional) | object |  |
+| brazilian (optional) | object |  |
+| german (optional) | object |  |
+| french (optional) | object |  |
+| spanish (optional) | object |  |
+| italian (optional) | object |  |
+| norwegian (optional) | object |  |
+| swedish (optional) | object |  |
+| danish (optional) | object |  |
+| vietnamese (optional) | object |  |
+| indonesian (optional) | object |  |
+| southAfrican (optional) | object |  |
+| tokiPona (optional) | object |  |
+| hindi (optional) | object |  |
+| mandarin (optional) | object |  |
+| arabic (optional) | object |  |
+| bengali (optional) | object |  |
+| urdu (optional) | object |  |
+| japanese (optional) | object |  |
+| swahili (optional) | object |  |
+
+
+
 ## 🔹 WordPriority
 
 # Internal
 
-<details><summary>Show internal (16)</summary>
+<details><summary>Show internal (13)</summary>
     
   # 🔹 CoreWordMatrixWord
 
@@ -176,45 +329,6 @@ Properties:
 
 
 
-## 🔸 Statement
-
-markdown model
-
-
-
-
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| markdown  | string |  |
-| categoryStackCalculated  | array |  |
-| url (optional) | string |  |
-| author (optional) | string |  |
-| agreement (optional) | number |  |
-| readersAgreement (optional) | number |  |
-| readersAgreementVotedCount (optional) | number |  |
-| importancy (optional) | number |  |
-| isImportancySet (optional) | boolean |  |
-| wordSlugs  | array |  |
-
-
-
 ## 🔸 Translation
 
 jsonMultiple model
@@ -323,43 +437,6 @@ Properties:
 
 
 
-## 🔸 WordCombination
-
-jsonMultiple model
-
-
-
-Best way to combine words if you don't want to specify all language specific info for a new word. You can refer to words from the WordMatrix instead!
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| slug  | string |  |
-| description  | string |  |
-| descriptionAudio  | object |  |
-| image (optional) | object |  |
-| wordCategorySlugs  | array |  |
-| type (optional) | string |  |
-| language  | string |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| wordMatrixSlugs (optional) | array |  |
-
-
-
 ## 🔹 WordConjucation
 
 In linguistics, conjugation is the creation of derived forms of a verb from its principal parts by inflection
@@ -381,10 +458,10 @@ Properties:
 |---|---|---|
 | name  | string |  |
 | slug  | string |  |
-| description  | string |  |
-| descriptionAudio  | object |  |
+| description (optional) | string |  |
+| descriptionAudio (optional) | object |  |
 | image (optional) | object |  |
-| wordCategorySlugs  | array |  |
+| wordCategorySlugs (optional) | array |  |
 | type (optional) | string |  |
 
 
@@ -415,79 +492,6 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| english (optional) | object |  |
-| dutch (optional) | object |  |
-| nepali (optional) | object |  |
-| portuguese (optional) | object |  |
-| brazilian (optional) | object |  |
-| german (optional) | object |  |
-| french (optional) | object |  |
-| spanish (optional) | object |  |
-| italian (optional) | object |  |
-| norwegian (optional) | object |  |
-| swedish (optional) | object |  |
-| danish (optional) | object |  |
-| vietnamese (optional) | object |  |
-| indonesian (optional) | object |  |
-| southAfrican (optional) | object |  |
-| tokiPona (optional) | object |  |
-| hindi (optional) | object |  |
-| mandarin (optional) | object |  |
-| arabic (optional) | object |  |
-| bengali (optional) | object |  |
-| urdu (optional) | object |  |
-| japanese (optional) | object |  |
-| swahili (optional) | object |  |
-
-
-
-## 🔸 WordMatrix
-
-jsonMultiple model
-
-
-
-
-WordMatrix is a matrix that contains as much information about a word as possible in as many languages as possible. Easy to use for 1:1 translation
-
-@see Language
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| slug  | string |  |
-| name  | string |  |
-| language  | string |  |
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| priorityLevel (optional) | string |  |
-| rank (optional) | number |  |
-| usageCountCalculated (optional) | number |  |
-| conjucations (optional) | array |  |
-| root_wordMatrixSlug (optional) | string | If the word is a certain conjugation of a root word, this should be a reference to the root word |
-| root_word (optional) | object |  |
-| opposite_wordMatrixSlug (optional) | string | If there's another word that's the complete opposite of this one, you can declare it here |
-| common_wordMatrixSlug (optional) | string | f the word is a synonym to a more common word, this should be a reference to the more common synonym. This is a 1:1 synonym only |
-| tokiPona_wordMatrixSlugs (optional) | array | The closest way to express this word in toki pona terms. |
-| emoji_wordMatrixSlugs (optional) | array |  |
-| emoji (optional) | string | Single emoji describing this word 1:1 (if it are more emojis of multiple words, please use the reference instead) |
-| description  | string |  |
-| descriptionAudio  | object |  |
-| image (optional) | object |  |
-| wordCategorySlugs  | array |  |
-| type (optional) | string |  |
 | english (optional) | object |  |
 | dutch (optional) | object |  |
 | nepali (optional) | object |  |

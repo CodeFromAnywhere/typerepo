@@ -1,0 +1,82 @@
+{
+  "createdAt": 1671101682838,
+  "updatedAt": 1671101682838,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101682838,
+  "id": "namedparameterstypeof-updatefrontmatter",
+  "name": "NamedParameters<typeof updateFrontmatter>",
+  "slug": "namedparameterstypeof-updatefrontmatter",
+  "operationRelativeTypescriptFilePath": "src/updateFrontmatter.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "projectRelativePath": {
+              "type": "string"
+            },
+            "frontmatter": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "projectRelativePath",
+            "frontmatter"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "config"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "projectRelativePath",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "frontmatter",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof updateFrontmatter>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

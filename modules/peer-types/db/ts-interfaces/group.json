@@ -1,20 +1,20 @@
 {
-  "createdAt": 1670527448920,
-  "updatedAt": 1670527448920,
+  "createdAt": 1671098079399,
+  "updatedAt": 1671098079399,
   "deletedAt": 0,
-  "createdFirstAt": 1670527448920,
+  "createdFirstAt": 1671098079399,
   "id": "group",
   "name": "Group",
   "slug": "group",
   "operationRelativeTypescriptFilePath": "src/Group.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n\nA `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n```md\n---\nmanager: canExecute\n---\n```\n\n\n*/\nexport interface Group extends SlugModelType {\n  /**\n   * Name of the group (will set slug)\n   *\n   * NB: this can be used in functions to specify certain access to groups. It should there fore be unique and you should be careful when changing it!\n   */\n  name: string;\n\n  description?: string;\n\n  /**\n   * Optionally, provide custom authorization to a group\n   */\n  customAuthorizations?: Authorization[];\n  indexedAuthorizationCalculated?: AuthorizationModel[];\n\n  /**\n   * By default, one is enough, but if this is defined, the users in this group need to use this amount of authentication methods before he/she is authenticated. Must be at least one.\n   */\n  amountAuthenticationMethodsRequired?: number;\n\n  /**\n   * Optionally, you can specify which authentication methods are required for the whole group\n   */\n  requiredAuthenticationMethods?: AuthenticationMethodMethod[];\n}",
+  "rawText": "\n\n/**\n\nA `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n---\nmanager: canExecute\n---\n\n\n*/\nexport interface Group extends SlugModelType {\n  /**\n   * Name of the group (will set slug)\n   *\n   * NB: this can be used in functions to specify certain access to groups. It should there fore be unique and you should be careful when changing it!\n   */\n  name: string;\n\n  description?: string;\n\n  /**\n   * Optionally, provide custom authorization to a group\n   */\n  customAuthorizations?: Authorization[];\n  indexedAuthorizationCalculated?: AuthorizationModel[];\n\n  /**\n   * By default, one is enough, but if this is defined, the users in this group need to use this amount of authentication methods before he/she is authenticated. Must be at least one.\n   */\n  amountAuthenticationMethodsRequired?: number;\n\n  /**\n   * Optionally, you can specify which authentication methods are required for the whole group\n   */\n  requiredAuthenticationMethods?: AuthenticationMethodMethod[];\n}",
   "extensions": [
     "SlugModelType"
   ],
   "isOperationIndex": false,
-  "description": "```",
+  "description": "",
   "dbStorageMethod": "jsonMultiple",
   "isDbModel": true,
   "commentsInside": [],
@@ -109,10 +109,10 @@
         "updatedAt"
       ],
       "additionalProperties": false,
-      "description": "A `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n```md\n--- manager: canExecute\n--- ```"
+      "description": "A `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n--- manager: canExecute\n---"
     },
     "simplifiedSchema": {
-      "fullComment": "A `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n```md\n--- manager: canExecute\n--- ```",
+      "fullComment": "A `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n--- manager: canExecute\n---",
       "properties": [
         {
           "name": "slug",

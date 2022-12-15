@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098526768,
+  "updatedAt": 1671098526768,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098526768,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "facebookLogin",
+  "slug": "facebook-login",
+  "operationRelativeTypescriptFilePath": "src/facebookLogin.ts",
+  "type": {
+    "rawType": "(props: import(\"/Users/lucky/workspace/typerepo/packages/niches/bhagya/doing/control-web/puppeteer-utils/src/facebookLogin\").FacebookLoginPropsType) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (props: FacebookLoginPropsType) => {\n  const { email, password, page } = props;\n  // type email\n  await typeInTheInputField({\n    page,\n    value: email,\n    selector: 'input[name=\"email\"]',\n  });\n  // type password\n  await typeInTheInputField({\n    page,\n    selector: 'input[name=\"pass\"]',\n    value: password,\n  });\n  // clicking the login button\n  await page.click(\"button[name=login]\");\n}",
+  "description": "",
+  "id": "zughkwfyxqzmmcleykhiwqlp"
+}

@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671098540718,
+  "updatedAt": 1671098540718,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098540718,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/isCaptchaExist.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  page: Page\n): Promise<FindRecaptchasResult> => {\n  let recaptchaResult = await page.findRecaptchas();\n  return recaptchaResult;\n}",
+  "name": "isCaptchaExist",
+  "slug": "is-captcha-exist",
+  "parameters": [
+    {
+      "name": "page",
+      "schema": {
+        "$ref": "#/definitions/Page"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").FindRecaptchasResult>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 140,
+    "lines": 6,
+    "bytes": 140,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 6,
+    "numberOfFiles": 1
+  },
+  "id": "xrdaywzyxkjnmpuliweiofzm"
+}

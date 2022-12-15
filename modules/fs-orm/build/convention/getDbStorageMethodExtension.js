@@ -1,2 +1,16 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getDbStorageMethodExtension=void 0;var getDbStorageMethodExtension=function(e){return"csv"===e?".csv":"jsonMultiple"===e||"jsonSingle"===e?".json":".md"};exports.getDbStorageMethodExtension=getDbStorageMethodExtension;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getDbStorageMethodExtension = void 0;
+var getDbStorageMethodExtension = function (dbStorageMethod) {
+    if (dbStorageMethod === "csv")
+        return ".csv";
+    if (dbStorageMethod === "jsonMultiple")
+        return ".json";
+    if (dbStorageMethod === "jsonSingle")
+        return ".json";
+    if (dbStorageMethod === "keyValueMarkdown")
+        return ".md";
+    return ".md";
+};
+exports.getDbStorageMethodExtension = getDbStorageMethodExtension;
 //# sourceMappingURL=getDbStorageMethodExtension.js.map

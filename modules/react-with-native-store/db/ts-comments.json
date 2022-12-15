@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1667635040239,
-    "updatedAt": 1667635040239,
+    "createdAt": 1671104470824,
+    "updatedAt": 1671104470824,
     "deletedAt": 0,
-    "createdFirstAt": 1667635040239,
+    "createdFirstAt": 1671104470824,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/storage.ts",
@@ -13,13 +13,29 @@
     "types": [],
     "firstLine": 1,
     "lastLine": 3,
-    "id": "ugussdpbjtofsifwfllhdqnn"
+    "id": "ifmwblujfyofbeasbxjrtxcs"
   },
   {
-    "createdAt": 1667635040239,
-    "updatedAt": 1667635040239,
+    "createdAt": 1671104470824,
+    "updatedAt": 1671104470824,
     "deletedAt": 0,
-    "createdFirstAt": 1667635040239,
+    "createdFirstAt": 1671104470824,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/storage.ts",
+    "comment": "ONLY web",
+    "rawStatement": "export const getItemSync = (key: string) => {\n  if (typeof window === \"undefined\") {\n    return undefined;\n  }\n  const item = localStorage.getItem(key);\n  return item ? JSON.parse(item) : undefined;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 12,
+    "lastLine": 14,
+    "id": "amedzmfadtqjdrpnorcmzkkl"
+  },
+  {
+    "createdAt": 1671104470824,
+    "updatedAt": 1671104470824,
+    "deletedAt": 0,
+    "createdFirstAt": 1671104470824,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/storage.ts",
@@ -27,8 +43,8 @@
     "rawStatement": "export const setItem = async (key: string, value: any) => {\n  if (typeof window === \"undefined\") {\n    return;\n  }\n  localStorage.setItem(key, JSON.stringify(value));\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 12,
-    "lastLine": 16,
-    "id": "wwfpbavxcvfaukptllbgccyi"
+    "firstLine": 23,
+    "lastLine": 27,
+    "id": "pwmznpwqxbnfpzhyvfwyycra"
   }
 ]

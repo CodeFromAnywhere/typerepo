@@ -1,0 +1,71 @@
+{
+  "createdAt": 1671100888809,
+  "updatedAt": 1671100888809,
+  "deletedAt": 0,
+  "createdFirstAt": 1671100888809,
+  "id": "openaichatresponsetype",
+  "name": "OpenAIChatResponseType",
+  "slug": "openaichatresponsetype",
+  "operationRelativeTypescriptFilePath": "src/openAIChat.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type OpenAIChatResponseType = {\n  result?: string;\n  thread?: string;\n  isSuccess: boolean;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "result": {
+          "type": "string"
+        },
+        "thread": {
+          "type": "string"
+        },
+        "isSuccess": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "isSuccess"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "result",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "thread",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isSuccess",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "OpenAIChatResponseType",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

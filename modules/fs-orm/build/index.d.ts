@@ -20,4 +20,5 @@ export * from "./types";
 export * from "./util/augmentItemWithReferencedDataRecursively";
 export * from "./util/getAugmentedData";
 export * from "./util/groupByFile";
+export * from "./waitForLockfile";
 //# sourceMappingURL=index.d.ts.map

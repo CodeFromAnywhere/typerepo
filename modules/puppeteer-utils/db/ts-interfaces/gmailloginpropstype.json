@@ -1,0 +1,75 @@
+{
+  "createdAt": 1671098537477,
+  "updatedAt": 1671098537477,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098537477,
+  "id": "gmailloginpropstype",
+  "name": "GmailLoginPropsType",
+  "slug": "gmailloginpropstype",
+  "operationRelativeTypescriptFilePath": "src/gmailLogin.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type GmailLoginPropsType = {\n  email: string;\n  password: string;\n  page: Page;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "page": {
+          "$ref": "#/definitions/Page"
+        }
+      },
+      "required": [
+        "email",
+        "password",
+        "page"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "email",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "password",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "page",
+          "required": true,
+          "schema": {
+            "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "GmailLoginPropsType",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

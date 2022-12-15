@@ -38,3 +38,4 @@ markedToken) {
     console.log({ name: ContentEditableRenderComponent.name, invalidArray: invalidArray });
     return false;
 };
+//# sourceMappingURL=testContentEditableRenderComponent.js.map

@@ -6,3 +6,4 @@ import { ContentEditableRenderProps } from "./types";
 export declare const SpannedSentence: (props: Omit<ContentEditableRenderProps<any>, "markedToken"> & {
     sentence: string;
 }) => JSX.Element;
+//# sourceMappingURL=SpannedSentence.d.ts.map

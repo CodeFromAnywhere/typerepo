@@ -1,0 +1,60 @@
+{
+  "createdAt": 1671101665387,
+  "updatedAt": 1671101665387,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101665387,
+  "id": "namedparameterstypeof-renamefileorfolder",
+  "name": "NamedParameters<typeof renameFileOrFolder>",
+  "slug": "namedparameterstypeof-renamefileorfolder",
+  "operationRelativeTypescriptFilePath": "src/renameFileOrFolder.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        },
+        "newName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectRelativePath",
+        "newName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "newName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof renameFileOrFolder>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

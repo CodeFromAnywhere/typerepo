@@ -32,7 +32,8 @@
     "fs-util-js": "0.0.1",
     "watch-types": "0.0.1",
     "get-imports-exports": "0.0.1",
-    "cleanup-typescript-database": "0.0.1"
+    "cleanup-typescript-database": "0.0.1",
+    "markdown-types": "0.0.1"
   },
   "description": "This repo is used to generate the typescript index.\n\nSome important conventions I'm applying:\n\n1. The generated index doesn't know the absolute location, which makes it possible to move around the Project in the OS\n\n2. The generated index only tells you information about this very operation. All links with other operations should be done in postprocessing\n\n3. Every generated index has an `IndexId`",
   "devDependencies": {
@@ -67,7 +68,7 @@
     "folderNameIndexed": "index-typescript",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669055645350,
+    "lastRebuildAt": 1671012672563,
     "operationDependenciesIndexed": [
       "getLastFolder",
       "findOperationBasePath",
@@ -172,13 +173,13 @@
       "onlyUnique2",
       "ProjectWatcher",
       "path",
-      "MarkdownParse",
       "TsComment",
       "stripComment",
       "Creation",
       "TsIndexModelType",
       "parseFrontmatterMarkdownString",
       "kebabCase",
+      "MarkdownParse",
       "getExtension",
       "ProjectWatcher",
       "cleanupTsDatabase",
@@ -211,6 +212,7 @@
       "JSONSchema7",
       "SourceFile",
       "SyntaxKind",
+      "ts",
       "TypeFormatFlags",
       "VariableDeclaration",
       "xor",
@@ -231,27 +233,27 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 29,
-        "lines": 2095,
-        "characters": 63402,
-        "bytes": 63402
+        "lines": 2100,
+        "characters": 63626,
+        "bytes": 63626
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 142,
-        "characters": 3984,
-        "bytes": 3984
+        "lines": 301,
+        "characters": 7339,
+        "bytes": 7339
       },
       "textSize": {
-        "numberOfFiles": 7,
-        "lines": 699,
-        "characters": 20107,
-        "bytes": 20107
+        "numberOfFiles": 8,
+        "lines": 678,
+        "characters": 19956,
+        "bytes": 19956
       },
       "size": {
-        "bytes": 87493,
-        "characters": 87493,
-        "lines": 2936,
-        "numberOfFiles": 38
+        "bytes": 90921,
+        "characters": 90921,
+        "lines": 3079,
+        "numberOfFiles": 39
       }
     },
     "hasGeneratedImportsIndexed": false

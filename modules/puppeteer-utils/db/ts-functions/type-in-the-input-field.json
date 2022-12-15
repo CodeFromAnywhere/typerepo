@@ -1,0 +1,89 @@
+{
+  "createdAt": 1671098569131,
+  "updatedAt": 1671098569131,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098569131,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/typeInTheInputField.ts",
+  "commentsInside": [],
+  "rawText": " async (props: {\n  page: Page;\n  selector: string;\n  value: string;\n}) => {\n  const { page, selector, value } = props;\n  // wait for selector\n  await page.waitForSelector(selector, { timeout: 30000 });\n  // click, focus and enter the value\n  await page.click(selector);\n  await page.focus(selector);\n  // throw 'test message';\n  await page.keyboard.type(value);\n}",
+  "name": "typeInTheInputField",
+  "slug": "type-in-the-input-field",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "$ref": "#/definitions/Page"
+          },
+          "selector": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page",
+          "selector",
+          "value"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "selector",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Help to type in the field in given selector by setting value",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 423,
+    "lines": 14,
+    "bytes": 423,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "yezumgolywbqkbkedvtxiruc"
+}

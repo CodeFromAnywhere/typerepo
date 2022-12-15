@@ -1,0 +1,61 @@
+{
+  "createdAt": 1671097060848,
+  "updatedAt": 1671097060848,
+  "deletedAt": 0,
+  "createdFirstAt": 1671097060848,
+  "id": "loginresponse",
+  "name": "LoginResponse",
+  "slug": "loginresponse",
+  "operationRelativeTypescriptFilePath": "src/chatGPTAuth.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type LoginResponse = {\n  isSuccessfull: boolean;\n  message?: string;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isSuccessfull": {
+          "type": "boolean"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "isSuccessfull"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "isSuccessfull",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "message",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "LoginResponse",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

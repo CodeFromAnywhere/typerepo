@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670589800889,
-  "updatedAt": 1670589800889,
+  "createdAt": 1671105513677,
+  "updatedAt": 1671105513677,
   "deletedAt": 0,
-  "createdFirstAt": 1670589800889,
+  "createdFirstAt": 1671105513677,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "control-chat-gpt",
   "operationRelativeTypescriptFilePath": "src/controlChatGpt.ts",
   "type": {
-    "rawType": "(prompt: string, headless?: boolean | undefined) => unknown",
+    "rawType": "(prompt: string, headless?: boolean | undefined) => Promise<import(\"/Users/king/King/operations/tools/ai/ai-types/build/ProcessPromptFunctionResult\").ProcessPromptFunctionResult>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (prompt: string, headless?: boolean) => {\n  const api = new ChatGPTAPI({ headless });\n  // open chromium and wait until you've logged in\n  await api.init({ auth: \"blocking\" });\n  // send a message and wait for the response\n  const response = await api.sendMessage(prompt);\n  api.close();\n  return response;\n}",
+  "value": "async (\n  prompt: string,\n  headless?: boolean\n): Promise<ProcessPromptFunctionResult> => {\n  const api = new ChatGPTAPI({ headless });\n  // open chromium and wait until you've logged in\n  await api.init({ auth: \"blocking\" });\n  // send a message and wait for the response\n  const response = await api.sendMessage(prompt);\n  api.close();\n  return {\n    isSuccessful: true,\n    message: \"Done\",\n    result: { thread: \"\", text: response },\n  };\n}",
   "description": "",
-  "id": "hqrihxdinvjvylodmtnwmcqr"
+  "id": "toffvhmxknguyzdksbipqlwp"
 }

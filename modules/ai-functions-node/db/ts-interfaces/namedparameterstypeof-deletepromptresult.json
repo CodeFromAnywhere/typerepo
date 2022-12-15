@@ -1,0 +1,60 @@
+{
+  "createdAt": 1671105514864,
+  "updatedAt": 1671105514864,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105514864,
+  "id": "namedparameterstypeof-deletepromptresult",
+  "name": "NamedParameters<typeof deletePromptResult>",
+  "slug": "namedparameterstypeof-deletepromptresult",
+  "operationRelativeTypescriptFilePath": "src/deletePromptResult.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectRelativePath",
+        "id"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof deletePromptResult>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

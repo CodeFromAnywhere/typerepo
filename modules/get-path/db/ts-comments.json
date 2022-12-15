@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1670589915620,
-    "updatedAt": 1670589915620,
+    "createdAt": 1671012426958,
+    "updatedAt": 1671012426958,
     "deletedAt": 0,
-    "createdFirstAt": 1670589915620,
+    "createdFirstAt": 1671012426958,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/makeRelative.ts",
-    "comment": "Makes a path relative using proper parsing\n\nResulting path will apply the paths conventions\n- no slash at the end\n- no slash at the beginning",
-    "rawStatement": "export const makeRelative = (\n  /**\n   * absolute path of a file or folder without a slash at the end\n   */\n  absolutePath: string,\n  /**\n   * folder path without a slash at the end\n   */\n  baseFolderPath: string\n): string => {\n  // basecase should be handled, we don't want to get some weird slice edgecase\n  if (absolutePath.length < baseFolderPath.length) return \"\";\n\n  return absolutePath.slice(baseFolderPath.length + 1);\n};",
+    "operationRelativeTypescriptFilePath": "src/isWorkspaceRoot.ts",
+    "comment": "simple sync function to check if a folder is the root of a workspace (not operation but a workspace)",
+    "rawStatement": "export const isWorkspaceRoot = (\n  folderPath: string\n): undefined | { isBundle: boolean; isWorkspaceRoot: boolean } => {\n  const packageJsonPath = path.join(folderPath, \"package.json\");\n  const existsPackageJson = fs.existsSync(packageJsonPath);\n  if (!existsPackageJson) return;\n\n  const packageJson = tryParseJson<Operation>(\n    fs.readFileSync(packageJsonPath, \"utf8\")\n  );\n\n  if (!packageJson || !packageJson.workspaces) {\n    return;\n  }\n\n  return {\n    isBundle: packageJson.operation?.isBundle || false,\n    isWorkspaceRoot: true,\n  };\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 1,
+    "firstLine": 5,
     "lastLine": 7,
-    "id": "ollhqqqrgnsdqxnngobftitm"
+    "id": "jgcyvfrgzmyjlvrlwjkkummh"
   }
 ]

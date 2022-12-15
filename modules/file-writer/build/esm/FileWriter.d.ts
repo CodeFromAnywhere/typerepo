@@ -1,9 +1,10 @@
 /// <reference types="react" />
 import type { DbModels } from "sdk-db";
-import { MappedObject } from "js-util";
-import { AugmentedWord } from "augmented-word-types";
+import { WriterViewEnum } from "writer-types";
 export declare const FileWriter: (props: {
     markdownModelName?: keyof DbModels | undefined;
     projectRelativeFilePath: string;
-    augmentedWordObject?: MappedObject<AugmentedWord> | undefined;
+    initialWriterView?: WriterViewEnum | undefined;
+    disabledMenuItems?: string[] | undefined;
 }) => JSX.Element;
+//# sourceMappingURL=FileWriter.d.ts.map

@@ -24,9 +24,30 @@ Gets the frontmatterSchema of any markdown model. This should contain all elemen
 
 # Internal
 
-<details><summary>Show internal (18)</summary>
+<details><summary>Show internal (26)</summary>
     
-  # getFileContents()
+  # copyPath()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| projectRelativePath | string |  |
+| **Output** |    |    |
+
+
+
+## deleteFileOrFolder()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| projectRelativePath | string |  |
+| **Output** |    |    |
+
+
+
+## getFileContents()
 
 Gets the contents of a file in the project
 
@@ -56,7 +77,7 @@ Gets the contents of a file in the project
 
 
 
-## moveFile()
+## movePath()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -95,11 +116,11 @@ Used for the markdown reader to immediately process a asset upload. If we want t
 
 
 
-## renameFilename()
+## renameFileOrFolder()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| projectRelativeFilePath | string |  |,| newFilename | string |  |
+| projectRelativePath | string |  |,| newName | string |  |
 | **Output** |    |    |
 
 
@@ -113,6 +134,36 @@ Used for the markdown reader to immediately process a asset upload. If we want t
 
 
 
+## trashFileOrFolder()
+
+NB: only would work with an ESM module, but I don't have time for this now. Later this could replace `deleteFileOrFolder`
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| projectRelativePath | string |  |
+| **Output** |    |    |
+
+
+
+## updateFrontmatter()
+
+Update frontmatter from a markdownfile by overwriting it, keeping old values that you don't change
+
+If you provide a folder as projectRelativePath, it stores it to README.md in that folder, even if that doens't exist.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { projectRelativePath: string, <br />frontmatter: { [key: string]: string }, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## 📄 copyPath (exported const)
+
+## 📄 deleteFileOrFolder (exported const)
+
 ## 📄 getFileContents (exported const)
 
 Gets the contents of a file in the project
@@ -122,7 +173,7 @@ Gets the contents of a file in the project
 
 ## 📄 getWriterWebPages (exported const)
 
-## 📄 moveFile (exported const)
+## 📄 movePath (exported const)
 
 ## 📄 newFile (exported const)
 
@@ -133,9 +184,19 @@ Gets the contents of a file in the project
 Used for the markdown reader to immediately process a asset upload. If we want to validate this, it would be good to allow a second parameter that checks if you have access to the file
 
 
-## 📄 renameFilename (exported const)
+## 📄 renameFileOrFolder (exported const)
 
 ## 📄 saveFileContents (exported const)
 
+## 📄 trashFileOrFolder (exported const)
+
+NB: only would work with an ESM module, but I don't have time for this now. Later this could replace `deleteFileOrFolder`
+
+
+## 📄 updateFrontmatter (exported const)
+
+Update frontmatter from a markdownfile by overwriting it, keeping old values that you don't change
+
+If you provide a folder as projectRelativePath, it stores it to README.md in that folder, even if that doens't exist.
   </details>
 

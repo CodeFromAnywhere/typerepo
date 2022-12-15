@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1670527880640,
-    "updatedAt": 1670527880640,
+    "createdAt": 1670923182420,
+    "updatedAt": 1670923182420,
     "deletedAt": 0,
-    "createdFirstAt": 1670527880640,
+    "createdFirstAt": 1670923182420,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
@@ -13,13 +13,13 @@
     "types": [],
     "firstLine": 17,
     "lastLine": 19,
-    "id": "cyviqhktqwowsfmugrdgdqvt"
+    "id": "dllpdrmyamxcctacvchxlyff"
   },
   {
-    "createdAt": 1670527880640,
-    "updatedAt": 1670527880640,
+    "createdAt": 1670923182420,
+    "updatedAt": 1670923182420,
     "deletedAt": 0,
-    "createdFirstAt": 1670527880640,
+    "createdFirstAt": 1670923182420,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
@@ -29,13 +29,13 @@
     "types": [],
     "firstLine": 50,
     "lastLine": 50,
-    "id": "oiyfygeivxjkierhbjjvsocp"
+    "id": "pbmvlliuipsykdexbgchnmkm"
   },
   {
-    "createdAt": 1670527880640,
-    "updatedAt": 1670527880640,
+    "createdAt": 1670923182420,
+    "updatedAt": 1670923182420,
     "deletedAt": 0,
-    "createdFirstAt": 1670527880640,
+    "createdFirstAt": 1670923182420,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
@@ -45,13 +45,13 @@
     "types": [],
     "firstLine": 55,
     "lastLine": 57,
-    "id": "cdlpvtfcykriscsrhwkoaquc"
+    "id": "rcnzzdgnapovbtffcqrgkooy"
   },
   {
-    "createdAt": 1670527880640,
-    "updatedAt": 1670527880640,
+    "createdAt": 1670923182420,
+    "updatedAt": 1670923182420,
     "deletedAt": 0,
-    "createdFirstAt": 1670527880640,
+    "createdFirstAt": 1670923182420,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
@@ -61,13 +61,13 @@
     "types": [],
     "firstLine": 62,
     "lastLine": 64,
-    "id": "nlljkiszlbcjxfkliykkiuhd"
+    "id": "qvdqytglyeknemfpowceuhzf"
   },
   {
-    "createdAt": 1670527880640,
-    "updatedAt": 1670527880640,
+    "createdAt": 1670923182420,
+    "updatedAt": 1670923182420,
     "deletedAt": 0,
-    "createdFirstAt": 1670527880640,
+    "createdFirstAt": 1670923182420,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
@@ -77,13 +77,13 @@
     "types": [],
     "firstLine": 68,
     "lastLine": 72,
-    "id": "dpzefezvmnyesoflnituovfu"
+    "id": "rkjzbxawhwegxcsnoptkjfpg"
   },
   {
-    "createdAt": 1670527880640,
-    "updatedAt": 1670527880640,
+    "createdAt": 1670923182421,
+    "updatedAt": 1670923182421,
     "deletedAt": 0,
-    "createdFirstAt": 1670527880640,
+    "createdFirstAt": 1670923182421,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
@@ -95,13 +95,13 @@
     "types": [],
     "firstLine": 181,
     "lastLine": 189,
-    "id": "jfbscruyxdjakzgaofpdagpr"
+    "id": "jttdxywmmgdvicqzwsdaohwo"
   },
   {
-    "createdAt": 1670527880641,
-    "updatedAt": 1670527880641,
+    "createdAt": 1670923182421,
+    "updatedAt": 1670923182421,
     "deletedAt": 0,
-    "createdFirstAt": 1670527880641,
+    "createdFirstAt": 1670923182421,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
@@ -111,22 +111,6 @@
     "types": [],
     "firstLine": 195,
     "lastLine": 197,
-    "id": "zxsulndsbeyfuhifsumfqqpn"
-  },
-  {
-    "createdAt": 1670527880641,
-    "updatedAt": 1670527880641,
-    "deletedAt": 0,
-    "createdFirstAt": 1670527880641,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/WordMatrix.ts",
-    "comment": "Best way to combine words if you don't want to specify all language specific info for a new word. You can refer to words from the WordMatrix instead!",
-    "rawStatement": "export interface WordCombination extends SlugModelType, WordInfo {\n  /**\n   * Should be autofilled based on the combination of the base words\n   */\n  name: string;\n  /**\n   * Should be auto filled in based on the combination of the base words\n   */\n  slug: string;\n  /**\n   * Which words is this a combination of?\n   */\n  wordMatrixSlugs?: Slug[];\n}",
-    "parameters": {},
-    "types": [],
-    "firstLine": 209,
-    "lastLine": 211,
-    "id": "wtjfvzotggdtveixxeucpsxr"
+    "id": "djeekqoygwpctveaqbcpwnvn"
   }
 ]

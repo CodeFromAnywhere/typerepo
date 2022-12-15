@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670589805504,
-  "updatedAt": 1670589805504,
+  "createdAt": 1671105525154,
+  "updatedAt": 1671105525154,
   "deletedAt": 0,
-  "createdFirstAt": 1670589805504,
+  "createdFirstAt": 1671105525154,
   "id": "namedparameterstypeof-getcontextualpromptresults",
   "name": "NamedParameters<typeof getContextualPromptResults>",
   "slug": "namedparameterstypeof-getcontextualpromptresults",
@@ -21,13 +21,15 @@
           "type": "object",
           "properties": {
             "prompt_projectRelativePath": {
-              "type": "string"
+              "type": "string",
+              "description": "If given, will only provide `ContextualPromptResult`s for this path"
             },
             "promptSlugs": {
               "type": "array",
               "items": {
                 "type": "string"
-              }
+              },
+              "description": "If given, will only return the db result if it is part of this array"
             }
           },
           "additionalProperties": false
@@ -46,6 +48,7 @@
                 "name": "prompt_projectRelativePath",
                 "required": false,
                 "schema": {
+                  "fullComment": "If given, will only provide `ContextualPromptResult`s for this path",
                   "type": "string"
                 }
               },
@@ -53,6 +56,7 @@
                 "name": "promptSlugs",
                 "required": false,
                 "schema": {
+                  "fullComment": "If given, will only return the db result if it is part of this array",
                   "items": [
                     {
                       "schema": {

@@ -1,0 +1,54 @@
+{
+  "createdAt": 1671098521966,
+  "updatedAt": 1671098521966,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098521966,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/browserSessionsCache.ts",
+  "commentsInside": [],
+  "rawText": " (pageId: string): Page | undefined => {\n  const allPages: { [key: string]: Page } | undefined =\n    browserSessionsCache.get(\"pages\");\n  console.log({ allPages });\n  if (allPages) {\n    return allPages[pageId];\n  }\n  return undefined;\n}",
+  "name": "getBrowserPage",
+  "slug": "get-browser-page",
+  "parameters": [
+    {
+      "name": "pageId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Page | undefined",
+    "typeDefinition": {
+      "optional": true
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 237,
+    "lines": 9,
+    "bytes": 237,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "wnyucdqrknkadvxgyuidendh"
+}

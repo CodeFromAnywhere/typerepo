@@ -1,0 +1,121 @@
+{
+  "createdAt": 1671105334948,
+  "updatedAt": 1671105334948,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105334948,
+  "id": "promptfunction",
+  "name": "PromptFunction",
+  "slug": "promptfunction",
+  "operationRelativeTypescriptFilePath": "src/PromptFunction.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * Special kind of function that executes a prompt with the use of a language model\n */\nexport type PromptFunction = {\n  (...parameters: any[]): Promise<ProcessPromptFunctionResult>;\n  contextualPromptInfo: ContextualPromptInfo;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "Special kind of function that executes a prompt with the use of a language model",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "contextualPromptInfo": {
+          "$ref": "#/definitions/ContextualPromptInfo"
+        }
+      },
+      "required": [
+        "contextualPromptInfo"
+      ],
+      "additionalProperties": false,
+      "description": "Special kind of function that executes a prompt with the use of a language model"
+    },
+    "simplifiedSchema": {
+      "fullComment": "Special kind of function that executes a prompt with the use of a language model",
+      "properties": [
+        {
+          "name": "contextualPromptInfo",
+          "required": true,
+          "schema": {
+            "fullComment": "To be appended to the generated typescript",
+            "properties": [
+              {
+                "name": "contextType",
+                "required": false,
+                "schema": {
+                  "fullComment": "If given, will be used to filter the selection of prompts to match the context type",
+                  "items": [
+                    {
+                      "schema": {
+                        "enum": [
+                          "code",
+                          "data",
+                          "text"
+                        ],
+                        "fullComment": "",
+                        "type": "string"
+                      },
+                      "name": "FileType"
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "instantExecution",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isFavorite",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "categoryStackCalculated",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "pricing",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "bad",
+                    "good",
+                    "premium",
+                    "enterprise",
+                    "private"
+                  ],
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "PromptFunction",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

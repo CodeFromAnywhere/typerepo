@@ -12,3 +12,4 @@ export var trimLeft = function (word, character) {
 export var trimAround = function (word, trimLength) {
     return word.slice(trimLength, word.length - trimLength);
 };
+//# sourceMappingURL=word-trimming.js.map

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098560839,
+  "updatedAt": 1671098560839,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098560839,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "solveReptcha",
+  "slug": "solve-reptcha",
+  "operationRelativeTypescriptFilePath": "src/solveRecaptcha.ts",
+  "type": {
+    "rawType": "(page: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Page) => Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").SolveRecaptchasResult>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  page: Page\n): Promise<SolveRecaptchasResult> => {\n  const solveRecaptchaResult = await page?.solveRecaptchas();\n  return solveRecaptchaResult;\n}",
+  "description": "",
+  "id": "auggntmgiechhgvgvxhnmdej"
+}

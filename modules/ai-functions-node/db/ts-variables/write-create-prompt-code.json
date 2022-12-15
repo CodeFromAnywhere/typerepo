@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671105578360,
+  "updatedAt": 1671105578360,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105578360,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "writeCreatePromptCode",
+  "slug": "write-create-prompt-code",
+  "operationRelativeTypescriptFilePath": "src/writeCreatePromptCode.ts",
+  "type": {
+    "rawType": "(contextualPrompt: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPrompt\").ContextualPrompt) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(contextualPrompt: ContextualPrompt) => {\n  const parameters = [\n    contextualPrompt.usesAnyContext ? `anyContext` : undefined,\n    ,\n    contextualPrompt.usesContext ? `contextContent` : undefined,\n    contextualPrompt.usesSelection ? `selectionContent` : undefined,\n    contextualPrompt.folderContentContext ? `projectRelativePath` : undefined,\n  ].filter(notEmpty);\n\n  const functionLineParametersString = parameters\n    .map((x) => `${x}: string`)\n    .join(\", \");\n  const objectParametersString = parameters.join(\",\\n\");\n\n  const { contextType, instantExecution, isFavorite, categoryStackCalculated } =\n    contextualPrompt;\n  const contextualPromptInfo = {\n    contextType,\n    instantExecution,\n    isFavorite,\n    categoryStackCalculated,\n  };\n  const functionName = camelCase(contextualPrompt.name);\n\n  return `\n  ${\n    contextualPrompt.title\n      ? `/**\n  ${contextualPrompt.title}\n  */`\n      : \"\"\n  }\n  export const ${functionName}: PromptFunction = async (${functionLineParametersString}, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"${contextualPrompt.slug}\",\n      ${objectParametersString}\n    });\n\n    return result;\n\n  }\n\n${functionName}.contextualPromptInfo = ${JSON.stringify(contextualPromptInfo)}`;\n}",
+  "description": "",
+  "id": "sqbhhmowuaulktuewjwggxwq"
+}

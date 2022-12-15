@@ -1,19 +1,14 @@
 {
-  "createdAt": 1667635039744,
-  "updatedAt": 1667635039744,
+  "createdAt": 1671104680221,
+  "updatedAt": 1671104680221,
   "deletedAt": 0,
-  "createdFirstAt": 1667635039744,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1671104680221,
+  "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/storage.ts",
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/storage.native.ts",
   "commentsInside": [],
-  "rawText": " async (key: string) => {\n  if (typeof window === \"undefined\") {\n    return undefined;\n  }\n  const item = localStorage.getItem(key);\n  return item ? JSON.parse(item) : undefined;\n}",
+  "rawText": " async (key: string) => {\n  // console.log(\"reading key \", key);\n  try {\n    const item = await AsyncStorage.getItem(key);\n    const value = item ? JSON.parse(item) : undefined;\n    // console.log(`we got ${item}`);\n    return value;\n  } catch (e) {\n    // error reading value\n    console.warn(\n      `Something went wrong with asyncStorage from useStore (key ${key})`,\n      e\n    );\n  }\n}",
   "name": "getItem",
   "slug": "get-item",
   "parameters": [
@@ -28,7 +23,7 @@
       "required": true
     }
   ],
-  "description": "If you don't have access to the `useStore` hook, maybe because you're doing something outside of react... you can directly use the storage with javascript using this function",
+  "description": "",
   "returnType": {
     "rawType": "unknown",
     "typeCoverage": 0,
@@ -38,15 +33,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 3,
   "size": {
-    "characters": 354,
-    "lines": 7,
-    "bytes": 354,
+    "characters": 390,
+    "lines": 15,
+    "bytes": 390,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 51,
-    "linesPerFile": 7,
+    "charactersPerLine": 26,
+    "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "mohxnmpfzohvnewwceuwkxqw"
+  "id": "ugqjgktwvwxcmdosfcdtfbdm"
 }

@@ -1,3 +1,4 @@
+export * from "./CreatorMarkdownProperties";
 export * from "./ExtendedMarkdownProperties";
 export * from "./MarkdownCallToAction";
 export * from "./MarkdownParse";

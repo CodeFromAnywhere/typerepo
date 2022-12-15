@@ -1,0 +1,73 @@
+{
+  "createdAt": 1671105498696,
+  "updatedAt": 1671105498696,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105498696,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/addStatement.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  /**\n   * MUST be an english statement\n   */\n  statement: string,\n  /**\n   * defaults to 0.5\n   */\n  importancy?: number,\n  /**\n   * defaults to 1\n   */\n  agreement?: number\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  if (importancy !== undefined && (importancy < 0 || importancy > 1)) {\n    return {\n      isSuccessful: false,\n      message: \"Importancy, when filled in, must be between [0,1]\",\n    };\n  }\n  if (agreement !== undefined && (agreement < 0 || agreement > 1)) {\n    return {\n      isSuccessful: false,\n      message: \"Agreement, when filled in, must be between [0,1]\",\n    };\n  }\n\n  const newStatement: Creation<Statement> = {\n    description: statement,\n    importancy: importancy === undefined ? 0.5 : importancy,\n    agreement: agreement === undefined ? 1 : agreement,\n  };\n\n  const upsertResult = await db.upsert(\"Statement\", newStatement, {\n    onlyInsert: true,\n  });\n\n  return {\n    isSuccessful: upsertResult?.isSuccesful || false,\n    message: upsertResult?.isSuccesful\n      ? \"Statement added\"\n      : upsertResult?.message,\n  };\n}",
+  "name": "addStatement",
+  "slug": "add-statement",
+  "parameters": [
+    {
+      "name": "statement",
+      "schema": {
+        "type": "string",
+        "description": "MUST be an english statement"
+      },
+      "simplifiedSchema": {
+        "fullComment": "MUST be an english statement",
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "importancy",
+      "schema": {
+        "type": "number",
+        "description": "defaults to 0.5"
+      },
+      "simplifiedSchema": {
+        "fullComment": "defaults to 0.5",
+        "type": "number"
+      },
+      "required": false
+    },
+    {
+      "name": "agreement",
+      "schema": {
+        "type": "number",
+        "description": "defaults to 1"
+      },
+      "simplifiedSchema": {
+        "fullComment": "defaults to 1",
+        "type": "number"
+      },
+      "required": false
+    }
+  ],
+  "description": "Adds `Statement`",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1101,
+    "lines": 44,
+    "bytes": 1101,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 44,
+    "numberOfFiles": 1
+  },
+  "id": "ahdwdfstkhbgsvtemwridxkq"
+}

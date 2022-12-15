@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670527738191,
-  "updatedAt": 1670527738191,
+  "createdAt": 1670766857442,
+  "updatedAt": 1670766857442,
   "deletedAt": 0,
-  "createdFirstAt": 1670527738191,
+  "createdFirstAt": 1670766857442,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/MarkdownView.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  view: \"view\" | \"presentation\";\n  markdownParse: MarkdownParse;\n  markdownParseRenderConfig: MarkdownParseRenderConfig;\n}) => {\n  const { markdownParse, markdownParseRenderConfig, view } = props;\n\n  const {\n    projectRelativeBaseFolderPath,\n    projectRelativeMarkdownFilePath,\n    augmentedWordObject,\n  } = markdownParseRenderConfig;\n  return (\n    <>\n      {view === \"view\" ? (\n        <Div className=\"mx-2\">\n          {renderMarkdownParse(markdownParse, markdownParseRenderConfig)}\n        </Div>\n      ) : null}\n\n      {view === \"presentation\" ? (\n        <Div className=\"mx-2 flex flex-1 min-h-[80vh]\">\n          {markdownParse.content ? (\n            <MarkdownParsePresentation\n              markdownParse={markdownParse}\n              augmentedWordObject={augmentedWordObject}\n              projectRelativeBaseFolderPath={projectRelativeBaseFolderPath}\n              projectRelativeMarkdownFilePath={projectRelativeMarkdownFilePath}\n            />\n          ) : (\n            \"Couldn't find any content\"\n          )}\n        </Div>\n      ) : null}\n    </>\n  );\n}",
+  "rawText": " (props: {\n  view: \"view\" | \"presentation\";\n  markdownParse: MarkdownParse;\n  markdownParseRenderConfig: MarkdownParseRenderConfig;\n}) => {\n  const { markdownParse, markdownParseRenderConfig, view } = props;\n\n  const {\n    projectRelativeBaseFolderPath,\n    projectRelativeMarkdownFilePath,\n    augmentedWordObject,\n  } = markdownParseRenderConfig;\n  return (\n    <>\n      {view === \"view\" ? (\n        <Div className=\"mx-2\">\n          {renderMarkdownParse(markdownParse, markdownParseRenderConfig)}\n        </Div>\n      ) : null}\n\n      {view === \"presentation\" ? (\n        <Div className=\"mx-2 flex flex-1 min-h-[80vh]\">\n          {markdownParse.content &&\n          projectRelativeBaseFolderPath &&\n          projectRelativeMarkdownFilePath ? (\n            <MarkdownParsePresentation\n              markdownParse={markdownParse}\n              augmentedWordObject={augmentedWordObject}\n              projectRelativeBaseFolderPath={projectRelativeBaseFolderPath}\n              projectRelativeMarkdownFilePath={projectRelativeMarkdownFilePath}\n            />\n          ) : (\n            \"Couldn't find any content\"\n          )}\n        </Div>\n      ) : null}\n    </>\n  );\n}",
   "name": "MarkdownView",
   "slug": "markdown-view",
   "parameters": [
@@ -1052,13 +1052,13 @@
   },
   "maxIndentationDepth": 7,
   "size": {
-    "characters": 1083,
-    "lines": 37,
-    "bytes": 1083,
+    "characters": 1171,
+    "lines": 39,
+    "bytes": 1171,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 29,
-    "linesPerFile": 37,
+    "charactersPerLine": 30,
+    "linesPerFile": 39,
     "numberOfFiles": 1
   },
-  "id": "spcpxwfazapghgvlxlubuqjo"
+  "id": "ptimcozggceeywlcakagwnqd"
 }

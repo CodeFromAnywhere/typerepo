@@ -6,3 +6,4 @@ export declare const TitleContainer: ({ title, children, buttons, }: {
     children: any;
     buttons: LabeledButtonType[];
 }) => JSX.Element;
+//# sourceMappingURL=TitleContainer.d.ts.map

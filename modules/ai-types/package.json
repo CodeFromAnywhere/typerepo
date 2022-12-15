@@ -22,31 +22,31 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1670526431974,
+    "lastRebuildAt": 1671105371670,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 4,
-        "lines": 166,
-        "characters": 4760,
-        "bytes": 4760
+        "numberOfFiles": 9,
+        "lines": 263,
+        "characters": 7497,
+        "bytes": 7497
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 111,
-        "characters": 3431,
-        "bytes": 3431
+        "lines": 114,
+        "characters": 3507,
+        "bytes": 3507
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 152,
-        "characters": 3165,
-        "bytes": 3165
+        "lines": 305,
+        "characters": 5729,
+        "bytes": 5729
       },
       "size": {
-        "bytes": 11356,
-        "characters": 11356,
-        "lines": 429,
-        "numberOfFiles": 8
+        "bytes": 16733,
+        "characters": 16733,
+        "lines": 682,
+        "numberOfFiles": 13
       }
     },
     "folderNameIndexed": "ai-types",
@@ -59,14 +59,18 @@
       "SlugModelType",
       "FileType",
       "DefaultModelType",
-      "BackendAsset"
+      "BackendAsset",
+      "DefaultModelType",
+      "BackendAsset",
+      "Frontmatter"
     ],
     "packageDependenciesIndexed": []
   },
   "dependencies": {
     "model-types": "0.0.1",
     "filename-conventions": "0.0.1",
-    "asset-type": "0.0.1"
+    "asset-type": "0.0.1",
+    "matter-types": "0.0.1"
   },
   "slug": "ai-types",
   "id": "rzgsitofuukkatcuriaoazvg"

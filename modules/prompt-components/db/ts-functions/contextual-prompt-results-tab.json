@@ -1,0 +1,69 @@
+{
+  "createdAt": 1671012348238,
+  "updatedAt": 1671012348238,
+  "deletedAt": 0,
+  "createdFirstAt": 1671012348238,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/ContextualPromptResultsTab.tsx",
+  "commentsInside": [],
+  "rawText": " (props: {\n  prompt_projectRelativePath: string;\n}) => {\n  const { prompt_projectRelativePath } = props;\n\n  const contextualPromptResultsQuery = queries.useGetContextualPromptResults({\n    prompt_projectRelativePath,\n  });\n\n  return (\n    <Div>\n      {contextualPromptResultsQuery.data?.result?.map(\n        (item: ContextualPromptResult) => {\n          return (\n            <Div>\n              <b>prompt</b>\n              {item.prompt ? (\n                <MarkdownContent content={item.prompt} config={{}} />\n              ) : null}\n\n              <b>result</b>\n\n              {item.resultText ? (\n                <MarkdownContent content={item.resultText} config={{}} />\n              ) : null}\n            </Div>\n          );\n        }\n      )}\n    </Div>\n  );\n}",
+  "name": "ContextualPromptResultsTab",
+  "slug": "contextual-prompt-results-tab",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "prompt_projectRelativePath": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "prompt_projectRelativePath"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "prompt_projectRelativePath",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Visual to show the different prompt results. Probably deprecated, probably better to show it in a more structured way.",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 8,
+  "size": {
+    "characters": 883,
+    "lines": 32,
+    "bytes": 883,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 32,
+    "numberOfFiles": 1
+  },
+  "id": "gchkmowkyvlvxqywjgoaicqt"
+}

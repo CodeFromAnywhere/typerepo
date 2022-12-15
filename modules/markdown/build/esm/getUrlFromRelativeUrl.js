@@ -10,3 +10,4 @@ export var getUrlFromRelativeUrl = function (relativeUrl, relativeUrlStrategy, p
     var relativeUrlWithoutStart = relativeUrl.slice(2);
     return getReferencedAssetApiUrl(apiUrl, projectRelativeMarkdownFilePath, relativeUrlWithoutStart);
 };
+//# sourceMappingURL=getUrlFromRelativeUrl.js.map

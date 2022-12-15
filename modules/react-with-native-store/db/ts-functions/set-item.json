@@ -1,19 +1,14 @@
 {
-  "createdAt": 1667635039744,
-  "updatedAt": 1667635039744,
+  "createdAt": 1671104680222,
+  "updatedAt": 1671104680222,
   "deletedAt": 0,
-  "createdFirstAt": 1667635039744,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1671104680222,
+  "isApiExposed": true,
   "isExported": true,
-  "operationRelativeTypescriptFilePath": "src/storage.ts",
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/storage.native.ts",
   "commentsInside": [],
-  "rawText": " async (key: string, value: any) => {\n  if (typeof window === \"undefined\") {\n    return;\n  }\n  localStorage.setItem(key, JSON.stringify(value));\n}",
+  "rawText": " async (key: string, value: any) => {\n  // console.log(\"AsyncStorage setting item\");\n  const stringValue = JSON.stringify(value);\n  try {\n    await AsyncStorage.setItem(key, stringValue, (error) => {\n      if (error) {\n        console.warn(\n          `asyncStorage.setItem error: ${JSON.stringify({\n            key,\n            stringValue,\n            error,\n          })}`\n        );\n      }\n    });\n    // console.log(`we set ${key} to ${stringValue}`);\n  } catch (e) {\n    // saving error\n    console.warn(\n      `Something went wrong with asyncStorage from useStore (key ${key})`,\n      e\n    );\n  }\n}",
   "name": "setItem",
   "slug": "set-item",
   "parameters": [
@@ -37,7 +32,7 @@
       "required": true
     }
   ],
-  "description": "If you don't have access to the `useStore` hook, maybe because you're doing something outside of react... you can directly use the storage with javascript using this function\n\nBEWARE! Updating this won't update your react components!",
+  "description": "",
   "returnType": {
     "rawType": "any",
     "typeCoverage": 0,
@@ -47,15 +42,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 6,
   "size": {
-    "characters": 379,
-    "lines": 8,
-    "bytes": 379,
+    "characters": 606,
+    "lines": 24,
+    "bytes": 606,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 47,
-    "linesPerFile": 8,
+    "charactersPerLine": 25,
+    "linesPerFile": 24,
     "numberOfFiles": 1
   },
-  "id": "jnpktllzhgbrrygcxdksvuir"
+  "id": "qlapdvxqclutgwqxzdernnvc"
 }

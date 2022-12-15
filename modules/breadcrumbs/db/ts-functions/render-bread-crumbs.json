@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336593888,
-  "updatedAt": 1668336593888,
+  "createdAt": 1670950644408,
+  "updatedAt": 1670950644408,
   "deletedAt": 0,
-  "createdFirstAt": 1668336593888,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1670950644408,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/BreadCrumbs.tsx",
   "commentsInside": [],
   "rawText": " (chunks: string[]) => {\n  return chunks?.map((chunk, index) => {\n    const isLast = chunks.length - 1 === index;\n\n    return (\n      <Div\n        key={`breadcrumb${index}`}\n        className=\"flex flex-row items-center text-xs\"\n      >\n        {chunk}\n        {isLast ? null : (\n          <Div className=\"px-2 text-gray-900 dark:text-gray-200\">▸</Div>\n        )}\n      </Div>\n    );\n  });\n}",
@@ -59,5 +54,5 @@
     "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "femtzjhswykxrgvraphlwhmw"
+  "id": "zkngyoojmkqlwpkohxxyqlof"
 }

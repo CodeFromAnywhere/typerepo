@@ -1,0 +1,46 @@
+{
+  "createdAt": 1671105521582,
+  "updatedAt": 1671105521582,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105521582,
+  "id": "namedparameterstypeof-getcontextualpromptresultjsonfilepath",
+  "name": "NamedParameters<typeof getContextualPromptResultJsonFilePath>",
+  "slug": "namedparameterstypeof-getcontextualpromptresultjsonfilepath",
+  "operationRelativeTypescriptFilePath": "src/getContextualPromptResultJsonFilePath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getContextualPromptResultJsonFilePath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

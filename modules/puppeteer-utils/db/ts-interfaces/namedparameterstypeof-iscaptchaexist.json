@@ -1,0 +1,51 @@
+{
+  "createdAt": 1671098539608,
+  "updatedAt": 1671098539608,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098539608,
+  "id": "namedparameterstypeof-iscaptchaexist",
+  "name": "NamedParameters<typeof isCaptchaExist>",
+  "slug": "namedparameterstypeof-iscaptchaexist",
+  "operationRelativeTypescriptFilePath": "src/isCaptchaExist.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "$ref": "#/definitions/Page"
+        }
+      },
+      "required": [
+        "page"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "page",
+          "required": true,
+          "schema": {
+            "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isCaptchaExist>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -555,8 +555,8 @@ video {
   display: flex;
 }
 
-.h-40 {
-  height: 10rem;
+.max-h-80 {
+  max-height: 20rem;
 }
 
 .cursor-pointer {

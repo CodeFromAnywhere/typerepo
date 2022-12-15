@@ -20,6 +20,10 @@ export interface ContextualPromptResult extends DefaultModelType {
      */
     isValidCalculated?: boolean;
     /**
+     * Fake result for testing, marked to be able to easily clean it up
+     */
+    isFake?: boolean;
+    /**
      * Contextual prompt this prompt was based on. We don't have the acutal prompt here since we use an extended convention from `fs-orm`
      */
     contextualPromptSlug: string;

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671104680742,
+  "updatedAt": 1671104680742,
+  "deletedAt": 0,
+  "createdFirstAt": 1671104680742,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getItemSync",
+  "slug": "get-item-sync",
+  "operationRelativeTypescriptFilePath": "src/storage.native.ts",
+  "type": {
+    "rawType": "(key: string) => undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(key: string) => {\n  return undefined;\n}",
+  "description": "",
+  "id": "dfpwioeyjfwhhjedqtbftcdv"
+}

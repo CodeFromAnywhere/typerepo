@@ -1,0 +1,42 @@
+{
+  "createdAt": 1671105313413,
+  "updatedAt": 1671105313413,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105313413,
+  "id": "languagemodel",
+  "name": "LanguageModel",
+  "slug": "languagemodel",
+  "operationRelativeTypescriptFilePath": "src/ContextualPrompt.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type LanguageModel = typeof languageModels[number];",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "dbStorageMethod": "jsonMultiple",
+  "isDbModel": true,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "chat-gpt",
+        "stable-diffusion-2"
+      ]
+    },
+    "simplifiedSchema": {
+      "enum": [
+        "chat-gpt",
+        "stable-diffusion-2"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "LanguageModel",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

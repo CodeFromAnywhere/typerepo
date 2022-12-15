@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671101599123,
+  "updatedAt": 1671101599123,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101599123,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "copyPath",
+  "slug": "copy-path",
+  "operationRelativeTypescriptFilePath": "src/copyPath.ts",
+  "type": {
+    "rawType": "(projectRelativePath: string) => Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root found\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    console.log({ absolutePath });\n    return {\n      isSuccessful: false,\n      message: \"This file or folder doesn't exist\",\n    };\n  }\n\n  const parsedPath = path.parse(absolutePath);\n  const copiedPath = path.join(\n    parsedPath.dir,\n    `${parsedPath.name}-copy${parsedPath.ext}`\n  );\n\n  if (fs.existsSync(copiedPath)) {\n    return {\n      isSuccessful: false,\n      message:\n        \"There is already a copy for this file/folder under the anticipated name.\",\n    };\n  }\n\n  await fs.cpAsync(absolutePath, copiedPath, { recursive: true });\n\n  return { isSuccessful: true };\n}",
+  "description": "",
+  "id": "rjtadtlhjrkpaewqjgrpivrd"
+}

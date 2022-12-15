@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670527786757,
-  "updatedAt": 1670527786757,
+  "createdAt": 1670766715158,
+  "updatedAt": 1670766715158,
   "deletedAt": 0,
-  "createdFirstAt": 1670527786757,
+  "createdFirstAt": 1670766715158,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/editors/autocomplete-components.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  augmentedWord: AugmentedWord;\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n}) => {\n  const { augmentedWord, augmentedWordObject } = props;\n\n  const projectRelativeMarkdownFilePath =\n    augmentedWord.projectRelativeMarkdownSourcePath;\n  const projectRelativeBaseFolderPath = getFolderJs(\n    projectRelativeMarkdownFilePath\n  )!;\n  return (\n    <Div>\n      <Div className=\"flex flex-row justify-between\">\n        <P>{augmentedWord.word}</P>\n        <Div>(?)</Div>\n      </Div>\n      <P>\n        {augmentedWord.spoiler\n          ? renderMarkdownContent(augmentedWord.spoiler, {\n              projectRelativeMarkdownFilePath,\n              projectRelativeBaseFolderPath,\n              augmentedWordObject,\n              isDev,\n              isStatic: false,\n            })\n          : null}\n      </P>\n    </Div>\n  );\n}",
+  "rawText": " (props: {\n  augmentedWord: AugmentedWord;\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n}) => {\n  const { augmentedWord, augmentedWordObject } = props;\n\n  const projectRelativeMarkdownFilePath =\n    augmentedWord.projectRelativeMarkdownSourcePath;\n  const projectRelativeBaseFolderPath = getFolderJs(\n    projectRelativeMarkdownFilePath\n  )!;\n  return (\n    <Div>\n      <Div className=\"flex flex-row justify-between\">\n        <P>{augmentedWord.word}</P>\n        <Div>(?)</Div>\n      </Div>\n      <P>\n        {augmentedWord.spoiler ? (\n          <MarkdownContent\n            content={augmentedWord.spoiler}\n            config={{\n              projectRelativeMarkdownFilePath,\n              projectRelativeBaseFolderPath,\n              augmentedWordObject,\n              isDev,\n              isStatic: false,\n            }}\n          />\n        ) : null}\n      </P>\n    </Div>\n  );\n}",
   "name": "Completion",
   "slug": "completion",
   "parameters": [
@@ -109,13 +109,13 @@
   },
   "maxIndentationDepth": 7,
   "size": {
-    "characters": 838,
-    "lines": 31,
-    "bytes": 838,
+    "characters": 889,
+    "lines": 34,
+    "bytes": 889,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 31,
+    "charactersPerLine": 26,
+    "linesPerFile": 34,
     "numberOfFiles": 1
   },
-  "id": "btrckfdzjwqkcthztshnquvj"
+  "id": "tmtzjqndnoqmsqyjfqrikhqa"
 }

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098542494,
+  "updatedAt": 1671098542494,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098542494,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "logConsoleIfDebug",
+  "slug": "log-console-if-debug",
+  "operationRelativeTypescriptFilePath": "src/logConsoleIfDebug.ts",
+  "type": {
+    "rawType": "(props: { message: string; debug: boolean; }) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (props: {\n  message: string;\n  debug: boolean;\n}) => {\n  const { debug, message } = props;\n  if (debug) {\n    console.log(message);\n  }\n}",
+  "description": "Utility function to log console only if a Debug flag is set.\nIf the flag is not set, doesn't print anything.",
+  "id": "riledfnnlqrlhxkxiniyusyi"
+}

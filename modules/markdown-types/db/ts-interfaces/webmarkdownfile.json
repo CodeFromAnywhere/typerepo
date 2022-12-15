@@ -1,18 +1,19 @@
 {
-  "createdAt": 1670527952010,
-  "updatedAt": 1670527952010,
+  "createdAt": 1671100485205,
+  "updatedAt": 1671100485205,
   "deletedAt": 0,
-  "createdFirstAt": 1670527952010,
+  "createdFirstAt": 1671100485205,
   "id": "webmarkdownfile",
   "name": "WebMarkdownFile",
   "slug": "webmarkdownfile",
   "operationRelativeTypescriptFilePath": "src/WebMarkdownFile.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter\n *\n * NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!\n */\nexport interface WebMarkdownFile\n  extends MarkdownModelType,\n    ExtendedMarkdownProperties,\n    WebMarkdownProperties,\n    PostableProperties {}",
+  "rawText": "\n\n/**\n * Every markdown file meant for the web, should have these optional parameters that can be declared as its frontmatter\n *\n * NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!\n */\nexport interface WebMarkdownFile\n  extends MarkdownModelType,\n    ExtendedMarkdownProperties,\n    CreatorMarkdownProperties,\n    WebMarkdownProperties,\n    PostableProperties {}",
   "extensions": [
     "MarkdownModelType",
     "ExtendedMarkdownProperties",
+    "CreatorMarkdownProperties",
     "WebMarkdownProperties",
     "PostableProperties"
   ],
@@ -172,24 +173,36 @@
           "$ref": "#/definitions/Price",
           "description": "Price for this file\n\nNB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE."
         },
+        "isPrivate": {
+          "type": "boolean",
+          "description": "DESCRIPTION: Only accessible to admin"
+        },
+        "isSecret": {
+          "type": "boolean",
+          "description": "DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`"
+        },
+        "authorizedGroup": {
+          "type": "string",
+          "enum": [
+            "",
+            "premium",
+            "enterprise"
+          ],
+          "description": "DESCRIPTION: If authorizedGroup is set, file content will not be available for people that aren't part of this group."
+        },
         "isDraft": {
           "type": "boolean",
-          "description": "If true, will not show up in markdownReader ui's"
+          "description": "DESCRIPTION:If true, will not show up in reader ui's"
+        },
+        "isAvailableFromDateAt": {
+          "type": "number",
+          "description": "DESCRIPTION: If this is a date in the future, the file won't be available until that date"
         },
         "updatedAt": {
           "$ref": "#/definitions/UpdatedAt"
         },
         "createdAt": {
           "$ref": "#/definitions/CreatedAt"
-        },
-        "privacy": {
-          "type": "string",
-          "enum": [
-            "public",
-            "private",
-            "request"
-          ],
-          "description": "TODO: implement auth layers, then look at this again"
         },
         "language": {
           "$ref": "#/definitions/Language",
@@ -245,11 +258,9 @@
         "createdFirstAt",
         "deletedAt",
         "id",
-        "language",
         "markdown",
         "name",
         "operationName",
-        "privacy",
         "projectRelativePath",
         "slug",
         "updatedAt"
@@ -612,11 +623,53 @@
           }
         },
         {
+          "name": "isPrivate",
+          "required": false,
+          "schema": {
+            "fullComment": "DESCRIPTION: Only accessible to admin",
+            "description": "Only accessible to admin",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isSecret",
+          "required": false,
+          "schema": {
+            "fullComment": "DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`",
+            "description": "Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "authorizedGroup",
+          "required": false,
+          "schema": {
+            "enum": [
+              "",
+              "premium",
+              "enterprise"
+            ],
+            "fullComment": "DESCRIPTION: If authorizedGroup is set, file content will not be available for people that aren't part of this group.",
+            "description": "If authorizedGroup is set, file content will not be available for people that aren't part of this group.",
+            "type": "string"
+          }
+        },
+        {
           "name": "isDraft",
           "required": false,
           "schema": {
-            "fullComment": "If true, will not show up in markdownReader ui's",
+            "fullComment": "DESCRIPTION:If true, will not show up in reader ui's",
+            "description": "If true, will not show up in reader ui's",
             "type": "boolean"
+          }
+        },
+        {
+          "name": "isAvailableFromDateAt",
+          "required": false,
+          "schema": {
+            "fullComment": "DESCRIPTION: If this is a date in the future, the file won't be available until that date",
+            "description": "If this is a date in the future, the file won't be available until that date",
+            "type": "number"
           }
         },
         {
@@ -636,22 +689,8 @@
           }
         },
         {
-          "name": "privacy",
-          "required": true,
-          "schema": {
-            "enum": [
-              "public",
-              "private",
-              "request"
-            ],
-            "fullComment": "TODO: implement auth layers, then look at this again",
-            "todo": "implement auth layers, then look at this again",
-            "type": "string"
-          }
-        },
-        {
           "name": "language",
-          "required": true,
+          "required": false,
           "schema": {
             "enum": [
               "english",

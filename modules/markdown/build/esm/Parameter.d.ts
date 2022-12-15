@@ -5,3 +5,4 @@
 export declare const Parameter: (props: {
     text: string;
 }) => JSX.Element | null;
+//# sourceMappingURL=Parameter.d.ts.map

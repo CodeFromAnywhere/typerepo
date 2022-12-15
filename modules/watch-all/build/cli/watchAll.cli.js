@@ -1,6 +1,12 @@
 #!/usr/bin/env node
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var watchAll_1=require("../watchAll"),watchAllCli=function(){(0,watchAll_1.watchAll)()};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var watchAll_1 = require("../watchAll");
 /**
  * Runs `watchAll`.
- */watchAllCli();
+ */
+var watchAllCli = function () {
+    (0, watchAll_1.watchAll)();
+};
+watchAllCli();
 //# sourceMappingURL=watchAll.cli.js.map

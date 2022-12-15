@@ -1,0 +1,36 @@
+{
+  "createdAt": 1671098544370,
+  "updatedAt": 1671098544370,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098544370,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/openNewBrowser.ts",
+  "commentsInside": [],
+  "rawText": " async (): Promise<Browser> => {\n  const existingBrowser = getBrowserSession();\n  if (existingBrowser && existingBrowser.isConnected()) {\n    return existingBrowser;\n  }\n  puppeteer.use(\n    RecaptchaPlugin({\n      provider: {\n        id: \"2captcha\",\n        token: \"243f9da05482cc8e9b76203a184943c9\", // REPLACE THIS WITH YOUR OWN 2CAPTCHA API KEY ⚡\n      },\n      visualFeedback: true, // colorize reCAPTCHAs (violet = detected, green = solved)\n    })\n  );\n\n  puppeteer.use(StealthPlugin());\n  const browser = await puppeteer.launch(browserLunchOptions);\n  setBrowserSession(browser);\n  return browser;\n}",
+  "name": "openNewBrowser",
+  "slug": "open-new-browser",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Browser>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 606,
+    "lines": 20,
+    "bytes": 608,
+    "bytesPerCharacter": 1.0033003300330032,
+    "charactersPerLine": 30,
+    "linesPerFile": 20,
+    "numberOfFiles": 1
+  },
+  "id": "jgwclytfmtdhdqjkyagiozmn"
+}

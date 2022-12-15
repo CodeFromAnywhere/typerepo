@@ -6,3 +6,4 @@ export var writerInitialValues = {
     subwordConfig: {},
 };
 export var useStore = (_a = createStore(writerInitialValues), _a.useStore), StoreProvider = _a.StoreProvider;
+//# sourceMappingURL=store.js.map

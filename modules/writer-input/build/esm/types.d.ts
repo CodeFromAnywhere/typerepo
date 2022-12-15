@@ -10,3 +10,4 @@ export declare type DefaultWriterProps = {
     projectRelativeBaseFolderPath: string;
     projectRelativeMarkdownFilePath: string;
 };
+//# sourceMappingURL=types.d.ts.map

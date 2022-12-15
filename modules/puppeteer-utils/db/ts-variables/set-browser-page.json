@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098522354,
+  "updatedAt": 1671098522354,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098522354,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "setBrowserPage",
+  "slug": "set-browser-page",
+  "operationRelativeTypescriptFilePath": "src/browserSessionsCache.ts",
+  "type": {
+    "rawType": "(page: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Page) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(page: Page): string => {\n  const pageId = uuidv4();\n  const allPages = browserSessionsCache.get(\"pages\");\n  if (allPages) {\n    browserSessionsCache.set(\"pages\", { ...allPages, [pageId]: page });\n  } else {\n    browserSessionsCache.set(\"pages\", { [pageId]: page });\n  }\n  return pageId;\n}",
+  "description": "",
+  "id": "sapiacsiouobhtuzkqlhvmjb"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098569284,
+  "updatedAt": 1671098569284,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098569284,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "typeInTheInputField",
+  "slug": "type-in-the-input-field",
+  "operationRelativeTypescriptFilePath": "src/typeInTheInputField.ts",
+  "type": {
+    "rawType": "(props: { page: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-core/lib/types\").Page; selector: string; value: string; }) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (props: {\n  page: Page;\n  selector: string;\n  value: string;\n}) => {\n  const { page, selector, value } = props;\n  // wait for selector\n  await page.waitForSelector(selector, { timeout: 30000 });\n  // click, focus and enter the value\n  await page.click(selector);\n  await page.focus(selector);\n  // throw 'test message';\n  await page.keyboard.type(value);\n}",
+  "description": "Help to type in the field in given selector by setting value",
+  "id": "lkwowcaglqdfhwobzaigviji"
+}

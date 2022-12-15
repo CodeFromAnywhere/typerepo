@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -42,6 +42,7 @@ var get_package_json_1 = require("get-package-json");
 var js_util_1 = require("js-util");
 var fs_util_1 = require("fs-util");
 var database_1 = require("database");
+var fs_util_js_1 = require("fs-util-js");
 /**
  * gets a whole bunch of metadata about an operation, mainly filepath related, but it also reads the operation index json file
  */
@@ -74,7 +75,7 @@ operationBasePath) { return __awaiter(void 0, void 0, void 0, function () {
             case 2:
                 operations = _a.sent();
                 operation = (0, js_util_1.takeFirst)(operations);
-                relativeOperationLocationPath = (0, get_path_1.makeRelative)(fs_util_1.path.join(operationBasePath, ".."), projectRoot);
+                relativeOperationLocationPath = (0, fs_util_js_1.makeRelative)(fs_util_1.path.join(operationBasePath, ".."), projectRoot);
                 if (!relativeOperationLocationPath)
                     return [2 /*return*/];
                 return [2 /*return*/, {

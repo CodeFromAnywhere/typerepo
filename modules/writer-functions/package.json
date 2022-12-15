@@ -5,16 +5,20 @@
   "createdFirstAt": 1668328744771,
   "id": "xkhhpdbucaopovxzzfodmtvo",
   "dependencies": {
+    "asset-functions-node": "0.0.1",
+    "asset-type": "0.0.1",
+    "code-types": "0.0.1",
+    "database": "0.0.1",
+    "explore-project": "0.0.1",
     "fs-util": "1.0.5",
     "get-path": "0.0.1",
-    "database": "0.0.1",
-    "code-types": "0.0.1",
-    "asset-type": "0.0.1",
-    "asset-functions-node": "0.0.1",
     "js-util": "0.0.1",
-    "explore-project": "0.0.1",
+    "recursive-util": "0.0.1",
     "webpage-types": "0.0.1",
-    "recursive-util": "0.0.1"
+    "markdown-types": "0.0.1",
+    "matter-types": "0.0.1",
+    "read-markdown-file": "0.0.1",
+    "markdown-parse-js": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -34,6 +38,9 @@
   "language": "english",
   "slug": "writer-functions",
   "operation": {
+    "indirectDependencies": [
+      "trash"
+    ],
     "buildResultIndexed": {
       "buildSucceeded": true,
       "dependenciesBuildsFailed": false,
@@ -49,8 +56,14 @@
     "folderNameIndexed": "writer-functions",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670218871864,
+    "lastRebuildAt": 1671101704917,
     "operationDependenciesIndexed": [
+      "fs",
+      "path",
+      "getProjectRoot",
+      "fs",
+      "path",
+      "getProjectRoot",
       "fs",
       "path",
       "getProjectRoot",
@@ -77,34 +90,44 @@
       "getProjectRoot",
       "fs",
       "path",
-      "getProjectRoot"
+      "getProjectRoot",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "MarkdownParse",
+      "Frontmatter",
+      "readMarkdownFile",
+      "markdownParseToMarkdownString"
     ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/writer",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 10,
-        "lines": 280,
-        "characters": 7652,
-        "bytes": 7652
+        "numberOfFiles": 14,
+        "lines": 444,
+        "characters": 12274,
+        "bytes": 12274
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 150,
-        "characters": 4562,
-        "bytes": 4562
+        "lines": 164,
+        "characters": 4865,
+        "bytes": 4865
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 142,
-        "characters": 2790,
-        "bytes": 2790
+        "lines": 203,
+        "characters": 4257,
+        "bytes": 4257
       },
       "size": {
-        "bytes": 15004,
-        "characters": 15004,
-        "lines": 572,
-        "numberOfFiles": 13
+        "bytes": 21396,
+        "characters": 21396,
+        "lines": 811,
+        "numberOfFiles": 17
       }
     },
     "hasGeneratedImportsIndexed": false

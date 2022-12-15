@@ -1,0 +1,93 @@
+{
+  "createdAt": 1671098528724,
+  "updatedAt": 1671098528724,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098528724,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/foundOrNot.ts",
+  "commentsInside": [],
+  "rawText": " async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: Page;\n  /** the css selector to search for */\n  selector: string;\n  /** (optional) change default timeout to wait for selector */\n  timeoutMilliseconds?: number;\n}): Promise<boolean> => {\n  const { page, selector, timeoutMilliseconds } = props;\n  return new Promise(async (resolve, reject) => {\n    // Correct Method\n    await page\n      .waitForSelector(selector, { timeout: timeoutMilliseconds || 30 * 1000 })\n      .then(() => {\n        resolve(true);\n      })\n      .catch((e: any) => {\n        resolve(false);\n      });\n  });\n}",
+  "name": "foundOrNot",
+  "slug": "found-or-not",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "$ref": "#/definitions/Page",
+            "description": "the page element from puppeteer got with browser.pages"
+          },
+          "selector": {
+            "type": "string",
+            "description": "the css selector to search for"
+          },
+          "timeoutMilliseconds": {
+            "type": "number",
+            "description": "(optional) change default timeout to wait for selector"
+          }
+        },
+        "required": [
+          "page",
+          "selector"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "the page element from puppeteer got with browser.pages\n\nPage provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "selector",
+            "required": true,
+            "schema": {
+              "fullComment": "the css selector to search for",
+              "type": "string"
+            }
+          },
+          {
+            "name": "timeoutMilliseconds",
+            "required": false,
+            "schema": {
+              "fullComment": "(optional) change default timeout to wait for selector",
+              "type": "number"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Utility function that always returns a boolean instead of throwing an error.",
+  "returnType": {
+    "rawType": "Promise<boolean>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 697,
+    "lines": 21,
+    "bytes": 697,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 33,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "hytsdpnlaarxxdvhaehpiqvh"
+}

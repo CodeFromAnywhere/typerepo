@@ -1,0 +1,73 @@
+{
+  "createdAt": 1671098526602,
+  "updatedAt": 1671098526602,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098526602,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/facebookLogin.ts",
+  "commentsInside": [],
+  "rawText": " async (props: FacebookLoginPropsType) => {\n  const { email, password, page } = props;\n  // type email\n  await typeInTheInputField({\n    page,\n    value: email,\n    selector: 'input[name=\"email\"]',\n  });\n  // type password\n  await typeInTheInputField({\n    page,\n    selector: 'input[name=\"pass\"]',\n    value: password,\n  });\n  // clicking the login button\n  await page.click(\"button[name=login]\");\n}",
+  "name": "facebookLogin",
+  "slug": "facebook-login",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "$ref": "#/definitions/FacebookLoginPropsType"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "email",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "takes facebook credentials and login to facebook",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 448,
+    "lines": 17,
+    "bytes": 448,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "acjuugcbrpqedzjguwcmplyz"
+}

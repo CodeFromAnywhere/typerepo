@@ -5,3 +5,4 @@ export declare type WriterConfigFormValue = [
     subwordConfig: SubwordConfig
 ];
 export declare const WriterConfigForm: () => JSX.Element;
+//# sourceMappingURL=WriterConfigForm.d.ts.map

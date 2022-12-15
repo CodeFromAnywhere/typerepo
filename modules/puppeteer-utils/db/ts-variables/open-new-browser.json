@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098544517,
+  "updatedAt": 1671098544517,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098544517,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "openNewBrowser",
+  "slug": "open-new-browser",
+  "operationRelativeTypescriptFilePath": "src/openNewBrowser.ts",
+  "type": {
+    "rawType": "() => Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Browser>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (): Promise<Browser> => {\n  const existingBrowser = getBrowserSession();\n  if (existingBrowser && existingBrowser.isConnected()) {\n    return existingBrowser;\n  }\n  puppeteer.use(\n    RecaptchaPlugin({\n      provider: {\n        id: \"2captcha\",\n        token: \"243f9da05482cc8e9b76203a184943c9\", // REPLACE THIS WITH YOUR OWN 2CAPTCHA API KEY ⚡\n      },\n      visualFeedback: true, // colorize reCAPTCHAs (violet = detected, green = solved)\n    })\n  );\n\n  puppeteer.use(StealthPlugin());\n  const browser = await puppeteer.launch(browserLunchOptions);\n  setBrowserSession(browser);\n  return browser;\n}",
+  "description": "",
+  "id": "szvplxoftuumqblanhjimtpc"
+}

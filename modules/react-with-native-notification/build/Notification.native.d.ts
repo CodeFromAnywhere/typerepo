@@ -1,5 +1,5 @@
 import { ToastOptions as ToastifyToastOptions } from "react-toastify";
-export declare type ToastOptions = ToastifyToastOptions;
+export type ToastOptions = ToastifyToastOptions;
 export declare const toast: (content: {
     title: string;
     body: string;

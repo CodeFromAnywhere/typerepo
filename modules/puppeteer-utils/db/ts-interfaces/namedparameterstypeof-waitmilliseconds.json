@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671098571816,
+  "updatedAt": 1671098571816,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098571816,
+  "id": "namedparameterstypeof-waitmilliseconds",
+  "name": "NamedParameters<typeof waitMilliseconds>",
+  "slug": "namedparameterstypeof-waitmilliseconds",
+  "operationRelativeTypescriptFilePath": "src/waitMillisseconds.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "milliseconds": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "milliseconds"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "milliseconds",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof waitMilliseconds>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

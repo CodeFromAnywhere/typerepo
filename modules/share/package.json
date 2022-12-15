@@ -6,6 +6,7 @@
   "name": "share",
   "version": "1.0.0",
   "main": "./build/esm/index.js",
+  "source": "./src/index.ts",
   "types": "./build/esm/index.d.ts",
   "files": [
     "/build"
@@ -35,30 +36,30 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1670529087323,
+    "lastRebuildAt": 1671012896092,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 156,
-        "characters": 4600,
-        "bytes": 4600
+        "lines": 160,
+        "characters": 4687,
+        "bytes": 4687
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 122,
-        "characters": 2926,
-        "bytes": 2926
+        "lines": 125,
+        "characters": 3213,
+        "bytes": 3213
       },
       "textSize": {
         "numberOfFiles": 3,
         "lines": 96,
-        "characters": 2447,
-        "bytes": 2447
+        "characters": 2476,
+        "bytes": 2476
       },
       "size": {
-        "bytes": 9973,
-        "characters": 9973,
-        "lines": 374,
+        "bytes": 10376,
+        "characters": 10376,
+        "lines": 381,
         "numberOfFiles": 8
       }
     },

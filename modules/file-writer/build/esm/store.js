@@ -17,3 +17,4 @@ import { fileTabsInitialValues } from "file-tabs";
  * Combining two store types to create an aggregated store
  */
 export var useStore = (_a = createStore(__assign(__assign({}, writerInitialValues), fileTabsInitialValues)), _a.useStore), StoreProvider = _a.StoreProvider;
+//# sourceMappingURL=store.js.map

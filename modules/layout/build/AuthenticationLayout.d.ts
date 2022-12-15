@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { MenuProps } from "menu";
 /**
  * Layout that includes default pages and header for authentication

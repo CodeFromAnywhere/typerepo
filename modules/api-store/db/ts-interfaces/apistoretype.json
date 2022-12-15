@@ -1,0 +1,85 @@
+{
+  "createdAt": 1671104268728,
+  "updatedAt": 1671104268728,
+  "deletedAt": 0,
+  "createdFirstAt": 1671104268728,
+  "id": "apistoretype",
+  "name": "ApiStoreType",
+  "slug": "apistoretype",
+  "operationRelativeTypescriptFilePath": "src/store.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type ApiStoreType = {\n  /**\n   * authToken coupled to device, set by browser automatically on first pageload\n   *\n   * can also be changed by logging in\n   */\n  \"api.authToken\": string;\n  /**\n   * Can set this up in config to connect with different api\n   */\n  \"api.customUrl\": null | string;\n  /**\n   * If the api doesn't response, this will be set to last date.\n   * If the api responds, this will be reset\n   */\n  \"api.timeoutAt\": null | number;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "api.authToken": {
+          "type": "string",
+          "description": "authToken coupled to device, set by browser automatically on first pageload\n\ncan also be changed by logging in"
+        },
+        "api.customUrl": {
+          "type": [
+            "null",
+            "string"
+          ],
+          "description": "Can set this up in config to connect with different api"
+        },
+        "api.timeoutAt": {
+          "type": [
+            "null",
+            "number"
+          ],
+          "description": "If the api doesn't response, this will be set to last date. If the api responds, this will be reset"
+        }
+      },
+      "required": [
+        "api.authToken",
+        "api.customUrl",
+        "api.timeoutAt"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "api.authToken",
+          "required": true,
+          "schema": {
+            "fullComment": "authToken coupled to device, set by browser automatically on first pageload\n\ncan also be changed by logging in",
+            "type": "string"
+          }
+        },
+        {
+          "name": "api.customUrl",
+          "required": true,
+          "schema": {
+            "fullComment": "Can set this up in config to connect with different api",
+            "type": "null"
+          }
+        },
+        {
+          "name": "api.timeoutAt",
+          "required": true,
+          "schema": {
+            "fullComment": "If the api doesn't response, this will be set to last date. If the api responds, this will be reset",
+            "type": "null"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "ApiStoreType",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

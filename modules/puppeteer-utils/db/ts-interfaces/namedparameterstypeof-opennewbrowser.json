@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098543254,
+  "updatedAt": 1671098543254,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098543254,
+  "id": "namedparameterstypeof-opennewbrowser",
+  "name": "NamedParameters<typeof openNewBrowser>",
+  "slug": "namedparameterstypeof-opennewbrowser",
+  "operationRelativeTypescriptFilePath": "src/openNewBrowser.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof openNewBrowser>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

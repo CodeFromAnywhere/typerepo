@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670589807214,
-  "updatedAt": 1670589807214,
+  "createdAt": 1671105526999,
+  "updatedAt": 1671105526999,
   "deletedAt": 0,
-  "createdFirstAt": 1670589807214,
+  "createdFirstAt": 1671105526999,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getContextualPromptResults.ts",
   "commentsInside": [],
-  "rawText": " async (config?: {\n  prompt_projectRelativePath?: string;\n  promptSlugs?: string[];\n}) => {\n  const { prompt_projectRelativePath, promptSlugs } =\n    destructureOptionalObject(config);\n  const results = (await db.get(\"ContextualPromptResult\")).map(\n    omitUndefinedValues\n  );\n\n  const onlyForPath = prompt_projectRelativePath\n    ? results?.filter(\n        (x) => x.prompt_projectRelativePath === prompt_projectRelativePath\n      )\n    : results;\n\n  const onlyForPrompts = promptSlugs\n    ? onlyForPath.filter((result) => {\n        if (!result.contextualPromptSlug) return false;\n\n        if (promptSlugs.includes(result.contextualPromptSlug)) return true;\n\n        return false;\n      })\n    : onlyForPath;\n  return onlyForPrompts;\n}",
+  "rawText": " async (config?: {\n  /**\n   * If given, will only provide `ContextualPromptResult`s for this path\n   */\n  prompt_projectRelativePath?: string;\n  /**\n   * If given, will only return the db result if it is part of this array\n   */\n  promptSlugs?: string[];\n}): Promise<ContextualPromptResult[] | null> => {\n  const { prompt_projectRelativePath, promptSlugs } =\n    destructureOptionalObject(config);\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return null;\n  const prompt_absolutePath = prompt_projectRelativePath\n    ? path.join(projectRoot, prompt_projectRelativePath)\n    : undefined;\n  const exists = prompt_absolutePath\n    ? fs.existsSync(prompt_absolutePath)\n    : undefined;\n  const stats =\n    exists && prompt_absolutePath\n      ? await fs.stat(prompt_absolutePath)\n      : undefined;\n  const isFolder = stats ? stats.isDirectory() : false;\n  const isFile = stats ? stats.isFile() : false;\n  const pathParse = prompt_absolutePath\n    ? path.parse(prompt_absolutePath)\n    : undefined;\n  if (prompt_absolutePath && !exists) {\n    console.log(\"You gave a path that doesn't exist\");\n    return null;\n  }\n\n  const dbResults = (await db.get(\"ContextualPromptResult\")).map(\n    omitUndefinedValues\n  );\n\n  const onlyForPath = prompt_projectRelativePath\n    ? dbResults?.filter(\n        (x) => x.prompt_projectRelativePath === prompt_projectRelativePath\n      )\n    : dbResults;\n\n  const onlyForPrompts = promptSlugs\n    ? onlyForPath.filter((result) => {\n        if (!result.contextualPromptSlug) return false;\n\n        if (promptSlugs.includes(result.contextualPromptSlug)) return true;\n\n        return false;\n      })\n    : onlyForPath;\n\n  if (!prompt_projectRelativePath || !pathParse || !prompt_absolutePath) {\n    // we don't need the .index one\n    return onlyForPrompts;\n  }\n  const contextualPromptResultsJsonPath = isFile\n    ? path.join(pathParse.dir, \".index\", pathParse.name, \"prompt-results.json\")\n    : isFolder\n    ? path.join(prompt_absolutePath, \".index\", \"prompt-results.json\")\n    : undefined;\n  if (\n    !contextualPromptResultsJsonPath ||\n    !fs.existsSync(contextualPromptResultsJsonPath)\n  ) {\n    return onlyForPrompts;\n  }\n\n  const indexResults = await readJsonFile<ContextualPromptResult[]>(\n    contextualPromptResultsJsonPath\n  );\n\n  if (!indexResults) {\n    console.log(\n      \"We tried to read the results but couldn't\",\n      contextualPromptResultsJsonPath\n    );\n    return onlyForPrompts;\n  }\n\n  const allResults: ContextualPromptResult[] = onlyForPrompts\n    .concat(indexResults)\n    .sort((a, b) => {\n      if (a.isFake) return 1;\n      if (b.isFake) return -1;\n      return 0;\n    })\n    .sort((a, b) => {\n      if (a.isFavorite) return -1;\n      if (b.isFavorite) return 1;\n      return 0;\n    });\n  return allResults;\n}",
   "name": "getContextualPromptResults",
   "slug": "get-contextual-prompt-results",
   "parameters": [
@@ -18,13 +18,15 @@
         "type": "object",
         "properties": {
           "prompt_projectRelativePath": {
-            "type": "string"
+            "type": "string",
+            "description": "If given, will only provide `ContextualPromptResult`s for this path"
           },
           "promptSlugs": {
             "type": "array",
             "items": {
               "type": "string"
-            }
+            },
+            "description": "If given, will only return the db result if it is part of this array"
           }
         },
         "additionalProperties": false
@@ -35,6 +37,7 @@
             "name": "prompt_projectRelativePath",
             "required": false,
             "schema": {
+              "fullComment": "If given, will only provide `ContextualPromptResult`s for this path",
               "type": "string"
             }
           },
@@ -42,6 +45,7 @@
             "name": "promptSlugs",
             "required": false,
             "schema": {
+              "fullComment": "If given, will only return the db result if it is part of this array",
               "items": [
                 {
                   "schema": {
@@ -59,9 +63,9 @@
       "required": false
     }
   ],
-  "description": "Gets all contextualPromptResults, but only if specific things are true\n\nTODO:\n\n- For any prompt we have for this filetype: get it from the database\n- For prompts about a folder: path/to/folder/.index/prompt-results.json\n- For prompts about a file or a selection thereof: path/to/folder/.index/[filename]/prompt-results.json\n\nNB: the slug of the ones in index should be the ID, and does not need to be set by the user, because we cannot guarantee that it's no duplicate.",
+  "description": "Gets all contextualPromptResults, but only if specific things are true\n\n- For any prompt we have for this filetype: get it from the database\n- For prompts about a folder: path/to/folder/.index/prompt-results.json\n- For prompts about a file or a selection thereof: path/to/folder/.index/[filename]/prompt-results.json\n\nNB: the slug of the ones in index should be the ID, and does not need to be set by the user, because we cannot guarantee that it's no duplicate.",
   "returnType": {
-    "rawType": "unknown",
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPromptResult\").ContextualPromptResult[] | null>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -71,13 +75,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 1205,
-    "lines": 35,
-    "bytes": 1205,
+    "characters": 3240,
+    "lines": 102,
+    "bytes": 3240,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 34,
-    "linesPerFile": 35,
+    "charactersPerLine": 32,
+    "linesPerFile": 102,
     "numberOfFiles": 1
   },
-  "id": "suvfpzjyoqpagqhhnyhtiinv"
+  "id": "sigpxxlwuamrunqokkfvalov"
 }

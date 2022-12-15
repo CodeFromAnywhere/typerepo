@@ -21,7 +21,7 @@ export declare const makeInputField: <TInputs, T extends Extract<keyof TInputs, 
 /**
  * type of every specific field in a form
  */
-export declare type Field<TInputs, T extends Keys<TInputs> = Keys<TInputs>> = {
+export type Field<TInputs, T extends Keys<TInputs> = Keys<TInputs>> = {
     /**
      * type of the field (any plugin type), defaults to first plugin
      */
@@ -52,14 +52,14 @@ export declare type Field<TInputs, T extends Keys<TInputs> = Keys<TInputs>> = {
      */
     extra?: TInputs[T] extends PluginInputType ? TInputs[T]["extra"] : any;
 };
-export declare type Keys<TObject> = Extract<keyof TObject, string>;
+export type Keys<TObject> = Extract<keyof TObject, string>;
 export interface ExtendedField<TInputs, T extends Keys<TInputs>> extends Field<TInputs, T> {
     /**
      * this is added to any field
      */
     reference?: RefObject<HTMLDivElement>;
 }
-export declare type SubmitProps = {
+export type SubmitProps = {
     onSubmit: () => void;
     loading: boolean;
     available: boolean;
@@ -67,12 +67,12 @@ export declare type SubmitProps = {
     submitButtonColor?: string;
     state?: any;
 };
-export declare type DefaultConfig = {
+export type DefaultConfig = {
     extraClassName?: string;
     replaceClassName?: string;
 };
-declare type RejectValue = string | Error[];
-export declare type Error = {
+type RejectValue = string | Error[];
+export type Error = {
     message: string | true;
     propertyPath: string;
 };
@@ -96,12 +96,12 @@ export interface PluginInputType {
      */
     component?: any;
 }
-export declare type Plugin<TInput extends PluginInputType> = {
+export type Plugin<TInput extends PluginInputType> = {
     component: PluginComponent<TInput>;
     config?: TInput["config"];
 };
-export declare type OnChange<TInput extends PluginInputType> = (value: TInput["value"]) => void;
-export declare type PluginComponent<TInput extends PluginInputType> = ((props: {
+export type OnChange<TInput extends PluginInputType> = (value: TInput["value"]) => void;
+export type PluginComponent<TInput extends PluginInputType> = ((props: {
     onChange: OnChange<TInput>;
     /**
      * value is never undefined, unless you didn't declare defaultInitialValue
@@ -127,11 +127,11 @@ export declare type PluginComponent<TInput extends PluginInputType> = ((props: {
     defaultInitialValue: TInput["value"];
     hideContainerError?: boolean;
 };
-declare type Plugins<TInputs> = {
+type Plugins<TInputs> = {
     [key in keyof TInputs]: Plugin<any>;
 };
-export declare type RenderInputContainerType = undefined | ((props: InputContainerProps) => JSX.Element);
-export declare type InputContainerProps = {
+export type RenderInputContainerType = undefined | ((props: InputContainerProps) => JSX.Element);
+export type InputContainerProps = {
     children: any;
     description?: string;
     sectionTitle?: string;
@@ -144,7 +144,7 @@ export declare type InputContainerProps = {
     config?: PluginInputType["config"];
     errorClassName?: string;
 };
-export declare type DataFormConfig<TInputs> = {
+export type DataFormConfig<TInputs> = {
     submitButtonText?: string;
     submitButtonColor?: string;
     title?: string;
@@ -171,15 +171,15 @@ export declare type DataFormConfig<TInputs> = {
 /**
  * the possible states, like { password: string, text: string }
  */
-export declare type PossibleValues<TInputs> = {
+export type PossibleValues<TInputs> = {
     [K in keyof TInputs]: TInputs[K] extends PluginInputType ? TInputs[K]["value"] : never;
 };
-export declare type PossibleState = {
+export type PossibleState = {
     [key: string]: any;
 };
-export declare type ResolveType = (message: string) => void;
-export declare type RejectType = (stringOrErrorArray: RejectValue) => void;
-export declare type DataFormProps<TInputs, TState extends {
+export type ResolveType = (message: string) => void;
+export type RejectType = (stringOrErrorArray: RejectValue) => void;
+export type DataFormProps<TInputs, TState extends {
     [key: string]: any;
 }> = {
     /**
@@ -236,7 +236,7 @@ export declare const errorOnField: (fieldName: string) => (error: Error) => bool
 export declare const DataForm: <TInputs, TState extends {
     [key: string]: any;
 }>({ fields, defaultValues, initialValues, onSubmit, withSubmitProps, noSubmit, submitButtonText, submitButtonColor, title, backButton, plugins, renderSubmitComponent, renderInputContainer, stickySubmit, renderTitle, submitClassName, errorClassName, successClassName, }: DataFormProps<TInputs, TState>) => JSX.Element;
-export declare type AllPluginInputTypes = {
+export type AllPluginInputTypes = {
     [key: string]: PluginInputType;
 };
 export declare const setConfig: <TInputs, TState extends {

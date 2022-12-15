@@ -2,7 +2,7 @@ import * as React from "react";
 import { Placement } from "@popperjs/core";
 export declare type TooltipComponentProps = any;
 export declare const Tooltip: (props: {
-    tooltip: React.ReactElement;
+    tooltip: React.ReactElement | null;
     children: React.ReactNode;
     placement?: Placement;
 }) => JSX.Element;

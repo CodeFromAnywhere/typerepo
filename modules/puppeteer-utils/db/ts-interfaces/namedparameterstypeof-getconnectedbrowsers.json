@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098535389,
+  "updatedAt": 1671098535389,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098535389,
+  "id": "namedparameterstypeof-getconnectedbrowsers",
+  "name": "NamedParameters<typeof getConnectedBrowsers>",
+  "slug": "namedparameterstypeof-getconnectedbrowsers",
+  "operationRelativeTypescriptFilePath": "src/getConnectedBrowsers.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getConnectedBrowsers>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

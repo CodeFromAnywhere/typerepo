@@ -22,3 +22,4 @@ MarkedParagraph.toMarkdownString = function (element) {
      */
     return element.innerText;
 };
+//# sourceMappingURL=MarkedParagraph.js.map

@@ -1,0 +1,253 @@
+{
+  "createdAt": 1671105338822,
+  "updatedAt": 1671105338822,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105338822,
+  "id": "readerprops",
+  "name": "ReaderProps",
+  "slug": "readerprops",
+  "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * This is what we need on the page level. There are many subtleties to it, but this is the core\n */\nexport type ReaderProps = {\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown: string | null;\n  contextualPromptsObject: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults: ContextualPromptResult[] | null;\n  projectRelativeFilePath: string;\n  navigation: FolderContent[];\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "This is what we need on the page level. There are many subtleties to it, but this is the core",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isFolder": {
+          "type": "boolean",
+          "description": "If true, the current path represents a folder, not a file."
+        },
+        "canSeeContent": {
+          "type": "boolean"
+        },
+        "unauthorizedWarningMessage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "markdown": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contextualPromptsObject": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "selectionContextualPrompts": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ContextualPrompt"
+                  }
+                },
+                "pageContextualPrompts": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ContextualPrompt"
+                  }
+                },
+                "folderContextualPrompts": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/ContextualPrompt"
+                  }
+                }
+              },
+              "required": [
+                "selectionContextualPrompts",
+                "pageContextualPrompts",
+                "folderContextualPrompts"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "contextualPromptResults": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/ContextualPromptResult"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "projectRelativeFilePath": {
+          "type": "string"
+        },
+        "navigation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FolderContent"
+          }
+        }
+      },
+      "required": [
+        "isFolder",
+        "markdown",
+        "contextualPromptsObject",
+        "contextualPromptResults",
+        "projectRelativeFilePath",
+        "navigation"
+      ],
+      "additionalProperties": false,
+      "description": "This is what we need on the page level. There are many subtleties to it, but this is the core"
+    },
+    "simplifiedSchema": {
+      "fullComment": "This is what we need on the page level. There are many subtleties to it, but this is the core",
+      "properties": [
+        {
+          "name": "isFolder",
+          "required": true,
+          "schema": {
+            "fullComment": "If true, the current path represents a folder, not a file.",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "canSeeContent",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "unauthorizedWarningMessage",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "markdown",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "contextualPromptsObject",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "contextualPromptResults",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "projectRelativeFilePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "navigation",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "fullComment": "",
+                  "properties": [
+                    {
+                      "name": "name",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "required": true,
+                      "schema": {
+                        "enum": [
+                          "folder",
+                          "file",
+                          "link",
+                          "unknown"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "isPrivate",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "isDraft",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "isSecret",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "authorizedGroup",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "frontmatter",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+                        "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+                        "properties": [],
+                        "type": "object"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "name": "FolderContent"
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "ReaderProps",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -16,7 +16,9 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true, // make sure the code is mapped to the source code, so you can Cmd+Click on any definition
+    "declarationMap": true // make sure the declaration files are in there and they are mapped to the source, so you can also Cmd+Click those
   },
   "include": ["src"],
   "exclude": ["node_modules", "build"]

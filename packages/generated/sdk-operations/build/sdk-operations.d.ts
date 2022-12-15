@@ -31,6 +31,7 @@ export declare const operations: {
     breadcrumbs: string;
     "bundle-types": string;
     "bundle-util": string;
+    "chatgpt-controller": string;
     "child-process-helper": string;
     "cleanup-typescript-database": string;
     "clickable-icon": string;
@@ -125,6 +126,7 @@ export declare const operations: {
     "pm2-util": string;
     "port-conventions": string;
     "prompt-components": string;
+    "puppeteer-utils": string;
     "react-with-native": string;
     "react-with-native-alert": string;
     "react-with-native-form": string;

@@ -35,30 +35,39 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 import { api } from "api";
+import { humanCase } from "convert-case";
+import { showStandardResponse } from "cool-toast";
 /**
  * Main function to process a prompt. For now it calls `processChatGptPrompt` api and shows an alert afterwards with the result. In some cases we may want to process the prompt differently, e.g. storing it in a queue.
  */
 export var processPrompt = function (config) { return __awaiter(void 0, void 0, void 0, function () {
-    var prompt, showPromptAlert, _a, contextContent, context_projectRelativeFilePath, contextSelection, apiResult;
-    var _b, _c, _d, _e;
-    return __generator(this, function (_f) {
-        switch (_f.label) {
+    var contextualPromptSlug, showPromptAlert, customPromptContent, _a, contextContent, context_projectRelativeFilePath, contextSelection, apiResult, title;
+    var _b, _c, _d, _e, _f;
+    return __generator(this, function (_g) {
+        switch (_g.label) {
             case 0:
-                prompt = config.prompt, showPromptAlert = config.showPromptAlert, _a = config.contextualContent, contextContent = _a.contextContent, context_projectRelativeFilePath = _a.context_projectRelativeFilePath, contextSelection = _a.contextSelection;
+                contextualPromptSlug = config.contextualPromptSlug, showPromptAlert = config.showPromptAlert, customPromptContent = config.customPromptContent, _a = config.contextualContent, contextContent = _a.contextContent, context_projectRelativeFilePath = _a.context_projectRelativeFilePath, contextSelection = _a.contextSelection;
                 return [4 /*yield*/, api.processChatGptPrompt({
                         contextContent: contextContent,
                         selectionContent: contextSelection || null,
-                        projectRelativeFilePath: context_projectRelativeFilePath,
+                        prompt_projectRelativePath: context_projectRelativeFilePath,
+                        isDeferred: true,
                         // not sure about these?
-                        commentContent: null,
-                        contextualPromptSlug: prompt.slug,
-                        customPromptContent: null,
+                        contextualPromptSlug: contextualPromptSlug,
+                        customPromptContent: customPromptContent,
                         saveNewPromptWithName: null,
                         isHeadless: false,
                     })];
             case 1:
-                apiResult = _f.sent();
-                showPromptAlert(prompt.name, ((_c = (_b = apiResult === null || apiResult === void 0 ? void 0 : apiResult.result) === null || _b === void 0 ? void 0 : _b.result) === null || _c === void 0 ? void 0 : _c.text) || "No textual result", (_e = (_d = apiResult === null || apiResult === void 0 ? void 0 : apiResult.result) === null || _d === void 0 ? void 0 : _d.result) === null || _e === void 0 ? void 0 : _e.thread, context_projectRelativeFilePath);
+                apiResult = _g.sent();
+                if (!apiResult.isSuccessful || !((_b = apiResult.result) === null || _b === void 0 ? void 0 : _b.isSuccessful)) {
+                    showStandardResponse(apiResult);
+                    return [2 /*return*/];
+                }
+                title = contextualPromptSlug
+                    ? humanCase(contextualPromptSlug)
+                    : "Untitled prompt";
+                showPromptAlert(title, ((_d = (_c = apiResult === null || apiResult === void 0 ? void 0 : apiResult.result) === null || _c === void 0 ? void 0 : _c.result) === null || _d === void 0 ? void 0 : _d.text) || "No textual result", (_f = (_e = apiResult === null || apiResult === void 0 ? void 0 : apiResult.result) === null || _e === void 0 ? void 0 : _e.result) === null || _f === void 0 ? void 0 : _f.thread, context_projectRelativeFilePath);
                 return [2 /*return*/];
         }
     });

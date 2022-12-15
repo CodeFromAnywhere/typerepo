@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098533432,
+  "updatedAt": 1671098533432,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098533432,
+  "id": "namedparameterstypeof-getchromeexecutablepath",
+  "name": "NamedParameters<typeof getChromeExecutablePath>",
+  "slug": "namedparameterstypeof-getchromeexecutablepath",
+  "operationRelativeTypescriptFilePath": "src/getChromeExecutablePath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getChromeExecutablePath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -11,7 +11,6 @@ export var ReaderPageHeader = function (props) {
         return null;
     var src = destructureOptionalObject(useAsset(markdownFile.headerImage, projectRelativeMarkdownPath, !isDev)).src;
     var backgroundImage = src ? "url(\"".concat(src, "\")") : undefined;
-    console.log({ backgroundImage: backgroundImage });
     return (React.createElement(Div, { style: {
             backgroundImage: backgroundImage,
             backgroundRepeat: "no-repeat",

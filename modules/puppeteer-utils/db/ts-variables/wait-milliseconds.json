@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098573008,
+  "updatedAt": 1671098573008,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098573008,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "waitMilliseconds",
+  "slug": "wait-milliseconds",
+  "operationRelativeTypescriptFilePath": "src/waitMillisseconds.ts",
+  "type": {
+    "rawType": "(milliseconds: number) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (milliseconds: number) =>\n  new Promise((resolve) => setTimeout(() => resolve(true), milliseconds))",
+  "description": "Utility functions to wait millisseconds. eg: 3000 waits 3 seconds",
+  "id": "lrnldbcmazjybajvjlkkaful"
+}

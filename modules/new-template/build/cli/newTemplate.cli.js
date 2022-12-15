@@ -1,10 +1,24 @@
 #!/usr/bin/env node
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var newTemplate_1=require("../newTemplate"),newTemplateCli=function(){var e=process.argv.slice(2),t=e[0],n=e[1];(0,newTemplate_1.newTemplate)(t,n).then((function(e){e?console.log("Generated template",{type:t}):console.log("Something went wrong")}))};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var newTemplate_1 = require("../newTemplate");
 /**
  * newTemplate can be used as CLI:
  *
  * Arguments:
  * - type (required): a folder from `new-template/assets/templates`
  * - destinationPath (optional): path where the template should be copied to (uses `cwd` by default)
- */newTemplateCli();
+ */
+var newTemplateCli = function () {
+    var _a = process.argv.slice(2), type = _a[0], destinationPath = _a[1];
+    (0, newTemplate_1.newTemplate)(type, destinationPath).then(function (basePath) {
+        if (basePath) {
+            console.log("Generated template", { type: type });
+        }
+        else {
+            console.log("Something went wrong");
+        }
+    });
+};
+newTemplateCli();
 //# sourceMappingURL=newTemplate.cli.js.map

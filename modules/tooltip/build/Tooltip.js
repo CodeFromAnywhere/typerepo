@@ -1,2 +1,54 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var i in t=arguments[r])Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i]);return e},__assign.apply(this,arguments)},__createBinding=this&&this.__createBinding||(Object.create?function(e,t,r,n){void 0===n&&(n=r);var i=Object.getOwnPropertyDescriptor(t,r);i&&!("get"in i?!t.__esModule:i.writable||i.configurable)||(i={enumerable:!0,get:function(){return t[r]}}),Object.defineProperty(e,n,i)}:function(e,t,r,n){void 0===n&&(n=r),e[n]=t[r]}),__setModuleDefault=this&&this.__setModuleDefault||(Object.create?function(e,t){Object.defineProperty(e,"default",{enumerable:!0,value:t})}:function(e,t){e.default=t}),__importStar=this&&this.__importStar||function(e){if(e&&e.__esModule)return e;var t={};if(null!=e)for(var r in e)"default"!==r&&Object.prototype.hasOwnProperty.call(e,r)&&__createBinding(t,e,r);return __setModuleDefault(t,e),t};Object.defineProperty(exports,"__esModule",{value:!0}),exports.Tooltip=void 0;var jsx_runtime_1=require("react/jsx-runtime"),React=__importStar(require("react")),core_1=require("@popperjs/core"),Tooltip=function(e){var t=React.useState(!1),r=t[0],n=t[1],i=React.createRef(),a=React.createRef();return(0,jsx_runtime_1.jsxs)("span",{children:[(0,jsx_runtime_1.jsx)("span",__assign({className:"mb-8 dark:text-gray-100 text-black bg-slate-200 dark:bg-slate-800 p-2 z-30 text-sm max-w-xs break-words rounded-md".concat(r?" block":" hidden"),ref:a},{children:e.tooltip})),(0,jsx_runtime_1.jsx)("span",__assign({onMouseEnter:function(){i.current&&a.current&&((0,core_1.createPopper)(i.current,a.current,{placement:e.placement||"auto"}),n(!0))},onMouseLeave:function(){n(!1)},ref:i},{children:e.children}))]})};exports.Tooltip=Tooltip;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Tooltip = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var react_1 = require("react");
+var core_1 = require("@popperjs/core");
+var Tooltip = function (props) {
+    var _a = (0, react_1.useState)(false), hoverLink = _a[0], setHoverLink = _a[1];
+    var _b = (0, react_1.useState)(null), tooltipTimeout = _b[0], setTooltipTimeout = _b[1];
+    var _c = (0, react_1.useState)(null), linkTimeout = _c[0], setLinkTimeout = _c[1];
+    var btnRef = (0, react_1.createRef)();
+    var popoverRef = (0, react_1.createRef)();
+    var _d = (0, react_1.useState)(false), hoverTooltip = _d[0], setHoverTooltip = _d[1];
+    var onEnterLink = function () {
+        if (!btnRef.current || !popoverRef.current)
+            return;
+        (0, core_1.createPopper)(btnRef.current, popoverRef.current, {
+            placement: props.placement || "auto",
+        });
+        setHoverLink(true);
+        if (linkTimeout) {
+            clearTimeout(linkTimeout);
+        }
+    };
+    var onLeaveLink = function () {
+        var timeout = setTimeout(function () { return setHoverLink(false); }, 500);
+        setLinkTimeout(timeout);
+    };
+    var popoverShow = hoverTooltip || hoverLink;
+    var onEnterTooltip = function () {
+        if (tooltipTimeout) {
+            clearTimeout(tooltipTimeout);
+        }
+        setHoverTooltip(true);
+    };
+    var onLeaveTooltip = function () {
+        var timeout = setTimeout(function () { return setHoverTooltip(false); }, 500);
+        setTooltipTimeout(timeout);
+    };
+    return ((0, jsx_runtime_1.jsxs)("span", { children: [props.tooltip ? ((0, jsx_runtime_1.jsx)("span", __assign({ onMouseEnter: onEnterTooltip, onMouseLeave: onLeaveTooltip, className: "mb-8 dark:text-gray-100 text-black bg-slate-200 dark:bg-slate-800 p-2 z-30 text-sm max-w-xs break-words rounded-md".concat(popoverShow ? " block" : " hidden"), ref: popoverRef }, { children: props.tooltip }))) : null, (0, jsx_runtime_1.jsx)("span", __assign({ onMouseEnter: onEnterLink, onMouseLeave: onLeaveLink, ref: btnRef }, { children: props.children }))] }));
+};
+exports.Tooltip = Tooltip;
 //# sourceMappingURL=Tooltip.js.map

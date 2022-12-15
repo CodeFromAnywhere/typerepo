@@ -1,2 +1,27 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.useAssetInfo=void 0;var asset_functions_js_1=require("asset-functions-js"),react_1=require("react"),text_or_binary_1=require("text-or-binary"),useAssetInfo=function(e,t){if(e||t){var s=e||t,r=e?e.split("/").pop():t,n=!0===(0,text_or_binary_1.isText)(r),o=(0,react_1.useState)(null),u=o[0],i=o[1];return(0,react_1.useEffect)((function(){e&&n&&fetch(e).then((function(e){e.text().then((function(e){return i(e)}))}))}),[e,n]),{rawText:u,type:(0,asset_functions_js_1.getTypeFromUrlOrPath)(s)}}console.log("MUST PROVIDE EITHER URL OR FILENAME")};exports.useAssetInfo=useAssetInfo;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useAssetInfo = void 0;
+var asset_functions_js_1 = require("asset-functions-js");
+var react_1 = require("react");
+var text_or_binary_1 = require("text-or-binary");
+var useAssetInfo = function (url, filename) {
+    if (!url && !filename) {
+        console.log("MUST PROVIDE EITHER URL OR FILENAME");
+        return;
+    }
+    var urlOrFilename = (url || filename);
+    var realFilename = (url ? url.split("/").pop() : filename);
+    var isTextFile = (0, text_or_binary_1.isText)(realFilename) === true ? true : false;
+    var _a = (0, react_1.useState)(null), rawText = _a[0], setRawText = _a[1];
+    (0, react_1.useEffect)(function () {
+        if (!!url && isTextFile) {
+            fetch(url).then(function (result) {
+                result.text().then(function (text) { return setRawText(text); });
+            });
+        }
+    }, [url, isTextFile]);
+    var type = (0, asset_functions_js_1.getTypeFromUrlOrPath)(urlOrFilename);
+    return { rawText: rawText, type: type };
+};
+exports.useAssetInfo = useAssetInfo;
 //# sourceMappingURL=useAssetInfo.js.map

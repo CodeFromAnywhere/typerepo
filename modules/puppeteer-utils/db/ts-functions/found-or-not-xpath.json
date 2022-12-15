@@ -1,0 +1,81 @@
+{
+  "createdAt": 1671098530677,
+  "updatedAt": 1671098530677,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098530677,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/foundOrNotXpath.ts",
+  "commentsInside": [],
+  "rawText": " async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: Page;\n  /** the xpath selector to search for */\n  selector: string;\n}): Promise<{\n  /** was the element found or not */\n  found: boolean;\n  /** if the element was found, it is returned */\n  element?: any;\n}> => {\n  const { page, selector } = props;\n  return new Promise(async (resolve, reject) => {\n    // Correct Method\n    await page\n      .waitForXPath(selector)\n      .then((element: any) => {\n        resolve({\n          found: true,\n          element,\n        });\n      })\n      .catch((e: any) => {\n        resolve({\n          found: false,\n        });\n      });\n  });\n}",
+  "name": "foundOrNotXpath",
+  "slug": "found-or-not-xpath",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "$ref": "#/definitions/Page",
+            "description": "the page element from puppeteer got with browser.pages"
+          },
+          "selector": {
+            "type": "string",
+            "description": "the xpath selector to search for"
+          }
+        },
+        "required": [
+          "page",
+          "selector"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "the page element from puppeteer got with browser.pages\n\nPage provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "selector",
+            "required": true,
+            "schema": {
+              "fullComment": "the xpath selector to search for",
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Utility function that always returns a boolean instead of throwing an error.\nXPath version.",
+  "returnType": {
+    "rawType": "Promise<{ found: boolean; element?: any; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 757,
+    "lines": 30,
+    "bytes": 757,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 30,
+    "numberOfFiles": 1
+  },
+  "id": "csbpqfworfsqqkpdigxtxxzu"
+}

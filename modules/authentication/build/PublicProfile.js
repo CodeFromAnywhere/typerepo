@@ -1,2 +1,20 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.PublicProfile=void 0;var jsx_runtime_1=require("react/jsx-runtime"),api_1=require("api"),fancy_loader_1=require("fancy-loader"),js_util_1=require("js-util"),react_with_native_1=require("react-with-native"),react_with_native_router_1=require("react-with-native-router"),PublicPersonComponent_1=require("./PublicPersonComponent"),PublicProfile=function(){var e,r,i=(0,react_with_native_router_1.useRouter)(),t=(null===(e=i.query)||void 0===e?void 0:e.id)?(0,js_util_1.takeFirst)(i.query.id):void 0,u=api_1.queries.useGetPublicPerson(t),o=null===(r=u.data)||void 0===r?void 0:r.result;return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[u.isLoading?(0,jsx_runtime_1.jsx)(fancy_loader_1.FancyLoader,{}):null,(0,jsx_runtime_1.jsx)(PublicPersonComponent_1.PublicPersonComponent,{publicPerson:o})]})};exports.PublicProfile=PublicProfile;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PublicProfile = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var api_1 = require("api");
+var fancy_loader_1 = require("fancy-loader");
+var js_util_1 = require("js-util");
+var react_with_native_1 = require("react-with-native");
+var react_with_native_router_1 = require("react-with-native-router");
+var PublicPersonComponent_1 = require("./PublicPersonComponent");
+var PublicProfile = function () {
+    var _a, _b;
+    var router = (0, react_with_native_router_1.useRouter)();
+    var id = ((_a = router.query) === null || _a === void 0 ? void 0 : _a.id) ? (0, js_util_1.takeFirst)(router.query.id) : undefined;
+    var publicPersonQuery = api_1.queries.useGetPublicPerson(id);
+    var publicPerson = (_b = publicPersonQuery.data) === null || _b === void 0 ? void 0 : _b.result;
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [publicPersonQuery.isLoading ? (0, jsx_runtime_1.jsx)(fancy_loader_1.FancyLoader, {}) : null, (0, jsx_runtime_1.jsx)(PublicPersonComponent_1.PublicPersonComponent, { publicPerson: publicPerson })] }));
+};
+exports.PublicProfile = PublicProfile;
 //# sourceMappingURL=PublicProfile.js.map

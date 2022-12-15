@@ -14,31 +14,6 @@ This is a ui-esm operation. This means it's a ui operation that builds to javasc
 
 # Api reference
 
-## renderMarkdownContent()
-
-Renders a markdown string (without frontmatter)
-
-TODO:
-
-- **Show selection prompt-results** In `renderMarkdownContent`, augment the alineas with the `ContextualPromptResult`. Would be great to see the results when hovering over the selected thing, or maybe showing it with a button, or inline, even.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| content | string |  |,| config | `MarkdownParseRenderConfig` |  |
-| **Output** | `JSX.Element`   |    |
-
-
-
-## 📄 renderMarkdownContent (exported const)
-
-Renders a markdown string (without frontmatter)
-
-TODO:
-
-- **Show selection prompt-results** In `renderMarkdownContent`, augment the alineas with the `ContextualPromptResult`. Would be great to see the results when hovering over the selected thing, or maybe showing it with a button, or inline, even.
-
-
 ## `<MarkdownCodeblock />`
 
 Renders a markdown codeblock with a text as content and an optional extension
@@ -51,9 +26,26 @@ Renders a markdown codeblock with a text as content and an optional extension
 
 
 
+## `<MarkdownContent />`
+
+Renders a markdown string (without frontmatter)
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { content: string, <br />config: `MarkdownParseRenderConfig`, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## 📄 MarkdownCodeblock (exported const)
 
 Renders a markdown codeblock with a text as content and an optional extension
+
+
+## 📄 MarkdownContent (exported const)
+
+Renders a markdown string (without frontmatter)
 
 
 ## getRealSrc()
@@ -93,7 +85,7 @@ Based on markdown info, gest the real source for an asset
 
 # Internal
 
-<details><summary>Show internal (21)</summary>
+<details><summary>Show internal (23)</summary>
     
   # getUrlFromRelativeUrl()
 
@@ -121,6 +113,15 @@ gets the renderable asset url from the relative url
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## `<MarkdownContentRender />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { content: string, <br />config: `MarkdownParseRenderConfig`, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
 
 
@@ -208,6 +209,8 @@ gets the renderable asset url from the relative url
 ## 📄 getYoutubeId (exported const)
 
 ## 📄 HtmlHeader (exported const)
+
+## 📄 MarkdownContentRender (exported const)
 
 ## 📄 Parameter (exported const)
 

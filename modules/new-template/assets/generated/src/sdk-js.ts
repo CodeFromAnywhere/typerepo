@@ -71,7 +71,6 @@ import { isBundle } from "get-path";
 import { isOperation } from "get-path";
 import { isUiOperation } from "get-path";
 import { isWorkspaceRoot } from "get-path";
-import { makeRelative } from "get-path";
 import { packageCompilesTs } from "get-path";
 import { tsconfigCompilesEsm } from "get-path";
 import { getDependenciesSummary } from "operation-util";
@@ -128,6 +127,8 @@ import { getFirstQueryStrings } from "rest-util";
 import { getQueryPart } from "rest-util";
 import { isValidEntry } from "rest-util";
 import { toQueryString } from "rest-util";
+import { MatchingText } from "file-search";
+import { PathSearchResults } from "file-search";
 import { findSentenceMatches } from "search";
 import { searchRecursiveObjectArray } from "search";
 import { frontmatterParseToString } from "frontmatter-util";
@@ -191,13 +192,30 @@ import { getGetApiUrl } from "api";
 import { untypedApiFunction } from "api";
 import { makeArraysGetEndpoint } from "endpoint-util";
 import { makeGetEndpoint } from "endpoint-util";
+import { converse } from "function-util";
+import { executeSdkFunction } from "function-util";
+import { getCachedExportedFunctions } from "function-util";
+import { getMenu } from "function-util";
+import { getSdkFunctionPaths } from "function-util";
 import { objectStringToJson } from "string-to-json";
 import { parseIfJson } from "string-to-json";
 import { parsePrimitiveJson } from "string-to-json";
 import { stringToJson } from "string-to-json";
+import { BreadCrumbs } from "breadcrumbs";
+import { renderBreadCrumbs } from "breadcrumbs";
+import { ClickableIcon } from "clickable-icon";
+import { errorToast } from "cool-toast";
+import { infoToast } from "cool-toast";
+import { showStandardResponse } from "cool-toast";
+import { successToast } from "cool-toast";
+import { warningToast } from "cool-toast";
+import { FancyLoader } from "fancy-loader";
+import { getFileType } from "file-icons";
+import { LabeledButton } from "labeled-button";
 import { getFullPath } from "next-paths";
 import { getLastPathsChunk } from "next-paths";
 import { usePath } from "next-paths";
+import { Tooltip } from "tooltip";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
 import { getKeysAtPathFromNestedObject } from "recursive-util";
@@ -362,7 +380,6 @@ isBundle,
 isOperation,
 isUiOperation,
 isWorkspaceRoot,
-makeRelative,
 packageCompilesTs,
 tsconfigCompilesEsm,
 getDependenciesSummary,
@@ -419,6 +436,8 @@ getFirstQueryStrings,
 getQueryPart,
 isValidEntry,
 toQueryString,
+MatchingText,
+PathSearchResults,
 findSentenceMatches,
 searchRecursiveObjectArray,
 frontmatterParseToString,
@@ -482,13 +501,30 @@ getGetApiUrl,
 untypedApiFunction,
 makeArraysGetEndpoint,
 makeGetEndpoint,
+converse,
+executeSdkFunction,
+getCachedExportedFunctions,
+getMenu,
+getSdkFunctionPaths,
 objectStringToJson,
 parseIfJson,
 parsePrimitiveJson,
 stringToJson,
+BreadCrumbs,
+renderBreadCrumbs,
+ClickableIcon,
+errorToast,
+infoToast,
+showStandardResponse,
+successToast,
+warningToast,
+FancyLoader,
+getFileType,
+LabeledButton,
 getFullPath,
 getLastPathsChunk,
 usePath,
+Tooltip,
 createCodeblockMarkdown,
 useCustomUrlStore,
 getKeysAtPathFromNestedObject,

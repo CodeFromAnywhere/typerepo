@@ -1,0 +1,78 @@
+{
+  "createdAt": 1671098524466,
+  "updatedAt": 1671098524466,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098524466,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/clickOnSpanTag.ts",
+  "commentsInside": [],
+  "rawText": " async (props: {\n  page: Page;\n  spanText: string;\n}) => {\n  const { page, spanText } = props;\n  // getting and clicking on the write something button to post the content\n  await page.waitForFunction(\n    `document.querySelector(\"body\").innerText.includes(\"${spanText}\")`\n  );\n  const targetSpanTag = await page.$x(`//span[contains(text(),\"${spanText}\")]`);\n  if (targetSpanTag[0]) {\n    //@ts-ignore\n    targetSpanTag[0]?.click();\n  } else {\n    return { success: false, message: `${spanText} tag not found.` };\n  }\n}",
+  "name": "clickOnSpanTag",
+  "slug": "click-on-span-tag",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "$ref": "#/definitions/Page"
+          },
+          "spanText": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "page",
+          "spanText"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "spanText",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "it takes the current page and span text and its click on the text span",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 588,
+    "lines": 17,
+    "bytes": 588,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "clptckcevohlgewkwtdjnvtg"
+}

@@ -26,3 +26,4 @@ export declare type TimelineItemType = {
     projectRelativeFilePath?: string;
     line?: number;
 };
+//# sourceMappingURL=TimelineItemType.d.ts.map

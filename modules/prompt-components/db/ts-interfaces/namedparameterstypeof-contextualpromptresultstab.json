@@ -1,0 +1,67 @@
+{
+  "createdAt": 1671012346648,
+  "updatedAt": 1671012346648,
+  "deletedAt": 0,
+  "createdFirstAt": 1671012346648,
+  "id": "namedparameterstypeof-contextualpromptresultstab",
+  "name": "NamedParameters<typeof ContextualPromptResultsTab>",
+  "slug": "namedparameterstypeof-contextualpromptresultstab",
+  "operationRelativeTypescriptFilePath": "src/ContextualPromptResultsTab.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "prompt_projectRelativePath": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "prompt_projectRelativePath"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "prompt_projectRelativePath",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof ContextualPromptResultsTab>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

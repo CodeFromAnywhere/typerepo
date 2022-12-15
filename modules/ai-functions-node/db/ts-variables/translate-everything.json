@@ -1,0 +1,170 @@
+{
+  "createdAt": 1671105557148,
+  "updatedAt": 1671105557148,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105557148,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "translateEverything",
+  "slug": "translate-everything",
+  "operationRelativeTypescriptFilePath": "src/prompts.ts",
+  "type": {
+    "rawType": "import(\"/Users/king/King/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "contextualPromptInfo": {
+          "type": "object",
+          "properties": {
+            "contextType": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  "code",
+                  "data",
+                  "text"
+                ],
+                "x-enumNames": [
+                  "code",
+                  "data",
+                  "text"
+                ],
+                "type": "string"
+              }
+            },
+            "instantExecution": {
+              "type": "boolean"
+            },
+            "isFavorite": {
+              "type": "boolean"
+            },
+            "categoryStackCalculated": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              }
+            },
+            "pricing": {
+              "enum": [
+                "bad",
+                "good",
+                "premium",
+                "enterprise",
+                "private"
+              ],
+              "x-enumNames": [
+                "bad",
+                "good",
+                "premium",
+                "enterprise",
+                "private"
+              ],
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "contextualPromptInfo"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "contextualPromptInfo",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "contextType",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "enum": [
+                          "code",
+                          "data",
+                          "text"
+                        ],
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "instantExecution",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isFavorite",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "categoryStackCalculated",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "pricing",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "bad",
+                    "good",
+                    "premium",
+                    "enterprise",
+                    "private"
+                  ],
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"translate-everything\",\n    contextContent,\n  });\n\n  return result;\n}",
+  "description": "",
+  "id": "mqtsnrfswizlgcpexfwkdklx"
+}

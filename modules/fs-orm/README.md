@@ -84,6 +84,23 @@ Returns not only the file paths, but also where they were found (`operationName,
 
 
 
+## upsert()
+
+Takes stored data and an item
+
+- updates the data and sets some rows to "item" if the item is found (through the id or slug)
+- otherwise inserts
+
+NB: this function works for any storage method except for key value markdown
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| storedData | `Storing<AugmentedAnyModelType>`[] | The items that were already there |,| storingItems | {  } | The items that need to be overwritten or inserted |,| onlyInsert (optional) | boolean | If true, the upserting will fail if there are occuring items with equal slugs/ids |
+| **Output** |    |    |
+
+
+
 ## 🔹 DbQueryResult
 
 TODO: return the inserted id or other reference
@@ -149,6 +166,28 @@ In these folders, `fs-orm` will search for files based on your storage method.
 Returns not only the file paths, but also where they were found (`operationName, projectRelativePath, operationRelativePath`)
 
 
+## 📄 upsert (exported const)
+
+Takes stored data and an item
+
+- updates the data and sets some rows to "item" if the item is found (through the id or slug)
+- otherwise inserts
+
+NB: this function works for any storage method except for key value markdown
+
+
+## alterJsonMultiple()
+
+Alters a json multiple file
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## createDb()
 
 Create your database by passing your models as a generic and some optional configuration
@@ -182,19 +221,14 @@ DB main storage convention
 
 
 
-## upsert()
+## upsertItems()
 
-Takes stored data and an item
-
-- updates the data and sets some rows to "item" if the item is found (through the id or slug)
-- otherwise inserts
-
-NB: this function works for any storage method except for key value markdown
+upsert an item into storage in any storage method
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| storedData | `Storing<AugmentedAnyModelType>`[] | The items that were already there |,| storingItems | {  } | The items that need to be overwritten or inserted |,| onlyInsert (optional) | boolean | If true, the upserting will fail if there are occuring items with equal slugs/ids |
+| - | | |
 | **Output** |    |    |
 
 
@@ -308,6 +342,11 @@ Properties:
 
 
 
+## 📄 alterJsonMultiple (exported const)
+
+Alters a json multiple file
+
+
 ## 📄 createDb (exported const)
 
 Create your database by passing your models as a generic and some optional configuration
@@ -320,14 +359,9 @@ DB main storage convention
 
 ## 📄 mergeConfigs (exported const)
 
-## 📄 upsert (exported const)
+## 📄 upsertItems (exported const)
 
-Takes stored data and an item
-
-- updates the data and sets some rows to "item" if the item is found (through the id or slug)
-- otherwise inserts
-
-NB: this function works for any storage method except for key value markdown
+upsert an item into storage in any storage method
 
 # Tests
 
@@ -353,7 +387,7 @@ NB: this function works for any storage method except for key value markdown
 
 # Internal
 
-<details><summary>Show internal (69)</summary>
+<details><summary>Show internal (65)</summary>
     
   # addDefaultValues()
 
@@ -391,18 +425,6 @@ comprises all dbStorageMethods
 ## alterCsv()
 
 Alters a csv
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## alterJsonMultiple()
-
-Alters a json multiple file
 
 
 | Input      |    |    |
@@ -703,18 +725,6 @@ Function that lets you remove items from one specific file, for any storage meth
 
 
 
-## upsertItems()
-
-upsert an item into storage in any storage method
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
 ## upsertKeyValueMarkdown()
 
 Takes stored data and an item
@@ -841,11 +851,6 @@ comprises all dbStorageMethods
 ## 📄 alterCsv (exported const)
 
 Alters a csv
-
-
-## 📄 alterJsonMultiple (exported const)
-
-Alters a json multiple file
 
 
 ## 📄 alterJsonSingle (exported const)
@@ -977,11 +982,6 @@ Takes stored data and a slug to remove
 ## 📄 removeMultiple (exported const)
 
 Function that lets you remove items from one specific file, for any storage method
-
-
-## 📄 upsertItems (exported const)
-
-upsert an item into storage in any storage method
 
 
 ## 📄 upsertKeyValueMarkdown (exported const)

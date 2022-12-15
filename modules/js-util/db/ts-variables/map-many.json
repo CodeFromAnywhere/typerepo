@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977402818,
-  "updatedAt": 1668977402818,
+  "createdAt": 1671096836283,
+  "updatedAt": 1671096836283,
   "deletedAt": 0,
-  "createdFirstAt": 1668977402818,
+  "createdFirstAt": 1671096836283,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async <T, U>(\n  array: T[],\n  mapFn: (item: T, index: number, array: T[]) => Promise<U>,\n  limit?: number\n): Promise<U[]> => {\n  const result: U[] = [];\n\n  if (array.length === 0) {\n    return result;\n  }\n\n  const generator = arrayGenerator(array);\n  const realLimit = Math.min(limit || array.length, array.length);\n  const workers = new Array(realLimit);\n\n  for (let i = 0; i < realLimit; i++) {\n    workers.push(worker(i, generator, mapFn, result));\n  }\n\n  // console.log(`Initialized ${limit} workers`);\n\n  await Promise.all(workers);\n\n  return result;\n}",
+  "value": "async <T, U>(\n  array: T[],\n  mapFn: (item: T, index: number, array: T[]) => Promise<U>,\n  /**\n   * Limit of amount of items at the same time\n   */\n  limit?: number\n): Promise<U[]> => {\n  const result: U[] = [];\n\n  if (array.length === 0) {\n    return result;\n  }\n\n  const generator = arrayGenerator(array);\n  const realLimit = Math.min(limit || array.length, array.length);\n  const workers = new Array(realLimit);\n\n  for (let i = 0; i < realLimit; i++) {\n    workers.push(worker(i, generator, mapFn, result));\n  }\n\n  // console.log(`Initialized ${limit} workers`);\n\n  await Promise.all(workers);\n\n  return result;\n}",
   "description": "Lets you map over any array with a async function while setting a max. concurrency\n\nTaken and improved from https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70",
-  "id": "jwtjgtbmpzlegrnxhrywebjo"
+  "id": "usjfznygzpadnoahbaxklbcn"
 }

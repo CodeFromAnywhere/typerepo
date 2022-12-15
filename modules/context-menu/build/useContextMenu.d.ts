@@ -4,6 +4,8 @@ import { ContextMenuItem } from "./types";
  * Use this if you want to render a context menu where the menu closes if you click one of the items.
  *
  * Optionally, you can create a custom renderer for it.
+ *
+ * id can be provided by the contextEvent.
  */
 export declare const useContextMenu: (props: {
     items: ContextMenuItem[];

@@ -12,7 +12,8 @@
     "k-explore": "0.0.2",
     "filename-conventions": "0.0.1",
     "try-parse-json": "0.0.1",
-    "js-util": "0.0.1"
+    "js-util": "0.0.1",
+    "fs-util-js": "0.0.1"
   },
   "main": "build/index.js",
   "scripts": {
@@ -41,7 +42,7 @@
     "folderNameIndexed": "get-path",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670589986567,
+    "lastRebuildAt": 1671012468762,
     "operationDependenciesIndexed": [
       "path",
       "fs",
@@ -73,12 +74,14 @@
       "OperationPathParse",
       "Operation",
       "readJsonFileSync",
+      "makeRelative",
       "PathParse",
       "fs",
       "path",
       "log",
       "fs",
       "path",
+      "makeRelative",
       "databaseFolderName",
       "path",
       "Operation",
@@ -97,28 +100,28 @@
     "markdown": "Useful functions to get paths within King OS.\n\nDepends on `sdk-operations`, which makes it only work inside of a typerepo.\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 23,
-        "lines": 752,
-        "characters": 22266,
-        "bytes": 22266
+        "numberOfFiles": 22,
+        "lines": 728,
+        "characters": 21663,
+        "bytes": 21663
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 166,
-        "characters": 3936,
-        "bytes": 3936
+        "lines": 167,
+        "characters": 3963,
+        "bytes": 3963
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 484,
-        "characters": 10510,
-        "bytes": 10510
+        "lines": 459,
+        "characters": 9920,
+        "bytes": 9920
       },
       "size": {
-        "bytes": 36712,
-        "characters": 36712,
-        "lines": 1402,
-        "numberOfFiles": 27
+        "bytes": 35546,
+        "characters": 35546,
+        "lines": 1354,
+        "numberOfFiles": 26
       }
     },
     "hasGeneratedImportsIndexed": false

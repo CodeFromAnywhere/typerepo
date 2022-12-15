@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098533045,
+  "updatedAt": 1671098533045,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098533045,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getBrowserTabs",
+  "slug": "get-browser-tabs",
+  "operationRelativeTypescriptFilePath": "src/getBrowserTabs.ts",
+  "type": {
+    "rawType": "(browserInfo: import(\"/Users/lucky/workspace/typerepo/packages/niches/bhagya/doing/control-web/puppeteer-utils/src/BrowserSession\").BrowserSession) => Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-core/lib/types\").Page[]>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  browserInfo: BrowserSession\n): Promise<Page[]> => {\n  const browser = await puppeteer.connect({\n    browserWSEndpoint: browserInfo.browserSessionId,\n  });\n  let allTabs: Page[] = await browser.pages();\n  console.log({ allTabs });\n  return allTabs;\n}",
+  "description": "",
+  "id": "qpcghgvbtrnnxmheyhpbiiyb"
+}

@@ -1,1 +1,1 @@
-export * from "./SwipeHomepage.js";
+export * from "./SwipeHomepage";

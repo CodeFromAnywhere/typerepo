@@ -1,8 +1,136 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,r=1,i=arguments.length;r<i;r++)for(var n in t=arguments[r])Object.prototype.hasOwnProperty.call(t,n)&&(e[n]=t[n]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,t,r,i){return new(r||(r=Promise))((function(n,a){function o(e){try{u(i.next(e))}catch(e){a(e)}}function s(e){try{u(i.throw(e))}catch(e){a(e)}}function u(e){var t;e.done?n(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(o,s)}u((i=i.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,i,n,a,o={label:0,sent:function(){if(1&n[0])throw n[1];return n[1]},trys:[],ops:[]};return a={next:s(0),throw:s(1),return:s(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function s(a){return function(s){return function(a){if(r)throw new TypeError("Generator is already executing.");for(;o;)try{if(r=1,i&&(n=2&a[0]?i.return:a[0]?i.throw||((n=i.return)&&n.call(i),0):i.next)&&!(n=n.call(i,a[1])).done)return n;switch(i=0,n&&(a=[2&a[0],n.value]),a[0]){case 0:case 1:n=a;break;case 4:return o.label++,{value:a[1],done:!1};case 5:o.label++,i=a[1],a=[0];continue;case 7:a=o.ops.pop(),o.trys.pop();continue;default:if(!(n=o.trys,(n=n.length>0&&n[n.length-1])||6!==a[0]&&2!==a[0])){o=0;continue}if(3===a[0]&&(!n||a[1]>n[0]&&a[1]<n[3])){o.label=a[1];break}if(6===a[0]&&o.label<n[1]){o.label=n[1],n=a;break}if(n&&o.label<n[2]){o.label=n[2],o.ops.push(a);break}n[2]&&o.ops.pop(),o.trys.pop();continue}a=t.call(e,o)}catch(e){a=[6,e],i=0}finally{r=n=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,s])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.UpsertForm=void 0;var jsx_runtime_1=require("react/jsx-runtime"),react_1=require("react"),react_with_native_1=require("react-with-native"),simplified_schema_form_1=require("simplified-schema-form"),react_with_native_router_1=require("react-with-native-router"),model_types_1=require("model-types"),SimplifiedSchemaFormDebug_1=require("./SimplifiedSchemaFormDebug"),clickable_icon_1=require("clickable-icon"),react_with_native_alert_1=require("react-with-native-alert"),api_1=require("api"),IndexInstanceContainer_1=require("./IndexInstanceContainer"),convert_case_1=require("convert-case"),useModelFromUrl_1=require("./useModelFromUrl"),useInfiniteGetDbModel_1=require("./crud/useInfiniteGetDbModel"),upsertDbModel=api_1.api.upsertDbModel,UpsertForm=function(e){var t,r,i=e.instance,n=e.simplifiedSchema,a=(e.referencableModelNames,e.modelName),o=(0,react_with_native_router_1.useRouter)(),s=(0,react_with_native_alert_1.useAlert)(),u=(0,react_1.useState)(!1),l=u[0],c=u[1],_=(0,react_1.useState)((0,model_types_1.generateId)())[0],m=(0,react_1.useState)(!1),d=m[0],f=m[1],h=(0,react_1.useState)(i),p=h[0],v=h[1],b=(0,react_1.useState)(),x=b[0],j=b[1],g=(0,useModelFromUrl_1.useModelFromUrl)(),w=api_1.queries.useGetDbModelMetadata(g),S=(0,useInfiniteGetDbModel_1.useInfiniteGetDbModel)(),y=null===(r=null===(t=w.data)||void 0===t?void 0:t.result)||void 0===r?void 0:r.projectRelativeStorageFilePath,D=api_1.queries.useGetReferencableModelData(g),M=(0,simplified_schema_form_1.useReferencableModelData)(n),q=[{name:"",required:!0,simplifiedSchema:n,renderButtons:function(){return(0,jsx_runtime_1.jsx)(react_with_native_1.Span,{})},isDbModel:!0}],F=[p],I=[{onClick:function(){c(!l)},title:"Explain",emoji:"🧐"}];
-// console.log({ referencableModelData });
-return(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{children:(0,jsx_runtime_1.jsx)(IndexInstanceContainer_1.IndexInstanceContainer,__assign({buttons:I,title:(0,convert_case_1.humanCase)(g||"")},{children:n?(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,jsx_runtime_1.jsx)(simplified_schema_form_1.FormContainer,__assign({onSubmit:function(){g&&(f(!0),upsertDbModel(g,p).then((function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,r;return __generator(this,(function(i){return(null===(t=e.result)||void 0===t?void 0:t.isSuccesful)?(
-// NB: we are not waiting for this, we're going back immediately, assuming that there will be loading indicators
-D.refetch(),S.refetch(),f(!1),o.back()):(
-// If the upsert fails for some reason, this should be made clear
-null==s||s("Error",(null===(r=e.result)||void 0===r?void 0:r.message)||e.message),f(!1)),[2/*return*/]}))}))})).catch((function(e){f(!1),j(e)})))},isLoading:d},{children:(0,jsx_runtime_1.jsx)(simplified_schema_form_1.SimplifiedSchemaForm,{modelName:a,itemNameOrId:(null==p?void 0:p.name)||(null==p?void 0:p.id),parameterNameStack:void 0,projectRelativeStorageFilePath:y,id:_,parameters:q,values:F,onChange:function(e){return v(e[0])},referencableModelData:M,isDebug:l})})),(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({className:"mt-6"},{children:(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"❌ Go back",onClick:function(){return o.back()}})})),x?(0,jsx_runtime_1.jsx)(react_with_native_1.P,{children:JSON.stringify(x)}):null,l?(0,jsx_runtime_1.jsx)(SimplifiedSchemaFormDebug_1.SimplifiedSchemaFormDebug,{parameters:q,values:F}):null]}):null}))})};exports.UpsertForm=UpsertForm;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UpsertForm = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var react_1 = require("react");
+var react_with_native_1 = require("react-with-native");
+var simplified_schema_form_1 = require("simplified-schema-form");
+var react_with_native_router_1 = require("react-with-native-router");
+var model_types_1 = require("model-types");
+var SimplifiedSchemaFormDebug_1 = require("./SimplifiedSchemaFormDebug");
+var clickable_icon_1 = require("clickable-icon");
+var react_with_native_alert_1 = require("react-with-native-alert");
+var api_1 = require("api");
+var IndexInstanceContainer_1 = require("./IndexInstanceContainer");
+var convert_case_1 = require("convert-case");
+var useModelFromUrl_1 = require("./useModelFromUrl");
+var useInfiniteGetDbModel_1 = require("./crud/useInfiniteGetDbModel");
+var upsertDbModel = api_1.api.upsertDbModel;
+/**
+TODO: Provide all the fetched data with `hasMore` and `fetchAll` to the `SimplifiedJsonForm`
+*/
+var UpsertForm = function (props) {
+    var _a, _b;
+    var instance = props.instance, simplifiedSchema = props.simplifiedSchema, referencableModelNames = props.referencableModelNames, modelName = props.modelName;
+    var router = (0, react_with_native_router_1.useRouter)();
+    var alert = (0, react_with_native_alert_1.useAlert)();
+    var _c = (0, react_1.useState)(false), debug = _c[0], setDebug = _c[1];
+    var id = (0, react_1.useState)((0, model_types_1.generateId)())[0];
+    var _d = (0, react_1.useState)(false), loading = _d[0], setLoading = _d[1];
+    var _e = (0, react_1.useState)(instance), body = _e[0], setBody = _e[1];
+    var _f = (0, react_1.useState)(), result = _f[0], setResult = _f[1];
+    var modelFromUrl = (0, useModelFromUrl_1.useModelFromUrl)();
+    var metadataQuery = api_1.queries.useGetDbModelMetadata(modelFromUrl);
+    var model = (0, useInfiniteGetDbModel_1.useInfiniteGetDbModel)();
+    var projectRelativeStorageFilePath = (_b = (_a = metadataQuery.data) === null || _a === void 0 ? void 0 : _a.result) === null || _b === void 0 ? void 0 : _b.projectRelativeStorageFilePath;
+    // NB: all items that this model has can be referenced to in other forms also need to refresh
+    var getReferencableModelDataQuery = api_1.queries.useGetReferencableModelData(modelFromUrl);
+    var referencableModelData = (0, simplified_schema_form_1.useReferencableModelData)(simplifiedSchema);
+    var parameters = [
+        {
+            name: "",
+            required: true,
+            simplifiedSchema: simplifiedSchema,
+            renderButtons: function () { return (0, jsx_runtime_1.jsx)(react_with_native_1.Span, {}); },
+            isDbModel: true,
+        },
+    ];
+    var values = [body];
+    var onSubmitForm = function () {
+        if (!modelFromUrl)
+            return;
+        setLoading(true);
+        upsertDbModel(modelFromUrl, body)
+            .then(function (result) { return __awaiter(void 0, void 0, void 0, function () {
+            var _a, _b;
+            return __generator(this, function (_c) {
+                if (!((_a = result.result) === null || _a === void 0 ? void 0 : _a.isSuccesful)) {
+                    // If the upsert fails for some reason, this should be made clear
+                    alert === null || alert === void 0 ? void 0 : alert("Error", ((_b = result.result) === null || _b === void 0 ? void 0 : _b.message) || result.message);
+                    setLoading(false);
+                }
+                else {
+                    // NB: we are not waiting for this, we're going back immediately, assuming that there will be loading indicators
+                    getReferencableModelDataQuery.refetch();
+                    model.refetch();
+                    setLoading(false);
+                    router.back();
+                }
+                return [2 /*return*/];
+            });
+        }); })
+            .catch(function (e) {
+            setLoading(false);
+            setResult(e);
+        });
+    };
+    var explainButton = {
+        onClick: function () {
+            setDebug(!debug);
+        },
+        title: "Explain",
+        emoji: "🧐",
+    };
+    var buttons = [explainButton];
+    // console.log({ referencableModelData });
+    return ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, { children: (0, jsx_runtime_1.jsx)(IndexInstanceContainer_1.IndexInstanceContainer, __assign({ buttons: buttons, title: (0, convert_case_1.humanCase)(modelFromUrl || "") }, { children: simplifiedSchema ? ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [(0, jsx_runtime_1.jsx)(simplified_schema_form_1.FormContainer, __assign({ onSubmit: onSubmitForm, isLoading: loading }, { children: (0, jsx_runtime_1.jsx)(simplified_schema_form_1.SimplifiedSchemaForm, { modelName: modelName, itemNameOrId: (body === null || body === void 0 ? void 0 : body.name) || (body === null || body === void 0 ? void 0 : body.id), parameterNameStack: undefined, projectRelativeStorageFilePath: projectRelativeStorageFilePath, id: id, parameters: parameters, values: values, onChange: function (values) { return setBody(values[0]); }, referencableModelData: referencableModelData, isDebug: debug }) })), (0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ className: "mt-6" }, { children: (0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\u274C Go back", onClick: function () { return router.back(); } }) })), result ? (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: JSON.stringify(result) }) : null, debug ? ((0, jsx_runtime_1.jsx)(SimplifiedSchemaFormDebug_1.SimplifiedSchemaFormDebug, { parameters: parameters, values: values })) : null] })) : null })) }));
+};
+exports.UpsertForm = UpsertForm;
 //# sourceMappingURL=UpsertForm.js.map

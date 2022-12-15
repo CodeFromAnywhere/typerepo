@@ -106,11 +106,6 @@ export declare const sdk: {
     SignupForm: () => JSX.Element;
     UpdateMeForm: () => JSX.Element;
     BigButton: (button: BigButton) => JSX.Element;
-    BreadCrumbs: (props: {
-        path: string;
-    }) => JSX.Element;
-    renderBreadCrumbs: (chunks: string[]) => JSX.Element[];
-    ClickableIcon: (button: import("clickable-icon").ClickableIconType) => JSX.Element;
     ContextMenuItemComponent: (props: {
         item: import("context-menu").ContextMenuItem;
         id: string | undefined;
@@ -161,15 +156,8 @@ export declare const sdk: {
         onTouchStart: (event: import("react").TouchEvent<Element>) => void;
         onTouchEnd: () => void;
         onClick: (mouseEvent: import("react").MouseEvent<Element, MouseEvent>) => void;
-        style: {
-            userSelect: import("csstype").Property.UserSelect | undefined;
-        };
+        style: {};
     };
-    errorToast: (message?: string | undefined) => void;
-    infoToast: (message?: string | undefined) => void;
-    showStandardResponse: (apiResult: import("api-types").StandardizedApiReturnType) => void;
-    successToast: (message?: string | undefined) => void;
-    warningToast: (message?: string | undefined) => void;
     CrudGrid: (props: import("db-crud").CrudViewProps) => JSX.Element;
     CrudTable: (props: import("db-crud").CrudViewProps) => JSX.Element;
     CrudTimeline: (props: import("db-crud").CrudViewProps) => JSX.Element;
@@ -221,30 +209,13 @@ export declare const sdk: {
     UpsertPage: () => JSX.Element;
     useInfiniteGetDbModel: () => import("react-query").UseInfiniteQueryResult<import("api-types").ApiReturnType<"getDbModel">, unknown>;
     useModelFromUrl: () => string | undefined;
-    useUrl: <T_2 extends "id" | "slug" | "name" | "path" | "type">(queryKey: T_2) => {
+    useUrl: <T_2 extends "path" | "id" | "slug" | "name" | "type">(queryKey: T_2) => {
         path: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
         name: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
         type: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
         slug: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
         id: [string | undefined, (newValue: string | undefined) => Promise<boolean>];
     }[T_2];
-    FancyLoader: ({ big, medium, }: {
-        big?: boolean | undefined;
-        medium?: boolean | undefined;
-    }) => JSX.Element;
-    getFileType: (fullPath: string) => "function" | "other" | "markdown" | "typescript" | "javascript" | "json" | "folder" | "operation" | "operationFolder" | "interface" | "variable";
-    MatchingText: (props: {
-        text: string;
-        search: string;
-        defaultTextClassName: string;
-        matchTextClassName: string;
-        truncateLength?: number | undefined;
-    }) => JSX.Element;
-    PathSearchResults: (props: {
-        paths: string[];
-        search: string;
-        augmentedWords?: import("augmented-word-types").AugmentedWord[] | undefined;
-    }) => JSX.Element;
     FileTabs: <TPagesObject extends import("file-tabs").PagesObjectShape>(props: {
         pagesObject: TPagesObject;
     }) => JSX.Element | null;
@@ -262,17 +233,6 @@ export declare const sdk: {
         showResult?: boolean | undefined;
         referencableModelData?: import("simplified-schema-form").ReferencableModelData | undefined;
     }) => JSX.Element;
-    converse: (searchMessage: string) => Promise<false | undefined>;
-    executeSdkFunction: (operationString: string, parameters: string[] | undefined) => Promise<any>;
-    getCachedExportedFunctions: () => Promise<import("code-types").TsFunction[]>;
-    getMenu: () => Promise<{
-        success: boolean;
-        response: string;
-        menu: {
-            [x: string]: import("code-types").TsFunction[];
-        };
-    } | undefined>;
-    getSdkFunctionPaths: () => Promise<false | import("function-util").FnMatch[]>;
     isAltB: (keyboardEvent: KeyboardEvent) => boolean;
     isAltN: (keyboardEvent: KeyboardEvent) => boolean;
     isAltO: (keyboardEvent: KeyboardEvent) => boolean;
@@ -283,7 +243,6 @@ export declare const sdk: {
     isCtrlSpace: (keyboardEvent: KeyboardEvent) => boolean;
     useHotkey: (isRightKey: (keyboardEvent: KeyboardEvent) => boolean, callback: () => void, dependencies: any[]) => void;
     useHotkeys: (dependencies: any[], callback: (keyboardEvent: KeyboardEvent) => void) => void;
-    LabeledButton: (button: import("labeled-button").LabeledButtonType, index: number) => JSX.Element;
     AuthenticationLayout: (props: {
         menu?: import("menu").MenuProps | undefined;
         customHeader?: import("react").ReactNode;
@@ -300,83 +259,6 @@ export declare const sdk: {
         menu?: import("menu").MenuProps | undefined;
     }) => JSX.Element;
     PingApi: () => JSX.Element;
-    copyStaticAssets: (readerWebPages: import("webpage-types").FileWebPage[], config?: {
-        operationName?: string | undefined;
-    } | undefined) => Promise<boolean | undefined>;
-    docsGetPages: (basePaths: {
-        projectRelativeBasePath: string;
-        queryPath: string;
-    }[]) => Promise<import("webpage-types").FileWebPage[]>;
-    docsGetStaticPaths: (context: import("next-types").GetStaticPathsContext, basePaths: {
-        projectRelativeBasePath: string;
-        queryPath: string;
-    }[]) => Promise<import("next-types").GetStaticPathsResult<import("next-types").ParsedUrlQuery>>;
-    docsGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>, basePaths: {
-        projectRelativeBasePath: string;
-        queryPath: string;
-    }[], webOperationName: string) => Promise<{
-        props: import("markdown-reader-types").MarkdownReaderPageProps;
-    }>;
-    getAllMarkdownReaderPages: (config?: {
-        manualProjectRoot?: string | undefined;
-    } | undefined) => Promise<import("webpage-types").WebPage<any>[] | undefined>;
-    getChildren: (webPages: import("webpage-types").WebPage<any>[], queryPath: string) => string[];
-    getFolderExplorationInfo: (webPages: import("webpage-types").WebPage<any>[], queryPath: string, projectRoot: string) => Promise<{
-        title: string | undefined;
-        description: string | null;
-        descriptionProjectRelativeMarkdownPath: string | null;
-        children: {
-            projectRelativeMarkdownPath: string | null;
-            title: string;
-            firstParagraph: string | null;
-            folderName: string;
-        }[];
-    }>;
-    getMarkdownModelPages: (projectRoot: string) => Promise<import("webpage-types").FileWebPage[]>;
-    getMarkdownPageInfo: (config: {
-        projectRoot: string;
-        webPages: import("webpage-types").WebPage<any>[];
-        queryPath: string;
-        contentPage: import("webpage-types").FileWebPage;
-        webOperationName: string;
-        markdownCallToActions: import("markdown-types").MarkdownCallToAction[];
-    }) => Promise<{
-        markdownFile: import("markdown-types").WebMarkdownFile | null;
-        nextQueryPath: string | null;
-        previousQueryPath: string | null;
-        projectRelativeMarkdownPath: string | null;
-    }>;
-    getMarkdownReaderPages: (config: {
-        projectRoot: string;
-        basePaths: string[];
-        queryPathCustomPrefix?: ((basePath?: string | undefined) => string | undefined) | undefined;
-        mapQueryPath?: ((queryPath: string) => string) | undefined;
-    }) => Promise<import("webpage-types").FileWebPage[]>;
-    getMarkdownReaderQueryPaths: (config?: {
-        manualProjectRoot?: string | undefined;
-    } | undefined) => Promise<string[] | undefined>;
-    getOperationPages: (projectRoot: string, bundleMarkdownReaderConfig?: import("bundle-types").BundleMarkdownReaderConfig | undefined) => Promise<import("webpage-types").FileWebPage[]>;
-    getPublicMarkdownFilePaths: (baseFolderPath: string, includeFoldersWithResults?: boolean | undefined) => Promise<{
-        path: string;
-        isFolder: boolean;
-    }[]>;
-    getReaderTodoPages: (projectRoot: string) => Promise<import("webpage-types").FileWebPage[]>;
-    markdownReaderGetStaticPaths: import("next-types").GetStaticPaths<import("next-types").ParsedUrlQuery>;
-    markdownReaderGetStaticPropsFromPages: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>, fileWebPages: import("webpage-types").WebPage<any>[], webOperationName: string) => Promise<{
-        props: import("markdown-reader-types").MarkdownReaderPageProps;
-    }>;
-    markdownReaderGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
-        props: import("markdown-reader-types").MarkdownReaderPageProps;
-    }>;
-    putReadmeOnTop: <T_4 extends {
-        path: string;
-        isFolder: boolean;
-    }>(items: T_4[]) => T_4[];
-    removeExtensionsFromPath: (relativePath: string) => string;
-    removeNumberPrefix: (fileOrFolderName: string) => string;
-    shouldExposeMarkdownFile: (parameters: import("matter-types").Frontmatter) => boolean;
-    stripReadmeFromFolder: (filePath: string) => string;
-    getQueryPath: (parsedUrlQuery: import("next-types").ParsedUrlQuery | undefined) => string;
     getLegacyMenu: (queryPaths: string[]) => import("webpage-types").WebPage<null>[] | undefined;
     Menu: (props: import("menu").MenuProps & {
         message?: string | undefined;
@@ -455,18 +337,18 @@ export declare const sdk: {
     DefaultInputContainer: ({ children, startSection, sectionTitle, title, description, error, errorClassName, }: import("react-with-native-form").InputContainerProps) => JSX.Element;
     errorOnField: (fieldName: string) => (error: import("react-with-native-form").Error) => boolean;
     isObject: typeof isObject;
-    makeInputField: <TInputs_1, T_5 extends Extract<keyof TInputs_1, string>>(type: T_5, config: Omit<import("react-with-native-form").Field<TInputs_1, T_5>, "type">) => () => {
+    makeInputField: <TInputs_1, T_4 extends Extract<keyof TInputs_1, string>>(type: T_4, config: Omit<import("react-with-native-form").Field<TInputs_1, T_4>, "type">) => () => {
         field: string;
         title?: string | undefined;
         shouldHide?: ((state: any) => boolean) | undefined;
         titleFromState?: ((state: any) => string) | undefined;
-        hasError?: ((value: TInputs_1[T_5] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_5]["value"] : any, state: Partial<import("react-with-native-form").PossibleState>) => string | boolean | import("react-with-native-form").Error[]) | undefined;
+        hasError?: ((value: TInputs_1[T_4] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_4]["value"] : any, state: Partial<import("react-with-native-form").PossibleState>) => string | boolean | import("react-with-native-form").Error[]) | undefined;
         startSection?: boolean | undefined;
         sectionTitle?: string | undefined;
         description?: string | undefined;
-        initialValue?: (TInputs_1[T_5] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_5]["value"] : any) | undefined;
-        extra?: (TInputs_1[T_5] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_5]["extra"] : any) | undefined;
-        type: T_5;
+        initialValue?: (TInputs_1[T_4] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_4]["value"] : any) | undefined;
+        extra?: (TInputs_1[T_4] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_4]["extra"] : any) | undefined;
+        type: T_4;
     };
     setConfig: <TInputs_2, TState_1 extends {
         [key: string]: any;
@@ -502,14 +384,14 @@ export declare const sdk: {
         body: string;
     }, options?: import("react-with-native-notification").ToastOptions | undefined) => void;
     useNavigation: typeof useNavigation;
-    getRealValue: <T_6 extends unknown>({ value, selectFirstOption, options, title, }: {
+    getRealValue: <T_5 extends unknown>({ value, selectFirstOption, options, title, }: {
         title: string;
-        options: import("react-with-native-select").Item<T_6>[];
-        value?: import("react-with-native-select").Item<T_6> | null | undefined;
+        options: import("react-with-native-select").Item<T_5>[];
+        value?: import("react-with-native-select").Item<T_5> | null | undefined;
         selectFirstOption?: boolean | undefined;
-    }) => import("react-with-native-select").Item<T_6>;
-    useSelectMultiple: <T_7 extends unknown>(items?: import("react-with-native-select").Item<T_7 | null>[] | undefined, initialValue?: import("react-with-native-select").Item<T_7 | null>[] | undefined, withValue?: ((value: import("react-with-native-select").Item<T_7 | null>[]) => void) | undefined, config?: Omit<import("react-with-native-select").SelectMultipleInputProps<T_7>, "onChange" | "value" | "options"> | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_7 | null>[], setValue: (value: import("react-with-native-select").Item<T_7 | null>[]) => void];
-    useSelect: <T_8 extends unknown>(items?: import("react-with-native-select").Item<T_8>[] | undefined, initialValue?: import("react-with-native-select").Item<T_8> | undefined, withValue?: ((value: import("react-with-native-select").Item<T_8> | undefined) => void) | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_8> | null, setValue: (value: import("react-with-native-select").Item<T_8> | null) => void];
+    }) => import("react-with-native-select").Item<T_5>;
+    useSelectMultiple: <T_6 extends unknown>(items?: import("react-with-native-select").Item<T_6 | null>[] | undefined, initialValue?: import("react-with-native-select").Item<T_6 | null>[] | undefined, withValue?: ((value: import("react-with-native-select").Item<T_6 | null>[]) => void) | undefined, config?: Omit<import("react-with-native-select").SelectMultipleInputProps<T_6>, "onChange" | "value" | "options"> | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_6 | null>[], setValue: (value: import("react-with-native-select").Item<T_6 | null>[]) => void];
+    useSelect: <T_7 extends unknown>(items?: import("react-with-native-select").Item<T_7>[] | undefined, initialValue?: import("react-with-native-select").Item<T_7> | undefined, withValue?: ((value: import("react-with-native-select").Item<T_7> | undefined) => void) | undefined) => [Component: () => JSX.Element, value: import("react-with-native-select").Item<T_7> | null, setValue: (value: import("react-with-native-select").Item<T_7> | null) => void];
     createStoreProvider: <TStore extends object>(config: import("react-with-native-store").StoreConfig<TStore>) => ({ children }: {
         children: any;
     }) => JSX.Element;
@@ -520,13 +402,11 @@ export declare const sdk: {
         useStore: <K_1 extends Extract<keyof K, string>>(key: K_1) => import("react-with-native-store").UseStoreResult<K[K_1]>;
     };
     createUseStore: <TStore_1 extends object>(initialValues: TStore_1) => <K_2 extends Extract<keyof TStore_1, string>>(key: K_2) => import("react-with-native-store").UseStoreResult<TStore_1[K_2]>;
-    getItem: (key: string) => Promise<any>;
-    setItem: (key: string, value: any) => Promise<void>;
     getColumns: (modelName: string, interfaces: import("code-types").TsInterface[] | undefined, data: any[]) => import("react-with-native-table").ColumnType<any>[];
     TableHeadItem: (column: import("react-with-native-table").ColumnType<any>) => JSX.Element;
-    TableRow: <T_9 extends {
+    TableRow: <T_8 extends {
         [key: string]: any;
-    } = any>({ row, columns, renderExtraColumns, extraColumnsAtStart, shouldHighlight, }: import("react-with-native-table").RowType<T_9>) => JSX.Element;
+    } = any>({ row, columns, renderExtraColumns, extraColumnsAtStart, shouldHighlight, }: import("react-with-native-table").RowType<T_8>) => JSX.Element;
     Table: <TModel extends {
         [key: string]: any;
     }>({ data, columns, renderExtraColumns, extraColumnsAtStart, onEndReached, shouldHighlightItem, }: import("react-with-native-table").TableType<TModel>) => JSX.Element;
@@ -592,17 +472,13 @@ export declare const sdk: {
         modelName?: string | undefined;
     }) => JSX.Element | null;
     useReferencableModelData: (simplifiedSchema: import("code-types").SimplifiedSchema) => import("simplified-schema-form").ReferencableModelData | undefined;
-    useTsInterfaceForm: <T_10 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_10 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_10 | undefined, onChange?: ((value: T_10) => void) | undefined];
-    Tooltip: (props: {
-        tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>>;
-        children: import("react").ReactNode;
-        placement?: import("@popperjs/core").Placement | undefined;
-    }) => JSX.Element;
+    useTsInterfaceForm: <T_9 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_9 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_9 | undefined, onChange?: ((value: T_9) => void) | undefined];
     useOnScreen: typeof useOnScreen;
     FileWriter: (props: {
         markdownModelName?: string | number | symbol | undefined;
         projectRelativeFilePath: string;
-        augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
+        initialWriterView?: import("writer-types").WriterViewEnum | undefined;
+        disabledMenuItems?: string[] | undefined;
     }) => JSX.Element;
     OpenFileWriterPages: (props: {
         pagesObject: import("file-tabs").PagesObjectShape;
@@ -612,8 +488,8 @@ export declare const sdk: {
     }) => JSX.Element;
     getRealSrc: (src: string | undefined, config: import("markdown").MarkdownParseRenderConfig) => string | undefined;
     getUrlFromRelativeUrl: (relativeUrl: string, relativeUrlStrategy: "api" | "static", projectRelativeBaseFolderPath: string, projectRelativeMarkdownFilePath: string) => string | undefined;
-    getYoutubeId: any;
-    HtmlHeader: any;
+    getYoutubeId: (url: string | undefined) => string | undefined;
+    HtmlHeader: keyof JSX.IntrinsicElements | import("react-markdown/lib/ast-to-react").HeadingComponent | undefined;
     MarkdownCodeblock: (props: {
         text: string;
         extension?: string | undefined;
@@ -622,6 +498,11 @@ export declare const sdk: {
         isInitiallyExpanded?: boolean | undefined;
         isModeStatic?: boolean | undefined;
     }) => JSX.Element;
+    MarkdownContentRender: any;
+    MarkdownContent: (props: {
+        content: string;
+        config: import("markdown").MarkdownParseRenderConfig;
+    }) => JSX.Element;
     Parameter: (props: {
         text: string;
     }) => JSX.Element | null;
@@ -629,10 +510,37 @@ export declare const sdk: {
         renderSpacer?: boolean | undefined;
     } | undefined) => JSX.Element | null;
     renderMarkdownChunk: (chunk: import("markdown-types").MarkdownChunk, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
-    renderMarkdownContent: (content: string, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownParse: (markdownParse: import("markdown-types").MarkdownParse, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownTitle: (title: string, level: number) => JSX.Element;
     useOpenHashDetails: () => void;
+    ContextualPromptResultsTab: (props: {
+        prompt_projectRelativePath: string;
+    }) => JSX.Element;
+    FilePromptSelect: (props: {
+        items: import("ai-types").ContextualPrompt[] | undefined;
+        contextContent: string;
+        context_projectRelativeFilePath?: string | undefined;
+    }) => JSX.Element;
+    processPrompt: (config: {
+        contextualPromptSlug?: string | undefined;
+        customPromptContent?: string | undefined;
+        contextualContent: import("ai-types").ContextualContent;
+        showPromptAlert: import("prompt-components").ShowPromptAlertFunction;
+    }) => Promise<void>;
+    usePromptResultAlert: () => import("prompt-components").ShowPromptAlertFunction;
+    useSelectionPromptsMenu: (selectionPrompts: import("ai-types").ContextualPrompt[], contextualContent: import("ai-types").ContextualContent) => {
+        renderContextMenu: () => JSX.Element | null;
+        openContextMenuProps: {
+            ref: import("react").RefObject<HTMLDivElement>;
+            onContextMenu: (event: import("react").MouseEvent<Element, MouseEvent>) => void;
+            onTouchStart: (event: import("react").TouchEvent<Element>) => void;
+            onTouchEnd: () => void;
+            onClick: (mouseEvent: import("react").MouseEvent<Element, MouseEvent>) => void;
+            style: import("react").CSSProperties;
+        };
+        onClose: () => void;
+        isOpen: boolean;
+    };
     AugmentedWordComponent: (props: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord>;
@@ -651,7 +559,7 @@ export declare const sdk: {
         contextText?: string | undefined;
     }) => JSX.Element;
     useAllText: () => string | undefined;
-    useLastSelection: () => string | null;
+    useLastSelection: (isDisabled?: boolean | undefined) => string | null;
     ShortMarkdownPlayer: (props: {
         shortMarkdown?: import("short-markdown-types").ShortMarkdown | undefined;
         projectRelativeFilePath?: string | undefined;
@@ -685,19 +593,20 @@ export declare const sdk: {
     }) => JSX.Element;
     Timeline: (props: {
         items: import("timeline").TimelineItemType[];
+        isHorizontal?: boolean | undefined;
     }) => JSX.Element;
     Completion: (props: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject?: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord> | undefined;
     }) => JSX.Element;
-    ContentEditableDivInput: <T_11 extends unknown>(props: {
+    ContentEditableDivInput: <T_10 extends unknown>(props: {
         value: string;
         onChange: (newValue: string) => void;
         markdownParseRenderConfig?: import("markdown").MarkdownParseRenderConfig | undefined;
         subwordConfig: import("writer-types").SubwordConfig;
         subtextConfig: import("writer-types").SubtextConfig;
         parseTextContentToHtmlString: import("writer-input").ParseTextContentToHtmlString;
-        divProps: Omit<import("react-with-native").FinalDivType<T_11>, "contentEditable" | "onChange" | "onInput" | "value">;
+        divProps: Omit<import("react-with-native").FinalDivType<T_10>, "contentEditable" | "onChange" | "onInput" | "value">;
     }) => JSX.Element;
     ContextTextArea: (props: import("writer-input").EditorProps) => JSX.Element;
     DivContentEditable: (props: import("writer-input").EditorProps) => JSX.Element;
@@ -803,6 +712,7 @@ export declare const sdk: {
         hideButtons?: boolean | undefined;
         className?: string | undefined;
         initialWriterView?: import("writer-types").WriterViewEnum | undefined;
+        disabledMenuItems?: string[] | undefined;
     }) => JSX.Element;
 };
 export declare type SdkType = typeof sdk;

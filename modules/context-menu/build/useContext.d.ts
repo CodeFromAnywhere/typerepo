@@ -12,8 +12,6 @@ export declare const useContext: (callback: (position: ContextEvent) => any, con
     onTouchStart: (event: React.TouchEvent) => void;
     onTouchEnd: () => void;
     onClick: (mouseEvent: React.MouseEvent) => void;
-    style: {
-        userSelect: import("csstype").Property.UserSelect | undefined;
-    };
+    style: {};
 };
 //# sourceMappingURL=useContext.d.ts.map

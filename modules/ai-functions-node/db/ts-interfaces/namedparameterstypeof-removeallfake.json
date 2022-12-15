@@ -1,0 +1,46 @@
+{
+  "createdAt": 1671105562459,
+  "updatedAt": 1671105562459,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105562459,
+  "id": "namedparameterstypeof-removeallfake",
+  "name": "NamedParameters<typeof removeAllFake>",
+  "slug": "namedparameterstypeof-removeallfake",
+  "operationRelativeTypescriptFilePath": "src/removeAllFake.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "basePath": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "basePath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof removeAllFake>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

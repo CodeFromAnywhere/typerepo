@@ -52,3 +52,4 @@ export declare type MarkdownParseRenderConfig = {
      */
     big?: boolean;
 };
+//# sourceMappingURL=types.d.ts.map

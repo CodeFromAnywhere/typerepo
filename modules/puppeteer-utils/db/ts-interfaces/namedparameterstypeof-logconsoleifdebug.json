@@ -1,0 +1,78 @@
+{
+  "createdAt": 1671098541261,
+  "updatedAt": 1671098541261,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098541261,
+  "id": "namedparameterstypeof-logconsoleifdebug",
+  "name": "NamedParameters<typeof logConsoleIfDebug>",
+  "slug": "namedparameterstypeof-logconsoleifdebug",
+  "operationRelativeTypescriptFilePath": "src/logConsoleIfDebug.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "debug": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "message",
+            "debug"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "message",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "debug",
+                "required": true,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof logConsoleIfDebug>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

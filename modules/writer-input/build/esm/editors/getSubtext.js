@@ -14,3 +14,4 @@ markdownString, subtextConfig) {
     var allSubtext = "".concat((_a = subtextConfig.translations) === null || _a === void 0 ? void 0 : _a.join(","), " and the text is '").concat(markdownString, "'. Let's hook it into translate, and hook up all stuff!");
     return allSubtext;
 };
+//# sourceMappingURL=getSubtext.js.map

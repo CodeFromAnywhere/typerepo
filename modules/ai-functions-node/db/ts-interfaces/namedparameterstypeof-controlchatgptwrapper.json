@@ -1,0 +1,90 @@
+{
+  "createdAt": 1671105543514,
+  "updatedAt": 1671105543514,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105543514,
+  "id": "namedparameterstypeof-controlchatgptwrapper",
+  "name": "NamedParameters<typeof controlChatGptWrapper>",
+  "slug": "namedparameterstypeof-controlchatgptwrapper",
+  "operationRelativeTypescriptFilePath": "src/processChatGptPrompt.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "prompt": {
+          "type": "string"
+        },
+        "isHeadless": {
+          "type": "boolean"
+        },
+        "thread": {
+          "type": "string"
+        },
+        "controller": {
+          "type": "string",
+          "enum": [
+            "playwright",
+            "puppeteer",
+            "faker"
+          ]
+        }
+      },
+      "required": [
+        "prompt",
+        "controller"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "prompt",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isHeadless",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "thread",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "controller",
+          "required": true,
+          "schema": {
+            "enum": [
+              "playwright",
+              "puppeteer",
+              "faker"
+            ],
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof controlChatGptWrapper>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

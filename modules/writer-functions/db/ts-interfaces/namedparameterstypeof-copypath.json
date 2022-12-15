@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671101593297,
+  "updatedAt": 1671101593297,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101593297,
+  "id": "namedparameterstypeof-copypath",
+  "name": "NamedParameters<typeof copyPath>",
+  "slug": "namedparameterstypeof-copypath",
+  "operationRelativeTypescriptFilePath": "src/copyPath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectRelativePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof copyPath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

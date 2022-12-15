@@ -1,10 +1,149 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((function(o,a){function i(e){try{s(n.next(e))}catch(e){a(e)}}function u(e){try{s(n.throw(e))}catch(e){a(e)}}function s(e){var t;e.done?o(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(i,u)}s((n=n.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,n,o,a,i={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function u(a){return function(u){return function(a){if(r)throw new TypeError("Generator is already executing.");for(;i;)try{if(r=1,n&&(o=2&a[0]?n.return:a[0]?n.throw||((o=n.return)&&o.call(n),0):n.next)&&!(o=o.call(n,a[1])).done)return o;switch(n=0,o&&(a=[2&a[0],o.value]),a[0]){case 0:case 1:o=a;break;case 4:return i.label++,{value:a[1],done:!1};case 5:i.label++,n=a[1],a=[0];continue;case 7:a=i.ops.pop(),i.trys.pop();continue;default:if(!(o=i.trys,(o=o.length>0&&o[o.length-1])||6!==a[0]&&2!==a[0])){i=0;continue}if(3===a[0]&&(!o||a[1]>o[0]&&a[1]<o[3])){i.label=a[1];break}if(6===a[0]&&i.label<o[1]){i.label=o[1],o=a;break}if(o&&i.label<o[2]){i.label=o[2],i.ops.push(a);break}o[2]&&i.ops.pop(),i.trys.pop();continue}a=t.call(e,i)}catch(e){a=[6,e],n=0}finally{r=o=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,u])}}},__importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.indexTypescript=void 0;
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.indexTypescript = void 0;
 // external
-var fs_1=__importDefault(require("fs")),graceful_fs_1=__importDefault(require("graceful-fs")),fs_util_1=require("fs-util"),ts_morph_util_1=require("ts-morph-util"),js_util_1=require("js-util"),get_path_1=require("get-path"),log_1=require("log"),read_json_file_1=require("read-json-file"),getValidatedOperationPathParse_1=require("./getValidatedOperationPathParse"),indexTypescriptFile_1=require("./indexTypescriptFile"),one_by_one_1=require("one-by-one"),database_1=require("database"),indexTypescript=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,r,n,o,a,i,u,s,l,_,c;return __generator(this,(function(p){switch(p.label){case 0:return t=e.filePaths,r=e.manualProjectRoot,n=e.showLogging,
-// NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)
-graceful_fs_1.default.gracefulify(fs_1.default),(o=t[0])||(0,log_1.log)("Please provide some file paths"),(a=(0,get_path_1.findOperationBasePath)(o))?(i=r||(0,get_path_1.getProjectRoot)(o))?[4/*yield*/,(0,read_json_file_1.readJsonFile)(fs_util_1.path.join(a,"package.json"))]:((0,log_1.log)("No project root found",{type:"error"}),[2/*return*/]):((0,log_1.log)("Operation must have a basepath to be indexed",{type:"error"}),[2/*return*/]);case 1:return(u=p.sent())?u.name?(s=[],(l=(0,ts_morph_util_1.getTsMorphProject)(a))?[3/*break*/,3]:(_="couldn't load project",s.push(_),[4/*yield*/,database_1.db.update("Operation",(function(e){return e.name===(0,fs_util_1.getFolder)(a)}),(function(e){return(0,js_util_1.mergeNestedObject)(e,{operation:{buildResultIndexed:{indexErrors:s}}})}))])):((0,log_1.log)("Operation must have a name to be indexed",{type:"error"}),[2/*return*/]):((0,log_1.log)("Operation must have a package.json to be indexed",{type:"error"}),[2/*return*/]);case 2:return p.sent(),(0,log_1.log)(_,{type:"error"}),[2/*return*/];case 3:
-// NB: one by one because if you do multiple at once, writing commets goes corrupt because concurrent writing.
-return c=t.map(getValidatedOperationPathParse_1.getValidatedOperationPathParse).filter(js_util_1.notEmpty),[4/*yield*/,(0,one_by_one_1.oneByOne)(c,(function(e,t){return __awaiter(void 0,void 0,void 0,(function(){var r;return __generator(this,(function(o){switch(o.label){case 0:return n&&process.stdout.write("".concat(t+1,") ").concat(e.srcFileId," ")),[4/*yield*/,(0,indexTypescriptFile_1.indexTypescriptFile)(l,e,i)];case 1:return r=o.sent(),n&&console.log("✅"),[2/*return*/,r]}}))}))}))];case 4:
-// NB: one by one because if you do multiple at once, writing commets goes corrupt because concurrent writing.
-return p.sent(),[2/*return*/]}}))}))};exports.indexTypescript=indexTypescript;
+var fs_1 = __importDefault(require("fs"));
+var graceful_fs_1 = __importDefault(require("graceful-fs"));
+var fs_util_1 = require("fs-util");
+var ts_morph_util_1 = require("ts-morph-util");
+//monorepo
+var js_util_1 = require("js-util");
+var get_path_1 = require("get-path");
+var log_1 = require("log");
+var read_json_file_1 = require("read-json-file");
+var getValidatedOperationPathParse_1 = require("./getValidatedOperationPathParse");
+var indexTypescriptFile_1 = require("./indexTypescriptFile");
+var one_by_one_1 = require("one-by-one");
+var database_1 = require("database");
+/**
+ * Creates a typescript file index in 3 steps
+ * 1) Introspects the file
+ * 2) Calculates all needed information about it
+ * 3) Saves the result to /db/******.json in the operation root
+
+ NB: Build errors are done separately as this is done operation-wide, everything else is done for each file
+
+ NB: I don't think this is super efficient, because the project is taken to just index a single file. It's probably better to pass the project and the sourcefile in here, right?
+ 
+ TODO: if a typescript file starst with a comment before any statements (but possibly after the `#!/usr/bin/env xyz` statement), this should be indexed as the main file comment... This can be shown when opening the file in the admin... It should also check if there is an associated md file for that in src, so that can also be added in the index.
+
+ */
+var indexTypescript = function (props) { return __awaiter(void 0, void 0, void 0, function () {
+    var filePaths, manualProjectRoot, showLogging, firstFilePath, operationBasePath, projectRoot, packageJson, operationName, problems, project, problem, filePathsToIndex;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                filePaths = props.filePaths, manualProjectRoot = props.manualProjectRoot, showLogging = props.showLogging;
+                // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)
+                graceful_fs_1.default.gracefulify(fs_1.default);
+                firstFilePath = filePaths[0];
+                if (!firstFilePath) {
+                    (0, log_1.log)("Please provide some file paths");
+                }
+                operationBasePath = (0, get_path_1.findOperationBasePath)(firstFilePath);
+                if (!operationBasePath) {
+                    (0, log_1.log)("Operation must have a basepath to be indexed", { type: "error" });
+                    return [2 /*return*/];
+                }
+                projectRoot = manualProjectRoot || (0, get_path_1.getProjectRoot)(firstFilePath);
+                if (!projectRoot) {
+                    (0, log_1.log)("No project root found", { type: "error" });
+                    return [2 /*return*/];
+                }
+                return [4 /*yield*/, (0, read_json_file_1.readJsonFile)(fs_util_1.path.join(operationBasePath, "package.json"))];
+            case 1:
+                packageJson = _a.sent();
+                if (!packageJson) {
+                    (0, log_1.log)("Operation must have a package.json to be indexed", { type: "error" });
+                    return [2 /*return*/];
+                }
+                operationName = packageJson.name;
+                if (!operationName) {
+                    (0, log_1.log)("Operation must have a name to be indexed", { type: "error" });
+                    return [2 /*return*/];
+                }
+                problems = [];
+                project = (0, ts_morph_util_1.getTsMorphProject)(operationBasePath);
+                if (!!project) return [3 /*break*/, 3];
+                problem = "couldn't load project";
+                problems.push(problem);
+                return [4 /*yield*/, database_1.db.update("Operation", function (item) { return item.name === (0, fs_util_1.getFolder)(operationBasePath); }, function (old) {
+                        return (0, js_util_1.mergeNestedObject)(old, {
+                            operation: { buildResultIndexed: { indexErrors: problems } },
+                        });
+                    })];
+            case 2:
+                _a.sent();
+                (0, log_1.log)(problem, { type: "error" });
+                return [2 /*return*/];
+            case 3:
+                filePathsToIndex = filePaths
+                    .map(getValidatedOperationPathParse_1.getValidatedOperationPathParse)
+                    .filter(js_util_1.notEmpty);
+                // NB: one by one because if you do multiple at once, writing commets goes corrupt because concurrent writing.
+                return [4 /*yield*/, (0, one_by_one_1.oneByOne)(filePathsToIndex, function (file, index) { return __awaiter(void 0, void 0, void 0, function () {
+                        var result;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    if (showLogging) {
+                                        process.stdout.write("".concat(index + 1, ") ").concat(file.srcFileId, " "));
+                                    }
+                                    return [4 /*yield*/, (0, indexTypescriptFile_1.indexTypescriptFile)(project, file, projectRoot)];
+                                case 1:
+                                    result = _a.sent();
+                                    if (showLogging) {
+                                        console.log("✅");
+                                    }
+                                    return [2 /*return*/, result];
+                            }
+                        });
+                    }); })];
+            case 4:
+                // NB: one by one because if you do multiple at once, writing commets goes corrupt because concurrent writing.
+                _a.sent();
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.indexTypescript = indexTypescript;
 //# sourceMappingURL=indexTypescript.js.map

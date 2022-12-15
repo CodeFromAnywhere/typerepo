@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671105523360,
+  "updatedAt": 1671105523360,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105523360,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getContextualPromptResultJsonFilePath.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  projectRelativePath?: string\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const prompt_absolutePath = projectRelativePath\n    ? path.join(projectRoot, projectRelativePath)\n    : undefined;\n\n  const exists = prompt_absolutePath\n    ? fs.existsSync(prompt_absolutePath)\n    : undefined;\n\n  const stats =\n    exists && prompt_absolutePath\n      ? await fs.stat(prompt_absolutePath)\n      : undefined;\n  const isFolder = stats ? stats.isDirectory() : false;\n  const isFile = stats ? stats.isFile() : false;\n  const pathParse = prompt_absolutePath\n    ? path.parse(prompt_absolutePath)\n    : undefined;\n\n  const contextualPromptResultsJsonPath =\n    pathParse && isFile\n      ? path.join(\n          pathParse.dir,\n          \".index\",\n          pathParse.name,\n          \"prompt-results.json\"\n        )\n      : isFolder && prompt_absolutePath\n      ? path.join(prompt_absolutePath, \".index\", \"prompt-results.json\")\n      : undefined;\n\n  return contextualPromptResultsJsonPath;\n}",
+  "name": "getContextualPromptResultJsonFilePath",
+  "slug": "get-contextual-prompt-result-json-file-path",
+  "parameters": [
+    {
+      "name": "projectRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "Calculates path where the result json index is supposed to be",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1076,
+    "lines": 37,
+    "bytes": 1076,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 37,
+    "numberOfFiles": 1
+  },
+  "id": "nmpwrxpymnhdjcsehicleyej"
+}

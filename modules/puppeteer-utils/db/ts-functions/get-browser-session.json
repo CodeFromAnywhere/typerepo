@@ -1,0 +1,43 @@
+{
+  "createdAt": 1671098521965,
+  "updatedAt": 1671098521965,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098521965,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/browserSessionsCache.ts",
+  "commentsInside": [],
+  "rawText": " (): Browser | undefined => {\n  return browserSessionsCache.get(\"browser\");\n}",
+  "name": "getBrowserSession",
+  "slug": "get-browser-session",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Browser | undefined",
+    "typeDefinition": {
+      "optional": true
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 77,
+    "lines": 3,
+    "bytes": 77,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "nxrxsfihahzvfhfgdgzggjob"
+}

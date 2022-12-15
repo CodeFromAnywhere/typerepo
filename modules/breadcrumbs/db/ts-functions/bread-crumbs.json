@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668336593889,
-  "updatedAt": 1668336593889,
+  "createdAt": 1670950644408,
+  "updatedAt": 1670950644408,
   "deletedAt": 0,
-  "createdFirstAt": 1668336593889,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1670950644408,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/BreadCrumbs.tsx",
   "commentsInside": [],
-  "rawText": " (props: { path: string }) => {\n  const { path } = props;\n  const chunks = (path || \"\").split(\"/\");\n\n  return (\n    <Div className=\"border-b border-b-gray-300 mb-4 bg-[#FFFFFF] dark:bg-gray-900\">\n      <Div className=\"flex flex-row items-center ml-2\">\n        {renderBreadCrumbs(chunks)}\n      </Div>\n    </Div>\n  );\n}",
+  "rawText": " (props: { path: string }) => {\n  const { path } = props;\n  const chunks = (path || \"\").split(\"/\");\n\n  if (path === \"\") return <Div />;\n  return (\n    <Div className=\"border-b border-b-gray-300 mb-4 bg-[#FFFFFF] dark:bg-gray-900\">\n      <Div className=\"flex flex-row items-center ml-2\">\n        {renderBreadCrumbs(chunks)}\n      </Div>\n    </Div>\n  );\n}",
   "name": "BreadCrumbs",
   "slug": "bread-crumbs",
   "parameters": [
@@ -62,13 +57,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 354,
-    "lines": 12,
-    "bytes": 354,
+    "characters": 389,
+    "lines": 13,
+    "bytes": 389,
     "bytesPerCharacter": 1,
     "charactersPerLine": 30,
-    "linesPerFile": 12,
+    "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "ygbrnepxjobaosmymcurmvzm"
+  "id": "umswyupmrmepgxobmuefwdog"
 }

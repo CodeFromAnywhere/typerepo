@@ -1,0 +1,75 @@
+{
+  "createdAt": 1671098525343,
+  "updatedAt": 1671098525343,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098525343,
+  "id": "namedparameterstypeof-facebooklogin",
+  "name": "NamedParameters<typeof facebookLogin>",
+  "slug": "namedparameterstypeof-facebooklogin",
+  "operationRelativeTypescriptFilePath": "src/facebookLogin.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "$ref": "#/definitions/FacebookLoginPropsType"
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "email",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "password",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "page",
+                "required": true,
+                "schema": {
+                  "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof facebookLogin>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

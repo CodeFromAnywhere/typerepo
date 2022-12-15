@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670589802324,
-  "updatedAt": 1670589802324,
+  "createdAt": 1671105518325,
+  "updatedAt": 1671105518325,
   "deletedAt": 0,
-  "createdFirstAt": 1670589802324,
+  "createdFirstAt": 1671105518325,
   "id": "namedparameterstypeof-getcontextualprompt",
   "name": "NamedParameters<typeof getContextualPrompt>",
   "slug": "namedparameterstypeof-getcontextualprompt",
@@ -21,10 +21,7 @@
           "type": "string"
         },
         "customPromptContent": {
-          "type": [
-            "string",
-            "null"
-          ]
+          "type": "string"
         },
         "saveNewPromptWithName": {
           "type": [
@@ -34,7 +31,6 @@
         }
       },
       "required": [
-        "customPromptContent",
         "saveNewPromptWithName"
       ],
       "additionalProperties": false
@@ -50,7 +46,7 @@
         },
         {
           "name": "customPromptContent",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }

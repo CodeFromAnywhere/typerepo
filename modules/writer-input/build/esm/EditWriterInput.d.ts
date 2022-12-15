@@ -18,3 +18,4 @@ export declare const EditWriterInput: (props: {
     projectRelativeFilePath: string;
     markdownModelName?: keyof DbModels | undefined;
 }) => JSX.Element;
+//# sourceMappingURL=EditWriterInput.d.ts.map

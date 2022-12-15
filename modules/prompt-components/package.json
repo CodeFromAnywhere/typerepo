@@ -36,33 +36,33 @@
       "indexImportExportError": "",
       "lintProblems": [],
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/ai/prompt-components/src/usePromptResultAlert.tsx. Error: Error: Unknown type \"function\""
+        "No schema/definitions found for /Users/king/King/operations/tools/ai/prompt-components/src/processPrompt.ts. Error: Error: Unknown type \"function\""
       ]
     },
-    "lastRebuildAt": 1670526563042,
+    "lastRebuildAt": 1671012364172,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 313,
-        "characters": 9657,
-        "bytes": 9657
+        "lines": 384,
+        "characters": 11526,
+        "bytes": 11526
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 132,
-        "characters": 3494,
-        "bytes": 3494
+        "lines": 142,
+        "characters": 3754,
+        "bytes": 3754
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 13,
-        "characters": 175,
-        "bytes": 175
+        "lines": 97,
+        "characters": 2959,
+        "bytes": 2959
       },
       "size": {
-        "bytes": 13326,
-        "characters": 13326,
-        "lines": 458,
+        "bytes": 18239,
+        "characters": 18239,
+        "lines": 623,
         "numberOfFiles": 9
       }
     },
@@ -76,23 +76,30 @@
       "queries",
       "Div",
       "ContextualPromptResult",
-      "renderMarkdownContent",
+      "MarkdownContent",
       "ContextualPrompt",
       "useAlert",
       "Item",
       "useSelect",
       "useLastSelection",
       "ContextualContent",
-      "ContextualPrompt",
       "api",
+      "humanCase",
+      "Slug",
+      "showStandardResponse",
       "api",
-      "renderMarkdownContent",
+      "MarkdownContent",
       "useAlert",
       "ContextualPrompt",
       "ContextualContent",
+      "api",
       "ContextMenuItem",
       "useContextMenu",
-      "useAlert"
+      "useAlert",
+      "showStandardResponse",
+      "Div",
+      "P",
+      "useLastSelection"
     ],
     "packageDependenciesIndexed": []
   },
@@ -105,7 +112,10 @@
     "react-with-native-select": "2.0.7",
     "share": "1.0.0",
     "react-native": "*",
-    "context-menu": "0.0.0"
+    "context-menu": "0.0.0",
+    "convert-case": "0.0.1",
+    "model-types": "0.0.1",
+    "cool-toast": "0.0.0"
   },
   "slug": "prompt-components",
   "id": "vqykiaraonhamykiyozkjhsx"

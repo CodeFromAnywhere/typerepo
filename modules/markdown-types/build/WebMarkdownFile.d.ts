@@ -1,4 +1,5 @@
 import { MarkdownModelType } from "model-types";
+import { CreatorMarkdownProperties } from "./CreatorMarkdownProperties";
 import { ExtendedMarkdownProperties } from "./ExtendedMarkdownProperties";
 import { PostableProperties } from "./PostableProperties";
 import { WebMarkdownProperties } from "./WebMarkdownProperties";
@@ -7,6 +8,8 @@ import { WebMarkdownProperties } from "./WebMarkdownProperties";
  *
  * NB: This is not part of MarkdownModelType, because MarkdownModelType is very barebones general purpose, not only for the web!
  */
-export interface WebMarkdownFile extends MarkdownModelType, ExtendedMarkdownProperties, WebMarkdownProperties, PostableProperties {
+export interface WebMarkdownFile extends MarkdownModelType, ExtendedMarkdownProperties, CreatorMarkdownProperties, WebMarkdownProperties, PostableProperties {
+}
+export interface CreatorMarkdownFile extends MarkdownModelType, CreatorMarkdownProperties {
 }
 //# sourceMappingURL=WebMarkdownFile.d.ts.map

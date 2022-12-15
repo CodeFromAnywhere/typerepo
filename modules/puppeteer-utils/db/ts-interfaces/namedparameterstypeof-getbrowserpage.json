@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671098520217,
+  "updatedAt": 1671098520217,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098520217,
+  "id": "namedparameterstypeof-getbrowserpage",
+  "name": "NamedParameters<typeof getBrowserPage>",
+  "slug": "namedparameterstypeof-getbrowserpage",
+  "operationRelativeTypescriptFilePath": "src/browserSessionsCache.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "pageId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getBrowserPage>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

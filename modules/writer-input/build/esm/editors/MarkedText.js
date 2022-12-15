@@ -18,3 +18,4 @@ MarkedText.exampleInputs = [
 // "second example\n",
 // "third example\ngot another sentence\nand anotha one",
 ];
+//# sourceMappingURL=MarkedText.js.map

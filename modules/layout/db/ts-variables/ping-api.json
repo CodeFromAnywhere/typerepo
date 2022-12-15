@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670529018785,
-  "updatedAt": 1670529018785,
+  "createdAt": 1670968931095,
+  "updatedAt": 1670968931095,
   "deletedAt": 0,
-  "createdFirstAt": 1670529018785,
+  "createdFirstAt": 1670968931095,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "() => {\n  const [isOffline, setIsOffline] = useState(false);\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      getItem(API_NO_RESPONSE_TIME_KEY).then((value) => {\n        if (!value) {\n          if (isOffline) {\n            setIsOffline(false);\n            return;\n          }\n        }\n\n        const lastNoResponse = Number(value);\n        const timeAgo = Date.now() - lastNoResponse;\n        if (timeAgo < timeBeforeNotOffline && isOffline) {\n          setIsOffline(false);\n        } else {\n          setIsOffline(true);\n        }\n      });\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return <Div>{isOffline ? \"🔺\" : \"💚\"}</Div>;\n}",
+  "value": "() => {\n  const [isOffline, setIsOffline] = useState(false);\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      getItem(API_NO_RESPONSE_TIME_KEY).then((value) => {\n        if (!value) {\n          if (isOffline) {\n            setIsOffline(false);\n            return;\n          }\n        }\n\n        const lastNoResponse = Number(value);\n        const timeAgo = Date.now() - lastNoResponse;\n        if (timeAgo < timeBeforeNotOffline && isOffline) {\n          setIsOffline(false);\n        } else {\n          setIsOffline(true);\n        }\n      });\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return (\n    <Div className=\"mx-3\">\n      <ALink href=\"/settings\">{isOffline ? \"🔺\" : \"💚\"} API</ALink>\n    </Div>\n  );\n}",
   "description": "",
-  "id": "ocuhqcdpmrmsxevisrzprtky"
+  "id": "zivvevagpyhqvdhqfqrospey"
 }

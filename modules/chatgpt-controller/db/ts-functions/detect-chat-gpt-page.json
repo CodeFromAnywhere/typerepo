@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671097065155,
+  "updatedAt": 1671097065155,
+  "deletedAt": 0,
+  "createdFirstAt": 1671097065155,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/detectChatGptPage.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  page: Page\n): Promise<\"Login\" | \"Chat\" | \"Secure\"> => {\n  await page.goto(\"https://chat.openai.com/chat\", {\n    waitUntil: \"domcontentloaded\",\n  });\n\n  let curretnOpenPage = \"Chat\";\n\n  const sendMessageButton = await page.$(\n    'button[class=\"absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent\"]'\n  );\n\n  const isTextAreaExist = await page.$(\"textarea\");\n\n  if (sendMessageButton && isTextAreaExist) {\n    return \"Chat\";\n  }\n\n  const isSecurePageApear = await page.$x(\n    \"//h2[contains(., 'Checking if the site connection is secure')]\"\n  );\n\n  const isLogin = 'button[class=\"btn flex justify-center gap-2 btn-primary\"]';\n  console.log({ isLogin });\n  if (isSecurePageApear && isLogin) {\n    console.log(\"Is secure page appear\");\n    await page.waitForSelector(\n      'button[class=\"btn flex justify-center gap-2 btn-primary\"]'\n    );\n    console.log('\"Login button appear');\n    return \"Login\";\n  }\n  return \"Secure\";\n}",
+  "name": "detectChatGptPage",
+  "slug": "detect-chat-gpt-page",
+  "parameters": [
+    {
+      "name": "page",
+      "schema": {
+        "$ref": "#/definitions/Page"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<\"Login\" | \"Chat\" | \"Secure\">",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1095,
+    "lines": 35,
+    "bytes": 1095,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 35,
+    "numberOfFiles": 1
+  },
+  "id": "afclnkfyokolghttkqzlvclv"
+}

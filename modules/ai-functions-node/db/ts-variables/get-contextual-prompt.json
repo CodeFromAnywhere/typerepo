@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670589804205,
-  "updatedAt": 1670589804205,
+  "createdAt": 1671105520389,
+  "updatedAt": 1671105520389,
   "deletedAt": 0,
-  "createdFirstAt": 1670589804205,
+  "createdFirstAt": 1671105520389,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-contextual-prompt",
   "operationRelativeTypescriptFilePath": "src/getContextualPrompt.ts",
   "type": {
-    "rawType": "(contextualPromptSlug: string | undefined, customPromptContent: string | null, saveNewPromptWithName: string | null) => Promise<any>",
+    "rawType": "(contextualPromptSlug: string | undefined, customPromptContent: string | undefined, saveNewPromptWithName: string | null) => Promise<any>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  contextualPromptSlug: string | undefined,\n  customPromptContent: string | null,\n  saveNewPromptWithName: string | null\n): Promise<(Creation<ContextualPrompt> & { slug: string }) | undefined> => {\n  if (contextualPromptSlug) {\n    const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n    const contextualPrompt = contextualPrompts.find(\n      (x) => x.slug === contextualPromptSlug\n    );\n\n    if (!contextualPrompt) {\n      return undefined;\n    }\n\n    return contextualPrompt;\n  }\n\n  if (!customPromptContent || customPromptContent.length === 0) {\n    return undefined;\n  }\n\n  const isNew = saveNewPromptWithName && saveNewPromptWithName.length > 0;\n\n  const name = isNew ? saveNewPromptWithName : generateId();\n  const newContextualPrompt: Creation<ContextualPrompt> & { slug: string } = {\n    name,\n    slug: slugify(name),\n    promptContent: customPromptContent,\n  };\n\n  if (isNew) {\n    await db.upsert(\"ContextualPrompt\", newContextualPrompt);\n  }\n\n  return newContextualPrompt;\n}",
+  "value": "async (\n  contextualPromptSlug: string | undefined,\n  customPromptContent: string | undefined,\n  saveNewPromptWithName: string | null\n): Promise<(Creation<ContextualPrompt> & { slug: string }) | undefined> => {\n  if (contextualPromptSlug) {\n    const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n    const contextualPrompt = contextualPrompts.find(\n      (x) => x.slug === contextualPromptSlug\n    );\n\n    if (!contextualPrompt) {\n      return undefined;\n    }\n\n    return contextualPrompt;\n  }\n\n  if (!customPromptContent || customPromptContent.length === 0) {\n    return undefined;\n  }\n\n  const isNew = saveNewPromptWithName && saveNewPromptWithName.length > 0;\n\n  const name = isNew ? saveNewPromptWithName : generateId();\n  const newContextualPrompt: Creation<ContextualPrompt> & { slug: string } = {\n    name,\n    slug: slugify(name),\n    promptContent: customPromptContent,\n  };\n\n  if (isNew) {\n    await db.upsert(\"ContextualPrompt\", newContextualPrompt);\n  }\n\n  return newContextualPrompt;\n}",
   "description": "",
-  "id": "lbqwkqllettrnuegfroluevp"
+  "id": "vahaflijtjgcwnasvxakxugc"
 }

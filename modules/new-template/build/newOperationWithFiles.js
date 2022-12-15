@@ -1,21 +1,204 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,n=1,r=arguments.length;n<r;n++)for(var i in t=arguments[n])Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,t,n,r){return new(n||(n=Promise))((function(i,o){function s(e){try{l(r.next(e))}catch(e){o(e)}}function a(e){try{l(r.throw(e))}catch(e){o(e)}}function l(e){var t;e.done?i(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(s,a)}l((r=r.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,r,i,o,s={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return o={next:a(0),throw:a(1),return:a(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function a(o){return function(a){return function(o){if(n)throw new TypeError("Generator is already executing.");for(;s;)try{if(n=1,r&&(i=2&o[0]?r.return:o[0]?r.throw||((i=r.return)&&i.call(r),0):r.next)&&!(i=i.call(r,o[1])).done)return i;switch(r=0,i&&(o=[2&o[0],i.value]),o[0]){case 0:case 1:i=o;break;case 4:return s.label++,{value:o[1],done:!1};case 5:s.label++,r=o[1],o=[0];continue;case 7:o=s.ops.pop(),s.trys.pop();continue;default:if(!(i=s.trys,(i=i.length>0&&i[i.length-1])||6!==o[0]&&2!==o[0])){s=0;continue}if(3===o[0]&&(!i||o[1]>i[0]&&o[1]<i[3])){s.label=o[1];break}if(6===o[0]&&s.label<i[1]){s.label=i[1],i=o;break}if(i&&s.label<i[2]){s.label=i[2],s.ops.push(o);break}i[2]&&s.ops.pop(),s.trys.pop();continue}o=t.call(e,s)}catch(e){o=[6,e],r=0}finally{n=i=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,a])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.newOperationWithFiles=void 0;var child_process_1=require("child_process"),fs_util_1=require("fs-util"),get_path_1=require("get-path"),js_util_1=require("js-util"),rebuild_operation_1=require("rebuild-operation"),set_json_key_1=require("set-json-key"),filename_conventions_1=require("filename-conventions"),newOperation_1=require("./newOperation"),log_1=require("log"),newOperationWithFiles=function(e,t,
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.newOperationWithFiles = void 0;
+var child_process_1 = require("child_process");
+var fs_util_1 = require("fs-util");
+var get_path_1 = require("get-path");
+var js_util_1 = require("js-util");
+var rebuild_operation_1 = require("rebuild-operation");
+var set_json_key_1 = require("set-json-key");
+var filename_conventions_1 = require("filename-conventions");
+var newOperation_1 = require("./newOperation");
+var log_1 = require("log");
+/**
+ * Creates a new operation with files with content
+ *
+ * Returns the final operation base path (or undefined if something went wrong)
+ *
+ * NB: relative paths must be relative to OPERATION ROOT, not src root! They must also lead to files in src, this thing is still buggy otherwise!
+ *
+ * TODO: Remove the buggyness
+ */
+var newOperationWithFiles = function (name, description, 
 /**
  * NB: relative paths must be relative to OPERATION ROOT, not src root!
  */
-n,r){return __awaiter(void 0,void 0,void 0,(function(){var i,o,s,a,l,u,c,_,f,p,h;return __generator(this,(function(d){switch(d.label){case 0:return(i=(null==r?void 0:r.manualProjectRoot)||(0,get_path_1.getProjectRoot)())?(o=(0,get_path_1.isBundle)(i)?fs_util_1.path.join(i,"packages","generated"):fs_util_1.path.join(i,filename_conventions_1.projectRelativeGeneratedOperationsFolder),s=(null==r?void 0:r.destinationPath)||o,a=Object.keys(n).map((function(e){return'export * from "./'.concat((0,get_path_1.getSrcRelativeFileId)(e),'";')})).join("\n"),l=__assign(__assign({},n),{"src/index.ts":a}),(null==r?void 0:r.dryrun)?[4/*yield*/,Promise.all(Object.keys(n).map((function(e){var t=fs_util_1.path.join(__dirname,"..","assets","generated",e);return console.log("written to ".concat(t)),(0,fs_util_1.writeStringToFile)(t,n[e])})))]:[3/*break*/,2]):((0,log_1.log)("Not found projectroot",{type:"error"}),[2/*return*/]);case 1:return d.sent(),[2/*return*/];case 2:return[4/*yield*/,(0,newOperation_1.newOperation)(e,{destinationPath:s,description:t,manualProjectRoot:i})];case 3:return(u=d.sent())?fs_util_1.fs.existsSync(u)?(c=fs_util_1.path.join(s,e),[4/*yield*/,(0,js_util_1.objectMapAsync)(l,(function(e,t){return __awaiter(void 0,void 0,void 0,(function(){var n;return __generator(this,(function(r){switch(r.label){case 0:return n=fs_util_1.path.join(u,e),[4/*yield*/,(0,fs_util_1.writeStringToFile)(n,t)];case 1:return r.sent(),[2/*return*/]}}))}))}))]):((0,log_1.log)("actualBasePath does not exist: ".concat(u),{type:"error"}),[2/*return*/]):((0,log_1.log)("Failed creating new operation",{type:"error"}),[2/*return*/]);case 4:
-// 4. write files to src
-return d.sent(),_=c!==u&&(null==r?void 0:r.overwriteIfExists)&&fs_util_1.fs.existsSync(c),f=_?c:u,
-// 6. yarn build there
-(null==r?void 0:r.skipYarnInstall)||
-// in case this operation didn't exist before, run `yarn --offline`
-// NB: this assumes we already have node_modules and the new operation has no weird new dependencies
-(0,child_process_1.spawnSync)("yarn --offline",{cwd:u,encoding:"utf8",stdio:"inherit",shell:!1}),(null==r?void 0:r.skipYarnBuild)?[3/*break*/,6]:[4/*yield*/,(0,rebuild_operation_1.yarnBuild)(u)];case 5:if(!d.sent())return(0,log_1.log)("Building failed",{type:"error"}),[2/*return*/];d.label=6;case 6:return _?(p=fs_util_1.path.join(u,"package.json"),(h=fs_util_1.fs.existsSync(p))?[4/*yield*/,(0,fs_util_1.canRead)(p)]:[3/*break*/,8]):[3/*break*/,13];case 7:h=d.sent(),d.label=8;case 8:return h?[4/*yield*/,(0,set_json_key_1.setJsonKey)({jsonPath:p,keyLocation:"name",value:e})]:[2/*return*/];case 9:return d.sent(),fs_util_1.fs.existsSync(c)?[4/*yield*/,fs_util_1.fs.rm(c,{recursive:!0})]:[3/*break*/,11];
-//then remove the original operation
-case 10:
-//then remove the original operation
-d.sent(),d.label=11;case 11:return fs_util_1.fs.existsSync(u)?[4/*yield*/,fs_util_1.fs.rename(u,c)]:[3/*break*/,13];
-// then rename the new operation to the original operation path
-case 12:
-// then rename the new operation to the original operation path
-d.sent(),d.label=13;case 13:return[2/*return*/,f]}}))}))};exports.newOperationWithFiles=newOperationWithFiles;
+srcFileContentObject, config) { return __awaiter(void 0, void 0, void 0, function () {
+    var projectRoot, defaultDestinationPath, destinationPath, indexFileContent, srcFileContentObjectWithIndex, actualBasePath, wishedBasePath, isOperationNew, shouldOverwrite, finalOperationBasePath, noBuild, isSuccesful, packageJsonPath, hasAvailablePackageJson, _a;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                projectRoot = (config === null || config === void 0 ? void 0 : config.manualProjectRoot) || (0, get_path_1.getProjectRoot)();
+                if (!projectRoot) {
+                    (0, log_1.log)("Not found projectroot", { type: "error" });
+                    return [2 /*return*/];
+                }
+                defaultDestinationPath = (0, get_path_1.isBundle)(projectRoot)
+                    ? fs_util_1.path.join(projectRoot, "packages", "generated")
+                    : fs_util_1.path.join(projectRoot, filename_conventions_1.projectRelativeGeneratedOperationsFolder);
+                destinationPath = (config === null || config === void 0 ? void 0 : config.destinationPath) || defaultDestinationPath;
+                indexFileContent = Object.keys(srcFileContentObject)
+                    .map(function (operationRelativeTypescriptFilePath) {
+                    return "export * from \"./".concat((0, get_path_1.getSrcRelativeFileId)(operationRelativeTypescriptFilePath), "\";");
+                })
+                    .join("\n");
+                srcFileContentObjectWithIndex = __assign(__assign({}, srcFileContentObject), { "src/index.ts": indexFileContent });
+                if (!(config === null || config === void 0 ? void 0 : config.dryrun)) return [3 /*break*/, 2];
+                return [4 /*yield*/, Promise.all(Object.keys(srcFileContentObject).map(function (operationRelativePath) {
+                        var assetsPath = fs_util_1.path.join(__dirname, "..", "assets", "generated", operationRelativePath);
+                        console.log("written to ".concat(assetsPath));
+                        return (0, fs_util_1.writeStringToFile)(assetsPath, srcFileContentObject[operationRelativePath]);
+                    }))];
+            case 1:
+                _b.sent();
+                return [2 /*return*/];
+            case 2: return [4 /*yield*/, (0, newOperation_1.newOperation)(name, {
+                    destinationPath: destinationPath,
+                    description: description,
+                    manualProjectRoot: projectRoot,
+                })];
+            case 3:
+                actualBasePath = _b.sent();
+                if (!actualBasePath) {
+                    (0, log_1.log)("Failed creating new operation", { type: "error" });
+                    return [2 /*return*/];
+                }
+                if (!fs_util_1.fs.existsSync(actualBasePath)) {
+                    (0, log_1.log)("actualBasePath does not exist: ".concat(actualBasePath), { type: "error" });
+                    return [2 /*return*/];
+                }
+                wishedBasePath = fs_util_1.path.join(destinationPath, name);
+                // 4. write files to src
+                return [4 /*yield*/, (0, js_util_1.objectMapAsync)(srcFileContentObjectWithIndex, function (operationRelativeTypescriptFilePath, content) { return __awaiter(void 0, void 0, void 0, function () {
+                        var srcPath;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    srcPath = fs_util_1.path.join(actualBasePath, operationRelativeTypescriptFilePath);
+                                    return [4 /*yield*/, (0, fs_util_1.writeStringToFile)(srcPath, content)];
+                                case 1:
+                                    _a.sent();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); })];
+            case 4:
+                // 4. write files to src
+                _b.sent();
+                isOperationNew = wishedBasePath !== actualBasePath;
+                shouldOverwrite = isOperationNew &&
+                    (config === null || config === void 0 ? void 0 : config.overwriteIfExists) &&
+                    fs_util_1.fs.existsSync(wishedBasePath);
+                finalOperationBasePath = shouldOverwrite
+                    ? wishedBasePath
+                    : actualBasePath;
+                // 6. yarn build there
+                if (!(config === null || config === void 0 ? void 0 : config.skipYarnInstall)) {
+                    // in case this operation didn't exist before, run `yarn --offline`
+                    // NB: this assumes we already have node_modules and the new operation has no weird new dependencies
+                    (0, child_process_1.spawnSync)("yarn --offline", {
+                        cwd: actualBasePath,
+                        encoding: "utf8",
+                        stdio: "inherit",
+                        shell: false,
+                    });
+                }
+                noBuild = config === null || config === void 0 ? void 0 : config.skipYarnBuild;
+                if (!!noBuild) return [3 /*break*/, 6];
+                return [4 /*yield*/, (0, rebuild_operation_1.yarnBuild)(actualBasePath)];
+            case 5:
+                isSuccesful = _b.sent();
+                if (!isSuccesful) {
+                    (0, log_1.log)("Building failed", { type: "error" });
+                    return [2 /*return*/];
+                }
+                _b.label = 6;
+            case 6:
+                if (!shouldOverwrite) return [3 /*break*/, 13];
+                packageJsonPath = fs_util_1.path.join(actualBasePath, "package.json");
+                _a = fs_util_1.fs.existsSync(packageJsonPath);
+                if (!_a) return [3 /*break*/, 8];
+                return [4 /*yield*/, (0, fs_util_1.canRead)(packageJsonPath)];
+            case 7:
+                _a = (_b.sent());
+                _b.label = 8;
+            case 8:
+                hasAvailablePackageJson = _a;
+                if (!hasAvailablePackageJson) {
+                    return [2 /*return*/];
+                }
+                return [4 /*yield*/, (0, set_json_key_1.setJsonKey)({
+                        jsonPath: packageJsonPath,
+                        keyLocation: "name",
+                        value: name,
+                    })];
+            case 9:
+                _b.sent();
+                if (!fs_util_1.fs.existsSync(wishedBasePath)) return [3 /*break*/, 11];
+                //then remove the original operation
+                return [4 /*yield*/, fs_util_1.fs.rm(wishedBasePath, { recursive: true })];
+            case 10:
+                //then remove the original operation
+                _b.sent();
+                _b.label = 11;
+            case 11:
+                if (!fs_util_1.fs.existsSync(actualBasePath)) return [3 /*break*/, 13];
+                // then rename the new operation to the original operation path
+                return [4 /*yield*/, fs_util_1.fs.rename(actualBasePath, wishedBasePath)];
+            case 12:
+                // then rename the new operation to the original operation path
+                _b.sent();
+                _b.label = 13;
+            case 13: return [2 /*return*/, finalOperationBasePath];
+        }
+    });
+}); };
+exports.newOperationWithFiles = newOperationWithFiles;
 //# sourceMappingURL=newOperationWithFiles.js.map

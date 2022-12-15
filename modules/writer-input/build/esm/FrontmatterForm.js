@@ -124,3 +124,4 @@ export var FrontmatterForm = function (props) {
             },
         ], onChange: uploadAssetsThenSetMarkdownString, values: [frontmatterParse], projectRelativeStorageFilePath: projectRelativeMarkdownFilePath, referencableModelData: referencableModelData }));
 };
+//# sourceMappingURL=FrontmatterForm.js.map

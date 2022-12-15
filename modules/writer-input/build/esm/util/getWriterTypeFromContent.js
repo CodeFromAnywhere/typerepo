@@ -12,3 +12,4 @@ export var getWriterTypeFromContent = function (text) {
     // by default, assume markdown
     return "markdown";
 };
+//# sourceMappingURL=getWriterTypeFromContent.js.map

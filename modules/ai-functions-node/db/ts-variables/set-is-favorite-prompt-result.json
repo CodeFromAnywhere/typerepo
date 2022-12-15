@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671105567857,
+  "updatedAt": 1671105567857,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105567857,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "setIsFavoritePromptResult",
+  "slug": "set-is-favorite-prompt-result",
+  "operationRelativeTypescriptFilePath": "src/setIsFavoritePromptResult.ts",
+  "type": {
+    "rawType": "(projectRelativePath: string, id: string, isFavorite: boolean) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  projectRelativePath: string,\n  id: string,\n  isFavorite: boolean\n) => {\n  const resultPath = await getContextualPromptResultJsonFilePath(\n    projectRelativePath\n  );\n\n  if (!resultPath) return { isSuccessful: false };\n\n  const result = await alterJsonMultiple(\n    {\n      absolutePath: resultPath,\n      modelName: \"ContextualPromptResult\",\n      projectRelativePath: resultPath,\n      operationName: \"\",\n    },\n    (old) => {\n      return {\n        newStoredData: old.map((item) => {\n          if (item.id !== id) return item;\n          return { ...item, isFavorite };\n        }),\n        amountUpdated: 1,\n      };\n    }\n  );\n\n  return { isSuccessful: result.amountUpdated === 1 };\n}",
+  "description": "",
+  "id": "xhfzsafbkwzjuvckrezfapkc"
+}

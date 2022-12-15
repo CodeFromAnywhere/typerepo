@@ -1,7 +1,30 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.useOnScreen=void 0;var react_1=require("react");
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useOnScreen = void 0;
+var react_1 = require("react");
 /**
  * checks wheter or not a certain element is in the browsers screen view, or not.
- */function useOnScreen(e){var n=(0,react_1.useState)(!1),r=n[0],t=n[1],u="undefined"==typeof window?null:new IntersectionObserver((function(e){var n=e[0];return t(n.isIntersecting)}));return(0,react_1.useEffect)((function(){if(u)
-// Remove the observer as soon as the component is unmounted
-return e.current&&(null==u||u.observe(e.current)),function(){null==u||u.disconnect()}}),[u]),r}exports.useOnScreen=useOnScreen;
+ */
+function useOnScreen(ref) {
+    var _a = (0, react_1.useState)(false), isIntersecting = _a[0], setIntersecting = _a[1];
+    var observer = typeof window === "undefined"
+        ? null
+        : new IntersectionObserver(function (_a) {
+            var entry = _a[0];
+            return setIntersecting(entry.isIntersecting);
+        });
+    (0, react_1.useEffect)(function () {
+        if (observer) {
+            if (ref.current) {
+                observer === null || observer === void 0 ? void 0 : observer.observe(ref.current);
+            }
+            // Remove the observer as soon as the component is unmounted
+            return function () {
+                observer === null || observer === void 0 ? void 0 : observer.disconnect();
+            };
+        }
+    }, [observer]);
+    return isIntersecting;
+}
+exports.useOnScreen = useOnScreen;
 //# sourceMappingURL=useOnScreen.js.map

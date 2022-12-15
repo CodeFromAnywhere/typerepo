@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671101602571,
+  "updatedAt": 1671101602571,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101602571,
+  "id": "namedparameterstypeof-deletefileorfolder",
+  "name": "NamedParameters<typeof deleteFileOrFolder>",
+  "slug": "namedparameterstypeof-deletefileorfolder",
+  "operationRelativeTypescriptFilePath": "src/deleteFileOrFolder.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectRelativePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof deleteFileOrFolder>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

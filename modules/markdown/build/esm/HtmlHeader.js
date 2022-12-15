@@ -19,3 +19,4 @@ export var HtmlHeader = function (_a) {
     // {...props
     return (React.createElement(Div, { id: getImplicitId(String(children)), className: levelSize }, children));
 };
+//# sourceMappingURL=HtmlHeader.js.map

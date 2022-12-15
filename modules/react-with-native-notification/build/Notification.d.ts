@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import { ToastOptions as ToastifyToastOptions } from "react-toastify";
-export declare type ToastOptions = ToastifyToastOptions;
+export type ToastOptions = ToastifyToastOptions;
 /**
  * title is only shown on native
  */

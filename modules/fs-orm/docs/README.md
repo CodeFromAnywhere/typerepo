@@ -1,14 +1,11 @@
----
-headerBig: true
-headerTitle: Typebase
-headerSubTitle: Typescript optimised File system ORM & Database
-headerImage: ![](./header.png)
----
+To get started with `fs-orm`, please have a look at the `db` package. This package shows you how to initiate a database object.
 
-Welcome to Typebase. Typebase is an ORM (Object Relational Mapping) that lets you create a database with models that are stored on the file system in multiple formats, that are easy to understand and well structured.
+It is using a package `sdk-db` which you can create yourself (or generate, based on the models found in your monorepo)
 
-> Object Relational Mapping: A mapping from stored data to set of functions that can access that stored data in a specific programming language.
+From there, it's very easy to use fs-orm. For example, if you want to get all the `Todo` values, simply use something like this
 
-Typebase is very well integrated with Typescript, which makes it very easy to create new models that are typesafe.
+```ts
+const todos = await db.get("Todo");
+```
 
-> typesafe: the types of requested data are given without accessing the information itself. This makes it much harder to make mistakes in your code, because you know the shape of your data that you are going to request.
+Check the `createDb` function to see the exact type definition of all the function on the db-object. Otherwise you can just use Intellisense for it, you can easily understand everything that way.

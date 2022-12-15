@@ -11,3 +11,4 @@ export declare const getContext: (editorDetails: {
     text: string;
     positionIndex: number;
 }) => TextEditingContext;
+//# sourceMappingURL=getContext.d.ts.map

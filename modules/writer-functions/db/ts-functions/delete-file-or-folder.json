@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671101606429,
+  "updatedAt": 1671101606429,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101606429,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/deleteFileOrFolder.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root found\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return {\n      isSuccessful: false,\n      message: \"This file or folder doesn't exist\",\n    };\n  }\n\n  await fs.rm(absolutePath, { recursive: true });\n\n  return { isSuccessful: true };\n}",
+  "name": "deleteFileOrFolder",
+  "slug": "delete-file-or-folder",
+  "parameters": [
+    {
+      "name": "projectRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 533,
+    "lines": 21,
+    "bytes": 533,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "oyfkljmmfizavexxcsydtmpe"
+}

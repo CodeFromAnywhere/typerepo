@@ -1,0 +1,60 @@
+{
+  "createdAt": 1671098548632,
+  "updatedAt": 1671098548632,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098548632,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/racePromises.ts",
+  "commentsInside": [],
+  "rawText": " async (\n\tpromises: Promise<any>[]\n): Promise<number> => {\n\tconst indexedPromises: Array<Promise<number>> = promises.map(\n\t\t(promise, index) =>\n\t\t\tnew Promise<number>((resolve) =>\n\t\t\t\tpromise\n\t\t\t\t\t.then(() => resolve(index))\n\t\t\t\t\t.catch((err) => {\n\t\t\t\t\t\tconsole.log('RACE PROMISE INDEX ' + index + ' TIMED OUT !!!');\n\t\t\t\t\t})\n\t\t\t)\n\t);\n\treturn Promise.race(indexedPromises);\n}",
+  "name": "racePromises",
+  "slug": "race-promises",
+  "parameters": [
+    {
+      "name": "promises",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [],
+              "type": "object"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
+  "description": "Typescript",
+  "returnType": {
+    "rawType": "Promise<number>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 384,
+    "lines": 15,
+    "bytes": 384,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "bikiiyiiwolpubunoacuuxma"
+}

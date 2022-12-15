@@ -1,6 +1,19 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.hasAllLetters=void 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.hasAllLetters = void 0;
 /**
  * all letters of b can be found in a, in order (but other letters in between are allowed)
  */
-var hasAllLetters=function(e,t){return 0===e.split("").reduce((function(e,t){return e[0]===t&&e.shift(),e}),t.split("")).length};exports.hasAllLetters=hasAllLetters;
+var hasAllLetters = function (a, b) {
+    var lettersLeft = a
+        .split("")
+        .reduce(function (lettersLeft, lowercaseValueLetter) {
+        if (lettersLeft[0] === lowercaseValueLetter) {
+            lettersLeft.shift();
+        }
+        return lettersLeft;
+    }, b.split(""));
+    return lettersLeft.length === 0;
+};
+exports.hasAllLetters = hasAllLetters;
 //# sourceMappingURL=hasAllLetters.js.map

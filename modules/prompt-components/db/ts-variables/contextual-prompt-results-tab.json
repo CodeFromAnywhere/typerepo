@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671012348385,
+  "updatedAt": 1671012348385,
+  "deletedAt": 0,
+  "createdFirstAt": 1671012348385,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "ContextualPromptResultsTab",
+  "slug": "contextual-prompt-results-tab",
+  "operationRelativeTypescriptFilePath": "src/ContextualPromptResultsTab.tsx",
+  "type": {
+    "rawType": "(props: { prompt_projectRelativePath: string; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  prompt_projectRelativePath: string;\n}) => {\n  const { prompt_projectRelativePath } = props;\n\n  const contextualPromptResultsQuery = queries.useGetContextualPromptResults({\n    prompt_projectRelativePath,\n  });\n\n  return (\n    <Div>\n      {contextualPromptResultsQuery.data?.result?.map(\n        (item: ContextualPromptResult) => {\n          return (\n            <Div>\n              <b>prompt</b>\n              {item.prompt ? (\n                <MarkdownContent content={item.prompt} config={{}} />\n              ) : null}\n\n              <b>result</b>\n\n              {item.resultText ? (\n                <MarkdownContent content={item.resultText} config={{}} />\n              ) : null}\n            </Div>\n          );\n        }\n      )}\n    </Div>\n  );\n}",
+  "description": "Visual to show the different prompt results. Probably deprecated, probably better to show it in a more structured way.",
+  "id": "kkijnvmjrjkjyiabgarkcumu"
+}

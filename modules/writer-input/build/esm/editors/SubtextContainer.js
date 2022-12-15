@@ -10,3 +10,4 @@ export var SubtextContainer = function (props) {
     var subtext = getSubtext(rawMarkdown, subtextConfig);
     return (React.createElement("div", { contentEditable: false, spellCheck: false, autoCorrect: "false", "data-is-augmentation": "true", style: { fontSize: 8, backgroundColor: "#CCC", padding: 5 } }, subtext));
 };
+//# sourceMappingURL=SubtextContainer.js.map

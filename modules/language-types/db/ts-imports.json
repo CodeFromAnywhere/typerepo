@@ -1,9 +1,45 @@
 [
   {
-    "createdAt": 1670527855017,
-    "updatedAt": 1670527855017,
+    "createdAt": 1670923138687,
+    "updatedAt": 1670923138687,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855017,
+    "createdFirstAt": 1670923138687,
+    "name": "DefaultModelType",
+    "slug": "default-model-type",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "model-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/Statement.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "tsfdxlqgaecvftoprvjdqedi"
+  },
+  {
+    "createdAt": 1670923138688,
+    "updatedAt": 1670923138688,
+    "deletedAt": 0,
+    "createdFirstAt": 1670923138688,
+    "name": "Id",
+    "slug": "id",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "model-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/Statement.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "uloiuqhoqpimqpskubyxlrqv"
+  },
+  {
+    "createdAt": 1670923138689,
+    "updatedAt": 1670923138689,
+    "deletedAt": 0,
+    "createdFirstAt": 1670923138689,
     "name": "MarkdownModelType",
     "slug": "markdown-model-type",
     "type": "type",
@@ -15,13 +51,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "zrfccvbguiwhkidlapebzhjc"
+    "id": "jcknodtnpavkpzjhclethdbw"
   },
   {
-    "createdAt": 1670527855017,
-    "updatedAt": 1670527855017,
+    "createdAt": 1670923138689,
+    "updatedAt": 1670923138689,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855017,
+    "createdFirstAt": 1670923138689,
     "name": "Slug",
     "slug": "slug",
     "type": "type",
@@ -33,29 +69,29 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ljsjahbfsysuyavpniayjlee"
+    "id": "qxqcmojjctfauhhrxavrccfu"
   },
   {
-    "createdAt": 1670527855018,
-    "updatedAt": 1670527855018,
+    "createdAt": 1670923138689,
+    "updatedAt": 1670923138689,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855018,
-    "name": "Word",
-    "slug": "word",
-    "module": "./Word",
+    "createdFirstAt": 1670923138689,
+    "name": "WordMatrix",
+    "slug": "word-matrix",
+    "module": "./WordMatrix",
     "isModuleResolved": true,
     "comments": [],
     "operationRelativeTypescriptFilePath": "src/Statement.ts",
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "abaelfygryoeuezrcbhfmtnn"
+    "id": "daqbazqtjuykzywfwhqvlzqz"
   },
   {
-    "createdAt": 1670527855018,
-    "updatedAt": 1670527855018,
+    "createdAt": 1670923138689,
+    "updatedAt": 1670923138689,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855018,
+    "createdFirstAt": 1670923138689,
     "name": "DefaultModelType",
     "slug": "default-model-type",
     "type": "type",
@@ -67,13 +103,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qkxebhxxblqkbivdhcdglpho"
+    "id": "mqrttqpjsamrunntspjbevdq"
   },
   {
-    "createdAt": 1670527855018,
-    "updatedAt": 1670527855018,
+    "createdAt": 1670923138690,
+    "updatedAt": 1670923138690,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855018,
+    "createdFirstAt": 1670923138690,
     "name": "Language",
     "slug": "language",
     "type": "type",
@@ -85,13 +121,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gedyspbxjazifsayuxwtnmdm"
+    "id": "emjrhjyczztezwrldumcoscx"
   },
   {
-    "createdAt": 1670527855018,
-    "updatedAt": 1670527855018,
+    "createdAt": 1670923138690,
+    "updatedAt": 1670923138690,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855018,
+    "createdFirstAt": 1670923138690,
     "name": "Markdown",
     "slug": "markdown",
     "type": "type",
@@ -103,13 +139,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vfjeiunkiqkulxxhhgvlkezs"
+    "id": "kxlniifwzyiomackpvijajmo"
   },
   {
-    "createdAt": 1670527855018,
-    "updatedAt": 1670527855018,
+    "createdAt": 1670923138691,
+    "updatedAt": 1670923138691,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855018,
+    "createdFirstAt": 1670923138691,
     "name": "Text",
     "slug": "text",
     "type": "type",
@@ -121,13 +157,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qwhqzruwihmdtpbrslpddhdw"
+    "id": "ouoivwhydakwemodzjuboupq"
   },
   {
-    "createdAt": 1670527855019,
-    "updatedAt": 1670527855019,
+    "createdAt": 1670923138691,
+    "updatedAt": 1670923138691,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855019,
+    "createdFirstAt": 1670923138691,
     "name": "ParameterName",
     "slug": "parameter-name",
     "type": "type",
@@ -139,13 +175,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ugixxfzhyoxbbhwrojsnxcis"
+    "id": "wtcyagonhlngbpxldefapjbf"
   },
   {
-    "createdAt": 1670527855019,
-    "updatedAt": 1670527855019,
+    "createdAt": 1670923138691,
+    "updatedAt": 1670923138691,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855019,
+    "createdFirstAt": 1670923138691,
     "name": "Id",
     "slug": "id",
     "type": "type",
@@ -157,13 +193,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ztsyvnhybrnjtvaqskauwugu"
+    "id": "ogbfsiylnqmbgenpfkuoxmaa"
   },
   {
-    "createdAt": 1670527855019,
-    "updatedAt": 1670527855019,
+    "createdAt": 1670923138692,
+    "updatedAt": 1670923138692,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855019,
+    "createdFirstAt": 1670923138692,
     "name": "KeyValueMarkdownModelType",
     "slug": "key-value-markdown-model-type",
     "type": "type",
@@ -175,13 +211,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ybkquzxpdkydvjobhptmzilq"
+    "id": "zycspkzskjsnvqnvsoobvjly"
   },
   {
-    "createdAt": 1670527855019,
-    "updatedAt": 1670527855019,
+    "createdAt": 1670923138692,
+    "updatedAt": 1670923138692,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855019,
+    "createdFirstAt": 1670923138692,
     "name": "MarkdownModelType",
     "slug": "markdown-model-type",
     "type": "type",
@@ -193,13 +229,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "yrxruocavhgfycrnxjyfzvkl"
+    "id": "mfrptcrppdlronsewoauwngk"
   },
   {
-    "createdAt": 1670527855019,
-    "updatedAt": 1670527855019,
+    "createdAt": 1670923138692,
+    "updatedAt": 1670923138692,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855019,
+    "createdFirstAt": 1670923138692,
     "name": "Slug",
     "slug": "slug",
     "type": "type",
@@ -211,13 +247,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pojzobrsnedlzbcaybdreiql"
+    "id": "dqohugqyltrcbekvxkrtgkar"
   },
   {
-    "createdAt": 1670527855020,
-    "updatedAt": 1670527855020,
+    "createdAt": 1670923138693,
+    "updatedAt": 1670923138693,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855020,
+    "createdFirstAt": 1670923138693,
     "name": "SlugModelType",
     "slug": "slug-model-type",
     "type": "type",
@@ -229,13 +265,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rwmqolgpbgtvfkxiuvsaokbd"
+    "id": "bixagwpznycgjaqbvghsqxci"
   },
   {
-    "createdAt": 1670527855020,
-    "updatedAt": 1670527855020,
+    "createdAt": 1670923138693,
+    "updatedAt": 1670923138693,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855020,
+    "createdFirstAt": 1670923138693,
     "name": "Statement",
     "slug": "statement",
     "module": "./Statement",
@@ -245,13 +281,65 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "kelvluhlyaziytqfyzvpwpfk"
+    "id": "ulzzgnbipqjldkghjsnqxzxc"
   },
   {
-    "createdAt": 1670527855020,
-    "updatedAt": 1670527855020,
+    "createdAt": 1670923138693,
+    "updatedAt": 1670923138693,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855020,
+    "createdFirstAt": 1670923138693,
+    "name": "Slug",
+    "slug": "slug",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "model-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/WordCombination.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "zbbfqjzwqxxjedxtyekqbtff"
+  },
+  {
+    "createdAt": 1670923138693,
+    "updatedAt": 1670923138693,
+    "deletedAt": 0,
+    "createdFirstAt": 1670923138693,
+    "name": "SlugModelType",
+    "slug": "slug-model-type",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "model-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/WordCombination.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "obnpqllsausvgsbeaqfywaeg"
+  },
+  {
+    "createdAt": 1670923138694,
+    "updatedAt": 1670923138694,
+    "deletedAt": 0,
+    "createdFirstAt": 1670923138694,
+    "name": "WordInfo",
+    "slug": "word-info",
+    "module": "./WordMatrix",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/WordCombination.ts",
+    "classification": "internal",
+    "isAbsolute": false,
+    "isModuleFromMonorepo": false,
+    "id": "zxauecxyouranbkdxlbqwkea"
+  },
+  {
+    "createdAt": 1670923138694,
+    "updatedAt": 1670923138694,
+    "deletedAt": 0,
+    "createdFirstAt": 1670923138694,
     "name": "BackendAsset",
     "slug": "backend-asset",
     "type": "type",
@@ -263,13 +351,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "bnvjpmyodvdnisytjwsdcptb"
+    "id": "mlxslktdzkibegnuqitgqlms"
   },
   {
-    "createdAt": 1670527855020,
-    "updatedAt": 1670527855020,
+    "createdAt": 1670923138694,
+    "updatedAt": 1670923138694,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855020,
+    "createdFirstAt": 1670923138694,
     "name": "MappedObject",
     "slug": "mapped-object",
     "type": "type",
@@ -281,13 +369,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xnnjacegzuwgohknvtompudt"
+    "id": "nmpjmyplxsqqvocmwumytckg"
   },
   {
-    "createdAt": 1670527855020,
-    "updatedAt": 1670527855020,
+    "createdAt": 1670923138694,
+    "updatedAt": 1670923138694,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855020,
+    "createdFirstAt": 1670923138694,
     "name": "DefaultModelType",
     "slug": "default-model-type",
     "type": "type",
@@ -299,13 +387,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "imtruvtvwnzwmokmtsfuyavs"
+    "id": "qbyvcfvbcelmevwyzyarrtgb"
   },
   {
-    "createdAt": 1670527855020,
-    "updatedAt": 1670527855020,
+    "createdAt": 1670923138694,
+    "updatedAt": 1670923138694,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855020,
+    "createdFirstAt": 1670923138694,
     "name": "Language",
     "slug": "language",
     "type": "type",
@@ -317,13 +405,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wqtqovigjigfzlcttcyeuesb"
+    "id": "lpcgvrzaymleeunzectguxwm"
   },
   {
-    "createdAt": 1670527855020,
-    "updatedAt": 1670527855020,
+    "createdAt": 1670923138695,
+    "updatedAt": 1670923138695,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855020,
+    "createdFirstAt": 1670923138695,
     "name": "Markdown",
     "slug": "markdown",
     "type": "type",
@@ -335,13 +423,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vwevejoicvwdzeuzeaupitua"
+    "id": "sbeepoymgvvkmnrblajqsqme"
   },
   {
-    "createdAt": 1670527855021,
-    "updatedAt": 1670527855021,
+    "createdAt": 1670923138695,
+    "updatedAt": 1670923138695,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855021,
+    "createdFirstAt": 1670923138695,
     "name": "Slug",
     "slug": "slug",
     "type": "type",
@@ -353,13 +441,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "itnubnnzccijbiherzqieuhl"
+    "id": "spxtzbtzhctqtahtntgymerj"
   },
   {
-    "createdAt": 1670527855021,
-    "updatedAt": 1670527855021,
+    "createdAt": 1670923138695,
+    "updatedAt": 1670923138695,
     "deletedAt": 0,
-    "createdFirstAt": 1670527855021,
+    "createdFirstAt": 1670923138695,
     "name": "SlugModelType",
     "slug": "slug-model-type",
     "type": "type",
@@ -371,6 +459,6 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ctfqksdsafoedblemssbdfrw"
+    "id": "xhtszjpnkesbexpbmcrnqyit"
   }
 ]

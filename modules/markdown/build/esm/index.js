@@ -1,6 +1,8 @@
+export * from "./HtmlHeader";
 export * from "./MarkdownCodeblock";
 export * from "./Parameter";
 export * from "./getUrlFromRelativeUrl";
+export * from "./getYoutubeId";
 export * from "./renderFrontMatter";
 export * from "./renderMarkdownChunk";
 export * from "./renderMarkdownContent";
@@ -9,3 +11,5 @@ export * from "./renderMarkdownTitle";
 export * from "./types";
 export * from "./useOpenHashDetails";
 export * from "./util/getRealSrc";
+export * from "./MarkdownContent";
+//# sourceMappingURL=index.js.map

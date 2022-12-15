@@ -1,4 +1,4 @@
-export declare type FileType = {
+export type FileType = {
     /**
      * filename including extension
      */

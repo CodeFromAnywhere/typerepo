@@ -6,3 +6,4 @@ export declare type EditorProps = {
     className: string;
     projectRelativeFilePath?: string;
 };
+//# sourceMappingURL=types.d.ts.map

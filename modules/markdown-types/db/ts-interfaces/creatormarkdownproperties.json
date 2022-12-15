@@ -1,0 +1,113 @@
+{
+  "createdAt": 1671100447415,
+  "updatedAt": 1671100447415,
+  "deletedAt": 0,
+  "createdFirstAt": 1671100447415,
+  "id": "creatormarkdownproperties",
+  "name": "CreatorMarkdownProperties",
+  "slug": "creatormarkdownproperties",
+  "operationRelativeTypescriptFilePath": "src/CreatorMarkdownProperties.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "export type CreatorMarkdownProperties = {\n  /**\n  DESCRIPTION: Only accessible to admin\n   */\n  isPrivate?: boolean;\n\n  /**\n   * DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`\n   */\n  isSecret?: boolean;\n\n  /**\n   * DESCRIPTION: If authorizedGroup is set, file content will not be available for people that aren't part of this group.\n   */\n  authorizedGroup?: \"\" | \"premium\" | \"enterprise\";\n\n  /**\n   * DESCRIPTION:If true, will not show up in reader ui's\n   */\n  isDraft?: boolean;\n\n  /**\n   * DESCRIPTION: If this is a date in the future, the file won't be available until that date\n   */\n  isAvailableFromDateAt?: number;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isPrivate": {
+          "type": "boolean",
+          "description": "DESCRIPTION: Only accessible to admin"
+        },
+        "isSecret": {
+          "type": "boolean",
+          "description": "DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`"
+        },
+        "authorizedGroup": {
+          "type": "string",
+          "enum": [
+            "",
+            "premium",
+            "enterprise"
+          ],
+          "description": "DESCRIPTION: If authorizedGroup is set, file content will not be available for people that aren't part of this group."
+        },
+        "isDraft": {
+          "type": "boolean",
+          "description": "DESCRIPTION:If true, will not show up in reader ui's"
+        },
+        "isAvailableFromDateAt": {
+          "type": "number",
+          "description": "DESCRIPTION: If this is a date in the future, the file won't be available until that date"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "isPrivate",
+          "required": false,
+          "schema": {
+            "fullComment": "DESCRIPTION: Only accessible to admin",
+            "description": "Only accessible to admin",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isSecret",
+          "required": false,
+          "schema": {
+            "fullComment": "DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`",
+            "description": "Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "authorizedGroup",
+          "required": false,
+          "schema": {
+            "enum": [
+              "",
+              "premium",
+              "enterprise"
+            ],
+            "fullComment": "DESCRIPTION: If authorizedGroup is set, file content will not be available for people that aren't part of this group.",
+            "description": "If authorizedGroup is set, file content will not be available for people that aren't part of this group.",
+            "type": "string"
+          }
+        },
+        {
+          "name": "isDraft",
+          "required": false,
+          "schema": {
+            "fullComment": "DESCRIPTION:If true, will not show up in reader ui's",
+            "description": "If true, will not show up in reader ui's",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isAvailableFromDateAt",
+          "required": false,
+          "schema": {
+            "fullComment": "DESCRIPTION: If this is a date in the future, the file won't be available until that date",
+            "description": "If this is a date in the future, the file won't be available until that date",
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "CreatorMarkdownProperties",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

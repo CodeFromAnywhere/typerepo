@@ -1,6 +1,6 @@
 import * as React from "react";
 import { getFolderJs } from "fs-util-js";
-import { renderMarkdownContent } from "markdown";
+import { MarkdownContent } from "markdown";
 import { Div, P } from "react-with-native";
 import { isDev } from "server-api-url";
 import { trimLeft } from "../util/word-trimming";
@@ -13,15 +13,13 @@ export var Completion = function (props) {
         React.createElement(Div, { className: "flex flex-row justify-between" },
             React.createElement(P, null, augmentedWord.word),
             React.createElement(Div, null, "(?)")),
-        React.createElement(P, null, augmentedWord.spoiler
-            ? renderMarkdownContent(augmentedWord.spoiler, {
+        React.createElement(P, null, augmentedWord.spoiler ? (React.createElement(MarkdownContent, { content: augmentedWord.spoiler, config: {
                 projectRelativeMarkdownFilePath: projectRelativeMarkdownFilePath,
                 projectRelativeBaseFolderPath: projectRelativeBaseFolderPath,
                 augmentedWordObject: augmentedWordObject,
                 isDev: isDev,
                 isStatic: false,
-            })
-            : null)));
+            } })) : null)));
 };
 export var specialCharacters = ["#", "_", "*"];
 export var isAugmentedWordMatch = function (augmentedWord, completableWord) {
@@ -117,3 +115,4 @@ export var TypescriptCompletions = function (props) {
         return (React.createElement(Completion, { augmentedWordObject: augmentedWordObject, augmentedWord: completion, key: "completion".concat(index) }));
     })));
 };
+//# sourceMappingURL=autocomplete-components.js.map

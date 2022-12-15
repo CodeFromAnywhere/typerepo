@@ -42,3 +42,4 @@ export declare const ContentEditableDivInput: <T extends unknown>(props: {
      */
     divProps: Omit<FinalDivType<T>, "value" | "onChange" | "contentEditable" | "onInput">;
 }) => JSX.Element;
+//# sourceMappingURL=ContentEditableDivInput.d.ts.map

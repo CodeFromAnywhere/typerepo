@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098553385,
+  "updatedAt": 1671098553385,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098553385,
+  "id": "namedparameterstypeof-runbrowser",
+  "name": "NamedParameters<typeof runBrowser>",
+  "slug": "namedparameterstypeof-runbrowser",
+  "operationRelativeTypescriptFilePath": "src/runBrowser.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof runBrowser>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

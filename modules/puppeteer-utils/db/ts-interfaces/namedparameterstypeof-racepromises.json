@@ -1,0 +1,62 @@
+{
+  "createdAt": 1671098547556,
+  "updatedAt": 1671098547556,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098547556,
+  "id": "namedparameterstypeof-racepromises",
+  "name": "NamedParameters<typeof racePromises>",
+  "slug": "namedparameterstypeof-racepromises",
+  "operationRelativeTypescriptFilePath": "src/racePromises.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "promises": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "promises"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "promises",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof racePromises>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

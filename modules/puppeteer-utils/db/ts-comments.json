@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1671098573156,
+    "updatedAt": 1671098573156,
+    "deletedAt": 0,
+    "createdFirstAt": 1671098573156,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/waitMillisseconds.ts",
+    "comment": "Utility functions to wait millisseconds. eg: 3000 waits 3 seconds",
+    "rawStatement": "export const waitMilliseconds = async (milliseconds: number) =>\n  new Promise((resolve) => setTimeout(() => resolve(true), milliseconds));",
+    "parameters": {},
+    "types": [],
+    "firstLine": 1,
+    "lastLine": 1,
+    "id": "czdpfspnunecfuzcjhyjcbik"
+  }
+]

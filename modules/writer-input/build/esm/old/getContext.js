@@ -36,3 +36,4 @@ export var getContext = function (editorDetails) {
         positionIndex: positionIndex,
     };
 };
+//# sourceMappingURL=getContext.js.map

@@ -6,3 +6,4 @@
 export var editSubtextSubwordConfig = function (subtextConfig, subwordConfig) {
     return { subtextConfig: subtextConfig, subwordConfig: subwordConfig };
 };
+//# sourceMappingURL=editSubtextSubwordConfig.js.map

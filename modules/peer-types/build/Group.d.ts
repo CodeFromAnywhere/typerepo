@@ -15,11 +15,9 @@ Functions that require authorization can have something in this format in their 
 
 E.g.
 
-```md
 ---
 manager: canExecute
 ---
-```
 
 
 */

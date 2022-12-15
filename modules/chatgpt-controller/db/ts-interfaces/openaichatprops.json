@@ -1,0 +1,71 @@
+{
+  "createdAt": 1671100888809,
+  "updatedAt": 1671100888809,
+  "deletedAt": 0,
+  "createdFirstAt": 1671100888809,
+  "id": "openaichatprops",
+  "name": "OpenAIChatProps",
+  "slug": "openaichatprops",
+  "operationRelativeTypescriptFilePath": "src/openAIChat.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type OpenAIChatProps = {\n  prompt: string;\n  thread?: string;\n  isHeadless?: boolean;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "prompt": {
+          "type": "string"
+        },
+        "thread": {
+          "type": "string"
+        },
+        "isHeadless": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "prompt"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "prompt",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "thread",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isHeadless",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "OpenAIChatProps",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

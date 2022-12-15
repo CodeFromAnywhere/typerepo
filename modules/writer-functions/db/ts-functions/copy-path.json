@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671101597880,
+  "updatedAt": 1671101597880,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101597880,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/copyPath.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root found\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    console.log({ absolutePath });\n    return {\n      isSuccessful: false,\n      message: \"This file or folder doesn't exist\",\n    };\n  }\n\n  const parsedPath = path.parse(absolutePath);\n  const copiedPath = path.join(\n    parsedPath.dir,\n    `${parsedPath.name}-copy${parsedPath.ext}`\n  );\n\n  if (fs.existsSync(copiedPath)) {\n    return {\n      isSuccessful: false,\n      message:\n        \"There is already a copy for this file/folder under the anticipated name.\",\n    };\n  }\n\n  await fs.cpAsync(absolutePath, copiedPath, { recursive: true });\n\n  return { isSuccessful: true };\n}",
+  "name": "copyPath",
+  "slug": "copy-path",
+  "parameters": [
+    {
+      "name": "projectRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 923,
+    "lines": 36,
+    "bytes": 923,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 36,
+    "numberOfFiles": 1
+  },
+  "id": "qdburcanpcpsrbnucdtlpkdx"
+}

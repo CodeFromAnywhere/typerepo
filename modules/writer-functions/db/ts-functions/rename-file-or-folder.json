@@ -1,0 +1,57 @@
+{
+  "createdAt": 1671101667937,
+  "updatedAt": 1671101667937,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101667937,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/renameFileOrFolder.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  projectRelativePath: string,\n  newName: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root found\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return {\n      isSuccessful: false,\n      message: \"This file doesn't exist\",\n    };\n  }\n\n  const absoluteFolderPath = path.parse(absolutePath).dir;\n\n  const newAbsolutePath = path.join(absoluteFolderPath, newName);\n\n  if (fs.existsSync(newAbsolutePath)) {\n    return { isSuccessful: false, message: \"File/folder already exists\" };\n  }\n\n  await fs.rename(absolutePath, newAbsolutePath);\n\n  return { isSuccessful: true };\n}",
+  "name": "renameFileOrFolder",
+  "slug": "rename-file-or-folder",
+  "parameters": [
+    {
+      "name": "projectRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "newName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 789,
+    "lines": 30,
+    "bytes": 789,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 30,
+    "numberOfFiles": 1
+  },
+  "id": "dqncytexknropsasukomrcnh"
+}

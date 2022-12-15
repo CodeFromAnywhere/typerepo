@@ -37,7 +37,9 @@
     "rehype-highlight": "^5.0.2",
     "worker-loader": "^3.0.8",
     "writer-input": "1.0.0",
-    "react-with-native-select": "2.0.7"
+    "react-with-native-select": "2.0.7",
+    "react-with-native-ui": "1.0.6",
+    "big-button": "0.0.1"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -75,7 +77,7 @@
     "folderNameIndexed": "db-web",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670218620021,
+    "lastRebuildAt": 1670747317302,
     "operationDependenciesIndexed": [
       "queries",
       "AuthenticationLayout",
@@ -89,12 +91,18 @@
       "AlertProvider",
       "ModalProvider",
       "ToastContainer",
+      "UI",
+      "Div",
+      "Input",
+      "P",
+      "BigButton",
       "LoginForm"
     ],
     "packageDependenciesIndexed": [
       "AppProps",
       "QueryClient",
-      "QueryClientProvider"
+      "QueryClientProvider",
+      "useRouter"
     ],
     "relativeOperationLocationPathIndexed": "operations/tools/purpose/codebase-introspection/database",
     "markdown": "# 🗄 database\n\nWraps `db-ui` to expose it on a next.js react website for in the browser.\n",
@@ -106,22 +114,22 @@
         "bytes": 5369
       },
       "dataSize": {
-        "numberOfFiles": 25,
-        "lines": 228,
-        "characters": 7110,
-        "bytes": 7110
+        "numberOfFiles": 65,
+        "lines": 276,
+        "characters": 10940,
+        "bytes": 10940
       },
       "textSize": {
-        "numberOfFiles": 4,
-        "lines": 89,
-        "characters": 2761,
-        "bytes": 2761
+        "numberOfFiles": 5,
+        "lines": 95,
+        "characters": 3197,
+        "bytes": 3197
       },
       "size": {
-        "bytes": 15240,
-        "characters": 15240,
-        "lines": 490,
-        "numberOfFiles": 34
+        "bytes": 19506,
+        "characters": 19506,
+        "lines": 544,
+        "numberOfFiles": 75
       }
     },
     "hasGeneratedImportsIndexed": false

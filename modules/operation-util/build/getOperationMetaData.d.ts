@@ -1,5 +1,5 @@
 import { Operation } from "code-types";
-export declare type OperationMetaData = {
+export type OperationMetaData = {
     operationBasePath: string;
     operation: Operation | undefined;
     operationName: string;

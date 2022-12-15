@@ -45,18 +45,18 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+import { api, queries } from "api";
+import { isCtrlS, useHotkey } from "hotkeys";
 import * as React from "react";
 import { Div, P } from "react-with-native";
-import { queries, api } from "api";
-import { WriterInput } from "writer-input";
 import { toast } from "react-with-native-notification";
-import { useHotkey, isCtrlS } from "hotkeys";
+import { WriterInput } from "writer-input";
 import { useStore } from "./store";
 var saveFileContents = api.saveFileContents;
 var useGetFileContents = queries.useGetFileContents;
 export var FileWriter = function (props) {
     var _a, _b, _c;
-    var markdownModelName = props.markdownModelName, projectRelativeFilePath = props.projectRelativeFilePath, augmentedWordObject = props.augmentedWordObject;
+    var markdownModelName = props.markdownModelName, projectRelativeFilePath = props.projectRelativeFilePath, initialWriterView = props.initialWriterView, disabledMenuItems = props.disabledMenuItems;
     // fullPath is the project relative path
     var _d = useGetFileContents(projectRelativeFilePath), fileContentsResult = _d.data, isLoading = _d.isLoading, refetch = _d.refetch;
     var fileContents = (_a = fileContentsResult === null || fileContentsResult === void 0 ? void 0 : fileContentsResult.result) === null || _a === void 0 ? void 0 : _a.fileContents;
@@ -106,5 +106,6 @@ export var FileWriter = function (props) {
         : !((_b = fileContentsResult === null || fileContentsResult === void 0 ? void 0 : fileContentsResult.result) === null || _b === void 0 ? void 0 : _b.isSuccessful)
             ? (_c = fileContentsResult === null || fileContentsResult === void 0 ? void 0 : fileContentsResult.result) === null || _c === void 0 ? void 0 : _c.message
             : null;
-    return (React.createElement(Div, { className: "flex flex-1 flex-col h-full" }, errorMessage ? (React.createElement(P, null, errorMessage)) : (React.createElement(WriterInput, { key: projectRelativeFilePath, isLoading: isLoading, onChange: onChange, value: value, augmentedWordObject: augmentedWordObject, projectRelativeFilePath: projectRelativeFilePath, reload: refetch, save: save, isSaved: isSaved, markdownModelName: markdownModelName }))));
+    return (React.createElement(Div, { className: "flex flex-1 flex-col h-full" }, errorMessage ? (React.createElement(P, null, errorMessage)) : (React.createElement(WriterInput, { key: projectRelativeFilePath, isLoading: isLoading, onChange: onChange, value: value, projectRelativeFilePath: projectRelativeFilePath, reload: refetch, save: save, initialWriterView: initialWriterView, isSaved: isSaved, markdownModelName: markdownModelName, disabledMenuItems: disabledMenuItems }))));
 };
+//# sourceMappingURL=FileWriter.js.map

@@ -1,22 +1,369 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var n,t=1,i=arguments.length;t<i;t++)for(var r in n=arguments[t])Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,n,t,i){return new(t||(t=Promise))((function(r,a){function o(e){try{l(i.next(e))}catch(e){a(e)}}function s(e){try{l(i.throw(e))}catch(e){a(e)}}function l(e){var n;e.done?r(e.value):(n=e.value,n instanceof t?n:new t((function(e){e(n)}))).then(o,s)}l((i=i.apply(e,n||[])).next())}))},__generator=this&&this.__generator||function(e,n){var t,i,r,a,o={label:0,sent:function(){if(1&r[0])throw r[1];return r[1]},trys:[],ops:[]};return a={next:s(0),throw:s(1),return:s(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function s(a){return function(s){return function(a){if(t)throw new TypeError("Generator is already executing.");for(;o;)try{if(t=1,i&&(r=2&a[0]?i.return:a[0]?i.throw||((r=i.return)&&r.call(i),0):i.next)&&!(r=r.call(i,a[1])).done)return r;switch(i=0,r&&(a=[2&a[0],r.value]),a[0]){case 0:case 1:r=a;break;case 4:return o.label++,{value:a[1],done:!1};case 5:o.label++,i=a[1],a=[0];continue;case 7:a=o.ops.pop(),o.trys.pop();continue;default:if(!(r=o.trys,(r=r.length>0&&r[r.length-1])||6!==a[0]&&2!==a[0])){o=0;continue}if(3===a[0]&&(!r||a[1]>r[0]&&a[1]<r[3])){o.label=a[1];break}if(6===a[0]&&o.label<r[1]){o.label=r[1],r=a;break}if(r&&o.label<r[2]){o.label=r[2],o.ops.push(a);break}r[2]&&o.ops.pop(),o.trys.pop();continue}a=n.call(e,o)}catch(e){a=[6,e],i=0}finally{t=r=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,s])}}},__spreadArray=this&&this.__spreadArray||function(e,n,t){if(t||2===arguments.length)for(var i,r=0,a=n.length;r<a;r++)!i&&r in n||(i||(i=Array.prototype.slice.call(n,0,r)),i[r]=n[r]);return e.concat(i||Array.prototype.slice.call(n))};Object.defineProperty(exports,"__esModule",{value:!0}),exports.AssetInput=void 0;var jsx_runtime_1=require("react/jsx-runtime"),react_with_native_store_1=require("react-with-native-store"),react_1=require("react"),react_with_native_1=require("react-with-native"),clickable_icon_1=require("clickable-icon"),api_1=require("api"),server_api_url_1=require("server-api-url"),js_util_1=require("js-util"),asset_view_1=require("asset-view"),react_with_native_alert_1=require("react-with-native-alert"),asset_functions_js_1=require("asset-functions-js"),MediaRecorder_1=require("./MediaRecorder"),Webcam_1=require("./Webcam"),SelectMedia_1=require("./select-media/SelectMedia"),FileInput_1=require("./FileInput"),makeBackendAsset_1=require("./util/makeBackendAsset"),model_types_1=require("model-types"),AssetInput=function(e){var n=e.attachTokenToFilename,t=e.defaultAssetName,i=e.onChange,r=(e.allowMultiple,e.value),a=e.inputTypes,o=e.projectRelativeReferencingFilePath,s=e.modelName,l=(0,react_1.useState)((0,model_types_1.generateRandomString)(32))[0],c=(0,asset_functions_js_1.ensureToken)(t,l,n),u=(0,react_with_native_alert_1.useAlert)(),_=a&&1===a.length?a[0]:null,d=(0,react_1.useState)(_),p=d[0],m=d[1],f=(0,react_1.useState)([]),v=f[0],b=f[1],h=(0,react_1.useState)(r||[]),j=h[0],x=h[1],g=(0,react_1.useState)(c),k=g[0],y=g[1];
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AssetInput = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var react_with_native_store_1 = require("react-with-native-store");
+var react_1 = require("react");
+var react_with_native_1 = require("react-with-native");
+var clickable_icon_1 = require("clickable-icon");
+var api_1 = require("api");
+var server_api_url_1 = require("server-api-url");
+var js_util_1 = require("js-util");
+var asset_view_1 = require("asset-view");
+var react_with_native_alert_1 = require("react-with-native-alert");
+var asset_functions_js_1 = require("asset-functions-js");
+var MediaRecorder_1 = require("./MediaRecorder");
+var Webcam_1 = require("./Webcam");
+var SelectMedia_1 = require("./select-media/SelectMedia");
+var FileInput_1 = require("./FileInput");
+var makeBackendAsset_1 = require("./util/makeBackendAsset");
+var model_types_1 = require("model-types");
 /**
+
+Usage possible in: form, writer-ui, anywhere else (custom)
+
+Supports
+
+- audio recording
+- file upload (multiple possible)
+- camera (taking a picture)
+- video camera (taking a video)
+
+ */
+var AssetInput = function (props) {
+    var attachTokenToFilename = props.attachTokenToFilename, defaultAssetName = props.defaultAssetName, onChange = props.onChange, allowMultiple = props.allowMultiple, value = props.value, inputTypes = props.inputTypes, projectRelativeReferencingFilePath = props.projectRelativeReferencingFilePath, modelName = props.modelName;
+    /**
      * generate a random token for this component, once, only if it loads...
-     */(0,react_1.useEffect)((function(){var e=j.map((function(e){return e.name===k?__assign(__assign({},e),{name:c}):e}));x(e),y(c)}),[c]);
-/**
+     */
+    var randomToken = (0, react_1.useState)((0, model_types_1.generateRandomString)(32))[0];
+    var defaultAssetNameWithToken = (0, asset_functions_js_1.ensureToken)(defaultAssetName, randomToken, attachTokenToFilename);
+    var alert = (0, react_with_native_alert_1.useAlert)();
+    var defaultNewType = inputTypes && inputTypes.length === 1 ? inputTypes[0] : null;
+    var _a = (0, react_1.useState)(defaultNewType), newType = _a[0], setNewType = _a[1];
+    // NB: `newBlobs` are assets that haven't been confirmed yet. Will not be uploaded yet
+    var _b = (0, react_1.useState)([]), newBlobs = _b[0], setNewBlobs = _b[1];
+    /**
+     * NB: `selectedBlobs` are assets that have been confirmed, but not sent back to `onChange` yet because upload isn't complete yet.
+     *
+     * NB: Ensure to also use `onChange` after asset has been uploaded...
+     */
+    var _c = (0, react_1.useState)(value || []), selectedBlobs = _c[0], setSelectedBlobs = _c[1];
+    // NB: we need to ensure the asset names update if the defaultAssetName changes
+    var _d = (0, react_1.useState)(defaultAssetNameWithToken), lastDefaultAssetName = _d[0], setLastDefaultAssetName = _d[1];
+    (0, react_1.useEffect)(function () {
+        var newSelectedBlobs = selectedBlobs.map(function (selectedBlob) {
+            if (selectedBlob.name === lastDefaultAssetName) {
+                // NB: if the assetname wasn't changed yet, adhere convention
+                return __assign(__assign({}, selectedBlob), { name: defaultAssetNameWithToken });
+            }
+            return selectedBlob;
+        });
+        setSelectedBlobs(newSelectedBlobs);
+        setLastDefaultAssetName(defaultAssetNameWithToken);
+    }, [defaultAssetNameWithToken]);
+    /**
      * Removes asset from selectedBlobs, external value, and at the server
      */
-var w=function(e,n){return __awaiter(void 0,void 0,void 0,(function(){var t,a,s,l;return __generator(this,(function(c){switch(c.label){case 0:return t=(0,js_util_1.removeIndexFromArray)(j,n),x(t),a=(0,js_util_1.removeIndexFromArray)(r||[],n),i(a),e.relativePath?[4/*yield*/,api_1.api.deleteReferencedAsset(o,e.relativePath)]:[3/*break*/,2];case 1:s=c.sent().result,l=null==s?void 0:s.isSuccessful,null==u||u(l?"Deleted":"Something went wrong",null==s?void 0:s.message),c.label=2;case 2:return[2/*return*/]}}))}))},S=function(e,n){return __awaiter(void 0,void 0,void 0,(function(){var t,i,r,a,o;return __generator(this,(function(s){switch(s.label){case 0:return e.blob&&e.blobPath?[4/*yield*/,(0,react_with_native_store_1.getItem)(api_1.AUTH_TOKEN_STORAGE_KEY)]:(console.log("Please provide a blob and blobPath to send the blob"),[2/*return*/]);case 1:return t=s.sent(),i=(null==n?void 0:n.authToken)||t,r=(null==n?void 0:n.apiUrl)||server_api_url_1.apiUrl,a="".concat(r,"/function/uploadAssetWithContext"),o=new XMLHttpRequest,[4/*yield*/,new Promise((function(n,t){o.upload.addEventListener("abort",(function(){console.log("XHR Upload Abort"),t({isSuccessful:!1})})),o.upload.addEventListener("error",(function(){console.log("XHR Upload Error"),t({isSuccessful:!1})})),o.upload.addEventListener("timeout",(function(){console.log("XHR Upload Timeout"),t({isSuccessful:!1})})),o.upload.addEventListener("progress",(function(n){if(n.lengthComputable){var t=n.loaded/n.total;
-// console.log("upload progress:", uploadProgress);
-i=e.blobPath,r=__assign(__assign({},e),{uploadProgress:t}),x((function(e){return e.map((function(e){return e.blobPath===i?r:e}))}))}var i,r})),o.addEventListener("progress",(function(e){if(e.lengthComputable)e.loaded,e.total;
-// console.log("download progress:", downloadProgress);
-// TODO: set this to a state
-})),o.addEventListener("loadend",(function(e){var t=4===o.readyState&&200===o.status,i=o.response?JSON.parse(o.response):void 0;n({isSuccessful:t,response:i})})),o.addEventListener("timeout",(function(e){console.log("XHR Timeout"),t({isSuccessful:!1})})),o.addEventListener("error",(function(e){console.log("XHR Error"),t({isSuccessful:!1})})),o.addEventListener("abort",(function(e){console.log("XHR Aborted"),t({isSuccessful:!1})})),o.open("POST",a,!0);var r=new FormData;r.append("file",e.blob),i&&
-// NB: we need to adhere the `api` convention!
-r.append("authToken",i),o.send(r)}))];case 2:
-// NB: now, call onchange
-// console.log("success:", xhrResult);
-return[2/*return*/,s.sent().response]}}))}))};
-/**
+    var removeAsset = function (asset, index) { return __awaiter(void 0, void 0, void 0, function () {
+        var newLocalValue, newStateValue, result, isSuccessful;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    newLocalValue = (0, js_util_1.removeIndexFromArray)(selectedBlobs, index);
+                    setSelectedBlobs(newLocalValue);
+                    newStateValue = (0, js_util_1.removeIndexFromArray)(value || [], index);
+                    onChange(newStateValue);
+                    if (!asset.relativePath) return [3 /*break*/, 2];
+                    return [4 /*yield*/, api_1.api.deleteReferencedAsset(projectRelativeReferencingFilePath, asset.relativePath)];
+                case 1:
+                    result = (_a.sent()).result;
+                    isSuccessful = result === null || result === void 0 ? void 0 : result.isSuccessful;
+                    alert === null || alert === void 0 ? void 0 : alert(isSuccessful ? "Deleted" : "Something went wrong", result === null || result === void 0 ? void 0 : result.message);
+                    _a.label = 2;
+                case 2: return [2 /*return*/];
+            }
+        });
+    }); };
+    /**
      * Local update!
-     */return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,__assign({className:"w-96"},{children:[null===p||_?(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[null===p?(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,__assign({className:"flex flex-row"},{children:[!a||a.includes("recordAudio")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"🔈",onClick:function(){return m("recordAudio")}}):null,!a||a.includes("recordVideo")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"🎥",onClick:function(){return m("recordVideo")}}):null,!a||a.includes("recordScreen")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"💻",onClick:function(){return m("recordScreen")}}):null,!a||a.includes("camera")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"📸",onClick:function(){return m("camera")}}):null,!a||a.includes("files")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"📂",onClick:function(){return m("files")}}):null,!a||a.includes("project-media")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"👑",onClick:function(){return m("project-media")}}):null,!a||a.includes("p2p-media")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"👥",onClick:function(){return m("p2p-media")}}):null,!a||a.includes("youtube")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"⏯",onClick:function(){return m("youtube")}}):null,!a||a.includes("google-images")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"🔎",onClick:function(){return m("google-images")}}):null,!a||a.includes("giphy")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"🦄",onClick:function(){return m("giphy")}}):null,!a||a.includes("unsplashed")?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"🌅",onClick:function(){return m("unsplashed")}}):null]})):null,null==j?void 0:j.map((function(e,t){return(0,jsx_runtime_1.jsx)(asset_view_1.InteractiveAsset,{attachTokenToFilename:n,projectRelativeReferencingFilePath:o,asset:e,remove:function(){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(n){return[2/*return*/,w(e,t)]}))}))},onChange:function(n){var a=j.map((function(i,r){return r===t?n:e}));x(a);var l=r?r.map((function(e){var t=e.relativePath||e.temporaryDestination,i=n.relativePath||n.temporaryDestination;return void 0!==t&&void 0!==i&&t===i?(0,makeBackendAsset_1.makeBackendAsset)(n,o,s):e})):void 0;l&&i(l)}},"asset".concat(t))}))]}):null,null!==p||_?(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,__assign({className:"flex flex-row justify-between"},{children:[_?(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{}):(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"❌",onClick:function(){b([]),_||m(null)}}),v.length>0?(0,jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon,{emoji:"✅",onClick:function(){__awaiter(void 0,void 0,void 0,(function(){var e,n,t;return __generator(this,(function(a){switch(a.label){case 0:return 0===v.length?[2/*return*/]:(x(__spreadArray(__spreadArray([],j,!0),v,!0)),b([]),[4/*yield*/,Promise.all(v.map((function(e){return __awaiter(void 0,void 0,void 0,(function(){var n,t,i,r;return __generator(this,(function(a){switch(a.label){case 0:return[4/*yield*/,S(e)];case 1:return(n=a.sent())?(t=__assign(__assign({},e),{temporaryDestination:null===(r=n.result)||void 0===r?void 0:r.temporaryDestination}),i=(0,makeBackendAsset_1.makeBackendAsset)(t,o,s),[2/*return*/,{newSelectedBlob:t,newBackendAsset:i}]):[2/*return*/]}}))}))})))]);case 1:return e=a.sent().filter(js_util_1.notEmpty),n=e.map((function(e){return e.newBackendAsset})),t=e.map((function(e){return e.newSelectedBlob})),x(t),i(r?__spreadArray(__spreadArray([],r,!0),n,!0):n),[2/*return*/]}}))})),b([]),_||m(null)}}):(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{})]})):null,(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:["files"===p?(0,jsx_runtime_1.jsx)(FileInput_1.FileInput,{setBlobs:function(e){b(e)}}):null,"camera"===p?(0,jsx_runtime_1.jsx)(Webcam_1.WebcamCapture,{withBlob:function(e,n){return b([{blobPath:e,type:"image",blob:n,name:c,sizeBytes:n.size,uploadProgress:0}])}}):null,"recordAudio"===p?(0,jsx_runtime_1.jsx)(MediaRecorder_1.MediaRecorder,{type:"audio",withBlob:function(e,n){return b([{blobPath:e,type:"audio",blob:n,name:c,uploadProgress:0,sizeBytes:n.size}])}}):null,"recordVideo"===p?(0,jsx_runtime_1.jsx)(MediaRecorder_1.MediaRecorder,{type:"video",withBlob:function(e,n){return b([{blobPath:e,type:"video",blob:n,name:c,sizeBytes:n.size,uploadProgress:0}])}}):null,"recordScreen"===p?(0,jsx_runtime_1.jsx)(MediaRecorder_1.MediaRecorder,{type:"screen",withBlob:function(e,n){return b([{blobPath:e,type:"video",blob:n,name:c,sizeBytes:n.size,uploadProgress:0}])}}):null,"project-media"===p?(0,jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia,{source:"project"}):null,"p2p-media"===p?(0,jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia,{source:"p2p"}):null,"google-images"===p?(0,jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia,{source:"google"}):null,"giphy"===p?(0,jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia,{source:"giphy"}):null,"unsplashed"===p?(0,jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia,{source:"unsplashed"}):null,"youtube"===p?(0,jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia,{source:"youtube"}):null]})]}))};exports.AssetInput=AssetInput;
+     */
+    var updateAssetBlob = function (blobPath, newAssetBlob) {
+        setSelectedBlobs(function (oldValue) {
+            var newSelectedBlobs = oldValue.map(function (assetBlob) {
+                return assetBlob.blobPath === blobPath ? newAssetBlob : assetBlob;
+            });
+            return newSelectedBlobs;
+        });
+    };
+    /**
+     Sends a blob to the api
+    */
+    var sendBlob = function (asset, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var storageAuthToken, authToken, realApiUrl, url, xhr, xhrResult;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (!asset.blob || !asset.blobPath) {
+                        console.log("Please provide a blob and blobPath to send the blob");
+                        return [2 /*return*/];
+                    }
+                    return [4 /*yield*/, (0, react_with_native_store_1.getItem)(api_1.AUTH_TOKEN_STORAGE_KEY)];
+                case 1:
+                    storageAuthToken = _a.sent();
+                    authToken = (config === null || config === void 0 ? void 0 : config.authToken) || storageAuthToken;
+                    realApiUrl = (config === null || config === void 0 ? void 0 : config.apiUrl) || server_api_url_1.apiUrl;
+                    url = "".concat(realApiUrl, "/function/uploadAssetWithContext");
+                    xhr = new XMLHttpRequest();
+                    return [4 /*yield*/, new Promise(function (resolve, reject) {
+                            xhr.upload.addEventListener("abort", function () {
+                                console.log("XHR Upload Abort");
+                                reject({ isSuccessful: false });
+                            });
+                            xhr.upload.addEventListener("error", function () {
+                                console.log("XHR Upload Error");
+                                reject({ isSuccessful: false });
+                            });
+                            xhr.upload.addEventListener("timeout", function () {
+                                console.log("XHR Upload Timeout");
+                                reject({ isSuccessful: false });
+                            });
+                            xhr.upload.addEventListener("progress", function (event) {
+                                if (event.lengthComputable) {
+                                    var uploadProgress = event.loaded / event.total;
+                                    // console.log("upload progress:", uploadProgress);
+                                    updateAssetBlob(asset.blobPath, __assign(__assign({}, asset), { uploadProgress: uploadProgress }));
+                                }
+                            });
+                            xhr.addEventListener("progress", function (event) {
+                                if (event.lengthComputable) {
+                                    var downloadProgress = event.loaded / event.total;
+                                    // console.log("download progress:", downloadProgress);
+                                    // TODO: set this to a state
+                                }
+                            });
+                            xhr.addEventListener("loadend", function (e) {
+                                var isSuccessful = xhr.readyState === 4 && xhr.status === 200;
+                                var response = xhr.response ? JSON.parse(xhr.response) : undefined;
+                                resolve({ isSuccessful: isSuccessful, response: response });
+                            });
+                            xhr.addEventListener("timeout", function (ev) {
+                                console.log("XHR Timeout");
+                                reject({ isSuccessful: false });
+                            });
+                            xhr.addEventListener("error", function (ev) {
+                                console.log("XHR Error");
+                                reject({ isSuccessful: false });
+                            });
+                            xhr.addEventListener("abort", function (ev) {
+                                console.log("XHR Aborted");
+                                reject({ isSuccessful: false });
+                            });
+                            xhr.open("POST", url, true);
+                            var formData = new FormData();
+                            formData.append("file", asset.blob);
+                            if (authToken) {
+                                // NB: we need to adhere the `api` convention!
+                                formData.append("authToken", authToken);
+                            }
+                            xhr.send(formData);
+                        })];
+                case 2:
+                    xhrResult = _a.sent();
+                    // NB: now, call onchange
+                    // console.log("success:", xhrResult);
+                    return [2 /*return*/, xhrResult.response];
+            }
+        });
+    }); };
+    /**
+     Happens when clicking "✅"
+     
+     Adds the blob inside of `newBlob` to the blobs. Also sends the blob to the backend
+     */
+    var addBlobs = function () { return __awaiter(void 0, void 0, void 0, function () {
+        var newStuff, newBackendAssets, newSelectedBlobs;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    if (newBlobs.length === 0)
+                        return [2 /*return*/];
+                    setSelectedBlobs(__spreadArray(__spreadArray([], selectedBlobs, true), newBlobs, true));
+                    setNewBlobs([]);
+                    return [4 /*yield*/, Promise.all(newBlobs.map(function (newBlob) { return __awaiter(void 0, void 0, void 0, function () {
+                            var sendBlobResult, newSelectedBlob, newBackendAsset;
+                            var _a;
+                            return __generator(this, function (_b) {
+                                switch (_b.label) {
+                                    case 0: return [4 /*yield*/, sendBlob(newBlob)];
+                                    case 1:
+                                        sendBlobResult = _b.sent();
+                                        if (!sendBlobResult)
+                                            return [2 /*return*/];
+                                        newSelectedBlob = __assign(__assign({}, newBlob), { temporaryDestination: (_a = sendBlobResult.result) === null || _a === void 0 ? void 0 : _a.temporaryDestination });
+                                        newBackendAsset = (0, makeBackendAsset_1.makeBackendAsset)(newSelectedBlob, projectRelativeReferencingFilePath, modelName);
+                                        return [2 /*return*/, { newSelectedBlob: newSelectedBlob, newBackendAsset: newBackendAsset }];
+                                }
+                            });
+                        }); }))];
+                case 1:
+                    newStuff = (_a.sent()).filter(js_util_1.notEmpty);
+                    newBackendAssets = newStuff.map(function (x) { return x.newBackendAsset; });
+                    newSelectedBlobs = newStuff.map(function (x) { return x.newSelectedBlob; });
+                    setSelectedBlobs(newSelectedBlobs);
+                    onChange(value ? __spreadArray(__spreadArray([], value, true), newBackendAssets, true) : newBackendAssets);
+                    return [2 /*return*/];
+            }
+        });
+    }); };
+    var renderChooseType = function () {
+        return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "flex flex-row" }, { children: [!inputTypes || inputTypes.includes("recordAudio") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDD08", onClick: function () { return setNewType("recordAudio"); } })) : null, !inputTypes || inputTypes.includes("recordVideo") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83C\uDFA5", onClick: function () { return setNewType("recordVideo"); } })) : null, !inputTypes || inputTypes.includes("recordScreen") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDCBB", onClick: function () { return setNewType("recordScreen"); } })) : null, !inputTypes || inputTypes.includes("camera") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDCF8", onClick: function () { return setNewType("camera"); } })) : null, !inputTypes || inputTypes.includes("files") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDCC2", onClick: function () { return setNewType("files"); } })) : null, !inputTypes || inputTypes.includes("project-media") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDC51", onClick: function () { return setNewType("project-media"); } })) : null, !inputTypes || inputTypes.includes("p2p-media") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDC65", onClick: function () { return setNewType("p2p-media"); } })) : null, !inputTypes || inputTypes.includes("youtube") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\u23EF", onClick: function () { return setNewType("youtube"); } })) : null, !inputTypes || inputTypes.includes("google-images") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDD0E", onClick: function () { return setNewType("google-images"); } })) : null, !inputTypes || inputTypes.includes("giphy") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83E\uDD84", onClick: function () { return setNewType("giphy"); } })) : null, !inputTypes || inputTypes.includes("unsplashed") ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83C\uDF05", onClick: function () { return setNewType("unsplashed"); } })) : null] })));
+    };
+    var renderNavigation = function () {
+        return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "flex flex-row justify-between" }, { children: [!defaultNewType ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\u274C", onClick: function () {
+                        setNewBlobs([]);
+                        if (!defaultNewType) {
+                            setNewType(null);
+                        }
+                        // TODO: also safely remove the MediaHandler
+                    } })) : ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, {})), newBlobs.length > 0 ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\u2705", onClick: function () {
+                        addBlobs();
+                        setNewBlobs([]);
+                        if (!defaultNewType) {
+                            setNewType(null);
+                        }
+                    } })) : ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, {}))] })));
+    };
+    var renderAssets = function () {
+        return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [newType === null ? renderChooseType() : null, selectedBlobs === null || selectedBlobs === void 0 ? void 0 : selectedBlobs.map(function (asset, index) { return ((0, jsx_runtime_1.jsx)(asset_view_1.InteractiveAsset, { attachTokenToFilename: attachTokenToFilename, projectRelativeReferencingFilePath: projectRelativeReferencingFilePath, asset: asset, remove: function () { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                        return [2 /*return*/, removeAsset(asset, index)];
+                    }); }); }, onChange: function (newAsset) {
+                        var newSelectedBlobs = selectedBlobs.map(function (selectedBlob, i) {
+                            return i === index ? newAsset : asset;
+                        });
+                        setSelectedBlobs(newSelectedBlobs);
+                        var newBackendAssets = value
+                            ? value.map(function (valueItem) {
+                                var id = valueItem.relativePath || valueItem.temporaryDestination;
+                                var newAssetId = newAsset.relativePath || newAsset.temporaryDestination;
+                                if (id !== undefined &&
+                                    newAssetId !== undefined &&
+                                    id === newAssetId) {
+                                    return (0, makeBackendAsset_1.makeBackendAsset)(newAsset, projectRelativeReferencingFilePath, modelName);
+                                }
+                                return valueItem;
+                            })
+                            : undefined;
+                        if (newBackendAssets) {
+                            onChange(newBackendAssets);
+                        }
+                    } }, "asset".concat(index))); })] }));
+    };
+    var renderSpecificAssetInput = function () {
+        return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [newType === "files" ? ((0, jsx_runtime_1.jsx)(FileInput_1.FileInput, { setBlobs: function (blobs) {
+                        setNewBlobs(blobs);
+                    } })) : null, newType === "camera" ? ((0, jsx_runtime_1.jsx)(Webcam_1.WebcamCapture, { withBlob: function (blobPath, blob) {
+                        return setNewBlobs([
+                            {
+                                blobPath: blobPath,
+                                type: "image",
+                                blob: blob,
+                                name: defaultAssetNameWithToken,
+                                sizeBytes: blob.size,
+                                uploadProgress: 0,
+                            },
+                        ]);
+                    } })) : null, newType === "recordAudio" ? ((0, jsx_runtime_1.jsx)(MediaRecorder_1.MediaRecorder, { type: "audio", withBlob: function (blobPath, blob) {
+                        return setNewBlobs([
+                            {
+                                blobPath: blobPath,
+                                type: "audio",
+                                blob: blob,
+                                name: defaultAssetNameWithToken,
+                                uploadProgress: 0,
+                                sizeBytes: blob.size,
+                            },
+                        ]);
+                    } })) : null, newType === "recordVideo" ? ((0, jsx_runtime_1.jsx)(MediaRecorder_1.MediaRecorder, { type: "video", withBlob: function (blobPath, blob) {
+                        return setNewBlobs([
+                            {
+                                blobPath: blobPath,
+                                type: "video",
+                                blob: blob,
+                                name: defaultAssetNameWithToken,
+                                sizeBytes: blob.size,
+                                uploadProgress: 0,
+                            },
+                        ]);
+                    } })) : null, newType === "recordScreen" ? ((0, jsx_runtime_1.jsx)(MediaRecorder_1.MediaRecorder, { type: "screen", withBlob: function (blobPath, blob) {
+                        return setNewBlobs([
+                            {
+                                blobPath: blobPath,
+                                type: "video",
+                                blob: blob,
+                                name: defaultAssetNameWithToken,
+                                sizeBytes: blob.size,
+                                uploadProgress: 0,
+                            },
+                        ]);
+                    } })) : null, newType === "project-media" ? (0, jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia, { source: "project" }) : null, newType === "p2p-media" ? (0, jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia, { source: "p2p" }) : null, newType === "google-images" ? (0, jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia, { source: "google" }) : null, newType === "giphy" ? (0, jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia, { source: "giphy" }) : null, newType === "unsplashed" ? (0, jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia, { source: "unsplashed" }) : null, newType === "youtube" ? (0, jsx_runtime_1.jsx)(SelectMedia_1.SelectMedia, { source: "youtube" }) : null] }));
+    };
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "w-96" }, { children: [newType === null || !!defaultNewType ? renderAssets() : null, newType !== null || !!defaultNewType ? renderNavigation() : null, renderSpecificAssetInput()] })));
+};
+exports.AssetInput = AssetInput;
 //# sourceMappingURL=AssetInput.js.map

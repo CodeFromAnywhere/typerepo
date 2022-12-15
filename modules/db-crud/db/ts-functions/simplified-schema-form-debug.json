@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670528888057,
-  "updatedAt": 1670528888057,
+  "createdAt": 1670766949032,
+  "updatedAt": 1670766949032,
   "deletedAt": 0,
-  "createdFirstAt": 1670528888057,
+  "createdFirstAt": 1670766949032,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/SimplifiedSchemaFormDebug.tsx",
   "commentsInside": [],
-  "rawText": " ({\n  parameters,\n  values,\n}: {\n  parameters: FunctionParameter[] | undefined;\n  values: any[];\n}) => {\n  const [showParams, setShowParams] = useState(false);\n  return (\n    <Div>\n      <P>values</P>\n      {renderMarkdownContent(\n        createCodeblockMarkdown(JSON.stringify(values, null, 2), \"json\"),\n        // NB: since there won't be any assets in here, it doesn't matter where the md is made\n        {\n          projectRelativeBaseFolderPath: \"\",\n          projectRelativeMarkdownFilePath: \"\",\n        }\n      )}\n      <P\n        className=\"hover:underline cursor-pointer\"\n        onClick={() => setShowParams(!showParams)}\n      >\n        params (toggle)\n      </P>{\" \"}\n      {showParams\n        ? renderMarkdownContent(\n            createCodeblockMarkdown(\n              JSON.stringify(parameters, null, 2),\n              \"json\"\n            ),\n            // NB: since there won't be any assets in here, it doesn't matter where the md is made\n            {\n              projectRelativeBaseFolderPath: \"\",\n              projectRelativeMarkdownFilePath: \"\",\n            }\n          )\n        : null}\n    </Div>\n  );\n}",
+  "rawText": " ({\n  parameters,\n  values,\n}: {\n  parameters: FunctionParameter[] | undefined;\n  values: any[];\n}) => {\n  const [showParams, setShowParams] = useState(false);\n  return (\n    <Div>\n      <P>values</P>\n      <MarkdownContent\n        content={createCodeblockMarkdown(\n          JSON.stringify(values, null, 2),\n          \"json\"\n        )}\n        config={{}}\n      />\n      <P\n        className=\"hover:underline cursor-pointer\"\n        onClick={() => setShowParams(!showParams)}\n      >\n        params (toggle)\n      </P>{\" \"}\n      {showParams ? (\n        <MarkdownContent\n          content={createCodeblockMarkdown(\n            JSON.stringify(parameters, null, 2),\n            \"json\"\n          )}\n          config={{}}\n        />\n      ) : null}\n    </Div>\n  );\n}",
   "name": "SimplifiedSchemaFormDebug",
   "slug": "simplified-schema-form-debug",
   "parameters": [
@@ -710,15 +710,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 7,
+  "maxIndentationDepth": 6,
   "size": {
-    "characters": 1127,
-    "lines": 41,
-    "bytes": 1127,
+    "characters": 763,
+    "lines": 36,
+    "bytes": 763,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 41,
+    "charactersPerLine": 21,
+    "linesPerFile": 36,
     "numberOfFiles": 1
   },
-  "id": "vxgkctjskrzcbwuwmdhvchmd"
+  "id": "jcttymnafhxxpopcqzbhqdbx"
 }

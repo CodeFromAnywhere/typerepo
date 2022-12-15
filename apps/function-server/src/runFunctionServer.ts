@@ -13,6 +13,9 @@ import { execSync } from "child-process-helper";
 import { log } from "log";
 import { startApp } from "pm2-util";
 import { scheduleCronJobs } from "./scheduleCronJobs";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 /**
  * runs sdk api server using "server" package.
@@ -77,13 +80,17 @@ export const runFunctionServer = (
     (ctx: Context) => (ctx.method.toLowerCase() === "options" ? 200 : false),
   ];
 
+  const port: number = process.env?.port
+    ? Number(process.env.port)
+    : ports["function-server"];
+
   const projectRoot = getProjectRoot();
   const projectPublicFolder = projectRoot
     ? path.join(projectRoot, "public")
     : path.join(__dirname, "..", "public");
 
   const serverOptions: Options = {
-    port: ports["function-server"],
+    port,
     public: projectPublicFolder,
     security: { csrf: false },
     parser: {
@@ -120,7 +127,7 @@ export const runFunctionServer = (
     }
 
     console.log(
-      `Running on port ${ports["function-server"]}. All node functions are now available through /function/[name] or through the "api" object...`
+      `Running on port ${port}. All node functions are now available through /function/[name] or through the "api" object...`
     );
   });
 };

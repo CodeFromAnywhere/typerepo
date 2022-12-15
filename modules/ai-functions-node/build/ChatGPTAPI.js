@@ -1,19 +1,290 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((function(s,a){function o(e){try{u(n.next(e))}catch(e){a(e)}}function i(e){try{u(n.throw(e))}catch(e){a(e)}}function u(e){var t;e.done?s(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(o,i)}u((n=n.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,n,s,a,o={label:0,sent:function(){if(1&s[0])throw s[1];return s[1]},trys:[],ops:[]};return a={next:i(0),throw:i(1),return:i(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function i(a){return function(i){return function(a){if(r)throw new TypeError("Generator is already executing.");for(;o;)try{if(r=1,n&&(s=2&a[0]?n.return:a[0]?n.throw||((s=n.return)&&s.call(n),0):n.next)&&!(s=s.call(n,a[1])).done)return s;switch(n=0,s&&(a=[2&a[0],s.value]),a[0]){case 0:case 1:s=a;break;case 4:return o.label++,{value:a[1],done:!1};case 5:o.label++,n=a[1],a=[0];continue;case 7:a=o.ops.pop(),o.trys.pop();continue;default:if(!(s=o.trys,(s=s.length>0&&s[s.length-1])||6!==a[0]&&2!==a[0])){o=0;continue}if(3===a[0]&&(!s||a[1]>s[0]&&a[1]<s[3])){o.label=a[1];break}if(6===a[0]&&o.label<s[1]){o.label=s[1],s=a;break}if(s&&o.label<s[2]){o.label=s[2],o.ops.push(a);break}s[2]&&o.ops.pop(),o.trys.pop();continue}a=t.call(e,o)}catch(e){a=[6,e],n=0}finally{r=s=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,i])}}},__importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.ChatGPTAPI=void 0;var delay_1=__importDefault(require("delay")),html_to_md_1=__importDefault(require("html-to-md")),playwright_1=require("playwright"),ChatGPTAPI=/** @class */function(){
-/**
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ChatGPTAPI = void 0;
+var delay_1 = __importDefault(require("delay"));
+var html_to_md_1 = __importDefault(require("html-to-md"));
+var playwright_1 = require("playwright");
+var ChatGPTAPI = /** @class */ (function () {
+    /**
      * @param opts.userDataDir — Path to a directory for storing persistent chromium session data
      * @param opts.chatUrl — OpenAI chat URL
      * @param opts.headless - Whether or not to use headless mode
      * @param opts.markdown — Whether or not to parse chat messages as markdown
      */
-function e(e){void 0===e&&(e={});var t=e.userDataDir,r=void 0===t?"/tmp/chatgpt":t,n=e.chatUrl,s=void 0===n?"https://chat.openai.com/":n,a=e.headless,o=void 0!==a&&a,i=e.markdown,u=void 0===i||i;this._userDataDir=r,this._headless=!!o,this._chatUrl=s,this._markdown=!!u}return e.prototype.init=function(e){return void 0===e&&(e={}),__awaiter(this,void 0,void 0,(function(){var t,r,n,s,a;return __generator(this,(function(o){switch(o.label){case 0:return t=e.auth,r=void 0===t?"eager":t,n=this,[4/*yield*/,playwright_1.chromium.launchPersistentContext(this._userDataDir,{headless:this._headless}).then((function(e){return e})).catch((function(e){return console.log(e)}))];case 1:return n._browser=o.sent(),this._browser?(s=this,[4/*yield*/,this._browser.newPage()]):(console.log("WTF"),[2/*return*/]);case 2:return s._page=o.sent(),[4/*yield*/,this._page.goto(this._chatUrl)];case 3:o.sent(),o.label=4;case 4:return a='[data-headlessui-state="open"]',[4/*yield*/,this._page.$(a)];case 5:if(!o.sent())return[3/*break*/,10];o.label=6;case 6:return o.trys.push([6,8,,9]),[4/*yield*/,this._page.click("".concat(a," button:last-child"),{timeout:1e3})];case 7:return o.sent(),[3/*break*/,9];case 8:
-// "next" button not found in welcome modal
-return o.sent(),[3/*break*/,10];case 9:return[3/*break*/,4];case 10:if("blocking"!==r)return[3/*break*/,15];o.label=11;case 11:return[4/*yield*/,this.getIsSignedIn()];case 12:return o.sent()?[3/*break*/,15]:(console.log("Please sign in to ChatGPT using the Chromium browser window and dismiss the welcome modal..."),[4/*yield*/,(0,delay_1.default)(1e3)]);case 13:o.sent(),o.label=14;case 14:return[3/*break*/,11];case 15:return[2/*return*/,this._page]}}))}))},e.prototype.getIsSignedIn=function(){return __awaiter(this,void 0,void 0,(function(){return __generator(this,(function(e){switch(e.label){case 0:return e.trys.push([0,2,,3]),[4/*yield*/,this._getInputBox()];case 1:return[2/*return*/,!!e.sent()];case 2:
-// can happen when navigating during login
-return e.sent(),[2/*return*/,!1];case 3:return[2/*return*/]}}))}))},e.prototype.getLastMessage=function(){return __awaiter(this,void 0,void 0,(function(){var e;return __generator(this,(function(t){switch(t.label){case 0:return[4/*yield*/,this.getMessages()];case 1:return(e=t.sent())?[2/*return*/,e[e.length-1]]:[2/*return*/,null]}}))}))},e.prototype.getPrompts=function(){return __awaiter(this,void 0,void 0,(function(){var e;return __generator(this,(function(t){switch(t.label){case 0:return[4/*yield*/,this._page.$$('[class*="ConversationItem__Message"]:has([class*="ConversationItem__ActionButtons"]):has([class*="ConversationItem__Role"] [class*="Avatar__Wrapper"])')];case 1:
-// prompts are always plaintext
-return e=t.sent(),[2/*return*/,Promise.all(e.map((function(e){return e.innerText()})))]}}))}))},e.prototype.getMessages=function(){return __awaiter(this,void 0,void 0,(function(){var e,t;return __generator(this,(function(r){switch(r.label){case 0:return[4/*yield*/,this._page.$$('[class*="ConversationItem__Message"]:has([class*="ConversationItem__ActionButtons"]):not(:has([class*="ConversationItem__Role"] [class*="Avatar__Wrapper"]))')];case 1:return e=r.sent(),this._markdown?[4/*yield*/,Promise.all(e.map((function(e){return e.innerHTML()})))]:[3/*break*/,3];case 2:return t=r.sent(),[2/*return*/,t.map((function(e){
-// parse markdown from message HTML
-return e=e.replace("Copy code</button>","</button>"),(0,html_to_md_1.default)(e,{ignoreTags:["button","svg","style","form","noscript","script","meta","head"],skipTags:["button","svg"]})}))];case 3:return[4/*yield*/,Promise.all(e.map((function(e){return e.innerText()})))];case 4:return[2/*return*/,r.sent()]}}))}))},e.prototype.sendMessage=function(e){return __awaiter(this,void 0,void 0,(function(){var t,r,n,s;return __generator(this,(function(a){switch(a.label){case 0:return[4/*yield*/,this._getInputBox()];case 1:if(!(t=a.sent()))throw new Error("not signed in");return[4/*yield*/,this.getLastMessage()];case 2:return r=a.sent(),[4/*yield*/,t.click({force:!0})];case 3:return a.sent(),[4/*yield*/,t.fill(e,{force:!0})];case 4:return a.sent(),[4/*yield*/,t.press("Enter")];case 5:a.sent(),a.label=6;case 6:return[4/*yield*/,(0,delay_1.default)(1e3)];case 7:return a.sent(),[4/*yield*/,this.getLastMessage()];case 8:
-// console.log({ newLastMessage, isDifferentLastMessage });
-if(n=a.sent(),s=(null==r?void 0:r.toLowerCase())!==(null==n?void 0:n.toLowerCase()),n&&s)return[2/*return*/,n];a.label=9;case 9:return[3/*break*/,6];case 10:return[2/*return*/]}}))}))},e.prototype.close=function(){var e;return __awaiter(this,void 0,void 0,(function(){return __generator(this,(function(t){switch(t.label){case 0:return[4/*yield*/,null===(e=this._browser)||void 0===e?void 0:e.close()];case 1:return[2/*return*/,t.sent()]}}))}))},e.prototype._getInputBox=function(){return __awaiter(this,void 0,void 0,(function(){return __generator(this,(function(e){return[2/*return*/,this._page.$('div[class*="PromptTextarea__TextareaWrapper"] textarea')]}))}))},e}();exports.ChatGPTAPI=ChatGPTAPI;
+    function ChatGPTAPI(opts) {
+        if (opts === void 0) { opts = {}; }
+        var _a = opts.userDataDir, userDataDir = _a === void 0 ? "/tmp/chatgpt" : _a, _b = opts.chatUrl, chatUrl = _b === void 0 ? "https://chat.openai.com/" : _b, _c = opts.headless, headless = _c === void 0 ? false : _c, _d = opts.markdown, markdown = _d === void 0 ? true : _d;
+        this._userDataDir = userDataDir;
+        this._headless = !!headless;
+        this._chatUrl = chatUrl;
+        this._markdown = !!markdown;
+    }
+    ChatGPTAPI.prototype.init = function (opts) {
+        if (opts === void 0) { opts = {}; }
+        return __awaiter(this, void 0, void 0, function () {
+            var _a, auth, _b, _c, modalSelector, err_1, isSignedIn;
+            return __generator(this, function (_d) {
+                switch (_d.label) {
+                    case 0:
+                        _a = opts.auth, auth = _a === void 0 ? "eager" : _a;
+                        _b = this;
+                        return [4 /*yield*/, playwright_1.chromium
+                                .launchPersistentContext(this._userDataDir, {
+                                headless: this._headless,
+                            })
+                                .then(function (res) { return res; })
+                                .catch(function (e) { return console.log(e); })];
+                    case 1:
+                        _b._browser = _d.sent();
+                        if (!this._browser) {
+                            console.log("WTF");
+                            return [2 /*return*/];
+                        }
+                        _c = this;
+                        return [4 /*yield*/, this._browser.newPage()];
+                    case 2:
+                        _c._page = _d.sent();
+                        return [4 /*yield*/, this._page.goto(this._chatUrl)];
+                    case 3:
+                        _d.sent();
+                        _d.label = 4;
+                    case 4:
+                        modalSelector = '[data-headlessui-state="open"]';
+                        return [4 /*yield*/, this._page.$(modalSelector)];
+                    case 5:
+                        if (!(_d.sent())) {
+                            return [3 /*break*/, 10];
+                        }
+                        _d.label = 6;
+                    case 6:
+                        _d.trys.push([6, 8, , 9]);
+                        return [4 /*yield*/, this._page.click("".concat(modalSelector, " button:last-child"), {
+                                timeout: 1000,
+                            })];
+                    case 7:
+                        _d.sent();
+                        return [3 /*break*/, 9];
+                    case 8:
+                        err_1 = _d.sent();
+                        // "next" button not found in welcome modal
+                        return [3 /*break*/, 10];
+                    case 9:
+                        if (true) return [3 /*break*/, 4];
+                        _d.label = 10;
+                    case 10:
+                        if (!(auth === "blocking")) return [3 /*break*/, 15];
+                        _d.label = 11;
+                    case 11: return [4 /*yield*/, this.getIsSignedIn()];
+                    case 12:
+                        isSignedIn = _d.sent();
+                        if (isSignedIn) {
+                            return [3 /*break*/, 15];
+                        }
+                        console.log("Please sign in to ChatGPT using the Chromium browser window and dismiss the welcome modal...");
+                        return [4 /*yield*/, (0, delay_1.default)(1000)];
+                    case 13:
+                        _d.sent();
+                        _d.label = 14;
+                    case 14:
+                        if (true) return [3 /*break*/, 11];
+                        _d.label = 15;
+                    case 15: return [2 /*return*/, this._page];
+                }
+            });
+        });
+    };
+    ChatGPTAPI.prototype.getIsSignedIn = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var inputBox, err_2;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        _a.trys.push([0, 2, , 3]);
+                        return [4 /*yield*/, this._getInputBox()];
+                    case 1:
+                        inputBox = _a.sent();
+                        return [2 /*return*/, !!inputBox];
+                    case 2:
+                        err_2 = _a.sent();
+                        // can happen when navigating during login
+                        return [2 /*return*/, false];
+                    case 3: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ChatGPTAPI.prototype.getLastMessage = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var messages;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this.getMessages()];
+                    case 1:
+                        messages = _a.sent();
+                        if (messages) {
+                            return [2 /*return*/, messages[messages.length - 1]];
+                        }
+                        else {
+                            return [2 /*return*/, null];
+                        }
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ChatGPTAPI.prototype.getPrompts = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var messages;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this._page.$$('[class*="ConversationItem__Message"]:has([class*="ConversationItem__ActionButtons"]):has([class*="ConversationItem__Role"] [class*="Avatar__Wrapper"])')];
+                    case 1:
+                        messages = _a.sent();
+                        // prompts are always plaintext
+                        return [2 /*return*/, Promise.all(messages.map(function (a) { return a.innerText(); }))];
+                }
+            });
+        });
+    };
+    ChatGPTAPI.prototype.getMessages = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var messages, htmlMessages, markdownMessages, plaintextMessages;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this._page.$$('[class*="ConversationItem__Message"]:has([class*="ConversationItem__ActionButtons"]):not(:has([class*="ConversationItem__Role"] [class*="Avatar__Wrapper"]))')];
+                    case 1:
+                        messages = _a.sent();
+                        if (!this._markdown) return [3 /*break*/, 3];
+                        return [4 /*yield*/, Promise.all(messages.map(function (a) { return a.innerHTML(); }))];
+                    case 2:
+                        htmlMessages = _a.sent();
+                        markdownMessages = htmlMessages.map(function (messageHtml) {
+                            // parse markdown from message HTML
+                            messageHtml = messageHtml.replace("Copy code</button>", "</button>");
+                            return (0, html_to_md_1.default)(messageHtml, {
+                                ignoreTags: [
+                                    "button",
+                                    "svg",
+                                    "style",
+                                    "form",
+                                    "noscript",
+                                    "script",
+                                    "meta",
+                                    "head",
+                                ],
+                                skipTags: ["button", "svg"],
+                            });
+                        });
+                        return [2 /*return*/, markdownMessages];
+                    case 3: return [4 /*yield*/, Promise.all(messages.map(function (a) { return a.innerText(); }))];
+                    case 4:
+                        plaintextMessages = _a.sent();
+                        return [2 /*return*/, plaintextMessages];
+                }
+            });
+        });
+    };
+    ChatGPTAPI.prototype.sendMessage = function (message) {
+        return __awaiter(this, void 0, void 0, function () {
+            var inputBox, lastMessage, newLastMessage, isDifferentLastMessage;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0: return [4 /*yield*/, this._getInputBox()];
+                    case 1:
+                        inputBox = _a.sent();
+                        if (!inputBox)
+                            throw new Error("not signed in");
+                        return [4 /*yield*/, this.getLastMessage()];
+                    case 2:
+                        lastMessage = _a.sent();
+                        return [4 /*yield*/, inputBox.click({ force: true })];
+                    case 3:
+                        _a.sent();
+                        return [4 /*yield*/, inputBox.fill(message, { force: true })];
+                    case 4:
+                        _a.sent();
+                        return [4 /*yield*/, inputBox.press("Enter")];
+                    case 5:
+                        _a.sent();
+                        _a.label = 6;
+                    case 6: return [4 /*yield*/, (0, delay_1.default)(1000)];
+                    case 7:
+                        _a.sent();
+                        return [4 /*yield*/, this.getLastMessage()];
+                    case 8:
+                        newLastMessage = _a.sent();
+                        isDifferentLastMessage = (lastMessage === null || lastMessage === void 0 ? void 0 : lastMessage.toLowerCase()) !== (newLastMessage === null || newLastMessage === void 0 ? void 0 : newLastMessage.toLowerCase());
+                        // console.log({ newLastMessage, isDifferentLastMessage });
+                        if (newLastMessage && isDifferentLastMessage) {
+                            return [2 /*return*/, newLastMessage];
+                        }
+                        _a.label = 9;
+                    case 9:
+                        if (true) return [3 /*break*/, 6];
+                        _a.label = 10;
+                    case 10: return [2 /*return*/];
+                }
+            });
+        });
+    };
+    ChatGPTAPI.prototype.close = function () {
+        var _a;
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_b) {
+                switch (_b.label) {
+                    case 0: return [4 /*yield*/, ((_a = this._browser) === null || _a === void 0 ? void 0 : _a.close())];
+                    case 1: return [2 /*return*/, _b.sent()];
+                }
+            });
+        });
+    };
+    ChatGPTAPI.prototype._getInputBox = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, this._page.$('div[class*="PromptTextarea__TextareaWrapper"] textarea')];
+            });
+        });
+    };
+    return ChatGPTAPI;
+}());
+exports.ChatGPTAPI = ChatGPTAPI;
 //# sourceMappingURL=ChatGPTAPI.js.map

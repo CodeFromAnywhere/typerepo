@@ -29,3 +29,4 @@ export declare const MarkdownCodeblock: (props: {
      */
     isModeStatic?: boolean | undefined;
 }) => JSX.Element;
+//# sourceMappingURL=MarkdownCodeblock.d.ts.map

@@ -23,3 +23,4 @@ export var useAllText = function () {
     // Return the current text of the body element
     return text;
 };
+//# sourceMappingURL=useAllText.js.map

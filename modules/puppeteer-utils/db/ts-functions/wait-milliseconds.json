@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671098572862,
+  "updatedAt": 1671098572862,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098572862,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/waitMillisseconds.ts",
+  "commentsInside": [],
+  "rawText": " async (milliseconds: number) =>\n  new Promise((resolve) => setTimeout(() => resolve(true), milliseconds))",
+  "name": "waitMilliseconds",
+  "slug": "wait-milliseconds",
+  "parameters": [
+    {
+      "name": "milliseconds",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    }
+  ],
+  "description": "Utility functions to wait millisseconds. eg: 3000 waits 3 seconds",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 171,
+    "lines": 2,
+    "bytes": 171,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 86,
+    "linesPerFile": 2,
+    "numberOfFiles": 1
+  },
+  "id": "iuzgztllfusftsygbjesxfph"
+}

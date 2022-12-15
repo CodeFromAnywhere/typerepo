@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-export var useLastSelection = function () {
+export var useLastSelection = function (isDisabled) {
     // Initialize a ref to store the last selection
     var _a = useState(null), selection = _a[0], setSelection = _a[1];
     // Create a callback that updates the ref when the user makes a selection
@@ -8,6 +8,8 @@ export var useLastSelection = function () {
         if (typeof window === "undefined")
             return null;
         var newSelection = ((_a = window.getSelection()) === null || _a === void 0 ? void 0 : _a.toString()) || null;
+        if (!newSelection)
+            return null;
         setSelection(newSelection);
         return null;
     };
@@ -20,6 +22,9 @@ export var useLastSelection = function () {
             document.removeEventListener("selectionchange", updateLastSelection);
         };
     }, []); // We only want to add the event listener once, so we pass an empty array as the second argument to useEffect
+    if (isDisabled)
+        return "";
     // Return the last selection
     return selection;
 };
+//# sourceMappingURL=useLastSelection.js.map

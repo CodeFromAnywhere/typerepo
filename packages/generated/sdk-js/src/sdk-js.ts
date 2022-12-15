@@ -12,6 +12,9 @@ import { getReferencedAssetApiUrl } from "asset-functions-js";
 import { getTypeFromUrlOrPath } from "asset-functions-js";
 import { readableSize } from "asset-functions-js";
 import { removeTokenIfPresent } from "asset-functions-js";
+import { BreadCrumbs } from "breadcrumbs";
+import { renderBreadCrumbs } from "breadcrumbs";
+import { ClickableIcon } from "clickable-icon";
 import { getFunctionExersize } from "code-types";
 import { stripCommentEnd } from "comment-util";
 import { stripCommentStart } from "comment-util";
@@ -33,6 +36,15 @@ import { lowerCaseArray } from "convert-case";
 import { pascalCase } from "convert-case";
 import { slugify } from "convert-case";
 import { snakeCase } from "convert-case";
+import { errorToast } from "cool-toast";
+import { infoToast } from "cool-toast";
+import { showStandardResponse } from "cool-toast";
+import { successToast } from "cool-toast";
+import { warningToast } from "cool-toast";
+import { FancyLoader } from "fancy-loader";
+import { getFileType } from "file-icons";
+import { MatchingText } from "file-search";
+import { PathSearchResults } from "file-search";
 import { getFileTypeFromPath } from "filename-conventions";
 import { getWriterType } from "filename-conventions";
 import { hasSubExtension } from "filename-conventions";
@@ -73,6 +85,11 @@ import { renameAndCreate } from "fs-util";
 import { writeJsonToFile } from "fs-util";
 import { writeStringToFile } from "fs-util";
 import { writeToFiles } from "fs-util";
+import { converse } from "function-util";
+import { executeSdkFunction } from "function-util";
+import { getCachedExportedFunctions } from "function-util";
+import { getMenu } from "function-util";
+import { getSdkFunctionPaths } from "function-util";
 import { findFolderWhereMatch } from "get-path";
 import { findOperationBasePathWithClassification } from "get-path";
 import { findOperationBasePath } from "get-path";
@@ -95,7 +112,6 @@ import { isBundle } from "get-path";
 import { isOperation } from "get-path";
 import { isUiOperation } from "get-path";
 import { isWorkspaceRoot } from "get-path";
-import { makeRelative } from "get-path";
 import { packageCompilesTs } from "get-path";
 import { tsconfigCompilesEsm } from "get-path";
 import { getTsConfig } from "get-ts-config";
@@ -150,6 +166,7 @@ import { kvmdDataToString } from "key-value-markdown-js";
 import { kvmdParseToMarkdownString } from "key-value-markdown-js";
 import { markdownStringToKvmdParse } from "key-value-markdown-js";
 import { parseKvmdLine } from "key-value-markdown-js";
+import { LabeledButton } from "labeled-button";
 import { getCallerFileName } from "log";
 import { log } from "log";
 import { parseTitle } from "log";
@@ -213,6 +230,34 @@ import { isPlural } from "pluralize";
 import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
+import { clickOnSpanTag } from "puppeteer-utils";
+import { facebookLogin } from "puppeteer-utils";
+import { foundOrNotXpath } from "puppeteer-utils";
+import { foundOrNot } from "puppeteer-utils";
+import { getBrowserPage } from "puppeteer-utils";
+import { getBrowserSession } from "puppeteer-utils";
+import { getBrowserTabs } from "puppeteer-utils";
+import { getChromeExecutablePath } from "puppeteer-utils";
+import { getConnectedBrowsers } from "puppeteer-utils";
+import { gmailLogin } from "puppeteer-utils";
+import { isCaptchaExist } from "puppeteer-utils";
+import { logConsoleIfDebug } from "puppeteer-utils";
+import { openNewBrowser } from "puppeteer-utils";
+import { openPage } from "puppeteer-utils";
+import { racePromises } from "puppeteer-utils";
+import { retryClickAndWaitSelector } from "puppeteer-utils";
+import { retryWaitSelector } from "puppeteer-utils";
+import { runBrowser } from "puppeteer-utils";
+import { setBrowserPage } from "puppeteer-utils";
+import { setBrowserSession } from "puppeteer-utils";
+import { setInnerHtml } from "puppeteer-utils";
+import { setInputValue } from "puppeteer-utils";
+import { solveReptcha } from "puppeteer-utils";
+import { trueClick } from "puppeteer-utils";
+import { twitterLogin } from "puppeteer-utils";
+import { typeInTheInputField } from "puppeteer-utils";
+import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
+import { waitMilliseconds } from "puppeteer-utils";
 import { getKeysAtPathFromNestedObject } from "recursive-util";
 import { getMenuPagesObject } from "recursive-util";
 import { makeNestedObjectFromQueryPathObject } from "recursive-util";
@@ -247,6 +292,7 @@ import { stringToJson } from "string-to-json";
 import { getEncoding } from "text-or-binary";
 import { isBinary } from "text-or-binary";
 import { isText } from "text-or-binary";
+import { Tooltip } from "tooltip";
 import { tryParseJson } from "try-parse-json";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
@@ -267,6 +313,9 @@ getReferencedAssetApiUrl,
 getTypeFromUrlOrPath,
 readableSize,
 removeTokenIfPresent,
+BreadCrumbs,
+renderBreadCrumbs,
+ClickableIcon,
 getFunctionExersize,
 stripCommentEnd,
 stripCommentStart,
@@ -288,6 +337,15 @@ lowerCaseArray,
 pascalCase,
 slugify,
 snakeCase,
+errorToast,
+infoToast,
+showStandardResponse,
+successToast,
+warningToast,
+FancyLoader,
+getFileType,
+MatchingText,
+PathSearchResults,
 getFileTypeFromPath,
 getWriterType,
 hasSubExtension,
@@ -328,6 +386,11 @@ renameAndCreate,
 writeJsonToFile,
 writeStringToFile,
 writeToFiles,
+converse,
+executeSdkFunction,
+getCachedExportedFunctions,
+getMenu,
+getSdkFunctionPaths,
 findFolderWhereMatch,
 findOperationBasePathWithClassification,
 findOperationBasePath,
@@ -350,7 +413,6 @@ isBundle,
 isOperation,
 isUiOperation,
 isWorkspaceRoot,
-makeRelative,
 packageCompilesTs,
 tsconfigCompilesEsm,
 getTsConfig,
@@ -405,6 +467,7 @@ kvmdDataToString,
 kvmdParseToMarkdownString,
 markdownStringToKvmdParse,
 parseKvmdLine,
+LabeledButton,
 getCallerFileName,
 log,
 parseTitle,
@@ -468,6 +531,34 @@ isPlural,
 isSingular,
 pluralize,
 singularize,
+clickOnSpanTag,
+facebookLogin,
+foundOrNotXpath,
+foundOrNot,
+getBrowserPage,
+getBrowserSession,
+getBrowserTabs,
+getChromeExecutablePath,
+getConnectedBrowsers,
+gmailLogin,
+isCaptchaExist,
+logConsoleIfDebug,
+openNewBrowser,
+openPage,
+racePromises,
+retryClickAndWaitSelector,
+retryWaitSelector,
+runBrowser,
+setBrowserPage,
+setBrowserSession,
+setInnerHtml,
+setInputValue,
+solveReptcha,
+trueClick,
+twitterLogin,
+typeInTheInputField,
+typeOnTheTargetWithXpathSelector,
+waitMilliseconds,
 getKeysAtPathFromNestedObject,
 getMenuPagesObject,
 makeNestedObjectFromQueryPathObject,
@@ -502,6 +593,7 @@ stringToJson,
 getEncoding,
 isBinary,
 isText,
+Tooltip,
 tryParseJson,
 createCodeblockMarkdown,
 useCustomUrlStore,

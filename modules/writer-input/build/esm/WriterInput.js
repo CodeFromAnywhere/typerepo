@@ -2,12 +2,10 @@ import * as React from "react";
 import { useEffect } from "react";
 import { Div } from "react-with-native";
 import { api, queries } from "api";
-import { DbPage } from "db-crud";
 import { FancyLoader } from "fancy-loader";
 import { getWriterType } from "filename-conventions";
 import { getFolderJs } from "fs-util-js";
 import { mdToJsonParse } from "markdown-parse-js";
-import { ContextualPromptResultsTab } from "prompt-components";
 import { isDev } from "server-api-url";
 import { ShortStudio } from "short-markdown-writer-input";
 // relative
@@ -25,7 +23,7 @@ Writer input for any utf8 based text, file or no file
 */
 export var WriterInput = function (props) {
     var _a = useStore("writerView"), writerView = _a[0], setWriterView = _a[1];
-    var type = props.type, projectRelativeFilePath = props.projectRelativeFilePath, reload = props.reload, value = props.value, onChange = props.onChange, markdownModelName = props.markdownModelName, initialWriterView = props.initialWriterView, augmentedWordObject = props.augmentedWordObject, isLoading = props.isLoading, save = props.save, isSaved = props.isSaved, hideButtons = props.hideButtons, className = props.className;
+    var type = props.type, projectRelativeFilePath = props.projectRelativeFilePath, reload = props.reload, value = props.value, onChange = props.onChange, markdownModelName = props.markdownModelName, initialWriterView = props.initialWriterView, augmentedWordObject = props.augmentedWordObject, isLoading = props.isLoading, save = props.save, isSaved = props.isSaved, hideButtons = props.hideButtons, className = props.className, disabledMenuItems = props.disabledMenuItems;
     var projectRelativeBaseFolderPath = getFolderJs(projectRelativeFilePath);
     var projectRelativeMarkdownFilePath = projectRelativeFilePath;
     useEffect(function () {
@@ -62,10 +60,6 @@ export var WriterInput = function (props) {
             writerView === "shortStudio" ? (React.createElement(ShortStudio, { onChange: onChange, value: value, projectRelativeFilePath: projectRelativeFilePath || "", markdownModelName: markdownModelName })) : null,
             writerView === "postable" ? React.createElement(Div, null, "This is postable") : null,
             writerView === "todoOffers" ? React.createElement(Div, null, "This is todo offers") : null,
-            writerView === "prompt-results" && projectRelativeFilePath ? (React.createElement(ContextualPromptResultsTab, { projectRelativeFilePath: projectRelativeFilePath })) : null,
-            writerView === "prompts" ? (React.createElement(DbPage, { modelName: "ContextualPrompt", filter: function (item) {
-                    return item.projectRelativeFilePath === projectRelativeFilePath;
-                } })) : null,
             writerView === "config" ? React.createElement(WriterConfigForm, null) : null,
             writerView === "frontmatter" &&
                 !frontmatterSchemaQuery.isLoading &&
@@ -73,6 +67,9 @@ export var WriterInput = function (props) {
                 projectRelativeMarkdownFilePath ? (React.createElement(FrontmatterForm, { modelName: markdownModelName, key: projectRelativeMarkdownFilePath, markdownParse: markdownParse, projectRelativeMarkdownFilePath: projectRelativeMarkdownFilePath, frontmatterSchema: (_c = frontmatterSchemaQuery.data) === null || _c === void 0 ? void 0 : _c.result, onChange: onChange })) : null,
             writerView === "edit" || writerView === undefined ? (React.createElement(EditWriterInput, { onChange: onChange, value: value, projectRelativeFilePath: projectRelativeFilePath || "", markdownModelName: markdownModelName })) : null,
             writerView === "view" || writerView === "presentation" ? (React.createElement(MarkdownView, { view: writerView, markdownParse: markdownParse, markdownParseRenderConfig: markdownParseRenderConfig })) : null));
+    };
+    var notDisabled = function (menuName) {
+        return !disabledMenuItems || !disabledMenuItems.includes(menuName);
     };
     return (React.createElement(Div, { className: "flex flex-col flex-1 ".concat(className) },
         hideButtons || !setWriterView ? null : (React.createElement(TitleContainer, { buttons: [
@@ -87,13 +84,14 @@ export var WriterInput = function (props) {
                     emoji: "✏️",
                     title: "Edit",
                     isActive: writerView === "edit",
-                    isEnabled: true,
+                    isEnabled: notDisabled("edit"),
                 },
                 {
                     onClick: function () { return setWriterView("view"); },
                     emoji: "👁",
                     title: "View",
                     isActive: writerView === "view",
+                    isEnabled: notDisabled("view"),
                 },
                 {
                     onClick: function () {
@@ -103,7 +101,7 @@ export var WriterInput = function (props) {
                     emoji: "📽",
                     title: "Present",
                     isActive: writerView === "presentation",
-                    isEnabled: writerType === "markdown",
+                    isEnabled: writerType === "markdown" && notDisabled("presentation"),
                 },
                 {
                     onClick: function () {
@@ -112,7 +110,9 @@ export var WriterInput = function (props) {
                     emoji: "🧩",
                     title: "About",
                     isActive: writerView === "frontmatter",
-                    isEnabled: writerType === "markdown" && !!markdownModelName,
+                    isEnabled: writerType === "markdown" &&
+                        !!markdownModelName &&
+                        notDisabled("frontmatter"),
                 },
                 {
                     onClick: function () {
@@ -121,6 +121,7 @@ export var WriterInput = function (props) {
                     emoji: "⚙️",
                     title: "Configuration",
                     isActive: writerView === "config",
+                    isEnabled: notDisabled("config"),
                 },
                 {
                     onClick: function () {
@@ -147,25 +148,8 @@ export var WriterInput = function (props) {
                     emoji: "📖",
                     title: "Todo Offers",
                     isActive: writerView === "todoOffers",
-                    isEnabled: projectRelativeFilePath === null || projectRelativeFilePath === void 0 ? void 0 : projectRelativeFilePath.includes("/todo/"),
-                },
-                {
-                    onClick: function () {
-                        setWriterView("prompts");
-                    },
-                    emoji: "💡",
-                    title: "Prompts",
-                    isActive: writerView === "prompts",
-                    isEnabled: true,
-                },
-                {
-                    onClick: function () {
-                        setWriterView("prompt-results");
-                    },
-                    emoji: "🤯",
-                    title: "Prompt-results",
-                    isActive: writerView === "prompt-results",
-                    isEnabled: true,
+                    isEnabled: (projectRelativeFilePath === null || projectRelativeFilePath === void 0 ? void 0 : projectRelativeFilePath.includes("/todo/")) &&
+                        notDisabled("todo"),
                 },
                 {
                     onClick: function () {
@@ -190,3 +174,4 @@ export var WriterInput = function (props) {
             ? renderWriter()
             : "Can't render.... need `projectRelativeFilePath`"));
 };
+//# sourceMappingURL=WriterInput.js.map

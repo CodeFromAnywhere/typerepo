@@ -1,6 +1,5 @@
 import { FileType } from "filename-conventions";
-import { ContextualPromptsObject } from "./types";
-import { ContextualPrompt } from "ai-types";
+import { ContextualPrompt, ContextualPromptsObject } from "ai-types";
 /**
  * Function to centralise the convention of the db file location of a scoped prompt
  */
@@ -15,5 +14,5 @@ export declare const getContextualPromptsArray: (scopeProjectRelativePath?: stri
 /**
  * Returns all contextual prompts for the selection and for the page with the right context type
  */
-export declare const getContextualPrompts: (contextType?: FileType, scopeProjectRelativePath?: string) => Promise<ContextualPromptsObject>;
+export declare const getContextualPrompts: (contextType?: FileType, scopeProjectRelativePath?: string, isDev?: boolean) => Promise<ContextualPromptsObject>;
 //# sourceMappingURL=getContextualPrompts.d.ts.map

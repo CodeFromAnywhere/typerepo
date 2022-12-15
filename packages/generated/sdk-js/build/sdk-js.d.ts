@@ -1,3 +1,4 @@
+/// <reference types="react" />
 /// <reference types="node" />
 import { getTypescriptErrorsFromFiles } from "compile-typescript";
 import { slugify } from "convert-case";
@@ -35,6 +36,11 @@ export declare const sdk: {
         nameWithoutToken: string;
         token: string | undefined;
     };
+    BreadCrumbs: (props: {
+        path: string;
+    }) => JSX.Element;
+    renderBreadCrumbs: (chunks: string[]) => JSX.Element[];
+    ClickableIcon: (button: import("clickable-icon").ClickableIconType) => JSX.Element;
     getFunctionExersize: (functionId: string) => Promise<string>;
     stripCommentEnd: (trimmedLine: string) => string;
     stripCommentStart: (trimmedLine: string) => string;
@@ -56,6 +62,28 @@ export declare const sdk: {
     pascalCase: (text: string) => string;
     slugify: typeof slugify;
     snakeCase: (text: string) => string;
+    errorToast: (message?: string | undefined) => void;
+    infoToast: (message?: string | undefined) => void;
+    showStandardResponse: (apiResult: import("api-types").StandardizedApiReturnType) => void;
+    successToast: (message?: string | undefined) => void;
+    warningToast: (message?: string | undefined) => void;
+    FancyLoader: ({ big, medium, }: {
+        big?: boolean | undefined;
+        medium?: boolean | undefined;
+    }) => JSX.Element;
+    getFileType: (fullPath: string) => "function" | "other" | "markdown" | "typescript" | "javascript" | "json" | "folder" | "operation" | "operationFolder" | "interface" | "variable";
+    MatchingText: (props: {
+        text: string;
+        search: string;
+        defaultTextClassName: string;
+        matchTextClassName: string;
+        truncateLength?: number | undefined;
+    }) => JSX.Element;
+    PathSearchResults: (props: {
+        paths: string[];
+        search: string;
+        augmentedWords?: import("augmented-word-types").AugmentedWord[] | undefined;
+    }) => JSX.Element;
     getFileTypeFromPath: (path?: string | undefined) => "other" | import("filename-conventions").FileType;
     getWriterType: (extension: string | undefined) => import("filename-conventions").WriterType;
     hasSubExtension: (srcRelativeFileId: string, subExtensions: string | string[], includeRootName?: boolean | undefined) => boolean;
@@ -99,7 +127,7 @@ export declare const sdk: {
     parseMd: (mdFilePath: string) => import("fs-util").Markdown;
     removeAllExcept: (folderPath: string, config?: {
         ignore?: string[] | undefined;
-        typeToRemove?: "file" | "folder" | undefined;
+        typeToRemove?: "folder" | "file" | undefined;
     } | undefined) => Promise<{
         name: string;
         removed: boolean;
@@ -110,6 +138,17 @@ export declare const sdk: {
     writeToFiles: (fileObject: {
         [absoluteFilePath: string]: any;
     }) => Promise<void>;
+    converse: (searchMessage: string) => Promise<false | undefined>;
+    executeSdkFunction: (operationString: string, parameters: string[] | undefined) => Promise<any>;
+    getCachedExportedFunctions: () => Promise<import("code-types").TsFunction[]>;
+    getMenu: () => Promise<{
+        success: boolean;
+        response: string;
+        menu: {
+            [x: string]: import("code-types").TsFunction[];
+        };
+    } | undefined>;
+    getSdkFunctionPaths: () => Promise<false | import("function-util").FnMatch[]>;
     findFolderWhereMatch: <T_1>(fullSourcePath: string, matchFunction: (folderPath: string) => T_1) => {
         folderPath: string;
         matchResult: T_1;
@@ -148,7 +187,6 @@ export declare const sdk: {
         isBundle: boolean;
         isWorkspaceRoot: boolean;
     } | undefined;
-    makeRelative: (absolutePath: string, baseFolderPath: string) => string;
     packageCompilesTs: (packageJson: import("code-types").Operation | null) => boolean;
     tsconfigCompilesEsm: (tsconfig: import("code-types").TsConfig) => boolean;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
@@ -250,6 +288,7 @@ export declare const sdk: {
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
     parseKvmdLine: (string: string) => import("model-types").KvmdLine | undefined;
+    LabeledButton: (button: import("labeled-button").LabeledButtonType, index: number) => JSX.Element;
     getCallerFileName: () => string | undefined;
     log: (message: string, config?: import("log").LogConfig | undefined, data?: any) => void;
     parseTitle: (markdown: string) => {
@@ -330,6 +369,98 @@ export declare const sdk: {
     isSingular: (parameterName: string) => boolean;
     pluralize: (parameterName: string) => string;
     singularize: (parameterName: string) => string;
+    clickOnSpanTag: (props: {
+        page: import("puppeteer-core").Page;
+        spanText: string;
+    }) => Promise<{
+        success: boolean;
+        message: string;
+    } | undefined>;
+    facebookLogin: (props: import("puppeteer-utils").FacebookLoginPropsType) => Promise<void>;
+    foundOrNotXpath: (props: {
+        page: import("puppeteer-core").Page;
+        selector: string;
+    }) => Promise<{
+        found: boolean;
+        element?: any;
+    }>;
+    foundOrNot: (props: {
+        page: import("puppeteer-core").Page;
+        selector: string;
+        timeoutMilliseconds?: number | undefined;
+    }) => Promise<boolean>;
+    getBrowserPage: (pageId: string) => import("puppeteer").Page | undefined;
+    getBrowserSession: () => import("puppeteer").Browser | undefined;
+    getBrowserTabs: (browserInfo: import("puppeteer-utils").BrowserSession) => Promise<import("puppeteer-core").Page[]>;
+    getChromeExecutablePath: () => "/usr/bin/google-chrome-stable" | "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+    getConnectedBrowsers: () => Promise<import("puppeteer-utils").BrowserSession[]>;
+    gmailLogin: (props: import("puppeteer-utils").GmailLoginPropsType) => Promise<void>;
+    isCaptchaExist: (page: import("puppeteer").Page) => Promise<import("puppeteer-extra-plugin-recaptcha/dist/types").FindRecaptchasResult>;
+    logConsoleIfDebug: (props: {
+        message: string;
+        debug: boolean;
+    }) => Promise<void>;
+    openNewBrowser: () => Promise<import("puppeteer").Browser>;
+    openPage: (pageId?: string | undefined) => Promise<{
+        page?: import("puppeteer").Page | undefined;
+        pageId: string;
+    }>;
+    racePromises: (promises: Promise<any>[]) => Promise<number>;
+    retryClickAndWaitSelector: (props: {
+        page: any;
+        selector: string | string[];
+        selectorOptions?: any;
+        selectorToClick: string;
+        maxTime: number;
+    }) => Promise<{
+        success: boolean;
+        found?: any;
+    }>;
+    retryWaitSelector: (props: {
+        page: import("puppeteer-core").Page;
+        selector: string;
+        maxTime: number;
+    }) => Promise<{
+        success: boolean;
+        found?: any;
+    }>;
+    runBrowser: () => Promise<import("puppeteer-core").Browser>;
+    setBrowserPage: (page: import("puppeteer").Page) => string;
+    setBrowserSession: (browser: import("puppeteer").Browser) => void;
+    setInnerHtml: (props: {
+        page: import("puppeteer-core").Page;
+        selector: string;
+        value: string;
+    }) => Promise<void>;
+    setInputValue: (params: {
+        page: import("puppeteer-core").Page;
+        selector: string;
+        inputValue: string;
+    }) => Promise<void>;
+    solveReptcha: (page: import("puppeteer").Page) => Promise<import("puppeteer-extra-plugin-recaptcha/dist/types").SolveRecaptchasResult>;
+    trueClick: (props: {
+        page: import("puppeteer-core").Page;
+        selector: string;
+    }) => Promise<{
+        success: boolean;
+    }>;
+    twitterLogin: (props: {
+        page: import("puppeteer-core").Page;
+        email: string;
+        phoneNo: string;
+        password: string;
+    }) => Promise<void>;
+    typeInTheInputField: (props: {
+        page: import("puppeteer-core").Page;
+        selector: string;
+        value: string;
+    }) => Promise<void>;
+    typeOnTheTargetWithXpathSelector: (props: {
+        page: import("puppeteer-core").Page;
+        selector: string;
+        text: string;
+    }) => Promise<void>;
+    waitMilliseconds: (milliseconds: number) => Promise<unknown>;
     getKeysAtPathFromNestedObject: <T_29 extends {
         [key: string]: any;
     }>(nestedObject: T_29, objectPath: string) => string[];
@@ -382,6 +513,11 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
+    Tooltip: (props: {
+        tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>> | null;
+        children: import("react").ReactNode;
+        placement?: import("@popperjs/core").Placement | undefined;
+    }) => JSX.Element;
     tryParseJson: <T_36>(text: string, logParseError?: boolean | undefined) => T_36 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
     useCustomUrlStore: <T_37 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_37, (newValue: T_37 | undefined) => Promise<boolean>];

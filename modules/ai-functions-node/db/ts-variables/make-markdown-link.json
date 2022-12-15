@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671105506434,
+  "updatedAt": 1671105506434,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105506434,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "makeMarkdownLink",
+  "slug": "make-markdown-link",
+  "operationRelativeTypescriptFilePath": "src/augmentMarkdown.ts",
+  "type": {
+    "rawType": "(text: string, url?: string | undefined, alt?: string | undefined) => string",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(text: string, url?: string, alt?: string) => {\n  return `[${text}](${url || \"#\"}${\n    alt ? ` \"${alt.replaceAll(\"\\n\", \"<br>\")}\"` : \"\"\n  })`;\n}",
+  "description": "function that writes markdown for a text + url + alt. This may differ per platform in the end, for now I'll use my own: `[\"text\"(alt)](url)`",
+  "id": "sslvumwwnhzxjsgldqmwdakb"
+}

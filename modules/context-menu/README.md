@@ -12,6 +12,8 @@ Use this if you want to render a context menu where the menu closes if you click
 
 Optionally, you can create a custom renderer for it.
 
+id can be provided by the contextEvent.
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -25,6 +27,8 @@ Optionally, you can create a custom renderer for it.
 Use this if you want to render a context menu where the menu closes if you click one of the items.
 
 Optionally, you can create a custom renderer for it.
+
+id can be provided by the contextEvent.
 
 # Internal
 
@@ -62,7 +66,7 @@ Use this if you want to create a completely custom behavior from a context actio
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** | { onContextMenu: {  }, <br />onTouchStart: {  }, <br />onTouchEnd: {  }, <br />onClick: {  }, <br />style: { userSelect?: none / -moz-initial / inherit / initial / revert / revert-layer / unset / -moz-none / all / auto / contain / element / text, <br /> }, <br /> }   |    |
+| **Output** | { onContextMenu: {  }, <br />onTouchStart: {  }, <br />onTouchEnd: {  }, <br />onClick: {  }, <br />style: {  }, <br /> }   |    |
 
 
 

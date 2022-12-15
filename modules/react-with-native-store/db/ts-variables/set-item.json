@@ -1,14 +1,14 @@
 {
-  "createdAt": 1667635039997,
-  "updatedAt": 1667635039997,
+  "createdAt": 1671104680742,
+  "updatedAt": 1671104680742,
   "deletedAt": 0,
-  "createdFirstAt": 1667635039997,
+  "createdFirstAt": 1671104680742,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "setItem",
   "slug": "set-item",
-  "operationRelativeTypescriptFilePath": "src/storage.ts",
+  "operationRelativeTypescriptFilePath": "src/storage.native.ts",
   "type": {
     "rawType": "(key: string, value: any) => any",
     "typeDefinition": {
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (key: string, value: any) => {\n  if (typeof window === \"undefined\") {\n    return;\n  }\n  localStorage.setItem(key, JSON.stringify(value));\n}",
-  "description": "If you don't have access to the `useStore` hook, maybe because you're doing something outside of react... you can directly use the storage with javascript using this function\n\nBEWARE! Updating this won't update your react components!",
-  "id": "ybbexmydcaxvrgbydywigvho"
+  "value": "async (key: string, value: any) => {\n  // console.log(\"AsyncStorage setting item\");\n  const stringValue = JSON.stringify(value);\n  try {\n    await AsyncStorage.setItem(key, stringValue, (error) => {\n      if (error) {\n        console.warn(\n          `asyncStorage.setItem error: ${JSON.stringify({\n            key,\n            stringValue,\n            error,\n          })}`\n        );\n      }\n    });\n    // console.log(`we set ${key} to ${stringValue}`);\n  } catch (e) {\n    // saving error\n    console.warn(\n      `Something went wrong with asyncStorage from useStore (key ${key})`,\n      e\n    );\n  }\n}",
+  "description": "",
+  "id": "syivsggawhhkjtdrskgxrjsx"
 }

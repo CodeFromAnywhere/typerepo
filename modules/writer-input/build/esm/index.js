@@ -28,3 +28,4 @@ export * from "./types";
 export * from "./util/getWriterTypeFromContent";
 export * from "./util/isTypescript";
 export * from "./util/word-trimming";
+//# sourceMappingURL=index.js.map

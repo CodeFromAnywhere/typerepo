@@ -1,14 +1,14 @@
 {
-  "createdAt": 1667635039997,
-  "updatedAt": 1667635039997,
+  "createdAt": 1671104680742,
+  "updatedAt": 1671104680742,
   "deletedAt": 0,
-  "createdFirstAt": 1667635039997,
+  "createdFirstAt": 1671104680742,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "getItem",
   "slug": "get-item",
-  "operationRelativeTypescriptFilePath": "src/storage.ts",
+  "operationRelativeTypescriptFilePath": "src/storage.native.ts",
   "type": {
     "rawType": "(key: string) => unknown",
     "typeDefinition": {
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (key: string) => {\n  if (typeof window === \"undefined\") {\n    return undefined;\n  }\n  const item = localStorage.getItem(key);\n  return item ? JSON.parse(item) : undefined;\n}",
-  "description": "If you don't have access to the `useStore` hook, maybe because you're doing something outside of react... you can directly use the storage with javascript using this function",
-  "id": "dfksjcgzyvrggrvfzyrgpzux"
+  "value": "async (key: string) => {\n  // console.log(\"reading key \", key);\n  try {\n    const item = await AsyncStorage.getItem(key);\n    const value = item ? JSON.parse(item) : undefined;\n    // console.log(`we got ${item}`);\n    return value;\n  } catch (e) {\n    // error reading value\n    console.warn(\n      `Something went wrong with asyncStorage from useStore (key ${key})`,\n      e\n    );\n  }\n}",
+  "description": "",
+  "id": "bjrbdbhpligrmkjgiywzusgq"
 }

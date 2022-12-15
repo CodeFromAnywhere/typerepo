@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671098560693,
+  "updatedAt": 1671098560693,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098560693,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/solveRecaptcha.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  page: Page\n): Promise<SolveRecaptchasResult> => {\n  const solveRecaptchaResult = await page?.solveRecaptchas();\n  return solveRecaptchaResult;\n}",
+  "name": "solveReptcha",
+  "slug": "solve-reptcha",
+  "parameters": [
+    {
+      "name": "page",
+      "schema": {
+        "$ref": "#/definitions/Page"
+      },
+      "simplifiedSchema": {
+        "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").SolveRecaptchasResult>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 155,
+    "lines": 6,
+    "bytes": 155,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 6,
+    "numberOfFiles": 1
+  },
+  "id": "zrdlocfjyovlmswqiaxhnchy"
+}

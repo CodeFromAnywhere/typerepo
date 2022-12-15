@@ -1,0 +1,36 @@
+{
+  "createdAt": 1671098536682,
+  "updatedAt": 1671098536682,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098536682,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getConnectedBrowsers.ts",
+  "commentsInside": [],
+  "rawText": " async (): Promise<BrowserSession[]> => {\n  // const allBrowsers = getBrowserSession();\n  // console.log({ allBrowsers });\n  let connectedBrowser: BrowserSession[] = [];\n  // for await (let browser of allBrowsers) {\n  //   await puppeteer\n  //     .connect({\n  //       browserWSEndpoint: browser.browserSessionId,\n  //     })\n  //     .then((cb) => {\n  //       connectedBrowser.push(browser);\n  //     })\n  //     .catch((e) => {\n  //       console.error(\"Error in connecting browser\", e);\n  //       db.remove(\"BrowserSession\", (b) => b.id !== browser.id);\n  //     });\n  // }\n  // console.log({ connectedBrowser });\n  return connectedBrowser;\n}",
+  "name": "getConnectedBrowsers",
+  "slug": "get-connected-browsers",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/lucky/workspace/typerepo/packages/niches/bhagya/doing/control-web/puppeteer-utils/src/BrowserSession\").BrowserSession[]>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 648,
+    "lines": 20,
+    "bytes": 648,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 32,
+    "linesPerFile": 20,
+    "numberOfFiles": 1
+  },
+  "id": "naznlefcwluqbargnemohtff"
+}

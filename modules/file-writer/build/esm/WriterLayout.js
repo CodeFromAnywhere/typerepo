@@ -11,3 +11,4 @@ export var WriterLayout = function (props) {
             React.createElement(BreadCrumbs, { path: fullPath || "" })),
         props.children));
 };
+//# sourceMappingURL=WriterLayout.js.map

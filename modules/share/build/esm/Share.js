@@ -13,10 +13,6 @@ import Index from "ai-functions-node/db/ts-functions/process-chat-gpt-prompt.jso
 // and
 /**
 
-1. Have Bhagya 100% all in on creating a GPT controller
-2. Make a component that can be interesting text on a page, a selection of it, and a prompt. Feed that to ChatGPT and show the result in a resizable window. Add ability to share this.
-3. Ensure the share buttons work well and autoshare or backup to actually post myself on socials
-
 */
 export var Share = function (props) {
     var _a;
@@ -26,7 +22,6 @@ export var Share = function (props) {
     var alert = useAlert();
     var allText = useAllText();
     var lastSelection = useLastSelection();
-    //   console.log({ contextText, allText, lastSelection });
     var modalContent = (React.createElement(Div, { className: "h-[60vh] overflow-y-auto" },
         React.createElement(FunctionForm, { tsFunction: Index, initialValues: [
                 contextText || allText || "",
@@ -61,3 +56,4 @@ export var Share = function (props) {
             handleModal(modalContent);
         } }));
 };
+//# sourceMappingURL=Share.js.map

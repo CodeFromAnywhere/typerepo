@@ -30,3 +30,4 @@ export var WriterConfigForm = function () {
                 },
             ], values: values })));
 };
+//# sourceMappingURL=WriterConfigForm.js.map

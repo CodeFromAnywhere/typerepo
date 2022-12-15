@@ -1,4 +1,4 @@
-export declare type StoreConfig<T extends object> = {
+export type StoreConfig<T extends object> = {
     /**
      * If given, this will be the initial value
      */
@@ -15,9 +15,9 @@ export declare type StoreConfig<T extends object> = {
     baseKey?: string;
     debug?: boolean;
 };
-declare type Keys<T> = Extract<keyof T, string>;
-export declare type UseStoreType<TStore> = <K extends Keys<TStore>>(key: K) => UseStoreResult<TStore[K]>;
-export declare type UseStoreResult<T> = [
+type Keys<T> = Extract<keyof T, string>;
+export type UseStoreType<TStore> = <K extends Keys<TStore>>(key: K) => UseStoreResult<TStore[K]>;
+export type UseStoreResult<T> = [
     T,
     (value: T) => Promise<void>,
     {

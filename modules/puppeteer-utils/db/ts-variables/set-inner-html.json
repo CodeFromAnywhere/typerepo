@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671098556754,
+  "updatedAt": 1671098556754,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098556754,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "setInnerHtml",
+  "slug": "set-inner-html",
+  "operationRelativeTypescriptFilePath": "src/setInnerHtml.ts",
+  "type": {
+    "rawType": "(props: { page: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-core/lib/types\").Page; selector: string; value: string; }) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (props: {\n  page: Page;\n  selector: string;\n  value: string;\n}) => {\n  const { page, selector, value } = props;\n  console.log(\"select in fnc\", selector, value);\n  await page.evaluate(\n    ({ value, selector }) => {\n      const h3Element: ElementType | null = document.querySelector(\n        `${selector}`\n      );\n      if (h3Element) {\n        h3Element.click?.();\n        h3Element.focus?.();\n        h3Element.innerHTML = value;\n      }\n    },\n    { value, selector }\n  );\n}",
+  "description": "Help to set the html element on the provided selector",
+  "id": "tzzxvqqiuljvegnncqnbwmvk"
+}

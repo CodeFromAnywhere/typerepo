@@ -6,3 +6,4 @@ export declare const trimLeft: (word: string, character: string) => string;
  * Removes x amount of characters from both sides of a word
  */
 export declare const trimAround: (word: string, trimLength: number) => string;
+//# sourceMappingURL=word-trimming.d.ts.map

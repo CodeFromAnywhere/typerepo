@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671101678010,
+  "updatedAt": 1671101678010,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101678010,
+  "id": "namedparameterstypeof-trashfileorfolder",
+  "name": "NamedParameters<typeof trashFileOrFolder>",
+  "slug": "namedparameterstypeof-trashfileorfolder",
+  "operationRelativeTypescriptFilePath": "src/trashFileOrFolder.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectRelativePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof trashFileOrFolder>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

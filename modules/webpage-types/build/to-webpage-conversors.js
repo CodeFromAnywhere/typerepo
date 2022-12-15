@@ -1,2 +1,32 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.crudPageToWebPages=exports.functionFormPageToWebPage=void 0;var convert_case_1=require("convert-case"),js_util_1=require("js-util"),functionFormPageToWebPage=function(e){return{pageData:e,queryPath:"function/".concat(e.functionName),isMenuHidden:!1,menuTitle:(0,convert_case_1.humanCase)(e.functionName)}};exports.functionFormPageToWebPage=functionFormPageToWebPage;var crudPageToWebPages=function(e){return[{pageData:e,queryPath:"data/".concat(e.modelName),isMenuHidden:!1,menuTitle:(0,convert_case_1.humanCase)(e.modelName)},e.canCreate||e.canUpdate?{pageData:e,queryPath:"upsert/".concat(e.modelName),isMenuHidden:!0}:void 0].filter(js_util_1.notEmpty)};exports.crudPageToWebPages=crudPageToWebPages;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.crudPageToWebPages = exports.functionFormPageToWebPage = void 0;
+var convert_case_1 = require("convert-case");
+var js_util_1 = require("js-util");
+var functionFormPageToWebPage = function (pageData) {
+    return {
+        pageData: pageData,
+        queryPath: "function/".concat(pageData.functionName),
+        isMenuHidden: false,
+        menuTitle: (0, convert_case_1.humanCase)(pageData.functionName),
+    };
+};
+exports.functionFormPageToWebPage = functionFormPageToWebPage;
+var crudPageToWebPages = function (pageData) {
+    var dataPage = {
+        pageData: pageData,
+        queryPath: "data/".concat(pageData.modelName),
+        isMenuHidden: false,
+        menuTitle: (0, convert_case_1.humanCase)(pageData.modelName),
+    };
+    var upsertOrNot = pageData.canCreate || pageData.canUpdate
+        ? {
+            pageData: pageData,
+            queryPath: "upsert/".concat(pageData.modelName),
+            isMenuHidden: true,
+        }
+        : undefined;
+    return [dataPage, upsertOrNot].filter(js_util_1.notEmpty);
+};
+exports.crudPageToWebPages = crudPageToWebPages;
 //# sourceMappingURL=to-webpage-conversors.js.map

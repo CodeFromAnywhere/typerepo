@@ -1,0 +1,46 @@
+{
+  "createdAt": 1671098545555,
+  "updatedAt": 1671098545555,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098545555,
+  "id": "namedparameterstypeof-openpage",
+  "name": "NamedParameters<typeof openPage>",
+  "slug": "namedparameterstypeof-openpage",
+  "operationRelativeTypescriptFilePath": "src/openPage.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "pageId",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof openPage>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

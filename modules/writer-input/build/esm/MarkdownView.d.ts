@@ -6,3 +6,4 @@ export declare const MarkdownView: (props: {
     markdownParse: MarkdownParse;
     markdownParseRenderConfig: MarkdownParseRenderConfig;
 }) => JSX.Element;
+//# sourceMappingURL=MarkdownView.d.ts.map

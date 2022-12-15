@@ -1,0 +1,59 @@
+{
+  "createdAt": 1671105547799,
+  "updatedAt": 1671105547799,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105547799,
+  "id": "namedparameterstypeof-emojiaugmentation",
+  "name": "NamedParameters<typeof emojiAugmentation>",
+  "slug": "namedparameterstypeof-emojiaugmentation",
+  "operationRelativeTypescriptFilePath": "src/prompts.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "contextContent": {
+          "type": "string"
+        },
+        "isDeferred": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "contextContent"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "contextContent",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isDeferred",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof emojiAugmentation>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

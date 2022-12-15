@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671098546926,
+  "updatedAt": 1671098546926,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098546926,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/openPage.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  pageId?: string\n): Promise<{ page?: Page; pageId: string }> => {\n  const browser = await openNewBrowser();\n  if (pageId) {\n    return { page: getBrowserPage(pageId), pageId };\n  }\n\n  const page = await browser.newPage();\n  await page.setBypassCSP(true);\n  const cachePageId = setBrowserPage(page);\n  return { pageId: cachePageId, page };\n}",
+  "name": "openPage",
+  "slug": "open-page",
+  "parameters": [
+    {
+      "name": "pageId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "Handling the new page by checking all browser tabs and if exist then return the existing one for reuse\nor create new one",
+  "returnType": {
+    "rawType": "Promise<{ page?: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Page | undefined; pageId: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 470,
+    "lines": 14,
+    "bytes": 470,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 34,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "qzqopnijssqopkazijmgqfwm"
+}

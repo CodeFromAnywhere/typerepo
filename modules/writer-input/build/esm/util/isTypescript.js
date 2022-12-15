@@ -6,3 +6,4 @@ only detect typescript if the string starts with `import`. must be improved late
 export var isTypescript = function (text) {
     return text.startsWith("import");
 };
+//# sourceMappingURL=isTypescript.js.map

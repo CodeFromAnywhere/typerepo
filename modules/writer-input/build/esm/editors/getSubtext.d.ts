@@ -5,3 +5,4 @@ import { SubtextConfig } from "writer-types";
  * Returns either the subtext string or a HTML string with a container around the subtext, depending on if you provide `withContainer`
  */
 export declare const getSubtext: (markdownString: string, subtextConfig: SubtextConfig) => string | undefined;
+//# sourceMappingURL=getSubtext.d.ts.map

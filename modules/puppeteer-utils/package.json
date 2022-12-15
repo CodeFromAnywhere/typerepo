@@ -1,0 +1,120 @@
+{
+  "createdAt": 1663736328043,
+  "updatedAt": 1663736328043,
+  "deletedAt": 0,
+  "createdFirstAt": 1663736328043,
+  "name": "puppeteer-utils",
+  "private": true,
+  "version": "1.0.2",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "license": "MIT",
+  "author": "Bhagya Sah",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "node ./build/test.js",
+    "up": "npm version patch -f",
+    "pub": "yarn up && npm publish"
+  },
+  "files": [
+    "build"
+  ],
+  "devDependencies": {
+    "@types/puppeteer-core": "^5.4.0",
+    "@types/uuid": "^9.0.0"
+  },
+  "sensible": {
+    "hasGeneratedDependencies": false
+  },
+  "dependencies": {
+    "database": "0.0.1",
+    "model-types": "0.0.1",
+    "puppeteer": "*",
+    "puppeteer-core": "^18.0.5",
+    "puppeteer-extra-plugin-recaptcha": "^3.6.6",
+    "puppeteer-utils": "1.0.2",
+    "uuid": "^9.0.0"
+  },
+  "slug": "puppeteer-utils",
+  "id": "jOxKunDQGygYBOWr",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/lucky/workspace/typerepo/packages/niches/bhagya/doing/control-web/puppeteer-utils/src/setInputValue.ts. Error: TypeError: Cannot read properties of undefined (reading 'kind')"
+      ],
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": [],
+      "dependencyBuildFailed": true
+    },
+    "lastRebuildAt": 1671098588036,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 27,
+        "lines": 660,
+        "characters": 18094,
+        "bytes": 18094
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 158,
+        "characters": 3626,
+        "bytes": 3626
+      },
+      "textSize": {
+        "numberOfFiles": 4,
+        "lines": 585,
+        "characters": 11297,
+        "bytes": 11297
+      },
+      "size": {
+        "bytes": 33017,
+        "characters": 33017,
+        "lines": 1403,
+        "numberOfFiles": 33
+      }
+    },
+    "folderNameIndexed": "puppeteer-utils",
+    "relativeOperationLocationPathIndexed": "packages/niches/bhagya/doing/control-web",
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "DefaultModelType",
+      "Id",
+      "Language",
+      "Slug",
+      "db",
+      "db"
+    ],
+    "packageDependenciesIndexed": [
+      "Browser",
+      "Page",
+      "v4",
+      "Page",
+      "Page",
+      "Page",
+      "Page",
+      "Page",
+      "platform",
+      "Page",
+      "Page",
+      "FindRecaptchasResult",
+      "Browser",
+      "Page",
+      "Page",
+      "Page",
+      "LaunchOptions",
+      "Browser",
+      "Page",
+      "Page",
+      "Page",
+      "SolveRecaptchasResult",
+      "Page",
+      "Page",
+      "Page",
+      "Page"
+    ]
+  }
+}

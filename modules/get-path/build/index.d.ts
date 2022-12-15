@@ -18,5 +18,4 @@ export * from "./hasDependency";
 export * from "./isBundle";
 export * from "./isOperation";
 export * from "./isWorkspaceRoot";
-export * from "./makeRelative";
 //# sourceMappingURL=index.d.ts.map

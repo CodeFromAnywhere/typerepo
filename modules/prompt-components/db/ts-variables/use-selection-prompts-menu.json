@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671017285861,
+  "updatedAt": 1671017285861,
+  "deletedAt": 0,
+  "createdFirstAt": 1671017285861,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useSelectionPromptsMenu",
+  "slug": "use-selection-prompts-menu",
+  "operationRelativeTypescriptFilePath": "src/useSelectionPromptsMenu.tsx",
+  "type": {
+    "rawType": "(selectionPrompts: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPrompt\").ContextualPrompt[], contextualContent: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualContent\").ContextualContent) => { renderContextMenu: () => JSX.Element | null; openContextMenuProps: { ref: React.RefObject<HTMLDivElement>; onContextMenu: (event: React.MouseEvent<Element, MouseEvent>) => void; onTouchStart: (event: React.TouchEvent<Element>) => void; onTouchEnd: () => void; onClick: (mouseEvent: React.MouseEvent<Element, MouseEvent>) => void; style: React.CSSProperties; }; onClose: () => void; isOpen: boolean; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  selectionPrompts: ContextualPrompt[],\n  contextualContent: ContextualContent\n) => {\n  const showPromptAlert = usePromptResultAlert();\n\n  const contextSelection = useLastSelection();\n\n  /**\n   * TODO: also sort them here based on which selection you make (`.contextualContent.contextSelection`) and your settings (probably isFavorite first, but other sorting may be beneficial.\n   */\n  const promptItems = selectionPrompts.map((prompt) => {\n    const item: ContextMenuItem = {\n      onClick: () =>\n        processPrompt({\n          contextualPromptSlug: prompt.slug,\n          contextualContent: { ...contextualContent, contextSelection },\n          showPromptAlert,\n        }),\n      getTitle: () => prompt.name || \"Noname\",\n      // TODO: not sure if this is the right level, but eventually we want to filter based on the selection, maybe\n      getIsEnabled: () => true,\n    };\n\n    return item;\n  });\n\n  const alert = useAlert();\n\n  const selectionWordCount = contextSelection\n    ? contextSelection.split(\" \").length\n    : 0;\n\n  const isStatement = selectionWordCount > 1;\n  const isWord = selectionWordCount <= 4;\n\n  const { renderContextMenu, openContextMenuProps, onClose, isOpen } =\n    useContextMenu({\n      items: [\n        {\n          onClick: async () => {\n            if (!contextSelection) {\n              alert?.(\n                \"Select a word\",\n                `You didn't select a word or word-combination (up to 4 words)`\n              );\n              return;\n            }\n            const apiResult = await api.addWord(contextSelection, undefined);\n\n            showStandardResponse(apiResult);\n          },\n          getTitle: () => \"🧠 Add word\",\n          getIsEnabled: () => isWord,\n        },\n\n        {\n          onClick: async () => {\n            if (!contextSelection) {\n              alert?.(\n                \"Select a statement\",\n                `You didn't select a statement (minimum 2 words)`\n              );\n              return;\n            }\n\n            // NB: for now, don't let user add agreement and importancy, just assume the defaults. Let's see where this goes first\n\n            const apiResult = await api.addStatement(\n              contextSelection,\n              undefined,\n              undefined\n            );\n\n            showStandardResponse(apiResult);\n          },\n          getTitle: () => \"🧠 Add statement\",\n          getIsEnabled: () => isStatement,\n        },\n\n        {\n          getTitle: () => \"🕊 Free-form prompt\",\n          getIsEnabled: () => true,\n          onClick: async () => {\n            let question = prompt(\"What do you want to ask/prompt?\");\n\n            if (!question || question === \"\") {\n              return;\n            }\n\n            const customPromptContent = `I am reading this file:\\n\\n\\`\\`\\`\\n${contextualContent.contextContent}\\n\\`\\`\\`\\n\\nMore specifically, I'm looking at this part: \\n\\n\\`\\`\\`\\n${contextualContent.contextSelection}\\n\\`\\`\\`\\n\\n${question}`;\n\n            await processPrompt({\n              contextualContent,\n              showPromptAlert,\n              customPromptContent,\n            });\n          },\n        },\n\n        {\n          getTitle: () => \"🎤 Speak\",\n          getIsEnabled: () => true,\n          onClick: () => {\n            alert?.(\n              \"Coming soon!\",\n              <Div>\n                <P>\n                  This button should let you record your voice so you can ask a\n                  question through human speech. The speech will be converted\n                  into text by whisper, it will then choose an existing prompt\n                  action, or if it can't find that, do a free-form prompt.\n                </P>\n\n                <P>\n                  P.S. Would be nice if this option is there by default, also\n                  for other menus, or it's even accessible via other ways, but\n                  this is a great way to try it out first.\n                </P>\n              </Div>\n            );\n          },\n        },\n\n        ...promptItems,\n      ],\n    });\n\n  // ensure the thing only updates if the menu opens\n  const result = {\n    renderContextMenu,\n    openContextMenuProps,\n    onClose,\n    isOpen,\n  };\n\n  return result;\n}",
+  "description": "Provides the props needed to render a context-menu that allows you to add prompts and other things into your database. All actions require api access.",
+  "id": "qqtwtkjcujcdgpnjxmsumtod"
+}

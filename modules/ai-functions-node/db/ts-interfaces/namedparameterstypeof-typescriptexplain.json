@@ -1,0 +1,70 @@
+{
+  "createdAt": 1671105547797,
+  "updatedAt": 1671105547797,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105547797,
+  "id": "namedparameterstypeof-typescriptexplain",
+  "name": "NamedParameters<typeof typescriptExplain>",
+  "slug": "namedparameterstypeof-typescriptexplain",
+  "operationRelativeTypescriptFilePath": "src/prompts.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "contextContent": {
+          "type": "string"
+        },
+        "selectionContent": {
+          "type": "string"
+        },
+        "isDeferred": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "contextContent",
+        "selectionContent"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "contextContent",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "selectionContent",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isDeferred",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof typescriptExplain>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

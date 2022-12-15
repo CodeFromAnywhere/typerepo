@@ -1,0 +1,71 @@
+{
+  "createdAt": 1671105565880,
+  "updatedAt": 1671105565880,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105565880,
+  "id": "namedparameterstypeof-setisfavoritepromptresult",
+  "name": "NamedParameters<typeof setIsFavoritePromptResult>",
+  "slug": "namedparameterstypeof-setisfavoritepromptresult",
+  "operationRelativeTypescriptFilePath": "src/setIsFavoritePromptResult.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        },
+        "isFavorite": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "projectRelativePath",
+        "id",
+        "isFavorite"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "id",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isFavorite",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof setIsFavoritePromptResult>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

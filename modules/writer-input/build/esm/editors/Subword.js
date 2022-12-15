@@ -18,3 +18,4 @@ Subword.example = [
 var add = function (a, b) { return a + b; };
 add.example = [function () { return add(1, 2); }];
 // (await db.get("Example")).filter(x=>x.name==="add")
+//# sourceMappingURL=Subword.js.map

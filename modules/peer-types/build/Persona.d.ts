@@ -80,5 +80,8 @@ export interface Persona extends SlugModelType {
     useGithubOrganisation?: boolean;
     mediaCredentialIds?: Id[];
     mediaCredentials?: MediaCredential[];
+    apiKey2Captcha?: string;
+    openAiPassword?: string;
+    openAiEmail?: string;
 }
 //# sourceMappingURL=Persona.d.ts.map

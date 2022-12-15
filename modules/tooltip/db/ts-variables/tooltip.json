@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669885165069,
-  "updatedAt": 1669885165069,
+  "createdAt": 1671021412568,
+  "updatedAt": 1671021412568,
   "deletedAt": 0,
-  "createdFirstAt": 1669885165069,
+  "createdFirstAt": 1671021412568,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "tooltip",
   "operationRelativeTypescriptFilePath": "src/Tooltip.tsx",
   "type": {
-    "rawType": "(props: { tooltip: React.ReactElement<any, string | React.JSXElementConstructor<any>>; children: React.ReactNode; placement?: import(\"/Users/king/King/operations/node_modules/@popperjs/core/lib/enums\").Placement | undefined; }) => JSX.Element",
+    "rawType": "(props: { tooltip: React.ReactElement<any, string | React.JSXElementConstructor<any>> | null; children: React.ReactNode; placement?: import(\"/Users/king/King/operations/node_modules/@popperjs/core/lib/enums\").Placement | undefined; }) => JSX.Element",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: {\n  tooltip: React.ReactElement;\n  children: React.ReactNode;\n  placement?: Placement;\n}) => {\n  const [popoverShow, setPopoverShow] = React.useState(false);\n  const btnRef = React.createRef<HTMLAnchorElement>();\n  const popoverRef = React.createRef<HTMLSpanElement>();\n  const openTooltip = () => {\n    if (!btnRef.current || !popoverRef.current) return;\n    createPopper(btnRef.current, popoverRef.current, {\n      placement: props.placement || \"auto\",\n    });\n    setPopoverShow(true);\n  };\n  const closeTooltip = () => {\n    setPopoverShow(false);\n  };\n\n  return (\n    <span>\n      <span\n        className={`mb-8 dark:text-gray-100 text-black bg-slate-200 dark:bg-slate-800 p-2 z-30 text-sm max-w-xs break-words rounded-md${\n          popoverShow ? \" block\" : \" hidden\"\n        }`}\n        ref={popoverRef}\n      >\n        {props.tooltip}\n      </span>\n      <span onMouseEnter={openTooltip} onMouseLeave={closeTooltip} ref={btnRef}>\n        {props.children}\n      </span>\n    </span>\n  );\n}",
+  "value": "(props: {\n  tooltip: React.ReactElement | null;\n  children: React.ReactNode;\n  placement?: Placement;\n}) => {\n  const [hoverLink, setHoverLink] = useState(false);\n\n  const [tooltipTimeout, setTooltipTimeout] = useState<NodeJS.Timeout | null>(\n    null\n  );\n  const [linkTimeout, setLinkTimeout] = useState<NodeJS.Timeout | null>(null);\n\n  const btnRef = createRef<HTMLAnchorElement>();\n  const popoverRef = createRef<HTMLSpanElement>();\n  const [hoverTooltip, setHoverTooltip] = useState(false);\n\n  const onEnterLink = () => {\n    if (!btnRef.current || !popoverRef.current) return;\n    createPopper(btnRef.current, popoverRef.current, {\n      placement: props.placement || \"auto\",\n    });\n    setHoverLink(true);\n    if (linkTimeout) {\n      clearTimeout(linkTimeout);\n    }\n  };\n\n  const onLeaveLink = () => {\n    const timeout = setTimeout(() => setHoverLink(false), 500);\n    setLinkTimeout(timeout);\n  };\n\n  const popoverShow = hoverTooltip || hoverLink;\n\n  const onEnterTooltip = () => {\n    if (tooltipTimeout) {\n      clearTimeout(tooltipTimeout);\n    }\n    setHoverTooltip(true);\n  };\n\n  const onLeaveTooltip = () => {\n    const timeout = setTimeout(() => setHoverTooltip(false), 500);\n    setTooltipTimeout(timeout);\n  };\n\n  return (\n    <span>\n      {props.tooltip ? (\n        <span\n          onMouseEnter={onEnterTooltip}\n          onMouseLeave={onLeaveTooltip}\n          className={`mb-8 dark:text-gray-100 text-black bg-slate-200 dark:bg-slate-800 p-2 z-30 text-sm max-w-xs break-words rounded-md${\n            popoverShow ? \" block\" : \" hidden\"\n          }`}\n          ref={popoverRef}\n        >\n          {props.tooltip}\n        </span>\n      ) : null}\n      <span onMouseEnter={onEnterLink} onMouseLeave={onLeaveLink} ref={btnRef}>\n        {props.children}\n      </span>\n    </span>\n  );\n}",
   "description": "",
-  "id": "lckdktvfrxepjmzhhxhoeyri"
+  "id": "oxskasyzbiaxvbfncoslxszt"
 }

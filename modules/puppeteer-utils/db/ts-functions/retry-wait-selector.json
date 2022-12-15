@@ -1,0 +1,94 @@
+{
+  "createdAt": 1671098552483,
+  "updatedAt": 1671098552483,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098552483,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/retryWaitSelector.ts",
+  "commentsInside": [],
+  "rawText": " async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: Page;\n  /** the css selector to search for */\n  selector: string;\n  /**  maxium time to retry. defaults to 30 seconds. */\n  maxTime: number;\n}): Promise<{ success: boolean; found?: any }> => {\n  const { page, selector, maxTime = 30000 } = props;\n  return new Promise(async (resolve, reject) => {\n    let totalTime = 0;\n    while (totalTime < maxTime) {\n      try {\n        const found = await page.waitForSelector(selector, { timeout: 1000 });\n        resolve({ success: true, found });\n      } catch (err) {\n        totalTime += 1000;\n        console.log(\"retrying... \" + selector + \" / totalTime \" + totalTime);\n      }\n    }\n    resolve({ success: false });\n  });\n}",
+  "name": "retryWaitSelector",
+  "slug": "retry-wait-selector",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "page": {
+            "$ref": "#/definitions/Page",
+            "description": "the page element from puppeteer got with browser.pages"
+          },
+          "selector": {
+            "type": "string",
+            "description": "the css selector to search for"
+          },
+          "maxTime": {
+            "type": "number",
+            "description": "maxium time to retry. defaults to 30 seconds."
+          }
+        },
+        "required": [
+          "page",
+          "selector",
+          "maxTime"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "page",
+            "required": true,
+            "schema": {
+              "fullComment": "the page element from puppeteer got with browser.pages\n\nPage provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "selector",
+            "required": true,
+            "schema": {
+              "fullComment": "the css selector to search for",
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxTime",
+            "required": true,
+            "schema": {
+              "fullComment": "maxium time to retry. defaults to 30 seconds.",
+              "type": "number"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "Utility function that loops waiting a second and checking\nif selector showed up. Fails if it takes more than 30 seconds.\n\nthis is good to use instead of page.waitForTimeout + page.waitForSelector",
+  "returnType": {
+    "rawType": "Promise<{ success: boolean; found?: any; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 952,
+    "lines": 26,
+    "bytes": 952,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 37,
+    "linesPerFile": 26,
+    "numberOfFiles": 1
+  },
+  "id": "iqwtfaaatpqdevwhmqkfzsjk"
+}

@@ -15,3 +15,4 @@ export var renderMarkdownChunk = function (chunk, config) {
         chunk.content ? renderMarkdownContent(chunk.content, config) : null, (_a = chunk.children) === null || _a === void 0 ? void 0 :
         _a.map(function (chunk) { return renderMarkdownChunk(chunk, config); })));
 };
+//# sourceMappingURL=renderMarkdownChunk.js.map

@@ -1,2 +1,27 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.findLinks=void 0;var js_util_1=require("js-util"),flattenMarkdownString_1=require("./flattenMarkdownString"),asset_functions_js_1=require("asset-functions-js"),findLinks=function(t){return(0,flattenMarkdownString_1.flattenMarkdownString)(t,(function(t){return"link"===t.type})).map((function(t){if("link"===t.type)return{alt:t.text||"",href:t.href,type:(0,asset_functions_js_1.getTypeFromUrlOrPath)(t.href)}})).filter(js_util_1.notEmpty)};exports.findLinks=findLinks;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.findLinks = void 0;
+var js_util_1 = require("js-util");
+var flattenMarkdownString_1 = require("./flattenMarkdownString");
+var asset_functions_js_1 = require("asset-functions-js");
+/**
+ * find all links
+ */
+var findLinks = function (markdownString) {
+    var result = (0, flattenMarkdownString_1.flattenMarkdownString)(markdownString, function (token) { return token.type === "link"; });
+    var links = result
+        .map(function (token) {
+        if (token.type !== "link")
+            return;
+        var markdownEmbed = {
+            alt: token.text || "",
+            href: token.href,
+            type: (0, asset_functions_js_1.getTypeFromUrlOrPath)(token.href),
+        };
+        return markdownEmbed;
+    })
+        .filter(js_util_1.notEmpty);
+    return links;
+};
+exports.findLinks = findLinks;
 //# sourceMappingURL=findLinks.js.map

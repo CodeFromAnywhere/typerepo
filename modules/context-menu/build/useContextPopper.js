@@ -1,8 +1,91 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,n=1,r=arguments.length;n<r;n++)for(var o in t=arguments[n])Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o]);return e},__assign.apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0}),exports.useContextPopper=void 0;var jsx_runtime_1=require("react/jsx-runtime"),react_popper_1=require("react-popper"),react_1=require("react"),useContext_1=require("./useContext"),useContextPopper=function(e){var t=e.longTouchDurationMs,n=(0,react_1.useState)(null),r=n[0],o=n[1];(0,react_1.useEffect)((function(){"undefined"!=typeof window&&
-// Needed to make it go away when clicking outside of the popper, doesn't work for textarea though
-window.addEventListener("click",(function(){o(null)}))}),[]);var i=(0,useContext_1.useContext)((function(t){o(t),console.log("callback called",e)}),{longTouchDurationMs:t}),s=(0,react_1.useMemo)((function(){return{
-// This is going to create a virtual reference element
-getBoundingClientRect:function(){return console.log({contextEvent:r}),{top:(null==r?void 0:r.clientY)||10,left:(null==r?void 0:r.clientX)||10,bottom:0,right:0,width:0,height:0,x:0,y:0,toJSON:function(){return""}}}}}),[r]),u=(0,react_1.useRef)(null),p=(0,react_popper_1.usePopper)(s,u.current,{strategy:"fixed",placement:"auto-start",modifiers:[{name:"preventOverflow",enabled:!1}]}),c=p.styles,a=p.attributes;return{openContextPopperProps:__assign(__assign({},i),{ref:u}),renderContextPopper:function(){return r?(0,jsx_runtime_1.jsx)("div",__assign({onClick:function(e){
-// NB: needed to ensure it doesn't close due to the window.click
-e.stopPropagation()},style:c.popper},a.popper,{children:e.renderPopper({id:r.id})})):null},onClose:function(){return o(null)},isOpen:!!r}};exports.useContextPopper=useContextPopper;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.useContextPopper = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var react_popper_1 = require("react-popper");
+var react_1 = require("react");
+var useContext_1 = require("./useContext");
+/**
+ * Use this hook if you want to create your own custom render that opens on the right location once the `.onContextMenu` is fired.
+ */
+var useContextPopper = function (props) {
+    var longTouchDurationMs = props.longTouchDurationMs;
+    var _a = (0, react_1.useState)(null), contextEvent = _a[0], setContextEvent = _a[1];
+    (0, react_1.useEffect)(function () {
+        if (typeof window === "undefined")
+            return;
+        // Needed to make it go away when clicking outside of the popper, doesn't work for textarea though
+        window.addEventListener("click", function () {
+            setContextEvent(null);
+        });
+    }, []);
+    var contextProps = (0, useContext_1.useContext)(function (contextEvent) {
+        setContextEvent(contextEvent);
+        console.log("callback called", props, contextEvent);
+    }, { longTouchDurationMs: longTouchDurationMs });
+    var virtualReference = (0, react_1.useMemo)(function () {
+        if (!contextEvent) {
+            //   console.log("NO context event,SHOULD NOT HAPPEN");
+            return;
+        }
+        // console.log("YAY");
+        // console.log({
+        //   contextEvent,
+        //   x: contextEvent?.clientX,
+        //   y: contextEvent?.clientY,
+        // });
+        return {
+            // This is going to create a virtual reference element
+            getBoundingClientRect: function () {
+                // console.log({ contextEvent });
+                var clientRect = {
+                    top: (contextEvent === null || contextEvent === void 0 ? void 0 : contextEvent.clientY) || 10,
+                    left: (contextEvent === null || contextEvent === void 0 ? void 0 : contextEvent.clientX) || 10,
+                    bottom: 0,
+                    right: 0,
+                    width: 0,
+                    height: 0,
+                    x: 0,
+                    y: 0,
+                    toJSON: function () {
+                        return "";
+                    },
+                };
+                return clientRect;
+            },
+        };
+    }, [contextEvent]);
+    var popperRef = (0, react_1.useRef)(null);
+    var _b = (0, react_popper_1.usePopper)(virtualReference, popperRef.current, {
+        strategy: "fixed",
+        placement: "auto-start",
+        modifiers: [{ name: "preventOverflow", enabled: false }],
+    }), styles = _b.styles, attributes = _b.attributes;
+    var renderContextPopper = function () {
+        return virtualReference && contextEvent ? ((0, jsx_runtime_1.jsx)("div", __assign({ onClick: function (e) {
+                // NB: needed to ensure it doesn't close due to the window.click
+                e.stopPropagation();
+            }, style: styles.popper }, attributes.popper, { children: props.renderPopper({ id: contextEvent.id }) }))) : null;
+    };
+    var openContextPopperProps = __assign(__assign({}, contextProps), { ref: popperRef });
+    var onClose = function () { return setContextEvent(null); };
+    return {
+        openContextPopperProps: openContextPopperProps,
+        renderContextPopper: renderContextPopper,
+        onClose: onClose,
+        isOpen: !!contextEvent,
+    };
+};
+exports.useContextPopper = useContextPopper;
 //# sourceMappingURL=useContextPopper.js.map

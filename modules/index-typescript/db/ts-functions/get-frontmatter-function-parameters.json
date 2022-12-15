@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669055602276,
-  "updatedAt": 1669055602276,
+  "createdAt": 1671011056744,
+  "updatedAt": 1671011056744,
   "deletedAt": 0,
-  "createdFirstAt": 1669055602276,
+  "createdFirstAt": 1671011056744,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getTsStatements.ts",
   "commentsInside": [],
-  "rawText": " (frontmatter: Frontmatter) => {\n  const isApiExposed = frontmatter.isApiExposed === true;\n\n  const runEveryPeriod = runEveryPeriodStringArray.includes(\n    String(frontmatter.runEveryPeriod)\n  )\n    ? (String(frontmatter.runEveryPeriod) as RunEveryPeriodEnum)\n    : undefined;\n\n  const publicAuthorizationArray = frontmatter.publicAuthorization\n    ? String(frontmatter.publicAuthorization)\n        ?.split(\",\")\n        .map((x) => x.trim())\n    : undefined;\n\n  // const publicAuthorizationFrontmatter = publicAuthorizationArray\n  //   ?.filter((text) => authorizationLevelStringArray.includes(text))\n  //   .map((string) => string as AuthorizationLevel);\n\n  // NB: by default, users are authorized to search and read docs\n  // const publicAuthorization: AuthorizationLevel[] =\n  //   publicAuthorizationFrontmatter || [\"read\", \"search\"];\n\n  const result: {\n    runEveryPeriod: TsFunction[\"runEveryPeriod\"];\n    isApiExposed: TsFunction[\"isApiExposed\"];\n  } = { runEveryPeriod, isApiExposed };\n\n  return result;\n}",
+  "rawText": " (frontmatter: Frontmatter) => {\n  const isApiExposed = frontmatter.isApiExposed === \"true\";\n\n  const runEveryPeriod = runEveryPeriodStringArray.includes(\n    String(frontmatter.runEveryPeriod)\n  )\n    ? (String(frontmatter.runEveryPeriod) as RunEveryPeriodEnum)\n    : undefined;\n\n  const publicAuthorizationArray = frontmatter.publicAuthorization\n    ? String(frontmatter.publicAuthorization)\n        ?.split(\",\")\n        .map((x) => x.trim())\n    : undefined;\n\n  // const publicAuthorizationFrontmatter = publicAuthorizationArray\n  //   ?.filter((text) => authorizationLevelStringArray.includes(text))\n  //   .map((string) => string as AuthorizationLevel);\n\n  // NB: by default, users are authorized to search and read docs\n  // const publicAuthorization: AuthorizationLevel[] =\n  //   publicAuthorizationFrontmatter || [\"read\", \"search\"];\n\n  const result: {\n    runEveryPeriod: TsFunction[\"runEveryPeriod\"];\n    isApiExposed: TsFunction[\"isApiExposed\"];\n  } = { runEveryPeriod, isApiExposed };\n\n  return result;\n}",
   "name": "getFrontmatterFunctionParameters",
   "slug": "get-frontmatter-function-parameters",
   "parameters": [],
@@ -58,13 +58,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 1014,
+    "characters": 1016,
     "lines": 30,
-    "bytes": 1014,
+    "bytes": 1016,
     "bytesPerCharacter": 1,
     "charactersPerLine": 34,
     "linesPerFile": 30,
     "numberOfFiles": 1
   },
-  "id": "kwrktbifcdzugcmrdndsyztf"
+  "id": "ghyyizgpranmvlgjmhlwwckd"
 }

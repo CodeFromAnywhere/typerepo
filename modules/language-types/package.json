@@ -32,7 +32,9 @@
       "dependenciesBuildsFailed": false,
       "indexErrors": [],
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/types/language-types/src/WordMatrix.ts. Error: Error: Interface 'WordMatrix' cannot simultaneously extend types 'SlugModelType' and 'WordInfoObject'.\\n  Named property 'id' of types 'SlugModelType' and 'WordInfoObject' are not identical.\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/types/language-types/src/WordCombination.ts. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "cjs",
@@ -40,8 +42,10 @@
     "folderNameIndexed": "language-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670527909181,
+    "lastRebuildAt": 1670923236192,
     "operationDependenciesIndexed": [
+      "DefaultModelType",
+      "Id",
       "MarkdownModelType",
       "Slug",
       "DefaultModelType",
@@ -52,6 +56,8 @@
       "Id",
       "KeyValueMarkdownModelType",
       "MarkdownModelType",
+      "Slug",
+      "SlugModelType",
       "Slug",
       "SlugModelType",
       "BackendAsset",
@@ -66,28 +72,28 @@
     "relativeOperationLocationPathIndexed": "operations/tools/types",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 4,
-        "lines": 380,
-        "characters": 10213,
-        "bytes": 10213
+        "numberOfFiles": 5,
+        "lines": 406,
+        "characters": 11158,
+        "bytes": 11158
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 134,
-        "characters": 4337,
-        "bytes": 4337
+        "lines": 139,
+        "characters": 4282,
+        "bytes": 4282
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 521,
-        "characters": 12144,
-        "bytes": 12144
+        "lines": 525,
+        "characters": 12461,
+        "bytes": 12461
       },
       "size": {
-        "bytes": 26694,
-        "characters": 26694,
-        "lines": 1035,
-        "numberOfFiles": 7
+        "bytes": 27901,
+        "characters": 27901,
+        "lines": 1070,
+        "numberOfFiles": 8
       }
     },
     "hasGeneratedImportsIndexed": false

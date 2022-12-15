@@ -1,4 +1,4 @@
-export declare type CustomUrlStoreConfig = {
+export type CustomUrlStoreConfig = {
     type: "string" | "number" | "boolean";
     isArray?: boolean;
     allowUndefined?: boolean;

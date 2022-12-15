@@ -10,3 +10,4 @@ export var TitleContainer = function (_a) {
             React.createElement(Div, { className: "flex flex-row gap-3" }, buttons.filter(function (x) { return x.isEnabled !== false; }).map(LabeledButton))),
         children));
 };
+//# sourceMappingURL=TitleContainer.js.map

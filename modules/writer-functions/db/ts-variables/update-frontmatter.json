@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671101686334,
+  "updatedAt": 1671101686334,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101686334,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "updateFrontmatter",
+  "slug": "update-frontmatter",
+  "operationRelativeTypescriptFilePath": "src/updateFrontmatter.ts",
+  "type": {
+    "rawType": "(config: { projectRelativePath: string; frontmatter: { [key: string]: string; }; }) => Promise<{ isSuccessful: boolean; message?: string | undefined; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (config: {\n  projectRelativePath: string;\n  frontmatter: { [key: string]: string };\n}): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return {\n      isSuccessful: false,\n      message: \"No projectroot\",\n    };\n  }\n\n  const { frontmatter, projectRelativePath } = config;\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  const exists = fs.existsSync(absolutePath);\n  if (!exists) {\n    return { isSuccessful: false, message: \"File/folder doensn't exist\" };\n  }\n\n  const pathStats = await fs.stat(absolutePath);\n\n  const isFolder = pathStats.isDirectory();\n\n  const finalAbsolutePath = isFolder\n    ? path.join(absolutePath, \"README.md\")\n    : absolutePath;\n\n  // merge frontmatter with old frontmatter\n\n  const existsFinal = fs.existsSync(finalAbsolutePath);\n\n  const markdownParse = existsFinal\n    ? await readMarkdownFile(finalAbsolutePath)\n    : null;\n  const oldFrontmatter: Frontmatter = existsFinal\n    ? markdownParse?.parameters || {}\n    : {};\n\n  const newFrontmatter: Frontmatter = { ...oldFrontmatter, ...frontmatter };\n\n  const newMarkdownParse: MarkdownParse = markdownParse\n    ? {\n        ...markdownParse,\n        parameters: newFrontmatter,\n      }\n    : {\n        parameters: newFrontmatter,\n        raw: \"\",\n      };\n\n  const string = markdownParseToMarkdownString(newMarkdownParse);\n\n  console.log({ newString: string });\n  await fs.writeFile(finalAbsolutePath, string, \"utf8\");\n  return { isSuccessful: true };\n}",
+  "description": "Update frontmatter from a markdownfile by overwriting it, keeping old values that you don't change\n\nIf you provide a folder as projectRelativePath, it stores it to README.md in that folder, even if that doens't exist.",
+  "id": "ujluyqcceaqzzpcrdlrjoexv"
+}

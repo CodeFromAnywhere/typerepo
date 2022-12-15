@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055619131,
-  "updatedAt": 1669055619131,
+  "createdAt": 1671011076365,
+  "updatedAt": 1671011076365,
   "deletedAt": 0,
-  "createdFirstAt": 1669055619131,
+  "createdFirstAt": 1671011076365,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -46,5 +46,5 @@
   },
   "value": "async (\n  eventName,\n  filePath\n) => {\n  const name = path.parse(filePath).name;\n  process.stdout.write(`Indexing file: ${name}`);\n\n  await indexTypescript({\n    filePaths: [filePath],\n    manualProjectRoot: null,\n    showLogging: false,\n  });\n\n  console.log(\"✅\\n\");\n}",
   "description": "Index a single typescript file",
-  "id": "arswztzclqltiornqsygmqwg"
+  "id": "mtaaoamtsxeahkhemgeoagcq"
 }

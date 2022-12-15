@@ -28,3 +28,4 @@ export declare const MarkedToken: (props: {
      */
     testModeEnabled?: boolean | undefined;
 }) => JSX.Element;
+//# sourceMappingURL=MarkedToken.d.ts.map

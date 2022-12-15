@@ -8,3 +8,4 @@ export declare const MarkdownParsePresentation: (props: {
     projectRelativeBaseFolderPath: string;
     projectRelativeMarkdownFilePath: string;
 }) => JSX.Element | null;
+//# sourceMappingURL=MarkdownParsePresentation.d.ts.map

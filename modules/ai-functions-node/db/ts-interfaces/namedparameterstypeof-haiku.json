@@ -1,0 +1,59 @@
+{
+  "createdAt": 1671105547796,
+  "updatedAt": 1671105547796,
+  "deletedAt": 0,
+  "createdFirstAt": 1671105547796,
+  "id": "namedparameterstypeof-haiku",
+  "name": "NamedParameters<typeof haiku>",
+  "slug": "namedparameterstypeof-haiku",
+  "operationRelativeTypescriptFilePath": "src/prompts.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "selectionContent": {
+          "type": "string"
+        },
+        "isDeferred": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "selectionContent"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "selectionContent",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isDeferred",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof haiku>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,37 +1,352 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(t){for(var e,r=1,i=arguments.length;r<i;r++)for(var n in e=arguments[r])Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t},__assign.apply(this,arguments)},__rest=this&&this.__rest||function(t,e){var r={};for(var i in t)Object.prototype.hasOwnProperty.call(t,i)&&e.indexOf(i)<0&&(r[i]=t[i]);if(null!=t&&"function"==typeof Object.getOwnPropertySymbols){var n=0;for(i=Object.getOwnPropertySymbols(t);n<i.length;n++)e.indexOf(i[n])<0&&Object.prototype.propertyIsEnumerable.call(t,i[n])&&(r[i[n]]=t[i[n]])}return r},__spreadArray=this&&this.__spreadArray||function(t,e,r){if(r||2===arguments.length)for(var i,n=0,a=e.length;n<a;n++)!i&&n in e||(i||(i=Array.prototype.slice.call(e,0,n)),i[n]=e[n]);return t.concat(i||Array.prototype.slice.call(e))},__importDefault=this&&this.__importDefault||function(t){return t&&t.__esModule?t:{default:t}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.setConfig=exports.DataForm=exports.errorOnField=exports.isObject=exports.Input=exports.DefaultInputContainer=exports.makeInputField=exports.notEmpty=exports.inputClass=exports.inputClassWithoutWidth=exports.deepEqual=void 0;var jsx_runtime_1=require("react/jsx-runtime"),react_1=require("react"),react_with_native_1=require("react-with-native"),react_with_native_ui_1=require("react-with-native-ui");Object.defineProperty(exports,"inputClass",{enumerable:!0,get:function(){return react_with_native_ui_1.inputClass}});var react_2=__importDefault(require("fast-deep-equal/react"));exports.deepEqual=react_2.default;var inputClassWithoutWidth=react_with_native_ui_1.bareInputClass;exports.inputClassWithoutWidth=inputClassWithoutWidth;var isWeb="undefined"!=typeof window&&!!window.scrollTo,sameFieldArray=function(t,e){var r=t.map((function(t){t.shouldHide,t.titleFromState,t.hasError;return __rest(t,["shouldHide","titleFromState","hasError"])})),i=e.map((function(t){t.shouldHide,t.titleFromState,t.hasError;return __rest(t,["shouldHide","titleFromState","hasError"])}));
-// console.log({ simpleArr1, simpleArr2, isDeepEqual });
-return(0,react_2.default)(r,i)};function notEmpty(t){return null!=t}exports.notEmpty=notEmpty;var makeInputField=function(t,e){return function(){return __assign({type:t},e)}};exports.makeInputField=makeInputField;var GLOBAL_PROPERTY_PATH="__GLOBAL__",DefaultInputContainer=function(t){var e=t.children,r=t.startSection,i=t.sectionTitle,n=t.title,a=t.description,s=t.error,o=t.errorClassName;return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[r?(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({style:{display:"flex",height:40,justifyContent:"center",paddingLeft:10}},{children:i?(0,jsx_runtime_1.jsx)(react_with_native_1.P,{children:(0,jsx_runtime_1.jsx)(react_with_native_1.Strong,{children:i})}):(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{style:{height:40}})})):null,(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,__assign({className:"pt-0 mb-6",style:{marginBottom:10}},{children:[n?(0,jsx_runtime_1.jsx)(react_with_native_1.Label,__assign({className:"mb-2 text-sm font-bold"},{children:n})):null,a&&(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({className:"flex mx-3 mb-2 items-start "},{children:(0,jsx_runtime_1.jsx)(react_with_native_1.P,__assign({className:"text-gray-500 italic"},{children:a}))})),s?(0,jsx_runtime_1.jsx)(react_with_native_1.P,__assign({className:o||"mr-3 mb-2 text-red-500"},{children:s||"Invalid value"})):null,(0,jsx_runtime_1.jsx)(react_with_native_1.Div,{children:e})]}))]})};exports.DefaultInputContainer=DefaultInputContainer;var getPlugin=function(t,e){return t?e[t]:e[Object.keys(e)[0]]},Input=function(t){var e,r=t.type,i=t.plugin,n=t.title,a=t.onChange,s=t.value,o=t.isLast,l=t.startSection,u=t.sectionTitle,_=t.next,c=t.extra,d=t.errors,f=t.reference,p=t.description,m=t.config,v=t.uniqueFieldId,h=t.renderInputContainer,x=t.errorClassName,g=t.fieldName,j=i,y=h||exports.DefaultInputContainer;return(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({ref:f},{children:(0,jsx_runtime_1.jsx)(y,__assign({},{description:p,sectionTitle:u,startSection:l,title:n,next:_,isLast:o,id:v,type:r,error:!i.hideContainerError&&(null===(e=null==d?void 0:d.find((0,exports.errorOnField)(g)))||void 0===e?void 0:e.message),extra:c,config:m,errorClassName:x},{children:(0,jsx_runtime_1.jsx)(j,__assign({},{uniqueFieldId:v,fieldName:g,config:m,extra:c,onChange:a,value:s,errors:d,errorClassName:x}))}))}))};exports.Input=Input;var DefaultTitle=function(t){var e=t.title,r=t.backButton;return e?(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,__assign({className:"flex items-center mb-10 "},{children:[r&&(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({onClick:r,className:"p-4 cursor-pointer"},{children:"back"})),(0,jsx_runtime_1.jsx)(react_with_native_1.H2,__assign({className:"text-2xl font-bold"},{children:e}))]})):null};function isObject(t){return null!=t&&"object"==typeof t}exports.isObject=isObject;var errorOnField=function(t){return function(e){return e.propertyPath===t||e.propertyPath.startsWith(t+".")}};exports.errorOnField=errorOnField;var DataForm=function(t){
-//sometimes use defaultValues (deprecated)
-var e,r,i=t.fields,n=t.defaultValues,a=t.initialValues,s=t.onSubmit,o=t.withSubmitProps,l=t.noSubmit,u=t.submitButtonText,_=t.submitButtonColor,c=t.title,d=t.backButton,f=t.plugins,p=t.renderSubmitComponent,m=t.renderInputContainer,v=t.stickySubmit,h=t.renderTitle,x=t.submitClassName,g=t.errorClassName,j=t.successClassName;if(a=a||n,!f)throw new Error("No plugins given");
-//Generate unique id for the form
-var y=(0,react_1.useState)("Form".concat(String(Math.round(1e6*Math.random()))))[0],w=(0,react_1.useState)([]),b=w[0],C=w[1],P=(0,react_1.useState)([]),O=P[0],S=P[1];(0,react_1.useEffect)((function(){var t=i.map((function(t){return t()}));sameFieldArray(t,O)||(C(t.map((function(t){return __assign(__assign({},t),{reference:(0,react_1.createRef)()})}))),S(t))}),[i]);var F=i.reduce((function(t,e){var r,i=e().type,n=getPlugin(i,f).component.defaultInitialValue,a=e().initialValue,s=e().field,o=void 0!==a?a:void 0!==n?n:void 0;return __assign(__assign({},t),((r={})[s]=o,r))}),{}),D=__assign(__assign({},F),a),A=(0,react_1.useState)(D),I=A[0],N=A[1],E=(0,react_1.useState)(),T=E[0],B=E[1];(0,react_1.useEffect)((function(){T&&(0,react_2.default)(D,T)||(
-// console.log("initialValues have changed");
-N(D),B(D))}),[D]);var L=(0,react_1.useState)(!1),W=L[0],k=L[1],H=(0,react_1.useState)([]),R=H[0],q=H[1],Y=(0,react_1.useState)(),G=Y[0],M=Y[1],V=b.filter((function(t){var e,r;return!(null===(e=t.shouldHide)||void 0===e?void 0:e.call(t,I))&&(null===(r=t.hasError)||void 0===r?void 0:r.call(t,I[t.field],I))})),z=null===(r=null===(e=V[0])||void 0===e?void 0:e.reference)||void 0===r?void 0:r.current;function J(t){var e,r=i.reduce((function(e,r){var i,n,a,s,o=!(null===(n=(i=r()).shouldHide)||void 0===n?void 0:n.call(i,t)),l=null===(s=(a=r()).hasError)||void 0===s?void 0:s.call(a,t[r().field],t),u=o&&l,_="string"==typeof u?[{propertyPath:r().field,message:u}]:Array.isArray(u)?u:[];return __spreadArray(__spreadArray([],e,!0),_,!0)}),[]);
-if(q(r),0===(null==r?void 0:r.length))
-//no errors
-k(!0),s(t,(function(t){M(t),k(!1)}),(function(t){!function(t){var e,r,n,a;if(t){
-//if the rejection provides a string, just return an array with 1 element: that string, on the global property path
-//however, if it's an error array, return that. But make sure that if the propertyPath doesn't exist, it's still rendered globally.
-var s="string"==typeof t?[{propertyPath:GLOBAL_PROPERTY_PATH,message:t}]:t.map((function(t){var e=t.propertyPath;return{message:t.message,propertyPath:i.map((function(t){return t().field})).find((function(t){return e===t||e.startsWith("".concat(t,"."))}))?e:GLOBAL_PROPERTY_PATH}}));
-//this only happens when there are no frontend errors, so it's safe to replace errors
-q(s);
-//scroll to the first field that contains an error
-var o=b.filter((function(t){return void 0!==s.find((0,exports.errorOnField)(t.field))}))[0];if(isWeb){var l=((null===(n=null===(r=null===(e=null==o?void 0:o.reference)||void 0===e?void 0:e.current)||void 0===r?void 0:r.getBoundingClientRect)||void 0===n?void 0:n.call(r).top)||0)+(window.scrollY||0)-100;
-// console.log("setErrorsReject: scrolling to first error field");
-null===(a=window.scrollTo)||void 0===a||a.call(window,{top:l,behavior:"smooth"})}}}(t),k(!1)}));else
-//scroll to the error
-/// onError("Please fill in all fields correctly");
-if(isWeb){var n=((null==z?void 0:z.getBoundingClientRect().top)||0)+window.scrollY-100;
-// console.log("onClickSubmit: scrolling to first error field");
-null===(e=window.scrollTo)||void 0===e||e.call(window,{top:n,behavior:"smooth"})}}var K=!W&&0===V.length,Q={loading:W,available:K,submitButtonText:u,submitButtonColor:_,
-//should be overwritten on state change
-onSubmit:function(){return J(I)},state:I};(0,react_1.useEffect)((function(){
-//console.log({ withSubmitProps: submitProps });
-null==o||o(Q)}),[W,K,u,_,z]);var U=h||DefaultTitle,X=function(){return l?null:p?p(Q):(0,jsx_runtime_1.jsxs)(react_with_native_1.Button,__assign({disabled:W,className:"".concat(K?"".concat(_||"bg-green-500"):"bg-gray-300","  flex justify-center flex-row w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"),onClick:function(){return J(I)},
-//......Extra
-style:{backgroundColor:"#4ade80",color:"white",width:"100%",marginTop:5,marginBottom:5,display:"flex",justifyContent:"center",borderRadius:10,alignItems:"center",borderColor:"white",padding:8}},{children:[W?(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({className:"mr-2"},{children:(0,jsx_runtime_1.jsx)(react_with_native_1.ActivityIndicator,{})})):null,(0,jsx_runtime_1.jsx)(react_with_native_1.Label,__assign({style:{color:"white",fontWeight:"bold"}},{children:u||"Save"}))]}))},Z=null==R?void 0:R.find((function(t){return t.propertyPath===GLOBAL_PROPERTY_PATH}));return(0,jsx_runtime_1.jsxs)(react_with_native_1.Form,__assign({className:"w-full",onSubmit:function(t){t.preventDefault(),J(I)}},{children:[(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,__assign({className:"w-full"},{children:[(0,jsx_runtime_1.jsx)(U,{title:c,backButton:d}),G?(0,jsx_runtime_1.jsx)(react_with_native_1.P,__assign({className:j},{children:G})):null,Z?(0,jsx_runtime_1.jsx)(react_with_native_1.P,__assign({className:g||"text-red-600"},{children:Z.message})):null,b.map((function(t,e){var r,n,a=getPlugin(t.type,f);
-// Take the first plugin if the plugin isn't defined.
-if(!a)return(0,jsx_runtime_1.jsxs)(react_with_native_1.P,{children:["Plugin not found (",t.field,", ",t.type,")"]});var s=null===(r=i[e+1])||void 0===r?void 0:r.call(i),l="".concat(y||"",".").concat(t.field),u=R.filter((function(e){return e.propertyPath===t.field||e.propertyPath.startsWith("".concat(t.field,"."))}));return(null===(n=t.shouldHide)||void 0===n?void 0:n.call(t,I))?null:(0,jsx_runtime_1.jsx)(exports.Input,{fieldName:t.field,renderInputContainer:m,uniqueFieldId:l,config:a.config,plugin:a.component,extra:t.extra,reference:t.reference,next:s,type:t.type,title:t.titleFromState?t.titleFromState(I):t.title,value:I[t.field],onChange:function(e){return function(r){var i,n,a=((i={})[t.field]=r,i),s=__assign(__assign({},e),a),l=R.filter((0,exports.errorOnField)(t.field)),u=null===(n=t.hasError)||void 0===n?void 0:n.call(t,r,s),_="string"==typeof u?1:Array.isArray(u)?u.length:0;if(l.length>0&&_!==l.length){var c=R.filter((function(e){return!(0,exports.errorOnField)(t.field)(e)})),d="string"==typeof u?[{message:u,propertyPath:t.field}]:Array.isArray(u)?u:[];q(__spreadArray(__spreadArray([],c,!0),d,!0))}N(s),
-//NB: make sure to add the new state to the submitprops
-null==o||o(__assign(__assign({},Q),{state:s,onSubmit:function(){return J(s)}}))}}(I),isLast:e===(null==i?void 0:i.length)-1,startSection:t.startSection,sectionTitle:t.sectionTitle,description:t.description,errors:u},"field-".concat(t.field))}))]})),X?(0,jsx_runtime_1.jsx)(react_with_native_1.Div,__assign({className:"".concat(v?"sticky bottom-0":""," ").concat(x||"mb-2 py-2")},{children:(0,jsx_runtime_1.jsx)(X,{})})):null]}))};exports.DataForm=DataForm;var setConfig=function(t,e){return function(r){return(0,jsx_runtime_1.jsx)(t,__assign({},e,r))}};exports.setConfig=setConfig;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.setConfig = exports.DataForm = exports.errorOnField = exports.isObject = exports.Input = exports.DefaultInputContainer = exports.makeInputField = exports.notEmpty = exports.inputClass = exports.inputClassWithoutWidth = exports.deepEqual = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var react_1 = require("react");
+var react_with_native_1 = require("react-with-native");
+var react_with_native_ui_1 = require("react-with-native-ui");
+Object.defineProperty(exports, "inputClass", { enumerable: true, get: function () { return react_with_native_ui_1.inputClass; } });
+var react_2 = __importDefault(require("fast-deep-equal/react"));
+exports.deepEqual = react_2.default;
+var inputClassWithoutWidth = react_with_native_ui_1.bareInputClass;
+exports.inputClassWithoutWidth = inputClassWithoutWidth;
+var isWeb = typeof window !== "undefined" && !!window.scrollTo;
+var sameFieldArray = function (arr1, arr2) {
+    var simpleArr1 = arr1.map(function (_a) {
+        var shouldHide = _a.shouldHide, titleFromState = _a.titleFromState, hasError = _a.hasError, item = __rest(_a, ["shouldHide", "titleFromState", "hasError"]);
+        return item;
+    });
+    var simpleArr2 = arr2.map(function (_a) {
+        var shouldHide = _a.shouldHide, titleFromState = _a.titleFromState, hasError = _a.hasError, item = __rest(_a, ["shouldHide", "titleFromState", "hasError"]);
+        return item;
+    });
+    var isDeepEqual = (0, react_2.default)(simpleArr1, simpleArr2);
+    // console.log({ simpleArr1, simpleArr2, isDeepEqual });
+    return isDeepEqual;
+};
+function notEmpty(value) {
+    return value !== null && value !== undefined;
+}
+exports.notEmpty = notEmpty;
+var makeInputField = function (type, config) {
+    return function () { return (__assign({ type: type }, config)); };
+};
+exports.makeInputField = makeInputField;
+var GLOBAL_PROPERTY_PATH = "__GLOBAL__";
+var DefaultInputContainer = function (_a) {
+    var children = _a.children, startSection = _a.startSection, sectionTitle = _a.sectionTitle, title = _a.title, description = _a.description, error = _a.error, errorClassName = _a.errorClassName;
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [startSection ? ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ style: {
+                    display: "flex",
+                    height: 40,
+                    justifyContent: "center",
+                    paddingLeft: 10,
+                } }, { children: sectionTitle ? ((0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: (0, jsx_runtime_1.jsx)(react_with_native_1.Strong, { children: sectionTitle }) })) : ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, { style: { height: 40 } })) }))) : null, (0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "pt-0 mb-6", style: { marginBottom: 10 } }, { children: [title ? (0, jsx_runtime_1.jsx)(react_with_native_1.Label, __assign({ className: "mb-2 text-sm font-bold" }, { children: title })) : null, description && ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ className: "flex mx-3 mb-2 items-start " }, { children: (0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "text-gray-500 italic" }, { children: description })) }))), error ? ((0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: errorClassName || "mr-3 mb-2 text-red-500" }, { children: error || "Invalid value" }))) : null, (0, jsx_runtime_1.jsx)(react_with_native_1.Div, { children: children })] }))] }));
+};
+exports.DefaultInputContainer = DefaultInputContainer;
+var getPlugin = function (type, plugins) {
+    return type
+        ? plugins[type]
+        : plugins[Object.keys(plugins)[0]];
+};
+var Input = function (_a) {
+    var _b;
+    var type = _a.type, plugin = _a.plugin, title = _a.title, onChange = _a.onChange, value = _a.value, isLast = _a.isLast, startSection = _a.startSection, sectionTitle = _a.sectionTitle, next = _a.next, extra = _a.extra, errors = _a.errors, reference = _a.reference, description = _a.description, config = _a.config, uniqueFieldId = _a.uniqueFieldId, renderInputContainer = _a.renderInputContainer, errorClassName = _a.errorClassName, fieldName = _a.fieldName;
+    var InputComponent = plugin;
+    var InputContainer = renderInputContainer || exports.DefaultInputContainer;
+    return ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ ref: reference }, { children: (0, jsx_runtime_1.jsx)(InputContainer, __assign({}, {
+            description: description,
+            sectionTitle: sectionTitle,
+            startSection: startSection,
+            title: title,
+            next: next,
+            isLast: isLast,
+            id: uniqueFieldId,
+            type: type,
+            error: !plugin.hideContainerError &&
+                ((_b = errors === null || errors === void 0 ? void 0 : errors.find((0, exports.errorOnField)(fieldName))) === null || _b === void 0 ? void 0 : _b.message),
+            extra: extra,
+            config: config,
+            errorClassName: errorClassName,
+        }, { children: (0, jsx_runtime_1.jsx)(InputComponent, __assign({}, {
+                uniqueFieldId: uniqueFieldId,
+                fieldName: fieldName,
+                config: config,
+                extra: extra,
+                onChange: onChange,
+                value: value,
+                errors: errors,
+                errorClassName: errorClassName,
+            })) })) })));
+};
+exports.Input = Input;
+var DefaultTitle = function (_a) {
+    var title = _a.title, backButton = _a.backButton;
+    return title ? ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "flex items-center mb-10 " }, { children: [backButton && ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ onClick: backButton, className: "p-4 cursor-pointer" }, { children: "back" }))), (0, jsx_runtime_1.jsx)(react_with_native_1.H2, __assign({ className: "text-2xl font-bold" }, { children: title }))] }))) : null;
+};
+function isObject(object) {
+    return object != null && typeof object === "object";
+}
+exports.isObject = isObject;
+var errorOnField = function (fieldName) { return function (error) {
+    return error.propertyPath === fieldName ||
+        error.propertyPath.startsWith(fieldName + ".");
+}; };
+exports.errorOnField = errorOnField;
+var DataForm = function (_a) {
+    //sometimes use defaultValues (deprecated)
+    var _b, _c;
+    var fields = _a.fields, defaultValues = _a.defaultValues, initialValues = _a.initialValues, onSubmit = _a.onSubmit, withSubmitProps = _a.withSubmitProps, noSubmit = _a.noSubmit, submitButtonText = _a.submitButtonText, submitButtonColor = _a.submitButtonColor, title = _a.title, backButton = _a.backButton, plugins = _a.plugins, renderSubmitComponent = _a.renderSubmitComponent, renderInputContainer = _a.renderInputContainer, stickySubmit = _a.stickySubmit, renderTitle = _a.renderTitle, submitClassName = _a.submitClassName, errorClassName = _a.errorClassName, successClassName = _a.successClassName;
+    initialValues = initialValues ? initialValues : defaultValues;
+    if (!plugins) {
+        throw new Error("No plugins given");
+    }
+    //Generate unique id for the form
+    var id = (0, react_1.useState)("Form".concat(String(Math.round(Math.random() * 1000000))))[0];
+    var _d = (0, react_1.useState)([]), fieldsWithReferences = _d[0], setFieldsWithReferences = _d[1];
+    // need to have because we want to see when it's changed
+    var _e = (0, react_1.useState)([]), fieldsWithoutReferences = _e[0], setFieldsWithoutReferences = _e[1];
+    (0, react_1.useEffect)(function () {
+        var fieldsWithoutReferencesLocal = fields.map(function (f) { return f(); });
+        if (
+        // fieldsWithoutReferences.length === 0 && //NB: why was this here? caused the fields not to refresh
+        !sameFieldArray(fieldsWithoutReferencesLocal, fieldsWithoutReferences)) {
+            setFieldsWithReferences(fieldsWithoutReferencesLocal.map(function (fieldWithoutReference) {
+                return __assign(__assign({}, fieldWithoutReference), { reference: (0, react_1.createRef)() });
+            }));
+            setFieldsWithoutReferences(fieldsWithoutReferencesLocal);
+        }
+    }, [fields]);
+    var initialValuesPartial = fields.reduce(function (all, field) {
+        var _a;
+        var type = field().type;
+        var plugin = getPlugin(type, plugins);
+        var defaultInital = plugin.component.defaultInitialValue;
+        var initial = field().initialValue;
+        var key = field().field;
+        var value = initial !== undefined
+            ? initial
+            : defaultInital !== undefined
+                ? defaultInital
+                : undefined;
+        return __assign(__assign({}, all), (_a = {}, _a[key] = value, _a));
+    }, {});
+    var initialState = __assign(__assign({}, initialValuesPartial), initialValues);
+    var _f = (0, react_1.useState)(initialState), state = _f[0], setState = _f[1];
+    //used to check if the initialValues have changed
+    var _g = (0, react_1.useState)(), initialValuesState = _g[0], setInitialValuesState = _g[1];
+    (0, react_1.useEffect)(function () {
+        if (!initialValuesState || !(0, react_2.default)(initialState, initialValuesState)) {
+            // console.log("initialValues have changed");
+            setState(initialState);
+            setInitialValuesState(initialState);
+        }
+    }, [initialState]);
+    var _h = (0, react_1.useState)(false), loading = _h[0], setLoading = _h[1];
+    var _j = (0, react_1.useState)([]), errors = _j[0], setErrors = _j[1];
+    var _k = (0, react_1.useState)(), success = _k[0], setSuccess = _k[1];
+    var notReadyFields = fieldsWithReferences.filter(function (x) { var _a, _b; return !((_a = x.shouldHide) === null || _a === void 0 ? void 0 : _a.call(x, state)) && ((_b = x.hasError) === null || _b === void 0 ? void 0 : _b.call(x, state[x.field], state)); });
+    var setErrorsReject = function (stringOrErrorArray) {
+        var _a, _b, _c, _d;
+        if (stringOrErrorArray) {
+            //if the rejection provides a string, just return an array with 1 element: that string, on the global property path
+            //however, if it's an error array, return that. But make sure that if the propertyPath doesn't exist, it's still rendered globally.
+            var newErrors_1 = typeof stringOrErrorArray === "string"
+                ? [
+                    {
+                        propertyPath: GLOBAL_PROPERTY_PATH,
+                        message: stringOrErrorArray,
+                    },
+                ]
+                : stringOrErrorArray.map(function (_a) {
+                    var propertyPath = _a.propertyPath, message = _a.message;
+                    return ({
+                        message: message,
+                        propertyPath: fields
+                            .map(function (f) { return f().field; })
+                            .find(function (x) { return propertyPath === x || propertyPath.startsWith("".concat(x, ".")); })
+                            ? propertyPath
+                            : GLOBAL_PROPERTY_PATH,
+                    });
+                });
+            //this only happens when there are no frontend errors, so it's safe to replace errors
+            setErrors(newErrors_1);
+            //scroll to the first field that contains an error
+            var firstNotReadyField = fieldsWithReferences.filter(function (x) { return newErrors_1.find((0, exports.errorOnField)(x.field)) !== undefined; })[0];
+            if (isWeb) {
+                var top_1 = (((_c = (_b = (_a = firstNotReadyField === null || firstNotReadyField === void 0 ? void 0 : firstNotReadyField.reference) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.getBoundingClientRect) === null || _c === void 0 ? void 0 : _c.call(_b).top) || 0) +
+                    (window.scrollY || 0) -
+                    100;
+                // console.log("setErrorsReject: scrolling to first error field");
+                (_d = window.scrollTo) === null || _d === void 0 ? void 0 : _d.call(window, {
+                    top: top_1,
+                    behavior: "smooth",
+                });
+            }
+        }
+    };
+    var firstErrorRef = (_c = (_b = notReadyFields[0]) === null || _b === void 0 ? void 0 : _b.reference) === null || _c === void 0 ? void 0 : _c.current;
+    function onClickSubmit(state) {
+        var _a;
+        var frontendErrorArray = fields.reduce(function (all, field) {
+            var _a, _b, _c, _d;
+            var shouldNotHide = !((_b = (_a = field()).shouldHide) === null || _b === void 0 ? void 0 : _b.call(_a, state));
+            var errorMessage = (_d = (_c = field()).hasError) === null || _d === void 0 ? void 0 : _d.call(_c, state[field().field], state);
+            var hasError = shouldNotHide && errorMessage;
+            var errors = typeof hasError === "string"
+                ? [{ propertyPath: field().field, message: hasError }]
+                : Array.isArray(hasError)
+                    ? hasError
+                    : [];
+            return __spreadArray(__spreadArray([], all, true), errors, true);
+        }, []);
+        setErrors(frontendErrorArray);
+        //
+        if ((frontendErrorArray === null || frontendErrorArray === void 0 ? void 0 : frontendErrorArray.length) === 0) {
+            //no errors
+            setLoading(true);
+            onSubmit(state, function (successMessage) {
+                setSuccess(successMessage);
+                setLoading(false);
+            }, function (stringOrErrorArray) {
+                setErrorsReject(stringOrErrorArray);
+                setLoading(false);
+            });
+        }
+        else {
+            //scroll to the error
+            /// onError("Please fill in all fields correctly");
+            if (isWeb) {
+                var top_2 = ((firstErrorRef === null || firstErrorRef === void 0 ? void 0 : firstErrorRef.getBoundingClientRect().top) || 0) +
+                    window.scrollY -
+                    100;
+                // console.log("onClickSubmit: scrolling to first error field");
+                (_a = window.scrollTo) === null || _a === void 0 ? void 0 : _a.call(window, {
+                    top: top_2,
+                    behavior: "smooth",
+                });
+            }
+        }
+    }
+    var available = !loading && notReadyFields.length === 0;
+    var submitProps = {
+        loading: loading,
+        available: available,
+        submitButtonText: submitButtonText,
+        submitButtonColor: submitButtonColor,
+        //should be overwritten on state change
+        onSubmit: function () { return onClickSubmit(state); },
+        state: state,
+    };
+    (0, react_1.useEffect)(function () {
+        //console.log({ withSubmitProps: submitProps });
+        withSubmitProps === null || withSubmitProps === void 0 ? void 0 : withSubmitProps(submitProps);
+    }, [loading, available, submitButtonText, submitButtonColor, firstErrorRef]);
+    var Title = renderTitle || DefaultTitle;
+    var Submit = function () {
+        return noSubmit ? null : renderSubmitComponent ? (renderSubmitComponent(submitProps)) : ((0, jsx_runtime_1.jsxs)(react_with_native_1.Button, __assign({ disabled: loading, className: "".concat(available
+                ? "".concat(submitButtonColor ? submitButtonColor : "bg-green-500")
+                : "bg-gray-300", "  flex justify-center flex-row w-full px-4 py-2 text-sm font-medium text-white border border-transparent rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"), onClick: function () { return onClickSubmit(state); }, 
+            //......Extra
+            style: {
+                backgroundColor: "#4ade80",
+                color: "white",
+                width: "100%",
+                marginTop: 5,
+                marginBottom: 5,
+                display: "flex",
+                justifyContent: "center",
+                borderRadius: 10,
+                alignItems: "center",
+                borderColor: "white",
+                padding: 8,
+            } }, { children: [loading ? ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ className: "mr-2" }, { children: (0, jsx_runtime_1.jsx)(react_with_native_1.ActivityIndicator, {}) }))) : null, (0, jsx_runtime_1.jsx)(react_with_native_1.Label, __assign({ style: { color: "white", fontWeight: "bold" } }, { children: submitButtonText || "Save" }))] })));
+    };
+    var globalError = errors === null || errors === void 0 ? void 0 : errors.find(function (x) { return x.propertyPath === GLOBAL_PROPERTY_PATH; });
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Form, __assign({ className: "w-full", onSubmit: function (e) {
+            e.preventDefault();
+            onClickSubmit(state);
+        } }, { children: [(0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "w-full" }, { children: [(0, jsx_runtime_1.jsx)(Title, { title: title, backButton: backButton }), success ? (0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: successClassName }, { children: success })) : null, globalError ? ((0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: errorClassName || "text-red-600" }, { children: globalError.message }))) : null, fieldsWithReferences.map(function (field, index) {
+                        var _a, _b;
+                        // Take the first plugin if the plugin isn't defined.
+                        var plugin = getPlugin(field.type, plugins);
+                        if (!plugin) {
+                            return ((0, jsx_runtime_1.jsxs)(react_with_native_1.P, { children: ["Plugin not found (", field.field, ", ", field.type, ")"] }));
+                        }
+                        var next = (_a = fields[index + 1]) === null || _a === void 0 ? void 0 : _a.call(fields);
+                        var onChange = function (state) { return function (newValue) {
+                            var _a;
+                            var _b;
+                            var newState = (_a = {}, _a[field.field] = newValue, _a);
+                            var newFullState = __assign(__assign({}, state), newState);
+                            var fieldErrors = errors.filter((0, exports.errorOnField)(field.field));
+                            //check if field still has error(s)
+                            var newFieldErrors = (_b = field.hasError) === null || _b === void 0 ? void 0 : _b.call(field, newValue, newFullState);
+                            var newFieldErrorsAmount = typeof newFieldErrors === "string"
+                                ? 1
+                                : Array.isArray(newFieldErrors)
+                                    ? newFieldErrors.length
+                                    : 0;
+                            if (fieldErrors.length > 0 &&
+                                newFieldErrorsAmount !== fieldErrors.length) {
+                                var newErrors = errors.filter(function (error) { return !(0, exports.errorOnField)(field.field)(error); });
+                                var newFieldErrorsArray = typeof newFieldErrors === "string"
+                                    ? [{ message: newFieldErrors, propertyPath: field.field }]
+                                    : Array.isArray(newFieldErrors)
+                                        ? newFieldErrors
+                                        : [];
+                                setErrors(__spreadArray(__spreadArray([], newErrors, true), newFieldErrorsArray, true));
+                            }
+                            setState(newFullState);
+                            //NB: make sure to add the new state to the submitprops
+                            withSubmitProps === null || withSubmitProps === void 0 ? void 0 : withSubmitProps(__assign(__assign({}, submitProps), { state: newFullState, onSubmit: function () { return onClickSubmit(newFullState); } }));
+                        }; };
+                        var uniqueFieldId = "".concat(id || "", ".").concat(field.field);
+                        var inputErrors = errors.filter(function (e) {
+                            return e.propertyPath === field.field ||
+                                e.propertyPath.startsWith("".concat(field.field, "."));
+                        });
+                        return ((_b = field.shouldHide) === null || _b === void 0 ? void 0 : _b.call(field, state)) ? null : ((0, jsx_runtime_1.jsx)(exports.Input, { fieldName: field.field, renderInputContainer: renderInputContainer, uniqueFieldId: uniqueFieldId, config: plugin.config, plugin: plugin.component, extra: field.extra, reference: field.reference, next: next, type: field.type, title: field.titleFromState ? field.titleFromState(state) : field.title, value: state[field.field], onChange: onChange(state), isLast: index === (fields === null || fields === void 0 ? void 0 : fields.length) - 1, startSection: field.startSection, sectionTitle: field.sectionTitle, description: field.description, errors: inputErrors }, "field-".concat(field.field)));
+                    })] })), Submit ? ((0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ className: "".concat(stickySubmit ? "sticky bottom-0" : "", " ").concat(submitClassName || "mb-2 py-2") }, { children: (0, jsx_runtime_1.jsx)(Submit, {}) }))) : null] })));
+};
+exports.DataForm = DataForm;
+var setConfig = function (DataForm, config) {
+    return function (props) {
+        return (0, jsx_runtime_1.jsx)(DataForm, __assign({}, config, props));
+    };
+};
+exports.setConfig = setConfig;
 //# sourceMappingURL=general.js.map

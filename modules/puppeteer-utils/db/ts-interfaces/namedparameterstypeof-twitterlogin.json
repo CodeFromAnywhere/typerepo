@@ -1,0 +1,102 @@
+{
+  "createdAt": 1671098565993,
+  "updatedAt": 1671098565993,
+  "deletedAt": 0,
+  "createdFirstAt": 1671098565993,
+  "id": "namedparameterstypeof-twitterlogin",
+  "name": "NamedParameters<typeof twitterLogin>",
+  "slug": "namedparameterstypeof-twitterlogin",
+  "operationRelativeTypescriptFilePath": "src/twitterLogin.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "page": {
+              "$ref": "#/definitions/Page"
+            },
+            "email": {
+              "type": "string"
+            },
+            "phoneNo": {
+              "type": "string"
+            },
+            "password": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "page",
+            "email",
+            "phoneNo",
+            "password"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "page",
+                "required": true,
+                "schema": {
+                  "fullComment": "Page provides methods to interact with a single tab or\n {@link  https://developer.chrome.com/extensions/background_pages | extension background page } \nin Chromium.\n\n:::note\n\nOne Browser instance might have multiple Page instances.\n\n:::",
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "email",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "phoneNo",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "password",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof twitterLogin>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

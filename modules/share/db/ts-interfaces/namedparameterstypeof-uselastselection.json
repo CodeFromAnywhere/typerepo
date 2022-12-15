@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670529082071,
-  "updatedAt": 1670529082071,
+  "createdAt": 1670934915737,
+  "updatedAt": 1670934915737,
   "deletedAt": 0,
-  "createdFirstAt": 1670529082071,
+  "createdFirstAt": 1670934915737,
   "id": "namedparameterstypeof-uselastselection",
   "name": "NamedParameters<typeof useLastSelection>",
   "slug": "namedparameterstypeof-uselastselection",
@@ -16,10 +16,23 @@
   "type": {
     "typeDefinition": {
       "type": "object",
+      "properties": {
+        "isDisabled": {
+          "type": "boolean"
+        }
+      },
       "additionalProperties": false
     },
     "simplifiedSchema": {
-      "properties": [],
+      "properties": [
+        {
+          "name": "isDisabled",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
       "type": "object"
     },
     "typeCoverage": 0,

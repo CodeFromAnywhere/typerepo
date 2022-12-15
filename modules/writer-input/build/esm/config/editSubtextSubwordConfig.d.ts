@@ -8,3 +8,4 @@ export declare const editSubtextSubwordConfig: (subtextConfig: SubtextConfig, su
     subtextConfig: SubtextConfig;
     subwordConfig: SubwordConfig;
 };
+//# sourceMappingURL=editSubtextSubwordConfig.d.ts.map

@@ -25,3 +25,4 @@ export declare const TypescriptCompletions: (props: {
     augmentedWords?: AugmentedWord[] | undefined;
     augmentedWordObject?: MappedObject<AugmentedWord> | undefined;
 }) => JSX.Element;
+//# sourceMappingURL=autocomplete-components.d.ts.map

@@ -119,3 +119,4 @@ export var MarkedToken = function (props) {
     console.log("unhandled: ".concat(item.type), item);
     return React.createElement(React.Fragment, null);
 };
+//# sourceMappingURL=MarkedToken.js.map

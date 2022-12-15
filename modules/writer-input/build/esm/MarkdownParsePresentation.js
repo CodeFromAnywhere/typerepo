@@ -13,7 +13,7 @@ import * as React from "react";
 import { useState } from "react";
 import { Div, P } from "react-with-native";
 import { isDev } from "server-api-url";
-import { renderMarkdownContent } from "markdown";
+import { MarkdownContent } from "markdown";
 import { renderBreadCrumbs } from "breadcrumbs";
 import { ClickableIcon } from "clickable-icon";
 import { flattenMarkdownChunks } from "key-value-markdown-js";
@@ -54,13 +54,15 @@ export var MarkdownParsePresentation = function (props) {
             React.createElement(Div, { className: "flex flex-col justify-center items-center" },
                 React.createElement(P, { className: "text-4xl" }, paragraph.categoryStackCalculated[paragraph.categoryStackCalculated.length - 1]),
                 React.createElement(Div, { className: "flex flex-row flex-wrap" }, renderBreadCrumbs(paragraph.categoryStackCalculated))),
-            React.createElement(Div, { className: "flex flex-1 flex-col items-center justify-center overflow-y-auto" }, renderMarkdownContent(paragraph.paragraph, {
-                big: true,
-                projectRelativeBaseFolderPath: projectRelativeBaseFolderPath,
-                projectRelativeMarkdownFilePath: projectRelativeMarkdownFilePath,
-                augmentedWordObject: augmentedWordObject,
-                isDev: isDev,
-                isStatic: false,
-            }))),
+            React.createElement(Div, { className: "flex flex-1 flex-col items-center justify-center overflow-y-auto" },
+                React.createElement(MarkdownContent, { content: paragraph.paragraph, config: {
+                        big: true,
+                        projectRelativeBaseFolderPath: projectRelativeBaseFolderPath,
+                        projectRelativeMarkdownFilePath: projectRelativeMarkdownFilePath,
+                        augmentedWordObject: augmentedWordObject,
+                        isDev: isDev,
+                        isStatic: false,
+                    } }))),
         navigation));
 };
+//# sourceMappingURL=MarkdownParsePresentation.js.map

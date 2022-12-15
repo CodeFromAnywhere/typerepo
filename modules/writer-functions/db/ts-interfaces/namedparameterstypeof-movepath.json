@@ -1,0 +1,62 @@
+{
+  "createdAt": 1671101637525,
+  "updatedAt": 1671101637525,
+  "deletedAt": 0,
+  "createdFirstAt": 1671101637525,
+  "id": "namedparameterstypeof-movepath",
+  "name": "NamedParameters<typeof movePath>",
+  "slug": "namedparameterstypeof-movepath",
+  "operationRelativeTypescriptFilePath": "src/movePath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string",
+          "description": "Can be file only for now"
+        },
+        "projectRelativeNewFolderPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectRelativePath",
+        "projectRelativeNewFolderPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "fullComment": "Can be file only for now",
+            "type": "string"
+          }
+        },
+        {
+          "name": "projectRelativeNewFolderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof movePath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

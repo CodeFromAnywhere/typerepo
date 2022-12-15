@@ -36,6 +36,8 @@ returns something like `[apiUrl]/[apiFunctionName][queryString]`
 
 
 
+## 📄 API_NO_RESPONSE_TIME_KEY (exported const)
+
 ## 📄 apiWithConfig (exported const)
 
 This object contains a api function for every function in the backend
@@ -53,7 +55,7 @@ returns something like `[apiUrl]/[apiFunctionName][queryString]`
 
 # Internal
 
-<details><summary>Show internal (4)</summary>
+<details><summary>Show internal (3)</summary>
     
   # untypedApiFunction()
 
@@ -68,8 +70,6 @@ NB: this is not a typed function as we are just overwriting it so we don't need 
 | **Output** |    |    |
 
 
-
-## 📄 API_NO_RESPONSE_TIME_KEY (exported const)
 
 ## 📄 sdkExample (exported const)
 

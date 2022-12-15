@@ -25,6 +25,7 @@
     "typescript": "^4.8.4"
   },
   "main": "./build/esm/index.js",
+  "source": "./src/index.ts",
   "peerDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -41,7 +42,7 @@
   "operation": {
     "buildResultIndexed": {
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/file-writer/src/WriterLayout.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/file-writer/src/FileWriter.tsx. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
       ],
       "buildSucceeded": true,
       "indexImportExportError": "",
@@ -49,32 +50,32 @@
     },
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1669288093646,
+    "lastRebuildAt": 1671012856611,
     "markdown": "# ❌ No description set yet\n\nPlease set a description for this operation in OPERATION.md\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
     "hasGeneratedImportsIndexed": false,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 4,
-        "lines": 137,
-        "characters": 4228,
-        "bytes": 4228
+        "lines": 142,
+        "characters": 4262,
+        "bytes": 4262
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 112,
-        "characters": 3329,
-        "bytes": 3329
+        "lines": 135,
+        "characters": 3973,
+        "bytes": 3973
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 68,
-        "characters": 1250,
-        "bytes": 1250
+        "lines": 66,
+        "characters": 1248,
+        "bytes": 1248
       },
       "size": {
-        "bytes": 8807,
-        "characters": 8807,
-        "lines": 317,
+        "bytes": 9483,
+        "characters": 9483,
+        "lines": 343,
         "numberOfFiles": 8
       }
     },
