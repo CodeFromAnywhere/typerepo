@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528953040,
-  "updatedAt": 1670528953040,
+  "createdAt": 1671116851421,
+  "updatedAt": 1671116851421,
   "deletedAt": 0,
-  "createdFirstAt": 1670528953040,
+  "createdFirstAt": 1671116851421,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "({\n  phone,\n  text,\n}: {\n  phone: string;\n  text: string;\n}) => {\n  const url =\n    \"https://api.whatsapp.com/send/\" +\n    toQueryString({ phone, text, app_absent: 0 });\n  window.open(url, \"_blank\")?.focus();\n}",
   "description": "",
-  "id": "ktmarvrztvglqxpjyzwrdplk"
+  "id": "ofvxlqfltolehjguqfnlztbr"
 }

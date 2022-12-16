@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670063694048,
-  "updatedAt": 1670063694048,
+  "createdAt": 1671115980041,
+  "updatedAt": 1671115980041,
   "deletedAt": 0,
-  "createdFirstAt": 1670063694048,
+  "createdFirstAt": 1671115980041,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await getAllMarkdownReaderPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(\n    context,\n    flat,\n    \"markdown-reader-web\"\n  );\n}",
   "description": "",
-  "id": "xivyfxnhmfjffwiviblbnoes"
+  "id": "ettcmutzimdpmranfhjbtwwr"
 }

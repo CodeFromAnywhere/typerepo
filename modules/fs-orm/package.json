@@ -64,7 +64,7 @@
     "folderNameIndexed": "fs-orm",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671012552313,
+    "lastRebuildAt": 1671115886083,
     "operationDependenciesIndexed": [
       "getReferenceParameterInfo",
       "fs",
@@ -89,6 +89,8 @@
       "KeyValueMarkdownModelType",
       "Storing",
       "Frontmatter",
+      "fs",
+      "writeStringToFile",
       "DbStorageMethod",
       "KeyValueMarkdownModelType",
       "KeyValueMarkdownParse",
@@ -222,9 +224,9 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 25,
-        "lines": 2706,
-        "characters": 81832,
-        "bytes": 81832
+        "lines": 2708,
+        "characters": 81862,
+        "bytes": 81862
       },
       "dataSize": {
         "numberOfFiles": 3,
@@ -239,9 +241,9 @@
         "bytes": 46903
       },
       "size": {
-        "bytes": 141908,
-        "characters": 141908,
-        "lines": 4601,
+        "bytes": 141938,
+        "characters": 141938,
+        "lines": 4603,
         "numberOfFiles": 48
       }
     },

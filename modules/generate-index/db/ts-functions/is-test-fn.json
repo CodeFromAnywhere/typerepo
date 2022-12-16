@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668335873798,
-  "updatedAt": 1668335873798,
+  "createdAt": 1671116221524,
+  "updatedAt": 1671116221524,
   "deletedAt": 0,
-  "createdFirstAt": 1668335873798,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1671116221524,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util.ts",
   "commentsInside": [],
   "rawText": " (x: ImportStatement) => {\n  const nameEndsWithTest = lowerCaseArray(x.name).pop() === \"test\";\n  const typeIsFn = x.type === \"function\";\n  return typeIsFn && nameEndsWithTest;\n}",
@@ -86,5 +81,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "qjgdduddqprkrdxdrbpyvlmy"
+  "id": "cpzvotuhxnfpjuoqrfqvvwec"
 }

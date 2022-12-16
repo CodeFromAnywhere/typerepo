@@ -20,23 +20,6 @@ js-util (`OperationClassification` cjs)
 
 
 
-## mergeObjectsArray()
-
-TODO: find a way to return the correct type interface
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }   |    |
-
-
-
-## 📄 mergeObjectsArray (exported const)
-
-TODO: find a way to return the correct type interface
-
-
 ## makeArray()
 
 if something is not an array, returns it as the first element of an array
@@ -60,6 +43,23 @@ if something is not an array, returns it as the first element of an array
 if the input is undefined, an empty array will be returned.
 
 NB: TODO: find out the workings of the array constructor (`Array("any value")`), because maybe it does something very similar. No need to have a dependency then if it's similar.
+
+
+## mergeObjectsArray()
+
+TODO: find a way to return the correct type interface
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
+## 📄 mergeObjectsArray (exported const)
+
+TODO: find a way to return the correct type interface
 
 
 ## onlyUnique2()
@@ -161,6 +161,17 @@ takes any type T or an array of T and returns T or the first of the array (which
 takes any type T or an array of T and returns T or the first of the array (which is T)
 
 
+## omitUndefinedValues()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
+## 📄 omitUndefinedValues (exported const)
+
 ## mergeNestedObject()
 
 type X = IsOptional<string|undefined>;
@@ -260,15 +271,6 @@ output: { x: "a" }
 
 
 
-## omitUndefinedValues()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }   |    |
-
-
-
 ## 📄 getSubsetFromObject (exported const)
 
 takes an object and a subset of its keys and returns a subset of that object
@@ -277,8 +279,6 @@ input: { x: "a", y: "b", z: "c" } and ["x"]
 
 output: { x: "a" }
 
-
-## 📄 omitUndefinedValues (exported const)
 
 ## isAllTrue()
 
@@ -289,6 +289,20 @@ checks if all items in an array are true
 | ---------- | -- | -- |
 | - | | |
 | **Output** | {  }   |    |
+
+
+
+## mapMany()
+
+Lets you map over any array with a async function while setting a max. concurrency
+
+Taken and improved from https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
 
 
 
@@ -327,6 +341,15 @@ console.log(removeIndexFromArray(exampleArray, 2)); //c should be removed
 
 
 
+## sum()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| a | number |  |,| b | number |  |
+| **Output** |    |    |
+
+
+
 ## trimSlashes()
 
 Trims a slash on both sides in any path
@@ -344,6 +367,13 @@ Trims a slash on both sides in any path
 checks if all items in an array are true
 
 
+## 📄 mapMany (exported const)
+
+Lets you map over any array with a async function while setting a max. concurrency
+
+Taken and improved from https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70
+
+
 ## 📄 removeIndexFromArray (exported const)
 
 removes an index from an array
@@ -356,53 +386,12 @@ console.log(removeIndexFromArray(exampleArray, 2)); //c should be removed
 ```
 
 
+## 📄 sum (exported const)
+
 ## 📄 trimSlashes (exported const)
 
 Trims a slash on both sides in any path
 
-
-## mapMany()
-
-Lets you map over any array with a async function while setting a max. concurrency
-
-Taken and improved from https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## pickRandomArrayItem()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## sum()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| a | number |  |,| b | number |  |
-| **Output** |    |    |
-
-
-
-## 📄 mapMany (exported const)
-
-Lets you map over any array with a async function while setting a max. concurrency
-
-Taken and improved from https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70
-
-
-## 📄 pickRandomArrayItem (exported const)
-
-## 📄 sum (exported const)
 
 ## createMappedObject()
 
@@ -416,6 +405,13 @@ NB: Don't use this inside of render functions, it's a very slow function, the wh
 | - | | |
 | **Output** | {  }   |    |
 
+
+
+## 📄 createMappedObject (exported const)
+
+Creates a `MappedObject` of an array of any type. `MappedObject`s are great for increasing efficiency to get an item from an array. Especially useful when finds are needed on a specific key match for huge arrays. Instead of finding on the array you can simply get the right property from this object.
+
+NB: Don't use this inside of render functions, it's a very slow function, the whole idea is that this makes it faster, so just do it once!
 
 
 ## getObjectKeysArray()
@@ -454,6 +450,15 @@ console.log({ testArray, result });
 
 
 
+## pickRandomArrayItem()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## removeOptionalKeysFromObject()
 
 | Input      |    |    |
@@ -463,11 +468,25 @@ console.log({ testArray, result });
 
 
 
-## 📄 createMappedObject (exported const)
+## replaceLastOccurence()
 
-Creates a `MappedObject` of an array of any type. `MappedObject`s are great for increasing efficiency to get an item from an array. Especially useful when finds are needed on a specific key match for huge arrays. Instead of finding on the array you can simply get the right property from this object.
+Replaces the last occerence of something in a string by something else
 
-NB: Don't use this inside of render functions, it's a very slow function, the whole idea is that this makes it faster, so just do it once!
+Example:
+
+```ts
+const result = replaceLastOccurence("theBestSlugSlugSlug", "Slug", "Slack");
+console.log(result); // returns theBestSlugSlugSlack
+```
+
+NB: this is not the most efficient method, as it reverses the string by making it an array, twice. It can probably be done more efficiently by using `String.lastIndexOf`
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| string | string |  |,| searchValue | string |  |,| replaceValue | string |  |
+| **Output** | `String`   |    |
+
 
 
 ## 📄 getObjectKeysArray (exported const)
@@ -492,7 +511,23 @@ console.log({ testArray, result });
 ```
 
 
+## 📄 pickRandomArrayItem (exported const)
+
 ## 📄 removeOptionalKeysFromObject (exported const)
+
+## 📄 replaceLastOccurence (exported const)
+
+Replaces the last occerence of something in a string by something else
+
+Example:
+
+```ts
+const result = replaceLastOccurence("theBestSlugSlugSlug", "Slug", "Slack");
+console.log(result); // returns theBestSlugSlugSlack
+```
+
+NB: this is not the most efficient method, as it reverses the string by making it an array, twice. It can probably be done more efficiently by using `String.lastIndexOf`
+
 
 ## apply()
 
@@ -545,6 +580,22 @@ utility function to get a parameter inside of a nested object
 | Input      |    |    |
 | ---------- | -- | -- |
 | object | {  } |  |,| location | string[] |  |
+| **Output** |    |    |
+
+
+
+## groupByKey()
+
+key should be of type string!
+
+input = [{path:"xyz"},{path:"xyz"},{path:"abc"}]
+groupByKey(input, "path")
+ouput: { xyz: [{path:"xyz"},{path:"xyz"}], abc: [{path:"abc"}]}
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
 | **Output** |    |    |
 
 
@@ -686,27 +737,6 @@ Takes an item from an index of an array and put it somewhere at another index
 
 
 
-## replaceLastOccurence()
-
-Replaces the last occerence of something in a string by something else
-
-Example:
-
-```ts
-const result = replaceLastOccurence("theBestSlugSlugSlug", "Slug", "Slack");
-console.log(result); // returns theBestSlugSlugSlack
-```
-
-NB: this is not the most efficient method, as it reverses the string by making it an array, twice. It can probably be done more efficiently by using `String.lastIndexOf`
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| string | string |  |,| searchValue | string |  |,| replaceValue | string |  |
-| **Output** | `String`   |    |
-
-
-
 ## sumAllKeys()
 
 sums all keys of an array of objects, assuming the objects have the same datastructure and assuming the values contain either numbers or undefined
@@ -742,6 +772,15 @@ TODO: would be nice if we can validate this string immediately using a JSON SCHE
 ## 📄 getParameterAtLocation (exported const)
 
 utility function to get a parameter inside of a nested object
+
+
+## 📄 groupByKey (exported const)
+
+key should be of type string!
+
+input = [{path:"xyz"},{path:"xyz"},{path:"abc"}]
+groupByKey(input, "path")
+ouput: { xyz: [{path:"xyz"},{path:"xyz"}], abc: [{path:"abc"}]}
 
 
 ## 📄 hasAllLetters (exported const)
@@ -825,20 +864,6 @@ Takes an item from an index of an array and put it somewhere at another index
 
 ## 📄 removeOptionalKeysFromObjectStrings (exported const)
 
-## 📄 replaceLastOccurence (exported const)
-
-Replaces the last occerence of something in a string by something else
-
-Example:
-
-```ts
-const result = replaceLastOccurence("theBestSlugSlugSlug", "Slug", "Slack");
-console.log(result); // returns theBestSlugSlugSlack
-```
-
-NB: this is not the most efficient method, as it reverses the string by making it an array, twice. It can probably be done more efficiently by using `String.lastIndexOf`
-
-
 ## 📄 sumAllKeys (exported const)
 
 sums all keys of an array of objects, assuming the objects have the same datastructure and assuming the values contain either numbers or undefined
@@ -887,7 +912,7 @@ sums all keys of an array of objects, assuming the objects have the same datastr
 
 # Internal
 
-<details><summary>Show internal (17)</summary>
+<details><summary>Show internal (15)</summary>
     
   # createEnum()
 
@@ -903,22 +928,6 @@ const enummm = createEnum(taskNames);
 | ---------- | -- | -- |
 | - | | |
 | **Output** | {  }   |    |
-
-
-
-## groupByKey()
-
-key should be of type string!
-
-input = [{path:"xyz"},{path:"xyz"},{path:"abc"}]
-groupByKey(input, "path")
-ouput: { xyz: [{path:"xyz"},{path:"xyz"}], abc: [{path:"abc"}]}
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
 
 
 
@@ -1026,15 +1035,6 @@ const taskNames = ["a","b","c"] as const;
 type TaskNames = typeof taskNames[number];
 const enummm = createEnum(taskNames);
 (value of enummm: { a: "a", b: "b", c: "c" })
-
-
-## 📄 groupByKey (exported const)
-
-key should be of type string!
-
-input = [{path:"xyz"},{path:"xyz"},{path:"abc"}]
-groupByKey(input, "path")
-ouput: { xyz: [{path:"xyz"},{path:"xyz"}], abc: [{path:"abc"}]}
 
 
 ## 📄 mapAsync (exported const)

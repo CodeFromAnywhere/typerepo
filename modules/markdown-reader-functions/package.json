@@ -33,7 +33,8 @@
     "recursive-types": "0.0.1",
     "recursive-util": "0.0.1",
     "markdown-types": "0.0.1",
-    "database": "0.0.1"
+    "database": "0.0.1",
+    "fs-util-js": "0.0.1"
   },
   "devDependencies": {
     "@types/next": "^9.0.0",
@@ -69,7 +70,7 @@
     "folderNameIndexed": "markdown-reader-functions",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671012583208,
+    "lastRebuildAt": 1671116003359,
     "operationDependenciesIndexed": [
       "copyAllRelativeFiles",
       "fs",
@@ -137,9 +138,9 @@
       "trimSlashes",
       "getLastFolder",
       "path",
+      "makeRelative",
       "getPathsWithOperations",
       "isBundle",
-      "makeRelative",
       "operations",
       "mergeObjectsArray",
       "notEmpty",
@@ -177,26 +178,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 26,
-        "lines": 1169,
-        "characters": 35134,
-        "bytes": 35134
+        "lines": 1171,
+        "characters": 35192,
+        "bytes": 35192
       },
       "dataSize": {
         "numberOfFiles": 4,
-        "lines": 4004,
-        "characters": 146267,
-        "bytes": 146267
+        "lines": 4005,
+        "characters": 146296,
+        "bytes": 146296
       },
       "textSize": {
         "numberOfFiles": 1,
         "lines": 515,
-        "characters": 12488,
-        "bytes": 12488
+        "characters": 12490,
+        "bytes": 12490
       },
       "size": {
-        "bytes": 193889,
-        "characters": 193889,
-        "lines": 5688,
+        "bytes": 193978,
+        "characters": 193978,
+        "lines": 5691,
         "numberOfFiles": 31
       }
     },

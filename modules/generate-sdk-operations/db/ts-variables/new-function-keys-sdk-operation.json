@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670064221224,
-  "updatedAt": 1670064221224,
+  "createdAt": 1671116288847,
+  "updatedAt": 1671116288847,
   "deletedAt": 0,
-  "createdFirstAt": 1670064221224,
+  "createdFirstAt": 1671116288847,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  operationName: string,\n  keyVariables: {\n    variableName: string;\n    values: string[];\n  }[],\n  config?: {\n    manualProjectRoot?: string;\n    skipYarnInstall?: boolean;\n    dryrun?: boolean;\n  }\n) => {\n  const keysConstString = keyVariables\n    .map((keyVariable) => {\n      return `export const ${keyVariable.variableName} = [ ${keyVariable.values\n        .map((value) => `\"${value}\"`)\n        .join(\",\\n\")} ];`;\n    })\n    .join(\"\\n\\n\");\n\n  const result = await newOperationWithFiles(\n    operationName,\n    undefined,\n    { [`src/${operationName}.ts`]: keysConstString },\n    { overwriteIfExists: true, ...config }\n  );\n\n  return result;\n}",
   "description": "",
-  "id": "zakhvfsmexqrsvhahpaxdtob"
+  "id": "joyetkzmcjchderkkrduxwxh"
 }

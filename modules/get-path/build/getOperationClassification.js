@@ -1,8 +1,86 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getOperationClassification=exports.isUiOperation=exports.tsconfigCompilesEsm=exports.packageCompilesTs=void 0;var code_types_1=require("code-types"),fs_util_1=require("fs-util"),read_json_file_1=require("read-json-file"),try_parse_json_1=require("try-parse-json"),hasDependency_1=require("./hasDependency"),isOperation_1=require("./isOperation"),packageCompilesTs=function(e){return!!(null==e?void 0:e.main)&&e.main.startsWith("src/")&&(e.main.endsWith(".ts")||e.main.endsWith(".tsx"))};exports.packageCompilesTs=packageCompilesTs;var tsconfigCompilesEsm=function(e){return!!e.compilerOptions.module&&!!e.compilerOptions.moduleResolution&&e.compilerOptions.module!==code_types_1.ModuleKind.CommonJS&&e.compilerOptions.moduleResolution!==code_types_1.ModuleResolutionKind.Classic};exports.tsconfigCompilesEsm=tsconfigCompilesEsm;var isUiOperation=function(e,s){var i,o=!!s&&((0,hasDependency_1.hasDependency)(s,"react")||(0,hasDependency_1.hasDependency)(s,"react-native")||(0,hasDependency_1.hasDependency)(s,"next")||(0,hasDependency_1.hasDependency)(s,"expo")),n=!!(null===(i=null==e?void 0:e.compilerOptions)||void 0===i?void 0:i.jsx);return o&&n};exports.isUiOperation=isUiOperation;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getOperationClassification = exports.isUiOperation = exports.tsconfigCompilesEsm = exports.packageCompilesTs = void 0;
+var code_types_1 = require("code-types");
+var fs_util_1 = require("fs-util");
+var read_json_file_1 = require("read-json-file");
+var try_parse_json_1 = require("try-parse-json");
+var hasDependency_1 = require("./hasDependency");
+var isOperation_1 = require("./isOperation");
+var packageCompilesTs = function (packageJson) {
+    return (!!(packageJson === null || packageJson === void 0 ? void 0 : packageJson.main) &&
+        packageJson.main.startsWith("src/") &&
+        (packageJson.main.endsWith(".ts") || packageJson.main.endsWith(".tsx")));
+};
+exports.packageCompilesTs = packageCompilesTs;
+var tsconfigCompilesEsm = function (tsconfig) {
+    return (!!tsconfig.compilerOptions.module &&
+        !!tsconfig.compilerOptions.moduleResolution &&
+        tsconfig.compilerOptions.module !== code_types_1.ModuleKind.CommonJS &&
+        tsconfig.compilerOptions.moduleResolution !== code_types_1.ModuleResolutionKind.Classic);
+};
+exports.tsconfigCompilesEsm = tsconfigCompilesEsm;
+var isUiOperation = function (tsconfig, packageJson) {
+    var _a;
+    var isReactPackage = !!packageJson &&
+        ((0, hasDependency_1.hasDependency)(packageJson, "react") ||
+            (0, hasDependency_1.hasDependency)(packageJson, "react-native") ||
+            (0, hasDependency_1.hasDependency)(packageJson, "next") ||
+            (0, hasDependency_1.hasDependency)(packageJson, "expo"));
+    var usesJsx = !!((_a = tsconfig === null || tsconfig === void 0 ? void 0 : tsconfig.compilerOptions) === null || _a === void 0 ? void 0 : _a.jsx);
+    return isReactPackage && usesJsx;
+};
+exports.isUiOperation = isUiOperation;
 /**
  * Returns `OperationClassification` if it's an operation, or undefined if it's not
  *
  * NB: don't confuse this with `ImportClassification`
  */
-var getOperationClassification=function(e){var s;if(void 0===e&&(console.log("Incorrect type at getOperationClassification"),process.exit(1)),(0,isOperation_1.isOperation)(e)){var i=fs_util_1.path.join(e,"package.json"),o=(0,try_parse_json_1.tryParseJson)(fs_util_1.fs.readFileSync(i,"utf8")),n=fs_util_1.path.join(e,"tsconfig.json"),t=(0,read_json_file_1.readJsonFileSync)(n);if(t&&o&&!o.workspaces){var r=fs_util_1.path.join(e,"next.config.js");if(fs_util_1.fs.existsSync(r))return"ui-web";var a=fs_util_1.path.join(e,"app.json");if(fs_util_1.fs.existsSync(a))return"ui-app";var p=(0,exports.packageCompilesTs)(o),c=(0,exports.tsconfigCompilesEsm)(t)?"esm":p?"ts":"cjs";return(0,exports.isUiOperation)(t,o)?"ui-".concat(c):(0,hasDependency_1.hasDependency)(o,"@types/node")?(null===(s=o.operation)||void 0===s?void 0:s.isNodeServer)?"server-cjs":"node-".concat(c):c}}};exports.getOperationClassification=getOperationClassification;
+var getOperationClassification = function (folderPath) {
+    var _a;
+    if (folderPath === undefined) {
+        console.log("Incorrect type at getOperationClassification"
+        // getOperationClassification.caller
+        );
+        process.exit(1);
+    }
+    if (!(0, isOperation_1.isOperation)(folderPath)) {
+        return;
+    }
+    var packageJsonPath = fs_util_1.path.join(folderPath, "package.json");
+    var packageJson = (0, try_parse_json_1.tryParseJson)(fs_util_1.fs.readFileSync(packageJsonPath, "utf8"));
+    var tsconfigPath = fs_util_1.path.join(folderPath, "tsconfig.json");
+    var tsconfig = (0, read_json_file_1.readJsonFileSync)(tsconfigPath);
+    if (!tsconfig)
+        return;
+    if (!packageJson || packageJson.workspaces) {
+        return;
+    }
+    var nextConfigPath = fs_util_1.path.join(folderPath, "next.config.js");
+    var existsNextConfig = fs_util_1.fs.existsSync(nextConfigPath);
+    var isNextApp = existsNextConfig;
+    if (isNextApp)
+        return "ui-web";
+    var appJsonPath = fs_util_1.path.join(folderPath, "app.json");
+    var existsAppJson = fs_util_1.fs.existsSync(appJsonPath);
+    var isReactNativeApp = existsAppJson;
+    if (isReactNativeApp)
+        return "ui-app";
+    var isTs = (0, exports.packageCompilesTs)(packageJson);
+    var isEsm = (0, exports.tsconfigCompilesEsm)(tsconfig);
+    var isUi = (0, exports.isUiOperation)(tsconfig, packageJson);
+    var compileType = isEsm ? "esm" : isTs ? "ts" : "cjs";
+    if (isUi) {
+        return "ui-".concat(compileType);
+    }
+    var hasTypesNode = (0, hasDependency_1.hasDependency)(packageJson, "@types/node");
+    if (hasTypesNode) {
+        if ((_a = packageJson.operation) === null || _a === void 0 ? void 0 : _a.isNodeServer) {
+            return "server-cjs";
+        }
+        return "node-".concat(compileType);
+    }
+    return compileType;
+};
+exports.getOperationClassification = getOperationClassification;
 //# sourceMappingURL=getOperationClassification.js.map

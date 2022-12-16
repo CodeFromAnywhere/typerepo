@@ -1,0 +1,59 @@
+{
+  "createdAt": 1671147119435,
+  "updatedAt": 1671147119435,
+  "deletedAt": 0,
+  "createdFirstAt": 1671147119435,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getContextualPromptCategories.ts",
+  "commentsInside": [],
+  "rawText": " (\n  stackCount: StackCount,\n  key: string\n): CategoryChildObject | undefined => {\n  const categoryStack = key.split(\".\");\n\n  if (categoryStack.length !== 1) return;\n\n  const firstCategory = categoryStack[0];\n\n  //get all children:\n\n  //1) find all keys that start with firstCategory\n  const childrenKeys = Object.keys(stackCount).filter((key) =>\n    key.startsWith(`${firstCategory}.`)\n  );\n  //2) remove the firstCategory from the keys\n  const strippedKeys = childrenKeys.map((key) =>\n    key.replace(`${firstCategory}.`, \"\")\n  );\n  // create strippedStackCount\n  const strippedStackCount = strippedKeys.reduce((newStackCount, key) => {\n    return { ...newStackCount, [key]: stackCount[`${firstCategory}.${key}`] };\n  }, {} as StackCount);\n\n  //3) insert into this same function\n\n  const children = strippedKeys\n    .map((key) => getObjectForkKeyRecursively(strippedStackCount, key))\n    .filter(notEmpty);\n\n  const object: CategoryChildObject = {\n    category: firstCategory,\n    count: stackCount[firstCategory],\n  };\n\n  if (children.length) object.children = children;\n\n  return object;\n}",
+  "name": "getObjectForkKeyRecursively",
+  "slug": "get-object-fork-key-recursively",
+  "parameters": [
+    {
+      "name": "stackCount",
+      "schema": {
+        "$ref": "#/definitions/StackCount"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "key",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/ai/ai-functions-node/src/getContextualPromptCategories\").CategoryChildObject | undefined",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 1093,
+    "lines": 40,
+    "bytes": 1093,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 40,
+    "numberOfFiles": 1
+  },
+  "id": "ouekirrkeeqyabbqyajaxkms"
+}

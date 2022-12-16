@@ -6,63 +6,6 @@ ai-functions-node (`OperationClassification` node-cjs)
 
 # Api reference
 
-## getContextualPromptResults()
-
-Gets all contextualPromptResults, but only if specific things are true
-
-- For any prompt we have for this filetype: get it from the database
-- For prompts about a folder: path/to/folder/.index/prompt-results.json
-- For prompts about a file or a selection thereof: path/to/folder/.index/[filename]/prompt-results.json
-
-NB: the slug of the ones in index should be the ID, and does not need to be set by the user, because we cannot guarantee that it's no duplicate.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| config (optional) | { prompt_projectRelativePath?: string, <br />promptSlugs?: string[], <br /> } |  |
-| **Output** |    |    |
-
-
-
-## getContextualPrompts()
-
-Returns all contextual prompts for the selection and for the page with the right context type
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| contextType (optional) | `FileType` | If not given, will return all |,| scopeProjectRelativePath (optional) | string |  |,| isDev (optional) | boolean |  |
-| **Output** |    |    |
-
-
-
-## getReaderPageProps()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| projectRelativeFilePath | string |  |,| queryPath (optional) | string | If given, knows how to redirect |,| realBasePath (optional) | string |  |
-| **Output** |    |    |
-
-
-
-## 📄 getContextualPromptResults (exported const)
-
-Gets all contextualPromptResults, but only if specific things are true
-
-- For any prompt we have for this filetype: get it from the database
-- For prompts about a folder: path/to/folder/.index/prompt-results.json
-- For prompts about a file or a selection thereof: path/to/folder/.index/[filename]/prompt-results.json
-
-NB: the slug of the ones in index should be the ID, and does not need to be set by the user, because we cannot guarantee that it's no duplicate.
-
-
-## 📄 getContextualPrompts (exported const)
-
-Returns all contextual prompts for the selection and for the page with the right context type
-
-
-## 📄 getReaderPageProps (exported const)
-
 # CLI
 
 <details><summary>Show CLI information (2)</summary>
@@ -85,9 +28,9 @@ Returns all contextual prompts for the selection and for the page with the right
 
 # Tests
 
-<details><summary>Show test information(2)</summary>
+<details><summary>Show test information(4)</summary>
     
-  # test()
+  # getCategoriesTest()
 
 
 
@@ -99,13 +42,24 @@ Returns all contextual prompts for the selection and for the page with the right
 
 
 
+## test()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 getCategoriesTest (exported const)
+
 ## 📄 test (unexported const)
 
   </details>
 
 # Internal
 
-<details><summary>Show internal (100)</summary>
+<details><summary>Show internal (94)</summary>
     
   # addStatement()
 
@@ -131,62 +85,12 @@ Adds word either to the WordMatrix or to the WordCombination database model
 
 
 
-## augmentMarkdown()
-
-Now that I've written this all down, it seems to be a quite an expensive operation, but we never need to do it for ensire websites, just for one page, and the result can easily be cached. I need to write a regex function that matches all text from a list of searchterms in markdown except if it's part of a link or image, and reduce the matches, creating a new markdown string every time. I think there are algorithms though that are more efficient because if there are like thousands of matches on a 2mb text, the thing would take much longer. Maybe it's more efficient to split up the text in smaller pieces and do the regex for every piece individually. This would have a limitation that you can't select cross-section, but I don't think that's my usecase anyway. If we later add support for making statements about a chapter or subsection and stuff like that, this limitation can also be resolved.
-
-Augments markdown in many ways for multiple purposes.
-
-- Parse the markdown instead of showing the results as React buttons. The link to "#" alt can become the same as a nice AugmentedWord hover, when it's found to be a selection result, we can highlight the selection whenever we hover over a link with that same text as alt as well, and add that hover as a note at the end of the selection.
-- ensure the parse parses `WordCombination`, `WordMatrix`, `Statement`, `AugmentedWord`, and `ContextualPromptResult`. It's a lot of work, but definitely worth it. Should be parsed as
-- remove the parsing of everything in the markdown render. This is also the end of sending `AugmentedWord`s to the frontend
-
-LATER:
-
-- CTA's, headers, footers, ads (check how I was planning to get those at codestorys-node or so)
-- Word frequency occurency styling
-- Subtexts and subwords
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
 ## biggestFunctionName()
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | contextContent | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
-
-
-
-## canSeeFileContent()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| parameters (optional) | `Frontmatter` |  |,| isDev | boolean |  |
-| **Output** | {  }   |    |
-
-
-
-## canSeeFile()
-
-TODO: use something like this to ensure we have the type safety and not work with strings >.<
-
-```ts
-import { frontmatterToObject } from "frontmatter-util";
-import webMarkdownFileTsInterface from "markdown-types/db/ts-interfaces/webmarkdownfile.json";
-```
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| parameters (optional) | `FolderContent` |  |,| isDev | boolean |  |
-| **Output** | {  }   |    |
 
 
 
@@ -280,15 +184,6 @@ import webMarkdownFileTsInterface from "markdown-types/db/ts-interfaces/webmarkd
 
 
 
-## expandFrontmatter()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| frontmatter (optional) | `Frontmatter` |  |
-| **Output** | {  }   |    |
-
-
-
 ## explainInDutch()
 
 | Input      |    |    |
@@ -334,6 +229,24 @@ import webMarkdownFileTsInterface from "markdown-types/db/ts-interfaces/webmarkd
 
 
 
+## getCategoriesTest()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## getContextualPromptCategories()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## getContextualPromptResultJsonFilePath()
 
 Calculates path where the result json index is supposed to be
@@ -350,32 +263,17 @@ Calculates path where the result json index is supposed to be
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| contextualPromptSlug (optional) | string |  |,| customPromptContent (optional) | string |  |,| saveNewPromptWithName | string |  |
+| contextualPromptSlug (optional) | string |  |,| customPromptContent (optional) | string |  |,| saveNewPromptWithName | string |  |,| contextType (optional) | `FileType` |  |
 | **Output** |    |    |
 
 
 
-## getContextualPromptsArray()
-
-Wrapper around the database to support the usecase of storing a file in a custom location for contextualPrompts.
-
+## getObjectForkKeyRecursively()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| scopeProjectRelativePath (optional) | string | If available, will also get the scoped context |
+| stackCount | `StackCount` |  |,| key | string |  |
 | **Output** |    |    |
-
-
-
-## getFolderRelativeScopeDbFilePath()
-
-Function to centralise the convention of the db file location of a scoped prompt
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| filename (optional) | string |  |
-| **Output** | `String`   |    |
 
 
 
@@ -415,18 +313,6 @@ TODO: move to gptideas backend package
 | ---------- | -- | -- |
 | contextContent | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
-
-
-
-## makeMarkdownLink()
-
-function that writes markdown for a text + url + alt. This may differ per platform in the end, for now I'll use my own: `["text"(alt)](url)`
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `String`   |    |
 
 
 
@@ -613,6 +499,20 @@ Let Yoda say your selection in his words
 
 
 
+## 🔹 CategoryChildObject
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| category  | string |  |
+| count  | number |  |
+| children (optional) | array |  |
+
+
+
+## 🔹 StackCount
+
 ## 📄 addStatement (exported const)
 
 Adds `Statement`
@@ -623,36 +523,7 @@ Adds `Statement`
 Adds word either to the WordMatrix or to the WordCombination database model
 
 
-## 📄 augmentMarkdown (exported const)
-
-Now that I've written this all down, it seems to be a quite an expensive operation, but we never need to do it for ensire websites, just for one page, and the result can easily be cached. I need to write a regex function that matches all text from a list of searchterms in markdown except if it's part of a link or image, and reduce the matches, creating a new markdown string every time. I think there are algorithms though that are more efficient because if there are like thousands of matches on a 2mb text, the thing would take much longer. Maybe it's more efficient to split up the text in smaller pieces and do the regex for every piece individually. This would have a limitation that you can't select cross-section, but I don't think that's my usecase anyway. If we later add support for making statements about a chapter or subsection and stuff like that, this limitation can also be resolved.
-
-Augments markdown in many ways for multiple purposes.
-
-- Parse the markdown instead of showing the results as React buttons. The link to "#" alt can become the same as a nice AugmentedWord hover, when it's found to be a selection result, we can highlight the selection whenever we hover over a link with that same text as alt as well, and add that hover as a note at the end of the selection.
-- ensure the parse parses `WordCombination`, `WordMatrix`, `Statement`, `AugmentedWord`, and `ContextualPromptResult`. It's a lot of work, but definitely worth it. Should be parsed as
-- remove the parsing of everything in the markdown render. This is also the end of sending `AugmentedWord`s to the frontend
-
-LATER:
-
-- CTA's, headers, footers, ads (check how I was planning to get those at codestorys-node or so)
-- Word frequency occurency styling
-- Subtexts and subwords
-
-
 ## 📄 biggestFunctionName (exported const)
-
-## 📄 canSeeFileContent (exported const)
-
-## 📄 canSeeFile (exported const)
-
-TODO: use something like this to ensure we have the type safety and not work with strings >.<
-
-```ts
-import { frontmatterToObject } from "frontmatter-util";
-import webMarkdownFileTsInterface from "markdown-types/db/ts-interfaces/webmarkdownfile.json";
-```
-
 
 ## 📄 cleanup (exported const)
 
@@ -674,8 +545,6 @@ import webMarkdownFileTsInterface from "markdown-types/db/ts-interfaces/webmarkd
 
 ## 📄 emojiAugmentation (exported const)
 
-## 📄 expandFrontmatter (exported const)
-
 ## 📄 explainInDutch (exported const)
 
 ## 📄 explainInNepali (exported const)
@@ -686,6 +555,10 @@ import webMarkdownFileTsInterface from "markdown-types/db/ts-interfaces/webmarkd
 
 ## 📄 fixGrammarAndSpellingMistakes (exported const)
 
+## 📄 getCategoriesTest (exported const)
+
+## 📄 getContextualPromptCategories (exported const)
+
 ## 📄 getContextualPromptResultJsonFilePath (exported const)
 
 Calculates path where the result json index is supposed to be
@@ -693,15 +566,7 @@ Calculates path where the result json index is supposed to be
 
 ## 📄 getContextualPrompt (exported const)
 
-## 📄 getContextualPromptsArray (exported const)
-
-Wrapper around the database to support the usecase of storing a file in a custom location for contextualPrompts.
-
-
-## 📄 getFolderRelativeScopeDbFilePath (exported const)
-
-Function to centralise the convention of the db file location of a scoped prompt
-
+## 📄 getObjectForkKeyRecursively (exported const)
 
 ## 📄 gptIdeasRegisterWithContext (exported const)
 
@@ -713,11 +578,6 @@ TODO: move to gptideas backend package
 ## 📄 improveCode (exported const)
 
 ## 📄 keywords (exported const)
-
-## 📄 makeMarkdownLink (exported const)
-
-function that writes markdown for a text + url + alt. This may differ per platform in the end, for now I'll use my own: `["text"(alt)](url)`
-
 
 ## 📄 marcusAurelius (exported const)
 

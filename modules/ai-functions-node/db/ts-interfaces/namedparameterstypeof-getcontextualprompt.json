@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671105518325,
-  "updatedAt": 1671105518325,
+  "createdAt": 1671147113444,
+  "updatedAt": 1671147113444,
   "deletedAt": 0,
-  "createdFirstAt": 1671105518325,
+  "createdFirstAt": 1671147113444,
   "id": "namedparameterstypeof-getcontextualprompt",
   "name": "NamedParameters<typeof getContextualPrompt>",
   "slug": "namedparameterstypeof-getcontextualprompt",
@@ -28,6 +28,9 @@
             "string",
             "null"
           ]
+        },
+        "contextType": {
+          "$ref": "#/definitions/FileType"
         }
       },
       "required": [
@@ -55,6 +58,19 @@
           "name": "saveNewPromptWithName",
           "required": true,
           "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "contextType",
+          "required": false,
+          "schema": {
+            "enum": [
+              "code",
+              "data",
+              "text"
+            ],
+            "fullComment": "",
             "type": "string"
           }
         }

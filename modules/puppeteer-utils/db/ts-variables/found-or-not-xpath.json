@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098530848,
-  "updatedAt": 1671098530848,
+  "createdAt": 1671113653590,
+  "updatedAt": 1671113653590,
   "deletedAt": 0,
-  "createdFirstAt": 1671098530848,
+  "createdFirstAt": 1671113653590,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "found-or-not-xpath",
   "operationRelativeTypescriptFilePath": "src/foundOrNotXpath.ts",
   "type": {
-    "rawType": "(props: { page: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-core/lib/types\").Page; selector: string; }) => Promise<{ found: boolean; element?: any; }>",
+    "rawType": "(props: { page: import(\"/Users/king/King/operations/node_modules/puppeteer-core/lib/types\").Page; selector: string; }) => Promise<{ found: boolean; element?: any; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: Page;\n  /** the xpath selector to search for */\n  selector: string;\n}): Promise<{\n  /** was the element found or not */\n  found: boolean;\n  /** if the element was found, it is returned */\n  element?: any;\n}> => {\n  const { page, selector } = props;\n  return new Promise(async (resolve, reject) => {\n    // Correct Method\n    await page\n      .waitForXPath(selector)\n      .then((element: any) => {\n        resolve({\n          found: true,\n          element,\n        });\n      })\n      .catch((e: any) => {\n        resolve({\n          found: false,\n        });\n      });\n  });\n}",
   "description": "Utility function that always returns a boolean instead of throwing an error.\nXPath version.",
-  "id": "bhxqpmkoexyqegrpwnaguxyd"
+  "id": "enyzmerskwlkrgpiqzdlpgtt"
 }

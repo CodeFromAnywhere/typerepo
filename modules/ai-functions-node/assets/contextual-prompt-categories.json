@@ -1,0 +1,99 @@
+{
+  "stackCount": {
+    "code": 14,
+    "code.code-auditory-interface": 2,
+    "code.code-comprehension": 6,
+    "code.code-education": 1,
+    "code.code-refactoring": 2,
+    "code.code-translation": 3,
+    "data": 1,
+    "data.data-structurization": 1,
+    "__root": 3,
+    "text": 16,
+    "text.art": 6,
+    "text.art.rick-and-morty": 2,
+    "text.conversation": 3,
+    "text.social-media": 2,
+    "text.text-bending": 3,
+    "text.text-comprehension": 1,
+    "text.translation": 1
+  },
+  "rootCategoryChildObject": {
+    "category": "root",
+    "count": 34,
+    "children": [
+      {
+        "category": "code",
+        "count": 14,
+        "children": [
+          {
+            "category": "code-auditory-interface",
+            "count": 2
+          },
+          {
+            "category": "code-comprehension",
+            "count": 6
+          },
+          {
+            "category": "code-education",
+            "count": 1
+          },
+          {
+            "category": "code-refactoring",
+            "count": 2
+          },
+          {
+            "category": "code-translation",
+            "count": 3
+          }
+        ]
+      },
+      {
+        "category": "data",
+        "count": 1,
+        "children": [
+          {
+            "category": "data-structurization",
+            "count": 1
+          }
+        ]
+      },
+      {
+        "category": "text",
+        "count": 16,
+        "children": [
+          {
+            "category": "art",
+            "count": 6,
+            "children": [
+              {
+                "category": "rick-and-morty",
+                "count": 2
+              }
+            ]
+          },
+          {
+            "category": "conversation",
+            "count": 3
+          },
+          {
+            "category": "social-media",
+            "count": 2
+          },
+          {
+            "category": "text-bending",
+            "count": 3
+          },
+          {
+            "category": "text-comprehension",
+            "count": 1
+          },
+          {
+            "category": "translation",
+            "count": 1
+          }
+        ]
+      }
+    ]
+  }
+}

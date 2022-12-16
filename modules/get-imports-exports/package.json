@@ -25,7 +25,8 @@
     "typescript": "*",
     "path-util": "0.0.1",
     "filename-conventions": "0.0.1",
-    "one-by-one": "0.0.1"
+    "one-by-one": "0.0.1",
+    "fs-util-js": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -58,7 +59,7 @@
     "folderNameIndexed": "get-imports-exports",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670590339788,
+    "lastRebuildAt": 1671116349664,
     "operationDependenciesIndexed": [
       "mergeObjectsArray",
       "notEmpty",
@@ -124,15 +125,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 8,
-        "lines": 853,
-        "characters": 25335,
-        "bytes": 25335
+        "lines": 855,
+        "characters": 25365,
+        "bytes": 25365
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 191,
-        "characters": 4483,
-        "bytes": 4483
+        "lines": 193,
+        "characters": 4528,
+        "bytes": 4528
       },
       "textSize": {
         "numberOfFiles": 1,
@@ -141,9 +142,9 @@
         "bytes": 8283
       },
       "size": {
-        "bytes": 38101,
-        "characters": 38101,
-        "lines": 1371,
+        "bytes": 38176,
+        "characters": 38176,
+        "lines": 1375,
         "numberOfFiles": 11
       }
     },

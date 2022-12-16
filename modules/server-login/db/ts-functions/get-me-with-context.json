@@ -1,15 +1,15 @@
 {
-  "createdAt": 1670528482618,
-  "updatedAt": 1670528482618,
+  "createdAt": 1671116615693,
+  "updatedAt": 1671116615693,
   "deletedAt": 0,
-  "createdFirstAt": 1670528482618,
+  "createdFirstAt": 1671116615693,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "explicitTypeName": "ApiFunction",
   "operationRelativeTypescriptFilePath": "src/getMeWithContext.ts",
   "commentsInside": [],
-  "rawText": " (\n  functionContext: FunctionContext\n) => {\n  const {\n    tsFunction,\n    serverContext,\n    hasAuthorization,\n    authToken,\n    ...userInfo\n  } = functionContext;\n\n  return userInfo;\n}",
+  "rawText": " async (\n  functionContext: FunctionContext\n): Promise<{\n  authorizations?: Authorization[] | undefined;\n  device: Device;\n  groups?: Group[] | undefined;\n}> => {\n  const {\n    tsFunction,\n    serverContext,\n    hasAuthorization,\n    authToken,\n    ...userInfo\n  } = functionContext;\n\n  return userInfo;\n}",
   "name": "getMeWithContext",
   "slug": "get-me-with-context",
   "parameters": [
@@ -3670,7 +3670,7 @@
               "items": [
                 {
                   "schema": {
-                    "fullComment": "A `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n```md\n--- manager: canExecute\n--- ```",
+                    "fullComment": "A `Person` is able to be part of one or multiple `Group`s.\n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n--- manager: canExecute\n---",
                     "properties": [
                       {
                         "name": "slug",
@@ -4202,281 +4202,23 @@
   ],
   "description": "Get all relevant information about yourself, including all persons that are attached to you.\n\nNB: probably need to omit some fields later, but for now it's fine",
   "returnType": {
-    "rawType": "{ authorizations?: import(\"/Users/king/King/operations/tools/purpose/p2p/auth-types/build/Authorization\").Authorization[] | undefined; device: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Device\").Device; groups?: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Group\").Group[] | undefined; }",
-    "typeDefinition": {
-      "type": "object",
-      "properties": {
-        "authorizations": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "isProjectWide": {
-                "type": "boolean"
-              },
-              "authorizedOperationName": {
-                "type": "string",
-                "allOf": [
-                  {
-                    "transform": [
-                      "trim"
-                    ]
-                  },
-                  {
-                    "minLength": 1
-                  }
-                ]
-              },
-              "tsFunctionId": {
-                "type": "string",
-                "allOf": [
-                  {
-                    "transform": [
-                      "trim"
-                    ]
-                  },
-                  {
-                    "minLength": 1
-                  }
-                ]
-              },
-              "tsVariableId": {
-                "type": "string",
-                "allOf": [
-                  {
-                    "transform": [
-                      "trim"
-                    ]
-                  },
-                  {
-                    "minLength": 1
-                  }
-                ]
-              },
-              "tsInterfaceId": {
-                "type": "string",
-                "allOf": [
-                  {
-                    "transform": [
-                      "trim"
-                    ]
-                  },
-                  {
-                    "minLength": 1
-                  }
-                ]
-              },
-              "datasetId": {
-                "type": "string",
-                "allOf": [
-                  {
-                    "transform": [
-                      "trim"
-                    ]
-                  },
-                  {
-                    "minLength": 1
-                  }
-                ]
-              },
-              "authorizedProjectRelativePath": {
-                "type": "string",
-                "allOf": [
-                  {
-                    "transform": [
-                      "trim"
-                    ]
-                  },
-                  {
-                    "minLength": 1
-                  }
-                ]
-              },
-              "canExecute": {
-                "type": "boolean"
-              },
-              "canWriteCreate": {
-                "type": "boolean"
-              },
-              "canWriteUpdate": {
-                "type": "boolean"
-              },
-              "canWriteDelete": {
-                "type": "boolean"
-              },
-              "canRead": {
-                "type": "boolean"
-              },
-              "canSearch": {
-                "type": "boolean"
-              }
-            }
-          }
-        },
-        "device": {},
-        "groups": {
-          "type": "array",
-          "items": {}
-        }
-      },
-      "required": [
-        "device"
-      ],
-      "optional": false
-    },
+    "rawType": "Promise<{ authorizations?: import(\"/Users/king/King/operations/tools/purpose/p2p/auth-types/build/Authorization\").Authorization[] | undefined; device: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Device\").Device; groups?: import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Group\").Group[] | undefined; }>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": true,
+    "isObject": false,
     "isPrimitive": false,
-    "isEnumLiteral": false,
-    "simplifiedSchema": {
-      "properties": [
-        {
-          "name": "authorizations",
-          "required": false,
-          "schema": {
-            "items": [
-              {
-                "schema": {
-                  "properties": [
-                    {
-                      "name": "isProjectWide",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "authorizedOperationName",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "tsFunctionId",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "tsVariableId",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "tsInterfaceId",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "datasetId",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "authorizedProjectRelativePath",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "canExecute",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canWriteCreate",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canWriteUpdate",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canWriteDelete",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canRead",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canSearch",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    }
-                  ],
-                  "type": "object"
-                },
-                "name": null
-              }
-            ],
-            "type": "array"
-          }
-        },
-        {
-          "name": "device",
-          "required": true,
-          "schema": {
-            "properties": [],
-            "type": "object"
-          }
-        },
-        {
-          "name": "groups",
-          "required": false,
-          "schema": {
-            "items": [
-              {
-                "schema": {
-                  "properties": [],
-                  "type": "object"
-                },
-                "name": null
-              }
-            ],
-            "type": "array"
-          }
-        }
-      ],
-      "type": "object"
-    }
+    "isEnumLiteral": false
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 347,
-    "lines": 15,
-    "bytes": 347,
+    "characters": 465,
+    "lines": 19,
+    "bytes": 465,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 23,
-    "linesPerFile": 15,
+    "charactersPerLine": 24,
+    "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "jzvishzsbijwdeqnyiflveua"
+  "id": "rrffnfjptgwfjbucyzfddzvp"
 }

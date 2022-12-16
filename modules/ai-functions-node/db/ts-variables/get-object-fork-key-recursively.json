@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671147119661,
+  "updatedAt": 1671147119661,
+  "deletedAt": 0,
+  "createdFirstAt": 1671147119661,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getObjectForkKeyRecursively",
+  "slug": "get-object-fork-key-recursively",
+  "operationRelativeTypescriptFilePath": "src/getContextualPromptCategories.ts",
+  "type": {
+    "rawType": "(stackCount: import(\"/Users/king/King/operations/tools/ai/ai-functions-node/src/getContextualPromptCategories\").StackCount, key: string) => import(\"/Users/king/King/operations/tools/ai/ai-functions-node/src/getContextualPromptCategories\").CategoryChildObject | undefined",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  stackCount: StackCount,\n  key: string\n): CategoryChildObject | undefined => {\n  const categoryStack = key.split(\".\");\n\n  if (categoryStack.length !== 1) return;\n\n  const firstCategory = categoryStack[0];\n\n  //get all children:\n\n  //1) find all keys that start with firstCategory\n  const childrenKeys = Object.keys(stackCount).filter((key) =>\n    key.startsWith(`${firstCategory}.`)\n  );\n  //2) remove the firstCategory from the keys\n  const strippedKeys = childrenKeys.map((key) =>\n    key.replace(`${firstCategory}.`, \"\")\n  );\n  // create strippedStackCount\n  const strippedStackCount = strippedKeys.reduce((newStackCount, key) => {\n    return { ...newStackCount, [key]: stackCount[`${firstCategory}.${key}`] };\n  }, {} as StackCount);\n\n  //3) insert into this same function\n\n  const children = strippedKeys\n    .map((key) => getObjectForkKeyRecursively(strippedStackCount, key))\n    .filter(notEmpty);\n\n  const object: CategoryChildObject = {\n    category: firstCategory,\n    count: stackCount[firstCategory],\n  };\n\n  if (children.length) object.children = children;\n\n  return object;\n}",
+  "description": "",
+  "id": "gzfnbffonjmcyqjjgsqphcsx"
+}

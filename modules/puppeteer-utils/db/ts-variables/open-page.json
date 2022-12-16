@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098547082,
-  "updatedAt": 1671098547082,
+  "createdAt": 1671113668351,
+  "updatedAt": 1671113668351,
   "deletedAt": 0,
-  "createdFirstAt": 1671098547082,
+  "createdFirstAt": 1671113668351,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "open-page",
   "operationRelativeTypescriptFilePath": "src/openPage.ts",
   "type": {
-    "rawType": "(pageId?: string | undefined) => Promise<{ page?: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Page | undefined; pageId: string; }>",
+    "rawType": "(pageId?: string | undefined) => Promise<{ page?: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined; pageId: string; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  pageId?: string\n): Promise<{ page?: Page; pageId: string }> => {\n  const browser = await openNewBrowser();\n  if (pageId) {\n    return { page: getBrowserPage(pageId), pageId };\n  }\n\n  const page = await browser.newPage();\n  await page.setBypassCSP(true);\n  const cachePageId = setBrowserPage(page);\n  return { pageId: cachePageId, page };\n}",
   "description": "Handling the new page by checking all browser tabs and if exist then return the existing one for reuse\nor create new one",
-  "id": "vozmhelzfwsqeogwtniqdvke"
+  "id": "vkhtcathpkojdvawkfduxqay"
 }

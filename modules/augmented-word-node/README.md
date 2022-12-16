@@ -25,7 +25,6 @@ augmented-word-node (`OperationClassification` node-cjs)
 
 Gets all augmented words of the entire project
 
-- words with their definitions, if available (`/dictionary?word=x`)
 - functions, interfaces, variables, operations (`/[operation-path]#name`)
 - if this is an OS-project, also bundles (`/[docs-path]`)
 
@@ -53,7 +52,6 @@ NB: should only be executed if this is not a sensible-project, as it might not h
 
 Gets all augmented words of the entire project
 
-- words with their definitions, if available (`/dictionary?word=x`)
 - functions, interfaces, variables, operations (`/[operation-path]#name`)
 - if this is an OS-project, also bundles (`/[docs-path]`)
 

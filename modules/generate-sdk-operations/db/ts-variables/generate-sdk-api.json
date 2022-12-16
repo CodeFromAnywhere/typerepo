@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670064206058,
-  "updatedAt": 1670064206058,
+  "createdAt": 1671116272889,
+  "updatedAt": 1671116272889,
   "deletedAt": 0,
-  "createdFirstAt": 1670064206058,
+  "createdFirstAt": 1671116272889,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (config?: {\n  manualProjectRoot?: string;\n  skipYarnInstall?: boolean;\n  dryrun?: boolean;\n}) => {\n  const manualProjectRoot = config?.manualProjectRoot;\n\n  const { apiFunctions } = await getFunctionSdksContent({ manualProjectRoot });\n\n  if (!apiFunctions) return;\n\n  const promises = [\n    // sdks\n    newFunctionSdkOperation(\"sdk-api\", apiFunctions, config),\n\n    /**\n     * SDK Keys operations: Needed because \"sdk-api\" is node-only\n     */\n    newFunctionKeysSdkOperation(\n      \"sdk-api-keys\",\n      [\n        {\n          variableName: \"functionApiKeys\",\n          values: apiFunctions.map((x) => x.name),\n        },\n      ],\n      { ...config, skipYarnInstall: true }\n    ),\n  ];\n\n  await Promise.all(promises);\n}",
   "description": "",
-  "id": "txfvlwvlnpfyqgfonqliidce"
+  "id": "gywoioeutfxaqvjtpjlfsqlp"
 }

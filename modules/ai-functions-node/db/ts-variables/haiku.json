@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671105557147,
-  "updatedAt": 1671105557147,
+  "createdAt": 1671147134800,
+  "updatedAt": 1671147134800,
   "deletedAt": 0,
-  "createdFirstAt": 1671105557147,
+  "createdFirstAt": 1671147134800,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -166,5 +166,5 @@
   },
   "value": "async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"haiku\",\n    selectionContent,\n  });\n\n  return result;\n}",
   "description": "",
-  "id": "znljcdulpvpqfzlpytheogqd"
+  "id": "kwrmjqdvwqgbviveorazhban"
 }

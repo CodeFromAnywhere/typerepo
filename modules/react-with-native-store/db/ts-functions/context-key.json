@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667635036317,
-  "updatedAt": 1667635036317,
+  "createdAt": 1671116723621,
+  "updatedAt": 1671116723621,
   "deletedAt": 0,
-  "createdFirstAt": 1667635036317,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1671116723621,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.tsx",
   "commentsInside": [],
   "rawText": " (key: string) => `${key}Context`",
@@ -41,5 +36,5 @@
     "linesPerFile": 1,
     "numberOfFiles": 1
   },
-  "id": "beuhmcmvlrmqrclxiwmqhceg"
+  "id": "ijffnppjhygcmzwwdzrhnnra"
 }

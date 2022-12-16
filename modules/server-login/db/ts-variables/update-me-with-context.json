@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528522016,
-  "updatedAt": 1670528522016,
+  "createdAt": 1671116649064,
+  "updatedAt": 1671116649064,
   "deletedAt": 0,
-  "createdFirstAt": 1670528522016,
+  "createdFirstAt": 1671116649064,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "update-me-with-context",
   "operationRelativeTypescriptFilePath": "src/updateMeWithContext.ts",
   "type": {
-    "rawType": "(functionContext: import(\"/Users/king/King/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext, details: Omit<import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Person\").Person, \"authorizations\" | \"groups\" | \"credit\" | \"dataEntries\" | \"slug\" | \"groupSlugs\" | \"authenticationMethods\" | keyof import(\"/Users/king/King/operations/tools/types/model-types/build/modelTypes\").DefaultModelType | \"devicesCalculated\" | \"paymentAuthToken\">) => Promise<{ isSuccessful: boolean; message: string; }>",
+    "rawType": "(functionContext: import(\"/Users/king/King/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext, details: Omit<import(\"/Users/king/King/operations/tools/purpose/p2p/peer-types/build/Person\").Person, \"authorizations\" | \"credit\" | \"dataEntries\" | \"slug\" | \"groupSlugs\" | \"authenticationMethods\" | keyof import(\"/Users/king/King/operations/tools/types/model-types/build/modelTypes\").DefaultModelType | \"devicesCalculated\" | \"groups\" | \"paymentAuthToken\">) => Promise<{ isSuccessful: boolean; message: string; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  functionContext: FunctionContext,\n  details: PersonProfileDetails\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const person = functionContext.device.currentPersonCalculated;\n\n  const processedAsset = await processAsset(details.pictureImage);\n\n  details.pictureImage = processedAsset;\n\n  if (!person) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't find you, are you logged in?\",\n    };\n  }\n\n  const { isSuccesful, message, amountUpdated } = await db.update(\n    \"Person\",\n    (item) => item.id === person.id,\n    (old) => ({ ...old, ...details })\n  );\n\n  const isReallySuccessful = (isSuccesful && amountUpdated === 1) || false;\n\n  return {\n    isSuccessful: isReallySuccessful,\n    message: isReallySuccessful\n      ? \"Updated your profile details\"\n      : message || \"Something went wrong (no message)\",\n  };\n}",
   "description": "",
-  "id": "lahktqxgijnexihgrpuspfgj"
+  "id": "bypemqrziwnqlvycyregkojw"
 }

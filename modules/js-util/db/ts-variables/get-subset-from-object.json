@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977396497,
-  "updatedAt": 1668977396497,
+  "createdAt": 1671116962171,
+  "updatedAt": 1671116962171,
   "deletedAt": 0,
-  "createdFirstAt": 1668977396497,
+  "createdFirstAt": 1671116962171,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T, K extends readonly (keyof T)[]>(\n  object: T,\n  keys: K\n) => {\n  type Subset = typeof keys[number];\n\n  const subsetObject = keys.reduce((obj, key) => {\n    return { ...obj, [key]: object[key] };\n  }, {} as Partial<T>) as Pick<T, Subset>;\n  return subsetObject;\n}",
   "description": "takes an object and a subset of its keys and returns a subset of that object\n\ninput: { x: \"a\", y: \"b\", z: \"c\" } and [\"x\"]\n\noutput: { x: \"a\" }",
-  "id": "iwlojmvnvcshyitjvsfbykfg"
+  "id": "ocixhqsozghyikidfgcnknvq"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098522353,
-  "updatedAt": 1671098522353,
+  "createdAt": 1671113645874,
+  "updatedAt": 1671113645874,
   "deletedAt": 0,
-  "createdFirstAt": 1671098522353,
+  "createdFirstAt": 1671113645874,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "browser-sessions-cache",
   "operationRelativeTypescriptFilePath": "src/browserSessionsCache.ts",
   "type": {
-    "rawType": "import(\"/Users/lucky/workspace/typerepo/node_modules/lru-cache/index\")<unknown, unknown>",
+    "rawType": "import(\"/Users/king/King/operations/node_modules/lru-cache/index\")<unknown, unknown>",
     "typeDefinition": {
       "type": "object",
       "properties": {
@@ -537,5 +537,5 @@
   },
   "value": "new LRU({\n  max: 1000,\n})",
   "description": "",
-  "id": "ynczvgsinvkjmqdkubxcamnc"
+  "id": "kklhbomrzydywjlelgaayrrf"
 }

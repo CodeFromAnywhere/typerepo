@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098546926,
-  "updatedAt": 1671098546926,
+  "createdAt": 1671113668210,
+  "updatedAt": 1671113668210,
   "deletedAt": 0,
-  "createdFirstAt": 1671098546926,
+  "createdFirstAt": 1671113668210,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -25,7 +25,7 @@
   ],
   "description": "Handling the new page by checking all browser tabs and if exist then return the existing one for reuse\nor create new one",
   "returnType": {
-    "rawType": "Promise<{ page?: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Page | undefined; pageId: string; }>",
+    "rawType": "Promise<{ page?: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined; pageId: string; }>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -43,5 +43,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "qzqopnijssqopkazijmgqfwm"
+  "id": "jwxcfisrpdeybbbiojhioakg"
 }

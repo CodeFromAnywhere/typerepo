@@ -118,7 +118,7 @@ jsonMultiple model
 
 
 
-```
+
 
 
 
@@ -145,6 +145,21 @@ Properties:
 | indexedAuthorizationCalculated (optional) | array |  |
 | amountAuthenticationMethodsRequired (optional) | number |  |
 | requiredAuthenticationMethods (optional) | array |  |
+
+
+
+## 🔹 AuthenticationMethodMethod
+
+Username + password should be the default
+
+Email OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods
+
+All others can also act as authentication methods, but the token shouldn't be stored
+
+
+
+
+
 
 
 
@@ -246,21 +261,6 @@ Properties:
 | credential (optional) | string |  |
 | otp (optional) | number |  |
 | isAuthenticated  | boolean |  |
-
-
-
-## 🔹 AuthenticationMethodMethod
-
-Username + password should be the default
-
-Email OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods
-
-All others can also act as authentication methods, but the token shouldn't be stored
-
-
-
-
-
 
 
 
@@ -530,6 +530,9 @@ Properties:
 | githubOrganisation (optional) | string |  |
 | useGithubOrganisation (optional) | boolean |  |
 | mediaCredentialIds (optional) | array |  |
+| apiKey2Captcha (optional) | string |  |
+| openAiPassword (optional) | string |  |
+| openAiEmail (optional) | string |  |
 
 
 

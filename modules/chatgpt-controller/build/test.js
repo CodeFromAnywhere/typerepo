@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -38,15 +38,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var openAIChat_1 = require("./openAIChat");
 var test = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var _a, isSuccess, result, thread;
+    var _a, isSuccessful, message, result;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0: return [4 /*yield*/, (0, openAIChat_1.openAIChat)({
                     prompt: "who is elon musk\n    can tell me his total net \n    worth?",
                 })];
             case 1:
-                _a = _b.sent(), isSuccess = _a.isSuccess, result = _a.result, thread = _a.thread;
-                console.log({ result: result, thread: thread });
+                _a = _b.sent(), isSuccessful = _a.isSuccessful, message = _a.message, result = _a.result;
+                console.log({ isSuccessful: isSuccessful, message: message, result: result });
                 return [2 /*return*/];
         }
     });

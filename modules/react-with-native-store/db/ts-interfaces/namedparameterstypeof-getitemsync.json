@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671116730192,
+  "updatedAt": 1671116730192,
+  "deletedAt": 0,
+  "createdFirstAt": 1671116730192,
+  "id": "namedparameterstypeof-getitemsync",
+  "name": "NamedParameters<typeof getItemSync>",
+  "slug": "namedparameterstypeof-getitemsync",
+  "operationRelativeTypescriptFilePath": "src/storage.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getItemSync>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670590331553,
-  "updatedAt": 1670590331553,
+  "createdAt": 1671116343227,
+  "updatedAt": 1671116343227,
   "deletedAt": 0,
-  "createdFirstAt": 1670590331553,
+  "createdFirstAt": 1671116343227,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (options: {\n  operationName: string;\n  success: boolean;\n  message: string;\n  manualProjectRoot?: string;\n}) => {\n  const { message, operationName, success, manualProjectRoot } = options;\n\n  if (!success) {\n    log(`Couldn't write imports/exports.`);\n\n    await db.update(\n      \"Operation\",\n      () => true,\n      (old) =>\n        mergeNestedObject(old, {\n          operation: {\n            buildResultIndexed: { indexImportExportError: message },\n          },\n        }),\n      { operationName, manualProjectRoot }\n    );\n\n    return false;\n  }\n}",
   "description": "",
-  "id": "papysoftnclluxabgfaamvkb"
+  "id": "bweaupqyisvwajkihifhgbys"
 }

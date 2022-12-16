@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671017891039,
-  "updatedAt": 1671017891039,
+  "createdAt": 1671129821080,
+  "updatedAt": 1671129821080,
   "deletedAt": 0,
-  "createdFirstAt": 1671017891039,
+  "createdFirstAt": 1671129821080,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/processPrompt.ts",
   "commentsInside": [],
-  "rawText": " async (config: {\n  contextualPromptSlug?: Slug;\n  customPromptContent?: string;\n  contextualContent: ContextualContent;\n  showPromptAlert: ShowPromptAlertFunction;\n}) => {\n  const {\n    contextualPromptSlug,\n    showPromptAlert,\n    customPromptContent,\n    contextualContent: {\n      contextContent,\n      context_projectRelativeFilePath,\n      contextSelection,\n    },\n  } = config;\n\n  const apiResult = await api.processChatGptPrompt({\n    contextContent,\n    selectionContent: contextSelection || null,\n    prompt_projectRelativePath: context_projectRelativeFilePath,\n    isDeferred: true,\n    // not sure about these?\n    contextualPromptSlug,\n    customPromptContent,\n    saveNewPromptWithName: null,\n    isHeadless: false,\n  });\n\n  if (!apiResult.isSuccessful || !apiResult.result?.isSuccessful) {\n    showStandardResponse(apiResult);\n    return;\n  }\n\n  const title = contextualPromptSlug\n    ? humanCase(contextualPromptSlug)\n    : \"Untitled prompt\";\n\n  showPromptAlert(\n    title,\n    apiResult?.result?.result?.text || \"No textual result\",\n    apiResult?.result?.result?.thread,\n    context_projectRelativeFilePath\n  );\n}",
+  "rawText": " async (config: {\n  contextualPromptSlug?: Slug;\n  customPromptContent?: string;\n  contextualContent: ContextualContent;\n  showPromptAlert: ShowPromptAlertFunction;\n  saveNewPromptWithName?: string | null;\n}) => {\n  const {\n    contextualPromptSlug,\n    showPromptAlert,\n    customPromptContent,\n    saveNewPromptWithName,\n    contextualContent: {\n      contextContent,\n      context_projectRelativeFilePath,\n      contextSelection,\n    },\n  } = config;\n\n  const apiResult = await api.processChatGptPrompt({\n    contextContent,\n    selectionContent: contextSelection || null,\n    prompt_projectRelativePath: context_projectRelativeFilePath,\n    isDeferred: true,\n    // not sure about these?\n    contextualPromptSlug,\n    customPromptContent,\n    saveNewPromptWithName,\n    isHeadless: false,\n  });\n\n  if (!apiResult.isSuccessful || !apiResult.result?.isSuccessful) {\n    showStandardResponse(apiResult);\n    return;\n  }\n\n  const title = contextualPromptSlug\n    ? humanCase(contextualPromptSlug)\n    : \"Untitled prompt\";\n\n  showPromptAlert(\n    title,\n    apiResult?.result?.result?.text || \"No textual result\",\n    apiResult?.result?.result?.thread,\n    context_projectRelativeFilePath\n  );\n}",
   "name": "processPrompt",
   "slug": "process-prompt",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 1346,
-    "lines": 45,
-    "bytes": 1346,
+    "characters": 1408,
+    "lines": 47,
+    "bytes": 1408,
     "bytesPerCharacter": 1,
     "charactersPerLine": 30,
-    "linesPerFile": 45,
+    "linesPerFile": 47,
     "numberOfFiles": 1
   },
-  "id": "mchtznadezoopupahjkwcduf"
+  "id": "thetojyuhnaecrlhzcxcugae"
 }

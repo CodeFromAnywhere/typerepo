@@ -37,7 +37,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/vui/vui-elements/react-with-native-store/src/general.tsx. Error: Error: Unknown node \\\"new (props: P) => Component<P, any>\\\" of kind \\\"ConstructorType\\\"\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/dumb/react-with-native-store/src/general.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "ui-cjs",
@@ -48,33 +50,33 @@
     "folderNameIndexed": "react-with-native-store",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668333969896,
+    "lastRebuildAt": 1671116756095,
     "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [],
-    "relativeOperationLocationPathIndexed": "operations/tools/interfaces/vui/vui-elements",
+    "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/gui/dumb",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 287,
-        "characters": 7503,
-        "bytes": 7503
+        "lines": 302,
+        "characters": 7796,
+        "bytes": 7796
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 125,
-        "characters": 3409,
-        "bytes": 3409
+        "lines": 127,
+        "characters": 3428,
+        "bytes": 3428
       },
       "textSize": {
         "numberOfFiles": 4,
-        "lines": 339,
-        "characters": 9368,
-        "bytes": 9368
+        "lines": 252,
+        "characters": 6247,
+        "bytes": 6247
       },
       "size": {
-        "bytes": 20280,
-        "characters": 20280,
-        "lines": 751,
+        "bytes": 17471,
+        "characters": 17471,
+        "lines": 681,
         "numberOfFiles": 9
       }
     },

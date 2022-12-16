@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977385052,
-  "updatedAt": 1668977385052,
+  "createdAt": 1671116945904,
+  "updatedAt": 1671116945904,
   "deletedAt": 0,
-  "createdFirstAt": 1668977385052,
+  "createdFirstAt": 1671116945904,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T>(array: T[], findFn: (item: T) => boolean) => {\n  const lastIndex = array\n    .map((item, index) => ({ item, index }))\n    .filter(({ item }) => findFn(item))\n    .pop()?.index;\n\n  return lastIndex;\n}",
   "description": "finds the last index of an array where a certain filter holds true",
-  "id": "rtabywxrbshmnwnxwdhzspem"
+  "id": "vwbtgbxvofhpnawjtlgphkrg"
 }

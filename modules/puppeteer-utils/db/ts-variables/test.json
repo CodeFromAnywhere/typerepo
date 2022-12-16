@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098562825,
-  "updatedAt": 1671098562825,
+  "createdAt": 1671113682517,
+  "updatedAt": 1671113682517,
   "deletedAt": 0,
-  "createdFirstAt": 1671098562825,
+  "createdFirstAt": 1671113682517,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const { page, pageId } = await openPage();\n\n  await page?.goto(\"https://chat.openai.com/auth/login\", {\n    waitUntil: \"domcontentloaded\",\n  });\n  page?.solveRecaptchas();\n  const title = await page?.title();\n  console.log({ title });\n}",
   "description": "",
-  "id": "upakyijjtkbopipnhonzxkjm"
+  "id": "qkbbgmcmrsinmxyeayocknux"
 }

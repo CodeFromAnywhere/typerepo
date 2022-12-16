@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098542494,
-  "updatedAt": 1671098542494,
+  "createdAt": 1671113664513,
+  "updatedAt": 1671113664513,
   "deletedAt": 0,
-  "createdFirstAt": 1671098542494,
+  "createdFirstAt": 1671113664513,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  message: string;\n  debug: boolean;\n}) => {\n  const { debug, message } = props;\n  if (debug) {\n    console.log(message);\n  }\n}",
   "description": "Utility function to log console only if a Debug flag is set.\nIf the flag is not set, doesn't print anything.",
-  "id": "riledfnnlqrlhxkxiniyusyi"
+  "id": "zrxqajuhcvqurzjqxdrzwlai"
 }

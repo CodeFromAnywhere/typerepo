@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098538905,
-  "updatedAt": 1671098538905,
+  "createdAt": 1671113661027,
+  "updatedAt": 1671113661027,
   "deletedAt": 0,
-  "createdFirstAt": 1671098538905,
+  "createdFirstAt": 1671113661027,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "gmail-login",
   "operationRelativeTypescriptFilePath": "src/gmailLogin.ts",
   "type": {
-    "rawType": "(props: import(\"/Users/lucky/workspace/typerepo/packages/niches/bhagya/doing/control-web/puppeteer-utils/src/gmailLogin\").GmailLoginPropsType) => any",
+    "rawType": "(props: import(\"/Users/king/King/operations/niches/bhagya-nov-30/doing/control-web/puppeteer-utils/src/gmailLogin\").GmailLoginPropsType) => any",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: GmailLoginPropsType) => {\n  // waiting for email input and set email value\n  const { page, email, password } = props;\n  // setting email address\n  await setInputValue({\n    page,\n    inputValue: email,\n    selector: \"input[type=email]\",\n  });\n\n  // clicking on the next button after email input\n  await clickOnSpanTag({ page, spanText: \"Next\" });\n  await page.setBypassCSP(true);\n  // clicking on the next button after password input\n\n  await page.waitForFunction(\n    `document.querySelector(\"body\").innerText.includes(\"Next\")`\n  );\n\n  // waiting for the password field to load and set the password\n  await setInputValue({\n    page,\n    inputValue: password,\n    selector: \"input[type=password]\",\n  });\n\n  // clicking next button after password entered\n  await clickOnSpanTag({ page, spanText: \"Next\" });\n}",
   "description": "",
-  "id": "ohavpxtlfjjurnbcvrwbqome"
+  "id": "stzjtlinglpqoyloiegbwlwh"
 }

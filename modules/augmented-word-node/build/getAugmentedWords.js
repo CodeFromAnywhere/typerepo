@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.getAugmentedWords = void 0;
 var fs_util_1 = require("fs-util");
 var get_path_1 = require("get-path");
+var fs_util_js_1 = require("fs-util-js");
 var database_1 = require("database");
 var js_util_1 = require("js-util");
 var getBundleAugmentedWords_1 = require("./getBundleAugmentedWords");
@@ -71,7 +72,7 @@ var getAugmentedWords = function (manualProjectRoot) { return __awaiter(void 0, 
                         return;
                     var description = ((_a = item.operation) === null || _a === void 0 ? void 0 : _a.markdown) || item.description;
                     var augmentedWord = {
-                        queryPath: (0, get_path_1.makeRelative)(operationPath, projectRoot),
+                        queryPath: (0, fs_util_js_1.makeRelative)(operationPath, projectRoot),
                         spoiler: description,
                         type: "operation",
                         word: item.name,
@@ -103,7 +104,7 @@ var getAugmentedWords = function (manualProjectRoot) { return __awaiter(void 0, 
                     var operationPath = (0, get_path_1.findOperationBasePath)(itemLocationPath);
                     if (!operationPath)
                         return;
-                    var projectRelativeOperationPath = (0, get_path_1.makeRelative)(operationPath, projectRoot);
+                    var projectRelativeOperationPath = (0, fs_util_js_1.makeRelative)(operationPath, projectRoot);
                     var augmentedWord = {
                         queryPath: "".concat(projectRelativeOperationPath, "#").concat((0, markdown_parse_js_1.getImplicitId)(item.name)),
                         spoiler: item.description,
@@ -121,7 +122,7 @@ var getAugmentedWords = function (manualProjectRoot) { return __awaiter(void 0, 
                     var operationPath = (0, get_path_1.findOperationBasePath)(itemLocationPath);
                     if (!operationPath)
                         return;
-                    var projectRelativeOperationPath = (0, get_path_1.makeRelative)(operationPath, projectRoot);
+                    var projectRelativeOperationPath = (0, fs_util_js_1.makeRelative)(operationPath, projectRoot);
                     var augmentedWord = {
                         queryPath: "".concat(projectRelativeOperationPath, "#").concat((0, markdown_parse_js_1.getImplicitId)(item.name)),
                         spoiler: item.description,
@@ -139,7 +140,7 @@ var getAugmentedWords = function (manualProjectRoot) { return __awaiter(void 0, 
                     var operationPath = (0, get_path_1.findOperationBasePath)(itemLocationPath);
                     if (!operationPath)
                         return;
-                    var projectRelativeOperationPath = (0, get_path_1.makeRelative)(operationPath, projectRoot);
+                    var projectRelativeOperationPath = (0, fs_util_js_1.makeRelative)(operationPath, projectRoot);
                     var augmentedWord = {
                         queryPath: "".concat(projectRelativeOperationPath, "#").concat((0, markdown_parse_js_1.getImplicitId)(item.name)),
                         spoiler: item.description,

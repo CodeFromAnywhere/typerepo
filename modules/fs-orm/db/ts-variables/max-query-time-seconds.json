@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670592547451,
-  "updatedAt": 1670592547451,
+  "createdAt": 1671115870418,
+  "updatedAt": 1671115870418,
   "deletedAt": 0,
-  "createdFirstAt": 1670592547451,
+  "createdFirstAt": 1671115870418,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "maxQueryTimeSeconds",
   "slug": "max-query-time-seconds",
-  "operationRelativeTypescriptFilePath": "src/createDb.ts",
+  "operationRelativeTypescriptFilePath": "src/waitForLockfile.ts",
   "type": {
     "rawType": "{}",
     "typeCoverage": 0,
@@ -20,5 +20,5 @@
   },
   "value": "10",
   "description": "",
-  "id": "fqnzypllsulwarhyhsbrpfvt"
+  "id": "hrjgzhrharshnksyhbfqvssa"
 }

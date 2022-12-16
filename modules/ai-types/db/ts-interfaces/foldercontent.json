@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671105338822,
-  "updatedAt": 1671105338822,
+  "createdAt": 1671157025588,
+  "updatedAt": 1671157025588,
   "deletedAt": 0,
-  "createdFirstAt": 1671105338822,
+  "createdFirstAt": 1671157025588,
   "id": "foldercontent",
   "name": "FolderContent",
   "slug": "foldercontent",
   "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type FolderContent = {\n  name: string;\n  type: \"folder\" | \"file\" | \"link\" | \"unknown\";\n  isPrivate?: boolean;\n  isDraft?: boolean;\n  isSecret?: boolean;\n  authorizedGroup?: string;\n  frontmatter?: Frontmatter;\n};",
+  "rawText": "\n\nexport type FolderContent = {\n  name: string;\n  projectRelativePath: string;\n  type: \"folder\" | \"file\" | \"link\" | \"unknown\";\n  isPrivate?: boolean;\n  isDraft?: boolean;\n  isSecret?: boolean;\n  authorizedGroup?: string;\n  frontmatter?: Frontmatter;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -20,6 +20,9 @@
       "type": "object",
       "properties": {
         "name": {
+          "type": "string"
+        },
+        "projectRelativePath": {
           "type": "string"
         },
         "type": {
@@ -49,6 +52,7 @@
       },
       "required": [
         "name",
+        "projectRelativePath",
         "type"
       ],
       "additionalProperties": false
@@ -57,6 +61,13 @@
       "properties": [
         {
           "name": "name",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "projectRelativePath",
           "required": true,
           "schema": {
             "type": "string"

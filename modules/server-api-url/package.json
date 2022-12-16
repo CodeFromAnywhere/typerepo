@@ -5,7 +5,8 @@
   "createdFirstAt": 1668328701917,
   "id": "YIaKrUxDlcIGSKGv",
   "dependencies": {
-    "port-conventions": "0.0.1"
+    "port-conventions": "0.0.1",
+    "react-with-native-store": "2.0.40"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
@@ -37,10 +38,12 @@
     "folderNameIndexed": "server-api-url",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671012732091,
+    "lastRebuildAt": 1671116580142,
     "operationDependenciesIndexed": [
       "publicEnvironmentVariables",
       "publicLocalEnvironmentVariables",
+      "getItem",
+      "getItemSync",
       "ports"
     ],
     "packageDependenciesIndexed": [],
@@ -49,15 +52,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 36,
-        "characters": 1146,
-        "bytes": 1146
+        "lines": 42,
+        "characters": 1306,
+        "bytes": 1306
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 114,
-        "characters": 2873,
-        "bytes": 2873
+        "lines": 115,
+        "characters": 2914,
+        "bytes": 2914
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -66,9 +69,9 @@
         "bytes": 508
       },
       "size": {
-        "bytes": 4527,
-        "characters": 4527,
-        "lines": 168,
+        "bytes": 4728,
+        "characters": 4728,
+        "lines": 175,
         "numberOfFiles": 7
       }
     },

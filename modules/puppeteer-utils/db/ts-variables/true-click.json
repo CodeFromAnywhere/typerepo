@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098564855,
-  "updatedAt": 1671098564855,
+  "createdAt": 1671113684267,
+  "updatedAt": 1671113684267,
   "deletedAt": 0,
-  "createdFirstAt": 1671098564855,
+  "createdFirstAt": 1671113684267,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "true-click",
   "operationRelativeTypescriptFilePath": "src/trueClick.ts",
   "type": {
-    "rawType": "(props: { page: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-core/lib/types\").Page; selector: string; }) => Promise<{ success: boolean; }>",
+    "rawType": "(props: { page: import(\"/Users/king/King/operations/node_modules/puppeteer-core/lib/types\").Page; selector: string; }) => Promise<{ success: boolean; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: Page;\n  /** the css selector to click */\n  selector: string;\n}): Promise<{ success: boolean }> => {\n  try {\n    const { page, selector } = props;\n    await page.evaluate((sendButtonSelector: string) => {\n      let a = document.querySelector(sendButtonSelector);\n      (a as HTMLElement).click?.();\n    }, selector);\n    return {\n      success: true,\n    };\n  } catch (err) {\n    return {\n      success: false,\n    };\n  }\n}",
   "description": "Utility function to call the element onclick event directly.\nSuccess when clicking is improved over puppeteer page.click('selector')",
-  "id": "ravqrwqwwpxmmxdjnlwfpzll"
+  "id": "bzrxoprewjtcvatqvayspfbb"
 }

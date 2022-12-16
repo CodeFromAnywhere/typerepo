@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670063641599,
-  "updatedAt": 1670063641599,
+  "createdAt": 1671115927876,
+  "updatedAt": 1671115927876,
   "deletedAt": 0,
-  "createdFirstAt": 1670063641599,
+  "createdFirstAt": 1671115927876,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const markdownReaderPages = await getAllMarkdownReaderPages();\n\n  if (!markdownReaderPages) return;\n  const isSuccessful = await copyStaticAssets(markdownReaderPages);\n\n  console.log({ isSuccessful });\n}",
   "description": "",
-  "id": "hiljjjjzvzxdgwrpxrwhaobs"
+  "id": "fnkxbewbfzenqwvwbltwtder"
 }

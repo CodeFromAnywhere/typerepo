@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216333088,
-  "updatedAt": 1670216333088,
+  "createdAt": 1671115750898,
+  "updatedAt": 1671115750898,
   "deletedAt": 0,
-  "createdFirstAt": 1670216333088,
+  "createdFirstAt": 1671115750898,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  textMarkdown: string\n): { voice: string | undefined; sentence: string }[] => {\n  const sentences = textMarkdown\n    .split(\"\\n\")\n    .map((line) => (line.trim() === \"\" ? undefined : line))\n    .filter(notEmpty)\n    .map((line) => {\n      const parts = line.split(\":\");\n      const voice = parts.length < 2 ? undefined : parts.shift();\n      const sentence = parts.join(\":\").trim();\n\n      return { voice, sentence };\n    });\n\n  return sentences;\n}",
   "description": "",
-  "id": "nuwwmgqesflrojgaipdyeadr"
+  "id": "jprkszonvglxdfkldrdlnxjn"
 }

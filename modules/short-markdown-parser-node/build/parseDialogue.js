@@ -1,19 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.parseDialogue = void 0;
-var js_util_1 = require("js-util");
-var parseDialogue = function (textMarkdown) {
-    var sentences = textMarkdown
-        .split("\n")
-        .map(function (line) { return (line.trim() === "" ? undefined : line); })
-        .filter(js_util_1.notEmpty)
-        .map(function (line) {
-        var parts = line.split(":");
-        var voice = parts.length < 2 ? undefined : parts.shift();
-        var sentence = parts.join(":").trim();
-        return { voice: voice, sentence: sentence };
-    });
-    return sentences;
-};
-exports.parseDialogue = parseDialogue;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.parseDialogue=void 0;var js_util_1=require("js-util"),parseDialogue=function(e){return e.split("\n").map((function(e){return""===e.trim()?void 0:e})).filter(js_util_1.notEmpty).map((function(e){var t=e.split(":");return{voice:t.length<2?void 0:t.shift(),sentence:t.join(":").trim()}}))};exports.parseDialogue=parseDialogue;
 //# sourceMappingURL=parseDialogue.js.map

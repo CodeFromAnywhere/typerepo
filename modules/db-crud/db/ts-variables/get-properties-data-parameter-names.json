@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528938672,
-  "updatedAt": 1670528938672,
+  "createdAt": 1671116842055,
+  "updatedAt": 1671116842055,
   "deletedAt": 0,
-  "createdFirstAt": 1670528938672,
+  "createdFirstAt": 1671116842055,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  properties: SchemaProperty[]\n) => {\n  const dataParameterNames = properties\n    .map((property) => {\n      const { dataParameterName } = getReferenceParameterInfo(property.name);\n\n      return dataParameterName;\n    })\n    .filter(notEmpty);\n\n  return dataParameterNames;\n}",
   "description": "",
-  "id": "gcmlgjnjcamowazzonypghss"
+  "id": "bipuqnuxjnqiwhsudaqywbnz"
 }

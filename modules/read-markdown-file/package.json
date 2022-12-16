@@ -12,7 +12,8 @@
     "js-util": "0.0.1",
     "model-types": "0.0.1",
     "markdown-types": "0.0.1",
-    "frontmatter-util": "0.0.1"
+    "frontmatter-util": "0.0.1",
+    "fs-util-js": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -43,7 +44,7 @@
     "folderNameIndexed": "read-markdown-file",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670063481283,
+    "lastRebuildAt": 1671115793345,
     "operationDependenciesIndexed": [
       "canRead",
       "fs",
@@ -75,15 +76,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 2,
-        "lines": 169,
-        "characters": 5541,
-        "bytes": 5541
+        "lines": 171,
+        "characters": 5571,
+        "bytes": 5571
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 140,
-        "characters": 3869,
-        "bytes": 3869
+        "lines": 141,
+        "characters": 3896,
+        "bytes": 3896
       },
       "textSize": {
         "numberOfFiles": 1,
@@ -92,9 +93,9 @@
         "bytes": 918
       },
       "size": {
-        "bytes": 10328,
-        "characters": 10328,
-        "lines": 355,
+        "bytes": 10385,
+        "characters": 10385,
+        "lines": 358,
         "numberOfFiles": 5
       }
     },

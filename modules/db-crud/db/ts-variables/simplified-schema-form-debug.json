@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670766949193,
-  "updatedAt": 1670766949193,
+  "createdAt": 1671116808470,
+  "updatedAt": 1671116808470,
   "deletedAt": 0,
-  "createdFirstAt": 1670766949193,
+  "createdFirstAt": 1671116808470,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "({\n  parameters,\n  values,\n}: {\n  parameters: FunctionParameter[] | undefined;\n  values: any[];\n}) => {\n  const [showParams, setShowParams] = useState(false);\n  return (\n    <Div>\n      <P>values</P>\n      <MarkdownContent\n        content={createCodeblockMarkdown(\n          JSON.stringify(values, null, 2),\n          \"json\"\n        )}\n        config={{}}\n      />\n      <P\n        className=\"hover:underline cursor-pointer\"\n        onClick={() => setShowParams(!showParams)}\n      >\n        params (toggle)\n      </P>{\" \"}\n      {showParams ? (\n        <MarkdownContent\n          content={createCodeblockMarkdown(\n            JSON.stringify(parameters, null, 2),\n            \"json\"\n          )}\n          config={{}}\n        />\n      ) : null}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "lfkfqmkffaubgmfcjimoviaa"
+  "id": "wgpyigatvragjfmltwptcuhp"
 }

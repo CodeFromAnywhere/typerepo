@@ -15,7 +15,8 @@
     "path-util": "0.0.1",
     "model-types": "0.0.1",
     "set-json-key": "1.0.9",
-    "filename-conventions": "0.0.1"
+    "filename-conventions": "0.0.1",
+    "fs-util-js": "0.0.1"
   },
   "main": "build/index.js",
   "scripts": {
@@ -44,17 +45,17 @@
     "folderNameIndexed": "operation-util",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668332247183,
+    "lastRebuildAt": 1671115595666,
     "operationDependenciesIndexed": [
       "db",
       "getProjectRoot",
-      "makeRelative",
       "getPackageJson",
       "takeFirst",
       "getLastFolder",
       "path",
       "db",
       "Operation",
+      "makeRelative",
       "log",
       "Operation",
       "getOperationClassification",
@@ -70,15 +71,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 161,
-        "characters": 4799,
-        "bytes": 4799
+        "lines": 162,
+        "characters": 4828,
+        "bytes": 4828
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 149,
-        "characters": 5001,
-        "bytes": 5001
+        "lines": 139,
+        "characters": 4797,
+        "bytes": 4797
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -87,9 +88,9 @@
         "bytes": 1721
       },
       "size": {
-        "bytes": 11521,
-        "characters": 11521,
-        "lines": 390,
+        "bytes": 11346,
+        "characters": 11346,
+        "lines": 381,
         "numberOfFiles": 7
       }
     },

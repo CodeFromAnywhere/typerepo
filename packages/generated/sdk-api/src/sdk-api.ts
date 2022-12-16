@@ -16,10 +16,7 @@ import { writeAllCodestories } from "make-codestory";
 import { writeCodespanDetails } from "make-codestory";
 import { addStatement } from "ai-functions-node";
 import { addWord } from "ai-functions-node";
-import { augmentMarkdown } from "ai-functions-node";
 import { biggestFunctionName } from "ai-functions-node";
-import { canSeeFileContent } from "ai-functions-node";
-import { canSeeFile } from "ai-functions-node";
 import { cleanup } from "ai-functions-node";
 import { controlChatGptWrapper } from "ai-functions-node";
 import { controlChatGpt } from "ai-functions-node";
@@ -29,24 +26,19 @@ import { developersQuote } from "ai-functions-node";
 import { diaryToInstagram } from "ai-functions-node";
 import { documentationWriting } from "ai-functions-node";
 import { emojiAugmentation } from "ai-functions-node";
-import { expandFrontmatter } from "ai-functions-node";
 import { explainInDutch } from "ai-functions-node";
 import { explainInNepali } from "ai-functions-node";
 import { explainInPortuguese } from "ai-functions-node";
 import { explain } from "ai-functions-node";
 import { fixGrammarAndSpellingMistakes } from "ai-functions-node";
+import { getContextualPromptCategories } from "ai-functions-node";
 import { getContextualPromptResultJsonFilePath } from "ai-functions-node";
-import { getContextualPromptResults } from "ai-functions-node";
 import { getContextualPrompt } from "ai-functions-node";
-import { getContextualPromptsArray } from "ai-functions-node";
-import { getContextualPrompts } from "ai-functions-node";
-import { getFolderRelativeScopeDbFilePath } from "ai-functions-node";
-import { getReaderPageProps } from "ai-functions-node";
+import { getObjectForkKeyRecursively } from "ai-functions-node";
 import { gptIdeasRegisterWithContext } from "ai-functions-node";
 import { haiku } from "ai-functions-node";
 import { improveCode } from "ai-functions-node";
 import { keywords } from "ai-functions-node";
-import { makeMarkdownLink } from "ai-functions-node";
 import { marcusAurelius } from "ai-functions-node";
 import { poem } from "ai-functions-node";
 import { processChatGptPrompt } from "ai-functions-node";
@@ -807,7 +799,6 @@ import { stringToJson } from "string-to-json";
 import { getEncoding } from "text-or-binary";
 import { isBinary } from "text-or-binary";
 import { isText } from "text-or-binary";
-import { Tooltip } from "tooltip";
 import { tryParseJson } from "try-parse-json";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
@@ -832,10 +823,7 @@ writeAllCodestories,
 writeCodespanDetails,
 addStatement,
 addWord,
-augmentMarkdown,
 biggestFunctionName,
-canSeeFileContent,
-canSeeFile,
 cleanup,
 controlChatGptWrapper,
 controlChatGpt,
@@ -845,24 +833,19 @@ developersQuote,
 diaryToInstagram,
 documentationWriting,
 emojiAugmentation,
-expandFrontmatter,
 explainInDutch,
 explainInNepali,
 explainInPortuguese,
 explain,
 fixGrammarAndSpellingMistakes,
+getContextualPromptCategories,
 getContextualPromptResultJsonFilePath,
-getContextualPromptResults,
 getContextualPrompt,
-getContextualPromptsArray,
-getContextualPrompts,
-getFolderRelativeScopeDbFilePath,
-getReaderPageProps,
+getObjectForkKeyRecursively,
 gptIdeasRegisterWithContext,
 haiku,
 improveCode,
 keywords,
-makeMarkdownLink,
 marcusAurelius,
 poem,
 processChatGptPrompt,
@@ -1623,7 +1606,6 @@ stringToJson,
 getEncoding,
 isBinary,
 isText,
-Tooltip,
 tryParseJson,
 createCodeblockMarkdown,
 useCustomUrlStore,

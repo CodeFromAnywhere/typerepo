@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671011071333,
-  "updatedAt": 1671011071333,
+  "createdAt": 1671116417082,
+  "updatedAt": 1671116417082,
   "deletedAt": 0,
-  "createdFirstAt": 1671011071333,
+  "createdFirstAt": 1671116417082,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const files = {\n    // interfaces:\n    //   \"/Users/king/King/tools/types/code-types/src/code/TypescriptIndex.ts\",\n    // interfaces2:\n    //   \"/Users/king/King/tools/types/code-types/src/code/TsComment.ts\",\n    // interfaces3:\n    //   \"/Users/king/King/tools/types/code-types/src/code/TsInterface.ts\",\n    // interfaces4: \"/Users/king/King/tools/types/code-types/src/code/TypeInfo.ts\",\n    // interfaces5:\n    //   \"/Users/king/King/tools/types/code-types/src/code/TsFunction.ts\",\n    // interfaces6:\n    //   \"/Users/king/King/tools/types/foodchain-types/src/FoodChain.ts\",\n    functions:\n      \"/Users/king/King/operations/tools/control-system/file-explorer-open/src/fileExplorerOpen.ts\",\n  };\n\n  const fileReasons = Object.keys(files) as (keyof typeof files)[];\n  oneByOne(fileReasons, async (reason) => {\n    const filePath = files[reason];\n\n    console.log({ filePath });\n\n    await indexTypescript({ filePaths: [filePath], manualProjectRoot: null });\n\n    return;\n  });\n}",
   "description": "",
-  "id": "zvjyxpqpfysplxzkzddanpzn"
+  "id": "hosmiphsduzhpnjigtmwsrqf"
 }

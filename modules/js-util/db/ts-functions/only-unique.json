@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977389959,
-  "updatedAt": 1668977389959,
+  "createdAt": 1671116952819,
+  "updatedAt": 1671116952819,
   "deletedAt": 0,
-  "createdFirstAt": 1668977389959,
+  "createdFirstAt": 1671116952819,
   "isApiExposed": false,
   "name": "onlyUnique",
   "slug": "only-unique",
@@ -41,5 +41,5 @@
   },
   "rawText": "\n\n/**\n * DEPRECATED: should refactor everything to use onlyUnique2 and call it onlyUnique again\n *\n * to be used as a filter. removes duplicates\n */\nexport function onlyUnique<T extends unknown>(\n  value: T,\n  index: number,\n  self: T[]\n) {\n  return self.findIndex((v) => v === value) === index;\n}",
   "maxIndentationDepth": 1,
-  "id": "qhmjacknqzkhiehzkjehfory"
+  "id": "ylyzvtzgnktnflgyujnrbsya"
 }

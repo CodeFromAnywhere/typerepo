@@ -28,7 +28,8 @@
     "read-json-file": "0.0.1",
     "js-util": "0.0.1",
     "try-parse-json": "0.0.1",
-    "one-by-one": "0.0.1"
+    "one-by-one": "0.0.1",
+    "fs-util-js": "0.0.1"
   },
   "operation": {
     "hasGeneratedDependenciesIndexed": false,
@@ -37,19 +38,19 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1670216344952,
+    "lastRebuildAt": 1671115762820,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 12,
-        "lines": 379,
-        "characters": 12049,
-        "bytes": 12049
+        "lines": 380,
+        "characters": 12078,
+        "bytes": 12078
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 140,
-        "characters": 4182,
-        "bytes": 4182
+        "lines": 142,
+        "characters": 4229,
+        "bytes": 4229
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -58,9 +59,9 @@
         "bytes": 3071
       },
       "size": {
-        "bytes": 19302,
-        "characters": 19302,
-        "lines": 696,
+        "bytes": 19378,
+        "characters": 19378,
+        "lines": 699,
         "numberOfFiles": 16
       }
     },

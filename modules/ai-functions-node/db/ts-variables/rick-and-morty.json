@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671105557149,
-  "updatedAt": 1671105557149,
+  "createdAt": 1671147134801,
+  "updatedAt": 1671147134801,
   "deletedAt": 0,
-  "createdFirstAt": 1671105557149,
+  "createdFirstAt": 1671147134801,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -166,5 +166,5 @@
   },
   "value": "async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"rick-and-morty\",\n    selectionContent,\n  });\n\n  return result;\n}",
   "description": "",
-  "id": "mfsifpgtfpwukgcrkmulmqbg"
+  "id": "arfdoyptwfiznhuzulubztup"
 }

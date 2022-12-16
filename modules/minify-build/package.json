@@ -9,7 +9,8 @@
     "get-path": "0.0.1",
     "log": "0.0.1",
     "fs-util": "1.0.5",
-    "k-explore": "0.0.2"
+    "k-explore": "0.0.2",
+    "fs-util-js": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -42,14 +43,14 @@
     "folderNameIndexed": "minify-build",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668336062916,
+    "lastRebuildAt": 1671116479009,
     "operationDependenciesIndexed": [
       "getOperationPath",
-      "makeRelative",
       "log",
       "fs",
       "path",
-      "explore"
+      "explore",
+      "makeRelative"
     ],
     "packageDependenciesIndexed": [
       "minify"
@@ -58,15 +59,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 2,
-        "lines": 132,
-        "characters": 3570,
-        "bytes": 3570
+        "lines": 133,
+        "characters": 3599,
+        "bytes": 3599
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 126,
-        "characters": 2802,
-        "bytes": 2802
+        "lines": 127,
+        "characters": 2848,
+        "bytes": 2848
       },
       "textSize": {
         "numberOfFiles": 1,
@@ -75,9 +76,9 @@
         "bytes": 836
       },
       "size": {
-        "bytes": 7208,
-        "characters": 7208,
-        "lines": 295,
+        "bytes": 7283,
+        "characters": 7283,
+        "lines": 297,
         "numberOfFiles": 5
       }
     },

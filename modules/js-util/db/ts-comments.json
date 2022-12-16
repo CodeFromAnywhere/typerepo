@@ -1,36 +1,18 @@
 [
   {
-    "createdAt": 1671096837193,
-    "updatedAt": 1671096837193,
+    "createdAt": 1671116993971,
+    "updatedAt": 1671116993971,
     "deletedAt": 0,
-    "createdFirstAt": 1671096837193,
+    "createdFirstAt": 1671116993971,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/mapMany.ts",
-    "comment": "NB: Do I really need this? Would be nice not to use generators.",
-    "rawStatement": "function* arrayGenerator(array: any[]): ArrayGenerator {\n  for (let index = 0; index < array.length; index++) {\n    const currentValue = array[index];\n    const generatorTuple: [any, number, any[]] = [currentValue, index, array];\n    yield generatorTuple;\n  }\n}",
-    "parameters": {},
-    "types": [
-      "nb"
-    ],
-    "firstLine": 50,
-    "lastLine": 52,
-    "id": "zcfkbqgvuxqidajgmggwjdsf"
-  },
-  {
-    "createdAt": 1671096837194,
-    "updatedAt": 1671096837194,
-    "deletedAt": 0,
-    "createdFirstAt": 1671096837194,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/mapMany.ts",
-    "comment": "Lets you map over any array with a async function while setting a max. concurrency\n\nTaken and improved from https://codeburst.io/async-map-with-limited-parallelism-in-node-js-2b91bd47af70",
-    "rawStatement": "export const mapMany = async <T, U>(\n  array: T[],\n  mapFn: (item: T, index: number, array: T[]) => Promise<U>,\n  /**\n   * Limit of amount of items at the same time\n   */\n  limit?: number\n): Promise<U[]> => {\n  const result: U[] = [];\n\n  if (array.length === 0) {\n    return result;\n  }\n\n  const generator = arrayGenerator(array);\n  const realLimit = Math.min(limit || array.length, array.length);\n  const workers = new Array(realLimit);\n\n  for (let i = 0; i < realLimit; i++) {\n    workers.push(worker(i, generator, mapFn, result));\n  }\n\n  // console.log(`Initialized ${limit} workers`);\n\n  await Promise.all(workers);\n\n  return result;\n};",
+    "operationRelativeTypescriptFilePath": "src/trimSlashes.ts",
+    "comment": "Trims a slash on both sides in any path",
+    "rawStatement": "export const trimSlashes = (absoluteOrRelativePath: string) => {\n  const isFirstCharacterSlash = absoluteOrRelativePath.charAt(0) === \"/\";\n  const isLastCharacterSlash =\n    absoluteOrRelativePath.charAt(absoluteOrRelativePath.length - 1) === \"/\";\n\n  const withoutSlashPrefix = isFirstCharacterSlash\n    ? absoluteOrRelativePath.slice(1)\n    : absoluteOrRelativePath;\n  const withoutSlashSuffix = isLastCharacterSlash\n    ? withoutSlashPrefix.slice(0, withoutSlashPrefix.length - 1)\n    : withoutSlashPrefix;\n\n  return withoutSlashSuffix;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 61,
-    "lastLine": 65,
-    "id": "trqfqejoxwdagtquzjcdxhtf"
+    "firstLine": 1,
+    "lastLine": 3,
+    "id": "nedzsyyvqrgzdagknqyhfmbs"
   }
 ]

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098571364,
-  "updatedAt": 1671098571364,
+  "createdAt": 1671113689811,
+  "updatedAt": 1671113689811,
   "deletedAt": 0,
-  "createdFirstAt": 1671098571364,
+  "createdFirstAt": 1671113689811,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "type-on-the-target-with-xpath-selector",
   "operationRelativeTypescriptFilePath": "src/typeOnTheTargetWithXpathSelector.ts",
   "type": {
-    "rawType": "(props: { page: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-core/lib/types\").Page; selector: string; text: string; }) => any",
+    "rawType": "(props: { page: import(\"/Users/king/King/operations/node_modules/puppeteer-core/lib/types\").Page; selector: string; text: string; }) => any",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  page: Page;\n  selector: string;\n  text: string;\n}) => {\n  const { page, selector, text } = props;\n  const targetedElement = await page.$x(selector);\n\n  if (targetedElement[0]) {\n    await targetedElement[0].focus();\n    //@ts-ignore\n    await targetedElement[0].click();\n    console.log(\n      \"selector find and click\",\n      await (await targetedElement[0].getProperty(\"role\")).jsonValue()\n    );\n  }\n  console.log(\"Aout to type\", text);\n  await page.keyboard.type(text);\n}",
   "description": "Help to type in the input field using x-path",
-  "id": "benwribwnveoklhakmoyvfdb"
+  "id": "npvehncizjylyunusjgxtbsh"
 }

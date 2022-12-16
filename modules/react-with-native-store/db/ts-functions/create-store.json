@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667635036318,
-  "updatedAt": 1667635036318,
+  "createdAt": 1671116723622,
+  "updatedAt": 1671116723622,
   "deletedAt": 0,
-  "createdFirstAt": 1667635036318,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1671116723622,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.tsx",
   "commentsInside": [],
   "rawText": " <K extends object>(initialValues: K) => ({\n  StoreProvider: createStoreProvider({ initialValues }),\n  useStore: createUseStore(initialValues),\n})",
@@ -19,7 +14,7 @@
   "parameters": [],
   "description": "One function is all you need to make a new store!\n\nExample:\n\n\n```ts\n\nimport { createStore } from \"react-with-native-store\";\nimport { TypeA, TypeB } from \"your-types\";\n\nexport const writerInitialValues: {\nitemA: TypeA;\nitemB: TypeB;\n} = {\nitemA: \"\",\nitemB: {},\n};\nexport const { useStore, StoreProvider } = createStore(writerInitialValues);\n\n\n```\n\nSimple as pie 🍰",
   "returnType": {
-    "rawType": "{ StoreProvider: ({ children }: { children: any; }) => JSX.Element; useStore: <K>(key: K) => import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/react-with-native-store/src/general\").UseStoreResult<K[K]>; }",
+    "rawType": "{ StoreProvider: ({ children }: { children: any; }) => JSX.Element; useStore: <K>(key: K) => import(\"/Users/king/King/operations/tools/user-interfaces/gui/dumb/react-with-native-store/src/general\").UseStoreResult<K[K]>; }",
     "typeDefinition": {
       "type": "object",
       "properties": {
@@ -76,5 +71,5 @@
     "linesPerFile": 26,
     "numberOfFiles": 1
   },
-  "id": "tohjueanizzquuovysfyggan"
+  "id": "daczukouqhhwturtiuoqugpm"
 }

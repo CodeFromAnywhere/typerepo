@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (g && (g = 0, op[0] && (_ = 0)), _) try {
+        while (_) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -48,61 +48,71 @@ var html_to_md_1 = __importDefault(require("html-to-md"));
  * Send the propt to chatgpt and return the chatgpt response
  */
 var openAIChat = function (props) { return __awaiter(void 0, void 0, void 0, function () {
-    var prompt, thread, isHeadless, _a, page, pageId, sendMessageButton, isTextAreaExist, pageType, authResponse, result, finalResult;
+    var prompt, thread, isHeadless, _a, page_1, pageId, sendMessageButton, textAreaElementHandle, pageType, authResponse, result, finalResult, e_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
             case 0:
                 prompt = props.prompt, thread = props.thread, isHeadless = props.isHeadless;
                 console.log("openAIChat Called", props);
-                return [4 /*yield*/, (0, puppeteer_utils_1.openPage)(thread)];
+                _b.label = 1;
             case 1:
-                _a = _b.sent(), page = _a.page, pageId = _a.pageId;
-                if (!page)
-                    return [2 /*return*/, { isSuccess: false, result: "Faild to create page." }];
-                if (!(thread !== pageId)) return [3 /*break*/, 3];
-                return [4 /*yield*/, page.goto("https://chat.openai.com/chat", {
+                _b.trys.push([1, 18, , 19]);
+                return [4 /*yield*/, (0, puppeteer_utils_1.openPage)(thread)];
+            case 2:
+                _a = _b.sent(), page_1 = _a.page, pageId = _a.pageId;
+                if (!page_1)
+                    return [2 /*return*/, { isSuccessful: false, message: "Faild to create page." }];
+                if (!(thread !== pageId)) return [3 /*break*/, 4];
+                return [4 /*yield*/, page_1.goto("https://chat.openai.com/chat", {
                         waitUntil: "domcontentloaded",
                     })];
-            case 2:
+            case 3:
                 _b.sent();
-                _b.label = 3;
-            case 3: return [4 /*yield*/, page.$('button[class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"]')];
-            case 4:
-                sendMessageButton = _b.sent();
-                return [4 /*yield*/, page.$("textarea")];
+                _b.label = 4;
+            case 4: return [4 /*yield*/, page_1.$('button[class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"]')];
             case 5:
-                isTextAreaExist = _b.sent();
-                if (!(!isTextAreaExist || !sendMessageButton)) return [3 /*break*/, 9];
-                return [4 /*yield*/, (0, detectChatGptPage_1.detectChatGptPage)(page)];
+                sendMessageButton = _b.sent();
+                return [4 /*yield*/, page_1.$("textarea")];
             case 6:
+                textAreaElementHandle = _b.sent();
+                if (!(!textAreaElementHandle || !sendMessageButton)) return [3 /*break*/, 10];
+                return [4 /*yield*/, (0, detectChatGptPage_1.detectChatGptPage)(page_1)];
+            case 7:
                 pageType = _b.sent();
                 console.log({ pageType: pageType });
-                if (!(pageType === "Login")) return [3 /*break*/, 9];
-                return [4 /*yield*/, (0, chatGPTAuth_1.chatGPTAuth)(page)];
-            case 7:
+                if (!(pageType === "Login")) return [3 /*break*/, 10];
+                return [4 /*yield*/, (0, chatGPTAuth_1.chatGPTAuth)(page_1)];
+            case 8:
                 authResponse = _b.sent();
                 console.log({ authResponse: authResponse });
                 return [4 /*yield*/, new Promise(function (r) { return setTimeout(r, 5000); })];
-            case 8:
+            case 9:
                 _b.sent();
-                _b.label = 9;
-            case 9: 
+                _b.label = 10;
+            case 10: 
             // Wating and typing the prompt in the textarea field
-            return [4 /*yield*/, page.waitForSelector("textarea", { timeout: 60000 })];
-            case 10:
+            return [4 /*yield*/, page_1.waitForSelector("textarea", { timeout: 60000 })];
+            case 11:
                 // Wating and typing the prompt in the textarea field
                 _b.sent();
-                return [4 /*yield*/, page.waitForSelector('button[class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"]', { timeout: 60000 })];
-            case 11:
-                _b.sent();
-                return [4 /*yield*/, page.$('button[class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"]')];
+                return [4 /*yield*/, page_1.waitForSelector('button[class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"]', { timeout: 60000 })];
             case 12:
-                sendMessageButton = _b.sent();
-                return [4 /*yield*/, page.$("textarea")];
+                _b.sent();
+                return [4 /*yield*/, page_1.$('button[class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"]')];
             case 13:
-                isTextAreaExist = _b.sent();
-                console.log({ isTextAreaExist: isTextAreaExist, sendMessageButton: sendMessageButton });
-                if (!(isTextAreaExist && sendMessageButton)) return [3 /*break*/, 17];
+                sendMessageButton = _b.sent();
+                return [4 /*yield*/, page_1.$("textarea")];
+            case 14:
+                textAreaElementHandle = _b.sent();
+                if (!textAreaElementHandle || !sendMessageButton) {
+                    return [2 /*return*/, {
+                            isSuccessful: false,
+                            message: "Text area not found",
+                            result: {
+                                thread: pageId,
+                            },
+                        }];
+                }
                 console.log("inside of set value");
                 return [4 /*yield*/, new Promise(function (resolve, reject) { return __awaiter(void 0, void 0, void 0, function () {
                         var _a;
@@ -111,7 +121,7 @@ var openAIChat = function (props) { return __awaiter(void 0, void 0, void 0, fun
                                 case 0:
                                     console.log("inside promise");
                                     _a = resolve;
-                                    return [4 /*yield*/, page.evaluate(function (evPrompt) {
+                                    return [4 /*yield*/, page_1.evaluate(function (evPrompt) {
                                             var promtTextAreaField = document.getElementsByTagName("textarea");
                                             console.log({ promtTextAreaField: promtTextAreaField });
                                             if (promtTextAreaField[0]) {
@@ -132,11 +142,11 @@ var openAIChat = function (props) { return __awaiter(void 0, void 0, void 0, fun
                             }
                         });
                     }); })];
-            case 14:
+            case 15:
                 _b.sent();
                 // Waiting for re-appear send message button that show current prompt is completed
-                return [4 /*yield*/, page.waitForSelector('button[class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"]', { timeout: 300000 })];
-            case 15:
+                return [4 /*yield*/, page_1.waitForSelector('button[class="absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent"]', { timeout: 600000 })];
+            case 16:
                 // Waiting for re-appear send message button that show current prompt is completed
                 _b.sent();
                 console.log("ANSWER IS COMPLETED");
@@ -146,7 +156,7 @@ var openAIChat = function (props) { return __awaiter(void 0, void 0, void 0, fun
                             switch (_b.label) {
                                 case 0:
                                     _a = resolve;
-                                    return [4 /*yield*/, page.evaluate(function () {
+                                    return [4 /*yield*/, page_1.evaluate(function () {
                                             // document.title = "bhagya 1234";
                                             var allAnswer = document.querySelectorAll('div[class="w-full border-b border-black/10 dark:border-gray-900/50 text-gray-800 dark:text-gray-100 group bg-gray-50 dark:bg-[#444654]"]');
                                             console.log({ allAnswer: allAnswer });
@@ -163,18 +173,24 @@ var openAIChat = function (props) { return __awaiter(void 0, void 0, void 0, fun
                             }
                         });
                     }); })];
-            case 16:
+            case 17:
                 result = _b.sent();
                 if (!result) {
-                    return [2 /*return*/, { isSuccess: false, result: "Empty result found" }];
+                    return [2 /*return*/, { isSuccessful: false, message: "Empty result found" }];
                 }
                 finalResult = (0, html_to_md_1.default)(result);
                 return [2 /*return*/, {
-                        isSuccess: true,
-                        result: finalResult,
-                        thread: pageId,
+                        isSuccessful: true,
+                        message: "Successfully done",
+                        result: {
+                            text: finalResult,
+                            thread: pageId,
+                        },
                     }];
-            case 17: return [2 /*return*/, { isSuccess: false, result: "Text area not found", thread: thread }];
+            case 18:
+                e_1 = _b.sent();
+                return [2 /*return*/, { isSuccessful: false, message: String(e_1) }];
+            case 19: return [2 /*return*/];
         }
     });
 }); };

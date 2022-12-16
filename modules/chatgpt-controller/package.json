@@ -24,35 +24,35 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1671097078527,
+    "lastRebuildAt": 1671115100297,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 4,
-        "lines": 296,
-        "characters": 10230,
-        "bytes": 10230
+        "lines": 291,
+        "characters": 10132,
+        "bytes": 10132
       },
       "dataSize": {
-        "numberOfFiles": 35,
-        "lines": 235,
-        "characters": 55291,
-        "bytes": 55291
+        "numberOfFiles": 2,
+        "lines": 120,
+        "characters": 3685,
+        "bytes": 3685
       },
       "textSize": {
-        "numberOfFiles": 2,
-        "lines": 114,
-        "characters": 1617,
-        "bytes": 1617
+        "numberOfFiles": 3,
+        "lines": 129,
+        "characters": 3875,
+        "bytes": 3875
       },
       "size": {
-        "bytes": 67138,
-        "characters": 67138,
-        "lines": 645,
-        "numberOfFiles": 41
+        "bytes": 17692,
+        "characters": 17692,
+        "lines": 540,
+        "numberOfFiles": 9
       }
     },
     "folderNameIndexed": "chatgpt-controller",
-    "relativeOperationLocationPathIndexed": "packages/niches/bhagya/doing/control-web",
+    "relativeOperationLocationPathIndexed": "operations/niches/bhagya-nov-30/doing/control-web",
     "classificationIndexed": "node-cjs",
     "coreDependenciesIndexed": [],
     "operationDependenciesIndexed": [
@@ -61,7 +61,10 @@
       "getBrowserSession",
       "db",
       "MediaCredential",
-      "openPage"
+      "isCaptchaExist",
+      "solveReptcha",
+      "openPage",
+      "ProcessPromptFunctionResult"
     ],
     "packageDependenciesIndexed": [
       "Page",
@@ -74,7 +77,8 @@
     "html-to-md": "^0.8.3",
     "puppeteer": "*",
     "puppeteer-utils": "1.0.2",
-    "social-media-types": "0.0.1"
+    "social-media-types": "0.0.1",
+    "ai-types": "0.0.1"
   },
   "slug": "chatgpt-controller",
   "id": "xwgqotrxkqssqbtgmmwsaxzq"

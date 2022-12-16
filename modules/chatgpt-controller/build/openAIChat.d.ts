@@ -1,9 +1,10 @@
-export type OpenAIChatProps = {
+import { ProcessPromptFunctionResult } from "ai-types";
+export declare type OpenAIChatProps = {
     prompt: string;
     thread?: string;
     isHeadless?: boolean;
 };
-export type OpenAIChatResponseType = {
+export declare type OpenAIChatResponseType = {
     result?: string;
     thread?: string;
     isSuccess: boolean;
@@ -11,5 +12,5 @@ export type OpenAIChatResponseType = {
 /**
  * Send the propt to chatgpt and return the chatgpt response
  */
-export declare const openAIChat: (props: OpenAIChatProps) => Promise<OpenAIChatResponseType>;
+export declare const openAIChat: (props: OpenAIChatProps) => Promise<ProcessPromptFunctionResult>;
 //# sourceMappingURL=openAIChat.d.ts.map

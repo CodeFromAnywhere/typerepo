@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMaxIndentationDepth = void 0;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getMaxIndentationDepth=void 0;
 /**
  * gets the maximum indentation depth of any piece of code
  *
@@ -8,14 +6,5 @@ exports.getMaxIndentationDepth = void 0;
  *
  * assumes an indentation contains 2 spaces.
  */
-var getMaxIndentationDepth = function (functionText) {
-    var lines = functionText.split("\n");
-    var maxDepth = lines.reduce(function (max, line) {
-        var prefixSpaces = line.length - line.trimStart().length;
-        var lineIndentationDepth = Math.floor(prefixSpaces / 2);
-        return max > lineIndentationDepth ? max : lineIndentationDepth;
-    }, 0);
-    return maxDepth;
-};
-exports.getMaxIndentationDepth = getMaxIndentationDepth;
+var getMaxIndentationDepth=function(t){return t.split("\n").reduce((function(t,e){var n=e.length-e.trimStart().length,r=Math.floor(n/2);return t>r?t:r}),0)};exports.getMaxIndentationDepth=getMaxIndentationDepth;
 //# sourceMappingURL=getMaxIndexationDepth.js.map

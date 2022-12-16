@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668332240581,
-  "updatedAt": 1668332240581,
+  "createdAt": 1671115586477,
+  "updatedAt": 1671115586477,
   "deletedAt": 0,
-  "createdFirstAt": 1668332240581,
+  "createdFirstAt": 1671115586477,
   "id": "operationmetadata",
   "name": "OperationMetaData",
   "slug": "operationmetadata",
@@ -215,6 +215,56 @@
                 }
               },
               {
+                "name": "contributors",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "fullComment": "",
+                        "properties": [
+                          {
+                            "name": "name",
+                            "required": true,
+                            "schema": {
+                              "fullComment": "NPM convention, name of the contributor",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "url",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "NPM convention, url with more info of the contributor",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "email",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "NPM convention, email of the contributor",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "contributionAmount",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "Relative amount of estimated contribution to this operation, should be a number between 0 and 1",
+                              "type": "number"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": "ContributorPersonInfo"
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
                 "name": "description",
                 "required": false,
                 "schema": {
@@ -248,6 +298,8 @@
                 "name": "repository",
                 "required": false,
                 "schema": {
+                  "fullComment": "NB: this data becomes public, even for private repositories. If you don't want this, you're out of luck.",
+                  "nb": "this data becomes public, even for private repositories. If you don't want this, you're out of luck.",
                   "properties": [],
                   "type": "object"
                 }
@@ -324,10 +376,34 @@
                   "fullComment": "custom keys, both indexed and generated",
                   "properties": [
                     {
+                      "name": "port",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Can be set in case this is a ui-web operation",
+                        "type": "number"
+                      }
+                    },
+                    {
+                      "name": "codeOwner_personId",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Who is responsible for this operation?\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "isNodeServer",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Set to true if this operations serves a server. Will be omitted from api.",
+                        "type": "boolean"
+                      }
+                    },
+                    {
                       "name": "isBundle",
                       "required": false,
                       "schema": {
-                        "fullComment": "replaces `isSensibleProject`.\n\nTODO: Might be interesting to see what the differences between the two are, and if it is truly needed to create a convention for this. The bundle folder structure convention is is the more conventional way of structuring a monorepo, but I doubt the if it really benefits me, especially if I have to maintain two conventions for this, and do different things based on the type of applied convention.",
+                        "fullComment": "Set to true if this package.json is your bundle. This means almost all other config doesn't apply.\n\nreplaces `isSensibleProject`.\n\nTODO: Might be interesting to see what the differences between the two are, and if it is truly needed to create a convention for this. The bundle folder structure convention is is the more conventional way of structuring a monorepo, but I doubt the if it really benefits me, especially if I have to maintain two conventions for this, and do different things based on the type of applied convention.",
                         "todo": "Might be interesting to see what the differences between the two are, and if it is truly needed to create a convention for this. The bundle folder structure convention is is the more conventional way of structuring a monorepo, but I doubt the if it really benefits me, especially if I have to maintain two conventions for this, and do different things based on the type of applied convention.",
                         "type": "boolean"
                       }
@@ -345,14 +421,6 @@
                       "required": false,
                       "schema": {
                         "fullComment": "If true, it means that this operation has dependency on one or more operations that have been generated at runtime. We need to know this because it can easily cause circular imports if we don't filter them out sometimes",
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "hasGeneratedImportsIndexed",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Same as `hasGeneratedDependencies` but includes types, not only values.",
                         "type": "boolean"
                       }
                     },
@@ -429,13 +497,6 @@
                           }
                         ],
                         "type": "object"
-                      }
-                    },
-                    {
-                      "name": "lastPullTimeAtIndexed",
-                      "required": false,
-                      "schema": {
-                        "type": "number"
                       }
                     },
                     {
@@ -745,6 +806,7 @@
                           "esm",
                           "node-cjs",
                           "node-esm",
+                          "node-ts",
                           "server-cjs",
                           "ui-web",
                           "ui-app",
@@ -752,8 +814,8 @@
                           "ui-cjs",
                           "ui-esm"
                         ],
-                        "fullComment": "`OperationClassification` tells you to what kind of environment the operation can be exposed to. It tells you things about how it will be built. There are three categories: Full stack, frontend only, and backend only. The aim is to do as much as possible in the full stack realm so it can be reused anywhere. If that is not possible, `ui-esm` is preferred for the frontend, or `node-esm` for things that require backend.\n\nTODO: It would be great to learn more about this topic and see if I can make more cross-environment packages. A great use case would be to create a wrapper around the current `fs-orm` to enable using it at the frontend too.\n\n# Possible values\n\nFULL STACK\n\n- `cjs`: only js (no node) (well, ts of course, but it gets built into common js)\n\n- `ts`: non-built typescript code (needs to be transpiled, not recommended)\n\nTODO: `esm`: builds to ESM module resolved Javascript\n\nFRONTEND ONLY (cannot be used within backend-only operations)\n\n- `ui-web`: has next.config.js and thus exposes something on some port when it is ran. next.js + react-based...\n\n- `ui-app`: uses react-native and exposes something on some port when it is ran\n\n- `ui-ts`: uses react (with (native)), which main entry points to typescript es6 files (this ui package cannot be built, should be transpiled. Primarily used for big ui libraries tied to a `ui-web` and `ui-app` for convenience. For other things, it is highly discouraged, please use `ui-cjs` or `ui-esm`)\n\n- `ui-cjs`: ui which main entry points to javascript es5 files (this ui package can be built). don't import ESM packages in here, this may give problems.\n\n- `ui-esm`: ui which builds to ESM module resolved Javascript. All packages that use `ui-esm` packages, need to be `ui-esm`, `ui-es6`, `ui-web`, or `ui-app` in order to work properly. It seems to have difficulties using this in `ui-cjs`\n\nBACKEND ONLY (cannot be used within frontend-only operations)\n\n- `node-cjs`: includes other node packages, operations, core-imports, and globals.\n\nTODO: `node-esm`: Typescript package that is built to ESM Javascript which also includes all node packages, operations, core-imports and globals.\n\n- `server-cjs`: exposes something on some port when it is ran and uses node code",
-                        "todo": "It would be great to learn more about this topic and see if I can make more cross-environment packages. A great use case would be to create a wrapper around the current `fs-orm` to enable using it at the frontend too.",
+                        "fullComment": "TODO: Ensure embedding this will embed the actual docs in my markdown renderer. I guess it might already do so!\n\n![](../docs/OperationClassification.md)\n\nTODO: It would be great to learn more about this topic and see if I can make more cross-environment packages. A great use case would be to create a wrapper around the current `fs-orm` to enable using it at the frontend too.",
+                        "todo": "Ensure embedding this will embed the actual docs in my markdown renderer. I guess it might already do so!",
                         "type": "string"
                       }
                     },
@@ -761,7 +823,8 @@
                       "name": "packageDependenciesIndexed",
                       "required": false,
                       "schema": {
-                        "fullComment": "external package dependency names (non-operation)",
+                        "fullComment": "external package dependency names (non-operation)\n\nTODO: this are imported names, not the module names.... rename this and add them both under clear names",
+                        "todo": "this are imported names, not the module names.... rename this and add them both under clear names",
                         "items": [
                           {
                             "schema": {
@@ -867,7 +930,7 @@
                       "name": "uiSupport",
                       "required": false,
                       "schema": {
-                        "fullComment": "For ui-es5 and ui-esm, it should be noted which platforms are supported\n\nCan be used to generate nice component in the documentation",
+                        "fullComment": "For ui-*, it should be noted which platforms are supported\n\nCan be used to generate nice component in the documentation",
                         "properties": [
                           {
                             "name": "android",

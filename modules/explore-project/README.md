@@ -26,15 +26,6 @@ get file paths within your project
 get file paths within your project
 
 
-## getFrontmattersMappedObject()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| projectRoot | string |  |,| markdownPaths (optional) | string[] |  |
-| **Output** |    |    |
-
-
-
 ## getTodoPaths()
 
 | Input      |    |    |
@@ -44,9 +35,18 @@ get file paths within your project
 
 
 
-## 📄 getFrontmattersMappedObject (exported const)
-
 ## 📄 getTodoPaths (exported const)
+
+## getFrontmattersMappedObject()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| projectRoot | string |  |,| markdownPaths (optional) | string[] |  |
+| **Output** |    |    |
+
+
+
+## 📄 getFrontmattersMappedObject (exported const)
 
 # Tests
 

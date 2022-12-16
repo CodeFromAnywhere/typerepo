@@ -11,6 +11,18 @@ This thing is far from finished, see `todo/` for what needs to be done.
 
 # Api reference
 
+## addDeviceAuthenticationMethodWithContext()
+
+returns new function context with added authenticationmethod
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionContext | `FunctionContext` |  |,| method | `AuthenticationMethodMethod` |  |,| handle | string |  |,| credential (optional) | string |  |
+| **Output** |    |    |
+
+
+
 ## isValidPassword()
 
 | Input      |    |    |
@@ -20,11 +32,40 @@ This thing is far from finished, see `todo/` for what needs to be done.
 
 
 
+## signupWithContext()
+
+Creates a new `Person` for a `Device`. Adds that person to the `Device`.
+
+- Can only be done with at least one authenticationMethod
+- Can only be done if authentication is not applied on an existing person already.
+- Function is wrappable
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionContext | `FunctionContext` |  |,| personData | `SignupPersonData` | Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically |
+| **Output** |    |    |
+
+
+
+## 📄 addDeviceAuthenticationMethodWithContext (exported const)
+
+returns new function context with added authenticationmethod
+
+
 ## 📄 isValidPassword (exported const)
+
+## 📄 signupWithContext (exported const)
+
+Creates a new `Person` for a `Device`. Adds that person to the `Device`.
+
+- Can only be done with at least one authenticationMethod
+- Can only be done if authentication is not applied on an existing person already.
+- Function is wrappable
 
 # Internal
 
-<details><summary>Show internal (39)</summary>
+<details><summary>Show internal (35)</summary>
     
   # addAuthenticationMethod()
 
@@ -52,18 +93,6 @@ TODO: extrahere the core into `addAuthenticationMethodConfirm` and use it in thi
 | Input      |    |    |
 | ---------- | -- | -- |
 | deviceId | string | device id |,| method | `AuthenticationMethodMethod` |  |,| otp | number | one time password |
-| **Output** |    |    |
-
-
-
-## addDeviceAuthenticationMethodWithContext()
-
-returns new function context with added authenticationmethod
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| functionContext | `FunctionContext` |  |,| method | `AuthenticationMethodMethod` |  |,| handle | string |  |,| credential (optional) | string |  |
 | **Output** |    |    |
 
 
@@ -113,7 +142,7 @@ NB: probably need to omit some fields later, but for now it's fine
 | Input      |    |    |
 | ---------- | -- | -- |
 | functionContext | `FunctionContext` |  |
-| **Output** | { authorizations?: { isProjectWide?: boolean, <br />authorizedOperationName?: string, <br />tsFunctionId?: string, <br />tsVariableId?: string, <br />tsInterfaceId?: string, <br />datasetId?: string, <br />authorizedProjectRelativePath?: string, <br />canExecute?: boolean, <br />canWriteCreate?: boolean, <br />canWriteUpdate?: boolean, <br />canWriteDelete?: boolean, <br />canRead?: boolean, <br />canSearch?: boolean, <br /> }[], <br />device: {  }, <br />groups?: {  }[], <br /> }   |    |
+| **Output** |    |    |
 
 
 
@@ -217,22 +246,6 @@ removes an `authenticationMethod` from `Person` from currentPerson from authenti
 
 
 
-## signupWithContext()
-
-Creates a new `Person` for a `Device`. Adds that person to the `Device`.
-
-- Can only be done with at least one authenticationMethod
-- Can only be done if authentication is not applied on an existing person already.
-- Function is wrappable
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| functionContext | `FunctionContext` |  |,| personData | `SignupPersonData` | Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically |
-| **Output** |    |    |
-
-
-
 ## signupWithPasswordWithContext()
 
 For now only username/pass is supported due to direct verification
@@ -301,11 +314,6 @@ For now, only handles methods `phoneNumber` and `email`
 TODO: extrahere the core into `addAuthenticationMethodConfirm` and use it in this one and make also `addPersonAuthenticationMethodConfirm`
 
 
-## 📄 addDeviceAuthenticationMethodWithContext (exported const)
-
-returns new function context with added authenticationmethod
-
-
 ## 📄 addPersonAuthenticationMethodWithContext (exported const)
 
 ## 📄 findAuthenticatedPersonWithHandle (exported const)
@@ -369,15 +377,6 @@ We can therefore remove it without much validation
 ## 📄 removePersonAuthenticationMethodWithContext (exported const)
 
 removes an `authenticationMethod` from `Person` from currentPerson from authenticated device
-
-
-## 📄 signupWithContext (exported const)
-
-Creates a new `Person` for a `Device`. Adds that person to the `Device`.
-
-- Can only be done with at least one authenticationMethod
-- Can only be done if authentication is not applied on an existing person already.
-- Function is wrappable
 
 
 ## 📄 signupWithPasswordWithContext (exported const)

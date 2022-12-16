@@ -19,7 +19,8 @@
     "asset-functions-node": "0.0.1",
     "asset-type": "0.0.1",
     "function-server-types": "0.0.1",
-    "fs-orm": "1.0.1"
+    "fs-orm": "1.0.1",
+    "auth-types": "0.0.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -48,7 +49,7 @@
     "folderNameIndexed": "server-login",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670528537017,
+    "lastRebuildAt": 1671116659939,
     "operationDependenciesIndexed": [
       "db",
       "isEmail",
@@ -79,8 +80,11 @@
       "FunctionContext",
       "Device",
       "Person",
+      "Authorization",
       "FunctionContext",
       "ApiFunction",
+      "Device",
+      "Group",
       "ApiFunction",
       "db",
       "getSubsetFromObject",
@@ -124,26 +128,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 20,
-        "lines": 966,
-        "characters": 27815,
-        "bytes": 27815
+        "lines": 972,
+        "characters": 28021,
+        "bytes": 28021
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 186,
-        "characters": 5800,
-        "bytes": 5800
+        "lines": 191,
+        "characters": 5913,
+        "bytes": 5913
       },
       "textSize": {
         "numberOfFiles": 4,
-        "lines": 460,
-        "characters": 15039,
-        "bytes": 15039
+        "lines": 459,
+        "characters": 14553,
+        "bytes": 14553
       },
       "size": {
-        "bytes": 48654,
-        "characters": 48654,
-        "lines": 1612,
+        "bytes": 48487,
+        "characters": 48487,
+        "lines": 1622,
         "numberOfFiles": 26
       }
     },

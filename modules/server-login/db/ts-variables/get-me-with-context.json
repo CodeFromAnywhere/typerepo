@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528482818,
-  "updatedAt": 1670528482818,
+  "createdAt": 1671116615844,
+  "updatedAt": 1671116615844,
   "deletedAt": 0,
-  "createdFirstAt": 1670528482818,
+  "createdFirstAt": 1671116615844,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -70,7 +70,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  functionContext: FunctionContext\n) => {\n  const {\n    tsFunction,\n    serverContext,\n    hasAuthorization,\n    authToken,\n    ...userInfo\n  } = functionContext;\n\n  return userInfo;\n}",
+  "value": "async (\n  functionContext: FunctionContext\n): Promise<{\n  authorizations?: Authorization[] | undefined;\n  device: Device;\n  groups?: Group[] | undefined;\n}> => {\n  const {\n    tsFunction,\n    serverContext,\n    hasAuthorization,\n    authToken,\n    ...userInfo\n  } = functionContext;\n\n  return userInfo;\n}",
   "description": "Get all relevant information about yourself, including all persons that are attached to you.\n\nNB: probably need to omit some fields later, but for now it's fine",
-  "id": "ddscoedpoelwpjribtixghdv"
+  "id": "aunvfywlpwlhlcchknyqcroh"
 }

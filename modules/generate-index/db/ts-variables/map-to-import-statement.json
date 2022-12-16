@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668335874100,
-  "updatedAt": 1668335874100,
+  "createdAt": 1671116221772,
+  "updatedAt": 1671116221772,
   "deletedAt": 0,
-  "createdFirstAt": 1668335874100,
+  "createdFirstAt": 1671116221772,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  item: TsFunction | TsVariable | TsInterface,\n  type: ImportStatement[\"type\"]\n): ImportStatement => {\n  const srcRelativeFileId = getSrcRelativeFileId(\n    item.operationRelativeTypescriptFilePath\n  );\n\n  return { name: item.name, srcRelativeFileId, type };\n}",
   "description": "",
-  "id": "ayguaosxwrtqcnqdgedinzar"
+  "id": "bhfkprqbrhozntmpvfynwvpr"
 }

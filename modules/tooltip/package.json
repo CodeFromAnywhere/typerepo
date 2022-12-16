@@ -5,7 +5,8 @@
   "createdFirstAt": 1668328712548,
   "id": "ehhnbkdyoqiebbhkkolyvzgu",
   "dependencies": {
-    "@popperjs/core": "*"
+    "@popperjs/core": "*",
+    "react": "*"
   },
   "devDependencies": {
     "typescript": "^4.7.4"
@@ -30,12 +31,15 @@
       ],
       "lintProblems": []
     },
-    "classificationIndexed": "cjs",
-    "coreDependenciesIndexed": [],
+    "classificationIndexed": "ui-cjs",
+    "coreDependenciesIndexed": [
+      "useState",
+      "createRef"
+    ],
     "folderNameIndexed": "tooltip",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671012775454,
+    "lastRebuildAt": 1671116776490,
     "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [
       "createPopper",
@@ -46,26 +50,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 1,
-        "lines": 71,
-        "characters": 1941,
-        "bytes": 1941
+        "lines": 73,
+        "characters": 2009,
+        "bytes": 2009
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 112,
-        "characters": 3803,
-        "bytes": 3803
+        "lines": 113,
+        "characters": 3818,
+        "bytes": 3818
       },
       "textSize": {
         "numberOfFiles": 2,
         "lines": 30,
-        "characters": 411,
-        "bytes": 411
+        "characters": 408,
+        "bytes": 408
       },
       "size": {
-        "bytes": 6155,
-        "characters": 6155,
-        "lines": 213,
+        "bytes": 6235,
+        "characters": 6235,
+        "lines": 216,
         "numberOfFiles": 5
       }
     },

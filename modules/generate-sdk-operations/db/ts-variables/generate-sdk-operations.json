@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670064210416,
-  "updatedAt": 1670064210416,
+  "createdAt": 1671116277559,
+  "updatedAt": 1671116277559,
   "deletedAt": 0,
-  "createdFirstAt": 1670064210416,
+  "createdFirstAt": 1671116277559,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  /**\n   * if not provided, will not generate env-sdks\n   */\n  bundleConfig?: BundleConfig,\n  config?: {\n    /**\n     * If true, will try to run yarn install before and if it fails, does not continue.\n     */\n    yarnInstallBefore?: boolean;\n    /**\n     * if true, yarn install will be skipped when generating the sdks, but run one time afterwards\n     *\n     * useful if you are sure that there will be multiple yarn Installs needed otherwise\n     *\n     * for os installation (where all operations already exist, don't do this, yarn installs will probably not happen at all)\n     */\n    yarnInstallAfter?: boolean;\n    manualProjectRoot?: string;\n    dryrun?: boolean;\n  }\n): Promise<boolean> => {\n  const manualProjectRoot = config?.manualProjectRoot;\n  const projectRoot = manualProjectRoot || getProjectRoot();\n  const yarnInstallAfter = config?.yarnInstallAfter;\n  const yarnInstallBefore = config?.yarnInstallBefore;\n  const dryrun = config?.dryrun;\n\n  if (!projectRoot) {\n    return false;\n  }\n\n  // NB: install this first, otherwise sdk-operations cannot be found\n  const promises = [\n    generateOperationsSdk({\n      manualProjectRoot,\n      dryrun,\n    }),\n    generateFunctionPathsSdk({\n      manualProjectRoot,\n      dryrun,\n    }),\n    generateInterfacePathsSdk({ manualProjectRoot, dryrun }),\n    generateDbSdk({\n      manualProjectRoot,\n      skipYarnInstall: yarnInstallAfter,\n      dryrun,\n    }),\n    generateFunctionSdks({\n      manualProjectRoot,\n      skipYarnInstall: yarnInstallAfter,\n      dryrun,\n    }),\n\n    bundleConfig\n      ? generateEnvSdks(bundleConfig, {\n          manualProjectRoot,\n          skipYarnInstall: yarnInstallAfter,\n          dryrun,\n        })\n      : undefined,\n  ];\n\n  await Promise.all(promises);\n\n  if (yarnInstallAfter) {\n    process.stdout.write(`Installing repo `);\n    try {\n      // NB: I got an engine error which seemed to break it, so to fix it I ignore engines now https://stackoverflow.com/questions/56617209/the-engine-node-is-incompatible-with-this-module\n\n      const result = execSync(\"yarn --prefer-offline --ignore-engines\", {\n        cwd: projectRoot,\n        encoding: \"utf8\",\n        stdio: \"pipe\",\n      });\n\n      console.log(\"✅\");\n\n      return true;\n    } catch (e: any) {\n      console.log(\"❌\");\n      const error: {\n        status: number;\n        signal: any;\n        output: (string | null)[];\n        pid: number;\n        stdout: string;\n        stderr: string;\n      } = e;\n      console.log(`Could not install:`, error);\n\n      return false;\n    }\n  }\n\n  return true;\n}",
   "description": "(re)generates all sdk operations for any project",
-  "id": "iekmfyberebciwnveaajujtq"
+  "id": "ojogmyjnpypbftfncxxbiwxl"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098536840,
-  "updatedAt": 1671098536840,
+  "createdAt": 1671113659179,
+  "updatedAt": 1671113659179,
   "deletedAt": 0,
-  "createdFirstAt": 1671098536840,
+  "createdFirstAt": 1671113659179,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-connected-browsers",
   "operationRelativeTypescriptFilePath": "src/getConnectedBrowsers.ts",
   "type": {
-    "rawType": "() => Promise<import(\"/Users/lucky/workspace/typerepo/packages/niches/bhagya/doing/control-web/puppeteer-utils/src/BrowserSession\").BrowserSession[]>",
+    "rawType": "() => Promise<import(\"/Users/king/King/operations/niches/bhagya-nov-30/doing/control-web/puppeteer-utils/src/BrowserSession\").BrowserSession[]>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (): Promise<BrowserSession[]> => {\n  // const allBrowsers = getBrowserSession();\n  // console.log({ allBrowsers });\n  let connectedBrowser: BrowserSession[] = [];\n  // for await (let browser of allBrowsers) {\n  //   await puppeteer\n  //     .connect({\n  //       browserWSEndpoint: browser.browserSessionId,\n  //     })\n  //     .then((cb) => {\n  //       connectedBrowser.push(browser);\n  //     })\n  //     .catch((e) => {\n  //       console.error(\"Error in connecting browser\", e);\n  //       db.remove(\"BrowserSession\", (b) => b.id !== browser.id);\n  //     });\n  // }\n  // console.log({ connectedBrowser });\n  return connectedBrowser;\n}",
   "description": "",
-  "id": "dmyfuttlhauywtufvgovynqm"
+  "id": "docusulbffmldcqgvridaubf"
 }

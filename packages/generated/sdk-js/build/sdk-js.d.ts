@@ -513,11 +513,6 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    Tooltip: (props: {
-        tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>> | null;
-        children: import("react").ReactNode;
-        placement?: import("@popperjs/core").Placement | undefined;
-    }) => JSX.Element;
     tryParseJson: <T_36>(text: string, logParseError?: boolean | undefined) => T_36 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
     useCustomUrlStore: <T_37 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_37, (newValue: T_37 | undefined) => Promise<boolean>];

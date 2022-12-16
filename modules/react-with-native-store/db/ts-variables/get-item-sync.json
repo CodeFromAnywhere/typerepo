@@ -1,16 +1,16 @@
 {
-  "createdAt": 1671104680742,
-  "updatedAt": 1671104680742,
+  "createdAt": 1671116732243,
+  "updatedAt": 1671116732243,
   "deletedAt": 0,
-  "createdFirstAt": 1671104680742,
+  "createdFirstAt": 1671116732243,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "getItemSync",
   "slug": "get-item-sync",
-  "operationRelativeTypescriptFilePath": "src/storage.native.ts",
+  "operationRelativeTypescriptFilePath": "src/storage.ts",
   "type": {
-    "rawType": "(key: string) => undefined",
+    "rawType": "(key: string) => any",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(key: string) => {\n  return undefined;\n}",
-  "description": "",
-  "id": "dfpwioeyjfwhhjedqtbftcdv"
+  "value": "(key: string) => {\n  if (typeof window === \"undefined\") {\n    return undefined;\n  }\n  const item = localStorage.getItem(key);\n  return item ? JSON.parse(item) : undefined;\n}",
+  "description": "ONLY web",
+  "id": "hsmyjtwpgyuovpbptkfkzpiq"
 }

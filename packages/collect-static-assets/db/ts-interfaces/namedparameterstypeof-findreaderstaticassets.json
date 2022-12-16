@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669466954708,
-  "updatedAt": 1669466954708,
+  "createdAt": 1671115715240,
+  "updatedAt": 1671115715240,
   "deletedAt": 0,
-  "createdFirstAt": 1669466954708,
+  "createdFirstAt": 1671115715240,
   "id": "namedparameterstypeof-findreaderstaticassets",
   "name": "NamedParameters<typeof findReaderStaticAssets>",
   "slug": "namedparameterstypeof-findreaderstaticassets",
@@ -137,6 +137,15 @@
                             "name": "shortDescription",
                             "required": false,
                             "schema": {
+                              "fullComment": "One line description of the content",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "introDescription",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "Intor, usually the first alinea of the page, may contain markdown",
                               "type": "string"
                             }
                           }

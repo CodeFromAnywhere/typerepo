@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098554725,
-  "updatedAt": 1671098554725,
+  "createdAt": 1671113675347,
+  "updatedAt": 1671113675347,
   "deletedAt": 0,
-  "createdFirstAt": 1671098554725,
+  "createdFirstAt": 1671113675347,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "run-browser",
   "operationRelativeTypescriptFilePath": "src/runBrowser.ts",
   "type": {
-    "rawType": "() => Promise<import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer-core/lib/types\").Browser>",
+    "rawType": "() => Promise<import(\"/Users/king/King/operations/node_modules/puppeteer-core/lib/types\").Browser>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (): Promise<Browser> => {\n  console.log(\"broser is running\");\n  const browser = await puppeteer.launch(browserLunchOptions);\n  return browser;\n}",
   "description": "",
-  "id": "vershqayikshtlaaomjrgidk"
+  "id": "bcbowdypzulruxadqzidahxw"
 }

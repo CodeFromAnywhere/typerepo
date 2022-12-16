@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977395003,
-  "updatedAt": 1668977395003,
+  "createdAt": 1671116960023,
+  "updatedAt": 1671116960023,
   "deletedAt": 0,
-  "createdFirstAt": 1668977395003,
+  "createdFirstAt": 1671116960023,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T = any>(\n  object: { [key: string]: any },\n  location: string[]\n): T => {\n  const firstParameter = object[location[0]];\n\n  if (location.length === 1) return firstParameter;\n\n  return getParameterAtLocation(firstParameter, location.slice(1));\n}",
   "description": "utility function to get a parameter inside of a nested object",
-  "id": "cnzszqmgqbjfqiokrckfseqt"
+  "id": "fsoutluwoeiqkutrnkaqhegs"
 }

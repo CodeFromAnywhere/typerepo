@@ -13,7 +13,8 @@
     "markdown-reader-types": "0.0.1",
     "fs-orm": "1.0.1",
     "model-types": "0.0.1",
-    "augmented-word-types": "0.0.1"
+    "augmented-word-types": "0.0.1",
+    "fs-util-js": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -46,13 +47,13 @@
     "folderNameIndexed": "augmented-word-node",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671012566378,
+    "lastRebuildAt": 1671115909474,
     "operationDependenciesIndexed": [
       "path",
       "findOperationBasePath",
       "getProjectRoot",
-      "makeRelative",
       "isBundle",
+      "makeRelative",
       "db",
       "AugmentedWord",
       "notEmpty",
@@ -73,26 +74,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 216,
-        "characters": 6550,
-        "bytes": 6550
+        "lines": 213,
+        "characters": 6571,
+        "bytes": 6571
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 139,
-        "characters": 4237,
-        "bytes": 4237
+        "lines": 140,
+        "characters": 4287,
+        "bytes": 4287
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 66,
-        "characters": 1458,
-        "bytes": 1458
+        "lines": 64,
+        "characters": 1322,
+        "bytes": 1322
       },
       "size": {
-        "bytes": 12245,
-        "characters": 12245,
-        "lines": 421,
+        "bytes": 12180,
+        "characters": 12180,
+        "lines": 417,
         "numberOfFiles": 6
       }
     },

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671011066299,
-  "updatedAt": 1671011066299,
+  "createdAt": 1671116412243,
+  "updatedAt": 1671116412243,
   "deletedAt": 0,
-  "createdFirstAt": 1671011066299,
+  "createdFirstAt": 1671116412243,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -46,5 +46,5 @@
   },
   "value": "async (\n  eventName,\n  filePath\n) => {\n  const name = path.parse(filePath).name;\n  process.stdout.write(`Change detected: ${name}\\n`);\n  const operationBasePath = findOperationBasePath(filePath);\n  if (!operationBasePath) {\n    console.log(\"\\nCouldn't find operationBasePath\");\n    return;\n  }\n  process.stdout.write(`Indexing operation imports ...`);\n\n  await findAndWriteImportsExports(operationBasePath);\n\n  console.log(\"✅\\n\");\n}",
   "description": "",
-  "id": "feygrrbcunwjmnqmtujakkex"
+  "id": "wzackeeededhmtydfwndiuxz"
 }

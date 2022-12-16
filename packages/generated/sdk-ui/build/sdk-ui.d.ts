@@ -402,6 +402,9 @@ export declare const sdk: {
         useStore: <K_1 extends Extract<keyof K, string>>(key: K_1) => import("react-with-native-store").UseStoreResult<K[K_1]>;
     };
     createUseStore: <TStore_1 extends object>(initialValues: TStore_1) => <K_2 extends Extract<keyof TStore_1, string>>(key: K_2) => import("react-with-native-store").UseStoreResult<TStore_1[K_2]>;
+    getItemSync: (key: string) => any;
+    getItem: (key: string) => Promise<any>;
+    setItem: (key: string, value: any) => Promise<void>;
     getColumns: (modelName: string, interfaces: import("code-types").TsInterface[] | undefined, data: any[]) => import("react-with-native-table").ColumnType<any>[];
     TableHeadItem: (column: import("react-with-native-table").ColumnType<any>) => JSX.Element;
     TableRow: <T_8 extends {
@@ -473,6 +476,11 @@ export declare const sdk: {
     }) => JSX.Element | null;
     useReferencableModelData: (simplifiedSchema: import("code-types").SimplifiedSchema) => import("simplified-schema-form").ReferencableModelData | undefined;
     useTsInterfaceForm: <T_9 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_9 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_9 | undefined, onChange?: ((value: T_9) => void) | undefined];
+    Tooltip: (props: {
+        tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>> | null;
+        children: import("react").ReactNode;
+        placement?: import("@popperjs/core").Placement | undefined;
+    }) => JSX.Element;
     useOnScreen: typeof useOnScreen;
     FileWriter: (props: {
         markdownModelName?: string | number | symbol | undefined;
@@ -498,7 +506,10 @@ export declare const sdk: {
         isInitiallyExpanded?: boolean | undefined;
         isModeStatic?: boolean | undefined;
     }) => JSX.Element;
-    MarkdownContentRender: any;
+    MarkdownContentRender: (props: {
+        content: string;
+        config: import("markdown").MarkdownParseRenderConfig;
+    }) => JSX.Element;
     MarkdownContent: (props: {
         content: string;
         config: import("markdown").MarkdownParseRenderConfig;
@@ -510,6 +521,7 @@ export declare const sdk: {
         renderSpacer?: boolean | undefined;
     } | undefined) => JSX.Element | null;
     renderMarkdownChunk: (chunk: import("markdown-types").MarkdownChunk, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
+    renderMarkdownContent: (content: string, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownParse: (markdownParse: import("markdown-types").MarkdownParse, config: import("markdown").MarkdownParseRenderConfig) => JSX.Element;
     renderMarkdownTitle: (title: string, level: number) => JSX.Element;
     useOpenHashDetails: () => void;
@@ -526,6 +538,7 @@ export declare const sdk: {
         customPromptContent?: string | undefined;
         contextualContent: import("ai-types").ContextualContent;
         showPromptAlert: import("prompt-components").ShowPromptAlertFunction;
+        saveNewPromptWithName?: string | null | undefined;
     }) => Promise<void>;
     usePromptResultAlert: () => import("prompt-components").ShowPromptAlertFunction;
     useSelectionPromptsMenu: (selectionPrompts: import("ai-types").ContextualPrompt[], contextualContent: import("ai-types").ContextualContent) => {

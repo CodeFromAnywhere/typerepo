@@ -1,0 +1,62 @@
+{
+  "createdAt": 1671147118051,
+  "updatedAt": 1671147118051,
+  "deletedAt": 0,
+  "createdFirstAt": 1671147118051,
+  "id": "namedparameterstypeof-getobjectforkkeyrecursively",
+  "name": "NamedParameters<typeof getObjectForkKeyRecursively>",
+  "slug": "namedparameterstypeof-getobjectforkkeyrecursively",
+  "operationRelativeTypescriptFilePath": "src/getContextualPromptCategories.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "stackCount": {
+          "$ref": "#/definitions/StackCount"
+        },
+        "key": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "stackCount",
+        "key"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "stackCount",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "key",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getObjectForkKeyRecursively>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

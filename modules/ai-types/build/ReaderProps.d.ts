@@ -19,6 +19,7 @@ export declare type ReaderProps = {
 };
 export declare type FolderContent = {
     name: string;
+    projectRelativePath: string;
     type: "folder" | "file" | "link" | "unknown";
     isPrivate?: boolean;
     isDraft?: boolean;

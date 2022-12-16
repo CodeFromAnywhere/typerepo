@@ -1,34 +1,18 @@
 [
   {
-    "createdAt": 1671104802366,
-    "updatedAt": 1671104802366,
+    "createdAt": 1671116571254,
+    "updatedAt": 1671116571254,
     "deletedAt": 0,
-    "createdFirstAt": 1671104802366,
+    "createdFirstAt": 1671116571254,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/apiUrl.ts",
-    "comment": "NEEDED FOR MULTI DEPLOYMENTS (passionfruit)",
-    "rawStatement": "const remoteServer =\n  process.env.NEXT_PUBLIC_API_URL || publicEnvironmentVariables.remoteServer;",
+    "operationRelativeTypescriptFilePath": "src/isDev.ts",
+    "comment": "this works in next.js, but does it also work in react and other frontend web frameworks?",
+    "rawStatement": "export const isDev = process.env.NODE_ENV === \"development\";",
     "parameters": {},
     "types": [],
-    "firstLine": 13,
-    "lastLine": 15,
-    "id": "auwpyygawnvcpgkevmewnwkm"
-  },
-  {
-    "createdAt": 1671104802366,
-    "updatedAt": 1671104802366,
-    "deletedAt": 0,
-    "createdFirstAt": 1671104802366,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/apiUrl.ts",
-    "comment": "same ip as the ip used in the browser (not only localhost)",
-    "rawStatement": "const hostname =\n  typeof window !== \"undefined\" ? window.location.hostname : \"localhost\";",
-    "parameters": {},
-    "types": [],
-    "firstLine": 19,
-    "lastLine": 19,
-    "id": "bekwunortdqppknsncebnbzr"
+    "firstLine": 1,
+    "lastLine": 1,
+    "id": "maygdhqryrbfpxvcjitevbgu"
   }
 ]

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098522354,
-  "updatedAt": 1671098522354,
+  "createdAt": 1671113645874,
+  "updatedAt": 1671113645874,
   "deletedAt": 0,
-  "createdFirstAt": 1671098522354,
+  "createdFirstAt": 1671113645874,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "set-browser-session",
   "operationRelativeTypescriptFilePath": "src/browserSessionsCache.ts",
   "type": {
-    "rawType": "(browser: import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Browser) => void",
+    "rawType": "(browser: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Browser) => void",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "(browser: Browser) => {\n  browserSessionsCache.set(\"browser\", browser);\n}",
   "description": "",
-  "id": "quhkityonsitisbrwbhgkisd"
+  "id": "ehvafcsgyayevakqfupsecdx"
 }

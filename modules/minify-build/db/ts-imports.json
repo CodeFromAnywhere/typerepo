@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1668336054494,
-    "updatedAt": 1668336054494,
+    "createdAt": 1671116467278,
+    "updatedAt": 1671116467278,
     "deletedAt": 0,
-    "createdFirstAt": 1668336054494,
+    "createdFirstAt": 1671116467278,
     "name": "minifyBuild",
     "slug": "minify-build",
     "module": "./general",
@@ -13,13 +13,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ubygbckhpncrgpcjlidgygiy"
+    "id": "sspycufevejnfraqewoblmnb"
   },
   {
-    "createdAt": 1668336054494,
-    "updatedAt": 1668336054494,
+    "createdAt": 1671116467278,
+    "updatedAt": 1671116467278,
     "deletedAt": 0,
-    "createdFirstAt": 1668336054494,
+    "createdFirstAt": 1671116467278,
     "name": "getOperationPath",
     "slug": "get-operation-path",
     "type": "value",
@@ -30,30 +30,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tgaxlbvghdqokjelpxzgsqir"
+    "id": "dthdimlxvhlkbavljewyeisv"
   },
   {
-    "createdAt": 1668336054494,
-    "updatedAt": 1668336054494,
+    "createdAt": 1671116467279,
+    "updatedAt": 1671116467279,
     "deletedAt": 0,
-    "createdFirstAt": 1668336054494,
-    "name": "makeRelative",
-    "slug": "make-relative",
-    "type": "value",
-    "module": "get-path",
-    "isModuleResolved": true,
-    "comments": [],
-    "operationRelativeTypescriptFilePath": "src/general.ts",
-    "classification": "operation",
-    "isAbsolute": true,
-    "isModuleFromMonorepo": true,
-    "id": "gcatcgdndfcgbikgjuycfqin"
-  },
-  {
-    "createdAt": 1668336054494,
-    "updatedAt": 1668336054494,
-    "deletedAt": 0,
-    "createdFirstAt": 1668336054494,
+    "createdFirstAt": 1671116467279,
     "name": "log",
     "slug": "log",
     "type": "value",
@@ -64,13 +47,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qxsoqhostsjilhxijpfupuqq"
+    "id": "ujwejrodgybalrqukgktoagu"
   },
   {
-    "createdAt": 1668336054494,
-    "updatedAt": 1668336054494,
+    "createdAt": 1671116467279,
+    "updatedAt": 1671116467279,
     "deletedAt": 0,
-    "createdFirstAt": 1668336054494,
+    "createdFirstAt": 1671116467279,
     "name": "fs",
     "slug": "fs",
     "type": "value",
@@ -81,13 +64,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pylgvfjlsvdlfuhdeucrafvn"
+    "id": "qpxmemvaovgyxtfygxbtpmev"
   },
   {
-    "createdAt": 1668336054494,
-    "updatedAt": 1668336054494,
+    "createdAt": 1671116467279,
+    "updatedAt": 1671116467279,
     "deletedAt": 0,
-    "createdFirstAt": 1668336054494,
+    "createdFirstAt": 1671116467279,
     "name": "path",
     "slug": "path",
     "type": "value",
@@ -98,13 +81,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nhpmsdwwkzefyajthhlepclh"
+    "id": "czwhhhjezmhrfjpgssbfwtgt"
   },
   {
-    "createdAt": 1668336054494,
-    "updatedAt": 1668336054494,
+    "createdAt": 1671116467279,
+    "updatedAt": 1671116467279,
     "deletedAt": 0,
-    "createdFirstAt": 1668336054494,
+    "createdFirstAt": 1671116467279,
     "name": "explore",
     "slug": "explore",
     "type": "value",
@@ -115,13 +98,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ycfbuaupyejnqpikwtgsprfq"
+    "id": "xbwsevfrhkrxsinwlncnphpx"
   },
   {
-    "createdAt": 1668336054495,
-    "updatedAt": 1668336054495,
+    "createdAt": 1671116467279,
+    "updatedAt": 1671116467279,
     "deletedAt": 0,
-    "createdFirstAt": 1668336054495,
+    "createdFirstAt": 1671116467279,
     "name": "minify",
     "slug": "minify",
     "module": "terser",
@@ -131,6 +114,23 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "tapawhrsypnwddnsdlsumkjm"
+    "id": "bqhkfotrrbfwrfymhczxrdcp"
+  },
+  {
+    "createdAt": 1671116467279,
+    "updatedAt": 1671116467279,
+    "deletedAt": 0,
+    "createdFirstAt": 1671116467279,
+    "name": "makeRelative",
+    "slug": "make-relative",
+    "type": "value",
+    "module": "fs-util-js",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/general.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "xbeiqndhcgqjkugbsvvsnoer"
   }
 ]

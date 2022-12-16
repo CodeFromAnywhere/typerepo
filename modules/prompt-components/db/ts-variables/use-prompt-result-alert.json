@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671017855196,
-  "updatedAt": 1671017855196,
+  "createdAt": 1671115463552,
+  "updatedAt": 1671115463552,
   "deletedAt": 0,
-  "createdFirstAt": 1671017855196,
+  "createdFirstAt": 1671115463552,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  // const alert = useAlert();\n\n  const showPromptAlert: ShowPromptAlertFunction = (\n    originalPromptName,\n    _,\n    thread,\n    projectRelativeFilePath\n  ) => {\n    // const markdownRender = (\n    //   <MarkdownContent config={{}} content={textMarkdown || \"No content\"} />\n    // );\n\n    successToast(\n      `${originalPromptName} is now being executed on ${projectRelativeFilePath} (thread: ${thread})`\n    );\n    // const buttons: AlertButton[] = [\n    //   { text: \"Okay\", style: \"cancel\", onPress: () => null },\n    //   {\n    //     text: \"Share\",\n    //     style: \"default\",\n    //     onPress: () => {\n    //       // should open share view\n    //     },\n    //   },\n    //   {\n    //     text: \"Respond\",\n    //     style: \"default\",\n    //     onPress: async () => {\n    //       //  submits extra request that opens a new alert with the answer to that\n    //       let response = prompt(\"What do you want to say?\", \"\");\n\n    //       const apiResult = await api.processChatGptPrompt({\n    //         contextContent: null,\n    //         selectionContent: null,\n    //         contextualPromptSlug: undefined,\n    //         customPromptContent: response || undefined,\n    //         saveNewPromptWithName: null,\n    //         isHeadless: false,\n    //         isDeferred: true,\n    //         thread,\n    //         prompt_projectRelativePath: projectRelativeFilePath,\n    //       });\n\n    //       // NB: Recursion!\n    //       showPromptAlert(\n    //         originalPromptName,\n    //         apiResult.result?.result?.text || \"No response\",\n    //         thread,\n    //         projectRelativeFilePath\n    //       );\n\n    //       // could also enable a loading indicator somewhere\n    //     },\n    //   },\n    // ];\n\n    // alert?.(originalPromptName, markdownRender, buttons);\n  };\n\n  return showPromptAlert;\n}",
   "description": "Recursive hook that calls its own function if you click \"respond\", which creates an additional item in the thread",
-  "id": "qixutmllqejlmpcvycqydcvc"
+  "id": "vrbjetlnvztuvmtwttehqeru"
 }

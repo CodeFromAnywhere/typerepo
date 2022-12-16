@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216325279,
-  "updatedAt": 1670216325279,
+  "createdAt": 1671115742521,
+  "updatedAt": 1671115742521,
   "deletedAt": 0,
-  "createdFirstAt": 1670216325279,
+  "createdFirstAt": 1671115742521,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (dialogue: DialogueSentence[]) => {\n  const voicesWithPath = dialogue.map((sentence) => {\n    if (!sentence.uuid) return sentence;\n    return { ...sentence, remotePath: uberduckGetPath(sentence.uuid) };\n  });\n\n  await Promise.all(\n    voicesWithPath.map((voice) => {\n      if (!voice.remotePath) return;\n      const storePath = path.join(__dirname, \"..\", \"data\", `${voice.uuid}.wav`);\n      const file = fs.createWriteStream(storePath);\n      const request = https.get(voice.remotePath, function (response) {\n        response.pipe(file);\n\n        // after download completed close filestream\n        file.on(\"finish\", () => {\n          file.close();\n          console.log(\"Download Completed\", voice.uuid);\n        });\n      });\n    })\n  );\n\n  console.log(\"ALL DONE\");\n}",
   "description": "",
-  "id": "edwwefvvifoabsglzucrgbrn"
+  "id": "wkyxeofuhimdfzlepwxevlwa"
 }

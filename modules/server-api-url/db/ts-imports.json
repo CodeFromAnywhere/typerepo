@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1670528398756,
-    "updatedAt": 1670528398756,
+    "createdAt": 1671116562274,
+    "updatedAt": 1671116562274,
     "deletedAt": 0,
-    "createdFirstAt": 1670528398756,
+    "createdFirstAt": 1671116562274,
     "name": "publicEnvironmentVariables",
     "slug": "public-environment-variables",
     "type": "value",
@@ -14,13 +14,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "inwdefonevsdxbwkdpopifob"
+    "id": "flfoggfwgxmvijtjncfhxwsg"
   },
   {
-    "createdAt": 1670528398756,
-    "updatedAt": 1670528398756,
+    "createdAt": 1671116562274,
+    "updatedAt": 1671116562274,
     "deletedAt": 0,
-    "createdFirstAt": 1670528398756,
+    "createdFirstAt": 1671116562274,
     "name": "publicLocalEnvironmentVariables",
     "slug": "public-local-environment-variables",
     "type": "value",
@@ -31,13 +31,47 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gelfvozkpgeqtyafzwsktovf"
+    "id": "jpbhlgelbgxqhszlokmncmhb"
   },
   {
-    "createdAt": 1670528398757,
-    "updatedAt": 1670528398757,
+    "createdAt": 1671116562274,
+    "updatedAt": 1671116562274,
     "deletedAt": 0,
-    "createdFirstAt": 1670528398757,
+    "createdFirstAt": 1671116562274,
+    "name": "getItem",
+    "slug": "get-item",
+    "type": "value",
+    "module": "react-with-native-store",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/apiUrl.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "nguxoqkvegjkokouefzvhors"
+  },
+  {
+    "createdAt": 1671116562274,
+    "updatedAt": 1671116562274,
+    "deletedAt": 0,
+    "createdFirstAt": 1671116562274,
+    "name": "getItemSync",
+    "slug": "get-item-sync",
+    "type": "value",
+    "module": "react-with-native-store",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/apiUrl.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "ilxmjrtkamfsdhhwnwkxndir"
+  },
+  {
+    "createdAt": 1671116562274,
+    "updatedAt": 1671116562274,
+    "deletedAt": 0,
+    "createdFirstAt": 1671116562274,
     "name": "ports",
     "slug": "ports",
     "type": "value",
@@ -48,13 +82,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "pumnttrocbklxlxiyuhfgtvr"
+    "id": "mwwgowzfcmnimoqcvpdohaze"
   },
   {
-    "createdAt": 1670528398757,
-    "updatedAt": 1670528398757,
+    "createdAt": 1671116562274,
+    "updatedAt": 1671116562274,
     "deletedAt": 0,
-    "createdFirstAt": 1670528398757,
+    "createdFirstAt": 1671116562274,
     "name": "isDev",
     "slug": "is-dev",
     "module": "./isDev",
@@ -64,6 +98,6 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "dmnzlmodqpjvezpmfkevfyhn"
+    "id": "yeeumsmddwvswtthmswiybva"
   }
 ]

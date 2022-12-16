@@ -61,13 +61,13 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/db-crud/src/useUrl.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
       ]
     },
-    "lastRebuildAt": 1671012843434,
+    "lastRebuildAt": 1671116866530,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 23,
-        "lines": 1159,
-        "characters": 33323,
-        "bytes": 33323
+        "lines": 1164,
+        "characters": 33444,
+        "bytes": 33444
       },
       "dataSize": {
         "numberOfFiles": 2,
@@ -82,9 +82,9 @@
         "bytes": 10284
       },
       "size": {
-        "bytes": 50709,
-        "characters": 50709,
-        "lines": 1826,
+        "bytes": 50830,
+        "characters": 50830,
+        "lines": 1831,
         "numberOfFiles": 30
       }
     },
@@ -116,7 +116,7 @@
       "Div",
       "P",
       "createCodeblockMarkdown",
-      "renderMarkdownContent",
+      "MarkdownContent",
       "Dataset",
       "DatasetConfig",
       "Storing",
@@ -139,6 +139,7 @@
       "humanCase",
       "LabeledButtonType",
       "queries",
+      "FancyLoader",
       "destructureOptionalObject",
       "mapValuesSync",
       "notEmpty",
@@ -196,6 +197,7 @@
       "destructureOptionalObject",
       "notEmpty",
       "LabeledButton",
+      "MarkdownContent",
       "renderMarkdownContent",
       "AugmentedAnyModelType",
       "Creation",

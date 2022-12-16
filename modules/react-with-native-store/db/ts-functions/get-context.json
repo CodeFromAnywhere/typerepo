@@ -1,22 +1,57 @@
 {
-  "createdAt": 1667635036317,
-  "updatedAt": 1667635036317,
+  "createdAt": 1671116723622,
+  "updatedAt": 1671116723622,
   "deletedAt": 0,
-  "createdFirstAt": 1667635036317,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1671116723622,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.tsx",
   "commentsInside": [],
   "rawText": " (key: string) => contexts[contextKey(key)]",
   "name": "getContext",
   "slug": "get-context",
-  "parameters": [],
+  "parameters": [
+    {
+      "name": "editorDetails",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "positionIndex": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "text",
+          "positionIndex"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "text",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "positionIndex",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
   "description": "",
   "returnType": {
     "rawType": "React.Context<any>",
@@ -136,5 +171,5 @@
     "linesPerFile": 1,
     "numberOfFiles": 1
   },
-  "id": "qzxnycxdisgbcxlxvagljsgc"
+  "id": "hthzqiwqimijtvgfijhdzzij"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668335874099,
-  "updatedAt": 1668335874099,
+  "createdAt": 1671116221772,
+  "updatedAt": 1671116221772,
   "deletedAt": 0,
-  "createdFirstAt": 1668335874099,
+  "createdFirstAt": 1671116221772,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(x: ImportStatement) => {\n  const nameEndsWithTest = lowerCaseArray(x.name).pop() === \"test\";\n  const typeIsFn = x.type === \"function\";\n  return typeIsFn && nameEndsWithTest;\n}",
   "description": "",
-  "id": "qefgqfnldfzikwocbxotfprv"
+  "id": "vdvamwtprkkyxmaeizmedqtl"
 }

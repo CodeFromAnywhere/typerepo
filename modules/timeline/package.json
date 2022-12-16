@@ -12,7 +12,7 @@
     "typescript": "^4.8.4"
   },
   "main": "./build/esm/index.js",
-  "source":"./src/index.ts",
+  "source": "./src/index.ts",
   "peerDependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2"
@@ -36,22 +36,22 @@
       ]
     },
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670527653318,
+    "lastRebuildAt": 1671116200395,
     "markdown": "# ⏰ Timeline\n\n- find statements in markdown (`> xxx`)\n- find functions, interfaces, variables and show them\n- find todos inside (doc) comments and the file around it\n- find type build errors from typescript and the file around it\n- show the above in a tik-tok kinda timeline that you can swipe (or click to enter the codebase)\n\nThis is a ui-esm operation. This means it's a ui operation that builds to javascript with ESM module resolving... It was based on this example: https://prateeksurana.me/blog/react-library-with-typescript/\n",
     "hasGeneratedDependenciesIndexed": false,
     "hasGeneratedImportsIndexed": false,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 2,
-        "lines": 90,
-        "characters": 2612,
-        "bytes": 2612
+        "lines": 97,
+        "characters": 2720,
+        "bytes": 2720
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 120,
-        "characters": 3615,
-        "bytes": 3615
+        "lines": 122,
+        "characters": 3873,
+        "bytes": 3873
       },
       "textSize": {
         "numberOfFiles": 3,
@@ -60,9 +60,9 @@
         "bytes": 2669
       },
       "size": {
-        "bytes": 8896,
-        "characters": 8896,
-        "lines": 278,
+        "bytes": 9262,
+        "characters": 9262,
+        "lines": 287,
         "numberOfFiles": 7
       }
     },

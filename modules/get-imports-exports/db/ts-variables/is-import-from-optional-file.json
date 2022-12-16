@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670590305693,
-  "updatedAt": 1670590305693,
+  "createdAt": 1671116322417,
+  "updatedAt": 1671116322417,
   "deletedAt": 0,
-  "createdFirstAt": 1670590305693,
+  "createdFirstAt": 1671116322417,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(tsImport: Creation<TsImport>) => {\n  const srcRelativeFileId = getSrcRelativeFileId(\n    tsImport.operationRelativeTypescriptFilePath\n  );\n  return hasSubExtension(srcRelativeFileId, frontendOptionalFileSubExtensions);\n}",
   "description": "returns true if the import was found in an optional file, e.g. this import is not always included in the bundle, so should not be a dependency",
-  "id": "pymdyhhfeffdxahbmzowvlnt"
+  "id": "lhtmusuaalwoueiiihebaskv"
 }

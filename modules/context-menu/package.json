@@ -35,30 +35,30 @@
       "lintProblems": []
     },
     "hasGeneratedDependenciesIndexed": false,
-    "lastRebuildAt": 1671012761695,
+    "lastRebuildAt": 1671116707890,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 374,
-        "characters": 10382,
-        "bytes": 10382
+        "lines": 386,
+        "characters": 10682,
+        "bytes": 10682
       },
       "dataSize": {
         "numberOfFiles": 2,
         "lines": 127,
-        "characters": 3899,
-        "bytes": 3899
+        "characters": 3901,
+        "bytes": 3901
       },
       "textSize": {
         "numberOfFiles": 4,
-        "lines": 1786,
-        "characters": 49856,
-        "bytes": 49856
+        "lines": 1812,
+        "characters": 50524,
+        "bytes": 50524
       },
       "size": {
-        "bytes": 64137,
-        "characters": 64137,
-        "lines": 2287,
+        "bytes": 65107,
+        "characters": 65107,
+        "lines": 2325,
         "numberOfFiles": 11
       }
     },
@@ -68,6 +68,7 @@
     "coreDependenciesIndexed": [
       "useState",
       "useState",
+      "useMemo",
       "useEffect",
       "useMemo",
       "useRef",

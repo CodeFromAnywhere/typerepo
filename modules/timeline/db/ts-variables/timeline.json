@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527646279,
-  "updatedAt": 1670527646279,
+  "createdAt": 1671116195429,
+  "updatedAt": 1671116195429,
   "deletedAt": 0,
-  "createdFirstAt": 1670527646279,
+  "createdFirstAt": 1671116195429,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "timeline",
   "operationRelativeTypescriptFilePath": "src/Timeline.tsx",
   "type": {
-    "rawType": "(props: { items: import(\"/Users/king/King/operations/tools/purpose/search/timeline/src/TimelineItemType\").TimelineItemType[]; }) => JSX.Element",
+    "rawType": "(props: { items: import(\"/Users/king/King/operations/tools/purpose/search/timeline/src/TimelineItemType\").TimelineItemType[]; isHorizontal?: boolean | undefined; }) => JSX.Element",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: { items: TimelineItemType[] }) => {\n  const { items } = props;\n  return (\n    <div className=\"flex snap-x snap-mandatory h-screen w-full mx:auto overflow-scroll\">\n      {items.map((item, index) => {\n        return (\n          <Div\n            key={`timeline-item-${index}`}\n            className=\"snap-start shrink-0 bg-green-200 w-screen h-screen place-items-center\"\n            style={{\n              backgroundImage: item.imageUrl\n                ? `url(\"${item.imageUrl}\")`\n                : undefined,\n              backgroundRepeat: \"no-repeat\",\n              backgroundSize: \"cover\",\n              backgroundPosition: \"center 75%\",\n            }}\n          >\n            {item.component ? (\n              item.component()\n            ) : (\n              <Div\n                className=\"max-w-[80vw]\"\n                onClick={() => {\n                  console.log(\"supposed to open\", item);\n                  api.vscodeOpen({\n                    files: [\n                      {\n                        projectRelativePath: item.projectRelativeFilePath,\n                        line: item.line,\n                      },\n                    ],\n                  });\n                }}\n              >\n                <MarkdownCodeblock\n                  text={item.markdown || \"Nothing to show\"}\n                  isModeStatic\n                  minimalMode=\"scroll\"\n                  extension=\"tsx\"\n                />\n              </Div>\n            )}\n          </Div>\n        );\n      })}\n    </div>\n  );\n}",
+  "value": "(props: {\n  items: TimelineItemType[];\n  isHorizontal?: boolean;\n}) => {\n  const { items, isHorizontal } = props;\n  return (\n    <div\n      className={`flex ${\n        isHorizontal ? \"snap-x flex-row\" : \"snap-y flex-col\"\n      } snap-mandatory h-screen w-full mx:auto overflow-scroll`}\n    >\n      {items.map((item, index) => {\n        return (\n          <Div\n            key={`timeline-item-${index}`}\n            className=\"snap-start shrink-0 w-screen h-screen place-items-center\"\n            style={{\n              backgroundImage: item.imageUrl\n                ? `url(\"${item.imageUrl}\")`\n                : undefined,\n              backgroundRepeat: \"no-repeat\",\n              backgroundSize: \"cover\",\n              backgroundPosition: \"center 75%\",\n            }}\n          >\n            {item.component ? (\n              item.component()\n            ) : (\n              <Div\n                className=\"max-w-[80vw]\"\n                onClick={() => {\n                  console.log(\"supposed to open\", item);\n                  api.vscodeOpen({\n                    files: [\n                      {\n                        projectRelativePath: item.projectRelativeFilePath,\n                        line: item.line,\n                      },\n                    ],\n                  });\n                }}\n              >\n                <MarkdownCodeblock\n                  text={item.markdown || \"Nothing to show\"}\n                  isModeStatic\n                  minimalMode=\"scroll\"\n                  extension=\"tsx\"\n                />\n              </Div>\n            )}\n          </Div>\n        );\n      })}\n    </div>\n  );\n}",
   "description": "",
-  "id": "gopagmzwxpoozeujjgdcwgpo"
+  "id": "gehvgsjpwqjpfvcxkgnsrgrs"
 }

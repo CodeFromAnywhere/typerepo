@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671147117108,
+  "updatedAt": 1671147117108,
+  "deletedAt": 0,
+  "createdFirstAt": 1671147117108,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getCategoriesTest",
+  "slug": "get-categories-test",
+  "operationRelativeTypescriptFilePath": "src/getContextualPromptCategories.test.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const result = await getContextualPromptCategories();\n\n  writeToAssets(__filename, result, \"contextual-prompt-categories.json\");\n}",
+  "description": "",
+  "id": "jmgpwmzyxcyahxfssanjbgvz"
+}

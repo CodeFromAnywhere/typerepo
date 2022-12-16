@@ -39,19 +39,19 @@
         "No schema/definitions found for /Users/king/King/operations/tools/ai/prompt-components/src/processPrompt.ts. Error: Error: Unknown type \"function\""
       ]
     },
-    "lastRebuildAt": 1671012364172,
+    "lastRebuildAt": 1671115472413,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 5,
-        "lines": 384,
-        "characters": 11526,
-        "bytes": 11526
+        "lines": 387,
+        "characters": 11763,
+        "bytes": 11763
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 142,
-        "characters": 3754,
-        "bytes": 3754
+        "lines": 149,
+        "characters": 3876,
+        "bytes": 3876
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -60,18 +60,16 @@
         "bytes": 2959
       },
       "size": {
-        "bytes": 18239,
-        "characters": 18239,
-        "lines": 623,
+        "bytes": 18598,
+        "characters": 18598,
+        "lines": 633,
         "numberOfFiles": 9
       }
     },
     "folderNameIndexed": "prompt-components",
     "relativeOperationLocationPathIndexed": "operations/tools/ai",
     "classificationIndexed": "ui-esm",
-    "coreDependenciesIndexed": [
-      "AlertButton"
-    ],
+    "coreDependenciesIndexed": [],
     "operationDependenciesIndexed": [
       "queries",
       "Div",
@@ -87,9 +85,7 @@
       "humanCase",
       "Slug",
       "showStandardResponse",
-      "api",
-      "MarkdownContent",
-      "useAlert",
+      "successToast",
       "ContextualPrompt",
       "ContextualContent",
       "api",

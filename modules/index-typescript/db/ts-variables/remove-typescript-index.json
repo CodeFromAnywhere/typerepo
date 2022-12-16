@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671011081557,
-  "updatedAt": 1671011081557,
+  "createdAt": 1671116426616,
+  "updatedAt": 1671116426616,
   "deletedAt": 0,
-  "createdFirstAt": 1671011081557,
+  "createdFirstAt": 1671116426616,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -46,5 +46,5 @@
   },
   "value": "async (\n  eventName,\n  filePath\n) => {\n  // NB: need to provide get folder because the original file is gone so it can't be detected\n  const operationPath = findOperationBasePath(getFolder(filePath));\n  if (!operationPath) {\n    return;\n  }\n\n  const operationName = getLastFolder(operationPath);\n  // console.log(`Found operationName: ${operationName}...`);\n\n  const result = await cleanupTsDatabase(operationName);\n  console.log(\n    `Cleaned up ${result?.amountRemoved || 0} indexes (removed ${\n      path.parse(filePath).base\n    })`\n  );\n}",
   "description": "",
-  "id": "hciutbpwmlovulskqfgbruox"
+  "id": "ncowudhkwswuvhdhnfpdezkg"
 }

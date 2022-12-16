@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977390723,
-  "updatedAt": 1668977390723,
+  "createdAt": 1671116953985,
+  "updatedAt": 1671116953985,
   "deletedAt": 0,
-  "createdFirstAt": 1668977390723,
+  "createdFirstAt": 1671116953985,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(items: number[]) => {\n  const total = items.reduce((total, num) => {\n    if (typeof num !== \"number\") {\n      console.log(\"WTF\", num);\n    }\n    return total + num;\n  }, 0);\n\n  return total;\n}",
   "description": "",
-  "id": "mogrjgbdyikhmvmmkczwunfy"
+  "id": "xvyaqmeuseuhnfdrxadrqkji"
 }

@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1671017891680,
-    "updatedAt": 1671017891680,
+    "createdAt": 1671129821526,
+    "updatedAt": 1671129821526,
     "deletedAt": 0,
-    "createdFirstAt": 1671017891680,
+    "createdFirstAt": 1671129821526,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/processPrompt.ts",
     "comment": "Main function to process a prompt. For now it calls `processChatGptPrompt` api and shows an alert afterwards with the result. In some cases we may want to process the prompt differently, e.g. storing it in a queue.",
-    "rawStatement": "export const processPrompt = async (config: {\n  contextualPromptSlug?: Slug;\n  customPromptContent?: string;\n  contextualContent: ContextualContent;\n  showPromptAlert: ShowPromptAlertFunction;\n}) => {\n  const {\n    contextualPromptSlug,\n    showPromptAlert,\n    customPromptContent,\n    contextualContent: {\n      contextContent,\n      context_projectRelativeFilePath,\n      contextSelection,\n    },\n  } = config;\n\n  const apiResult = await api.processChatGptPrompt({\n    contextContent,\n    selectionContent: contextSelection || null,\n    prompt_projectRelativePath: context_projectRelativeFilePath,\n    isDeferred: true,\n    // not sure about these?\n    contextualPromptSlug,\n    customPromptContent,\n    saveNewPromptWithName: null,\n    isHeadless: false,\n  });\n\n  if (!apiResult.isSuccessful || !apiResult.result?.isSuccessful) {\n    showStandardResponse(apiResult);\n    return;\n  }\n\n  const title = contextualPromptSlug\n    ? humanCase(contextualPromptSlug)\n    : \"Untitled prompt\";\n\n  showPromptAlert(\n    title,\n    apiResult?.result?.result?.text || \"No textual result\",\n    apiResult?.result?.result?.thread,\n    context_projectRelativeFilePath\n  );\n};",
+    "rawStatement": "export const processPrompt = async (config: {\n  contextualPromptSlug?: Slug;\n  customPromptContent?: string;\n  contextualContent: ContextualContent;\n  showPromptAlert: ShowPromptAlertFunction;\n  saveNewPromptWithName?: string | null;\n}) => {\n  const {\n    contextualPromptSlug,\n    showPromptAlert,\n    customPromptContent,\n    saveNewPromptWithName,\n    contextualContent: {\n      contextContent,\n      context_projectRelativeFilePath,\n      contextSelection,\n    },\n  } = config;\n\n  const apiResult = await api.processChatGptPrompt({\n    contextContent,\n    selectionContent: contextSelection || null,\n    prompt_projectRelativePath: context_projectRelativeFilePath,\n    isDeferred: true,\n    // not sure about these?\n    contextualPromptSlug,\n    customPromptContent,\n    saveNewPromptWithName,\n    isHeadless: false,\n  });\n\n  if (!apiResult.isSuccessful || !apiResult.result?.isSuccessful) {\n    showStandardResponse(apiResult);\n    return;\n  }\n\n  const title = contextualPromptSlug\n    ? humanCase(contextualPromptSlug)\n    : \"Untitled prompt\";\n\n  showPromptAlert(\n    title,\n    apiResult?.result?.result?.text || \"No textual result\",\n    apiResult?.result?.result?.thread,\n    context_projectRelativeFilePath\n  );\n};",
     "parameters": {},
     "types": [],
     "firstLine": 7,
     "lastLine": 9,
-    "id": "farvcahorxmtyxfeykkdrndh"
+    "id": "mkeeuqdksfokkmbreiwxmenz"
   }
 ]

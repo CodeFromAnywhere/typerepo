@@ -6,6 +6,22 @@ chatgpt-controller (`OperationClassification` node-cjs)
 
 # Api reference
 
+## openAIChat()
+
+Send the propt to chatgpt and return the chatgpt response
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | `OpenAIChatProps` |  |
+| **Output** |    |    |
+
+
+
+## 📄 openAIChat (exported const)
+
+Send the propt to chatgpt and return the chatgpt response
+
 # Tests
 
 <details><summary>Show test information(2)</summary>
@@ -28,7 +44,7 @@ chatgpt-controller (`OperationClassification` node-cjs)
 
 # Internal
 
-<details><summary>Show internal (9)</summary>
+<details><summary>Show internal (7)</summary>
     
   # chatGPTAuth()
 
@@ -47,18 +63,6 @@ chatgpt-controller (`OperationClassification` node-cjs)
 | Input      |    |    |
 | ---------- | -- | -- |
 | page | `Page` |  |
-| **Output** |    |    |
-
-
-
-## openAIChat()
-
-Send the propt to chatgpt and return the chatgpt response
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | `OpenAIChatProps` |  |
 | **Output** |    |    |
 
 
@@ -102,8 +106,5 @@ Properties:
 
 ## 📄 detectChatGptPage (exported const)
 
-## 📄 openAIChat (exported const)
-
-Send the propt to chatgpt and return the chatgpt response
   </details>
 

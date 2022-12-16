@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668332239704,
-  "updatedAt": 1668332239704,
+  "createdAt": 1671115585517,
+  "updatedAt": 1671115585517,
   "deletedAt": 0,
-  "createdFirstAt": 1668332239704,
+  "createdFirstAt": 1671115585517,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (operationName: string) => {\n  const operationImports = await db.get(\"TsImport\", {\n    operationName,\n  });\n\n  const coreDependencies = operationImports\n    .filter((x) => [\"node\", \"react\"].includes(x.classification))\n    .map((x) => x.name);\n  const operationDependencies = operationImports\n    .filter((x) => [\"operation\"].includes(x.classification))\n    .map((x) => x.name);\n  const packageDependencies = operationImports\n    .filter((x) => [\"package\"].includes(x.classification))\n    .map((x) => x.name);\n\n  return {\n    coreDependencies,\n    operationDependencies,\n    packageDependencies,\n  };\n}",
   "description": "",
-  "id": "uroianrdksqmajwkrrojlayo"
+  "id": "wgrewkvziasjvcapcotxtckr"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671104130278,
-  "updatedAt": 1671104130278,
+  "createdAt": 1671116500647,
+  "updatedAt": 1671116500647,
   "deletedAt": 0,
-  "createdFirstAt": 1671104130278,
+  "createdFirstAt": 1671116500647,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -20,5 +20,5 @@
   },
   "value": "mergeObjectsArray(\n  functionApiKeys.map((fnName) => {\n    const apiWithConfigFunction = (config: ApiConfig, ...parameters: any[]) =>\n      untypedApiFunction(fnName, config, ...parameters);\n    const objectPart = { [fnName]: apiWithConfigFunction };\n\n    return objectPart;\n  })\n) as unknown as ApiTypeWithConfig",
   "description": "This object contains a api function for every function in the backend\n\nThe difference from `api` is that it allows you to also insert custom api configurations",
-  "id": "jhddzphllajjwdieivhpeecv"
+  "id": "wjcolqnwbikqwpsenosievny"
 }

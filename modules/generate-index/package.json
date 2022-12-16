@@ -14,7 +14,8 @@
     "get-package-source-paths": "0.0.1",
     "code-types": "0.0.1",
     "path-util": "0.0.1",
-    "filename-conventions": "0.0.1"
+    "filename-conventions": "0.0.1",
+    "fs-util-js": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -47,7 +48,7 @@
     "folderNameIndexed": "generate-index",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668335878220,
+    "lastRebuildAt": 1671116227969,
     "operationDependenciesIndexed": [
       "fs",
       "path",
@@ -76,15 +77,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 7,
-        "lines": 342,
-        "characters": 9695,
-        "bytes": 9695
+        "lines": 343,
+        "characters": 9723,
+        "bytes": 9723
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 144,
-        "characters": 3294,
-        "bytes": 3294
+        "lines": 145,
+        "characters": 3339,
+        "bytes": 3339
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -93,9 +94,9 @@
         "bytes": 4899
       },
       "size": {
-        "bytes": 17888,
-        "characters": 17888,
-        "lines": 629,
+        "bytes": 17961,
+        "characters": 17961,
+        "lines": 631,
         "numberOfFiles": 11
       }
     },

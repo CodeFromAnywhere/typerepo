@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670968930758,
-  "updatedAt": 1670968930758,
+  "createdAt": 1671116914653,
+  "updatedAt": 1671116914653,
   "deletedAt": 0,
-  "createdFirstAt": 1670968930758,
+  "createdFirstAt": 1671116914653,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/PingApi.tsx",
   "commentsInside": [],
-  "rawText": " () => {\n  const [isOffline, setIsOffline] = useState(false);\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      getItem(API_NO_RESPONSE_TIME_KEY).then((value) => {\n        if (!value) {\n          if (isOffline) {\n            setIsOffline(false);\n            return;\n          }\n        }\n\n        const lastNoResponse = Number(value);\n        const timeAgo = Date.now() - lastNoResponse;\n        if (timeAgo < timeBeforeNotOffline && isOffline) {\n          setIsOffline(false);\n        } else {\n          setIsOffline(true);\n        }\n      });\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return (\n    <Div className=\"mx-3\">\n      <ALink href=\"/settings\">{isOffline ? \"🔺\" : \"💚\"} API</ALink>\n    </Div>\n  );\n}",
+  "rawText": " () => {\n  const [isOffline, setIsOffline] = useState(false);\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      getItem(API_NO_RESPONSE_TIME_KEY).then((value) => {\n        if (!value) {\n          if (isOffline) {\n            setIsOffline(false);\n            return;\n          }\n        }\n\n        const lastNoResponse = Number(value);\n        const timeAgo = Date.now() - lastNoResponse;\n        if (timeAgo < timeBeforeNotOffline && isOffline) {\n          setIsOffline(false);\n        } else {\n          setIsOffline(true);\n        }\n      });\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return (\n    <Div className=\"mx-4\">\n      <ALink href=\"/settings\">{isOffline ? \"🔺\" : \"💚\"} API</ALink>\n    </Div>\n  );\n}",
   "name": "PingApi",
   "slug": "ping-api",
   "parameters": [],
@@ -36,5 +36,5 @@
     "linesPerFile": 31,
     "numberOfFiles": 1
   },
-  "id": "avekcyejlohchfdzgscusuxt"
+  "id": "rewzklbvjpvigurkzkchbajp"
 }

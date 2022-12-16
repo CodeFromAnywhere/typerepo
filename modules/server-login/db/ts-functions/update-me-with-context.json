@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528521813,
-  "updatedAt": 1670528521813,
+  "createdAt": 1671116648914,
+  "updatedAt": 1671116648914,
   "deletedAt": 0,
-  "createdFirstAt": 1670528521813,
+  "createdFirstAt": 1671116648914,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -3669,7 +3669,7 @@
               "items": [
                 {
                   "schema": {
-                    "fullComment": "A `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n```md\n--- manager: canExecute\n--- ```",
+                    "fullComment": "A `Person` is able to be part of one or multiple `Group`s. \n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n--- manager: canExecute\n---",
                     "properties": [
                       {
                         "name": "slug",
@@ -4444,5 +4444,5 @@
     "linesPerFile": 32,
     "numberOfFiles": 1
   },
-  "id": "ssychxbrsodiqnkwpwglouid"
+  "id": "lscenzhogythaqjwuubstxqe"
 }

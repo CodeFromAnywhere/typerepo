@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098522354,
-  "updatedAt": 1671098522354,
+  "createdAt": 1671113645874,
+  "updatedAt": 1671113645874,
   "deletedAt": 0,
-  "createdFirstAt": 1671098522354,
+  "createdFirstAt": 1671113645874,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-browser-page",
   "operationRelativeTypescriptFilePath": "src/browserSessionsCache.ts",
   "type": {
-    "rawType": "(pageId: string) => import(\"/Users/lucky/workspace/typerepo/node_modules/puppeteer/lib/types\").Page | undefined",
+    "rawType": "(pageId: string) => import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "(pageId: string): Page | undefined => {\n  const allPages: { [key: string]: Page } | undefined =\n    browserSessionsCache.get(\"pages\");\n  console.log({ allPages });\n  if (allPages) {\n    return allPages[pageId];\n  }\n  return undefined;\n}",
   "description": "",
-  "id": "uabbiaqtykkqwdmynugrxpjt"
+  "id": "flhtscjvmkmvfcpadeirpzsx"
 }

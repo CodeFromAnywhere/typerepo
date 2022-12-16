@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098573008,
-  "updatedAt": 1671098573008,
+  "createdAt": 1671113691445,
+  "updatedAt": 1671113691445,
   "deletedAt": 0,
-  "createdFirstAt": 1671098573008,
+  "createdFirstAt": 1671113691445,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (milliseconds: number) =>\n  new Promise((resolve) => setTimeout(() => resolve(true), milliseconds))",
   "description": "Utility functions to wait millisseconds. eg: 3000 waits 3 seconds",
-  "id": "lrnldbcmazjybajvjlkkaful"
+  "id": "pzaagnkhbhjcvvmscqbewtdc"
 }

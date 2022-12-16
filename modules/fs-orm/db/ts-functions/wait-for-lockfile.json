@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670592547230,
-  "updatedAt": 1670592547230,
+  "createdAt": 1671115870270,
+  "updatedAt": 1671115870270,
   "deletedAt": 0,
-  "createdFirstAt": 1670592547230,
+  "createdFirstAt": 1671115870270,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
-  "operationRelativeTypescriptFilePath": "src/createDb.ts",
+  "operationRelativeTypescriptFilePath": "src/waitForLockfile.ts",
   "commentsInside": [],
-  "rawText": " async (\n  lockfilePath: string\n): Promise<boolean> => {\n  if (fs.existsSync(lockfilePath)) {\n    const unixDate = await fs.readFile(lockfilePath, \"utf8\");\n    const msAgo = Date.now() - Number(unixDate);\n    if (msAgo < maxQueryTimeSeconds * 1000) {\n      // wait a 100ms!\n      // console.log(\"Waiting for lockfile...\");\n\n      await new Promise<undefined>((resolve) =>\n        setTimeout(() => resolve(undefined), 100)\n      );\n      return waitForLockfile(lockfilePath);\n    }\n\n    // if we get here, the file exists for more than 10 seconds\n\n    console.log(\n      \"Warning: lockfile exists more than ten seconds. I'm assuming the query failed, but this is not good! Should never have such slow queries.\"\n    );\n  }\n\n  await fs.writeFile(lockfilePath, String(Date.now()), \"utf8\");\n\n  return true;\n}",
+  "rawText": " async (\n  lockfilePath: string\n): Promise<boolean> => {\n  if (fs.existsSync(lockfilePath)) {\n    const unixDate = await fs.readFile(lockfilePath, \"utf8\");\n    const msAgo = Date.now() - Number(unixDate);\n    if (msAgo < maxQueryTimeSeconds * 1000) {\n      // wait a 100ms!\n      // console.log(\"Waiting for lockfile...\");\n\n      await new Promise<undefined>((resolve) =>\n        setTimeout(() => resolve(undefined), 100)\n      );\n      return waitForLockfile(lockfilePath);\n    }\n\n    // if we get here, the file exists for more than 10 seconds\n\n    console.log(\n      \"Warning: lockfile exists more than ten seconds. I'm assuming the query failed, but this is not good! Should never have such slow queries.\"\n    );\n  }\n\n  await writeStringToFile(lockfilePath, String(Date.now()));\n\n  return true;\n}",
   "name": "waitForLockfile",
   "slug": "wait-for-lockfile",
   "parameters": [
@@ -35,13 +35,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 803,
+    "characters": 800,
     "lines": 27,
-    "bytes": 803,
+    "bytes": 800,
     "bytesPerCharacter": 1,
     "charactersPerLine": 30,
     "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "cuhlfhelldbybzltswjmdvqs"
+  "id": "vfgduihdowrdgdomxhcwxtid"
 }

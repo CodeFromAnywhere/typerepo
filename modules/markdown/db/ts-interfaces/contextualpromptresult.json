@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528691833,
-  "updatedAt": 1670528691833,
+  "createdAt": 1671112883462,
+  "updatedAt": 1671112883462,
   "deletedAt": 0,
-  "createdFirstAt": 1670528691833,
+  "createdFirstAt": 1671112883462,
   "id": "contextualpromptresult",
   "name": "ContextualPromptResult",
   "slug": "contextualpromptresult",
@@ -55,6 +55,10 @@
         "isValidCalculated": {
           "type": "boolean",
           "description": "It's a crucial question whether prompt results are still valid once the actual file has been altered. If we have prompts in a chain, it may be so that all of them become invalid\n\nFor example, if a very fundamental belief changes, I need to alter all generated inferences for that belief.\n\nI think it might be better to add indexation on the validity maybe, if beliefs change, and mark the file as \"old\" if I want to write a new version. The frontmatter may change, but we should probably keep the content immutable because it has too many implications if we don't\n\nIt is the same as the O in the SOLID principle!"
+        },
+        "isFake": {
+          "type": "boolean",
+          "description": "Fake result for testing, marked to be able to easily clean it up"
         },
         "contextualPromptSlug": {
           "type": "string",
@@ -193,6 +197,14 @@
           "required": false,
           "schema": {
             "fullComment": "It's a crucial question whether prompt results are still valid once the actual file has been altered. If we have prompts in a chain, it may be so that all of them become invalid\n\nFor example, if a very fundamental belief changes, I need to alter all generated inferences for that belief.\n\nI think it might be better to add indexation on the validity maybe, if beliefs change, and mark the file as \"old\" if I want to write a new version. The frontmatter may change, but we should probably keep the content immutable because it has too many implications if we don't\n\nIt is the same as the O in the SOLID principle!",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isFake",
+          "required": false,
+          "schema": {
+            "fullComment": "Fake result for testing, marked to be able to easily clean it up",
             "type": "boolean"
           }
         },

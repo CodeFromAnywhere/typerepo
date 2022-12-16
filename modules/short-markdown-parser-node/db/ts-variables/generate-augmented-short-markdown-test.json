@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216327174,
-  "updatedAt": 1670216327174,
+  "createdAt": 1671115744604,
+  "updatedAt": 1671115744604,
   "deletedAt": 0,
-  "createdFirstAt": 1670216327174,
+  "createdFirstAt": 1671115744604,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const result = await generateAugmentedShortMarkdown(\n    \"operations/tools/parsing/file-conversion/md/short-markdown/docs/nested-conditions.short.md\"\n  );\n\n  console.log(result);\n}",
   "description": "",
-  "id": "czpknhlrladnppodegkbvglb"
+  "id": "pywfokwkudczcewbendhpzli"
 }

@@ -55,7 +55,7 @@ returns something like `[apiUrl]/[apiFunctionName][queryString]`
 
 # Internal
 
-<details><summary>Show internal (3)</summary>
+<details><summary>Show internal (4)</summary>
     
   # untypedApiFunction()
 
@@ -70,6 +70,8 @@ NB: this is not a typed function as we are just overwriting it so we don't need 
 | **Output** |    |    |
 
 
+
+## 📄 API_CUSTOM_URL_KEY (exported const)
 
 ## 📄 sdkExample (exported const)
 

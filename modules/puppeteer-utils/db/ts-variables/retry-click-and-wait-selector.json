@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671098550518,
-  "updatedAt": 1671098550518,
+  "createdAt": 1671113671591,
+  "updatedAt": 1671113671591,
   "deletedAt": 0,
-  "createdFirstAt": 1671098550518,
+  "createdFirstAt": 1671113671591,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: any;\n  /** the css selector to search for */\n  selector: string | string[];\n  /** the options */\n  selectorOptions?: any;\n  /** the css selector to click after */\n  selectorToClick: string;\n  /**  maxium time to retry. defaults to 30 seconds. */\n  maxTime: number;\n}): Promise<{ success: boolean; found?: any }> => {\n  const {\n    page,\n    selector,\n    selectorOptions,\n    selectorToClick,\n    maxTime = 30000,\n  } = props;\n  return new Promise(async (resolve, reject) => {\n    let totalTime = 0;\n    while (totalTime < maxTime) {\n      try {\n        const found = await page.waitForSelector(selector, {\n          ...selectorOptions,\n          timeout: 1000,\n        });\n        resolve({ success: true, found });\n        return;\n      } catch (err) {\n        try {\n          await page.click(selectorToClick);\n        } catch (insideErr) {\n          //console.log('inside error ! continuing...');\n        }\n\n        totalTime += 1000;\n        console.log(\"retrying...\");\n      }\n    }\n    resolve({ success: false });\n  });\n}",
   "description": "Utility function that loops waiting a second and checking\nif selector showed up. Fails if it takes more than 30 seconds.\n\nthis is good to use instead of page.waitForTimeout + page.waitForSelector",
-  "id": "hctlqzcckafwbitxuvwyjaws"
+  "id": "qqkvcwlcnvyssepgrfnvjghu"
 }

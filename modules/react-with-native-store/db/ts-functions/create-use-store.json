@@ -1,16 +1,11 @@
 {
-  "createdAt": 1667635036318,
-  "updatedAt": 1667635036318,
+  "createdAt": 1671116723622,
+  "updatedAt": 1671116723622,
   "deletedAt": 0,
-  "createdFirstAt": 1667635036318,
-  "publicAuthorization": [
-    "read-docs",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1671116723622,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.tsx",
   "commentsInside": [],
   "rawText": " <TStore extends object>(\n  initialValues: TStore\n) => {\n  if (debug) {\n    console.log(\"Create useStore\");\n  }\n  const useStore = <K extends Keys<TStore>>(key: K) => {\n    if (!Object.keys(initialValues).includes(key)) {\n      throw new Error(`Using undefined key in useStore: ${key}`);\n    }\n    const context = getContext(key);\n    if (!context) {\n      throw new Error(\n        `Failed loading the context with key: ${key}. Did you wrap your component/app with a StoreProvider?`\n      );\n    }\n    const useStoreHook = React.useContext<UseStoreType<TStore>>(context);\n\n    const useStoreHookType = typeof useStoreHook;\n\n    if (useStoreHookType !== \"function\") {\n      console.error(\n        `useStoreHookType for ${key} is ${useStoreHookType}... wtf?`\n      );\n    }\n\n    return useStoreHook?.(key);\n  };\n  return useStore;\n}",
@@ -19,7 +14,7 @@
   "parameters": [],
   "description": "Function to create a hook for accessing the store",
   "returnType": {
-    "rawType": "<K extends Extract<keyof T, string>>(key: K) => import(\"/Users/king/King/operations/tools/interfaces/vui/vui-elements/react-with-native-store/src/general\").UseStoreResult<TStore[K]>",
+    "rawType": "<K extends Extract<keyof T, string>>(key: K) => import(\"/Users/king/King/operations/tools/user-interfaces/gui/dumb/react-with-native-store/src/general\").UseStoreResult<TStore[K]>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -46,5 +41,5 @@
     "linesPerFile": 30,
     "numberOfFiles": 1
   },
-  "id": "dgdttsgfhptlojgjgliujoge"
+  "id": "jiwcwzubrxstgtfslaihebml"
 }

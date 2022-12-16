@@ -10,9 +10,27 @@ api-store (`OperationClassification` node-cjs)
 
 # Internal
 
-<details><summary>Show internal (1)</summary>
+<details><summary>Show internal (2)</summary>
     
-  # 📄 { StoreProvider, useStore } (exported const)
+  # 🔹 ApiStoreType
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| api.authToken  | string |  |
+| api.customUrl  | null |  |
+| api.timeoutAt  | null |  |
+
+
+
+## 📄 { StoreProvider, useStore } (exported const)
 
 This is only needed if api storage is ALL you need.
   </details>

@@ -9,5 +9,6 @@ export declare const processPrompt: (config: {
     customPromptContent?: string | undefined;
     contextualContent: ContextualContent;
     showPromptAlert: ShowPromptAlertFunction;
+    saveNewPromptWithName?: string | null | undefined;
 }) => Promise<void>;
 //# sourceMappingURL=processPrompt.d.ts.map

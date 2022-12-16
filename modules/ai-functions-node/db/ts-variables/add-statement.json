@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671105498916,
-  "updatedAt": 1671105498916,
+  "createdAt": 1671147103911,
+  "updatedAt": 1671147103911,
   "deletedAt": 0,
-  "createdFirstAt": 1671105498916,
+  "createdFirstAt": 1671147103911,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  /**\n   * MUST be an english statement\n   */\n  statement: string,\n  /**\n   * defaults to 0.5\n   */\n  importancy?: number,\n  /**\n   * defaults to 1\n   */\n  agreement?: number\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  if (importancy !== undefined && (importancy < 0 || importancy > 1)) {\n    return {\n      isSuccessful: false,\n      message: \"Importancy, when filled in, must be between [0,1]\",\n    };\n  }\n  if (agreement !== undefined && (agreement < 0 || agreement > 1)) {\n    return {\n      isSuccessful: false,\n      message: \"Agreement, when filled in, must be between [0,1]\",\n    };\n  }\n\n  const newStatement: Creation<Statement> = {\n    description: statement,\n    importancy: importancy === undefined ? 0.5 : importancy,\n    agreement: agreement === undefined ? 1 : agreement,\n  };\n\n  const upsertResult = await db.upsert(\"Statement\", newStatement, {\n    onlyInsert: true,\n  });\n\n  return {\n    isSuccessful: upsertResult?.isSuccesful || false,\n    message: upsertResult?.isSuccesful\n      ? \"Statement added\"\n      : upsertResult?.message,\n  };\n}",
   "description": "Adds `Statement`",
-  "id": "etsaplfabqwadrjvuvulojau"
+  "id": "siypcienqqutpzqddfacoxny"
 }

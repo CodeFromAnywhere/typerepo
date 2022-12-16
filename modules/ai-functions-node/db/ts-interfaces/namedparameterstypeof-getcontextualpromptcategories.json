@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671147118051,
+  "updatedAt": 1671147118051,
+  "deletedAt": 0,
+  "createdFirstAt": 1671147118051,
+  "id": "namedparameterstypeof-getcontextualpromptcategories",
+  "name": "NamedParameters<typeof getContextualPromptCategories>",
+  "slug": "namedparameterstypeof-getcontextualpromptcategories",
+  "operationRelativeTypescriptFilePath": "src/getContextualPromptCategories.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getContextualPromptCategories>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671011059588,
-  "updatedAt": 1671011059588,
+  "createdAt": 1671116405585,
+  "updatedAt": 1671116405585,
   "deletedAt": 0,
-  "createdFirstAt": 1671011059588,
+  "createdFirstAt": 1671116405585,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(type: Type, schema?: Schema): TypeInfo => {\n  const rawType = type.getApparentType().getText();\n  const isArray = type.isArray();\n  const isEnum = type.isEnum();\n  const isEnumLiteral = type.isEnumLiteral();\n  const isPrimitive = type.isString() || type.isNumber() || type.isBoolean();\n  const isObject = type.isObject();\n\n  let typeDefinition: Schema | undefined = undefined;\n  try {\n    typeDefinition = schema || typeToSchema(type);\n  } catch (e) {\n    log(`Type to schema failed with error: ${e}`, { type: \"debug\" });\n  }\n\n  const typeInfo: TypeInfo = {\n    rawType,\n    typeDefinition,\n    // TODO:\n    typeCoverage: 0,\n    // this is easy to infer\n    isArray,\n    isEnum,\n    isObject,\n    isPrimitive,\n    isEnumLiteral,\n    simplifiedSchema: typeDefinition\n      ? simplifySchema(\"type\", typeDefinition, [], [])\n      : undefined,\n  };\n\n  return typeInfo;\n}",
   "description": "takes a ts morph type and returns all info about it\n\nif available, a schema should be provided about the type because it's hard to infer it (probably buggy)",
-  "id": "xutitugnrsnuwucxxtrrnlfp"
+  "id": "opdbrgmrhoiyrcfpdurmstzz"
 }

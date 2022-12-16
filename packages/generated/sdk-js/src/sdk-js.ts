@@ -292,7 +292,6 @@ import { stringToJson } from "string-to-json";
 import { getEncoding } from "text-or-binary";
 import { isBinary } from "text-or-binary";
 import { isText } from "text-or-binary";
-import { Tooltip } from "tooltip";
 import { tryParseJson } from "try-parse-json";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
@@ -593,7 +592,6 @@ stringToJson,
 getEncoding,
 isBinary,
 isText,
-Tooltip,
 tryParseJson,
 createCodeblockMarkdown,
 useCustomUrlStore,

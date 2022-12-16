@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1671097054636,
-    "updatedAt": 1671097054636,
+    "createdAt": 1671115080347,
+    "updatedAt": 1671115080347,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054636,
+    "createdFirstAt": 1671115080347,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer",
@@ -13,13 +13,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "tvcaocdhyhgrldejojoardlg"
+    "id": "jtxcnrofpahwcadpfwfguwnh"
   },
   {
-    "createdAt": 1671097054637,
-    "updatedAt": 1671097054637,
+    "createdAt": 1671115080347,
+    "updatedAt": 1671115080347,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054637,
+    "createdFirstAt": 1671115080347,
     "name": "isCaptchaExist",
     "slug": "is-captcha-exist",
     "type": "value",
@@ -30,13 +30,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "strhrrvwvpaehiaoapypimmr"
+    "id": "nlnwshpfvfjrsyzhlwvsifal"
   },
   {
-    "createdAt": 1671097054637,
-    "updatedAt": 1671097054637,
+    "createdAt": 1671115080347,
+    "updatedAt": 1671115080347,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054637,
+    "createdFirstAt": 1671115080347,
     "name": "solveReptcha",
     "slug": "solve-reptcha",
     "type": "value",
@@ -47,13 +47,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tasjezgybvcnuuihhadandgv"
+    "id": "pbyjxcvhzxqowxkqzlqcrsch"
   },
   {
-    "createdAt": 1671097054637,
-    "updatedAt": 1671097054637,
+    "createdAt": 1671115080348,
+    "updatedAt": 1671115080348,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054637,
+    "createdFirstAt": 1671115080348,
     "name": "getBrowserSession",
     "slug": "get-browser-session",
     "type": "value",
@@ -64,13 +64,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "awnkzozgrgocyeeylrablbws"
+    "id": "nztvuhnnxvdjklnonfiuwsba"
   },
   {
-    "createdAt": 1671097054638,
-    "updatedAt": 1671097054638,
+    "createdAt": 1671115080348,
+    "updatedAt": 1671115080348,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054638,
+    "createdFirstAt": 1671115080348,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -81,16 +81,17 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "gwmnqjzhxmykdxtgkspcvhzu"
+    "id": "csgmzoshaeobjffzxtjixmbd"
   },
   {
-    "createdAt": 1671097054638,
-    "updatedAt": 1671097054638,
+    "createdAt": 1671115080348,
+    "updatedAt": 1671115080348,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054638,
+    "createdFirstAt": 1671115080348,
     "name": "MediaCredential",
     "slug": "media-credential",
-    "type": "value",
+    "type": "type",
+    "hasGeneric": false,
     "module": "social-media-types",
     "isModuleResolved": true,
     "comments": [],
@@ -98,13 +99,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rgzikwyhloflaxznzcavkror"
+    "id": "edfqkanedoxolpmsbteyjdbs"
   },
   {
-    "createdAt": 1671097054638,
-    "updatedAt": 1671097054638,
+    "createdAt": 1671115080348,
+    "updatedAt": 1671115080348,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054638,
+    "createdFirstAt": 1671115080348,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer",
@@ -114,13 +115,47 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "jmpedgvomgczlylqyottkvjz"
+    "id": "itxlxkccjclwrahankghfpqh"
   },
   {
-    "createdAt": 1671097054638,
-    "updatedAt": 1671097054638,
+    "createdAt": 1671115080348,
+    "updatedAt": 1671115080348,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054638,
+    "createdFirstAt": 1671115080348,
+    "name": "isCaptchaExist",
+    "slug": "is-captcha-exist",
+    "type": "value",
+    "module": "puppeteer-utils",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/detectChatGptPage.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "cseggsgclylpjsadqnhoxguq"
+  },
+  {
+    "createdAt": 1671115080348,
+    "updatedAt": 1671115080348,
+    "deletedAt": 0,
+    "createdFirstAt": 1671115080348,
+    "name": "solveReptcha",
+    "slug": "solve-reptcha",
+    "type": "value",
+    "module": "puppeteer-utils",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/detectChatGptPage.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "mnletstkmrufpjtbthbxdsrh"
+  },
+  {
+    "createdAt": 1671115080349,
+    "updatedAt": 1671115080349,
+    "deletedAt": 0,
+    "createdFirstAt": 1671115080349,
     "name": "openPage",
     "slug": "open-page",
     "type": "value",
@@ -131,13 +166,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "oeehnsasdsitcfrahnneocez"
+    "id": "arhvukyrethuyaycdwejpivf"
   },
   {
-    "createdAt": 1671097054639,
-    "updatedAt": 1671097054639,
+    "createdAt": 1671115080349,
+    "updatedAt": 1671115080349,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054639,
+    "createdFirstAt": 1671115080349,
     "name": "chatGPTAuth",
     "slug": "chat-gptauth",
     "module": "./chatGPTAuth",
@@ -147,13 +182,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "coulqavhaeunjvpvzimwehdo"
+    "id": "dprnccweehwhaskwsannruui"
   },
   {
-    "createdAt": 1671097054639,
-    "updatedAt": 1671097054639,
+    "createdAt": 1671115080349,
+    "updatedAt": 1671115080349,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054639,
+    "createdFirstAt": 1671115080349,
     "name": "detectChatGptPage",
     "slug": "detect-chat-gpt-page",
     "module": "./detectChatGptPage",
@@ -163,13 +198,31 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "zrorlgztkcjzwermlyilcvyu"
+    "id": "imjbuofzobdoegaxbexbisrj"
   },
   {
-    "createdAt": 1671097054639,
-    "updatedAt": 1671097054639,
+    "createdAt": 1671115080349,
+    "updatedAt": 1671115080349,
     "deletedAt": 0,
-    "createdFirstAt": 1671097054639,
+    "createdFirstAt": 1671115080349,
+    "name": "ProcessPromptFunctionResult",
+    "slug": "process-prompt-function-result",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "ai-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/openAIChat.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "dnfnvjfxmlarfrdwtgsydvnz"
+  },
+  {
+    "createdAt": 1671115080349,
+    "updatedAt": 1671115080349,
+    "deletedAt": 0,
+    "createdFirstAt": 1671115080349,
     "name": "openAIChat",
     "slug": "open-aichat",
     "module": "./openAIChat",
@@ -179,6 +232,6 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "dwafzfmmmbhhoxekdsdroexr"
+    "id": "adrynmsivszjtbkpvamujgea"
   }
 ]

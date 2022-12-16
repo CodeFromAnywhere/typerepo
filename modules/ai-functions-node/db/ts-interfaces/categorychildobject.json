@@ -1,0 +1,67 @@
+{
+  "createdAt": 1671147118051,
+  "updatedAt": 1671147118051,
+  "deletedAt": 0,
+  "createdFirstAt": 1671147118051,
+  "id": "categorychildobject",
+  "name": "CategoryChildObject",
+  "slug": "categorychildobject",
+  "operationRelativeTypescriptFilePath": "src/getContextualPromptCategories.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type CategoryChildObject = ChildObject<{\n  category: string;\n  count: number;\n}>;",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "$ref": "#/definitions/ChildObject%3Cstructure-360340287-488-528-360340287-475-529-360340287-440-530-360340287-0-3084%3E"
+    },
+    "simplifiedSchema": {
+      "fullComment": "",
+      "properties": [
+        {
+          "name": "category",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "count",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "children",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "circularRefName": "ChildObject<structure-360340287-488-528-360340287-475-529-360340287-440-530-360340287-0-3084>",
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": "ChildObject<structure-360340287-488-528-360340287-475-529-360340287-440-530-360340287-0-3084>"
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "CategoryChildObject",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

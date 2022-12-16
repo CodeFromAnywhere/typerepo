@@ -41,12 +41,12 @@ import { showStandardResponse } from "cool-toast";
  * Main function to process a prompt. For now it calls `processChatGptPrompt` api and shows an alert afterwards with the result. In some cases we may want to process the prompt differently, e.g. storing it in a queue.
  */
 export var processPrompt = function (config) { return __awaiter(void 0, void 0, void 0, function () {
-    var contextualPromptSlug, showPromptAlert, customPromptContent, _a, contextContent, context_projectRelativeFilePath, contextSelection, apiResult, title;
+    var contextualPromptSlug, showPromptAlert, customPromptContent, saveNewPromptWithName, _a, contextContent, context_projectRelativeFilePath, contextSelection, apiResult, title;
     var _b, _c, _d, _e, _f;
     return __generator(this, function (_g) {
         switch (_g.label) {
             case 0:
-                contextualPromptSlug = config.contextualPromptSlug, showPromptAlert = config.showPromptAlert, customPromptContent = config.customPromptContent, _a = config.contextualContent, contextContent = _a.contextContent, context_projectRelativeFilePath = _a.context_projectRelativeFilePath, contextSelection = _a.contextSelection;
+                contextualPromptSlug = config.contextualPromptSlug, showPromptAlert = config.showPromptAlert, customPromptContent = config.customPromptContent, saveNewPromptWithName = config.saveNewPromptWithName, _a = config.contextualContent, contextContent = _a.contextContent, context_projectRelativeFilePath = _a.context_projectRelativeFilePath, contextSelection = _a.contextSelection;
                 return [4 /*yield*/, api.processChatGptPrompt({
                         contextContent: contextContent,
                         selectionContent: contextSelection || null,
@@ -55,7 +55,7 @@ export var processPrompt = function (config) { return __awaiter(void 0, void 0, 
                         // not sure about these?
                         contextualPromptSlug: contextualPromptSlug,
                         customPromptContent: customPromptContent,
-                        saveNewPromptWithName: null,
+                        saveNewPromptWithName: saveNewPromptWithName,
                         isHeadless: false,
                     })];
             case 1:

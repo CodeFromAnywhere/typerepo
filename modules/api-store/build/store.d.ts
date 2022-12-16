@@ -1,7 +1,20 @@
 /// <reference types="react" />
 export declare type ApiStoreType = {
+    /**
+     * authToken coupled to device, set by browser automatically on first pageload
+     *
+     * can also be changed by logging in
+     */
     "api.authToken": string;
+    /**
+     * Can set this up in config to connect with different api
+     */
     "api.customUrl": null | string;
+    /**
+     * If the api doesn't response, this will be set to last date.
+     * If the api responds, this will be reset
+     */
+    "api.timeoutAt": null | number;
 };
 export declare const apiStoreInitialValues: ApiStoreType;
 /**

@@ -1,6 +1,6 @@
 # Markdown reader functions
 
-markdown-reader-functions (`OperationClassification` ui-cjs)
+markdown-reader-functions (`OperationClassification` node-cjs)
 
 
 

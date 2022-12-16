@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668977397935,
-  "updatedAt": 1668977397935,
+  "createdAt": 1671116964166,
+  "updatedAt": 1671116964166,
   "deletedAt": 0,
-  "createdFirstAt": 1668977397935,
+  "createdFirstAt": 1671116964166,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(a: string, b: string) => {\n  const lettersLeft = a\n    .split(\"\")\n    .reduce((lettersLeft, lowercaseValueLetter) => {\n      if (lettersLeft[0] === lowercaseValueLetter) {\n        lettersLeft.shift();\n      }\n\n      return lettersLeft;\n    }, b.split(\"\"));\n\n  return lettersLeft.length === 0;\n}",
   "description": "all letters of b can be found in a, in order (but other letters in between are allowed)",
-  "id": "exjgyuwwclmvtunkzlqepdsq"
+  "id": "gzybqikhsxfdclpsajafurgp"
 }

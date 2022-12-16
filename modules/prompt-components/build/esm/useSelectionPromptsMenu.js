@@ -141,7 +141,7 @@ export var useSelectionPromptsMenu = function (selectionPrompts, contextualConte
                 getTitle: function () { return "🕊 Free-form prompt"; },
                 getIsEnabled: function () { return true; },
                 onClick: function () { return __awaiter(void 0, void 0, void 0, function () {
-                    var question, customPromptContent;
+                    var question, name, realName, customPromptContent;
                     return __generator(this, function (_a) {
                         switch (_a.label) {
                             case 0:
@@ -149,11 +149,14 @@ export var useSelectionPromptsMenu = function (selectionPrompts, contextualConte
                                 if (!question || question === "") {
                                     return [2 /*return*/];
                                 }
+                                name = prompt("How should we call the prompt? (empty for not storing)");
+                                realName = name === "" ? null : name;
                                 customPromptContent = "I am reading this file:\n\n```\n".concat(contextualContent.contextContent, "\n```\n\nMore specifically, I'm looking at this part: \n\n```\n").concat(contextualContent.contextSelection, "\n```\n\n").concat(question);
                                 return [4 /*yield*/, processPrompt({
                                         contextualContent: contextualContent,
                                         showPromptAlert: showPromptAlert,
                                         customPromptContent: customPromptContent,
+                                        saveNewPromptWithName: realName,
                                     })];
                             case 1:
                                 _a.sent();

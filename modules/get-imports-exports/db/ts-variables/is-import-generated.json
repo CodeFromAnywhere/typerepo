@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670590305693,
-  "updatedAt": 1670590305693,
+  "createdAt": 1671116322417,
+  "updatedAt": 1671116322417,
   "deletedAt": 0,
-  "createdFirstAt": 1670590305693,
+  "createdFirstAt": 1671116322417,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "(x: Creation<TsImport>) =>\n  x.isModuleFromMonorepo && isGeneratedOperationName(x.module)",
   "description": "",
-  "id": "ivfdmehnjlumaolxiiinkwxn"
+  "id": "iigspoqmrvdmnakstwednaal"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528466589,
-  "updatedAt": 1670528466589,
+  "createdAt": 1671116604283,
+  "updatedAt": 1671116604283,
   "deletedAt": 0,
-  "createdFirstAt": 1670528466589,
+  "createdFirstAt": 1671116604283,
   "id": "namedparameterstypeof-addpersonauthenticationmethodwithcontext",
   "name": "NamedParameters<typeof addPersonAuthenticationMethodWithContext>",
   "slug": "namedparameterstypeof-addpersonauthenticationmethodwithcontext",
@@ -3584,7 +3584,7 @@
                   "items": [
                     {
                       "schema": {
-                        "fullComment": "A `Person` is able to be part of one or multiple `Group`s.\n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n```md\n--- manager: canExecute\n--- ```",
+                        "fullComment": "A `Person` is able to be part of one or multiple `Group`s.\n\nA `Device` without `Person` is just part of group `public` and can only access `public` info and features.\n\n`Group`s and individual `Person`s can be given `Authorization`\n\nFunctions that require authorization can have something in this format in their doc-comment:\n\n`[groupName]: x, y, z`\n\nE.g.\n\n--- manager: canExecute\n---",
                         "properties": [
                           {
                             "name": "slug",

@@ -21,6 +21,7 @@
     "build"
   ],
   "devDependencies": {
+    "@types/lru-cache": "^7.10.10",
     "@types/puppeteer-core": "^5.4.0",
     "@types/uuid": "^9.0.0"
   },
@@ -32,7 +33,9 @@
     "model-types": "0.0.1",
     "puppeteer": "*",
     "puppeteer-core": "^18.0.5",
+    "puppeteer-extra": "^3.3.4",
     "puppeteer-extra-plugin-recaptcha": "^3.6.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.1",
     "puppeteer-utils": "1.0.2",
     "uuid": "^9.0.0"
   },
@@ -42,14 +45,14 @@
     "hasGeneratedDependenciesIndexed": false,
     "buildResultIndexed": {
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/lucky/workspace/typerepo/packages/niches/bhagya/doing/control-web/puppeteer-utils/src/setInputValue.ts. Error: TypeError: Cannot read properties of undefined (reading 'kind')"
+        "No schema/definitions found for /Users/king/King/operations/niches/bhagya-nov-30/doing/control-web/puppeteer-utils/src/setInputValue.ts. Error: TypeError: Cannot read properties of undefined (reading 'kind')"
       ],
       "buildSucceeded": true,
       "indexImportExportError": "",
       "lintProblems": [],
       "dependencyBuildFailed": true
     },
-    "lastRebuildAt": 1671098588036,
+    "lastRebuildAt": 1671113701436,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 27,
@@ -59,25 +62,25 @@
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 158,
-        "characters": 3626,
-        "bytes": 3626
+        "lines": 159,
+        "characters": 3656,
+        "bytes": 3656
       },
       "textSize": {
-        "numberOfFiles": 4,
-        "lines": 585,
-        "characters": 11297,
-        "bytes": 11297
+        "numberOfFiles": 5,
+        "lines": 1097,
+        "characters": 20705,
+        "bytes": 20705
       },
       "size": {
-        "bytes": 33017,
-        "characters": 33017,
-        "lines": 1403,
-        "numberOfFiles": 33
+        "bytes": 42455,
+        "characters": 42455,
+        "lines": 1916,
+        "numberOfFiles": 34
       }
     },
     "folderNameIndexed": "puppeteer-utils",
-    "relativeOperationLocationPathIndexed": "packages/niches/bhagya/doing/control-web",
+    "relativeOperationLocationPathIndexed": "operations/niches/bhagya-nov-30/doing/control-web",
     "classificationIndexed": "cjs",
     "coreDependenciesIndexed": [],
     "operationDependenciesIndexed": [
