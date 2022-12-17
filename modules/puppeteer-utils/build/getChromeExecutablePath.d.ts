@@ -1,0 +1,2 @@
+export declare const getChromeExecutablePath: () => "/usr/bin/google-chrome-stable" | "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+//# sourceMappingURL=getChromeExecutablePath.d.ts.map
