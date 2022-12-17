@@ -161,9 +161,11 @@ import { Dataset } from "generative-ui";
 import { Menu } from "generative-ui";
 import { NavButton } from "generative-ui";
 import { PromptButton } from "generative-ui";
+import { ReaderPageNext } from "generative-ui";
 import { ReaderPage } from "generative-ui";
 import { SelectionPrompts } from "generative-ui";
 import { setConfig } from "generative-ui";
+import { SettingsPage } from "generative-ui";
 import { useAdmin } from "generative-ui";
 import { useVariantResult } from "generative-ui";
 import { VariantSelector } from "generative-ui";
@@ -453,9 +455,11 @@ Dataset,
 Menu,
 NavButton,
 PromptButton,
+ReaderPageNext,
 ReaderPage,
 SelectionPrompts,
 setConfig,
+SettingsPage,
 useAdmin,
 useVariantResult,
 VariantSelector,

@@ -54,13 +54,15 @@ var loginWithPasswordWithContext = function (functionContext, username, password
             case 0: return [4 /*yield*/, (0, addDeviceAuthenticationMethodWithContext_1.addDeviceAuthenticationMethodWithContext)(functionContext, "usernamePassword", username, password)];
             case 1:
                 addAuthResult = _a.sent();
-                if (!addAuthResult.isSuccessful || !addAuthResult.authenticationMethod) {
+                if (!addAuthResult.isSuccessful ||
+                    !addAuthResult.authenticationMethod ||
+                    !addAuthResult.functionContext) {
                     return [2 /*return*/, {
                             isSuccessful: addAuthResult.isSuccessful || false,
                             message: addAuthResult.message,
                         }];
                 }
-                return [4 /*yield*/, (0, loginWithContext_1.loginWithContext)(functionContext)];
+                return [4 /*yield*/, (0, loginWithContext_1.loginWithContext)(addAuthResult.functionContext)];
             case 2:
                 loginResult = _a.sent();
                 isSuccessful = loginResult.isSuccessful, message = loginResult.message;

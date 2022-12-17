@@ -1,22 +1,22 @@
 {
-  "createdAt": 1671220126202,
-  "updatedAt": 1671220126202,
+  "createdAt": 1671279489464,
+  "updatedAt": 1671279489464,
   "deletedAt": 0,
-  "createdFirstAt": 1671220126202,
+  "createdFirstAt": 1671279489464,
   "id": "device",
   "name": "Device",
   "slug": "device",
   "operationRelativeTypescriptFilePath": "src/Device.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * \n A Device that accesses any King OS api.\n\n A device can be connected to a person. A person can have multiple `Device`s.\n\n A Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.\n */\nexport interface Device extends DefaultModelType, IPInfo {\n  /**\n   * AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n   *\n   * If the authToken is the same, we can be sure that the device is matched, even if the IP is different.\n   */\n  authToken: string;\n\n  /**\n   * Parsed User Agent header.\n   *\n   * NOT used to identify the device, since the device can already be connected to a person!\n   */\n  // userAgent?: IResult;\n  /**\n   * Raw `User-Agent` header.\n   *\n   * NOT used to identify the device, since the device can already be connected to a person!\n   */\n  userAgentString: IResult[\"ua\"];\n  /**\n   * Name of the device, calculated based on metadata like location, os, and ip\n   *\n   * Can be edited by the user\n   */\n  name: string;\n\n  /**\n   * the root IPInfo is from the latest IP the device had. All previous IPs are added to this array\n   */\n  previousIps: IPInfo[];\n\n  /**\n   * Domains the Device has visited\n   *\n   * The Origin request header indicates the origin (scheme, hostname, and port) that caused the request\n   */\n  origins: string[];\n\n  /**\n   * Is set to true if the devices IP is pinged and seems to have something that resembles a King OS PAPI.\n   */\n  hasPapi?: boolean;\n\n  /**\n   * Returning `true` or `false` indicating whether or not the IP is giving a response\n   */\n  isOnlineCalculated?: boolean;\n\n  /**\n   * Whenever the peer is online, this should update\n   */\n  lastOnlineAt: number;\n\n  /**\n   * if true, the above IP is a local one, meaning it cannot be accessed from outside of this network\n   *\n   * This is easy to determine: local IP's must start with \"192.168\"\n   */\n  isLocalIpCalculated?: boolean;\n\n  /**\n   * if `true`, this device will show on top\n   */\n  isFavorite?: boolean;\n\n  /**\n   * If true, this peer should not be shared\n   */\n  isPrivate?: boolean;\n\n  /**\n   * last sync of any model\n   *\n   * Useful for example for a p2p messaging\n   */\n  lastSyncDatabaseAtObject: {\n    [modelName: string]: number;\n  };\n\n  /**\n   * If the device is authenticated, this should be set.\n   *\n   * Can be unset by the person\n   */\n  personIds?: Id[];\n  persons?: Person[];\n\n  /**\n   * A device can switch between persons, by changing this value\n   */\n  currentPersonId?: Id;\n  /**\n   * If you have a currentPersonId, it is calculated and provided by selecting it from the persons array\n   *\n   * For now, only provided by functioncontext\n   */\n  currentPersonCalculated?: Person;\n  /**\n   * Calculated all operations that can be exposed as apps. This is taken from `getAllAppOperations` function\n   */\n  appOperationsCalculated?: AppOperation[];\n\n  /**\n   * If the `Device` is not identified as a person yet, this can be configured to authenticate with different methods. Once it matches to a person, this can be cleared and `personId` can be attached.\n   */\n  authenticationMethods: AuthenticationMethod[];\n}",
+  "rawText": "\n\n/**\n\n---\ndbStorageMethod: jsonSingle\n---\n\n A Device that accesses any King OS api.\n\n A device can be connected to a person. A person can have multiple `Device`s.\n\n A Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.\n */\nexport interface Device extends DefaultModelType, IPInfo {\n  /**\n   * AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n   *\n   * If the authToken is the same, we can be sure that the device is matched, even if the IP is different.\n   *\n   * Should be identical to ID\n   *\n   */\n  authToken: string;\n\n  /**\n   * Parsed User Agent header.\n   *\n   * NOT used to identify the device, since the device can already be connected to a person!\n   */\n  // userAgent?: IResult;\n  /**\n   * Raw `User-Agent` header.\n   *\n   * NOT used to identify the device, since the device can already be connected to a person!\n   */\n  userAgentString: IResult[\"ua\"];\n  /**\n   * Name of the device, calculated based on metadata like location, os, and ip\n   *\n   * Can be edited by the user\n   */\n  name: string;\n\n  /**\n   * Is set to true if the devices IP is pinged and seems to have something that resembles a King OS PAPI.\n   */\n  hasPapi?: boolean;\n\n  /**\n   * Returning `true` or `false` indicating whether or not the IP is giving a response\n   */\n  isOnlineCalculated?: boolean;\n\n  /**\n   * Whenever the peer is online, this should update\n   */\n  lastOnlineAt: number;\n\n  /**\n   * if true, the above IP is a local one, meaning it cannot be accessed from outside of this network\n   *\n   * This is easy to determine: local IP's must start with \"192.168\"\n   */\n  isLocalIpCalculated?: boolean;\n\n  /**\n   * if `true`, this device will show on top\n   */\n  isFavorite?: boolean;\n\n  /**\n   * If true, this peer should not be shared\n   */\n  isPrivate?: boolean;\n\n  /**\n   * last sync of any model\n   *\n   * Useful for example for a p2p messaging\n   */\n  lastSyncDatabaseAtObject?: {\n    [modelName: string]: number;\n  };\n\n  /**\n   * If the device is authenticated, this should be set.\n   *\n   * Can be unset by the person\n   */\n  personIds?: Id[];\n  persons?: Person[];\n\n  /**\n   * A device can switch between persons, by changing this value\n   */\n  currentPersonId?: Id;\n  /**\n   * If you have a currentPersonId, it is calculated and provided by selecting it from the persons array\n   *\n   * For now, only provided by functioncontext\n   */\n  currentPersonCalculated?: Person;\n  /**\n   * Calculated all operations that can be exposed as apps. This is taken from `getAllAppOperations` function\n   */\n  appOperationsCalculated?: AppOperation[];\n\n  /**\n   * If the `Device` is not identified as a person yet, this can be configured to authenticate with different methods. Once it matches to a person, this can be cleared and `personId` can be attached.\n   */\n  authenticationMethods: AuthenticationMethod[];\n}",
   "extensions": [
     "DefaultModelType",
     "IPInfo"
   ],
   "isOperationIndex": false,
-  "description": "A Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
-  "dbStorageMethod": "jsonMultiple",
+  "description": "\nA Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
+  "dbStorageMethod": "jsonSingle",
   "isDbModel": true,
   "commentsInside": [],
   "type": {
@@ -81,7 +81,7 @@
         },
         "authToken": {
           "type": "string",
-          "description": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different."
+          "description": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.\n\nShould be identical to ID"
         },
         "userAgentString": {
           "type": "string",
@@ -90,20 +90,6 @@
         "name": {
           "type": "string",
           "description": "Name of the device, calculated based on metadata like location, os, and ip\n\nCan be edited by the user"
-        },
-        "previousIps": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/IPInfo"
-          },
-          "description": "the root IPInfo is from the latest IP the device had. All previous IPs are added to this array"
-        },
-        "origins": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Domains the Device has visited\n\nThe Origin request header indicates the origin (scheme, hostname, and port) that caused the request"
         },
         "hasPapi": {
           "type": "boolean",
@@ -181,20 +167,17 @@
         "id",
         "ip",
         "lastOnlineAt",
-        "lastSyncDatabaseAtObject",
         "name",
         "operationName",
-        "origins",
-        "previousIps",
         "projectRelativePath",
         "updatedAt",
         "userAgentString"
       ],
       "additionalProperties": false,
-      "description": "A Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else."
+      "description": "--- dbStorageMethod: jsonSingle\n---\n\nA Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else."
     },
     "simplifiedSchema": {
-      "fullComment": "A Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
+      "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nA Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
       "properties": [
         {
           "name": "ip",
@@ -349,7 +332,7 @@
           "name": "authToken",
           "required": true,
           "schema": {
-            "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.",
+            "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.\n\nShould be identical to ID",
             "type": "string"
           }
         },
@@ -367,109 +350,6 @@
           "schema": {
             "fullComment": "Name of the device, calculated based on metadata like location, os, and ip\n\nCan be edited by the user",
             "type": "string"
-          }
-        },
-        {
-          "name": "previousIps",
-          "required": true,
-          "schema": {
-            "fullComment": "the root IPInfo is from the latest IP the device had. All previous IPs are added to this array",
-            "items": [
-              {
-                "schema": {
-                  "fullComment": "Information that is inferred from an IP",
-                  "properties": [
-                    {
-                      "name": "ip",
-                      "required": true,
-                      "schema": {
-                        "fullComment": "The ip of the device. Can be a local IP or remote IP.\n\nNB: Port is not included",
-                        "nb": "Port is not included",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "city",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "position",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "",
-                        "properties": [
-                          {
-                            "name": "latitude",
-                            "required": true,
-                            "schema": {
-                              "type": "number"
-                            }
-                          },
-                          {
-                            "name": "longitude",
-                            "required": true,
-                            "schema": {
-                              "type": "number"
-                            }
-                          }
-                        ],
-                        "type": "object"
-                      }
-                    },
-                    {
-                      "name": "positionRadiusKm",
-                      "required": false,
-                      "schema": {
-                        "type": "number"
-                      }
-                    },
-                    {
-                      "name": "country",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "region",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "timezone",
-                      "required": false,
-                      "schema": {
-                        "type": "string"
-                      }
-                    }
-                  ],
-                  "type": "object"
-                },
-                "name": "IPInfo"
-              }
-            ],
-            "type": "array"
-          }
-        },
-        {
-          "name": "origins",
-          "required": true,
-          "schema": {
-            "fullComment": "Domains the Device has visited\n\nThe Origin request header indicates the origin (scheme, hostname, and port) that caused the request",
-            "items": [
-              {
-                "schema": {
-                  "type": "string"
-                },
-                "name": null
-              }
-            ],
-            "type": "array"
           }
         },
         {
@@ -522,7 +402,7 @@
         },
         {
           "name": "lastSyncDatabaseAtObject",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "last sync of any model\n\nUseful for example for a p2p messaging",
             "properties": [],

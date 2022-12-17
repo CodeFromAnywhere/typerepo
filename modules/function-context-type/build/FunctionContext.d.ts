@@ -1,5 +1,6 @@
 import { Authorization } from "auth-types";
 import { TsFunction } from "code-types";
+import { Storing } from "model-types";
 import { Group, Device } from "peer-types";
 /**
  * Should be attached as first argument of the function, if the name of the function is in the format of:
@@ -20,7 +21,7 @@ export declare type FunctionContext = {
     /**
      * Device from authToken
      */
-    device: Device;
+    device: Storing<Device>;
     /**
      * Groups the person(s) of the device belong to
      */

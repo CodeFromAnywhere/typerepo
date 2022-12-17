@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668548058207,
-  "updatedAt": 1668548058207,
+  "createdAt": 1671280128287,
+  "updatedAt": 1671280128287,
   "deletedAt": 0,
-  "createdFirstAt": 1668548058207,
+  "createdFirstAt": 1671280128287,
   "id": "tsfunction",
   "name": "TsFunction",
   "slug": "tsfunction",
@@ -18,6 +18,10 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
+        "explicitTypeName": {
+          "type": "string",
+          "description": "If you give a function a type explicitly on its declaration, this type will be set here."
+        },
         "isExported": {
           "type": "boolean",
           "description": "The function is immediately exported upon creation. If the os dev tools are being used, this means it is also exported from the operation"
@@ -81,6 +85,13 @@
           },
           "description": "finds all files that import this function\n\nNB: this is not indexed because this information has nothing to do with the operation itself, but the exposure to the broader monorepo. This is calculated on the fly."
         },
+        "groupAuthorization": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Other keys in frontmatter that are group names, can be added here"
+        },
         "isApiExposed": {
           "type": "boolean",
           "description": "for all exported functions in node operations, true by default false for others\n\ncan be overwritten using frontmatter"
@@ -88,13 +99,6 @@
         "canCache": {
           "type": "boolean",
           "description": "whether or not the function can be cached (relies on cache invalidation)"
-        },
-        "publicAuthorization": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AuthorizationLevel"
-          },
-          "description": "The default authorization that is set level applies to users without any specific authorization (granted to everyone).\n\nshould be indexed based on doccomment containing `AUTH-PUBLIC: [execute], [read], [search]`"
         },
         "runEveryPeriod": {
           "$ref": "#/definitions/RunEveryPeriodEnum",
@@ -141,6 +145,7 @@
       },
       "required": [
         "commentsInside",
+        "groupAuthorization",
         "id",
         "isApiExposed",
         "isExported",
@@ -149,7 +154,6 @@
         "operationName",
         "operationRelativeTypescriptFilePath",
         "projectRelativePath",
-        "publicAuthorization",
         "returnType",
         "size",
         "slug"
@@ -159,6 +163,14 @@
     "simplifiedSchema": {
       "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nInterface for arrow functions and normal functions",
       "properties": [
+        {
+          "name": "explicitTypeName",
+          "required": false,
+          "schema": {
+            "fullComment": "If you give a function a type explicitly on its declaration, this type will be set here.",
+            "type": "string"
+          }
+        },
         {
           "name": "isExported",
           "required": true,
@@ -2087,6 +2099,15 @@
           }
         },
         {
+          "name": "groupAuthorization",
+          "required": true,
+          "schema": {
+            "fullComment": "Other keys in frontmatter that are group names, can be added here",
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
           "name": "isApiExposed",
           "required": true,
           "schema": {
@@ -2100,31 +2121,6 @@
           "schema": {
             "fullComment": "whether or not the function can be cached (relies on cache invalidation)",
             "type": "boolean"
-          }
-        },
-        {
-          "name": "publicAuthorization",
-          "required": true,
-          "schema": {
-            "fullComment": "The default authorization that is set level applies to users without any specific authorization (granted to everyone).\n\nshould be indexed based on doccomment containing `AUTH-PUBLIC: [execute], [read], [search]`",
-            "items": [
-              {
-                "schema": {
-                  "enum": [
-                    "execute",
-                    "write-create",
-                    "write-update",
-                    "write-delete",
-                    "read",
-                    "search"
-                  ],
-                  "fullComment": "`AuthorizationLevel` is a single Enum that can apply to privacy and authorization of text, functions, and data.\n\nFor files (ts, md, json, etc...):\n\n- write-create\n- write-update\n- write-delete\n- read\n- search (only search index)\n\nFor db model data subsets:\n\n- write-update\n- write-create\n- write-delete\n- read\n- search (only search index)\n\nFor functions:\n- execute\n\nFor functions, interfaces, variables:\n\n- read (reading docs only. for source, you need to provide the file auth)\n- search (only search index)",
-                  "type": "string"
-                },
-                "name": "AuthorizationLevel"
-              }
-            ],
-            "type": "array"
           }
         },
         {

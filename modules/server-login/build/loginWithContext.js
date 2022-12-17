@@ -70,7 +70,7 @@ var loginWithContext = function (functionContext) { return __awaiter(void 0, voi
                         }];
                 }
                 personIds = (_a = findPersonsResult.persons) === null || _a === void 0 ? void 0 : _a.map(function (x) { return x.id; });
-                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.id === device.id; }, function (old) { return (__assign(__assign({}, old), { personIds: personIds, authenticationMethods: [] })); })];
+                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.id === device.id; }, function (old) { return (__assign(__assign({}, old), { personIds: personIds, authenticationMethods: [], currentPersonId: personIds === null || personIds === void 0 ? void 0 : personIds[0] })); })];
             case 2:
                 updateResult = _b.sent();
                 isSuccessful = updateResult.isSuccesful || false;

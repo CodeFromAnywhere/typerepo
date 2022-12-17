@@ -16,5 +16,5 @@ const initialValue:DatasetConfig = {} as any;
 const [Form, value, onChange] = useTsInterfaceForm(DatasetConfigJson as Storing<TsInterface>,initialValue);
 ```
  */
-export declare const useTsInterfaceForm: <T extends unknown>(tsInterface: Storing<TsInterface>, id?: string, initialValue?: T | undefined, projectRelativeStorageFilePath?: string, modelName?: string) => [form?: JSX.Element | undefined, value?: T | undefined, onChange?: ((value: T) => void) | undefined];
+export declare const useTsInterfaceForm: <T extends unknown>(tsInterface: Storing<TsInterface>, id?: string, initialValue?: T | undefined, projectRelativeStorageFilePath?: string, modelName?: string, withValue?: ((value: T | undefined) => void) | undefined) => [form?: JSX.Element | undefined, value?: T | undefined, onChange?: ((value: T) => void) | undefined];
 //# sourceMappingURL=useTsInterfaceForm.d.ts.map

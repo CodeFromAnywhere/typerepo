@@ -39,18 +39,27 @@ projectRelativeStorageFilePath,
 /**
  * must be provided in case of a db model
  */
-modelName) {
+modelName, 
+/**
+ * do something with changes
+ */
+withValue) {
     var realId = (0, react_1.useState)(id || "s".concat(String(Math.random())))[0];
     var _a = (0, react_1.useState)([initialValue]), values = _a[0], onChange = _a[1];
     // NB: only the first item matters
     var value = values[0];
-    var onChangeValue = function (value) { return onChange([value]); };
+    var onChangeValue = function (value) {
+        onChange([value]);
+    };
     // NB: we must have the simplifiedSchema, it's not always indexed
     var simplifiedSchema = tsInterface.type.simplifiedSchema;
     if (!simplifiedSchema)
         return [];
     var referencableModelData = (0, useReferencableModelData_1.useReferencableModelData)(simplifiedSchema);
-    var form = ((0, jsx_runtime_1.jsx)(SimplifiedSchemaForm_1.SimplifiedSchemaForm, { modelName: modelName, id: realId, onChange: onChange, values: values, itemNameOrId: (value === null || value === void 0 ? void 0 : value.name) ||
+    var form = ((0, jsx_runtime_1.jsx)(SimplifiedSchemaForm_1.SimplifiedSchemaForm, { modelName: modelName, id: realId, onChange: function (values) {
+            onChange(values);
+            withValue === null || withValue === void 0 ? void 0 : withValue(values[0]);
+        }, values: values, itemNameOrId: (value === null || value === void 0 ? void 0 : value.name) ||
             (value === null || value === void 0 ? void 0 : value.id), parameters: [
             {
                 name: "",

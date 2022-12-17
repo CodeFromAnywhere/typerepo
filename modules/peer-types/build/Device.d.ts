@@ -5,7 +5,11 @@ import { IPInfo } from "./IPInfo";
 import { AuthenticationMethod } from "./AuthenticationMethjod";
 import { IResult } from "./external/ua-parser-js";
 /**
- *
+
+---
+dbStorageMethod: jsonSingle
+---
+
  A Device that accesses any King OS api.
 
  A device can be connected to a person. A person can have multiple `Device`s.
@@ -17,6 +21,9 @@ export interface Device extends DefaultModelType, IPInfo {
      * AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.
      *
      * If the authToken is the same, we can be sure that the device is matched, even if the IP is different.
+     *
+     * Should be identical to ID
+     *
      */
     authToken: string;
     /**
@@ -36,16 +43,6 @@ export interface Device extends DefaultModelType, IPInfo {
      * Can be edited by the user
      */
     name: string;
-    /**
-     * the root IPInfo is from the latest IP the device had. All previous IPs are added to this array
-     */
-    previousIps: IPInfo[];
-    /**
-     * Domains the Device has visited
-     *
-     * The Origin request header indicates the origin (scheme, hostname, and port) that caused the request
-     */
-    origins: string[];
     /**
      * Is set to true if the devices IP is pinged and seems to have something that resembles a King OS PAPI.
      */
@@ -77,7 +74,7 @@ export interface Device extends DefaultModelType, IPInfo {
      *
      * Useful for example for a p2p messaging
      */
-    lastSyncDatabaseAtObject: {
+    lastSyncDatabaseAtObject?: {
         [modelName: string]: number;
     };
     /**

@@ -43,13 +43,9 @@ import { writeCreatePromptCode } from "ai-functions-node";
 import { ye } from "ai-functions-node";
 import { yodafy } from "ai-functions-node";
 import { augmentMarkdown } from "generative-functions-node";
-import { canSeeFileContent } from "generative-functions-node";
-import { canSeeFile } from "generative-functions-node";
-import { expandFrontmatter } from "generative-functions-node";
 import { getContextualPromptResults } from "generative-functions-node";
 import { getContextualPromptsArray } from "generative-functions-node";
 import { getContextualPrompts } from "generative-functions-node";
-import { getFirstFile } from "generative-functions-node";
 import { getFolderRelativeScopeDbFilePath } from "generative-functions-node";
 import { getReaderPageProps } from "generative-functions-node";
 import { makeMarkdownLink } from "generative-functions-node";
@@ -1120,13 +1116,9 @@ writeCreatePromptCode,
 ye,
 yodafy,
 augmentMarkdown,
-canSeeFileContent,
-canSeeFile,
-expandFrontmatter,
 getContextualPromptResults,
 getContextualPromptsArray,
 getContextualPrompts,
-getFirstFile,
 getFolderRelativeScopeDbFilePath,
 getReaderPageProps,
 makeMarkdownLink,

@@ -1,5 +1,6 @@
 import { Authorization } from "auth-types";
 import { TsFunction } from "code-types";
+import { Storing } from "model-types";
 import { Device, Group } from "peer-types";
 export type AuthorizationInfo = {
     /**
@@ -24,7 +25,7 @@ export type AuthorizationInfo = {
 /**
  * returns `AuthorizationInfo` for a device + function
  */
-export declare const getAuthorizationInfo: (device: Device, tsFunction: TsFunction, fn: {
+export declare const getAuthorizationInfo: (device: Storing<Device>, tsFunction: TsFunction, fn: {
     (...parameters: any): any;
     [key: string]: any;
 }) => AuthorizationInfo;

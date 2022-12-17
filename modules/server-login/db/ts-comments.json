@@ -1,18 +1,20 @@
 [
   {
-    "createdAt": 1671220651105,
-    "updatedAt": 1671220651105,
+    "createdAt": 1671281659287,
+    "updatedAt": 1671281659287,
     "deletedAt": 0,
-    "createdFirstAt": 1671220651105,
+    "createdFirstAt": 1671281659287,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/loginWithContext.ts",
-    "comment": "attaches the `Device` with `authToken` to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.",
-    "rawStatement": "export const loginWithContext = async (\n  functionContext: FunctionContext\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const { device } = functionContext;\n\n  const findPersonsResult = await findLoggedinPersonsWithContext(\n    functionContext\n  );\n\n  if (!findPersonsResult.isSuccessful) {\n    return {\n      isSuccessful: findPersonsResult.isSuccessful,\n      message: findPersonsResult.message,\n    };\n  }\n\n  const personIds = findPersonsResult.persons?.map((x) => x.id);\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => ({ ...old, personIds, authenticationMethods: [] })\n  );\n\n  const isSuccessful = updateResult.isSuccesful || false;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged in\"\n      : updateResult.message || \"Something went wrong (weird)\",\n  };\n};",
+    "operationRelativeTypescriptFilePath": "src/confirmAuthenticationMethod.ts",
+    "comment": "adds an `authenticatedMethod` to `Device` after the OTP is correct\n\nFor now, only handles methods `phoneNumber` and `email`\n\nTODO: extrahere the core into `addAuthenticationMethodConfirm` and use it in this one and make also `addPersonAuthenticationMethodConfirm`",
+    "rawStatement": "export const addDeviceAuthenticationMethodConfirm = async (\n  /** device id */\n  deviceId: string,\n  method: AuthenticationMethodMethod,\n  /** one time password */\n  otp: number\n) => {\n  /////\n\n  const device = (await db.get(\"Device\")).find((x) => x.id === deviceId);\n\n  if (!device) {\n    return { isSuccessful: false, message: \"Couldn't find device\" };\n  }\n\n  const authenticatedMethod = device.authenticationMethods.find(\n    (m) => m.method === method\n  );\n\n  if (authenticatedMethod?.isAuthenticated) {\n    return {\n      isSuccessful: false,\n      message:\n        \"You already authenticated with this method, please delete it first before you add another one.\",\n    };\n  }\n\n  if (!authenticatedMethod) {\n    return { isSuccessful: false, message: \"Can't find method\" };\n  }\n\n  if ([\"email\", \"phoneNumber\"].includes(method)) {\n    const isSuccessful = otp === authenticatedMethod.otp;\n\n    if (isSuccessful) {\n      // add isAuthenticated to device's authenticationMethods\n\n      const newAuthenticatedMethod: AuthenticationMethod = {\n        ...authenticatedMethod,\n        otp: undefined,\n        isAuthenticated: true,\n      };\n\n      const newauthenticationMethods = device.authenticationMethods.map((x) =>\n        x.method === method && x.otp === otp ? newAuthenticatedMethod : x\n      );\n\n      const dbPath = getRootPath(\"db\")!;\n      const devicePath = path.join(dbPath, \"devices\", `${deviceId}.json`);\n\n      writeJsonToFile(devicePath, {\n        ...device,\n        authenticationMethods: newauthenticationMethods,\n      });\n    }\n    return {\n      isSuccessful,\n      message: isSuccessful ? \"Successful\" : \"Incorrect code\",\n    };\n  }\n};",
     "parameters": {},
-    "types": [],
+    "types": [
+      "todo"
+    ],
     "firstLine": 5,
-    "lastLine": 7,
-    "id": "uhulmztikjobyjhqxapzwpxw"
+    "lastLine": 10,
+    "id": "fpwddzzhvnxaatyixftxouxq"
   }
 ]

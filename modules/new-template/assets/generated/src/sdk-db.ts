@@ -216,7 +216,7 @@ AuthorizationModel: {
         },
 Device: {
           
-          dbStorageMethod: "jsonMultiple",
+          dbStorageMethod: "jsonSingle",
           
         },
 Group: {

@@ -51,22 +51,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.upsertDevice = void 0;
-/**
- * To look up more info about an IP
- *
- * https://github.com/geoip-lite/node-geoip
- */
-var database_1 = require("database");
 var geoip_lite_1 = __importDefault(require("geoip-lite"));
-var model_types_1 = require("model-types");
 var ua_parser_js_1 = __importDefault(require("ua-parser-js"));
-var calculateDeviceName_1 = require("./calculateDeviceName");
 var savePageVisit_1 = require("./savePageVisit");
+var fs_util_1 = require("fs-util");
+var get_path_1 = require("get-path");
 var measure_performance_1 = require("measure-performance");
-var deviceInclude = {
-    referenceKey: "personIds",
-    include: { referenceKey: "groupSlugs" },
-};
+var read_json_file_1 = require("read-json-file");
+var database_1 = require("database");
 /**
  * Returns device with all attached (logged in) `Person`s, and `currentPersonCalculated`
  *
@@ -79,15 +71,15 @@ var deviceInclude = {
  * Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
  */
 var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, devices, alreadyDevices, idsToRemove_1, removeResult, alreadyDevice, ipInfo, origin, referer, upsertResult, currentIpInfo, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, currentPersonCalculated, updatedDevice;
-    var _a, _b, _c;
-    return __generator(this, function (_d) {
-        switch (_d.label) {
+    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgentString, userAgent, ipInfo, origin, referer, dbPath, deviceFilePath, exists, deviceBefore, _a, newDevice, groups, persons, augmentedDevice;
+    var _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
             case 0:
                 executionId = (0, measure_performance_1.generateUniqueId)();
                 performance = [];
                 performance.push((0, measure_performance_1.getNewPerformance)("start", executionId, true));
-                authToken = (_a = serverContext.data) === null || _a === void 0 ? void 0 : _a.authToken;
+                authToken = (_b = serverContext.data) === null || _b === void 0 ? void 0 : _b.authToken;
                 ip = serverContext.ip;
                 if (!authToken || authToken.length < 24) {
                     console.log("warn upsert device: no authToken");
@@ -96,26 +88,8 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 ipLookup = (geoip_lite_1.default.lookup(ip) || {});
                 city = ipLookup.city, positionRadiusKm = ipLookup.area, ll = ipLookup.ll, country = ipLookup.country, region = ipLookup.region, timezone = ipLookup.timezone;
                 position = !!(ll === null || ll === void 0 ? void 0 : ll[0]) && !!(ll === null || ll === void 0 ? void 0 : ll[1]) ? { latitude: ll[0], longitude: ll[1] } : undefined;
-                userAgent = (0, ua_parser_js_1.default)(serverContext.req.get("User-Agent"));
-                performance.push((0, measure_performance_1.getNewPerformance)("lookupIp", executionId));
-                return [4 /*yield*/, database_1.db.get("Device", { include: deviceInclude })];
-            case 1:
-                devices = _d.sent();
-                alreadyDevices = devices.filter(function (x) { return x.authToken === authToken; });
-                if (!(alreadyDevices.length > 1)) return [3 /*break*/, 3];
-                idsToRemove_1 = alreadyDevices.slice(1).map(function (x) { return x.id; });
-                return [4 /*yield*/, database_1.db.remove("Device", function (device) {
-                        return idsToRemove_1.includes(device.id);
-                    })];
-            case 2:
-                removeResult = _d.sent();
-                console.log("found multiple devices with the same authToken. removing:", {
-                    removeResult: removeResult,
-                });
-                _d.label = 3;
-            case 3:
-                alreadyDevice = alreadyDevices[0] ? alreadyDevices[0] : undefined;
-                performance.push((0, measure_performance_1.getNewPerformance)("findAlreadyDevice", executionId));
+                userAgentString = serverContext.req.get("User-Agent");
+                userAgent = (0, ua_parser_js_1.default)(userAgentString);
                 ipInfo = {
                     ip: ip,
                     city: city,
@@ -127,50 +101,44 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 };
                 origin = serverContext.req.get("Origin");
                 referer = serverContext.req.get("Referrer");
-                performance.push((0, measure_performance_1.getNewPerformance)("gatherIpInfo", executionId));
-                if (!!alreadyDevice) return [3 /*break*/, 6];
-                return [4 /*yield*/, database_1.db.upsert("Device", __assign(__assign({ authToken: authToken, id: (0, model_types_1.generateId)(), authenticationMethods: [] }, ipInfo), { lastOnlineAt: 0, lastSyncDatabaseAtObject: {}, name: (0, calculateDeviceName_1.calculateDeviceName)(ipInfo, userAgent), origins: [origin], previousIps: [], userAgentString: userAgent.ua, hasPapi: false }))];
+                dbPath = (0, get_path_1.getRootPath)("db");
+                if (!dbPath)
+                    return [2 /*return*/];
+                deviceFilePath = fs_util_1.path.join(dbPath, "devices", "".concat(authToken, ".json"));
+                exists = fs_util_1.fs.existsSync(deviceFilePath);
+                if (!exists) return [3 /*break*/, 2];
+                return [4 /*yield*/, (0, read_json_file_1.readJsonFile)(deviceFilePath)];
+            case 1:
+                _a = _c.sent();
+                return [3 /*break*/, 3];
+            case 2:
+                _a = null;
+                _c.label = 3;
+            case 3:
+                deviceBefore = _a;
+                newDevice = !exists
+                    ? __assign(__assign({ authToken: authToken, authenticationMethods: [] }, ipInfo), { createdAt: Date.now(), createdFirstAt: Date.now(), deletedAt: 0, id: authToken, lastOnlineAt: Date.now(), name: authToken, updatedAt: Date.now(), userAgentString: userAgentString || "no useragent" }) : null;
+                if (!newDevice) return [3 /*break*/, 5];
+                return [4 /*yield*/, (0, fs_util_1.writeJsonToFile)(deviceFilePath, newDevice)];
             case 4:
-                upsertResult = _d.sent();
-                return [4 /*yield*/, database_1.db.get("Device")];
+                _c.sent();
+                _c.label = 5;
             case 5:
-                alreadyDevice = (_d.sent()).find(function (x) { return x.authToken === authToken; });
-                // weird
-                if (!alreadyDevice) {
-                    return [2 /*return*/, undefined];
-                }
-                _d.label = 6;
+                (0, savePageVisit_1.savePageVisit)(authToken, ipInfo, referer);
+                return [4 /*yield*/, database_1.db.get("Group")];
             case 6:
-                currentIpInfo = {
-                    ip: alreadyDevice.ip,
-                    city: alreadyDevice.city,
-                    position: alreadyDevice.position,
-                    positionRadiusKm: alreadyDevice.positionRadiusKm,
-                    country: alreadyDevice.country,
-                    region: alreadyDevice.region,
-                    timezone: alreadyDevice.timezone,
-                };
-                previousIpsHasAlready = !currentIpInfo.ip ||
-                    alreadyDevice.previousIps.find(function (x) { return x.ip === currentIpInfo.ip; });
-                newPreviousIps = previousIpsHasAlready
-                    ? alreadyDevice.previousIps
-                    : alreadyDevice.previousIps.concat(currentIpInfo);
-                newIpStuff = alreadyDevice.ip === ip ? {} : __assign(__assign({}, ipInfo), { previousIps: newPreviousIps });
-                newOrigins = ((_b = alreadyDevice.origins) === null || _b === void 0 ? void 0 : _b.includes(origin))
-                    ? alreadyDevice.origins
-                    : alreadyDevice.origins.concat(origin);
-                currentPersonCalculated = alreadyDevice.currentPersonId
-                    ? (_c = alreadyDevice.persons) === null || _c === void 0 ? void 0 : _c.find(function (x) { return x.id === (alreadyDevice === null || alreadyDevice === void 0 ? void 0 : alreadyDevice.currentPersonId); })
-                    : undefined;
-                updatedDevice = __assign(__assign(__assign({}, alreadyDevice), newIpStuff), { currentPersonCalculated: currentPersonCalculated, origins: newOrigins, userAgentString: userAgent.ua });
-                performance.push((0, measure_performance_1.getNewPerformance)("alreadyDevice_makeUpdatedDevice", executionId));
-                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.authToken === authToken; }, function () { return updatedDevice; })];
+                groups = _c.sent();
+                return [4 /*yield*/, database_1.db.get("Person")];
             case 7:
-                _d.sent();
-                performance.push((0, measure_performance_1.getNewPerformance)("alreadyDevice_updateDevice", executionId));
-                (0, savePageVisit_1.savePageVisit)(alreadyDevice.id, ipInfo, referer);
-                // console.log("upsertDevice, already device", performance);
-                return [2 /*return*/, updatedDevice];
+                persons = (_c.sent())
+                    .filter(function (x) { var _a; return (_a = deviceBefore === null || deviceBefore === void 0 ? void 0 : deviceBefore.personIds) === null || _a === void 0 ? void 0 : _a.includes(x.id); })
+                    .map(function (p) {
+                    return __assign(__assign({}, p), { groups: groups.filter(function (g) { var _a; return (_a = p.groupSlugs) === null || _a === void 0 ? void 0 : _a.includes(g.slug); }) });
+                });
+                augmentedDevice = deviceBefore
+                    ? __assign(__assign({}, deviceBefore), { persons: persons }) : newDevice;
+                // console.dir({ augmentedDevice }, { depth: 999 });
+                return [2 /*return*/, augmentedDevice];
         }
     });
 }); };

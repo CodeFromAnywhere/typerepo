@@ -278,7 +278,7 @@ SlugModelType: {
         },
 Device: {
           
-          dbStorageMethod: "jsonMultiple",
+          dbStorageMethod: "jsonSingle",
           
         },
 Group: {

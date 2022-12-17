@@ -49,6 +49,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.addDeviceAuthenticationMethodConfirm = void 0;
 var database_1 = require("database");
+var fs_util_1 = require("fs-util");
+var get_path_1 = require("get-path");
 /** adds an `authenticatedMethod` to `Device` after the OTP is correct
  *
  * For now, only handles methods `phoneNumber` and `email`
@@ -60,7 +62,7 @@ var addDeviceAuthenticationMethodConfirm = function (
 deviceId, method, 
 /** one time password */
 otp) { return __awaiter(void 0, void 0, void 0, function () {
-    var device, authenticatedMethod, isSuccessful, newAuthenticatedMethod_1, newauthenticationMethods_1;
+    var device, authenticatedMethod, isSuccessful, newAuthenticatedMethod_1, newauthenticationMethods, dbPath, devicePath;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, database_1.db.get("Device")];
@@ -79,22 +81,23 @@ otp) { return __awaiter(void 0, void 0, void 0, function () {
                 if (!authenticatedMethod) {
                     return [2 /*return*/, { isSuccessful: false, message: "Can't find method" }];
                 }
-                if (!["email", "phoneNumber"].includes(method)) return [3 /*break*/, 4];
-                isSuccessful = otp === authenticatedMethod.otp;
-                if (!isSuccessful) return [3 /*break*/, 3];
-                newAuthenticatedMethod_1 = __assign(__assign({}, authenticatedMethod), { otp: undefined, isAuthenticated: true });
-                newauthenticationMethods_1 = device.authenticationMethods.map(function (x) {
-                    return x.method === method && x.otp === otp ? newAuthenticatedMethod_1 : x;
-                });
-                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.id === deviceId; }, function (old) { return (__assign(__assign({}, old), { authenticationMethods: newauthenticationMethods_1 })); })];
-            case 2:
-                _a.sent();
-                _a.label = 3;
-            case 3: return [2 /*return*/, {
-                    isSuccessful: isSuccessful,
-                    message: isSuccessful ? "Successful" : "Incorrect code",
-                }];
-            case 4: return [2 /*return*/];
+                if (["email", "phoneNumber"].includes(method)) {
+                    isSuccessful = otp === authenticatedMethod.otp;
+                    if (isSuccessful) {
+                        newAuthenticatedMethod_1 = __assign(__assign({}, authenticatedMethod), { otp: undefined, isAuthenticated: true });
+                        newauthenticationMethods = device.authenticationMethods.map(function (x) {
+                            return x.method === method && x.otp === otp ? newAuthenticatedMethod_1 : x;
+                        });
+                        dbPath = (0, get_path_1.getRootPath)("db");
+                        devicePath = fs_util_1.path.join(dbPath, "devices", "".concat(deviceId, ".json"));
+                        (0, fs_util_1.writeJsonToFile)(devicePath, __assign(__assign({}, device), { authenticationMethods: newauthenticationMethods }));
+                    }
+                    return [2 /*return*/, {
+                            isSuccessful: isSuccessful,
+                            message: isSuccessful ? "Successful" : "Incorrect code",
+                        }];
+                }
+                return [2 /*return*/];
         }
     });
 }); };

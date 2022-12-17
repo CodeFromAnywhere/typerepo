@@ -65,7 +65,8 @@ var findLoggedinPersonsWithContext = function (functionContext) { return __await
                         // NB: finds the method with the same handle and credential
                         var matchingMethod = device.authenticationMethods.find(function (method) {
                             var sameMethod = method.method === authenticationMethod.method;
-                            var sameHandle = method.handle === authenticationMethod.handle;
+                            var sameHandle = method.handle.toLowerCase() ===
+                                authenticationMethod.handle.toLowerCase();
                             var isCredentialCorrect = method.credential &&
                                 authenticationMethod.encryptedCredential &&
                                 (0, encrypt_password_1.comparePassword)(method.credential, authenticationMethod.encryptedCredential);

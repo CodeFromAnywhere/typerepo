@@ -46,34 +46,35 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.DatasetForm = void 0;
 var jsx_runtime_1 = require("react/jsx-runtime");
 var api_1 = require("api");
 var clickable_icon_1 = require("clickable-icon");
+var datasetconfig_json_1 = __importDefault(require("code-types/db/ts-interfaces/datasetconfig.json"));
 var cool_toast_1 = require("cool-toast");
 var js_util_1 = require("js-util");
-var react_1 = require("react");
 var react_with_native_1 = require("react-with-native");
-var react_with_native_select_1 = require("react-with-native-select");
 var schema_util_1 = require("schema-util");
+var simplified_schema_form_1 = require("simplified-schema-form");
 var store_1 = require("../store");
-var sortToItem_1 = require("./sortToItem");
 var DatasetForm = function (props) {
-    var _a, _b, _c;
+    var _a, _b;
     var modelName = props.modelName;
-    var _d = (0, react_1.useState)(""), newDatasetName = _d[0], setNewDatasetName = _d[1];
-    var _e = (0, store_1.useStore)("db-crud.datasetConfig"), datasetConfig = _e[0], setDatasetConfig = _e[1];
+    var _c = (0, store_1.useStore)("db-crud.datasetConfig"), datasetConfig = _c[0], setDatasetConfig = _c[1];
+    var _d = (0, simplified_schema_form_1.useTsInterfaceForm)(datasetconfig_json_1.default, (datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.id) || "noid", datasetConfig), form = _d[0], datasetConfigForm = _d[1];
     var addDatasetFromDatasetConfig = function () { return __awaiter(void 0, void 0, void 0, function () {
-        var dataset, _a, isSuccessful, result, message;
+        var name, dataset, _a, isSuccessful, result, message;
         return __generator(this, function (_b) {
             switch (_b.label) {
                 case 0:
                     if (!modelName)
                         return [2 /*return*/];
-                    if (newDatasetName.length === 0)
-                        return [2 /*return*/];
-                    dataset = __assign(__assign({}, datasetConfig), { modelName: modelName, name: newDatasetName });
+                    name = prompt("What should be the name?", "untitled");
+                    dataset = __assign(__assign({}, datasetConfigForm), { modelName: modelName, name: name || "untitled" });
                     return [4 /*yield*/, api_1.api.upsertDbModel("Dataset", 
                         //@ts-ignore
                         dataset, true)];
@@ -88,7 +89,7 @@ var DatasetForm = function (props) {
         });
     }); };
     var metadataQuery = api_1.queries.useGetDbModelMetadata(modelName);
-    var _f = (0, js_util_1.destructureOptionalObject)((_a = metadataQuery.data) === null || _a === void 0 ? void 0 : _a.result), datasets = _f.datasets, tsInterface = _f.tsInterface;
+    var _e = (0, js_util_1.destructureOptionalObject)((_a = metadataQuery.data) === null || _a === void 0 ? void 0 : _a.result), datasets = _e.datasets, tsInterface = _e.tsInterface;
     var removeDataset = function () { return __awaiter(void 0, void 0, void 0, function () {
         var _a, isSuccessful, result, message;
         return __generator(this, function (_b) {
@@ -110,21 +111,11 @@ var DatasetForm = function (props) {
         });
     }); };
     var properties = (0, schema_util_1.getProperties)((_b = tsInterface === null || tsInterface === void 0 ? void 0 : tsInterface.type) === null || _b === void 0 ? void 0 : _b.typeDefinition);
-    var allSorts = properties
-        .map(function (property) {
-        var sorts = [
-            { objectParameterKey: property.name, sortDirection: "ascending" },
-            { objectParameterKey: property.name, sortDirection: "descending" },
-        ];
-        return sorts;
-    })
-        .flat();
-    var SelectSorts = (0, react_with_native_select_1.useSelectMultiple)(allSorts.map(sortToItem_1.sortToItem), ((_c = datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.sort) === null || _c === void 0 ? void 0 : _c.map(sortToItem_1.sortToItem)) || [], function (value) {
-        return setDatasetConfig(__assign(__assign({}, datasetConfig), { sort: value.map(function (x) { return x.data; }).filter(js_util_1.notEmpty) }));
-    }, {
-        className: "bg-transparent w-20",
-    })[0];
-    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "border rounded-md border-gray-700" }, { children: [(0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "text-3xl" }, { children: "Dataset Configuration" })), (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "Sort" }), (0, jsx_runtime_1.jsx)(SelectSorts, {}), (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "Name:" }), (0, jsx_runtime_1.jsx)(react_with_native_1.Input, { className: "bg-transparent text-md py-0 my-0", value: newDatasetName, onChange: function (e) { return setNewDatasetName(e.target.value); }, placeholder: "new dataset name" }), (0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "text-3xl" }, { children: "Coming soon" })), (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "key (select) operator (select) value (input) (always an empty one below)" }), (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "start/max (number, number)" }), (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "Price" }), (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "DefaultView" }), (0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "allowedModelViews (selectMultiple)" }), (0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\u2795 New dataset", onClick: addDatasetFromDatasetConfig, disabled: newDatasetName.length === 0 }), (0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83E\uDDF9 Clear dataset", onClick: function () { return setDatasetConfig(null); } }), (datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.id) ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDDD1 Remove dataset", onClick: removeDataset })) : null] })));
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "border rounded-md border-gray-700" }, { children: [(0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "text-3xl" }, { children: "Dataset Configuration" })), form, (0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\u2795 New dataset", onClick: addDatasetFromDatasetConfig }), (0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83E\uDDEA Apply", onClick: function () {
+                    return datasetConfigForm !== undefined
+                        ? setDatasetConfig(datasetConfigForm)
+                        : null;
+                } }), (0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83E\uDDF9 Clear dataset", onClick: function () { return setDatasetConfig(null); } }), (datasetConfig === null || datasetConfig === void 0 ? void 0 : datasetConfig.id) ? ((0, jsx_runtime_1.jsx)(clickable_icon_1.ClickableIcon, { emoji: "\uD83D\uDDD1 Remove dataset", onClick: removeDataset })) : null] })));
 };
 exports.DatasetForm = DatasetForm;
 //# sourceMappingURL=DatasetForm.js.map

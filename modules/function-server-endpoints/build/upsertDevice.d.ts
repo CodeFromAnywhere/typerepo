@@ -1,4 +1,5 @@
 import { Context } from "server/typings/common";
+import { Storing } from "model-types";
 import { Device } from "peer-types";
 /**
  * Returns device with all attached (logged in) `Person`s, and `currentPersonCalculated`
@@ -11,5 +12,5 @@ import { Device } from "peer-types";
  *
  * Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
  */
-export declare const upsertDevice: (serverContext: Context) => Promise<Device | undefined>;
+export declare const upsertDevice: (serverContext: Context) => Promise<Storing<Device> | undefined>;
 //# sourceMappingURL=upsertDevice.d.ts.map

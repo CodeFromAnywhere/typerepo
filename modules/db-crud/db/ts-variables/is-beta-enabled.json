@@ -1,13 +1,13 @@
 {
-  "createdAt": 1671276034018,
-  "updatedAt": 1671276034018,
+  "createdAt": 1671276034019,
+  "updatedAt": 1671276034019,
   "deletedAt": 0,
-  "createdFirstAt": 1671276034018,
+  "createdFirstAt": 1671276034019,
   "classification": "const",
   "comments": [],
   "isExported": false,
-  "name": "{ deleteDbModel }",
-  "slug": "delete-db-model",
+  "name": "{ isBetaEnabled }",
+  "slug": "is-beta-enabled",
   "operationRelativeTypescriptFilePath": "src/crud/ModelComponent.tsx",
   "type": {
     "rawType": "any",
@@ -18,7 +18,7 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "value": "api",
+  "value": "publicEnvironmentVariables",
   "description": "",
-  "id": "jgpytliofbhbjocwvxuvohks"
+  "id": "eavnafztamtliabgwyfdkmtq"
 }

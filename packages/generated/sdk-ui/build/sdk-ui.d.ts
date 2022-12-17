@@ -476,7 +476,7 @@ export declare const sdk: {
         modelName?: string | undefined;
     }) => JSX.Element | null;
     useReferencableModelData: (simplifiedSchema: import("code-types").SimplifiedSchema) => import("simplified-schema-form").ReferencableModelData | undefined;
-    useTsInterfaceForm: <T_9 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_9 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined) => [form?: JSX.Element | undefined, value?: T_9 | undefined, onChange?: ((value: T_9) => void) | undefined];
+    useTsInterfaceForm: <T_9 extends unknown>(tsInterface: import("model-types").Storing<import("code-types").TsInterface>, id?: string | undefined, initialValue?: T_9 | undefined, projectRelativeStorageFilePath?: string | undefined, modelName?: string | undefined, withValue?: ((value: T_9 | undefined) => void) | undefined) => [form?: JSX.Element | undefined, value?: T_9 | undefined, onChange?: ((value: T_9) => void) | undefined];
     Tooltip: (props: {
         tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>> | null;
         children: import("react").ReactNode;

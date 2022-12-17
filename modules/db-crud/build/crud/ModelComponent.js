@@ -29,6 +29,7 @@ var fs_util_js_1 = require("fs-util-js");
 var js_util_1 = require("js-util");
 var labeled_button_1 = require("labeled-button");
 var markdown_1 = require("markdown");
+var sdk_env_public_1 = require("sdk-env-public");
 var react_with_native_1 = require("react-with-native");
 var react_with_native_alert_1 = require("react-with-native-alert");
 var react_with_native_router_1 = require("react-with-native-router");
@@ -39,8 +40,10 @@ var CrudTable_1 = require("./CrudTable");
 var CrudTimeline_1 = require("./CrudTimeline");
 var CrudTree_1 = require("./CrudTree");
 var useInfiniteGetDbModel_1 = require("./useInfiniteGetDbModel");
+var DatasetForm_1 = require("./DatasetForm");
 var SearchBar_1 = require("./SearchBar");
 var deleteDbModel = api_1.api.deleteDbModel;
+var isBetaEnabled = sdk_env_public_1.publicEnvironmentVariables.isBetaEnabled;
 /**
  
 In the table headings, all xxxSlug, xxxId etc should be called xxx.
@@ -103,7 +106,7 @@ var ModelComponent = function (props) {
                 title: "Reload",
                 emoji: isLoading ? undefined : "🔄",
                 component: isLoading ? function () { return (0, jsx_runtime_1.jsx)(fancy_loader_1.FancyLoader, { medium: true }); } : undefined,
-            })), (0, jsx_runtime_1.jsx)(SearchBar_1.SearchBar, {})] })));
+            })), isBetaEnabled ? (0, jsx_runtime_1.jsx)(SelectView, {}) : null, isBetaEnabled ? (0, jsx_runtime_1.jsx)(SelectDataset, {}) : null, (0, jsx_runtime_1.jsx)(SearchBar_1.SearchBar, {})] })));
     var onEndReached = function () {
         var _a, _b;
         var pages = (_a = model.data) === null || _a === void 0 ? void 0 : _a.pages;
@@ -153,12 +156,13 @@ var ModelComponent = function (props) {
     }[view];
     var crudViewProps = {
         actions: actions,
+        //@ts-ignore
         data: allData,
         highlight: highlight,
         tsInterface: tsInterface,
         onEndReached: onEndReached,
     };
-    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [(0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "px-8 lg:px-20 py-4" }, { children: [headerButtons, indexDescription] })), Array.isArray(allData) && allData.length > 0 && CrudView ? ((0, jsx_runtime_1.jsx)(CrudView, __assign({}, crudViewProps))) : null] }));
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [(0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "px-8 lg:px-20 py-4" }, { children: [headerButtons, indexDescription, datasetConfig && modelName && isBetaEnabled ? ((0, jsx_runtime_1.jsx)(DatasetForm_1.DatasetForm, { modelName: modelName }, datasetConfig.key)) : null] })), Array.isArray(allData) && allData.length > 0 && CrudView ? ((0, jsx_runtime_1.jsx)(CrudView, __assign({}, crudViewProps))) : null] }));
 };
 exports.ModelComponent = ModelComponent;
 //# sourceMappingURL=ModelComponent.js.map

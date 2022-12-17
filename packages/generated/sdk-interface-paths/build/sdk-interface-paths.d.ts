@@ -504,6 +504,7 @@ export declare const sdkInterfacePaths: {
     UnixTimestamp: string;
     "NamedParameters<typeof join>": string;
     "NamedParameters<typeof makeRelative>": string;
+    Group: string;
     "NamedParameters<typeof getFunctionExecutions>": string;
     "NamedParameters<typeof getFunctionQueryPaths>": string;
     "NamedParameters<typeof getPublicBundleConfig>": string;
@@ -923,7 +924,6 @@ export declare const sdkInterfacePaths: {
     AppOperation: string;
     AuthenticationMethod: string;
     Developer: string;
-    Group: string;
     HandleObject: string;
     IBrowser: string;
     ICPU: string;
