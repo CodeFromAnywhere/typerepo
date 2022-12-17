@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384748515,
-  "updatedAt": 1669384748515,
+  "createdAt": 1671290575714,
+  "updatedAt": 1671290575714,
   "deletedAt": 0,
-  "createdFirstAt": 1669384748515,
+  "createdFirstAt": 1671290575714,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,24 +10,15 @@
   "slug": "get-static-paths",
   "operationRelativeTypescriptFilePath": "src/pages/[...paths].tsx",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPaths<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery>",
-    "typeDefinition": {
-      "type": "object",
-      "properties": {},
-      "optional": false
-    },
+    "rawType": "any",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": true,
+    "isObject": false,
     "isPrimitive": false,
-    "isEnumLiteral": false,
-    "simplifiedSchema": {
-      "properties": [],
-      "type": "object"
-    }
+    "isEnumLiteral": false
   },
   "value": "markdownReaderGetStaticPaths",
   "description": "",
-  "id": "poypigjltuynalsiynpmxjaq"
+  "id": "uhhpjvmzqzmmhnlpbeudhiuo"
 }

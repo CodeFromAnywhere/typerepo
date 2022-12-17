@@ -17,12 +17,6 @@ export declare type ReaderProps = {
     contextualPromptsObject?: Omit<ContextualPromptsObject, "databaseContextualPromptSlugs"> | null;
     contextualPromptResults?: ContextualPromptResult[] | null;
     /**
-     * Project relative file path according to the query path.
-     *
-     * Even if the file doesn't seem to exist, this still returns.
-     */
-    projectRelativeFilePath?: string;
-    /**
      * Project relative file path that is actually used
      */
     actualProjectRelativeFilePath?: string;
