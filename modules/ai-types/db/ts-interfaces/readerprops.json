@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671157025588,
-  "updatedAt": 1671157025588,
+  "createdAt": 1671229963038,
+  "updatedAt": 1671229963038,
   "deletedAt": 0,
-  "createdFirstAt": 1671157025588,
+  "createdFirstAt": 1671229963038,
   "id": "readerprops",
   "name": "ReaderProps",
   "slug": "readerprops",
   "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * This is what we need on the page level. There are many subtleties to it, but this is the core\n */\nexport type ReaderProps = {\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown: string | null;\n  contextualPromptsObject: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults: ContextualPromptResult[] | null;\n  projectRelativeFilePath: string;\n  navigation: FolderContent[];\n};",
+  "rawText": "\n\n/**\n * This is what we need on the page level. There are many subtleties to it, but this is the core\n */\nexport type ReaderProps = {\n  notFound?: boolean;\n  notFoundReason?: string | null;\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder?: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown?: string | null;\n  contextualPromptsObject?: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults?: ContextualPromptResult[] | null;\n\n  /**\n   * Project relative file path according to the query path.\n   *\n   * Even if the file doesn't seem to exist, this still returns.\n   */\n  projectRelativeFilePath?: string;\n  /**\n   * Project relative file path that is actually used\n   */\n  actualProjectRelativeFilePath?: string;\n  navigation?: FolderContent[];\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "This is what we need on the page level. There are many subtleties to it, but this is the core",
@@ -19,6 +19,15 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "notFound": {
+          "type": "boolean"
+        },
+        "notFoundReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
         "isFolder": {
           "type": "boolean",
           "description": "If true, the current path represents a folder, not a file."
@@ -88,7 +97,12 @@
           ]
         },
         "projectRelativeFilePath": {
-          "type": "string"
+          "type": "string",
+          "description": "Project relative file path according to the query path.\n\nEven if the file doesn't seem to exist, this still returns."
+        },
+        "actualProjectRelativeFilePath": {
+          "type": "string",
+          "description": "Project relative file path that is actually used"
         },
         "navigation": {
           "type": "array",
@@ -97,14 +111,6 @@
           }
         }
       },
-      "required": [
-        "isFolder",
-        "markdown",
-        "contextualPromptsObject",
-        "contextualPromptResults",
-        "projectRelativeFilePath",
-        "navigation"
-      ],
       "additionalProperties": false,
       "description": "This is what we need on the page level. There are many subtleties to it, but this is the core"
     },
@@ -112,8 +118,22 @@
       "fullComment": "This is what we need on the page level. There are many subtleties to it, but this is the core",
       "properties": [
         {
+          "name": "notFound",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "notFoundReason",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
           "name": "isFolder",
-          "required": true,
+          "required": false,
           "schema": {
             "fullComment": "If true, the current path represents a folder, not a file.",
             "type": "boolean"
@@ -135,14 +155,14 @@
         },
         {
           "name": "markdown",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }
         },
         {
           "name": "contextualPromptsObject",
-          "required": true,
+          "required": false,
           "schema": {
             "properties": [],
             "type": "object"
@@ -150,7 +170,7 @@
         },
         {
           "name": "contextualPromptResults",
-          "required": true,
+          "required": false,
           "schema": {
             "properties": [],
             "type": "object"
@@ -158,14 +178,23 @@
         },
         {
           "name": "projectRelativeFilePath",
-          "required": true,
+          "required": false,
           "schema": {
+            "fullComment": "Project relative file path according to the query path.\n\nEven if the file doesn't seem to exist, this still returns.",
+            "type": "string"
+          }
+        },
+        {
+          "name": "actualProjectRelativeFilePath",
+          "required": false,
+          "schema": {
+            "fullComment": "Project relative file path that is actually used",
             "type": "string"
           }
         },
         {
           "name": "navigation",
-          "required": true,
+          "required": false,
           "schema": {
             "items": [
               {
@@ -196,6 +225,14 @@
                           "link",
                           "unknown"
                         ],
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "firstFile",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.",
                         "type": "string"
                       }
                     },

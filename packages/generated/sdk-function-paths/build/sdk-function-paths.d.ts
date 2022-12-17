@@ -845,7 +845,6 @@ export declare const sdkFunctionPaths: {
     FilePromptSelect: string;
     processPrompt: string;
     usePromptResultAlert: string;
-    useSelectionPromptsMenu: string;
     clickOnSpanTag: string;
     facebookLogin: string;
     foundOrNotXpath: string;

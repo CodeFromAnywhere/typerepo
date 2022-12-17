@@ -1,20 +1,18 @@
 [
   {
-    "createdAt": 1671116651219,
-    "updatedAt": 1671116651219,
+    "createdAt": 1671220651105,
+    "updatedAt": 1671220651105,
     "deletedAt": 0,
-    "createdFirstAt": 1671116651219,
+    "createdFirstAt": 1671220651105,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/validation/isPhoneNumber.ts",
-    "comment": "TODO: Implement this",
-    "rawStatement": "export const isPhoneNumber = (phoneNumber: string): boolean => {\n  return true;\n};",
+    "operationRelativeTypescriptFilePath": "src/loginWithContext.ts",
+    "comment": "attaches the `Device` with `authToken` to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.",
+    "rawStatement": "export const loginWithContext = async (\n  functionContext: FunctionContext\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const { device } = functionContext;\n\n  const findPersonsResult = await findLoggedinPersonsWithContext(\n    functionContext\n  );\n\n  if (!findPersonsResult.isSuccessful) {\n    return {\n      isSuccessful: findPersonsResult.isSuccessful,\n      message: findPersonsResult.message,\n    };\n  }\n\n  const personIds = findPersonsResult.persons?.map((x) => x.id);\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => ({ ...old, personIds, authenticationMethods: [] })\n  );\n\n  const isSuccessful = updateResult.isSuccesful || false;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged in\"\n      : updateResult.message || \"Something went wrong (weird)\",\n  };\n};",
     "parameters": {},
-    "types": [
-      "todo"
-    ],
-    "firstLine": 1,
-    "lastLine": 3,
-    "id": "dqmxxobydekiilqodotbfcgm"
+    "types": [],
+    "firstLine": 5,
+    "lastLine": 7,
+    "id": "uhulmztikjobyjhqxapzwpxw"
   }
 ]

@@ -1,4 +1,64 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(t){for(var e,r=1,n=arguments.length;r<n;r++)for(var o in e=arguments[r])Object.prototype.hasOwnProperty.call(e,o)&&(t[o]=e[o]);return t},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(t,e,r,n){return new(r||(r=Promise))((function(o,a){function i(t){try{c(n.next(t))}catch(t){a(t)}}function u(t){try{c(n.throw(t))}catch(t){a(t)}}function c(t){var e;t.done?o(t.value):(e=t.value,e instanceof r?e:new r((function(t){t(e)}))).then(i,u)}c((n=n.apply(t,e||[])).next())}))},__generator=this&&this.__generator||function(t,e){var r,n,o,a,i={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function u(a){return function(u){return function(a){if(r)throw new TypeError("Generator is already executing.");for(;i;)try{if(r=1,n&&(o=2&a[0]?n.return:a[0]?n.throw||((o=n.return)&&o.call(n),0):n.next)&&!(o=o.call(n,a[1])).done)return o;switch(n=0,o&&(a=[2&a[0],o.value]),a[0]){case 0:case 1:o=a;break;case 4:return i.label++,{value:a[1],done:!1};case 5:i.label++,n=a[1],a=[0];continue;case 7:a=i.ops.pop(),i.trys.pop();continue;default:if(!(o=i.trys,(o=o.length>0&&o[o.length-1])||6!==a[0]&&2!==a[0])){i=0;continue}if(3===a[0]&&(!o||a[1]>o[0]&&a[1]<o[3])){i.label=a[1];break}if(6===a[0]&&i.label<o[1]){i.label=o[1],o=a;break}if(o&&i.label<o[2]){i.label=o[2],i.ops.push(a);break}o[2]&&i.ops.pop(),i.trys.pop();continue}a=e.call(t,i)}catch(t){a=[6,t],n=0}finally{r=o=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,u])}}},__rest=this&&this.__rest||function(t,e){var r={};for(var n in t)Object.prototype.hasOwnProperty.call(t,n)&&e.indexOf(n)<0&&(r[n]=t[n]);if(null!=t&&"function"==typeof Object.getOwnPropertySymbols){var o=0;for(n=Object.getOwnPropertySymbols(t);o<n.length;o++)e.indexOf(n[o])<0&&Object.prototype.propertyIsEnumerable.call(t,n[o])&&(r[n[o]]=t[n[o]])}return r};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getContextualPromptCategories=exports.getObjectForkKeyRecursively=void 0;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getContextualPromptCategories = exports.getObjectForkKeyRecursively = void 0;
 /**
 Pretty cool stuff!
 
@@ -7,10 +67,77 @@ I've shown a way to count all nested categories and make a child object based on
 Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
 
 */
-var database_1=require("database"),js_util_1=require("js-util"),getObjectForkKeyRecursively=function(t,e){var r=e.split(".");if(1===r.length){var n=r[0],o=Object.keys(t).filter((function(t){return t.startsWith("".concat(n,"."))})),a=o.map((function(t){return t.replace("".concat(n,"."),"")})),i=a.reduce((function(e,r){var o;return __assign(__assign({},e),((o={})[r]=t["".concat(n,".").concat(r)],o))}),{}),u=a.map((function(t){return(0,exports.getObjectForkKeyRecursively)(i,t)})).filter(js_util_1.notEmpty),c={category:n,count:t[n]};
-//get all children:
-//1) find all keys that start with firstCategory
-return u.length&&(c.children=u),c}};exports.getObjectForkKeyRecursively=getObjectForkKeyRecursively;var getContextualPromptCategories=function(){return __awaiter(void 0,void 0,void 0,(function(){var t,e,r,n,o;return __generator(this,(function(a){switch(a.label){case 0:return[4/*yield*/,database_1.db.get("ContextualPrompt")];case 1:return t=a.sent(),e=t.reduce((function(t,e){
-// get the stack for this contextualPrompt
-var r=e.categoryStackCalculated;if(!r||0===r.length){var n=t.__root;return __assign(__assign({},t),{__root:n?n+1:1})}var o=r.map((function(t,e,r){return r.slice(0,e+1).join(".")})).reduce((function(t,e){var r,n=t[e];return __assign(__assign({},t),((r={})[e]=n?n+1:1,r))}),t);return o}),{}),r=e.__root,n=__rest(e,["__root"]),o=Object.keys(n).map((function(t){return(0,exports.getObjectForkKeyRecursively)(e,t)})).filter(js_util_1.notEmpty),[2/*return*/,{category:"root",count:r+(0,js_util_1.sum)(o.map((function(t){return t.count}))),children:o}]}}))}))};exports.getContextualPromptCategories=getContextualPromptCategories;
+var database_1 = require("database");
+var js_util_1 = require("js-util");
+var getObjectForkKeyRecursively = function (stackCount, key) {
+    var categoryStack = key.split(".");
+    if (categoryStack.length !== 1)
+        return;
+    var firstCategory = categoryStack[0];
+    //get all children:
+    //1) find all keys that start with firstCategory
+    var childrenKeys = Object.keys(stackCount).filter(function (key) {
+        return key.startsWith("".concat(firstCategory, "."));
+    });
+    //2) remove the firstCategory from the keys
+    var strippedKeys = childrenKeys.map(function (key) {
+        return key.replace("".concat(firstCategory, "."), "");
+    });
+    // create strippedStackCount
+    var strippedStackCount = strippedKeys.reduce(function (newStackCount, key) {
+        var _a;
+        return __assign(__assign({}, newStackCount), (_a = {}, _a[key] = stackCount["".concat(firstCategory, ".").concat(key)], _a));
+    }, {});
+    //3) insert into this same function
+    var children = strippedKeys
+        .map(function (key) { return (0, exports.getObjectForkKeyRecursively)(strippedStackCount, key); })
+        .filter(js_util_1.notEmpty);
+    var object = {
+        category: firstCategory,
+        count: stackCount[firstCategory],
+    };
+    if (children.length)
+        object.children = children;
+    return object;
+};
+exports.getObjectForkKeyRecursively = getObjectForkKeyRecursively;
+var getContextualPromptCategories = function () { return __awaiter(void 0, void 0, void 0, function () {
+    var contextualPrompts, stackCount, __root, stackCountWithoutRoot, categories, rootCategoryChildObject;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, database_1.db.get("ContextualPrompt")];
+            case 1:
+                contextualPrompts = _a.sent();
+                stackCount = contextualPrompts.reduce(function (stackCount, current) {
+                    // get the stack for this contextualPrompt
+                    var stack = current.categoryStackCalculated;
+                    if (!stack || stack.length === 0) {
+                        var already = stackCount.__root;
+                        return __assign(__assign({}, stackCount), { __root: already ? already + 1 : 1 });
+                    }
+                    var everyStackPart = stack.map(function (_, index, array) {
+                        var stackUntilHere = array.slice(0, index + 1).join(".");
+                        return stackUntilHere;
+                    });
+                    var newStackCount = everyStackPart.reduce(function (stackCount, stackPart) {
+                        var _a;
+                        var already = stackCount[stackPart];
+                        return __assign(__assign({}, stackCount), (_a = {}, _a[stackPart] = already ? already + 1 : 1, _a));
+                    }, stackCount);
+                    return newStackCount;
+                }, {});
+                __root = stackCount.__root, stackCountWithoutRoot = __rest(stackCount, ["__root"]);
+                categories = Object.keys(stackCountWithoutRoot)
+                    .map(function (key) { return (0, exports.getObjectForkKeyRecursively)(stackCount, key); })
+                    .filter(js_util_1.notEmpty);
+                rootCategoryChildObject = {
+                    category: "root",
+                    count: __root + (0, js_util_1.sum)(categories.map(function (x) { return x.count; })),
+                    children: categories,
+                };
+                return [2 /*return*/, rootCategoryChildObject];
+        }
+    });
+}); };
+exports.getContextualPromptCategories = getContextualPromptCategories;
 //# sourceMappingURL=getContextualPromptCategories.js.map

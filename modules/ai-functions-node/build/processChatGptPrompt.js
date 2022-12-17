@@ -1,2 +1,209 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(t){for(var e,r=1,o=arguments.length;r<o;r++)for(var n in e=arguments[r])Object.prototype.hasOwnProperty.call(e,n)&&(t[n]=e[n]);return t},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(t,e,r,o){return new(r||(r=Promise))((function(n,s){function a(t){try{u(o.next(t))}catch(t){s(t)}}function l(t){try{u(o.throw(t))}catch(t){s(t)}}function u(t){var e;t.done?n(t.value):(e=t.value,e instanceof r?e:new r((function(t){t(e)}))).then(a,l)}u((o=o.apply(t,e||[])).next())}))},__generator=this&&this.__generator||function(t,e){var r,o,n,s,a={label:0,sent:function(){if(1&n[0])throw n[1];return n[1]},trys:[],ops:[]};return s={next:l(0),throw:l(1),return:l(2)},"function"==typeof Symbol&&(s[Symbol.iterator]=function(){return this}),s;function l(s){return function(l){return function(s){if(r)throw new TypeError("Generator is already executing.");for(;a;)try{if(r=1,o&&(n=2&s[0]?o.return:s[0]?o.throw||((n=o.return)&&n.call(o),0):o.next)&&!(n=n.call(o,s[1])).done)return n;switch(o=0,n&&(s=[2&s[0],n.value]),s[0]){case 0:case 1:n=s;break;case 4:return a.label++,{value:s[1],done:!1};case 5:a.label++,o=s[1],s=[0];continue;case 7:s=a.ops.pop(),a.trys.pop();continue;default:if(!(n=a.trys,(n=n.length>0&&n[n.length-1])||6!==s[0]&&2!==s[0])){a=0;continue}if(3===s[0]&&(!n||s[1]>n[0]&&s[1]<n[3])){a.label=s[1];break}if(6===s[0]&&a.label<n[1]){a.label=n[1],n=s;break}if(n&&a.label<n[2]){a.label=n[2],a.ops.push(s);break}n[2]&&a.ops.pop(),a.trys.pop();continue}s=e.call(t,a)}catch(t){s=[6,t],o=0}finally{r=n=0}if(5&s[0])throw s[1];return{value:s[0]?s[1]:void 0,done:!0}}([s,l])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.processChatGptPrompt=exports.controlChatGptWrapper=void 0;var fs_orm_1=require("fs-orm"),fs_util_1=require("fs-util"),get_path_1=require("get-path"),fs_util_js_1=require("fs-util-js"),chatgpt_controller_1=require("chatgpt-controller"),model_types_1=require("model-types"),controlChatGpt_1=require("./controlChatGpt"),getContextualPrompt_1=require("./getContextualPrompt"),getContextualPromptResultJsonFilePath_1=require("./getContextualPromptResultJsonFilePath"),controlChatGptWrapper=function(t,e,r,o){return __awaiter(void 0,void 0,void 0,(function(){var n,s;return __generator(this,(function(a){switch(a.label){case 0:return"playwright"!==o?[3/*break*/,2]:[4/*yield*/,(0,controlChatGpt_1.controlChatGpt)(t,e)];case 1:return n=a.sent(),[3/*break*/,6];case 2:return"puppeteer"!==o?[3/*break*/,4]:[4/*yield*/,(0,chatgpt_controller_1.openAIChat)({prompt:t,isHeadless:e,thread:r})];case 3:return s=a.sent(),[3/*break*/,5];case 4:s={isSuccessful:!0,message:"Done test",result:{text:"Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum",thread:""}},a.label=5;case 5:n=s,a.label=6;case 6:return[2/*return*/,n]}}))}))};exports.controlChatGptWrapper=controlChatGptWrapper;var processChatGptPrompt=function(t){return __awaiter(void 0,void 0,void 0,(function(){var e,r,o,n,s,a,l,u,i,p,c,_,h,d,m,f,v,g,x,P,C;return __generator(this,(function(b){switch(b.label){case 0:return e=t.contextContent,r=t.contextualPromptSlug,o=t.customPromptContent,n=t.saveNewPromptWithName,s=t.prompt_projectRelativePath,a=t.selectionContent,l=t.isHeadless,u=t.isDeferred,i=t.thread,p=s?fs_util_1.path.parse(s).ext.slice(1):void 0,c={ts:"code",tsx:"code",json:"data",md:"text"}[p],(_=(0,get_path_1.getProjectRoot)())?(h=s?fs_util_1.path.join(_,s):void 0,d=h?fs_util_1.fs.existsSync(h):void 0,h&&!d?[2/*return*/,{isSuccessful:!1,message:"You gave a path that doesn't exist:".concat(h)}]:[4/*yield*/,(0,getContextualPrompt_1.getContextualPrompt)(r,o,n||null,c)]):[2/*return*/,{isSuccessful:!1,message:"no projectroot"}];case 1:return(m=b.sent())?(f=__assign({},m).promptContent.replaceAll("%context",e||"").replaceAll("%selection",a||"").replaceAll("%any",a||e||""),!0,v=(0,exports.controlChatGptWrapper)(f,l,i,"puppeteer").then((function(t){return __awaiter(void 0,void 0,void 0,(function(){var e,r,o,n,l;return __generator(this,(function(u){switch(u.label){case 0:return e={createdAt:Date.now(),updatedAt:Date.now(),createdFirstAt:Date.now(),deletedAt:0,id:(0,model_types_1.generateId)(),resultAssets:[],resultText:null===(n=t.result)||void 0===n?void 0:n.text,prompt:f,selectionString:a||void 0,prompt_projectRelativePath:s,thread:null===(l=t.result)||void 0===l?void 0:l.thread,contextualPromptSlug:m.slug,isFake:!1},[4/*yield*/,(0,getContextualPromptResultJsonFilePath_1.getContextualPromptResultJsonFilePath)(s)];case 1:return(r=u.sent())?[4/*yield*/,(0,fs_orm_1.alterJsonMultiple)({absolutePath:r,modelName:"ContextualPromptResult",operationName:null,projectRelativePath:(0,fs_util_js_1.makeRelative)(r,_)},(function(t){return(0,fs_orm_1.upsert)(t,e)}))]:[3/*break*/,3];case 2:return o=u.sent(),[3/*break*/,4];case 3:o=void 0,u.label=4;case 4:return[2/*return*/,{upsertResult:o,promptFunctionResult:null==t?void 0:t.result}]}}))}))})),u?(x=void 0,[3/*break*/,4]):[3/*break*/,2]):[2/*return*/,{isSuccessful:!1,message:"Couldn't create or find a contextual prompt"}];case 2:return[4/*yield*/,v];case 3:x=b.sent(),b.label=4;case 4:return g=x,P=u||!g?void 0:g.promptFunctionResult,[2/*return*/,{isSuccessful:!!u||(!!(null==P?void 0:P.text)||!1),message:u?"Prompt is now being executed":(null===(C=null==g?void 0:g.upsertResult)||void 0===C?void 0:C.message)||"WentWrong",result:P}]}}))}))};exports.processChatGptPrompt=processChatGptPrompt;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.processChatGptPrompt = exports.controlChatGptWrapper = void 0;
+var ai_types_1 = require("ai-types");
+var fs_orm_1 = require("fs-orm");
+var fs_util_1 = require("fs-util");
+var get_path_1 = require("get-path");
+var fs_util_js_1 = require("fs-util-js");
+var chatgpt_controller_1 = require("chatgpt-controller");
+var model_types_1 = require("model-types");
+var controlChatGpt_1 = require("./controlChatGpt");
+var getContextualPrompt_1 = require("./getContextualPrompt");
+var getContextualPromptResultJsonFilePath_1 = require("./getContextualPromptResultJsonFilePath");
+var controlChatGptWrapper = function (prompt, isHeadless, thread, controller) { return __awaiter(void 0, void 0, void 0, function () {
+    var result, _a, _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                if (!(controller === "playwright")) return [3 /*break*/, 2];
+                return [4 /*yield*/, (0, controlChatGpt_1.controlChatGpt)(prompt, isHeadless)];
+            case 1:
+                _a = _c.sent();
+                return [3 /*break*/, 6];
+            case 2:
+                if (!(controller === "puppeteer")) return [3 /*break*/, 4];
+                return [4 /*yield*/, (0, chatgpt_controller_1.openAIChat)({ prompt: prompt, isHeadless: isHeadless, thread: thread })];
+            case 3:
+                _b = _c.sent();
+                return [3 /*break*/, 5];
+            case 4:
+                _b = {
+                    isSuccessful: true,
+                    message: "Done test",
+                    result: {
+                        text: "Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum",
+                        thread: "",
+                    },
+                };
+                _c.label = 5;
+            case 5:
+                _a = _b;
+                _c.label = 6;
+            case 6:
+                result = _a;
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.controlChatGptWrapper = controlChatGptWrapper;
+var processChatGptPrompt = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var contextContent, contextualPromptSlug, customPromptContent, saveNewPromptWithName, prompt_projectRelativePath, selectionContent, isHeadless, isDeferred, thread, extension, contextType, projectRoot, prompt_absolutePath, exists, contextualPrompt, finalPrompt, useChatGpt, promiseResult, processPromptFunctionResult, _a, result;
+    var _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                contextContent = config.contextContent, contextualPromptSlug = config.contextualPromptSlug, customPromptContent = config.customPromptContent, saveNewPromptWithName = config.saveNewPromptWithName, prompt_projectRelativePath = config.prompt_projectRelativePath, selectionContent = config.selectionContent, isHeadless = config.isHeadless, isDeferred = config.isDeferred, thread = config.thread;
+                extension = prompt_projectRelativePath
+                    ? fs_util_1.path.parse(prompt_projectRelativePath).ext.slice(1)
+                    : undefined;
+                contextType = ai_types_1.fileTypePerExtension[extension];
+                projectRoot = (0, get_path_1.getProjectRoot)();
+                if (!projectRoot)
+                    return [2 /*return*/, { isSuccessful: false, message: "no projectroot" }];
+                prompt_absolutePath = prompt_projectRelativePath
+                    ? fs_util_1.path.join(projectRoot, prompt_projectRelativePath)
+                    : undefined;
+                exists = prompt_absolutePath
+                    ? fs_util_1.fs.existsSync(prompt_absolutePath)
+                    : undefined;
+                if (prompt_absolutePath && !exists) {
+                    return [2 /*return*/, {
+                            isSuccessful: false,
+                            message: "You gave a path that doesn't exist:".concat(prompt_absolutePath),
+                        }];
+                }
+                return [4 /*yield*/, (0, getContextualPrompt_1.getContextualPrompt)(contextualPromptSlug, customPromptContent, saveNewPromptWithName || null, contextType)];
+            case 1:
+                contextualPrompt = _c.sent();
+                if (!contextualPrompt) {
+                    return [2 /*return*/, {
+                            isSuccessful: false,
+                            message: "Couldn't create or find a contextual prompt",
+                        }];
+                }
+                finalPrompt = __assign({}, contextualPrompt).promptContent
+                    .replaceAll("%context", contextContent || "")
+                    .replaceAll("%selection", selectionContent || "")
+                    .replaceAll("%any", selectionContent || contextContent || "");
+                useChatGpt = true;
+                promiseResult = (0, exports.controlChatGptWrapper)(finalPrompt, isHeadless, thread, "puppeteer").then(function (promptFunctionResult) { return __awaiter(void 0, void 0, void 0, function () {
+                    var newResult, contextualPromptResultsJsonPath, upsertResult, _a;
+                    var _b, _c;
+                    return __generator(this, function (_d) {
+                        switch (_d.label) {
+                            case 0:
+                                newResult = {
+                                    createdAt: Date.now(),
+                                    updatedAt: Date.now(),
+                                    createdFirstAt: Date.now(),
+                                    deletedAt: 0,
+                                    id: (0, model_types_1.generateId)(),
+                                    resultAssets: [],
+                                    resultText: (_b = promptFunctionResult.result) === null || _b === void 0 ? void 0 : _b.text,
+                                    prompt: finalPrompt,
+                                    selectionString: selectionContent || undefined,
+                                    prompt_projectRelativePath: prompt_projectRelativePath,
+                                    thread: (_c = promptFunctionResult.result) === null || _c === void 0 ? void 0 : _c.thread,
+                                    contextualPromptSlug: contextualPrompt.slug,
+                                    isFake: !useChatGpt,
+                                };
+                                return [4 /*yield*/, (0, getContextualPromptResultJsonFilePath_1.getContextualPromptResultJsonFilePath)(prompt_projectRelativePath)];
+                            case 1:
+                                contextualPromptResultsJsonPath = _d.sent();
+                                if (!contextualPromptResultsJsonPath) return [3 /*break*/, 3];
+                                return [4 /*yield*/, (0, fs_orm_1.alterJsonMultiple)({
+                                        absolutePath: contextualPromptResultsJsonPath,
+                                        modelName: "ContextualPromptResult",
+                                        operationName: null,
+                                        projectRelativePath: (0, fs_util_js_1.makeRelative)(contextualPromptResultsJsonPath, projectRoot),
+                                    }, function (storedData) {
+                                        var result = (0, fs_orm_1.upsert)(storedData, newResult);
+                                        return result;
+                                    })];
+                            case 2:
+                                _a = _d.sent();
+                                return [3 /*break*/, 4];
+                            case 3:
+                                _a = undefined;
+                                _d.label = 4;
+                            case 4:
+                                upsertResult = _a;
+                                return [2 /*return*/, {
+                                        upsertResult: upsertResult,
+                                        promptFunctionResult: promptFunctionResult === null || promptFunctionResult === void 0 ? void 0 : promptFunctionResult.result,
+                                    }];
+                        }
+                    });
+                }); });
+                if (!isDeferred) return [3 /*break*/, 2];
+                _a = undefined;
+                return [3 /*break*/, 4];
+            case 2: return [4 /*yield*/, promiseResult];
+            case 3:
+                _a = _c.sent();
+                _c.label = 4;
+            case 4:
+                processPromptFunctionResult = _a;
+                result = isDeferred || !processPromptFunctionResult
+                    ? undefined
+                    : processPromptFunctionResult.promptFunctionResult;
+                return [2 /*return*/, {
+                        isSuccessful: isDeferred ? true : !!(result === null || result === void 0 ? void 0 : result.text) || false,
+                        message: isDeferred
+                            ? "Prompt is now being executed"
+                            : ((_b = processPromptFunctionResult === null || processPromptFunctionResult === void 0 ? void 0 : processPromptFunctionResult.upsertResult) === null || _b === void 0 ? void 0 : _b.message) || "WentWrong",
+                        result: result,
+                    }];
+        }
+    });
+}); };
+exports.processChatGptPrompt = processChatGptPrompt;
 //# sourceMappingURL=processChatGptPrompt.js.map

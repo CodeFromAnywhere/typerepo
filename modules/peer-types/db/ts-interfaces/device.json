@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671116112785,
-  "updatedAt": 1671116112785,
+  "createdAt": 1671220126202,
+  "updatedAt": 1671220126202,
   "deletedAt": 0,
-  "createdFirstAt": 1671116112785,
+  "createdFirstAt": 1671220126202,
   "id": "device",
   "name": "Device",
   "slug": "device",
   "operationRelativeTypescriptFilePath": "src/Device.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * \n A Device that accesses any King OS api.\n\n A device can be connected to a person. A person can have multiple `Device`s.\n\n A Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.\n */\nexport interface Device extends DefaultModelType, IPInfo {\n  /**\n   * AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n   *\n   * If the authToken is the same, we can be sure that the device is matched, even if the IP is different.\n   */\n  authToken: string;\n\n  /**\n   * Parsed User Agent header.\n   *\n   * NOT used to identify the device, since the device can already be connected to a person!\n   */\n  userAgent: IResult;\n  /**\n   * Raw `User-Agent` header.\n   *\n   * NOT used to identify the device, since the device can already be connected to a person!\n   */\n  userAgentString: IResult[\"ua\"];\n  /**\n   * Name of the device, calculated based on metadata like location, os, and ip\n   *\n   * Can be edited by the user\n   */\n  name: string;\n\n  /**\n   * the root IPInfo is from the latest IP the device had. All previous IPs are added to this array\n   */\n  previousIps: IPInfo[];\n\n  /**\n   * Domains the Device has visited\n   *\n   * The Origin request header indicates the origin (scheme, hostname, and port) that caused the request\n   */\n  origins: string[];\n\n  /**\n   * Is set to true if the devices IP is pinged and seems to have something that resembles a King OS PAPI.\n   */\n  hasPapi?: boolean;\n\n  /**\n   * Returning `true` or `false` indicating whether or not the IP is giving a response\n   */\n  isOnlineCalculated?: boolean;\n\n  /**\n   * Whenever the peer is online, this should update\n   */\n  lastOnlineAt: number;\n\n  /**\n   * if true, the above IP is a local one, meaning it cannot be accessed from outside of this network\n   *\n   * This is easy to determine: local IP's must start with \"192.168\"\n   */\n  isLocalIpCalculated?: boolean;\n\n  /**\n   * if `true`, this device will show on top\n   */\n  isFavorite?: boolean;\n\n  /**\n   * If true, this peer should not be shared\n   */\n  isPrivate?: boolean;\n\n  /**\n   * last sync of any model\n   *\n   * Useful for example for a p2p messaging\n   */\n  lastSyncDatabaseAtObject: {\n    [modelName: string]: number;\n  };\n\n  /**\n   * If the device is authenticated, this should be set.\n   *\n   * Can be unset by the person\n   */\n  personIds?: Id[];\n  persons?: Person[];\n\n  /**\n   * A device can switch between persons, by changing this value\n   */\n  currentPersonId?: Id;\n  /**\n   * If you have a currentPersonId, it is calculated and provided by selecting it from the persons array\n   *\n   * For now, only provided by functioncontext\n   */\n  currentPersonCalculated?: Person;\n  /**\n   * Calculated all operations that can be exposed as apps. This is taken from `getAllAppOperations` function\n   */\n  appOperationsCalculated?: AppOperation[];\n\n  /**\n   * If the `Device` is not identified as a person yet, this can be configured to authenticate with different methods. Once it matches to a person, this can be cleared and `personId` can be attached.\n   */\n  authenticationMethods: AuthenticationMethod[];\n}",
+  "rawText": "\n\n/**\n * \n A Device that accesses any King OS api.\n\n A device can be connected to a person. A person can have multiple `Device`s.\n\n A Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.\n */\nexport interface Device extends DefaultModelType, IPInfo {\n  /**\n   * AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n   *\n   * If the authToken is the same, we can be sure that the device is matched, even if the IP is different.\n   */\n  authToken: string;\n\n  /**\n   * Parsed User Agent header.\n   *\n   * NOT used to identify the device, since the device can already be connected to a person!\n   */\n  // userAgent?: IResult;\n  /**\n   * Raw `User-Agent` header.\n   *\n   * NOT used to identify the device, since the device can already be connected to a person!\n   */\n  userAgentString: IResult[\"ua\"];\n  /**\n   * Name of the device, calculated based on metadata like location, os, and ip\n   *\n   * Can be edited by the user\n   */\n  name: string;\n\n  /**\n   * the root IPInfo is from the latest IP the device had. All previous IPs are added to this array\n   */\n  previousIps: IPInfo[];\n\n  /**\n   * Domains the Device has visited\n   *\n   * The Origin request header indicates the origin (scheme, hostname, and port) that caused the request\n   */\n  origins: string[];\n\n  /**\n   * Is set to true if the devices IP is pinged and seems to have something that resembles a King OS PAPI.\n   */\n  hasPapi?: boolean;\n\n  /**\n   * Returning `true` or `false` indicating whether or not the IP is giving a response\n   */\n  isOnlineCalculated?: boolean;\n\n  /**\n   * Whenever the peer is online, this should update\n   */\n  lastOnlineAt: number;\n\n  /**\n   * if true, the above IP is a local one, meaning it cannot be accessed from outside of this network\n   *\n   * This is easy to determine: local IP's must start with \"192.168\"\n   */\n  isLocalIpCalculated?: boolean;\n\n  /**\n   * if `true`, this device will show on top\n   */\n  isFavorite?: boolean;\n\n  /**\n   * If true, this peer should not be shared\n   */\n  isPrivate?: boolean;\n\n  /**\n   * last sync of any model\n   *\n   * Useful for example for a p2p messaging\n   */\n  lastSyncDatabaseAtObject: {\n    [modelName: string]: number;\n  };\n\n  /**\n   * If the device is authenticated, this should be set.\n   *\n   * Can be unset by the person\n   */\n  personIds?: Id[];\n  persons?: Person[];\n\n  /**\n   * A device can switch between persons, by changing this value\n   */\n  currentPersonId?: Id;\n  /**\n   * If you have a currentPersonId, it is calculated and provided by selecting it from the persons array\n   *\n   * For now, only provided by functioncontext\n   */\n  currentPersonCalculated?: Person;\n  /**\n   * Calculated all operations that can be exposed as apps. This is taken from `getAllAppOperations` function\n   */\n  appOperationsCalculated?: AppOperation[];\n\n  /**\n   * If the `Device` is not identified as a person yet, this can be configured to authenticate with different methods. Once it matches to a person, this can be cleared and `personId` can be attached.\n   */\n  authenticationMethods: AuthenticationMethod[];\n}",
   "extensions": [
     "DefaultModelType",
     "IPInfo"
@@ -82,10 +82,6 @@
         "authToken": {
           "type": "string",
           "description": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different."
-        },
-        "userAgent": {
-          "$ref": "#/definitions/IResult",
-          "description": "Parsed User Agent header.\n\nNOT used to identify the device, since the device can already be connected to a person!"
         },
         "userAgentString": {
           "type": "string",
@@ -192,7 +188,6 @@
         "previousIps",
         "projectRelativePath",
         "updatedAt",
-        "userAgent",
         "userAgentString"
       ],
       "additionalProperties": false,
@@ -356,162 +351,6 @@
           "schema": {
             "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.",
             "type": "string"
-          }
-        },
-        {
-          "name": "userAgent",
-          "required": true,
-          "schema": {
-            "fullComment": "Parsed User Agent header.\n\nNOT used to identify the device, since the device can already be connected to a person!\n\n",
-            "properties": [
-              {
-                "name": "ua",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "browser",
-                "required": true,
-                "schema": {
-                  "fullComment": "NB: copied from ua-parser-js ^1.0.32 because they weren't indexed",
-                  "nb": "copied from ua-parser-js ^1.0.32 because they weren't indexed",
-                  "properties": [
-                    {
-                      "name": "name",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Possible values : Amaya, Android Browser, Arora, Avant, Baidu, Blazer, Bolt, Camino, Chimera, Chrome, Chromium, Comodo Dragon, Conkeror, Dillo, Dolphin, Doris, Edge, Epiphany, Fennec, Firebird, Firefox, Flock, GoBrowser, iCab, ICE Browser, IceApe, IceCat, IceDragon, Iceweasel, IE [Mobile], Iron, Jasmine, K-Meleon, Konqueror, Kindle, Links, Lunascape, Lynx, Maemo, Maxthon, Midori, Minimo, MIUI Browser, [Mobile] Safari, Mosaic, Mozilla, Netfront, Netscape, NetSurf, Nokia, OmniWeb, Opera [Mini/Mobi/Tablet], Phoenix, Polaris, QQBrowser, RockMelt, Silk, Skyfire, SeaMonkey, SlimBrowser, Swiftfox, Tizen, UCBrowser, Vivaldi, w3m, Yandex",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "version",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Determined dynamically",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "major",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Determined dynamically",
-                        "type": "string"
-                      }
-                    }
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "name": "device",
-                "required": true,
-                "schema": {
-                  "fullComment": "",
-                  "properties": [
-                    {
-                      "name": "model",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Determined dynamically",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "type",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Possible type: console, mobile, tablet, smarttv, wearable, embedded",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "vendor",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Possible vendor: Acer, Alcatel, Amazon, Apple, Archos, Asus, BenQ, BlackBerry, Dell, GeeksPhone, Google, HP, HTC, Huawei, Jolla, Lenovo, LG, Meizu, Microsoft, Motorola, Nexian, Nintendo, Nokia, Nvidia, Ouya, Palm, Panasonic, Polytron, RIM, Samsung, Sharp, Siemens, Sony-Ericsson, Sprint, Xbox, ZTE",
-                        "type": "string"
-                      }
-                    }
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "name": "engine",
-                "required": true,
-                "schema": {
-                  "fullComment": "",
-                  "properties": [
-                    {
-                      "name": "name",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Possible name: Amaya, EdgeHTML, Gecko, iCab, KHTML, Links, Lynx, NetFront, NetSurf, Presto, Tasman, Trident, w3m, WebKit",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "version",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Determined dynamically",
-                        "type": "string"
-                      }
-                    }
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "name": "os",
-                "required": true,
-                "schema": {
-                  "fullComment": "",
-                  "properties": [
-                    {
-                      "name": "name",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Possible 'os.name' AIX, Amiga OS, Android, Arch, Bada, BeOS, BlackBerry, CentOS, Chromium OS, Contiki, Fedora, Firefox OS, FreeBSD, Debian, DragonFly, Gentoo, GNU, Haiku, Hurd, iOS, Joli, Linpus, Linux, Mac OS, Mageia, Mandriva, MeeGo, Minix, Mint, Morph OS, NetBSD, Nintendo, OpenBSD, OpenVMS, OS/2, Palm, PCLinuxOS, Plan9, Playstation, QNX, RedHat, RIM Tablet OS, RISC OS, Sailfish, Series40, Slackware, Solaris, SUSE, Symbian, Tizen, Ubuntu, UNIX, VectorLinux, WebOS, Windows [Phone/Mobile], Zenwalk",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "version",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Determined dynamically",
-                        "type": "string"
-                      }
-                    }
-                  ],
-                  "type": "object"
-                }
-              },
-              {
-                "name": "cpu",
-                "required": true,
-                "schema": {
-                  "fullComment": "",
-                  "properties": [
-                    {
-                      "name": "architecture",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Possible architecture:  68k, amd64, arm, arm64, avr, ia32, ia64, irix, irix64, mips, mips64, pa-risc,  ppc, sparc, sparc64",
-                        "type": "string"
-                      }
-                    }
-                  ],
-                  "type": "object"
-                }
-              }
-            ],
-            "type": "object"
           }
         },
         {

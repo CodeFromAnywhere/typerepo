@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671112862747,
-  "updatedAt": 1671112862747,
+  "createdAt": 1671185235361,
+  "updatedAt": 1671185235361,
   "deletedAt": 0,
-  "createdFirstAt": 1671112862747,
+  "createdFirstAt": 1671185235361,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/MarkdownContent.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  content: string;\n  config: MarkdownParseRenderConfig;\n}): JSX.Element => {\n  const { config, content } = props;\n  const { openContextMenuProps, renderContextMenu, isOpen } =\n    useSelectionPromptsMenu(config.selectionPrompts || [], {\n      contextContent: content,\n      context_projectRelativeFilePath: config.projectRelativeMarkdownFilePath,\n    });\n\n  if (!content) return <Div>No content</Div>;\n\n  const markdownRender = React.useMemo(() => {\n    return <MarkdownContentRender content={content} config={config} />;\n  }, [\n    content,\n    isOpen,\n    isOpen ? { renderContextMenu, openContextMenuProps } : undefined,\n  ]);\n\n  if (config.disableSelectionContextMenu) {\n    return markdownRender;\n  }\n\n  return (\n    <div {...openContextMenuProps}>\n      {renderContextMenu()}\n      {markdownRender}\n    </div>\n  );\n}",
+  "rawText": " (props: {\n  content: string;\n  config: MarkdownParseRenderConfig;\n}): JSX.Element => {\n  const { config, content } = props;\n\n  if (!content) return <Div>No content</Div>;\n\n  return <MarkdownContentRender content={content} config={config} />;\n}",
   "name": "MarkdownContent",
   "slug": "markdown-content",
   "parameters": [
@@ -875,15 +875,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 3,
+  "maxIndentationDepth": 1,
   "size": {
-    "characters": 880,
-    "lines": 32,
-    "bytes": 880,
+    "characters": 291,
+    "lines": 10,
+    "bytes": 291,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 28,
-    "linesPerFile": 32,
+    "charactersPerLine": 29,
+    "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "chktpxhjtqrsscepzykigfom"
+  "id": "wzaqwotmframcktwhggjfuoy"
 }

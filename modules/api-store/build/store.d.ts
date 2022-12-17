@@ -9,7 +9,7 @@ export declare type ApiStoreType = {
     /**
      * Can set this up in config to connect with different api
      */
-    "api.customUrl": null | string;
+    "api.customUrl": string | null;
     /**
      * If the api doesn't response, this will be set to last date.
      * If the api responds, this will be reset

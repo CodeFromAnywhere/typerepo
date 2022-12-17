@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671105313414,
-  "updatedAt": 1671105313414,
+  "createdAt": 1671183639596,
+  "updatedAt": 1671183639596,
   "deletedAt": 0,
-  "createdFirstAt": 1671105313414,
+  "createdFirstAt": 1671183639596,
   "id": "contextualprompt",
   "name": "ContextualPrompt",
   "slug": "contextualprompt",
   "operationRelativeTypescriptFilePath": "src/ContextualPrompt.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * ---\n * dbStorageMethod: jsonSingle\n * ---\n *\n * Model for prompting information from third party sources\n */\n\nexport interface ContextualPrompt extends SlugModelType, ContextualPromptInfo {\n  /**\n   * descriptive name of what the prompt does, the same way as you would name a function.\n   *\n   * Used to generate the name of the function\n   */\n  name: string;\n\n  /**\n   * Short description of the function.\n   *\n   * Used to be added to as a doc-comment when generating a function for the prompt\n   */\n  title?: string;\n\n  /**\n   * if given, should be a path to a file or folder, so the prompt will never be shown outside of this scope\n   *\n   * Never stored! Is found based on the location of the file in your file system\n   */\n  scopeProjectRelativePath?: string;\n\n  /**\n   * Which models can this be applied on?\n   */\n  model?: LanguageModel | LanguageModel[];\n\n  /**\n   * Only prompt is stored (string)\n   */\n  promptContent: string;\n\n  /**\n   * Variable: ${folder}\n   *\n   * If set to `flat`, all folder content will be added as context, without sub-folders\n   *\n   * If set to `recursive`, all folder content will be added as context, including sub-folders\n   */\n  folderContentContext?: \"flat\" | \"recursive\";\n\n  /**\n   * Variable: ${context}\n   *\n   * Whether or not the prompt requires the context\n   *\n   * Can be a file contents, but can also be the contents of an HTML page\n   */\n  usesContext?: boolean;\n\n  /**\n   * Variable: ${selection}\n   *\n   * Whether or not the prompt requires the selection\n   */\n  usesSelection?: boolean;\n\n  /**\n   * Variable: ${any}\n   *\n   * If true, will return this prompt in any context prompt, as selection results because it can use any of them as its variable. It will use the smallest one available.\n   */\n  usesAnyContext?: boolean;\n}",
+  "rawText": "\n\n/**\n * ---\n * dbStorageMethod: jsonSingle\n * ---\n *\n * Model for prompting information from third party sources\n */\n\nexport interface ContextualPrompt extends SlugModelType, ContextualPromptInfo {\n  /**\n   * descriptive name of what the prompt does, the same way as you would name a function.\n   *\n   * Used to generate the name of the function\n   */\n  name: string;\n\n  /**\n   * Short description of the function.\n   *\n   * Used to be added to as a doc-comment when generating a function for the prompt\n   */\n  title?: string;\n\n  /**\n   * Bit longer description of the prompt\n   */\n  description?: string;\n\n  /**\n   * if given, should be a path to a file or folder, so the prompt will never be shown outside of this scope\n   *\n   * Never stored! Is found based on the location of the file in your file system\n   */\n  scopeProjectRelativePath?: string;\n\n  /**\n   * Which models can this be applied on?\n   */\n  model?: LanguageModel | LanguageModel[];\n\n  /**\n   * Only prompt is stored (string)\n   *\n   *\n   */\n  promptContent: string;\n\n  /**\n   * Variable: `${folder}`\n   *\n   * If set to `flat`, all folder content will be added as context, without sub-folders\n   *\n   * If set to `recursive`, all folder content will be added as context, including sub-folders\n   *\n   * If set to `summary-flat`/`summary-recursive`, a key-value with \"filename: summary\" with a one-line summary of the content of the file/folder will be added. Folder summaries must be longer.\n   *\n   * IDEA: if you have any question about your complete codebase, you can do a recurisve search in files/folders, taking all the relevant summaries every time, and doing a prompt for every result that might have the answer.\n   *\n   * 1) First we need to collect the relevant information\n   * 2) Then we need to prune the relevant information\n   * 3) Then we can answer the question based on truth that links to files\n   *\n   * If I can do this, I have a very powerful search engine.\n   */\n  folderContentContext?: \"summary\" | \"flat\" | \"recursive\";\n\n  /**\n   * Variable: ${context}\n   *\n   * Whether or not the prompt requires the context\n   *\n   * Can be a file contents, but can also be the contents of an HTML page\n   */\n  usesContext?: boolean;\n\n  /**\n   * Variable: ${selection}\n   *\n   * Whether or not the prompt requires the selection\n   */\n  usesSelection?: boolean;\n\n  /**\n   * Variable: ${any}\n   *\n   * If true, will return this prompt in any context prompt, as selection results because it can use any of them as its variable. It will use the smallest one available.\n   */\n  usesAnyContext?: boolean;\n}",
   "extensions": [
     "SlugModelType",
     "ContextualPromptInfo"
@@ -96,6 +96,10 @@
           "type": "string",
           "description": "Short description of the function.\n\nUsed to be added to as a doc-comment when generating a function for the prompt"
         },
+        "description": {
+          "type": "string",
+          "description": "Bit longer description of the prompt"
+        },
         "scopeProjectRelativePath": {
           "type": "string",
           "description": "if given, should be a path to a file or folder, so the prompt will never be shown outside of this scope\n\nNever stored! Is found based on the location of the file in your file system"
@@ -121,10 +125,11 @@
         "folderContentContext": {
           "type": "string",
           "enum": [
+            "summary",
             "flat",
             "recursive"
           ],
-          "description": "Variable: ${folder}\n\nIf set to `flat`, all folder content will be added as context, without sub-folders\n\nIf set to `recursive`, all folder content will be added as context, including sub-folders"
+          "description": "Variable: `${folder}`\n\nIf set to `flat`, all folder content will be added as context, without sub-folders\n\nIf set to `recursive`, all folder content will be added as context, including sub-folders\n\nIf set to `summary-flat`/`summary-recursive`, a key-value with \"filename: summary\" with a one-line summary of the content of the file/folder will be added. Folder summaries must be longer.\n\nIDEA: if you have any question about your complete codebase, you can do a recurisve search in files/folders, taking all the relevant summaries every time, and doing a prompt for every result that might have the answer.\n\n1) First we need to collect the relevant information 2) Then we need to prune the relevant information 3) Then we can answer the question based on truth that links to files\n\nIf I can do this, I have a very powerful search engine."
         },
         "usesContext": {
           "type": "boolean",
@@ -347,6 +352,14 @@
           }
         },
         {
+          "name": "description",
+          "required": false,
+          "schema": {
+            "fullComment": "Bit longer description of the prompt",
+            "type": "string"
+          }
+        },
+        {
           "name": "scopeProjectRelativePath",
           "required": false,
           "schema": {
@@ -376,10 +389,12 @@
           "required": false,
           "schema": {
             "enum": [
+              "summary",
               "flat",
               "recursive"
             ],
-            "fullComment": "Variable: ${folder}\n\nIf set to `flat`, all folder content will be added as context, without sub-folders\n\nIf set to `recursive`, all folder content will be added as context, including sub-folders",
+            "fullComment": "Variable: `${folder}`\n\nIf set to `flat`, all folder content will be added as context, without sub-folders\n\nIf set to `recursive`, all folder content will be added as context, including sub-folders\n\nIf set to `summary-flat`/`summary-recursive`, a key-value with \"filename: summary\" with a one-line summary of the content of the file/folder will be added. Folder summaries must be longer.\n\nIDEA: if you have any question about your complete codebase, you can do a recurisve search in files/folders, taking all the relevant summaries every time, and doing a prompt for every result that might have the answer.\n\n1) First we need to collect the relevant information 2) Then we need to prune the relevant information 3) Then we can answer the question based on truth that links to files\n\nIf I can do this, I have a very powerful search engine.",
+            "idea": "if you have any question about your complete codebase, you can do a recurisve search in files/folders, taking all the relevant summaries every time, and doing a prompt for every result that might have the answer.",
             "type": "string"
           }
         },

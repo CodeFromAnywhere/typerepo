@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671116622620,
-  "updatedAt": 1671116622620,
+  "createdAt": 1671220650775,
+  "updatedAt": 1671220650775,
   "deletedAt": 0,
-  "createdFirstAt": 1671116622620,
+  "createdFirstAt": 1671220650775,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/loginWithContext.ts",
   "commentsInside": [],
-  "rawText": " async (\n  functionContext: FunctionContext\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const { device } = functionContext;\n  const findPersonsResult = await findLoggedinPersonsWithContext(\n    functionContext\n  );\n\n  if (!findPersonsResult.isSuccessful) {\n    return {\n      isSuccessful: findPersonsResult.isSuccessful,\n      message: findPersonsResult.message,\n    };\n  }\n\n  const personIds = findPersonsResult.persons?.map((x) => x.id);\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => ({ ...old, personIds })\n  );\n\n  const isSuccessful = updateResult.isSuccesful || false;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged in\"\n      : updateResult.message || \"Something went wrong (weird)\",\n  };\n}",
+  "rawText": " async (\n  functionContext: FunctionContext\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const { device } = functionContext;\n\n  const findPersonsResult = await findLoggedinPersonsWithContext(\n    functionContext\n  );\n\n  if (!findPersonsResult.isSuccessful) {\n    return {\n      isSuccessful: findPersonsResult.isSuccessful,\n      message: findPersonsResult.message,\n    };\n  }\n\n  const personIds = findPersonsResult.persons?.map((x) => x.id);\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => ({ ...old, personIds, authenticationMethods: [] })\n  );\n\n  const isSuccessful = updateResult.isSuccesful || false;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged in\"\n      : updateResult.message || \"Something went wrong (weird)\",\n  };\n}",
   "name": "loginWithContext",
   "slug": "login-with-context",
   "parameters": [
@@ -4211,13 +4211,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 1037,
-    "lines": 32,
-    "bytes": 1037,
+    "characters": 1065,
+    "lines": 33,
+    "bytes": 1065,
     "bytesPerCharacter": 1,
     "charactersPerLine": 32,
-    "linesPerFile": 32,
+    "linesPerFile": 33,
     "numberOfFiles": 1
   },
-  "id": "bsbfggbamlrtrtvwdlemizht"
+  "id": "tjrzqkguyjsntfaeuukfqsev"
 }

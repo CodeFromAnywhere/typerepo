@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116622775,
-  "updatedAt": 1671116622775,
+  "createdAt": 1671220650942,
+  "updatedAt": 1671220650942,
   "deletedAt": 0,
-  "createdFirstAt": 1671116622775,
+  "createdFirstAt": 1671220650942,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  functionContext: FunctionContext\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const { device } = functionContext;\n  const findPersonsResult = await findLoggedinPersonsWithContext(\n    functionContext\n  );\n\n  if (!findPersonsResult.isSuccessful) {\n    return {\n      isSuccessful: findPersonsResult.isSuccessful,\n      message: findPersonsResult.message,\n    };\n  }\n\n  const personIds = findPersonsResult.persons?.map((x) => x.id);\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => ({ ...old, personIds })\n  );\n\n  const isSuccessful = updateResult.isSuccesful || false;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged in\"\n      : updateResult.message || \"Something went wrong (weird)\",\n  };\n}",
+  "value": "async (\n  functionContext: FunctionContext\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const { device } = functionContext;\n\n  const findPersonsResult = await findLoggedinPersonsWithContext(\n    functionContext\n  );\n\n  if (!findPersonsResult.isSuccessful) {\n    return {\n      isSuccessful: findPersonsResult.isSuccessful,\n      message: findPersonsResult.message,\n    };\n  }\n\n  const personIds = findPersonsResult.persons?.map((x) => x.id);\n\n  const updateResult = await db.update(\n    \"Device\",\n    (item) => item.id === device.id,\n    (old) => ({ ...old, personIds, authenticationMethods: [] })\n  );\n\n  const isSuccessful = updateResult.isSuccesful || false;\n\n  return {\n    isSuccessful,\n    message: isSuccessful\n      ? \"Logged in\"\n      : updateResult.message || \"Something went wrong (weird)\",\n  };\n}",
   "description": "attaches the `Device` with `authToken` to a `Person` once all required authenticationMethods are provided. If not, it needs to return the required authenticationMethods so the user can attach those to the device until loggin is successful.",
-  "id": "fjewjuwqqyfmejshlijbhzhz"
+  "id": "vawkqiengycpnfwdcesytuij"
 }

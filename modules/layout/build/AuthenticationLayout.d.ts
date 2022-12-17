@@ -10,6 +10,7 @@ export declare const AuthenticationLayout: (props: {
      * If given, menu will be rendered
      */
     menu?: MenuProps | undefined;
+    overwriteDefaultPages?: string[] | undefined;
     customHeader?: React.ReactNode;
     custom404Page?: React.ReactNode;
     nextPage?: any;

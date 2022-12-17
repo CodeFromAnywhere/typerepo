@@ -1,19 +1,17 @@
-import server from "server";
-import { Options } from "server/typings/options";
-import { Context } from "server/typings/common";
-import {
-  functionPostEndpoints,
-  functionGetEndpoints,
-} from "function-server-endpoints";
-import { watchAll } from "watch-all";
-import { ports } from "port-conventions";
-import { getProjectRoot } from "get-path";
-import { path } from "fs-util";
-import { execSync } from "child-process-helper";
-import { log } from "log";
-import { startApp } from "pm2-util";
-import { scheduleCronJobs } from "./scheduleCronJobs";
 import dotenv from "dotenv";
+import { path } from "fs-util";
+import {
+  functionGetEndpoints,
+  functionPostEndpoints,
+} from "function-server-endpoints";
+import { getProjectRoot } from "get-path";
+import { ports } from "port-conventions";
+import server from "server";
+import { Context } from "server/typings/common";
+import { Options } from "server/typings/options";
+import { watchAll } from "watch-all";
+import { scheduleCronJobs } from "./scheduleCronJobs";
+import { startSearchWebIfAvailable } from "./startSearchWebIfAvailable";
 
 dotenv.config();
 
@@ -29,24 +27,7 @@ export const runFunctionServer = (
 ) => {
   const { header } = server.reply;
 
-  startApp("search-web", true).then((result) => {
-    if (!result?.isSuccessful) {
-      console.log({ result });
-      log(
-        `Something went wrong starting "search-web". Maybe you don't have it?`,
-        { type: "error" }
-      );
-      return;
-    }
-
-    if (!isRestart && isWatching) {
-      // Open in browser
-      setTimeout(() => {
-        execSync(`open http://localhost:42001`);
-        log(`Opened the homepage in your browser`, { type: "success" });
-      }, 1000);
-    }
-  });
+  startSearchWebIfAvailable(isWatching, isRestart);
   const cors = [
     /* 
      see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
@@ -127,7 +108,7 @@ export const runFunctionServer = (
     }
 
     console.log(
-      `Running on port ${port}. All node functions are now available through /function/[name] or through the "api" object...`
+      `Typerepo is now running on port ${port}. Your node functions are now available through the "api" object!`
     );
   });
 };

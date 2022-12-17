@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1671157027122,
-    "updatedAt": 1671157027122,
+    "createdAt": 1671229965491,
+    "updatedAt": 1671229965491,
     "deletedAt": 0,
-    "createdFirstAt": 1671157027122,
+    "createdFirstAt": 1671229965491,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
     "comment": "This is what we need on the page level. There are many subtleties to it, but this is the core",
-    "rawStatement": "export type ReaderProps = {\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown: string | null;\n  contextualPromptsObject: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults: ContextualPromptResult[] | null;\n  projectRelativeFilePath: string;\n  navigation: FolderContent[];\n};",
+    "rawStatement": "export type ReaderProps = {\n  notFound?: boolean;\n  notFoundReason?: string | null;\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder?: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown?: string | null;\n  contextualPromptsObject?: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults?: ContextualPromptResult[] | null;\n\n  /**\n   * Project relative file path according to the query path.\n   *\n   * Even if the file doesn't seem to exist, this still returns.\n   */\n  projectRelativeFilePath?: string;\n  /**\n   * Project relative file path that is actually used\n   */\n  actualProjectRelativeFilePath?: string;\n  navigation?: FolderContent[];\n};",
     "parameters": {},
     "types": [],
     "firstLine": 5,
     "lastLine": 7,
-    "id": "pecqczbxnzqgmalowsbfhxwb"
+    "id": "mqtnchfpnozilzrgohzemdmg"
   }
 ]

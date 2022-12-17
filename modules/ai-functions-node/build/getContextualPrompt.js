@@ -1,4 +1,85 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,n,r){return new(n||(n=Promise))((function(o,a){function u(e){try{l(r.next(e))}catch(e){a(e)}}function i(e){try{l(r.throw(e))}catch(e){a(e)}}function l(e){var t;e.done?o(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(u,i)}l((r=r.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,r,o,a,u={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return a={next:i(0),throw:i(1),return:i(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function i(a){return function(i){return function(a){if(n)throw new TypeError("Generator is already executing.");for(;u;)try{if(n=1,r&&(o=2&a[0]?r.return:a[0]?r.throw||((o=r.return)&&o.call(r),0):r.next)&&!(o=o.call(r,a[1])).done)return o;switch(r=0,o&&(a=[2&a[0],o.value]),a[0]){case 0:case 1:o=a;break;case 4:return u.label++,{value:a[1],done:!1};case 5:u.label++,r=a[1],a=[0];continue;case 7:a=u.ops.pop(),u.trys.pop();continue;default:if(!(o=u.trys,(o=o.length>0&&o[o.length-1])||6!==a[0]&&2!==a[0])){u=0;continue}if(3===a[0]&&(!o||a[1]>o[0]&&a[1]<o[3])){u.label=a[1];break}if(6===a[0]&&u.label<o[1]){u.label=o[1],o=a;break}if(o&&u.label<o[2]){u.label=o[2],u.ops.push(a);break}o[2]&&u.ops.pop(),u.trys.pop();continue}a=t.call(e,u)}catch(e){a=[6,e],r=0}finally{n=o=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,i])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getContextualPrompt=void 0;var database_1=require("database"),model_types_1=require("model-types"),convert_case_1=require("convert-case"),getContextualPrompt=function(e,t,n,r){return __awaiter(void 0,void 0,void 0,(function(){var o,a,u,i,l;return __generator(this,(function(s){switch(s.label){case 0:return e?[4/*yield*/,database_1.db.get("ContextualPrompt")]:[3/*break*/,2];case 1:return o=s.sent(),(a=o.find((function(t){return t.slug===e})))?[2/*return*/,a]:[2/*return*/,void 0];case 2:return t&&0!==t.length?(u=n&&n.length>0,i=u?n:(0,model_types_1.generateId)(),l={name:i,slug:(0,convert_case_1.slugify)(i),promptContent:t,contextType:[r||"text"],model:"chat-gpt",usesContext:null==t?void 0:t.includes("%context"),usesSelection:null==t?void 0:t.includes("%selection"),usesAnyContext:null==t?void 0:t.includes("%any")},u?[4/*yield*/,database_1.db.upsert("ContextualPrompt",l)]:[3/*break*/,4]):[2/*return*/,void 0];case 3:s.sent(),s.label=4;case 4:return[2/*return*/,l]}}))}))};exports.getContextualPrompt=getContextualPrompt;
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getContextualPrompt = void 0;
+var database_1 = require("database");
+var model_types_1 = require("model-types");
+var convert_case_1 = require("convert-case");
+var getContextualPrompt = function (contextualPromptSlug, customPromptContent, saveNewPromptWithName, contextType) { return __awaiter(void 0, void 0, void 0, function () {
+    var contextualPrompts, contextualPrompt, isNew, name, newContextualPrompt;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (!contextualPromptSlug) return [3 /*break*/, 2];
+                return [4 /*yield*/, database_1.db.get("ContextualPrompt")];
+            case 1:
+                contextualPrompts = _a.sent();
+                contextualPrompt = contextualPrompts.find(function (x) { return x.slug === contextualPromptSlug; });
+                if (!contextualPrompt) {
+                    return [2 /*return*/, undefined];
+                }
+                return [2 /*return*/, contextualPrompt];
+            case 2:
+                if (!customPromptContent || customPromptContent.length === 0) {
+                    return [2 /*return*/, undefined];
+                }
+                isNew = saveNewPromptWithName && saveNewPromptWithName.length > 0;
+                name = isNew ? saveNewPromptWithName : (0, model_types_1.generateId)();
+                newContextualPrompt = {
+                    name: name,
+                    slug: (0, convert_case_1.slugify)(name),
+                    promptContent: customPromptContent,
+                    contextType: [contextType || "text"],
+                    model: "chat-gpt",
+                    usesContext: customPromptContent === null || customPromptContent === void 0 ? void 0 : customPromptContent.includes("%context"),
+                    usesSelection: customPromptContent === null || customPromptContent === void 0 ? void 0 : customPromptContent.includes("%selection"),
+                    usesAnyContext: customPromptContent === null || customPromptContent === void 0 ? void 0 : customPromptContent.includes("%any"),
+                };
+                if (!isNew) return [3 /*break*/, 4];
+                return [4 /*yield*/, database_1.db.upsert("ContextualPrompt", newContextualPrompt)];
+            case 3:
+                _a.sent();
+                _a.label = 4;
+            case 4: return [2 /*return*/, newContextualPrompt];
+        }
+    });
+}); };
+exports.getContextualPrompt = getContextualPrompt;
 /*
 See this quote:
 

@@ -79,7 +79,7 @@ var deviceInclude = {
  * Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
  */
 var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, devices, alreadyDevice, ipInfo, origin, referer, currentIpInfo_1, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, currentPersonCalculated_1, updatedDevice_1, newDevice, upsertResult, fullNewDevice, currentPersonCalculated, finalNewDevice;
+    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgent, devices, alreadyDevices, idsToRemove_1, removeResult, alreadyDevice, ipInfo, origin, referer, upsertResult, currentIpInfo, previousIpsHasAlready, newPreviousIps, newIpStuff, newOrigins, currentPersonCalculated, updatedDevice;
     var _a, _b, _c;
     return __generator(this, function (_d) {
         switch (_d.label) {
@@ -101,7 +101,20 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 return [4 /*yield*/, database_1.db.get("Device", { include: deviceInclude })];
             case 1:
                 devices = _d.sent();
-                alreadyDevice = devices.find(function (x) { return x.authToken === authToken; });
+                alreadyDevices = devices.filter(function (x) { return x.authToken === authToken; });
+                if (!(alreadyDevices.length > 1)) return [3 /*break*/, 3];
+                idsToRemove_1 = alreadyDevices.slice(1).map(function (x) { return x.id; });
+                return [4 /*yield*/, database_1.db.remove("Device", function (device) {
+                        return idsToRemove_1.includes(device.id);
+                    })];
+            case 2:
+                removeResult = _d.sent();
+                console.log("found multiple devices with the same authToken. removing:", {
+                    removeResult: removeResult,
+                });
+                _d.label = 3;
+            case 3:
+                alreadyDevice = alreadyDevices[0] ? alreadyDevices[0] : undefined;
                 performance.push((0, measure_performance_1.getNewPerformance)("findAlreadyDevice", executionId));
                 ipInfo = {
                     ip: ip,
@@ -114,25 +127,21 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                 };
                 origin = serverContext.req.get("Origin");
                 referer = serverContext.req.get("Referrer");
-                // server.reply
-                //   .cookie(
-                //     "testje",
-                //     authToken,
-                //     {
-                //       /**
-                //        * NB: VERY IMPORTANT In order to receive the cookie at other port or domain
-                //        */
-                //       sameSite: "none",
-                //       secure: true,
-                //       /**
-                //        * It turned out that Chrome won't set the cookie if the domain contains a port. Setting it for localhost (without port) is not a problem
-                //        */
-                //       domain: "localhost",
-                //     }
-                //   )
                 performance.push((0, measure_performance_1.getNewPerformance)("gatherIpInfo", executionId));
-                if (!alreadyDevice) return [3 /*break*/, 3];
-                currentIpInfo_1 = {
+                if (!!alreadyDevice) return [3 /*break*/, 6];
+                return [4 /*yield*/, database_1.db.upsert("Device", __assign(__assign({ authToken: authToken, id: (0, model_types_1.generateId)(), authenticationMethods: [] }, ipInfo), { lastOnlineAt: 0, lastSyncDatabaseAtObject: {}, name: (0, calculateDeviceName_1.calculateDeviceName)(ipInfo, userAgent), origins: [origin], previousIps: [], userAgentString: userAgent.ua, hasPapi: false }))];
+            case 4:
+                upsertResult = _d.sent();
+                return [4 /*yield*/, database_1.db.get("Device")];
+            case 5:
+                alreadyDevice = (_d.sent()).find(function (x) { return x.authToken === authToken; });
+                // weird
+                if (!alreadyDevice) {
+                    return [2 /*return*/, undefined];
+                }
+                _d.label = 6;
+            case 6:
+                currentIpInfo = {
                     ip: alreadyDevice.ip,
                     city: alreadyDevice.city,
                     position: alreadyDevice.position,
@@ -141,52 +150,27 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                     region: alreadyDevice.region,
                     timezone: alreadyDevice.timezone,
                 };
-                previousIpsHasAlready = !currentIpInfo_1.ip ||
-                    alreadyDevice.previousIps.find(function (x) { return x.ip === currentIpInfo_1.ip; });
+                previousIpsHasAlready = !currentIpInfo.ip ||
+                    alreadyDevice.previousIps.find(function (x) { return x.ip === currentIpInfo.ip; });
                 newPreviousIps = previousIpsHasAlready
                     ? alreadyDevice.previousIps
-                    : alreadyDevice.previousIps.concat(currentIpInfo_1);
+                    : alreadyDevice.previousIps.concat(currentIpInfo);
                 newIpStuff = alreadyDevice.ip === ip ? {} : __assign(__assign({}, ipInfo), { previousIps: newPreviousIps });
-                newOrigins = alreadyDevice.origins.includes(origin)
+                newOrigins = ((_b = alreadyDevice.origins) === null || _b === void 0 ? void 0 : _b.includes(origin))
                     ? alreadyDevice.origins
                     : alreadyDevice.origins.concat(origin);
-                currentPersonCalculated_1 = alreadyDevice.currentPersonId
-                    ? (_b = alreadyDevice.persons) === null || _b === void 0 ? void 0 : _b.find(function (x) { return x.id === alreadyDevice.currentPersonId; })
+                currentPersonCalculated = alreadyDevice.currentPersonId
+                    ? (_c = alreadyDevice.persons) === null || _c === void 0 ? void 0 : _c.find(function (x) { return x.id === (alreadyDevice === null || alreadyDevice === void 0 ? void 0 : alreadyDevice.currentPersonId); })
                     : undefined;
-                updatedDevice_1 = __assign(__assign(__assign({}, alreadyDevice), newIpStuff), { currentPersonCalculated: currentPersonCalculated_1, origins: newOrigins, userAgent: userAgent, userAgentString: userAgent.ua });
+                updatedDevice = __assign(__assign(__assign({}, alreadyDevice), newIpStuff), { currentPersonCalculated: currentPersonCalculated, origins: newOrigins, userAgentString: userAgent.ua });
                 performance.push((0, measure_performance_1.getNewPerformance)("alreadyDevice_makeUpdatedDevice", executionId));
-                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.authToken === authToken; }, function () { return updatedDevice_1; })];
-            case 2:
+                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.authToken === authToken; }, function () { return updatedDevice; })];
+            case 7:
                 _d.sent();
                 performance.push((0, measure_performance_1.getNewPerformance)("alreadyDevice_updateDevice", executionId));
                 (0, savePageVisit_1.savePageVisit)(alreadyDevice.id, ipInfo, referer);
                 // console.log("upsertDevice, already device", performance);
-                return [2 /*return*/, updatedDevice_1];
-            case 3:
-                newDevice = __assign(__assign({ id: (0, model_types_1.generateId)(), authToken: authToken, authenticationMethods: [] }, ipInfo), { lastOnlineAt: 0, lastSyncDatabaseAtObject: {}, name: (0, calculateDeviceName_1.calculateDeviceName)(ipInfo, userAgent), origins: [origin], previousIps: [], userAgent: userAgent, userAgentString: userAgent.ua, hasPapi: false });
-                performance.push((0, measure_performance_1.getNewPerformance)("calculateNewDevice", executionId));
-                return [4 /*yield*/, database_1.db.upsert("Device", newDevice, {
-                        onlyInsert: true,
-                    })];
-            case 4:
-                upsertResult = _d.sent();
-                console.log({ upsertResult: upsertResult });
-                performance.push((0, measure_performance_1.getNewPerformance)("upsertNewDevice", executionId));
-                return [4 /*yield*/, database_1.db.get("Device", { include: deviceInclude })];
-            case 5:
-                fullNewDevice = (_d.sent()).find(function (x) { return x.authToken === authToken; });
-                performance.push((0, measure_performance_1.getNewPerformance)("getFullNewDevice", executionId));
-                if (fullNewDevice) {
-                    (0, savePageVisit_1.savePageVisit)(fullNewDevice.id, ipInfo, referer);
-                }
-                currentPersonCalculated = (fullNewDevice === null || fullNewDevice === void 0 ? void 0 : fullNewDevice.currentPersonId)
-                    ? (_c = fullNewDevice.persons) === null || _c === void 0 ? void 0 : _c.find(function (x) { return x.id === fullNewDevice.currentPersonId; })
-                    : undefined;
-                finalNewDevice = fullNewDevice
-                    ? __assign(__assign({}, fullNewDevice), { currentPersonCalculated: currentPersonCalculated }) : undefined;
-                performance.push((0, measure_performance_1.getNewPerformance)("calculateMetadata", executionId));
-                // console.log("upsertDevice", performance);
-                return [2 /*return*/, finalNewDevice];
+                return [2 /*return*/, updatedDevice];
         }
     });
 }); };

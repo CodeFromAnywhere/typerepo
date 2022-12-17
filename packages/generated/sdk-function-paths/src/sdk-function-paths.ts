@@ -845,7 +845,6 @@ export const sdkFunctionPaths = {
   "FilePromptSelect": "/modules/prompt-components/db/ts-functions/file-prompt-select.json",
   "processPrompt": "/modules/prompt-components/db/ts-functions/process-prompt.json",
   "usePromptResultAlert": "/modules/prompt-components/db/ts-functions/use-prompt-result-alert.json",
-  "useSelectionPromptsMenu": "/modules/prompt-components/db/ts-functions/use-selection-prompts-menu.json",
   "clickOnSpanTag": "/modules/puppeteer-utils/db/ts-functions/click-on-span-tag.json",
   "facebookLogin": "/modules/puppeteer-utils/db/ts-functions/facebook-login.json",
   "foundOrNotXpath": "/modules/puppeteer-utils/db/ts-functions/found-or-not-xpath.json",

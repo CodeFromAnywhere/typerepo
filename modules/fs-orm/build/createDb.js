@@ -1,7 +1,149 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((function(a,i){function o(e){try{s(n.next(e))}catch(e){i(e)}}function u(e){try{s(n.throw(e))}catch(e){i(e)}}function s(e){var t;e.done?a(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(o,u)}s((n=n.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,n,a,i,o={label:0,sent:function(){if(1&a[0])throw a[1];return a[1]},trys:[],ops:[]};return i={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function u(i){return function(u){return function(i){if(r)throw new TypeError("Generator is already executing.");for(;o;)try{if(r=1,n&&(a=2&i[0]?n.return:i[0]?n.throw||((a=n.return)&&a.call(n),0):n.next)&&!(a=a.call(n,i[1])).done)return a;switch(n=0,a&&(i=[2&i[0],a.value]),i[0]){case 0:case 1:a=i;break;case 4:return o.label++,{value:i[1],done:!1};case 5:o.label++,n=i[1],i=[0];continue;case 7:i=o.ops.pop(),o.trys.pop();continue;default:if(!(a=o.trys,(a=a.length>0&&a[a.length-1])||6!==i[0]&&2!==i[0])){o=0;continue}if(3===i[0]&&(!a||i[1]>a[0]&&i[1]<a[3])){o.label=i[1];break}if(6===i[0]&&o.label<a[1]){o.label=a[1],a=i;break}if(a&&o.label<a[2]){o.label=a[2],o.ops.push(i);break}a[2]&&o.ops.pop(),o.trys.pop();continue}i=t.call(e,o)}catch(e){i=[6,e],n=0}finally{r=a=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,u])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.createDb=void 0;var schema_util_1=require("schema-util"),fs_util_1=require("fs-util"),log_1=require("log"),js_util_1=require("js-util"),measure_performance_1=require("measure-performance"),mergeConfigs_1=require("./convention/mergeConfigs"),alter_functions_1=require("./alter/alter-functions"),getDatabaseFiles_1=require("./convention/getDatabaseFiles"),getAugmentedData_1=require("./util/getAugmentedData"),groupByFile_1=require("./util/groupByFile"),augmentItemWithReferencedDataRecursively_1=require("./util/augmentItemWithReferencedDataRecursively"),getDbFileLocation_1=require("./convention/getDbFileLocation"),waitForLockfile_1=require("./waitForLockfile"),maxConcurrency=256,createDb=function(e){
-// need to get
-var t=function(t,n){return __awaiter(void 0,void 0,void 0,(function(){var a,i,o,u,s,c,l,_,f,m,g;return __generator(this,(function(d){switch(d.label){case 0:return a=(0,measure_performance_1.generateUniqueId)(),i=[],(0,measure_performance_1.getNewPerformance)("start",a,!0),o=(0,mergeConfigs_1.mergeConfigs)(t,e,n),i.push((0,measure_performance_1.getNewPerformance)("mergeConfigs",a)),[4/*yield*/,(0,getDatabaseFiles_1.getDatabaseFiles)(t,o)];case 1:return u=d.sent(),i.push((0,measure_performance_1.getNewPerformance)("getDatabaseFiles",a)),s={},c=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,n,a;return __generator(this,(function(i){switch(i.label){case 0:return e.referenceKey&&((t=(0,schema_util_1.getReferenceParameterInfo)(e.referenceKey)).isReferenceParameter&&t.interfaceName)?s[t.interfaceName]?[3/*break*/,2]:[4/*yield*/,r(t.interfaceName,{manualProjectRoot:o.manualProjectRoot})]:[2/*return*/];case 1:n=i.sent(),s[t.interfaceName]=n,i.label=2;case 2:return e.include?(a=(0,js_util_1.makeArray)(e.include),[4/*yield*/,Promise.all(a.map(c))]):[3/*break*/,4];case 3:i.sent(),i.label=4;case 4:return[2/*return*/]}}))}))},l=!(!(null==n?void 0:n.include)||Array.isArray(n.include))&&!0===n.include.auto,_=l||!(null==n?void 0:n.include)?[]:(0,js_util_1.makeArray)(null==n?void 0:n.include),[4/*yield*/,Promise.all(_.map(c))];case 2:return d.sent(),i.push((0,measure_performance_1.getNewPerformance)("processInclude",a)),f=u.map((function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,r,a,i;return __generator(this,(function(u){switch(u.label){case 0:return[4/*yield*/,(0,getAugmentedData_1.getAugmentedData)(e,o.dbStorageMethod)];case 1:return(t=u.sent())?(r=(null==n?void 0:n.filter)?t.filter(n.filter):t,a=_?r.map((function(e){return(0,augmentItemWithReferencedDataRecursively_1.augmentItemWithReferencedDataRecursively)(e,_,s)})):r,l&&
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createDb = void 0;
+var schema_util_1 = require("schema-util");
+var fs_util_1 = require("fs-util");
+var log_1 = require("log");
+var js_util_1 = require("js-util");
+var measure_performance_1 = require("measure-performance");
+var mergeConfigs_1 = require("./convention/mergeConfigs");
+var alter_functions_1 = require("./alter/alter-functions");
+var getDatabaseFiles_1 = require("./convention/getDatabaseFiles");
+var getAugmentedData_1 = require("./util/getAugmentedData");
+var groupByFile_1 = require("./util/groupByFile");
+var augmentItemWithReferencedDataRecursively_1 = require("./util/augmentItemWithReferencedDataRecursively");
+var getDbFileLocation_1 = require("./convention/getDbFileLocation");
+var waitForLockfile_1 = require("./waitForLockfile");
 /**
+ * Crashes for upsert at 1024 on m2. It would be good to find a way to ensure we never crash here, or at least report where the out of memory bug came from.
+ */
+var maxConcurrency = 256;
+/**
+Create your database by passing your models as a generic and some optional configuration
+ */
+var createDb = function (dbConfig) {
+    // need to get
+    var getDbFileLocationPath = function (storedItem, operationName, modelName, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var mergedQueryConfig, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    mergedQueryConfig = (0, mergeConfigs_1.mergeConfigs)(modelName, dbConfig, config);
+                    return [4 /*yield*/, (0, getDbFileLocation_1.getDbFileLocation)(storedItem, operationName, mergedQueryConfig, modelName)];
+                case 1:
+                    result = _a.sent();
+                    return [2 /*return*/, result === null || result === void 0 ? void 0 : result.absolutePath];
+            }
+        });
+    }); };
+    var getByFile = function (modelName, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var executionId, performance, mergedQueryConfig, dbFiles, includeData, processInclude, isAuto, includeArray, dbContentPromises, dbContent, dbContentObject;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    executionId = (0, measure_performance_1.generateUniqueId)();
+                    performance = [];
+                    (0, measure_performance_1.getNewPerformance)("start", executionId, true);
+                    mergedQueryConfig = (0, mergeConfigs_1.mergeConfigs)(modelName, dbConfig, config);
+                    performance.push((0, measure_performance_1.getNewPerformance)("mergeConfigs", executionId));
+                    return [4 /*yield*/, (0, getDatabaseFiles_1.getDatabaseFiles)(modelName, mergedQueryConfig)];
+                case 1:
+                    dbFiles = _a.sent();
+                    performance.push((0, measure_performance_1.getNewPerformance)("getDatabaseFiles", executionId));
+                    includeData = {};
+                    processInclude = function (includeConfig) { return __awaiter(void 0, void 0, void 0, function () {
+                        var parameterInfo, includeThisData, includeArray_1;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    if (!includeConfig.referenceKey)
+                                        return [2 /*return*/];
+                                    parameterInfo = (0, schema_util_1.getReferenceParameterInfo)(includeConfig.referenceKey);
+                                    if (!parameterInfo.isReferenceParameter || !parameterInfo.interfaceName)
+                                        return [2 /*return*/];
+                                    if (!!includeData[parameterInfo.interfaceName]) return [3 /*break*/, 2];
+                                    return [4 /*yield*/, get(parameterInfo.interfaceName, { manualProjectRoot: mergedQueryConfig.manualProjectRoot })];
+                                case 1:
+                                    includeThisData = _a.sent();
+                                    includeData[parameterInfo.interfaceName] = includeThisData;
+                                    _a.label = 2;
+                                case 2:
+                                    if (!includeConfig.include) return [3 /*break*/, 4];
+                                    includeArray_1 = (0, js_util_1.makeArray)(includeConfig.include);
+                                    return [4 /*yield*/, Promise.all(includeArray_1.map(processInclude))];
+                                case 3:
+                                    _a.sent();
+                                    _a.label = 4;
+                                case 4: return [2 /*return*/];
+                            }
+                        });
+                    }); };
+                    isAuto = (config === null || config === void 0 ? void 0 : config.include) && !Array.isArray(config.include)
+                        ? config.include.auto === true
+                            ? true
+                            : false
+                        : false;
+                    includeArray = isAuto || !(config === null || config === void 0 ? void 0 : config.include) ? [] : (0, js_util_1.makeArray)(config === null || config === void 0 ? void 0 : config.include);
+                    return [4 /*yield*/, Promise.all(includeArray.map(processInclude))];
+                case 2:
+                    _a.sent();
+                    performance.push((0, measure_performance_1.getNewPerformance)("processInclude", executionId));
+                    dbContentPromises = dbFiles.map(function (dbFileLocation) { return __awaiter(void 0, void 0, void 0, function () {
+                        var items, filteredItems, augmentedItems;
+                        var _a;
+                        return __generator(this, function (_b) {
+                            switch (_b.label) {
+                                case 0: return [4 /*yield*/, (0, getAugmentedData_1.getAugmentedData)(dbFileLocation, mergedQueryConfig.dbStorageMethod)];
+                                case 1:
+                                    items = _b.sent();
+                                    if (!items)
+                                        return [2 /*return*/];
+                                    filteredItems = (config === null || config === void 0 ? void 0 : config.filter)
+                                        ? items.filter(config.filter)
+                                        : items;
+                                    augmentedItems = includeArray
+                                        ? filteredItems.map(function (item) {
+                                            return (0, augmentItemWithReferencedDataRecursively_1.augmentItemWithReferencedDataRecursively)(item, includeArray, includeData);
+                                        })
+                                        : filteredItems;
+                                    if (isAuto) {
+                                        /**
                                         TODO:
                                 
                                         Go over all keys in the first item of augmentedItems, and see if it contains reference keys.
@@ -11,17 +153,272 @@ var t=function(t,n){return __awaiter(void 0,void 0,void 0,(function(){var a,i,o,
                                         Call augmentItemRecursively with the includes.
                                 
                                         */
-(0,log_1.log)("auto is not supported yet",{type:"warning"}),[2/*return*/,(i={},i[e.absolutePath]=a,i)]):[2/*return*/]}}))}))})),i.push((0,measure_performance_1.getNewPerformance)("dbContentPromises",a)),[4/*yield*/,Promise.all(f)];case 3:
-// console.log({ dbContentObject });
-return m=d.sent().filter(js_util_1.notEmpty),i.push((0,measure_performance_1.getNewPerformance)("dbContent",a)),g=(0,js_util_1.mergeObjectsArray)(m),i.push((0,measure_performance_1.getNewPerformance)("dbContentObject",a)),
-// console.log("get performance", performance);
-(0,measure_performance_1.cleanupTimer)(a),[2/*return*/,g]}}))}))},r=function(e,r){return __awaiter(void 0,void 0,void 0,(function(){var n,a;return __generator(this,(function(i){switch(i.label){case 0:return a=(n=Object).values,[4/*yield*/,t(e,r)];case 1:return[2/*return*/,a.apply(n,[i.sent()]).flat()]}}))}))},n=function(t,r,n){return __awaiter(void 0,void 0,void 0,(function(){var a,i,o,u,s;return __generator(this,(function(c){switch(c.label){case 0:return a=(0,mergeConfigs_1.mergeConfigs)(t,e,n),i=a.dbStorageMethod,[4/*yield*/,(0,groupByFile_1.groupByFile)(r,a,t)];case 1:return o=c.sent(),[4/*yield*/,(0,getDatabaseFiles_1.getDatabaseFiles)(t,a)];case 2:return u=c.sent(),[4/*yield*/,(0,js_util_1.mapMany)(u,(function(e){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(t){switch(t.label){case 0:return fs_util_1.fs.existsSync(e.absolutePath)?((0,log_1.log)("Removing ".concat(e.absolutePath),{type:"debug"}),[4/*yield*/,fs_util_1.fs.rm(e.absolutePath)]):[3/*break*/,2];case 1:t.sent(),t.label=2;case 2:return[2/*return*/]}}))}))}),maxConcurrency)];case 3:return c.sent(),[4/*yield*/,(0,js_util_1.mapMany)(Object.keys(o),(function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,r,n;return __generator(this,(function(a){switch(a.label){case 0:return(t=o[e])?(r=t.dbFileLocation,n=t.items,(0,log_1.log)("set new values to there: ".concat(n.length),{type:"debug"}),
-// if the item-array is empty, upsert nothing.
-0===n.length?[2/*return*/]:[4/*yield*/,(0,alter_functions_1.upsertItems)(i,r,n)]):[2/*return*/];case 1:return[2/*return*/,a.sent()]}}))}))}))];case 4:return s=c.sent().filter(js_util_1.notEmpty),[2/*return*/,{isSuccesful:!0,amountInserted:(0,js_util_1.sum)(s.map((function(e){return e.amountInserted||0})))}]}}))}))};return{get:r,getDbFileLocationPath:function(t,r,n,a){return __awaiter(void 0,void 0,void 0,(function(){var i,o;return __generator(this,(function(u){switch(u.label){case 0:return i=(0,mergeConfigs_1.mergeConfigs)(n,e,a),[4/*yield*/,(0,getDbFileLocation_1.getDbFileLocation)(t,r,i,n)];case 1:return[2/*return*/,null==(o=u.sent())?void 0:o.absolutePath]}}))}))},getByFile:t,clear:function(t,r){return __awaiter(void 0,void 0,void 0,(function(){var n,a;return __generator(this,(function(i){switch(i.label){case 0:return n=(0,mergeConfigs_1.mergeConfigs)(t,e,r),[4/*yield*/,(0,getDatabaseFiles_1.getDatabaseFiles)(t,n)];case 1:return a=i.sent(),[4/*yield*/,(0,js_util_1.mapMany)(a,(function(e){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(t){return[2/*return*/,fs_util_1.fs.existsSync(e.absolutePath)&&fs_util_1.fs.rm(e.absolutePath)]}))}))}),maxConcurrency)];case 2:return i.sent(),[2/*return*/,{amountRemoved:a.length,isSuccesful:!0,message:"".concat(a.length," files removed")}]}}))}))},upsert:function(t,r,n){return __awaiter(void 0,void 0,void 0,(function(){var a,i,o,u,s;return __generator(this,(function(c){switch(c.label){case 0:return a=(0,mergeConfigs_1.mergeConfigs)(t,e,n),i=a.dbStorageMethod,o=(0,js_util_1.makeArray)(r),[4/*yield*/,(0,groupByFile_1.groupByFile)(o,a,t)];case 1:return u=c.sent(),[4/*yield*/,(0,js_util_1.mapMany)(Object.keys(u),(function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,r,a,o,s;return __generator(this,(function(c){switch(c.label){case 0:return t=u[e],r=t.dbFileLocation,a=t.items,(null==n?void 0:n.removeUntouched)&&fs_util_1.fs.existsSync(e)?[4/*yield*/,fs_util_1.fs.rm(e)]:[3/*break*/,2];case 1:c.sent(),c.label=2;case 2:return o=r.absolutePath+".lock",[4/*yield*/,(0,waitForLockfile_1.waitForLockfile)(o)];case 3:return c.sent(),[4/*yield*/,(0,alter_functions_1.upsertItems)(i,r,a,null==n?void 0:n.onlyInsert)];case 4:return s=c.sent(),[4/*yield*/,fs_util_1.fs.rm(o)];case 5:
-// delete lockfile
-return c.sent(),[2/*return*/,s]}}))}))}),maxConcurrency)];case 2:return s=c.sent(),[2/*return*/,{isSuccesful:!0,message:"Upserted into ".concat(s.length," files")}]}}))}))},set:n,remove:function(t,r,n){return __awaiter(void 0,void 0,void 0,(function(){var a,i,o,u;return __generator(this,(function(s){switch(s.label){case 0:return a=(0,mergeConfigs_1.mergeConfigs)(t,e,n),[4/*yield*/,(0,getDatabaseFiles_1.getDatabaseFiles)(t,a)];case 1:return i=s.sent(),[4/*yield*/,(0,js_util_1.mapMany)(i,(function(e){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(t){switch(t.label){case 0:return[4/*yield*/,(0,alter_functions_1.removeMultiple)(a.dbStorageMethod,e,(function(e){return r(e)}))];case 1:
-// console.log({ amountRemoved });
-return[2/*return*/,t.sent().amountRemoved||0]}}))}))}),maxConcurrency)];case 2:return o=s.sent(),0===(u=(0,js_util_1.sum)(o))?[2/*return*/,{isSuccesful:!1,message:"Nothing removed",amountRemoved:u}]:[2/*return*/,{amountRemoved:u,isSuccesful:!0,message:"Items removed"}]}}))}))},
-// uses set
-update:function(e,t,a,i){return __awaiter(void 0,void 0,void 0,(function(){var o,u,s,c,l,_;return __generator(this,(function(f){switch(f.label){case 0:return[4/*yield*/,r(e,i)];case 1:return o=f.sent(),u=0,s=o.map((function(e){var r=!t||t(e);return r&&u++,r?a(e):e})),[4/*yield*/,n(e,s,i)];case 2:return c=f.sent(),l=c.isSuccesful,_=c.message,[2/*return*/,{amountUpdated:u,message:_,isSuccesful:l}]}}))}))}}};exports.createDb=createDb;
+                                        (0, log_1.log)("auto is not supported yet", { type: "warning" });
+                                        augmentedItems = augmentedItems;
+                                    }
+                                    return [2 /*return*/, (_a = {}, _a[dbFileLocation.absolutePath] = augmentedItems, _a)];
+                            }
+                        });
+                    }); });
+                    performance.push((0, measure_performance_1.getNewPerformance)("dbContentPromises", executionId));
+                    return [4 /*yield*/, Promise.all(dbContentPromises)];
+                case 3:
+                    dbContent = (_a.sent()).filter(js_util_1.notEmpty);
+                    performance.push((0, measure_performance_1.getNewPerformance)("dbContent", executionId));
+                    dbContentObject = (0, js_util_1.mergeObjectsArray)(dbContent);
+                    performance.push((0, measure_performance_1.getNewPerformance)("dbContentObject", executionId));
+                    // console.log("get performance", performance);
+                    (0, measure_performance_1.cleanupTimer)(executionId);
+                    // console.log({ dbContentObject });
+                    return [2 /*return*/, dbContentObject];
+            }
+        });
+    }); };
+    var get = function (modelName, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var items, _a, _b;
+        return __generator(this, function (_c) {
+            switch (_c.label) {
+                case 0:
+                    _b = (_a = Object).values;
+                    return [4 /*yield*/, getByFile(modelName, config)];
+                case 1:
+                    items = _b.apply(_a, [_c.sent()]).flat();
+                    return [2 /*return*/, items];
+            }
+        });
+    }); };
+    /**
+     *
+     */
+    var clear = function (modelName, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var mergedConfig, locations;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    mergedConfig = (0, mergeConfigs_1.mergeConfigs)(modelName, dbConfig, config);
+                    return [4 /*yield*/, (0, getDatabaseFiles_1.getDatabaseFiles)(modelName, mergedConfig)];
+                case 1:
+                    locations = _a.sent();
+                    return [4 /*yield*/, (0, js_util_1.mapMany)(locations, function (loc) { return __awaiter(void 0, void 0, void 0, function () { return __generator(this, function (_a) {
+                            return [2 /*return*/, fs_util_1.fs.existsSync(loc.absolutePath) && fs_util_1.fs.rm(loc.absolutePath)];
+                        }); }); }, maxConcurrency)];
+                case 2:
+                    _a.sent();
+                    return [2 /*return*/, {
+                            amountRemoved: locations.length,
+                            isSuccesful: true,
+                            message: "".concat(locations.length, " files removed"),
+                        }];
+            }
+        });
+    }); };
+    /**
+     * It seems problematic to remove a file temporarily because other query's may require it to be there.
+     */
+    var set = function (modelName, data, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var mergedConfig, dbStorageMethod, itemsPerFile, newFilePaths, oldLocations, removableLocations, upsertResults, amountInserted;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    mergedConfig = (0, mergeConfigs_1.mergeConfigs)(modelName, dbConfig, config);
+                    dbStorageMethod = mergedConfig.dbStorageMethod;
+                    return [4 /*yield*/, (0, groupByFile_1.groupByFile)(data, mergedConfig, modelName)];
+                case 1:
+                    itemsPerFile = _a.sent();
+                    newFilePaths = Object.keys(itemsPerFile);
+                    return [4 /*yield*/, (0, getDatabaseFiles_1.getDatabaseFiles)(modelName, mergedConfig)];
+                case 2:
+                    oldLocations = _a.sent();
+                    removableLocations = oldLocations.filter(function (x) { return !newFilePaths.includes(x.absolutePath); });
+                    return [4 /*yield*/, (0, js_util_1.mapMany)(newFilePaths, function (fileKey) { return __awaiter(void 0, void 0, void 0, function () {
+                            var value, dbFileLocation, items, result;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0:
+                                        value = itemsPerFile[fileKey];
+                                        if (!value)
+                                            return [2 /*return*/];
+                                        dbFileLocation = value.dbFileLocation, items = value.items;
+                                        (0, log_1.log)("set new values to there: ".concat(items.length), {
+                                            type: "debug",
+                                        });
+                                        // if the item-array is empty, upsert nothing.
+                                        if (items.length === 0)
+                                            return [2 /*return*/];
+                                        return [4 /*yield*/, (0, alter_functions_1.upsertItems)(dbStorageMethod, dbFileLocation, items)];
+                                    case 1:
+                                        result = _a.sent();
+                                        return [2 /*return*/, result];
+                                }
+                            });
+                        }); })];
+                case 3:
+                    upsertResults = (_a.sent()).filter(js_util_1.notEmpty);
+                    if (removableLocations.length) {
+                        console.log({
+                            removableLocations: removableLocations,
+                            oldLocations: oldLocations,
+                            itemsPerFile: itemsPerFile,
+                            newFilePaths: newFilePaths,
+                            data: data,
+                        });
+                    }
+                    return [4 /*yield*/, (0, js_util_1.mapMany)(removableLocations, function (dbFileLocation) { return __awaiter(void 0, void 0, void 0, function () {
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0:
+                                        if (!fs_util_1.fs.existsSync(dbFileLocation.absolutePath)) return [3 /*break*/, 2];
+                                        (0, log_1.log)("Removing ".concat(dbFileLocation.absolutePath), { type: "warning" });
+                                        return [4 /*yield*/, fs_util_1.fs.rm(dbFileLocation.absolutePath)];
+                                    case 1:
+                                        _a.sent();
+                                        _a.label = 2;
+                                    case 2: return [2 /*return*/];
+                                }
+                            });
+                        }); }, maxConcurrency)];
+                case 4:
+                    _a.sent();
+                    amountInserted = (0, js_util_1.sum)(upsertResults.map(function (x) { return x.amountInserted || 0; }));
+                    return [2 /*return*/, {
+                            isSuccesful: true,
+                            amountInserted: amountInserted,
+                        }];
+            }
+        });
+    }); };
+    /**
+     * TODO: currently very memory inefficient
+     * cannot even update
+     */
+    var upsert = function (modelName, data, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var mergedConfig, dbStorageMethod, creationItems, dataPerStorageFile, result;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    mergedConfig = (0, mergeConfigs_1.mergeConfigs)(modelName, dbConfig, config);
+                    dbStorageMethod = mergedConfig.dbStorageMethod;
+                    creationItems = (0, js_util_1.makeArray)(data);
+                    return [4 /*yield*/, (0, groupByFile_1.groupByFile)(creationItems, mergedConfig, modelName)];
+                case 1:
+                    dataPerStorageFile = _a.sent();
+                    return [4 /*yield*/, (0, js_util_1.mapMany)(Object.keys(dataPerStorageFile), function (absolutePath) { return __awaiter(void 0, void 0, void 0, function () {
+                            var itemsObject, dbFileLocation, items, lockfilePath, result;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0:
+                                        itemsObject = dataPerStorageFile[absolutePath];
+                                        dbFileLocation = itemsObject.dbFileLocation, items = itemsObject.items;
+                                        if (!((config === null || config === void 0 ? void 0 : config.removeUntouched) && fs_util_1.fs.existsSync(absolutePath))) return [3 /*break*/, 2];
+                                        return [4 /*yield*/, fs_util_1.fs.rm(absolutePath)];
+                                    case 1:
+                                        _a.sent();
+                                        _a.label = 2;
+                                    case 2:
+                                        lockfilePath = dbFileLocation.absolutePath + ".lock";
+                                        return [4 /*yield*/, (0, waitForLockfile_1.waitForLockfile)(lockfilePath)];
+                                    case 3:
+                                        _a.sent();
+                                        return [4 /*yield*/, (0, alter_functions_1.upsertItems)(dbStorageMethod, dbFileLocation, items, config === null || config === void 0 ? void 0 : config.onlyInsert)];
+                                    case 4:
+                                        result = _a.sent();
+                                        return [4 /*yield*/, fs_util_1.fs.rm(lockfilePath)];
+                                    case 5:
+                                        _a.sent();
+                                        // delete lockfile
+                                        return [2 /*return*/, result];
+                                }
+                            });
+                        }); }, maxConcurrency)];
+                case 2:
+                    result = _a.sent();
+                    return [2 /*return*/, {
+                            isSuccesful: true,
+                            message: "Upserted into ".concat(result.length, " files"),
+                        }];
+            }
+        });
+    }); };
+    var remove = function (modelName, removeWhere, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var mergedQueryConfig, dbFiles, amountRemovedArray, amountRemoved;
+        return __generator(this, function (_a) {
+            switch (_a.label) {
+                case 0:
+                    mergedQueryConfig = (0, mergeConfigs_1.mergeConfigs)(modelName, dbConfig, config);
+                    return [4 /*yield*/, (0, getDatabaseFiles_1.getDatabaseFiles)(modelName, mergedQueryConfig)];
+                case 1:
+                    dbFiles = _a.sent();
+                    return [4 /*yield*/, (0, js_util_1.mapMany)(dbFiles, function (dbFileLocation) { return __awaiter(void 0, void 0, void 0, function () {
+                            var amountRemoved;
+                            return __generator(this, function (_a) {
+                                switch (_a.label) {
+                                    case 0: return [4 /*yield*/, (0, alter_functions_1.removeMultiple)(mergedQueryConfig.dbStorageMethod, dbFileLocation, function (content) { return removeWhere(content); })];
+                                    case 1:
+                                        amountRemoved = (_a.sent()).amountRemoved;
+                                        // console.log({ amountRemoved });
+                                        return [2 /*return*/, amountRemoved || 0];
+                                }
+                            });
+                        }); }, maxConcurrency)];
+                case 2:
+                    amountRemovedArray = _a.sent();
+                    amountRemoved = (0, js_util_1.sum)(amountRemovedArray);
+                    if (amountRemoved === 0) {
+                        return [2 /*return*/, { isSuccesful: false, message: "Nothing removed", amountRemoved: amountRemoved }];
+                    }
+                    return [2 /*return*/, {
+                            amountRemoved: amountRemoved,
+                            isSuccesful: true,
+                            message: "Items removed",
+                        }];
+            }
+        });
+    }); };
+    var update = function (modelName, updateWhere, map, config) { return __awaiter(void 0, void 0, void 0, function () {
+        var data, amountUpdated, newData, _a, isSuccesful, message, result;
+        return __generator(this, function (_b) {
+            switch (_b.label) {
+                case 0: return [4 /*yield*/, get(modelName, config)];
+                case 1:
+                    data = _b.sent();
+                    if (data.length === 0) {
+                        return [2 /*return*/, {
+                                amountUpdated: 0,
+                                isSuccesful: true,
+                                message: "Nothing to update",
+                            }];
+                    }
+                    amountUpdated = 0;
+                    newData = data.map(function (item) {
+                        var needsUpdate = updateWhere ? updateWhere(item) : true;
+                        if (needsUpdate) {
+                            amountUpdated++;
+                        }
+                        return needsUpdate ? map(item) : item;
+                    });
+                    return [4 /*yield*/, set(modelName, newData, config)];
+                case 2:
+                    _a = _b.sent(), isSuccesful = _a.isSuccesful, message = _a.message;
+                    result = {
+                        amountUpdated: amountUpdated,
+                        message: message,
+                        isSuccesful: isSuccesful,
+                    };
+                    return [2 /*return*/, result];
+            }
+        });
+    }); };
+    return {
+        get: get,
+        getDbFileLocationPath: getDbFileLocationPath,
+        getByFile: getByFile,
+        clear: clear,
+        upsert: upsert,
+        set: set,
+        remove: remove,
+        // uses set
+        update: update,
+    };
+};
+exports.createDb = createDb;
 //# sourceMappingURL=createDb.js.map

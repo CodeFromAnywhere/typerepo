@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116906621,
-  "updatedAt": 1671116906621,
+  "createdAt": 1671217725710,
+  "updatedAt": 1671217725710,
   "deletedAt": 0,
-  "createdFirstAt": 1671116906621,
+  "createdFirstAt": 1671217725710,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "authentication-layout",
   "operationRelativeTypescriptFilePath": "src/AuthenticationLayout.tsx",
   "type": {
-    "rawType": "(props: { menu?: import(\"/Users/king/King/operations/tools/user-interfaces/gui/wise/menu/build/MenuProps\").MenuProps | undefined; customHeader?: React.ReactNode; custom404Page?: React.ReactNode; nextPage?: any; pageProps?: any; }) => JSX.Element",
+    "rawType": "(props: { menu?: import(\"/Users/king/King/operations/tools/user-interfaces/gui/wise/menu/build/MenuProps\").MenuProps | undefined; overwriteDefaultPages?: string[] | undefined; customHeader?: React.ReactNode; custom404Page?: React.ReactNode; nextPage?: any; pageProps?: any; }) => JSX.Element",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: {\n  /**\n   * If given, menu will be rendered\n   */\n  menu?: MenuProps;\n\n  customHeader?: React.ReactNode;\n  custom404Page?: React.ReactNode;\n  // how to build up the menu\n\n  // typed as any needed because of react-bug\n  nextPage?: any;\n  pageProps?: any;\n}) => {\n  const publicBundleConfig = queries.useGetPublicBundleConfig().data?.result;\n  const { nextPage, pageProps, menu, customHeader, custom404Page } = props;\n  const router = useRouter();\n  const path = router.asPath.substring(1).split(\"?\")[0];\n\n  const pages: { [key: string]: (props?: any) => JSX.Element } = {\n    login: LoginForm,\n    signup: SignupForm,\n    \"edit-profile\": UpdateMeForm,\n    profile: PublicProfile,\n    \"2fa\": AuthenticationMethodsCrud,\n  };\n\n  const NextPage = nextPage;\n\n  // seems unneeded\n\n  // const hasQueryPath = !!menu?.queryPaths?.includes(path);\n  // const hasWebPage = !!menu?.webPagesFlat?.find((x) => x.queryPath === path);\n\n  // const hasWebPageInThisFolder = !!menu?.webPagesFlat?.find((x) =>\n  //   x.queryPath.startsWith(path)\n  // );\n\n  // const shouldRenderCustom =\n  //   hasQueryPath || hasWebPage || path === \"\" || hasWebPageInThisFolder;\n\n  const DefaultPage = pages[path] ? pages[path] : undefined;\n\n  const hasPage = nextPage?.name !== \"Error\";\n  const children =\n    DefaultPage && !hasPage ? <DefaultPage /> : <NextPage {...pageProps} />;\n\n  const header = (\n    <Div>\n      {customHeader !== undefined ? (\n        customHeader\n      ) : (\n        <Header publicBundleConfig={publicBundleConfig} />\n      )}\n    </Div>\n  );\n\n  return (\n    <LoginWrapper>\n      <LayoutGrid header={header} menu={menu}>\n        {children}\n      </LayoutGrid>\n    </LoginWrapper>\n  );\n}",
+  "value": "(props: {\n  /**\n   * If given, menu will be rendered\n   */\n  menu?: MenuProps;\n\n  overwriteDefaultPages?: string[];\n  customHeader?: React.ReactNode;\n  custom404Page?: React.ReactNode;\n  // how to build up the menu\n\n  // typed as any needed because of react-bug\n  nextPage?: any;\n  pageProps?: any;\n}) => {\n  const publicBundleConfig = queries.useGetPublicBundleConfig().data?.result;\n  const {\n    nextPage,\n    pageProps,\n    menu,\n    customHeader,\n    custom404Page,\n    overwriteDefaultPages,\n  } = props;\n  const router = useRouter();\n  const path = router.asPath.substring(1).split(\"?\")[0];\n\n  const pages: { [key: string]: (props?: any) => JSX.Element } = {\n    login: LoginForm,\n    signup: SignupForm,\n    \"edit-profile\": UpdateMeForm,\n    profile: PublicProfile,\n    \"2fa\": AuthenticationMethodsCrud,\n  };\n\n  const NextPage = nextPage;\n\n  // seems unneeded\n\n  // const hasQueryPath = !!menu?.queryPaths?.includes(path);\n  // const hasWebPage = !!menu?.webPagesFlat?.find((x) => x.queryPath === path);\n\n  // const hasWebPageInThisFolder = !!menu?.webPagesFlat?.find((x) =>\n  //   x.queryPath.startsWith(path)\n  // );\n\n  // const shouldRenderCustom =\n  //   hasQueryPath || hasWebPage || path === \"\" || hasWebPageInThisFolder;\n\n  const DefaultPage = pages[path] ? pages[path] : undefined;\n\n  console.log({ nextPage: nextPage?.name, sks: nextPage });\n  const hasPage = nextPage?.name !== \"Error\";\n  const children =\n    DefaultPage && !overwriteDefaultPages?.includes(path) ? (\n      <DefaultPage />\n    ) : (\n      <NextPage {...pageProps} />\n    );\n\n  const header = (\n    <Div>\n      {customHeader !== undefined ? (\n        customHeader\n      ) : (\n        <Header publicBundleConfig={publicBundleConfig} />\n      )}\n    </Div>\n  );\n\n  return (\n    <LoginWrapper>\n      <LayoutGrid header={header} menu={menu}>\n        {children}\n      </LayoutGrid>\n    </LoginWrapper>\n  );\n}",
   "description": "Layout that includes default pages and header for authentication",
-  "id": "ryoolqytlyimoatddqdwnwjl"
+  "id": "dirpprjzehfmuwgcnynjzvat"
 }

@@ -36,6 +36,10 @@ export interface ContextualPrompt extends SlugModelType, ContextualPromptInfo {
      */
     title?: string;
     /**
+     * Bit longer description of the prompt
+     */
+    description?: string;
+    /**
      * if given, should be a path to a file or folder, so the prompt will never be shown outside of this scope
      *
      * Never stored! Is found based on the location of the file in your file system
@@ -47,16 +51,28 @@ export interface ContextualPrompt extends SlugModelType, ContextualPromptInfo {
     model?: LanguageModel | LanguageModel[];
     /**
      * Only prompt is stored (string)
+     *
+     *
      */
     promptContent: string;
     /**
-     * Variable: ${folder}
+     * Variable: `${folder}`
      *
      * If set to `flat`, all folder content will be added as context, without sub-folders
      *
      * If set to `recursive`, all folder content will be added as context, including sub-folders
+     *
+     * If set to `summary-flat`/`summary-recursive`, a key-value with "filename: summary" with a one-line summary of the content of the file/folder will be added. Folder summaries must be longer.
+     *
+     * IDEA: if you have any question about your complete codebase, you can do a recurisve search in files/folders, taking all the relevant summaries every time, and doing a prompt for every result that might have the answer.
+     *
+     * 1) First we need to collect the relevant information
+     * 2) Then we need to prune the relevant information
+     * 3) Then we can answer the question based on truth that links to files
+     *
+     * If I can do this, I have a very powerful search engine.
      */
-    folderContentContext?: "flat" | "recursive";
+    folderContentContext?: "summary" | "flat" | "recursive";
     /**
      * Variable: ${context}
      *

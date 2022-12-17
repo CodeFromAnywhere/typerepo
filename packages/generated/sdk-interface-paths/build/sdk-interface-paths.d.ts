@@ -963,7 +963,6 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof stopAppsCli>": string;
     "NamedParameters<typeof ContextualPromptResultsTab>": string;
     "NamedParameters<typeof FilePromptSelect>": string;
-    "NamedParameters<typeof useSelectionPromptsMenu>": string;
     Browser: string;
     BrowserSession: string;
     FacebookLoginPropsType: string;

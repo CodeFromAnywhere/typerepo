@@ -245,6 +245,7 @@ export declare const sdk: {
     useHotkeys: (dependencies: any[], callback: (keyboardEvent: KeyboardEvent) => void) => void;
     AuthenticationLayout: (props: {
         menu?: import("menu").MenuProps | undefined;
+        overwriteDefaultPages?: string[] | undefined;
         customHeader?: import("react").ReactNode;
         custom404Page?: import("react").ReactNode;
         nextPage?: any;
@@ -541,19 +542,6 @@ export declare const sdk: {
         saveNewPromptWithName?: string | null | undefined;
     }) => Promise<void>;
     usePromptResultAlert: () => import("prompt-components").ShowPromptAlertFunction;
-    useSelectionPromptsMenu: (selectionPrompts: import("ai-types").ContextualPrompt[], contextualContent: import("ai-types").ContextualContent) => {
-        renderContextMenu: () => JSX.Element | null;
-        openContextMenuProps: {
-            ref: import("react").RefObject<HTMLDivElement>;
-            onContextMenu: (event: import("react").MouseEvent<Element, MouseEvent>) => void;
-            onTouchStart: (event: import("react").TouchEvent<Element>) => void;
-            onTouchEnd: () => void;
-            onClick: (mouseEvent: import("react").MouseEvent<Element, MouseEvent>) => void;
-            style: import("react").CSSProperties;
-        };
-        onClose: () => void;
-        isOpen: boolean;
-    };
     AugmentedWordComponent: (props: {
         augmentedWord: import("augmented-word-types").AugmentedWord;
         augmentedWordObject: import("js-util").MappedObject<import("augmented-word-types").AugmentedWord>;

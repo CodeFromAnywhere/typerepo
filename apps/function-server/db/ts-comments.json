@@ -1,36 +1,18 @@
 [
   {
-    "createdAt": 1670528274438,
-    "updatedAt": 1670528274438,
+    "createdAt": 1671219798090,
+    "updatedAt": 1671219798090,
     "deletedAt": 0,
-    "createdFirstAt": 1670528274438,
+    "createdFirstAt": 1671219798090,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/scheduleCronJobs.ts",
-    "comment": "NB: cron functions cannot have parameters",
-    "rawStatement": "export const executeCronFunction = async (tsFunction: TsFunction) => {\n  if (\n    tsFunction.parameters &&\n    tsFunction.parameters.length > 0 &&\n    tsFunction.parameters.find((x) => x.required)\n  ) {\n    log(\"CRON Functions cannot have required parameters\", { type: \"error\" });\n    process.exit();\n  }\n\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n};",
-    "parameters": {},
-    "types": [
-      "nb"
-    ],
-    "firstLine": 9,
-    "lastLine": 11,
-    "id": "nyewvxeqhibvwovtvypwtrlc"
-  },
-  {
-    "createdAt": 1670528274439,
-    "updatedAt": 1670528274439,
-    "deletedAt": 0,
-    "createdFirstAt": 1670528274439,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/scheduleCronJobs.ts",
-    "comment": "For every `RunEveryPeriodEnum`, this object provides the interval `cronExpression` string for `node-cron`",
-    "rawStatement": "export const scheduleObject: { [interval in RunEveryPeriodEnum]: string } = {\n  minute: \"* * * * *\",\n  \"5-minutes\": \"0,5,10,15,20,25,30,35,40,45,50,55 * * * *\",\n  \"quarter-hour\": \"0,15,30,45 * * * *\",\n  hour: \"0 * * * *\",\n  \"6-hours\": \"0 0,6,12,18 * * *\",\n  midnight: \"0 0 * * *\",\n  week: \"0 0 * * 1\",\n  month: \"0 0 1 * *\",\n  \"3-months\": \"0 0 1 1,4,7,10 *\",\n  year: \"0 0 1 1 *\",\n};",
+    "operationRelativeTypescriptFilePath": "src/runFunctionServer.ts",
+    "comment": "runs sdk api server using \"server\" package.\n\nserver will be exposed on port 42000",
+    "rawStatement": "export const runFunctionServer = (\n  isWatching?: boolean,\n  isRestart?: boolean\n) => {\n  const { header } = server.reply;\n\n  startSearchWebIfAvailable(isWatching, isRestart);\n  const cors = [\n    /* \n     see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin\n    see https://stackoverflow.com/questions/18642828/origin-origin-is-not-allowed-by-access-control-allow-origin\n    NB: cannot set \"*\" i.c.m. cookies\n\n    a better way to allow multiple origins is probably something like this:\n\n      const allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:8020', 'http://127.0.0.1:9000', 'http://localhost:9000'];\n  const origin = req.headers.origin;\n  if (allowedOrigins.includes(origin)) {\n       res.setHeader('Access-Control-Allow-Origin', origin);\n  }\n  */\n\n    () => header(\"Access-Control-Allow-Origin\", \"*\"),\n    () =>\n      header(\n        \"Access-Control-Allow-Headers\",\n        \"Origin, X-Requested-With, Content-Type, Accept, Authorization, Set-Cookie\" // not sure if * can be put here after the others...\n      ),\n    () =>\n      header(\n        \"Access-Control-Allow-Methods\",\n        \"GET, PUT, PATCH, POST, DELETE, HEAD\"\n      ),\n\n    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials\n    // NB: important for cookies!\n    () => header(\"Access-Control-Allow-Credentials\", \"true\"),\n    (ctx: Context) => (ctx.method.toLowerCase() === \"options\" ? 200 : false),\n  ];\n\n  const port: number = process.env?.port\n    ? Number(process.env.port)\n    : ports[\"function-server\"];\n\n  const projectRoot = getProjectRoot();\n  const projectPublicFolder = projectRoot\n    ? path.join(projectRoot, \"public\")\n    : path.join(__dirname, \"..\", \"public\");\n\n  const serverOptions: Options = {\n    port,\n    public: projectPublicFolder,\n    security: { csrf: false },\n    parser: {\n      // NB: seems the server.js types are not 100% correct\n      data: { maxFileSize: 1024 * 1024 * 1024 * 32 } as any,\n      cookie: { maxAge: 900000, httpOnly: false },\n    },\n  };\n  // @ts-ignore\n  server(\n    serverOptions,\n    cors,\n    functionPostEndpoints,\n    functionGetEndpoints,\n\n    server.router.get(\"/\", () => \"Hello world, your Typerepo is running!\"),\n    server.router.get(\"*\", async (ctx) => {\n      return {\n        success: false,\n        message: \"Endpoint does not exist, are you sure it's a GET endpoint?\",\n      };\n    })\n  ).then(async (context) => {\n    if (\n      process.env.NODE_APP_INSTANCE === undefined ||\n      process.env.NODE_APP_INSTANCE === \"0\"\n    ) {\n      // only on the first core, schedule crons and initiate watchers\n      scheduleCronJobs();\n\n      if (isWatching) {\n        watchAll();\n      }\n    }\n\n    console.log(\n      `Typerepo is now running on port ${port}. Your node functions are now available through the \"api\" object!`\n    );\n  });\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 26,
-    "lastLine": 28,
-    "id": "pwkqkxmyqkdnryrponyzhvjq"
+    "firstLine": 18,
+    "lastLine": 22,
+    "id": "dfcbgmjtnwgpyszdpxmhymfg"
   }
 ]

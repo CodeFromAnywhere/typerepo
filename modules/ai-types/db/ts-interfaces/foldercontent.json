@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671157025588,
-  "updatedAt": 1671157025588,
+  "createdAt": 1671229963038,
+  "updatedAt": 1671229963038,
   "deletedAt": 0,
-  "createdFirstAt": 1671157025588,
+  "createdFirstAt": 1671229963038,
   "id": "foldercontent",
   "name": "FolderContent",
   "slug": "foldercontent",
   "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type FolderContent = {\n  name: string;\n  projectRelativePath: string;\n  type: \"folder\" | \"file\" | \"link\" | \"unknown\";\n  isPrivate?: boolean;\n  isDraft?: boolean;\n  isSecret?: boolean;\n  authorizedGroup?: string;\n  frontmatter?: Frontmatter;\n};",
+  "rawText": "\n\nexport type FolderContent = {\n  name: string;\n  projectRelativePath: string;\n  type: \"folder\" | \"file\" | \"link\" | \"unknown\";\n  /**\n   * In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.\n   */\n  firstFile?: string;\n  isPrivate?: boolean;\n  isDraft?: boolean;\n  isSecret?: boolean;\n  authorizedGroup?: string;\n  frontmatter?: Frontmatter;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -33,6 +33,10 @@
             "link",
             "unknown"
           ]
+        },
+        "firstFile": {
+          "type": "string",
+          "description": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank."
         },
         "isPrivate": {
           "type": "boolean"
@@ -83,6 +87,14 @@
               "link",
               "unknown"
             ],
+            "type": "string"
+          }
+        },
+        {
+          "name": "firstFile",
+          "required": false,
+          "schema": {
+            "fullComment": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.",
             "type": "string"
           }
         },

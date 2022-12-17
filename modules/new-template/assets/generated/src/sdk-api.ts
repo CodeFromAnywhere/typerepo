@@ -1,38 +1,35 @@
 import { addStatement } from "ai-functions-node";
 import { addWord } from "ai-functions-node";
-import { augmentMarkdown } from "ai-functions-node";
 import { biggestFunctionName } from "ai-functions-node";
-import { canSeeFileContent } from "ai-functions-node";
-import { canSeeFile } from "ai-functions-node";
 import { cleanup } from "ai-functions-node";
 import { controlChatGptWrapper } from "ai-functions-node";
 import { controlChatGpt } from "ai-functions-node";
 import { convertTo1337speak } from "ai-functions-node";
+import { deletePromptResult } from "ai-functions-node";
 import { developersQuote } from "ai-functions-node";
 import { diaryToInstagram } from "ai-functions-node";
 import { documentationWriting } from "ai-functions-node";
 import { emojiAugmentation } from "ai-functions-node";
-import { expandFrontmatter } from "ai-functions-node";
 import { explainInDutch } from "ai-functions-node";
 import { explainInNepali } from "ai-functions-node";
 import { explainInPortuguese } from "ai-functions-node";
 import { explain } from "ai-functions-node";
 import { fixGrammarAndSpellingMistakes } from "ai-functions-node";
-import { getContextualPromptResults } from "ai-functions-node";
+import { getContextualPromptCategories } from "ai-functions-node";
+import { getContextualPromptResultJsonFilePath } from "ai-functions-node";
 import { getContextualPrompt } from "ai-functions-node";
-import { getContextualPromptsArray } from "ai-functions-node";
-import { getContextualPrompts } from "ai-functions-node";
-import { getFolderRelativeScopeDbFilePath } from "ai-functions-node";
-import { getReaderPageProps } from "ai-functions-node";
+import { getObjectForkKeyRecursively } from "ai-functions-node";
+import { gptIdeasRegisterWithContext } from "ai-functions-node";
 import { haiku } from "ai-functions-node";
 import { improveCode } from "ai-functions-node";
 import { keywords } from "ai-functions-node";
-import { makeMarkdownLink } from "ai-functions-node";
 import { marcusAurelius } from "ai-functions-node";
 import { poem } from "ai-functions-node";
 import { processChatGptPrompt } from "ai-functions-node";
+import { removeAllFake } from "ai-functions-node";
 import { rickAndMortyRick } from "ai-functions-node";
 import { rickAndMorty } from "ai-functions-node";
+import { setIsFavoritePromptResult } from "ai-functions-node";
 import { socratesAndSnoopDogg } from "ai-functions-node";
 import { storytelling } from "ai-functions-node";
 import { translateEverythingIntoHindi } from "ai-functions-node";
@@ -45,6 +42,19 @@ import { writeContextualPromptSdk } from "ai-functions-node";
 import { writeCreatePromptCode } from "ai-functions-node";
 import { ye } from "ai-functions-node";
 import { yodafy } from "ai-functions-node";
+import { augmentMarkdown } from "generative-functions-node";
+import { canSeeFileContent } from "generative-functions-node";
+import { canSeeFile } from "generative-functions-node";
+import { expandFrontmatter } from "generative-functions-node";
+import { getContextualPromptResults } from "generative-functions-node";
+import { getContextualPromptsArray } from "generative-functions-node";
+import { getContextualPrompts } from "generative-functions-node";
+import { getFirstFile } from "generative-functions-node";
+import { getFolderRelativeScopeDbFilePath } from "generative-functions-node";
+import { getReaderPageProps } from "generative-functions-node";
+import { makeMarkdownLink } from "generative-functions-node";
+import { readerPageGetStaticPaths } from "generative-functions-node";
+import { readerPageGetStaticProps } from "generative-functions-node";
 import { compressAsset } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
@@ -482,6 +492,7 @@ import { processAssetUpload } from "writer-functions";
 import { renameFileOrFolder } from "writer-functions";
 import { saveFileContents } from "writer-functions";
 import { trashFileOrFolder } from "writer-functions";
+import { updateFrontmatter } from "writer-functions";
 import { getLight } from "get-light";
 import { getLocation } from "get-location";
 import { fetchWithTimeout } from "is-online";
@@ -658,7 +669,10 @@ import { getDbPath } from "geo-parse";
 import { rawPolygonToPolygon } from "geo-parse";
 import { dev } from "k-dev";
 import { nodemon } from "nodemon";
-import { checkAndGetFileUrl } from "slack-controller";
+import { chatGPTAuth } from "chatgpt-controller";
+import { detectChatGptPage } from "chatgpt-controller";
+import { openAIChat } from "chatgpt-controller";
+import { checkAndGetSlackFileUrl } from "slack-controller";
 import { elementExists } from "slack-controller";
 import { getAllMessages } from "slack-controller";
 import { getLatestMessages } from "slack-controller";
@@ -666,15 +680,21 @@ import { getSlackChannelMemberList } from "slack-controller";
 import { getSlackChannels } from "slack-controller";
 import { getSlackMessageFrom } from "slack-controller";
 import { getSlackWorkspaces } from "slack-controller";
-import { scrapeMessage } from "slack-controller";
+import { scrapeSlackMessage } from "slack-controller";
 import { scrollToTop } from "slack-controller";
-import { selectChannel } from "slack-controller";
-import { selectWorkSpace } from "slack-controller";
+import { selectSlackChannel } from "slack-controller";
+import { selectSlackWorkspace } from "slack-controller";
 import { sendSlackMessage } from "slack-controller";
 import { slackLogin } from "slack-controller";
 import { storeAllSlackChannel } from "slack-controller";
 import { storeSlackChannelMember } from "slack-controller";
+import { getAbsolutePathMdFileName } from "social-media-node";
+import { getAllPostables } from "social-media-node";
+import { getPersonDetails } from "social-media-node";
+import { getPersonsMenu } from "social-media-node";
+import { getSocialMediaChannelsMenu } from "social-media-node";
 import { getSocialMediaMenu } from "social-media-node";
+import { getSubExtensions } from "social-media-node";
 import { addSocialMediaCredential } from "social-media-wrapper";
 import { canBePosted } from "social-media-wrapper";
 import { createAllSocialMediaPost } from "social-media-wrapper";
@@ -682,8 +702,6 @@ import { createSocialMediaPost } from "social-media-wrapper";
 import { devtoCotentAnalyzer } from "social-media-wrapper";
 import { facebookContentAnalyzer } from "social-media-wrapper";
 import { getSocialMediaCredentials } from "social-media-wrapper";
-import { getTodoFilePostables } from "social-media-wrapper";
-import { getWebMarkdownFilePostables } from "social-media-wrapper";
 import { mediumCotentAnalyzer } from "social-media-wrapper";
 import { postSocialMediaPostToDevto } from "social-media-wrapper";
 import { postSocialMediaPostToFacebook } from "social-media-wrapper";
@@ -954,7 +972,6 @@ import { LabeledButton } from "labeled-button";
 import { getFullPath } from "next-paths";
 import { getLastPathsChunk } from "next-paths";
 import { usePath } from "next-paths";
-import { Tooltip } from "tooltip";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
 import { getKeysAtPathFromNestedObject } from "recursive-util";
@@ -1033,13 +1050,25 @@ import { clickOnSpanTag } from "puppeteer-utils";
 import { facebookLogin } from "puppeteer-utils";
 import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
+import { getBrowserPage } from "puppeteer-utils";
+import { getBrowserSession } from "puppeteer-utils";
+import { getBrowserTabs } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
+import { getConnectedBrowsers } from "puppeteer-utils";
 import { gmailLogin } from "puppeteer-utils";
+import { isCaptchaExist } from "puppeteer-utils";
 import { logConsoleIfDebug } from "puppeteer-utils";
+import { openNewBrowser } from "puppeteer-utils";
+import { openPage } from "puppeteer-utils";
+import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
+import { runBrowser } from "puppeteer-utils";
+import { setBrowserPage } from "puppeteer-utils";
+import { setBrowserSession } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
+import { solveReptcha } from "puppeteer-utils";
 import { trueClick } from "puppeteer-utils";
 import { twitterLogin } from "puppeteer-utils";
 import { typeInTheInputField } from "puppeteer-utils";
@@ -1048,39 +1077,36 @@ import { waitMilliseconds } from "puppeteer-utils";
 
 export const sdk = { addStatement,
 addWord,
-augmentMarkdown,
 biggestFunctionName,
-canSeeFileContent,
-canSeeFile,
 cleanup,
 controlChatGptWrapper,
 controlChatGpt,
 convertTo1337speak,
+deletePromptResult,
 developersQuote,
 diaryToInstagram,
 documentationWriting,
 emojiAugmentation,
-expandFrontmatter,
 explainInDutch,
 explainInNepali,
 explainInPortuguese,
 explain,
 fixGrammarAndSpellingMistakes,
-getContextualPromptResults,
+getContextualPromptCategories,
+getContextualPromptResultJsonFilePath,
 getContextualPrompt,
-getContextualPromptsArray,
-getContextualPrompts,
-getFolderRelativeScopeDbFilePath,
-getReaderPageProps,
+getObjectForkKeyRecursively,
+gptIdeasRegisterWithContext,
 haiku,
 improveCode,
 keywords,
-makeMarkdownLink,
 marcusAurelius,
 poem,
 processChatGptPrompt,
+removeAllFake,
 rickAndMortyRick,
 rickAndMorty,
+setIsFavoritePromptResult,
 socratesAndSnoopDogg,
 storytelling,
 translateEverythingIntoHindi,
@@ -1093,6 +1119,19 @@ writeContextualPromptSdk,
 writeCreatePromptCode,
 ye,
 yodafy,
+augmentMarkdown,
+canSeeFileContent,
+canSeeFile,
+expandFrontmatter,
+getContextualPromptResults,
+getContextualPromptsArray,
+getContextualPrompts,
+getFirstFile,
+getFolderRelativeScopeDbFilePath,
+getReaderPageProps,
+makeMarkdownLink,
+readerPageGetStaticPaths,
+readerPageGetStaticProps,
 compressAsset,
 deleteReferencedAsset,
 downloadRemoteAsset,
@@ -1530,6 +1569,7 @@ processAssetUpload,
 renameFileOrFolder,
 saveFileContents,
 trashFileOrFolder,
+updateFrontmatter,
 getLight,
 getLocation,
 fetchWithTimeout,
@@ -1706,7 +1746,10 @@ getDbPath,
 rawPolygonToPolygon,
 dev,
 nodemon,
-checkAndGetFileUrl,
+chatGPTAuth,
+detectChatGptPage,
+openAIChat,
+checkAndGetSlackFileUrl,
 elementExists,
 getAllMessages,
 getLatestMessages,
@@ -1714,15 +1757,21 @@ getSlackChannelMemberList,
 getSlackChannels,
 getSlackMessageFrom,
 getSlackWorkspaces,
-scrapeMessage,
+scrapeSlackMessage,
 scrollToTop,
-selectChannel,
-selectWorkSpace,
+selectSlackChannel,
+selectSlackWorkspace,
 sendSlackMessage,
 slackLogin,
 storeAllSlackChannel,
 storeSlackChannelMember,
+getAbsolutePathMdFileName,
+getAllPostables,
+getPersonDetails,
+getPersonsMenu,
+getSocialMediaChannelsMenu,
 getSocialMediaMenu,
+getSubExtensions,
 addSocialMediaCredential,
 canBePosted,
 createAllSocialMediaPost,
@@ -1730,8 +1779,6 @@ createSocialMediaPost,
 devtoCotentAnalyzer,
 facebookContentAnalyzer,
 getSocialMediaCredentials,
-getTodoFilePostables,
-getWebMarkdownFilePostables,
 mediumCotentAnalyzer,
 postSocialMediaPostToDevto,
 postSocialMediaPostToFacebook,
@@ -2002,7 +2049,6 @@ LabeledButton,
 getFullPath,
 getLastPathsChunk,
 usePath,
-Tooltip,
 createCodeblockMarkdown,
 useCustomUrlStore,
 getKeysAtPathFromNestedObject,
@@ -2081,13 +2127,25 @@ clickOnSpanTag,
 facebookLogin,
 foundOrNotXpath,
 foundOrNot,
+getBrowserPage,
+getBrowserSession,
+getBrowserTabs,
 getChromeExecutablePath,
+getConnectedBrowsers,
 gmailLogin,
+isCaptchaExist,
 logConsoleIfDebug,
+openNewBrowser,
+openPage,
+racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
+runBrowser,
+setBrowserPage,
+setBrowserSession,
 setInnerHtml,
 setInputValue,
+solveReptcha,
 trueClick,
 twitterLogin,
 typeInTheInputField,

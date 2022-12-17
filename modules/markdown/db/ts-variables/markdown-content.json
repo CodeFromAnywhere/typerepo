@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671112862913,
-  "updatedAt": 1671112862913,
+  "createdAt": 1671185235815,
+  "updatedAt": 1671185235815,
   "deletedAt": 0,
-  "createdFirstAt": 1671112862913,
+  "createdFirstAt": 1671185235815,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: {\n  content: string;\n  config: MarkdownParseRenderConfig;\n}): JSX.Element => {\n  const { config, content } = props;\n  const { openContextMenuProps, renderContextMenu, isOpen } =\n    useSelectionPromptsMenu(config.selectionPrompts || [], {\n      contextContent: content,\n      context_projectRelativeFilePath: config.projectRelativeMarkdownFilePath,\n    });\n\n  if (!content) return <Div>No content</Div>;\n\n  const markdownRender = React.useMemo(() => {\n    return <MarkdownContentRender content={content} config={config} />;\n  }, [\n    content,\n    isOpen,\n    isOpen ? { renderContextMenu, openContextMenuProps } : undefined,\n  ]);\n\n  if (config.disableSelectionContextMenu) {\n    return markdownRender;\n  }\n\n  return (\n    <div {...openContextMenuProps}>\n      {renderContextMenu()}\n      {markdownRender}\n    </div>\n  );\n}",
+  "value": "(props: {\n  content: string;\n  config: MarkdownParseRenderConfig;\n}): JSX.Element => {\n  const { config, content } = props;\n\n  if (!content) return <Div>No content</Div>;\n\n  return <MarkdownContentRender content={content} config={config} />;\n}",
   "description": "Renders a markdown string (without frontmatter)",
-  "id": "olfmxudddubpnxtcijlcfegq"
+  "id": "docwqrvsdylqbzclfvexzcfs"
 }

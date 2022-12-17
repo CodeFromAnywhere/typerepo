@@ -7,7 +7,8 @@
   "main": "build/index.js",
   "source": "src/index.ts",
   "bin": {
-    "compressImages": "build/cli/compressImages.cli.js"
+    "compressImages": "build/cli/compressImages.cli.js",
+    "compressMp4s": "build/cli/compressMp4s.cli.js"
   },
   "scripts": {
     "dev": "tsc -w",

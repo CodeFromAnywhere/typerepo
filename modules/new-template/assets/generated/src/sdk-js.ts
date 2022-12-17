@@ -215,7 +215,6 @@ import { LabeledButton } from "labeled-button";
 import { getFullPath } from "next-paths";
 import { getLastPathsChunk } from "next-paths";
 import { usePath } from "next-paths";
-import { Tooltip } from "tooltip";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
 import { getKeysAtPathFromNestedObject } from "recursive-util";
@@ -294,13 +293,25 @@ import { clickOnSpanTag } from "puppeteer-utils";
 import { facebookLogin } from "puppeteer-utils";
 import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
+import { getBrowserPage } from "puppeteer-utils";
+import { getBrowserSession } from "puppeteer-utils";
+import { getBrowserTabs } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
+import { getConnectedBrowsers } from "puppeteer-utils";
 import { gmailLogin } from "puppeteer-utils";
+import { isCaptchaExist } from "puppeteer-utils";
 import { logConsoleIfDebug } from "puppeteer-utils";
+import { openNewBrowser } from "puppeteer-utils";
+import { openPage } from "puppeteer-utils";
+import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
+import { runBrowser } from "puppeteer-utils";
+import { setBrowserPage } from "puppeteer-utils";
+import { setBrowserSession } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
+import { solveReptcha } from "puppeteer-utils";
 import { trueClick } from "puppeteer-utils";
 import { twitterLogin } from "puppeteer-utils";
 import { typeInTheInputField } from "puppeteer-utils";
@@ -524,7 +535,6 @@ LabeledButton,
 getFullPath,
 getLastPathsChunk,
 usePath,
-Tooltip,
 createCodeblockMarkdown,
 useCustomUrlStore,
 getKeysAtPathFromNestedObject,
@@ -603,13 +613,25 @@ clickOnSpanTag,
 facebookLogin,
 foundOrNotXpath,
 foundOrNot,
+getBrowserPage,
+getBrowserSession,
+getBrowserTabs,
 getChromeExecutablePath,
+getConnectedBrowsers,
 gmailLogin,
+isCaptchaExist,
 logConsoleIfDebug,
+openNewBrowser,
+openPage,
+racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
+runBrowser,
+setBrowserPage,
+setBrowserSession,
 setInnerHtml,
 setInputValue,
+solveReptcha,
 trueClick,
 twitterLogin,
 typeInTheInputField,

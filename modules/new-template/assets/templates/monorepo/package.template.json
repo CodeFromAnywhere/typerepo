@@ -3,7 +3,7 @@
   "private": true,
   "workspaces": ["apps/**/*", "packages/**/*", "modules/**/*"],
   "scripts": {
-    "dev": "pm2 stop app_function-server; node apps/function-server/build/cli/runFunctionServerDev.cli.js"
+    "dev": "node apps/function-server/build/cli/runFunctionServerDev.cli.js"
   },
   "devDependencies": {
     "prettier": "^2.5.1"

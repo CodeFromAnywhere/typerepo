@@ -179,7 +179,6 @@ import { ContextualPromptResultsTab } from "prompt-components";
 import { FilePromptSelect } from "prompt-components";
 import { processPrompt } from "prompt-components";
 import { usePromptResultAlert } from "prompt-components";
-import { useSelectionPromptsMenu } from "prompt-components";
 import { AugmentedWordComponent } from "reader-ui";
 import { Dictionary } from "reader-ui";
 import { DocsReaderLayout } from "reader-ui";
@@ -409,7 +408,6 @@ ContextualPromptResultsTab,
 FilePromptSelect,
 processPrompt,
 usePromptResultAlert,
-useSelectionPromptsMenu,
 AugmentedWordComponent,
 Dictionary,
 DocsReaderLayout,

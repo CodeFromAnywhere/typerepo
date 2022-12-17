@@ -151,7 +151,7 @@ export var useSelectionPromptsMenu = function (selectionPrompts, contextualConte
                                 }
                                 name = prompt("How should we call the prompt? (empty for not storing)");
                                 realName = name === "" ? null : name;
-                                customPromptContent = "I am reading this file:\n\n```\n".concat(contextualContent.contextContent, "\n```\n\nMore specifically, I'm looking at this part: \n\n```\n").concat(contextualContent.contextSelection, "\n```\n\n").concat(question);
+                                customPromptContent = "I am reading this file:\n\n```\n%context\n```\n\nMore specifically, I'm looking at this part: \n\n```\n%selection\n```\n\n".concat(question);
                                 return [4 /*yield*/, processPrompt({
                                         contextualContent: contextualContent,
                                         showPromptAlert: showPromptAlert,

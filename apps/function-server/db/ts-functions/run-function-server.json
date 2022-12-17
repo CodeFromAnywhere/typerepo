@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670528265990,
-  "updatedAt": 1670528265990,
+  "createdAt": 1671219797439,
+  "updatedAt": 1671219797439,
   "deletedAt": 0,
-  "createdFirstAt": 1670528265990,
+  "createdFirstAt": 1671219797439,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/runFunctionServer.ts",
   "commentsInside": [],
-  "rawText": " (\n  isWatching?: boolean,\n  isRestart?: boolean\n) => {\n  const { header } = server.reply;\n\n  startApp(\"search-web\", true).then((result) => {\n    if (!result?.isSuccessful) {\n      console.log({ result });\n      log(\n        `Something went wrong starting \"search-web\". Maybe you don't have it?`,\n        { type: \"error\" }\n      );\n      return;\n    }\n\n    if (!isRestart && isWatching) {\n      // Open in browser\n      setTimeout(() => {\n        execSync(`open http://localhost:42001`);\n        log(`Opened the homepage in your browser`, { type: \"success\" });\n      }, 1000);\n    }\n  });\n  const cors = [\n    /* \n     see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin\n    see https://stackoverflow.com/questions/18642828/origin-origin-is-not-allowed-by-access-control-allow-origin\n    NB: cannot set \"*\" i.c.m. cookies\n\n    a better way to allow multiple origins is probably something like this:\n\n      const allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:8020', 'http://127.0.0.1:9000', 'http://localhost:9000'];\n  const origin = req.headers.origin;\n  if (allowedOrigins.includes(origin)) {\n       res.setHeader('Access-Control-Allow-Origin', origin);\n  }\n  */\n\n    () => header(\"Access-Control-Allow-Origin\", \"*\"),\n    () =>\n      header(\n        \"Access-Control-Allow-Headers\",\n        \"Origin, X-Requested-With, Content-Type, Accept, Authorization, Set-Cookie\" // not sure if * can be put here after the others...\n      ),\n    () =>\n      header(\n        \"Access-Control-Allow-Methods\",\n        \"GET, PUT, PATCH, POST, DELETE, HEAD\"\n      ),\n\n    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials\n    // NB: important for cookies!\n    () => header(\"Access-Control-Allow-Credentials\", \"true\"),\n    (ctx: Context) => (ctx.method.toLowerCase() === \"options\" ? 200 : false),\n  ];\n\n  const projectRoot = getProjectRoot();\n  const projectPublicFolder = projectRoot\n    ? path.join(projectRoot, \"public\")\n    : path.join(__dirname, \"..\", \"public\");\n\n  const serverOptions: Options = {\n    port: ports[\"function-server\"],\n    public: projectPublicFolder,\n    security: { csrf: false },\n    parser: {\n      // NB: seems the server.js types are not 100% correct\n      data: { maxFileSize: 1024 * 1024 * 1024 * 32 } as any,\n      cookie: { maxAge: 900000, httpOnly: false },\n    },\n  };\n  // @ts-ignore\n  server(\n    serverOptions,\n    cors,\n    functionPostEndpoints,\n    functionGetEndpoints,\n\n    server.router.get(\"/\", () => \"Hello world, your Typerepo is running!\"),\n    server.router.get(\"*\", async (ctx) => {\n      return {\n        success: false,\n        message: \"Endpoint does not exist, are you sure it's a GET endpoint?\",\n      };\n    })\n  ).then(async (context) => {\n    if (\n      process.env.NODE_APP_INSTANCE === undefined ||\n      process.env.NODE_APP_INSTANCE === \"0\"\n    ) {\n      // only on the first core, schedule crons and initiate watchers\n      scheduleCronJobs();\n\n      if (isWatching) {\n        watchAll();\n      }\n    }\n\n    console.log(\n      `Running on port ${ports[\"function-server\"]}. All node functions are now available through /function/[name] or through the \"api\" object...`\n    );\n  });\n}",
+  "rawText": " (\n  isWatching?: boolean,\n  isRestart?: boolean\n) => {\n  const { header } = server.reply;\n\n  startSearchWebIfAvailable(isWatching, isRestart);\n  const cors = [\n    /* \n     see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin\n    see https://stackoverflow.com/questions/18642828/origin-origin-is-not-allowed-by-access-control-allow-origin\n    NB: cannot set \"*\" i.c.m. cookies\n\n    a better way to allow multiple origins is probably something like this:\n\n      const allowedOrigins = ['http://127.0.0.1:8020', 'http://localhost:8020', 'http://127.0.0.1:9000', 'http://localhost:9000'];\n  const origin = req.headers.origin;\n  if (allowedOrigins.includes(origin)) {\n       res.setHeader('Access-Control-Allow-Origin', origin);\n  }\n  */\n\n    () => header(\"Access-Control-Allow-Origin\", \"*\"),\n    () =>\n      header(\n        \"Access-Control-Allow-Headers\",\n        \"Origin, X-Requested-With, Content-Type, Accept, Authorization, Set-Cookie\" // not sure if * can be put here after the others...\n      ),\n    () =>\n      header(\n        \"Access-Control-Allow-Methods\",\n        \"GET, PUT, PATCH, POST, DELETE, HEAD\"\n      ),\n\n    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Credentials\n    // NB: important for cookies!\n    () => header(\"Access-Control-Allow-Credentials\", \"true\"),\n    (ctx: Context) => (ctx.method.toLowerCase() === \"options\" ? 200 : false),\n  ];\n\n  const port: number = process.env?.port\n    ? Number(process.env.port)\n    : ports[\"function-server\"];\n\n  const projectRoot = getProjectRoot();\n  const projectPublicFolder = projectRoot\n    ? path.join(projectRoot, \"public\")\n    : path.join(__dirname, \"..\", \"public\");\n\n  const serverOptions: Options = {\n    port,\n    public: projectPublicFolder,\n    security: { csrf: false },\n    parser: {\n      // NB: seems the server.js types are not 100% correct\n      data: { maxFileSize: 1024 * 1024 * 1024 * 32 } as any,\n      cookie: { maxAge: 900000, httpOnly: false },\n    },\n  };\n  // @ts-ignore\n  server(\n    serverOptions,\n    cors,\n    functionPostEndpoints,\n    functionGetEndpoints,\n\n    server.router.get(\"/\", () => \"Hello world, your Typerepo is running!\"),\n    server.router.get(\"*\", async (ctx) => {\n      return {\n        success: false,\n        message: \"Endpoint does not exist, are you sure it's a GET endpoint?\",\n      };\n    })\n  ).then(async (context) => {\n    if (\n      process.env.NODE_APP_INSTANCE === undefined ||\n      process.env.NODE_APP_INSTANCE === \"0\"\n    ) {\n      // only on the first core, schedule crons and initiate watchers\n      scheduleCronJobs();\n\n      if (isWatching) {\n        watchAll();\n      }\n    }\n\n    console.log(\n      `Typerepo is now running on port ${port}. Your node functions are now available through the \"api\" object!`\n    );\n  });\n}",
   "name": "runFunctionServer",
   "slug": "run-function-server",
   "parameters": [
@@ -45,13 +45,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 3300,
-    "lines": 106,
-    "bytes": 3300,
+    "characters": 2901,
+    "lines": 93,
+    "bytes": 2901,
     "bytesPerCharacter": 1,
     "charactersPerLine": 31,
-    "linesPerFile": 106,
+    "linesPerFile": 93,
     "numberOfFiles": 1
   },
-  "id": "cuwbidovnsrldtrfhpgzgzpu"
+  "id": "ifsclsxsjxyabvvcdevalrmd"
 }

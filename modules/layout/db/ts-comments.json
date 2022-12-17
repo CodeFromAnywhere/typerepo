@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1671116912145,
-    "updatedAt": 1671116912145,
+    "createdAt": 1671217725894,
+    "updatedAt": 1671217725894,
     "deletedAt": 0,
-    "createdFirstAt": 1671116912145,
+    "createdFirstAt": 1671217725894,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/LayoutGrid.tsx",
-    "comment": "Style for creating a grid for the layout that is mobile friendly and has menu support\n\n\n\nI run into this problem all the time\n\nhttps://stackoverflow.com/questions/71616561/css-tailwind-grid-height-100vh-not-working\n\nfinal solution came from here\n\nhttps://stackoverflow.com/questions/47094742/fullscreen-flex-layouts-necessity-of-intermediate-flex-boxes\n\nUnfortunately, I can't seem to hide stuff anymore for some reason on non-mobile. \"lg:flex hidden\" just doesn't work, just hides!\n\nMy elegant solution was to just use visible/invisible and make the mobile layout hover over the invisible one in case of a small screen, it works!",
-    "rawStatement": "export const LayoutGrid = (props: {\n  children: React.ReactNode;\n  header: React.ReactNode;\n  /**\n   * Menu is only rendered if you pass it here\n   */\n  menu?: MenuProps;\n}) => {\n  const { children, header, menu } = props;\n\n  const [isMobileMenuEnabled] = useStore(\"menu.isMobileMenuEnabled\");\n\n  const renderMenu = () => {\n    return menu ? <Menu {...menu} message={undefined} /> : null;\n  };\n\n  return (\n    <main className=\"dark:bg-zinc-900 dark:text-white relative\">\n      {/* mobile layout */}\n      <Div className=\"lg:invisible absolute overflow-y-scroll top-0 left-0 w-screen h-screen\">\n        {header}\n        {isMobileMenuEnabled ? <Div>{renderMenu()}</Div> : children}\n      </Div>\n\n      {/* Big screen layout */}\n      <Div\n        className={`w-screen h-screen flex flex-1 invisible lg:visible flex-col`}\n      >\n        {header}\n\n        <Div\n          className={`h-full overflow-hidden flex-1 flex ${\n            menu?.menuPosition === \"left\" ? \"flex-row-reverse\" : \"flex-row\"\n          }`}\n        >\n          <Div className=\"min-h-0 overflow-y-scroll w-full h-full inline-block\">\n            {children}\n          </Div>\n          {menu ? (\n            <Div className=\"inline-block min-h-0 overflow-y-scroll h-full w-80\">\n              {renderMenu()}\n            </Div>\n          ) : null}\n        </Div>\n      </Div>\n    </main>\n  );\n};",
+    "operationRelativeTypescriptFilePath": "src/AuthenticationLayout.tsx",
+    "comment": "Layout that includes default pages and header for authentication",
+    "rawStatement": "export const AuthenticationLayout = (props: {\n  /**\n   * If given, menu will be rendered\n   */\n  menu?: MenuProps;\n\n  overwriteDefaultPages?: string[];\n  customHeader?: React.ReactNode;\n  custom404Page?: React.ReactNode;\n  // how to build up the menu\n\n  // typed as any needed because of react-bug\n  nextPage?: any;\n  pageProps?: any;\n}) => {\n  const publicBundleConfig = queries.useGetPublicBundleConfig().data?.result;\n  const {\n    nextPage,\n    pageProps,\n    menu,\n    customHeader,\n    custom404Page,\n    overwriteDefaultPages,\n  } = props;\n  const router = useRouter();\n  const path = router.asPath.substring(1).split(\"?\")[0];\n\n  const pages: { [key: string]: (props?: any) => JSX.Element } = {\n    login: LoginForm,\n    signup: SignupForm,\n    \"edit-profile\": UpdateMeForm,\n    profile: PublicProfile,\n    \"2fa\": AuthenticationMethodsCrud,\n  };\n\n  const NextPage = nextPage;\n\n  // seems unneeded\n\n  // const hasQueryPath = !!menu?.queryPaths?.includes(path);\n  // const hasWebPage = !!menu?.webPagesFlat?.find((x) => x.queryPath === path);\n\n  // const hasWebPageInThisFolder = !!menu?.webPagesFlat?.find((x) =>\n  //   x.queryPath.startsWith(path)\n  // );\n\n  // const shouldRenderCustom =\n  //   hasQueryPath || hasWebPage || path === \"\" || hasWebPageInThisFolder;\n\n  const DefaultPage = pages[path] ? pages[path] : undefined;\n\n  console.log({ nextPage: nextPage?.name, sks: nextPage });\n  const hasPage = nextPage?.name !== \"Error\";\n  const children =\n    DefaultPage && !overwriteDefaultPages?.includes(path) ? (\n      <DefaultPage />\n    ) : (\n      <NextPage {...pageProps} />\n    );\n\n  const header = (\n    <Div>\n      {customHeader !== undefined ? (\n        customHeader\n      ) : (\n        <Header publicBundleConfig={publicBundleConfig} />\n      )}\n    </Div>\n  );\n\n  return (\n    <LoginWrapper>\n      <LayoutGrid header={header} menu={menu}>\n        {children}\n      </LayoutGrid>\n    </LoginWrapper>\n  );\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 5,
-    "lastLine": 22,
-    "id": "vvdxwyxzaqnxmifzsdbqbpbi"
+    "firstLine": 16,
+    "lastLine": 20,
+    "id": "guqqwuviegxuwvhgvdjhcxgd"
   }
 ]

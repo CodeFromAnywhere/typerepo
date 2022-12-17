@@ -40,17 +40,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.runFunctionServer = void 0;
-var server_1 = __importDefault(require("server"));
-var function_server_endpoints_1 = require("function-server-endpoints");
-var watch_all_1 = require("watch-all");
-var port_conventions_1 = require("port-conventions");
-var get_path_1 = require("get-path");
-var fs_util_1 = require("fs-util");
-var child_process_helper_1 = require("child-process-helper");
-var log_1 = require("log");
-var pm2_util_1 = require("pm2-util");
-var scheduleCronJobs_1 = require("./scheduleCronJobs");
 var dotenv_1 = __importDefault(require("dotenv"));
+var fs_util_1 = require("fs-util");
+var function_server_endpoints_1 = require("function-server-endpoints");
+var get_path_1 = require("get-path");
+var port_conventions_1 = require("port-conventions");
+var server_1 = __importDefault(require("server"));
+var watch_all_1 = require("watch-all");
+var scheduleCronJobs_1 = require("./scheduleCronJobs");
+var startSearchWebIfAvailable_1 = require("./startSearchWebIfAvailable");
 dotenv_1.default.config();
 /**
  * runs sdk api server using "server" package.
@@ -60,20 +58,7 @@ dotenv_1.default.config();
 var runFunctionServer = function (isWatching, isRestart) {
     var _a;
     var header = server_1.default.reply.header;
-    (0, pm2_util_1.startApp)("search-web", true).then(function (result) {
-        if (!(result === null || result === void 0 ? void 0 : result.isSuccessful)) {
-            console.log({ result: result });
-            (0, log_1.log)("Something went wrong starting \"search-web\". Maybe you don't have it?", { type: "error" });
-            return;
-        }
-        if (!isRestart && isWatching) {
-            // Open in browser
-            setTimeout(function () {
-                (0, child_process_helper_1.execSync)("open http://localhost:42001");
-                (0, log_1.log)("Opened the homepage in your browser", { type: "success" });
-            }, 1000);
-        }
-    });
+    (0, startSearchWebIfAvailable_1.startSearchWebIfAvailable)(isWatching, isRestart);
     var cors = [
         /*
          see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin
@@ -136,7 +121,7 @@ var runFunctionServer = function (isWatching, isRestart) {
                     (0, watch_all_1.watchAll)();
                 }
             }
-            console.log("Running on port ".concat(port, ". All node functions are now available through /function/[name] or through the \"api\" object..."));
+            console.log("Typerepo is now running on port ".concat(port, ". Your node functions are now available through the \"api\" object!"));
             return [2 /*return*/];
         });
     }); });

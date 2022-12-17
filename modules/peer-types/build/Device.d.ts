@@ -24,7 +24,6 @@ export interface Device extends DefaultModelType, IPInfo {
      *
      * NOT used to identify the device, since the device can already be connected to a person!
      */
-    userAgent: IResult;
     /**
      * Raw `User-Agent` header.
      *

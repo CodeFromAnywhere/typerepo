@@ -1,0 +1,121 @@
+{
+  "createdAt": 1671184107940,
+  "updatedAt": 1671184107940,
+  "deletedAt": 0,
+  "createdFirstAt": 1671184107940,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "fileTypePerExtension",
+  "slug": "file-type-per-extension",
+  "operationRelativeTypescriptFilePath": "src/fileTypePerExtension.ts",
+  "type": {
+    "rawType": "{ ts: string; tsx: string; json: string; md: string; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "ts": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "tsx": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "json": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "md": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        }
+      },
+      "required": [
+        "ts",
+        "tsx",
+        "json",
+        "md"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "ts",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "tsx",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "json",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "md",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  ts: \"code\",\n  tsx: \"code\",\n  json: \"data\",\n  md: \"text\",\n}",
+  "description": "",
+  "id": "umafnacewlquhyjbpjpkdnzg"
+}
