@@ -39,6 +39,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.concatMarkdownFiles = void 0;
 var fs_util_1 = require("fs-util");
 var get_path_1 = require("get-path");
+var fs_util_js_1 = require("fs-util-js");
 var k_explore_1 = require("k-explore");
 var write_to_assets_1 = require("write-to-assets");
 var concatMarkdownFiles = function () { return __awaiter(void 0, void 0, void 0, function () {
@@ -57,7 +58,7 @@ var concatMarkdownFiles = function () { return __awaiter(void 0, void 0, void 0,
                 string = results
                     .map(function (x) { return x.path; })
                     .map(function (path) {
-                    return "## ".concat((0, get_path_1.makeRelative)(path, (0, get_path_1.getProjectRoot)() + "/operations/tools"), "\n\n") + fs_util_1.fs.readFileSync(path, "utf8");
+                    return "## ".concat((0, fs_util_js_1.makeRelative)(path, (0, get_path_1.getProjectRoot)() + "/operations/tools"), "\n\n") + fs_util_1.fs.readFileSync(path, "utf8");
                 })
                     .join("\n\n\n\n_© Code From Anywhere - Discord: https://discord.gg/9jMHwBEW_\n\n\n\n\n\n");
                 (0, write_to_assets_1.writeToAssets)(__filename, string, "result.md");

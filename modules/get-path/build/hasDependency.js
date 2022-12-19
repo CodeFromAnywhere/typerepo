@@ -1,2 +1,9 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.hasDependency=void 0;var getAllPackageJsonDependencies_1=require("./getAllPackageJsonDependencies"),hasDependency=function(e,n){return(0,getAllPackageJsonDependencies_1.getAllPackageJsonDependencies)(e).includes(n)};exports.hasDependency=hasDependency;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.hasDependency = void 0;
+var getAllPackageJsonDependencies_1 = require("./getAllPackageJsonDependencies");
+var hasDependency = function (operation, dependency) {
+    return (0, getAllPackageJsonDependencies_1.getAllPackageJsonDependencies)(operation).includes(dependency);
+};
+exports.hasDependency = hasDependency;
 //# sourceMappingURL=hasDependency.js.map
