@@ -123,7 +123,6 @@ export declare const sdkFunctionPaths: {
     addToken: string;
     ensureToken: string;
     findAssetParametersRecursively: string;
-    getAssetDirectlyApiUrl: string;
     getConversionInfoFromType: string;
     getExtensionFromAsset: string;
     getNameFromRelativePath: string;

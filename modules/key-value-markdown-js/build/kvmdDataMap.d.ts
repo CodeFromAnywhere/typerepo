@@ -8,7 +8,7 @@ import { KeyValueMarkdownModelType } from "model-types";
  */
 export declare const kvmdDataMap: <T extends {
     [key: string]: string | string[] | undefined;
-}>(data: KeyValueMarkdownModelType[], { keyName, valueName, categoryStackCalculatedName, commentName, }: {
+}>(data: KeyValueMarkdownModelType[], { keyName, valueName, categoryStackName, commentName, }: {
     /**
      * key by default
      */
@@ -22,8 +22,8 @@ export declare const kvmdDataMap: <T extends {
      */
     commentName?: string | undefined;
     /**
-     * categoryStackCalculated by default
+     * categoryStack by default
      */
-    categoryStackCalculatedName?: string | undefined;
+    categoryStackName?: string | undefined;
 }) => T[];
 //# sourceMappingURL=kvmdDataMap.d.ts.map

@@ -1,5 +1,5 @@
 import { Page } from "puppeteer";
-export declare type NewPageProps = {
+export type NewPageProps = {
     pageId?: string;
 };
 /**

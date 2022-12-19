@@ -9,14 +9,14 @@ exports.kvmdDataMap = void 0;
  * NB: not sure if this is useful. it would be useful if we could auto-generate the application of this function for multiple db models.
  */
 var kvmdDataMap = function (data, _a) {
-    var keyName = _a.keyName, valueName = _a.valueName, categoryStackCalculatedName = _a.categoryStackCalculatedName, commentName = _a.commentName;
+    var keyName = _a.keyName, valueName = _a.valueName, categoryStackName = _a.categoryStackName, commentName = _a.commentName;
     var newDataObject = data.map(function (item) {
         var _a;
         var newData = (_a = {},
             _a[keyName || "name"] = item.name,
             _a[valueName || "value"] = item.value,
             _a[commentName || "comment"] = item.comment,
-            _a[categoryStackCalculatedName || "categoryStackCalculated"] = item.categoryStackCalculated,
+            _a[categoryStackName || "categoryStack"] = item.categoryStack,
             _a);
         return newData;
     });

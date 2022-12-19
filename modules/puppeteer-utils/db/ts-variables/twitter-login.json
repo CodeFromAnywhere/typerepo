@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671430286835,
-  "updatedAt": 1671430286835,
+  "createdAt": 1671457741697,
+  "updatedAt": 1671457741697,
   "deletedAt": 0,
-  "createdFirstAt": 1671430286835,
+  "createdFirstAt": 1671457741697,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "twitter-login",
   "operationRelativeTypescriptFilePath": "src/twitterLogin.ts",
   "type": {
-    "rawType": "(props: { page: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer-core/lib/types\").Page; email: string; phoneNo: string; password: string; }) => any",
+    "rawType": "(props: { page: import(\"/Users/king/King/operations/node_modules/puppeteer-core/lib/types\").Page; email: string; phoneNo: string; password: string; }) => any",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  page: Page;\n  email: string;\n  phoneNo: string;\n  password: string;\n}) => {\n  const { page, email, phoneNo, password } = props;\n  await page.goto(\"https://twitter.com/login\");\n  // Adding listener for console\n  page.on(\"console\", (message) => console.log(`${message.text()}`));\n  // wait for username input field to appear\n  await typeInTheInputField({\n    page,\n    selector: 'input[autocomplete=\"username\"]',\n    value: phoneNo,\n  });\n\n  // clicking next button\n  await page.click(\n    'div[class=\"css-18t94o4 css-1dbjc4n r-sdzlij r-1phboty r-rs99b7 r-ywje51 r-usiww2 r-2yi16 r-1qi8awa r-1ny4l3l r-ymttw5 r-o7ynqc r-6416eg r-lrvibr r-13qz1uu\"]'\n  );\n\n  // wait for the password field to appear\n  await typeInTheInputField({\n    page,\n    selector: 'input[autocomplete=\"current-password\"]',\n    value: password,\n  });\n  // waiting and clicking on the login button\n  await page.waitForSelector(\n    'div[class=\"css-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0\"]'\n  );\n  await page.click(\n    'div[class=\"css-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0\"]'\n  );\n}",
   "description": "Method that help to login into twitter",
-  "id": "vbtjfjbqkzmkygkdwvjokquw"
+  "id": "qbtudtyphfcizawtacfpsynn"
 }

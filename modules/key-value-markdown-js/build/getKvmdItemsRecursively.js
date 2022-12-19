@@ -31,11 +31,10 @@ var parseKvmdLine_1 = require("./parseKvmdLine");
  *
  * NB: this doesn't have a reference to its parent yet, but this will be added in fs-orm on the fly because the key for that is based on the model name
  */
-var getKvmdItemsRecursively = function (chunk, categoryStackCalculatedUntilNow) {
+var getKvmdItemsRecursively = function (chunk, categoryStackUntilNow) {
     var _a;
     // NB: copy
-    var categoryStackCalculated = categoryStackCalculatedUntilNow
-        ? __spreadArray([], categoryStackCalculatedUntilNow, true) : [];
+    var categoryStack = categoryStackUntilNow ? __spreadArray([], categoryStackUntilNow, true) : [];
     var allKvmdItems = [];
     // If this chunk has a title (this is a header)
     if (chunk.title) {
@@ -45,15 +44,13 @@ var getKvmdItemsRecursively = function (chunk, categoryStackCalculatedUntilNow) 
             // NB: also add the title as a model item
             var headerKvmdItem = __assign(__assign({}, headerParsedKvmdLine), { isHeaderCalculated: true, 
                 // NB: copy!
-                categoryStackCalculated: __spreadArray([], categoryStackCalculated, true) });
+                categoryStack: __spreadArray([], categoryStack, true) });
             allKvmdItems.push(headerKvmdItem);
-            // NB: the slug of the title is added to the categoryStackCalculated, but only AFTER adding the kvmd item of the title
-            categoryStackCalculated.push(headerParsedKvmdLine.slug);
+            // NB: the slug of the title is added to the categoryStack, but only AFTER adding the kvmd item of the title
+            categoryStack.push(headerParsedKvmdLine.slug);
         }
     }
-    var childKvmdItems = ((_a = chunk.children) === null || _a === void 0 ? void 0 : _a.map(function (childChunk) {
-        return (0, exports.getKvmdItemsRecursively)(childChunk, categoryStackCalculated);
-    }).flat()) || [];
+    var childKvmdItems = ((_a = chunk.children) === null || _a === void 0 ? void 0 : _a.map(function (childChunk) { return (0, exports.getKvmdItemsRecursively)(childChunk, categoryStack); }).flat()) || [];
     allKvmdItems = allKvmdItems.concat(childKvmdItems);
     var lineKvmdItems = (chunk.content || "")
         // NB: we are splitting on newlines here because content can still contain newlines.
@@ -62,7 +59,7 @@ var getKvmdItemsRecursively = function (chunk, categoryStackCalculatedUntilNow) 
         var parsedKvmdLine = (0, parseKvmdLine_1.parseKvmdLine)(line);
         if (!parsedKvmdLine)
             return;
-        var contentKvmdItem = __assign(__assign({}, parsedKvmdLine), { isHeaderCalculated: false, categoryStackCalculated: categoryStackCalculated });
+        var contentKvmdItem = __assign(__assign({}, parsedKvmdLine), { isHeaderCalculated: false, categoryStack: categoryStack });
         return contentKvmdItem;
     })
         .filter(js_util_1.notEmpty);

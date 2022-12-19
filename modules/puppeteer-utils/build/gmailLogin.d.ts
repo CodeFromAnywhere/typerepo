@@ -1,5 +1,5 @@
 import { Page } from "puppeteer-core";
-export declare type GmailLoginPropsType = {
+export type GmailLoginPropsType = {
     email: string;
     password: string;
     page: Page;

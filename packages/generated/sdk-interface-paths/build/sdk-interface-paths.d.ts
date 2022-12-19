@@ -142,7 +142,6 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof addToken>": string;
     "NamedParameters<typeof ensureToken>": string;
     "NamedParameters<typeof findAssetParametersRecursively>": string;
-    "NamedParameters<typeof getAssetDirectlyApiUrl>": string;
     "NamedParameters<typeof getConversionInfoFromType>": string;
     "NamedParameters<typeof getExtensionFromAsset>": string;
     "NamedParameters<typeof getNameFromRelativePath>": string;

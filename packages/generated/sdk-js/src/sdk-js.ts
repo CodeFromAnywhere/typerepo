@@ -3,7 +3,6 @@ import { untypedApiFunction } from "api";
 import { addToken } from "asset-functions-js";
 import { ensureToken } from "asset-functions-js";
 import { findAssetParametersRecursively } from "asset-functions-js";
-import { getAssetDirectlyApiUrl } from "asset-functions-js";
 import { getConversionInfoFromType } from "asset-functions-js";
 import { getExtensionFromAsset } from "asset-functions-js";
 import { getNameFromRelativePath } from "asset-functions-js";
@@ -305,7 +304,6 @@ untypedApiFunction,
 addToken,
 ensureToken,
 findAssetParametersRecursively,
-getAssetDirectlyApiUrl,
 getConversionInfoFromType,
 getExtensionFromAsset,
 getNameFromRelativePath,

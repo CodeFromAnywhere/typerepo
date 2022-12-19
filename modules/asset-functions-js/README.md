@@ -85,15 +85,6 @@ if already present, token is used from the name instead of this one |,| attachTo
 
 
 
-## getAssetDirectlyApiUrl()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| projectRelativeAssetPath | string |  |
-| **Output** | string   |    |
-
-
-
 ## getConversionInfoFromType()
 
 Received files contain a "type" like "audio/mp3" or "image/jpeg", etc...
@@ -163,8 +154,6 @@ If previousToken is not present, will be generated randomly
 
 Remove the token (if present), then add it again
 
-
-## 📄 getAssetDirectlyApiUrl (exported const)
 
 ## 📄 getConversionInfoFromType (exported const)
 

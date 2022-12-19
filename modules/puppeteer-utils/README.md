@@ -90,18 +90,6 @@ Helps to login into gmail account
 
 
 
-## racePromises()
-
-Typescript
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| promises | {  }[] |  |
-| **Output** |    |    |
-
-
-
 ## setBrowserPageIdle()
 
 | Input      |    |    |
@@ -160,8 +148,6 @@ Method that help to login into twitter
 ## 📄 isCaptchaExist (exported const)
 
 ## 📄 openPage (exported const)
-
-## 📄 racePromises (exported const)
 
 ## 📄 setBrowserPageIdle (exported const)
 
@@ -222,7 +208,7 @@ Method that help to login into twitter
 
 # Internal
 
-<details><summary>Show internal (41)</summary>
+<details><summary>Show internal (43)</summary>
     
   # delay()
 
@@ -343,6 +329,18 @@ If the flag is not set, doesn't print anything.
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
+| **Output** |    |    |
+
+
+
+## racePromises()
+
+Typescript
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| promises | {  }[] |  |
 | **Output** |    |    |
 
 
@@ -509,6 +507,8 @@ If the flag is not set, doesn't print anything.
 ## 📄 openNewBrowserOnChildProcess (exported const)
 
 ## 📄 openNewBrowser (exported const)
+
+## 📄 racePromises (exported const)
 
 ## 📄 retryClickAndWaitSelector (exported const)
 

@@ -142,7 +142,6 @@ export const sdkInterfacePaths = {
   "NamedParameters<typeof addToken>": "/modules/asset-functions-js/db/ts-interfaces/namedparameterstypeof-addtoken.json",
   "NamedParameters<typeof ensureToken>": "/modules/asset-functions-js/db/ts-interfaces/namedparameterstypeof-ensuretoken.json",
   "NamedParameters<typeof findAssetParametersRecursively>": "/modules/asset-functions-js/db/ts-interfaces/namedparameterstypeof-findassetparametersrecursively.json",
-  "NamedParameters<typeof getAssetDirectlyApiUrl>": "/modules/asset-functions-js/db/ts-interfaces/namedparameterstypeof-getassetdirectlyapiurl.json",
   "NamedParameters<typeof getConversionInfoFromType>": "/modules/asset-functions-js/db/ts-interfaces/namedparameterstypeof-getconversioninfofromtype.json",
   "NamedParameters<typeof getExtensionFromAsset>": "/modules/asset-functions-js/db/ts-interfaces/namedparameterstypeof-getextensionfromasset.json",
   "NamedParameters<typeof getNameFromRelativePath>": "/modules/asset-functions-js/db/ts-interfaces/namedparameterstypeof-getnamefromrelativepath.json",

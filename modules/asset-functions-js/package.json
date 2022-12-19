@@ -40,13 +40,11 @@
     "coreDependenciesIndexed": [],
     "folderNameIndexed": "asset-functions-js",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670526669005,
+    "lastRebuildAt": 1671457712568,
     "operationDependenciesIndexed": [
       "notEmpty",
       "AssetInputType",
       "getAssetInputType",
-      "getGetApiUrl",
-      "apiUrl",
       "Asset",
       "getExtension",
       "withoutExtension",
@@ -61,10 +59,10 @@
     "markdown": "# ❌ No description set yet\n\nPlease set a description for this operation in OPERATION.md\n\nThis is a js operation. This means you cannot use any react or node, it's pure typescript, compiled to javascript, and can be used anywhere.\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 14,
-        "lines": 314,
-        "characters": 8550,
-        "bytes": 8550
+        "numberOfFiles": 13,
+        "lines": 306,
+        "characters": 8289,
+        "bytes": 8289
       },
       "dataSize": {
         "numberOfFiles": 2,
@@ -74,15 +72,15 @@
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 257,
-        "characters": 5840,
-        "bytes": 5840
+        "lines": 246,
+        "characters": 5637,
+        "bytes": 5637
       },
       "size": {
-        "bytes": 18564,
-        "characters": 18564,
-        "lines": 700,
-        "numberOfFiles": 18
+        "bytes": 18100,
+        "characters": 18100,
+        "lines": 681,
+        "numberOfFiles": 17
       }
     },
     "hasGeneratedDependenciesIndexed": false,

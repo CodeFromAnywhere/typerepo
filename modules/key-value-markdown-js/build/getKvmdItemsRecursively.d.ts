@@ -5,5 +5,5 @@ import { CategoryStack, KeyValueMarkdownModelType, Storing } from "model-types";
  *
  * NB: this doesn't have a reference to its parent yet, but this will be added in fs-orm on the fly because the key for that is based on the model name
  */
-export declare const getKvmdItemsRecursively: (chunk: MarkdownChunk, categoryStackCalculatedUntilNow?: CategoryStack) => Storing<KeyValueMarkdownModelType>[];
+export declare const getKvmdItemsRecursively: (chunk: MarkdownChunk, categoryStackUntilNow?: CategoryStack) => Storing<KeyValueMarkdownModelType>[];
 //# sourceMappingURL=getKvmdItemsRecursively.d.ts.map

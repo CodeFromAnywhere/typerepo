@@ -11,7 +11,7 @@ var kvmdDataToString = function (kvmdData, previous) {
     // headers only need a newline before it if it's not the first item (so there is a previous)
     var newlineIfHeader = kvmdData.isHeaderCalculated && !!previous ? "\n" : "";
     var level = kvmdData.isHeaderCalculated
-        ? kvmdData.categoryStackCalculated.length + 1
+        ? kvmdData.categoryStack.length + 1
         : 0;
     var headerPrefix = kvmdData.isHeaderCalculated
         ? "#".repeat(level).concat(" ")

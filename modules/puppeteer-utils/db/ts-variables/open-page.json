@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671430264889,
-  "updatedAt": 1671430264889,
+  "createdAt": 1671457715450,
+  "updatedAt": 1671457715450,
   "deletedAt": 0,
-  "createdFirstAt": 1671430264889,
+  "createdFirstAt": 1671457715450,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "open-page",
   "operationRelativeTypescriptFilePath": "src/openPage.ts",
   "type": {
-    "rawType": "(pageId?: string | undefined) => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
+    "rawType": "(pageId?: string | undefined) => Promise<import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (pageId?: string): Promise<Page | undefined> => {\n  const browser = await openNewBrowser();\n  if (!browser) {\n    console.log(\"BROSER NOT FOUND\");\n    await delay(5000);\n    console.log(\"TRY AGAIN\");\n    const browser = await openNewBrowser();\n    if (!browser) return;\n    if (browser) {\n      if (pageId) {\n        return getBrowserPageById(browser, pageId);\n      }\n\n      const page = await getNewPage(browser);\n      await page?.setBypassCSP(true);\n      return page;\n    }\n    return;\n  }\n\n  if (pageId) {\n    return getBrowserPageById(browser, pageId);\n  }\n\n  const page = await getNewPage(browser);\n  await page?.setBypassCSP(true);\n  return page;\n}",
   "description": "",
-  "id": "phhfsyarlkjpklorgttwjpqa"
+  "id": "azdldzlryovlocrrpguqjmxv"
 }

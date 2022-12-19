@@ -43,6 +43,17 @@ Properties:
 
 
 
+## 🔹 Slug
+
+use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.
+
+
+
+
+
+
+
+
 ## generateId()
 
 24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
@@ -92,17 +103,6 @@ An id would look like this:
 Looks good to me!
 Don't think about it and just keep it simple.
 We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.
-
-
-
-
-
-
-
-
-## 🔹 Slug
-
-use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.
 
 
 
@@ -177,17 +177,6 @@ Properties:
 
 
 
-## 🔹 Markdown
-
-a string that is known to contain markdown.
-
-
-
-
-
-
-
-
 ## 🔹 MarkdownModelType
 
 Handy model type for storing stuff in a Markdown file.
@@ -218,6 +207,17 @@ Properties:
 | slug  | string |  |
 | markdown  | string |  |
 | categoryStack  | array |  |
+
+
+
+## 🔹 Markdown
+
+a string that is known to contain markdown.
+
+
+
+
+
 
 
 
@@ -460,15 +460,6 @@ if there is a data model with just a single text and it is clear from the name o
 
 
 
-## markdownModelTypeToMarkdownString()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `String`   |    |
-
-
-
 ## 🔹 KvmdLine
 
 all things that can be parsed from a single line
@@ -498,9 +489,6 @@ country code without +
 
 
 
-
-
-## 📄 markdownModelTypeToMarkdownString (exported const)
 
 # Internal
 

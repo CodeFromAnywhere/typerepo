@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671317273864,
-  "updatedAt": 1671317273864,
+  "createdAt": 1671467518194,
+  "updatedAt": 1671467518194,
   "deletedAt": 0,
-  "createdFirstAt": 1671317273864,
+  "createdFirstAt": 1671467518194,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/MarkdownParsePresentation.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  markdownParse: MarkdownParse;\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n  projectRelativeBaseFolderPath: string;\n  projectRelativeMarkdownFilePath: string;\n}) => {\n  const {\n    markdownParse,\n    augmentedWordObject,\n    projectRelativeBaseFolderPath,\n    projectRelativeMarkdownFilePath,\n  } = props;\n  const [slide, setSlide] = useState(0);\n\n  if (!markdownParse.content) return null;\n\n  const markdownParagraphs = flattenMarkdownChunks(\n    markdownParse.content\n  ).filter((x) => x.paragraph !== \"\");\n\n  const paragraph = markdownParagraphs[slide];\n\n  if (!paragraph) return <P>No slides</P>;\n\n  const navigationIcons: ClickableIconType[] = [\n    {\n      onClick: () => setSlide(0),\n      emoji: \"⏮\",\n      disabled: slide === 0,\n    },\n\n    {\n      onClick: () => setSlide(slide - 1),\n      emoji: \"⬅\",\n      disabled: slide === 0,\n    },\n\n    {\n      onClick: () => setSlide(slide + 1),\n      emoji: \"➡\",\n      disabled: slide === markdownParagraphs.length - 1,\n    },\n\n    {\n      onClick: () => setSlide(markdownParagraphs.length - 1),\n      emoji: \"⏭\",\n      disabled: slide === markdownParagraphs.length - 1,\n    },\n  ];\n  const navigation = (\n    <Div className=\"flex flex-row gap-3\">\n      {navigationIcons.map((item, index) => (\n        <ClickableIcon {...item} key={`icon${index}`} />\n      ))}\n    </Div>\n  );\n\n  return (\n    <Div className=\"flex flex-col flex-1\">\n      <Div className=\"flex flex-1 flex-col\">\n        <Div className=\"flex flex-col justify-center items-center\">\n          <P className=\"text-4xl\">\n            {paragraph.categoryStack[paragraph.categoryStack.length - 1]}\n          </P>\n\n          <Div className=\"flex flex-row flex-wrap\">\n            {renderBreadCrumbs(paragraph.categoryStack)}\n          </Div>\n        </Div>\n\n        <Div className=\"flex flex-1 flex-col items-center justify-center overflow-y-auto\">\n          <MarkdownContent\n            content={paragraph.paragraph}\n            config={{\n              big: true,\n              projectRelativeBaseFolderPath,\n              projectRelativeMarkdownFilePath,\n              augmentedWordObject,\n              isDev,\n              isStatic: false,\n            }}\n          />\n        </Div>\n      </Div>\n\n      {navigation}\n    </Div>\n  );\n}",
+  "rawText": " (props: {\n  markdownParse: MarkdownParse;\n  augmentedWordObject?: MappedObject<AugmentedWord>;\n  projectRelativeBaseFolderPath: string;\n  projectRelativeMarkdownFilePath: string;\n}) => {\n  const {\n    markdownParse,\n    augmentedWordObject,\n    projectRelativeBaseFolderPath,\n    projectRelativeMarkdownFilePath,\n  } = props;\n  const [slide, setSlide] = useState(0);\n\n  useHotkey(\n    (event) => event.keyCode === 37,\n    () => setSlide((slide) => slide - 1),\n    []\n  );\n  useHotkey(\n    (event) => event.keyCode === 39,\n    () => setSlide((slide) => slide + 1),\n    []\n  );\n\n  if (!markdownParse.content) return null;\n\n  const markdownParagraphs = flattenMarkdownChunks(markdownParse.content);\n\n  const filtered = markdownParagraphs.filter((x) => x.paragraph !== \"\");\n\n  console.log({ markdownParagraphs, filtered });\n\n  const paragraph = filtered[slide];\n\n  if (!paragraph) {\n    return <P>No slides</P>;\n  }\n\n  const navigationIcons: ClickableIconType[] = [\n    {\n      onClick: () => setSlide(0),\n      emoji: \"⏮\",\n      disabled: slide === 0,\n    },\n\n    {\n      onClick: () => setSlide(slide - 1),\n      emoji: \"⬅\",\n      disabled: slide === 0,\n    },\n\n    {\n      onClick: () => setSlide(slide + 1),\n      emoji: \"➡\",\n      disabled: slide === markdownParagraphs.length - 1,\n    },\n\n    {\n      onClick: () => setSlide(markdownParagraphs.length - 1),\n      emoji: \"⏭\",\n      disabled: slide === markdownParagraphs.length - 1,\n    },\n  ];\n  const navigation = (\n    <Div className=\"flex flex-row gap-3\">\n      {navigationIcons.map((item, index) => (\n        <ClickableIcon {...item} key={`icon${index}`} />\n      ))}\n    </Div>\n  );\n\n  const title = paragraph.categoryStack[paragraph.categoryStack.length - 1];\n\n  return (\n    <Div className=\"flex flex-col flex-1\">\n      <Div className=\"flex flex-1 flex-col\">\n        <Div className=\"flex flex-col justify-center items-center\">\n          <P className=\"text-4xl\">{title}</P>\n\n          <Div className=\"flex flex-row flex-wrap\">\n            {renderBreadCrumbs(paragraph.categoryStack)}\n          </Div>\n        </Div>\n\n        <Div className=\"flex flex-1 flex-col items-center justify-center overflow-y-auto\">\n          <MarkdownContent\n            content={paragraph.paragraph}\n            config={{\n              big: true,\n              projectRelativeBaseFolderPath,\n              projectRelativeMarkdownFilePath,\n              augmentedWordObject,\n              isDev,\n              isStatic: false,\n            }}\n          />\n        </Div>\n      </Div>\n\n      {navigation}\n    </Div>\n  );\n}",
   "name": "MarkdownParsePresentation",
   "slug": "markdown-parse-presentation",
   "parameters": [
@@ -286,13 +286,13 @@
   },
   "maxIndentationDepth": 7,
   "size": {
-    "characters": 2264,
-    "lines": 89,
-    "bytes": 2272,
-    "bytesPerCharacter": 1.0035335689045937,
+    "characters": 2555,
+    "lines": 104,
+    "bytes": 2563,
+    "bytesPerCharacter": 1.0031311154598825,
     "charactersPerLine": 25,
-    "linesPerFile": 89,
+    "linesPerFile": 104,
     "numberOfFiles": 1
   },
-  "id": "xcokyaiflvlynyrbxbbvoave"
+  "id": "tepjrqlxzafcbsjxxmhoiedt"
 }

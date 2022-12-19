@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671430259280,
-  "updatedAt": 1671430259280,
+  "createdAt": 1671457708781,
+  "updatedAt": 1671457708781,
   "deletedAt": 0,
-  "createdFirstAt": 1671430259280,
+  "createdFirstAt": 1671457708781,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "open-multi-tabs",
   "operationRelativeTypescriptFilePath": "src/openMultiTabs.ts",
   "type": {
-    "rawType": "(props: import(\"/Users/lucky/workspace/new-typerepo/typerepo/packages/niches/bhagya/doing/control-web/puppeteer-utils/src/openMultiTabs\").OpenMultiTabProps) => any",
+    "rawType": "(props: import(\"/Users/king/King/operations/niches/bhagya-dec-17/doing/control-web/puppeteer-utils/src/openMultiTabs\").OpenMultiTabProps) => any",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: OpenMultiTabProps) => {\n  const { noOfTabs, tabUrl, browser } = props;\n  const allTabs = [];\n  for (let i = 0; i < noOfTabs; i++) {\n    allTabs.push(browser.newPage());\n  }\n  const allPages = await Promise.all(allTabs);\n\n  const allPageIds: string[] = await Promise.all(\n    //@ts-ignore\n    allPages.map((p) => p.target()._targetId)\n  );\n  //@ts-ignore\n  const allPageIdsCreations: Creation<BrowserPage[]> = allPageIds.map(\n    (pid) => ({ pageId: pid, isIdle: true })\n  );\n  await db.upsert(\"BrowserPage\", allPageIdsCreations);\n}",
   "description": "",
-  "id": "kbvupnbpdqzvmprmgiqqvjzz"
+  "id": "ovrcgorfhswrlxpydxjgwpyb"
 }

@@ -45,7 +45,7 @@ var markdownStringToKvmdParse = function (kvMdString, dbFileLocation) {
         .flat();
     var data = kvmdItems.map(function (x) {
         var _a;
-        return (__assign(__assign(__assign({}, x), modelLocation), (_a = {}, _a[parentKey] = x.categoryStackCalculated[x.categoryStackCalculated.length - 1], _a)));
+        return (__assign(__assign(__assign({}, x), modelLocation), (_a = {}, _a[parentKey] = x.categoryStack[x.categoryStack.length - 1], _a)));
     });
     return { parameters: parameters, data: data };
 };

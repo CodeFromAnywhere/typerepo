@@ -1,5 +1,5 @@
 import { Browser } from "puppeteer";
-export declare type OpenMultiTabProps = {
+export type OpenMultiTabProps = {
     noOfTabs: number;
     tabUrl: string;
     browser: Browser;

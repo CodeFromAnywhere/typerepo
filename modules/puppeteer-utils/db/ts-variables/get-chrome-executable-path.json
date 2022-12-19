@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671430240802,
-  "updatedAt": 1671430240802,
+  "createdAt": 1671457683405,
+  "updatedAt": 1671457683405,
   "deletedAt": 0,
-  "createdFirstAt": 1671430240802,
+  "createdFirstAt": 1671457683405,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  if (platform() === \"linux\") {\n    return \"/usr/bin/google-chrome-stable\";\n  } else {\n    return \"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\";\n    // return \"/usr/local/bin/chromium\";\n  }\n}",
   "description": "",
-  "id": "lqktmslouufkubjrrnhkrpwk"
+  "id": "ydqqeozbldpfwyxkljcfpvti"
 }

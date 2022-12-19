@@ -16,21 +16,17 @@ var example_1 = require("./example");
 /**
  * recursively dives into the Chunk to get all paragraphs inside
  */
-var getParagraphsRecursively = function (chunk, categoryStackCalculatedUntilNow) {
+var getParagraphsRecursively = function (chunk, categoryStackUntilNow) {
     var _a;
     // NB: no copy!
-    var categoryStackCalculated = categoryStackCalculatedUntilNow
-        ? categoryStackCalculatedUntilNow
-        : [];
+    var categoryStack = categoryStackUntilNow ? categoryStackUntilNow : [];
     if (chunk.title) {
-        categoryStackCalculated.push(chunk.title);
+        categoryStack.push(chunk.title);
     }
-    var childParagraphs = ((_a = chunk.children) === null || _a === void 0 ? void 0 : _a.map(function (childChunk) {
-        return (0, exports.getParagraphsRecursively)(childChunk, categoryStackCalculated);
-    }).flat()) || [];
+    var childParagraphs = ((_a = chunk.children) === null || _a === void 0 ? void 0 : _a.map(function (childChunk) { return (0, exports.getParagraphsRecursively)(childChunk, categoryStack); }).flat()) || [];
     var thisParagraph = {
         paragraph: chunk.content || "",
-        categoryStackCalculated: categoryStackCalculated,
+        categoryStack: categoryStack,
     };
     return __spreadArray([thisParagraph], childParagraphs, true);
 };

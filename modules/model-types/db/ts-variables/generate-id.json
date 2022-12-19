@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671317555454,
-  "updatedAt": 1671317555454,
+  "createdAt": 1671457702749,
+  "updatedAt": 1671457702749,
   "deletedAt": 0,
-  "createdFirstAt": 1671317555454,
+  "createdFirstAt": 1671457702749,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(): Id => {\n  return generateRandomString(24).toLowerCase();\n}",
   "description": "24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries",
-  "id": "rmkqhiswophmrulvsskbmlmw"
+  "id": "qvchomcjbqwwwivqnyahlkhr"
 }
