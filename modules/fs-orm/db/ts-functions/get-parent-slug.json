@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671115841355,
-  "updatedAt": 1671115841355,
+  "createdAt": 1671316816805,
+  "updatedAt": 1671316816805,
   "deletedAt": 0,
-  "createdFirstAt": 1671115841355,
+  "createdFirstAt": 1671316816805,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/convention/getParentSlug.ts",
   "commentsInside": [],
-  "rawText": " (\n  item: Storing<KeyValueMarkdownModelType>\n): string | undefined => {\n  const parentSlug: string | undefined =\n    item.categoryStackCalculated[item.categoryStackCalculated.length - 1];\n  return parentSlug;\n}",
+  "rawText": " (\n  item: Storing<KeyValueMarkdownModelType>\n): string | undefined => {\n  const parentSlug: string | undefined =\n    item.categoryStack[item.categoryStack.length - 1];\n  return parentSlug;\n}",
   "name": "getParentSlug",
   "slug": "get-parent-slug",
   "parameters": [
@@ -20,7 +20,7 @@
       "required": true
     }
   ],
-  "description": "get a parent slug without the parent_xxxSlug reference (uses the categoryStackCalculated)\n\ncan be undefined if the item has no parent",
+  "description": "get a parent slug without the parent_xxxSlug reference (uses the categoryStack)\n\ncan be undefined if the item has no parent",
   "returnType": {
     "rawType": "string | undefined",
     "typeDefinition": {
@@ -49,13 +49,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 344,
+    "characters": 314,
     "lines": 9,
-    "bytes": 344,
+    "bytes": 314,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 38,
+    "charactersPerLine": 35,
     "linesPerFile": 9,
     "numberOfFiles": 1
   },
-  "id": "bvkosgkhkmgpjdmpxgcwdgdo"
+  "id": "nqkxzjnvyiotosjamwfmngze"
 }

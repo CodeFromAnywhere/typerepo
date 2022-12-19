@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116610620,
-  "updatedAt": 1671116610620,
+  "createdAt": 1671318392444,
+  "updatedAt": 1671318392444,
   "deletedAt": 0,
-  "createdFirstAt": 1671116610620,
+  "createdFirstAt": 1671318392444,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  method: AuthenticationMethodMethod,\n  handle: string\n) => {\n  const persons = await db.get(\"Person\");\n  const alreadyPerson = persons.find((person) => {\n    const matchingAuthMethod = person.authenticationMethods.find(\n      (authMethod) =>\n        authMethod.method === method &&\n        authMethod.isAuthenticated &&\n        authMethod.handle === handle\n    );\n\n    return !!matchingAuthMethod;\n  });\n  return alreadyPerson;\n}",
   "description": "Check if the handle is already taken by some person in the system",
-  "id": "zxdlrqwbffrbjhhxslbdsdho"
+  "id": "yuzohksgzisagjkydlvogtbi"
 }

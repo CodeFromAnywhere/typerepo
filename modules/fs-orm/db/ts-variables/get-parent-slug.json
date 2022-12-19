@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115841503,
-  "updatedAt": 1671115841503,
+  "createdAt": 1671316817035,
+  "updatedAt": 1671316817035,
   "deletedAt": 0,
-  "createdFirstAt": 1671115841503,
+  "createdFirstAt": 1671316817035,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  item: Storing<KeyValueMarkdownModelType>\n): string | undefined => {\n  const parentSlug: string | undefined =\n    item.categoryStackCalculated[item.categoryStackCalculated.length - 1];\n  return parentSlug;\n}",
-  "description": "get a parent slug without the parent_xxxSlug reference (uses the categoryStackCalculated)\n\ncan be undefined if the item has no parent",
-  "id": "hrabvuequoiyqbjnyqibbhex"
+  "value": "(\n  item: Storing<KeyValueMarkdownModelType>\n): string | undefined => {\n  const parentSlug: string | undefined =\n    item.categoryStack[item.categoryStack.length - 1];\n  return parentSlug;\n}",
+  "description": "get a parent slug without the parent_xxxSlug reference (uses the categoryStack)\n\ncan be undefined if the item has no parent",
+  "id": "xrkeaqsyzonmihnuxfbtcmju"
 }

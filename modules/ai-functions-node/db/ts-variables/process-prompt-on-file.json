@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671315098334,
+  "updatedAt": 1671315098334,
+  "deletedAt": 0,
+  "createdFirstAt": 1671315098334,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "processPromptOnFile",
+  "slug": "process-prompt-on-file",
+  "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
+  "type": {
+    "rawType": "(projectRelativeFilePath: string, contextualPromptSlug: string) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  projectRelativeFilePath: string,\n  contextualPromptSlug: string\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No projectroot\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  const exists = fs.existsSync(absolutePath);\n\n  if (!exists) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const contextContent = await fs.readFile(absolutePath, \"utf8\");\n  const result = await processChatGptPrompt({\n    contextContent,\n    contextualPromptSlug,\n    isDeferred: true,\n    prompt_projectRelativePath: projectRelativeFilePath,\n  });\n\n  return result;\n}",
+  "description": "function `processPromptOnFile` to execute `processChatGptPrompt` for a file, so we don't need to store the whole file content and it can be executed later and still have the most recent file contents\n\nIn order to keep the file itself as a source of truth for its content, it's useful to have this because you can add this to the queue",
+  "id": "qlxysunvbogvictfnmenmkst"
+}

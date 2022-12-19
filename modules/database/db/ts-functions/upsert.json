@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668774163753,
-  "updatedAt": 1668774163753,
+  "createdAt": 1671316530486,
+  "updatedAt": 1671316530486,
   "deletedAt": 0,
-  "createdFirstAt": 1668774163753,
+  "createdFirstAt": 1671316530486,
   "isApiExposed": true,
   "isExported": false,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/setNestedFiles.test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  await set();\n\n  const item: Creation<MarkdownTestModel> = {\n    categoryStackCalculated: [\"hello\", \"world\"],\n    name: \"hell-yeah\",\n    markdown: \"some other markdown....\",\n  };\n\n  //@ts-ignore\n  const x = await testDb.upsert(\"MarkdownTestModel\", item);\n\n  console.log({ x });\n\n  return;\n}",
+  "rawText": " async () => {\n  await set();\n\n  const item: Creation<MarkdownTestModel> = {\n    categoryStack: [\"hello\", \"world\"],\n    name: \"hell-yeah\",\n    markdown: \"some other markdown....\",\n  };\n\n  //@ts-ignore\n  const x = await testDb.upsert(\"MarkdownTestModel\", item);\n\n  console.log({ x });\n\n  return;\n}",
   "name": "upsert",
   "slug": "upsert",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 306,
+    "characters": 296,
     "lines": 16,
-    "bytes": 306,
+    "bytes": 296,
     "bytesPerCharacter": 1,
     "charactersPerLine": 19,
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "tayioygkkufgxwkywazvltni"
+  "id": "tbhtndubjlpsjfxelmaeigcn"
 }

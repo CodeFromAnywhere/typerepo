@@ -1,0 +1,57 @@
+{
+  "createdAt": 1671317804063,
+  "updatedAt": 1671317804063,
+  "deletedAt": 0,
+  "createdFirstAt": 1671317804063,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/startSearchWebIfAvailable.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  isWatching?: boolean,\n  isRestart?: boolean\n) => {\n  const hasSearchWeb = !!operations[\"search-web\"];\n  if (!hasSearchWeb) {\n    return;\n  }\n\n  if (os.platform() === \"win32\") {\n    console.log(\"Not starting search-web on windows\");\n    return;\n  }\n\n  startApp(\"search-web\", true).then((result) => {\n    if (!result?.isSuccessful) {\n      console.log({ result });\n      log(\n        `Something went wrong starting \"search-web\". Maybe you don't have it?`,\n        { type: \"error\" }\n      );\n      return;\n    }\n\n    if (!isRestart && isWatching) {\n      // Open in browser\n      setTimeout(() => {\n        execSync(`open http://localhost:42001`);\n        log(`Opened the homepage in your browser`, { type: \"success\" });\n      }, 1000);\n    }\n  });\n}",
+  "name": "startSearchWebIfAvailable",
+  "slug": "start-search-web-if-available",
+  "parameters": [
+    {
+      "name": "isWatching",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    },
+    {
+      "name": "isRestart",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 758,
+    "lines": 33,
+    "bytes": 758,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 33,
+    "numberOfFiles": 1
+  },
+  "id": "xrintxxkqwfcammpretqbaqs"
+}

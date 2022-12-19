@@ -1,0 +1,41 @@
+{
+  "createdAt": 1671365960475,
+  "updatedAt": 1671365960475,
+  "deletedAt": 0,
+  "createdFirstAt": 1671365960475,
+  "id": "languagemodelenum",
+  "name": "LanguageModelEnum",
+  "slug": "languagemodelenum",
+  "operationRelativeTypescriptFilePath": "src/ContextualPrompt.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type LanguageModelEnum = typeof languageModels[number];",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "string",
+      "enum": [
+        "chat-gpt",
+        "stable-diffusion-2"
+      ]
+    },
+    "simplifiedSchema": {
+      "enum": [
+        "chat-gpt",
+        "stable-diffusion-2"
+      ],
+      "type": "string"
+    },
+    "typeCoverage": 0,
+    "rawType": "LanguageModelEnum",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

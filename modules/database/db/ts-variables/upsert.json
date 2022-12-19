@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774163996,
-  "updatedAt": 1668774163996,
+  "createdAt": 1671316530968,
+  "updatedAt": 1671316530968,
   "deletedAt": 0,
-  "createdFirstAt": 1668774163996,
+  "createdFirstAt": 1671316530968,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  await set();\n\n  const item: Creation<MarkdownTestModel> = {\n    categoryStackCalculated: [\"hello\", \"world\"],\n    name: \"hell-yeah\",\n    markdown: \"some other markdown....\",\n  };\n\n  //@ts-ignore\n  const x = await testDb.upsert(\"MarkdownTestModel\", item);\n\n  console.log({ x });\n\n  return;\n}",
+  "value": "async () => {\n  await set();\n\n  const item: Creation<MarkdownTestModel> = {\n    categoryStack: [\"hello\", \"world\"],\n    name: \"hell-yeah\",\n    markdown: \"some other markdown....\",\n  };\n\n  //@ts-ignore\n  const x = await testDb.upsert(\"MarkdownTestModel\", item);\n\n  console.log({ x });\n\n  return;\n}",
   "description": "",
-  "id": "emjytercavavcuefhkktuffi"
+  "id": "rlpvkqcdicbeztslyfzludfr"
 }

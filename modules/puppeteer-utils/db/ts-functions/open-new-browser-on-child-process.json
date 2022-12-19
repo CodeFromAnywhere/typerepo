@@ -1,0 +1,36 @@
+{
+  "createdAt": 1671430256709,
+  "updatedAt": 1671430256709,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430256709,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/openBrowserOnChildProcess.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const operationFolderPath = await getOperationPath(\"puppeteer-utils\");\n  console.log(\"Child Process called\", operationFolderPath);\n  const browserSession = await db.get(\"BrowserSession\");\n  if (browserSession.length === 0) {\n    const newProcess = fork(\n      `${operationFolderPath}/build/cli/runBrowser.cli.js`,\n      {\n        detached: true,\n        // stdio: \"ignore\",\n      }\n    );\n    newProcess.unref();\n  }\n}",
+  "name": "openNewBrowserOnChildProcess",
+  "slug": "open-new-browser-on-child-process",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 435,
+    "lines": 15,
+    "bytes": 435,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "crolhkbittejhwbnlpkdrhur"
+}

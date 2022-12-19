@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528273912,
-  "updatedAt": 1670528273912,
+  "createdAt": 1671317801664,
+  "updatedAt": 1671317801664,
   "deletedAt": 0,
-  "createdFirstAt": 1670528273912,
+  "createdFirstAt": 1671317801664,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  log(\"Scheduling CRON jobs\", { type: \"important\" });\n\n  getObjectKeysArray(scheduleObject).map((interval) => {\n    const cronExpression = scheduleObject[interval];\n    const functionsToExecute = tsFunctions.filter(\n      (x) => x.runEveryPeriod === interval\n    );\n    if (functionsToExecute.length > 0) {\n      console.log(\n        `- ${functionsToExecute.length} functions for ${interval} cron`\n      );\n      schedule(\n        cronExpression,\n        () => {\n          oneByOne(functionsToExecute, executeCronFunction);\n        },\n        { name: interval }\n      );\n    }\n  });\n}",
   "description": "",
-  "id": "yhqatuqfjlqovvqxflrufhwz"
+  "id": "uhuuoeboyqlqaeadqqtikbrj"
 }

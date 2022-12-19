@@ -1,10 +1,10 @@
 import { ProcessPromptFunctionResult } from "ai-types";
-export declare type OpenAIChatProps = {
+export type OpenAIChatProps = {
     prompt: string;
     thread?: string;
     isHeadless?: boolean;
 };
-export declare type OpenAIChatResponseType = {
+export type OpenAIChatResponseType = {
     result?: string;
     thread?: string;
     isSuccess: boolean;

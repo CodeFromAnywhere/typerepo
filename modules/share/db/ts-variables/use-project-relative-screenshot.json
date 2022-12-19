@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671364112242,
+  "updatedAt": 1671364112242,
+  "deletedAt": 0,
+  "createdFirstAt": 1671364112242,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useProjectRelativeScreenshot",
+  "slug": "use-project-relative-screenshot",
+  "operationRelativeTypescriptFilePath": "src/useProjectRelativeScreenshot.ts",
+  "type": {
+    "rawType": "() => { getImage: () => void; projectRelativeFilePath: string | null; ref: React.RefObject<HTMLDivElement>; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const ref = useRef<HTMLDivElement>(null);\n\n  const [image, takeScreenshot] = useScreenshot();\n  const getImage = () => {\n    takeScreenshot(ref.current);\n  };\n  const [projectRelativeFilePath, setProjectRelativeFilePath] = useState<\n    string | null\n  >(null);\n\n  useEffect(() => {\n    if (!image) return;\n    console.log(\"got a blob I think\", image);\n\n    setProjectRelativeFilePath(\"jajajaj\");\n  }, [image]);\n\n  return { getImage, projectRelativeFilePath, ref };\n}",
+  "description": "Use https://www.npmjs.com/package/use-react-screenshot to get a blob of any component with the click a button\n\nUpload the blob immediately using `processAsset`, which will result in a file in the file system.",
+  "id": "lxofmabehagzkncxjgufojsc"
+}

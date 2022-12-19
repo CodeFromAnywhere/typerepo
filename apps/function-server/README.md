@@ -51,7 +51,7 @@ Argument:
 
 # Internal
 
-<details><summary>Show internal (11)</summary>
+<details><summary>Show internal (13)</summary>
     
   # executeCronFunction()
 
@@ -106,6 +106,15 @@ server will be exposed on port 42000
 
 
 
+## startSearchWebIfAvailable()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| isWatching (optional) | boolean |  |,| isRestart (optional) | boolean |  |
+| **Output** |    |    |
+
+
+
 ## 📄 executeCronFunction (exported const)
 
 NB: cron functions cannot have parameters
@@ -127,5 +136,9 @@ server will be exposed on port 42000
 ## 📄 scheduleObject (exported const)
 
 For every `RunEveryPeriodEnum`, this object provides the interval `cronExpression` string for `node-cron`
+
+
+## 📄 startSearchWebIfAvailable (exported const)
+
   </details>
 

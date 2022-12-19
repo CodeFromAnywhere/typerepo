@@ -178,7 +178,7 @@ export var MarkdownContentRender = function (props) {
                 var node = _a.node, href = _a.href, title = _a.title, props = __rest(_a, ["node", "href", "title"]);
                 var youtubeId = getYoutubeId(href);
                 if (youtubeId) {
-                    return (React.createElement("iframe", { width: "560", height: "315", src: "https://www.youtube.com/embed/".concat(youtubeId), title: "YouTube video player", frameBorder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowFullScreen: true }));
+                    return (React.createElement("iframe", { className: "aspect-video w-full", src: "https://www.youtube.com/embed/".concat(youtubeId), title: "Youtube vid", frameBorder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowFullScreen: true }));
                 }
                 return (React.createElement(Tooltip, { placement: "left", tooltip: title ? (React.createElement("div", { className: "px-3" },
                         React.createElement(MarkdownContent, { content: title, config: {} }))) : (React.createElement("div", null)) },

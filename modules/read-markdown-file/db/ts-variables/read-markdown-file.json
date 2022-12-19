@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115780899,
-  "updatedAt": 1671115780899,
+  "createdAt": 1671316461207,
+  "updatedAt": 1671316461207,
   "deletedAt": 0,
-  "createdFirstAt": 1671115780899,
+  "createdFirstAt": 1671316461207,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  filePath: Path\n): Promise<MarkdownParse | null> => {\n  // TODO: is this needed?\n  const pathParse = path.parse(filePath);\n  const isMarkdownFile = [\"md\", \"mdx\"].includes(pathParse.ext.slice(1));\n  if (!isMarkdownFile) return null;\n  if (!fs.existsSync(filePath)) return null;\n  const readable = await canRead(filePath);\n  if (!readable) return null;\n  const fileString = await fs.readFile(filePath, \"utf8\");\n  if (!fileString) return null;\n\n  const fileName = path.parse(filePath).name;\n\n  const markdownParse = mdToJsonParse(fileString, fileName);\n  return markdownParse;\n}",
   "description": "Reads and parses a markdown file",
-  "id": "ldhsrhyganphkbkygrnhqjny"
+  "id": "lfytcljljdpqrhqxayhswxwl"
 }

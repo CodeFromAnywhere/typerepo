@@ -1,28 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRelativeLinkPath = void 0;
-var fs_util_js_1 = require("fs-util-js");
-var getCommonAncestor_1 = require("./getCommonAncestor");
-/**
- * returns a relative link between two files
- */
-var getRelativeLinkPath = function (absoluteFromFilePath, absoluteToFilePath, debug) {
-    var commonAncestorPath = (0, getCommonAncestor_1.getCommonAncestor)(absoluteFromFilePath, absoluteToFilePath);
-    //1 - go from `absoluteFromPath` to `commonAncestorPath`
-    var commonAncestorRelativeFromPath = (0, fs_util_js_1.makeRelative)(absoluteFromFilePath, commonAncestorPath);
-    var commonAncestorRelativeToPath = (0, fs_util_js_1.makeRelative)(absoluteToFilePath, commonAncestorPath);
-    var foldersToGoBackAmount = commonAncestorRelativeFromPath.split("/").length - 1;
-    var backOrStart = foldersToGoBackAmount === 0 ? "./" : "../".repeat(foldersToGoBackAmount);
-    //2 - go from `commonAncestorPath` to `absoluteToPath`
-    var relativeLinkPath = "".concat(backOrStart).concat(commonAncestorRelativeToPath);
-    if (debug) {
-        console.log({
-            commonAncestorPath: commonAncestorPath,
-            commonAncestorRelativeFromPath: commonAncestorRelativeFromPath,
-            commonAncestorRelativeToPath: commonAncestorRelativeToPath,
-        });
-    }
-    return relativeLinkPath;
-};
-exports.getRelativeLinkPath = getRelativeLinkPath;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getRelativeLinkPath=void 0;var fs_util_js_1=require("fs-util-js"),getCommonAncestor_1=require("./getCommonAncestor"),getRelativeLinkPath=function(e,t,o){var n=(0,getCommonAncestor_1.getCommonAncestor)(e,t),a=(0,fs_util_js_1.makeRelative)(e,n),i=(0,fs_util_js_1.makeRelative)(t,n),r=a.split("/").length-1,s=0===r?"./":"../".repeat(r),c="".concat(s).concat(i);
+//1 - go from `absoluteFromPath` to `commonAncestorPath`
+return o&&console.log({commonAncestorPath:n,commonAncestorRelativeFromPath:a,commonAncestorRelativeToPath:i}),c};exports.getRelativeLinkPath=getRelativeLinkPath;
 //# sourceMappingURL=getRelativeLinkPath.js.map

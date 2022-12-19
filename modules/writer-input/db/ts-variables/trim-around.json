@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527830761,
-  "updatedAt": 1670527830761,
+  "createdAt": 1671317406533,
+  "updatedAt": 1671317406533,
   "deletedAt": 0,
-  "createdFirstAt": 1670527830761,
+  "createdFirstAt": 1671317406533,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(word: string, trimLength: number): string => {\n  return word.slice(trimLength, word.length - trimLength);\n}",
   "description": "Removes x amount of characters from both sides of a word",
-  "id": "fundgishwkxpbwrzojolcjyh"
+  "id": "epifttjlnhmtotgwxunczsgu"
 }

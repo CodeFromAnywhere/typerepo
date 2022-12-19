@@ -1,0 +1,110 @@
+{
+  "createdAt": 1671364111812,
+  "updatedAt": 1671364111812,
+  "deletedAt": 0,
+  "createdFirstAt": 1671364111812,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/useProjectRelativeScreenshot.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const ref = useRef<HTMLDivElement>(null);\n\n  const [image, takeScreenshot] = useScreenshot();\n  const getImage = () => {\n    takeScreenshot(ref.current);\n  };\n  const [projectRelativeFilePath, setProjectRelativeFilePath] = useState<\n    string | null\n  >(null);\n\n  useEffect(() => {\n    if (!image) return;\n    console.log(\"got a blob I think\", image);\n\n    setProjectRelativeFilePath(\"jajajaj\");\n  }, [image]);\n\n  return { getImage, projectRelativeFilePath, ref };\n}",
+  "name": "useProjectRelativeScreenshot",
+  "slug": "use-project-relative-screenshot",
+  "parameters": [],
+  "description": "Use https://www.npmjs.com/package/use-react-screenshot to get a blob of any component with the click a button\n\nUpload the blob immediately using `processAsset`, which will result in a file in the file system.",
+  "returnType": {
+    "rawType": "{ getImage: () => void; projectRelativeFilePath: string | null; ref: React.RefObject<HTMLDivElement>; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "getImage": {
+          "type": "object",
+          "properties": {}
+        },
+        "projectRelativeFilePath": {
+          "type": "string | null"
+        },
+        "ref": {
+          "type": "object",
+          "properties": {
+            "current": {
+              "enum": [
+                "ul",
+                ""
+              ],
+              "x-enumNames": [
+                "ul",
+                ""
+              ],
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "getImage",
+        "ref"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "getImage",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "projectRelativeFilePath",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "ref",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "current",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "ul",
+                    ""
+                  ],
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 686,
+    "lines": 22,
+    "bytes": 686,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 22,
+    "numberOfFiles": 1
+  },
+  "id": "wzsotsshdidhylvkxyosmeir"
+}

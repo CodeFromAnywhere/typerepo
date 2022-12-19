@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884360965,
-  "updatedAt": 1669884360965,
+  "createdAt": 1671317042144,
+  "updatedAt": 1671317042144,
   "deletedAt": 0,
-  "createdFirstAt": 1669884360965,
+  "createdFirstAt": 1671317042144,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,10 +10,44 @@
   "slug": "ping",
   "operationRelativeTypescriptFilePath": "src/ping.ts",
   "type": {
-    "rawType": "() => boolean",
+    "rawType": "import(\"/Users/king/King/operations/tools/user-interfaces/api/function-server-types/build/ApiFunction\").ApiFunction",
     "typeDefinition": {
       "type": "object",
-      "properties": {},
+      "properties": {
+        "isPublic": {
+          "type": "boolean"
+        },
+        "isPaid": {
+          "enum": [
+            "ru",
+            "isSuccessful"
+          ],
+          "x-enumNames": [
+            "ru",
+            "isSuccessful"
+          ],
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
+        },
+        "allowedRoles": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          }
+        }
+      },
       "optional": false
     },
     "typeCoverage": 0,
@@ -23,11 +57,52 @@
     "isPrimitive": false,
     "isEnumLiteral": false,
     "simplifiedSchema": {
-      "properties": [],
+      "properties": [
+        {
+          "name": "isPublic",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isPaid",
+          "required": false,
+          "schema": {
+            "enum": [
+              "ru",
+              "isSuccessful"
+            ],
+            "type": "string"
+          }
+        },
+        {
+          "name": "price",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "allowedRoles",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
       "type": "object"
     }
   },
   "value": "() => true",
   "description": "",
-  "id": "tfvobtlekmpsxtlmjzpmtiml"
+  "id": "gzpgxtsslxmgembxwdgacfqu"
 }

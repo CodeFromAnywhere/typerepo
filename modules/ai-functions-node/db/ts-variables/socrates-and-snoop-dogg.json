@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671147134801,
-  "updatedAt": 1671147134801,
+  "createdAt": 1671315089753,
+  "updatedAt": 1671315089753,
   "deletedAt": 0,
-  "createdFirstAt": 1671147134801,
+  "createdFirstAt": 1671315089753,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -39,7 +39,7 @@
             "isFavorite": {
               "type": "boolean"
             },
-            "categoryStackCalculated": {
+            "categoryStack": {
               "type": "array",
               "items": {
                 "type": "string",
@@ -128,7 +128,7 @@
                 }
               },
               {
-                "name": "categoryStackCalculated",
+                "name": "categoryStack",
                 "required": false,
                 "schema": {
                   "items": [
@@ -166,5 +166,5 @@
   },
   "value": "async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"socrates-and-snoop-dogg\",\n    selectionContent,\n  });\n\n  return result;\n}",
   "description": "",
-  "id": "yplbuwqdugqapghrvijkijsi"
+  "id": "qvujwmjvxqnezbfxfjeqejns"
 }

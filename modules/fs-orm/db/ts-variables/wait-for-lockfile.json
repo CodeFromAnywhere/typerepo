@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115870418,
-  "updatedAt": 1671115870418,
+  "createdAt": 1671316863192,
+  "updatedAt": 1671316863192,
   "deletedAt": 0,
-  "createdFirstAt": 1671115870418,
+  "createdFirstAt": 1671316863192,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  lockfilePath: string\n): Promise<boolean> => {\n  if (fs.existsSync(lockfilePath)) {\n    const unixDate = await fs.readFile(lockfilePath, \"utf8\");\n    const msAgo = Date.now() - Number(unixDate);\n    if (msAgo < maxQueryTimeSeconds * 1000) {\n      // wait a 100ms!\n      // console.log(\"Waiting for lockfile...\");\n\n      await new Promise<undefined>((resolve) =>\n        setTimeout(() => resolve(undefined), 100)\n      );\n      return waitForLockfile(lockfilePath);\n    }\n\n    // if we get here, the file exists for more than 10 seconds\n\n    console.log(\n      \"Warning: lockfile exists more than ten seconds. I'm assuming the query failed, but this is not good! Should never have such slow queries.\"\n    );\n  }\n\n  await writeStringToFile(lockfilePath, String(Date.now()));\n\n  return true;\n}",
   "description": "",
-  "id": "juummdwjnrhnivzmmqoayjij"
+  "id": "vnujeslebtnybenncrixkedl"
 }

@@ -55,7 +55,7 @@ Properties:
 | codeRequired_operationSlugs  | array |  |
 | todoOffersCalculated (optional) | array |  |
 | owner_personId (optional) | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 | isPreset (optional) | boolean |  |
 | isPostable (optional) | boolean |  |
 | isCodestory (optional) | boolean |  |
@@ -69,16 +69,15 @@ Properties:
 | headerBig (optional) | boolean |  |
 | headerSubTitle (optional) | string |  |
 | header_markdownCallToActionSlugs (optional) | array |  |
+| domain (optional) | string |  |
 | markdownCallToActionSlugs (optional) | array |  |
 | shop_itemIds (optional) | array |  |
 | author_personSlugs (optional) | array |  |
 | interestSlugs (optional) | array |  |
 | price (optional) | number |  |
-| isDraft (optional) | boolean |  |
 | updatedAt  | number |  |
 | createdAt  | number |  |
-| privacy  | string |  |
-| language  | string |  |
+| language (optional) | string |  |
 | isLanguageCustom (optional) | boolean |  |
 | deletedAt  | number |  |
 | createdFirstAt  | number |  |
@@ -89,6 +88,7 @@ Properties:
 | name  | string |  |
 | slug  | string |  |
 | markdown  | string |  |
+| categoryStackCalculated  | array |  |
 
 
 # Internal
@@ -273,7 +273,7 @@ Properties:
 | codeRequired_operationSlugs  | array |  |
 | todoOffersCalculated (optional) | array |  |
 | owner_personId (optional) | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 
 
 

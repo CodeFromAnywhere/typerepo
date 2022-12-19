@@ -379,7 +379,7 @@ upsert an item into storage in any storage method
 
 
 
-## 📄 categoryStackCalculated (unexported const)
+## 📄 categoryStack (unexported const)
 
 ## 📄 test (unexported const)
 
@@ -508,7 +508,7 @@ this location matches any category that equals the categorystack
 
 Gets the stored data from any file with any storage method, and augments the modelLocation onto it...
 
-Also augments the `name`, `slug` and `categoryStackCalculated` onto this if the `dbStorageMethod` is `markdown` or `jsonSingle` and if `operationRelativePath` is not set
+Also augments the `name`, `slug` and `categoryStack` onto this if the `dbStorageMethod` is `markdown` or `jsonSingle` and if `operationRelativePath` is not set
 
 
 | Input      |    |    |
@@ -554,7 +554,7 @@ NB: currently, the item's `operationName`, `operationRelativePath` or `projectRe
 | ---------- | -- | -- |
 | storedItem | `Storing<AugmentedAnyModelType>` | The ModelLocation properties in the item are completely ignored.
 
-Only the ID, slug and categoryStackCalculated are used to determine the exact file the item should be stored in.
+Only the ID, slug and categoryStack are used to determine the exact file the item should be stored in.
 
 NB: storedItem MUST have a slug or ID, but this should probably be generated before this funciton |,| operationName | null | Should be the operationName from the modellocation of the actual item.
 
@@ -626,7 +626,7 @@ NB: returns 3 things:
 
 ## getParentSlug()
 
-get a parent slug without the parent_xxxSlug reference (uses the categoryStackCalculated)
+get a parent slug without the parent_xxxSlug reference (uses the categoryStack)
 
 can be undefined if the item has no parent
 
@@ -735,7 +735,7 @@ Takes stored data and an item
 
 BEWARE:
 
-- the categoryStackCalculated must be existing in the markdownfile.
+- the categoryStack must be existing in the markdownfile.
 - you cannot insert a header, always insert an item with `isHeaderCalculated:false`
 
 
@@ -883,7 +883,7 @@ this location matches any category that equals the categorystack
 
 Gets the stored data from any file with any storage method, and augments the modelLocation onto it...
 
-Also augments the `name`, `slug` and `categoryStackCalculated` onto this if the `dbStorageMethod` is `markdown` or `jsonSingle` and if `operationRelativePath` is not set
+Also augments the `name`, `slug` and `categoryStack` onto this if the `dbStorageMethod` is `markdown` or `jsonSingle` and if `operationRelativePath` is not set
 
 
 ## 📄 getDatabaseRootFolder (exported const)
@@ -939,7 +939,7 @@ NB: returns 3 things:
 
 ## 📄 getParentSlug (exported const)
 
-get a parent slug without the parent_xxxSlug reference (uses the categoryStackCalculated)
+get a parent slug without the parent_xxxSlug reference (uses the categoryStack)
 
 can be undefined if the item has no parent
 
@@ -994,7 +994,7 @@ Takes stored data and an item
 
 BEWARE:
 
-- the categoryStackCalculated must be existing in the markdownfile.
+- the categoryStack must be existing in the markdownfile.
 - you cannot insert a header, always insert an item with `isHeaderCalculated:false`
 
 

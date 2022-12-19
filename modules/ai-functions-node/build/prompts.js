@@ -58,7 +58,7 @@ exports.haiku = haiku;
 exports.haiku.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["art"],
+    categoryStack: ["art"],
 };
 /**
   Write a poem
@@ -82,7 +82,7 @@ exports.poem = poem;
 exports.poem.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["art"],
+    categoryStack: ["art"],
 };
 /**
   Let Kanye West write a poem about your selection
@@ -106,7 +106,7 @@ exports.ye = ye;
 exports.ye.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["art"],
+    categoryStack: ["art"],
 };
 /**
   Let Yoda say your selection in his words
@@ -130,7 +130,7 @@ exports.yodafy = yodafy;
 exports.yodafy.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["art"],
+    categoryStack: ["art"],
 };
 /**
   Write a story about this code and what's happening in there
@@ -154,7 +154,7 @@ exports.storytelling = storytelling;
 exports.storytelling.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-auditory-interface"],
+    categoryStack: ["code-auditory-interface"],
 };
 var biggestFunctionName = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -175,7 +175,7 @@ exports.biggestFunctionName = biggestFunctionName;
 exports.biggestFunctionName.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-comprehension"],
+    categoryStack: ["code-comprehension"],
 };
 var documentationWriting = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -196,7 +196,7 @@ exports.documentationWriting = documentationWriting;
 exports.documentationWriting.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-comprehension"],
+    categoryStack: ["code-comprehension"],
 };
 var explainInDutch = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -217,7 +217,7 @@ exports.explainInDutch = explainInDutch;
 exports.explainInDutch.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-comprehension"],
+    categoryStack: ["code-comprehension"],
 };
 var explainInNepali = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -238,7 +238,7 @@ exports.explainInNepali = explainInNepali;
 exports.explainInNepali.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-comprehension"],
+    categoryStack: ["code-comprehension"],
 };
 var explainInPortuguese = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -259,7 +259,7 @@ exports.explainInPortuguese = explainInPortuguese;
 exports.explainInPortuguese.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-comprehension"],
+    categoryStack: ["code-comprehension"],
 };
 var typescriptExplain = function (contextContent, selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -281,7 +281,7 @@ exports.typescriptExplain = typescriptExplain;
 exports.typescriptExplain.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-comprehension"],
+    categoryStack: ["code-comprehension"],
 };
 var improveCode = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -302,7 +302,7 @@ exports.improveCode = improveCode;
 exports.improveCode.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-education"],
+    categoryStack: ["code-education"],
 };
 var cleanup = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -323,7 +323,7 @@ exports.cleanup = cleanup;
 exports.cleanup.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-refactoring"],
+    categoryStack: ["code-refactoring"],
 };
 var fixGrammarAndSpellingMistakes = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -344,7 +344,7 @@ exports.fixGrammarAndSpellingMistakes = fixGrammarAndSpellingMistakes;
 exports.fixGrammarAndSpellingMistakes.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-refactoring"],
+    categoryStack: ["code-refactoring"],
 };
 var translateEverythingIntoHindi = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -365,7 +365,7 @@ exports.translateEverythingIntoHindi = translateEverythingIntoHindi;
 exports.translateEverythingIntoHindi.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-translation"],
+    categoryStack: ["code-translation"],
 };
 var translateEverythingPortuguese = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -386,7 +386,7 @@ exports.translateEverythingPortuguese = translateEverythingPortuguese;
 exports.translateEverythingPortuguese.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-translation"],
+    categoryStack: ["code-translation"],
 };
 var translateEverything = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -407,7 +407,7 @@ exports.translateEverything = translateEverything;
 exports.translateEverything.contextualPromptInfo = {
     contextType: ["code"],
     isFavorite: true,
-    categoryStackCalculated: ["code-translation"],
+    categoryStack: ["code-translation"],
 };
 var marcusAurelius = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -428,7 +428,7 @@ exports.marcusAurelius = marcusAurelius;
 exports.marcusAurelius.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["conversation"],
+    categoryStack: ["conversation"],
 };
 var socratesAndSnoopDogg = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -449,7 +449,7 @@ exports.socratesAndSnoopDogg = socratesAndSnoopDogg;
 exports.socratesAndSnoopDogg.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["conversation"],
+    categoryStack: ["conversation"],
 };
 var williamShakespear = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -470,7 +470,7 @@ exports.williamShakespear = williamShakespear;
 exports.williamShakespear.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["conversation"],
+    categoryStack: ["conversation"],
 };
 var keywords = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -491,7 +491,7 @@ exports.keywords = keywords;
 exports.keywords.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["data-structurization"],
+    categoryStack: ["data-structurization"],
 };
 var rickAndMortyRick = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -512,7 +512,7 @@ exports.rickAndMortyRick = rickAndMortyRick;
 exports.rickAndMortyRick.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["rick-and-morty"],
+    categoryStack: ["rick-and-morty"],
 };
 var rickAndMorty = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -533,7 +533,7 @@ exports.rickAndMorty = rickAndMorty;
 exports.rickAndMorty.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["rick-and-morty"],
+    categoryStack: ["rick-and-morty"],
 };
 var developersQuote = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -554,7 +554,7 @@ exports.developersQuote = developersQuote;
 exports.developersQuote.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["social-media"],
+    categoryStack: ["social-media"],
 };
 var diaryToInstagram = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -575,7 +575,7 @@ exports.diaryToInstagram = diaryToInstagram;
 exports.diaryToInstagram.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["social-media"],
+    categoryStack: ["social-media"],
 };
 var convertTo1337speak = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -595,7 +595,7 @@ var convertTo1337speak = function (contextContent, isDeferred) { return __awaite
 exports.convertTo1337speak = convertTo1337speak;
 exports.convertTo1337speak.contextualPromptInfo = {
     contextType: ["text"],
-    categoryStackCalculated: ["text-bending"],
+    categoryStack: ["text-bending"],
 };
 var emojiAugmentation = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -615,7 +615,7 @@ var emojiAugmentation = function (contextContent, isDeferred) { return __awaiter
 exports.emojiAugmentation = emojiAugmentation;
 exports.emojiAugmentation.contextualPromptInfo = {
     contextType: ["text"],
-    categoryStackCalculated: ["text-bending"],
+    categoryStack: ["text-bending"],
 };
 var explain = function (contextContent, selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -637,7 +637,7 @@ exports.explain = explain;
 exports.explain.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["text-comprehension"],
+    categoryStack: ["text-comprehension"],
 };
 var translateToPortuguese = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
@@ -658,6 +658,6 @@ exports.translateToPortuguese = translateToPortuguese;
 exports.translateToPortuguese.contextualPromptInfo = {
     contextType: ["text"],
     isFavorite: true,
-    categoryStackCalculated: ["translation"],
+    categoryStack: ["translation"],
 };
 //# sourceMappingURL=prompts.js.map

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671147118051,
-  "updatedAt": 1671147118051,
+  "createdAt": 1671315063854,
+  "updatedAt": 1671315063854,
   "deletedAt": 0,
-  "createdFirstAt": 1671147118051,
+  "createdFirstAt": 1671315063854,
   "id": "categorychildobject",
   "name": "CategoryChildObject",
   "slug": "categorychildobject",
@@ -17,7 +17,7 @@
   "commentsInside": [],
   "type": {
     "typeDefinition": {
-      "$ref": "#/definitions/ChildObject%3Cstructure-360340287-488-528-360340287-475-529-360340287-440-530-360340287-0-3084%3E"
+      "$ref": "#/definitions/ChildObject%3Cstructure-7951514-488-528-7951514-475-529-7951514-440-530-7951514-0-3074%3E"
     },
     "simplifiedSchema": {
       "fullComment": "",
@@ -43,11 +43,11 @@
             "items": [
               {
                 "schema": {
-                  "circularRefName": "ChildObject<structure-360340287-488-528-360340287-475-529-360340287-440-530-360340287-0-3084>",
+                  "circularRefName": "ChildObject<structure-7951514-488-528-7951514-475-529-7951514-440-530-7951514-0-3074>",
                   "properties": [],
                   "type": "object"
                 },
-                "name": "ChildObject<structure-360340287-488-528-360340287-475-529-360340287-440-530-360340287-0-3084>"
+                "name": "ChildObject<structure-7951514-488-528-7951514-475-529-7951514-440-530-7951514-0-3074>"
               }
             ],
             "type": "array"

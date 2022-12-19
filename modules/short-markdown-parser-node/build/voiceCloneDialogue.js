@@ -1,2 +1,77 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var n,r=1,t=arguments.length;r<t;r++)for(var o in n=arguments[r])Object.prototype.hasOwnProperty.call(n,o)&&(e[o]=n[o]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,n,r,t){return new(r||(r=Promise))((function(o,i){function a(e){try{s(t.next(e))}catch(e){i(e)}}function u(e){try{s(t.throw(e))}catch(e){i(e)}}function s(e){var n;e.done?o(e.value):(n=e.value,n instanceof r?n:new r((function(e){e(n)}))).then(a,u)}s((t=t.apply(e,n||[])).next())}))},__generator=this&&this.__generator||function(e,n){var r,t,o,i,a={label:0,sent:function(){if(1&o[0])throw o[1];return o[1]},trys:[],ops:[]};return i={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function u(i){return function(u){return function(i){if(r)throw new TypeError("Generator is already executing.");for(;a;)try{if(r=1,t&&(o=2&i[0]?t.return:i[0]?t.throw||((o=t.return)&&o.call(t),0):t.next)&&!(o=o.call(t,i[1])).done)return o;switch(t=0,o&&(i=[2&i[0],o.value]),i[0]){case 0:case 1:o=i;break;case 4:return a.label++,{value:i[1],done:!1};case 5:a.label++,t=i[1],i=[0];continue;case 7:i=a.ops.pop(),a.trys.pop();continue;default:if(!(o=a.trys,(o=o.length>0&&o[o.length-1])||6!==i[0]&&2!==i[0])){a=0;continue}if(3===i[0]&&(!o||i[1]>o[0]&&i[1]<o[3])){a.label=i[1];break}if(6===i[0]&&a.label<o[1]){a.label=o[1],o=i;break}if(o&&a.label<o[2]){a.label=o[2],a.ops.push(i);break}o[2]&&a.ops.pop(),a.trys.pop();continue}i=n.call(e,a)}catch(e){i=[6,e],t=0}finally{r=o=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,u])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.voiceCloneDialogue=void 0;var one_by_one_1=require("one-by-one"),parseDialogue_1=require("./parseDialogue"),uberduckSpeak_1=require("./uberduckSpeak"),voiceCloneDialogue=function(e){return __awaiter(void 0,void 0,void 0,(function(){var n,r;return __generator(this,(function(t){switch(t.label){case 0:return n=(0,parseDialogue_1.parseDialogue)(e),console.log({parsedDialogue:n}),[4/*yield*/,(0,one_by_one_1.oneByOne)(n,(function(e){return __awaiter(void 0,void 0,void 0,(function(){return __generator(this,(function(n){return"Morty"===e.voice?[2/*return*/,__assign(__assign({},e),{uuid:(0,uberduckSpeak_1.uberduckSpeak)("morty",e.sentence)})]:[2/*return*/,__assign(__assign({},e),{uuid:(0,uberduckSpeak_1.uberduckSpeak)("rick-sanchez",e.sentence)})]}))}))}))];case 1:return r=t.sent(),console.log({sentencesWithUuid:r}),[2/*return*/,r]}}))}))};exports.voiceCloneDialogue=voiceCloneDialogue;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.voiceCloneDialogue = void 0;
+var one_by_one_1 = require("one-by-one");
+var parseDialogue_1 = require("./parseDialogue");
+var uberduckSpeak_1 = require("./uberduckSpeak");
+var voiceCloneDialogue = function (textContent) { return __awaiter(void 0, void 0, void 0, function () {
+    var parsedDialogue, sentencesWithUuid;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                parsedDialogue = (0, parseDialogue_1.parseDialogue)(textContent);
+                console.log({ parsedDialogue: parsedDialogue });
+                return [4 /*yield*/, (0, one_by_one_1.oneByOne)(parsedDialogue, function (sentence) { return __awaiter(void 0, void 0, void 0, function () {
+                        return __generator(this, function (_a) {
+                            if (sentence.voice === "Morty") {
+                                return [2 /*return*/, __assign(__assign({}, sentence), { uuid: (0, uberduckSpeak_1.uberduckSpeak)("morty", sentence.sentence) })];
+                            }
+                            return [2 /*return*/, __assign(__assign({}, sentence), { uuid: (0, uberduckSpeak_1.uberduckSpeak)("rick-sanchez", sentence.sentence) })];
+                        });
+                    }); })];
+            case 1:
+                sentencesWithUuid = _a.sent();
+                console.log({ sentencesWithUuid: sentencesWithUuid });
+                return [2 /*return*/, sentencesWithUuid];
+        }
+    });
+}); };
+exports.voiceCloneDialogue = voiceCloneDialogue;
 //# sourceMappingURL=voiceCloneDialogue.js.map

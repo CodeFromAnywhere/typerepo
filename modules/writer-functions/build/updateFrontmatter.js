@@ -1,2 +1,115 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var a in t=arguments[r])Object.prototype.hasOwnProperty.call(t,a)&&(e[a]=t[a]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((function(a,s){function i(e){try{u(n.next(e))}catch(e){s(e)}}function o(e){try{u(n.throw(e))}catch(e){s(e)}}function u(e){var t;e.done?a(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(i,o)}u((n=n.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,n,a,s,i={label:0,sent:function(){if(1&a[0])throw a[1];return a[1]},trys:[],ops:[]};return s={next:o(0),throw:o(1),return:o(2)},"function"==typeof Symbol&&(s[Symbol.iterator]=function(){return this}),s;function o(s){return function(o){return function(s){if(r)throw new TypeError("Generator is already executing.");for(;i;)try{if(r=1,n&&(a=2&s[0]?n.return:s[0]?n.throw||((a=n.return)&&a.call(n),0):n.next)&&!(a=a.call(n,s[1])).done)return a;switch(n=0,a&&(s=[2&s[0],a.value]),s[0]){case 0:case 1:a=s;break;case 4:return i.label++,{value:s[1],done:!1};case 5:i.label++,n=s[1],s=[0];continue;case 7:s=i.ops.pop(),i.trys.pop();continue;default:if(!(a=i.trys,(a=a.length>0&&a[a.length-1])||6!==s[0]&&2!==s[0])){i=0;continue}if(3===s[0]&&(!a||s[1]>a[0]&&s[1]<a[3])){i.label=s[1];break}if(6===s[0]&&i.label<a[1]){i.label=a[1],a=s;break}if(a&&i.label<a[2]){i.label=a[2],i.ops.push(s);break}a[2]&&i.ops.pop(),i.trys.pop();continue}s=t.call(e,i)}catch(e){s=[6,e],n=0}finally{r=a=0}if(5&s[0])throw s[1];return{value:s[0]?s[1]:void 0,done:!0}}([s,o])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.updateFrontmatter=void 0;var fs_util_1=require("fs-util"),get_path_1=require("get-path"),read_markdown_file_1=require("read-markdown-file"),markdown_parse_js_1=require("markdown-parse-js"),updateFrontmatter=function(e){return __awaiter(void 0,void 0,void 0,(function(){var t,r,n,a,s,i,o,u,l,c,_,f,p,d;return __generator(this,(function(h){switch(h.label){case 0:return(t=(0,get_path_1.getProjectRoot)())?(r=e.frontmatter,n=e.projectRelativePath,a=fs_util_1.path.join(t,n),fs_util_1.fs.existsSync(a)?[4/*yield*/,fs_util_1.fs.stat(a)]:[2/*return*/,{isSuccessful:!1,message:"File/folder doensn't exist"}]):[2/*return*/,{isSuccessful:!1,message:"No projectroot"}];case 1:return s=h.sent(),i=s.isDirectory(),o=i?fs_util_1.path.join(a,"README.md"):a,(u=fs_util_1.fs.existsSync(o))?[4/*yield*/,(0,read_markdown_file_1.readMarkdownFile)(o)]:[3/*break*/,3];case 2:return c=h.sent(),[3/*break*/,4];case 3:c=null,h.label=4;case 4:return l=c,_=u&&(null==l?void 0:l.parameters)||{},f=__assign(__assign({},_),r),p=l?__assign(__assign({},l),{parameters:f}):{parameters:f,raw:""},d=(0,markdown_parse_js_1.markdownParseToMarkdownString)(p),console.log({newString:d}),[4/*yield*/,fs_util_1.fs.writeFile(o,d,"utf8")];case 5:return h.sent(),[2/*return*/,{isSuccessful:!0}]}}))}))};exports.updateFrontmatter=updateFrontmatter;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.updateFrontmatter = void 0;
+var fs_util_1 = require("fs-util");
+var get_path_1 = require("get-path");
+var read_markdown_file_1 = require("read-markdown-file");
+var markdown_parse_js_1 = require("markdown-parse-js");
+/**
+ * Update frontmatter from a markdownfile by overwriting it, keeping old values that you don't change
+ *
+ * If you provide a folder as projectRelativePath, it stores it to README.md in that folder, even if that doens't exist.
+ */
+var updateFrontmatter = function (config) { return __awaiter(void 0, void 0, void 0, function () {
+    var projectRoot, frontmatter, projectRelativePath, absolutePath, exists, pathStats, isFolder, finalAbsolutePath, existsFinal, markdownParse, _a, oldFrontmatter, newFrontmatter, newMarkdownParse, string;
+    return __generator(this, function (_b) {
+        switch (_b.label) {
+            case 0:
+                projectRoot = (0, get_path_1.getProjectRoot)();
+                if (!projectRoot) {
+                    return [2 /*return*/, {
+                            isSuccessful: false,
+                            message: "No projectroot",
+                        }];
+                }
+                frontmatter = config.frontmatter, projectRelativePath = config.projectRelativePath;
+                absolutePath = fs_util_1.path.join(projectRoot, projectRelativePath);
+                exists = fs_util_1.fs.existsSync(absolutePath);
+                if (!exists) {
+                    return [2 /*return*/, { isSuccessful: false, message: "File/folder doensn't exist" }];
+                }
+                return [4 /*yield*/, fs_util_1.fs.stat(absolutePath)];
+            case 1:
+                pathStats = _b.sent();
+                isFolder = pathStats.isDirectory();
+                finalAbsolutePath = isFolder
+                    ? fs_util_1.path.join(absolutePath, "README.md")
+                    : absolutePath;
+                existsFinal = fs_util_1.fs.existsSync(finalAbsolutePath);
+                if (!existsFinal) return [3 /*break*/, 3];
+                return [4 /*yield*/, (0, read_markdown_file_1.readMarkdownFile)(finalAbsolutePath)];
+            case 2:
+                _a = _b.sent();
+                return [3 /*break*/, 4];
+            case 3:
+                _a = null;
+                _b.label = 4;
+            case 4:
+                markdownParse = _a;
+                oldFrontmatter = existsFinal
+                    ? (markdownParse === null || markdownParse === void 0 ? void 0 : markdownParse.parameters) || {}
+                    : {};
+                newFrontmatter = __assign(__assign({}, oldFrontmatter), frontmatter);
+                newMarkdownParse = markdownParse
+                    ? __assign(__assign({}, markdownParse), { parameters: newFrontmatter }) : {
+                    parameters: newFrontmatter,
+                    raw: "",
+                };
+                string = (0, markdown_parse_js_1.markdownParseToMarkdownString)(newMarkdownParse);
+                console.log({ newString: string });
+                return [4 /*yield*/, fs_util_1.fs.writeFile(finalAbsolutePath, string, "utf8")];
+            case 5:
+                _b.sent();
+                return [2 /*return*/, { isSuccessful: true }];
+        }
+    });
+}); };
+exports.updateFrontmatter = updateFrontmatter;
 //# sourceMappingURL=updateFrontmatter.js.map

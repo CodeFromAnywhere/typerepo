@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671113668351,
-  "updatedAt": 1671113668351,
+  "createdAt": 1671430264889,
+  "updatedAt": 1671430264889,
   "deletedAt": 0,
-  "createdFirstAt": 1671113668351,
+  "createdFirstAt": 1671430264889,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "open-page",
   "operationRelativeTypescriptFilePath": "src/openPage.ts",
   "type": {
-    "rawType": "(pageId?: string | undefined) => Promise<{ page?: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined; pageId: string; }>",
+    "rawType": "(pageId?: string | undefined) => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  pageId?: string\n): Promise<{ page?: Page; pageId: string }> => {\n  const browser = await openNewBrowser();\n  if (pageId) {\n    return { page: getBrowserPage(pageId), pageId };\n  }\n\n  const page = await browser.newPage();\n  await page.setBypassCSP(true);\n  const cachePageId = setBrowserPage(page);\n  return { pageId: cachePageId, page };\n}",
-  "description": "Handling the new page by checking all browser tabs and if exist then return the existing one for reuse\nor create new one",
-  "id": "vkhtcathpkojdvawkfduxqay"
+  "value": "async (pageId?: string): Promise<Page | undefined> => {\n  const browser = await openNewBrowser();\n  if (!browser) {\n    console.log(\"BROSER NOT FOUND\");\n    await delay(5000);\n    console.log(\"TRY AGAIN\");\n    const browser = await openNewBrowser();\n    if (!browser) return;\n    if (browser) {\n      if (pageId) {\n        return getBrowserPageById(browser, pageId);\n      }\n\n      const page = await getNewPage(browser);\n      await page?.setBypassCSP(true);\n      return page;\n    }\n    return;\n  }\n\n  if (pageId) {\n    return getBrowserPageById(browser, pageId);\n  }\n\n  const page = await getNewPage(browser);\n  await page?.setBypassCSP(true);\n  return page;\n}",
+  "description": "",
+  "id": "phhfsyarlkjpklorgttwjpqa"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962078497,
-  "updatedAt": 1669962078497,
+  "createdAt": 1671316403044,
+  "updatedAt": 1671316403044,
   "deletedAt": 0,
-  "createdFirstAt": 1669962078497,
+  "createdFirstAt": 1671316403044,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
@@ -180,7 +180,7 @@
               }
             ]
           },
-          "categoryStackCalculated": {
+          "categoryStack": {
             "type": "array",
             "items": {
               "type": "string",
@@ -202,7 +202,7 @@
         },
         "required": [
           "paragraph",
-          "categoryStackCalculated"
+          "categoryStack"
         ]
       }
     },
@@ -225,7 +225,7 @@
                 }
               },
               {
-                "name": "categoryStackCalculated",
+                "name": "categoryStack",
                 "required": true,
                 "schema": {
                   "items": [
@@ -265,5 +265,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "kyinioayuypajvneptlkriwa"
+  "id": "vohuhpavpwytxclygzueeplb"
 }

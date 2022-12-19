@@ -26,31 +26,31 @@
         "No schema/definitions found for /Users/king/King/operations/tools/ai/ai-functions-node/src/augmentMarkdown.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
       ]
     },
-    "lastRebuildAt": 1671147154686,
+    "lastRebuildAt": 1671315125575,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 19,
-        "lines": 2088,
-        "characters": 48958,
-        "bytes": 48958
+        "numberOfFiles": 20,
+        "lines": 2209,
+        "characters": 52365,
+        "bytes": 52365
       },
       "dataSize": {
         "numberOfFiles": 3,
-        "lines": 291,
-        "characters": 7665,
-        "bytes": 7665
+        "lines": 299,
+        "characters": 7816,
+        "bytes": 7816
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 636,
-        "characters": 12231,
-        "bytes": 12231
+        "lines": 679,
+        "characters": 14007,
+        "bytes": 14007
       },
       "size": {
-        "bytes": 68854,
-        "characters": 68854,
-        "lines": 3015,
-        "numberOfFiles": 24
+        "bytes": 74188,
+        "characters": 74188,
+        "lines": 3187,
+        "numberOfFiles": 25
       }
     },
     "folderNameIndexed": "ai-functions-node",
@@ -91,6 +91,7 @@
       "signupWithContext",
       "ContextualPromptResult",
       "ProcessPromptFunctionResult",
+      "fileTypePerExtension",
       "alterJsonMultiple",
       "upsert",
       "upsertItems",
@@ -103,6 +104,14 @@
       "Storing",
       "FileType",
       "PromptFunction",
+      "Queue",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "Creation",
+      "db",
+      "explore",
+      "makeRelative",
       "ContextualPromptResult",
       "path",
       "writeJsonToFile",
@@ -154,7 +163,8 @@
     "function-context-type": "0.0.1",
     "peer-types": "0.0.1",
     "server-login": "0.0.1",
-    "recursive-types": "0.0.1"
+    "recursive-types": "0.0.1",
+    "queue-types": "0.0.1"
   },
   "slug": "ai-functions-node",
   "id": "rwvbjpqgulkhwdsourbfwwye"

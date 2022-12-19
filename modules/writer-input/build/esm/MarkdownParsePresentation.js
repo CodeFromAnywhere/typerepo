@@ -52,8 +52,8 @@ export var MarkdownParsePresentation = function (props) {
     return (React.createElement(Div, { className: "flex flex-col flex-1" },
         React.createElement(Div, { className: "flex flex-1 flex-col" },
             React.createElement(Div, { className: "flex flex-col justify-center items-center" },
-                React.createElement(P, { className: "text-4xl" }, paragraph.categoryStackCalculated[paragraph.categoryStackCalculated.length - 1]),
-                React.createElement(Div, { className: "flex flex-row flex-wrap" }, renderBreadCrumbs(paragraph.categoryStackCalculated))),
+                React.createElement(P, { className: "text-4xl" }, paragraph.categoryStack[paragraph.categoryStack.length - 1]),
+                React.createElement(Div, { className: "flex flex-row flex-wrap" }, renderBreadCrumbs(paragraph.categoryStack))),
             React.createElement(Div, { className: "flex flex-1 flex-col items-center justify-center overflow-y-auto" },
                 React.createElement(MarkdownContent, { content: paragraph.paragraph, config: {
                         big: true,

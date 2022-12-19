@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671316337099,
+  "updatedAt": 1671316337099,
+  "deletedAt": 0,
+  "createdFirstAt": 1671316337099,
+  "id": "namedparameterstypeof-compressmp4scli",
+  "name": "NamedParameters<typeof compressMp4sCli>",
+  "slug": "namedparameterstypeof-compressmp4scli",
+  "operationRelativeTypescriptFilePath": "src/cli/compressMp4s.cli.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof compressMp4sCli>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

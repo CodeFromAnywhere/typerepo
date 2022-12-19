@@ -6,23 +6,6 @@ prompt-components (`OperationClassification` ui-esm)
 
 # Api reference
 
-## useSelectionPromptsMenu()
-
-Provides the props needed to render a context-menu that allows you to add prompts and other things into your database. All actions require api access.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| selectionPrompts | `ContextualPrompt`[] |  |,| contextualContent | `ContextualContent` |  |
-| **Output** | { renderContextMenu: {  }, <br />openContextMenuProps: { ref: { current?: ul / , <br /> }, <br />onContextMenu: {  }, <br />onTouchStart: {  }, <br />onTouchEnd: {  }, <br />onClick: {  }, <br />style: `React.CSSProperties`, <br /> }, <br />onClose: {  }, <br />isOpen: boolean, <br /> }   |    |
-
-
-
-## 📄 useSelectionPromptsMenu (exported const)
-
-Provides the props needed to render a context-menu that allows you to add prompts and other things into your database. All actions require api access.
-
-
 ## `<ContextualPromptResultsTab />`
 
 Visual to show the different prompt results. Probably deprecated, probably better to show it in a more structured way.

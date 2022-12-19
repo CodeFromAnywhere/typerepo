@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671147112439,
-  "updatedAt": 1671147112439,
+  "createdAt": 1671315055032,
+  "updatedAt": 1671315055032,
   "deletedAt": 0,
-  "createdFirstAt": 1671147112439,
+  "createdFirstAt": 1671315055032,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  projectRelativePath: string,\n  id: string\n) => {\n  const resultPath = await getContextualPromptResultJsonFilePath(\n    projectRelativePath\n  );\n\n  if (!resultPath) return { isSuccessful: false };\n\n  const result = await alterJsonMultiple(\n    {\n      absolutePath: resultPath,\n      modelName: \"ContextualPromptResult\",\n      projectRelativePath: resultPath,\n      operationName: \"\",\n    },\n    (old) => {\n      return {\n        newStoredData: old.filter((item) => (item.id === id ? false : true)),\n        amountRemoved: 1,\n      };\n    }\n  );\n\n  return { isSuccessful: result.amountRemoved === 1 };\n}",
   "description": "",
-  "id": "czuvcjbmsavqlvllqruojjle"
+  "id": "binpgyjruhzkhcxfluvofeme"
 }

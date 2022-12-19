@@ -1,20 +1,20 @@
 {
-  "createdAt": 1671113666187,
-  "updatedAt": 1671113666187,
+  "createdAt": 1671430261973,
+  "updatedAt": 1671430261973,
   "deletedAt": 0,
-  "createdFirstAt": 1671113666187,
+  "createdFirstAt": 1671430261973,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/openNewBrowser.ts",
   "commentsInside": [],
-  "rawText": " async (): Promise<Browser> => {\n  const existingBrowser = getBrowserSession();\n  if (existingBrowser && existingBrowser.isConnected()) {\n    return existingBrowser;\n  }\n  puppeteer.use(\n    RecaptchaPlugin({\n      provider: {\n        id: \"2captcha\",\n        token: \"243f9da05482cc8e9b76203a184943c9\", // REPLACE THIS WITH YOUR OWN 2CAPTCHA API KEY ⚡\n      },\n      visualFeedback: true, // colorize reCAPTCHAs (violet = detected, green = solved)\n    })\n  );\n\n  puppeteer.use(StealthPlugin());\n  const browser = await puppeteer.launch(browserLunchOptions);\n  setBrowserSession(browser);\n  return browser;\n}",
+  "rawText": " async (): Promise<Browser | undefined> => {\n  console.log(\"OPEN BROWSER CALLED\");\n  const existingBrowserSession = await db.get(\"BrowserSession\");\n  if (existingBrowserSession[0]) {\n    const { browserSessionId } = existingBrowserSession[0];\n    try {\n      puppeteer.use(\n        RecaptchaPlugin({\n          provider: {\n            id: \"2captcha\",\n            token: \"243f9da05482cc8e9b76203a184943c9\", // REPLACE THIS WITH YOUR OWN 2CAPTCHA API KEY ⚡\n          },\n          visualFeedback: true, // colorize reCAPTCHAs (violet = detected, green = solved)\n        })\n      );\n      const existingBrowser = await puppeteer.connect({\n        browserWSEndpoint: browserSessionId,\n      });\n      const isBrowserConnected = existingBrowser.isConnected();\n      console.log({ isBrowserConnected });\n      return existingBrowser;\n    } catch (e: Error | any) {\n      console.log(\"Error in open browser\", e);\n      await db.clear(\"BrowserSession\");\n      await openNewBrowserOnChildProcess();\n      return;\n    }\n  } else {\n    await db.clear(\"BrowserSession\");\n    await openNewBrowserOnChildProcess();\n    return;\n  }\n}",
   "name": "openNewBrowser",
   "slug": "open-new-browser",
   "parameters": [],
   "description": "",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Browser>",
+    "rawType": "Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Browser | undefined>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -22,15 +22,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 4,
+  "maxIndentationDepth": 6,
   "size": {
-    "characters": 606,
-    "lines": 20,
-    "bytes": 608,
-    "bytesPerCharacter": 1.0033003300330032,
-    "charactersPerLine": 30,
-    "linesPerFile": 20,
+    "characters": 1116,
+    "lines": 33,
+    "bytes": 1118,
+    "bytesPerCharacter": 1.0017921146953406,
+    "charactersPerLine": 34,
+    "linesPerFile": 33,
     "numberOfFiles": 1
   },
-  "id": "afimihfosewuvjqbdywbcrre"
+  "id": "ttvdcaiheboeeufcgghvtmid"
 }

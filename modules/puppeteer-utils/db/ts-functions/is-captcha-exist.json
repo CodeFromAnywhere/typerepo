@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671113662804,
-  "updatedAt": 1671113662804,
+  "createdAt": 1671430252550,
+  "updatedAt": 1671430252550,
   "deletedAt": 0,
-  "createdFirstAt": 1671113662804,
+  "createdFirstAt": 1671430252550,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/isCaptchaExist.ts",
   "commentsInside": [],
-  "rawText": " async (\n  page: Page\n): Promise<FindRecaptchasResult> => {\n  let recaptchaResult = await page.findRecaptchas();\n  return recaptchaResult;\n}",
+  "rawText": " async (\n  page: Page\n): Promise<{ captchas: CaptchaInfo[] }> => {\n  try {\n    let recaptchaResult = await page.findRecaptchas();\n    const { captchas } = recaptchaResult;\n    return { captchas };\n  } catch (e: Error | any) {\n    console.log(\"isCaptchaExist Error\", e?.message);\n    return { captchas: [] };\n  }\n}",
   "name": "isCaptchaExist",
   "slug": "is-captcha-exist",
   "parameters": [
@@ -27,7 +27,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").FindRecaptchasResult>",
+    "rawType": "Promise<{ captchas: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").CaptchaInfo[]; }>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -35,15 +35,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 1,
+  "maxIndentationDepth": 2,
   "size": {
-    "characters": 140,
-    "lines": 6,
-    "bytes": 140,
+    "characters": 313,
+    "lines": 12,
+    "bytes": 313,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 23,
-    "linesPerFile": 6,
+    "charactersPerLine": 26,
+    "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "sweoozcjkfqxyswdjbbrarws"
+  "id": "riyprecezfrxbejrioccsifw"
 }

@@ -5,7 +5,7 @@ export declare type ReferenceItem = {
     id: string;
     slug?: string;
     name?: string;
-    categoryStackCalculated?: CategoryStack;
+    categoryStack?: CategoryStack;
 };
 export declare type ReferenceItemsObject = {
     data?: ReferenceItem[];

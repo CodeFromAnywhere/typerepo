@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774156927,
-  "updatedAt": 1668774156927,
+  "createdAt": 1671316508506,
+  "updatedAt": 1671316508506,
   "deletedAt": 0,
-  "createdFirstAt": 1668774156927,
+  "createdFirstAt": 1671316508506,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const [model, key, value] = process.argv.slice(2);\n\n  if (!value || !model || !key) {\n    console.log(\"please provide a modelName and a key + value to remove\");\n    return;\n  }\n\n  const result = await testDb.remove(\n    model as any,\n    (content) => content[key] == value\n  );\n\n  console.table(result);\n}",
   "description": "",
-  "id": "lfknxanhfrttiyxpuklsmizx"
+  "id": "nqqpfvtbfqyquxwpzkrvnktv"
 }

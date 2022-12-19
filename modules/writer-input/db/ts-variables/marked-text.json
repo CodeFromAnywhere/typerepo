@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527764510,
-  "updatedAt": 1670527764510,
+  "createdAt": 1671317308230,
+  "updatedAt": 1671317308230,
   "deletedAt": 0,
-  "createdFirstAt": 1670527764510,
+  "createdFirstAt": 1671317308230,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -67,5 +67,5 @@
   },
   "value": "(props) => {\n  const {\n    subwordConfig,\n    markdownFileConfig,\n    subtextConfig,\n    markedToken,\n    testModeEnabled,\n  } = props;\n\n  const sentences = markedToken.raw.split(\"\\n\");\n  return (\n    <div>\n      {sentences.map((sentence) => (\n        <div>\n          <SpannedSentence\n            sentence={sentence}\n            subwordConfig={subwordConfig}\n            markdownFileConfig={markdownFileConfig}\n            subtextConfig={subtextConfig}\n            testModeEnabled={testModeEnabled}\n          />\n        </div>\n      ))}\n    </div>\n  );\n}",
   "description": "",
-  "id": "bkjjdeanoosydcfxpdairpyj"
+  "id": "ipgalknmtzybefrboqlrtwiy"
 }

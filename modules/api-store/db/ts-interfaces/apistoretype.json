@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671116540609,
-  "updatedAt": 1671116540609,
+  "createdAt": 1671317700580,
+  "updatedAt": 1671317700580,
   "deletedAt": 0,
-  "createdFirstAt": 1671116540609,
+  "createdFirstAt": 1671317700580,
   "id": "apistoretype",
   "name": "ApiStoreType",
   "slug": "apistoretype",
   "operationRelativeTypescriptFilePath": "src/store.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type ApiStoreType = {\n  /**\n   * authToken coupled to device, set by browser automatically on first pageload\n   *\n   * can also be changed by logging in\n   */\n  \"api.authToken\": string;\n  /**\n   * Can set this up in config to connect with different api\n   */\n  \"api.customUrl\": null | string;\n  /**\n   * If the api doesn't response, this will be set to last date.\n   * If the api responds, this will be reset\n   */\n  \"api.timeoutAt\": null | number;\n};",
+  "rawText": "\n\nexport type ApiStoreType = {\n  /**\n   * authToken coupled to device, set by browser automatically on first pageload\n   *\n   * can also be changed by logging in\n   */\n  \"api.authToken\": string;\n  /**\n   * Can set this up in config to connect with different api\n   */\n  \"api.customUrl\": string | null;\n  /**\n   * If the api doesn't response, this will be set to last date.\n   * If the api responds, this will be reset\n   */\n  \"api.timeoutAt\": null | number;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -25,8 +25,8 @@
         },
         "api.customUrl": {
           "type": [
-            "null",
-            "string"
+            "string",
+            "null"
           ],
           "description": "Can set this up in config to connect with different api"
         },
@@ -60,7 +60,7 @@
           "required": true,
           "schema": {
             "fullComment": "Can set this up in config to connect with different api",
-            "type": "null"
+            "type": "string"
           }
         },
         {

@@ -79,7 +79,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-input/src/WriterInput.tsx. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/writer/writer-input/src/types.ts. Error: Error: Unknown type \"function\""
       ],
       "lintProblems": []
     },
@@ -98,7 +98,7 @@
     "folderNameIndexed": "writer-input",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671012643028,
+    "lastRebuildAt": 1671317412425,
     "operationDependenciesIndexed": [
       "api",
       "queries",
@@ -126,7 +126,7 @@
       "P",
       "isDev",
       "MarkdownParse",
-      "renderMarkdownContent",
+      "MarkdownContent",
       "renderBreadCrumbs",
       "ClickableIcon",
       "ClickableIconType",
@@ -151,7 +151,6 @@
       "api",
       "queries",
       "AugmentedWord",
-      "DbPage",
       "FancyLoader",
       "getWriterType",
       "WriterType",
@@ -159,7 +158,6 @@
       "MappedObject",
       "MarkdownParseRenderConfig",
       "mdToJsonParse",
-      "ContextualPromptResultsTab",
       "isDev",
       "ShortStudio",
       "WriterViewEnum",
@@ -172,7 +170,7 @@
       "SubwordConfig",
       "getFolderJs",
       "MappedObject",
-      "renderMarkdownContent",
+      "MarkdownContent",
       "AugmentedWord",
       "Div",
       "P",
@@ -226,15 +224,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 30,
-        "lines": 2436,
-        "characters": 70168,
-        "bytes": 70168
+        "lines": 2432,
+        "characters": 70078,
+        "bytes": 70078
       },
       "dataSize": {
         "numberOfFiles": 2,
         "lines": 281,
-        "characters": 7495,
-        "bytes": 7495
+        "characters": 7455,
+        "bytes": 7455
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -243,9 +241,9 @@
         "bytes": 19026
       },
       "size": {
-        "bytes": 96689,
-        "characters": 96689,
-        "lines": 3368,
+        "bytes": 96559,
+        "characters": 96559,
+        "lines": 3364,
         "numberOfFiles": 34
       }
     },

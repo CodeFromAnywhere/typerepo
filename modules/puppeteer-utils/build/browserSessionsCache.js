@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setBrowserPage = exports.getBrowserPage = exports.setBrowserSession = exports.getBrowserSession = exports.browserSessionsCache = void 0;
+exports.setIdlePage = exports.setBrowserPage = exports.getBrowserPage = exports.setBrowserSession = exports.getBrowserSession = exports.browserSessionsCache = void 0;
 var lru_cache_1 = __importDefault(require("lru-cache"));
 var uuid_1 = require("uuid");
 exports.browserSessionsCache = new lru_cache_1.default({
@@ -50,4 +50,22 @@ var setBrowserPage = function (page) {
     return pageId;
 };
 exports.setBrowserPage = setBrowserPage;
+var setIdlePage = function (_a) {
+    var _b, _c;
+    var pageId = _a.pageId, status = _a.status;
+    var allIdlePages = exports.browserSessionsCache.get("idlePages");
+    if (allIdlePages) {
+        exports.browserSessionsCache.set("idlePages", __assign(__assign({}, allIdlePages), (_b = {}, _b[pageId] = status, _b)));
+    }
+    else {
+        exports.browserSessionsCache.set("idlePages", (_c = {}, _c[pageId] = status, _c));
+    }
+};
+exports.setIdlePage = setIdlePage;
+// export const getIdlePage = (): string | undefined => {
+//   const allIdelPages = browserSessionsCache.get("idlePages");
+//   if (!allIdelPages) return;
+//   const indexOfidlePage = Object.values(allIdelPages).indexOf(true);
+//   if (indexOfidlePage !== -1) return Object.keys(allIdelPages)[indexOfidlePage];
+// };
 //# sourceMappingURL=browserSessionsCache.js.map

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671115094546,
-  "updatedAt": 1671115094546,
+  "createdAt": 1671430207930,
+  "updatedAt": 1671430207930,
   "deletedAt": 0,
-  "createdFirstAt": 1671115094546,
+  "createdFirstAt": 1671430207930,
   "isApiExposed": true,
   "isExported": false,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const { isSuccessful, message, result } = await openAIChat({\n    prompt: `who is elon musk\n    can tell me his total net \n    worth?`,\n  });\n  console.log({ isSuccessful, message, result });\n  // const result2 = await openAIChat({\n  //   prompt: \"what is apple?\",\n  //   thread: thread,\n  // });\n  // console.log({ result2 });\n  // const result3 = await openAIChat({\n  //   prompt: \"explain quantum computing\",\n  // });\n  // console.log({ result3 });\n}",
+  "rawText": " async () => {\n  const { isSuccessful, message, result } = await openAIChat({\n    prompt: `explain apple?`,\n  });\n  console.log({ isSuccessful, message, result });\n  // const result2 = await openAIChat({\n  //   prompt: \"what is apple?\",\n  //   thread: result?.thread,\n  // });\n  // console.log({ result2 });\n  // const result3 = await openAIChat({\n  //   prompt: \"explain quantum computing\",\n  // });\n  // console.log({ result3 });\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 469,
-    "lines": 17,
-    "bytes": 469,
+    "characters": 433,
+    "lines": 15,
+    "bytes": 433,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 28,
-    "linesPerFile": 17,
+    "charactersPerLine": 29,
+    "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "lmdpmkwzzqvlzcaojtuxqrsm"
+  "id": "nwcdjfycqpmmkmourkodrvex"
 }

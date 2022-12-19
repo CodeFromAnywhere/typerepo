@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670063316460,
-  "updatedAt": 1670063316460,
+  "createdAt": 1671316361223,
+  "updatedAt": 1671316361223,
   "deletedAt": 0,
-  "createdFirstAt": 1670063316460,
+  "createdFirstAt": 1671316361223,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  sourcePath: string,\n  destinationPath: string\n): Promise<string | undefined> => {\n  return new Promise<string | undefined>((resolve, reject) => {\n    if (!fs.existsSync(sourcePath)) {\n      console.log(\"sourcePath doesn't exist\", sourcePath);\n    }\n    ffmpeg({ source: sourcePath })\n      .toFormat(\"mp3\")\n      .saveToFile(destinationPath)\n      .on(\"end\", () => {\n        resolve(destinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        console.log({ e });\n        resolve(undefined);\n      });\n  });\n}",
   "description": "Uses ffmpeg to convert a file to mp3\n\nReturns the new file path on success",
-  "id": "zymclinagomgvojbgrcfjkkz"
+  "id": "lvwjgjkskjadpghjuzxkfinz"
 }

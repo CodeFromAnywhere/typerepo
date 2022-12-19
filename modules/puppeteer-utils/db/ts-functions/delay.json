@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671430264628,
+  "updatedAt": 1671430264628,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430264628,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/openPage.ts",
+  "commentsInside": [],
+  "rawText": " (ms: number) => new Promise((res) => setTimeout(res, ms))",
+  "name": "delay",
+  "slug": "delay",
+  "parameters": [
+    {
+      "name": "ms",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    }
+  ],
+  "description": "Handling the new page by checking all browser tabs and if exist then return the existing one for reuse\nor create new one",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 178,
+    "lines": 2,
+    "bytes": 178,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 89,
+    "linesPerFile": 2,
+    "numberOfFiles": 1
+  },
+  "id": "tjawhnkedaaeioszgxdmwhdk"
+}

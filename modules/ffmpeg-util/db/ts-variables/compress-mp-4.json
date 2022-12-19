@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671316355252,
+  "updatedAt": 1671316355252,
+  "deletedAt": 0,
+  "createdFirstAt": 1671316355252,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "compressMp4",
+  "slug": "compress-mp-4",
+  "operationRelativeTypescriptFilePath": "src/compressMp4.ts",
+  "type": {
+    "rawType": "(absolutePath: string) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (absolutePath: string) => {\n  const result = await compressImage(absolutePath, {\n    quality: 20,\n    sizeWidthPx: 360,\n    targetFormat: \"mp4\",\n    isDebug: true,\n  });\n  console.log({ result });\n}",
+  "description": "Compress mp4 to very small",
+  "id": "jgroupqsogrfgihbejtjcqbw"
+}

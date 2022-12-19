@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115830948,
-  "updatedAt": 1671115830948,
+  "createdAt": 1671316800368,
+  "updatedAt": 1671316800368,
   "deletedAt": 0,
-  "createdFirstAt": 1671115830948,
+  "createdFirstAt": 1671316800368,
   "id": "namedparameterstypeof-getdbfilelocation",
   "name": "NamedParameters<typeof getDbFileLocation>",
   "slug": "namedparameterstypeof-getdbfilelocation",
@@ -19,7 +19,7 @@
       "properties": {
         "storedItem": {
           "$ref": "#/definitions/Storing%3CAugmentedAnyModelType%3E",
-          "description": "The ModelLocation properties in the item are completely ignored.\n\nOnly the ID, slug and categoryStackCalculated are used to determine the exact file the item should be stored in.\n\nNB: storedItem MUST have a slug or ID, but this should probably be generated before this funciton"
+          "description": "The ModelLocation properties in the item are completely ignored.\n\nOnly the ID, slug and categoryStack are used to determine the exact file the item should be stored in.\n\nNB: storedItem MUST have a slug or ID, but this should probably be generated before this funciton"
         },
         "operationName": {
           "type": [
@@ -49,7 +49,7 @@
           "name": "storedItem",
           "required": true,
           "schema": {
-            "fullComment": "The ModelLocation properties in the item are completely ignored.\n\nOnly the ID, slug and categoryStackCalculated are used to determine the exact file the item should be stored in.\n\nNB: storedItem MUST have a slug or ID, but this should probably be generated before this funciton\n\nUse this generic if you want to store models in a typesafe way\n\nRemoves the parameters that should not be stored",
+            "fullComment": "The ModelLocation properties in the item are completely ignored.\n\nOnly the ID, slug and categoryStack are used to determine the exact file the item should be stored in.\n\nNB: storedItem MUST have a slug or ID, but this should probably be generated before this funciton\n\nUse this generic if you want to store models in a typesafe way\n\nRemoves the parameters that should not be stored",
             "nb": "storedItem MUST have a slug or ID, but this should probably be generated before this funciton",
             "properties": [
               {

@@ -1,0 +1,56 @@
+{
+  "createdAt": 1671317802894,
+  "updatedAt": 1671317802894,
+  "deletedAt": 0,
+  "createdFirstAt": 1671317802894,
+  "id": "namedparameterstypeof-startsearchwebifavailable",
+  "name": "NamedParameters<typeof startSearchWebIfAvailable>",
+  "slug": "namedparameterstypeof-startsearchwebifavailable",
+  "operationRelativeTypescriptFilePath": "src/startSearchWebIfAvailable.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isWatching": {
+          "type": "boolean"
+        },
+        "isRestart": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "isWatching",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isRestart",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof startSearchWebIfAvailable>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

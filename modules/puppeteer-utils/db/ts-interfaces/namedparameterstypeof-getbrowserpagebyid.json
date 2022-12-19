@@ -1,0 +1,62 @@
+{
+  "createdAt": 1671430235135,
+  "updatedAt": 1671430235135,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430235135,
+  "id": "namedparameterstypeof-getbrowserpagebyid",
+  "name": "NamedParameters<typeof getBrowserPageById>",
+  "slug": "namedparameterstypeof-getbrowserpagebyid",
+  "operationRelativeTypescriptFilePath": "src/getBrowserPageById.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "browser": {
+          "$ref": "#/definitions/Browser"
+        },
+        "pageId": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "browser",
+        "pageId"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "browser",
+          "required": true,
+          "schema": {
+            "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "pageId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getBrowserPageById>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

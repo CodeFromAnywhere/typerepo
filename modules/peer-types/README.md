@@ -57,7 +57,8 @@ Properties:
 
 ## 🔸 Device
 
-jsonMultiple model
+jsonSingle model
+
 
 
 
@@ -92,18 +93,15 @@ Properties:
 | id  | string |  |
 | categoryStackCalculated (optional) | array |  |
 | authToken  | string |  |
-| userAgent  | object |  |
 | userAgentString  | string |  |
 | name  | string |  |
-| previousIps  | array |  |
-| origins  | array |  |
 | hasPapi (optional) | boolean |  |
 | isOnlineCalculated (optional) | boolean |  |
 | lastOnlineAt  | number |  |
 | isLocalIpCalculated (optional) | boolean |  |
 | isFavorite (optional) | boolean |  |
 | isPrivate (optional) | boolean |  |
-| lastSyncDatabaseAtObject  | object |  |
+| lastSyncDatabaseAtObject (optional) | object |  |
 | personIds (optional) | array |  |
 | currentPersonId (optional) | string |  |
 | currentPersonCalculated (optional) | object |  |

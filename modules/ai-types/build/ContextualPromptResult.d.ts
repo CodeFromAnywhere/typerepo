@@ -49,5 +49,9 @@ export interface ContextualPromptResult extends DefaultModelType {
      * Unique ID for this thread, generated if not given to the prompt
      */
     thread?: string;
+    /**
+     * Note you can attach to the Prompt result.
+     */
+    noteContent?: string;
 }
 //# sourceMappingURL=ContextualPromptResult.d.ts.map

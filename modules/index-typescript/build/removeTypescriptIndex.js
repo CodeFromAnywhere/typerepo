@@ -1,8 +1,78 @@
-"use strict";var __awaiter=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((function(a,i){function o(e){try{u(n.next(e))}catch(e){i(e)}}function s(e){try{u(n.throw(e))}catch(e){i(e)}}function u(e){var t;e.done?a(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(o,s)}u((n=n.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,n,a,i,o={label:0,sent:function(){if(1&a[0])throw a[1];return a[1]},trys:[],ops:[]};return i={next:s(0),throw:s(1),return:s(2)},"function"==typeof Symbol&&(i[Symbol.iterator]=function(){return this}),i;function s(i){return function(s){return function(i){if(r)throw new TypeError("Generator is already executing.");for(;o;)try{if(r=1,n&&(a=2&i[0]?n.return:i[0]?n.throw||((a=n.return)&&a.call(n),0):n.next)&&!(a=a.call(n,i[1])).done)return a;switch(n=0,a&&(i=[2&i[0],a.value]),i[0]){case 0:case 1:a=i;break;case 4:return o.label++,{value:i[1],done:!1};case 5:o.label++,n=i[1],i=[0];continue;case 7:i=o.ops.pop(),o.trys.pop();continue;default:if(!(a=o.trys,(a=a.length>0&&a[a.length-1])||6!==i[0]&&2!==i[0])){o=0;continue}if(3===i[0]&&(!a||i[1]>a[0]&&i[1]<a[3])){o.label=i[1];break}if(6===i[0]&&o.label<a[1]){o.label=a[1],a=i;break}if(a&&o.label<a[2]){o.label=a[2],o.ops.push(i);break}a[2]&&o.ops.pop(),o.trys.pop();continue}i=t.call(e,o)}catch(e){i=[6,e],n=0}finally{r=a=0}if(5&i[0])throw i[1];return{value:i[0]?i[1]:void 0,done:!0}}([i,s])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.removeTypescriptIndex=void 0;var fs_util_js_1=require("fs-util-js"),cleanup_typescript_database_1=require("cleanup-typescript-database"),get_path_1=require("get-path"),fs_util_1=require("fs-util"),removeTypescriptIndex=function(e,t){return __awaiter(void 0,void 0,void 0,(function(){var e,r,n;return __generator(this,(function(a){switch(a.label){case 0:return(e=(0,get_path_1.findOperationBasePath)((0,fs_util_1.getFolder)(t)))?(r=(0,fs_util_1.getLastFolder)(e),[4/*yield*/,(0,cleanup_typescript_database_1.cleanupTsDatabase)(r)]):[2/*return*/];case 1:return n=a.sent(),console.log("Cleaned up ".concat((null==n?void 0:n.amountRemoved)||0," indexes (removed ").concat(fs_util_1.path.parse(t).base,")")),[2/*return*/]}}))}))};exports.removeTypescriptIndex=removeTypescriptIndex,exports.removeTypescriptIndex.filter=function(e,t){
-// for indexation we don't care about any other event than adding or changing a file
-return"unlink"===e&&(
-// in order to index a file, it must be in an operation, which means it must be in src
-!!t.includes("/src/")&&(
-// only ts and tsx files matter, the rest doesn't need to be indexed
-!!["ts","tsx"].includes((0,fs_util_js_1.getExtension)(t))&&!fs_util_1.fs.existsSync(t)))};
+"use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.removeTypescriptIndex = void 0;
+var fs_util_js_1 = require("fs-util-js");
+var cleanup_typescript_database_1 = require("cleanup-typescript-database");
+var get_path_1 = require("get-path");
+var fs_util_1 = require("fs-util");
+var removeTypescriptIndex = function (eventName, filePath) { return __awaiter(void 0, void 0, void 0, function () {
+    var operationPath, operationName, result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                operationPath = (0, get_path_1.findOperationBasePath)((0, fs_util_1.getFolder)(filePath));
+                if (!operationPath) {
+                    return [2 /*return*/];
+                }
+                operationName = (0, fs_util_1.getLastFolder)(operationPath);
+                return [4 /*yield*/, (0, cleanup_typescript_database_1.cleanupTsDatabase)(operationName)];
+            case 1:
+                result = _a.sent();
+                console.log("Cleaned up ".concat((result === null || result === void 0 ? void 0 : result.amountRemoved) || 0, " indexes (removed ").concat(fs_util_1.path.parse(filePath).base, ")"));
+                return [2 /*return*/];
+        }
+    });
+}); };
+exports.removeTypescriptIndex = removeTypescriptIndex;
+exports.removeTypescriptIndex.filter = function (eventName, path) {
+    // for indexation we don't care about any other event than adding or changing a file
+    if (eventName !== "unlink")
+        return false;
+    // in order to index a file, it must be in an operation, which means it must be in src
+    if (!path.includes("/src/"))
+        return false;
+    // only ts and tsx files matter, the rest doesn't need to be indexed
+    if (!["ts", "tsx"].includes((0, fs_util_js_1.getExtension)(path)))
+        return false;
+    // sometimes it detects loads of unlinks without the files really removed....
+    if (fs_util_1.fs.existsSync(path))
+        return false;
+    return true;
+};
 //# sourceMappingURL=removeTypescriptIndex.js.map

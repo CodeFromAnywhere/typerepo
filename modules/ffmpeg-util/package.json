@@ -27,31 +27,31 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1670063325352,
+    "lastRebuildAt": 1671316379781,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 6,
-        "lines": 224,
-        "characters": 5761,
-        "bytes": 5761
+        "numberOfFiles": 8,
+        "lines": 275,
+        "characters": 6973,
+        "bytes": 6973
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 112,
-        "characters": 3480,
-        "bytes": 3480
+        "lines": 122,
+        "characters": 3699,
+        "bytes": 3699
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 118,
-        "characters": 2155,
-        "bytes": 2155
+        "lines": 160,
+        "characters": 2696,
+        "bytes": 2696
       },
       "size": {
-        "bytes": 11396,
-        "characters": 11396,
-        "lines": 454,
-        "numberOfFiles": 10
+        "bytes": 13368,
+        "characters": 13368,
+        "lines": 557,
+        "numberOfFiles": 12
       }
     },
     "folderNameIndexed": "ffmpeg-util",
@@ -65,6 +65,10 @@
       "replaceLastOccurence",
       "explore",
       "notEmpty",
+      "fs",
+      "path",
+      "log",
+      "oneByOne",
       "fs",
       "path",
       "log",

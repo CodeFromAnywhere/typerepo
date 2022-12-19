@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116914825,
-  "updatedAt": 1671116914825,
+  "createdAt": 1671318667457,
+  "updatedAt": 1671318667457,
   "deletedAt": 0,
-  "createdFirstAt": 1671116914825,
+  "createdFirstAt": 1671318667457,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const [isOffline, setIsOffline] = useState(false);\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      getItem(API_NO_RESPONSE_TIME_KEY).then((value) => {\n        if (!value) {\n          if (isOffline) {\n            setIsOffline(false);\n            return;\n          }\n        }\n\n        const lastNoResponse = Number(value);\n        const timeAgo = Date.now() - lastNoResponse;\n        if (timeAgo < timeBeforeNotOffline && isOffline) {\n          setIsOffline(false);\n        } else {\n          setIsOffline(true);\n        }\n      });\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return (\n    <Div className=\"mx-4\">\n      <ALink href=\"/settings\">{isOffline ? \"🔺\" : \"💚\"} API</ALink>\n    </Div>\n  );\n}",
   "description": "",
-  "id": "nsbyvhujpeeynxzijmthtabj"
+  "id": "wzfxspfnybcnztjobrigmfde"
 }

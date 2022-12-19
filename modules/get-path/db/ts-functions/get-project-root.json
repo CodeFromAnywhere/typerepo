@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671012408112,
-  "updatedAt": 1671012408112,
+  "createdAt": 1671315990381,
+  "updatedAt": 1671315990381,
   "deletedAt": 0,
-  "createdFirstAt": 1671012408112,
+  "createdFirstAt": 1671315990381,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getProjectRoot.ts",
   "commentsInside": [],
-  "rawText": " (fullSourcePath?: string): string | undefined => {\n  const matchFolder = findFolderWhereMatch(\n    fullSourcePath || __dirname,\n    hasProjectRootFile\n  );\n  if (!matchFolder) return;\n  return matchFolder.folderPath;\n}",
+  "rawText": " (fullSourcePath?: string): string | undefined => {\n  const matchFolder = findFolderWhereMatch(\n    fullSourcePath || process.cwd(),\n    hasProjectRootFile\n  );\n  if (!matchFolder) return;\n  return matchFolder.folderPath;\n}",
   "name": "getProjectRoot",
   "slug": "get-project-root",
   "parameters": [
@@ -52,13 +52,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 428,
+    "characters": 432,
     "lines": 12,
-    "bytes": 428,
+    "bytes": 432,
     "bytesPerCharacter": 1,
     "charactersPerLine": 36,
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "lomrgclcfmgaqlffplfkyrqu"
+  "id": "bpvpbqsiqhjhulbnvfxlupvn"
 }

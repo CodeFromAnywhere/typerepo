@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115094697,
-  "updatedAt": 1671115094697,
+  "createdAt": 1671430208650,
+  "updatedAt": 1671430208650,
   "deletedAt": 0,
-  "createdFirstAt": 1671115094697,
+  "createdFirstAt": 1671430208650,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  const { isSuccessful, message, result } = await openAIChat({\n    prompt: `who is elon musk\n    can tell me his total net \n    worth?`,\n  });\n  console.log({ isSuccessful, message, result });\n  // const result2 = await openAIChat({\n  //   prompt: \"what is apple?\",\n  //   thread: thread,\n  // });\n  // console.log({ result2 });\n  // const result3 = await openAIChat({\n  //   prompt: \"explain quantum computing\",\n  // });\n  // console.log({ result3 });\n}",
+  "value": "async () => {\n  const { isSuccessful, message, result } = await openAIChat({\n    prompt: `explain apple?`,\n  });\n  console.log({ isSuccessful, message, result });\n  // const result2 = await openAIChat({\n  //   prompt: \"what is apple?\",\n  //   thread: result?.thread,\n  // });\n  // console.log({ result2 });\n  // const result3 = await openAIChat({\n  //   prompt: \"explain quantum computing\",\n  // });\n  // console.log({ result3 });\n}",
   "description": "",
-  "id": "ocqyaonrkocmzhkksyqdlarj"
+  "id": "emvsthiazdrfootmsrxlgobk"
 }

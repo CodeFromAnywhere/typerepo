@@ -4,7 +4,7 @@ export declare type ReferencableItem = {
     id: string;
     name?: string;
     slug?: string;
-    categoryStackCalculated?: string[];
+    categoryStack?: string[];
 };
 export declare type ReferencableModelData = {
     [modelName: string]: {

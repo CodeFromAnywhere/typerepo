@@ -8,6 +8,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof runFunctionServerDev>": string;
     "NamedParameters<typeof runFunctionServerDevCli>": string;
     "NamedParameters<typeof scheduleCronJobs>": string;
+    "NamedParameters<typeof startSearchWebIfAvailable>": string;
     RunEveryPeriodEnum: string;
     TsFunction: string;
     FunctionExecution: string;
@@ -50,6 +51,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof addStatement>": string;
     "NamedParameters<typeof addWord>": string;
     "NamedParameters<typeof biggestFunctionName>": string;
+    "NamedParameters<typeof checkQueue>": string;
     "NamedParameters<typeof cleanup>": string;
     "NamedParameters<typeof controlChatGpt>": string;
     "NamedParameters<typeof controlChatGptCli>": string;
@@ -77,6 +79,8 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof marcusAurelius>": string;
     "NamedParameters<typeof poem>": string;
     "NamedParameters<typeof processChatGptPrompt>": string;
+    "NamedParameters<typeof processPromptOnFile>": string;
+    "NamedParameters<typeof processPromptOnFolder>": string;
     "NamedParameters<typeof removeAllFake>": string;
     "NamedParameters<typeof rickAndMorty>": string;
     "NamedParameters<typeof rickAndMortyRick>": string;
@@ -93,6 +97,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof writeCreatePromptCode>": string;
     "NamedParameters<typeof ye>": string;
     "NamedParameters<typeof yodafy>": string;
+    ProcessPromptProps: string;
     StackCount: string;
     AiDemoApp: string;
     BackendAsset: string;
@@ -103,7 +108,7 @@ export declare const sdkInterfacePaths: {
     FolderContent: string;
     Frontmatter: string;
     GptIdeasUser: string;
-    LanguageModel: string;
+    LanguageModelEnum: string;
     ProcessPromptFunctionResult: string;
     PromptFunction: string;
     ReaderProps: string;
@@ -199,6 +204,8 @@ export declare const sdkInterfacePaths: {
     PublicPerson: string;
     "NamedParameters<typeof BreadCrumbs>": string;
     "NamedParameters<typeof renderBreadCrumbs>": string;
+    BrowserPage: string;
+    BrowserSession: string;
     AppShell: string;
     BundleConfig: string;
     BundleMarkdownReaderConfig: string;
@@ -337,7 +344,6 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof tryParseCsv>": string;
     CsvModelType: string;
     CsvTestModel: string;
-    CustomQueryConfig: string;
     DefaultTestModel: string;
     KeyValueMarkdownModelType: string;
     KvmdTestModel: string;
@@ -350,7 +356,6 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof generateSlugTestModel>": string;
     "NamedParameters<typeof get>": string;
     "NamedParameters<typeof getCli>": string;
-    "NamedParameters<typeof getMergedQueryConfig>": string;
     "NamedParameters<typeof getRanomAge>": string;
     "NamedParameters<typeof main>": string;
     "NamedParameters<typeof migration>": string;
@@ -411,6 +416,8 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof compressImage>": string;
     "NamedParameters<typeof compressImages>": string;
     "NamedParameters<typeof compressImagesCli>": string;
+    "NamedParameters<typeof compressMp4>": string;
+    "NamedParameters<typeof compressMp4sCli>": string;
     "NamedParameters<typeof convertToMp3>": string;
     "NamedParameters<typeof convertToMp4>": string;
     "NamedParameters<typeof getFileType>": string;
@@ -447,6 +454,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof stringifyNewlines>": string;
     AnyModelObject: string;
     CategoryStack: string;
+    CustomQueryConfig: string;
     DbFileLocation: string;
     DbQueryResult: string;
     IncludeConfig: string;
@@ -964,29 +972,31 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof ContextualPromptResultsTab>": string;
     "NamedParameters<typeof FilePromptSelect>": string;
     Browser: string;
-    BrowserSession: string;
     FacebookLoginPropsType: string;
     GmailLoginPropsType: string;
     "NamedParameters<typeof getChromeExecutablePath>": string;
     "NamedParameters<typeof clickOnSpanTag>": string;
+    "NamedParameters<typeof delay>": string;
     "NamedParameters<typeof facebookLogin>": string;
     "NamedParameters<typeof foundOrNot>": string;
     "NamedParameters<typeof foundOrNotXpath>": string;
-    "NamedParameters<typeof getBrowserPage>": string;
-    "NamedParameters<typeof getBrowserSession>": string;
+    "NamedParameters<typeof getBrowserPageById>": string;
     "NamedParameters<typeof getBrowserTabs>": string;
     "NamedParameters<typeof getConnectedBrowsers>": string;
+    "NamedParameters<typeof getIdlePage>": string;
+    "NamedParameters<typeof getNewPage>": string;
     "NamedParameters<typeof gmailLogin>": string;
     "NamedParameters<typeof isCaptchaExist>": string;
     "NamedParameters<typeof logConsoleIfDebug>": string;
+    "NamedParameters<typeof openMultiTabs>": string;
     "NamedParameters<typeof openNewBrowser>": string;
+    "NamedParameters<typeof openNewBrowserOnChildProcess>": string;
     "NamedParameters<typeof openPage>": string;
     "NamedParameters<typeof racePromises>": string;
     "NamedParameters<typeof retryClickAndWaitSelector>": string;
     "NamedParameters<typeof retryWaitSelector>": string;
     "NamedParameters<typeof runBrowser>": string;
-    "NamedParameters<typeof setBrowserPage>": string;
-    "NamedParameters<typeof setBrowserSession>": string;
+    "NamedParameters<typeof setBrowserPageIdle>": string;
     "NamedParameters<typeof setInnerHtml>": string;
     "NamedParameters<typeof solveReptcha>": string;
     "NamedParameters<typeof trueClick>": string;
@@ -995,6 +1005,8 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof typeOnTheTargetWithXpathSelector>": string;
     "NamedParameters<typeof waitMilliseconds>": string;
     NewPageProps: string;
+    OpenMultiTabProps: string;
+    Queue: string;
     "NamedParameters<typeof getTailwindModules>": string;
     "NamedParameters<typeof joinClassNames>": string;
     "NamedParameters<typeof Svg>": string;
@@ -1115,6 +1127,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof Share>": string;
     "NamedParameters<typeof useAllText>": string;
     "NamedParameters<typeof useLastSelection>": string;
+    "NamedParameters<typeof useProjectRelativeScreenshot>": string;
     "NamedParameters<typeof findAudioWithViewsArray>": string;
     "NamedParameters<typeof markdownParseToShortMarkdown>": string;
     "NamedParameters<typeof shortMarkdownToMarkdownParse>": string;

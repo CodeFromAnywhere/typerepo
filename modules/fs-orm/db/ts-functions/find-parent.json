@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671115820794,
-  "updatedAt": 1671115820794,
+  "createdAt": 1671316783924,
+  "updatedAt": 1671316783924,
   "deletedAt": 0,
-  "createdFirstAt": 1671115820794,
+  "createdFirstAt": 1671316783924,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/alter/upsertKeyValueMarkdown.ts",
   "commentsInside": [],
-  "rawText": " (\n  arrayItem: Storing<KeyValueMarkdownModelType>,\n  newCategoryStack: CategoryStack\n) => {\n  const categoryStackCalculatedWithItself =\n    arrayItem.categoryStackCalculated.concat(arrayItem.slug);\n  const locationString = categoryStackCalculatedWithItself.join(\",\");\n  const newItemLocationString = newCategoryStack.join(\",\");\n  const isSameLocation = locationString === newItemLocationString;\n\n  return isSameLocation;\n}",
+  "rawText": " (\n  arrayItem: Storing<KeyValueMarkdownModelType>,\n  newCategoryStack: CategoryStack\n) => {\n  const categoryStackWithItself = arrayItem.categoryStack.concat(\n    arrayItem.slug\n  );\n  const locationString = categoryStackWithItself.join(\",\");\n  const newItemLocationString = newCategoryStack.join(\",\");\n  const isSameLocation = locationString === newItemLocationString;\n\n  return isSameLocation;\n}",
   "name": "findParent",
   "slug": "find-parent",
   "parameters": [
@@ -61,13 +61,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 487,
-    "lines": 12,
-    "bytes": 487,
+    "characters": 461,
+    "lines": 13,
+    "bytes": 461,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 41,
-    "linesPerFile": 12,
+    "charactersPerLine": 35,
+    "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "lupkdlwhrwabwxmzggczleyp"
+  "id": "fwxjommjaxrcelmwjkznueda"
 }

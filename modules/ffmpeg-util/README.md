@@ -49,13 +49,29 @@ Returns the new file path on success
 
 # CLI
 
-<details><summary>Show CLI information (2)</summary>
+<details><summary>Show CLI information (4)</summary>
     
   # compressImagesCli()
 
 `compressImages` CLI syntax:
 
 `compressImages [basePath]`
+
+can also be relative path
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## compressMp4sCli()
+
+`compressMp4s` CLI syntax:
+
+`compressMp4s [basePath]`
 
 can also be relative path
 
@@ -74,11 +90,20 @@ can also be relative path
 `compressImages [basePath]`
 
 can also be relative path
+
+
+## 📄 compressMp4sCli (unexported const)
+
+`compressMp4s` CLI syntax:
+
+`compressMp4s [basePath]`
+
+can also be relative path
   </details>
 
 # Internal
 
-<details><summary>Show internal (4)</summary>
+<details><summary>Show internal (6)</summary>
     
   # compressImage()
 
@@ -104,10 +129,27 @@ searches the folder recursively for all images and converts them to webp
 
 
 
+## compressMp4()
+
+Compress mp4 to very small
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| absolutePath | string |  |
+| **Output** |    |    |
+
+
+
 ## 📄 compressImage (exported const)
 
 ## 📄 compressImages (exported const)
 
 searches the folder recursively for all images and converts them to webp
+
+
+## 📄 compressMp4 (exported const)
+
+Compress mp4 to very small
   </details>
 

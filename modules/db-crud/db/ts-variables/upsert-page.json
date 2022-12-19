@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116814564,
-  "updatedAt": 1671116814564,
+  "createdAt": 1671318541907,
+  "updatedAt": 1671318541907,
   "deletedAt": 0,
-  "createdFirstAt": 1671116814564,
+  "createdFirstAt": 1671318541907,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const router = useRouter();\n  const query = mapValuesSync(router.query, (value) => takeFirst(value));\n  const model = useInfiniteGetDbModel();\n  const allItems = model?.data?.pages\n    ?.map((x) => x.result?.data)\n    .flat()\n    .filter(notEmpty) as AugmentedAnyModelType[];\n  const instance = allItems?.find((x) => x.id === query.id);\n  const modelName = useModelFromUrl();\n  const metadataQuery = queries.useGetDbModelMetadata(modelName);\n  const { tsInterface } = destructureOptionalObject(metadataQuery.data?.result);\n  const simplifiedSchema = tsInterface?.type?.simplifiedSchema;\n  const referencableModelNames = getReferencableModels(simplifiedSchema)\n    ?.map((x) => x.interfaceName)\n    .filter(notEmpty);\n\n  return (\n    <Div scroll className=\"py-4 px-8 lg:px-20\">\n      {model.isLoading ? (\n        <FancyLoader />\n      ) : !simplifiedSchema || !modelName ? (\n        <Div>Something's wrong</Div>\n      ) : (\n        <UpsertForm\n          modelName={modelName}\n          simplifiedSchema={simplifiedSchema}\n          instance={instance}\n          referencableModelNames={referencableModelNames}\n        />\n      )}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "kbzgbiwpwgcemjckhmbembdl"
+  "id": "mkpfugvnaqimkhoksbkxlret"
 }

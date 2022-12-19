@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671184125178,
-  "updatedAt": 1671184125178,
+  "createdAt": 1671315075895,
+  "updatedAt": 1671315075895,
   "deletedAt": 0,
-  "createdFirstAt": 1671184125178,
+  "createdFirstAt": 1671315075895,
   "id": "namedparameterstypeof-processchatgptprompt",
   "name": "NamedParameters<typeof processChatGptPrompt>",
   "slug": "namedparameterstypeof-processchatgptprompt",
@@ -18,48 +18,7 @@
       "type": "object",
       "properties": {
         "config": {
-          "type": "object",
-          "properties": {
-            "contextContent": {
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "selectionContent": {
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "contextualPromptSlug": {
-              "type": "string"
-            },
-            "customPromptContent": {
-              "type": "string",
-              "description": "DESCRIPTION: These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format"
-            },
-            "saveNewPromptWithName": {
-              "type": [
-                "string",
-                "null"
-              ]
-            },
-            "isHeadless": {
-              "type": "boolean"
-            },
-            "prompt_projectRelativePath": {
-              "type": "string"
-            },
-            "thread": {
-              "type": "string"
-            },
-            "isDeferred": {
-              "type": "boolean",
-              "description": "If true, it'll just validate if this will be executed, it won't return the actual result but will execute the result in the background"
-            }
-          },
-          "additionalProperties": false
+          "$ref": "#/definitions/ProcessPromptProps"
         }
       },
       "required": [
@@ -73,6 +32,7 @@
           "name": "config",
           "required": true,
           "schema": {
+            "fullComment": "",
             "properties": [
               {
                 "name": "contextContent",

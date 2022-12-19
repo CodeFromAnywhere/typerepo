@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115088996,
-  "updatedAt": 1671115088996,
+  "createdAt": 1671430197407,
+  "updatedAt": 1671430197407,
   "deletedAt": 0,
-  "createdFirstAt": 1671115088996,
+  "createdFirstAt": 1671430197407,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "detect-chat-gpt-page",
   "operationRelativeTypescriptFilePath": "src/detectChatGptPage.ts",
   "type": {
-    "rawType": "(page: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page) => Promise<\"Login\" | \"Chat\" | \"Secure\">",
+    "rawType": "(page: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page) => Promise<\"Login\" | \"Chat\" | \"Secure\">",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  page: Page\n): Promise<\"Login\" | \"Chat\" | \"Secure\"> => {\n  await page.goto(\"https://chat.openai.com/chat\", {\n    waitUntil: \"domcontentloaded\",\n  });\n\n  const sendMessageButton = await page.$(\n    'button[class=\"absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent\"]'\n  );\n\n  const isTextAreaExist = await page.$(\"textarea\");\n\n  if (sendMessageButton && isTextAreaExist) {\n    return \"Chat\";\n  }\n\n  const isSecurePageApear = await page.$x(\n    \"//h2[contains(., 'Checking if the site connection is secure')]\"\n  );\n\n  const isLogin = 'button[class=\"btn flex justify-center gap-2 btn-primary\"]';\n  console.log({ isLogin });\n  if (isSecurePageApear && isLogin) {\n    console.log(\"Unexpected page appear please solve manually\");\n    const { captchas } = await isCaptchaExist(page);\n    if (captchas.length > 0) {\n      console.log(\"CAPTCHA DETECTED\");\n      const captchaSolveResponse = await solveReptcha(page);\n      console.log({ captchaSolveResponse });\n    }\n    await page.waitForSelector(\n      'button[class=\"btn flex justify-center gap-2 btn-primary\"]',\n      { timeout: 60000 }\n    );\n    console.log('\"Login button appear');\n    return \"Login\";\n  }\n  return \"Secure\";\n}",
+  "value": "async (\n  page: Page\n): Promise<\"Login\" | \"Chat\" | \"Secure\"> => {\n  await page.goto(\"https://chat.openai.com/chat\", {\n    waitUntil: \"domcontentloaded\",\n  });\n\n  const sendMessageButton = await page.$(\n    'button[class=\"absolute p-1 rounded-md text-gray-500 bottom-1.5 right-1 md:bottom-2.5 md:right-2 hover:bg-gray-100 dark:hover:text-gray-400 dark:hover:bg-gray-900 disabled:hover:bg-transparent dark:disabled:hover:bg-transparent\"]'\n  );\n\n  const isTextAreaExist = await page.$(\"textarea\");\n\n  if (sendMessageButton && isTextAreaExist) {\n    return \"Chat\";\n  }\n\n  const isSecurePageApear = await page.$x(\n    \"//h2[contains(., 'Checking if the site connection is secure')]\"\n  );\n\n  const isLogin = 'button[class=\"btn flex justify-center gap-2 btn-primary\"]';\n  console.log({ isLogin });\n  if (isSecurePageApear && isLogin) {\n    console.log(\"Unexpected page appear please solve manually\");\n    const { captchas } = await isCaptchaExist(page);\n    if (captchas.length > 0) {\n      console.log(\"CAPTCHA DETECTED\");\n      const captchaSolveResponse = await solveReptcha(page);\n      console.log({ captchaSolveResponse });\n    }\n    try {\n      await page.waitForSelector(\n        'button[class=\"btn flex justify-center gap-2 btn-primary\"]',\n        { timeout: 60000 }\n      );\n      console.log('\"Login button appear');\n      return \"Login\";\n    } catch (e: Error | any) {\n      console.error(\"Erro to to get login page so may be its a chat page open\");\n      return \"Chat\";\n    }\n  }\n  return \"Secure\";\n}",
   "description": "",
-  "id": "gsbggcsmppykiftvrckdiyeh"
+  "id": "frqbgvtezgyqbkicvjdqujky"
 }

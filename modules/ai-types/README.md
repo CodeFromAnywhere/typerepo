@@ -41,6 +41,7 @@ Properties:
 | resultText (optional) | string |  |
 | resultAssets  | array |  |
 | thread (optional) | string |  |
+| noteContent (optional) | string |  |
 
 
 
@@ -64,7 +65,7 @@ Properties:
 | contextType (optional) | array |  |
 | instantExecution (optional) | boolean |  |
 | isFavorite (optional) | boolean |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | pricing (optional) | string |  |
 | slug  | string |  |
 | name  | string |  |
@@ -77,7 +78,9 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
+| categoryStackCalculated (optional) | array |  |
 | title (optional) | string |  |
+| description (optional) | string |  |
 | scopeProjectRelativePath (optional) | string |  |
 | model (optional) | object |  |
 | promptContent  | string |  |
@@ -108,12 +111,32 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | name  | string |  |
+| projectRelativePath  | string |  |
 | type  | string |  |
+| firstFile (optional) | string |  |
 | isPrivate (optional) | boolean |  |
 | isDraft (optional) | boolean |  |
 | isSecret (optional) | boolean |  |
 | authorizedGroup (optional) | string |  |
 | frontmatter (optional) | object |  |
+
+
+
+## 🔹 ProcessPromptFunctionResult
+
+Same result to be expected from executing prompt for any language model
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| isSuccessful  | boolean |  |
+| message  | string |  |
+| result (optional) | object |  |
 
 
 
@@ -129,14 +152,16 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| isFolder  | boolean |  |
+| notFound (optional) | boolean |  |
+| notFoundReason (optional) | string |  |
+| isFolder (optional) | boolean |  |
 | canSeeContent (optional) | boolean |  |
 | unauthorizedWarningMessage (optional) | string |  |
-| markdown  | string |  |
-| contextualPromptsObject  | object |  |
-| contextualPromptResults  | object |  |
-| projectRelativeFilePath  | string |  |
-| navigation  | array |  |
+| markdown (optional) | string |  |
+| contextualPromptsObject (optional) | object |  |
+| contextualPromptResults (optional) | object |  |
+| actualProjectRelativeFilePath (optional) | string |  |
+| navigation (optional) | array |  |
 
 
 
@@ -189,24 +214,6 @@ Properties:
 
 
 
-## 🔹 ProcessPromptFunctionResult
-
-Same result to be expected from executing prompt for any language model
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| isSuccessful  | boolean |  |
-| message  | string |  |
-| result (optional) | object |  |
-
-
-
 ## 🔹 PromptFunction
 
 Special kind of function that executes a prompt with the use of a language model
@@ -221,6 +228,9 @@ Properties:
 |---|---|---|
 | contextualPromptInfo  | object |  |
 
+
+
+## 📄 fileTypePerExtension (exported const)
 
 # Internal
 
@@ -241,7 +251,7 @@ Properties:
 | contextType (optional) | array |  |
 | instantExecution (optional) | boolean |  |
 | isFavorite (optional) | boolean |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | pricing (optional) | string |  |
 
 
@@ -277,20 +287,7 @@ Properties:
 
 
 
-## 🔸 LanguageModel
-
-jsonMultiple model
-
-
-
-
-
-
-
-
-
-
-
+## 🔹 LanguageModelEnum
 
 ## 📄 languageModels (exported const)
 

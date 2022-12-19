@@ -1,0 +1,75 @@
+{
+  "createdAt": 1671430257730,
+  "updatedAt": 1671430257730,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430257730,
+  "id": "namedparameterstypeof-openmultitabs",
+  "name": "NamedParameters<typeof openMultiTabs>",
+  "slug": "namedparameterstypeof-openmultitabs",
+  "operationRelativeTypescriptFilePath": "src/openMultiTabs.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "$ref": "#/definitions/OpenMultiTabProps"
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "noOfTabs",
+                "required": true,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "tabUrl",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "browser",
+                "required": true,
+                "schema": {
+                  "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof openMultiTabs>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

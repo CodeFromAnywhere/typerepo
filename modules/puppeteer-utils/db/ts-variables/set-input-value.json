@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671113679003,
-  "updatedAt": 1671113679003,
+  "createdAt": 1671430277762,
+  "updatedAt": 1671430277762,
   "deletedAt": 0,
-  "createdFirstAt": 1671113679003,
+  "createdFirstAt": 1671430277762,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (params: SetInputValueType) => {\n  const { page, selector, inputValue } = params;\n  await page.waitForSelector(selector);\n  await page.$eval(\n    selector,\n    (elem: ElementType, args: any) => {\n      elem.value = args.value;\n    },\n    { value: inputValue }\n  );\n}",
   "description": "",
-  "id": "qpduglcgeytnypvvqpgzmqkc"
+  "id": "farhnenstkmzhxvpnyunzixu"
 }

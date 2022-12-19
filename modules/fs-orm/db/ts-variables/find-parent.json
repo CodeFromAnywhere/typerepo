@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115821018,
-  "updatedAt": 1671115821018,
+  "createdAt": 1671316784275,
+  "updatedAt": 1671316784275,
   "deletedAt": 0,
-  "createdFirstAt": 1671115821018,
+  "createdFirstAt": 1671316784275,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  arrayItem: Storing<KeyValueMarkdownModelType>,\n  newCategoryStack: CategoryStack\n) => {\n  const categoryStackCalculatedWithItself =\n    arrayItem.categoryStackCalculated.concat(arrayItem.slug);\n  const locationString = categoryStackCalculatedWithItself.join(\",\");\n  const newItemLocationString = newCategoryStack.join(\",\");\n  const isSameLocation = locationString === newItemLocationString;\n\n  return isSameLocation;\n}",
+  "value": "(\n  arrayItem: Storing<KeyValueMarkdownModelType>,\n  newCategoryStack: CategoryStack\n) => {\n  const categoryStackWithItself = arrayItem.categoryStack.concat(\n    arrayItem.slug\n  );\n  const locationString = categoryStackWithItself.join(\",\");\n  const newItemLocationString = newCategoryStack.join(\",\");\n  const isSameLocation = locationString === newItemLocationString;\n\n  return isSameLocation;\n}",
   "description": "this location matches any category that equals the categorystack",
-  "id": "wmvlukrkkpqvbdywnkbnesqi"
+  "id": "wvbflngatnismaerwvfwszju"
 }

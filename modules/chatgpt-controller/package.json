@@ -24,19 +24,19 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1671115100297,
+    "lastRebuildAt": 1671430222211,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 4,
-        "lines": 291,
-        "characters": 10132,
-        "bytes": 10132
+        "lines": 303,
+        "characters": 10450,
+        "bytes": 10450
       },
       "dataSize": {
-        "numberOfFiles": 2,
-        "lines": 120,
-        "characters": 3685,
-        "bytes": 3685
+        "numberOfFiles": 35,
+        "lines": 243,
+        "characters": 55488,
+        "bytes": 55488
       },
       "textSize": {
         "numberOfFiles": 3,
@@ -45,25 +45,25 @@
         "bytes": 3875
       },
       "size": {
-        "bytes": 17692,
-        "characters": 17692,
-        "lines": 540,
-        "numberOfFiles": 9
+        "bytes": 69813,
+        "characters": 69813,
+        "lines": 675,
+        "numberOfFiles": 42
       }
     },
     "folderNameIndexed": "chatgpt-controller",
-    "relativeOperationLocationPathIndexed": "operations/niches/bhagya-nov-30/doing/control-web",
+    "relativeOperationLocationPathIndexed": "packages/niches/bhagya/doing/control-web",
     "classificationIndexed": "node-cjs",
     "coreDependenciesIndexed": [],
     "operationDependenciesIndexed": [
       "isCaptchaExist",
       "solveReptcha",
-      "getBrowserSession",
       "db",
       "MediaCredential",
       "isCaptchaExist",
       "solveReptcha",
       "openPage",
+      "setBrowserPageIdle",
       "ProcessPromptFunctionResult"
     ],
     "packageDependenciesIndexed": [

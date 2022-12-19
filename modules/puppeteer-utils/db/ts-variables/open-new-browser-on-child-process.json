@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671430256879,
+  "updatedAt": 1671430256879,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430256879,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "openNewBrowserOnChildProcess",
+  "slug": "open-new-browser-on-child-process",
+  "operationRelativeTypescriptFilePath": "src/openBrowserOnChildProcess.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const operationFolderPath = await getOperationPath(\"puppeteer-utils\");\n  console.log(\"Child Process called\", operationFolderPath);\n  const browserSession = await db.get(\"BrowserSession\");\n  if (browserSession.length === 0) {\n    const newProcess = fork(\n      `${operationFolderPath}/build/cli/runBrowser.cli.js`,\n      {\n        detached: true,\n        // stdio: \"ignore\",\n      }\n    );\n    newProcess.unref();\n  }\n}",
+  "description": "",
+  "id": "inedqyfmfzquouldbipvesyg"
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671113666335,
-  "updatedAt": 1671113666335,
+  "createdAt": 1671430262213,
+  "updatedAt": 1671430262213,
   "deletedAt": 0,
-  "createdFirstAt": 1671113666335,
+  "createdFirstAt": 1671430262213,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "open-new-browser",
   "operationRelativeTypescriptFilePath": "src/openNewBrowser.ts",
   "type": {
-    "rawType": "() => Promise<import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Browser>",
+    "rawType": "() => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Browser | undefined>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (): Promise<Browser> => {\n  const existingBrowser = getBrowserSession();\n  if (existingBrowser && existingBrowser.isConnected()) {\n    return existingBrowser;\n  }\n  puppeteer.use(\n    RecaptchaPlugin({\n      provider: {\n        id: \"2captcha\",\n        token: \"243f9da05482cc8e9b76203a184943c9\", // REPLACE THIS WITH YOUR OWN 2CAPTCHA API KEY ⚡\n      },\n      visualFeedback: true, // colorize reCAPTCHAs (violet = detected, green = solved)\n    })\n  );\n\n  puppeteer.use(StealthPlugin());\n  const browser = await puppeteer.launch(browserLunchOptions);\n  setBrowserSession(browser);\n  return browser;\n}",
+  "value": "async (): Promise<Browser | undefined> => {\n  console.log(\"OPEN BROWSER CALLED\");\n  const existingBrowserSession = await db.get(\"BrowserSession\");\n  if (existingBrowserSession[0]) {\n    const { browserSessionId } = existingBrowserSession[0];\n    try {\n      puppeteer.use(\n        RecaptchaPlugin({\n          provider: {\n            id: \"2captcha\",\n            token: \"243f9da05482cc8e9b76203a184943c9\", // REPLACE THIS WITH YOUR OWN 2CAPTCHA API KEY ⚡\n          },\n          visualFeedback: true, // colorize reCAPTCHAs (violet = detected, green = solved)\n        })\n      );\n      const existingBrowser = await puppeteer.connect({\n        browserWSEndpoint: browserSessionId,\n      });\n      const isBrowserConnected = existingBrowser.isConnected();\n      console.log({ isBrowserConnected });\n      return existingBrowser;\n    } catch (e: Error | any) {\n      console.log(\"Error in open browser\", e);\n      await db.clear(\"BrowserSession\");\n      await openNewBrowserOnChildProcess();\n      return;\n    }\n  } else {\n    await db.clear(\"BrowserSession\");\n    await openNewBrowserOnChildProcess();\n    return;\n  }\n}",
   "description": "",
-  "id": "ocunanmhbzeufqqlcslcbkfs"
+  "id": "axrajiqdjypdvjxsdbrbhvcm"
 }

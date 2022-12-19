@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884369649,
-  "updatedAt": 1669884369649,
+  "createdAt": 1671317057331,
+  "updatedAt": 1671317057331,
   "deletedAt": 0,
-  "createdFirstAt": 1669884369649,
+  "createdFirstAt": 1671317057331,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  slug: string,\n  updatedValues: {\n    name?: string;\n    description?: string;\n    authToken?: string;\n    isFavorite?: boolean;\n    isMe?: boolean;\n  }\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  const updateResult = await db.update(\n    \"Person\",\n    (person) => {\n      return person.slug === slug;\n    },\n    (peer) => {\n      return { ...peer, ...omitUndefinedValues(updatedValues) };\n    }\n  );\n\n  return {\n    isSuccesful: !!updateResult.isSuccesful,\n    message: updateResult.isSuccesful\n      ? \"Peer updated\"\n      : `Something went wrong: ${updateResult.message}`,\n  };\n}",
   "description": "Update one of your peers",
-  "id": "yksppkyuovylwaaztwcbbuqv"
+  "id": "qfkuylimsoppbgzbpbqcvsli"
 }

@@ -15,12 +15,12 @@ var writeCreatePromptCode = function (contextualPrompt) {
         .map(function (x) { return "".concat(x, ": string"); })
         .join(", ");
     var objectParametersString = parameters.join(",\n");
-    var contextType = contextualPrompt.contextType, instantExecution = contextualPrompt.instantExecution, isFavorite = contextualPrompt.isFavorite, categoryStackCalculated = contextualPrompt.categoryStackCalculated;
+    var contextType = contextualPrompt.contextType, instantExecution = contextualPrompt.instantExecution, isFavorite = contextualPrompt.isFavorite, categoryStack = contextualPrompt.categoryStack;
     var contextualPromptInfo = {
         contextType: contextType,
         instantExecution: instantExecution,
         isFavorite: isFavorite,
-        categoryStackCalculated: categoryStackCalculated,
+        categoryStack: categoryStack,
     };
     var functionName = (0, convert_case_1.camelCase)(contextualPrompt.name);
     return "\n  ".concat(contextualPrompt.title

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116839858,
-  "updatedAt": 1671116839858,
+  "createdAt": 1671318566468,
+  "updatedAt": 1671318566468,
   "deletedAt": 0,
-  "createdFirstAt": 1671116839858,
+  "createdFirstAt": 1671318566468,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: {\n  initialValue?: string;\n  placeholder?: string;\n}) => {\n  const { initialValue, placeholder } = props;\n  const [tempSearch, setTempSearch] = useState(initialValue || \"\");\n\n  const [search, setSearch] = useStore(\"db-crud.search\");\n\n  const go = () => {\n    setSearch(tempSearch);\n  };\n\n  const clearSearch = () => setSearch(\"\");\n\n  return (\n    <Div className=\"rounded-full border border-zinc-700 dark:border-zinc-300 p-1 px-3 text-lg hover:bg-zinc-200 dark:hover:bg-zinc-800 bg-zinc-100 dark:bg-zinc-600 dark flex flex-row max-w-xl mx-4\">\n      {search.length > 0 ? (\n        <Div\n          className={`cursor-pointer pr-2`}\n          onClick={() => {\n            setSearch(\"\");\n            setTempSearch(\"\");\n          }}\n        >\n          🗑\n        </Div>\n      ) : null}\n      <Form\n        onSubmit={(e) => {\n          e.preventDefault();\n          go();\n        }}\n      >\n        <Input\n          placeholder={placeholder || \"Search\"}\n          className=\"flex flex-1 bg-transparent focus:outline-none\"\n          value={tempSearch}\n          onChange={(e) => setTempSearch(e.target.value)}\n        />\n      </Form>\n      <Div\n        className={\n          tempSearch.length === 0 ? \"cursor-default\" : \"cursor-pointer\"\n        }\n        onClick={go}\n      >\n        🔎\n      </Div>\n    </Div>\n  );\n}",
   "description": "",
-  "id": "vneixpmosaqnnjkpqkoarkqr"
+  "id": "inprskhbajxdpoucssksgfjm"
 }

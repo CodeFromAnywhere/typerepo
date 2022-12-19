@@ -1,15 +1,15 @@
 {
-  "createdAt": 1669380102055,
-  "updatedAt": 1669380102055,
+  "createdAt": 1671316921141,
+  "updatedAt": 1671316921141,
   "deletedAt": 0,
-  "createdFirstAt": 1669380102055,
+  "createdFirstAt": 1671316921141,
   "id": "todofileproperties",
   "name": "TodoFileProperties",
   "slug": "todofileproperties",
   "operationRelativeTypescriptFilePath": "src/TodoFileProperties.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport interface TodoFileProperties {\n  priority?: TodoPriority;\n\n  // `TodoOffer` config. Must be flat because it's a `MarkdownModelType`\n\n  /**\n   * overwrites visibility for freelancer\n   *\n   * by default a todo is visible, unless specifically hiding it\n   *\n   * by default a todo with `isDraft: true` is hidden, unless specifically making it visible\n   */\n  isHiddenForFreelancer?: boolean;\n\n  /**\n   * make todo claimable by a freelancer\n   */\n  isClaimable?: boolean;\n\n  /**\n   * Price to be paid, that, if offered by a freelancer, will be accepted.\n   */\n  doNowPrice?: Price;\n\n  /**\n   * admin can specify when this needs to be finished\n   */\n  deadlineAt?: number;\n\n  /**\n   * Source needed from these operations, can be made accessible after accepting the offer\n   */\n  codeRequired_operationSlugs: Id[];\n  todoOffersCalculated?: TodoOffer[];\n\n  owner_personId?: Slug;\n\n  /**\n   * special categories that augment todo-ui functionality:\n   *\n   * - `ideas` can have altered visibility, according to config\n   * - `done` can have altered visibility, according to config\n   * - `backlog` can have altered visibility, according to config\n   * - `codestories` should be turned into codestories\n   *\n   * Not sure if this should really be fixed, but a convention is always good.\n   */\n  categoryStackCalculated: CategoryStack;\n}",
+  "rawText": "\n\nexport interface TodoFileProperties {\n  priority?: TodoPriority;\n\n  // `TodoOffer` config. Must be flat because it's a `MarkdownModelType`\n\n  /**\n   * overwrites visibility for freelancer\n   *\n   * by default a todo is visible, unless specifically hiding it\n   *\n   * by default a todo with `isDraft: true` is hidden, unless specifically making it visible\n   */\n  isHiddenForFreelancer?: boolean;\n\n  /**\n   * make todo claimable by a freelancer\n   */\n  isClaimable?: boolean;\n\n  /**\n   * Price to be paid, that, if offered by a freelancer, will be accepted.\n   */\n  doNowPrice?: Price;\n\n  /**\n   * admin can specify when this needs to be finished\n   */\n  deadlineAt?: number;\n\n  /**\n   * Source needed from these operations, can be made accessible after accepting the offer\n   */\n  codeRequired_operationSlugs: Id[];\n  todoOffersCalculated?: TodoOffer[];\n\n  owner_personId?: Slug;\n\n  /**\n   * special categories that augment todo-ui functionality:\n   *\n   * - `ideas` can have altered visibility, according to config\n   * - `done` can have altered visibility, according to config\n   * - `backlog` can have altered visibility, according to config\n   * - `codestories` should be turned into codestories\n   *\n   * Not sure if this should really be fixed, but a convention is always good.\n   */\n  categoryStack: CategoryStack;\n}",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -54,14 +54,14 @@
         "owner_personId": {
           "$ref": "#/definitions/Slug"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack",
           "description": "special categories that augment todo-ui functionality:\n\n- `ideas` can have altered visibility, according to config\n- `done` can have altered visibility, according to config\n- `backlog` can have altered visibility, according to config\n- `codestories` should be turned into codestories\n\nNot sure if this should really be fixed, but a convention is always good."
         }
       },
       "required": [
         "codeRequired_operationSlugs",
-        "categoryStackCalculated"
+        "categoryStack"
       ],
       "additionalProperties": false
     },
@@ -327,6 +327,14 @@
                                     "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                                     "type": "string"
                                   }
+                                },
+                                {
+                                  "name": "absoluteUrl",
+                                  "required": false,
+                                  "schema": {
+                                    "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
+                                    "type": "string"
+                                  }
                                 }
                               ],
                               "type": "object"
@@ -371,7 +379,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": true,
           "schema": {
             "fullComment": "special categories that augment todo-ui functionality:\n\n- `ideas` can have altered visibility, according to config\n- `done` can have altered visibility, according to config\n- `backlog` can have altered visibility, according to config\n- `codestories` should be turned into codestories\n\nNot sure if this should really be fixed, but a convention is always good.\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

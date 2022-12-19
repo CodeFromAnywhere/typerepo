@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671278631680,
-  "updatedAt": 1671278631680,
+  "createdAt": 1671318561028,
+  "updatedAt": 1671318561028,
   "deletedAt": 0,
-  "createdFirstAt": 1671278631680,
+  "createdFirstAt": 1671318561028,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: { modelName: string }) => {\n  const { modelName } = props;\n\n  const [datasetConfig, setDatasetConfig] = useStore(\"db-crud.datasetConfig\");\n\n  const [form, datasetConfigForm] = useTsInterfaceForm(\n    DatasetConfigIndex as Storing<TsInterface>,\n    datasetConfig?.id || \"noid\",\n    datasetConfig\n  );\n\n  const addDatasetFromDatasetConfig = async () => {\n    if (!modelName) return;\n\n    let name = prompt(\"What should be the name?\", \"untitled\");\n    const dataset: Creation<Dataset> = {\n      ...datasetConfigForm,\n      modelName,\n      name: name || \"untitled\",\n    };\n\n    const { isSuccessful, result, message } = await api.upsertDbModel(\n      \"Dataset\",\n      //@ts-ignore\n      dataset,\n      true\n    );\n\n    metadataQuery.refetch();\n\n    successToast(\n      isSuccessful && result?.isSuccesful\n        ? \"Succesfully added\"\n        : result?.message || message || \"Error\"\n    );\n  };\n\n  const metadataQuery = queries.useGetDbModelMetadata(modelName as DbModelEnum);\n  const { datasets, tsInterface } = destructureOptionalObject(\n    metadataQuery.data?.result\n  );\n\n  const removeDataset = async () => {\n    if (!datasetConfig?.id) return;\n\n    const { isSuccessful, result, message } = await api.deleteDbModel(\n      \"Dataset\",\n      datasetConfig.id\n    );\n\n    // refetch datasets\n    metadataQuery.refetch();\n    setDatasetConfig(null);\n\n    successToast(\n      isSuccessful && result?.isSuccesful\n        ? \"Succesfully removed\"\n        : result?.message || message || \"Error\"\n    );\n  };\n\n  const properties = getProperties(tsInterface?.type?.typeDefinition);\n\n  return (\n    <Div className=\"border rounded-md border-gray-700\">\n      <P className=\"text-3xl\">Dataset Configuration</P>\n\n      {form}\n\n      <ClickableIcon\n        emoji=\"➕ New dataset\"\n        onClick={addDatasetFromDatasetConfig}\n      />\n\n      <ClickableIcon\n        emoji=\"🧪 Apply\"\n        onClick={() =>\n          datasetConfigForm !== undefined\n            ? setDatasetConfig(datasetConfigForm)\n            : null\n        }\n      />\n\n      <ClickableIcon\n        emoji=\"🧹 Clear dataset\"\n        onClick={() => setDatasetConfig(null)}\n      />\n      {datasetConfig?.id ? (\n        <ClickableIcon emoji=\"🗑 Remove dataset\" onClick={removeDataset} />\n      ) : null}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "znjvfiytbybvazbbcmfgvght"
+  "id": "phnhfzrjntwkrtastbahqopo"
 }

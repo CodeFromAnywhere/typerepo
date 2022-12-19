@@ -26,7 +26,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 
 
 
@@ -40,6 +40,18 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
+
+
+
+## generateId()
+
+24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `String`   |    |
 
 
 
@@ -88,16 +100,20 @@ We can always migrate later to a bigger amount, but I don't see good reason to k
 
 
 
-## generateId()
+## 🔹 Slug
+
+use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.
+
+
+
+
+
+
+
+
+## 📄 generateId (exported const)
 
 24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `String`   |    |
-
 
 
 ## 🔸 SlugModelType
@@ -127,23 +143,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-
-
-
-## 📄 generateId (exported const)
-
-24 characters of the alphabet provides 9E33 combinations, wont be possible to brute-force in centuries, even if there are billions of entries
-
-
-## 🔹 Slug
-
-use this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.
-
-
-
-
-
+| categoryStack (optional) | array |  |
 
 
 
@@ -172,7 +172,7 @@ Properties:
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 | isHeaderCalculated  | boolean |  |
 
 
@@ -217,16 +217,7 @@ Properties:
 | name  | string |  |
 | slug  | string |  |
 | markdown  | string |  |
-| categoryStackCalculated  | array |  |
-
-
-
-## generateRandomString()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| length | number |  |
-| **Output** | `String`   |    |
+| categoryStack  | array |  |
 
 
 
@@ -241,32 +232,16 @@ all currently supported languages
 
 
 
+## generateRandomString()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| length | number |  |
+| **Output** | `String`   |    |
+
+
+
 ## 📄 generateRandomString (exported const)
-
-## 🔹 Price
-
-TLDR;EUROS
-
-A price is a number indicating the relative cost. Absolute cost is calculated by many other factors
-
-For now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.
-
-Later we can add all kinds of extra conversion:
-
-- currency support
-- king os currency
-- lower cost for poorer people
-
-etc...
-
-First we need to start making sales before we can add such complexity.
-
-
-
-
-
-
-
 
 ## 🔹 AnyModelType
 
@@ -304,7 +279,62 @@ NB: Changing this value when updating/upserting, changes where the item is locat
 
 
 
+## 🔹 Price
+
+TLDR;EUROS
+
+A price is a number indicating the relative cost. Absolute cost is calculated by many other factors
+
+For now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.
+
+Later we can add all kinds of extra conversion:
+
+- currency support
+- king os currency
+- lower cost for poorer people
+
+etc...
+
+First we need to start making sales before we can add such complexity.
+
+
+
+
+
+
+
+
 ## 🔹 Json
+
+## 🔹 KeyValueMarkdownParse
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| parameters  | object |  |
+| data  | array |  |
+
+
+
+## 🔹 ModelLocation
+
+Parameters that tell you about the location an instance of a model.
+Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+
+
 
 ## 🔹 CsvModelType
 
@@ -331,21 +361,9 @@ Properties:
 
 
 
-## 🔹 KeyValueMarkdownParse
+## 🔹 DbFileLocation
 
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| parameters  | object |  |
-| data  | array |  |
-
-
-
-## 🔹 ModelLocation
-
-Parameters that tell you about the location an instance of a model.
-Models can be tied to an operation. They always have a `projectRelativePath`, and if they are tied to an operation, also an `operationRelativePath`.
+Object used to hand over all information about the location of a db-file in a structured way
 
 
 
@@ -355,6 +373,8 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| absolutePath  | string |  |
+| modelName  | string |  |
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
@@ -392,12 +412,7 @@ Properties:
 
 
 
-## 🔸 CategoryModelType
-
-keyValueMarkdown model
-
-
-
+## 🔹 CategoryModelType
 
 TODO: make this be able to hold more than just the KV. If that's not really needed just throw this away...
 
@@ -423,32 +438,12 @@ Properties:
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 | isHeaderCalculated  | boolean |  |
 
 
 
 ## 🔹 Credit
-
-## 🔹 DbFileLocation
-
-Object used to hand over all information about the location of a db-file in a structured way
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| absolutePath  | string |  |
-| modelName  | string |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-
-
 
 ## 🔹 Text
 
@@ -462,6 +457,15 @@ if there is a data model with just a single text and it is clear from the name o
 
 
 
+
+
+
+## markdownModelTypeToMarkdownString()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `String`   |    |
 
 
 
@@ -495,9 +499,12 @@ country code without +
 
 
 
+
+## 📄 markdownModelTypeToMarkdownString (exported const)
+
 # Internal
 
-<details><summary>Show internal (19)</summary>
+<details><summary>Show internal (17)</summary>
     
   # generatePassword()
 
@@ -519,15 +526,6 @@ country code without +
 | ---------- | -- | -- |
 | - | | |
 | **Output** | {  }   |    |
-
-
-
-## markdownModelTypeToMarkdownString()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `String`   |    |
 
 
 
@@ -668,9 +666,5 @@ valid url, can be validated
 ## 📄 languages (exported const)
 
 keys are the iso codes which will be saved in the db, the values are values which can be shown to the user in any UI
-
-
-## 📄 markdownModelTypeToMarkdownString (exported const)
-
   </details>
 

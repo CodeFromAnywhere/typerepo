@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1671315883905,
+    "updatedAt": 1671315883905,
+    "deletedAt": 0,
+    "createdFirstAt": 1671315883905,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/Queue.ts",
+    "comment": "Model for a Queue system so you can execute functions when ram is available",
+    "rawStatement": "export interface Queue extends DefaultModelType {\n  startedAt?: number;\n  type: \"puppeteer\";\n  functionName: string;\n  parameters: any[];\n}",
+    "parameters": {},
+    "types": [],
+    "firstLine": 2,
+    "lastLine": 7,
+    "id": "addllfxeaxquvmazfakrnorx"
+  }
+]

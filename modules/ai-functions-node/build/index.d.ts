@@ -9,6 +9,7 @@ export * from "./getContextualPromptResultJsonFilePath";
 export * from "./gptIdeasRegisterWithContext";
 export * from "./processChatGptPrompt";
 export * from "./prompts";
+export * from "./queue-functions";
 export * from "./removeAllFake";
 export * from "./setIsFavoritePromptResult";
 export * from "./writeContextualPromptSdk";

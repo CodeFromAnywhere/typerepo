@@ -51,6 +51,7 @@ export declare const sdk: {
         message?: string | undefined;
     }>;
     biggestFunctionName: import("ai-types").PromptFunction;
+    checkQueue: () => Promise<void>;
     cleanup: import("ai-types").PromptFunction;
     controlChatGptWrapper: (prompt: string, isHeadless: boolean | undefined, thread: string | undefined, controller: "playwright" | "puppeteer" | "faker") => Promise<import("ai-types").ProcessPromptFunctionResult>;
     controlChatGpt: (prompt: string, headless?: boolean | undefined) => Promise<import("ai-types").ProcessPromptFunctionResult>;
@@ -82,17 +83,17 @@ export declare const sdk: {
     keywords: import("ai-types").PromptFunction;
     marcusAurelius: import("ai-types").PromptFunction;
     poem: import("ai-types").PromptFunction;
-    processChatGptPrompt: (config: {
-        contextContent?: string | null | undefined;
-        selectionContent?: string | null | undefined;
-        contextualPromptSlug?: string | undefined;
-        customPromptContent?: string | undefined;
-        saveNewPromptWithName?: string | null | undefined;
-        isHeadless?: boolean | undefined;
-        prompt_projectRelativePath?: string | undefined;
-        thread?: string | undefined;
-        isDeferred?: boolean | undefined;
-    }) => Promise<import("ai-types").ProcessPromptFunctionResult>;
+    processChatGptPrompt: (config: import("ai-functions-node").ProcessPromptProps) => Promise<import("ai-types").ProcessPromptFunctionResult>;
+    processPromptOnFile: (projectRelativeFilePath: string, contextualPromptSlug: string) => Promise<import("ai-types").ProcessPromptFunctionResult>;
+    processPromptOnFolder: (config: {
+        projectRelativeFolderPath: string;
+        promptSlug: string;
+        isRecursive?: boolean | undefined;
+        extension?: string | string[] | undefined;
+    }) => Promise<{
+        isSuccessful: boolean | undefined;
+        message: string | undefined;
+    }>;
     removeAllFake: (basePath?: string | undefined) => Promise<{
         isSuccessful: boolean;
         message?: string | undefined;
@@ -372,6 +373,7 @@ export declare const sdk: {
         isDebug?: boolean | undefined;
     } | undefined) => Promise<string | undefined>;
     compressImages: (absoluteBasePath: string, sizeWidthPx?: number | undefined, quality?: number | undefined) => Promise<void>;
+    compressMp4: (absolutePath: string) => Promise<void>;
     convertToMp3: (sourcePath: string, destinationPath: string) => Promise<string | undefined>;
     convertToMp4: (sourcePath: string, destinationPath: string) => Promise<string | undefined>;
     findAllDependencyOperations: ({ imports, operations, operationNames, ignoreOperationNames, ignoreFilter, }: {
@@ -929,19 +931,16 @@ export declare const sdk: {
         lastOnlineAt: number;
         appOperationsCalculated: import("peer-types").AppOperation[] | undefined;
         authToken: string;
-        userAgent: import("peer-types").IResult;
         userAgentString: string;
         name: string;
-        previousIps: import("peer-types").IPInfo[];
-        origins: string[];
         hasPapi?: boolean | undefined;
         isOnlineCalculated?: boolean | undefined;
         isLocalIpCalculated?: boolean | undefined;
         isFavorite?: boolean | undefined;
         isPrivate?: boolean | undefined;
-        lastSyncDatabaseAtObject: {
+        lastSyncDatabaseAtObject?: {
             [modelName: string]: number;
-        };
+        } | undefined;
         personIds?: string[] | undefined;
         persons?: import("peer-types").Person[] | undefined;
         currentPersonId?: string | undefined;
@@ -1677,6 +1676,7 @@ export declare const sdk: {
         success: boolean;
         message: string;
     } | undefined>;
+    delay: (ms: number) => Promise<unknown>;
     facebookLogin: (props: import("puppeteer-utils").FacebookLoginPropsType) => Promise<void>;
     foundOrNotXpath: (props: {
         page: import("puppeteer-core").Page;
@@ -1690,22 +1690,24 @@ export declare const sdk: {
         selector: string;
         timeoutMilliseconds?: number | undefined;
     }) => Promise<boolean>;
-    getBrowserPage: (pageId: string) => import("puppeteer").Page | undefined;
-    getBrowserSession: () => import("puppeteer").Browser | undefined;
-    getBrowserTabs: (browserInfo: import("puppeteer-utils").BrowserSession) => Promise<import("puppeteer-core").Page[]>;
+    getBrowserPageById: (browser: import("puppeteer").Browser, pageId: string) => Promise<import("puppeteer").Page | undefined>;
+    getBrowserTabs: (browserInfo: import("browser-types").BrowserSession) => Promise<import("puppeteer-core").Page[]>;
     getChromeExecutablePath: () => "/usr/bin/google-chrome-stable" | "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-    getConnectedBrowsers: () => Promise<import("puppeteer-utils").BrowserSession[]>;
+    getConnectedBrowsers: () => Promise<import("browser-types").BrowserSession[]>;
+    getIdlePage: (browser: import("puppeteer").Browser) => Promise<import("puppeteer").Page | undefined>;
+    getNewPage: (browser: import("puppeteer").Browser) => Promise<import("puppeteer").Page | undefined>;
     gmailLogin: (props: import("puppeteer-utils").GmailLoginPropsType) => Promise<void>;
-    isCaptchaExist: (page: import("puppeteer").Page) => Promise<import("puppeteer-extra-plugin-recaptcha/dist/types").FindRecaptchasResult>;
+    isCaptchaExist: (page: import("puppeteer").Page) => Promise<{
+        captchas: import("puppeteer-extra-plugin-recaptcha/dist/types").CaptchaInfo[];
+    }>;
     logConsoleIfDebug: (props: {
         message: string;
         debug: boolean;
     }) => Promise<void>;
-    openNewBrowser: () => Promise<import("puppeteer").Browser>;
-    openPage: (pageId?: string | undefined) => Promise<{
-        page?: import("puppeteer").Page | undefined;
-        pageId: string;
-    }>;
+    openMultiTabs: (props: import("puppeteer-utils").OpenMultiTabProps) => Promise<void>;
+    openNewBrowserOnChildProcess: () => Promise<void>;
+    openNewBrowser: () => Promise<import("puppeteer").Browser | undefined>;
+    openPage: (pageId?: string | undefined) => Promise<import("puppeteer").Page | undefined>;
     racePromises: (promises: Promise<any>[]) => Promise<number>;
     retryClickAndWaitSelector: (props: {
         page: any;
@@ -1725,9 +1727,7 @@ export declare const sdk: {
         success: boolean;
         found?: any;
     }>;
-    runBrowser: () => Promise<import("puppeteer-core").Browser>;
-    setBrowserPage: (page: import("puppeteer").Page) => string;
-    setBrowserSession: (browser: import("puppeteer").Browser) => void;
+    setBrowserPageIdle: (pageId: string, status: boolean) => Promise<void>;
     setInnerHtml: (props: {
         page: import("puppeteer-core").Page;
         selector: string;

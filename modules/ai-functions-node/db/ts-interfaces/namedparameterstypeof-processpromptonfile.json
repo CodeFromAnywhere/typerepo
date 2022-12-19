@@ -1,0 +1,60 @@
+{
+  "createdAt": 1671315095669,
+  "updatedAt": 1671315095669,
+  "deletedAt": 0,
+  "createdFirstAt": 1671315095669,
+  "id": "namedparameterstypeof-processpromptonfile",
+  "name": "NamedParameters<typeof processPromptOnFile>",
+  "slug": "namedparameterstypeof-processpromptonfile",
+  "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativeFilePath": {
+          "type": "string"
+        },
+        "contextualPromptSlug": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectRelativeFilePath",
+        "contextualPromptSlug"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativeFilePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "contextualPromptSlug",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof processPromptOnFile>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

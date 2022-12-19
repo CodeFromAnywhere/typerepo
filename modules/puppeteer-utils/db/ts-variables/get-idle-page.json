@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671430245638,
+  "updatedAt": 1671430245638,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430245638,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getIdlePage",
+  "slug": "get-idle-page",
+  "operationRelativeTypescriptFilePath": "src/getIdlePage.ts",
+  "type": {
+    "rawType": "(browser: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Browser) => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  browser: Browser\n): Promise<Page | undefined> => {\n  // console.log(\"Get Idle Page Called\");\n  const idlePage = (await db.get(\"BrowserPage\")).find((p) => p.isIdle);\n  console.log({ idlePage });\n\n  const allPages = await browser.pages();\n  const targetPage = allPages.find(\n    //@ts-ignore\n    (p) => p.target()._targetId === idlePage?.pageId\n  );\n\n  return targetPage;\n}",
+  "description": "",
+  "id": "erecaevdskrbxnlnzoeehctv"
+}

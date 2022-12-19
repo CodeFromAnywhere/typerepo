@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774163996,
-  "updatedAt": 1668774163996,
+  "createdAt": 1671316530967,
+  "updatedAt": 1671316530967,
   "deletedAt": 0,
-  "createdFirstAt": 1668774163996,
+  "createdFirstAt": 1671316530967,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "() => {\n  const item: Creation<MarkdownTestModel> = {\n    categoryStackCalculated: [\"sub\", \"folder\"],\n    name: \"hell-yeah\",\n    markdown: \"some markdown....\",\n  };\n\n  const x = testDb.set(\"MarkdownTestModel\", [item]);\n\n  return x;\n}",
+  "value": "() => {\n  const item: Creation<MarkdownTestModel> = {\n    categoryStack: [\"sub\", \"folder\"],\n    name: \"hell-yeah\",\n    markdown: \"some markdown....\",\n  };\n\n  const x = testDb.set(\"MarkdownTestModel\", [item]);\n\n  return x;\n}",
   "description": "Can set a markdown item into a subfolder in the db model folder",
-  "id": "tuhiinkxpygqlkszdszhevkk"
+  "id": "jlfueihtazgybxdquajeajib"
 }

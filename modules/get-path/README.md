@@ -36,15 +36,6 @@ recursive. goes up until it finds a folder that's the project root
 if no source path is given, uses the directory name where the function is executed from as a starting point
 
 
-## findOperationBasePath()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| startPath | string |  |
-| **Output** | string   |    |
-
-
-
 ## getOperationPath()
 
 Gets a path of any operation in the project
@@ -59,9 +50,18 @@ TODO: IDEA: maybe auto-generate key-value JSON where keys are the package-names 
 
 
 
-## 📄 findOperationBasePath (exported const)
-
 ## 📄 getOperationPath (exported const)
+
+## findOperationBasePath()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| startPath | string |  |
+| **Output** | string   |    |
+
+
+
+## 📄 findOperationBasePath (exported const)
 
 ## getPathsWithOperations()
 

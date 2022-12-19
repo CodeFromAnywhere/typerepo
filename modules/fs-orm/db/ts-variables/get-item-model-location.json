@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115850660,
-  "updatedAt": 1671115850660,
+  "createdAt": 1671316831579,
+  "updatedAt": 1671316831579,
   "deletedAt": 0,
-  "createdFirstAt": 1671115850660,
+  "createdFirstAt": 1671316831579,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends { [key: string]: any }>(\n  item: T\n): ModelLocation => {\n  const { operationName, projectRelativePath, operationRelativePath, ...rest } =\n    item;\n\n  return { operationName, projectRelativePath, operationRelativePath };\n}",
   "description": "",
-  "id": "ynxuijmrvuymcgfceihkzidi"
+  "id": "maynangseoovemboyclsxtyt"
 }

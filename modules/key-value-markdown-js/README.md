@@ -31,7 +31,7 @@ Flatten markdown content into an array of paragraphs
 | Input      |    |    |
 | ---------- | -- | -- |
 | markdownChunks | `MarkdownChunk`[] |  |
-| **Output** | { paragraph: string, <br />categoryStackCalculated: string[], <br />level?: number, <br /> }[]   |    |
+| **Output** | { paragraph: string, <br />categoryStack: string[], <br />level?: number, <br /> }[]   |    |
 
 
 
@@ -69,7 +69,7 @@ NB: this doesn't have a reference to its parent yet, but this will be added in f
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| chunk | `MarkdownChunk` |  |,| categoryStackCalculatedUntilNow (optional) | `CategoryStack` |  |
+| chunk | `MarkdownChunk` |  |,| categoryStackUntilNow (optional) | `CategoryStack` |  |
 | **Output** | {  }[]   |    |
 
 
@@ -81,8 +81,8 @@ recursively dives into the Chunk to get all paragraphs inside
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| chunk | `MarkdownChunk` |  |,| categoryStackCalculatedUntilNow (optional) | `CategoryStack` |  |
-| **Output** | { paragraph: string, <br />categoryStackCalculated: string[], <br />level?: number, <br /> }[]   |    |
+| chunk | `MarkdownChunk` |  |,| categoryStackUntilNow (optional) | `CategoryStack` |  |
+| **Output** | { paragraph: string, <br />categoryStack: string[], <br />level?: number, <br /> }[]   |    |
 
 
 
@@ -100,9 +100,9 @@ NB: not sure if this is useful. it would be useful if we could auto-generate the
 | data | `KeyValueMarkdownModelType`[] |  |,| {
     keyName,
     valueName,
-    categoryStackCalculatedName,
+    categoryStackName,
     commentName,
-  } | { keyName?: string, <br />valueName?: string, <br />commentName?: string, <br />categoryStackCalculatedName?: string, <br /> } |  |
+  } | { keyName?: string, <br />valueName?: string, <br />commentName?: string, <br />categoryStackName?: string, <br /> } |  |
 | **Output** | {  }[]   |    |
 
 

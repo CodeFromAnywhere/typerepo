@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669962082703,
-  "updatedAt": 1669962082703,
+  "createdAt": 1671316411015,
+  "updatedAt": 1671316411015,
   "deletedAt": 0,
-  "createdFirstAt": 1669962082703,
+  "createdFirstAt": 1671316411015,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getParagraphsRecursively.ts",
   "commentsInside": [],
-  "rawText": " (\n  chunk: MarkdownChunk,\n  categoryStackCalculatedUntilNow?: CategoryStack\n): MarkdownParagraph[] => {\n  // NB: no copy!\n  const categoryStackCalculated = categoryStackCalculatedUntilNow\n    ? categoryStackCalculatedUntilNow\n    : [];\n\n  if (chunk.title) {\n    categoryStackCalculated.push(chunk.title);\n  }\n\n  const childParagraphs =\n    chunk.children\n      ?.map((childChunk) =>\n        getParagraphsRecursively(childChunk, categoryStackCalculated)\n      )\n      .flat() || [];\n\n  const thisParagraph: MarkdownParagraph = {\n    paragraph: chunk.content || \"\",\n    categoryStackCalculated,\n  };\n\n  return [thisParagraph, ...childParagraphs];\n}",
+  "rawText": " (\n  chunk: MarkdownChunk,\n  categoryStackUntilNow?: CategoryStack\n): MarkdownParagraph[] => {\n  // NB: no copy!\n  const categoryStack = categoryStackUntilNow ? categoryStackUntilNow : [];\n\n  if (chunk.title) {\n    categoryStack.push(chunk.title);\n  }\n\n  const childParagraphs =\n    chunk.children\n      ?.map((childChunk) => getParagraphsRecursively(childChunk, categoryStack))\n      .flat() || [];\n\n  const thisParagraph: MarkdownParagraph = {\n    paragraph: chunk.content || \"\",\n    categoryStack,\n  };\n\n  return [thisParagraph, ...childParagraphs];\n}",
   "name": "getParagraphsRecursively",
   "slug": "get-paragraphs-recursively",
   "parameters": [
@@ -147,7 +147,7 @@
       "required": true
     },
     {
-      "name": "categoryStackCalculatedUntilNow",
+      "name": "categoryStackUntilNow",
       "schema": {
         "$ref": "#/definitions/CategoryStack"
       },
@@ -189,7 +189,7 @@
               }
             ]
           },
-          "categoryStackCalculated": {
+          "categoryStack": {
             "type": "array",
             "items": {
               "type": "string",
@@ -211,7 +211,7 @@
         },
         "required": [
           "paragraph",
-          "categoryStackCalculated"
+          "categoryStack"
         ]
       }
     },
@@ -234,7 +234,7 @@
                 }
               },
               {
-                "name": "categoryStackCalculated",
+                "name": "categoryStack",
                 "required": true,
                 "schema": {
                   "items": [
@@ -264,15 +264,15 @@
       "type": "array"
     }
   },
-  "maxIndentationDepth": 4,
+  "maxIndentationDepth": 3,
   "size": {
-    "characters": 708,
-    "lines": 27,
-    "bytes": 708,
+    "characters": 615,
+    "lines": 23,
+    "bytes": 615,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
-    "linesPerFile": 27,
+    "charactersPerLine": 27,
+    "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "lscqiaolxtdtiugcellescoc"
+  "id": "znpjqslhfbgjhyvnhmndabpn"
 }

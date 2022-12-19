@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962078622,
-  "updatedAt": 1669962078622,
+  "createdAt": 1671316403325,
+  "updatedAt": 1671316403325,
   "deletedAt": 0,
-  "createdFirstAt": 1669962078622,
+  "createdFirstAt": 1671316403325,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdownChunks: MarkdownChunk[]\n): MarkdownParagraph[] => {\n  const flatMarkdownChunks = markdownChunks\n    .map((chunk) => getParagraphsRecursively(chunk))\n    .flat();\n  return flatMarkdownChunks;\n}",
   "description": "Flatten markdown content into an array of paragraphs",
-  "id": "scmnlauedqgpoujmteahlsmx"
+  "id": "bmruotfhnlcweeynydqvnnru"
 }

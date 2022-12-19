@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884365542,
-  "updatedAt": 1669884365542,
+  "createdAt": 1671317050091,
+  "updatedAt": 1671317050091,
   "deletedAt": 0,
-  "createdFirstAt": 1669884365542,
+  "createdFirstAt": 1671317050091,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (id: string) => {\n  const removeResult = await db.remove(\"Device\", (peer) => peer.id === id);\n  return removeResult;\n}",
   "description": "TODO: connect with peoples",
-  "id": "hgrruultssifwnkdslbgrhri"
+  "id": "zxrbvmxxacykvpmlmamznafj"
 }

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671147119435,
-  "updatedAt": 1671147119435,
+  "createdAt": 1671315066149,
+  "updatedAt": 1671315066149,
   "deletedAt": 0,
-  "createdFirstAt": 1671147119435,
+  "createdFirstAt": 1671315066149,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getContextualPromptCategories.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const stackCount = contextualPrompts.reduce((stackCount, current) => {\n    // get the stack for this contextualPrompt\n    const stack: string[] | undefined = current.categoryStackCalculated;\n\n    if (!stack || stack.length === 0) {\n      const already = stackCount.__root;\n      return {\n        ...stackCount,\n        __root: already ? already + 1 : 1,\n      };\n    }\n\n    const everyStackPart: string[] = stack.map((_, index, array) => {\n      const stackUntilHere = array.slice(0, index + 1).join(\".\");\n      return stackUntilHere;\n    });\n\n    const newStackCount = everyStackPart.reduce((stackCount, stackPart) => {\n      const already = stackCount[stackPart];\n      return {\n        ...stackCount,\n        [stackPart]: already ? already + 1 : 1,\n      };\n    }, stackCount);\n\n    return newStackCount;\n  }, {} as StackCount);\n\n  // now, let's make a childObject out of that\n\n  const { __root, ...stackCountWithoutRoot } = stackCount;\n\n  const categories = Object.keys(stackCountWithoutRoot)\n    .map((key) => getObjectForkKeyRecursively(stackCount, key))\n    .filter(notEmpty);\n\n  const rootCategoryChildObject: CategoryChildObject = {\n    category: \"root\",\n    count: __root + sum(categories.map((x) => x.count)),\n    children: categories,\n  };\n\n  return rootCategoryChildObject;\n}",
+  "rawText": " async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const stackCount = contextualPrompts.reduce((stackCount, current) => {\n    // get the stack for this contextualPrompt\n    const stack: string[] | undefined = current.categoryStack;\n\n    if (!stack || stack.length === 0) {\n      const already = stackCount.__root;\n      return {\n        ...stackCount,\n        __root: already ? already + 1 : 1,\n      };\n    }\n\n    const everyStackPart: string[] = stack.map((_, index, array) => {\n      const stackUntilHere = array.slice(0, index + 1).join(\".\");\n      return stackUntilHere;\n    });\n\n    const newStackCount = everyStackPart.reduce((stackCount, stackPart) => {\n      const already = stackCount[stackPart];\n      return {\n        ...stackCount,\n        [stackPart]: already ? already + 1 : 1,\n      };\n    }, stackCount);\n\n    return newStackCount;\n  }, {} as StackCount);\n\n  // now, let's make a childObject out of that\n\n  const { __root, ...stackCountWithoutRoot } = stackCount;\n\n  const categories = Object.keys(stackCountWithoutRoot)\n    .map((key) => getObjectForkKeyRecursively(stackCount, key))\n    .filter(notEmpty);\n\n  const rootCategoryChildObject: CategoryChildObject = {\n    category: \"root\",\n    count: __root + sum(categories.map((x) => x.count)),\n    children: categories,\n  };\n\n  return rootCategoryChildObject;\n}",
   "name": "getContextualPromptCategories",
   "slug": "get-contextual-prompt-categories",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 1368,
+    "characters": 1358,
     "lines": 47,
-    "bytes": 1368,
+    "bytes": 1358,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
     "linesPerFile": 47,
     "numberOfFiles": 1
   },
-  "id": "jmojdlrogkvnafuuipuzdqwd"
+  "id": "mihiukybyvpiwnkryzrkeqvl"
 }

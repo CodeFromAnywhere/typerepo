@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671012420836,
-  "updatedAt": 1671012420836,
+  "createdAt": 1671316055177,
+  "updatedAt": 1671316055177,
   "deletedAt": 0,
-  "createdFirstAt": 1671012420836,
+  "createdFirstAt": 1671316055177,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(operation: Operation, dependency: string) => {\n  return getAllPackageJsonDependencies(operation).includes(dependency);\n}",
   "description": "",
-  "id": "gwvjkwyolbkdwoeyzbbzjfxa"
+  "id": "vewzwmcbhkleppgmtvlvmwdq"
 }

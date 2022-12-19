@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115836821,
-  "updatedAt": 1671115836821,
+  "createdAt": 1671316809792,
+  "updatedAt": 1671316809792,
   "deletedAt": 0,
-  "createdFirstAt": 1671115836821,
+  "createdFirstAt": 1671316809792,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  dbStorageMethod: DbStorageMethod,\n  modelName: string\n): string | undefined => {\n  const fileOrFolderName = pluralize(kebabCase(modelName));\n  if (dbStorageMethod === \"jsonMultiple\") return `db/${fileOrFolderName}.json`;\n  if (dbStorageMethod === \"keyValueMarkdown\")\n    return `db/${fileOrFolderName}.md`;\n  if (dbStorageMethod === \"csv\") return `db/${fileOrFolderName}.csv`;\n\n  if (dbStorageMethod === \"jsonSingle\") return `db/${fileOrFolderName}/*.json`;\n  if (dbStorageMethod === \"markdown\") return `db/${fileOrFolderName}/*.md`;\n}",
   "description": "DB main storage convention",
-  "id": "ljzjujkyxmmaoukzafzbameu"
+  "id": "ljimptkjalohpkmwytvfvqgq"
 }

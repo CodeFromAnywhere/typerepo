@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671100467504,
-  "updatedAt": 1671100467504,
+  "createdAt": 1671317450758,
+  "updatedAt": 1671317450758,
   "deletedAt": 0,
-  "createdFirstAt": 1671100467504,
+  "createdFirstAt": 1671317450758,
   "id": "markdownparagraph",
   "name": "MarkdownParagraph",
   "slug": "markdownparagraph",
   "operationRelativeTypescriptFilePath": "src/MarkdownParse.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type MarkdownParagraph = {\n  /** the raw text of this paragraph */\n  paragraph: string;\n  /**\n   * the parent stack\n   */\n  categoryStackCalculated: CategoryStack;\n  /**\n   * if the paragraph is\n   * NB: not always used!\n   */\n  level?: MarkdownContentLevel;\n};",
+  "rawText": "\n\nexport type MarkdownParagraph = {\n  /** the raw text of this paragraph */\n  paragraph: string;\n  /**\n   * the parent stack\n   */\n  categoryStack: CategoryStack;\n  /**\n   * if the paragraph is\n   * NB: not always used!\n   */\n  level?: MarkdownContentLevel;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -23,7 +23,7 @@
           "type": "string",
           "description": "the raw text of this paragraph"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack",
           "description": "the parent stack"
         },
@@ -34,7 +34,7 @@
       },
       "required": [
         "paragraph",
-        "categoryStackCalculated"
+        "categoryStack"
       ],
       "additionalProperties": false
     },
@@ -49,7 +49,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": true,
           "schema": {
             "fullComment": "the parent stack\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670528044077,
-  "updatedAt": 1670528044077,
+  "createdAt": 1671317557105,
+  "updatedAt": 1671317557105,
   "deletedAt": 0,
-  "createdFirstAt": 1670528044077,
+  "createdFirstAt": 1671317557105,
   "id": "categorymodeltype",
   "name": "CategoryModelType",
   "slug": "categorymodeltype",
@@ -15,8 +15,7 @@
   ],
   "isOperationIndex": false,
   "description": "\nTODO: make this be able to hold more than just the KV. If that's not really needed just throw this away...\n\nSimple recursive data structure for hierarchical categories. Should be used to make any category model\n\nMake sure, when extending this, to provide a reference `xxxSlug` and its content `xxx` as optional parameters to its parent categories.\n\nE.g. for a `CountryCategory`, you should provide `countryCategorySlug` and `countryCategory`",
-  "dbStorageMethod": "keyValueMarkdown",
-  "isDbModel": true,
+  "isDbModel": false,
   "commentsInside": [],
   "type": {
     "typeDefinition": {
@@ -66,7 +65,7 @@
           "type": "string",
           "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack",
           "description": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`"
         },
@@ -76,7 +75,7 @@
         }
       },
       "required": [
-        "categoryStackCalculated",
+        "categoryStack",
         "comment",
         "id",
         "isHeaderCalculated",
@@ -157,7 +156,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": true,
           "schema": {
             "fullComment": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

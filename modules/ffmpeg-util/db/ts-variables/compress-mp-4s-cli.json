@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671316340002,
+  "updatedAt": 1671316340002,
+  "deletedAt": 0,
+  "createdFirstAt": 1671316340002,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "compressMp4sCli",
+  "slug": "compress-mp-4s-cli",
+  "operationRelativeTypescriptFilePath": "src/cli/compressMp4s.cli.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const argumentsArray = process.argv.slice(2);\n\n  if (argumentsArray.length > 0) {\n    oneByOne(argumentsArray, async (absoluteOrRelativePath) => {\n      const absoluteFilePath = absoluteOrRelativePath.startsWith(\".\")\n        ? path.join(process.cwd(), absoluteOrRelativePath)\n        : absoluteOrRelativePath;\n\n      if (!absoluteFilePath || !fs.existsSync(absoluteFilePath)) {\n        log(\"couldn't find that path\");\n        return;\n      }\n\n      // console.log({ operationNames, operationName });\n      await compressMp4(absoluteFilePath);\n    });\n  }\n}",
+  "description": "`compressMp4s` CLI syntax:\n\n`compressMp4s [basePath]`\n\ncan also be relative path",
+  "id": "gufmygjlgvpvuwqdsdtlqbof"
+}

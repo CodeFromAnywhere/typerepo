@@ -1,22 +1,17 @@
 {
-  "createdAt": 1671113641886,
-  "updatedAt": 1671113641886,
+  "createdAt": 1671430237427,
+  "updatedAt": 1671430237427,
   "deletedAt": 0,
-  "createdFirstAt": 1671113641886,
+  "createdFirstAt": 1671430237427,
   "id": "browsersession",
   "name": "BrowserSession",
   "slug": "browsersession",
-  "operationRelativeTypescriptFilePath": "src/BrowserSession.ts",
+  "operationRelativeTypescriptFilePath": "src/getBrowserTabs.ts",
   "hasGeneric": false,
-  "isExported": true,
-  "rawText": "\n\nexport interface BrowserSession extends DefaultModelType {\n  browserName: string;\n  browserSessionId: string;\n}",
-  "extensions": [
-    "DefaultModelType"
-  ],
+  "isExported": false,
   "isOperationIndex": false,
   "description": "",
-  "dbStorageMethod": "jsonMultiple",
-  "isDbModel": true,
+  "isDbModel": false,
   "commentsInside": [],
   "type": {
     "typeDefinition": {

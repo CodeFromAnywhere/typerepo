@@ -1,14 +1,14 @@
 {
-  "createdAt": 1670218568893,
-  "updatedAt": 1670218568893,
+  "createdAt": 1671316712139,
+  "updatedAt": 1671316712139,
   "deletedAt": 0,
-  "createdFirstAt": 1670218568893,
+  "createdFirstAt": 1671316712139,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getReferencableModelData.ts",
   "commentsInside": [],
-  "rawText": " async (dbModelName: keyof DbModels) => {\n  if (!dbModelName) {\n    return [];\n  }\n  const referencableModelData = (await db.get(dbModelName)).map(\n    (item: AugmentedAnyModelType) => ({\n      id: item.id,\n      name: item.name,\n      slug: item.slug,\n      categoryStackCalculated: item.categoryStackCalculated,\n    })\n  );\n\n  return referencableModelData;\n}",
+  "rawText": " async (dbModelName: keyof DbModels) => {\n  if (!dbModelName) {\n    return [];\n  }\n  const referencableModelData = (await db.get(dbModelName)).map(\n    (item: AugmentedAnyModelType) => ({\n      id: item.id,\n      name: item.name,\n      slug: item.slug,\n      categoryStack: item.categoryStack,\n    })\n  );\n\n  return referencableModelData;\n}",
   "name": "getReferencableModelData",
   "slug": "get-referencable-model-data",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 603,
+    "characters": 583,
     "lines": 19,
-    "bytes": 603,
+    "bytes": 583,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 32,
+    "charactersPerLine": 31,
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "wivqbozeoryyjvvfekszuisf"
+  "id": "jxydmrqcmwtqcykhoqxbfzyj"
 }

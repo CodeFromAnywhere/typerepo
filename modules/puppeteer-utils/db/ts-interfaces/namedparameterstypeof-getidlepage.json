@@ -1,0 +1,51 @@
+{
+  "createdAt": 1671430243847,
+  "updatedAt": 1671430243847,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430243847,
+  "id": "namedparameterstypeof-getidlepage",
+  "name": "NamedParameters<typeof getIdlePage>",
+  "slug": "namedparameterstypeof-getidlepage",
+  "operationRelativeTypescriptFilePath": "src/getIdlePage.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "browser": {
+          "$ref": "#/definitions/Browser"
+        }
+      },
+      "required": [
+        "browser"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "browser",
+          "required": true,
+          "schema": {
+            "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getIdlePage>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

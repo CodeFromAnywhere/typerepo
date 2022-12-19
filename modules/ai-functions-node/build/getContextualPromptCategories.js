@@ -110,7 +110,7 @@ var getContextualPromptCategories = function () { return __awaiter(void 0, void 
                 contextualPrompts = _a.sent();
                 stackCount = contextualPrompts.reduce(function (stackCount, current) {
                     // get the stack for this contextualPrompt
-                    var stack = current.categoryStackCalculated;
+                    var stack = current.categoryStack;
                     if (!stack || stack.length === 0) {
                         var already = stackCount.__root;
                         return __assign(__assign({}, stackCount), { __root: already ? already + 1 : 1 });

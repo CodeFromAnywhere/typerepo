@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774170680,
-  "updatedAt": 1668774170680,
+  "createdAt": 1671316550729,
+  "updatedAt": 1671316550729,
   "deletedAt": 0,
-  "createdFirstAt": 1668774170680,
+  "createdFirstAt": 1671316550729,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  // const operationIndexs = await testDb.get(\"OperationIndex\");\n  // const operationConfigs = await testDb.get(\"OperationConfig\");\n  // const packageJsons = await testDb.get(\"PackageJson\");\n  const tsConfigs = await testDb.get(\"TsConfig\");\n\n  //operationConfigs, operationIndexs, packageJsons,\n  // console.dir({ tsConfigs });\n\n  return true;\n}",
   "description": "Test if it can find all `OperationIndex`, `OperationConfig`, `PackageJson`, `TsConfig`",
-  "id": "sbiptosuvhjkfxvmiuauyupb"
+  "id": "rlyigmmmydmjihlaqzslgbco"
 }

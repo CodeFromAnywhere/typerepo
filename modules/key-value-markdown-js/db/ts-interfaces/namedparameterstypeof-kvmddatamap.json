@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962083633,
-  "updatedAt": 1669962083633,
+  "createdAt": 1671316412826,
+  "updatedAt": 1671316412826,
   "deletedAt": 0,
-  "createdFirstAt": 1669962083633,
+  "createdFirstAt": 1671316412826,
   "id": "namedparameterstypeof-kvmddatamap",
   "name": "NamedParameters<typeof kvmdDataMap>",
   "slug": "namedparameterstypeof-kvmddatamap",
@@ -23,7 +23,7 @@
             "$ref": "#/definitions/KeyValueMarkdownModelType"
           }
         },
-        "{\n    keyName,\n    valueName,\n    categoryStackCalculatedName,\n    commentName,\n  }": {
+        "{\n    keyName,\n    valueName,\n    categoryStackName,\n    commentName,\n  }": {
           "type": "object",
           "properties": {
             "keyName": {
@@ -38,9 +38,9 @@
               "type": "string",
               "description": "comment by default"
             },
-            "categoryStackCalculatedName": {
+            "categoryStackName": {
               "type": "string",
-              "description": "categoryStackCalculated by default"
+              "description": "categoryStack by default"
             }
           },
           "additionalProperties": false
@@ -48,7 +48,7 @@
       },
       "required": [
         "data",
-        "{\n    keyName,\n    valueName,\n    categoryStackCalculatedName,\n    commentName,\n  }"
+        "{\n    keyName,\n    valueName,\n    categoryStackName,\n    commentName,\n  }"
       ],
       "additionalProperties": false
     },
@@ -164,7 +164,7 @@
           }
         },
         {
-          "name": "{\n    keyName,\n    valueName,\n    categoryStackCalculatedName,\n    commentName,\n  }",
+          "name": "{\n    keyName,\n    valueName,\n    categoryStackName,\n    commentName,\n  }",
           "required": true,
           "schema": {
             "properties": [
@@ -193,10 +193,10 @@
                 }
               },
               {
-                "name": "categoryStackCalculatedName",
+                "name": "categoryStackName",
                 "required": false,
                 "schema": {
-                  "fullComment": "categoryStackCalculated by default",
+                  "fullComment": "categoryStack by default",
                   "type": "string"
                 }
               }

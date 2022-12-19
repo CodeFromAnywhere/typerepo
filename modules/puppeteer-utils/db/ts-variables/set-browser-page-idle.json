@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671430273341,
+  "updatedAt": 1671430273341,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430273341,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "setBrowserPageIdle",
+  "slug": "set-browser-page-idle",
+  "operationRelativeTypescriptFilePath": "src/setBrowserPageIdle.ts",
+  "type": {
+    "rawType": "(pageId: string, status: boolean) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (pageId: string, status: boolean) => {\n  await db.update(\n    \"BrowserPage\",\n    (c) => c.pageId === pageId,\n    (content) => ({ ...content, isIdle: status })\n  );\n}",
+  "description": "",
+  "id": "zoxeeogvhipvcucldvvlktyj"
+}

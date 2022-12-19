@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774163997,
-  "updatedAt": 1668774163997,
+  "createdAt": 1671316530968,
+  "updatedAt": 1671316530968,
   "deletedAt": 0,
-  "createdFirstAt": 1668774163997,
+  "createdFirstAt": 1671316530968,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  await upsert();\n\n  const items = await testDb.get(\"MarkdownTestModel\");\n  console.dir({ items }, { depth: 99 });\n}",
   "description": "",
-  "id": "zzpwqnngdwsqhrpqmosreiua"
+  "id": "akwlcrmvgxpaengsazkcoblk"
 }

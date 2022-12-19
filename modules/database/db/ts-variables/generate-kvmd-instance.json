@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774167527,
-  "updatedAt": 1668774167527,
+  "createdAt": 1671316541745,
+  "updatedAt": 1671316541745,
   "deletedAt": 0,
-  "createdFirstAt": 1668774167527,
+  "createdFirstAt": 1671316541745,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(): Creation<KvmdTestModel> => {\n  const id = generateId();\n  return {\n    slug: id,\n    // Needed for deletion later\n    id: id,\n    isHeaderCalculated: true,\n    categoryStackCalculated: [],\n    comment: \"comment\",\n    value: \"value\",\n    name: id,\n  };\n}",
+  "value": "(): Creation<KvmdTestModel> => {\n  const id = generateId();\n  return {\n    slug: id,\n    // Needed for deletion later\n    id: id,\n    isHeaderCalculated: true,\n    categoryStack: [],\n    comment: \"comment\",\n    value: \"value\",\n    name: id,\n  };\n}",
   "description": "",
-  "id": "qufmmrfurihcdhwpaortryfq"
+  "id": "zltzjwknqhcluibbttyalefj"
 }

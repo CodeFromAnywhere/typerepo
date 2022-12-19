@@ -1,0 +1,109 @@
+{
+  "createdAt": 1671315095669,
+  "updatedAt": 1671315095669,
+  "deletedAt": 0,
+  "createdFirstAt": 1671315095669,
+  "id": "namedparameterstypeof-processpromptonfolder",
+  "name": "NamedParameters<typeof processPromptOnFolder>",
+  "slug": "namedparameterstypeof-processpromptonfolder",
+  "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "projectRelativeFolderPath": {
+              "type": "string"
+            },
+            "promptSlug": {
+              "type": "string"
+            },
+            "isRecursive": {
+              "type": "boolean"
+            },
+            "extension": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "projectRelativeFolderPath",
+            "promptSlug"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "config"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "config",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "projectRelativeFolderPath",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "promptSlug",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "isRecursive",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "extension",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof processPromptOnFolder>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

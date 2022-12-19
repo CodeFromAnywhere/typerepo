@@ -231,25 +231,27 @@ import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
 import { clickOnSpanTag } from "puppeteer-utils";
+import { delay } from "puppeteer-utils";
 import { facebookLogin } from "puppeteer-utils";
 import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
-import { getBrowserPage } from "puppeteer-utils";
-import { getBrowserSession } from "puppeteer-utils";
+import { getBrowserPageById } from "puppeteer-utils";
 import { getBrowserTabs } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
 import { getConnectedBrowsers } from "puppeteer-utils";
+import { getIdlePage } from "puppeteer-utils";
+import { getNewPage } from "puppeteer-utils";
 import { gmailLogin } from "puppeteer-utils";
 import { isCaptchaExist } from "puppeteer-utils";
 import { logConsoleIfDebug } from "puppeteer-utils";
+import { openMultiTabs } from "puppeteer-utils";
+import { openNewBrowserOnChildProcess } from "puppeteer-utils";
 import { openNewBrowser } from "puppeteer-utils";
 import { openPage } from "puppeteer-utils";
 import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
-import { runBrowser } from "puppeteer-utils";
-import { setBrowserPage } from "puppeteer-utils";
-import { setBrowserSession } from "puppeteer-utils";
+import { setBrowserPageIdle } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
 import { solveReptcha } from "puppeteer-utils";
@@ -531,25 +533,27 @@ isSingular,
 pluralize,
 singularize,
 clickOnSpanTag,
+delay,
 facebookLogin,
 foundOrNotXpath,
 foundOrNot,
-getBrowserPage,
-getBrowserSession,
+getBrowserPageById,
 getBrowserTabs,
 getChromeExecutablePath,
 getConnectedBrowsers,
+getIdlePage,
+getNewPage,
 gmailLogin,
 isCaptchaExist,
 logConsoleIfDebug,
+openMultiTabs,
+openNewBrowserOnChildProcess,
 openNewBrowser,
 openPage,
 racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
-runBrowser,
-setBrowserPage,
-setBrowserSession,
+setBrowserPageIdle,
 setInnerHtml,
 setInputValue,
 solveReptcha,

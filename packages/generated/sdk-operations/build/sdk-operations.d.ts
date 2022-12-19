@@ -29,6 +29,7 @@ export declare const operations: {
     authentication: string;
     "big-button": string;
     breadcrumbs: string;
+    "browser-types": string;
     "bundle-types": string;
     "bundle-util": string;
     "chatgpt-controller": string;
@@ -127,6 +128,7 @@ export declare const operations: {
     "port-conventions": string;
     "prompt-components": string;
     "puppeteer-utils": string;
+    "queue-types": string;
     "react-with-native": string;
     "react-with-native-alert": string;
     "react-with-native-form": string;

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671147117108,
-  "updatedAt": 1671147117108,
+  "createdAt": 1671315062332,
+  "updatedAt": 1671315062332,
   "deletedAt": 0,
-  "createdFirstAt": 1671147117108,
+  "createdFirstAt": 1671315062332,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const result = await getContextualPromptCategories();\n\n  writeToAssets(__filename, result, \"contextual-prompt-categories.json\");\n}",
   "description": "",
-  "id": "jmgpwmzyxcyahxfssanjbgvz"
+  "id": "uswemfatwjujmkvsjhywedvc"
 }

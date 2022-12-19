@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671316354898,
+  "updatedAt": 1671316354898,
+  "deletedAt": 0,
+  "createdFirstAt": 1671316354898,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/compressMp4.ts",
+  "commentsInside": [],
+  "rawText": " async (absolutePath: string) => {\n  const result = await compressImage(absolutePath, {\n    quality: 20,\n    sizeWidthPx: 360,\n    targetFormat: \"mp4\",\n    isDebug: true,\n  });\n  console.log({ result });\n}",
+  "name": "compressMp4",
+  "slug": "compress-mp-4",
+  "parameters": [
+    {
+      "name": "absolutePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "Compress mp4 to very small",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 231,
+    "lines": 9,
+    "bytes": 231,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "omrtijjvazzeaocfwvqrchsu"
+}

@@ -1,0 +1,70 @@
+{
+  "createdAt": 1671372097997,
+  "updatedAt": 1671372097997,
+  "deletedAt": 0,
+  "createdFirstAt": 1671372097997,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  },
+  "name": "browser-types",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1671430332888,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 2,
+        "lines": 16,
+        "characters": 431,
+        "bytes": 431
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 108,
+        "characters": 3358,
+        "bytes": 3358
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 74,
+        "characters": 1247,
+        "bytes": 1247
+      },
+      "size": {
+        "bytes": 5036,
+        "characters": 5036,
+        "lines": 198,
+        "numberOfFiles": 6
+      }
+    },
+    "folderNameIndexed": "browser-types",
+    "relativeOperationLocationPathIndexed": "packages/niches/bhagya/doing/control-web",
+    "classificationIndexed": "cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "DefaultModelType",
+      "DefaultModelType",
+      "Id",
+      "Language",
+      "Slug"
+    ],
+    "packageDependenciesIndexed": []
+  },
+  "dependencies": {
+    "model-types": "0.0.1"
+  },
+  "slug": "browser-types",
+  "id": "pgxybusbmtajhxcyzrccvxiq"
+}

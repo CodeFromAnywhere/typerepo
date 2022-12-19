@@ -34,7 +34,10 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "lintProblems": []
+      "lintProblems": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/share/src/Shareable.tsx. Error: Error: Unknown node \"new (props: P) => Component<any, any>\" of kind \"ConstructorType\""
+      ]
     },
     "lastRebuildAt": 1671012896092,
     "sizeIndexed": {
@@ -83,15 +86,17 @@
     "packageDependenciesIndexed": []
   },
   "dependencies": {
-    "react": "*",
-    "clickable-icon": "0.0.1",
-    "react-with-native": "1.4.9",
-    "react-with-native-modal": "1.0.60",
-    "function-form": "0.0.1",
     "api": "0.0.1",
-    "react-with-native-alert": "1.0.33",
+    "api-types": "0.0.1",
+    "clickable-icon": "0.0.1",
     "cool-toast": "0.0.0",
-    "api-types": "0.0.1"
+    "function-form": "0.0.1",
+    "html2canvas": "^1.4.1",
+    "react": "*",
+    "react-with-native": "1.4.9",
+    "react-with-native-alert": "1.0.33",
+    "react-with-native-modal": "1.0.60",
+    "use-react-screenshot": "^3.0.0"
   },
   "slug": "share",
   "id": "xuznentfkkennkrlzrcqilwx"

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884345667,
-  "updatedAt": 1669884345667,
+  "createdAt": 1671317015916,
+  "updatedAt": 1671317015916,
   "deletedAt": 0,
-  "createdFirstAt": 1669884345667,
+  "createdFirstAt": 1671317015916,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (): Promise<{\n  success: boolean;\n  peerPeople: Person[];\n}> => {\n  const devices = await db.get(\"Device\");\n\n  // person array met voor elke person alle devices die een papi hebben\n  const peerPeople = await getAugmentedPersons(devices, {\n    onlyOnline: false,\n    onlyWithDevices: true,\n    onlyWithPapi: true,\n    withAppsCalculated: true,\n  });\n\n  return { success: true, peerPeople };\n}",
   "description": "Get persons with devices that have papi and their apps calculated, sorted",
-  "id": "fujhagaczybkhnnvqwsdibvm"
+  "id": "vkbjbmdnvmexlzbburauhayd"
 }

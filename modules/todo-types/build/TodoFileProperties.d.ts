@@ -39,6 +39,6 @@ export interface TodoFileProperties {
      *
      * Not sure if this should really be fixed, but a convention is always good.
      */
-    categoryStackCalculated: CategoryStack;
+    categoryStack: CategoryStack;
 }
 //# sourceMappingURL=TodoFileProperties.d.ts.map

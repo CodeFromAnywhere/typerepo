@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671364206805,
+  "updatedAt": 1671364206805,
+  "deletedAt": 0,
+  "createdFirstAt": 1671364206805,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "Shareable",
+  "slug": "shareable",
+  "operationRelativeTypescriptFilePath": "src/Shareable.tsx",
+  "type": {
+    "rawType": "(props: { children: any; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { children: React.ReactNode }) => {\n  const { ref, getImage, projectRelativeFilePath } =\n    useProjectRelativeScreenshot();\n\n  React.useEffect(() => {\n    if (!projectRelativeFilePath) return;\n    console.log(\"we have projectRelative change:\", projectRelativeFilePath);\n\n    // api.postTweetOnTwitter({\n    //   email: \"test\",\n    //   password: \"test\",\n    //   phoneNo: \"test\",\n    //   tweetMessage: \"yo this is ridic\",\n    // });\n  }, [projectRelativeFilePath]);\n\n  return (\n    <div>\n      <ClickableIcon emoji=\"🗣\" onClick={getImage} />\n      <div ref={ref}>{props.children}</div>\n    </div>\n  );\n}",
+  "description": "",
+  "id": "dafmjutwbbfurrbkaoqtprey"
+}

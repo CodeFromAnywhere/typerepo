@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962081624,
-  "updatedAt": 1669962081624,
+  "createdAt": 1671316408857,
+  "updatedAt": 1671316408857,
   "deletedAt": 0,
-  "createdFirstAt": 1669962081624,
+  "createdFirstAt": 1671316408857,
   "id": "namedparameterstypeof-getparagraphsrecursively",
   "name": "NamedParameters<typeof getParagraphsRecursively>",
   "slug": "namedparameterstypeof-getparagraphsrecursively",
@@ -20,7 +20,7 @@
         "chunk": {
           "$ref": "#/definitions/MarkdownChunk"
         },
-        "categoryStackCalculatedUntilNow": {
+        "categoryStackUntilNow": {
           "$ref": "#/definitions/CategoryStack"
         }
       },
@@ -163,7 +163,7 @@
           }
         },
         {
-          "name": "categoryStackCalculatedUntilNow",
+          "name": "categoryStackUntilNow",
           "required": false,
           "schema": {
             "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962079437,
-  "updatedAt": 1669962079437,
+  "createdAt": 1671316404828,
+  "updatedAt": 1671316404828,
   "deletedAt": 0,
-  "createdFirstAt": 1669962079437,
+  "createdFirstAt": 1671316404828,
   "id": "namedparameterstypeof-getkvmditemsrecursively",
   "name": "NamedParameters<typeof getKvmdItemsRecursively>",
   "slug": "namedparameterstypeof-getkvmditemsrecursively",
@@ -20,7 +20,7 @@
         "chunk": {
           "$ref": "#/definitions/MarkdownChunk"
         },
-        "categoryStackCalculatedUntilNow": {
+        "categoryStackUntilNow": {
           "$ref": "#/definitions/CategoryStack"
         }
       },
@@ -163,7 +163,7 @@
           }
         },
         {
-          "name": "categoryStackCalculatedUntilNow",
+          "name": "categoryStackUntilNow",
           "required": false,
           "schema": {
             "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670218572971,
-  "updatedAt": 1670218572971,
+  "createdAt": 1671316719443,
+  "updatedAt": 1671316719443,
   "deletedAt": 0,
-  "createdFirstAt": 1670218572971,
+  "createdFirstAt": 1671316719443,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(tsInterface: TsInterface, type: string) => {\n  const srcRelativeFolder = makeSrcRelativeFolder(\n    tsInterface.operationRelativeTypescriptFilePath\n  );\n  if (!tsInterface.operationName) return;\n\n  return {\n    name: tsInterface.name,\n    operationName: tsInterface.operationName,\n    type,\n    srcRelativeFolder,\n  };\n}",
   "description": "",
-  "id": "vwunnospugaspzusdfdkxfpo"
+  "id": "yxgkgvwroorlndzyaolminpc"
 }

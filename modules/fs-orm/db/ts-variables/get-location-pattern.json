@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671115836821,
-  "updatedAt": 1671115836821,
+  "createdAt": 1671316809792,
+  "updatedAt": 1671316809792,
   "deletedAt": 0,
-  "createdFirstAt": 1671115836821,
+  "createdFirstAt": 1671316809792,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  dbStorageMethod: DbStorageMethod,\n  modelName: string,\n  mergedConfig: MergedQueryConfig\n): string | undefined => {\n  const { operationRelativePath, projectRelativePath } = mergedConfig;\n\n  if (operationRelativePath) return operationRelativePath;\n  if (projectRelativePath) return projectRelativePath;\n\n  return getDefaultLocationPattern(dbStorageMethod, modelName);\n}",
   "description": "Returns the pattern or an exact relative path that the file(s) should be stored at.\n\nIf a pattern contains a star at the place of the filename, it will search the folder recursively for all files with the extension in the pattern.\n\nReturning relative path has no preceding slash",
-  "id": "aghbkvlzkjzbvgjljzreqhie"
+  "id": "lfddnezoxolehswtzixyahsd"
 }

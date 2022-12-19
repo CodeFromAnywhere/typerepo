@@ -1,3 +1,6 @@
+---
+runEveryPeriod: minute
+---
 # Ai functions node
 
 ai-functions-node (`OperationClassification` node-cjs)
@@ -5,6 +8,17 @@ ai-functions-node (`OperationClassification` node-cjs)
 
 
 # Api reference
+
+## controlChatGptWrapper()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| prompt | string |  |,| isHeadless (optional) | boolean |  |,| thread (optional) | string |  |,| controller | playwright / puppeteer / faker |  |
+| **Output** |    |    |
+
+
+
+## 📄 controlChatGptWrapper (exported const)
 
 # CLI
 
@@ -59,37 +73,12 @@ ai-functions-node (`OperationClassification` node-cjs)
 
 # Internal
 
-<details><summary>Show internal (94)</summary>
-    
-  # addStatement()
-
-Adds `Statement`
+cron that runs every minute for executing new puppeteer queue items. It will open it as child process. You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| statement | string | MUST be an english statement |,| importancy (optional) | number | defaults to 0.5 |,| agreement (optional) | number | defaults to 1 |
-| **Output** |    |    |
-
-
-
-## addWord()
-
-Adds word either to the WordMatrix or to the WordCombination database model
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| word | string | MUST be an english word or word combination written in the latin alphabet |,| description (optional) | string |  |
-| **Output** |    |    |
-
-
-
-## biggestFunctionName()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| contextContent | string |  |,| isDeferred (optional) | boolean |  |
+| - | | |
 | **Output** |    |    |
 
 
@@ -108,15 +97,6 @@ Adds word either to the WordMatrix or to the WordCombination database model
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** |    |    |
-
-
-
-## controlChatGptWrapper()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| prompt | string |  |,| isHeadless (optional) | boolean |  |,| thread (optional) | string |  |,| controller | playwright / puppeteer / faker |  |
 | **Output** |    |    |
 
 
@@ -341,7 +321,33 @@ Write a poem
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| config | { contextContent?: string, <br />selectionContent?: string, <br />contextualPromptSlug?: string, <br />customPromptContent?: string, <br />saveNewPromptWithName?: string, <br />isHeadless?: boolean, <br />prompt_projectRelativePath?: string, <br />thread?: string, <br />isDeferred?: boolean, <br /> } |  |
+| config | `ProcessPromptProps` |  |
+| **Output** |    |    |
+
+
+
+## processPromptOnFile()
+
+function `processPromptOnFile` to execute `processChatGptPrompt` for a file, so we don't need to store the whole file content and it can be executed later and still have the most recent file contents
+
+In order to keep the file itself as a source of truth for its content, it's useful to have this because you can add this to the queue
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| projectRelativeFilePath | string |  |,| contextualPromptSlug | string |  |
+| **Output** |    |    |
+
+
+
+## processPromptOnFolder()
+
+function that can execute `processPromptOnFile` for all files in a folder, by just upserting the executions to the queue.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| config | { projectRelativeFolderPath: string, <br />promptSlug: string, <br />isRecursive?: boolean, <br />extension?: {  }, <br /> } |  |
 | **Output** |    |    |
 
 
@@ -511,6 +517,24 @@ Properties:
 
 
 
+## 🔹 ProcessPromptProps
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| contextContent (optional) | string |  |
+| selectionContent (optional) | string |  |
+| contextualPromptSlug (optional) | string |  |
+| customPromptContent (optional) | string | These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format |
+| saveNewPromptWithName (optional) | string |  |
+| isHeadless (optional) | boolean |  |
+| prompt_projectRelativePath (optional) | string |  |
+| thread (optional) | string |  |
+| isDeferred (optional) | boolean |  |
+
+
+
 ## 🔹 StackCount
 
 ## 📄 addStatement (exported const)
@@ -525,11 +549,18 @@ Adds word either to the WordMatrix or to the WordCombination database model
 
 ## 📄 biggestFunctionName (exported const)
 
+## 📄 checkQueue (exported const)
+
+---
+runEveryPeriod: minute
+---
+
+cron that runs every minute for executing new puppeteer queue items. It will open it as child process. You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.
+
+
 ## 📄 cleanup (exported const)
 
 ## 📄 controlChatGptCli (exported const)
-
-## 📄 controlChatGptWrapper (exported const)
 
 ## 📄 controlChatGpt (exported const)
 
@@ -587,6 +618,18 @@ Write a poem
 
 
 ## 📄 processChatGptPrompt (exported const)
+
+## 📄 processPromptOnFile (exported const)
+
+function `processPromptOnFile` to execute `processChatGptPrompt` for a file, so we don't need to store the whole file content and it can be executed later and still have the most recent file contents
+
+In order to keep the file itself as a source of truth for its content, it's useful to have this because you can add this to the queue
+
+
+## 📄 processPromptOnFolder (exported const)
+
+function that can execute `processPromptOnFile` for all files in a folder, by just upserting the executions to the queue.
+
 
 ## 📄 removeAllFake (exported const)
 

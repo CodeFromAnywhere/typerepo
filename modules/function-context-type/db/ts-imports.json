@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1668548055883,
-    "updatedAt": 1668548055883,
+    "createdAt": 1671317735802,
+    "updatedAt": 1671317735802,
     "deletedAt": 0,
-    "createdFirstAt": 1668548055883,
+    "createdFirstAt": 1671317735802,
     "name": "Authorization",
     "slug": "authorization",
     "type": "type",
@@ -15,13 +15,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vozmvwzvtbiqwlvriczprwin"
+    "id": "idgbxnsrxhkrbcisimkitvyg"
   },
   {
-    "createdAt": 1668548055883,
-    "updatedAt": 1668548055883,
+    "createdAt": 1671317735802,
+    "updatedAt": 1671317735802,
     "deletedAt": 0,
-    "createdFirstAt": 1668548055883,
+    "createdFirstAt": 1671317735802,
     "name": "TsFunction",
     "slug": "ts-function",
     "type": "type",
@@ -33,13 +33,31 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vbeunifrphufhxghzlvfhomm"
+    "id": "kpenibxjuuybmmkeivdqnhqc"
   },
   {
-    "createdAt": 1668548055883,
-    "updatedAt": 1668548055883,
+    "createdAt": 1671317735802,
+    "updatedAt": 1671317735802,
     "deletedAt": 0,
-    "createdFirstAt": 1668548055883,
+    "createdFirstAt": 1671317735802,
+    "name": "Storing",
+    "slug": "storing",
+    "type": "type",
+    "hasGeneric": true,
+    "module": "model-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/FunctionContext.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "gaefsefrnrfbbdukbgnszczw"
+  },
+  {
+    "createdAt": 1671317735802,
+    "updatedAt": 1671317735802,
+    "deletedAt": 0,
+    "createdFirstAt": 1671317735802,
     "name": "Group",
     "slug": "group",
     "type": "type",
@@ -51,13 +69,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "oexygpwnkcenygxelayusxxb"
+    "id": "qglyyytnfihqcnitsulgsicn"
   },
   {
-    "createdAt": 1668548055883,
-    "updatedAt": 1668548055883,
+    "createdAt": 1671317735803,
+    "updatedAt": 1671317735803,
     "deletedAt": 0,
-    "createdFirstAt": 1668548055883,
+    "createdFirstAt": 1671317735803,
     "name": "Device",
     "slug": "device",
     "type": "type",
@@ -69,13 +87,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "nsoutstuuzbtdaagrcrcsdgg"
+    "id": "zyjauskwqhvoawjygjvwzlxz"
   },
   {
-    "createdAt": 1668548055883,
-    "updatedAt": 1668548055883,
+    "createdAt": 1671317735803,
+    "updatedAt": 1671317735803,
     "deletedAt": 0,
-    "createdFirstAt": 1668548055883,
+    "createdFirstAt": 1671317735803,
     "name": "Context",
     "slug": "context",
     "module": "server/typings/common",
@@ -85,6 +103,6 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "zlxfizxownqujgavvgyewqtq"
+    "id": "zbyeuljompocpcmbgzrmtlxl"
   }
 ]

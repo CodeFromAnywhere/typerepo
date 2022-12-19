@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671315098335,
+  "updatedAt": 1671315098335,
+  "deletedAt": 0,
+  "createdFirstAt": 1671315098335,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "checkQueue",
+  "slug": "check-queue",
+  "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const queueItems = await db.get(\"Queue\");\n\n  // 1. check how many chrome tabs are available (according to OS settings / memory limit)\n\n  // 2. check how many queue items can be executed now, and sort by importancy\n\n  // 3. take the ones that are most important and execute those\n}",
+  "description": "---\nrunEveryPeriod: minute\n---\n\ncron that runs every minute for executing new puppeteer queue items. It will open it as child process. You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.",
+  "id": "swmgljvdxrsdngqzawzpnmtc"
+}

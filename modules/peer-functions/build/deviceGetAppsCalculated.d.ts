@@ -3,19 +3,16 @@ export declare const deviceGetAppsCalculated: (device: Device) => Promise<{
     lastOnlineAt: number;
     appOperationsCalculated: import("peer-types").AppOperation[] | undefined;
     authToken: string;
-    userAgent: import("peer-types").IResult;
     userAgentString: string;
     name: string;
-    previousIps: import("peer-types").IPInfo[];
-    origins: string[];
     hasPapi?: boolean | undefined;
     isOnlineCalculated?: boolean | undefined;
     isLocalIpCalculated?: boolean | undefined;
     isFavorite?: boolean | undefined;
     isPrivate?: boolean | undefined;
-    lastSyncDatabaseAtObject: {
+    lastSyncDatabaseAtObject?: {
         [modelName: string]: number;
-    };
+    } | undefined;
     personIds?: string[] | undefined;
     persons?: import("peer-types").Person[] | undefined;
     currentPersonId?: string | undefined;

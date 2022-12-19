@@ -57,7 +57,7 @@
     "folderNameIndexed": "function-server-endpoints",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670747374908,
+    "lastRebuildAt": 1671317858362,
     "operationDependenciesIndexed": [
       "slugify",
       "generateRandomString",
@@ -87,6 +87,7 @@
       "TsFunction",
       "notEmpty",
       "onlyUnique2",
+      "Storing",
       "Device",
       "Group",
       "TsFunction",
@@ -105,17 +106,21 @@
       "PerformanceItem",
       "db",
       "Creation",
-      "db",
       "Include",
       "Position",
-      "Creation",
-      "generateId",
+      "Storing",
       "Device",
       "IPInfo",
       "IResult",
+      "fs",
+      "path",
+      "writeJsonToFile",
+      "getRootPath",
+      "generateUniqueId",
       "getNewPerformance",
       "PerformanceItem",
-      "generateUniqueId"
+      "readJsonFile",
+      "db"
     ],
     "packageDependenciesIndexed": [
       "Context",
@@ -129,9 +134,9 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 11,
-        "lines": 712,
-        "characters": 20443,
-        "bytes": 20443
+        "lines": 608,
+        "characters": 17392,
+        "bytes": 17392
       },
       "dataSize": {
         "numberOfFiles": 2,
@@ -142,13 +147,13 @@
       "textSize": {
         "numberOfFiles": 2,
         "lines": 198,
-        "characters": 5224,
-        "bytes": 5224
+        "characters": 5233,
+        "bytes": 5233
       },
       "size": {
-        "bytes": 30719,
-        "characters": 30719,
-        "lines": 1107,
+        "bytes": 27677,
+        "characters": 27677,
+        "lines": 1003,
         "numberOfFiles": 15
       }
     },

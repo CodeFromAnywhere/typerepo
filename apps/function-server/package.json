@@ -80,17 +80,14 @@
     "folderNameIndexed": "function-server",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671012715763,
+    "lastRebuildAt": 1671317806662,
     "operationDependenciesIndexed": [
-      "functionPostEndpoints",
-      "functionGetEndpoints",
-      "watchAll",
-      "ports",
-      "getProjectRoot",
       "path",
-      "execSync",
-      "log",
-      "startApp",
+      "functionGetEndpoints",
+      "functionPostEndpoints",
+      "getProjectRoot",
+      "ports",
+      "watchAll",
       "nodemon",
       "oneByOne",
       "log",
@@ -98,39 +95,43 @@
       "RunEveryPeriodEnum",
       "TsFunction",
       "getObjectKeysArray",
-      "db"
+      "db",
+      "execSync",
+      "log",
+      "startApp",
+      "operations"
     ],
     "packageDependenciesIndexed": [
-      "Options",
       "Context",
+      "Options",
       "schedule"
     ],
     "relativeOperationLocationPathIndexed": "operations/tools/user-interfaces/api",
     "markdown": "Server that exposes all typerepo api functions wrapped into easily accessible endpoints.\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 5,
-        "lines": 239,
-        "characters": 6879,
-        "bytes": 6879
+        "numberOfFiles": 6,
+        "lines": 259,
+        "characters": 7360,
+        "bytes": 7360
       },
       "dataSize": {
-        "numberOfFiles": 2,
-        "lines": 176,
-        "characters": 4717,
-        "bytes": 4717
+        "numberOfFiles": 35,
+        "lines": 296,
+        "characters": 56435,
+        "bytes": 56435
       },
       "textSize": {
         "numberOfFiles": 5,
-        "lines": 176,
-        "characters": 7581,
-        "bytes": 7581
+        "lines": 189,
+        "characters": 7822,
+        "bytes": 7822
       },
       "size": {
-        "bytes": 19177,
-        "characters": 19177,
-        "lines": 591,
-        "numberOfFiles": 12
+        "bytes": 71617,
+        "characters": 71617,
+        "lines": 744,
+        "numberOfFiles": 46
       }
     },
     "hasGeneratedImportsIndexed": false

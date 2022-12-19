@@ -25,7 +25,7 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | api.authToken  | string |  |
-| api.customUrl  | null |  |
+| api.customUrl  | string |  |
 | api.timeoutAt  | null |  |
 
 

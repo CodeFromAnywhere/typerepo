@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671115857354,
-  "updatedAt": 1671115857354,
+  "createdAt": 1671316842088,
+  "updatedAt": 1671316842088,
   "deletedAt": 0,
-  "createdFirstAt": 1671115857354,
+  "createdFirstAt": 1671316842088,
   "isApiExposed": true,
   "isExported": false,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/tests/upsertKeyValueMarkdown.test.ts",
   "commentsInside": [],
-  "rawText": " () => {\n  const absolutePath = path.join(__dirname, \"../..\", \"assets\", \"test.md\");\n  const dbFileLocation: DbFileLocation = {\n    absolutePath,\n    modelName: \"Test\",\n    operationName: \"fs-orm\",\n    projectRelativePath: absolutePath,\n    operationRelativePath: absolutePath,\n  };\n\n  alterKeyValueMarkdown(dbFileLocation, (storedData) => {\n    const realStoredData = storedData as Storing<KeyValueMarkdownModelType>[];\n\n    const slug = \"upserted-item\";\n\n    const ids = {\n      id: slug,\n      name: humanCase(slug),\n      slug,\n    };\n\n    const storingItem: Storing<KeyValueMarkdownModelType> = {\n      ...ids,\n      comment: \"yoyoyo\",\n      isHeaderCalculated: false,\n      value: \"you are amazing\",\n      categoryStackCalculated,\n    };\n\n    const result = upsertKeyValueMarkdown(realStoredData, storingItem);\n    const { newStoredData, ...rest } = result;\n    console.log({ rest });\n    return result;\n  });\n}",
+  "rawText": " () => {\n  const absolutePath = path.join(__dirname, \"../..\", \"assets\", \"test.md\");\n  const dbFileLocation: DbFileLocation = {\n    absolutePath,\n    modelName: \"Test\",\n    operationName: \"fs-orm\",\n    projectRelativePath: absolutePath,\n    operationRelativePath: absolutePath,\n  };\n\n  alterKeyValueMarkdown(dbFileLocation, (storedData) => {\n    const realStoredData = storedData as Storing<KeyValueMarkdownModelType>[];\n\n    const slug = \"upserted-item\";\n\n    const ids = {\n      id: slug,\n      name: humanCase(slug),\n      slug,\n    };\n\n    const storingItem: Storing<KeyValueMarkdownModelType> = {\n      ...ids,\n      comment: \"yoyoyo\",\n      isHeaderCalculated: false,\n      value: \"you are amazing\",\n      categoryStack,\n    };\n\n    const result = upsertKeyValueMarkdown(realStoredData, storingItem);\n    const { newStoredData, ...rest } = result;\n    console.log({ rest });\n    return result;\n  });\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 916,
+    "characters": 906,
     "lines": 35,
-    "bytes": 916,
+    "bytes": 906,
     "bytesPerCharacter": 1,
     "charactersPerLine": 26,
     "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "dajdehjwmxbagjwtacptqfwk"
+  "id": "iefjkpbiwlthmhmkjfeohmci"
 }

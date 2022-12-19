@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669962080527,
-  "updatedAt": 1669962080527,
+  "createdAt": 1671316406976,
+  "updatedAt": 1671316406976,
   "deletedAt": 0,
-  "createdFirstAt": 1669962080527,
+  "createdFirstAt": 1671316406976,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getKvmdItemsRecursively.ts",
   "commentsInside": [],
-  "rawText": " (\n  chunk: MarkdownChunk,\n  categoryStackCalculatedUntilNow?: CategoryStack\n): Storing<KeyValueMarkdownModelType>[] => {\n  // NB: copy\n  let categoryStackCalculated = categoryStackCalculatedUntilNow\n    ? [...categoryStackCalculatedUntilNow]\n    : [];\n\n  let allKvmdItems: Storing<KeyValueMarkdownModelType>[] = [];\n\n  // If this chunk has a title (this is a header)\n  if (chunk.title) {\n    const headerParsedKvmdLine = parseKvmdLine(chunk.title);\n\n    // NB: titles with an empty key are ignored\n    if (headerParsedKvmdLine) {\n      // NB: also add the title as a model item\n      const headerKvmdItem: Storing<KeyValueMarkdownModelType> = {\n        ...headerParsedKvmdLine,\n        isHeaderCalculated: true,\n        // NB: copy!\n        categoryStackCalculated: [...categoryStackCalculated],\n      };\n      allKvmdItems.push(headerKvmdItem);\n\n      // NB: the slug of the title is added to the categoryStackCalculated, but only AFTER adding the kvmd item of the title\n      categoryStackCalculated.push(headerParsedKvmdLine.slug);\n    }\n  }\n\n  const childKvmdItems =\n    chunk.children\n      ?.map((childChunk) =>\n        getKvmdItemsRecursively(childChunk, categoryStackCalculated)\n      )\n      .flat() || [];\n\n  allKvmdItems = allKvmdItems.concat(childKvmdItems);\n\n  const lineKvmdItems = (chunk.content || \"\")\n    // NB: we are splitting on newlines here because content can still contain newlines.\n    .split(\"\\n\")\n    .map((line) => {\n      const parsedKvmdLine = parseKvmdLine(line);\n      if (!parsedKvmdLine) return;\n\n      const contentKvmdItem: Storing<KeyValueMarkdownModelType> = {\n        ...parsedKvmdLine,\n        isHeaderCalculated: false,\n        categoryStackCalculated,\n      };\n\n      return contentKvmdItem;\n    })\n    .filter(notEmpty);\n\n  allKvmdItems = allKvmdItems.concat(lineKvmdItems);\n\n  return allKvmdItems;\n}",
+  "rawText": " (\n  chunk: MarkdownChunk,\n  categoryStackUntilNow?: CategoryStack\n): Storing<KeyValueMarkdownModelType>[] => {\n  // NB: copy\n  let categoryStack = categoryStackUntilNow ? [...categoryStackUntilNow] : [];\n\n  let allKvmdItems: Storing<KeyValueMarkdownModelType>[] = [];\n\n  // If this chunk has a title (this is a header)\n  if (chunk.title) {\n    const headerParsedKvmdLine = parseKvmdLine(chunk.title);\n\n    // NB: titles with an empty key are ignored\n    if (headerParsedKvmdLine) {\n      // NB: also add the title as a model item\n      const headerKvmdItem: Storing<KeyValueMarkdownModelType> = {\n        ...headerParsedKvmdLine,\n        isHeaderCalculated: true,\n        // NB: copy!\n        categoryStack: [...categoryStack],\n      };\n      allKvmdItems.push(headerKvmdItem);\n\n      // NB: the slug of the title is added to the categoryStack, but only AFTER adding the kvmd item of the title\n      categoryStack.push(headerParsedKvmdLine.slug);\n    }\n  }\n\n  const childKvmdItems =\n    chunk.children\n      ?.map((childChunk) => getKvmdItemsRecursively(childChunk, categoryStack))\n      .flat() || [];\n\n  allKvmdItems = allKvmdItems.concat(childKvmdItems);\n\n  const lineKvmdItems = (chunk.content || \"\")\n    // NB: we are splitting on newlines here because content can still contain newlines.\n    .split(\"\\n\")\n    .map((line) => {\n      const parsedKvmdLine = parseKvmdLine(line);\n      if (!parsedKvmdLine) return;\n\n      const contentKvmdItem: Storing<KeyValueMarkdownModelType> = {\n        ...parsedKvmdLine,\n        isHeaderCalculated: false,\n        categoryStack,\n      };\n\n      return contentKvmdItem;\n    })\n    .filter(notEmpty);\n\n  allKvmdItems = allKvmdItems.concat(lineKvmdItems);\n\n  return allKvmdItems;\n}",
   "name": "getKvmdItemsRecursively",
   "slug": "get-kvmd-items-recursively",
   "parameters": [
@@ -147,7 +147,7 @@
       "required": true
     },
     {
-      "name": "categoryStackCalculatedUntilNow",
+      "name": "categoryStackUntilNow",
       "schema": {
         "$ref": "#/definitions/CategoryStack"
       },
@@ -196,13 +196,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 2048,
-    "lines": 63,
-    "bytes": 2048,
+    "characters": 1925,
+    "lines": 59,
+    "bytes": 1925,
     "bytesPerCharacter": 1,
     "charactersPerLine": 33,
-    "linesPerFile": 63,
+    "linesPerFile": 59,
     "numberOfFiles": 1
   },
-  "id": "glltjagvjpkcnlgfvydvtsbp"
+  "id": "kcmdyybjfqrhvwmoufffirjx"
 }

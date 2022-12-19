@@ -14,6 +14,23 @@ This is a ui-esm operation. This means it's a ui operation that builds to javasc
 
 # Api reference
 
+## `<MarkdownContent />`
+
+Renders a markdown string (without frontmatter)
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { content: string, <br />config: `MarkdownParseRenderConfig`, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## 📄 MarkdownContent (exported const)
+
+Renders a markdown string (without frontmatter)
+
+
 ## renderMarkdownContent()
 
 Renders a markdown string (without frontmatter)
@@ -51,26 +68,9 @@ Renders a markdown codeblock with a text as content and an optional extension
 
 
 
-## `<MarkdownContent />`
-
-Renders a markdown string (without frontmatter)
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | { content: string, <br />config: `MarkdownParseRenderConfig`, <br /> } |  |
-| **Output** | `JSX.Element`   |    |
-
-
-
 ## 📄 MarkdownCodeblock (exported const)
 
 Renders a markdown codeblock with a text as content and an optional extension
-
-
-## 📄 MarkdownContent (exported const)
-
-Renders a markdown string (without frontmatter)
 
 
 ## getRealSrc()

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774171891,
-  "updatedAt": 1668774171891,
+  "createdAt": 1671316554580,
+  "updatedAt": 1671316554580,
   "deletedAt": 0,
-  "createdFirstAt": 1668774171891,
+  "createdFirstAt": 1671316554580,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const result = await testDb.update(\n    \"TsConfig\",\n    () => true,\n    (tsConfig) => ({\n      ...tsConfig,\n      compilerOptions: { ...tsConfig.compilerOptions, resolveJsonModule: true },\n    })\n  );\n\n  console.dir(result, { depth: 111 });\n}",
   "description": "",
-  "id": "ntbrsjgnslbaedgjnlvgnqog"
+  "id": "cikgwowvthblgvyzxigvtotf"
 }

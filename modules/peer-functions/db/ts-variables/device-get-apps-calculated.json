@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669884330873,
-  "updatedAt": 1669884330873,
+  "createdAt": 1671316989570,
+  "updatedAt": 1671316989570,
   "deletedAt": 0,
-  "createdFirstAt": 1669884330873,
+  "createdFirstAt": 1671316989570,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (device: Device) => {\n  const { result: appOperationsCalculated } =\n    await apiWithConfig.getAllAppOperations({\n      apiUrl: `http://${device.ip}:${ports[\"function-server\"]}`,\n      authToken: device.authToken,\n      timeout: 1000,\n    });\n\n  const lastOnlineAt = Date.now();\n  if (!!appOperationsCalculated) {\n    db.update(\n      \"Device\",\n      (p) => p.id === device.id,\n      (p) => ({ ...p, lastOnlineAt })\n    );\n  }\n\n  return { ...device, lastOnlineAt, appOperationsCalculated };\n}",
   "description": "",
-  "id": "fhakvkslaaqzcevgxgnqydam"
+  "id": "fdoxqvayilobzhlrsycstiuc"
 }

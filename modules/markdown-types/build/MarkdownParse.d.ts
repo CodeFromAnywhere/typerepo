@@ -35,7 +35,7 @@ export declare type MarkdownParagraph = {
     /**
      * the parent stack
      */
-    categoryStackCalculated: CategoryStack;
+    categoryStack: CategoryStack;
     /**
      * if the paragraph is
      * NB: not always used!

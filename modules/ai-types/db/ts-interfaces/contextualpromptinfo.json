@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671183639595,
-  "updatedAt": 1671183639595,
+  "createdAt": 1671365960475,
+  "updatedAt": 1671365960475,
   "deletedAt": 0,
-  "createdFirstAt": 1671183639595,
+  "createdFirstAt": 1671365960475,
   "id": "contextualpromptinfo",
   "name": "ContextualPromptInfo",
   "slug": "contextualpromptinfo",
   "operationRelativeTypescriptFilePath": "src/ContextualPrompt.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * To be appended to the generated typescript\n */\nexport type ContextualPromptInfo = {\n  // extra flags, to be added to the config of the function.\n\n  /**\n   * If given, will be used to filter the selection of prompts to match the context type\n   */\n  contextType?: FileType[];\n\n  instantExecution?: boolean;\n\n  isFavorite?: boolean;\n\n  categoryStackCalculated?: string[];\n\n  pricing?: \"bad\" | \"good\" | \"premium\" | \"enterprise\" | \"private\";\n};",
+  "rawText": "\n\n/**\n * To be appended to the generated typescript\n */\nexport type ContextualPromptInfo = {\n  // extra flags, to be added to the config of the function.\n\n  /**\n   * If given, will be used to filter the selection of prompts to match the context type\n   */\n  contextType?: FileType[];\n\n  instantExecution?: boolean;\n\n  isFavorite?: boolean;\n\n  categoryStack?: string[];\n\n  pricing?: \"bad\" | \"good\" | \"premium\" | \"enterprise\" | \"private\";\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "To be appended to the generated typescript",
@@ -32,7 +32,7 @@
         "isFavorite": {
           "type": "boolean"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "type": "array",
           "items": {
             "type": "string"
@@ -92,7 +92,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": false,
           "schema": {
             "items": [

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671147106264,
-  "updatedAt": 1671147106264,
+  "createdAt": 1671315044843,
+  "updatedAt": 1671315044843,
   "deletedAt": 0,
-  "createdFirstAt": 1671147106264,
+  "createdFirstAt": 1671315044843,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  /**\n   * MUST be an english word or word combination written in the latin alphabet\n   */\n  word: string,\n  description?: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  // if the word is a combination of multiple words (e.g. large-language-model is large +language + model), it should be added as a word combination with a description\n  // const wordMatrixs = await db.get(\"WordMatrix\");\n  // potentially we should check here if the word already exists or if the word combination already exists, but this is not required as long as we use `.onlyInsert: true`\n  const parts = lowerCaseArray(word);\n\n  if (parts.length > 1) {\n    const newWordCombination: Creation<WordCombination> = {\n      name: kebabCase(word),\n      description: description || \"\",\n      wordMatrixSlugs: parts,\n    };\n\n    const upsertResult = await db.upsert(\n      \"WordCombination\",\n      newWordCombination,\n      { onlyInsert: true }\n    );\n\n    return {\n      isSuccessful: upsertResult?.isSuccesful || false,\n      message: upsertResult?.isSuccesful\n        ? \"Added word combination\"\n        : upsertResult?.message,\n    };\n  }\n\n  const name = parts[0];\n\n  const newWord: Creation<WordMatrix> = {\n    name,\n    description,\n    english: { latin: name },\n  };\n\n  const upsertResult = await db.upsert(\"WordMatrix\", newWord, {\n    onlyInsert: true,\n  });\n\n  return {\n    isSuccessful: upsertResult?.isSuccesful || false,\n    message: upsertResult?.isSuccesful ? \"Added word\" : upsertResult?.message,\n  };\n}",
   "description": "Adds word either to the WordMatrix or to the WordCombination database model",
-  "id": "kjvmbodvxckkwnahdprobeoe"
+  "id": "gexnfxnvedryhvoqsmxbcgon"
 }

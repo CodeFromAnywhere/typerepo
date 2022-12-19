@@ -60,15 +60,6 @@ it takes the current page and span text and its click on the text span
 
 
 
-## getBrowserSession()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }   |    |
-
-
-
 ## gmailLogin()
 
 Helps to login into gmail account
@@ -92,13 +83,30 @@ Helps to login into gmail account
 
 ## openPage()
 
-Handling the new page by checking all browser tabs and if exist then return the existing one for reuse
-or create new one
+| Input      |    |    |
+| ---------- | -- | -- |
+| pageId (optional) | string |  |
+| **Output** |    |    |
+
+
+
+## racePromises()
+
+Typescript
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| pageId (optional) | string |  |
+| promises | {  }[] |  |
+| **Output** |    |    |
+
+
+
+## setBrowserPageIdle()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| pageId | string |  |,| status | boolean |  |
 | **Output** |    |    |
 
 
@@ -147,17 +155,15 @@ Method that help to login into twitter
 
 ## 📄 clickOnSpanTag (exported const)
 
-## 📄 getBrowserSession (exported const)
-
 ## 📄 gmailLogin (exported const)
 
 ## 📄 isCaptchaExist (exported const)
 
 ## 📄 openPage (exported const)
 
-Handling the new page by checking all browser tabs and if exist then return the existing one for reuse
-or create new one
+## 📄 racePromises (exported const)
 
+## 📄 setBrowserPageIdle (exported const)
 
 ## 📄 setInnerHtml (exported const)
 
@@ -171,6 +177,28 @@ Help to set the html element on the provided selector
 ## 📄 twitterLogin (exported const)
 
 Method that help to login into twitter
+
+# CLI
+
+<details><summary>Show CLI information (3)</summary>
+    
+  # runBrowser()
+
+
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 browserLunchOptions (exported const)
+
+## 📄 runBrowser (exported const)
+
+  </details>
 
 # Tests
 
@@ -194,9 +222,22 @@ Method that help to login into twitter
 
 # Internal
 
-<details><summary>Show internal (38)</summary>
+<details><summary>Show internal (41)</summary>
     
-  # foundOrNotXpath()
+  # delay()
+
+Handling the new page by checking all browser tabs and if exist then return the existing one for reuse
+or create new one
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| ms | number |  |
+| **Output** |    |    |
+
+
+
+## foundOrNotXpath()
 
 Utility function that always returns a boolean instead of throwing an error.
 XPath version.
@@ -221,12 +262,12 @@ Utility function that always returns a boolean instead of throwing an error.
 
 
 
-## getBrowserPage()
+## getBrowserPageById()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| pageId | string |  |
-| **Output** | {  }   |    |
+| browser | `Browser` |  |,| pageId | string |  |
+| **Output** |    |    |
 
 
 
@@ -248,6 +289,24 @@ Utility function that always returns a boolean instead of throwing an error.
 
 
 
+## getIdlePage()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| browser | `Browser` |  |
+| **Output** |    |    |
+
+
+
+## getNewPage()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| browser | `Browser` |  |
+| **Output** |    |    |
+
+
+
 ## logConsoleIfDebug()
 
 Utility function to log console only if a Debug flag is set.
@@ -261,7 +320,16 @@ If the flag is not set, doesn't print anything.
 
 
 
-## openNewBrowser()
+## openMultiTabs()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | `OpenMultiTabProps` |  |
+| **Output** |    |    |
+
+
+
+## openNewBrowserOnChildProcess()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -270,14 +338,11 @@ If the flag is not set, doesn't print anything.
 
 
 
-## racePromises()
-
-Typescript
-
+## openNewBrowser()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| promises | {  }[] |  |
+| - | | |
 | **Output** |    |    |
 
 
@@ -321,24 +386,6 @@ this is good to use instead of page.waitForTimeout + page.waitForSelector
 
 
 
-## setBrowserPage()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| page | `Page` |  |
-| **Output** | `String`   |    |
-
-
-
-## setBrowserSession()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| browser | `Browser` |  |
-| **Output** |    |    |
-
-
-
 ## trueClick()
 
 Utility function to call the element onclick event directly.
@@ -376,36 +423,6 @@ Utility functions to wait millisseconds. eg: 3000 waits 3 seconds
 
 
 
-## 🔸 BrowserSession
-
-jsonMultiple model
-
-
-
-
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| categoryStackCalculated (optional) | array |  |
-| browserName  | string |  |
-| browserSessionId  | string |  |
-
-
-
 ## 🔹 FacebookLoginPropsType
 
 Properties: 
@@ -440,9 +457,25 @@ Properties:
 
 
 
+## 🔹 OpenMultiTabProps
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| noOfTabs  | number |  |
+| tabUrl  | string |  |
+| browser  | object |  |
+
+
+
 ## 📄 browserLunchOptions (exported const)
 
-## 📄 browserSessionsCache (exported const)
+## 📄 delay (exported const)
+
+Handling the new page by checking all browser tabs and if exist then return the existing one for reuse
+or create new one
+
 
 ## 📄 foundOrNotXpath (exported const)
 
@@ -455,11 +488,15 @@ XPath version.
 Utility function that always returns a boolean instead of throwing an error.
 
 
-## 📄 getBrowserPage (exported const)
+## 📄 getBrowserPageById (exported const)
 
 ## 📄 getBrowserTabs (exported const)
 
 ## 📄 getConnectedBrowsers (exported const)
+
+## 📄 getIdlePage (exported const)
+
+## 📄 getNewPage (exported const)
 
 ## 📄 logConsoleIfDebug (exported const)
 
@@ -467,9 +504,11 @@ Utility function to log console only if a Debug flag is set.
 If the flag is not set, doesn't print anything.
 
 
-## 📄 openNewBrowser (exported const)
+## 📄 openMultiTabs (exported const)
 
-## 📄 racePromises (exported const)
+## 📄 openNewBrowserOnChildProcess (exported const)
+
+## 📄 openNewBrowser (exported const)
 
 ## 📄 retryClickAndWaitSelector (exported const)
 
@@ -488,10 +527,6 @@ this is good to use instead of page.waitForTimeout + page.waitForSelector
 
 
 ## 📄 runBrowser (exported const)
-
-## 📄 setBrowserPage (exported const)
-
-## 📄 setBrowserSession (exported const)
 
 ## 📄 trueClick (exported const)
 

@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671113666335,
-  "updatedAt": 1671113666335,
+  "createdAt": 1671430224976,
+  "updatedAt": 1671430224976,
   "deletedAt": 0,
-  "createdFirstAt": 1671113666335,
+  "createdFirstAt": 1671430224976,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "browserLunchOptions",
   "slug": "browser-lunch-options",
-  "operationRelativeTypescriptFilePath": "src/openNewBrowser.ts",
+  "operationRelativeTypescriptFilePath": "src/cli/runBrowser.cli.ts",
   "type": {
     "rawType": "{ headless: boolean; devtools: boolean; userDataDir: string; dumpio: boolean; args: string[]; executablePath: string; }",
     "typeDefinition": {
@@ -140,5 +140,5 @@
   },
   "value": "{\n  headless: false,\n  devtools: false,\n  userDataDir: \"./browser-sessions\",\n  dumpio: false,\n  args: [`--window-size=1920,1080`],\n  executablePath: getChromeExecutablePath(),\n}",
   "description": "",
-  "id": "qeojtxjwdujsiyuxtoyvxehq"
+  "id": "pkklayjzigysnbfzobqvktiz"
 }

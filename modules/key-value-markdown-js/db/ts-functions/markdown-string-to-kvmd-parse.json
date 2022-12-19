@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669962090778,
-  "updatedAt": 1669962090778,
+  "createdAt": 1671316426361,
+  "updatedAt": 1671316426361,
   "deletedAt": 0,
-  "createdFirstAt": 1669962090778,
+  "createdFirstAt": 1671316426361,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/markdownStringToKvmdParse.ts",
   "commentsInside": [],
-  "rawText": " (\n  kvMdString: string,\n  dbFileLocation: DbFileLocation\n): KeyValueMarkdownParse => {\n  const { parameters, content } = mdToJsonParse(kvMdString);\n  const { absolutePath, modelName, ...modelLocation } = dbFileLocation;\n\n  const parentKey = `parent_${camelCase(modelName)}Slug`;\n\n  if (!content) {\n    console.log(\"NO CONTENT FOUND\");\n    return { parameters: {}, data: [] };\n  }\n\n  const kvmdItems = content\n    .map((chunk) => getKvmdItemsRecursively(chunk))\n    .flat();\n\n  const data: KeyValueMarkdownModelType[] = kvmdItems.map((x) => ({\n    ...x,\n    ...modelLocation,\n    // NB: here we set the reference to its parent (which is equal to the last item in the categoryStackCalculated)\n    [parentKey]:\n      x.categoryStackCalculated[x.categoryStackCalculated.length - 1],\n  }));\n\n  return { parameters, data };\n}",
+  "rawText": " (\n  kvMdString: string,\n  dbFileLocation: DbFileLocation\n): KeyValueMarkdownParse => {\n  const { parameters, content } = mdToJsonParse(kvMdString);\n  const { absolutePath, modelName, ...modelLocation } = dbFileLocation;\n\n  const parentKey = `parent_${camelCase(modelName)}Slug`;\n\n  if (!content) {\n    console.log(\"NO CONTENT FOUND\");\n    return { parameters: {}, data: [] };\n  }\n\n  const kvmdItems = content\n    .map((chunk) => getKvmdItemsRecursively(chunk))\n    .flat();\n\n  const data: KeyValueMarkdownModelType[] = kvmdItems.map((x) => ({\n    ...x,\n    ...modelLocation,\n    // NB: here we set the reference to its parent (which is equal to the last item in the categoryStack)\n    [parentKey]: x.categoryStack[x.categoryStack.length - 1],\n  }));\n\n  return { parameters, data };\n}",
   "name": "markdownStringToKvmdParse",
   "slug": "markdown-string-to-kvmd-parse",
   "parameters": [
@@ -131,15 +131,15 @@
       "type": "object"
     }
   },
-  "maxIndentationDepth": 3,
+  "maxIndentationDepth": 2,
   "size": {
-    "characters": 892,
-    "lines": 28,
-    "bytes": 892,
+    "characters": 856,
+    "lines": 27,
+    "bytes": 856,
     "bytesPerCharacter": 1,
     "charactersPerLine": 32,
-    "linesPerFile": 28,
+    "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "ifnwxkggzopwqqmlbsgrvtqo"
+  "id": "yffysdmqtcqqnqbmvvjwdect"
 }

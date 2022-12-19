@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962092769,
-  "updatedAt": 1669962092769,
+  "createdAt": 1671316430345,
+  "updatedAt": 1671316430345,
   "deletedAt": 0,
-  "createdFirstAt": 1669962092769,
+  "createdFirstAt": 1671316430345,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(string: string): KvmdLine | undefined => {\n  const htmlCommentRegex = /<!--[\\s\\S]*?-->/g;\n  const lineWithoutComment = string.replace(htmlCommentRegex, \"\");\n\n  const commentMatch = string.match(htmlCommentRegex)?.[0];\n  const comment = commentMatch\n    ? commentMatch.replace(\"<!--\", \"\").replace(\"-->\", \"\").trim()\n    : null;\n\n  const [keyString, valueString] = lineWithoutComment\n    .split(\":\")\n    .map((x) => x.trim());\n\n  const value = valueString?.length ? valueString : undefined;\n  const slug = slugify(keyString);\n\n  if (keyString.length === 0) return;\n\n  return {\n    id: slug,\n    name: keyString,\n    value,\n    comment,\n    slug,\n  };\n}",
   "description": "parses a kv md line with data into a key, value, and comment (if available)\n\nif the key is an empty string, the line will return undefined",
-  "id": "slfmrppirfpdtwrmlnoomsrh"
+  "id": "iyhfnlaypmahqseczcopxamg"
 }

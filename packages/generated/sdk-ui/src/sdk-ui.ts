@@ -185,8 +185,10 @@ import { DocsReaderLayout } from "reader-ui";
 import { ReaderPageContent } from "reader-ui";
 import { ReaderPageHeader } from "reader-ui";
 import { Share } from "share";
+import { Shareable } from "share";
 import { useAllText } from "share";
 import { useLastSelection } from "share";
+import { useProjectRelativeScreenshot } from "share";
 import { ShortMarkdownPlayer } from "short-markdown-writer-input";
 import { ShortMarkdownSlide } from "short-markdown-writer-input";
 import { ShortStudio } from "short-markdown-writer-input";
@@ -414,8 +416,10 @@ DocsReaderLayout,
 ReaderPageContent,
 ReaderPageHeader,
 Share,
+Shareable,
 useAllText,
 useLastSelection,
+useProjectRelativeScreenshot,
 ShortMarkdownPlayer,
 ShortMarkdownSlide,
 ShortStudio,

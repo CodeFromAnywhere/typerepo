@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671430247931,
+  "updatedAt": 1671430247931,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430247931,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getNewPage",
+  "slug": "get-new-page",
+  "operationRelativeTypescriptFilePath": "src/getNewPage.ts",
+  "type": {
+    "rawType": "(browser: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Browser) => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  browser: Browser\n): Promise<Page | undefined> => {\n  const allPage = await browser.pages();\n  const allPageTitle = await Promise.all(allPage.map(async (p) => p.title()));\n  let indexOfIdlePage = allPageTitle.indexOf(\"\");\n  if (indexOfIdlePage === -1) {\n    const idlePage = await getIdlePage(browser);\n    return idlePage;\n  }\n  return allPage[indexOfIdlePage];\n}",
+  "description": "",
+  "id": "fgojlgezaneynwjkkzteoqat"
+}

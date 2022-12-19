@@ -480,6 +480,7 @@ export declare const sdk: {
     Tooltip: (props: {
         tooltip: import("react").ReactElement<any, string | import("react").JSXElementConstructor<any>> | null;
         children: import("react").ReactNode;
+        hoverTimeout?: number | undefined;
         placement?: import("@popperjs/core").Placement | undefined;
     }) => JSX.Element;
     useOnScreen: typeof useOnScreen;
@@ -559,8 +560,16 @@ export declare const sdk: {
     Share: (props: {
         contextText?: string | undefined;
     }) => JSX.Element;
+    Shareable: (props: {
+        children: import("react").ReactNode;
+    }) => JSX.Element;
     useAllText: () => string | undefined;
     useLastSelection: (isDisabled?: boolean | undefined) => string | null;
+    useProjectRelativeScreenshot: () => {
+        getImage: () => void;
+        projectRelativeFilePath: string | null;
+        ref: import("react").RefObject<HTMLDivElement>;
+    };
     ShortMarkdownPlayer: (props: {
         shortMarkdown?: import("short-markdown-types").ShortMarkdown | undefined;
         projectRelativeFilePath?: string | undefined;

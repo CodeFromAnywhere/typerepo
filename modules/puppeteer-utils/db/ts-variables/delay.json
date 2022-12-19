@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671430264888,
+  "updatedAt": 1671430264888,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430264888,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "delay",
+  "slug": "delay",
+  "operationRelativeTypescriptFilePath": "src/openPage.ts",
+  "type": {
+    "rawType": "(ms: number) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(ms: number) => new Promise((res) => setTimeout(res, ms))",
+  "description": "Handling the new page by checking all browser tabs and if exist then return the existing one for reuse\nor create new one",
+  "id": "onubgsbdnuyiflxlhbldawyr"
+}

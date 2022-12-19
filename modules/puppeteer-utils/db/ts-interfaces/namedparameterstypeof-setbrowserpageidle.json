@@ -1,0 +1,60 @@
+{
+  "createdAt": 1671430271881,
+  "updatedAt": 1671430271881,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430271881,
+  "id": "namedparameterstypeof-setbrowserpageidle",
+  "name": "NamedParameters<typeof setBrowserPageIdle>",
+  "slug": "namedparameterstypeof-setbrowserpageidle",
+  "operationRelativeTypescriptFilePath": "src/setBrowserPageIdle.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "pageId": {
+          "type": "string"
+        },
+        "status": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "pageId",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "pageId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "status",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof setBrowserPageIdle>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

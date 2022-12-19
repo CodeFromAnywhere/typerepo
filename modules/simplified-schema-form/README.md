@@ -69,17 +69,6 @@ NB: be careful, not to change the simplifiedSchema after using this hook for the
 
 
 
-## 📄 useReferencableModelData (exported const)
-
-Hook to retreive `ReferencableModelData` to supply to `SimplifiedSchemaForm`.
-
-Underwater, this calculates all referencableModelNames for a schema, and then it fetches the `ReferencableItem`[] for every one of those models, using `react-query` `useQuery` hooks
-
-NB: be careful, not to change the simplifiedSchema after using this hook for the first time. This will change the amount of hooks and this can break react!
-
-(it will give `Error: Rendered more hooks than during the previous render`)
-
-
 ## useTsInterfaceForm()
 
 hook to create a form for a TsInterface
@@ -104,6 +93,17 @@ const [Form, value, onChange] = useTsInterfaceForm(DatasetConfigJson as Storing<
 | - | | |
 | **Output** |    |    |
 
+
+
+## 📄 useReferencableModelData (exported const)
+
+Hook to retreive `ReferencableModelData` to supply to `SimplifiedSchemaForm`.
+
+Underwater, this calculates all referencableModelNames for a schema, and then it fetches the `ReferencableItem`[] for every one of those models, using `react-query` `useQuery` hooks
+
+NB: be careful, not to change the simplifiedSchema after using this hook for the first time. This will change the amount of hooks and this can break react!
+
+(it will give `Error: Rendered more hooks than during the previous render`)
 
 
 ## 📄 useTsInterfaceForm (exported const)
@@ -216,7 +216,7 @@ Properties:
 | id  | string |  |
 | slug (optional) | string |  |
 | name (optional) | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 
 
 

@@ -1,5 +1,5 @@
 import { Page } from "puppeteer-core";
-export type FacebookLoginPropsType = {
+export declare type FacebookLoginPropsType = {
     email: string;
     password: string;
     page: Page;

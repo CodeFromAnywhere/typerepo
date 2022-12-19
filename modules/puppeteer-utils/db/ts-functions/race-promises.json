@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671113669853,
-  "updatedAt": 1671113669853,
+  "createdAt": 1671430266707,
+  "updatedAt": 1671430266707,
   "deletedAt": 0,
-  "createdFirstAt": 1671113669853,
+  "createdFirstAt": 1671430266707,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/racePromises.ts",
   "commentsInside": [],
-  "rawText": " async (\n\tpromises: Promise<any>[]\n): Promise<number> => {\n\tconst indexedPromises: Array<Promise<number>> = promises.map(\n\t\t(promise, index) =>\n\t\t\tnew Promise<number>((resolve) =>\n\t\t\t\tpromise\n\t\t\t\t\t.then(() => resolve(index))\n\t\t\t\t\t.catch((err) => {\n\t\t\t\t\t\tconsole.log('RACE PROMISE INDEX ' + index + ' TIMED OUT !!!');\n\t\t\t\t\t})\n\t\t\t)\n\t);\n\treturn Promise.race(indexedPromises);\n}",
+  "rawText": " async (\n  promises: Promise<any>[]\n): Promise<number> => {\n  const indexedPromises: Array<Promise<number>> = promises.map(\n    (promise, index) =>\n      new Promise<number>((resolve) =>\n        promise\n          .then(() => resolve(index))\n          .catch((err) => {\n            console.log(\"RACE PROMISE INDEX \" + index + \" TIMED OUT !!!\");\n          })\n      )\n  );\n  return Promise.race(indexedPromises);\n}",
   "name": "racePromises",
   "slug": "race-promises",
   "parameters": [
@@ -46,15 +46,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 3,
+  "maxIndentationDepth": 6,
   "size": {
-    "characters": 384,
+    "characters": 421,
     "lines": 15,
-    "bytes": 384,
+    "bytes": 421,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
+    "charactersPerLine": 28,
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "vxrlknhesioaddsygdyauqqc"
+  "id": "txqulrbrtpurraanfynmpqvm"
 }

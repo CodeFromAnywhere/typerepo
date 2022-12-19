@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671430263260,
+  "updatedAt": 1671430263260,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430263260,
+  "id": "namedparameterstypeof-delay",
+  "name": "NamedParameters<typeof delay>",
+  "slug": "namedparameterstypeof-delay",
+  "operationRelativeTypescriptFilePath": "src/openPage.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "ms": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "ms"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "ms",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof delay>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

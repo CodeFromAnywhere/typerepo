@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116820902,
-  "updatedAt": 1671116820902,
+  "createdAt": 1671318548374,
+  "updatedAt": 1671318548374,
   "deletedAt": 0,
-  "createdFirstAt": 1671116820902,
+  "createdFirstAt": 1671318548374,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(str: string) =>\n  typeof window === \"undefined\"\n    ? Buffer.from(str).toString(\"base64\")\n    : window.btoa(str)",
   "description": "",
-  "id": "lxvqlnfupiwbtvnjkntmcztd"
+  "id": "yotqfekqwgrvoaooydknjxpn"
 }

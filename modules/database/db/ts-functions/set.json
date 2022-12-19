@@ -1,14 +1,14 @@
 {
-  "createdAt": 1668774163752,
-  "updatedAt": 1668774163752,
+  "createdAt": 1671316530486,
+  "updatedAt": 1671316530486,
   "deletedAt": 0,
-  "createdFirstAt": 1668774163752,
+  "createdFirstAt": 1671316530486,
   "isApiExposed": true,
   "isExported": false,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/setNestedFiles.test.ts",
   "commentsInside": [],
-  "rawText": " () => {\n  const item: Creation<MarkdownTestModel> = {\n    categoryStackCalculated: [\"sub\", \"folder\"],\n    name: \"hell-yeah\",\n    markdown: \"some markdown....\",\n  };\n\n  const x = testDb.set(\"MarkdownTestModel\", [item]);\n\n  return x;\n}",
+  "rawText": " () => {\n  const item: Creation<MarkdownTestModel> = {\n    categoryStack: [\"sub\", \"folder\"],\n    name: \"hell-yeah\",\n    markdown: \"some markdown....\",\n  };\n\n  const x = testDb.set(\"MarkdownTestModel\", [item]);\n\n  return x;\n}",
   "name": "set",
   "slug": "set",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 297,
+    "characters": 287,
     "lines": 11,
-    "bytes": 297,
+    "bytes": 287,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
+    "charactersPerLine": 26,
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "ljaclbfpcgcsdoyqjqdppuzt"
+  "id": "hztxlkgvxmwxpoqhngbhzrch"
 }

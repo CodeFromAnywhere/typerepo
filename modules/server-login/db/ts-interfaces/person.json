@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671220229541,
-  "updatedAt": 1671220229541,
+  "createdAt": 1671318416926,
+  "updatedAt": 1671318416926,
   "deletedAt": 0,
-  "createdFirstAt": 1671220229541,
+  "createdFirstAt": 1671318416926,
   "id": "person",
   "name": "Person",
   "slug": "person",
@@ -560,7 +560,7 @@
             "items": [
               {
                 "schema": {
-                  "fullComment": "A Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
+                  "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nA Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
                   "properties": [
                     {
                       "name": "ip",
@@ -715,7 +715,7 @@
                       "name": "authToken",
                       "required": true,
                       "schema": {
-                        "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.",
+                        "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.\n\nShould be identical to ID",
                         "type": "string"
                       }
                     },
@@ -733,109 +733,6 @@
                       "schema": {
                         "fullComment": "Name of the device, calculated based on metadata like location, os, and ip\n\nCan be edited by the user",
                         "type": "string"
-                      }
-                    },
-                    {
-                      "name": "previousIps",
-                      "required": true,
-                      "schema": {
-                        "fullComment": "the root IPInfo is from the latest IP the device had. All previous IPs are added to this array",
-                        "items": [
-                          {
-                            "schema": {
-                              "fullComment": "Information that is inferred from an IP",
-                              "properties": [
-                                {
-                                  "name": "ip",
-                                  "required": true,
-                                  "schema": {
-                                    "fullComment": "The ip of the device. Can be a local IP or remote IP.\n\nNB: Port is not included",
-                                    "nb": "Port is not included",
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "city",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "position",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "",
-                                    "properties": [
-                                      {
-                                        "name": "latitude",
-                                        "required": true,
-                                        "schema": {
-                                          "type": "number"
-                                        }
-                                      },
-                                      {
-                                        "name": "longitude",
-                                        "required": true,
-                                        "schema": {
-                                          "type": "number"
-                                        }
-                                      }
-                                    ],
-                                    "type": "object"
-                                  }
-                                },
-                                {
-                                  "name": "positionRadiusKm",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "number"
-                                  }
-                                },
-                                {
-                                  "name": "country",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "region",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "timezone",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "string"
-                                  }
-                                }
-                              ],
-                              "type": "object"
-                            },
-                            "name": "IPInfo"
-                          }
-                        ],
-                        "type": "array"
-                      }
-                    },
-                    {
-                      "name": "origins",
-                      "required": true,
-                      "schema": {
-                        "fullComment": "Domains the Device has visited\n\nThe Origin request header indicates the origin (scheme, hostname, and port) that caused the request",
-                        "items": [
-                          {
-                            "schema": {
-                              "type": "string"
-                            },
-                            "name": null
-                          }
-                        ],
-                        "type": "array"
                       }
                     },
                     {
@@ -888,7 +785,7 @@
                     },
                     {
                       "name": "lastSyncDatabaseAtObject",
-                      "required": true,
+                      "required": false,
                       "schema": {
                         "fullComment": "last sync of any model\n\nUseful for example for a p2p messaging",
                         "properties": [],

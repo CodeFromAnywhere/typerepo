@@ -167,6 +167,7 @@ import { SelectionPrompts } from "generative-ui";
 import { setConfig } from "generative-ui";
 import { SettingsPage } from "generative-ui";
 import { useAdmin } from "generative-ui";
+import { useQueryPath } from "generative-ui";
 import { useVariantResult } from "generative-ui";
 import { VariantSelector } from "generative-ui";
 import { ContextualPromptResultsTab } from "prompt-components";
@@ -247,7 +248,14 @@ import { ContributionNodeComponent } from "passionfruit-ui";
 import { CountriesHorizontalBar } from "passionfruit-ui";
 import { EnvironmentTab } from "passionfruit-ui";
 import { EsgPerformance } from "passionfruit-ui";
+import { FilterContainer } from "passionfruit-ui";
+import { getAverageCompanies } from "passionfruit-ui";
+import { getAverageTransparency } from "passionfruit-ui";
+import { getCompanyToDos } from "passionfruit-ui";
+import { getCompanyTransparency } from "passionfruit-ui";
+import { getMappedProducts } from "passionfruit-ui";
 import { getPageIcon } from "passionfruit-ui";
+import { getValueChainlength } from "passionfruit-ui";
 import { GoalsOverview } from "passionfruit-ui";
 import { GoalsTab } from "passionfruit-ui";
 import { ListHeader } from "passionfruit-ui";
@@ -260,6 +268,7 @@ import { ProofStatusChip } from "passionfruit-ui";
 import { ProofValueChip } from "passionfruit-ui";
 import { RenderCompanyEsgPolarArea } from "passionfruit-ui";
 import { renderCompanyESGdetails } from "passionfruit-ui";
+import { renderEsgMetrics } from "passionfruit-ui";
 import { renderEsgProgressBar } from "passionfruit-ui";
 import { renderESGMetricdetails } from "passionfruit-ui";
 import { renderGetArrayLength } from "passionfruit-ui";
@@ -267,6 +276,7 @@ import { renderGetArrayNames } from "passionfruit-ui";
 import { renderGetArray } from "passionfruit-ui";
 import { renderGetCategoryIcons } from "passionfruit-ui";
 import { renderGetCategoryLabel } from "passionfruit-ui";
+import { renderGetCompanyLogo } from "passionfruit-ui";
 import { renderGetCompanyTranspTooltip } from "passionfruit-ui";
 import { RenderGetEnvPerformance } from "passionfruit-ui";
 import { renderGetIconText } from "passionfruit-ui";
@@ -461,6 +471,7 @@ SelectionPrompts,
 setConfig,
 SettingsPage,
 useAdmin,
+useQueryPath,
 useVariantResult,
 VariantSelector,
 ContextualPromptResultsTab,
@@ -541,7 +552,14 @@ ContributionNodeComponent,
 CountriesHorizontalBar,
 EnvironmentTab,
 EsgPerformance,
+FilterContainer,
+getAverageCompanies,
+getAverageTransparency,
+getCompanyToDos,
+getCompanyTransparency,
+getMappedProducts,
 getPageIcon,
+getValueChainlength,
 GoalsOverview,
 GoalsTab,
 ListHeader,
@@ -554,6 +572,7 @@ ProofStatusChip,
 ProofValueChip,
 RenderCompanyEsgPolarArea,
 renderCompanyESGdetails,
+renderEsgMetrics,
 renderEsgProgressBar,
 renderESGMetricdetails,
 renderGetArrayLength,
@@ -561,6 +580,7 @@ renderGetArrayNames,
 renderGetArray,
 renderGetCategoryIcons,
 renderGetCategoryLabel,
+renderGetCompanyLogo,
 renderGetCompanyTranspTooltip,
 RenderGetEnvPerformance,
 renderGetIconText,

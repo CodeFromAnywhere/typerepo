@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116803872,
-  "updatedAt": 1671116803872,
+  "createdAt": 1671318530942,
+  "updatedAt": 1671318530942,
   "deletedAt": 0,
-  "createdFirstAt": 1671116803872,
+  "createdFirstAt": 1671318530942,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: {\n  filter?: (item: AugmentedAnyModelType) => boolean;\n  modelName?: string;\n}) => {\n  const router = useRouter();\n  const { modelName, filter } = props;\n  const paths = router.query.paths ? makeArray(router.query.paths) : [];\n  const modelQuery = modelName || paths.pop();\n  const [slug] = useUrl(\"slug\");\n  const [id] = useUrl(\"id\");\n\n  return (\n    <Div scroll>\n      <ModelComponent modelName={modelQuery} highlight={{ slug, id }} />\n    </Div>\n  );\n}",
   "description": "",
-  "id": "xabwirqpbdrepcvabzmmvhku"
+  "id": "reiczksucidzizneuajqoxtb"
 }

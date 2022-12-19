@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671113668210,
-  "updatedAt": 1671113668210,
+  "createdAt": 1671430264628,
+  "updatedAt": 1671430264628,
   "deletedAt": 0,
-  "createdFirstAt": 1671113668210,
+  "createdFirstAt": 1671430264628,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/openPage.ts",
   "commentsInside": [],
-  "rawText": " async (\n  pageId?: string\n): Promise<{ page?: Page; pageId: string }> => {\n  const browser = await openNewBrowser();\n  if (pageId) {\n    return { page: getBrowserPage(pageId), pageId };\n  }\n\n  const page = await browser.newPage();\n  await page.setBypassCSP(true);\n  const cachePageId = setBrowserPage(page);\n  return { pageId: cachePageId, page };\n}",
+  "rawText": " async (pageId?: string): Promise<Page | undefined> => {\n  const browser = await openNewBrowser();\n  if (!browser) {\n    console.log(\"BROSER NOT FOUND\");\n    await delay(5000);\n    console.log(\"TRY AGAIN\");\n    const browser = await openNewBrowser();\n    if (!browser) return;\n    if (browser) {\n      if (pageId) {\n        return getBrowserPageById(browser, pageId);\n      }\n\n      const page = await getNewPage(browser);\n      await page?.setBypassCSP(true);\n      return page;\n    }\n    return;\n  }\n\n  if (pageId) {\n    return getBrowserPageById(browser, pageId);\n  }\n\n  const page = await getNewPage(browser);\n  await page?.setBypassCSP(true);\n  return page;\n}",
   "name": "openPage",
   "slug": "open-page",
   "parameters": [
@@ -23,9 +23,9 @@
       "required": false
     }
   ],
-  "description": "Handling the new page by checking all browser tabs and if exist then return the existing one for reuse\nor create new one",
+  "description": "",
   "returnType": {
-    "rawType": "Promise<{ page?: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined; pageId: string; }>",
+    "rawType": "Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -33,15 +33,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 4,
   "size": {
-    "characters": 470,
-    "lines": 14,
-    "bytes": 470,
+    "characters": 664,
+    "lines": 28,
+    "bytes": 664,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 34,
-    "linesPerFile": 14,
+    "charactersPerLine": 24,
+    "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "jwxcfisrpdeybbbiojhioakg"
+  "id": "efpfpyfuuzozibfempplcrgu"
 }

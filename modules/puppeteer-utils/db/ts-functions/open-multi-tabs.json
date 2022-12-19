@@ -1,0 +1,73 @@
+{
+  "createdAt": 1671430259107,
+  "updatedAt": 1671430259107,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430259107,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/openMultiTabs.ts",
+  "commentsInside": [],
+  "rawText": " async (props: OpenMultiTabProps) => {\n  const { noOfTabs, tabUrl, browser } = props;\n  const allTabs = [];\n  for (let i = 0; i < noOfTabs; i++) {\n    allTabs.push(browser.newPage());\n  }\n  const allPages = await Promise.all(allTabs);\n\n  const allPageIds: string[] = await Promise.all(\n    //@ts-ignore\n    allPages.map((p) => p.target()._targetId)\n  );\n  //@ts-ignore\n  const allPageIdsCreations: Creation<BrowserPage[]> = allPageIds.map(\n    (pid) => ({ pageId: pid, isIdle: true })\n  );\n  await db.upsert(\"BrowserPage\", allPageIdsCreations);\n}",
+  "name": "openMultiTabs",
+  "slug": "open-multi-tabs",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "$ref": "#/definitions/OpenMultiTabProps"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "noOfTabs",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "tabUrl",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "browser",
+            "required": true,
+            "schema": {
+              "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 546,
+    "lines": 18,
+    "bytes": 546,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 30,
+    "linesPerFile": 18,
+    "numberOfFiles": 1
+  },
+  "id": "yeviknkzcmbpirorjlpwahog"
+}

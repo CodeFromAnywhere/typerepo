@@ -1,0 +1,142 @@
+{
+  "createdAt": 1671315075894,
+  "updatedAt": 1671315075894,
+  "deletedAt": 0,
+  "createdFirstAt": 1671315075894,
+  "id": "processpromptprops",
+  "name": "ProcessPromptProps",
+  "slug": "processpromptprops",
+  "operationRelativeTypescriptFilePath": "src/processChatGptPrompt.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type ProcessPromptProps = {\n  contextContent?: string | null;\n  selectionContent?: string | null;\n  contextualPromptSlug?: string;\n  /**\n   * DESCRIPTION: These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format\n   */\n  customPromptContent?: string;\n  saveNewPromptWithName?: string | null;\n  isHeadless?: boolean;\n  prompt_projectRelativePath?: string;\n  thread?: string;\n  /**\n   * If true, it'll just validate if this will be executed, it won't return the actual result but will execute the result in the background\n   */\n  isDeferred?: boolean;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "contextContent": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "selectionContent": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contextualPromptSlug": {
+          "type": "string"
+        },
+        "customPromptContent": {
+          "type": "string",
+          "description": "DESCRIPTION: These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format"
+        },
+        "saveNewPromptWithName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "isHeadless": {
+          "type": "boolean"
+        },
+        "prompt_projectRelativePath": {
+          "type": "string"
+        },
+        "thread": {
+          "type": "string"
+        },
+        "isDeferred": {
+          "type": "boolean",
+          "description": "If true, it'll just validate if this will be executed, it won't return the actual result but will execute the result in the background"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "contextContent",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "selectionContent",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "contextualPromptSlug",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "customPromptContent",
+          "required": false,
+          "schema": {
+            "fullComment": "DESCRIPTION: These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format",
+            "description": "These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format",
+            "type": "string"
+          }
+        },
+        {
+          "name": "saveNewPromptWithName",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isHeadless",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "prompt_projectRelativePath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "thread",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isDeferred",
+          "required": false,
+          "schema": {
+            "fullComment": "If true, it'll just validate if this will be executed, it won't return the actual result but will execute the result in the background",
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "ProcessPromptProps",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

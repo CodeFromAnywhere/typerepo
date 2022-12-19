@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671113682372,
-  "updatedAt": 1671113682372,
+  "createdAt": 1671430282316,
+  "updatedAt": 1671430282316,
   "deletedAt": 0,
-  "createdFirstAt": 1671113682372,
+  "createdFirstAt": 1671430282316,
   "isApiExposed": true,
   "isExported": false,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const { page, pageId } = await openPage();\n\n  await page?.goto(\"https://chat.openai.com/auth/login\", {\n    waitUntil: \"domcontentloaded\",\n  });\n  page?.solveRecaptchas();\n  const title = await page?.title();\n  console.log({ title });\n}",
+  "rawText": " async () => {\n  console.log(\"test is called\");\n  // const browser = await runBrowser();\n  const page = await openPage();\n  // const page = await browser.newPage();\n  await page?.goto(\"https://www.google.com/recaptcha/api2/demo\", {\n    waitUntil: \"domcontentloaded\",\n  });\n  if (page) {\n    const captchRes = await isCaptchaExist(page);\n    console.log({ captchRes: JSON.stringify(captchRes) });\n  }\n  // //@ts-ignore\n  // const pageId = page?.target()._targetId;\n  // setBrowserPageIdle(pageId, false);\n  // const page2 = await openPage(pageId);\n  // await page2?.goto(\"https://facebook.com\", {\n  //   waitUntil: \"domcontentloaded\",\n  // });\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 252,
-    "lines": 10,
-    "bytes": 252,
+    "characters": 644,
+    "lines": 20,
+    "bytes": 644,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 25,
-    "linesPerFile": 10,
+    "charactersPerLine": 32,
+    "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "nkxwohxqdxedxltsckfiaemi"
+  "id": "uqwczkjxnholtgdwimbtuqry"
 }

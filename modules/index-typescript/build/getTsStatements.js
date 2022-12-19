@@ -1,30 +1,216 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var i in t=arguments[r])Object.prototype.hasOwnProperty.call(t,i)&&(e[i]=t[i]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,t,r,n){return new(r||(r=Promise))((function(i,a){function o(e){try{u(n.next(e))}catch(e){a(e)}}function s(e){try{u(n.throw(e))}catch(e){a(e)}}function u(e){var t;e.done?i(e.value):(t=e.value,t instanceof r?t:new r((function(e){e(t)}))).then(o,s)}u((n=n.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var r,n,i,a,o={label:0,sent:function(){if(1&i[0])throw i[1];return i[1]},trys:[],ops:[]};return a={next:s(0),throw:s(1),return:s(2)},"function"==typeof Symbol&&(a[Symbol.iterator]=function(){return this}),a;function s(a){return function(s){return function(a){if(r)throw new TypeError("Generator is already executing.");for(;o;)try{if(r=1,n&&(i=2&a[0]?n.return:a[0]?n.throw||((i=n.return)&&i.call(n),0):n.next)&&!(i=i.call(n,a[1])).done)return i;switch(n=0,i&&(a=[2&a[0],i.value]),a[0]){case 0:case 1:i=a;break;case 4:return o.label++,{value:a[1],done:!1};case 5:o.label++,n=a[1],a=[0];continue;case 7:a=o.ops.pop(),o.trys.pop();continue;default:if(!(i=o.trys,(i=i.length>0&&i[i.length-1])||6!==a[0]&&2!==a[0])){o=0;continue}if(3===a[0]&&(!i||a[1]>i[0]&&a[1]<i[3])){o.label=a[1];break}if(6===a[0]&&o.label<i[1]){o.label=i[1],i=a;break}if(i&&o.label<i[2]){o.label=i[2],o.ops.push(a);break}i[2]&&o.ops.pop(),o.trys.pop();continue}a=t.call(e,o)}catch(e){a=[6,e],n=0}finally{r=i=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,s])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getTsStatements=exports.getFrontmatterFunctionParameters=void 0;var ts_morph_1=require("ts-morph"),js_util_1=require("js-util"),convert_case_1=require("convert-case"),code_types_1=require("code-types"),log_1=require("log"),comment_util_1=require("comment-util"),getParametersFromInterface_1=require("./getParametersFromInterface"),getTypeInfo_1=require("./getTypeInfo"),getMaxIndexationDepth_1=require("./getMaxIndexationDepth"),getSizeSummary_1=require("./getSizeSummary"),markdown_parse_js_1=require("markdown-parse-js"),getFrontmatterFunctionParameters=function(e){var t,r="true"===e.isApiExposed,n=code_types_1.runEveryPeriodStringArray.includes(String(e.runEveryPeriod))?String(e.runEveryPeriod):void 0;e.publicAuthorization&&(null===(t=String(e.publicAuthorization))||void 0===t||t.split(",").map((function(e){return e.trim()})));return{runEveryPeriod:n,isApiExposed:r}};
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getTsStatements = exports.getFrontmatterFunctionParameters = void 0;
+var ts_morph_1 = require("ts-morph");
 //monorepo
-exports.getFrontmatterFunctionParameters=getFrontmatterFunctionParameters;
+var js_util_1 = require("js-util");
+var convert_case_1 = require("convert-case");
+var code_types_1 = require("code-types");
+var log_1 = require("log");
+var comment_util_1 = require("comment-util");
+// relative
+var getParametersFromInterface_1 = require("./getParametersFromInterface");
+var getTypeInfo_1 = require("./getTypeInfo");
+var getMaxIndexationDepth_1 = require("./getMaxIndexationDepth");
+var getSizeSummary_1 = require("./getSizeSummary");
+var markdown_parse_js_1 = require("markdown-parse-js");
+var getFrontmatterFunctionParameters = function (frontmatter) {
+    var _a;
+    var isApiExposed = frontmatter.isApiExposed === "true";
+    var runEveryPeriod = code_types_1.runEveryPeriodStringArray.includes(String(frontmatter.runEveryPeriod))
+        ? String(frontmatter.runEveryPeriod)
+        : undefined;
+    var publicAuthorizationArray = frontmatter.publicAuthorization
+        ? (_a = String(frontmatter.publicAuthorization)) === null || _a === void 0 ? void 0 : _a.split(",").map(function (x) { return x.trim(); })
+        : undefined;
+    // const publicAuthorizationFrontmatter = publicAuthorizationArray
+    //   ?.filter((text) => authorizationLevelStringArray.includes(text))
+    //   .map((string) => string as AuthorizationLevel);
+    // NB: by default, users are authorized to search and read docs
+    // const publicAuthorization: AuthorizationLevel[] =
+    //   publicAuthorizationFrontmatter || ["read", "search"];
+    var result = { runEveryPeriod: runEveryPeriod, isApiExposed: isApiExposed };
+    return result;
+};
+exports.getFrontmatterFunctionParameters = getFrontmatterFunctionParameters;
 /**
  Gets functions and variables from a tsmorph sourcefile
  */
-var getTsStatements=function(e,
+var getTsStatements = function (sourceFile, 
 /**
  * NB: we require all interfaces here across the monorepo because the ones indexed by the schema generator aren't complete.
  */
-t,r,n){return __awaiter(void 0,void 0,void 0,(function(){var n,i,a,o,s,u;return __generator(this,(function(p){
-// console.log({ tsFunctions: tsFunctions.length });
-return n=e.getVariableStatements().map((function(e){var t,n,i,a=e.getDeclarations(),o=a.map((function(e){return e.getInitializer()})).filter(js_util_1.notEmpty),s=null===(t=a[0])||void 0===t?void 0:t.getName(),u=null===(n=o[0])||void 0===n?void 0:n.getText(),p=e.isExported(),c=e.getDeclarationKind().toString().toLowerCase(),m=e.getJsDocs().map((function(e){return e.getText()})).map(comment_util_1.stripComment).join("\n\n"),l=(0,convert_case_1.kebabCase)(s),g=(0,getTypeInfo_1.getTypeInfo)(null===(i=a[0])||void 0===i?void 0:i.getType());return{classification:c,comments:[],isExported:p,name:s,slug:l,operationRelativeTypescriptFilePath:r,type:g,value:u,description:m}})),i=e.getStatements().map((function(e){var t,r=null===(t=e.asKind(ts_morph_1.SyntaxKind.VariableStatement))||void 0===t?void 0:t.getDeclarations();if(r&&0!==r.length){var n=r.map((function(e){var t;return null===(t=e.getTypeNode())||void 0===t?void 0:t.getText()})).filter(js_util_1.notEmpty)[0];return{explicitTypeName:n,isExported:r[0].isExported(),variableDeclarations:r,
-// NB: if this is a VariableStatement
-kindName:e.getKindName(),
-// NB: this is how we can check if it's an arrow function (declaration Initializer Kind Names Includes Arrow Function)
-isArrowFunction:r.map((function(e){return e.getInitializer()})).map((function(e){return null==e?void 0:e.getKindName()})).includes("ArrowFunction"),
-// NB: if it's a variable, we can get the name like this
-names:r.map((function(e){return e.getName()})),comments:e.getLeadingCommentRanges().map((function(e){return e.getText()})).map(comment_util_1.stripComment)}}})).filter(js_util_1.notEmpty),a=e.getFunctions(),o=i.filter((function(e){return e.isArrowFunction})),s=o.map((function(e){var n,i,a=e.isExported,o=null===(n=e.variableDeclarations)||void 0===n?void 0:n.map((function(e){var t;return null===(t=e.getInitializer())||void 0===t?void 0:t.asKind(ts_morph_1.SyntaxKind.ArrowFunction)}))[0];if(o){var s=e.comments.join("\n\n"),u=(null===(i=e.names)||void 0===i?void 0:i[0])||"no name",p=(0,getTypeInfo_1.getTypeInfo)(o.getReturnType().getApparentType()),c=o.getFullText(),m=c.concat(s),l=(0,markdown_parse_js_1.parseFrontmatterMarkdownString)(s).parameters,g=(0,exports.getFrontmatterFunctionParameters)(l);return __assign(__assign({},g),{isExported:a,isApiExposed:!0,groupAuthorization:{},explicitTypeName:e.explicitTypeName,operationRelativeTypescriptFilePath:r,
-// TODO:
-commentsInside:[],rawText:c,name:u,slug:(0,convert_case_1.kebabCase)(u),parameters:(0,getParametersFromInterface_1.getParametersFromInterfaces)(u,t),description:s,returnType:p,maxIndentationDepth:(0,getMaxIndexationDepth_1.getMaxIndentationDepth)(c),
-// TODO: isolate the size calculations...
-// size of function including comments
-size:(0,getSizeSummary_1.getSizeSummary)(m)})}(0,log_1.log)("Should never get here, arrow function not found",{type:"error"})})).filter(js_util_1.notEmpty),u=a.map((function(e){var n=(0,getTypeInfo_1.getTypeInfo)(e.getReturnType().getApparentType()),i=e.getFullText(),a=e.getJsDocs().map((function(e){return e.getFullText()})).join("\n\n"),o=i.concat(a),s=(0,markdown_parse_js_1.parseFrontmatterMarkdownString)(a).parameters,u=(0,exports.getFrontmatterFunctionParameters)(s),p=e.getName()||"__anonymous__";return __assign(__assign({},u),{name:p,runEveryPeriod:undefined,slug:(0,convert_case_1.kebabCase)(p),isExported:e.isExported(),operationRelativeTypescriptFilePath:r,groupAuthorization:{},
-// TODO:
-commentsInside:[],
-// function metadata
-// function info
-description:a,parameters:(0,getParametersFromInterface_1.getParametersFromInterfaces)(p,t),returnType:n,size:(0,getSizeSummary_1.getSizeSummary)(o),rawText:i,maxIndentationDepth:(0,getMaxIndexationDepth_1.getMaxIndentationDepth)(i)})})),[2/*return*/,{tsFunctions:s.concat(u),tsVariables:n}]}))}))};exports.getTsStatements=getTsStatements;
+tsInterfaces, operationRelativeTypescriptFilePath, fileContent) { return __awaiter(void 0, void 0, void 0, function () {
+    var tsVariables, morphVars, morphFunctions, arrowFunctionVars, arrowFunctions, regularFunctions, tsFunctions;
+    return __generator(this, function (_a) {
+        tsVariables = sourceFile
+            .getVariableStatements()
+            .map(function (variableStatement) {
+            var _a, _b, _c;
+            var declarations = variableStatement.getDeclarations();
+            var inits = declarations
+                .map(function (x) { return x.getInitializer(); })
+                .filter(js_util_1.notEmpty);
+            var name = (_a = declarations[0]) === null || _a === void 0 ? void 0 : _a.getName();
+            var value = (_b = inits[0]) === null || _b === void 0 ? void 0 : _b.getText();
+            var isExported = variableStatement.isExported();
+            var classification = variableStatement
+                .getDeclarationKind()
+                .toString()
+                .toLowerCase();
+            var description = variableStatement
+                .getJsDocs()
+                .map(function (x) { return x.getText(); })
+                .map(comment_util_1.stripComment)
+                .join("\n\n");
+            var slug = (0, convert_case_1.kebabCase)(name);
+            var type = (0, getTypeInfo_1.getTypeInfo)((_c = declarations[0]) === null || _c === void 0 ? void 0 : _c.getType());
+            var tsVariable = {
+                classification: classification,
+                comments: [],
+                isExported: isExported,
+                name: name,
+                slug: slug,
+                operationRelativeTypescriptFilePath: operationRelativeTypescriptFilePath,
+                type: type,
+                value: value,
+                description: description,
+            };
+            return tsVariable;
+        });
+        morphVars = sourceFile
+            .getStatements()
+            .map(function (x) {
+            var _a;
+            var variableDeclarations = (_a = x
+                .asKind(ts_morph_1.SyntaxKind.VariableStatement)) === null || _a === void 0 ? void 0 : _a.getDeclarations();
+            if (!variableDeclarations || variableDeclarations.length === 0)
+                return;
+            var explicitTypeName = variableDeclarations
+                .map(function (x) { var _a; return (_a = x.getTypeNode()) === null || _a === void 0 ? void 0 : _a.getText(); })
+                .filter(js_util_1.notEmpty)[0];
+            return {
+                explicitTypeName: explicitTypeName,
+                isExported: variableDeclarations[0].isExported(),
+                variableDeclarations: variableDeclarations,
+                // NB: if this is a VariableStatement
+                kindName: x.getKindName(),
+                // NB: this is how we can check if it's an arrow function (declaration Initializer Kind Names Includes Arrow Function)
+                isArrowFunction: variableDeclarations
+                    .map(function (v) { return v.getInitializer(); })
+                    .map(function (x) { return x === null || x === void 0 ? void 0 : x.getKindName(); })
+                    .includes("ArrowFunction"),
+                // NB: if it's a variable, we can get the name like this
+                names: variableDeclarations.map(function (x) { return x.getName(); }),
+                comments: x
+                    .getLeadingCommentRanges()
+                    .map(function (x) { return x.getText(); })
+                    .map(comment_util_1.stripComment),
+            };
+        })
+            .filter(js_util_1.notEmpty);
+        morphFunctions = sourceFile.getFunctions();
+        arrowFunctionVars = morphVars.filter(function (v) { return v.isArrowFunction; });
+        arrowFunctions = arrowFunctionVars
+            .map(function (v) {
+            var _a, _b;
+            var isExported = v.isExported;
+            var arrowFunction = (_a = v.variableDeclarations) === null || _a === void 0 ? void 0 : _a.map(function (x) { var _a; return (_a = x.getInitializer()) === null || _a === void 0 ? void 0 : _a.asKind(ts_morph_1.SyntaxKind.ArrowFunction); })[0];
+            if (!arrowFunction) {
+                (0, log_1.log)("Should never get here, arrow function not found", {
+                    type: "error",
+                });
+                return;
+            }
+            var description = v.comments.join("\n\n");
+            var name = ((_b = v.names) === null || _b === void 0 ? void 0 : _b[0]) || "no name";
+            var returnType = (0, getTypeInfo_1.getTypeInfo)(arrowFunction.getReturnType().getApparentType());
+            var functionText = arrowFunction.getFullText();
+            var fullText = functionText.concat(description);
+            var parsedDescription = (0, markdown_parse_js_1.parseFrontmatterMarkdownString)(description);
+            var frontmatter = parsedDescription.parameters;
+            var frontmatterParameters = (0, exports.getFrontmatterFunctionParameters)(frontmatter);
+            var fn = __assign(__assign({}, frontmatterParameters), { isExported: isExported, isApiExposed: true, groupAuthorization: {}, explicitTypeName: v.explicitTypeName, operationRelativeTypescriptFilePath: operationRelativeTypescriptFilePath, 
+                // TODO:
+                commentsInside: [], rawText: functionText, name: name, slug: (0, convert_case_1.kebabCase)(name), parameters: (0, getParametersFromInterface_1.getParametersFromInterfaces)(name, tsInterfaces), description: description, returnType: returnType, maxIndentationDepth: (0, getMaxIndexationDepth_1.getMaxIndentationDepth)(functionText), 
+                // TODO: isolate the size calculations...
+                // size of function including comments
+                size: (0, getSizeSummary_1.getSizeSummary)(fullText) });
+            return fn;
+        })
+            .filter(js_util_1.notEmpty);
+        regularFunctions = morphFunctions.map(function (functionDeclaration) {
+            var returnType = (0, getTypeInfo_1.getTypeInfo)(functionDeclaration.getReturnType().getApparentType());
+            var functionText = functionDeclaration.getFullText();
+            var description = functionDeclaration
+                .getJsDocs()
+                .map(function (x) { return x.getFullText(); })
+                .join("\n\n");
+            var fullText = functionText.concat(description);
+            var parsedDescription = (0, markdown_parse_js_1.parseFrontmatterMarkdownString)(description);
+            var frontmatter = parsedDescription.parameters;
+            var frontmatterParameters = (0, exports.getFrontmatterFunctionParameters)(frontmatter);
+            var name = functionDeclaration.getName() || "__anonymous__";
+            var runEveryPeriod = undefined;
+            var fn = __assign(__assign({}, frontmatterParameters), { name: name, runEveryPeriod: runEveryPeriod, slug: (0, convert_case_1.kebabCase)(name), isExported: functionDeclaration.isExported(), operationRelativeTypescriptFilePath: operationRelativeTypescriptFilePath, groupAuthorization: {}, 
+                // TODO:
+                commentsInside: [], 
+                // function metadata
+                // function info
+                description: description, parameters: (0, getParametersFromInterface_1.getParametersFromInterfaces)(name, tsInterfaces), returnType: returnType, size: (0, getSizeSummary_1.getSizeSummary)(fullText), rawText: functionText, maxIndentationDepth: (0, getMaxIndexationDepth_1.getMaxIndentationDepth)(functionText) });
+            return fn;
+        });
+        tsFunctions = arrowFunctions.concat(regularFunctions);
+        // console.log({ tsFunctions: tsFunctions.length });
+        return [2 /*return*/, { tsFunctions: tsFunctions, tsVariables: tsVariables }];
+    });
+}); };
+exports.getTsStatements = getTsStatements;
 //# sourceMappingURL=getTsStatements.js.map

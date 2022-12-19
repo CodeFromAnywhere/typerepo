@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671112875792,
-  "updatedAt": 1671112875792,
+  "createdAt": 1671318496052,
+  "updatedAt": 1671318496052,
   "deletedAt": 0,
-  "createdFirstAt": 1671112875792,
+  "createdFirstAt": 1671318496052,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  chunk: MarkdownChunk,\n  config: MarkdownParseRenderConfig\n) => {\n  const title = chunk.title\n    ? renderMarkdownTitle(chunk.title, chunk.level)\n    : null;\n  return (\n    <Div>\n      {title}\n      {chunk.content ? renderMarkdownContent(chunk.content, config) : null}\n      {chunk.children?.map((chunk) => renderMarkdownChunk(chunk, config))}\n    </Div>\n  );\n}",
   "description": "renders a MarkdownChunk interface",
-  "id": "jxercvidmcgmnaubhdpnedmh"
+  "id": "ifnvsojleukmygyxayjzhibm"
 }

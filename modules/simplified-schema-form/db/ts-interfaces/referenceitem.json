@@ -1,15 +1,15 @@
 {
-  "createdAt": 1670529141775,
-  "updatedAt": 1670529141775,
+  "createdAt": 1671318711663,
+  "updatedAt": 1671318711663,
   "deletedAt": 0,
-  "createdFirstAt": 1670529141775,
+  "createdFirstAt": 1671318711663,
   "id": "referenceitem",
   "name": "ReferenceItem",
   "slug": "referenceitem",
   "operationRelativeTypescriptFilePath": "src/getReferencedModelDataItem.tsx",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type ReferenceItem = {\n  id: string;\n  slug?: string;\n  name?: string;\n  categoryStackCalculated?: CategoryStack;\n};",
+  "rawText": "\n\nexport type ReferenceItem = {\n  id: string;\n  slug?: string;\n  name?: string;\n  categoryStack?: CategoryStack;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -28,7 +28,7 @@
         "name": {
           "type": "string"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack"
         }
       },
@@ -61,7 +61,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": false,
           "schema": {
             "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

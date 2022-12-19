@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671113680823,
-  "updatedAt": 1671113680823,
+  "createdAt": 1671430280081,
+  "updatedAt": 1671430280081,
   "deletedAt": 0,
-  "createdFirstAt": 1671113680823,
+  "createdFirstAt": 1671430280081,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "solve-reptcha",
   "operationRelativeTypescriptFilePath": "src/solveRecaptcha.ts",
   "type": {
-    "rawType": "(page: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page) => Promise<import(\"/Users/king/King/operations/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").SolveRecaptchasResult>",
+    "rawType": "(page: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page) => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").SolveRecaptchasResult>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  page: Page\n): Promise<SolveRecaptchasResult> => {\n  const solveRecaptchaResult = await page?.solveRecaptchas();\n  return solveRecaptchaResult;\n}",
   "description": "",
-  "id": "mmewojfsggxqkandidgbkwwe"
+  "id": "xlfujleybmccbvthojttghpo"
 }

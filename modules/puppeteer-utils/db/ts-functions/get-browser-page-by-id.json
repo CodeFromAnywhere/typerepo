@@ -1,0 +1,59 @@
+{
+  "createdAt": 1671430236455,
+  "updatedAt": 1671430236455,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430236455,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getBrowserPageById.ts",
+  "commentsInside": [],
+  "rawText": " async (browser: Browser, pageId: string) => {\n  const allPages = await browser.pages();\n  const targetPage = allPages.find(\n    //@ts-ignore\n    (p) => p.target()._targetId === pageId\n  );\n  await targetPage?.setBypassCSP(true);\n  return targetPage;\n}",
+  "name": "getBrowserPageById",
+  "slug": "get-browser-page-by-id",
+  "parameters": [
+    {
+      "name": "browser",
+      "schema": {
+        "$ref": "#/definitions/Browser"
+      },
+      "simplifiedSchema": {
+        "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    },
+    {
+      "name": "pageId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 252,
+    "lines": 9,
+    "bytes": 252,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "qdvoxqkoelebdmqhlqaalheb"
+}

@@ -1,26 +1,2 @@
-"use strict";
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllPackageJsonDependencies = void 0;
-var getAllPackageJsonDependencies = function (operation) {
-    var dependencies = operation.dependencies
-        ? Object.keys(operation.dependencies)
-        : [];
-    var devDependencies = operation.devDependencies
-        ? Object.keys(operation.devDependencies)
-        : [];
-    var peerDependencies = operation.peerDependencies
-        ? Object.keys(operation.peerDependencies)
-        : [];
-    return __spreadArray(__spreadArray(__spreadArray([], dependencies, true), devDependencies, true), peerDependencies, true);
-};
-exports.getAllPackageJsonDependencies = getAllPackageJsonDependencies;
+"use strict";var __spreadArray=this&&this.__spreadArray||function(e,r,n){if(n||2===arguments.length)for(var s,a=0,c=r.length;a<c;a++)!s&&a in r||(s||(s=Array.prototype.slice.call(r,0,a)),s[a]=r[a]);return e.concat(s||Array.prototype.slice.call(r))};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getAllPackageJsonDependencies=void 0;var getAllPackageJsonDependencies=function(e){var r=e.dependencies?Object.keys(e.dependencies):[],n=e.devDependencies?Object.keys(e.devDependencies):[],s=e.peerDependencies?Object.keys(e.peerDependencies):[];return __spreadArray(__spreadArray(__spreadArray([],r,!0),n,!0),s,!0)};exports.getAllPackageJsonDependencies=getAllPackageJsonDependencies;
 //# sourceMappingURL=getAllPackageJsonDependencies.js.map

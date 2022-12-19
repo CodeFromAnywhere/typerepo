@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671012393916,
-  "updatedAt": 1671012393916,
+  "createdAt": 1671315945593,
+  "updatedAt": 1671315945593,
   "deletedAt": 0,
-  "createdFirstAt": 1671012393916,
+  "createdFirstAt": 1671315945593,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(packageJson: Operation | null) => {\n  return (\n    !!packageJson?.main &&\n    packageJson.main.startsWith(\"src/\") &&\n    (packageJson.main.endsWith(\".ts\") || packageJson.main.endsWith(\".tsx\"))\n  );\n}",
   "description": "",
-  "id": "woktzrkupzlmuxptknlufrql"
+  "id": "nqcsjrrknjuxisxfydhvzoxb"
 }

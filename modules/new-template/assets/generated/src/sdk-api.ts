@@ -1,6 +1,8 @@
+import { fetchUrl } from "ai-browser";
 import { addStatement } from "ai-functions-node";
 import { addWord } from "ai-functions-node";
 import { biggestFunctionName } from "ai-functions-node";
+import { checkQueue } from "ai-functions-node";
 import { cleanup } from "ai-functions-node";
 import { controlChatGptWrapper } from "ai-functions-node";
 import { controlChatGpt } from "ai-functions-node";
@@ -26,6 +28,8 @@ import { keywords } from "ai-functions-node";
 import { marcusAurelius } from "ai-functions-node";
 import { poem } from "ai-functions-node";
 import { processChatGptPrompt } from "ai-functions-node";
+import { processPromptOnFile } from "ai-functions-node";
+import { processPromptOnFolder } from "ai-functions-node";
 import { removeAllFake } from "ai-functions-node";
 import { rickAndMortyRick } from "ai-functions-node";
 import { rickAndMorty } from "ai-functions-node";
@@ -43,9 +47,14 @@ import { writeCreatePromptCode } from "ai-functions-node";
 import { ye } from "ai-functions-node";
 import { yodafy } from "ai-functions-node";
 import { augmentMarkdown } from "generative-functions-node";
+import { canSeeFileContent } from "generative-functions-node";
+import { canSeeFile } from "generative-functions-node";
+import { expandFrontmatter } from "generative-functions-node";
+import { findClosestAbsolutePath } from "generative-functions-node";
 import { getContextualPromptResults } from "generative-functions-node";
 import { getContextualPromptsArray } from "generative-functions-node";
 import { getContextualPrompts } from "generative-functions-node";
+import { getFirstFile } from "generative-functions-node";
 import { getFolderRelativeScopeDbFilePath } from "generative-functions-node";
 import { getReaderPageProps } from "generative-functions-node";
 import { makeMarkdownLink } from "generative-functions-node";
@@ -274,6 +283,7 @@ import { convertCsvToJson } from "xls-to-csv-json";
 import { convertXlsToJson } from "xls-to-csv-json";
 import { compressImage } from "ffmpeg-util";
 import { compressImages } from "ffmpeg-util";
+import { compressMp4 } from "ffmpeg-util";
 import { convertToMp3 } from "ffmpeg-util";
 import { convertToMp4 } from "ffmpeg-util";
 import { copyCopyPairs } from "collect-static-assets";
@@ -1043,6 +1053,7 @@ import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
 import { runChildProcess } from "run-child-process";
 import { clickOnSpanTag } from "puppeteer-utils";
+import { delay } from "puppeteer-utils";
 import { facebookLogin } from "puppeteer-utils";
 import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
@@ -1051,17 +1062,21 @@ import { getBrowserSession } from "puppeteer-utils";
 import { getBrowserTabs } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
 import { getConnectedBrowsers } from "puppeteer-utils";
+import { getIdlePage } from "puppeteer-utils";
+import { getNewPage } from "puppeteer-utils";
 import { gmailLogin } from "puppeteer-utils";
 import { isCaptchaExist } from "puppeteer-utils";
 import { logConsoleIfDebug } from "puppeteer-utils";
+import { openMultiTabs } from "puppeteer-utils";
+import { openNewBrowserOnChildProcess } from "puppeteer-utils";
 import { openNewBrowser } from "puppeteer-utils";
 import { openPage } from "puppeteer-utils";
 import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
-import { runBrowser } from "puppeteer-utils";
 import { setBrowserPage } from "puppeteer-utils";
 import { setBrowserSession } from "puppeteer-utils";
+import { setIdlePage } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
 import { solveReptcha } from "puppeteer-utils";
@@ -1071,9 +1086,11 @@ import { typeInTheInputField } from "puppeteer-utils";
 import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
 import { waitMilliseconds } from "puppeteer-utils";
 
-export const sdk = { addStatement,
+export const sdk = { fetchUrl,
+addStatement,
 addWord,
 biggestFunctionName,
+checkQueue,
 cleanup,
 controlChatGptWrapper,
 controlChatGpt,
@@ -1099,6 +1116,8 @@ keywords,
 marcusAurelius,
 poem,
 processChatGptPrompt,
+processPromptOnFile,
+processPromptOnFolder,
 removeAllFake,
 rickAndMortyRick,
 rickAndMorty,
@@ -1116,9 +1135,14 @@ writeCreatePromptCode,
 ye,
 yodafy,
 augmentMarkdown,
+canSeeFileContent,
+canSeeFile,
+expandFrontmatter,
+findClosestAbsolutePath,
 getContextualPromptResults,
 getContextualPromptsArray,
 getContextualPrompts,
+getFirstFile,
 getFolderRelativeScopeDbFilePath,
 getReaderPageProps,
 makeMarkdownLink,
@@ -1347,6 +1371,7 @@ convertCsvToJson,
 convertXlsToJson,
 compressImage,
 compressImages,
+compressMp4,
 convertToMp3,
 convertToMp4,
 copyCopyPairs,
@@ -2116,6 +2141,7 @@ pluralize,
 singularize,
 runChildProcess,
 clickOnSpanTag,
+delay,
 facebookLogin,
 foundOrNotXpath,
 foundOrNot,
@@ -2124,17 +2150,21 @@ getBrowserSession,
 getBrowserTabs,
 getChromeExecutablePath,
 getConnectedBrowsers,
+getIdlePage,
+getNewPage,
 gmailLogin,
 isCaptchaExist,
 logConsoleIfDebug,
+openMultiTabs,
+openNewBrowserOnChildProcess,
 openNewBrowser,
 openPage,
 racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
-runBrowser,
 setBrowserPage,
 setBrowserSession,
+setIdlePage,
 setInnerHtml,
 setInputValue,
 solveReptcha,

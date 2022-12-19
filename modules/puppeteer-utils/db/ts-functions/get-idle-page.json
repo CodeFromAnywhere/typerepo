@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671430245414,
+  "updatedAt": 1671430245414,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430245414,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getIdlePage.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  browser: Browser\n): Promise<Page | undefined> => {\n  // console.log(\"Get Idle Page Called\");\n  const idlePage = (await db.get(\"BrowserPage\")).find((p) => p.isIdle);\n  console.log({ idlePage });\n\n  const allPages = await browser.pages();\n  const targetPage = allPages.find(\n    //@ts-ignore\n    (p) => p.target()._targetId === idlePage?.pageId\n  );\n\n  return targetPage;\n}",
+  "name": "getIdlePage",
+  "slug": "get-idle-page",
+  "parameters": [
+    {
+      "name": "browser",
+      "schema": {
+        "$ref": "#/definitions/Browser"
+      },
+      "simplifiedSchema": {
+        "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 382,
+    "lines": 15,
+    "bytes": 382,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 15,
+    "numberOfFiles": 1
+  },
+  "id": "ygcohgovqapchoxdhwnnzotk"
+}

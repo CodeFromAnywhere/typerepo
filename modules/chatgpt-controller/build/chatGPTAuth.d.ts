@@ -1,5 +1,5 @@
 import { Page } from "puppeteer";
-export declare type LoginResponse = {
+export type LoginResponse = {
     isSuccessfull: boolean;
     message?: string;
 };

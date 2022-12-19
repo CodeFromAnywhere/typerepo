@@ -1,26 +1,2 @@
-"use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.SimplifiedSchemaFormDebug = void 0;
-var jsx_runtime_1 = require("react/jsx-runtime");
-var react_1 = require("react");
-var react_with_native_1 = require("react-with-native");
-var ui_util_1 = require("ui-util");
-var markdown_1 = require("markdown");
-var SimplifiedSchemaFormDebug = function (_a) {
-    var parameters = _a.parameters, values = _a.values;
-    var _b = (0, react_1.useState)(false), showParams = _b[0], setShowParams = _b[1];
-    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, { children: [(0, jsx_runtime_1.jsx)(react_with_native_1.P, { children: "values" }), (0, jsx_runtime_1.jsx)(markdown_1.MarkdownContent, { content: (0, ui_util_1.createCodeblockMarkdown)(JSON.stringify(values, null, 2), "json"), config: {} }), (0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "hover:underline cursor-pointer", onClick: function () { return setShowParams(!showParams); } }, { children: "params (toggle)" })), " ", showParams ? ((0, jsx_runtime_1.jsx)(markdown_1.MarkdownContent, { content: (0, ui_util_1.createCodeblockMarkdown)(JSON.stringify(parameters, null, 2), "json"), config: {} })) : null] }));
-};
-exports.SimplifiedSchemaFormDebug = SimplifiedSchemaFormDebug;
+"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var r,i=1,t=arguments.length;i<t;i++)for(var n in r=arguments[i])Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n]);return e},__assign.apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0}),exports.SimplifiedSchemaFormDebug=void 0;var jsx_runtime_1=require("react/jsx-runtime"),react_1=require("react"),react_with_native_1=require("react-with-native"),ui_util_1=require("ui-util"),markdown_1=require("markdown"),SimplifiedSchemaFormDebug=function(e){var r=e.parameters,i=e.values,t=(0,react_1.useState)(!1),n=t[0],a=t[1];return(0,jsx_runtime_1.jsxs)(react_with_native_1.Div,{children:[(0,jsx_runtime_1.jsx)(react_with_native_1.P,{children:"values"}),(0,jsx_runtime_1.jsx)(markdown_1.MarkdownContent,{content:(0,ui_util_1.createCodeblockMarkdown)(JSON.stringify(i,null,2),"json"),config:{}}),(0,jsx_runtime_1.jsx)(react_with_native_1.P,__assign({className:"hover:underline cursor-pointer",onClick:function(){return a(!n)}},{children:"params (toggle)"}))," ",n?(0,jsx_runtime_1.jsx)(markdown_1.MarkdownContent,{content:(0,ui_util_1.createCodeblockMarkdown)(JSON.stringify(r,null,2),"json"),config:{}}):null]})};exports.SimplifiedSchemaFormDebug=SimplifiedSchemaFormDebug;
 //# sourceMappingURL=SimplifiedSchemaFormDebug.js.map

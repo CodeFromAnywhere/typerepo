@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668774161403,
-  "updatedAt": 1668774161403,
+  "createdAt": 1671316522833,
+  "updatedAt": 1671316522833,
   "deletedAt": 0,
-  "createdFirstAt": 1668774161403,
+  "createdFirstAt": 1671316522833,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-merged-query-config",
   "operationRelativeTypescriptFilePath": "src/db.ts",
   "type": {
-    "rawType": "(modelName: keyof import(\"/Users/king/King/operations/tools/generated/sdk-db/build/sdk-db\").DbModels, customQueryConfig?: any) => import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/database/fs-orm/build/types\").MergedQueryConfig",
+    "rawType": "(modelName: keyof import(\"/Users/king/King/operations/tools/generated/sdk-db/build/sdk-db\").DbModels, customQueryConfig?: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/database/fs-orm/build/types\").CustomQueryConfig | undefined) => import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/database/fs-orm/build/types\").MergedQueryConfig",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "(\n  modelName: keyof DbModels,\n  customQueryConfig?: CustomQueryConfig\n) => mergeConfigs<DbModels>(modelName, dbConfig, customQueryConfig)",
   "description": "",
-  "id": "qeghdlqfatkpdhluwnyipzno"
+  "id": "dpyvonhkdwfafhwnoleiihni"
 }

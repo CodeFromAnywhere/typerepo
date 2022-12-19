@@ -1,7 +1,7 @@
 import { SlugModelType } from "model-types";
 import { FileType } from "filename-conventions";
 export declare const languageModels: readonly ["chat-gpt", "stable-diffusion-2"];
-export declare type LanguageModel = typeof languageModels[number];
+export declare type LanguageModelEnum = typeof languageModels[number];
 /**
  * To be appended to the generated typescript
  */
@@ -12,7 +12,7 @@ export declare type ContextualPromptInfo = {
     contextType?: FileType[];
     instantExecution?: boolean;
     isFavorite?: boolean;
-    categoryStackCalculated?: string[];
+    categoryStack?: string[];
     pricing?: "bad" | "good" | "premium" | "enterprise" | "private";
 };
 /**
@@ -48,7 +48,7 @@ export interface ContextualPrompt extends SlugModelType, ContextualPromptInfo {
     /**
      * Which models can this be applied on?
      */
-    model?: LanguageModel | LanguageModel[];
+    model?: LanguageModelEnum | LanguageModelEnum[];
     /**
      * Only prompt is stored (string)
      *

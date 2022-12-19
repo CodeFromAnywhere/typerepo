@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669380100593,
-  "updatedAt": 1669380100593,
+  "createdAt": 1671316917898,
+  "updatedAt": 1671316917898,
   "deletedAt": 0,
-  "createdFirstAt": 1669380100593,
+  "createdFirstAt": 1671316917898,
   "id": "todofile",
   "name": "TodoFile",
   "slug": "todofile",
@@ -77,8 +77,9 @@
         "owner_personId": {
           "$ref": "#/definitions/Slug"
         },
-        "categoryStackCalculated": {
-          "$ref": "#/definitions/CategoryStack"
+        "categoryStack": {
+          "$ref": "#/definitions/CategoryStack",
+          "description": "special categories that augment todo-ui functionality:\n\n- `ideas` can have altered visibility, according to config\n- `done` can have altered visibility, according to config\n- `backlog` can have altered visibility, according to config\n- `codestories` should be turned into codestories\n\nNot sure if this should really be fixed, but a convention is always good."
         },
         "isPreset": {
           "type": "boolean",
@@ -170,6 +171,10 @@
             "$ref": "#/definitions/MarkdownCallToAction"
           }
         },
+        "domain": {
+          "type": "string",
+          "description": "Domainname for this file (or folder if it's applied on a readme).\n\nOn top of this, we can build automation that:\n\n- Infers social media channel names for the domain and creates them\n- Buys the domain and sets the DNS if you don't own it yet\n- Connects the domain to a Vercel project with the right environment variables if it's not already\n\nFurthermore we can:\n\n- create a feature where domains are suggested for subsets of your content and you can easily choose one of the suggested domains to buy it automatically and set it in the file\n- cleans up your domains if it seems you don't use them anymore (or at least detects unused domains, so you can also potentially sell them)\n- show domain authority for your domains and possible ways to improve it (this can, again, have a whole lot of automations built on top of it)"
+        },
         "markdownCallToActionSlugs": {
           "type": "array",
           "items": {
@@ -207,24 +212,11 @@
           "$ref": "#/definitions/Price",
           "description": "Price for this file\n\nNB: in case the file is a README file, the price applies to all files in this folder, recursively, PER FILE."
         },
-        "isDraft": {
-          "type": "boolean",
-          "description": "If true, will not show up in markdownReader ui's"
-        },
         "updatedAt": {
           "$ref": "#/definitions/UpdatedAt"
         },
         "createdAt": {
           "$ref": "#/definitions/CreatedAt"
-        },
-        "privacy": {
-          "type": "string",
-          "enum": [
-            "public",
-            "private",
-            "request"
-          ],
-          "description": "TODO: implement auth layers, then look at this again"
         },
         "language": {
           "$ref": "#/definitions/Language",
@@ -269,20 +261,22 @@
         "markdown": {
           "type": "string",
           "description": "the content of the markdown"
+        },
+        "categoryStackCalculated": {
+          "$ref": "#/definitions/CategoryStack"
         }
       },
       "required": [
+        "categoryStack",
         "categoryStackCalculated",
         "codeRequired_operationSlugs",
         "createdAt",
         "createdFirstAt",
         "deletedAt",
         "id",
-        "language",
         "markdown",
         "name",
         "operationName",
-        "privacy",
         "projectRelativePath",
         "slug",
         "updatedAt"
@@ -552,6 +546,14 @@
                                     "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                                     "type": "string"
                                   }
+                                },
+                                {
+                                  "name": "absoluteUrl",
+                                  "required": false,
+                                  "schema": {
+                                    "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
+                                    "type": "string"
+                                  }
                                 }
                               ],
                               "type": "object"
@@ -596,10 +598,10 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": true,
           "schema": {
-            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
+            "fullComment": "special categories that augment todo-ui functionality:\n\n- `ideas` can have altered visibility, according to config\n- `done` can have altered visibility, according to config\n- `backlog` can have altered visibility, according to config\n- `codestories` should be turned into codestories\n\nNot sure if this should really be fixed, but a convention is always good.\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
             "nb": "Changing this value when updating/upserting, changes where the item is located!",
             "items": [
               {
@@ -757,6 +759,14 @@
                         "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                         "type": "string"
                       }
+                    },
+                    {
+                      "name": "absoluteUrl",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
+                        "type": "string"
+                      }
                     }
                   ],
                   "type": "object"
@@ -821,6 +831,14 @@
                   "fullComment": "Not stored\n\nNeeds to be there before calling `processAsset`. Should be augmented to the backendAsset in the frontend, before sending it to the backend.\n\nModel that the asset is related to",
                   "type": "string"
                 }
+              },
+              {
+                "name": "absoluteUrl",
+                "required": false,
+                "schema": {
+                  "fullComment": "NOT STORED\n\nCan be available in case it's an asset from an external source URL for example within md.\n\nAlso can be set in case it's a static asset from a next project",
+                  "type": "string"
+                }
               }
             ],
             "type": "object"
@@ -861,6 +879,14 @@
               }
             ],
             "type": "array"
+          }
+        },
+        {
+          "name": "domain",
+          "required": false,
+          "schema": {
+            "fullComment": "Domainname for this file (or folder if it's applied on a readme).\n\nOn top of this, we can build automation that:\n\n- Infers social media channel names for the domain and creates them\n- Buys the domain and sets the DNS if you don't own it yet\n- Connects the domain to a Vercel project with the right environment variables if it's not already\n\nFurthermore we can:\n\n- create a feature where domains are suggested for subsets of your content and you can easily choose one of the suggested domains to buy it automatically and set it in the file\n- cleans up your domains if it seems you don't use them anymore (or at least detects unused domains, so you can also potentially sell them)\n- show domain authority for your domains and possible ways to improve it (this can, again, have a whole lot of automations built on top of it)",
+            "type": "string"
           }
         },
         {
@@ -940,14 +966,6 @@
           }
         },
         {
-          "name": "isDraft",
-          "required": false,
-          "schema": {
-            "fullComment": "If true, will not show up in markdownReader ui's",
-            "type": "boolean"
-          }
-        },
-        {
           "name": "updatedAt",
           "required": true,
           "schema": {
@@ -964,22 +982,8 @@
           }
         },
         {
-          "name": "privacy",
-          "required": true,
-          "schema": {
-            "enum": [
-              "public",
-              "private",
-              "request"
-            ],
-            "fullComment": "TODO: implement auth layers, then look at this again",
-            "todo": "implement auth layers, then look at this again",
-            "type": "string"
-          }
-        },
-        {
           "name": "language",
-          "required": true,
+          "required": false,
           "schema": {
             "enum": [
               "english",
@@ -1088,6 +1092,23 @@
           "schema": {
             "fullComment": "the content of the markdown",
             "type": "string"
+          }
+        },
+        {
+          "name": "categoryStackCalculated",
+          "required": true,
+          "schema": {
+            "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
+            "nb": "Changing this value when updating/upserting, changes where the item is located!",
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
           }
         }
       ],

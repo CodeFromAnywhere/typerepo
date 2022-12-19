@@ -1,0 +1,40 @@
+{
+  "createdAt": 1671364206547,
+  "updatedAt": 1671364206547,
+  "deletedAt": 0,
+  "createdFirstAt": 1671364206547,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/Shareable.tsx",
+  "commentsInside": [],
+  "rawText": " (props: { children: React.ReactNode }) => {\n  const { ref, getImage, projectRelativeFilePath } =\n    useProjectRelativeScreenshot();\n\n  React.useEffect(() => {\n    if (!projectRelativeFilePath) return;\n    console.log(\"we have projectRelative change:\", projectRelativeFilePath);\n\n    // api.postTweetOnTwitter({\n    //   email: \"test\",\n    //   password: \"test\",\n    //   phoneNo: \"test\",\n    //   tweetMessage: \"yo this is ridic\",\n    // });\n  }, [projectRelativeFilePath]);\n\n  return (\n    <div>\n      <ClickableIcon emoji=\"🗣\" onClick={getImage} />\n      <div ref={ref}>{props.children}</div>\n    </div>\n  );\n}",
+  "name": "Shareable",
+  "slug": "shareable",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 614,
+    "lines": 23,
+    "bytes": 616,
+    "bytesPerCharacter": 1.003257328990228,
+    "charactersPerLine": 27,
+    "linesPerFile": 23,
+    "numberOfFiles": 1
+  },
+  "id": "ruvjxurkuodlsyhihvextkvv"
+}

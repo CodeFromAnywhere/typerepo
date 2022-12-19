@@ -17,6 +17,7 @@ import { writeCodespanDetails } from "make-codestory";
 import { addStatement } from "ai-functions-node";
 import { addWord } from "ai-functions-node";
 import { biggestFunctionName } from "ai-functions-node";
+import { checkQueue } from "ai-functions-node";
 import { cleanup } from "ai-functions-node";
 import { controlChatGptWrapper } from "ai-functions-node";
 import { controlChatGpt } from "ai-functions-node";
@@ -42,6 +43,8 @@ import { keywords } from "ai-functions-node";
 import { marcusAurelius } from "ai-functions-node";
 import { poem } from "ai-functions-node";
 import { processChatGptPrompt } from "ai-functions-node";
+import { processPromptOnFile } from "ai-functions-node";
+import { processPromptOnFolder } from "ai-functions-node";
 import { removeAllFake } from "ai-functions-node";
 import { rickAndMortyRick } from "ai-functions-node";
 import { rickAndMorty } from "ai-functions-node";
@@ -148,6 +151,7 @@ import { getTodoPaths } from "explore-project";
 import { hasSameProjectPath } from "explore-project";
 import { compressImage } from "ffmpeg-util";
 import { compressImages } from "ffmpeg-util";
+import { compressMp4 } from "ffmpeg-util";
 import { convertToMp3 } from "ffmpeg-util";
 import { convertToMp4 } from "ffmpeg-util";
 import { findAllDependencyOperations } from "find-all-dependency-operations";
@@ -738,25 +742,27 @@ import { isSingular } from "pluralize";
 import { pluralize } from "pluralize";
 import { singularize } from "pluralize";
 import { clickOnSpanTag } from "puppeteer-utils";
+import { delay } from "puppeteer-utils";
 import { facebookLogin } from "puppeteer-utils";
 import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
-import { getBrowserPage } from "puppeteer-utils";
-import { getBrowserSession } from "puppeteer-utils";
+import { getBrowserPageById } from "puppeteer-utils";
 import { getBrowserTabs } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
 import { getConnectedBrowsers } from "puppeteer-utils";
+import { getIdlePage } from "puppeteer-utils";
+import { getNewPage } from "puppeteer-utils";
 import { gmailLogin } from "puppeteer-utils";
 import { isCaptchaExist } from "puppeteer-utils";
 import { logConsoleIfDebug } from "puppeteer-utils";
+import { openMultiTabs } from "puppeteer-utils";
+import { openNewBrowserOnChildProcess } from "puppeteer-utils";
 import { openNewBrowser } from "puppeteer-utils";
 import { openPage } from "puppeteer-utils";
 import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
-import { runBrowser } from "puppeteer-utils";
-import { setBrowserPage } from "puppeteer-utils";
-import { setBrowserSession } from "puppeteer-utils";
+import { setBrowserPageIdle } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
 import { solveReptcha } from "puppeteer-utils";
@@ -824,6 +830,7 @@ writeCodespanDetails,
 addStatement,
 addWord,
 biggestFunctionName,
+checkQueue,
 cleanup,
 controlChatGptWrapper,
 controlChatGpt,
@@ -849,6 +856,8 @@ keywords,
 marcusAurelius,
 poem,
 processChatGptPrompt,
+processPromptOnFile,
+processPromptOnFolder,
 removeAllFake,
 rickAndMortyRick,
 rickAndMorty,
@@ -955,6 +964,7 @@ getTodoPaths,
 hasSameProjectPath,
 compressImage,
 compressImages,
+compressMp4,
 convertToMp3,
 convertToMp4,
 findAllDependencyOperations,
@@ -1545,25 +1555,27 @@ isSingular,
 pluralize,
 singularize,
 clickOnSpanTag,
+delay,
 facebookLogin,
 foundOrNotXpath,
 foundOrNot,
-getBrowserPage,
-getBrowserSession,
+getBrowserPageById,
 getBrowserTabs,
 getChromeExecutablePath,
 getConnectedBrowsers,
+getIdlePage,
+getNewPage,
 gmailLogin,
 isCaptchaExist,
 logConsoleIfDebug,
+openMultiTabs,
+openNewBrowserOnChildProcess,
 openNewBrowser,
 openPage,
 racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
-runBrowser,
-setBrowserPage,
-setBrowserSession,
+setBrowserPageIdle,
 setInnerHtml,
 setInputValue,
 solveReptcha,

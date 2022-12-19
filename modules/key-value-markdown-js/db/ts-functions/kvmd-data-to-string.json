@@ -1,14 +1,14 @@
 {
-  "createdAt": 1669962086668,
-  "updatedAt": 1669962086668,
+  "createdAt": 1671316418593,
+  "updatedAt": 1671316418593,
   "deletedAt": 0,
-  "createdFirstAt": 1669962086668,
+  "createdFirstAt": 1671316418593,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/kvmdDataToString.ts",
   "commentsInside": [],
-  "rawText": " (\n  kvmdData: KeyValueMarkdownModelType,\n  previous: KeyValueMarkdownModelType | undefined\n) => {\n  // headers only need a newline before it if it's not the first item (so there is a previous)\n  const newlineIfHeader = kvmdData.isHeaderCalculated && !!previous ? \"\\n\" : \"\";\n\n  const level = kvmdData.isHeaderCalculated\n    ? kvmdData.categoryStackCalculated.length + 1\n    : 0;\n\n  const headerPrefix = kvmdData.isHeaderCalculated\n    ? \"#\".repeat(level).concat(\" \")\n    : \"\";\n\n  const isFirstItem =\n    !kvmdData.isHeaderCalculated && previous?.isHeaderCalculated;\n  const itemPrefix = isFirstItem ? \"\\n\" : \"\";\n\n  const line = `${newlineIfHeader}${headerPrefix}${itemPrefix}${\n    kvmdData.name ? `${kvmdData.name}: ` : \"\"\n  }${kvmdData.value || \"\"}${\n    kvmdData.comment ? ` <!-- ${kvmdData.comment} -->` : \"\"\n  }\\n`;\n\n  return line;\n}",
+  "rawText": " (\n  kvmdData: KeyValueMarkdownModelType,\n  previous: KeyValueMarkdownModelType | undefined\n) => {\n  // headers only need a newline before it if it's not the first item (so there is a previous)\n  const newlineIfHeader = kvmdData.isHeaderCalculated && !!previous ? \"\\n\" : \"\";\n\n  const level = kvmdData.isHeaderCalculated\n    ? kvmdData.categoryStack.length + 1\n    : 0;\n\n  const headerPrefix = kvmdData.isHeaderCalculated\n    ? \"#\".repeat(level).concat(\" \")\n    : \"\";\n\n  const isFirstItem =\n    !kvmdData.isHeaderCalculated && previous?.isHeaderCalculated;\n  const itemPrefix = isFirstItem ? \"\\n\" : \"\";\n\n  const line = `${newlineIfHeader}${headerPrefix}${itemPrefix}${\n    kvmdData.name ? `${kvmdData.name}: ` : \"\"\n  }${kvmdData.value || \"\"}${\n    kvmdData.comment ? ` <!-- ${kvmdData.comment} -->` : \"\"\n  }\\n`;\n\n  return line;\n}",
   "name": "kvmdDataToString",
   "slug": "kvmd-data-to-string",
   "parameters": [
@@ -237,13 +237,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 1022,
+    "characters": 1012,
     "lines": 29,
-    "bytes": 1022,
+    "bytes": 1012,
     "bytesPerCharacter": 1,
     "charactersPerLine": 35,
     "linesPerFile": 29,
     "numberOfFiles": 1
   },
-  "id": "lhvmusuzqdftzpfirkhwkwwo"
+  "id": "ycgahmkrisdepxhrlpyfymwu"
 }

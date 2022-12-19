@@ -1,0 +1,75 @@
+{
+  "createdAt": 1671430257730,
+  "updatedAt": 1671430257730,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430257730,
+  "id": "openmultitabprops",
+  "name": "OpenMultiTabProps",
+  "slug": "openmultitabprops",
+  "operationRelativeTypescriptFilePath": "src/openMultiTabs.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type OpenMultiTabProps = {\n  noOfTabs: number;\n  tabUrl: string;\n  browser: Browser;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "noOfTabs": {
+          "type": "number"
+        },
+        "tabUrl": {
+          "type": "string"
+        },
+        "browser": {
+          "$ref": "#/definitions/Browser"
+        }
+      },
+      "required": [
+        "noOfTabs",
+        "tabUrl",
+        "browser"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "noOfTabs",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "tabUrl",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "browser",
+          "required": true,
+          "schema": {
+            "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "OpenMultiTabProps",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

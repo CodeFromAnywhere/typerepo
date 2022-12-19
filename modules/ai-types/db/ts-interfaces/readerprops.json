@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671229963038,
-  "updatedAt": 1671229963038,
+  "createdAt": 1671365973616,
+  "updatedAt": 1671365973616,
   "deletedAt": 0,
-  "createdFirstAt": 1671229963038,
+  "createdFirstAt": 1671365973616,
   "id": "readerprops",
   "name": "ReaderProps",
   "slug": "readerprops",
   "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * This is what we need on the page level. There are many subtleties to it, but this is the core\n */\nexport type ReaderProps = {\n  notFound?: boolean;\n  notFoundReason?: string | null;\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder?: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown?: string | null;\n  contextualPromptsObject?: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults?: ContextualPromptResult[] | null;\n\n  /**\n   * Project relative file path according to the query path.\n   *\n   * Even if the file doesn't seem to exist, this still returns.\n   */\n  projectRelativeFilePath?: string;\n  /**\n   * Project relative file path that is actually used\n   */\n  actualProjectRelativeFilePath?: string;\n  navigation?: FolderContent[];\n};",
+  "rawText": "\n\n/**\n * This is what we need on the page level. There are many subtleties to it, but this is the core\n */\nexport type ReaderProps = {\n  notFound?: boolean;\n  notFoundReason?: string | null;\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder?: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown?: string | null;\n  contextualPromptsObject?: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults?: ContextualPromptResult[] | null;\n\n  /**\n   * Project relative file path that is actually used\n   */\n  actualProjectRelativeFilePath?: string;\n  navigation?: FolderContent[];\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "This is what we need on the page level. There are many subtleties to it, but this is the core",
@@ -96,10 +96,6 @@
             }
           ]
         },
-        "projectRelativeFilePath": {
-          "type": "string",
-          "description": "Project relative file path according to the query path.\n\nEven if the file doesn't seem to exist, this still returns."
-        },
         "actualProjectRelativeFilePath": {
           "type": "string",
           "description": "Project relative file path that is actually used"
@@ -174,14 +170,6 @@
           "schema": {
             "properties": [],
             "type": "object"
-          }
-        },
-        {
-          "name": "projectRelativeFilePath",
-          "required": false,
-          "schema": {
-            "fullComment": "Project relative file path according to the query path.\n\nEven if the file doesn't seem to exist, this still returns.",
-            "type": "string"
           }
         },
         {

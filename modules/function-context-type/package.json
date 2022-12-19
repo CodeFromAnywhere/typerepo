@@ -24,19 +24,19 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1668548063597,
+    "lastRebuildAt": 1671317757865,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 1,
-        "lines": 49,
-        "characters": 1478,
-        "bytes": 1478
+        "lines": 50,
+        "characters": 1526,
+        "bytes": 1526
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 112,
-        "characters": 3443,
-        "bytes": 3443
+        "lines": 113,
+        "characters": 3479,
+        "bytes": 3479
       },
       "textSize": {
         "numberOfFiles": 2,
@@ -45,9 +45,9 @@
         "bytes": 1039
       },
       "size": {
-        "bytes": 5960,
-        "characters": 5960,
-        "lines": 202,
+        "bytes": 6044,
+        "characters": 6044,
+        "lines": 204,
         "numberOfFiles": 5
       }
     },
@@ -58,6 +58,7 @@
     "operationDependenciesIndexed": [
       "Authorization",
       "TsFunction",
+      "Storing",
       "Group",
       "Device"
     ],
@@ -69,6 +70,7 @@
     "auth-types": "0.0.1",
     "code-types": "0.0.1",
     "peer-types": "0.0.1",
-    "server": "*"
+    "server": "*",
+    "model-types": "0.0.1"
   }
 }

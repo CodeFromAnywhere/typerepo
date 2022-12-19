@@ -25,6 +25,7 @@ __exportStar(require("./getContextualPromptResultJsonFilePath"), exports);
 __exportStar(require("./gptIdeasRegisterWithContext"), exports);
 __exportStar(require("./processChatGptPrompt"), exports);
 __exportStar(require("./prompts"), exports);
+__exportStar(require("./queue-functions"), exports);
 __exportStar(require("./removeAllFake"), exports);
 __exportStar(require("./setIsFavoritePromptResult"), exports);
 __exportStar(require("./writeContextualPromptSdk"), exports);

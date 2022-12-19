@@ -275,7 +275,7 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | paragraph  | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 | level (optional) | number |  |
 
 

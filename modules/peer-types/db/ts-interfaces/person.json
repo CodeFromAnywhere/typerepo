@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116120730,
-  "updatedAt": 1671116120730,
+  "createdAt": 1671317116406,
+  "updatedAt": 1671317116406,
   "deletedAt": 0,
-  "createdFirstAt": 1671116120730,
+  "createdFirstAt": 1671317116406,
   "id": "person",
   "name": "Person",
   "slug": "person",
@@ -565,7 +565,7 @@
             "items": [
               {
                 "schema": {
-                  "fullComment": "A Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
+                  "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nA Device that accesses any King OS api.\n\nA device can be connected to a person. A person can have multiple `Device`s.\n\nA Device does not necissarily have King OS installed themselves, they can also be a visitor to another King OS app of someone else.",
                   "properties": [
                     {
                       "name": "ip",
@@ -720,164 +720,8 @@
                       "name": "authToken",
                       "required": true,
                       "schema": {
-                        "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.",
+                        "fullComment": "AuthToken is used to identify a device. Unique identifier that is saved in the devices browser/app.\n\nIf the authToken is the same, we can be sure that the device is matched, even if the IP is different.\n\nShould be identical to ID",
                         "type": "string"
-                      }
-                    },
-                    {
-                      "name": "userAgent",
-                      "required": true,
-                      "schema": {
-                        "fullComment": "Parsed User Agent header.\n\nNOT used to identify the device, since the device can already be connected to a person!\n\n",
-                        "properties": [
-                          {
-                            "name": "ua",
-                            "required": true,
-                            "schema": {
-                              "type": "string"
-                            }
-                          },
-                          {
-                            "name": "browser",
-                            "required": true,
-                            "schema": {
-                              "fullComment": "NB: copied from ua-parser-js ^1.0.32 because they weren't indexed",
-                              "nb": "copied from ua-parser-js ^1.0.32 because they weren't indexed",
-                              "properties": [
-                                {
-                                  "name": "name",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Possible values : Amaya, Android Browser, Arora, Avant, Baidu, Blazer, Bolt, Camino, Chimera, Chrome, Chromium, Comodo Dragon, Conkeror, Dillo, Dolphin, Doris, Edge, Epiphany, Fennec, Firebird, Firefox, Flock, GoBrowser, iCab, ICE Browser, IceApe, IceCat, IceDragon, Iceweasel, IE [Mobile], Iron, Jasmine, K-Meleon, Konqueror, Kindle, Links, Lunascape, Lynx, Maemo, Maxthon, Midori, Minimo, MIUI Browser, [Mobile] Safari, Mosaic, Mozilla, Netfront, Netscape, NetSurf, Nokia, OmniWeb, Opera [Mini/Mobi/Tablet], Phoenix, Polaris, QQBrowser, RockMelt, Silk, Skyfire, SeaMonkey, SlimBrowser, Swiftfox, Tizen, UCBrowser, Vivaldi, w3m, Yandex",
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "version",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Determined dynamically",
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "major",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Determined dynamically",
-                                    "type": "string"
-                                  }
-                                }
-                              ],
-                              "type": "object"
-                            }
-                          },
-                          {
-                            "name": "device",
-                            "required": true,
-                            "schema": {
-                              "fullComment": "",
-                              "properties": [
-                                {
-                                  "name": "model",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Determined dynamically",
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "type",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Possible type: console, mobile, tablet, smarttv, wearable, embedded",
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "vendor",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Possible vendor: Acer, Alcatel, Amazon, Apple, Archos, Asus, BenQ, BlackBerry, Dell, GeeksPhone, Google, HP, HTC, Huawei, Jolla, Lenovo, LG, Meizu, Microsoft, Motorola, Nexian, Nintendo, Nokia, Nvidia, Ouya, Palm, Panasonic, Polytron, RIM, Samsung, Sharp, Siemens, Sony-Ericsson, Sprint, Xbox, ZTE",
-                                    "type": "string"
-                                  }
-                                }
-                              ],
-                              "type": "object"
-                            }
-                          },
-                          {
-                            "name": "engine",
-                            "required": true,
-                            "schema": {
-                              "fullComment": "",
-                              "properties": [
-                                {
-                                  "name": "name",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Possible name: Amaya, EdgeHTML, Gecko, iCab, KHTML, Links, Lynx, NetFront, NetSurf, Presto, Tasman, Trident, w3m, WebKit",
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "version",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Determined dynamically",
-                                    "type": "string"
-                                  }
-                                }
-                              ],
-                              "type": "object"
-                            }
-                          },
-                          {
-                            "name": "os",
-                            "required": true,
-                            "schema": {
-                              "fullComment": "",
-                              "properties": [
-                                {
-                                  "name": "name",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Possible 'os.name' AIX, Amiga OS, Android, Arch, Bada, BeOS, BlackBerry, CentOS, Chromium OS, Contiki, Fedora, Firefox OS, FreeBSD, Debian, DragonFly, Gentoo, GNU, Haiku, Hurd, iOS, Joli, Linpus, Linux, Mac OS, Mageia, Mandriva, MeeGo, Minix, Mint, Morph OS, NetBSD, Nintendo, OpenBSD, OpenVMS, OS/2, Palm, PCLinuxOS, Plan9, Playstation, QNX, RedHat, RIM Tablet OS, RISC OS, Sailfish, Series40, Slackware, Solaris, SUSE, Symbian, Tizen, Ubuntu, UNIX, VectorLinux, WebOS, Windows [Phone/Mobile], Zenwalk",
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "version",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Determined dynamically",
-                                    "type": "string"
-                                  }
-                                }
-                              ],
-                              "type": "object"
-                            }
-                          },
-                          {
-                            "name": "cpu",
-                            "required": true,
-                            "schema": {
-                              "fullComment": "",
-                              "properties": [
-                                {
-                                  "name": "architecture",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "Possible architecture:  68k, amd64, arm, arm64, avr, ia32, ia64, irix, irix64, mips, mips64, pa-risc,  ppc, sparc, sparc64",
-                                    "type": "string"
-                                  }
-                                }
-                              ],
-                              "type": "object"
-                            }
-                          }
-                        ],
-                        "type": "object"
                       }
                     },
                     {
@@ -894,109 +738,6 @@
                       "schema": {
                         "fullComment": "Name of the device, calculated based on metadata like location, os, and ip\n\nCan be edited by the user",
                         "type": "string"
-                      }
-                    },
-                    {
-                      "name": "previousIps",
-                      "required": true,
-                      "schema": {
-                        "fullComment": "the root IPInfo is from the latest IP the device had. All previous IPs are added to this array",
-                        "items": [
-                          {
-                            "schema": {
-                              "fullComment": "Information that is inferred from an IP",
-                              "properties": [
-                                {
-                                  "name": "ip",
-                                  "required": true,
-                                  "schema": {
-                                    "fullComment": "The ip of the device. Can be a local IP or remote IP.\n\nNB: Port is not included",
-                                    "nb": "Port is not included",
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "city",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "position",
-                                  "required": false,
-                                  "schema": {
-                                    "fullComment": "",
-                                    "properties": [
-                                      {
-                                        "name": "latitude",
-                                        "required": true,
-                                        "schema": {
-                                          "type": "number"
-                                        }
-                                      },
-                                      {
-                                        "name": "longitude",
-                                        "required": true,
-                                        "schema": {
-                                          "type": "number"
-                                        }
-                                      }
-                                    ],
-                                    "type": "object"
-                                  }
-                                },
-                                {
-                                  "name": "positionRadiusKm",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "number"
-                                  }
-                                },
-                                {
-                                  "name": "country",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "region",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "string"
-                                  }
-                                },
-                                {
-                                  "name": "timezone",
-                                  "required": false,
-                                  "schema": {
-                                    "type": "string"
-                                  }
-                                }
-                              ],
-                              "type": "object"
-                            },
-                            "name": "IPInfo"
-                          }
-                        ],
-                        "type": "array"
-                      }
-                    },
-                    {
-                      "name": "origins",
-                      "required": true,
-                      "schema": {
-                        "fullComment": "Domains the Device has visited\n\nThe Origin request header indicates the origin (scheme, hostname, and port) that caused the request",
-                        "items": [
-                          {
-                            "schema": {
-                              "type": "string"
-                            },
-                            "name": null
-                          }
-                        ],
-                        "type": "array"
                       }
                     },
                     {
@@ -1049,7 +790,7 @@
                     },
                     {
                       "name": "lastSyncDatabaseAtObject",
-                      "required": true,
+                      "required": false,
                       "schema": {
                         "fullComment": "last sync of any model\n\nUseful for example for a p2p messaging",
                         "properties": [],

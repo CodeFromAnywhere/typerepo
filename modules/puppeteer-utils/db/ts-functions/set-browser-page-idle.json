@@ -1,0 +1,57 @@
+{
+  "createdAt": 1671430273173,
+  "updatedAt": 1671430273173,
+  "deletedAt": 0,
+  "createdFirstAt": 1671430273173,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/setBrowserPageIdle.ts",
+  "commentsInside": [],
+  "rawText": " async (pageId: string, status: boolean) => {\n  await db.update(\n    \"BrowserPage\",\n    (c) => c.pageId === pageId,\n    (content) => ({ ...content, isIdle: status })\n  );\n}",
+  "name": "setBrowserPageIdle",
+  "slug": "set-browser-page-idle",
+  "parameters": [
+    {
+      "name": "pageId",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "status",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 172,
+    "lines": 7,
+    "bytes": 172,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 7,
+    "numberOfFiles": 1
+  },
+  "id": "hyjuvamtpxrkuzhcuwmijzwu"
+}

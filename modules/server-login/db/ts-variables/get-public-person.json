@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116618134,
-  "updatedAt": 1671116618134,
+  "createdAt": 1671318400215,
+  "updatedAt": 1671318400215,
   "deletedAt": 0,
-  "createdFirstAt": 1671116618134,
+  "createdFirstAt": 1671318400215,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -16,6 +16,20 @@
       "properties": {
         "isPublic": {
           "type": "boolean"
+        },
+        "isPaid": {
+          "enum": [
+            "ru",
+            "isSuccessful"
+          ],
+          "x-enumNames": [
+            "ru",
+            "isSuccessful"
+          ],
+          "type": "string"
+        },
+        "price": {
+          "type": "number"
         },
         "allowedRoles": {
           "type": "array",
@@ -52,6 +66,24 @@
           }
         },
         {
+          "name": "isPaid",
+          "required": false,
+          "schema": {
+            "enum": [
+              "ru",
+              "isSuccessful"
+            ],
+            "type": "string"
+          }
+        },
+        {
+          "name": "price",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
           "name": "allowedRoles",
           "required": false,
           "schema": {
@@ -72,5 +104,5 @@
   },
   "value": "async (id?: string) => {\n  return (await getPublicPersons()).find((x) => x.id === id);\n}",
   "description": "",
-  "id": "ngxxxxwpmxcnarbicpmovdkg"
+  "id": "inocznbveqjswrjzvmmnruaz"
 }

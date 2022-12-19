@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671315095669,
+  "updatedAt": 1671315095669,
+  "deletedAt": 0,
+  "createdFirstAt": 1671315095669,
+  "id": "namedparameterstypeof-checkqueue",
+  "name": "NamedParameters<typeof checkQueue>",
+  "slug": "namedparameterstypeof-checkqueue",
+  "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof checkQueue>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

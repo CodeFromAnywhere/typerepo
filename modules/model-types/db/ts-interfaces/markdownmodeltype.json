@@ -1,15 +1,15 @@
 {
-  "createdAt": 1670528019957,
-  "updatedAt": 1670528019957,
+  "createdAt": 1671317530716,
+  "updatedAt": 1671317530716,
   "deletedAt": 0,
-  "createdFirstAt": 1670528019957,
+  "createdFirstAt": 1671317530716,
   "id": "markdownmodeltype",
   "name": "MarkdownModelType",
   "slug": "markdownmodeltype",
   "operationRelativeTypescriptFilePath": "src/MarkdownModelType.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * Handy model type for storing stuff in a Markdown file.\n *\n * 1 markdown file will represent 1 MarkdownModelType extended instance\n *\n * another option could be to parse the markdown file, but to KISS we are going to just return markdown with the full markdown content\n *\n * TODO: see how this relates to MarkdownFile. Make this very clear!\n */\nexport interface MarkdownModelType\n  extends AnyModelType,\n    Frontmatter,\n    TimeTypes,\n    RelationType {\n  id: Id;\n  /**\n   * filename (slugified)\n   */\n  name: string;\n  /**\n   * filename (slugified)\n   */\n  slug: string;\n\n  /**\n   * the content of the markdown\n   */\n  markdown: string;\n\n  categoryStackCalculated: CategoryStack;\n\n  /**\n   * This kind of overwrites frontmatter, but it is needed because there need to be models attached to the markdown model sometimes.\n   */\n  [modelName: string]: any;\n}",
+  "rawText": "\n\n/**\n * Handy model type for storing stuff in a Markdown file.\n *\n * 1 markdown file will represent 1 MarkdownModelType extended instance\n *\n * another option could be to parse the markdown file, but to KISS we are going to just return markdown with the full markdown content\n *\n * TODO: see how this relates to MarkdownFile. Make this very clear!\n */\nexport interface MarkdownModelType\n  extends AnyModelType,\n    Frontmatter,\n    TimeTypes,\n    RelationType {\n  id: Id;\n  /**\n   * filename (slugified)\n   */\n  name: string;\n  /**\n   * filename (slugified)\n   */\n  slug: string;\n\n  /**\n   * the content of the markdown\n   */\n  markdown: string;\n\n  categoryStack: CategoryStack;\n\n  /**\n   * This kind of overwrites frontmatter, but it is needed because there need to be models attached to the markdown model sometimes.\n   */\n  [modelName: string]: any;\n}",
   "extensions": [
     "AnyModelType",
     "Frontmatter",
@@ -66,12 +66,12 @@
           "type": "string",
           "description": "the content of the markdown"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack"
         }
       },
       "required": [
-        "categoryStackCalculated",
+        "categoryStack",
         "createdAt",
         "createdFirstAt",
         "deletedAt",
@@ -194,7 +194,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": true,
           "schema": {
             "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

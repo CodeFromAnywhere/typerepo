@@ -2,8 +2,9 @@ import type { AiDemoApp } from "ai-types";
 import type { ContextualPrompt } from "ai-types";
 import type { ContextualPromptResult } from "ai-types";
 import type { GptIdeasUser } from "ai-types";
-import type { LanguageModel } from "ai-types";
 import type { AuthorizationModel } from "auth-types";
+import type { BrowserPage } from "browser-types";
+import type { BrowserSession } from "browser-types";
 import type { BundleConfig } from "bundle-types";
 import type { FrontBackBundle } from "bundle-types";
 import type { Dataset } from "code-types";
@@ -38,7 +39,6 @@ import type { CreatorMarkdownFile } from "markdown-types";
 import type { MarkdownCallToAction } from "markdown-types";
 import type { WebMarkdownFile } from "markdown-types";
 import type { WebsiteHeader } from "markdown-types";
-import type { CategoryModelType } from "model-types";
 import type { SlugModelType } from "model-types";
 import type { Device } from "peer-types";
 import type { Group } from "peer-types";
@@ -50,7 +50,7 @@ import type { PersonInformation } from "peer-types";
 import type { PersonInformationValue } from "peer-types";
 import type { PersonPlatformConnection } from "peer-types";
 import type { Platform } from "peer-types";
-import type { BrowserSession } from "puppeteer-utils";
+import type { Queue } from "queue-types";
 import type { Interest } from "social-media-types";
 import type { MediaChannel } from "social-media-types";
 import type { MediaCredential } from "social-media-types";
@@ -63,8 +63,9 @@ export declare type DbModels = {
     ContextualPrompt: ContextualPrompt;
     ContextualPromptResult: ContextualPromptResult;
     GptIdeasUser: GptIdeasUser;
-    LanguageModel: LanguageModel;
     AuthorizationModel: AuthorizationModel;
+    BrowserPage: BrowserPage;
+    BrowserSession: BrowserSession;
     BundleConfig: BundleConfig;
     FrontBackBundle: FrontBackBundle;
     Dataset: Dataset;
@@ -99,7 +100,6 @@ export declare type DbModels = {
     MarkdownCallToAction: MarkdownCallToAction;
     WebMarkdownFile: WebMarkdownFile;
     WebsiteHeader: WebsiteHeader;
-    CategoryModelType: CategoryModelType;
     SlugModelType: SlugModelType;
     Device: Device;
     Group: Group;
@@ -111,7 +111,7 @@ export declare type DbModels = {
     PersonInformationValue: PersonInformationValue;
     PersonPlatformConnection: PersonPlatformConnection;
     Platform: Platform;
-    BrowserSession: BrowserSession;
+    Queue: Queue;
     Interest: Interest;
     MediaChannel: MediaChannel;
     MediaCredential: MediaCredential;
@@ -120,7 +120,7 @@ export declare type DbModels = {
     TodoFile: TodoFile;
     TodoOffer: TodoOffer;
 };
-export declare const dbModelKeys: readonly ["AiDemoApp", "ContextualPrompt", "ContextualPromptResult", "GptIdeasUser", "LanguageModel", "AuthorizationModel", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "CreatorMarkdownFile", "MarkdownCallToAction", "WebMarkdownFile", "WebsiteHeader", "CategoryModelType", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "BrowserSession", "Interest", "MediaChannel", "MediaCredential", "MediaPost", "SelfSprintReview", "TodoFile", "TodoOffer"];
+export declare const dbModelKeys: readonly ["AiDemoApp", "ContextualPrompt", "ContextualPromptResult", "GptIdeasUser", "AuthorizationModel", "BrowserPage", "BrowserSession", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "CreatorMarkdownFile", "MarkdownCallToAction", "WebMarkdownFile", "WebsiteHeader", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Queue", "Interest", "MediaChannel", "MediaCredential", "MediaPost", "SelfSprintReview", "TodoFile", "TodoOffer"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
     AiDemoApp: {
@@ -135,10 +135,13 @@ export declare const modelQueryConfig: {
     GptIdeasUser: {
         dbStorageMethod: string;
     };
-    LanguageModel: {
+    AuthorizationModel: {
         dbStorageMethod: string;
     };
-    AuthorizationModel: {
+    BrowserPage: {
+        dbStorageMethod: string;
+    };
+    BrowserSession: {
         dbStorageMethod: string;
     };
     BundleConfig: {
@@ -255,9 +258,6 @@ export declare const modelQueryConfig: {
     WebsiteHeader: {
         dbStorageMethod: string;
     };
-    CategoryModelType: {
-        dbStorageMethod: string;
-    };
     SlugModelType: {
         dbStorageMethod: string;
     };
@@ -291,7 +291,7 @@ export declare const modelQueryConfig: {
     Platform: {
         dbStorageMethod: string;
     };
-    BrowserSession: {
+    Queue: {
         dbStorageMethod: string;
     };
     Interest: {
