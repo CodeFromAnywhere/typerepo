@@ -20,7 +20,7 @@ export declare const sdk: {
     findAssetParametersRecursively: (object: {
         [key: string]: any;
     }, stack?: string[] | undefined) => import("asset-functions-js").AssetParameter[];
-    getAssetDirectlyApiUrl: (projectRelativeAssetPath: string) => string | undefined;
+    getAssetDirectlyApiUrl: any;
     getConversionInfoFromType: (uploadMimeType: string | undefined) => {
         uploadMimeType: string | undefined;
         targetFormat: string | undefined;

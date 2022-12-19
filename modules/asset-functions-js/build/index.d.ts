@@ -1,5 +1,4 @@
 export * from "./findAssetParametersRecursively";
-export * from "./getAssetDirectlyApiUrl";
 export * from "./getConversionInfoFromType";
 export * from "./getExtensionFromAsset";
 export * from "./getNameFromRelativePath";

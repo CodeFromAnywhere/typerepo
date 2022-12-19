@@ -1,2 +1,10 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.fileTypePerExtension=void 0,exports.fileTypePerExtension={ts:"code",tsx:"code",json:"data",md:"text"};
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.fileTypePerExtension = void 0;
+exports.fileTypePerExtension = {
+    ts: "code",
+    tsx: "code",
+    json: "data",
+    md: "text",
+};
 //# sourceMappingURL=fileTypePerExtension.js.map

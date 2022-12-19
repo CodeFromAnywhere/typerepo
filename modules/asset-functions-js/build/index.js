@@ -15,7 +15,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./findAssetParametersRecursively"), exports);
-__exportStar(require("./getAssetDirectlyApiUrl"), exports);
 __exportStar(require("./getConversionInfoFromType"), exports);
 __exportStar(require("./getExtensionFromAsset"), exports);
 __exportStar(require("./getNameFromRelativePath"), exports);
