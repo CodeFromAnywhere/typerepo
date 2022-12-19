@@ -1,7 +1,7 @@
 ---
 headerImage: ![](./banner.png)
-headerTitle: "'Typerepo'"
-headerSubTitle: "'You may be a good developer, but you're a wizard once you use Typerepo'"
+headerTitle: Typerepo
+headerSubTitle: "You may be a good developer, but you're a wizard once you use Typerepo"
 header_markdownCallToActionSlugs: typescript-course, join-our-bootcamp
 markdownCallToActionSlugs: join-our-bootcamp, typescript-course
 privacy: public
