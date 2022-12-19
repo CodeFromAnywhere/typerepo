@@ -21,7 +21,6 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { AssetView } from "asset-view";
-import { useSelectionPromptsMenu } from "prompt-components";
 import * as React from "react";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
@@ -44,12 +43,6 @@ TODO:
 
  */
 export var renderMarkdownContent = function (content, config) {
-    var contextSelection = null; //useLastSelection();
-    var _a = useSelectionPromptsMenu(config.selectionPrompts || [], {
-        contextContent: content,
-        context_projectRelativeFilePath: config.projectRelativeMarkdownFilePath,
-        contextSelection: contextSelection,
-    }), openContextMenuProps = _a.openContextMenuProps, renderContextMenu = _a.renderContextMenu;
     if (!content)
         return React.createElement(Div, null, "No content");
     var markdownRender = (React.createElement(ReactMarkdown, { className: (config === null || config === void 0 ? void 0 : config.big) ? "max-w-lg" : undefined, rehypePlugins: [rehypeHighlight, remarkGfm, rehypeRaw], components: {
@@ -208,11 +201,6 @@ export var renderMarkdownContent = function (content, config) {
                 return (React.createElement("a", __assign({ className: "dark:text-blue-200 text-blue-500", href: href }, props)));
             },
         } }, content));
-    if (config.disableSelectionContextMenu)
-        return markdownRender;
-    // console.log("Need to render:", content);
-    return (React.createElement("div", __assign({}, openContextMenuProps),
-        renderContextMenu(),
-        markdownRender));
+    return markdownRender;
 };
 //# sourceMappingURL=renderMarkdownContent.js.map
