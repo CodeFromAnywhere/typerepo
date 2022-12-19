@@ -93,6 +93,7 @@ export declare const sdk: {
     frontmatterParseToString: (frontmatter: import("matter-types").Frontmatter) => string;
     frontmatterToObject: (frontmatter: import("matter-types").Frontmatter, schema: import("code-types").SimplifiedSchema) => import("matter-types").FrontmatterParse;
     getFrontmatterValueString: (value: import("frontmatter-util").FrontmatterValue) => string | null;
+    markdownModelTypeToMarkdownString: (markdownModelType: import("model-types").Storing<import("model-types").MarkdownModelType>) => string;
     objectToFrontmatter: (parse: import("matter-types").FrontmatterParse, schema: import("code-types").SimplifiedSchema) => import("matter-types").Frontmatter;
     parseFrontmatterString: (value: string) => string;
     quotedOrNot: (string: string) => string;
@@ -332,7 +333,6 @@ export declare const sdk: {
     generateRandomString: (length: number) => string;
     generateTime: () => number;
     isEmail: typeof isEmail;
-    markdownModelTypeToMarkdownString: any;
     getAssetInputType: (parameterName: string, valueType?: import("code-types").SimplifiedSchemaType | undefined) => import("name-conventions").AssetInputType | undefined;
     getParameterContentType: (parameterName: string) => void;
     isCalculatedParameter: (parameterName: string) => boolean;

@@ -294,8 +294,7 @@ import { delay } from "puppeteer-utils";
 import { facebookLogin } from "puppeteer-utils";
 import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
-import { getBrowserPage } from "puppeteer-utils";
-import { getBrowserSession } from "puppeteer-utils";
+import { getBrowserPageById } from "puppeteer-utils";
 import { getBrowserTabs } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
 import { getConnectedBrowsers } from "puppeteer-utils";
@@ -311,9 +310,7 @@ import { openPage } from "puppeteer-utils";
 import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
-import { setBrowserPage } from "puppeteer-utils";
-import { setBrowserSession } from "puppeteer-utils";
-import { setIdlePage } from "puppeteer-utils";
+import { setBrowserPageIdle } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
 import { solveReptcha } from "puppeteer-utils";
@@ -619,8 +616,7 @@ delay,
 facebookLogin,
 foundOrNotXpath,
 foundOrNot,
-getBrowserPage,
-getBrowserSession,
+getBrowserPageById,
 getBrowserTabs,
 getChromeExecutablePath,
 getConnectedBrowsers,
@@ -636,9 +632,7 @@ openPage,
 racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
-setBrowserPage,
-setBrowserSession,
-setIdlePage,
+setBrowserPageIdle,
 setInnerHtml,
 setInputValue,
 solveReptcha,

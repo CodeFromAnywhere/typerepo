@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671364206547,
-  "updatedAt": 1671364206547,
+  "createdAt": 1671449616737,
+  "updatedAt": 1671449616737,
   "deletedAt": 0,
-  "createdFirstAt": 1671364206547,
+  "createdFirstAt": 1671449616737,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/Shareable.tsx",
   "commentsInside": [],
-  "rawText": " (props: { children: React.ReactNode }) => {\n  const { ref, getImage, projectRelativeFilePath } =\n    useProjectRelativeScreenshot();\n\n  React.useEffect(() => {\n    if (!projectRelativeFilePath) return;\n    console.log(\"we have projectRelative change:\", projectRelativeFilePath);\n\n    // api.postTweetOnTwitter({\n    //   email: \"test\",\n    //   password: \"test\",\n    //   phoneNo: \"test\",\n    //   tweetMessage: \"yo this is ridic\",\n    // });\n  }, [projectRelativeFilePath]);\n\n  return (\n    <div>\n      <ClickableIcon emoji=\"🗣\" onClick={getImage} />\n      <div ref={ref}>{props.children}</div>\n    </div>\n  );\n}",
+  "rawText": " (props: {\n  children: React.ReactNode;\n  description?: string | null;\n  contextFile_projectRelativeFilePath: string;\n}) => {\n  const { children, contextFile_projectRelativeFilePath } = props;\n  let { description } = props;\n  const {\n    ref,\n    getImage,\n    projectRelativeFilePath: screenshot_projectRelativeFilePath,\n  } = useProjectRelativeScreenshot();\n\n  const lastSelection = useLastSelection();\n\n  const tweet = async (screenshot_projectRelativeFilePath: string) => {\n    console.log(\n      \"we have projectRelative change:\",\n      screenshot_projectRelativeFilePath\n    );\n    // If not provided, ask for the text of the tweet (Selection is default)\n    description =\n      description ||\n      prompt(\"Provide a description\", lastSelection || undefined);\n\n    //Create `MediaPost` index of the file you are tweeting about. Can be pushed to `.index/[filename]/media-posts/[id].md`. Should already embed to the image screenshot.\n    // const createMediaPostApiResult = await api.createMediaPost({\n    //   contextFile_projectRelativeFilePath,\n    //   description,\n    //   screenshot_projectRelativeFilePath,\n    // });\n\n    /**\n    \n    Parse the `MediaPost` markdown so I get the text + asset for twitter. Maybe bhagya already did something here, reuse that, but I obviously need `marked-util` as well\n\n    Use `postTweetOnTwitter` to post the `MediaPost` on twitter (need to add https://github.com/puppeteer/puppeteer/blob/v2.0.0/docs/api.md#elementhandleuploadfilefilepaths to select a file)\n\n     */\n    // api.postTweetOnTwitter({\n    //   email: \"test\",\n    //   password: \"test\",\n    //   phoneNo: \"test\",\n    //   tweetMessage: \"yo this is ridic\",\n    // });\n  };\n  useEffect(() => {\n    if (!screenshot_projectRelativeFilePath) return;\n\n    tweet(screenshot_projectRelativeFilePath);\n  }, [screenshot_projectRelativeFilePath]);\n\n  return (\n    <div>\n      <ClickableIcon emoji=\"🗣 Share\" onClick={getImage} />\n      <div ref={ref}>{children}</div>\n    </div>\n  );\n}",
   "name": "Shareable",
   "slug": "shareable",
   "parameters": [],
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 614,
-    "lines": 23,
-    "bytes": 616,
-    "bytesPerCharacter": 1.003257328990228,
-    "charactersPerLine": 27,
-    "linesPerFile": 23,
+    "characters": 1986,
+    "lines": 59,
+    "bytes": 1988,
+    "bytesPerCharacter": 1.001007049345418,
+    "charactersPerLine": 34,
+    "linesPerFile": 59,
     "numberOfFiles": 1
   },
-  "id": "ruvjxurkuodlsyhihvextkvv"
+  "id": "rytapihpdycfsjnsqosrysrw"
 }

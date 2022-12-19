@@ -29,7 +29,8 @@
     "measure-performance": "0.0.1",
     "markdown-types": "0.0.1",
     "read-csv-file": "0.0.1",
-    "read-kvmd-file": "0.0.1"
+    "read-kvmd-file": "0.0.1",
+    "frontmatter-util": "0.0.1"
   },
   "description": "ORM that works with JSON and FS",
   "devDependencies": {
@@ -64,7 +65,7 @@
     "folderNameIndexed": "fs-orm",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671316887782,
+    "lastRebuildAt": 1671449231120,
     "operationDependenciesIndexed": [
       "getReferenceParameterInfo",
       "fs",
@@ -96,9 +97,9 @@
       "KeyValueMarkdownParse",
       "MarkdownModelType",
       "AugmentedAnyModelType",
-      "markdownModelTypeToMarkdownString",
       "Storing",
       "DbFileLocation",
+      "markdownModelTypeToMarkdownString",
       "csvItemArrayToCsvString",
       "CsvItemType",
       "canWriteSync",
@@ -225,14 +226,14 @@
       "codeSize": {
         "numberOfFiles": 25,
         "lines": 2733,
-        "characters": 82238,
-        "bytes": 82238
+        "characters": 82271,
+        "bytes": 82271
       },
       "dataSize": {
         "numberOfFiles": 3,
-        "lines": 494,
-        "characters": 13212,
-        "bytes": 13212
+        "lines": 495,
+        "characters": 13245,
+        "bytes": 13245
       },
       "textSize": {
         "numberOfFiles": 20,
@@ -241,9 +242,9 @@
         "bytes": 46823
       },
       "size": {
-        "bytes": 142273,
-        "characters": 142273,
-        "lines": 4630,
+        "bytes": 142339,
+        "characters": 142339,
+        "lines": 4631,
         "numberOfFiles": 48
       }
     },

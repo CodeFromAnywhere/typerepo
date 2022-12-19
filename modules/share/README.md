@@ -33,9 +33,20 @@ and
 
 ## 📄 Share (exported const)
 
+## `<Shareable />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## 📄 Shareable (exported const)
+
 # Internal
 
-<details><summary>Show internal (2)</summary>
+<details><summary>Show internal (4)</summary>
     
   # useAllText()
 
@@ -49,7 +60,26 @@ and
 
 
 
+## useProjectRelativeScreenshot()
+
+Use https://www.npmjs.com/package/use-react-screenshot to get a blob of any component with the click a button
+
+Upload the blob immediately using `processAsset`, which will result in a file in the file system.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | { getImage: {  }, <br />projectRelativeFilePath?: {  }, <br />ref: { current?: ul / , <br /> }, <br /> }   |    |
+
+
+
 ## 📄 useAllText (exported const)
 
+## 📄 useProjectRelativeScreenshot (exported const)
+
+Use https://www.npmjs.com/package/use-react-screenshot to get a blob of any component with the click a button
+
+Upload the blob immediately using `processAsset`, which will result in a file in the file system.
   </details>
 

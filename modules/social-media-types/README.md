@@ -30,36 +30,6 @@ Properties:
 
 
 
-## 🔸 Interest
-
-keyValueMarkdown model
-
-
-
-
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| value (optional) | string |  |
-| comment  | string |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
-| isHeaderCalculated  | boolean |  |
-| parent_interestSlug  | string |  |
-
-
-
 ## 🔸 MediaCredential
 
 jsonMultiple model
@@ -84,7 +54,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | mediaType  | string |  |
 | email (optional) | string |  |
 | password  | string |  |
@@ -93,15 +63,13 @@ Properties:
 
 
 
-## 🔹 MediaPlatformEnum
+## 🔸 Interest
 
-## 🔸 MediaPost
-
-markdown model
+keyValueMarkdown model
 
 
 
-Post/message on any medium.
+
 
 
 
@@ -111,31 +79,17 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
-| createdAt  | number |  |
-| updatedAt  | number |  |
-| deletedAt  | number |  |
-| createdFirstAt  | number |  |
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
 | id  | string |  |
 | name  | string |  |
 | slug  | string |  |
-| markdown  | string |  |
-| categoryStackCalculated  | array |  |
-| mediaPlatform  | string |  |
-| posted_messageChannelId (optional) | string |  |
-| isVerified (optional) | boolean |  |
-| isPostable  | boolean |  |
-| unpostableReason (optional) | string |  |
-| isPosted (optional) | boolean |  |
-| postedUrl (optional) | string |  |
-| channelOrGroupName (optional) | string |  |
-| webMarkdownFile_projectRelativePath (optional) | string |  |
-| parsedTitleCalculated (optional) | string |  |
-| parsedContentCalculated (optional) | string |  |
-| parsedAssetCalculated (optional) | object |  |
-| postedDetailsIndexed (optional) | object |  |
+| value (optional) | string |  |
+| comment  | string |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| categoryStack  | array |  |
+| isHeaderCalculated  | boolean |  |
+| parent_interestSlug  | string |  |
 
 
 
@@ -169,7 +123,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | platformSlug  | string |  |
 | platformChannelId  | string |  |
 | url (optional) | string |  |
@@ -184,5 +138,51 @@ Properties:
 | language  | string |  |
 | mediaCredentialId (optional) | string |  |
 | myLastPostAt  | number |  |
+
+
+
+## 🔹 MediaPlatformEnum
+
+## 🔸 MediaPost
+
+markdown model
+
+
+
+Post/message on any medium.
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| markdown  | string |  |
+| categoryStack  | array |  |
+| mediaPlatform  | string |  |
+| posted_messageChannelId (optional) | string |  |
+| isVerified (optional) | boolean |  |
+| isPostable  | boolean |  |
+| unpostableReason (optional) | string |  |
+| isPosted (optional) | boolean |  |
+| postedUrl (optional) | string |  |
+| channelOrGroupName (optional) | string |  |
+| webMarkdownFile_projectRelativePath (optional) | string |  |
+| parsedTitleCalculated (optional) | string |  |
+| parsedContentCalculated (optional) | string |  |
+| parsedAssetCalculated (optional) | object |  |
+| postedDetailsIndexed (optional) | object |  |
 
 

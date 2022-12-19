@@ -448,6 +448,7 @@ export const sdkInterfacePaths = {
   "NamedParameters<typeof frontmatterParseToString>": "/modules/frontmatter-util/db/ts-interfaces/namedparameterstypeof-frontmatterparsetostring.json",
   "NamedParameters<typeof frontmatterToObject>": "/modules/frontmatter-util/db/ts-interfaces/namedparameterstypeof-frontmattertoobject.json",
   "NamedParameters<typeof getFrontmatterValueString>": "/modules/frontmatter-util/db/ts-interfaces/namedparameterstypeof-getfrontmattervaluestring.json",
+  "NamedParameters<typeof markdownModelTypeToMarkdownString>": "/modules/frontmatter-util/db/ts-interfaces/namedparameterstypeof-markdownmodeltypetomarkdownstring.json",
   "NamedParameters<typeof objectToFrontmatter>": "/modules/frontmatter-util/db/ts-interfaces/namedparameterstypeof-objecttofrontmatter.json",
   "NamedParameters<typeof parseFrontmatterString>": "/modules/frontmatter-util/db/ts-interfaces/namedparameterstypeof-parsefrontmatterstring.json",
   "NamedParameters<typeof quotedOrNot>": "/modules/frontmatter-util/db/ts-interfaces/namedparameterstypeof-quotedornot.json",

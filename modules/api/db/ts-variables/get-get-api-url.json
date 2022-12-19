@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116504564,
-  "updatedAt": 1671116504564,
+  "createdAt": 1671449415481,
+  "updatedAt": 1671449415481,
   "deletedAt": 0,
-  "createdFirstAt": 1671116504564,
+  "createdFirstAt": 1671449415481,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  apiUrl: string | undefined,\n  apiFunctionName: string,\n  query: { [name: string]: string[] | string | undefined }\n): string | undefined => {\n  if (!apiUrl) return;\n  const queryString = Object.keys(query).length > 0 ? toQueryString(query) : \"\";\n  const url = `${apiUrl}/function/${apiFunctionName}${queryString}`;\n  return url;\n}",
   "description": "gets an api url for a context get api\n\nreturns something like `[apiUrl]/[apiFunctionName][queryString]`",
-  "id": "iprjefjgezcvycufidxsppiq"
+  "id": "wsagcgcdhluzntwjfqhtfytp"
 }

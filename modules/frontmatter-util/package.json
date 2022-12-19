@@ -25,31 +25,31 @@
       "lintProblems": []
     },
     "hasGeneratedDependenciesIndexed": false,
-    "lastRebuildAt": 1669385005080,
+    "lastRebuildAt": 1671449355763,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 5,
-        "lines": 329,
-        "characters": 8948,
-        "bytes": 8948
+        "numberOfFiles": 6,
+        "lines": 340,
+        "characters": 9364,
+        "bytes": 9364
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 79,
-        "characters": 2866,
-        "bytes": 2866
+        "lines": 134,
+        "characters": 4199,
+        "bytes": 4199
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 127,
-        "characters": 2307,
-        "bytes": 2307
+        "lines": 138,
+        "characters": 2543,
+        "bytes": 2543
       },
       "size": {
-        "bytes": 14121,
-        "characters": 14121,
-        "lines": 535,
-        "numberOfFiles": 9
+        "bytes": 16106,
+        "characters": 16106,
+        "lines": 612,
+        "numberOfFiles": 10
       }
     },
     "folderNameIndexed": "frontmatter-util",
@@ -69,6 +69,8 @@
       "mergeObjectsArray",
       "notEmpty",
       "tryParseDate",
+      "MarkdownModelType",
+      "Storing",
       "SimplifiedSchema",
       "Frontmatter",
       "FrontmatterParse",
@@ -90,6 +92,7 @@
     "code-types": "0.0.1",
     "name-conventions": "0.0.1",
     "marked-util": "0.0.1",
-    "markdown-types": "0.0.1"
+    "markdown-types": "0.0.1",
+    "model-types": "0.0.1"
   }
 }

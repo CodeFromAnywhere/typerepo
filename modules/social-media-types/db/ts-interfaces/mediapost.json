@@ -1,15 +1,15 @@
 {
-  "createdAt": 1670063884496,
-  "updatedAt": 1670063884496,
+  "createdAt": 1671449272199,
+  "updatedAt": 1671449272199,
   "deletedAt": 0,
-  "createdFirstAt": 1670063884496,
+  "createdFirstAt": 1671449272199,
   "id": "mediapost",
   "name": "MediaPost",
   "slug": "mediapost",
   "operationRelativeTypescriptFilePath": "src/MediaPost.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * Post/message on any medium.\n */\nexport interface MediaPost extends MarkdownModelType {\n  /**\n   * Parsed content from the postable content, every social media platform parses in a different way\n   *\n   * For example, a big blog could be parsed into multiple tweets.\n   *\n   * Another example: maybe in some cases we need to remove images or audio\n   *\n   * Another example: markdown is mostly unsupported!\n   */\n  mediaPlatform: MediaPlatformEnum;\n  posted_messageChannelId?: string;\n  posted_messageChannel?: MediaChannel;\n\n  isVerified?: boolean;\n  isPostable: boolean;\n  unpostableReason?: string;\n  isPosted?: boolean;\n\n  /**\n   * URL that leads directly to the posted message\n   */\n  postedUrl?: string;\n  channelOrGroupName?: string;\n\n  /**\n   * projectRelativePath referring to the file that has been parsed into this MediaPost\n   */\n  webMarkdownFile_projectRelativePath?: string;\n  /**\n * \n * \n * the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\n  parsedTitle\n  parsedContent\n\n */\n  markdown: string;\n\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedTitleCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedContentCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedAssetCalculated?: BackendAsset;\n\n  /**\n   * After it has been posted, this should be filled and frequently updated\n   *\n   * Omitted from the form in writer-input because it's indexed\n   */\n  postedDetailsIndexed?: {\n    views: number;\n    reactions: number;\n    interactions: number;\n    statisticsUpdatedAt: number;\n  };\n}",
+  "rawText": "\n\n/**\n * Post/message on any medium.\n */\nexport interface MediaPost extends MarkdownModelType {\n  /**\n   * Parsed content from the postable content, every social media platform parses in a different way\n   *\n   * For example, a big blog could be parsed into multiple tweets.\n   *\n   * Another example: maybe in some cases we need to remove images or audio\n   *\n   * Another example: markdown is mostly unsupported!\n   */\n  mediaPlatform: MediaPlatformEnum;\n  posted_messageChannelId?: string;\n  posted_messageChannel?: MediaChannel;\n\n  isVerified?: boolean;\n  isPostable: boolean;\n  unpostableReason?: string;\n  isPosted?: boolean;\n\n  /**\n   * URL that leads directly to the posted message\n   */\n  postedUrl?: string;\n  channelOrGroupName?: string;\n\n  /**\n   * projectRelativePath referring to the file that has been parsed into this MediaPost\n   */\n  webMarkdownFile_projectRelativePath?: string;\n  /**\n * \n * \n * the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\n  - parsedTitle\n  - parsedContent\n\n */\n  markdown: string;\n\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedTitleCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedContentCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedAssetCalculated?: BackendAsset;\n\n  /**\n   * After it has been posted, this should be filled and frequently updated\n   *\n   * Omitted from the form in writer-input because it's indexed\n   */\n  postedDetailsIndexed?: {\n    views: number;\n    reactions: number;\n    interactions: number;\n    statisticsUpdatedAt: number;\n  };\n}",
   "extensions": [
     "MarkdownModelType"
   ],
@@ -62,9 +62,9 @@
         },
         "markdown": {
           "type": "string",
-          "description": "the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\nparsedTitle parsedContent"
+          "description": "the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\n- parsedTitle\n- parsedContent"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack"
         },
         "mediaPlatform": {
@@ -139,7 +139,7 @@
         }
       },
       "required": [
-        "categoryStackCalculated",
+        "categoryStack",
         "createdAt",
         "createdFirstAt",
         "deletedAt",
@@ -258,12 +258,12 @@
           "name": "markdown",
           "required": true,
           "schema": {
-            "fullComment": "the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\nparsedTitle parsedContent",
+            "fullComment": "the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\n- parsedTitle\n- parsedContent",
             "type": "string"
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": true,
           "schema": {
             "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

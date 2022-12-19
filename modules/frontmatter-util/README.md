@@ -34,6 +34,15 @@ Parses frontmatter object into a frontmatter string
 
 ## 📄 frontmatterToObject (exported const)
 
+## markdownModelTypeToMarkdownString()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| markdownModelType | `Storing<MarkdownModelType>` |  |
+| **Output** | `String`   |    |
+
+
+
 ## objectToFrontmatter()
 
 | Input      |    |    |
@@ -42,6 +51,8 @@ Parses frontmatter object into a frontmatter string
 | **Output** | {  }   |    |
 
 
+
+## 📄 markdownModelTypeToMarkdownString (exported const)
 
 ## 📄 objectToFrontmatter (exported const)
 

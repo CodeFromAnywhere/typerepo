@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1671364112505,
-    "updatedAt": 1671364112505,
+    "createdAt": 1671449631889,
+    "updatedAt": 1671449631889,
     "deletedAt": 0,
-    "createdFirstAt": 1671364112505,
+    "createdFirstAt": 1671449631889,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/useProjectRelativeScreenshot.ts",
     "comment": "Use https://www.npmjs.com/package/use-react-screenshot to get a blob of any component with the click a button\n\nUpload the blob immediately using `processAsset`, which will result in a file in the file system.",
-    "rawStatement": "export const useProjectRelativeScreenshot = () => {\n  const ref = useRef<HTMLDivElement>(null);\n\n  const [image, takeScreenshot] = useScreenshot();\n  const getImage = () => {\n    takeScreenshot(ref.current);\n  };\n  const [projectRelativeFilePath, setProjectRelativeFilePath] = useState<\n    string | null\n  >(null);\n\n  useEffect(() => {\n    if (!image) return;\n    console.log(\"got a blob I think\", image);\n\n    setProjectRelativeFilePath(\"jajajaj\");\n  }, [image]);\n\n  return { getImage, projectRelativeFilePath, ref };\n};",
+    "rawStatement": "export const useProjectRelativeScreenshot = () => {\n  const ref = useRef<HTMLDivElement>(null);\n\n  const [image, takeScreenshot] = useScreenshot();\n  const getImage = () => {\n    takeScreenshot(ref.current);\n  };\n  const [projectRelativeFilePath, setProjectRelativeFilePath] = useState<\n    string | null\n  >(null);\n\n  useEffect(() => {\n    if (!image) return;\n    console.log(\"got a base64 url I think\", image);\n\n    /*\n\nTODO:\n\nConvert base64 url to blob (I also did that for one of the asset inputs, I think)\n\nExtrahere `sendBlob` from `AssetInput` so I can upload the base64 generated blob programatically instead of with that component.\n\nProcess the resulting temporaryUrl immediately using `api.processAssetUpload`, which will result in a file in the file system at my preferred `projectRelativeReferencingFilePath` destination.\n\n*/\n    //const asset:Asset = {};\n    // const assets = []\n    // api.processAssetUpload(assets)\n\n    setProjectRelativeFilePath(\"jajajaj\");\n  }, [image]);\n\n  return { getImage, projectRelativeFilePath, ref };\n};",
     "parameters": {},
     "types": [],
     "firstLine": 4,
     "lastLine": 8,
-    "id": "pqbpymhzkqvhspxmlsmyubao"
+    "id": "jgpoxdnqlkpwyukpcvzlprwp"
   }
 ]

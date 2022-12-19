@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316771543,
-  "updatedAt": 1671316771543,
+  "createdAt": 1671449106757,
+  "updatedAt": 1671449106757,
   "deletedAt": 0,
-  "createdFirstAt": 1671316771543,
+  "createdFirstAt": 1671449106757,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(array: any[]) => {\n  if (!Array.isArray(array)) {\n    log(`Array is not array`, { type: \"error\" }, { array });\n    return 0;\n  }\n  return array.length;\n}",
   "description": "Safely gets the length of something",
-  "id": "nbtuqyysdxsxzmsgejdjnklm"
+  "id": "gyakxtdlztencqizqfcaodri"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316813472,
-  "updatedAt": 1671316813472,
+  "createdAt": 1671449151619,
+  "updatedAt": 1671449151619,
   "deletedAt": 0,
-  "createdFirstAt": 1671316813472,
+  "createdFirstAt": 1671449151619,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  mergedConfig: MergedQueryConfig,\n  manualProjectRoot?: string\n): Promise<false | string | undefined> => {\n  if (mergedConfig.operationName && mergedConfig.operationName !== \"*\") {\n    const operationPath = await getOperationPath(mergedConfig.operationName, {\n      manualProjectRoot,\n      notUseSdk: !!manualProjectRoot,\n    });\n    //\n    if (operationPath === undefined) {\n      log(`Operation wasn't found ${mergedConfig.operationName}`, {\n        type: \"warning\",\n      });\n    }\n\n    return operationPath;\n  }\n  // NB: not the same as undefined!\n  return false;\n}",
   "description": "NB: returns 3 things:\n- false: no operation path\n- undefined: operation path undefined\n- path: the specific operation path",
-  "id": "ucdwiilyqubxwcmdonjbsmio"
+  "id": "dwzgdvoevixjsiuyajocvorh"
 }

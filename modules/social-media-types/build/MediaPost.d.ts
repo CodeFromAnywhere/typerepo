@@ -36,8 +36,8 @@ export interface MediaPost extends MarkdownModelType {
    *
    * the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there
   
-    parsedTitle
-    parsedContent
+    - parsedTitle
+    - parsedContent
   
    */
     markdown: string;

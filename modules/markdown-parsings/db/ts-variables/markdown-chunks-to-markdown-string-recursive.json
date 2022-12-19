@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670590117905,
-  "updatedAt": 1670590117905,
+  "createdAt": 1671448907565,
+  "updatedAt": 1671448907565,
   "deletedAt": 0,
-  "createdFirstAt": 1670590117905,
+  "createdFirstAt": 1671448907565,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdownChunks: MarkdownChunk[]\n): string => {\n  const result: string = markdownChunks\n    .map(markdownChunkToMarkdownStringRecursive)\n    .join(\"\");\n\n  return result;\n}",
   "description": "",
-  "id": "vysosfcomhjffgodgdvpssja"
+  "id": "niqhqnnsifdnhrltakcahqek"
 }

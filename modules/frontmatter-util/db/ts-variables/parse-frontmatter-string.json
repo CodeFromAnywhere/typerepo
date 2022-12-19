@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384999381,
-  "updatedAt": 1669384999381,
+  "createdAt": 1671449343319,
+  "updatedAt": 1671449343319,
   "deletedAt": 0,
-  "createdFirstAt": 1669384999381,
+  "createdFirstAt": 1671449343319,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(value: string) => {\n  const withoutQuotes = value.includes(\",\")\n    ? value.substring(1, value.length - 1)\n    : value;\n\n  const withNewlines = withoutQuotes.replaceAll(\"\\\\n\", \"\\n\");\n\n  return withNewlines;\n}",
   "description": "Parse a string as stored in frontmatter back to the original string",
-  "id": "zmxnmdmwqhomfivtdhleevhp"
+  "id": "aqtudkdeixsdfntkbxjurojw"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670590143787,
-  "updatedAt": 1670590143787,
+  "createdAt": 1671449020239,
+  "updatedAt": 1671449020239,
   "deletedAt": 0,
-  "createdFirstAt": 1670590143787,
+  "createdFirstAt": 1671449020239,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdown: string | undefined\n): string | undefined => {\n  return markdown?.replaceAll(\"\\n\", \"<br />\");\n}",
   "description": "Replaces newlines with a <br />",
-  "id": "ziwgzaggkbldauhjtsngyuen"
+  "id": "sdhvceuovwsoxfhylosdbgkl"
 }

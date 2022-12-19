@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316781778,
-  "updatedAt": 1671316781778,
+  "createdAt": 1671449117799,
+  "updatedAt": 1671449117799,
   "deletedAt": 0,
-  "createdFirstAt": 1671316781778,
+  "createdFirstAt": 1671449117799,
   "id": "namedparameterstypeof-upsertkeyvaluemarkdown",
   "name": "NamedParameters<typeof upsertKeyValueMarkdown>",
   "slug": "namedparameterstypeof-upsertkeyvaluemarkdown",
@@ -54,7 +54,7 @@
                       }
                     },
                     {
-                      "name": "categoryStackCalculated",
+                      "name": "categoryStack",
                       "required": true,
                       "schema": {
                         "fullComment": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -135,7 +135,7 @@
                 }
               },
               {
-                "name": "categoryStackCalculated",
+                "name": "categoryStack",
                 "required": true,
                 "schema": {
                   "fullComment": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

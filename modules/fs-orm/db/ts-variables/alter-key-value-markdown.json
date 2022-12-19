@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316771543,
-  "updatedAt": 1671316771543,
+  "createdAt": 1671449106758,
+  "updatedAt": 1671449106758,
   "deletedAt": 0,
-  "createdFirstAt": 1671316771543,
+  "createdFirstAt": 1671449106758,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  dbFileLocation,\n  alterFn\n) => {\n  const { absolutePath } = dbFileLocation;\n\n  const kvmdParse: KeyValueMarkdownParse | null = await readKvmdFile(\n    absolutePath,\n    dbFileLocation\n  );\n\n  const isNewFile = !kvmdParse;\n\n  const storedData = kvmdParse?.data || [];\n\n  // console.log({ storedData });\n  const { newStoredData, ...queryResult } = alterFn(storedData);\n  // console.log({ newStoredData });\n  const newKvmdParse: KeyValueMarkdownParse = {\n    parameters: kvmdParse?.parameters || {},\n    data: newStoredData as KeyValueMarkdownModelType[],\n  };\n\n  const newDataString = kvmdParseToMarkdownString(newKvmdParse);\n  const isSuccesful = await writeStringToFile(absolutePath, newDataString);\n\n  if (!isSuccesful) return { isSuccesful, message: \"Could not write to file\" };\n  return {\n    isNewFile,\n    isSuccesful,\n    ...queryResult,\n  };\n}",
   "description": "",
-  "id": "obfefmcuzboyhlrohqoxvemp"
+  "id": "ywthrvdhymlxccxzacfvsfdy"
 }

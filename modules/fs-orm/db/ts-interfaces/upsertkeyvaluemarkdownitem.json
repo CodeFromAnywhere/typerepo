@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316843840,
-  "updatedAt": 1671316843840,
+  "createdAt": 1671449185729,
+  "updatedAt": 1671449185729,
   "deletedAt": 0,
-  "createdFirstAt": 1671316843840,
+  "createdFirstAt": 1671449185729,
   "id": "upsertkeyvaluemarkdownitem",
   "name": "UpsertKeyValueMarkdownItem",
   "slug": "upsertkeyvaluemarkdownitem",
@@ -122,7 +122,7 @@
                 }
               },
               {
-                "name": "categoryStackCalculated",
+                "name": "categoryStack",
                 "required": true,
                 "schema": {
                   "fullComment": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

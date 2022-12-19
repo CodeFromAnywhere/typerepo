@@ -36,34 +36,34 @@
       "indexImportExportError": "",
       "lintProblems": [],
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/share/src/Shareable.tsx. Error: Error: Unknown node \"new (props: P) => Component<any, any>\" of kind \"ConstructorType\""
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/share/src/Shareable.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
       ]
     },
-    "lastRebuildAt": 1671012896092,
+    "lastRebuildAt": 1671449635915,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 3,
-        "lines": 160,
-        "characters": 4687,
-        "bytes": 4687
+        "numberOfFiles": 6,
+        "lines": 278,
+        "characters": 8451,
+        "bytes": 8451
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 125,
-        "characters": 3213,
-        "bytes": 3213
+        "lines": 128,
+        "characters": 3484,
+        "bytes": 3484
       },
       "textSize": {
         "numberOfFiles": 3,
-        "lines": 96,
-        "characters": 2476,
-        "bytes": 2476
+        "lines": 126,
+        "characters": 3335,
+        "bytes": 3335
       },
       "size": {
-        "bytes": 10376,
-        "characters": 10376,
-        "lines": 381,
-        "numberOfFiles": 8
+        "bytes": 15270,
+        "characters": 15270,
+        "lines": 532,
+        "numberOfFiles": 11
       }
     },
     "folderNameIndexed": "share",
@@ -71,6 +71,10 @@
     "classificationIndexed": "ui-esm",
     "coreDependenciesIndexed": [
       "useEffect",
+      "useEffect",
+      "useState",
+      "useEffect",
+      "useRef",
       "useState"
     ],
     "operationDependenciesIndexed": [
@@ -81,9 +85,13 @@
       "useModal",
       "FunctionForm",
       "errorToast",
-      "RealApiReturnType"
+      "RealApiReturnType",
+      "ClickableIcon",
+      "api"
     ],
-    "packageDependenciesIndexed": []
+    "packageDependenciesIndexed": [
+      "useScreenshot"
+    ]
   },
   "dependencies": {
     "api": "0.0.1",

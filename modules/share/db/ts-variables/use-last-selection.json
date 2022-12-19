@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670934927996,
-  "updatedAt": 1670934927996,
+  "createdAt": 1671449627104,
+  "updatedAt": 1671449627104,
   "deletedAt": 0,
-  "createdFirstAt": 1670934927996,
+  "createdFirstAt": 1671449627104,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(isDisabled?: boolean): string | null => {\n  // Initialize a ref to store the last selection\n  const [selection, setSelection] = useState<string | null>(null);\n\n  // Create a callback that updates the ref when the user makes a selection\n  const updateLastSelection = () => {\n    if (typeof window === \"undefined\") return null;\n\n    const newSelection = window.getSelection()?.toString() || null;\n\n    if (!newSelection) return null;\n\n    setSelection(newSelection);\n\n    return null;\n  };\n\n  // Add the event listener when the hook is called\n  useEffect(() => {\n    // Add the event listener to the document, so it will fire whenever the user makes a selection anywhere on the page\n    document.addEventListener(\"selectionchange\", updateLastSelection);\n\n    // Return a cleanup function that removes the event listener\n    return () => {\n      document.removeEventListener(\"selectionchange\", updateLastSelection);\n    };\n  }, []); // We only want to add the event listener once, so we pass an empty array as the second argument to useEffect\n\n  if (isDisabled) return \"\";\n  // Return the last selection\n  return selection;\n}",
   "description": "",
-  "id": "oretehfadhffvfibfincmppz"
+  "id": "yviglmfsjxujgrhxdahfgajb"
 }

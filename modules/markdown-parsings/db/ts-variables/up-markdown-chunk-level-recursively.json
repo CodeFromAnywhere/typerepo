@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670590117905,
-  "updatedAt": 1670590117905,
+  "createdAt": 1671448907565,
+  "updatedAt": 1671448907565,
   "deletedAt": 0,
-  "createdFirstAt": 1670590117905,
+  "createdFirstAt": 1671448907565,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdownChunks: MarkdownChunk[] | undefined\n): MarkdownChunk[] | undefined => {\n  if (!markdownChunks) return;\n\n  const newMarkdownChunks: MarkdownChunk[] = markdownChunks.map((chunk) => ({\n    ...chunk,\n    level: chunk.level + 1,\n    children: upMarkdownChunkLevelRecursively(chunk.children),\n  }));\n\n  return newMarkdownChunks;\n}",
   "description": "Ups the levels of the markdownChunk array, recursively.\n\nCan be useful for merging multiple markdown sources",
-  "id": "xqxbcppalintqbhnqzmrzbvq"
+  "id": "ndctxwwjgohopymguuxuglby"
 }

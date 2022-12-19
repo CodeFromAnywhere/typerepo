@@ -236,8 +236,10 @@ import { DocsReaderLayout } from "reader-ui";
 import { ReaderPageContent } from "reader-ui";
 import { ReaderPageHeader } from "reader-ui";
 import { Share } from "share";
+import { Shareable } from "share";
 import { useAllText } from "share";
 import { useLastSelection } from "share";
+import { useProjectRelativeScreenshot } from "share";
 import { AdminLinks } from "passionfruit-ui";
 import { AverageMetricDougnut } from "passionfruit-ui";
 import { AverageTransparencyDougnut } from "passionfruit-ui";
@@ -540,8 +542,10 @@ DocsReaderLayout,
 ReaderPageContent,
 ReaderPageHeader,
 Share,
+Shareable,
 useAllText,
 useLastSelection,
+useProjectRelativeScreenshot,
 AdminLinks,
 AverageMetricDougnut,
 AverageTransparencyDougnut,

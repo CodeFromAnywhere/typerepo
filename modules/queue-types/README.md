@@ -30,7 +30,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | startedAt (optional) | number |  |
 | type  | string |  |
 | functionName  | string |  |

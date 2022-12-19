@@ -565,6 +565,7 @@ import { isIndexableFileId } from "filename-conventions";
 import { frontmatterParseToString } from "frontmatter-util";
 import { frontmatterToObject } from "frontmatter-util";
 import { getFrontmatterValueString } from "frontmatter-util";
+import { markdownModelTypeToMarkdownString } from "frontmatter-util";
 import { objectToFrontmatter } from "frontmatter-util";
 import { parseFrontmatterString } from "frontmatter-util";
 import { quotedOrNot } from "frontmatter-util";
@@ -715,7 +716,6 @@ import { generatePassword } from "model-types";
 import { generateRandomString } from "model-types";
 import { generateTime } from "model-types";
 import { isEmail } from "model-types";
-import { markdownModelTypeToMarkdownString } from "model-types";
 import { getAssetInputType } from "name-conventions";
 import { getParameterContentType } from "name-conventions";
 import { isCalculatedParameter } from "name-conventions";
@@ -1378,6 +1378,7 @@ isIndexableFileId,
 frontmatterParseToString,
 frontmatterToObject,
 getFrontmatterValueString,
+markdownModelTypeToMarkdownString,
 objectToFrontmatter,
 parseFrontmatterString,
 quotedOrNot,
@@ -1528,7 +1529,6 @@ generatePassword,
 generateRandomString,
 generateTime,
 isEmail,
-markdownModelTypeToMarkdownString,
 getAssetInputType,
 getParameterContentType,
 isCalculatedParameter,

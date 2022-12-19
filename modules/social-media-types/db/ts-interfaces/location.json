@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670063878845,
-  "updatedAt": 1670063878845,
+  "createdAt": 1671449262474,
+  "updatedAt": 1671449262474,
   "deletedAt": 0,
-  "createdFirstAt": 1670063878845,
+  "createdFirstAt": 1671449262474,
   "id": "location",
   "name": "Location",
   "slug": "location",
@@ -60,7 +60,7 @@
           "type": "string",
           "description": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack",
           "description": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`"
         },
@@ -77,7 +77,7 @@
       },
       "additionalProperties": false,
       "required": [
-        "categoryStackCalculated",
+        "categoryStack",
         "comment",
         "id",
         "isHeaderCalculated",
@@ -157,7 +157,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": true,
           "schema": {
             "fullComment": "calculated value that contains the slugs of all preceding categories to this item.\n\nWill be present when fetching from the the db with `fs-orm`\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

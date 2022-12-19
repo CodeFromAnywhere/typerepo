@@ -341,6 +341,7 @@ export declare const sdkFunctionPaths: {
     frontmatterParseToString: string;
     frontmatterToObject: string;
     getFrontmatterValueString: string;
+    markdownModelTypeToMarkdownString: string;
     objectToFrontmatter: string;
     parseFrontmatterString: string;
     quotedOrNot: string;
@@ -770,7 +771,6 @@ export declare const sdkFunctionPaths: {
     generateRandomString: string;
     generateTime: string;
     isEmail: string;
-    markdownModelTypeToMarkdownString: string;
     getAssetInputType: string;
     getParameterContentType: string;
     isCalculatedParameter: string;

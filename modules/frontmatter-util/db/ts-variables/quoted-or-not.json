@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669384994241,
-  "updatedAt": 1669384994241,
+  "createdAt": 1671449330358,
+  "updatedAt": 1671449330358,
   "deletedAt": 0,
-  "createdFirstAt": 1669384994241,
+  "createdFirstAt": 1671449330358,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(string: string) => {\n  const returnString = string?.includes(\",\") ? `\"${string}\"` : string;\n  return returnString;\n}",
   "description": "For now, simply quote a string if it contains commas\n\nThere are probably more edgecases that need to be fixed here",
-  "id": "yirovabmezfrzttqvrotuxiq"
+  "id": "qfmdkbkxqmhhggblymhkwvpe"
 }

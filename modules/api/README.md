@@ -22,6 +22,13 @@ This object contains an api function for every function in the backend
 NB: only use this if you can access localStorage of the browser or the app. This means this won't work in node or in getStaticProps functions or so
 
 
+## 📄 apiWithConfig (exported const)
+
+This object contains a api function for every function in the backend
+
+The difference from `api` is that it allows you to also insert custom api configurations
+
+
 ## getGetApiUrl()
 
 gets an api url for a context get api
@@ -37,13 +44,6 @@ returns something like `[apiUrl]/[apiFunctionName][queryString]`
 
 
 ## 📄 API_NO_RESPONSE_TIME_KEY (exported const)
-
-## 📄 apiWithConfig (exported const)
-
-This object contains a api function for every function in the backend
-
-The difference from `api` is that it allows you to also insert custom api configurations
-
 
 ## 📄 AUTH_TOKEN_STORAGE_KEY (exported const)
 

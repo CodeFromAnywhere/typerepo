@@ -448,6 +448,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof frontmatterParseToString>": string;
     "NamedParameters<typeof frontmatterToObject>": string;
     "NamedParameters<typeof getFrontmatterValueString>": string;
+    "NamedParameters<typeof markdownModelTypeToMarkdownString>": string;
     "NamedParameters<typeof objectToFrontmatter>": string;
     "NamedParameters<typeof parseFrontmatterString>": string;
     "NamedParameters<typeof quotedOrNot>": string;
