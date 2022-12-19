@@ -42,13 +42,13 @@ slug) {
     }
     if (foundItem.isHeaderCalculated) {
         // console.log("is header calculated, remove all childs");
-        // NB: remove all children (items of which the joined categoryStackCalculated starts with headerLocation)
-        var headerLocation_1 = foundItem.categoryStackCalculated
+        // NB: remove all children (items of which the joined categoryStack starts with headerLocation)
+        var headerLocation_1 = foundItem.categoryStack
             .concat(foundItem.slug)
             .join(",");
         var newStoredData_1 = storedData.filter(function (x) {
             var isHeaderCalculatedToRemove = x.slug === foundItem.slug;
-            var isCategoryStackSubset = x.categoryStackCalculated
+            var isCategoryStackSubset = x.categoryStack
                 .join(",")
                 .startsWith(headerLocation_1);
             return !isHeaderCalculatedToRemove && !isCategoryStackSubset;

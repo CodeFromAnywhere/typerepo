@@ -12,7 +12,7 @@ export interface DefaultModelType extends AnyModelType, TimeTypes {
      *
      * NB: Changing this value when updating/upserting, changes where the item is located!
      */
-    categoryStackCalculated?: CategoryStack;
+    categoryStack?: CategoryStack;
 }
 /**
  * Use this model for things you want to store in CSV format

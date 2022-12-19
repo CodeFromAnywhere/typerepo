@@ -1632,7 +1632,7 @@ export declare const sdk: {
     generateRandomString: (length: number) => string;
     generateTime: () => number;
     isEmail: typeof isEmail;
-    markdownModelTypeToMarkdownString: (markdownModelType: import("model-types").Storing<import("model-types").MarkdownModelType>) => string;
+    markdownModelTypeToMarkdownString: any;
     getAssetInputType: (parameterName: string, valueType?: import("code-types").SimplifiedSchemaType | undefined) => import("name-conventions").AssetInputType | undefined;
     getParameterContentType: (parameterName: string) => void;
     isCalculatedParameter: (parameterName: string) => boolean;

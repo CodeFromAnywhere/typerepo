@@ -22,7 +22,7 @@ export interface KeyValueMarkdownModelType extends AnyModelType, KvmdLine {
      *
      * Will be present when fetching from the the db with `fs-orm`
      */
-    categoryStackCalculated: CategoryStack;
+    categoryStack: CategoryStack;
     /**
      * Calculated value indicating whether or not the item has children
      */

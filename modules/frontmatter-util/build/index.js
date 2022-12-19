@@ -19,4 +19,5 @@ __exportStar(require("./frontmatterToObject"), exports);
 __exportStar(require("./general"), exports);
 __exportStar(require("./objectToFrontmatter"), exports);
 __exportStar(require("./parseFrontmatterString"), exports);
+__exportStar(require("./markdownModelTypeToMarkdownString"), exports);
 //# sourceMappingURL=index.js.map

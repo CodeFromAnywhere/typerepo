@@ -73,10 +73,10 @@ var js_util_2 = require("js-util");
 /**
  * Gets the stored data from any file with any storage method, and augments the modelLocation onto it...
  *
- * Also augments the `name`, `slug` and `categoryStackCalculated` onto this if the `dbStorageMethod` is `markdown` or `jsonSingle` and if `operationRelativePath` is not set
+ * Also augments the `name`, `slug` and `categoryStack` onto this if the `dbStorageMethod` is `markdown` or `jsonSingle` and if `operationRelativePath` is not set
  */
 var getAugmentedData = function (dbFileLocation, dbStorageMethod) { return __awaiter(void 0, void 0, void 0, function () {
-    var absolutePath, modelName, modelLocation, parsedPath, isSingleMethod, hasOperationRelativePath, shouldAddSingleInfo, slugifiedName, isNameValid, rootRelativePath, dbModelFolderPath, dbModelFolderRelativePath, chunks, categoryStackCalculated, singleInfo, ext, jsonContent, jsonContentArray, augmented, csvContent, augmented, mdParse, frontmatter, markdownContent, keyValueMarkdownParse, keyValueMarkdown;
+    var absolutePath, modelName, modelLocation, parsedPath, isSingleMethod, hasOperationRelativePath, shouldAddSingleInfo, slugifiedName, isNameValid, rootRelativePath, dbModelFolderPath, dbModelFolderRelativePath, chunks, categoryStack, singleInfo, ext, jsonContent, jsonContentArray, augmented, csvContent, augmented, mdParse, frontmatter, markdownContent, keyValueMarkdownParse, keyValueMarkdown;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -102,9 +102,9 @@ var getAugmentedData = function (dbFileLocation, dbStorageMethod) { return __awa
                 chunks = dbModelFolderRelativePath.split("/");
                 // remove the name
                 chunks.pop();
-                categoryStackCalculated = chunks;
+                categoryStack = chunks;
                 singleInfo = shouldAddSingleInfo
-                    ? { name: slugifiedName, slug: slugifiedName, categoryStackCalculated: categoryStackCalculated }
+                    ? { name: slugifiedName, slug: slugifiedName, categoryStack: categoryStack }
                     : undefined;
                 ext = parsedPath.ext;
                 if (!(ext === ".json")) return [3 /*break*/, 2];

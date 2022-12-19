@@ -1,14 +1,140 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,n=1,r=arguments.length;n<r;n++)for(var a in t=arguments[n])Object.prototype.hasOwnProperty.call(t,a)&&(e[a]=t[a]);return e},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(e,t,n,r){return new(n||(n=Promise))((function(a,o){function i(e){try{u(r.next(e))}catch(e){o(e)}}function l(e){try{u(r.throw(e))}catch(e){o(e)}}function u(e){var t;e.done?a(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,l)}u((r=r.apply(e,t||[])).next())}))},__generator=this&&this.__generator||function(e,t){var n,r,a,o,i={label:0,sent:function(){if(1&a[0])throw a[1];return a[1]},trys:[],ops:[]};return o={next:l(0),throw:l(1),return:l(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function l(o){return function(l){return function(o){if(n)throw new TypeError("Generator is already executing.");for(;i;)try{if(n=1,r&&(a=2&o[0]?r.return:o[0]?r.throw||((a=r.return)&&a.call(r),0):r.next)&&!(a=a.call(r,o[1])).done)return a;switch(r=0,a&&(o=[2&o[0],a.value]),o[0]){case 0:case 1:a=o;break;case 4:return i.label++,{value:o[1],done:!1};case 5:i.label++,r=o[1],o=[0];continue;case 7:o=i.ops.pop(),i.trys.pop();continue;default:if(!(a=i.trys,(a=a.length>0&&a[a.length-1])||6!==o[0]&&2!==o[0])){i=0;continue}if(3===o[0]&&(!a||o[1]>a[0]&&o[1]<a[3])){i.label=o[1];break}if(6===o[0]&&i.label<a[1]){i.label=a[1],a=o;break}if(a&&i.label<a[2]){i.label=a[2],i.ops.push(o);break}a[2]&&i.ops.pop(),i.trys.pop();continue}o=t.call(e,i)}catch(e){o=[6,e],r=0}finally{n=a=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,l])}}},__importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.readMarkdownFileToModel=void 0;var sdk_operations_1=require("sdk-operations"),fs_util_1=require("fs-util"),js_util_1=require("js-util"),get_path_1=require("get-path"),readMarkdownFile_1=require("./readMarkdownFile"),frontmatter_util_1=require("frontmatter-util"),webmarkdownfile_json_1=__importDefault(require("markdown-types/db/ts-interfaces/webmarkdownfile.json")),readMarkdownFileToModel=function(e,t,
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.readMarkdownFileToModel = void 0;
+var sdk_operations_1 = require("sdk-operations");
+var fs_util_1 = require("fs-util");
+var js_util_1 = require("js-util");
+var get_path_1 = require("get-path");
+var fs_util_js_1 = require("fs-util-js");
+var readMarkdownFile_1 = require("./readMarkdownFile");
+var frontmatter_util_1 = require("frontmatter-util");
+var webmarkdownfile_json_1 = __importDefault(require("markdown-types/db/ts-interfaces/webmarkdownfile.json"));
+/**
+Reads a markdown absolute path to a `WebMarkdownFile` model
+
+Attaches default calls to action and header
+ */
+var readMarkdownFileToModel = function (absoluteFilePath, webOperationName, 
 /**
  * Only the ones that are not from this domain without path (filter based on hostname/path)
  */
-n){return __awaiter(void 0,void 0,void 0,(function(){var r,a,o,i,l,u,s,_,d,c,f,p,h,g,m,w;return __generator(this,(function(k){switch(k.label){case 0:return fs_util_1.path.parse(e).name,(r=(0,get_path_1.getProjectRoot)(e))?[4/*yield*/,(0,readMarkdownFile_1.readMarkdownFile)(e)]:(console.log("Projectroot not found"),[2/*return*/,null]);case 1:return(a=k.sent())?(o=sdk_operations_1.operations[t])?(i=fs_util_1.path.join(r,o,"public/headers"),fs_util_1.fs.existsSync(i)?[4/*yield*/,fs_util_1.fs.readdir(i,"utf8")]:[3/*break*/,3]):[2/*return*/,null]:(console.log("mdParse not found"),[2/*return*/,null]);case 2:return u=k.sent(),[3/*break*/,4];case 3:u=[],k.label=4;case 4:return l=u,!(s=(0,frontmatter_util_1.frontmatterToObject)(a.parameters,webmarkdownfile_json_1.default.type.simplifiedSchema)).headerImage&&l.length&&(_=(0,js_util_1.sum)(e.split("").map((function(e){return e.charCodeAt(0)}))),d=_%(l.length-1),c=l[d],
-/**
+markdownCallToActions) { return __awaiter(void 0, void 0, void 0, function () {
+    var filename, projectRoot, mdParse, projectRelativeWebOperationPath, absoluteHeadersFolderPath, publicHeaderFilenames, _a, parsedParameters, uniqueDeterministicFilepathNumber, deterministicHeaderImageNumber, deterministicHeaderImage, operationBasePath, modelLocation, name, markdownFile;
+    var _b, _c;
+    return __generator(this, function (_d) {
+        switch (_d.label) {
+            case 0:
+                filename = fs_util_1.path.parse(absoluteFilePath).name;
+                projectRoot = (0, get_path_1.getProjectRoot)(absoluteFilePath);
+                if (!projectRoot) {
+                    console.log("Projectroot not found");
+                    return [2 /*return*/, null];
+                }
+                return [4 /*yield*/, (0, readMarkdownFile_1.readMarkdownFile)(absoluteFilePath)];
+            case 1:
+                mdParse = _d.sent();
+                if (!mdParse) {
+                    console.log("mdParse not found");
+                    return [2 /*return*/, null];
+                }
+                projectRelativeWebOperationPath = sdk_operations_1.operations[webOperationName];
+                if (!projectRelativeWebOperationPath)
+                    return [2 /*return*/, null];
+                absoluteHeadersFolderPath = fs_util_1.path.join(projectRoot, projectRelativeWebOperationPath, "public/headers");
+                if (!fs_util_1.fs.existsSync(absoluteHeadersFolderPath)) return [3 /*break*/, 3];
+                return [4 /*yield*/, fs_util_1.fs.readdir(absoluteHeadersFolderPath, "utf8")];
+            case 2:
+                _a = _d.sent();
+                return [3 /*break*/, 4];
+            case 3:
+                _a = [];
+                _d.label = 4;
+            case 4:
+                publicHeaderFilenames = _a;
+                parsedParameters = (0, frontmatter_util_1.frontmatterToObject)(mdParse.parameters, webmarkdownfile_json_1.default.type.simplifiedSchema);
+                if (!parsedParameters.headerImage && publicHeaderFilenames.length) {
+                    uniqueDeterministicFilepathNumber = (0, js_util_1.sum)(absoluteFilePath.split("").map(function (letter) { return letter.charCodeAt(0); }));
+                    deterministicHeaderImageNumber = uniqueDeterministicFilepathNumber % (publicHeaderFilenames.length - 1);
+                    deterministicHeaderImage = publicHeaderFilenames[deterministicHeaderImageNumber];
+                    /**
                      * Puts it as backendAsset
                      */
-s.headerImage={
-// NB: this ensures the URL isn't later altered to a backend-url (in dev mode)
-absoluteUrl:"/headers/".concat(c)}),s.markdownCallToActionSlugs||(s.markdownCallToActionSlugs=n.map((function(e){return e.slug}))),
-// attach the actual call to actions
-s.markdownCallToActions=(null===(m=s.markdownCallToActionSlugs)||void 0===m?void 0:m.map((function(e){return n.find((function(t){return t.slug===e}))})).filter(js_util_1.notEmpty))||[],s.header_markdownCallToActions=(null===(w=s.header_markdownCallToActionSlugs)||void 0===w?void 0:w.map((function(e){return n.find((function(t){return t.slug===e}))})).filter(js_util_1.notEmpty))||[],f=(0,get_path_1.findOperationBasePath)(e),p={operationName:f?(0,fs_util_1.getLastFolder)(f):null,projectRelativePath:(0,get_path_1.makeRelative)(e,r),operationRelativePath:f?(0,get_path_1.makeRelative)(e,f):void 0},h=a.fileName||"untitled",g=__assign(__assign(__assign(__assign(__assign({},p),s),{markdown:a.raw,categoryStackCalculated:[]}),s),{id:h,createdFirstAt:Date.now(),deletedAt:0,createdAt:Date.now(),privacy:s.privacy||"public",language:s.language||"english",updatedAt:s.updatedAt||Date.now(),name:h,slug:h}),[2/*return*/,(0,js_util_1.omitUndefinedValues)(g)]}}))}))};exports.readMarkdownFileToModel=readMarkdownFileToModel;
+                    parsedParameters.headerImage = {
+                        // NB: this ensures the URL isn't later altered to a backend-url (in dev mode)
+                        absoluteUrl: "/headers/".concat(deterministicHeaderImage),
+                    };
+                }
+                if (!parsedParameters.markdownCallToActionSlugs) {
+                    parsedParameters.markdownCallToActionSlugs = markdownCallToActions.map(function (x) { return x.slug; });
+                }
+                // attach the actual call to actions
+                parsedParameters.markdownCallToActions =
+                    ((_b = parsedParameters.markdownCallToActionSlugs) === null || _b === void 0 ? void 0 : _b.map(function (slug) { return markdownCallToActions.find(function (x) { return x.slug === slug; }); }).filter(js_util_1.notEmpty)) || [];
+                parsedParameters.header_markdownCallToActions =
+                    ((_c = parsedParameters.header_markdownCallToActionSlugs) === null || _c === void 0 ? void 0 : _c.map(function (slug) { return markdownCallToActions.find(function (x) { return x.slug === slug; }); }).filter(js_util_1.notEmpty)) || [];
+                operationBasePath = (0, get_path_1.findOperationBasePath)(absoluteFilePath);
+                modelLocation = {
+                    operationName: operationBasePath ? (0, fs_util_1.getLastFolder)(operationBasePath) : null,
+                    projectRelativePath: (0, fs_util_js_1.makeRelative)(absoluteFilePath, projectRoot),
+                    operationRelativePath: operationBasePath
+                        ? (0, fs_util_js_1.makeRelative)(absoluteFilePath, operationBasePath)
+                        : undefined,
+                };
+                name = mdParse.fileName || "untitled";
+                markdownFile = __assign(__assign(__assign(__assign(__assign({}, modelLocation), parsedParameters), { markdown: mdParse.raw, categoryStack: [] }), parsedParameters), { id: name, createdFirstAt: Date.now(), deletedAt: 0, createdAt: Date.now(), language: parsedParameters.language || "english", updatedAt: parsedParameters.updatedAt || Date.now(), name: name, slug: name });
+                return [2 /*return*/, (0, js_util_1.omitUndefinedValues)(markdownFile)];
+        }
+    });
+}); };
+exports.readMarkdownFileToModel = readMarkdownFileToModel;
 //# sourceMappingURL=readMarkdownFileToModel.js.map

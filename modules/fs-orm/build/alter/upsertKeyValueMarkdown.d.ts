@@ -14,7 +14,7 @@ export declare const findParent: (arrayItem: Storing<KeyValueMarkdownModelType>,
  *
  * BEWARE:
  *
- * - the categoryStackCalculated must be existing in the markdownfile.
+ * - the categoryStack must be existing in the markdownfile.
  * - you cannot insert a header, always insert an item with `isHeaderCalculated:false`
  */
 export declare const upsertKeyValueMarkdown: (storedData: Storing<KeyValueMarkdownModelType>[], storingItem: Storing<KeyValueMarkdownModelType>) => DbQueryResult & {

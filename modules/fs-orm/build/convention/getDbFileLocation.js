@@ -61,7 +61,7 @@ var getDbFileLocation = function (
 /**
  * The ModelLocation properties in the item are completely ignored.
  *
- * Only the ID, slug and categoryStackCalculated are used to determine the exact file the item should be stored in.
+ * Only the ID, slug and categoryStack are used to determine the exact file the item should be stored in.
  *
  * NB: storedItem MUST have a slug or ID, but this should probably be generated before this funciton
  */
@@ -91,7 +91,7 @@ operationName, mergedConfig, modelName) { return __awaiter(void 0, void 0, void 
                 isSingleItemStorageMethod = mergedConfig.dbStorageMethod === "jsonSingle" ||
                     mergedConfig.dbStorageMethod === "markdown";
                 filename = storedItem.slug || storedItem.id;
-                relativeFolder = (_b = (_a = storedItem.categoryStackCalculated) === null || _a === void 0 ? void 0 : _a.join) === null || _b === void 0 ? void 0 : _b.call(_a, "/");
+                relativeFolder = (_b = (_a = storedItem.categoryStack) === null || _a === void 0 ? void 0 : _a.join) === null || _b === void 0 ? void 0 : _b.call(_a, "/");
                 dbModelFolderRelativeLocation = isSingleItemStorageMethod && relativeFolder
                     ? fs_util_1.path.join(relativeFolder, filename)
                     : filename;

@@ -26,7 +26,7 @@ var convert_case_1 = require("convert-case");
 var fs_util_1 = require("fs-util");
 var alter_functions_1 = require("../alter/alter-functions");
 var upsertKeyValueMarkdown_1 = require("../alter/upsertKeyValueMarkdown");
-var categoryStackCalculated = [];
+var categoryStack = [];
 var test = function () {
     var absolutePath = fs_util_1.path.join(__dirname, "../..", "assets", "test.md");
     var dbFileLocation = {
@@ -44,7 +44,7 @@ var test = function () {
             name: (0, convert_case_1.humanCase)(slug),
             slug: slug,
         };
-        var storingItem = __assign(__assign({}, ids), { comment: "yoyoyo", isHeaderCalculated: false, value: "you are amazing", categoryStackCalculated: categoryStackCalculated });
+        var storingItem = __assign(__assign({}, ids), { comment: "yoyoyo", isHeaderCalculated: false, value: "you are amazing", categoryStack: categoryStack });
         var result = (0, upsertKeyValueMarkdown_1.upsertKeyValueMarkdown)(realStoredData, storingItem);
         var newStoredData = result.newStoredData, rest = __rest(result, ["newStoredData"]);
         console.log({ rest: rest });

@@ -59,7 +59,7 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.alterAny = exports.alterMarkdown = exports.alterKeyValueMarkdown = exports.alterJsonMultiple = exports.getLength = exports.alterJsonSingle = exports.alterCsv = exports.removeMultiple = exports.upsertItems = void 0;
-var model_types_1 = require("model-types");
+var frontmatter_util_1 = require("frontmatter-util");
 var csv_util_1 = require("csv-util");
 var fs_util_1 = require("fs-util");
 var key_value_markdown_js_1 = require("key-value-markdown-js");
@@ -89,19 +89,19 @@ var upsertItems = function (dbStorageMethod, dbFileLocation, storingItems, onlyI
             parentKey_1 = Object.keys(storingItem_1).find(function (x) { return x.startsWith("parent_") && x.endsWith("Slug"); });
             parentSlug_1 = parentKey_1 ? storingItem_1[parentKey_1] : undefined;
             return [2 /*return*/, (0, exports.alterKeyValueMarkdown)(dbFileLocation, function (storedData) {
-                    // NB: CategoryStack is overwritten! We are first making sure that categoryStackCalculated is a real existing categoryStackCalculated based on the parent_xxxSlug.
+                    // NB: CategoryStack is overwritten! We are first making sure that categoryStack is a real existing categoryStack based on the parent_xxxSlug.
                     var realStoredData = storedData;
                     var parent = parentSlug_1
                         ? realStoredData.find(function (x) { return x.slug === parentSlug_1; })
                         : undefined;
-                    // NB: we overwrite categoryStackCalculated, unless the parentKey wasn't found in the storingItem.
-                    var categoryStackCalculated = !parentKey_1
-                        ? storingItem_1.categoryStackCalculated || []
+                    // NB: we overwrite categoryStack, unless the parentKey wasn't found in the storingItem.
+                    var categoryStack = !parentKey_1
+                        ? storingItem_1.categoryStack || []
                         : parent
-                            ? parent.categoryStackCalculated.concat(parent.slug)
+                            ? parent.categoryStack.concat(parent.slug)
                             : [];
-                    // console.log({ parentKey, parentSlug, parent, categoryStackCalculated });
-                    var realStoringItem = __assign(__assign({}, storingItem_1), { categoryStackCalculated: categoryStackCalculated, isHeaderCalculated: storingItem_1.isHeaderCalculated !== undefined
+                    // console.log({ parentKey, parentSlug, parent, categoryStack });
+                    var realStoringItem = __assign(__assign({}, storingItem_1), { categoryStack: categoryStack, isHeaderCalculated: storingItem_1.isHeaderCalculated !== undefined
                             ? storingItem_1.isHeaderCalculated
                             : false, comment: storingItem_1.comment === undefined ? null : storingItem_1.comment });
                     return (0, upsertKeyValueMarkdown_1.upsertKeyValueMarkdown)(realStoredData, realStoringItem);
@@ -322,7 +322,7 @@ var alterMarkdown = function (dbFileLocation, alterFn) { return __awaiter(void 0
                 storedData = markdownModelItem ? [markdownModelItem] : [];
                 _a = alterFn(storedData), newStoredData = _a.newStoredData, queryResult = __rest(_a, ["newStoredData"]);
                 finalItem = newStoredData[0];
-                markdownString = (0, model_types_1.markdownModelTypeToMarkdownString)(finalItem);
+                markdownString = (0, frontmatter_util_1.markdownModelTypeToMarkdownString)(finalItem);
                 return [4 /*yield*/, (0, fs_util_1.writeStringToFile)(absolutePath, markdownString)];
             case 2:
                 isSuccesful = _b.sent();

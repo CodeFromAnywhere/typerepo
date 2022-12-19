@@ -28,8 +28,8 @@ var getParentSlug_1 = require("../convention/getParentSlug");
 this location matches any category that equals the categorystack
 */
 var findParent = function (arrayItem, newCategoryStack) {
-    var categoryStackCalculatedWithItself = arrayItem.categoryStackCalculated.concat(arrayItem.slug);
-    var locationString = categoryStackCalculatedWithItself.join(",");
+    var categoryStackWithItself = arrayItem.categoryStack.concat(arrayItem.slug);
+    var locationString = categoryStackWithItself.join(",");
     var newItemLocationString = newCategoryStack.join(",");
     var isSameLocation = locationString === newItemLocationString;
     return isSameLocation;
@@ -45,7 +45,7 @@ exports.findParent = findParent;
  *
  * BEWARE:
  *
- * - the categoryStackCalculated must be existing in the markdownfile.
+ * - the categoryStack must be existing in the markdownfile.
  * - you cannot insert a header, always insert an item with `isHeaderCalculated:false`
  */
 var upsertKeyValueMarkdown = function (storedData, storingItem) {
@@ -109,7 +109,7 @@ var upsertKeyValueMarkdown = function (storedData, storingItem) {
     1) the parent needs to become a category
     2) the item needs to be placed under it
     3) the parent should be removed
-    4) the last item that has the same categoryStackCalculated as the parent should be found
+    4) the last item that has the same categoryStack as the parent should be found
     5) This new category with its sole item needs to be placed as the last item value of its parent (below other items, but above sub categories)
   
     */
@@ -123,8 +123,7 @@ var upsertKeyValueMarkdown = function (storedData, storingItem) {
     // WORKS console.log({ storedDataWithoutItem });
     // 4
     var finalItemIndex = (0, js_util_1.findLastIndex)(storedDataWithoutParentItem, function (item) {
-        return item.categoryStackCalculated.join(",") ===
-            parentHeader.categoryStackCalculated.join(",") &&
+        return item.categoryStack.join(",") === parentHeader.categoryStack.join(",") &&
             !item.isHeaderCalculated;
     }) ||
         // NB: not sure if this would fix all edgecases but if the only item in a category is the one that we removed, the finalItemIndex is the parentIndex -1 (but now it's a category)

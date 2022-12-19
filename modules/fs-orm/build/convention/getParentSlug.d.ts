@@ -1,6 +1,6 @@
 import { KeyValueMarkdownModelType, Storing } from "model-types";
 /**
- * get a parent slug without the parent_xxxSlug reference (uses the categoryStackCalculated)
+ * get a parent slug without the parent_xxxSlug reference (uses the categoryStack)
  *
  * can be undefined if the item has no parent
  */

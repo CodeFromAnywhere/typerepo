@@ -1,2 +1,20 @@
-"use strict";var __spreadArray=this&&this.__spreadArray||function(e,o,s){if(s||2===arguments.length)for(var t,r=0,a=o.length;r<a;r++)!t&&r in o||(t||(t=Array.prototype.slice.call(o,0,r)),t[r]=o[r]);return e.concat(t||Array.prototype.slice.call(o))};Object.defineProperty(exports,"__esModule",{value:!0}),exports.todoPagesConfigRecencys=exports.todoPagesConfigRecencysConst=void 0,exports.todoPagesConfigRecencysConst=["24-hours","today","this-week","7-days"],exports.todoPagesConfigRecencys=__spreadArray([],exports.todoPagesConfigRecencysConst,!0);
+"use strict";
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.todoPagesConfigRecencys = exports.todoPagesConfigRecencysConst = void 0;
+exports.todoPagesConfigRecencysConst = [
+    "24-hours",
+    "today",
+    "this-week",
+    "7-days",
+];
+exports.todoPagesConfigRecencys = __spreadArray([], exports.todoPagesConfigRecencysConst, true);
 //# sourceMappingURL=TodoPagesConfig.js.map
