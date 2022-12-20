@@ -181,7 +181,7 @@ export var MarkdownContentRender = function (props) {
                     return (React.createElement("iframe", { className: "aspect-video w-full", src: "https://www.youtube.com/embed/".concat(youtubeId), title: "Youtube vid", frameBorder: "0", allow: "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture", allowFullScreen: true }));
                 }
                 return (React.createElement(Tooltip, { placement: "left", tooltip: title ? (React.createElement("div", { className: "px-3" },
-                        React.createElement(MarkdownContent, { content: title, config: {} }))) : (React.createElement("div", null)) },
+                        React.createElement(MarkdownContent, { content: title, config: {} }))) : null },
                     React.createElement("a", __assign({ className: "dark:text-blue-200 text-blue-500", href: href }, props))));
             },
         } }, content));

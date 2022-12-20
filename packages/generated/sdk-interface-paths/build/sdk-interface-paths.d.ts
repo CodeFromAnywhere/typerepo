@@ -44,7 +44,6 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof writeAllCodestoriesCli>": string;
     "NamedParameters<typeof writeCodespanDetails>": string;
     AuthenticationMethodMethod: string;
-    CategoryChildObject: string;
     ContextualPrompt: string;
     FileType: string;
     FunctionContext: string;
@@ -101,6 +100,7 @@ export declare const sdkInterfacePaths: {
     StackCount: string;
     AiDemoApp: string;
     BackendAsset: string;
+    CategoryChildObject: string;
     ContextualContent: string;
     ContextualPromptInfo: string;
     ContextualPromptResult: string;
@@ -654,6 +654,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof concatenate>": string;
     "NamedParameters<typeof getParameterAtLocation>": string;
     "NamedParameters<typeof hasAllLetters>": string;
+    "NamedParameters<typeof isArrayEqual>": string;
     "NamedParameters<typeof mergeNestedObjectTest>": string;
     "NamedParameters<typeof replaceLastOccurence>": string;
     "NamedParameters<typeof reverseString>": string;

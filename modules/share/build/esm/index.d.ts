@@ -1,6 +1,6 @@
 export * from "./Share";
+export * from "./Shareable";
 export * from "./useAllText";
 export * from "./useLastSelection";
 export * from "./useProjectRelativeScreenshot";
-export * from "./Shareable";
 //# sourceMappingURL=index.d.ts.map

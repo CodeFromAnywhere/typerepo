@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671449626878,
-  "updatedAt": 1671449626878,
+  "createdAt": 1671483559880,
+  "updatedAt": 1671483559880,
   "deletedAt": 0,
-  "createdFirstAt": 1671449626878,
+  "createdFirstAt": 1671483559880,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/useLastSelection.ts",
   "commentsInside": [],
-  "rawText": " (isDisabled?: boolean): string | null => {\n  // Initialize a ref to store the last selection\n  const [selection, setSelection] = useState<string | null>(null);\n\n  // Create a callback that updates the ref when the user makes a selection\n  const updateLastSelection = () => {\n    if (typeof window === \"undefined\") return null;\n\n    const newSelection = window.getSelection()?.toString() || null;\n\n    if (!newSelection) return null;\n\n    setSelection(newSelection);\n\n    return null;\n  };\n\n  // Add the event listener when the hook is called\n  useEffect(() => {\n    // Add the event listener to the document, so it will fire whenever the user makes a selection anywhere on the page\n    document.addEventListener(\"selectionchange\", updateLastSelection);\n\n    // Return a cleanup function that removes the event listener\n    return () => {\n      document.removeEventListener(\"selectionchange\", updateLastSelection);\n    };\n  }, []); // We only want to add the event listener once, so we pass an empty array as the second argument to useEffect\n\n  if (isDisabled) return \"\";\n  // Return the last selection\n  return selection;\n}",
+  "rawText": " (\n  isDisabled?: boolean\n): { selection: string | null; reset: () => void } => {\n  // Initialize a ref to store the last selection\n  const [selection, setSelection] = useState<string | null>(null);\n\n  // Create a callback that updates the ref when the user makes a selection\n  const updateLastSelection = () => {\n    if (typeof window === \"undefined\") return null;\n\n    const newSelection = window.getSelection()?.toString() || null;\n\n    if (!newSelection) return null;\n\n    setSelection(newSelection);\n\n    return null;\n  };\n\n  // Add the event listener when the hook is called\n  useEffect(() => {\n    // Add the event listener to the document, so it will fire whenever the user makes a selection anywhere on the page\n    document.addEventListener(\"selectionchange\", updateLastSelection);\n\n    // Return a cleanup function that removes the event listener\n    return () => {\n      document.removeEventListener(\"selectionchange\", updateLastSelection);\n    };\n  }, []); // We only want to add the event listener once, so we pass an empty array as the second argument to useEffect\n\n  if (isDisabled) {\n    return { selection: \"\", reset: () => setSelection(null) };\n  }\n  // Return the last selection\n  return { selection, reset: () => setSelection(null) };\n}",
   "name": "useLastSelection",
   "slug": "use-last-selection",
   "parameters": [
@@ -25,31 +25,60 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "string | null",
+    "rawType": "{ selection: string | null; reset: () => void; }",
     "typeDefinition": {
-      "optional": true,
-      "type": "string | null"
+      "type": "object",
+      "properties": {
+        "selection": {
+          "type": "string | null"
+        },
+        "reset": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "reset"
+      ],
+      "optional": false
     },
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": false,
+    "isObject": true,
     "isPrimitive": false,
     "isEnumLiteral": false,
     "simplifiedSchema": {
-      "properties": [],
+      "properties": [
+        {
+          "name": "selection",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "reset",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
       "type": "object"
     }
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 1124,
-    "lines": 32,
-    "bytes": 1124,
+    "characters": 1257,
+    "lines": 36,
+    "bytes": 1257,
     "bytesPerCharacter": 1,
     "charactersPerLine": 35,
-    "linesPerFile": 32,
+    "linesPerFile": 36,
     "numberOfFiles": 1
   },
-  "id": "ttngfkyttpvkuphhemfjhoas"
+  "id": "tejwpwuyvtthrjcsodgxxgnb"
 }

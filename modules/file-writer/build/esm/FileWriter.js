@@ -56,7 +56,7 @@ var saveFileContents = api.saveFileContents;
 var useGetFileContents = queries.useGetFileContents;
 export var FileWriter = function (props) {
     var _a, _b, _c;
-    var markdownModelName = props.markdownModelName, projectRelativeFilePath = props.projectRelativeFilePath, initialWriterView = props.initialWriterView, disabledMenuItems = props.disabledMenuItems;
+    var markdownModelName = props.markdownModelName, projectRelativeFilePath = props.projectRelativeFilePath, initialWriterView = props.initialWriterView, disabledMenuItems = props.disabledMenuItems, hideButtons = props.hideButtons;
     // fullPath is the project relative path
     var _d = useGetFileContents(projectRelativeFilePath), fileContentsResult = _d.data, isLoading = _d.isLoading, refetch = _d.refetch;
     var fileContents = (_a = fileContentsResult === null || fileContentsResult === void 0 ? void 0 : fileContentsResult.result) === null || _a === void 0 ? void 0 : _a.fileContents;
@@ -106,6 +106,6 @@ export var FileWriter = function (props) {
         : !((_b = fileContentsResult === null || fileContentsResult === void 0 ? void 0 : fileContentsResult.result) === null || _b === void 0 ? void 0 : _b.isSuccessful)
             ? (_c = fileContentsResult === null || fileContentsResult === void 0 ? void 0 : fileContentsResult.result) === null || _c === void 0 ? void 0 : _c.message
             : null;
-    return (React.createElement(Div, { className: "flex flex-1 flex-col h-full" }, errorMessage ? (React.createElement(P, null, errorMessage)) : (React.createElement(WriterInput, { key: projectRelativeFilePath, isLoading: isLoading, onChange: onChange, value: value, projectRelativeFilePath: projectRelativeFilePath, reload: refetch, save: save, initialWriterView: initialWriterView, isSaved: isSaved, markdownModelName: markdownModelName, disabledMenuItems: disabledMenuItems }))));
+    return (React.createElement(Div, { className: "flex flex-1 flex-col h-full" }, errorMessage ? (React.createElement(P, null, errorMessage)) : (React.createElement(WriterInput, { key: projectRelativeFilePath, isLoading: isLoading, onChange: onChange, value: value, projectRelativeFilePath: projectRelativeFilePath, reload: refetch, save: save, hideButtons: hideButtons, initialWriterView: initialWriterView, isSaved: isSaved, markdownModelName: markdownModelName, disabledMenuItems: disabledMenuItems }))));
 };
 //# sourceMappingURL=FileWriter.js.map

@@ -32,7 +32,10 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "lintProblems": []
+      "lintProblems": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/dumb/tabs/src/Tabs.tsx. Error: Error: Unknown type \"function\""
+      ]
     },
     "lastRebuildAt": 1668552402329,
     "sizeIndexed": {

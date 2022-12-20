@@ -1,0 +1,110 @@
+{
+  "createdAt": 1671495330252,
+  "updatedAt": 1671495330252,
+  "deletedAt": 0,
+  "createdFirstAt": 1671495330252,
+  "id": "categorychildobject",
+  "name": "CategoryChildObject",
+  "slug": "categorychildobject",
+  "operationRelativeTypescriptFilePath": "src/CategoryChildObject.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type CategoryChildObject = ChildObject<{\n  category?: string;\n  categoryStack: string[];\n  count: number;\n  // only leafs\n  name?: string;\n  title?: string;\n  description?: string;\n  pricing?: string;\n}>;",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "$ref": "#/definitions/ChildObject%3Cstructure-ts-94-257-ts-81-258-ts-46-259-ts-0-260%3E"
+    },
+    "simplifiedSchema": {
+      "fullComment": "",
+      "properties": [
+        {
+          "name": "category",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "categoryStack",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "count",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "name",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "title",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "description",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "pricing",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "children",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "circularRefName": "ChildObject<structure-ts-94-257-ts-81-258-ts-46-259-ts-0-260>",
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": "ChildObject<structure-ts-94-257-ts-81-258-ts-46-259-ts-0-260>"
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "CategoryChildObject",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315098335,
-  "updatedAt": 1671315098335,
+  "createdAt": 1671505973180,
+  "updatedAt": 1671505973180,
   "deletedAt": 0,
-  "createdFirstAt": 1671315098335,
+  "createdFirstAt": 1671505973180,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  const queueItems = await db.get(\"Queue\");\n\n  // 1. check how many chrome tabs are available (according to OS settings / memory limit)\n\n  // 2. check how many queue items can be executed now, and sort by importancy\n\n  // 3. take the ones that are most important and execute those\n}",
+  "value": "async () => {\n  const queueItems = await db.get(\"Queue\");\n  if (queueItems.length === 0) return;\n\n  // 1. check how many chrome tabs are available (according to OS settings / memory limit)\n  const idlePages = (await db.get(\"BrowserPage\")).filter((p) => p.isIdle);\n\n  if (idlePages.length === 0) return;\n  // 2. check how many queue items can be executed now, and sort by importancy\n  const queueItemsToExecute = queueItems.slice(0, 1); //idlePages.length);\n  // NB: limit to 1 for now to test if that works\n\n  // 3. take the ones that are most important and execute those\n  await Promise.all(\n    queueItemsToExecute.map(async (queue) => {\n      const fn = sdk[queue.functionName as keyof typeof sdk] as\n        | ((...parameters: any[]) => any)\n        | undefined;\n\n      if (!fn) return;\n\n      await fn(...queue.parameters);\n    })\n  );\n\n  const removeResult = await db.remove(\"Queue\", (item) =>\n    queueItemsToExecute.map((x) => x.id).includes(item.id)\n  );\n  console.log(`executed`, { removeResult });\n}",
   "description": "---\nrunEveryPeriod: minute\n---\n\ncron that runs every minute for executing new puppeteer queue items. It will open it as child process. You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.",
-  "id": "swmgljvdxrsdngqzawzpnmtc"
+  "id": "ismerickebccxmcbcnfaegfz"
 }

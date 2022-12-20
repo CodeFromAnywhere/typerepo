@@ -22,4 +22,5 @@ __exportStar(require("./nestedPathObjectToNestedMenu"), exports);
 __exportStar(require("./nestifyQueryPathObjectRecursive"), exports);
 __exportStar(require("./queryPathsArrayToNestedPathObject"), exports);
 __exportStar(require("./reduceQueryPathsRecursively"), exports);
+__exportStar(require("./mapChildObjectRecursive"), exports);
 //# sourceMappingURL=index.js.map

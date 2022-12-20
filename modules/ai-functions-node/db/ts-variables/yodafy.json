@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315089751,
-  "updatedAt": 1671315089751,
+  "createdAt": 1671505966005,
+  "updatedAt": 1671505966005,
   "deletedAt": 0,
-  "createdFirstAt": 1671315089751,
+  "createdFirstAt": 1671505966005,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -166,5 +166,5 @@
   },
   "value": "async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"yodafy\",\n    selectionContent,\n  });\n\n  return result;\n}",
   "description": "Let Yoda say your selection in his words",
-  "id": "yainrodyoopxxnexhjnlwzen"
+  "id": "kdoplzgaolkulhymbwtevyjw"
 }

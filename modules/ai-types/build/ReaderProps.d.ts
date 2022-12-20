@@ -1,4 +1,5 @@
 import { Frontmatter } from "matter-types";
+import { CategoryChildObject } from "./CategoryChildObject";
 import { ContextualPromptsObject } from "./ContextualPromptObject";
 import { ContextualPromptResult } from "./ContextualPromptResult";
 /**
@@ -21,6 +22,10 @@ export declare type ReaderProps = {
      */
     actualProjectRelativeFilePath?: string;
     navigation?: FolderContent[];
+    /**
+     * Should later be moved elsewhere
+     */
+    contextualPromptCategories?: CategoryChildObject;
 };
 export declare type FolderContent = {
     name: string;

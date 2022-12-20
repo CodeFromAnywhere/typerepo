@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671495816123,
+  "updatedAt": 1671495816123,
+  "deletedAt": 0,
+  "createdFirstAt": 1671495816123,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "isArrayEqual",
+  "slug": "is-array-equal",
+  "operationRelativeTypescriptFilePath": "src/isArrayEqual.ts",
+  "type": {
+    "rawType": "(a: any[], b: any[]) => boolean",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(a: any[], b: any[]): boolean => {\n  return (\n    Array.isArray(a) &&\n    Array.isArray(b) &&\n    a.length === b.length &&\n    a.every((val, index) => val === b[index])\n  );\n}",
+  "description": "",
+  "id": "nurzfkhosdirpujtrvqlcatt"
+}

@@ -1,0 +1,36 @@
+{
+  "createdAt": 1671494316864,
+  "updatedAt": 1671494316864,
+  "deletedAt": 0,
+  "createdFirstAt": 1671494316864,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/mapChildObjectRecursive.ts",
+  "commentsInside": [],
+  "rawText": " <\n  T extends { [key: string]: any },\n  U extends { [key: string]: any }\n>(\n  childObject: ChildObject<T>,\n  mapFunction: (item: ChildObject<T>) => U\n): ChildObject<U> => {\n  const newChildObject = mapFunction(childObject);\n\n  return {\n    ...newChildObject,\n    children: childObject.children?.map((child) =>\n      mapChildObjectRecursive(child, mapFunction)\n    ),\n  } as ChildObject<U>;\n}",
+  "name": "mapChildObjectRecursive",
+  "slug": "map-child-object-recursive",
+  "parameters": [],
+  "description": "maps a ChildObject and all it's children, recursively",
+  "returnType": {
+    "rawType": "{ children?: import(\"/Users/king/King/operations/tools/types/recursive-types/build/ChildObject\").ChildObject<U>[] | undefined; } & { [key: string]: any; }",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 445,
+    "lines": 16,
+    "bytes": 445,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "qqcuomfbnnvydqkjumcjnjku"
+}

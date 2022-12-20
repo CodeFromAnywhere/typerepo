@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315074104,
-  "updatedAt": 1671315074104,
+  "createdAt": 1671505948683,
+  "updatedAt": 1671505948683,
   "deletedAt": 0,
-  "createdFirstAt": 1671315074104,
+  "createdFirstAt": 1671505948683,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  functionContext: FunctionContext,\n  name: string,\n  email: string,\n  tier: \"free\" | \"indie\" | \"startup\" | \"sponsor\",\n  newsletter: \"daily\" | \"weekly\" | \"unsubscribe\",\n  message?: string\n) => {\n  const username = email.split(\"@\")[0] + Math.round(Math.random() * 999);\n\n  const password = generateId();\n\n  // only supported for now\n  const method: AuthenticationMethodMethod = \"usernamePassword\";\n\n  const addDeviceAuthResult = await addDeviceAuthenticationMethodWithContext(\n    functionContext,\n    method,\n    username,\n    password\n  );\n\n  const addDeviceEmailAuthResult =\n    await addDeviceAuthenticationMethodWithContext(\n      functionContext,\n      \"email\",\n      email\n    );\n\n  console.log({ addDeviceEmailAuthResult });\n\n  // console.log({ addDeviceAuthResult });\n  const { functionContext: newFunctionContext, authenticationMethod } =\n    addDeviceAuthResult;\n\n  if (!authenticationMethod?.isAuthenticated || !newFunctionContext) {\n    console.log(\"NOT AUTHENTICATED AFTER ADDING DEVICE\", {\n      authenticationMethod,\n      newFunctionContext,\n    });\n    return { isSuccessful: false, message: message || \"Strange\" };\n  }\n\n  const signupResult = await signupWithContext(functionContext, {\n    name,\n    slug: slugify(name),\n    amountAuthenticationMethodsRequired: 1,\n  });\n\n  const upsertResult = await db.upsert(\"GptIdeasUser\", {\n    email,\n    newsletter,\n    tier,\n  });\n\n  return {\n    isSuccessful: signupResult.isSuccessful,\n    message: signupResult.message,\n  };\n}",
   "description": "TODO: move to gptideas backend package",
-  "id": "yudyeucbhwnmxlbxgpbkjspx"
+  "id": "hrremlusyddndisikiiiljjg"
 }

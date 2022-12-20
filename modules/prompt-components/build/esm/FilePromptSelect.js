@@ -45,7 +45,7 @@ import { usePromptResultAlert } from "./usePromptResultAlert";
  */
 export var FilePromptSelect = function (props) {
     var items = props.items, contextContent = props.contextContent, context_projectRelativeFilePath = props.context_projectRelativeFilePath;
-    var contextSelection = useLastSelection();
+    var contextSelection = useLastSelection().selection;
     var showPromptAlert = usePromptResultAlert();
     var alert = useAlert();
     var selectItems = items === null || items === void 0 ? void 0 : items.map(function (prompt) {

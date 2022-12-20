@@ -22,9 +22,10 @@ export var useLastSelection = function (isDisabled) {
             document.removeEventListener("selectionchange", updateLastSelection);
         };
     }, []); // We only want to add the event listener once, so we pass an empty array as the second argument to useEffect
-    if (isDisabled)
-        return "";
+    if (isDisabled) {
+        return { selection: "", reset: function () { return setSelection(null); } };
+    }
     // Return the last selection
-    return selection;
+    return { selection: selection, reset: function () { return setSelection(null); } };
 };
 //# sourceMappingURL=useLastSelection.js.map

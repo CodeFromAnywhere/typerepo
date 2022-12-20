@@ -17,7 +17,7 @@
   },
   "name": "ai-functions-node",
   "operation": {
-    "hasGeneratedDependenciesIndexed": false,
+    "hasGeneratedDependenciesIndexed": true,
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
@@ -26,30 +26,30 @@
         "No schema/definitions found for /Users/king/King/operations/tools/ai/ai-functions-node/src/augmentMarkdown.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
       ]
     },
-    "lastRebuildAt": 1671315125575,
+    "lastRebuildAt": 1671505994708,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 20,
-        "lines": 2209,
-        "characters": 52365,
-        "bytes": 52365
+        "lines": 2280,
+        "characters": 54334,
+        "bytes": 54334
       },
       "dataSize": {
         "numberOfFiles": 3,
-        "lines": 299,
-        "characters": 7816,
-        "bytes": 7816
+        "lines": 308,
+        "characters": 7979,
+        "bytes": 7979
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 679,
-        "characters": 14007,
-        "bytes": 14007
+        "lines": 691,
+        "characters": 14674,
+        "bytes": 14674
       },
       "size": {
-        "bytes": 74188,
-        "characters": 74188,
-        "lines": 3187,
+        "bytes": 76987,
+        "characters": 76987,
+        "lines": 3279,
         "numberOfFiles": 25
       }
     },
@@ -75,10 +75,13 @@
       "slugify",
       "FileType",
       "writeToAssets",
+      "CategoryChildObject",
+      "ContextualPrompt",
       "db",
+      "isArrayEqual",
       "notEmpty",
+      "omitUndefinedValues",
       "sum",
-      "ChildObject",
       "fs",
       "path",
       "getProjectRoot",
@@ -105,6 +108,7 @@
       "FileType",
       "PromptFunction",
       "Queue",
+      "sdk",
       "fs",
       "path",
       "getProjectRoot",

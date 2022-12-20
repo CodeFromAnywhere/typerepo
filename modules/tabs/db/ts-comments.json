@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "createdAt": 1671502261843,
+    "updatedAt": 1671502261843,
+    "deletedAt": 0,
+    "createdFirstAt": 1671502261843,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/Tabs.tsx",
+    "comment": "Container for tabs",
+    "rawStatement": "export const Tabs = (props: { title?: string; tabs: TabType[] }) => {\n  const { title, tabs } = props;\n\n  const [currentTab, setCurrentTab] = useStore(\"tabs.currentTab\");\n\n  const buttons: LabeledButtonType[] = tabs.map(({ emoji, title }, index) => {\n    const isActive = currentTab === index;\n    return {\n      emoji,\n      title,\n      onClick: () => {\n        setCurrentTab(index);\n      },\n      isActive,\n    };\n  });\n\n  const activeTab = tabs.find((_, index) => currentTab === index);\n\n  return (\n    <Div className=\"flex flex-1 p-2 m-2 border rounded-xl border-gray-500\">\n      <Div className=\"flex flex-row justify-between items-center\">\n        {title ? <P className=\"text-3xl\">{title}</P> : null}\n        <Div className=\"flex flex-row gap-3\">{buttons.map(LabeledButton)}</Div>\n      </Div>\n\n      {activeTab?.renderTab()}\n    </Div>\n  );\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 11,
+    "lastLine": 11,
+    "id": "flrmmfvrfqnncyxezbmfpsjd"
+  }
+]

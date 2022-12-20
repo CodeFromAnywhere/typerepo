@@ -19,4 +19,5 @@ export * from "./removeOptionalKeysFromObject";
 export * from "./replaceLastOccurence";
 export * from "./trimSlashes";
 export * from "./types";
+export * from "./isArrayEqual";
 //# sourceMappingURL=index.d.ts.map

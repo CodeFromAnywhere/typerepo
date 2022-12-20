@@ -35,4 +35,5 @@ __exportStar(require("./removeOptionalKeysFromObject"), exports);
 __exportStar(require("./replaceLastOccurence"), exports);
 __exportStar(require("./trimSlashes"), exports);
 __exportStar(require("./types"), exports);
+__exportStar(require("./isArrayEqual"), exports);
 //# sourceMappingURL=index.js.map

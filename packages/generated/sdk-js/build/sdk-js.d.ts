@@ -217,6 +217,7 @@ export declare const sdk: {
     hasAllLetters: (a: string, b: string) => boolean;
     insertAt: <T_10>(array: T_10[], items: T_10 | T_10[], beforeIndex: number) => T_10[];
     isAllTrue: (array: boolean[]) => boolean;
+    isArrayEqual: (a: any[], b: any[]) => boolean;
     makeArray: <T_11>(...arrayOrNotArray: (T_11 | T_11[] | undefined)[]) => T_11[];
     mapAsync: <T_12, U_1>(array: T_12[], callback: (value: T_12, index: number, array: T_12[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
     mapKeys: (object: {
@@ -466,14 +467,19 @@ export declare const sdk: {
     }>(nestedObject: T_29, objectPath: string) => string[];
     getMenuPagesObject: <T_30>(flat: import("webpage-types").WebPage<T_30>[]) => import("webpage-types").MenuObjectType<T_30>;
     makeNestedObjectFromQueryPathObject: <T_31 extends import("recursive-util").QueryPathObject>(objectArray: T_31[], initialValue: import("recursive-types").NestedObject<T_31>) => import("recursive-types").NestedObject<T_31>;
-    nestedObjectToChildObject: <T_32 extends {
+    mapChildObjectRecursive: <T_32 extends {
         [key: string]: any;
-    }>(nestedObject: import("recursive-types").NestedObject<T_32>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_32>, key: string) => T_32, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_32>[];
+    }, U_7 extends {
+        [key: string]: any;
+    }>(childObject: import("recursive-types").ChildObject<T_32>, mapFunction: (item: import("recursive-types").ChildObject<T_32>) => U_7) => import("recursive-types").ChildObject<U_7>;
+    nestedObjectToChildObject: <T_33 extends {
+        [key: string]: any;
+    }>(nestedObject: import("recursive-types").NestedObject<T_33>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_33>, key: string) => T_33, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_33>[];
     nestedPathObjectToNestedMenuRecursive: (nestedPathObject: import("recursive-types").NestedPathObject | null, pathStack?: string[] | undefined, config?: {
         target?: "_blank" | undefined;
         getHref?: ((fullPath: string) => string) | undefined;
     } | undefined) => import("nested-menu-types").MenuItemType[] | undefined;
-    nestifyQueryPathObjectRecursive: <T_33 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_33[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_33>[];
+    nestifyQueryPathObjectRecursive: <T_34 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_34[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_34>[];
     queryPathsArrayToNestedPathObject: (queryPaths: string[]) => import("recursive-types").NestedPathObject;
     reduceQueryPathsRecursively: (queryPaths: string[], initialValue: import("recursive-types").NestedPathObject) => import("recursive-types").NestedPathObject;
     bodyFromQueryString: (query?: string | undefined) => import("rest-util").QueryableObject | undefined;
@@ -500,22 +506,26 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_34>(searchMessage: string, array: T_34[], getSentence?: ((x: T_34) => string) | undefined) => T_34[];
-    searchRecursiveObjectArray: <T_35 extends {
-        children?: T_35[] | undefined;
-    } & Object>(array: T_35[], baseMatcher: (item: T_35) => boolean, afterMapper?: ((item: T_35, isMatch: boolean, hasChildMatch: boolean) => T_35) | undefined) => T_35[];
+    findSentenceMatches: <T_35>(searchMessage: string, array: T_35[], getSentence?: ((x: T_35) => string) | undefined) => T_35[];
+    searchRecursiveObjectArray: <T_36 extends {
+        children?: T_36[] | undefined;
+    } & Object>(array: T_36[], baseMatcher: (item: T_36) => boolean, afterMapper?: ((item: T_36, isMatch: boolean, hasChildMatch: boolean) => T_36) | undefined) => T_36[];
     objectStringToJson: (string: string) => {
         [key: string]: import("string-to-json").JSONValue;
     };
     parseIfJson: (string: string) => any;
     parsePrimitiveJson: <TForceType extends "string" | "number" | "boolean">(value: string, forceType?: TForceType | undefined) => TForceType extends "string" ? string | null | undefined : TForceType extends "number" ? number | null | undefined : TForceType extends "boolean" ? boolean | null | undefined : string | number | boolean | null | undefined;
     stringToJson: (value: string, isObject?: boolean | undefined) => import("string-to-json").JSONValue;
+    Tabs: (props: {
+        title?: string | undefined;
+        tabs: import("tabs").TabType[];
+    }) => JSX.Element;
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_36>(text: string, logParseError?: boolean | undefined) => T_36 | null;
+    tryParseJson: <T_37>(text: string, logParseError?: boolean | undefined) => T_37 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_37 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_37, (newValue: T_37 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_38 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_38, (newValue: T_38 | undefined) => Promise<boolean>];
     crudPageToWebPages: (pageData: import("webpage-types").CrudPage) => import("webpage-types").WebPage<import("webpage-types").CrudPage>[];
     functionFormPageToWebPage: (pageData: import("webpage-types").FunctionFormPage) => import("webpage-types").WebPage<import("webpage-types").FunctionFormPage>;
 };

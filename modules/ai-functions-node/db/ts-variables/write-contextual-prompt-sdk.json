@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315112853,
-  "updatedAt": 1671315112853,
+  "createdAt": 1671505983133,
+  "updatedAt": 1671505983133,
   "deletedAt": 0,
-  "createdFirstAt": 1671315112853,
+  "createdFirstAt": 1671505983133,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const functionStrings = contextualPrompts\n    .map((contextualPrompt) => {\n      return writeCreatePromptCode(contextualPrompt);\n    })\n    .join(\"\\n\\n\\n\");\n\n  const codeString = `// this file is generated, you can edit it, but it will be re-generated based on the contextual prompts database\n\nimport { processChatGptPrompt } from \"./processChatGptPrompt\";\n\n${functionStrings}`;\n\n  return codeString;\n}",
   "description": "",
-  "id": "ajmuktqsvaeggghgxxmmvreq"
+  "id": "tkfgxczihnxevdtpktzfrfsw"
 }

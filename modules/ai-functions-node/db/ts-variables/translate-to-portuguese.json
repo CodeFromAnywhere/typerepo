@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315089754,
-  "updatedAt": 1671315089754,
+  "createdAt": 1671505966006,
+  "updatedAt": 1671505966006,
   "deletedAt": 0,
-  "createdFirstAt": 1671315089754,
+  "createdFirstAt": 1671505966006,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -166,5 +166,5 @@
   },
   "value": "async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"translate-to-portuguese\",\n    contextContent,\n  });\n\n  return result;\n}",
   "description": "",
-  "id": "amvbubsutujiqxfclkwgawnc"
+  "id": "rxtdtybiixrpcgkzuqvnxvnk"
 }

@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.checkQueue = exports.processPromptOnFolder = exports.processPromptOnFile = void 0;
+var sdk_api_1 = require("sdk-api");
 var fs_util_1 = require("fs-util");
 var get_path_1 = require("get-path");
 var processChatGptPrompt_1 = require("./processChatGptPrompt");
@@ -54,6 +55,10 @@ var processPromptOnFile = function (projectRelativeFilePath, contextualPromptSlu
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
+                console.log("called processPromptOnFile", {
+                    projectRelativeFilePath: projectRelativeFilePath,
+                    contextualPromptSlug: contextualPromptSlug,
+                });
                 projectRoot = (0, get_path_1.getProjectRoot)();
                 if (!projectRoot) {
                     return [2 /*return*/, { isSuccessful: false, message: "No projectroot" }];
@@ -138,12 +143,47 @@ exports.processPromptOnFolder = processPromptOnFolder;
 
  */
 var checkQueue = function () { return __awaiter(void 0, void 0, void 0, function () {
-    var queueItems;
+    var queueItems, idlePages, queueItemsToExecute, removeResult;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, database_1.db.get("Queue")];
             case 1:
                 queueItems = _a.sent();
+                if (queueItems.length === 0)
+                    return [2 /*return*/];
+                return [4 /*yield*/, database_1.db.get("BrowserPage")];
+            case 2:
+                idlePages = (_a.sent()).filter(function (p) { return p.isIdle; });
+                if (idlePages.length === 0)
+                    return [2 /*return*/];
+                queueItemsToExecute = queueItems.slice(0, 1);
+                // NB: limit to 1 for now to test if that works
+                // 3. take the ones that are most important and execute those
+                return [4 /*yield*/, Promise.all(queueItemsToExecute.map(function (queue) { return __awaiter(void 0, void 0, void 0, function () {
+                        var fn;
+                        return __generator(this, function (_a) {
+                            switch (_a.label) {
+                                case 0:
+                                    fn = sdk_api_1.sdk[queue.functionName];
+                                    if (!fn)
+                                        return [2 /*return*/];
+                                    return [4 /*yield*/, fn.apply(void 0, queue.parameters)];
+                                case 1:
+                                    _a.sent();
+                                    return [2 /*return*/];
+                            }
+                        });
+                    }); }))];
+            case 3:
+                // NB: limit to 1 for now to test if that works
+                // 3. take the ones that are most important and execute those
+                _a.sent();
+                return [4 /*yield*/, database_1.db.remove("Queue", function (item) {
+                        return queueItemsToExecute.map(function (x) { return x.id; }).includes(item.id);
+                    })];
+            case 4:
+                removeResult = _a.sent();
+                console.log("executed", { removeResult: removeResult });
                 return [2 /*return*/];
         }
     });

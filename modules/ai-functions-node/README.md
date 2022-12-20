@@ -220,6 +220,18 @@ cron that runs every minute for executing new puppeteer queue items. It will ope
 
 ## getContextualPromptCategories()
 
+Pretty cool stuff!
+
+I've shown a way to count all nested categories and make a child object based on that
+
+TODO:
+
+- Currently, only supports unique category names due to not checking the full stack
+- needs to be formalised, generalised
+
+Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
@@ -252,7 +264,7 @@ Calculates path where the result json index is supposed to be
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| stackCount | `StackCount` |  |,| key | string |  |
+| stackCount | `StackCount` |  |,| key | string |  |,| originalKey | string |  |,| items | `ContextualPrompt`[] |  |
 | **Output** |    |    |
 
 
@@ -505,18 +517,6 @@ Let Yoda say your selection in his words
 
 
 
-## 🔹 CategoryChildObject
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| category  | string |  |
-| count  | number |  |
-| children (optional) | array |  |
-
-
-
 ## 🔹 ProcessPromptProps
 
 Properties: 
@@ -589,6 +589,18 @@ cron that runs every minute for executing new puppeteer queue items. It will ope
 ## 📄 getCategoriesTest (exported const)
 
 ## 📄 getContextualPromptCategories (exported const)
+
+Pretty cool stuff!
+
+I've shown a way to count all nested categories and make a child object based on that
+
+TODO:
+
+- Currently, only supports unique category names due to not checking the full stack
+- needs to be formalised, generalised
+
+Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
+
 
 ## 📄 getContextualPromptResultJsonFilePath (exported const)
 

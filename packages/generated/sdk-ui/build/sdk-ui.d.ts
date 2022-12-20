@@ -489,6 +489,7 @@ export declare const sdk: {
         projectRelativeFilePath: string;
         initialWriterView?: import("writer-types").WriterViewEnum | undefined;
         disabledMenuItems?: string[] | undefined;
+        hideButtons?: boolean | undefined;
     }) => JSX.Element;
     OpenFileWriterPages: (props: {
         pagesObject: import("file-tabs").PagesObjectShape;
@@ -562,9 +563,14 @@ export declare const sdk: {
     }) => JSX.Element;
     Shareable: (props: {
         children: import("react").ReactNode;
+        description?: string | null | undefined;
+        contextFile_projectRelativeFilePath: string;
     }) => JSX.Element;
     useAllText: () => string | undefined;
-    useLastSelection: (isDisabled?: boolean | undefined) => string | null;
+    useLastSelection: (isDisabled?: boolean | undefined) => {
+        selection: string | null;
+        reset: () => void;
+    };
     useProjectRelativeScreenshot: () => {
         getImage: () => void;
         projectRelativeFilePath: string | null;

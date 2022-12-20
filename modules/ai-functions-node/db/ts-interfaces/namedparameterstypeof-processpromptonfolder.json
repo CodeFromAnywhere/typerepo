@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315095669,
-  "updatedAt": 1671315095669,
+  "createdAt": 1671505971235,
+  "updatedAt": 1671505971235,
   "deletedAt": 0,
-  "createdFirstAt": 1671315095669,
+  "createdFirstAt": 1671505971235,
   "id": "namedparameterstypeof-processpromptonfolder",
   "name": "NamedParameters<typeof processPromptOnFolder>",
   "slug": "namedparameterstypeof-processpromptonfolder",
@@ -40,7 +40,8 @@
                     "type": "string"
                   }
                 }
-              ]
+              ],
+              "description": "File extension(s) to be searched for in the folder\n\nIf not given, just finds all file extensions\n\nexension without dot"
             }
           },
           "required": [
@@ -87,6 +88,7 @@
                 "name": "extension",
                 "required": false,
                 "schema": {
+                  "fullComment": "File extension(s) to be searched for in the folder\n\nIf not given, just finds all file extensions\n\nexension without dot",
                   "properties": [],
                   "type": "object"
                 }

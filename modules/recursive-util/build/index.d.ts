@@ -6,4 +6,5 @@ export * from "./nestedPathObjectToNestedMenu";
 export * from "./nestifyQueryPathObjectRecursive";
 export * from "./queryPathsArrayToNestedPathObject";
 export * from "./reduceQueryPathsRecursively";
+export * from "./mapChildObjectRecursive";
 //# sourceMappingURL=index.d.ts.map

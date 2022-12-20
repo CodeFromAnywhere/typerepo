@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671494317043,
+  "updatedAt": 1671494317043,
+  "deletedAt": 0,
+  "createdFirstAt": 1671494317043,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "mapChildObjectRecursive",
+  "slug": "map-child-object-recursive",
+  "operationRelativeTypescriptFilePath": "src/mapChildObjectRecursive.ts",
+  "type": {
+    "rawType": "<T extends { [key: string]: any; }, U extends { [key: string]: any; }>(childObject: import(\"/Users/king/King/operations/tools/types/recursive-types/build/ChildObject\").ChildObject<T>, mapFunction: (item: import(\"/Users/king/King/operations/tools/types/recursive-types/build/ChildObject\").ChildObject<T>) => U) => import(\"/Users/king/King/operations/tools/types/recursive-types/build/ChildObject\").ChildObject<U>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<\n  T extends { [key: string]: any },\n  U extends { [key: string]: any }\n>(\n  childObject: ChildObject<T>,\n  mapFunction: (item: ChildObject<T>) => U\n): ChildObject<U> => {\n  const newChildObject = mapFunction(childObject);\n\n  return {\n    ...newChildObject,\n    children: childObject.children?.map((child) =>\n      mapChildObjectRecursive(child, mapFunction)\n    ),\n  } as ChildObject<U>;\n}",
+  "description": "maps a ChildObject and all it's children, recursively",
+  "id": "dwwsrmlelaniavgypfmakrdv"
+}

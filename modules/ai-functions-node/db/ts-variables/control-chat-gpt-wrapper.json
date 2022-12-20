@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315078319,
-  "updatedAt": 1671315078319,
+  "createdAt": 1671505951647,
+  "updatedAt": 1671505951647,
   "deletedAt": 0,
-  "createdFirstAt": 1671315078319,
+  "createdFirstAt": 1671505951647,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  prompt: string,\n  isHeadless: boolean | undefined,\n  thread: string | undefined,\n  controller: \"playwright\" | \"puppeteer\" | \"faker\"\n): Promise<ProcessPromptFunctionResult> => {\n  const result: ProcessPromptFunctionResult =\n    controller === \"playwright\"\n      ? await controlChatGpt(prompt, isHeadless)\n      : controller === \"puppeteer\"\n      ? await openAIChat({ prompt, isHeadless, thread })\n      : {\n          isSuccessful: true,\n          message: \"Done test\",\n          result: {\n            text: \"Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum\",\n            thread: \"\",\n          },\n        };\n\n  return result;\n}",
   "description": "",
-  "id": "wglvnpfybcnaujvvelvndhdj"
+  "id": "ntozcokythtbfafccelrlfwz"
 }

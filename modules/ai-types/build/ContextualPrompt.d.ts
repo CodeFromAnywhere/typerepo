@@ -51,8 +51,6 @@ export interface ContextualPrompt extends SlugModelType, ContextualPromptInfo {
     model?: LanguageModelEnum | LanguageModelEnum[];
     /**
      * Only prompt is stored (string)
-     *
-     *
      */
     promptContent: string;
     /**

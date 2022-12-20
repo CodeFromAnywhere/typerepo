@@ -578,6 +578,7 @@ export declare const sdkFunctionPaths: {
     hasAllLetters: string;
     insertAt: string;
     isAllTrue: string;
+    isArrayEqual: string;
     makeArray: string;
     mapAsync: string;
     mapItem: string;
@@ -1002,6 +1003,7 @@ export declare const sdkFunctionPaths: {
     getKeysAtPathFromNestedObject: string;
     getMenuPagesObject: string;
     makeNestedObjectFromQueryPathObject: string;
+    mapChildObjectRecursive: string;
     nestedObjectToChildObject: string;
     nestedPathObjectToNestedMenuRecursive: string;
     nestifyQueryPathObjectRecursive: string;
@@ -1096,6 +1098,7 @@ export declare const sdkFunctionPaths: {
     parsePrimitiveJson: string;
     stringToJson: string;
     SwipeHomepage: string;
+    Tabs: string;
     getChunkBegin: string;
     getChunkEnd: string;
     getEncoding: string;

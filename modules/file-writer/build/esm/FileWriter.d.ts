@@ -6,5 +6,6 @@ export declare const FileWriter: (props: {
     projectRelativeFilePath: string;
     initialWriterView?: WriterViewEnum | undefined;
     disabledMenuItems?: string[] | undefined;
+    hideButtons?: boolean | undefined;
 }) => JSX.Element;
 //# sourceMappingURL=FileWriter.d.ts.map

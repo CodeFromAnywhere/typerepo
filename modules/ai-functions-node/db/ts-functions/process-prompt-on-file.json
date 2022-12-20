@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671315097839,
-  "updatedAt": 1671315097839,
+  "createdAt": 1671505972748,
+  "updatedAt": 1671505972748,
   "deletedAt": 0,
-  "createdFirstAt": 1671315097839,
+  "createdFirstAt": 1671505972748,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
   "commentsInside": [],
-  "rawText": " async (\n  projectRelativeFilePath: string,\n  contextualPromptSlug: string\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No projectroot\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  const exists = fs.existsSync(absolutePath);\n\n  if (!exists) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const contextContent = await fs.readFile(absolutePath, \"utf8\");\n  const result = await processChatGptPrompt({\n    contextContent,\n    contextualPromptSlug,\n    isDeferred: true,\n    prompt_projectRelativePath: projectRelativeFilePath,\n  });\n\n  return result;\n}",
+  "rawText": " async (\n  projectRelativeFilePath: string,\n  contextualPromptSlug: string\n) => {\n  console.log(\"called processPromptOnFile\", {\n    projectRelativeFilePath,\n    contextualPromptSlug,\n  });\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No projectroot\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  const exists = fs.existsSync(absolutePath);\n\n  if (!exists) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const contextContent = await fs.readFile(absolutePath, \"utf8\");\n  const result = await processChatGptPrompt({\n    contextContent,\n    contextualPromptSlug,\n    isDeferred: true,\n    prompt_projectRelativePath: projectRelativeFilePath,\n  });\n\n  return result;\n}",
   "name": "processPromptOnFile",
   "slug": "process-prompt-on-file",
   "parameters": [
@@ -45,13 +45,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 1017,
-    "lines": 29,
-    "bytes": 1017,
+    "characters": 1124,
+    "lines": 33,
+    "bytes": 1124,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 35,
-    "linesPerFile": 29,
+    "charactersPerLine": 34,
+    "linesPerFile": 33,
     "numberOfFiles": 1
   },
-  "id": "czcqyobxmkooznmlqiewdkij"
+  "id": "jjvnyfseglaopoidwzyfmrjg"
 }

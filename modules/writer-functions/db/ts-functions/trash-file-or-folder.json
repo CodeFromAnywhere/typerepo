@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671101680861,
-  "updatedAt": 1671101680861,
+  "createdAt": 1671504069825,
+  "updatedAt": 1671504069825,
   "deletedAt": 0,
-  "createdFirstAt": 1671101680861,
+  "createdFirstAt": 1671504069825,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/trashFileOrFolder.ts",
   "commentsInside": [],
-  "rawText": " async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root found\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return {\n      isSuccessful: false,\n      message: \"This file or folder doesn't exist\",\n    };\n  }\n  await import(\"trash\").then((trash) => trash.default(absolutePath));\n\n  //await fs.rm(absolutePath, { recursive: true });\n\n  return { isSuccessful: true };\n}",
+  "rawText": " async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root found\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return {\n      isSuccessful: false,\n      message: \"This file or folder doesn't exist\",\n    };\n  }\n  // await import(\"trash\").then((trash) => trash.default(absolutePath));\n\n  //await fs.rm(absolutePath, { recursive: true });\n\n  return { isSuccessful: true };\n}",
   "name": "trashFileOrFolder",
   "slug": "trash-file-or-folder",
   "parameters": [
@@ -35,13 +35,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 726,
+    "characters": 729,
     "lines": 22,
-    "bytes": 726,
+    "bytes": 729,
     "bytesPerCharacter": 1,
     "charactersPerLine": 33,
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "wcjewftfsqkjkelccxslnoqa"
+  "id": "hwhbjqmrwepkhikekqruydqa"
 }

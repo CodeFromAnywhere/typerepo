@@ -59,17 +59,9 @@ var __rest = (this && this.__rest) || function (s, e) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getContextualPromptCategories = exports.getObjectForkKeyRecursively = void 0;
-/**
-Pretty cool stuff!
-
-I've shown a way to count all nested categories and make a child object based on that
-
-Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
-
-*/
 var database_1 = require("database");
 var js_util_1 = require("js-util");
-var getObjectForkKeyRecursively = function (stackCount, key) {
+var getObjectForkKeyRecursively = function (stackCount, key, originalKey, items) {
     var categoryStack = key.split(".");
     if (categoryStack.length !== 1)
         return;
@@ -89,11 +81,34 @@ var getObjectForkKeyRecursively = function (stackCount, key) {
         return __assign(__assign({}, newStackCount), (_a = {}, _a[key] = stackCount["".concat(firstCategory, ".").concat(key)], _a));
     }, {});
     //3) insert into this same function
-    var children = strippedKeys
-        .map(function (key) { return (0, exports.getObjectForkKeyRecursively)(strippedStackCount, key); })
+    var categoryChildren = strippedKeys
+        .map(function (strippedKey, index) {
+        return (0, exports.getObjectForkKeyRecursively)(strippedStackCount, strippedKey, childrenKeys[index], items);
+    })
         .filter(js_util_1.notEmpty);
+    var itemChildren = items
+        .filter(function (x) {
+        return x.categoryStack &&
+            categoryStack[categoryStack.length - 1] ===
+                x.categoryStack[x.categoryStack.length - 1];
+    })
+        .map(function (item) {
+        var categoryStack = item.categoryStack, description = item.description, name = item.name, title = item.title, pricing = item.pricing;
+        var object = (0, js_util_1.omitUndefinedValues)({
+            categoryStack: categoryStack,
+            count: 1,
+            description: description,
+            name: name,
+            title: title,
+            pricing: pricing,
+        });
+        return object;
+    });
+    //  console.log({ itemChildren, categoryStack });
+    var children = categoryChildren.concat(itemChildren);
     var object = {
         category: firstCategory,
+        categoryStack: categoryStack,
         count: stackCount[firstCategory],
     };
     if (children.length)
@@ -101,6 +116,20 @@ var getObjectForkKeyRecursively = function (stackCount, key) {
     return object;
 };
 exports.getObjectForkKeyRecursively = getObjectForkKeyRecursively;
+/**
+Pretty cool stuff!
+
+I've shown a way to count all nested categories and make a child object based on that
+
+TODO:
+
+- Currently, only supports unique category names due to not checking the full stack
+- needs to be formalised, generalised
+
+Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
+
+
+*/
 var getContextualPromptCategories = function () { return __awaiter(void 0, void 0, void 0, function () {
     var contextualPrompts, stackCount, __root, stackCountWithoutRoot, categories, rootCategoryChildObject;
     return __generator(this, function (_a) {
@@ -128,10 +157,13 @@ var getContextualPromptCategories = function () { return __awaiter(void 0, void 
                 }, {});
                 __root = stackCount.__root, stackCountWithoutRoot = __rest(stackCount, ["__root"]);
                 categories = Object.keys(stackCountWithoutRoot)
-                    .map(function (key) { return (0, exports.getObjectForkKeyRecursively)(stackCount, key); })
+                    .map(function (key) {
+                    return (0, exports.getObjectForkKeyRecursively)(stackCount, key, key, contextualPrompts);
+                })
                     .filter(js_util_1.notEmpty);
                 rootCategoryChildObject = {
                     category: "root",
+                    categoryStack: [],
                     count: __root + (0, js_util_1.sum)(categories.map(function (x) { return x.count; })),
                     children: categories,
                 };

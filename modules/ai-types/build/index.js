@@ -24,4 +24,5 @@ __exportStar(require("./ProcessPromptFunctionResult"), exports);
 __exportStar(require("./PromptFunction"), exports);
 __exportStar(require("./ReaderProps"), exports);
 __exportStar(require("./fileTypePerExtension"), exports);
+__exportStar(require("./CategoryChildObject"), exports);
 //# sourceMappingURL=index.js.map

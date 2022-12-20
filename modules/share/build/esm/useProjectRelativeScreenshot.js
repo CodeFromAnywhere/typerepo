@@ -15,7 +15,21 @@ export var useProjectRelativeScreenshot = function () {
     useEffect(function () {
         if (!image)
             return;
-        console.log("got a blob I think", image);
+        console.log("got a base64 url I think", image);
+        /*
+    
+    TODO:
+    
+    Convert base64 url to blob (I also did that for one of the asset inputs, I think)
+    
+    Extrahere `sendBlob` from `AssetInput` so I can upload the base64 generated blob programatically instead of with that component.
+    
+    Process the resulting temporaryUrl immediately using `api.processAssetUpload`, which will result in a file in the file system at my preferred `projectRelativeReferencingFilePath` destination.
+    
+    */
+        //const asset:Asset = {};
+        // const assets = []
+        // api.processAssetUpload(assets)
         setProjectRelativeFilePath("jajajaj");
     }, [image]);
     return { getImage: getImage, projectRelativeFilePath: projectRelativeFilePath, ref: ref };

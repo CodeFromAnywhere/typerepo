@@ -33,7 +33,7 @@ var Tabs = function (props) {
         };
     });
     var activeTab = tabs.find(function (_, index) { return currentTab === index; });
-    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "p-2 m-2 border rounded-xl border-gray-500" }, { children: [(0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "flex flex-row justify-between items-center" }, { children: [title ? (0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "text-3xl" }, { children: title })) : null, (0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ className: "flex flex-row gap-3" }, { children: buttons.map(labeled_button_1.LabeledButton) }))] })), activeTab === null || activeTab === void 0 ? void 0 : activeTab.renderTab()] })));
+    return ((0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "flex flex-col flex-1 p-2 m-2 rounded-xl" }, { children: [(0, jsx_runtime_1.jsxs)(react_with_native_1.Div, __assign({ className: "flex flex-row justify-between items-center" }, { children: [title ? (0, jsx_runtime_1.jsx)(react_with_native_1.P, __assign({ className: "text-3xl" }, { children: title })) : null, (0, jsx_runtime_1.jsx)(react_with_native_1.Div, __assign({ className: "flex flex-row gap-3" }, { children: buttons.map(labeled_button_1.LabeledButton) }))] })), activeTab === null || activeTab === void 0 ? void 0 : activeTab.renderTab()] })));
 };
 exports.Tabs = Tabs;
 //# sourceMappingURL=Tabs.js.map
