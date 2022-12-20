@@ -150,7 +150,7 @@
   "addStatement": {
     "name": "addStatement",
     "slug": "TsFunction",
-    "id": "pfgevbzdtgxfdwplbmbutlui",
+    "id": "invrybcgdwzlyewaxyytzgwy",
     "description": "Adds `Statement`",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  /**\n   * MUST be an english statement\n   */\n  statement: string,\n  /**\n   * defaults to 0.5\n   */\n  importancy?: number,\n  /**\n   * defaults to 1\n   */\n  agreement?: number\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  if (importancy !== undefined && (importancy < 0 || importancy > 1)) {\n    return {\n      isSuccessful: false,\n      message: \"Importancy, when filled in, must be between [0,1]\",\n    };\n  }\n  if (agreement !== undefined && (agreement < 0 || agreement > 1)) {\n    return {\n      isSuccessful: false,\n      message: \"Agreement, when filled in, must be between [0,1]\",\n    };\n  }\n\n  const newStatement: Creation<Statement> = {\n    description: statement,\n    importancy: importancy === undefined ? 0.5 : importancy,\n    agreement: agreement === undefined ? 1 : agreement,\n  };\n\n  const upsertResult = await db.upsert(\"Statement\", newStatement, {\n    onlyInsert: true,\n  });\n\n  return {\n    isSuccessful: upsertResult?.isSuccesful || false,\n    message: upsertResult?.isSuccesful\n      ? \"Statement added\"\n      : upsertResult?.message,\n  };\n}"
@@ -158,7 +158,7 @@
   "addWord": {
     "name": "addWord",
     "slug": "TsFunction",
-    "id": "twzrfxdzqxbzyvymphdcypar",
+    "id": "qiwbqcvktkseehnfwrprgpeu",
     "description": "Adds word either to the WordMatrix or to the WordCombination database model",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  /**\n   * MUST be an english word or word combination written in the latin alphabet\n   */\n  word: string,\n  description?: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  // if the word is a combination of multiple words (e.g. large-language-model is large +language + model), it should be added as a word combination with a description\n  // const wordMatrixs = await db.get(\"WordMatrix\");\n  // potentially we should check here if the word already exists or if the word combination already exists, but this is not required as long as we use `.onlyInsert: true`\n  const parts = lowerCaseArray(word);\n\n  if (parts.length > 1) {\n    const newWordCombination: Creation<WordCombination> = {\n      name: kebabCase(word),\n      description: description || \"\",\n      wordMatrixSlugs: parts,\n    };\n\n    const upsertResult = await db.upsert(\n      \"WordCombination\",\n      newWordCombination,\n      { onlyInsert: true }\n    );\n\n    return {\n      isSuccessful: upsertResult?.isSuccesful || false,\n      message: upsertResult?.isSuccesful\n        ? \"Added word combination\"\n        : upsertResult?.message,\n    };\n  }\n\n  const name = parts[0];\n\n  const newWord: Creation<WordMatrix> = {\n    name,\n    description,\n    english: { latin: name },\n  };\n\n  const upsertResult = await db.upsert(\"WordMatrix\", newWord, {\n    onlyInsert: true,\n  });\n\n  return {\n    isSuccessful: upsertResult?.isSuccesful || false,\n    message: upsertResult?.isSuccesful ? \"Added word\" : upsertResult?.message,\n  };\n}"
@@ -166,7 +166,7 @@
   "biggestFunctionName": {
     "name": "biggestFunctionName",
     "slug": "TsFunction",
-    "id": "ltkcivwjjweuytirlpvjqfgg",
+    "id": "ftubgctkonrtveskstdsblkl",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"biggest-function-name\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -174,15 +174,15 @@
   "checkQueue": {
     "name": "checkQueue",
     "slug": "TsFunction",
-    "id": "qyksjxeopukkwhfudxirdiht",
+    "id": "kgxhsvytdfqajjvftazynhho",
     "description": "---\nrunEveryPeriod: minute\n---\n\ncron that runs every minute for executing new puppeteer queue items. It will open it as child process. You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.",
     "operationName": "ai-functions-node",
-    "rawText": " async () => {\n  const queueItems = await db.get(\"Queue\");\n  if (queueItems.length === 0) return;\n\n  // 1. check how many chrome tabs are available (according to OS settings / memory limit)\n  const idlePages = (await db.get(\"BrowserPage\")).filter((p) => p.isIdle);\n\n  if (idlePages.length === 0) return;\n  // 2. check how many queue items can be executed now, and sort by importancy\n  const queueItemsToExecute = queueItems.slice(0, 1); //idlePages.length);\n\n  // 3. take the ones that are most important and execute those\n  await Promise.all(\n    queueItemsToExecute.map(async (queue) => {\n      const fn = sdk[queue.functionName as keyof typeof sdk] as\n        | ((...parameters: any[]) => any)\n        | undefined;\n\n      if (!fn) return;\n\n      await fn(...queue.parameters);\n    })\n  );\n\n  const removeResult = await db.remove(\"Queue\", (item) =>\n    queueItemsToExecute.map((x) => x.id).includes(item.id)\n  );\n  console.log(`executed`, { removeResult });\n}"
+    "rawText": " async () => {\n  const queueItems = await db.get(\"Queue\");\n  if (queueItems.length === 0) return;\n\n  // 1. check how many chrome tabs are available (according to OS settings / memory limit)\n  const idlePages = (await db.get(\"BrowserPage\")).filter((p) => p.isIdle);\n\n  if (idlePages.length === 0) return;\n  // 2. check how many queue items can be executed now, and sort by importancy\n  const queueItemsToExecute = queueItems.slice(0, 1); //idlePages.length);\n  // NB: limit to 1 for now to test if that works\n\n  // 3. take the ones that are most important and execute those\n  await Promise.all(\n    queueItemsToExecute.map(async (queue) => {\n      const fn = sdk[queue.functionName as keyof typeof sdk] as\n        | ((...parameters: any[]) => any)\n        | undefined;\n\n      if (!fn) return;\n\n      await fn(...queue.parameters);\n    })\n  );\n\n  const removeResult = await db.remove(\"Queue\", (item) =>\n    queueItemsToExecute.map((x) => x.id).includes(item.id)\n  );\n  console.log(`executed`, { removeResult });\n}"
   },
   "cleanup": {
     "name": "cleanup",
     "slug": "TsFunction",
-    "id": "clavbogdogiyogzufcbhamlx",
+    "id": "rxdzhqbvreihdknvlyjcfkvt",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"cleanup\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -190,7 +190,7 @@
   "controlChatGptCli": {
     "name": "controlChatGptCli",
     "slug": "TsFunction",
-    "id": "vmhaggyatpsqlfiwdimqddrn",
+    "id": "ezpbgqodvvtsorepynnyeybu",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async () => {\n  const promptArray = process.argv.slice(2);\n  const noHeadless = promptArray[0] === \"show\";\n  const prompt = noHeadless\n    ? promptArray.slice(1).join(\" \")\n    : promptArray.join(\" \");\n  console.log({ noHeadless, prompt });\n  const result = await controlChatGpt(prompt, noHeadless);\n  console.log({ result });\n  return;\n}"
@@ -198,7 +198,7 @@
   "controlChatGptWrapper": {
     "name": "controlChatGptWrapper",
     "slug": "TsFunction",
-    "id": "fvkflgbcowvoguoheeqnpyol",
+    "id": "aakdlhjazamvqxwjiyekhvvp",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  prompt: string,\n  isHeadless: boolean | undefined,\n  thread: string | undefined,\n  controller: \"playwright\" | \"puppeteer\" | \"faker\"\n): Promise<ProcessPromptFunctionResult> => {\n  const result: ProcessPromptFunctionResult =\n    controller === \"playwright\"\n      ? await controlChatGpt(prompt, isHeadless)\n      : controller === \"puppeteer\"\n      ? await openAIChat({ prompt, isHeadless, thread })\n      : {\n          isSuccessful: true,\n          message: \"Done test\",\n          result: {\n            text: \"Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum\",\n            thread: \"\",\n          },\n        };\n\n  return result;\n}"
@@ -206,7 +206,7 @@
   "controlChatGpt": {
     "name": "controlChatGpt",
     "slug": "TsFunction",
-    "id": "fcpynsvsasdpcfogquzpgumx",
+    "id": "euykjyqywlmwxwwtwzuzusxl",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  prompt: string,\n  headless?: boolean\n): Promise<ProcessPromptFunctionResult> => {\n  const api = new ChatGPTAPI({ headless });\n  // open chromium and wait until you've logged in\n  await api.init({ auth: \"blocking\" });\n  // send a message and wait for the response\n  const response = await api.sendMessage(prompt);\n  api.close();\n  return {\n    isSuccessful: true,\n    message: \"Done\",\n    result: { thread: \"\", text: response },\n  };\n}"
@@ -214,7 +214,7 @@
   "convertTo1337speak": {
     "name": "convertTo1337speak",
     "slug": "TsFunction",
-    "id": "gpghlsgowkxkxhtttywbqjqa",
+    "id": "qapuglyvureqaijfmucrvxuo",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"convert-to-1337speak\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -222,7 +222,7 @@
   "deletePromptResult": {
     "name": "deletePromptResult",
     "slug": "TsFunction",
-    "id": "fdvbrdmkzieygfkimwnrctzr",
+    "id": "tdzksxrlaserrfpmeeweczwv",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  projectRelativePath: string,\n  id: string\n) => {\n  const resultPath = await getContextualPromptResultJsonFilePath(\n    projectRelativePath\n  );\n\n  if (!resultPath) return { isSuccessful: false };\n\n  const result = await alterJsonMultiple(\n    {\n      absolutePath: resultPath,\n      modelName: \"ContextualPromptResult\",\n      projectRelativePath: resultPath,\n      operationName: \"\",\n    },\n    (old) => {\n      return {\n        newStoredData: old.filter((item) => (item.id === id ? false : true)),\n        amountRemoved: 1,\n      };\n    }\n  );\n\n  return { isSuccessful: result.amountRemoved === 1 };\n}"
@@ -230,7 +230,7 @@
   "developersQuote": {
     "name": "developersQuote",
     "slug": "TsFunction",
-    "id": "ibfcoxbmrjerpqkrgxywazfs",
+    "id": "aqdaebizsivpyahoqrsfwiij",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"developers-quote\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -238,7 +238,7 @@
   "diaryToInstagram": {
     "name": "diaryToInstagram",
     "slug": "TsFunction",
-    "id": "jjmdkyqydmwpjkxyscknfgkl",
+    "id": "jlddnbcwolhtzlworchvfcoz",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"diary-to-instagram\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -246,7 +246,7 @@
   "documentationWriting": {
     "name": "documentationWriting",
     "slug": "TsFunction",
-    "id": "qjazqmdskazmgycpwtbdfzis",
+    "id": "xytextlehrqcqdmebevpngzd",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"documentation-writing\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -254,7 +254,7 @@
   "emojiAugmentation": {
     "name": "emojiAugmentation",
     "slug": "TsFunction",
-    "id": "scdtttkwkcxziauevisdivnh",
+    "id": "ykkrbdbijyzvaikycsuepmht",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"emoji-augmentation\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -262,7 +262,7 @@
   "explainInDutch": {
     "name": "explainInDutch",
     "slug": "TsFunction",
-    "id": "wcpwphmpqsapdlawgjzyfavy",
+    "id": "qarqgyaqcqgeksyvdmamtgdq",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"explain-in-dutch\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -270,7 +270,7 @@
   "explainInNepali": {
     "name": "explainInNepali",
     "slug": "TsFunction",
-    "id": "vcjvxbkbprslivhethryvgbh",
+    "id": "vwsuqjqfqoxtxrxcitbteacv",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"explain-in-nepali\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -278,7 +278,7 @@
   "explainInPortuguese": {
     "name": "explainInPortuguese",
     "slug": "TsFunction",
-    "id": "kwthmsfrtfaewcvrfhpkvmtt",
+    "id": "xbjzokgrpaxmclvbngokwzvh",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"explain-in-portuguese\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -286,7 +286,7 @@
   "explain": {
     "name": "explain",
     "slug": "TsFunction",
-    "id": "cjhdoaawzuzdxoccizsbpsxf",
+    "id": "etsbhcyrzqfincxjqyhawtxd",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"explain\",\n    contextContent,\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -294,7 +294,7 @@
   "fixGrammarAndSpellingMistakes": {
     "name": "fixGrammarAndSpellingMistakes",
     "slug": "TsFunction",
-    "id": "lghaoshgcavptngjatxgfrhr",
+    "id": "whisnmslchuwryhwjcmjlltr",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"fix-grammar-and-spelling-mistakes\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -302,7 +302,7 @@
   "getCategoriesTest": {
     "name": "getCategoriesTest",
     "slug": "TsFunction",
-    "id": "fsgpodtsvpjwgtpzkxlghczn",
+    "id": "edbawbhzobglwbtjpznieeur",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async () => {\n  const result = await getContextualPromptCategories();\n\n  writeToAssets(__filename, result, \"contextual-prompt-categories.json\");\n}"
@@ -310,7 +310,7 @@
   "getContextualPromptCategories": {
     "name": "getContextualPromptCategories",
     "slug": "TsFunction",
-    "id": "mekzvilzmucoczvpztisjroz",
+    "id": "idrrxleoehdlzmvqtivzhvso",
     "description": "Pretty cool stuff!\n\nI've shown a way to count all nested categories and make a child object based on that\n\nTODO:\n\n- Currently, only supports unique category names due to not checking the full stack\n- needs to be formalised, generalised\n\nAnother, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.",
     "operationName": "ai-functions-node",
     "rawText": " async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const stackCount = contextualPrompts.reduce((stackCount, current) => {\n    // get the stack for this contextualPrompt\n    const stack: string[] | undefined = current.categoryStack;\n\n    if (!stack || stack.length === 0) {\n      const already = stackCount.__root;\n      return {\n        ...stackCount,\n        __root: already ? already + 1 : 1,\n      };\n    }\n\n    const everyStackPart: string[] = stack.map((_, index, array) => {\n      const stackUntilHere = array.slice(0, index + 1).join(\".\");\n      return stackUntilHere;\n    });\n\n    const newStackCount = everyStackPart.reduce((stackCount, stackPart) => {\n      const already = stackCount[stackPart];\n      return {\n        ...stackCount,\n        [stackPart]: already ? already + 1 : 1,\n      };\n    }, stackCount);\n\n    return newStackCount;\n  }, {} as StackCount);\n\n  // now, let's make a childObject out of that\n\n  const { __root, ...stackCountWithoutRoot } = stackCount;\n\n  const categories = Object.keys(stackCountWithoutRoot)\n    .map((key) =>\n      getObjectForkKeyRecursively(stackCount, key, key, contextualPrompts)\n    )\n    .filter(notEmpty);\n\n  const rootCategoryChildObject: CategoryChildObject = {\n    category: \"root\",\n    categoryStack: [],\n    count: __root + sum(categories.map((x) => x.count)),\n    children: categories,\n  };\n\n  return rootCategoryChildObject;\n}"
@@ -318,7 +318,7 @@
   "getContextualPromptResultJsonFilePath": {
     "name": "getContextualPromptResultJsonFilePath",
     "slug": "TsFunction",
-    "id": "besixupepaazryikghcdedto",
+    "id": "ohvyjhmwgmovyxjyfwbhrbbj",
     "description": "Calculates path where the result json index is supposed to be",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  projectRelativePath?: string\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const prompt_absolutePath = projectRelativePath\n    ? path.join(projectRoot, projectRelativePath)\n    : undefined;\n\n  const exists = prompt_absolutePath\n    ? fs.existsSync(prompt_absolutePath)\n    : undefined;\n\n  const stats =\n    exists && prompt_absolutePath\n      ? await fs.stat(prompt_absolutePath)\n      : undefined;\n  const isFolder = stats ? stats.isDirectory() : false;\n  const isFile = stats ? stats.isFile() : false;\n  const pathParse = prompt_absolutePath\n    ? path.parse(prompt_absolutePath)\n    : undefined;\n\n  const contextualPromptResultsJsonPath =\n    pathParse && isFile\n      ? path.join(\n          pathParse.dir,\n          \".index\",\n          pathParse.name,\n          \"prompt-results.json\"\n        )\n      : isFolder && prompt_absolutePath\n      ? path.join(prompt_absolutePath, \".index\", \"prompt-results.json\")\n      : undefined;\n\n  return contextualPromptResultsJsonPath;\n}"
@@ -326,7 +326,7 @@
   "getContextualPrompt": {
     "name": "getContextualPrompt",
     "slug": "TsFunction",
-    "id": "lfkndohctighxsvvdzifqyfb",
+    "id": "bdqejfonfroxqigrfzozxtly",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextualPromptSlug: string | undefined,\n  customPromptContent: string | undefined,\n  saveNewPromptWithName: string | null,\n  contextType: FileType | undefined\n): Promise<(Creation<ContextualPrompt> & { slug: string }) | undefined> => {\n  if (contextualPromptSlug) {\n    const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n    const contextualPrompt = contextualPrompts.find(\n      (x) => x.slug === contextualPromptSlug\n    );\n\n    if (!contextualPrompt) {\n      return undefined;\n    }\n\n    return contextualPrompt;\n  }\n\n  if (!customPromptContent || customPromptContent.length === 0) {\n    return undefined;\n  }\n\n  const isNew = saveNewPromptWithName && saveNewPromptWithName.length > 0;\n\n  // console.log({ saveNewPromptWithName, isNew });\n  const name = isNew ? saveNewPromptWithName : generateId();\n  const newContextualPrompt: Creation<ContextualPrompt> & { slug: string } = {\n    name,\n    slug: slugify(name),\n    promptContent: customPromptContent,\n    contextType: [contextType || \"text\"],\n    model: \"chat-gpt\",\n    usesContext: customPromptContent?.includes(\"%context\"),\n    usesSelection: customPromptContent?.includes(\"%selection\"),\n    usesAnyContext: customPromptContent?.includes(\"%any\"),\n  };\n\n  if (isNew) {\n    await db.upsert(\"ContextualPrompt\", newContextualPrompt);\n  }\n\n  return newContextualPrompt;\n}"
@@ -334,7 +334,7 @@
   "getObjectForkKeyRecursively": {
     "name": "getObjectForkKeyRecursively",
     "slug": "TsFunction",
-    "id": "aylgtwtqtwdkmiirnskdtdtz",
+    "id": "hcukkkfwkacjdbkjkrcohgir",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " (\n  stackCount: StackCount,\n  key: string,\n  originalKey: string,\n  items: ContextualPrompt[]\n): CategoryChildObject | undefined => {\n  const categoryStack = key.split(\".\");\n\n  if (categoryStack.length !== 1) return;\n\n  const firstCategory = categoryStack[0];\n\n  //get all children:\n\n  //1) find all keys that start with firstCategory\n  const childrenKeys = Object.keys(stackCount).filter((key) =>\n    key.startsWith(`${firstCategory}.`)\n  );\n\n  //2) remove the firstCategory from the keys\n  const strippedKeys = childrenKeys.map((key) =>\n    key.replace(`${firstCategory}.`, \"\")\n  );\n\n  // create strippedStackCount\n  const strippedStackCount = strippedKeys.reduce((newStackCount, key) => {\n    return { ...newStackCount, [key]: stackCount[`${firstCategory}.${key}`] };\n  }, {} as StackCount);\n\n  //3) insert into this same function\n  const categoryChildren = strippedKeys\n    .map((strippedKey, index) =>\n      getObjectForkKeyRecursively(\n        strippedStackCount,\n        strippedKey,\n        childrenKeys[index],\n        items\n      )\n    )\n    .filter(notEmpty);\n\n  const itemChildren = items\n    .filter(\n      (x) =>\n        x.categoryStack &&\n        categoryStack[categoryStack.length - 1] ===\n          x.categoryStack[x.categoryStack.length - 1]\n    )\n    .map((item) => {\n      const { categoryStack, description, name, title, pricing } = item;\n      const object: CategoryChildObject = omitUndefinedValues({\n        categoryStack: categoryStack!,\n        count: 1,\n        description,\n        name,\n        title,\n        pricing,\n      });\n      return object;\n    });\n\n  //  console.log({ itemChildren, categoryStack });\n\n  const children = categoryChildren.concat(itemChildren);\n\n  const object: CategoryChildObject = {\n    category: firstCategory,\n    categoryStack,\n    count: stackCount[firstCategory],\n  };\n\n  if (children.length) object.children = children;\n\n  return object;\n}"
@@ -342,7 +342,7 @@
   "gptIdeasRegisterWithContext": {
     "name": "gptIdeasRegisterWithContext",
     "slug": "TsFunction",
-    "id": "idsziifajehvqwkmgrdemzdx",
+    "id": "nvfxfzqxepamtztvsivigrvp",
     "description": "TODO: move to gptideas backend package",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  functionContext: FunctionContext,\n  name: string,\n  email: string,\n  tier: \"free\" | \"indie\" | \"startup\" | \"sponsor\",\n  newsletter: \"daily\" | \"weekly\" | \"unsubscribe\",\n  message?: string\n) => {\n  const username = email.split(\"@\")[0] + Math.round(Math.random() * 999);\n\n  const password = generateId();\n\n  // only supported for now\n  const method: AuthenticationMethodMethod = \"usernamePassword\";\n\n  const addDeviceAuthResult = await addDeviceAuthenticationMethodWithContext(\n    functionContext,\n    method,\n    username,\n    password\n  );\n\n  const addDeviceEmailAuthResult =\n    await addDeviceAuthenticationMethodWithContext(\n      functionContext,\n      \"email\",\n      email\n    );\n\n  console.log({ addDeviceEmailAuthResult });\n\n  // console.log({ addDeviceAuthResult });\n  const { functionContext: newFunctionContext, authenticationMethod } =\n    addDeviceAuthResult;\n\n  if (!authenticationMethod?.isAuthenticated || !newFunctionContext) {\n    console.log(\"NOT AUTHENTICATED AFTER ADDING DEVICE\", {\n      authenticationMethod,\n      newFunctionContext,\n    });\n    return { isSuccessful: false, message: message || \"Strange\" };\n  }\n\n  const signupResult = await signupWithContext(functionContext, {\n    name,\n    slug: slugify(name),\n    amountAuthenticationMethodsRequired: 1,\n  });\n\n  const upsertResult = await db.upsert(\"GptIdeasUser\", {\n    email,\n    newsletter,\n    tier,\n  });\n\n  return {\n    isSuccessful: signupResult.isSuccessful,\n    message: signupResult.message,\n  };\n}"
@@ -350,7 +350,7 @@
   "haiku": {
     "name": "haiku",
     "slug": "TsFunction",
-    "id": "wszbneqtobutqpdployzqlxz",
+    "id": "ubmpmfyleefhvcbrxxzsbjbo",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"haiku\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -358,7 +358,7 @@
   "improveCode": {
     "name": "improveCode",
     "slug": "TsFunction",
-    "id": "knveejybqpwyaebebuivaaiz",
+    "id": "imzhtfkouublpbpdyeborurt",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"improve-code\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -366,7 +366,7 @@
   "keywords": {
     "name": "keywords",
     "slug": "TsFunction",
-    "id": "fzzwaugbvdwpbzmydudetbex",
+    "id": "pecijpwrscnfkvyhqwadcbfr",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"keywords\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -374,7 +374,7 @@
   "marcusAurelius": {
     "name": "marcusAurelius",
     "slug": "TsFunction",
-    "id": "admonbisneyhvlpqofviluzp",
+    "id": "cegyfgwduzxqwqsjgmzbjnui",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"marcus-aurelius\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -382,7 +382,7 @@
   "poem": {
     "name": "poem",
     "slug": "TsFunction",
-    "id": "zmwknziewmepljcuobngqgct",
+    "id": "xhvslswoixbuzdgowdxndezv",
     "description": "Write a poem",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"poem\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -390,7 +390,7 @@
   "processChatGptPrompt": {
     "name": "processChatGptPrompt",
     "slug": "TsFunction",
-    "id": "ubuisgbjzyqpvsbnythhpupq",
+    "id": "duztsrpzjllorzqudduthmjx",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  config: ProcessPromptProps\n): Promise<ProcessPromptFunctionResult> => {\n  const {\n    contextContent,\n    contextualPromptSlug,\n    customPromptContent,\n    saveNewPromptWithName,\n    prompt_projectRelativePath,\n    selectionContent,\n    isHeadless,\n    isDeferred,\n    thread,\n  } = config;\n\n  const extension = prompt_projectRelativePath\n    ? path.parse(prompt_projectRelativePath).ext.slice(1)\n    : undefined;\n\n  const contextType = fileTypePerExtension[\n    extension as keyof typeof fileTypePerExtension\n  ] as FileType | undefined;\n\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return { isSuccessful: false, message: \"no projectroot\" };\n  const prompt_absolutePath = prompt_projectRelativePath\n    ? path.join(projectRoot, prompt_projectRelativePath)\n    : undefined;\n\n  const exists = prompt_absolutePath\n    ? fs.existsSync(prompt_absolutePath)\n    : undefined;\n\n  if (prompt_absolutePath && !exists) {\n    return {\n      isSuccessful: false,\n      message: `You gave a path that doesn't exist:${prompt_absolutePath}`,\n    };\n  }\n\n  const contextualPrompt = await getContextualPrompt(\n    contextualPromptSlug,\n    customPromptContent,\n    saveNewPromptWithName || null,\n    contextType\n  );\n  if (!contextualPrompt) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't create or find a contextual prompt\",\n    };\n  }\n\n  /**\nensure `%context, %selection, %comment` are all valid variables in the prompt\n\nTODO: replace this with javascrpit-alike syntax (e.g. ${variableName})\n*/\n\n  const finalPrompt = { ...contextualPrompt }.promptContent\n    .replaceAll(\"%context\", contextContent || \"\")\n    .replaceAll(\"%selection\", selectionContent || \"\")\n    .replaceAll(\"%any\", selectionContent || contextContent || \"\");\n\n  /**\n   * Disable this for now\n   */\n  const useChatGpt = true;\n\n  /**\nsend it to the processor, which sends response back after a few seconds\n*/\n  const promiseResult = controlChatGptWrapper(\n    finalPrompt,\n    isHeadless,\n    thread,\n    \"puppeteer\"\n  ).then(async (promptFunctionResult) => {\n    const newResult: Storing<ContextualPromptResult> = {\n      createdAt: Date.now(),\n      updatedAt: Date.now(),\n      createdFirstAt: Date.now(),\n      deletedAt: 0,\n      id: generateId(),\n      resultAssets: [],\n      resultText: promptFunctionResult.result?.text,\n      prompt: finalPrompt,\n      selectionString: selectionContent || undefined,\n      prompt_projectRelativePath,\n      thread: promptFunctionResult.result?.thread,\n      contextualPromptSlug: contextualPrompt.slug,\n      isFake: !useChatGpt,\n    };\n\n    // NB: insert into .index\n\n    const contextualPromptResultsJsonPath =\n      await getContextualPromptResultJsonFilePath(prompt_projectRelativePath);\n\n    const upsertResult = contextualPromptResultsJsonPath\n      ? await alterJsonMultiple(\n          {\n            absolutePath: contextualPromptResultsJsonPath,\n            modelName: \"ContextualPromptResult\",\n            operationName: null,\n            projectRelativePath: makeRelative(\n              contextualPromptResultsJsonPath,\n              projectRoot\n            ),\n          },\n          (storedData) => {\n            const result = upsert(storedData, newResult);\n            return result;\n          }\n        )\n      : undefined;\n\n    return {\n      upsertResult,\n      promptFunctionResult: promptFunctionResult?.result,\n    };\n  });\n\n  const processPromptFunctionResult = isDeferred\n    ? undefined\n    : await promiseResult;\n\n  const result =\n    isDeferred || !processPromptFunctionResult\n      ? undefined\n      : processPromptFunctionResult.promptFunctionResult;\n\n  return {\n    isSuccessful: isDeferred ? true : !!result?.text || false,\n    message: isDeferred\n      ? \"Prompt is now being executed\"\n      : processPromptFunctionResult?.upsertResult?.message || \"WentWrong\",\n    result,\n  };\n}"
@@ -398,7 +398,7 @@
   "processPromptOnFile": {
     "name": "processPromptOnFile",
     "slug": "TsFunction",
-    "id": "opcjsifukrfqhcmauaafofld",
+    "id": "jjvnyfseglaopoidwzyfmrjg",
     "description": "function `processPromptOnFile` to execute `processChatGptPrompt` for a file, so we don't need to store the whole file content and it can be executed later and still have the most recent file contents\n\nIn order to keep the file itself as a source of truth for its content, it's useful to have this because you can add this to the queue",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  projectRelativeFilePath: string,\n  contextualPromptSlug: string\n) => {\n  console.log(\"called processPromptOnFile\", {\n    projectRelativeFilePath,\n    contextualPromptSlug,\n  });\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No projectroot\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  const exists = fs.existsSync(absolutePath);\n\n  if (!exists) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const contextContent = await fs.readFile(absolutePath, \"utf8\");\n  const result = await processChatGptPrompt({\n    contextContent,\n    contextualPromptSlug,\n    isDeferred: true,\n    prompt_projectRelativePath: projectRelativeFilePath,\n  });\n\n  return result;\n}"
@@ -406,7 +406,7 @@
   "processPromptOnFolder": {
     "name": "processPromptOnFolder",
     "slug": "TsFunction",
-    "id": "fwhrckmcvtxjsgrvqxvqtzwm",
+    "id": "mskftqzpcqdxjytiaaiiktgz",
     "description": "function that can execute `processPromptOnFile` for all files in a folder, by just upserting the executions to the queue.",
     "operationName": "ai-functions-node",
     "rawText": " async (config: {\n  projectRelativeFolderPath: string;\n  promptSlug: string;\n  isRecursive?: boolean;\n  /**\n   * File extension(s) to be searched for in the folder\n   *\n   * If not given, just finds all file extensions\n   *\n   * exension without dot\n   */\n  extension?: string | string[];\n}) => {\n  const { projectRelativeFolderPath, promptSlug, extension, isRecursive } =\n    config;\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No projectroot\" };\n  }\n  const absoluteFolderPath = path.join(projectRoot, projectRelativeFolderPath);\n\n  const exists = fs.existsSync(absoluteFolderPath);\n\n  if (!exists) {\n    return { isSuccessful: false, message: \"Folder not found\" };\n  }\n\n  const stats = await fs.stat(absoluteFolderPath);\n  if (!stats.isDirectory()) {\n    return { isSuccessful: false, message: \"That's not a folder\" };\n  }\n\n  // get files\n  const projectRelativeFilePaths = (\n    await explore({\n      basePath: absoluteFolderPath,\n      doNotExploreChildFolders: !isRecursive,\n      extension,\n      ignore: \".index\",\n    })\n  ).map((x) => makeRelative(x.path, projectRoot));\n\n  const queueItems: Creation<Queue>[] = projectRelativeFilePaths.map(\n    (projectRelativeFilePath) => {\n      return {\n        functionName: \"processPromptOnFile\",\n        parameters: [projectRelativeFilePath, promptSlug],\n        type: \"puppeteer\",\n      };\n    }\n  );\n\n  const upsertResult = await db.upsert(\"Queue\", queueItems);\n\n  return {\n    isSuccessful: upsertResult.isSuccesful,\n    message: upsertResult.isSuccesful ? \"Added to queue\" : upsertResult.message,\n  };\n}"
@@ -414,7 +414,7 @@
   "removeAllFake": {
     "name": "removeAllFake",
     "slug": "TsFunction",
-    "id": "odzgyiyjqxhrrnylrqqbtjnh",
+    "id": "kjpaucqluwuhatcjvuktzroc",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  basePath?: string\n): Promise<{ isSuccessful: boolean; message?: string }> => {\n  console.log(\"removing all fake\");\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"no projectroot\" };\n  }\n\n  const absoluteBasePath = basePath\n    ? path.join(projectRoot, basePath)\n    : projectRoot;\n\n  console.log({ absoluteBasePath });\n\n  const absolutePaths = (\n    await explore({\n      basePath: absoluteBasePath,\n      exact: true,\n      search: \"prompt-results.json\",\n      searchLevel: \"fileName\",\n    })\n  ).map((x) => x.path);\n\n  const filtered = await mapMany(\n    absolutePaths,\n    async (absolutePath) => {\n      // remove items with isFake\n\n      const json = await readJsonFile<ContextualPromptResult[]>(absolutePath);\n\n      if (!json) return false;\n\n      const newJson = json.filter((item) => item.isFake !== true);\n\n      if (newJson.length === json.length) return false;\n\n      const writeResult = await writeJsonToFile(absolutePath, newJson);\n\n      return writeResult;\n    },\n    100\n  );\n\n  console.log({ filtered: filtered });\n  return { isSuccessful: true };\n}"
@@ -422,7 +422,7 @@
   "rickAndMortyRick": {
     "name": "rickAndMortyRick",
     "slug": "TsFunction",
-    "id": "yagvyapykcszarrlvxeazoqk",
+    "id": "sjxbfyxstlhydpuowicfsruw",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"rick-and-morty-rick\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -430,7 +430,7 @@
   "rickAndMorty": {
     "name": "rickAndMorty",
     "slug": "TsFunction",
-    "id": "dvpedthkfktyheevnsnbgghk",
+    "id": "dxgxlpgzupbltpdgwkasueix",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"rick-and-morty\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -438,7 +438,7 @@
   "setIsFavoritePromptResult": {
     "name": "setIsFavoritePromptResult",
     "slug": "TsFunction",
-    "id": "gixhyjzagblptoamjmcpphjl",
+    "id": "ffvuixuhodqgbejcufaisfav",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  projectRelativePath: string,\n  id: string,\n  isFavorite: boolean\n) => {\n  const resultPath = await getContextualPromptResultJsonFilePath(\n    projectRelativePath\n  );\n\n  if (!resultPath) return { isSuccessful: false };\n\n  const result = await alterJsonMultiple(\n    {\n      absolutePath: resultPath,\n      modelName: \"ContextualPromptResult\",\n      projectRelativePath: resultPath,\n      operationName: \"\",\n    },\n    (old) => {\n      return {\n        newStoredData: old.map((item) => {\n          if (item.id !== id) return item;\n          return { ...item, isFavorite };\n        }),\n        amountUpdated: 1,\n      };\n    }\n  );\n\n  return { isSuccessful: result.amountUpdated === 1 };\n}"
@@ -446,7 +446,7 @@
   "socratesAndSnoopDogg": {
     "name": "socratesAndSnoopDogg",
     "slug": "TsFunction",
-    "id": "bapkunkeiwljrovtqspvzcqw",
+    "id": "zatirnrnjaigwovnstatxyoe",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"socrates-and-snoop-dogg\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -454,7 +454,7 @@
   "storytelling": {
     "name": "storytelling",
     "slug": "TsFunction",
-    "id": "fhykpgjiuyjwfbmgydyzfusr",
+    "id": "mqyvsxswfnwqxopmcmcjdfcd",
     "description": "Write a story about this code and what's happening in there",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"storytelling\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -470,7 +470,7 @@
   "translateEverythingIntoHindi": {
     "name": "translateEverythingIntoHindi",
     "slug": "TsFunction",
-    "id": "ibqfnszpibzvhkalgewywvum",
+    "id": "prhbsxcsqdbcqqoyrqgjivnh",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"translate-everything-into-hindi\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -478,7 +478,7 @@
   "translateEverythingPortuguese": {
     "name": "translateEverythingPortuguese",
     "slug": "TsFunction",
-    "id": "ghauyplnzigvurejlvgaptlc",
+    "id": "sokmgxqmbpaexedxwiksckld",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"translate-everything-portuguese\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -486,7 +486,7 @@
   "translateEverything": {
     "name": "translateEverything",
     "slug": "TsFunction",
-    "id": "ufbpkssqxkvcvwlwcyaecsjo",
+    "id": "ribxhijjdmestsjaxeobfaow",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"translate-everything\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -494,7 +494,7 @@
   "translateToPortuguese": {
     "name": "translateToPortuguese",
     "slug": "TsFunction",
-    "id": "vgebgukvjvhwqnuohhvmukps",
+    "id": "ogtgjctmbhciqncdxttrjcad",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"translate-to-portuguese\",\n    contextContent,\n  });\n\n  return result;\n}"
@@ -502,7 +502,7 @@
   "typescriptExplain": {
     "name": "typescriptExplain",
     "slug": "TsFunction",
-    "id": "wcnsjfarugbccfyxudlyvofd",
+    "id": "vjrqjpidcptmvkishzdmfptc",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  contextContent: string,\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"typescript-explain\",\n    contextContent,\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -510,7 +510,7 @@
   "williamShakespear": {
     "name": "williamShakespear",
     "slug": "TsFunction",
-    "id": "gslzfwgtsyzcdhmkjbqxbaxs",
+    "id": "mdvxgmsznlvxjypkmcbhfvqv",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"william-shakespear\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -518,7 +518,7 @@
   "writeContextualPromptSdk": {
     "name": "writeContextualPromptSdk",
     "slug": "TsFunction",
-    "id": "iqttuebaduakngvmvrtelmeq",
+    "id": "dxpagdgaqupereyghoynqhdg",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const functionStrings = contextualPrompts\n    .map((contextualPrompt) => {\n      return writeCreatePromptCode(contextualPrompt);\n    })\n    .join(\"\\n\\n\\n\");\n\n  const codeString = `// this file is generated, you can edit it, but it will be re-generated based on the contextual prompts database\n\nimport { processChatGptPrompt } from \"./processChatGptPrompt\";\n\n${functionStrings}`;\n\n  return codeString;\n}"
@@ -526,7 +526,7 @@
   "writeCreatePromptCode": {
     "name": "writeCreatePromptCode",
     "slug": "TsFunction",
-    "id": "uxwmglisfntjzfqofhankiyo",
+    "id": "wlhzjxiewyzgfldpbhaynyhp",
     "description": "",
     "operationName": "ai-functions-node",
     "rawText": " (contextualPrompt: ContextualPrompt) => {\n  const parameters = [\n    contextualPrompt.usesAnyContext ? `anyContext` : undefined,\n    ,\n    contextualPrompt.usesContext ? `contextContent` : undefined,\n    contextualPrompt.usesSelection ? `selectionContent` : undefined,\n    contextualPrompt.folderContentContext ? `projectRelativePath` : undefined,\n  ].filter(notEmpty);\n\n  const functionLineParametersString = parameters\n    .map((x) => `${x}: string`)\n    .join(\", \");\n  const objectParametersString = parameters.join(\",\\n\");\n\n  const { contextType, instantExecution, isFavorite, categoryStack } =\n    contextualPrompt;\n  const contextualPromptInfo = {\n    contextType,\n    instantExecution,\n    isFavorite,\n    categoryStack,\n  };\n  const functionName = camelCase(contextualPrompt.name);\n\n  return `\n  ${\n    contextualPrompt.title\n      ? `/**\n  ${contextualPrompt.title}\n  */`\n      : \"\"\n  }\n  export const ${functionName}: PromptFunction = async (${functionLineParametersString}, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"${contextualPrompt.slug}\",\n      ${objectParametersString}\n    });\n\n    return result;\n\n  }\n\n${functionName}.contextualPromptInfo = ${JSON.stringify(contextualPromptInfo)}`;\n}"
@@ -534,7 +534,7 @@
   "ye": {
     "name": "ye",
     "slug": "TsFunction",
-    "id": "rmiklfqixzwnrnfboahqbjvp",
+    "id": "edgwjobwifmkowpdhdtwmgua",
     "description": "Let Kanye West write a poem about your selection",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"ye\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -542,7 +542,7 @@
   "yodafy": {
     "name": "yodafy",
     "slug": "TsFunction",
-    "id": "poicyaylhqgkemhryuukztsc",
+    "id": "fdhzfwunnkvlynvbvnvesvxw",
     "description": "Let Yoda say your selection in his words",
     "operationName": "ai-functions-node",
     "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"yodafy\",\n    selectionContent,\n  });\n\n  return result;\n}"
@@ -676,7 +676,7 @@
   "Dataset": {
     "name": "Dataset",
     "slug": "TsFunction",
-    "id": "mjirpvbcsactkxuzzihieete",
+    "id": "nksnggdktizjsxdpvdgvppiq",
     "description": "",
     "operationName": "generative-ui",
     "rawText": " () => {\n  const categoriesQuery = queries.useGetContextualPromptCategories();\n\n  return (\n    <Div id=\"dataset\" className=\"h-screen overflow-y-scroll\">\n      <MarkdownContent\n        config={{}}\n        content={`\\`\\`\\`json\\n${JSON.stringify(\n          categoriesQuery.data?.result,\n          undefined,\n          2\n        )}\\n\\`\\`\\``}\n      />\n    </Div>\n  );\n}"
@@ -684,7 +684,7 @@
   "generativeWebInitialValues": {
     "name": "generativeWebInitialValues",
     "slug": "TsVariable",
-    "id": "wodjgegzumeoxvmirzubkyyg",
+    "id": "hxbqwciizanrzyqjveflpubq",
     "description": "",
     "operationName": "generative-ui"
   },
@@ -699,7 +699,7 @@
   "NavButton": {
     "name": "NavButton",
     "slug": "TsFunction",
-    "id": "xxcvenmhteszglfvnvkhwrps",
+    "id": "bgchbrqnvkftwfwufuvifuzd",
     "description": "",
     "operationName": "generative-ui",
     "rawText": " (props: {\n  onClick?: () => void;\n  href?: string;\n  isActive?: boolean;\n  title: string;\n  id?: string;\n  openContextMenuProps?: object;\n}) => {\n  const { href, title, onClick, isActive, openContextMenuProps, id } = props;\n\n  const className = ` ${\n    isActive ? \"dark:bg-blue-800\" : \"dark:bg-gray-700\"\n  } dark:hover:bg-gray-600 ${\n    isActive ? \"bg-blue-300\" : \"bg-gray-100\"\n  } light:hover:bg-gray-200 rounded-md border border-black p-2 my-1 mr-2 cursor-pointer lg:mr-4`;\n  if (onClick) {\n    return (\n      <P\n        id={id}\n        onClick={onClick}\n        className={className}\n        {...openContextMenuProps}\n      >\n        {title}\n      </P>\n    );\n  }\n\n  return (\n    <ALink id={id} href={href} className={className}>\n      <div id={id} {...openContextMenuProps}>\n        {title}\n      </div>\n    </ALink>\n  );\n}"
@@ -707,15 +707,15 @@
   "PromptButton": {
     "name": "PromptButton",
     "slug": "TsFunction",
-    "id": "wnyikvuudbaijxferlbwxuox",
+    "id": "ezbhoqwjnxtewtglwistcmev",
     "description": "",
     "operationName": "generative-ui",
-    "rawText": " (props: {\n  item: ContextualPrompt;\n  markdown?: string | null;\n  contextSelection?: string | null;\n  projectRelativeFilePath?: string;\n}) => {\n  const { item, markdown, projectRelativeFilePath, contextSelection } = props;\n  const admin = useAdmin();\n  const router = useRouter();\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n  const title = `${item.isFavorite ? \"⭐️ \" : \"\"}${item.title || item.name}`;\n\n  const projectRelativeFolderPath = getFolderJs(projectRelativeFilePath);\n  return (\n    <Tooltip\n      hoverTimeout={100}\n      tooltip={\n        <Div>\n          <P className=\"font-bold text-xl\">{title}</P>\n          {item.description ? (\n            <MarkdownContent content={item.description} config={{}} />\n          ) : null}\n          <br />\n\n          <ClickableIcon\n            emoji={\n              item.isFavorite\n                ? \"⭐️ Favorite (click to change)\"\n                : \"💩 Not favorite (click to change)\"\n            }\n            onClick={async () => {\n              // go to upsert ContextualPrompt db page.\n              const apiResult = await api.upsertDbModel(\"ContextualPrompt\", {\n                ...item,\n                isFavorite: !item.isFavorite,\n              });\n\n              showStandardResponse(apiResult);\n\n              admin.refetch?.();\n            }}\n          />\n\n          <ClickableIcon\n            emoji=\"✏️ Edit\"\n            onClick={() => {\n              if (!admin.isAdminActive) {\n                warningToast(\n                  \"You can't do this yet! You first need to install your server on your machine\"\n                );\n                return;\n              }\n              // go to upsert ContextualPrompt db page.\n              router.push(`/edit/ContextualPrompt?id=${item.id}`);\n            }}\n          />\n\n          <ClickableIcon\n            emoji=\"🗑 Delete\"\n            onClick={async () => {\n              alert?.(\n                \"Are you sure?\",\n                \"You're going to remove this prompt from your database\",\n                [\n                  {\n                    text: \"Do it\",\n                    style: \"destructive\",\n                    onPress: async () => {\n                      const apiResult = await api.deleteDbModel(\n                        \"ContextualPrompt\",\n                        item.id\n                      );\n\n                      showStandardResponse(apiResult);\n\n                      if (apiResult?.result?.isSuccesful) {\n                        admin.refetch?.();\n                      }\n                    },\n                  },\n                  {\n                    text: \"Cancel\",\n                    style: \"cancel\",\n                  },\n                ]\n              );\n              // delete prompt\n            }}\n          />\n\n          {contextSelection ? null : (\n            <ClickableIcon\n              emoji=\"💥 Apply on folder\"\n              onClick={() => {\n                if (!projectRelativeFolderPath) return;\n\n                alert?.(\n                  \"Apply on folder\",\n                  `You're going to apply the prompt ${item.name} on all files in the folder. Are you sure?`,\n                  [\n                    { style: \"cancel\", text: \"cancel\" },\n                    {\n                      style: \"default\",\n                      text: \"Yes\",\n                      onPress: async () => {\n                        const apiResult = await api.processPromptOnFolder({\n                          projectRelativeFolderPath,\n                          promptSlug: item.slug,\n                          isRecursive: false,\n                        });\n\n                        showStandardResponse(apiResult);\n                      },\n                    },\n                    {\n                      style: \"destructive\",\n                      text: \"Yes, recursive\",\n                      onPress: async () => {\n                        const apiResult = await api.processPromptOnFolder({\n                          projectRelativeFolderPath,\n                          promptSlug: item.slug,\n                          isRecursive: false,\n                        });\n\n                        showStandardResponse(apiResult);\n                      },\n                    },\n                  ]\n                );\n              }}\n            />\n          )}\n        </Div>\n      }\n      placement=\"top\"\n    >\n      <NavButton\n        onClick={async () => {\n          if (!markdown) return;\n          await processPrompt({\n            contextualPromptSlug: item.slug,\n            showPromptAlert,\n            contextualContent: {\n              contextContent: markdown,\n              contextSelection,\n              context_projectRelativeFilePath: projectRelativeFilePath,\n            },\n          });\n\n          router.replace({\n            query: {\n              queryPath: router.query.queryPath,\n              variant: item.slug,\n            },\n          });\n        }}\n        title={item.title || item.name}\n      />\n    </Tooltip>\n  );\n}"
+    "rawText": " (props: {\n  item: ContextualPrompt;\n  markdown?: string | null;\n  contextSelection?: string | null;\n  projectRelativeFilePath?: string;\n}) => {\n  const { item, markdown, projectRelativeFilePath, contextSelection } = props;\n  const admin = useAdmin();\n  const router = useRouter();\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n  const title = `${item.isFavorite ? \"⭐️ \" : \"\"}${item.title || item.name}`;\n\n  const projectRelativeFolderPath = getFolderJs(projectRelativeFilePath);\n  return (\n    <Tooltip\n      hoverTimeout={100}\n      tooltip={\n        <Div>\n          <P className=\"font-bold text-xl\">{title}</P>\n          {item.description ? (\n            <MarkdownContent content={item.description} config={{}} />\n          ) : null}\n          <br />\n\n          <ClickableIcon\n            emoji={\n              item.isFavorite\n                ? \"⭐️ Favorite (click to change)\"\n                : \"💩 Not favorite (click to change)\"\n            }\n            onClick={async () => {\n              // go to upsert ContextualPrompt db page.\n              const apiResult = await api.upsertDbModel(\"ContextualPrompt\", {\n                ...item,\n                isFavorite: !item.isFavorite,\n              });\n\n              showStandardResponse(apiResult);\n\n              admin.refetch?.();\n            }}\n          />\n\n          <ClickableIcon\n            emoji=\"✏️ Edit\"\n            onClick={() => {\n              if (!admin.isAdminActive) {\n                warningToast(\n                  \"You can't do this yet! You first need to install your server on your machine\"\n                );\n                return;\n              }\n              // go to upsert ContextualPrompt db page.\n              router.push(`/edit/ContextualPrompt?id=${item.id}`);\n            }}\n          />\n\n          <ClickableIcon\n            emoji=\"🗑 Delete\"\n            onClick={async () => {\n              alert?.(\n                \"Are you sure?\",\n                \"You're going to remove this prompt from your database\",\n                [\n                  {\n                    text: \"Do it\",\n                    style: \"destructive\",\n                    onPress: async () => {\n                      const apiResult = await api.deleteDbModel(\n                        \"ContextualPrompt\",\n                        item.id\n                      );\n\n                      showStandardResponse(apiResult);\n\n                      if (apiResult?.result?.isSuccesful) {\n                        admin.refetch?.();\n                      }\n                    },\n                  },\n                  {\n                    text: \"Cancel\",\n                    style: \"cancel\",\n                  },\n                ]\n              );\n              // delete prompt\n            }}\n          />\n\n          {contextSelection ? null : (\n            <ClickableIcon\n              emoji=\"💥 Apply on folder\"\n              onClick={() => {\n                if (!projectRelativeFolderPath) return;\n\n                alert?.(\n                  \"Apply on folder\",\n                  `You're going to apply the prompt ${item.name} on all files in the folder. Are you sure?`,\n                  [\n                    { style: \"cancel\", text: \"cancel\" },\n                    {\n                      style: \"default\",\n                      text: \"Yes\",\n                      onPress: async () => {\n                        const apiResult = await api.processPromptOnFolder({\n                          projectRelativeFolderPath,\n                          promptSlug: item.slug,\n                          isRecursive: false,\n                        });\n\n                        showStandardResponse(apiResult);\n                      },\n                    },\n                    {\n                      style: \"destructive\",\n                      text: \"Yes, recursive\",\n                      onPress: async () => {\n                        const apiResult = await api.processPromptOnFolder({\n                          projectRelativeFolderPath,\n                          promptSlug: item.slug,\n                          isRecursive: true,\n                        });\n\n                        showStandardResponse(apiResult);\n                      },\n                    },\n                  ]\n                );\n              }}\n            />\n          )}\n        </Div>\n      }\n      placement=\"top\"\n    >\n      <NavButton\n        onClick={async () => {\n          if (!markdown) return;\n          await processPrompt({\n            contextualPromptSlug: item.slug,\n            showPromptAlert,\n            contextualContent: {\n              contextContent: markdown,\n              contextSelection,\n              context_projectRelativeFilePath: projectRelativeFilePath,\n            },\n          });\n\n          router.replace({\n            query: {\n              queryPath: router.query.queryPath,\n              variant: item.slug,\n            },\n          });\n        }}\n        title={item.title || item.name}\n      />\n    </Tooltip>\n  );\n}"
   },
   "ReaderPageNext": {
     "name": "ReaderPageNext",
     "slug": "TsFunction",
-    "id": "tswrxugpozqpxwqjmiymswzv",
+    "id": "olslxvxbdcehbnsyqtbndpse",
     "description": "ReaderPage to export for next project. Uses either the props from the next server, or if they're available, the props from the query.",
     "operationName": "generative-ui",
     "rawText": " (props: ReaderProps) => {\n  // props provide the static data for the website\n  const queryPath = useQueryPath();\n  const basePath = process.env.NEXT_PUBLIC_BASEPATH;\n  const [config] = useStore(\"generativeWeb.config\");\n\n  const readerPageQuery = queries.useGetReaderPageProps(\n    basePath,\n    queryPath,\n    true,\n    config.activeCustomBasePath\n  );\n\n  const queryProps = readerPageQuery.data?.result?.props;\n\n  // either use the props returned from the query or from the static site\n  const realProps = queryProps?.actualProjectRelativeFilePath\n    ? queryProps\n    : props;\n\n  return <ReaderPage {...realProps} />;\n}"
@@ -723,7 +723,7 @@
   "ReaderPage": {
     "name": "ReaderPage",
     "slug": "TsFunction",
-    "id": "mpbjvdmntptmskmqdoiyidjh",
+    "id": "recnuzacmolpgxcikohaeltt",
     "description": "",
     "operationName": "generative-ui",
     "rawText": " (props: ReaderProps) => {\n  const [sidebarHidden, setSidebarHidden] = useState(false);\n  const router = useRouter();\n  const [customUrl, setCustomUrl, customUrlInfo] = useStore(\"api.customUrl\");\n  const [_, setAuthToken] = useStore(\"api.authToken\");\n  const admin = useAdmin();\n  const queryPath = router.asPath.slice(1);\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n\n  const promo = `**What to do now?**\n- [🕺 Join our discord](https://discord.gg/gehCtKJk)${\n    admin.isAdminActive\n      ? \"\"\n      : \"\\n- [🧪 Install your server](/gpt-ide/README.md)\"\n  }\n- [🏛 See my premium services and offers](/offers)\n- [🤯 Join our AI hacker villa 🏝](https://codefrombali.com)`;\n\n  const {\n    markdown,\n    actualProjectRelativeFilePath,\n    contextualPromptResults,\n    contextualPromptsObject,\n    navigation,\n    isFolder,\n    canSeeContent,\n    unauthorizedWarningMessage,\n    notFound,\n  } = props;\n\n  const onFocus = async () => {\n    if (!customUrlInfo.hydrated) {\n      return;\n    }\n    const localUrl = \"http://localhost:42000\";\n\n    if (customUrl === localUrl) {\n      return;\n    }\n\n    const isAlive = (await apiWithConfig.ping({ apiUrl: localUrl })).result;\n\n    if (isAlive) {\n      setCustomUrl(localUrl);\n      // NB: Hardcoded?\n      setAuthToken(\"xwjkfycqhakpudymxmysxlei\");\n      alert?.(\n        \"Connected to localhost\",\n        \"It seems your server is running locally, you're now connected. You can now interact with your local file system to apply prompts on your own knowledge base!\",\n        [\n          { text: \"Okay\", style: \"default\", onPress: () => router.reload() },\n          {\n            text: \"Undo\",\n            style: \"destructive\",\n            onPress: () => {\n              setCustomUrl(null);\n            },\n          },\n        ]\n      );\n    }\n  };\n\n  React.useEffect(() => {\n    window.addEventListener(\"focus\", onFocus);\n    //   window.addEventListener(\"blur\", onBlur);\n    // Calls onFocus when the window first loads\n    onFocus();\n    // Specify how to clean up after this effect:\n    return () => {\n      window.removeEventListener(\"focus\", onFocus);\n      //  window.removeEventListener(\"blur\", onBlur);\n    };\n  }, []);\n\n  const projectRelativeBaseFolderPath = isFolder\n    ? actualProjectRelativeFilePath\n    : getFolderJs(actualProjectRelativeFilePath);\n\n  const filename = isFolder\n    ? undefined\n    : getFileOrFolderName(actualProjectRelativeFilePath);\n\n  const thePrompts = isFolder\n    ? contextualPromptsObject?.folderContextualPrompts || []\n    : contextualPromptsObject?.pageContextualPrompts || [];\n\n  const fileContextualPromptResults = contextualPromptResults?.filter(\n    (x) => !x.selectionString\n  );\n  const selectionContextualPromptResults = contextualPromptResults?.filter(\n    (x) => !!x.selectionString\n  );\n\n  const variantResult = useVariantResult(contextualPromptResults);\n  // const fileType =\n  //   fileTypePerExtension[\n  //     getExtension(\n  //       props.projectRelativeFilePath\n  //     ) as keyof typeof fileTypePerExtension\n  //   ] || undefined;\n  // NB: this doesn't allow inline links so we cannot use this type of color highlihgting...\n  const codeblockWrappedMarkdown = variantResult?.resultText\n    ? variantResult?.resultText\n    : // : fileType === \"code\"\n      // ? `\\`\\`\\`tsx\\n${markdown}\\n\\`\\`\\``\n      // : fileType === \"data\"\n      // ? `\\`\\`\\`json\\n${markdown}\\n\\`\\`\\``\n      markdown;\n\n  const contentString = codeblockWrappedMarkdown\n    ? codeblockWrappedMarkdown\n    : !canSeeContent && unauthorizedWarningMessage\n    ? unauthorizedWarningMessage\n    : props.notFound\n    ? props.notFoundReason || \"Not found\"\n    : \"No content\";\n\n  const folderPath = isFolder ? queryPath : getFolderJs(queryPath);\n\n  const markdownContentConfig = {\n    fileContextualPromptResults,\n    selectionContextualPromptResults,\n    projectRelativeBaseFolderPath,\n    projectRelativeMarkdownFilePath: actualProjectRelativeFilePath,\n    disableSelectionContextMenu: true,\n    selectionPrompts: contextualPromptsObject?.selectionContextualPrompts,\n  };\n\n  const renderEditContent = () => {\n    return (\n      <Div className=\"flex flex-1 flex-col lg:h-full lg:overflow-y-scroll\">\n        {actualProjectRelativeFilePath ? (\n          <FileWriter\n            hideButtons\n            projectRelativeFilePath={actualProjectRelativeFilePath}\n            markdownModelName=\"CreatorMarkdownFile\"\n            initialWriterView=\"edit\"\n            disabledMenuItems={[\"view\", \"config\"]}\n          />\n        ) : null}\n      </Div>\n    );\n  };\n\n  const renderPage = () => (\n    <Div className=\"flex flex-1 flex-col\">\n      {sidebarHidden ? (\n        <Div className=\"max-lg:hidden lg:block flex justify-end\">\n          <ClickableIcon emoji=\"<<\" onClick={() => setSidebarHidden(false)} />\n        </Div>\n      ) : null}\n      <VariantSelector\n        projectRelativeFilePath={actualProjectRelativeFilePath}\n        folderPath={folderPath}\n        isFolder={isFolder}\n        filename={filename}\n        contextualPromptResults={fileContextualPromptResults}\n      />\n\n      {/* <Shareable > */}\n      <Div className={\"p-1\"}>\n        <MarkdownContent\n          config={markdownContentConfig}\n          content={contentString}\n        />\n      </Div>\n      {/* </Shareable> */}\n\n      <SelectionPrompts\n        contentString={contentString}\n        projectRelativeFilePath={actualProjectRelativeFilePath}\n        selectionContextualPrompts={\n          props.contextualPromptsObject?.selectionContextualPrompts\n        }\n      />\n\n      <Div>\n        <P className=\"font-bold\">Apply a prompt on the whole file</P>\n        <Div className=\"flex flex-row flex-wrap\">\n          {/* Speak */}\n          <NavButton\n            title=\"🎤 Speak\"\n            onClick={async () => {\n              alert?.(\"Coming soon\", \"coming soon\");\n            }}\n          />\n          {/* Free form */}\n          {isFolder ? null : (\n            <NavButton\n              title=\"🕊 Free-form prompt\"\n              onClick={async () => {\n                let question = prompt(\n                  \"What do you want to ask/prompt about this file?\"\n                );\n\n                if (!question || question === \"\") {\n                  return;\n                }\n\n                let name = prompt(\n                  \"If we should add this prompt into the database, how should we call it? (leave empty if you don't want to save it)\"\n                );\n\n                const realName = name === \"\" ? null : name;\n\n                const customPromptContent = `I am reading this file:\\n\\n\\`\\`\\`\\n%context\\n\\`\\`\\`\\n\\n${question}`;\n\n                await processPrompt({\n                  contextualContent: {\n                    contextContent: contentString,\n                    context_projectRelativeFilePath:\n                      actualProjectRelativeFilePath,\n                  },\n                  showPromptAlert,\n                  customPromptContent,\n                  saveNewPromptWithName: realName,\n                });\n              }}\n            />\n          )}\n\n          {thePrompts.map((prompt) => {\n            return (\n              <PromptButton\n                key={`prompt${prompt.id}`}\n                item={prompt}\n                markdown={markdown}\n                projectRelativeFilePath={actualProjectRelativeFilePath}\n              />\n            );\n          })}\n        </Div>\n      </Div>\n      {isFolder && admin.isAdminActive ? (\n        <Div>\n          Execute for all files\n          <Div className=\"flex flex-row flex-wrap\">\n            {contextualPromptsObject?.pageContextualPrompts.map((prompt) => {\n              return (\n                <NavButton\n                  onClick={() => {\n                    alert?.(\n                      \"Not implemented yet\",\n                      \"Execute a certain prompt for all files in a folder, recursively. Should not show the result immediately because these things should be queued and the result is too big to show immediately. There should be settings before you execute all prompts: recursively nested folders? how fast should it be executed? Which model? Etc.\"\n                    );\n                  }}\n                  title={prompt.title || prompt.name}\n                />\n              );\n            })}\n          </Div>\n        </Div>\n      ) : null}\n\n      <Div className=\"pt-4 pb-12\">\n        <MarkdownContent content={promo} config={{}} />\n      </Div>\n    </Div>\n  );\n\n  const variantsOnLg =\n    !fileContextualPromptResults ||\n    sidebarHidden ||\n    !fileContextualPromptResults.length ? null : (\n      <Div className=\"lg:block max-lg:hidden lg:w-[280px] 2xl:w-[400px] lg:h-full lg:overflow-y-scroll\">\n        <Div className=\"flex flex-row ml-3\">\n          <ClickableIcon emoji=\"╳\" onClick={() => setSidebarHidden(true)} />\n          <P className=\"ml-2 font-bold\">File Prompt Results</P>\n        </Div>\n        {fileContextualPromptResults?.map((result) => {\n          if (!result.resultText) return null;\n          return (\n            <Div className=\"m-2 p-2 bg-gray-100 dark:bg-slate-800 rounded-lg\">\n              <Div className=\"w-full flex justify-between\">\n                <P className=\"font-bold\">{result.contextualPromptSlug}</P>\n                <ClickableIcon\n                  emoji=\"👀\"\n                  onClick={() => {\n                    const query: {\n                      queryPath: string | string[] | undefined;\n                      variant?: string;\n                    } = {\n                      queryPath: router.query.queryPath,\n                      variant: result.contextualPromptSlug,\n                    };\n\n                    router.push({ query }, undefined, { shallow: true });\n                  }}\n                />\n              </Div>\n              <MarkdownContent\n                config={markdownContentConfig}\n                content={result.resultText}\n              />\n            </Div>\n          );\n        })}\n      </Div>\n    );\n  return (\n    <Div className=\"lg:flex lg:flex-row h-full\">\n      <Menu\n        notFound={notFound}\n        projectRelativeFilePath={actualProjectRelativeFilePath}\n        folderPath={folderPath}\n        filename={filename}\n        isFolder={isFolder}\n        navigation={navigation}\n        contextualPromptsObject={contextualPromptsObject}\n        fileContextualPromptResults={fileContextualPromptResults}\n        selectionContextualPromptResults={selectionContextualPromptResults}\n        thePrompts={thePrompts}\n      />\n\n      <div className=\"flex flex-col flex-1 lg:h-full lg:overflow-y-scroll\">\n        <Tabs\n          tabs={[\n            { emoji: \"🪄\", title: \"Generate\", renderTab: renderPage },\n            { emoji: \"✏️\", title: \"Write\", renderTab: renderEditContent },\n          ]}\n          title={queryPath.split(\"?\")[0]}\n        />\n      </div>\n\n      {variantsOnLg}\n    </Div>\n  );\n}"
@@ -731,7 +731,7 @@
   "SelectionPrompts": {
     "name": "SelectionPrompts",
     "slug": "TsFunction",
-    "id": "lgtxmqeuumryemjcauqaxkts",
+    "id": "vexbrtlgkdohnhnynuqfkfqz",
     "description": "",
     "operationName": "generative-ui",
     "rawText": " (props: {\n  selectionContextualPrompts?: ContextualPrompt[];\n  contentString: string;\n  projectRelativeFilePath?: string;\n}) => {\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n  const { selectionContextualPrompts, contentString, projectRelativeFilePath } =\n    props;\n  const admin = useAdmin();\n\n  const { selection: contextSelection, reset } = useLastSelection();\n\n  /**\n   * TODO: also sort them here based on which selection you make (`.contextualContent.contextSelection`) and your settings (probably isFavorite first, but other sorting may be beneficial.\n   */\n  const promptItems: SelectionItem[] =\n    selectionContextualPrompts?.map((prompt) => {\n      const item: SelectionItem = {\n        onClick: () =>\n          processPrompt({\n            contextualPromptSlug: prompt.slug,\n            contextualContent: {\n              contextSelection,\n              contextContent: contentString,\n              context_projectRelativeFilePath: projectRelativeFilePath,\n            },\n            showPromptAlert,\n          }),\n        title: prompt.name || \"Noname\",\n        // TODO: not sure if this is the right level, but eventually we want to filter based on the selection, maybe\n        isEnabled: true,\n      };\n\n      return item;\n    }) || [];\n\n  const selectionWordCount = contextSelection\n    ? contextSelection.split(\" \").length\n    : 0;\n\n  const isStatement = selectionWordCount > 1;\n  const isWord = selectionWordCount <= 4;\n\n  const selectionItems: SelectionItem[] = [\n    {\n      onClick: async () => {\n        if (!contextSelection) {\n          alert?.(\n            \"Select a word\",\n            `You didn't select a word or word-combination (up to 4 words)`\n          );\n          return;\n        }\n        const apiResult = await api.addWord(contextSelection, undefined);\n\n        showStandardResponse(apiResult);\n\n        admin.refetch?.();\n      },\n      title: \"🧠 Add word\",\n      isEnabled: isWord,\n    },\n\n    {\n      onClick: async () => {\n        if (!contextSelection) {\n          alert?.(\n            \"Select a statement\",\n            `You didn't select a statement (minimum 2 words)`\n          );\n          return;\n        }\n\n        // NB: for now, don't let user add agreement and importancy, just assume the defaults. Let's see where this goes first\n\n        const apiResult = await api.addStatement(\n          contextSelection,\n          undefined,\n          undefined\n        );\n\n        showStandardResponse(apiResult);\n\n        admin.refetch?.();\n      },\n      title: \"🧠 Add statement\",\n      isEnabled: isStatement,\n    },\n\n    {\n      title: \"🕊 Free-form prompt\",\n      isEnabled: true,\n      onClick: async () => {\n        let question = prompt(\"What do you want to ask/prompt?\");\n\n        if (!question || question === \"\") {\n          return;\n        }\n\n        let name = prompt(\n          \"How should we call the prompt? (empty for not storing)\"\n        );\n        const realName = name === \"\" ? null : name;\n\n        const customPromptContent = `I am reading this file:\\n\\n\\`\\`\\`\\n%context\\n\\`\\`\\`\\n\\nMore specifically, I'm looking at this part: \\n\\n\\`\\`\\`\\n%selection\\n\\`\\`\\`\\n\\n${question}`;\n\n        await processPrompt({\n          contextualContent: {\n            contextContent: contentString,\n            context_projectRelativeFilePath: projectRelativeFilePath,\n            contextSelection,\n          },\n          showPromptAlert,\n          customPromptContent,\n          saveNewPromptWithName: realName,\n        });\n      },\n    },\n\n    {\n      title: \"🎤 Speak\",\n      isEnabled: true,\n      onClick: () => {\n        alert?.(\n          \"Coming soon!\",\n          <Div>\n            <P>\n              This button should let you record your voice so you can ask a\n              question through human speech. The speech will be converted into\n              text by whisper, it will then choose an existing prompt action, or\n              if it can't find that, do a free-form prompt.\n            </P>\n\n            <P>\n              P.S. Would be nice if this option is there by default, also for\n              other menus, or it's even accessible via other ways, but this is a\n              great way to try it out first.\n            </P>\n          </Div>\n        );\n      },\n    },\n  ];\n\n  return (\n    <Div>\n      <P className=\"font-bold\">Apply a prompt on your selection</P>\n      <Div className=\"bg-black/20 dark:bg-white/20 flex flex-row justify-between rounded-md p-2 my-2\">\n        {contextSelection ? (\n          <>\n            <P>{contextSelection}</P>\n            <ClickableIcon emoji=\"❌\" onClick={() => reset()} />\n          </>\n        ) : (\n          <P>Please select a piece of text first</P>\n        )}\n      </Div>\n\n      {contextSelection ? (\n        <Div className=\"flex flex-row flex-wrap\">\n          {selectionItems\n            .filter((selectionItem) => selectionItem.isEnabled)\n            .map((item, index) => {\n              return (\n                <NavButton\n                  title={item.title}\n                  onClick={item.onClick}\n                  key={`sele${index}`}\n                />\n              );\n            })}\n\n          {selectionContextualPrompts?.map((prompt) => {\n            return (\n              <PromptButton\n                key={`selectPrompt${prompt.id}`}\n                item={prompt}\n                contextSelection={contextSelection}\n                markdown={contentString}\n                projectRelativeFilePath={projectRelativeFilePath}\n              />\n            );\n          })}\n        </Div>\n      ) : null}\n    </Div>\n  );\n}"
@@ -747,7 +747,7 @@
   "SettingsPage": {
     "name": "SettingsPage",
     "slug": "TsFunction",
-    "id": "syusvftjafvvlyqscoejrzwv",
+    "id": "ulnumjotaaqcxlxxijevatdp",
     "description": "",
     "operationName": "generative-ui",
     "rawText": " () => {\n  const [config, _, { hydrated }] = useStore(\"generativeWeb.config\");\n  const [customUrl, __, { hydrated: apiHydrated }] = useStore(\"api.customUrl\");\n  return (\n    <Div className=\"max-lg:mx-4 lg:mx-20\">\n      {hydrated && apiHydrated ? (\n        <FunctionForm\n          tsFunction={SetConfigIndex}\n          initialValues={[\n            customUrl,\n            config.disableAdmin,\n            config.customAbsoluteBasePaths,\n          ]}\n          submitFunction={setConfig}\n          withResult={() => {\n            showStandardResponse({ isSuccessful: true, message: \"Updated\" });\n          }}\n        />\n      ) : (\n        <FancyLoader />\n      )}\n    </Div>\n  );\n}"
@@ -755,7 +755,7 @@
   "useAdmin": {
     "name": "useAdmin",
     "slug": "TsFunction",
-    "id": "ccwhicedxgnivhkctsgwelas",
+    "id": "wbncnbbxygwfikjqhmdnpeux",
     "description": "Useful hook to make a static site dynamic for administrator",
     "operationName": "generative-ui",
     "rawText": " () => {\n  const queryPath = useQueryPath();\n  const { refetch, isLoading } = queries.useGetReaderPageProps(\n    process.env.NEXT_PUBLIC_BASEPATH || \"\",\n    queryPath,\n    true\n  );\n\n  const meQuery = queries.useGetMeWithContext();\n\n  const isAdmin = !!meQuery.data?.result?.groups?.find(\n    (x: Group) => x.slug === \"admin\"\n  );\n\n  const [config] = useStore(\"generativeWeb.config\");\n\n  const isAdminActive = isAdmin && !config.disableAdmin;\n  const result: {\n    isAdminActive: boolean;\n    isLoading?: boolean;\n    refetch?: typeof refetch;\n  } = isAdminActive\n    ? {\n        isAdminActive,\n        isLoading,\n        refetch,\n      }\n    : { isAdminActive };\n\n  return result;\n}"
@@ -763,7 +763,7 @@
   "useQueryPath": {
     "name": "useQueryPath",
     "slug": "TsFunction",
-    "id": "jnhrerbulxshucwcxdkrpqxt",
+    "id": "quwtrbkbwrjjwjleyyaxynby",
     "description": "Returns the queryPath of your URL without everything after ? and #",
     "operationName": "generative-ui",
     "rawText": " () => {\n  const router = useRouter();\n  const queryPath = router.query.queryPath;\n  const realQueryPathArray = queryPath ? makeArray(queryPath) : [];\n\n  const realQueryPath = realQueryPathArray.join(\"/\");\n  return realQueryPath;\n}"
@@ -771,7 +771,7 @@
   "useVariantResult": {
     "name": "useVariantResult",
     "slug": "TsFunction",
-    "id": "qykirugzojowdhcuujapmtwp",
+    "id": "rmuwlyrngixakxxvrsrbjvbk",
     "description": "",
     "operationName": "generative-ui",
     "rawText": " (\n  fileContextualPromptResults?: ContextualPromptResult[] | null\n) => {\n  const router = useRouter();\n  const [defaultVariant] = useStore(\"generativeWeb.defaultVariant\");\n\n  /**\n   * Variant either comes from URL or from the stored default variant slug from localStorage\n   */\n  const variantResultPromptSlug = router.query?.variant\n    ? takeFirst(router.query.variant)\n    : defaultVariant\n    ? defaultVariant\n    : undefined;\n\n  const variantResult = fileContextualPromptResults?.find(\n    (x) => x.contextualPromptSlug === variantResultPromptSlug\n  );\n\n  return variantResult;\n}"
@@ -779,7 +779,7 @@
   "VariantSelector": {
     "name": "VariantSelector",
     "slug": "TsFunction",
-    "id": "fbqqagcabzrzsodwbhmdrhhi",
+    "id": "xhvggjehvkrihniwlztfjmoc",
     "description": "",
     "operationName": "generative-ui",
     "rawText": " (props: {\n  projectRelativeFilePath?: string;\n  folderPath: string;\n  isFolder?: boolean;\n  filename?: string;\n  contextualPromptResults?: ContextualPromptResult[];\n}) => {\n  const { contextualPromptResults, folderPath, isFolder, filename } = props;\n\n  const router = useRouter();\n  const [defaultVariant, setDefaultVariant] = useStore(\n    \"generativeWeb.defaultVariant\"\n  );\n  const [isEditing, setIsEditing] = useStore(\"generativeWeb.isEditing\");\n  const admin = useAdmin();\n  const variantResult = useVariantResult(contextualPromptResults);\n\n  const resultItems =\n    contextualPromptResults?.map((x) => {\n      const item: Item<string> = {\n        label: `${x.isFake ? \"🧪\" : \"\"}${x.isFavorite ? \"⭐️\" : \"\"}${\n          x.contextualPromptSlug\n        }`,\n        value: x.contextualPromptSlug,\n      };\n\n      return item;\n    }) || [];\n\n  const items: Item<string>[] = [\n    { label: \"Original\", value: \"___NONE___\" },\n    ...resultItems,\n  ];\n\n  const withValue = (value: Item<string> | null | undefined) => {\n    const query: {\n      queryPath: string | string[] | undefined;\n      variant?: string;\n    } = {\n      queryPath: router.query.queryPath,\n    };\n\n    if (value && value.value && value.value !== \"___NONE___\") {\n      query.variant = value.value;\n    }\n    if (value?.value === \"___NONE___\") {\n      setDefaultVariant(null);\n    }\n    router.push({ query }, undefined, { shallow: true });\n  };\n\n  return (\n    <Div\n      className=\" \n    lg:flex-row lg:w-full w-min\"\n    >\n      <Div className=\"dark:bg-gray-700 dark:hover:bg-gray-600 rounded-md border border-black p-2 m-1 cursor-pointer flex flex-row\">\n        <P>Variant:</P>\n        <Select\n          className=\"bg-transparent\"\n          title=\"Test\"\n          onChange={withValue}\n          value={items.find(\n            (x) => x.value === variantResult?.contextualPromptSlug\n          )}\n          options={items}\n        />\n        {/* {variantResult?.id ? (\n          <ALink\n            href={`${folderPath}/.index/${\n              isFolder ? \"\" : filename ? withoutExtension(filename) : \"\"\n            }`}\n          >\n            Go to index\n          </ALink>\n        ) : null} */}\n\n        {(variantResult?.contextualPromptSlug || null) !== defaultVariant ? (\n          <ClickableIcon\n            emoji=\"📌\"\n            onClick={() =>\n              setDefaultVariant(variantResult?.contextualPromptSlug || null)\n            }\n          />\n        ) : null}\n\n        {variantResult && admin.isAdminActive ? (\n          // delete, star/unstar\n          <Div className=\"flex flex-row\">\n            <ClickableIcon\n              emoji=\"🗑\"\n              onClick={async () => {\n                if (!variantResult.prompt_projectRelativePath) return;\n                const apiResult = await api.deletePromptResult(\n                  variantResult.prompt_projectRelativePath,\n                  variantResult.id\n                );\n                showStandardResponse(apiResult);\n\n                if (apiResult?.result?.isSuccessful) {\n                  admin.refetch?.();\n                }\n              }}\n            />\n            <ClickableIcon\n              emoji={variantResult.isFavorite ? \"💩\" : \"⭐️\"}\n              onClick={async () => {\n                if (!variantResult.prompt_projectRelativePath) return;\n                const apiResult = await api.setIsFavoritePromptResult(\n                  variantResult.prompt_projectRelativePath,\n                  variantResult.id,\n                  !variantResult.isFavorite\n                );\n                showStandardResponse(apiResult);\n\n                if (apiResult?.result?.isSuccessful) {\n                  admin.refetch?.();\n                }\n              }}\n            />\n          </Div>\n        ) : null}\n      </Div>\n    </Div>\n  );\n}"

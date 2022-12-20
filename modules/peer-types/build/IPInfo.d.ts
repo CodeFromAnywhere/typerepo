@@ -9,11 +9,11 @@ export declare type IPInfo = {
      * NB: Port is not included
      */
     ip: string;
-    city: string | undefined;
-    position: Position | undefined;
-    positionRadiusKm: number | undefined;
-    country: string | undefined;
-    region: string | undefined;
-    timezone: string | undefined;
+    city?: string | undefined;
+    position?: Position | undefined;
+    positionRadiusKm?: number | undefined;
+    country?: string | undefined;
+    region?: string | undefined;
+    timezone?: string | undefined;
 };
 //# sourceMappingURL=IPInfo.d.ts.map

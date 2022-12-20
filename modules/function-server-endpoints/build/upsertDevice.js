@@ -51,9 +51,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.upsertDevice = void 0;
-var geoip_lite_1 = __importDefault(require("geoip-lite"));
 var ua_parser_js_1 = __importDefault(require("ua-parser-js"));
-var savePageVisit_1 = require("./savePageVisit");
 var fs_util_1 = require("fs-util");
 var get_path_1 = require("get-path");
 var measure_performance_1 = require("measure-performance");
@@ -71,7 +69,7 @@ var database_1 = require("database");
  * Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
  */
 var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var executionId, performance, authToken, ip, ipLookup, city, positionRadiusKm, ll, country, region, timezone, position, userAgentString, userAgent, ipInfo, origin, referer, dbPath, deviceFilePath, exists, deviceBefore, _a, newDevice, groups, persons, augmentedDevice;
+    var executionId, performance, authToken, ip, userAgentString, userAgent, origin, referer, dbPath, deviceFilePath, exists, deviceBefore, _a, newDevice, groups, persons, augmentedDevice;
     var _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -85,20 +83,8 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                     console.log("warn upsert device: no authToken");
                     return [2 /*return*/];
                 }
-                ipLookup = (geoip_lite_1.default.lookup(ip) || {});
-                city = ipLookup.city, positionRadiusKm = ipLookup.area, ll = ipLookup.ll, country = ipLookup.country, region = ipLookup.region, timezone = ipLookup.timezone;
-                position = !!(ll === null || ll === void 0 ? void 0 : ll[0]) && !!(ll === null || ll === void 0 ? void 0 : ll[1]) ? { latitude: ll[0], longitude: ll[1] } : undefined;
                 userAgentString = serverContext.req.get("User-Agent");
                 userAgent = (0, ua_parser_js_1.default)(userAgentString);
-                ipInfo = {
-                    ip: ip,
-                    city: city,
-                    position: position,
-                    positionRadiusKm: positionRadiusKm,
-                    country: country,
-                    region: region,
-                    timezone: timezone,
-                };
                 origin = serverContext.req.get("Origin");
                 referer = serverContext.req.get("Referrer");
                 dbPath = (0, get_path_1.getRootPath)("db");
@@ -117,15 +103,26 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
             case 3:
                 deviceBefore = _a;
                 newDevice = !exists
-                    ? __assign(__assign({ authToken: authToken, authenticationMethods: [] }, ipInfo), { createdAt: Date.now(), createdFirstAt: Date.now(), deletedAt: 0, id: authToken, lastOnlineAt: Date.now(), name: authToken, updatedAt: Date.now(), userAgentString: userAgentString || "no useragent" }) : null;
+                    ? {
+                        authToken: authToken,
+                        authenticationMethods: [],
+                        ip: ip,
+                        createdAt: Date.now(),
+                        createdFirstAt: Date.now(),
+                        deletedAt: 0,
+                        id: authToken,
+                        lastOnlineAt: Date.now(),
+                        name: authToken,
+                        updatedAt: Date.now(),
+                        userAgentString: userAgentString || "no useragent",
+                    }
+                    : null;
                 if (!newDevice) return [3 /*break*/, 5];
                 return [4 /*yield*/, (0, fs_util_1.writeJsonToFile)(deviceFilePath, newDevice)];
             case 4:
                 _c.sent();
                 _c.label = 5;
-            case 5:
-                (0, savePageVisit_1.savePageVisit)(authToken, ipInfo, referer);
-                return [4 /*yield*/, database_1.db.get("Group")];
+            case 5: return [4 /*yield*/, database_1.db.get("Group")];
             case 6:
                 groups = _c.sent();
                 return [4 /*yield*/, database_1.db.get("Person")];
