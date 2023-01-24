@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1668336344108,
-    "updatedAt": 1668336344108,
+    "createdAt": 1673380415012,
+    "updatedAt": 1673380415012,
     "deletedAt": 0,
-    "createdFirstAt": 1668336344108,
+    "createdFirstAt": 1673380415012,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/slugify.ts",
@@ -16,6 +16,22 @@
     ],
     "firstLine": 1,
     "lastLine": 9,
-    "id": "bysnhipdayszcsdajoytdrwa"
+    "id": "tfnrchwqgoueqhrqdhpaloot"
+  },
+  {
+    "createdAt": 1673380415012,
+    "updatedAt": 1673380415012,
+    "deletedAt": 0,
+    "createdFirstAt": 1673380415012,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/slugify.ts",
+    "comment": "Slugification for filepaths in specific",
+    "rawStatement": "export function fileSlugify(string: string) {\n  const a =\n    \"àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìıİłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·,:;\";\n  const b =\n    \"aaaaaaaaaacccddeeeeeeeegghiiiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz----\";\n  const p = new RegExp(a.split(\"\").join(\"|\"), \"g\");\n\n  return (\n    string\n      .toString()\n      .replace(/\\s+/g, \"-\") // Replace spaces with -\n      .replace(p, (c) => b.charAt(a.indexOf(c))) // Replace special characters\n      .replace(/&/g, \"-and-\") // Replace & with 'and'\n      // .replace(/[^\\w\\-]+/g, \"\") // Remove all non-word characters\n      .replace(/\\-\\-+/g, \"-\") // Replace multiple - with single -\n      .replace(/^-+/, \"\") // Trim - from start of text\n      .replace(/-+$/, \"\")\n  ); // Trim - from end of text\n}",
+    "parameters": {},
+    "types": [],
+    "firstLine": 29,
+    "lastLine": 31,
+    "id": "akcmfsbfybbjbhleyxkvuczx"
   }
 ]

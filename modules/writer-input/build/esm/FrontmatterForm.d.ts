@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { SimplifiedSchema } from "code-types";
 import { MarkdownParse } from "markdown-types";
 /**

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317007727,
-  "updatedAt": 1671317007727,
+  "createdAt": 1673862673145,
+  "updatedAt": 1673862673145,
   "deletedAt": 0,
-  "createdFirstAt": 1671317007727,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862673145,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getNestedPathObject.ts",
   "commentsInside": [],
   "rawText": " async (\n  baseFolderPath: string\n): Promise<NestedPathObject> => {\n  // 1 - explore\n\n  const exploreResult = await explore({\n    basePath: baseFolderPath,\n    includeFoldersWithResults: true,\n  });\n  // 2 - get file and folder paths from explore result\n  const explorePaths = exploreResult.map((textJson) => textJson.path);\n  const relativeExplorePaths = explorePaths.map((explorePath) => {\n    const baseFolderRelativeExplorePath = makeRelative(\n      explorePath,\n      baseFolderPath\n    );\n\n    return baseFolderRelativeExplorePath;\n  });\n\n  // 3- convert file/folder paths array into `NestedPathObject`\n  const nestedPathObject =\n    queryPathsArrayToNestedPathObject(relativeExplorePaths);\n\n  // 4 - return that\n  return nestedPathObject;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "trsbkvoapvnonpclavtegccq"
+  "id": "riwkaweiwzxfnpthtsuwikfu"
 }

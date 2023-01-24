@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671317027738,
-  "updatedAt": 1671317027738,
+  "createdAt": 1673862692881,
+  "updatedAt": 1673862692881,
   "deletedAt": 0,
-  "createdFirstAt": 1671317027738,
+  "createdFirstAt": 1673862692881,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const publicPeers = (await db.get(\"Device\")).filter(\n    (peer) => !peer.isPrivate\n  );\n\n  return publicPeers;\n}",
   "description": "",
-  "id": "iqedhrczpmlhpnzoxijjovop"
+  "id": "grpnygvqqjfjrynruncfohec"
 }

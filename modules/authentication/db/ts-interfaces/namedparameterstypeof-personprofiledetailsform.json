@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671449552090,
-  "updatedAt": 1671449552090,
+  "createdAt": 1674548631181,
+  "updatedAt": 1674548631181,
   "deletedAt": 0,
-  "createdFirstAt": 1671449552090,
+  "createdFirstAt": 1674548631181,
   "id": "namedparameterstypeof-personprofiledetailsform",
   "name": "NamedParameters<typeof PersonProfileDetailsForm>",
   "slug": "namedparameterstypeof-personprofiledetailsform",
@@ -225,39 +225,26 @@
                       }
                     },
                     {
-                      "name": "amountAuthenticationMethodsRequired",
+                      "name": "note",
                       "required": false,
                       "schema": {
-                        "fullComment": "By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one",
-                        "type": "number"
+                        "type": "string"
                       }
                     },
                     {
-                      "name": "requiredAuthenticationMethods",
+                      "name": "location",
                       "required": false,
                       "schema": {
-                        "fullComment": "Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device",
-                        "items": [
-                          {
-                            "schema": {
-                              "enum": [
-                                "usernamePassword",
-                                "phoneNumber",
-                                "email",
-                                "apple",
-                                "google",
-                                "facebook",
-                                "twitter",
-                                "linkedin",
-                                "github"
-                              ],
-                              "fullComment": "Username + password should be the default\n\nEmail OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods\n\nAll others can also act as authentication methods, but the token shouldn't be stored",
-                              "type": "string"
-                            },
-                            "name": "AuthenticationMethodMethod"
-                          }
-                        ],
-                        "type": "array"
+                        "fullComment": "Later to be formalised with city, country, address, lat/lng, and maybe multiple possible locations. For now, and if we are using GPT for search, a string might be enough.",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "trust",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Number 0-1 to indicate my trust towards this person",
+                        "type": "number"
                       }
                     }
                   ],

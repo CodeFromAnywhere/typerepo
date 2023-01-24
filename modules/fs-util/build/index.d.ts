@@ -13,4 +13,5 @@ export * from "./path";
 export * from "./removeAllExcept";
 export * from "./renameAndCreate";
 export * from "./types";
+export * from "./updateSingleNestedJsonFile";
 //# sourceMappingURL=index.d.ts.map

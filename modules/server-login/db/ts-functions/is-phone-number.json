@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671318428727,
-  "updatedAt": 1671318428727,
+  "createdAt": 1673863652209,
+  "updatedAt": 1673863652209,
   "deletedAt": 0,
-  "createdFirstAt": 1671318428727,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863652209,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/validation/isPhoneNumber.ts",
   "commentsInside": [],
   "rawText": " (phoneNumber: string): boolean => {\n  return true;\n}",
@@ -52,5 +51,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "muhygqrmebyetfrmbxxipmlz"
+  "id": "kfubumzaoqhldntcrwssarkl"
 }

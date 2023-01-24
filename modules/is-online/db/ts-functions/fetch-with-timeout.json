@@ -1,0 +1,62 @@
+{
+  "createdAt": 1668336407575,
+  "updatedAt": 1668336407575,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336407575,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/isOnline.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  url: string,\n  timeoutMs: number\n): Promise<{\n  isSuccessful: boolean;\n  isConnected: boolean;\n  response?: any;\n  message: string;\n}> => {\n  try {\n    const abortController = new AbortController();\n    const id = setTimeout(() => abortController.abort(), timeoutMs || 10000);\n\n    const response = await fetch(url, {\n      method: \"GET\",\n      signal: abortController.signal,\n      headers: {\n        Accept: \"application/json\",\n        \"Content-Type\": \"application/json\",\n      },\n    })\n      .then((response) => {\n        return {\n          isConnected: true,\n          isSuccessful: true,\n          message: \"Resolved\",\n          result: response,\n        };\n      })\n      .catch((error) => {\n        if (!timeoutMs) {\n          console.warn(error);\n        }\n        return {\n          isSuccessful: false,\n          isConnected: false,\n          message: \"The API didn't resolve: \" + error, //error + error.status +\n        };\n      });\n\n    clearTimeout(id);\n    return response;\n  } catch (e) {\n    return {\n      isSuccessful: false,\n      isConnected: false,\n      message: \"The API didn't resolve: \" + e,\n    };\n  }\n}",
+  "name": "fetchWithTimeout",
+  "slug": "fetch-with-timeout",
+  "parameters": [
+    {
+      "name": "url",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "timeoutMs",
+      "schema": {
+        "type": "number"
+      },
+      "simplifiedSchema": {
+        "type": "number"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; isConnected: boolean; response?: any; message: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1141,
+    "lines": 50,
+    "bytes": 1141,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 50,
+    "numberOfFiles": 1
+  },
+  "id": "lowiodlohehgukeegeeuneej"
+}

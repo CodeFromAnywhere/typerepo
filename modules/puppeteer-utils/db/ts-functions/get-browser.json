@@ -1,0 +1,36 @@
+{
+  "createdAt": 1672134429762,
+  "updatedAt": 1672134429762,
+  "deletedAt": 0,
+  "createdFirstAt": 1672134429762,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/browserSession.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n    return browserSession.get(\"browser\");\n}",
+  "name": "getBrowser",
+  "slug": "get-browser",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 52,
+    "lines": 3,
+    "bytes": 52,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 17,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "sqxvomlmktfxzrkldkqsjlmb"
+}

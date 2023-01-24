@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671318416926,
-  "updatedAt": 1671318416926,
+  "createdAt": 1674547854014,
+  "updatedAt": 1674547854014,
   "deletedAt": 0,
-  "createdFirstAt": 1671318416926,
+  "createdFirstAt": 1674547854014,
   "id": "signuppersondata",
   "name": "SignupPersonData",
   "slug": "signuppersondata",
   "operationRelativeTypescriptFilePath": "src/signupWithContext.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type SignupPersonData = Pick<\n  Person,\n  | \"authorizations\"\n  | \"credit\"\n  | \"dataEntries\"\n  | \"interestSlugs\"\n  | \"media\"\n  | \"name\"\n  | \"slug\"\n  | \"pictureImage\"\n  | \"groupSlugs\"\n  | \"requiredAuthenticationMethods\"\n  | \"amountAuthenticationMethodsRequired\"\n>;",
+  "rawText": "\n\nexport type SignupPersonData = Pick<\n  Person,\n  | \"credit\"\n  | \"dataEntries\"\n  | \"interestSlugs\"\n  | \"media\"\n  | \"name\"\n  | \"slug\"\n  | \"pictureImage\"\n  | \"groupSlugs\"\n>;",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -19,13 +19,6 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
-        "authorizations": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Authorization"
-          },
-          "description": "Which custom authorizations does this `Person` have?"
-        },
         "credit": {
           "$ref": "#/definitions/Credit",
           "description": "Actions by the `Person` can create changes in the amount of credits\n\nThe exact meaning of the number of credits is determined by the OS settings. Can for example be 1:1 to euro, 1:1 to bitcoin, or a custom credit system. Transferability is also customisable.\n\nInsufficient credit can limit the persons possibilities within the OS"
@@ -65,17 +58,6 @@
             "$ref": "#/definitions/Slug"
           },
           "description": "To which groups does this person belong?\n\nThis determines additional authorizations\n\nCan be set on signup, but can always be edited by admin"
-        },
-        "requiredAuthenticationMethods": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/AuthenticationMethodMethod"
-          },
-          "description": "Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device"
-        },
-        "amountAuthenticationMethodsRequired": {
-          "type": "number",
-          "description": "By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one"
         }
       },
       "required": [
@@ -86,123 +68,6 @@
     },
     "simplifiedSchema": {
       "properties": [
-        {
-          "name": "authorizations",
-          "required": false,
-          "schema": {
-            "fullComment": "Which custom authorizations does this `Person` have?",
-            "items": [
-              {
-                "schema": {
-                  "fullComment": "`Authorization` helps you provide certain access to files, data, functionality, and code. Authorization can be provided custom, or by indexation. The indexation of the codebase and text-files overwrites the custom authorization in the `Group`-model.\n\n## Different authorizations\n\nFor files (ts, md, json, etc...):\n\n- canWriteCreate\n- canWriteUpdate\n- canWriteDelete\n- canRead\n- canSearch (only search index)\n\nFor db model data subsets:\n\n- canWriteUpdate\n- canWriteCreate\n- canWriteDelete\n- canRead\n- canSearch (only search index)\n\nFor functions:\n\n- canExecute\n\nFor functions, interfaces, variables:\n\n- canRead (reading docs only. for source, you need to provide the file auth)\n- canSearch (only search index)",
-                  "properties": [
-                    {
-                      "name": "isProjectWide",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "If true, this authorization is project-wide and applies to everything",
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "authorizedOperationName",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "If selected, the authorization will apply to the whole operation",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "tsFunctionId",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "If selected, the authorization will apply to this function\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "tsVariableId",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "If selected, the authorization will apply to this variable\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "tsInterfaceId",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "If selected, the authorization will apply to this interface\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "datasetId",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "If selected, the authorization will apply to this dataset\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "authorizedProjectRelativePath",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "If selected, the authorization will apply to everything in this folder or to this specific file",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "canExecute",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canWriteCreate",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canWriteUpdate",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canWriteDelete",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canRead",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canSearch",
-                      "required": false,
-                      "schema": {
-                        "type": "boolean"
-                      }
-                    }
-                  ],
-                  "type": "object"
-                },
-                "name": "Authorization"
-              }
-            ],
-            "type": "array"
-          }
-        },
         {
           "name": "credit",
           "required": false,
@@ -287,7 +152,7 @@
                       }
                     },
                     {
-                      "name": "categoryStackCalculated",
+                      "name": "categoryStack",
                       "required": false,
                       "schema": {
                         "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -508,42 +373,6 @@
               }
             ],
             "type": "array"
-          }
-        },
-        {
-          "name": "requiredAuthenticationMethods",
-          "required": false,
-          "schema": {
-            "fullComment": "Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device",
-            "items": [
-              {
-                "schema": {
-                  "enum": [
-                    "usernamePassword",
-                    "phoneNumber",
-                    "email",
-                    "apple",
-                    "google",
-                    "facebook",
-                    "twitter",
-                    "linkedin",
-                    "github"
-                  ],
-                  "fullComment": "Username + password should be the default\n\nEmail OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods\n\nAll others can also act as authentication methods, but the token shouldn't be stored",
-                  "type": "string"
-                },
-                "name": "AuthenticationMethodMethod"
-              }
-            ],
-            "type": "array"
-          }
-        },
-        {
-          "name": "amountAuthenticationMethodsRequired",
-          "required": false,
-          "schema": {
-            "fullComment": "By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one",
-            "type": "number"
           }
         }
       ],

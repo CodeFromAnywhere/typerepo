@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379726544,
+  "updatedAt": 1673379726544,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379726544,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "sendDailyAlarmSms",
+  "slug": "send-daily-alarm-sms",
+  "operationRelativeTypescriptFilePath": "src/sendDailyAlarmSms.ts",
+  "type": {
+    "rawType": "() => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const now = time().myTimeDate;\n  if (now.getHours() !== 8) {\n    // only 8 pm\n    return;\n  }\n\n  const persona = await getPrimaryPersona();\n  sendSms({ to: persona.phone, body: \"Wake up!\" });\n}",
+  "description": "---\nrunEveryPeriod: hour\n---",
+  "id": "kcnetkjdzrdhrjodxyqyywsb"
+}

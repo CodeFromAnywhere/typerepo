@@ -1,16 +1,16 @@
 {
-  "createdAt": 1670527601433,
-  "updatedAt": 1670527601433,
+  "createdAt": 1674542334475,
+  "updatedAt": 1674542334475,
   "deletedAt": 0,
-  "createdFirstAt": 1670527601433,
+  "createdFirstAt": 1674542334475,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "getStaticProps",
   "slug": "get-static-props",
-  "operationRelativeTypescriptFilePath": "src/pages/[...query].tsx",
+  "operationRelativeTypescriptFilePath": "src/pages/files/[...queryPath].tsx",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").GetStaticProps<import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").QueryPageProps, import(\"querystring\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/search/search-web/node_modules/next/types/index\").PreviewData>",
+    "rawType": "(context: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPropsContext<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").PreviewData>) => Promise<{ props: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ReaderProps\").ReaderProps; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "searchGetStaticProps",
+  "value": "readerPageGetStaticProps",
   "description": "",
-  "id": "jvpuumllhcworydeljklfctl"
+  "id": "iarvtpmcmeegwmppnoeuznfh"
 }

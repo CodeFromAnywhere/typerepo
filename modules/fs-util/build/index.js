@@ -29,4 +29,5 @@ __exportStar(require("./path"), exports);
 __exportStar(require("./removeAllExcept"), exports);
 __exportStar(require("./renameAndCreate"), exports);
 __exportStar(require("./types"), exports);
+__exportStar(require("./updateSingleNestedJsonFile"), exports);
 //# sourceMappingURL=index.js.map

@@ -1,5 +1,5 @@
 import { Page } from "puppeteer-core";
-type SetInputValueType = {
+declare type SetInputValueType = {
     page: Page;
     selector: string;
     inputValue: string;

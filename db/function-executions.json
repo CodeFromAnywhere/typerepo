@@ -1,0 +1,277 @@
+[
+  {
+    "createdAt": 1674549494589,
+    "updatedAt": 1674549494589,
+    "deletedAt": 0,
+    "createdFirstAt": 1674549494589,
+    "functionName": "getMeWithContext",
+    "tsFunctionId": "lcnbootnojruwfijpuehqlfx",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "authorizations": [
+        {
+          "isProjectWide": true,
+          "canExecute": true,
+          "canWriteCreate": true,
+          "canWriteUpdate": true,
+          "canWriteDelete": true,
+          "canRead": true,
+          "canSearch": true
+        }
+      ],
+      "device": {
+        "createdAt": 1674549348882,
+        "updatedAt": 1674549348882,
+        "deletedAt": 0,
+        "createdFirstAt": 1674549348882,
+        "authToken": "bjkugpejrqzqvjimmekavlti",
+        "authenticationMethods": [],
+        "ip": "::1",
+        "id": "bjkugpejrqzqvjimmekavlti",
+        "lastOnlineAt": 1674549348882,
+        "name": "bjkugpejrqzqvjimmekavlti",
+        "userAgentString": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36",
+        "slug": "bjkugpejrqzqvjimmekavlti",
+        "categoryStack": [],
+        "personIds": [
+          "eluwjakefqnqmjmkbfryewwm"
+        ],
+        "currentPersonId": "eluwjakefqnqmjmkbfryewwm",
+        "persons": [
+          {
+            "createdAt": 1674549417696,
+            "updatedAt": 1674549417696,
+            "deletedAt": 0,
+            "createdFirstAt": 1674549417696,
+            "id": "eluwjakefqnqmjmkbfryewwm",
+            "groupSlugs": [
+              "admin"
+            ],
+            "authenticationMethods": [
+              {
+                "method": "usernamePassword",
+                "handle": "admin2",
+                "encryptedCredential": "$2b$10$wMhduzQ4N0udKao0v12ZD.fCjUfcfhiA3H5929AGWOdwpi3i9lKbK",
+                "isAuthenticated": true
+              }
+            ],
+            "name": "admin2",
+            "slug": "admin2",
+            "operationName": null,
+            "projectRelativePath": "/db/persons.json",
+            "groups": [
+              {
+                "createdAt": 1671097978270,
+                "updatedAt": 1671097978270,
+                "deletedAt": 0,
+                "createdFirstAt": 1671097978270,
+                "name": "admin",
+                "language": "english",
+                "description": "This is admin group",
+                "customAuthorizations": [
+                  {
+                    "isProjectWide": true,
+                    "canExecute": true,
+                    "canWriteCreate": true,
+                    "canWriteUpdate": true,
+                    "canWriteDelete": true,
+                    "canRead": true,
+                    "canSearch": true
+                  }
+                ],
+                "amountAuthenticationMethodsRequired": 1,
+                "slug": "admin",
+                "id": "wrxetoqtrggdpuohtzqxcrax",
+                "operationName": null,
+                "projectRelativePath": "/db/groups.json"
+              }
+            ]
+          }
+        ],
+        "currentPersonCalculated": {
+          "createdAt": 1674549417696,
+          "updatedAt": 1674549417696,
+          "deletedAt": 0,
+          "createdFirstAt": 1674549417696,
+          "id": "eluwjakefqnqmjmkbfryewwm",
+          "groupSlugs": [
+            "admin"
+          ],
+          "authenticationMethods": [
+            {
+              "method": "usernamePassword",
+              "handle": "admin2",
+              "encryptedCredential": "$2b$10$wMhduzQ4N0udKao0v12ZD.fCjUfcfhiA3H5929AGWOdwpi3i9lKbK",
+              "isAuthenticated": true
+            }
+          ],
+          "name": "admin2",
+          "slug": "admin2",
+          "operationName": null,
+          "projectRelativePath": "/db/persons.json",
+          "groups": [
+            {
+              "createdAt": 1671097978270,
+              "updatedAt": 1671097978270,
+              "deletedAt": 0,
+              "createdFirstAt": 1671097978270,
+              "name": "admin",
+              "language": "english",
+              "description": "This is admin group",
+              "customAuthorizations": [
+                {
+                  "isProjectWide": true,
+                  "canExecute": true,
+                  "canWriteCreate": true,
+                  "canWriteUpdate": true,
+                  "canWriteDelete": true,
+                  "canRead": true,
+                  "canSearch": true
+                }
+              ],
+              "amountAuthenticationMethodsRequired": 1,
+              "slug": "admin",
+              "id": "wrxetoqtrggdpuohtzqxcrax",
+              "operationName": null,
+              "projectRelativePath": "/db/groups.json"
+            }
+          ]
+        }
+      },
+      "groups": [
+        {
+          "createdAt": 1671097978270,
+          "updatedAt": 1671097978270,
+          "deletedAt": 0,
+          "createdFirstAt": 1671097978270,
+          "name": "admin",
+          "language": "english",
+          "description": "This is admin group",
+          "customAuthorizations": [
+            {
+              "isProjectWide": true,
+              "canExecute": true,
+              "canWriteCreate": true,
+              "canWriteUpdate": true,
+              "canWriteDelete": true,
+              "canRead": true,
+              "canSearch": true
+            }
+          ],
+          "amountAuthenticationMethodsRequired": 1,
+          "slug": "admin",
+          "id": "wrxetoqtrggdpuohtzqxcrax",
+          "operationName": null,
+          "projectRelativePath": "/db/groups.json"
+        }
+      ]
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 2
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 3
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "rjdtincgfhtnnnuliymzrfnt"
+  },
+  {
+    "createdAt": 1674549494604,
+    "updatedAt": 1674549494604,
+    "deletedAt": 0,
+    "createdFirstAt": 1674549494604,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 2
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 17
+      }
+    ],
+    "id": "oaqlydokshtsgnkbszzaljvi"
+  }
+]

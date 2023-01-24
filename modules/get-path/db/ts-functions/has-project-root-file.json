@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671315990382,
-  "updatedAt": 1671315990382,
+  "createdAt": 1673959173819,
+  "updatedAt": 1673959173819,
   "deletedAt": 0,
-  "createdFirstAt": 1671315990382,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959173819,
+  "isApiExposed": false,
   "isExported": false,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getProjectRoot.ts",
   "commentsInside": [],
   "rawText": " (absolutePath: string) => {\n  const osRootFilePath = path.join(absolutePath, \".project-root\");\n  const osRootFileExists = fs.existsSync(osRootFilePath);\n  return osRootFileExists;\n}",
@@ -52,5 +51,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "fkgrmnrlhxyzsguhyweojvmq"
+  "id": "cjeomsyyavdnjsdbmhuhgogr"
 }

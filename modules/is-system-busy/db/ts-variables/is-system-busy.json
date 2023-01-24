@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674034673064,
+  "updatedAt": 1674034673064,
+  "deletedAt": 0,
+  "createdFirstAt": 1674034673064,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "isSystemBusy",
+  "slug": "is-system-busy",
+  "operationRelativeTypescriptFilePath": "src/isSystemBusy.ts",
+  "type": {
+    "rawType": "() => Promise<boolean>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (): Promise<boolean> => {\n  const percentage = await new Promise<number>((resolve) =>\n    cpuUsage((percentage) => resolve(percentage))\n  );\n\n  return percentage > 0.75;\n\n  //    This is not useful enough....\n  //   console.dir(\n  //     {\n  //       cpus: cpus(),\n  //       totalmem: totalmem(),\n  //       freemem: freemem(),\n  //       load: loadavg(),\n  //     },\n  //     { depth: 99 }\n  //   );\n}",
+  "description": "",
+  "id": "ovasteutivwiaskmdqbdkisx"
+}

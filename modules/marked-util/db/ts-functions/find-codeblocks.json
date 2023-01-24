@@ -1,0 +1,74 @@
+{
+  "createdAt": 1673959593280,
+  "updatedAt": 1673959593280,
+  "deletedAt": 0,
+  "createdFirstAt": 1673959593280,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/findCodeblocks.ts",
+  "commentsInside": [],
+  "rawText": " (markdownString: string): string[] => {\n  const result = flattenMarkdownString(\n    markdownString,\n    (token) => token.type === \"code\"\n  );\n\n  const codesblocks: string[] = result\n    .map((token) => {\n      if (token.type !== \"code\") return;\n\n      return token.text;\n    })\n    .filter(notEmpty);\n\n  return codesblocks;\n}",
+  "name": "findCodeblocks",
+  "slug": "find-codeblocks",
+  "parameters": [
+    {
+      "name": "markdownString",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "find all codespans",
+  "returnType": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 344,
+    "lines": 16,
+    "bytes": 344,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 22,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "zprvzpnhidvykpyvlvhsdhik"
+}

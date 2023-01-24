@@ -1,0 +1,4279 @@
+{
+  "operationName": "k-explore",
+  "dependencyCount": 9,
+  "usedExportsCount": 0,
+  "allExportsCount": 16,
+  "cumulativeExportsCount": 6557,
+  "cumulativeUsedExportsCount": 613,
+  "usedExports": [],
+  "children": [
+    {
+      "operationName": "fs-util",
+      "dependencyCount": 5,
+      "usedExportsCount": 6,
+      "allExportsCount": 40,
+      "cumulativeExportsCount": 579,
+      "cumulativeUsedExportsCount": 51,
+      "usedExports": [
+        "Dirent",
+        "fs",
+        "path",
+        "canRead",
+        "canSee",
+        "getFolder"
+      ],
+      "children": [
+        {
+          "operationName": "log",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 9,
+          "cumulativeExportsCount": 9,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "log"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "js-util",
+          "dependencyCount": 0,
+          "usedExportsCount": 4,
+          "allExportsCount": 52,
+          "cumulativeExportsCount": 52,
+          "cumulativeUsedExportsCount": 4,
+          "usedExports": [
+            "trimSlashes",
+            "sum",
+            "notEmpty",
+            "makeArray"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "recursive-types",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 1,
+          "cumulativeExportsCount": 1,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "ChildObject"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "filename-conventions",
+          "dependencyCount": 1,
+          "usedExportsCount": 1,
+          "allExportsCount": 30,
+          "cumulativeExportsCount": 82,
+          "cumulativeUsedExportsCount": 2,
+          "usedExports": [
+            "generatedFolders"
+          ],
+          "children": [
+            {
+              "operationName": "js-util",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 52,
+              "cumulativeExportsCount": 52,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "makeArray"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "operationName": "write-to-assets",
+          "dependencyCount": 1,
+          "usedExportsCount": 1,
+          "allExportsCount": 1,
+          "cumulativeExportsCount": 395,
+          "cumulativeUsedExportsCount": 37,
+          "usedExports": [
+            "writeToAssets"
+          ],
+          "children": [
+            {
+              "operationName": "get-path",
+              "dependencyCount": 8,
+              "usedExportsCount": 2,
+              "allExportsCount": 31,
+              "cumulativeExportsCount": 394,
+              "cumulativeUsedExportsCount": 36,
+              "usedExports": [
+                "findOperationBasePath",
+                "getOperationPath"
+              ],
+              "children": [
+                {
+                  "operationName": "log",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 9,
+                  "cumulativeExportsCount": 9,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "log"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "code-types",
+                  "dependencyCount": 5,
+                  "usedExportsCount": 7,
+                  "allExportsCount": 84,
+                  "cumulativeExportsCount": 207,
+                  "cumulativeUsedExportsCount": 24,
+                  "usedExports": [
+                    "OperationClassification",
+                    "Operation",
+                    "ModuleKind",
+                    "ModuleResolutionKind",
+                    "TsConfig",
+                    "OperationPathParse",
+                    "PathParse"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 9,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 10,
+                      "usedExports": [
+                        "DefaultModelType",
+                        "SlugModelType",
+                        "Price",
+                        "AugmentedAnyModelType",
+                        "Id",
+                        "Markdown",
+                        "TsIndexModelType",
+                        "AnyModelType",
+                        "Creation"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "pluralize",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 4,
+                      "cumulativeExportsCount": 4,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "pluralize"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "convert-case",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 13,
+                      "cumulativeExportsCount": 15,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "kebabCase"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "make-test",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "makeTest"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "measure-performance",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 4,
+                      "cumulativeExportsCount": 53,
+                      "cumulativeUsedExportsCount": 3,
+                      "usedExports": [
+                        "PerformanceItem"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "model-types",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 47,
+                          "cumulativeExportsCount": 49,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "generateId"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "matter-types",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "Frontmatter"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "read-json-file",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 3,
+                  "cumulativeExportsCount": 4,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "readJsonFileSync"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "try-parse-json",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 1,
+                      "cumulativeExportsCount": 1,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "tryParseJson"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "try-parse-json",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 1,
+                  "cumulativeExportsCount": 1,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "tryParseJson"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 2,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "mergeObjectsArray",
+                    "notEmpty"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "sdk-operations",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 0,
+                  "cumulativeExportsCount": 0,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "operations"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "fs-util-js",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 8,
+                  "cumulativeExportsCount": 8,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeRelative"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "filename-conventions",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 30,
+                  "cumulativeExportsCount": 82,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "databaseFolderName"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "js-util",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 52,
+                      "cumulativeExportsCount": 52,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeArray"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operationName": "read-json-file",
+      "dependencyCount": 3,
+      "usedExportsCount": 1,
+      "allExportsCount": 3,
+      "cumulativeExportsCount": 1154,
+      "cumulativeUsedExportsCount": 95,
+      "usedExports": [
+        "readJsonFile"
+      ],
+      "children": [
+        {
+          "operationName": "fs-util",
+          "dependencyCount": 5,
+          "usedExportsCount": 5,
+          "allExportsCount": 40,
+          "cumulativeExportsCount": 575,
+          "cumulativeUsedExportsCount": 48,
+          "usedExports": [
+            "canRead",
+            "fs",
+            "Path",
+            "canReadSync",
+            "path"
+          ],
+          "children": [
+            {
+              "operationName": "log",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 9,
+              "cumulativeExportsCount": 9,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "log"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "js-util",
+              "dependencyCount": 0,
+              "usedExportsCount": 4,
+              "allExportsCount": 52,
+              "cumulativeExportsCount": 52,
+              "cumulativeUsedExportsCount": 4,
+              "usedExports": [
+                "trimSlashes",
+                "sum",
+                "notEmpty",
+                "makeArray"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "recursive-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 1,
+              "cumulativeExportsCount": 1,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "ChildObject"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "filename-conventions",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 30,
+              "cumulativeExportsCount": 82,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "generatedFolders"
+              ],
+              "children": [
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeArray"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "write-to-assets",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 1,
+              "cumulativeExportsCount": 391,
+              "cumulativeUsedExportsCount": 35,
+              "usedExports": [
+                "writeToAssets"
+              ],
+              "children": [
+                {
+                  "operationName": "get-path",
+                  "dependencyCount": 7,
+                  "usedExportsCount": 2,
+                  "allExportsCount": 31,
+                  "cumulativeExportsCount": 390,
+                  "cumulativeUsedExportsCount": 34,
+                  "usedExports": [
+                    "findOperationBasePath",
+                    "getOperationPath"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "log",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 9,
+                      "cumulativeExportsCount": 9,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "log"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "code-types",
+                      "dependencyCount": 5,
+                      "usedExportsCount": 7,
+                      "allExportsCount": 84,
+                      "cumulativeExportsCount": 207,
+                      "cumulativeUsedExportsCount": 24,
+                      "usedExports": [
+                        "OperationClassification",
+                        "Operation",
+                        "ModuleKind",
+                        "ModuleResolutionKind",
+                        "TsConfig",
+                        "OperationPathParse",
+                        "PathParse"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "model-types",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 9,
+                          "allExportsCount": 47,
+                          "cumulativeExportsCount": 49,
+                          "cumulativeUsedExportsCount": 10,
+                          "usedExports": [
+                            "DefaultModelType",
+                            "SlugModelType",
+                            "Price",
+                            "AugmentedAnyModelType",
+                            "Id",
+                            "Markdown",
+                            "TsIndexModelType",
+                            "AnyModelType",
+                            "Creation"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "matter-types",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "Frontmatter"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "pluralize",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 4,
+                          "cumulativeExportsCount": 4,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "pluralize"
+                          ],
+                          "children": []
+                        },
+                        {
+                          "operationName": "convert-case",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 13,
+                          "cumulativeExportsCount": 15,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "kebabCase"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "make-test",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "makeTest"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "measure-performance",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 4,
+                          "cumulativeExportsCount": 53,
+                          "cumulativeUsedExportsCount": 3,
+                          "usedExports": [
+                            "PerformanceItem"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "model-types",
+                              "dependencyCount": 1,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 47,
+                              "cumulativeExportsCount": 49,
+                              "cumulativeUsedExportsCount": 2,
+                              "usedExports": [
+                                "generateId"
+                              ],
+                              "children": [
+                                {
+                                  "operationName": "matter-types",
+                                  "dependencyCount": 0,
+                                  "usedExportsCount": 1,
+                                  "allExportsCount": 2,
+                                  "cumulativeExportsCount": 2,
+                                  "cumulativeUsedExportsCount": 1,
+                                  "usedExports": [
+                                    "Frontmatter"
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "try-parse-json",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 1,
+                      "cumulativeExportsCount": 1,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "tryParseJson"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "js-util",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 2,
+                      "allExportsCount": 52,
+                      "cumulativeExportsCount": 52,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "mergeObjectsArray",
+                        "notEmpty"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "sdk-operations",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 0,
+                      "cumulativeExportsCount": 0,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "operations"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "fs-util-js",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 8,
+                      "cumulativeExportsCount": 8,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeRelative"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "filename-conventions",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 30,
+                      "cumulativeExportsCount": 82,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "databaseFolderName"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "js-util",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 52,
+                          "cumulativeExportsCount": 52,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "makeArray"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "operationName": "try-parse-json",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 1,
+          "cumulativeExportsCount": 1,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "tryParseJson"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "get-path",
+          "dependencyCount": 8,
+          "usedExportsCount": 1,
+          "allExportsCount": 31,
+          "cumulativeExportsCount": 575,
+          "cumulativeUsedExportsCount": 45,
+          "usedExports": [
+            "getProjectRoot"
+          ],
+          "children": [
+            {
+              "operationName": "fs-util",
+              "dependencyCount": 5,
+              "usedExportsCount": 3,
+              "allExportsCount": 40,
+              "cumulativeExportsCount": 185,
+              "cumulativeUsedExportsCount": 12,
+              "usedExports": [
+                "path",
+                "fs",
+                "getLastFolder"
+              ],
+              "children": [
+                {
+                  "operationName": "log",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 9,
+                  "cumulativeExportsCount": 9,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "log"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 4,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 4,
+                  "usedExports": [
+                    "trimSlashes",
+                    "sum",
+                    "notEmpty",
+                    "makeArray"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "recursive-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 1,
+                  "cumulativeExportsCount": 1,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "ChildObject"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "filename-conventions",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 30,
+                  "cumulativeExportsCount": 82,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "generatedFolders"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "js-util",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 52,
+                      "cumulativeExportsCount": 52,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeArray"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "write-to-assets",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 1,
+                  "cumulativeExportsCount": 1,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "writeToAssets"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "log",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 9,
+              "cumulativeExportsCount": 9,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "log"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "code-types",
+              "dependencyCount": 5,
+              "usedExportsCount": 7,
+              "allExportsCount": 84,
+              "cumulativeExportsCount": 207,
+              "cumulativeUsedExportsCount": 24,
+              "usedExports": [
+                "OperationClassification",
+                "Operation",
+                "ModuleKind",
+                "ModuleResolutionKind",
+                "TsConfig",
+                "OperationPathParse",
+                "PathParse"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 9,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 10,
+                  "usedExports": [
+                    "DefaultModelType",
+                    "SlugModelType",
+                    "Price",
+                    "AugmentedAnyModelType",
+                    "Id",
+                    "Markdown",
+                    "TsIndexModelType",
+                    "AnyModelType",
+                    "Creation"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "pluralize",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 4,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "pluralize"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "convert-case",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 13,
+                  "cumulativeExportsCount": 15,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "kebabCase"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "make-test",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeTest"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "measure-performance",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 53,
+                  "cumulativeUsedExportsCount": 3,
+                  "usedExports": [
+                    "PerformanceItem"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "generateId"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "try-parse-json",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 1,
+              "cumulativeExportsCount": 1,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "tryParseJson"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "js-util",
+              "dependencyCount": 0,
+              "usedExportsCount": 2,
+              "allExportsCount": 52,
+              "cumulativeExportsCount": 52,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "mergeObjectsArray",
+                "notEmpty"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "sdk-operations",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 0,
+              "cumulativeExportsCount": 0,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "operations"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "fs-util-js",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 8,
+              "cumulativeExportsCount": 8,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "makeRelative"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "filename-conventions",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 30,
+              "cumulativeExportsCount": 82,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "databaseFolderName"
+              ],
+              "children": [
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeArray"
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operationName": "markdown-types",
+      "dependencyCount": 6,
+      "usedExportsCount": 2,
+      "allExportsCount": 20,
+      "cumulativeExportsCount": 368,
+      "cumulativeUsedExportsCount": 45,
+      "usedExports": [
+        "MarkdownParse",
+        "TextJson"
+      ],
+      "children": [
+        {
+          "operationName": "model-types",
+          "dependencyCount": 1,
+          "usedExportsCount": 10,
+          "allExportsCount": 47,
+          "cumulativeExportsCount": 49,
+          "cumulativeUsedExportsCount": 11,
+          "usedExports": [
+            "Language",
+            "SlugModelType",
+            "CategoryStack",
+            "generateId",
+            "MarkdownModelType",
+            "Storing",
+            "Id",
+            "Slug",
+            "Markdown",
+            "Price"
+          ],
+          "children": [
+            {
+              "operationName": "matter-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "Frontmatter"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "operationName": "asset-type",
+          "dependencyCount": 0,
+          "usedExportsCount": 2,
+          "allExportsCount": 9,
+          "cumulativeExportsCount": 9,
+          "cumulativeUsedExportsCount": 2,
+          "usedExports": [
+            "BackendAsset",
+            "AssetType"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "matter-types",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 2,
+          "cumulativeExportsCount": 2,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "Frontmatter"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "convert-case",
+          "dependencyCount": 1,
+          "usedExportsCount": 1,
+          "allExportsCount": 13,
+          "cumulativeExportsCount": 15,
+          "cumulativeUsedExportsCount": 2,
+          "usedExports": [
+            "kebabCase"
+          ],
+          "children": [
+            {
+              "operationName": "make-test",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "makeTest"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "operationName": "bundle-types",
+          "dependencyCount": 1,
+          "usedExportsCount": 1,
+          "allExportsCount": 17,
+          "cumulativeExportsCount": 66,
+          "cumulativeUsedExportsCount": 5,
+          "usedExports": [
+            "BundleConfig"
+          ],
+          "children": [
+            {
+              "operationName": "model-types",
+              "dependencyCount": 1,
+              "usedExportsCount": 3,
+              "allExportsCount": 47,
+              "cumulativeExportsCount": 49,
+              "cumulativeUsedExportsCount": 4,
+              "usedExports": [
+                "SlugModelType",
+                "Json",
+                "Slug"
+              ],
+              "children": [
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "operationName": "code-types",
+          "dependencyCount": 5,
+          "usedExportsCount": 5,
+          "allExportsCount": 84,
+          "cumulativeExportsCount": 207,
+          "cumulativeUsedExportsCount": 22,
+          "usedExports": [
+            "Operation",
+            "TsFunction",
+            "TsInterface",
+            "FileContentInfo",
+            "PathStats"
+          ],
+          "children": [
+            {
+              "operationName": "model-types",
+              "dependencyCount": 1,
+              "usedExportsCount": 9,
+              "allExportsCount": 47,
+              "cumulativeExportsCount": 49,
+              "cumulativeUsedExportsCount": 10,
+              "usedExports": [
+                "DefaultModelType",
+                "SlugModelType",
+                "Price",
+                "AugmentedAnyModelType",
+                "Id",
+                "Markdown",
+                "TsIndexModelType",
+                "AnyModelType",
+                "Creation"
+              ],
+              "children": [
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "pluralize",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 4,
+              "cumulativeExportsCount": 4,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "pluralize"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "convert-case",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 13,
+              "cumulativeExportsCount": 15,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "kebabCase"
+              ],
+              "children": [
+                {
+                  "operationName": "make-test",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeTest"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "measure-performance",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 4,
+              "cumulativeExportsCount": 53,
+              "cumulativeUsedExportsCount": 3,
+              "usedExports": [
+                "PerformanceItem"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "generateId"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "operationName": "matter-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "Frontmatter"
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operationName": "fs-util-js",
+      "dependencyCount": 0,
+      "usedExportsCount": 2,
+      "allExportsCount": 8,
+      "cumulativeExportsCount": 8,
+      "cumulativeUsedExportsCount": 2,
+      "usedExports": [
+        "getExtension",
+        "getSubExtension"
+      ],
+      "children": []
+    },
+    {
+      "operationName": "js-util",
+      "dependencyCount": 0,
+      "usedExportsCount": 3,
+      "allExportsCount": 52,
+      "cumulativeExportsCount": 52,
+      "cumulativeUsedExportsCount": 3,
+      "usedExports": [
+        "makeArray",
+        "notEmpty",
+        "removeIndexFromArray"
+      ],
+      "children": []
+    },
+    {
+      "operationName": "markdown-parse-js",
+      "dependencyCount": 7,
+      "usedExportsCount": 1,
+      "allExportsCount": 21,
+      "cumulativeExportsCount": 2587,
+      "cumulativeUsedExportsCount": 270,
+      "usedExports": [
+        "mdToJsonParse"
+      ],
+      "children": [
+        {
+          "operationName": "markdown-types",
+          "dependencyCount": 6,
+          "usedExportsCount": 2,
+          "allExportsCount": 20,
+          "cumulativeExportsCount": 368,
+          "cumulativeUsedExportsCount": 45,
+          "usedExports": [
+            "MarkdownChunk",
+            "MarkdownParse"
+          ],
+          "children": [
+            {
+              "operationName": "model-types",
+              "dependencyCount": 1,
+              "usedExportsCount": 10,
+              "allExportsCount": 47,
+              "cumulativeExportsCount": 49,
+              "cumulativeUsedExportsCount": 11,
+              "usedExports": [
+                "Language",
+                "SlugModelType",
+                "CategoryStack",
+                "generateId",
+                "MarkdownModelType",
+                "Storing",
+                "Id",
+                "Slug",
+                "Markdown",
+                "Price"
+              ],
+              "children": [
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "asset-type",
+              "dependencyCount": 0,
+              "usedExportsCount": 2,
+              "allExportsCount": 9,
+              "cumulativeExportsCount": 9,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "BackendAsset",
+                "AssetType"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "matter-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "Frontmatter"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "convert-case",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 13,
+              "cumulativeExportsCount": 15,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "kebabCase"
+              ],
+              "children": [
+                {
+                  "operationName": "make-test",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeTest"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "bundle-types",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 17,
+              "cumulativeExportsCount": 66,
+              "cumulativeUsedExportsCount": 5,
+              "usedExports": [
+                "BundleConfig"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 3,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 4,
+                  "usedExports": [
+                    "SlugModelType",
+                    "Json",
+                    "Slug"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "operationName": "code-types",
+              "dependencyCount": 5,
+              "usedExportsCount": 5,
+              "allExportsCount": 84,
+              "cumulativeExportsCount": 207,
+              "cumulativeUsedExportsCount": 22,
+              "usedExports": [
+                "Operation",
+                "TsFunction",
+                "TsInterface",
+                "FileContentInfo",
+                "PathStats"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 9,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 10,
+                  "usedExports": [
+                    "DefaultModelType",
+                    "SlugModelType",
+                    "Price",
+                    "AugmentedAnyModelType",
+                    "Id",
+                    "Markdown",
+                    "TsIndexModelType",
+                    "AnyModelType",
+                    "Creation"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "pluralize",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 4,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "pluralize"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "convert-case",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 13,
+                  "cumulativeExportsCount": 15,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "kebabCase"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "make-test",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeTest"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "measure-performance",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 53,
+                  "cumulativeUsedExportsCount": 3,
+                  "usedExports": [
+                    "PerformanceItem"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "generateId"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "operationName": "js-util",
+          "dependencyCount": 0,
+          "usedExportsCount": 2,
+          "allExportsCount": 52,
+          "cumulativeExportsCount": 52,
+          "cumulativeUsedExportsCount": 2,
+          "usedExports": [
+            "notEmpty",
+            "mergeObjectsArray"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "convert-case",
+          "dependencyCount": 1,
+          "usedExportsCount": 1,
+          "allExportsCount": 13,
+          "cumulativeExportsCount": 15,
+          "cumulativeUsedExportsCount": 2,
+          "usedExports": [
+            "slugify"
+          ],
+          "children": [
+            {
+              "operationName": "make-test",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "makeTest"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "operationName": "frontmatter-util",
+          "dependencyCount": 9,
+          "usedExportsCount": 1,
+          "allExportsCount": 10,
+          "cumulativeExportsCount": 1920,
+          "cumulativeUsedExportsCount": 200,
+          "usedExports": [
+            "frontmatterParseToString"
+          ],
+          "children": [
+            {
+              "operationName": "matter-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 2,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "Frontmatter",
+                "FrontmatterParse"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "make-test",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "makeTest"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "js-util",
+              "dependencyCount": 0,
+              "usedExportsCount": 3,
+              "allExportsCount": 52,
+              "cumulativeExportsCount": 52,
+              "cumulativeUsedExportsCount": 3,
+              "usedExports": [
+                "notEmpty",
+                "mergeObjectsArray",
+                "makeArray"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "asset-type",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 9,
+              "cumulativeExportsCount": 9,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "BackendAsset"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "code-types",
+              "dependencyCount": 5,
+              "usedExportsCount": 1,
+              "allExportsCount": 84,
+              "cumulativeExportsCount": 207,
+              "cumulativeUsedExportsCount": 18,
+              "usedExports": [
+                "SimplifiedSchema"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 9,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 10,
+                  "usedExports": [
+                    "DefaultModelType",
+                    "SlugModelType",
+                    "Price",
+                    "AugmentedAnyModelType",
+                    "Id",
+                    "Markdown",
+                    "TsIndexModelType",
+                    "AnyModelType",
+                    "Creation"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "pluralize",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 4,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "pluralize"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "convert-case",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 13,
+                  "cumulativeExportsCount": 15,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "kebabCase"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "make-test",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeTest"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "measure-performance",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 53,
+                  "cumulativeUsedExportsCount": 3,
+                  "usedExports": [
+                    "PerformanceItem"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "generateId"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "name-conventions",
+              "dependencyCount": 3,
+              "usedExportsCount": 1,
+              "allExportsCount": 14,
+              "cumulativeExportsCount": 240,
+              "cumulativeUsedExportsCount": 24,
+              "usedExports": [
+                "getAssetInputType"
+              ],
+              "children": [
+                {
+                  "operationName": "code-types",
+                  "dependencyCount": 5,
+                  "usedExportsCount": 2,
+                  "allExportsCount": 84,
+                  "cumulativeExportsCount": 207,
+                  "cumulativeUsedExportsCount": 19,
+                  "usedExports": [
+                    "SimplifiedSchemaType",
+                    "ParameterName"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 9,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 10,
+                      "usedExports": [
+                        "DefaultModelType",
+                        "SlugModelType",
+                        "Price",
+                        "AugmentedAnyModelType",
+                        "Id",
+                        "Markdown",
+                        "TsIndexModelType",
+                        "AnyModelType",
+                        "Creation"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "pluralize",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 4,
+                      "cumulativeExportsCount": 4,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "pluralize"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "convert-case",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 13,
+                      "cumulativeExportsCount": 15,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "kebabCase"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "make-test",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "makeTest"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "measure-performance",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 4,
+                      "cumulativeExportsCount": 53,
+                      "cumulativeUsedExportsCount": 3,
+                      "usedExports": [
+                        "PerformanceItem"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "model-types",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 47,
+                          "cumulativeExportsCount": 49,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "generateId"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "matter-types",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "Frontmatter"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "convert-case",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 13,
+                  "cumulativeExportsCount": 15,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "lowerCaseArray"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "make-test",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeTest"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "pluralize",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 2,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 4,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "singularize",
+                    "isPlural"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "marked-util",
+              "dependencyCount": 3,
+              "usedExportsCount": 1,
+              "allExportsCount": 5,
+              "cumulativeExportsCount": 981,
+              "cumulativeUsedExportsCount": 103,
+              "usedExports": [
+                "findEmbeds"
+              ],
+              "children": [
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "notEmpty"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "markdown-types",
+                  "dependencyCount": 6,
+                  "usedExportsCount": 2,
+                  "allExportsCount": 20,
+                  "cumulativeExportsCount": 368,
+                  "cumulativeUsedExportsCount": 45,
+                  "usedExports": [
+                    "MarkdownEmbed",
+                    "MarkdownLink"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 10,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 11,
+                      "usedExports": [
+                        "Language",
+                        "SlugModelType",
+                        "CategoryStack",
+                        "generateId",
+                        "MarkdownModelType",
+                        "Storing",
+                        "Id",
+                        "Slug",
+                        "Markdown",
+                        "Price"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "asset-type",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 2,
+                      "allExportsCount": 9,
+                      "cumulativeExportsCount": 9,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "BackendAsset",
+                        "AssetType"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "convert-case",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 13,
+                      "cumulativeExportsCount": 15,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "kebabCase"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "make-test",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "makeTest"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "bundle-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 17,
+                      "cumulativeExportsCount": 66,
+                      "cumulativeUsedExportsCount": 5,
+                      "usedExports": [
+                        "BundleConfig"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "model-types",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 3,
+                          "allExportsCount": 47,
+                          "cumulativeExportsCount": 49,
+                          "cumulativeUsedExportsCount": 4,
+                          "usedExports": [
+                            "SlugModelType",
+                            "Json",
+                            "Slug"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "matter-types",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "Frontmatter"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "code-types",
+                      "dependencyCount": 5,
+                      "usedExportsCount": 5,
+                      "allExportsCount": 84,
+                      "cumulativeExportsCount": 207,
+                      "cumulativeUsedExportsCount": 22,
+                      "usedExports": [
+                        "Operation",
+                        "TsFunction",
+                        "TsInterface",
+                        "FileContentInfo",
+                        "PathStats"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "model-types",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 9,
+                          "allExportsCount": 47,
+                          "cumulativeExportsCount": 49,
+                          "cumulativeUsedExportsCount": 10,
+                          "usedExports": [
+                            "DefaultModelType",
+                            "SlugModelType",
+                            "Price",
+                            "AugmentedAnyModelType",
+                            "Id",
+                            "Markdown",
+                            "TsIndexModelType",
+                            "AnyModelType",
+                            "Creation"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "matter-types",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "Frontmatter"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "pluralize",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 4,
+                          "cumulativeExportsCount": 4,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "pluralize"
+                          ],
+                          "children": []
+                        },
+                        {
+                          "operationName": "convert-case",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 13,
+                          "cumulativeExportsCount": 15,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "kebabCase"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "make-test",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "makeTest"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "measure-performance",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 4,
+                          "cumulativeExportsCount": 53,
+                          "cumulativeUsedExportsCount": 3,
+                          "usedExports": [
+                            "PerformanceItem"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "model-types",
+                              "dependencyCount": 1,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 47,
+                              "cumulativeExportsCount": 49,
+                              "cumulativeUsedExportsCount": 2,
+                              "usedExports": [
+                                "generateId"
+                              ],
+                              "children": [
+                                {
+                                  "operationName": "matter-types",
+                                  "dependencyCount": 0,
+                                  "usedExportsCount": 1,
+                                  "allExportsCount": 2,
+                                  "cumulativeExportsCount": 2,
+                                  "cumulativeUsedExportsCount": 1,
+                                  "usedExports": [
+                                    "Frontmatter"
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "operationName": "asset-functions-js",
+                  "dependencyCount": 7,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 13,
+                  "cumulativeExportsCount": 556,
+                  "cumulativeUsedExportsCount": 56,
+                  "usedExports": [
+                    "getTypeFromUrlOrPath"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "js-util",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 52,
+                      "cumulativeExportsCount": 52,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "notEmpty"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "name-conventions",
+                      "dependencyCount": 3,
+                      "usedExportsCount": 2,
+                      "allExportsCount": 14,
+                      "cumulativeExportsCount": 240,
+                      "cumulativeUsedExportsCount": 25,
+                      "usedExports": [
+                        "AssetInputType",
+                        "getAssetInputType"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "code-types",
+                          "dependencyCount": 5,
+                          "usedExportsCount": 2,
+                          "allExportsCount": 84,
+                          "cumulativeExportsCount": 207,
+                          "cumulativeUsedExportsCount": 19,
+                          "usedExports": [
+                            "SimplifiedSchemaType",
+                            "ParameterName"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "model-types",
+                              "dependencyCount": 1,
+                              "usedExportsCount": 9,
+                              "allExportsCount": 47,
+                              "cumulativeExportsCount": 49,
+                              "cumulativeUsedExportsCount": 10,
+                              "usedExports": [
+                                "DefaultModelType",
+                                "SlugModelType",
+                                "Price",
+                                "AugmentedAnyModelType",
+                                "Id",
+                                "Markdown",
+                                "TsIndexModelType",
+                                "AnyModelType",
+                                "Creation"
+                              ],
+                              "children": [
+                                {
+                                  "operationName": "matter-types",
+                                  "dependencyCount": 0,
+                                  "usedExportsCount": 1,
+                                  "allExportsCount": 2,
+                                  "cumulativeExportsCount": 2,
+                                  "cumulativeUsedExportsCount": 1,
+                                  "usedExports": [
+                                    "Frontmatter"
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "operationName": "pluralize",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 4,
+                              "cumulativeExportsCount": 4,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "pluralize"
+                              ],
+                              "children": []
+                            },
+                            {
+                              "operationName": "convert-case",
+                              "dependencyCount": 1,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 13,
+                              "cumulativeExportsCount": 15,
+                              "cumulativeUsedExportsCount": 2,
+                              "usedExports": [
+                                "kebabCase"
+                              ],
+                              "children": [
+                                {
+                                  "operationName": "make-test",
+                                  "dependencyCount": 0,
+                                  "usedExportsCount": 1,
+                                  "allExportsCount": 2,
+                                  "cumulativeExportsCount": 2,
+                                  "cumulativeUsedExportsCount": 1,
+                                  "usedExports": [
+                                    "makeTest"
+                                  ],
+                                  "children": []
+                                }
+                              ]
+                            },
+                            {
+                              "operationName": "measure-performance",
+                              "dependencyCount": 1,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 4,
+                              "cumulativeExportsCount": 53,
+                              "cumulativeUsedExportsCount": 3,
+                              "usedExports": [
+                                "PerformanceItem"
+                              ],
+                              "children": [
+                                {
+                                  "operationName": "model-types",
+                                  "dependencyCount": 1,
+                                  "usedExportsCount": 1,
+                                  "allExportsCount": 47,
+                                  "cumulativeExportsCount": 49,
+                                  "cumulativeUsedExportsCount": 2,
+                                  "usedExports": [
+                                    "generateId"
+                                  ],
+                                  "children": [
+                                    {
+                                      "operationName": "matter-types",
+                                      "dependencyCount": 0,
+                                      "usedExportsCount": 1,
+                                      "allExportsCount": 2,
+                                      "cumulativeExportsCount": 2,
+                                      "cumulativeUsedExportsCount": 1,
+                                      "usedExports": [
+                                        "Frontmatter"
+                                      ],
+                                      "children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "operationName": "matter-types",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "Frontmatter"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "convert-case",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 13,
+                          "cumulativeExportsCount": 15,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "lowerCaseArray"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "make-test",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "makeTest"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "pluralize",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 2,
+                          "allExportsCount": 4,
+                          "cumulativeExportsCount": 4,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "singularize",
+                            "isPlural"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "asset-type",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 2,
+                      "allExportsCount": 9,
+                      "cumulativeExportsCount": 9,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "Asset",
+                        "AssetType"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "fs-util-js",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 2,
+                      "allExportsCount": 8,
+                      "cumulativeExportsCount": 8,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "getExtension",
+                        "withoutExtension"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "api",
+                      "dependencyCount": 7,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 9,
+                      "cumulativeExportsCount": 179,
+                      "cumulativeUsedExportsCount": 22,
+                      "usedExports": [
+                        "getGetApiUrl"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "api-types",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 6,
+                          "allExportsCount": 24,
+                          "cumulativeExportsCount": 24,
+                          "cumulativeUsedExportsCount": 7,
+                          "usedExports": [
+                            "ApiConfig",
+                            "ApiTypeWithoutConfig",
+                            "ApiTypeWithConfig",
+                            "RealApiReturnType",
+                            "QueryType",
+                            "apiConventions"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "sdk-api",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 0,
+                              "cumulativeExportsCount": 0,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "sdk"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "server-api-url",
+                          "dependencyCount": 3,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 12,
+                          "cumulativeUsedExportsCount": 6,
+                          "usedExports": [
+                            "apiUrl"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "sdk-env-public",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 2,
+                              "allExportsCount": 0,
+                              "cumulativeExportsCount": 0,
+                              "cumulativeUsedExportsCount": 2,
+                              "usedExports": [
+                                "publicEnvironmentVariables",
+                                "publicLocalEnvironmentVariables"
+                              ],
+                              "children": []
+                            },
+                            {
+                              "operationName": "react-with-native-store",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 2,
+                              "allExportsCount": 9,
+                              "cumulativeExportsCount": 9,
+                              "cumulativeUsedExportsCount": 2,
+                              "usedExports": [
+                                "getItem",
+                                "getItemSync"
+                              ],
+                              "children": []
+                            },
+                            {
+                              "operationName": "port-conventions",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 1,
+                              "cumulativeExportsCount": 1,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "ports"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "react-with-native-store",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 2,
+                          "allExportsCount": 9,
+                          "cumulativeExportsCount": 9,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "getItem",
+                            "setItem"
+                          ],
+                          "children": []
+                        },
+                        {
+                          "operationName": "js-util",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 52,
+                          "cumulativeExportsCount": 52,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "mergeObjectsArray"
+                          ],
+                          "children": []
+                        },
+                        {
+                          "operationName": "sdk-api-keys",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 0,
+                          "cumulativeExportsCount": 0,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "functionApiKeys"
+                          ],
+                          "children": []
+                        },
+                        {
+                          "operationName": "rest-util",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 6,
+                          "cumulativeExportsCount": 58,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "toQueryString"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "js-util",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 52,
+                              "cumulativeExportsCount": 52,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "makeArray"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "operationName": "convert-case",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 13,
+                          "cumulativeExportsCount": 15,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "camelCase"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "make-test",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "makeTest"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "text-or-binary",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 6,
+                      "cumulativeExportsCount": 6,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "isText"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "generateRandomString"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "operationName": "markdown-types",
+              "dependencyCount": 6,
+              "usedExportsCount": 1,
+              "allExportsCount": 20,
+              "cumulativeExportsCount": 368,
+              "cumulativeUsedExportsCount": 44,
+              "usedExports": [
+                "tryParseDate"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 10,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 11,
+                  "usedExports": [
+                    "Language",
+                    "SlugModelType",
+                    "CategoryStack",
+                    "generateId",
+                    "MarkdownModelType",
+                    "Storing",
+                    "Id",
+                    "Slug",
+                    "Markdown",
+                    "Price"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "asset-type",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 2,
+                  "allExportsCount": 9,
+                  "cumulativeExportsCount": 9,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "BackendAsset",
+                    "AssetType"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "convert-case",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 13,
+                  "cumulativeExportsCount": 15,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "kebabCase"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "make-test",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeTest"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "bundle-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 17,
+                  "cumulativeExportsCount": 66,
+                  "cumulativeUsedExportsCount": 5,
+                  "usedExports": [
+                    "BundleConfig"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 3,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 4,
+                      "usedExports": [
+                        "SlugModelType",
+                        "Json",
+                        "Slug"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "operationName": "code-types",
+                  "dependencyCount": 5,
+                  "usedExportsCount": 5,
+                  "allExportsCount": 84,
+                  "cumulativeExportsCount": 207,
+                  "cumulativeUsedExportsCount": 22,
+                  "usedExports": [
+                    "Operation",
+                    "TsFunction",
+                    "TsInterface",
+                    "FileContentInfo",
+                    "PathStats"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 9,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 10,
+                      "usedExports": [
+                        "DefaultModelType",
+                        "SlugModelType",
+                        "Price",
+                        "AugmentedAnyModelType",
+                        "Id",
+                        "Markdown",
+                        "TsIndexModelType",
+                        "AnyModelType",
+                        "Creation"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "pluralize",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 4,
+                      "cumulativeExportsCount": 4,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "pluralize"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "convert-case",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 13,
+                      "cumulativeExportsCount": 15,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "kebabCase"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "make-test",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "makeTest"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "measure-performance",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 4,
+                      "cumulativeExportsCount": 53,
+                      "cumulativeUsedExportsCount": 3,
+                      "usedExports": [
+                        "PerformanceItem"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "model-types",
+                          "dependencyCount": 1,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 47,
+                          "cumulativeExportsCount": 49,
+                          "cumulativeUsedExportsCount": 2,
+                          "usedExports": [
+                            "generateId"
+                          ],
+                          "children": [
+                            {
+                              "operationName": "matter-types",
+                              "dependencyCount": 0,
+                              "usedExportsCount": 1,
+                              "allExportsCount": 2,
+                              "cumulativeExportsCount": 2,
+                              "cumulativeUsedExportsCount": 1,
+                              "usedExports": [
+                                "Frontmatter"
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "operationName": "model-types",
+              "dependencyCount": 1,
+              "usedExportsCount": 2,
+              "allExportsCount": 47,
+              "cumulativeExportsCount": 49,
+              "cumulativeUsedExportsCount": 3,
+              "usedExports": [
+                "MarkdownModelType",
+                "Storing"
+              ],
+              "children": [
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "operationName": "make-test",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 2,
+          "cumulativeExportsCount": 2,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "makeTest"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "matter-types",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 2,
+          "cumulativeExportsCount": 2,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "Frontmatter"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "code-types",
+          "dependencyCount": 5,
+          "usedExportsCount": 1,
+          "allExportsCount": 84,
+          "cumulativeExportsCount": 207,
+          "cumulativeUsedExportsCount": 18,
+          "usedExports": [
+            "SimplifiedSchema"
+          ],
+          "children": [
+            {
+              "operationName": "model-types",
+              "dependencyCount": 1,
+              "usedExportsCount": 9,
+              "allExportsCount": 47,
+              "cumulativeExportsCount": 49,
+              "cumulativeUsedExportsCount": 10,
+              "usedExports": [
+                "DefaultModelType",
+                "SlugModelType",
+                "Price",
+                "AugmentedAnyModelType",
+                "Id",
+                "Markdown",
+                "TsIndexModelType",
+                "AnyModelType",
+                "Creation"
+              ],
+              "children": [
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "pluralize",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 4,
+              "cumulativeExportsCount": 4,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "pluralize"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "convert-case",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 13,
+              "cumulativeExportsCount": 15,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "kebabCase"
+              ],
+              "children": [
+                {
+                  "operationName": "make-test",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeTest"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "measure-performance",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 4,
+              "cumulativeExportsCount": 53,
+              "cumulativeUsedExportsCount": 3,
+              "usedExports": [
+                "PerformanceItem"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "generateId"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "operationName": "matter-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "Frontmatter"
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operationName": "filename-conventions",
+      "dependencyCount": 1,
+      "usedExportsCount": 10,
+      "allExportsCount": 30,
+      "cumulativeExportsCount": 82,
+      "cumulativeUsedExportsCount": 11,
+      "usedExports": [
+        "FileType",
+        "generatedFolders",
+        "SearchableExtension",
+        "allowedSearchContentExtensions",
+        "fileTypes",
+        "extensions",
+        "markdownExtensions",
+        "SearchLevel",
+        "jsonExtensions",
+        "typescriptExtensions"
+      ],
+      "children": [
+        {
+          "operationName": "js-util",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 52,
+          "cumulativeExportsCount": 52,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "makeArray"
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "operationName": "get-path",
+      "dependencyCount": 9,
+      "usedExportsCount": 4,
+      "allExportsCount": 31,
+      "cumulativeExportsCount": 764,
+      "cumulativeUsedExportsCount": 64,
+      "usedExports": [
+        "getProjectRoot",
+        "getRootPath",
+        "isBundle",
+        "getPathsWithOperations"
+      ],
+      "children": [
+        {
+          "operationName": "fs-util",
+          "dependencyCount": 5,
+          "usedExportsCount": 3,
+          "allExportsCount": 40,
+          "cumulativeExportsCount": 185,
+          "cumulativeUsedExportsCount": 12,
+          "usedExports": [
+            "path",
+            "fs",
+            "getLastFolder"
+          ],
+          "children": [
+            {
+              "operationName": "log",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 9,
+              "cumulativeExportsCount": 9,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "log"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "js-util",
+              "dependencyCount": 0,
+              "usedExportsCount": 4,
+              "allExportsCount": 52,
+              "cumulativeExportsCount": 52,
+              "cumulativeUsedExportsCount": 4,
+              "usedExports": [
+                "trimSlashes",
+                "sum",
+                "notEmpty",
+                "makeArray"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "recursive-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 1,
+              "cumulativeExportsCount": 1,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "ChildObject"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "filename-conventions",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 30,
+              "cumulativeExportsCount": 82,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "generatedFolders"
+              ],
+              "children": [
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeArray"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "write-to-assets",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 1,
+              "cumulativeExportsCount": 1,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "writeToAssets"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "operationName": "log",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 9,
+          "cumulativeExportsCount": 9,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "log"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "code-types",
+          "dependencyCount": 5,
+          "usedExportsCount": 7,
+          "allExportsCount": 84,
+          "cumulativeExportsCount": 207,
+          "cumulativeUsedExportsCount": 24,
+          "usedExports": [
+            "OperationClassification",
+            "Operation",
+            "ModuleKind",
+            "ModuleResolutionKind",
+            "TsConfig",
+            "OperationPathParse",
+            "PathParse"
+          ],
+          "children": [
+            {
+              "operationName": "model-types",
+              "dependencyCount": 1,
+              "usedExportsCount": 9,
+              "allExportsCount": 47,
+              "cumulativeExportsCount": 49,
+              "cumulativeUsedExportsCount": 10,
+              "usedExports": [
+                "DefaultModelType",
+                "SlugModelType",
+                "Price",
+                "AugmentedAnyModelType",
+                "Id",
+                "Markdown",
+                "TsIndexModelType",
+                "AnyModelType",
+                "Creation"
+              ],
+              "children": [
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "pluralize",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 4,
+              "cumulativeExportsCount": 4,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "pluralize"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "convert-case",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 13,
+              "cumulativeExportsCount": 15,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "kebabCase"
+              ],
+              "children": [
+                {
+                  "operationName": "make-test",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeTest"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "measure-performance",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 4,
+              "cumulativeExportsCount": 53,
+              "cumulativeUsedExportsCount": 3,
+              "usedExports": [
+                "PerformanceItem"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "generateId"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "operationName": "matter-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 2,
+              "cumulativeExportsCount": 2,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "Frontmatter"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "operationName": "read-json-file",
+          "dependencyCount": 2,
+          "usedExportsCount": 1,
+          "allExportsCount": 3,
+          "cumulativeExportsCount": 189,
+          "cumulativeUsedExportsCount": 16,
+          "usedExports": [
+            "readJsonFileSync"
+          ],
+          "children": [
+            {
+              "operationName": "fs-util",
+              "dependencyCount": 5,
+              "usedExportsCount": 5,
+              "allExportsCount": 40,
+              "cumulativeExportsCount": 185,
+              "cumulativeUsedExportsCount": 14,
+              "usedExports": [
+                "canRead",
+                "fs",
+                "Path",
+                "canReadSync",
+                "path"
+              ],
+              "children": [
+                {
+                  "operationName": "log",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 9,
+                  "cumulativeExportsCount": 9,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "log"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 4,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 4,
+                  "usedExports": [
+                    "trimSlashes",
+                    "sum",
+                    "notEmpty",
+                    "makeArray"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "recursive-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 1,
+                  "cumulativeExportsCount": 1,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "ChildObject"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "filename-conventions",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 30,
+                  "cumulativeExportsCount": 82,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "generatedFolders"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "js-util",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 52,
+                      "cumulativeExportsCount": 52,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeArray"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "write-to-assets",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 1,
+                  "cumulativeExportsCount": 1,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "writeToAssets"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "try-parse-json",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 1,
+              "cumulativeExportsCount": 1,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "tryParseJson"
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "operationName": "try-parse-json",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 1,
+          "cumulativeExportsCount": 1,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "tryParseJson"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "js-util",
+          "dependencyCount": 0,
+          "usedExportsCount": 2,
+          "allExportsCount": 52,
+          "cumulativeExportsCount": 52,
+          "cumulativeUsedExportsCount": 2,
+          "usedExports": [
+            "mergeObjectsArray",
+            "notEmpty"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "sdk-operations",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 0,
+          "cumulativeExportsCount": 0,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "operations"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "fs-util-js",
+          "dependencyCount": 0,
+          "usedExportsCount": 1,
+          "allExportsCount": 8,
+          "cumulativeExportsCount": 8,
+          "cumulativeUsedExportsCount": 1,
+          "usedExports": [
+            "makeRelative"
+          ],
+          "children": []
+        },
+        {
+          "operationName": "filename-conventions",
+          "dependencyCount": 1,
+          "usedExportsCount": 1,
+          "allExportsCount": 30,
+          "cumulativeExportsCount": 82,
+          "cumulativeUsedExportsCount": 2,
+          "usedExports": [
+            "databaseFolderName"
+          ],
+          "children": [
+            {
+              "operationName": "js-util",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 52,
+              "cumulativeExportsCount": 52,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "makeArray"
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "operationName": "write-to-assets",
+      "dependencyCount": 2,
+      "usedExportsCount": 1,
+      "allExportsCount": 1,
+      "cumulativeExportsCount": 947,
+      "cumulativeUsedExportsCount": 72,
+      "usedExports": [
+        "writeToAssets"
+      ],
+      "children": [
+        {
+          "operationName": "fs-util",
+          "dependencyCount": 4,
+          "usedExportsCount": 3,
+          "allExportsCount": 40,
+          "cumulativeExportsCount": 184,
+          "cumulativeUsedExportsCount": 11,
+          "usedExports": [
+            "path",
+            "writeJsonToFile",
+            "writeStringToFile"
+          ],
+          "children": [
+            {
+              "operationName": "log",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 9,
+              "cumulativeExportsCount": 9,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "log"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "js-util",
+              "dependencyCount": 0,
+              "usedExportsCount": 4,
+              "allExportsCount": 52,
+              "cumulativeExportsCount": 52,
+              "cumulativeUsedExportsCount": 4,
+              "usedExports": [
+                "trimSlashes",
+                "sum",
+                "notEmpty",
+                "makeArray"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "recursive-types",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 1,
+              "cumulativeExportsCount": 1,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "ChildObject"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "filename-conventions",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 30,
+              "cumulativeExportsCount": 82,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "generatedFolders"
+              ],
+              "children": [
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeArray"
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "operationName": "get-path",
+          "dependencyCount": 9,
+          "usedExportsCount": 2,
+          "allExportsCount": 31,
+          "cumulativeExportsCount": 762,
+          "cumulativeUsedExportsCount": 60,
+          "usedExports": [
+            "findOperationBasePath",
+            "getOperationPath"
+          ],
+          "children": [
+            {
+              "operationName": "fs-util",
+              "dependencyCount": 4,
+              "usedExportsCount": 3,
+              "allExportsCount": 40,
+              "cumulativeExportsCount": 184,
+              "cumulativeUsedExportsCount": 11,
+              "usedExports": [
+                "path",
+                "fs",
+                "getLastFolder"
+              ],
+              "children": [
+                {
+                  "operationName": "log",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 9,
+                  "cumulativeExportsCount": 9,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "log"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 4,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 4,
+                  "usedExports": [
+                    "trimSlashes",
+                    "sum",
+                    "notEmpty",
+                    "makeArray"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "recursive-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 1,
+                  "cumulativeExportsCount": 1,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "ChildObject"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "filename-conventions",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 30,
+                  "cumulativeExportsCount": 82,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "generatedFolders"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "js-util",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 52,
+                      "cumulativeExportsCount": 52,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeArray"
+                      ],
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "operationName": "log",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 9,
+              "cumulativeExportsCount": 9,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "log"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "code-types",
+              "dependencyCount": 5,
+              "usedExportsCount": 7,
+              "allExportsCount": 84,
+              "cumulativeExportsCount": 207,
+              "cumulativeUsedExportsCount": 24,
+              "usedExports": [
+                "OperationClassification",
+                "Operation",
+                "ModuleKind",
+                "ModuleResolutionKind",
+                "TsConfig",
+                "OperationPathParse",
+                "PathParse"
+              ],
+              "children": [
+                {
+                  "operationName": "model-types",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 9,
+                  "allExportsCount": 47,
+                  "cumulativeExportsCount": 49,
+                  "cumulativeUsedExportsCount": 10,
+                  "usedExports": [
+                    "DefaultModelType",
+                    "SlugModelType",
+                    "Price",
+                    "AugmentedAnyModelType",
+                    "Id",
+                    "Markdown",
+                    "TsIndexModelType",
+                    "AnyModelType",
+                    "Creation"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "matter-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "Frontmatter"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "pluralize",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 4,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "pluralize"
+                  ],
+                  "children": []
+                },
+                {
+                  "operationName": "convert-case",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 13,
+                  "cumulativeExportsCount": 15,
+                  "cumulativeUsedExportsCount": 2,
+                  "usedExports": [
+                    "kebabCase"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "make-test",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 2,
+                      "cumulativeExportsCount": 2,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "makeTest"
+                      ],
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "operationName": "measure-performance",
+                  "dependencyCount": 1,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 4,
+                  "cumulativeExportsCount": 53,
+                  "cumulativeUsedExportsCount": 3,
+                  "usedExports": [
+                    "PerformanceItem"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "model-types",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 47,
+                      "cumulativeExportsCount": 49,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "generateId"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "matter-types",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 2,
+                          "cumulativeExportsCount": 2,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "Frontmatter"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "operationName": "matter-types",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 2,
+                  "cumulativeExportsCount": 2,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "Frontmatter"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "read-json-file",
+              "dependencyCount": 2,
+              "usedExportsCount": 1,
+              "allExportsCount": 3,
+              "cumulativeExportsCount": 188,
+              "cumulativeUsedExportsCount": 15,
+              "usedExports": [
+                "readJsonFileSync"
+              ],
+              "children": [
+                {
+                  "operationName": "fs-util",
+                  "dependencyCount": 4,
+                  "usedExportsCount": 5,
+                  "allExportsCount": 40,
+                  "cumulativeExportsCount": 184,
+                  "cumulativeUsedExportsCount": 13,
+                  "usedExports": [
+                    "canRead",
+                    "fs",
+                    "Path",
+                    "canReadSync",
+                    "path"
+                  ],
+                  "children": [
+                    {
+                      "operationName": "log",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 9,
+                      "cumulativeExportsCount": 9,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "log"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "js-util",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 4,
+                      "allExportsCount": 52,
+                      "cumulativeExportsCount": 52,
+                      "cumulativeUsedExportsCount": 4,
+                      "usedExports": [
+                        "trimSlashes",
+                        "sum",
+                        "notEmpty",
+                        "makeArray"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "recursive-types",
+                      "dependencyCount": 0,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 1,
+                      "cumulativeExportsCount": 1,
+                      "cumulativeUsedExportsCount": 1,
+                      "usedExports": [
+                        "ChildObject"
+                      ],
+                      "children": []
+                    },
+                    {
+                      "operationName": "filename-conventions",
+                      "dependencyCount": 1,
+                      "usedExportsCount": 1,
+                      "allExportsCount": 30,
+                      "cumulativeExportsCount": 82,
+                      "cumulativeUsedExportsCount": 2,
+                      "usedExports": [
+                        "generatedFolders"
+                      ],
+                      "children": [
+                        {
+                          "operationName": "js-util",
+                          "dependencyCount": 0,
+                          "usedExportsCount": 1,
+                          "allExportsCount": 52,
+                          "cumulativeExportsCount": 52,
+                          "cumulativeUsedExportsCount": 1,
+                          "usedExports": [
+                            "makeArray"
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "operationName": "try-parse-json",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 1,
+                  "cumulativeExportsCount": 1,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "tryParseJson"
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "operationName": "try-parse-json",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 1,
+              "cumulativeExportsCount": 1,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "tryParseJson"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "js-util",
+              "dependencyCount": 0,
+              "usedExportsCount": 2,
+              "allExportsCount": 52,
+              "cumulativeExportsCount": 52,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "mergeObjectsArray",
+                "notEmpty"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "sdk-operations",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 0,
+              "cumulativeExportsCount": 0,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "operations"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "fs-util-js",
+              "dependencyCount": 0,
+              "usedExportsCount": 1,
+              "allExportsCount": 8,
+              "cumulativeExportsCount": 8,
+              "cumulativeUsedExportsCount": 1,
+              "usedExports": [
+                "makeRelative"
+              ],
+              "children": []
+            },
+            {
+              "operationName": "filename-conventions",
+              "dependencyCount": 1,
+              "usedExportsCount": 1,
+              "allExportsCount": 30,
+              "cumulativeExportsCount": 82,
+              "cumulativeUsedExportsCount": 2,
+              "usedExports": [
+                "databaseFolderName"
+              ],
+              "children": [
+                {
+                  "operationName": "js-util",
+                  "dependencyCount": 0,
+                  "usedExportsCount": 1,
+                  "allExportsCount": 52,
+                  "cumulativeExportsCount": 52,
+                  "cumulativeUsedExportsCount": 1,
+                  "usedExports": [
+                    "makeArray"
+                  ],
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

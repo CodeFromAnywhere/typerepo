@@ -23,34 +23,34 @@
       "indexImportExportError": "",
       "lintProblems": [],
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/ai/ai-functions-node/src/augmentMarkdown.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
+        "couldn't load file /Users/king/King/operations/tools/ai/ai-functions-node/build/src/prompts.ts"
       ]
     },
-    "lastRebuildAt": 1671505994708,
+    "lastRebuildAt": 1674133332935,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 20,
-        "lines": 2280,
-        "characters": 54334,
-        "bytes": 54334
+        "numberOfFiles": 25,
+        "lines": 2676,
+        "characters": 66326,
+        "bytes": 66326
       },
       "dataSize": {
         "numberOfFiles": 3,
-        "lines": 308,
-        "characters": 7979,
-        "bytes": 7979
+        "lines": 347,
+        "characters": 8771,
+        "bytes": 8771
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 691,
-        "characters": 14674,
-        "bytes": 14674
+        "lines": 885,
+        "characters": 18586,
+        "bytes": 18586
       },
       "size": {
-        "bytes": 76987,
-        "characters": 76987,
-        "lines": 3279,
-        "numberOfFiles": 25
+        "bytes": 93683,
+        "characters": 93683,
+        "lines": 3908,
+        "numberOfFiles": 30
       }
     },
     "folderNameIndexed": "ai-functions-node",
@@ -107,15 +107,6 @@
       "Storing",
       "FileType",
       "PromptFunction",
-      "Queue",
-      "sdk",
-      "fs",
-      "path",
-      "getProjectRoot",
-      "Creation",
-      "db",
-      "explore",
-      "makeRelative",
       "ContextualPromptResult",
       "path",
       "writeJsonToFile",
@@ -130,7 +121,41 @@
       "db",
       "camelCase",
       "ContextualPrompt",
-      "notEmpty"
+      "notEmpty",
+      "db",
+      "oneByOne",
+      "isOnline",
+      "isSystemBusy",
+      "sdk",
+      "notEmpty",
+      "ProjectWatcher",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "Queue",
+      "fs",
+      "path",
+      "getProjectRoot",
+      "Creation",
+      "db",
+      "explore",
+      "makeRelative",
+      "FunctionContext",
+      "isSystemBusy",
+      "db",
+      "TsFunction",
+      "db",
+      "ApiFunction",
+      "sdk",
+      "getPublicBundleConfig",
+      "db",
+      "FunctionContext",
+      "ApiFunction",
+      "Creation",
+      "Queue",
+      "sdk",
+      "addAuthenticationMethod",
+      "addDeviceAuthenticationMethodWithContext"
     ],
     "packageDependenciesIndexed": [
       "ChromiumBrowserContext",
@@ -166,9 +191,16 @@
     "k-explore": "0.0.2",
     "function-context-type": "0.0.1",
     "peer-types": "0.0.1",
-    "server-login": "0.0.1",
     "recursive-types": "0.0.1",
-    "queue-types": "0.0.1"
+    "queue-types": "0.0.1",
+    "mail": "0.0.1",
+    "code-types": "0.0.1",
+    "function-functions-node": "0.0.1",
+    "is-system-busy": "0.0.1",
+    "one-by-one": "0.0.1",
+    "is-online": "0.0.1",
+    "watch-types": "0.0.1",
+    "server-login": "0.0.1"
   },
   "slug": "ai-functions-node",
   "id": "rwvbjpqgulkhwdsourbfwwye"

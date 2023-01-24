@@ -1,3 +1,6 @@
+---
+runEveryPeriod: hour
+---
 # Sms
 
 sms (`OperationClassification` node-cjs)
@@ -33,4 +36,20 @@ Requires OS Config to have Twilio sid and auth token.
 Reqruired options: `to` and `body`
 
 `to` is not required, but will overwrite the one you specified in your `OsConfig`
+
+# Internal
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 sendDailyAlarmSms (exported const)
+
+---
+runEveryPeriod: hour
+---
+  </details>
 

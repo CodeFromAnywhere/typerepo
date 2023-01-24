@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527611858,
-  "updatedAt": 1670527611858,
+  "createdAt": 1674542355111,
+  "updatedAt": 1674542355111,
   "deletedAt": 0,
-  "createdFirstAt": 1670527611858,
+  "createdFirstAt": 1674542355111,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  context\n) => {\n  const query = takeFirst(context.params?.query) || null;\n\n  const imagePaths = await fs.readdir(\n    path.join(__dirname, \"../../..\", \"public/headers\")\n  );\n  const searchResults = getAllSearchResults(query) || null;\n\n  const timelineItems: {\n    comment: string;\n    filePath: string | undefined;\n    line: number;\n  }[] = []; // = await getTimelineItems();\n\n  const props: QueryPageProps = {\n    query,\n    searchResults,\n    imagePaths,\n    timelineItems,\n  };\n\n  return {\n    props,\n  };\n}",
+  "value": "async (\n  context\n) => {\n  const query = takeFirst(context.params?.query) || null;\n\n  const imagePaths = await fs.readdir(\n    path.join(__dirname, \"../../..\", \"public/headers\")\n  );\n  const searchResults = await getAllSearchResults(query);\n\n  const timelineItems: {\n    comment: string;\n    filePath: string | undefined;\n    line: number;\n  }[] = []; // = await getTimelineItems();\n\n  const props: QueryPageProps = {\n    query,\n    searchResults,\n    imagePaths,\n    timelineItems,\n  };\n\n  return {\n    props,\n  };\n}",
   "description": "",
-  "id": "xgpiaorxfzupkaimblpkyufk"
+  "id": "lmcoxjvfbllfyqsqgtqdrtws"
 }

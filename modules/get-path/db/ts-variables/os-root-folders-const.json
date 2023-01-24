@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316034187,
-  "updatedAt": 1671316034187,
+  "createdAt": 1673959183728,
+  "updatedAt": 1673959183728,
   "deletedAt": 0,
-  "createdFirstAt": 1671316034187,
+  "createdFirstAt": 1673959183728,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "os-root-folders-const",
   "operationRelativeTypescriptFilePath": "src/getRootPath.ts",
   "type": {
-    "rawType": "readonly [\"assets\", \"backups\", \"bundled\", \"cloned\", \"distributions\", \"operations\"]",
+    "rawType": "readonly [\"assets\", \"backups\", \"bundled\", \"cloned\", \"distributions\", \"operations\", \"knowledge\"]",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -18,7 +18,7 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "value": "[\n  \"assets\",\n  \"backups\",\n  \"bundled\",\n  \"cloned\",\n  \"distributions\",\n  \"operations\",\n] as const",
+  "value": "[\n  \"assets\",\n  \"backups\",\n  \"bundled\",\n  \"cloned\",\n  \"distributions\",\n  \"operations\",\n  \"knowledge\",\n] as const",
   "description": "can only be accessed in the OS",
-  "id": "fktinwywambpovtiherpoffy"
+  "id": "ekruenhmrvfqusncsrvbavye"
 }

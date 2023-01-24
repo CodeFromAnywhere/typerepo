@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336341352,
-  "updatedAt": 1668336341352,
+  "createdAt": 1673380409616,
+  "updatedAt": 1673380409616,
   "deletedAt": 0,
-  "createdFirstAt": 1668336341352,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380409616,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
   "rawText": " (target: Casing) => {\n  if (target === \"capital\") return \"_\";\n  if (target === \"human\") return \" \";\n  if (target === \"kebab\") return \"-\";\n  if (target === \"snake\") return \"_\";\n  return \"\";\n}",
@@ -82,5 +77,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "kpmhnnowtpztjnhhajfzhtls"
+  "id": "fkdbkluuyeazsitmyoteifoh"
 }

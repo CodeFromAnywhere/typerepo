@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671317468307,
-  "updatedAt": 1671317468307,
+  "createdAt": 1673863269825,
+  "updatedAt": 1673863269825,
   "deletedAt": 0,
-  "createdFirstAt": 1671317468307,
+  "createdFirstAt": 1673863269825,
   "id": "creatormarkdownfile",
   "name": "CreatorMarkdownFile",
   "slug": "creatormarkdownfile",
@@ -46,6 +46,10 @@
         "isSecret": {
           "type": "boolean",
           "description": "DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`"
+        },
+        "isAnonymous": {
+          "type": "boolean",
+          "description": "Not sure how I should make this possible yet, but the biggest reason for having persona's is because you may want to do things anonymously. If persona's are truly not really needed, just anonymous and non-anonymous, then we can greatly simplify things by removing that model altogether.\n\nAlso you'd have much fine-grained control over what's anonymous and what isn't in this way. I like this a lot."
         },
         "authorizedGroup": {
           "type": "string",
@@ -106,12 +110,12 @@
           "type": "string",
           "description": "the content of the markdown"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack"
         }
       },
       "required": [
-        "categoryStackCalculated",
+        "categoryStack",
         "createdAt",
         "createdFirstAt",
         "deletedAt",
@@ -141,6 +145,14 @@
           "schema": {
             "fullComment": "DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`",
             "description": "Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isAnonymous",
+          "required": false,
+          "schema": {
+            "fullComment": "Not sure how I should make this possible yet, but the biggest reason for having persona's is because you may want to do things anonymously. If persona's are truly not really needed, just anonymous and non-anonymous, then we can greatly simplify things by removing that model altogether.\n\nAlso you'd have much fine-grained control over what's anonymous and what isn't in this way. I like this a lot.",
             "type": "boolean"
           }
         },
@@ -265,7 +277,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": true,
           "schema": {
             "fullComment": "Taken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

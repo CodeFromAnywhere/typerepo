@@ -36,39 +36,40 @@
     "folderNameIndexed": "child-process-helper",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668336328864,
+    "lastRebuildAt": 1673863736852,
     "operationDependenciesIndexed": [],
     "packageDependenciesIndexed": [
       "exec",
       "spawn",
       "SpawnOptionsWithoutStdio",
       "execSync",
-      "spawnSync"
+      "spawnSync",
+      "ExecOptions"
     ],
     "relativeOperationLocationPathIndexed": "operations/tools/util",
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 1,
-        "lines": 57,
-        "characters": 1390,
-        "bytes": 1390
+        "lines": 64,
+        "characters": 1638,
+        "bytes": 1638
       },
       "dataSize": {
         "numberOfFiles": 2,
         "lines": 117,
-        "characters": 2676,
-        "bytes": 2676
+        "characters": 2692,
+        "bytes": 2692
       },
       "textSize": {
         "numberOfFiles": 1,
         "lines": 46,
-        "characters": 765,
-        "bytes": 765
+        "characters": 800,
+        "bytes": 800
       },
       "size": {
-        "bytes": 4831,
-        "characters": 4831,
-        "lines": 220,
+        "bytes": 5130,
+        "characters": 5130,
+        "lines": 227,
         "numberOfFiles": 4
       }
     },

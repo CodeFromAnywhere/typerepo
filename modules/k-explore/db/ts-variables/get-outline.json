@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216116716,
-  "updatedAt": 1670216116716,
+  "createdAt": 1672637411879,
+  "updatedAt": 1672637411879,
   "deletedAt": 0,
-  "createdFirstAt": 1670216116716,
+  "createdFirstAt": 1672637411879,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "(filePath: string) => {\n  console.log(\"outline is currently just filename\");\n  return filePath.split(\"/\").pop();\n}",
   "description": "",
-  "id": "ryjcrkdcpbzxgvjpvqswlcba"
+  "id": "byxppucbfbyivonyaaceswkx"
 }

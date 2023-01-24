@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317011372,
-  "updatedAt": 1671317011372,
+  "createdAt": 1673862676711,
+  "updatedAt": 1673862676711,
   "deletedAt": 0,
-  "createdFirstAt": 1671317011372,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862676711,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getPeerMesssages.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const peerMessages = await db.get(\"PeerMessage\", {\n    include: { referenceKey: \"peerSlug\" },\n  });\n\n  const sortedPeerMessages = peerMessages\n    .sort((a, b) => {\n      return a.createdAt < b.createdAt ? 1 : -1;\n    })\n    .slice(0, 1000);\n\n  return sortedPeerMessages;\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "ywtofjwqqcmkdjbmbdezzpii"
+  "id": "glxgawixhzyilcvqbmzubmrv"
 }

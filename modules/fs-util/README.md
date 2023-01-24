@@ -47,6 +47,27 @@ input: /Users/king/Documents/some/folder/xyz.txt
 output: folder
 
 
+## writeJsonToFile()
+
+write json to a file
+
+makes the dir and file if they don't exist
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## 📄 writeJsonToFile (exported const)
+
+write json to a file
+
+makes the dir and file if they don't exist
+
+
 ## getFolder()
 
 if the path exists:
@@ -63,9 +84,9 @@ if the path doesn't exist: returns pathString witout last chunk (this would only
 
 
 
-## writeJsonToFile()
+## writeStringToFile()
 
-write json to a file
+write string to a file
 
 makes the dir and file if they don't exist
 
@@ -84,27 +105,6 @@ if the path exists:
 - if the pathstring is not a folder, returns the pathstring without the file suffix
 
 if the path doesn't exist: returns pathString witout last chunk (this would only work for file paths)
-
-
-## 📄 writeJsonToFile (exported const)
-
-write json to a file
-
-makes the dir and file if they don't exist
-
-
-## writeStringToFile()
-
-write string to a file
-
-makes the dir and file if they don't exist
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
 
 
 ## 📄 writeStringToFile (exported const)
@@ -320,7 +320,7 @@ Takes a folder path and returns a path that is one folder up
 
 # Internal
 
-<details><summary>Show internal (32)</summary>
+<details><summary>Show internal (34)</summary>
     
   # canAccessSync()
 
@@ -467,6 +467,18 @@ parse a md file to all the needed info
 | Input      |    |    |
 | ---------- | -- | -- |
 | mdFilePath | `Path` | path to a md file |
+| **Output** |    |    |
+
+
+
+## updateSingleNestedJsonFile()
+
+Uses mergeNestedObject on a JSON file
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| path | string |  |,| partialNewObject | `NestedPartial<>` |  |
 | **Output** |    |    |
 
 
@@ -630,6 +642,11 @@ DEPRECATED: just use `md-to-json-parse`
 parse a md file to all the needed info
 @param mdFilePath path to a md file
 @returns Md
+
+
+## 📄 updateSingleNestedJsonFile (exported const)
+
+Uses mergeNestedObject on a JSON file
 
 
 ## 📄 writeToFiles (exported const)

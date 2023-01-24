@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1668336407998,
+    "updatedAt": 1668336407998,
+    "deletedAt": 0,
+    "createdFirstAt": 1668336407998,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/isOnline.ts",
+    "comment": "Fetches google.com to check if we have an internet connection",
+    "rawStatement": "export const isOnline = async () => {\n  const { isConnected } = await fetchWithTimeout(\"https://google.com\", 10000);\n\n  return isConnected;\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 1,
+    "lastLine": 3,
+    "id": "lebaaztpwvpcyiqzvbabfbou"
+  }
+]

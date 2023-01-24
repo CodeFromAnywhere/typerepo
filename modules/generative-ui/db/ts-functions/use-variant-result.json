@@ -1,0 +1,58 @@
+{
+  "createdAt": 1673379276619,
+  "updatedAt": 1673379276619,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379276619,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/useVariant.ts",
+  "commentsInside": [],
+  "rawText": " (\n  fileContextualPromptResults?: ContextualPromptResult[] | null\n) => {\n  const router = useRouter();\n  const [defaultVariant] = useStore(\"generativeWeb.defaultVariant\");\n\n  /**\n   * Variant either comes from URL or from the stored default variant slug from localStorage\n   */\n  const variantResultPromptSlug = router.query?.variant\n    ? takeFirst(router.query.variant)\n    : defaultVariant\n    ? defaultVariant\n    : undefined;\n\n  const variantResult = fileContextualPromptResults?.find(\n    (x) => x.contextualPromptSlug === variantResultPromptSlug\n  );\n\n  return variantResult;\n}",
+  "name": "useVariantResult",
+  "slug": "use-variant-result",
+  "parameters": [
+    {
+      "name": "fileContextualPromptResults",
+      "schema": {
+        "anyOf": [
+          {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/ContextualPromptResult"
+            }
+          },
+          {
+            "type": "null"
+          }
+        ]
+      },
+      "simplifiedSchema": {
+        "properties": [],
+        "type": "object"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 585,
+    "lines": 21,
+    "bytes": 585,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 21,
+    "numberOfFiles": 1
+  },
+  "id": "uanztrxvhqzjrehuqkismddl"
+}

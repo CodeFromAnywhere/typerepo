@@ -1,0 +1,38 @@
+[
+  {
+    "createdAt": 1671220266213,
+    "updatedAt": 1671220266213,
+    "deletedAt": 0,
+    "createdFirstAt": 1671220266213,
+    "id": "yeszpygeyhlndrgkvxkjibfp",
+    "authenticationMethods": [
+      {
+        "method": "usernamePassword",
+        "handle": "admin",
+        "encryptedCredential": "$2b$10$GpYrS5a9Vx1H0KY6ErTFuexYOHEQFwUbVzHq4wKm0z/Te/nbWxOY2",
+        "isAuthenticated": true
+      }
+    ],
+    "groupSlugs": ["admin"],
+    "name": "Admin",
+    "slug": "admin"
+  },
+  {
+    "createdAt": 1674549417696,
+    "updatedAt": 1674549417696,
+    "deletedAt": 0,
+    "createdFirstAt": 1674549417696,
+    "id": "eluwjakefqnqmjmkbfryewwm",
+    "groupSlugs": ["admin"],
+    "authenticationMethods": [
+      {
+        "method": "usernamePassword",
+        "handle": "admin2",
+        "encryptedCredential": "$2b$10$wMhduzQ4N0udKao0v12ZD.fCjUfcfhiA3H5929AGWOdwpi3i9lKbK",
+        "isAuthenticated": true
+      }
+    ],
+    "name": "admin2",
+    "slug": "admin2"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "createdAt": 1674542299242,
+  "updatedAt": 1674542299242,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542299242,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/components/function-web/Flow.tsx",
+  "commentsInside": [],
+  "rawText": " () => {\n  return (\n    <Flow\n      renderNode={(item: { todo: string; status: string }) => {\n        return <div />;\n      }}\n      childObject={{\n        status: \"lala\",\n        todo: \"sss\",\n        children: [{ status: \"\", todo: \"\", children: [] }],\n      }}\n    />\n  );\n}",
+  "name": "Test",
+  "slug": "test",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 275,
+    "lines": 14,
+    "bytes": 275,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 14,
+    "numberOfFiles": 1
+  },
+  "id": "zpnjzrcreqexjvwoyrixfsij"
+}

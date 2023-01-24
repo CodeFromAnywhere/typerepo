@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668150468904,
-  "updatedAt": 1668150468904,
+  "createdAt": 1673380293723,
+  "updatedAt": 1673380293723,
   "deletedAt": 0,
-  "createdFirstAt": 1668150468904,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380293723,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const imports = await db.get(\"TsImport\", { operationName: \"k-test\" });\n  const packageJsons = await db.get(\"PackageJson\");\n  // const a = await findDependenciesRecursively(\n  //   imports,\n  //   packageJsons,\n  //   \"k-test\",\n  //   []\n  // );\n\n  // console.log(a);\n\n  const allImports = await db.get(\"TsImport\");\n\n  const b = await findAllDependencyOperations({\n    imports: allImports,\n    packageJsons,\n    operationNames: [\"rebuild-operation\"],\n  });\n\n  console.log(\"SECOND\", b);\n}",
+  "rawText": " async () => {\n  const imports = await db.get(\"TsImport\", { operationName: \"k-test\" });\n  const operations = await db.get(\"Operation\");\n  // const a = await findDependenciesRecursively(\n  //   imports,\n  //   packageJsons,\n  //   \"k-test\",\n  //   []\n  // );\n\n  // console.log(a);\n\n  const allImports = await db.get(\"TsImport\");\n\n  const b = await findAllDependencyOperations({\n    imports: allImports,\n    operations,\n    operationNames: [\"rebuild-operation\"],\n  });\n\n  console.log(\"SECOND\", b);\n}",
   "name": "test2",
   "slug": "test-2",
   "parameters": [],
@@ -29,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 503,
+    "characters": 497,
     "lines": 22,
-    "bytes": 503,
+    "bytes": 497,
     "bytesPerCharacter": 1,
     "charactersPerLine": 23,
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "iqzmdcgqavgvkkszmhqbroxu"
+  "id": "bssrlmdwxproumyaigajwipg"
 }

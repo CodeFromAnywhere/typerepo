@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671505945909,
-  "updatedAt": 1671505945909,
+  "createdAt": 1674133282246,
+  "updatedAt": 1674133282246,
   "deletedAt": 0,
-  "createdFirstAt": 1671505945909,
+  "createdFirstAt": 1674133282246,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  projectRelativePath?: string\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const prompt_absolutePath = projectRelativePath\n    ? path.join(projectRoot, projectRelativePath)\n    : undefined;\n\n  const exists = prompt_absolutePath\n    ? fs.existsSync(prompt_absolutePath)\n    : undefined;\n\n  const stats =\n    exists && prompt_absolutePath\n      ? await fs.stat(prompt_absolutePath)\n      : undefined;\n  const isFolder = stats ? stats.isDirectory() : false;\n  const isFile = stats ? stats.isFile() : false;\n  const pathParse = prompt_absolutePath\n    ? path.parse(prompt_absolutePath)\n    : undefined;\n\n  const contextualPromptResultsJsonPath =\n    pathParse && isFile\n      ? path.join(\n          pathParse.dir,\n          \".index\",\n          pathParse.name,\n          \"prompt-results.json\"\n        )\n      : isFolder && prompt_absolutePath\n      ? path.join(prompt_absolutePath, \".index\", \"prompt-results.json\")\n      : undefined;\n\n  return contextualPromptResultsJsonPath;\n}",
   "description": "Calculates path where the result json index is supposed to be",
-  "id": "szybgvprvlneqhedqqinlwew"
+  "id": "hbugmriabhkkxwyytsqlsdeq"
 }

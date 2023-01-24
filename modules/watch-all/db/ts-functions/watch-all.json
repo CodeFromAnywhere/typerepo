@@ -1,14 +1,13 @@
 {
-  "createdAt": 1669055117256,
-  "updatedAt": 1669055117256,
+  "createdAt": 1674472001643,
+  "updatedAt": 1674472001643,
   "deletedAt": 0,
-  "createdFirstAt": 1669055117256,
-  "isApiExposed": true,
+  "createdFirstAt": 1674472001643,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/watchAll.ts",
   "commentsInside": [],
-  "rawText": " async (config?: {\n  /**\n   * Overwrite the default ignored behavior\n   */\n  customIgnored?: string[];\n}) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  console.log(\"Searching...\"); //\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  const projectWatcherTsFunctions = tsFunctions.filter(\n    (x) => x.explicitTypeName === \"ProjectWatcher\"\n  );\n\n  const projectWatchers = projectWatcherTsFunctions\n    .map((x) => x.name)\n    .map((name) => sdk[name as keyof typeof sdk] as ProjectWatcher | undefined)\n    .filter(notEmpty);\n\n  log(`${projectWatchers.length} watchers gonna watch ${projectRoot}`, {\n    type: \"important\",\n  });\n\n  const startupWaitMs = 1000;\n  setTimeout(() => {\n    log(\n      `There they are! \\n\\n${projectWatchers\n        .map((projectWatcher) => {\n          return `👁 👁 ${projectWatcher.name} ✅`;\n        })\n        .join(\"\\n\")}`,\n      {\n        type: \"success\",\n      }\n    );\n  }, startupWaitMs);\n\n  const startTimeAt = Date.now();\n\n  watch(projectRoot, {\n    ignoreInitial: true,\n    ignored: config?.customIgnored || [\n      \"**/node_modules/**\",\n      \"**/.next/**\",\n      \"**/.expo/**\",\n      // \"**/build/**\", // build change detection is needed for SDK generation\n      \"**/db/**\",\n      \"**/.git/**\",\n      \"**/.turbo/**\",\n      \"**/generated/**\",\n    ],\n    // alwaysStat: true, // not sure why I would need this, seems inefficient if I don't need it, I can simply run fs.stat\n  }).on(\"all\", (eventName, path, stats) => {\n    if (Date.now() < startTimeAt + startupWaitMs) return;\n\n    const relevantWatchers = projectWatchers.filter((watcher) =>\n      watcher.filter(eventName, path)\n    );\n\n    oneByOne(relevantWatchers, async (projectWatcher) => {\n      await projectWatcher(eventName, path);\n    });\n  });\n}",
+  "rawText": " async (config?: {\n  /**\n   * Overwrite the default ignored behavior.\n   *\n   * NB: is not overwriting the startup ignore behavior!\n   */\n  customIgnored?: string[];\n}) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  console.log(\"Searching...\"); //\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  const projectWatcherTsFunctions = tsFunctions.filter(\n    (x) => x.explicitTypeName === \"ProjectWatcher\"\n  );\n\n  const projectWatchers = projectWatcherTsFunctions\n    .map((x) => x.name)\n    .map((name) => sdk[name as keyof typeof sdk] as ProjectWatcher | undefined)\n    .filter(notEmpty);\n\n  log(`${projectWatchers.length} watchers found to watch ${projectRoot}`, {\n    type: \"important\",\n  });\n\n  const startupWaitMs = 1000;\n  setTimeout(() => {\n    log(\n      `There they are! \\n\\n${projectWatchers\n        .map((projectWatcher) => {\n          return `👁 👁 ${projectWatcher.name} ✅`;\n        })\n        .join(\"\\n\")}`,\n      {\n        type: \"success\",\n      }\n    );\n  }, startupWaitMs);\n\n  const startTimeAt = Date.now();\n\n  const recordingsPath = process.env.HOME\n    ? path.resolve(\n        process.env.HOME,\n        \"Library/Application Support/com.apple.voicememos/Recordings\"\n      )\n    : undefined;\n\n  const ignored = config?.customIgnored || [\n    \"**/node_modules/**\",\n    \"**/.next/**\",\n    \"**/.expo/**\",\n    // \"**/build/**\", // build change detection is needed for SDK generation\n    \"**/db/**\",\n    \"**/.git/**\",\n    \"**/.turbo/**\",\n    \"**/generated/**\",\n  ];\n\n  const projectRootFolders = [\n    \"asset\",\n    \"docs\",\n    \"knowledge\",\n    \"operations\",\n    \"text\",\n  ].map((name) => path.join(projectRoot, name));\n\n  const basePath = [...projectRootFolders, recordingsPath].filter(notEmpty);\n\n  // do everything at startup too, as long as a \"startupStrategy\" is declared\n  const startupFiles = (\n    await explore({\n      basePath,\n      ignore: [\n        \"node_modules\",\n        \".next\",\n        \".expo\",\n        \"db\",\n        \"public\",\n        \".git\",\n        \".turbo\",\n        \"generated\",\n      ],\n    })\n  ).map((x) => x.path);\n\n  console.log({ startupFiles: startupFiles.length });\n  const queueItemsBefore = await db.get(\"Queue\");\n\n  // go over every project watcher, add to queue\n  const queueItems = await oneByOne(projectWatchers, async (watcher) => {\n    if (watcher.startupStrategy === \"ignore\" || !watcher.startupStrategy) {\n      console.log(`ignore ${watcher.name}`);\n      return;\n    }\n\n    const thisQueueItemFilePaths = queueItemsBefore\n      .filter((x) => x.functionName === watcher.name)\n      .map((x) => x.parameters[1] as string);\n\n    const realStartupFiles = startupFiles\n      .filter((absolutePath) => {\n        return watcher.filter(\"add\", absolutePath);\n      })\n      .filter((x) => !thisQueueItemFilePaths.includes(x));\n\n    console.log({\n      watcher: watcher.name,\n      filesAlreadyInQueue: thisQueueItemFilePaths.length,\n      filesToBeAddedToQueue: realStartupFiles.length,\n    });\n\n    if (realStartupFiles.length === 0) {\n      return;\n    }\n\n    const newQueueItems = realStartupFiles.map((absolutePath) => {\n      const queue: Creation<Queue> = {\n        functionName: watcher.name,\n        parameters: [\"add\", absolutePath, true],\n      };\n      return queue;\n    });\n\n    return newQueueItems;\n  });\n\n  const newQueueItemsFinal = queueItems.filter(notEmpty).flat();\n\n  const upsertResult = await db.upsert(\"Queue\", newQueueItemsFinal);\n  console.log({\n    queueUpsertResultInsertedAmount: upsertResult,\n    newQueueItemsFinal: newQueueItemsFinal.length,\n  });\n\n  watch(basePath, {\n    ignoreInitial: true,\n    ignored,\n  }).on(\"all\", async (eventName, path) => {\n    const isStartup = Date.now() < startTimeAt + startupWaitMs;\n    if (isStartup) {\n      return;\n    }\n\n    const isOffline = !(await isOnline());\n    const isBusy = await isSystemBusy();\n\n    const relevantWatchers = projectWatchers.filter((watcher) => {\n      const isApplicableWatcher = watcher.filter(eventName, path);\n      if (!isApplicableWatcher) {\n        return false;\n      }\n\n      if (watcher.config?.isInternetRequired && isOffline) {\n        // add to queue because busy\n        db.upsert(\"Queue\", {\n          functionName: watcher.name,\n          parameters: [eventName, path, false],\n        });\n        return false;\n      }\n\n      if (watcher.config?.isHeavy && isBusy) {\n        // add to queue because busy\n\n        db.upsert(\"Queue\", {\n          functionName: watcher.name,\n          parameters: [eventName, path, false],\n        });\n        return false;\n      }\n\n      return true;\n    });\n\n    oneByOne(relevantWatchers, async (projectWatcher) => {\n      console.log(`watchAll: executing ${projectWatcher.name} for ${path}`);\n      await projectWatcher(eventName, path, false);\n    });\n  });\n}",
   "name": "watchAll",
   "slug": "watch-all",
   "parameters": [
@@ -22,7 +21,7 @@
             "items": {
               "type": "string"
             },
-            "description": "Overwrite the default ignored behavior"
+            "description": "Overwrite the default ignored behavior.\n\nNB: is not overwriting the startup ignore behavior!"
           }
         },
         "additionalProperties": false
@@ -33,7 +32,8 @@
             "name": "customIgnored",
             "required": false,
             "schema": {
-              "fullComment": "Overwrite the default ignored behavior",
+              "fullComment": "Overwrite the default ignored behavior.\n\nNB: is not overwriting the startup ignore behavior!",
+              "nb": "is not overwriting the startup ignore behavior!",
               "items": [
                 {
                   "schema": {
@@ -63,13 +63,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 2041,
-    "lines": 69,
-    "bytes": 2051,
-    "bytesPerCharacter": 1.0048995590396865,
-    "charactersPerLine": 30,
-    "linesPerFile": 69,
+    "characters": 5040,
+    "lines": 186,
+    "bytes": 5050,
+    "bytesPerCharacter": 1.001984126984127,
+    "charactersPerLine": 27,
+    "linesPerFile": 186,
     "numberOfFiles": 1
   },
-  "id": "jbwdnahtokqvbkdiccvjavkd"
+  "id": "ovexwnaoifxgzjqrhrhbskib"
 }

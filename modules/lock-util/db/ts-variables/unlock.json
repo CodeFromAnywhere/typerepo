@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674117616251,
+  "updatedAt": 1674117616251,
+  "deletedAt": 0,
+  "createdFirstAt": 1674117616251,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "unlock",
+  "slug": "unlock",
+  "operationRelativeTypescriptFilePath": "src/unlock.ts",
+  "type": {
+    "rawType": "(aboluteLockedFilePath: string) => Promise<void>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(aboluteLockedFilePath: string) => {\n  return fs.rm(aboluteLockedFilePath);\n}",
+  "description": "NB: don't provide the path to the lockfile but the path to the file that the lock should be removed from",
+  "id": "yjtxmzjxqgpyydyflxbtdmjj"
+}

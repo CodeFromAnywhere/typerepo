@@ -1,0 +1,148 @@
+{
+  "createdAt": 1671553280250,
+  "updatedAt": 1671553280250,
+  "deletedAt": 0,
+  "createdFirstAt": 1671553280250,
+  "id": "foldercontent",
+  "name": "FolderContent",
+  "slug": "foldercontent",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "projectRelativePath": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "folder",
+            "file",
+            "link",
+            "unknown"
+          ]
+        },
+        "firstFile": {
+          "type": "string",
+          "description": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank."
+        },
+        "isPrivate": {
+          "type": "boolean"
+        },
+        "isDraft": {
+          "type": "boolean"
+        },
+        "isSecret": {
+          "type": "boolean"
+        },
+        "authorizedGroup": {
+          "type": "string"
+        },
+        "frontmatter": {
+          "$ref": "#/definitions/Frontmatter"
+        }
+      },
+      "required": [
+        "name",
+        "projectRelativePath",
+        "type"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "name",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "type",
+          "required": true,
+          "schema": {
+            "enum": [
+              "folder",
+              "file",
+              "link",
+              "unknown"
+            ],
+            "type": "string"
+          }
+        },
+        {
+          "name": "firstFile",
+          "required": false,
+          "schema": {
+            "fullComment": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.",
+            "type": "string"
+          }
+        },
+        {
+          "name": "isPrivate",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isDraft",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isSecret",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "authorizedGroup",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "frontmatter",
+          "required": false,
+          "schema": {
+            "fullComment": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+            "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "FolderContent",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

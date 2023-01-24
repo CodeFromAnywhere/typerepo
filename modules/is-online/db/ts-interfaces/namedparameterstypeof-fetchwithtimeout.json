@@ -1,0 +1,60 @@
+{
+  "createdAt": 1668336407212,
+  "updatedAt": 1668336407212,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336407212,
+  "id": "namedparameterstypeof-fetchwithtimeout",
+  "name": "NamedParameters<typeof fetchWithTimeout>",
+  "slug": "namedparameterstypeof-fetchwithtimeout",
+  "operationRelativeTypescriptFilePath": "src/isOnline.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "url": {
+          "type": "string"
+        },
+        "timeoutMs": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "url",
+        "timeoutMs"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "url",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "timeoutMs",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof fetchWithTimeout>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116968479,
-  "updatedAt": 1671116968479,
+  "createdAt": 1672638782624,
+  "updatedAt": 1672638782624,
   "deletedAt": 0,
-  "createdFirstAt": 1671116968479,
+  "createdFirstAt": 1672638782624,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const urls = [\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n    \"c\",\n    \"a\",\n    \"a\",\n    \"b\",\n  ];\n  console.log(\"Normal map with unlimited concurrency\");\n  console.time(\"normalmap\");\n  const results1 = await Promise.all(urls.map(concatenate));\n  console.timeEnd(\"normalmap\");\n\n  console.log(\"Map many with 10 concurrency\");\n  console.time(\"mapMany\");\n  const results2 = await mapMany(urls, concatenate, 10);\n  console.timeEnd(\"mapMany\");\n}",
   "description": "",
-  "id": "vjupuqkgjuajgrqclletvwiz"
+  "id": "vurhdofaarhamyekalexqyor"
 }

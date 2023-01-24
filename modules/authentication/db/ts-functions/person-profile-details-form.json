@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671449554739,
-  "updatedAt": 1671449554739,
+  "createdAt": 1674548633984,
+  "updatedAt": 1674548633984,
   "deletedAt": 0,
-  "createdFirstAt": 1671449554739,
-  "isApiExposed": true,
+  "createdFirstAt": 1674548633984,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/UpdateMeForm.tsx",
   "commentsInside": [],
   "rawText": " (props: {\n  personProfileDetails: PersonProfileDetails;\n}) => {\n  const meQuery = queries.useGetMeWithContext();\n\n  const projectRelativeStorageFilePath =\n    meQuery.data?.result?.device?.currentPersonCalculated?.projectRelativePath;\n  const [form, details, onChange] = useTsInterfaceForm(\n    PersonProfileDetailsIndex as Storing<TsInterface>,\n    \"test\",\n    props.personProfileDetails,\n    projectRelativeStorageFilePath,\n    \"Person\"\n  );\n\n  return form ? (\n    <FormContainer\n      onSubmit={async () => {\n        if (!details || !projectRelativeStorageFilePath) return;\n        const apiResult = await api.updateMeWithContext(details);\n        showStandardResponse(apiResult);\n        await meQuery.refetch();\n      }}\n    >\n      {form}\n    </FormContainer>\n  ) : null;\n}",
@@ -211,39 +210,26 @@
                   }
                 },
                 {
-                  "name": "amountAuthenticationMethodsRequired",
+                  "name": "note",
                   "required": false,
                   "schema": {
-                    "fullComment": "By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one",
-                    "type": "number"
+                    "type": "string"
                   }
                 },
                 {
-                  "name": "requiredAuthenticationMethods",
+                  "name": "location",
                   "required": false,
                   "schema": {
-                    "fullComment": "Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device",
-                    "items": [
-                      {
-                        "schema": {
-                          "enum": [
-                            "usernamePassword",
-                            "phoneNumber",
-                            "email",
-                            "apple",
-                            "google",
-                            "facebook",
-                            "twitter",
-                            "linkedin",
-                            "github"
-                          ],
-                          "fullComment": "Username + password should be the default\n\nEmail OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods\n\nAll others can also act as authentication methods, but the token shouldn't be stored",
-                          "type": "string"
-                        },
-                        "name": "AuthenticationMethodMethod"
-                      }
-                    ],
-                    "type": "array"
+                    "fullComment": "Later to be formalised with city, country, address, lat/lng, and maybe multiple possible locations. For now, and if we are using GPT for search, a string might be enough.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "trust",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Number 0-1 to indicate my trust towards this person",
+                    "type": "number"
                   }
                 }
               ],
@@ -280,5 +266,5 @@
     "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "zbwiarvpxjbfyrtggwjozanr"
+  "id": "oaqsooqnjwhoowjcvzgttqzo"
 }

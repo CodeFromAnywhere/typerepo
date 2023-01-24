@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671365971573,
-  "updatedAt": 1671365971573,
+  "createdAt": 1674135005383,
+  "updatedAt": 1674135005383,
   "deletedAt": 0,
-  "createdFirstAt": 1671365971573,
+  "createdFirstAt": 1674135005383,
   "id": "promptfunction",
   "name": "PromptFunction",
   "slug": "promptfunction",
   "operationRelativeTypescriptFilePath": "src/PromptFunction.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * Special kind of function that executes a prompt with the use of a language model\n */\nexport type PromptFunction = {\n  (...parameters: any[]): Promise<ProcessPromptFunctionResult>;\n  contextualPromptInfo: ContextualPromptInfo;\n};",
+  "rawText": "\n/**\n * Special kind of function that executes a prompt with the use of a language model\n */\nexport type PromptFunction = {\n  (...parameters: any[]): Promise<ProcessPromptFunctionResult>;\n  contextualPromptInfo: ContextualPromptInfo;\n} & ApiFunctionParameters;",
   "extensions": [],
   "isOperationIndex": false,
   "description": "Special kind of function that executes a prompt with the use of a language model",
@@ -18,7 +18,83 @@
   "type": {
     "typeDefinition": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
+        "version": {
+          "type": "string",
+          "description": "Used to determine if there are important changes. Can be added to things that used this function for example, for indexation, for example. This way we know how the index came to be better."
+        },
+        "versionInfo": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Provide info for every version. Especially needed if we have a function that produces output that we'll keep using. This way we can trace back the behavior that caused the output"
+        },
+        "isHeavy": {
+          "type": "boolean",
+          "description": "Requires lots of ram/cpu/gpu (e.g. local AI models, file conversions, and data manipulation at scale)\n\nWill not be started if computer is busy already"
+        },
+        "isInternetRequired": {
+          "type": "boolean",
+          "description": "If true, you state that this function requires internet. Will not be executed if there's no internet connection"
+        },
+        "isBrowserRequired": {
+          "type": "boolean",
+          "description": "Puppeteer stuff"
+        },
+        "isPublic": {
+          "type": "boolean",
+          "description": "If `true`, this function will be publicly available through the API"
+        },
+        "isApiExposed": {
+          "type": "boolean",
+          "description": "for all exported functions in node operations, true by default false for others\n\ncan be overwritten using frontmatter\n\nTODO: remove, should be same as `isPublic`"
+        },
+        "domain": {
+          "type": "string",
+          "description": "If it's a slug without TLD, the function will be on on a landing page without its own domain If it's a slug with TLD, it can get it's own domain If domain is given, function is wrapped into `sdk-public-tools`, wrapped with:\n\n- providing email and other required credentials\n- adding to queue if server is busy\n\nLater I can wrap this even more with monetisation and 'tool-owner', so I can let others do the same with a single click (promote after form is filled is like \"learn more about how to earn money with the new AI tech revolution (or so)\")"
+        },
+        "isPaid": {
+          "type": [
+            "boolean",
+            "string"
+          ],
+          "enum": [
+            true,
+            "isSuccessful"
+          ],
+          "description": "- If true, usage will be counted in `UsageReport`\n- If \"isSuccessful\", usage will be counted only if this function returns `.isSuccessful: true`\n\nNB: not sure if the latter is needed"
+        },
+        "price": {
+          "type": "number",
+          "description": "Cost per execution in EURO CENT\n\ne.g. 0.05 means that 2000 executions cost 1 euro."
+        },
+        "allowedRoles": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "groupAuthorization": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          },
+          "description": "Other keys in frontmatter that are group names, can be added here\n\nTODO: maybe replace with `.allowedRoles`"
+        },
+        "canCache": {
+          "type": "boolean",
+          "description": "whether or not the function can be cached (relies on cache invalidation)"
+        },
+        "runEveryPeriod": {
+          "$ref": "#/definitions/RunEveryPeriodEnum",
+          "description": "You can specify `runEveryPeriod` in your frontmatter of a function. This will set `runEveryPeriod` for the TsFunction. This is used by `function-server`: it will execute CRON-jobs that run these things on those periods.\n\nWill only work if the function takes no arguments."
+        },
+        "classification": {
+          "$ref": "#/definitions/FunctionClassification",
+          "description": "Type of function for frontend"
+        },
         "contextualPromptInfo": {
           "$ref": "#/definitions/ContextualPromptInfo"
         }
@@ -26,12 +102,168 @@
       "required": [
         "contextualPromptInfo"
       ],
-      "additionalProperties": false,
       "description": "Special kind of function that executes a prompt with the use of a language model"
     },
     "simplifiedSchema": {
       "fullComment": "Special kind of function that executes a prompt with the use of a language model",
       "properties": [
+        {
+          "name": "version",
+          "required": false,
+          "schema": {
+            "fullComment": "Used to determine if there are important changes. Can be added to things that used this function for example, for indexation, for example. This way we know how the index came to be better.",
+            "type": "string"
+          }
+        },
+        {
+          "name": "versionInfo",
+          "required": false,
+          "schema": {
+            "fullComment": "Provide info for every version. Especially needed if we have a function that produces output that we'll keep using. This way we can trace back the behavior that caused the output",
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "isHeavy",
+          "required": false,
+          "schema": {
+            "fullComment": "Requires lots of ram/cpu/gpu (e.g. local AI models, file conversions, and data manipulation at scale)\n\nWill not be started if computer is busy already",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isInternetRequired",
+          "required": false,
+          "schema": {
+            "fullComment": "If true, you state that this function requires internet. Will not be executed if there's no internet connection",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isBrowserRequired",
+          "required": false,
+          "schema": {
+            "fullComment": "Puppeteer stuff",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isPublic",
+          "required": false,
+          "schema": {
+            "fullComment": "If `true`, this function will be publicly available through the API",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isApiExposed",
+          "required": false,
+          "schema": {
+            "fullComment": "for all exported functions in node operations, true by default false for others\n\ncan be overwritten using frontmatter\n\nTODO: remove, should be same as `isPublic`",
+            "todo": "remove, should be same as `isPublic`",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "domain",
+          "required": false,
+          "schema": {
+            "fullComment": "If it's a slug without TLD, the function will be on on a landing page without its own domain If it's a slug with TLD, it can get it's own domain If domain is given, function is wrapped into `sdk-public-tools`, wrapped with:\n\n- providing email and other required credentials\n- adding to queue if server is busy\n\nLater I can wrap this even more with monetisation and 'tool-owner', so I can let others do the same with a single click (promote after form is filled is like \"learn more about how to earn money with the new AI tech revolution (or so)\")",
+            "type": "string"
+          }
+        },
+        {
+          "name": "isPaid",
+          "required": false,
+          "schema": {
+            "enum": [
+              true,
+              "isSuccessful"
+            ],
+            "fullComment": "- If true, usage will be counted in `UsageReport`\n- If \"isSuccessful\", usage will be counted only if this function returns `.isSuccessful: true`\n\nNB: not sure if the latter is needed",
+            "nb": "not sure if the latter is needed",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "price",
+          "required": false,
+          "schema": {
+            "fullComment": "Cost per execution in EURO CENT\n\ne.g. 0.05 means that 2000 executions cost 1 euro.",
+            "type": "number"
+          }
+        },
+        {
+          "name": "allowedRoles",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "groupAuthorization",
+          "required": false,
+          "schema": {
+            "fullComment": "Other keys in frontmatter that are group names, can be added here\n\nTODO: maybe replace with `.allowedRoles`",
+            "todo": "maybe replace with `.allowedRoles`",
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "canCache",
+          "required": false,
+          "schema": {
+            "fullComment": "whether or not the function can be cached (relies on cache invalidation)",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "runEveryPeriod",
+          "required": false,
+          "schema": {
+            "enum": [
+              "minute",
+              "5-minutes",
+              "quarter-hour",
+              "hour",
+              "6-hours",
+              "midnight",
+              "week",
+              "month",
+              "3-months",
+              "year"
+            ],
+            "fullComment": "You can specify `runEveryPeriod` in your frontmatter of a function. This will set `runEveryPeriod` for the TsFunction. This is used by `function-server`: it will execute CRON-jobs that run these things on those periods.\n\nWill only work if the function takes no arguments.\n\nUsed to specify functions that need to run every time with a specific interval\n\nAll times are at at the server timezone time\n\n- `minute`: every minute at 0 seconds\n- `5-mintues`: every 5 minutes, starting at the first minute of the hour\n- `quarter-hour`: every 15 minutes, starting at the first minute of the hour\n- `hour`: every hour, starting at the first minute of the hour\n- `6-hours`: every 6 hours, starting at midnight\n- `midnight`: every midnight (00:00:00)\n- `week`: every week at sundaynight (sunday, 1 second after 23:59:59 PM)\n- `month`: at the first second of the first day of the month (0:00:00)\n- `3-months`: every start of the quarter: january 1st (0:00:00), april 1st, july 1st, october 1st\n- `year`: every new year at january 1st at 0:00:00",
+            "type": "string"
+          }
+        },
+        {
+          "name": "classification",
+          "required": false,
+          "schema": {
+            "enum": [
+              "wise",
+              "dumb",
+              "smart",
+              "genius",
+              "react-with-native",
+              "cli",
+              "test"
+            ],
+            "fullComment": "Type of function for frontend\n\n- `react`: The core library that should always be used that wraps react and react native.\n\n- `dumb`: Presentational components that only care about how things look, and have no idea about the type of information that they will contain (**data-agnostic**), nor their context they're used in.\n\n- `smart`: Presentational components that may contain getters and setters for global state. This means they're still easy enough to set up, but\n\n- `wise`: stateful components that use the backend as well to do things. for example, `simplified-schema-form`\n\n- `genius`: blocks of components that have certain functionality. Example: `file-writer` or `crud`",
+            "type": "string"
+          }
+        },
         {
           "name": "contextualPromptInfo",
           "required": true,

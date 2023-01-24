@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668336325367,
-  "updatedAt": 1668336325367,
+  "createdAt": 1674032515770,
+  "updatedAt": 1674032515770,
   "deletedAt": 0,
-  "createdFirstAt": 1668336325367,
+  "createdFirstAt": 1674032515770,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  command: string,\n  options: SpawnOptionsWithoutStdio\n): Promise<{ success: boolean; response: string; data?: string[] }> => {\n  return new Promise((resolve) => {\n    const spawned = spawn(command, options);\n\n    const data: string[] = [];\n    spawned\n      .on(\"exit\", (code) => {\n        resolve({ response: String(code), success: false, data });\n      })\n      .on(\"message\", (message) => {\n        //not sure if this does anything\n      })\n      .on(\"data\", (message) => {\n        //not sure if this does anything\n        data.push(message);\n      })\n      .on(\"error\", (err) => {\n        resolve({ response: String(err), success: false, data });\n      });\n  });\n}",
   "description": "i don't know if this is ever useful...",
-  "id": "kopcaaxvyissdusuxmvibdza"
+  "id": "qsrhbrxnvnafdjfbyhjsvuqg"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527002430,
-  "updatedAt": 1670527002430,
+  "createdAt": 1672637088580,
+  "updatedAt": 1672637088580,
   "deletedAt": 0,
-  "createdFirstAt": 1670527002430,
+  "createdFirstAt": 1672637088580,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(pathString: string) => {\n  const lastFolder = getFolder(pathString).split(\"/\").pop()!;\n  // console.log({ pathString, lastFolder });\n  return lastFolder;\n}",
   "description": "removes everything after the last slash to get folder path\n\ninput: /Users/king/Documents/some/folder/xyz\noutput: xyz\n\ninput: /Users/king/Documents/some/folder/xyz.txt\noutput: folder",
-  "id": "nqnizoeokcwdqrgdbydjmqpb"
+  "id": "fzjbnaaxbjvukjeztfgdeixh"
 }

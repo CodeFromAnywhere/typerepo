@@ -1,0 +1,20 @@
+{
+  "createdAt": 1670182739394,
+  "updatedAt": 1670182739394,
+  "deletedAt": 0,
+  "createdFirstAt": 1670182739394,
+  "name": "explain-in-portuguese",
+  "language": "english",
+  "promptContent": "This code is hard for me to understand because I don't speak English and I'm not a good programmer:\n\n```\n%context\n```\n\nCan you add comments to every line, indicating what the line does, in Portuguese?",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "slug": "explain-in-portuguese",
+  "id": "jtnbrsxdwxuzxgxvsqlfxuup",
+  "categoryStack": [
+    "code",
+    "code-comprehension"
+  ]
+}

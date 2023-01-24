@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671007135510,
-  "updatedAt": 1671007135510,
+  "createdAt": 1673861933006,
+  "updatedAt": 1673861933006,
   "deletedAt": 0,
-  "createdFirstAt": 1671007135510,
-  "isApiExposed": true,
+  "createdFirstAt": 1673861933006,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/makeRelative.ts",
   "commentsInside": [],
   "rawText": " (\n  /**\n   * absolute path of a file or folder without a slash at the end\n   */\n  absolutePath: string,\n  /**\n   * folder path without a slash at the end\n   */\n  baseFolderPath: string\n): string => {\n  // basecase should be handled, we don't want to get some weird slice edgecase\n  if (absolutePath.length < baseFolderPath.length) return \"\";\n\n  return absolutePath.slice(baseFolderPath.length + 1);\n}",
@@ -61,5 +60,5 @@
     "linesPerFile": 19,
     "numberOfFiles": 1
   },
-  "id": "nywdhdjogscjykjxjagvjpxw"
+  "id": "bvfiuhixwcturwoynetzibkw"
 }

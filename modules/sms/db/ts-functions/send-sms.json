@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668334638296,
-  "updatedAt": 1668334638296,
+  "createdAt": 1673379729148,
+  "updatedAt": 1673379729148,
   "deletedAt": 0,
-  "createdFirstAt": 1668334638296,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673379729148,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/sendSms.ts",
   "commentsInside": [],
   "rawText": " async (\n  options: MessageListInstanceCreateOptions\n): Promise<MessageInstance | undefined> => {\n  const { from: optionsFrom, ...otherOptions } = options;\n\n  const persona = await getPrimaryPersona();\n\n  if (!persona) {\n    return;\n  }\n\n  const { twilioAccountSid, twilioAuthToken, twilioFromPhoneNumber } = persona;\n\n  if (!twilioAccountSid || !twilioAuthToken) {\n    console.log(\"Please setup your Twilio credentials first\");\n    return;\n  }\n  const twilioClient = twilio(twilioAccountSid, twilioAuthToken);\n\n  const from = optionsFrom || twilioFromPhoneNumber;\n\n  if (!from) {\n    console.log(\n      \"Please provide a phonenumber to sent from, either in your OsConfig or in the sendSms options\"\n    );\n    return;\n  }\n\n  const message = await twilioClient.messages\n    .create({ from, ...otherOptions })\n    .catch((reason) => {\n      console.log(\"Sending sms failed\", { reason });\n\n      return undefined;\n    });\n\n  return message;\n}",
@@ -304,5 +299,5 @@
     "linesPerFile": 44,
     "numberOfFiles": 1
   },
-  "id": "wzxbupnylmfgyafqgxjoervj"
+  "id": "aovamtpaidmcykqkcygbvttl"
 }

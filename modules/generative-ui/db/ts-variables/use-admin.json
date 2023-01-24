@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379268616,
+  "updatedAt": 1673379268616,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379268616,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useAdmin",
+  "slug": "use-admin",
+  "operationRelativeTypescriptFilePath": "src/components/useAdmin.ts",
+  "type": {
+    "rawType": "() => { isAdminActive: boolean; isLoading?: boolean | undefined; refetch?: (<TPageData>(options?: (import(\"/Users/king/King/operations/node_modules/react-query/types/core/types\").RefetchOptions & import(\"/Users/king/King/operations/node_modules/react-query/types/core/types\").RefetchQueryFilters<TPageData>) | undefined) => Promise<import(\"/Users/king/King/operations/node_modules/react-query/types/core/types\").QueryObserverResult<TData, TError>>) | undefined; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const queryPath = useQueryPath();\n  const { refetch, isLoading } = queries.useGetReaderPageProps(\n    process.env.NEXT_PUBLIC_BASEPATH || \"\",\n    queryPath,\n    true\n  );\n\n  const meQuery = queries.useGetMeWithContext();\n\n  const isAdmin = !!meQuery.data?.result?.groups?.find(\n    (x: Group) => x.slug === \"admin\"\n  );\n\n  const [config] = useStore(\"generativeWeb.config\");\n\n  const isAdminActive = isAdmin && !config.disableAdmin;\n  const result: {\n    isAdminActive: boolean;\n    isLoading?: boolean;\n    refetch?: typeof refetch;\n  } = isAdminActive\n    ? {\n        isAdminActive,\n        isLoading,\n        refetch,\n      }\n    : { isAdminActive };\n\n  return result;\n}",
+  "description": "Useful hook to make a static site dynamic for administrator",
+  "id": "cvejiasmycycnxxefyvluzur"
+}

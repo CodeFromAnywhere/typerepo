@@ -1,11 +1,10 @@
 {
-  "createdAt": 1670216171210,
-  "updatedAt": 1670216171210,
+  "createdAt": 1673862438650,
+  "updatedAt": 1673862438650,
   "deletedAt": 0,
-  "createdFirstAt": 1670216171210,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862438650,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/extensions.ts",
   "commentsInside": [],
   "rawText": " (extension: string | undefined): WriterType => {\n  if (!extension) return \"other\";\n  if (typescriptExtensions.includes(extension)) return \"typescript\";\n  if (markdownExtensions.includes(extension)) return \"markdown\";\n  return \"other\";\n}",
@@ -65,5 +64,5 @@
     "linesPerFile": 6,
     "numberOfFiles": 1
   },
-  "id": "decwktpnmqjpzspkacaxieca"
+  "id": "bbytrnmxcuagredgygfsznht"
 }

@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1671494317210,
-    "updatedAt": 1671494317210,
+    "createdAt": 1671554619045,
+    "updatedAt": 1671554619045,
     "deletedAt": 0,
-    "createdFirstAt": 1671494317210,
+    "createdFirstAt": 1671554619045,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/mapChildObjectRecursive.ts",
-    "comment": "maps a ChildObject and all it's children, recursively",
-    "rawStatement": "export const mapChildObjectRecursive = <\n  T extends { [key: string]: any },\n  U extends { [key: string]: any }\n>(\n  childObject: ChildObject<T>,\n  mapFunction: (item: ChildObject<T>) => U\n): ChildObject<U> => {\n  const newChildObject = mapFunction(childObject);\n\n  return {\n    ...newChildObject,\n    children: childObject.children?.map((child) =>\n      mapChildObjectRecursive(child, mapFunction)\n    ),\n  } as ChildObject<U>;\n};",
+    "operationRelativeTypescriptFilePath": "src/queryPathsArrayToNestedPathObject.ts",
+    "comment": "Handy function to transform an array of `querypaths` into a nested menu, assuming you want to create a new sub-menu for every path\n\nMay also work for relative filePaths\n\nInput:\n\n[\"hello/world\",\"hello/moon\",\"hello/sun\"]\n\nOutput:\n\n{\n\"hello\":{\n\"moon\":null,\n\"world\":null,\n\"sun\":null\n}\n}",
+    "rawStatement": "export const queryPathsArrayToNestedPathObject = (\n  queryPaths: string[]\n): NestedPathObject => {\n  const nestedPathObject: NestedPathObject = reduceQueryPathsRecursively(\n    queryPaths,\n    {}\n  );\n  return nestedPathObject;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 3,
-    "lastLine": 5,
-    "id": "rspchglvsobpjnkctdqcsjjj"
+    "firstLine": 4,
+    "lastLine": 23,
+    "id": "cgllkyxktpvcgwwlqimgtgne"
   }
 ]

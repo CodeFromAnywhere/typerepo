@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669962234464,
-  "updatedAt": 1669962234464,
+  "createdAt": 1673959599532,
+  "updatedAt": 1673959599532,
   "deletedAt": 0,
-  "createdFirstAt": 1669962234464,
+  "createdFirstAt": 1673959599532,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(markdownString: string): MarkdownEmbed[] => {\n  const result = flattenMarkdownString(\n    markdownString,\n    (token) => token.type === \"image\"\n  );\n\n  const embeds: MarkdownEmbed[] = result\n    .map((token) => {\n      if (token.type !== \"image\") return;\n\n      const markdownEmbed: MarkdownEmbed = {\n        alt: token.text || \"\",\n        src: token.href,\n        type: getTypeFromUrlOrPath(token.href),\n      };\n\n      return markdownEmbed;\n    })\n    .filter(notEmpty);\n\n  return embeds;\n}",
   "description": "find all embedded assets",
-  "id": "wwkwbmwvzrensouixteyyhro"
+  "id": "neepzhzabqpfwtaflztammwu"
 }

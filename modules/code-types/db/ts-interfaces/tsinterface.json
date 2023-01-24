@@ -1,17 +1,18 @@
 {
-  "createdAt": 1670064033667,
-  "updatedAt": 1670064033667,
+  "createdAt": 1673863024621,
+  "updatedAt": 1673863024621,
   "deletedAt": 0,
-  "createdFirstAt": 1670064033667,
+  "createdFirstAt": 1673863024621,
   "id": "tsinterface",
   "name": "TsInterface",
   "slug": "tsinterface",
   "operationRelativeTypescriptFilePath": "src/TsInterface.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * ---\n * dbStorageMethod: jsonSingle\n * ---\n *\n * TODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.\n */\nexport interface TsInterface extends TsIndexModelType {\n  type: TypeInfo;\n  /**\n   * jsdoc comment above the interface, if any\n   */\n  description?: Markdown;\n\n  commentsInside: TsComment[];\n\n  /**\n   * boolean indicating whether or not this interface is exported from the file, and with that, from the operation\n   */\n  isExported: boolean;\n\n  /**\n   * boolean indicating whether or not this interface uses one or more generic variables\n   */\n  hasGeneric: boolean;\n\n  /**\n   * raw interface text, coming from ts-morph\n   */\n  rawText?: string;\n  /**\n   * if the interface extends anything, names will be specified here\n   */\n  extensions?: string[];\n\n  /**\n   * If true, this interface is marked as a db model, which means it will be included in the db function autocompletion so it's easy to store and fetch data in this format.\n   *\n   * Is automatically set to true when indexing and when one of the following statements holds true\n   *\n   * - if the doc-comment contains frontmatter with `isDbModel` or `dbStorageMethod` specified\n   * - if the interface last word is \"db\" or \"model\" and if there are minimum 2 words\n   * - if the interface extends some other special interface\n   */\n  isDbModel: boolean;\n\n  /**\n   * If this is true, this is a db-model that is ALWAYS attached to an operation.\n   *\n   * By default this means it will get a folder in the `db` folder in the operation folder, where the interface will be stored linked to the file-id in specified folder.\n   *\n   * However, you can also specify a `storageLocationRelativeFilePath` if you want to store the model on an exact location relative to the operation root.\n   */\n  isOperationIndex: boolean;\n\n  /**\n   * If given, specify a file path here where the data should be stored.\n   * Must be an operation relative path.\n   *\n   * This will map onto the \"operationRelativePath\" for that instance.\n   *\n   * NB: Since this is a single file per project or per operation, it will overwrite your data in case of `jsonSingle` or `markdown` storage.\n   */\n  operationStorageLocationRelativeFilePath?: string;\n\n  /**\n  The DbStorageMethod for this inteface (only for db models, otherwise this will be undefined)\n  \n  If this interface is a db model, you can also specify the default db storage method for it. You can do this by specifying it in the frontmatter of the doccomment of the interface. You can also extend a xxxModelType model which can have a dbStorageMethod attached.\n\n When storing something into the database, this value can be overwritten in your query configuration. \n\n   */\n  dbStorageMethod?: DbStorageMethod;\n}",
+  "rawText": "\n/**\n * ---\n * dbStorageMethod: jsonSingle\n * ---\n *\n * TODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.\n */\nexport interface TsInterface extends TsIndexModelType, TsInterfaceProperties {\n  type: TypeInfo;\n  /**\n   * jsdoc comment above the interface, if any\n   */\n  description?: Markdown;\n\n  commentsInside: TsComment[];\n\n  /**\n   * boolean indicating whether or not this interface is exported from the file, and with that, from the operation\n   */\n  isExported: boolean;\n\n  /**\n   * raw interface text, coming from ts-morph\n   */\n  rawText?: string;\n}",
   "extensions": [
-    "TsIndexModelType"
+    "TsIndexModelType",
+    "TsInterfaceProperties"
   ],
   "isOperationIndex": true,
   "description": "\nTODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.",
@@ -22,6 +23,33 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "hasGeneric": {
+          "type": "boolean",
+          "description": "boolean indicating whether or not this interface uses one or more generic variables"
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "if the interface extends anything, names will be specified here"
+        },
+        "isDbModel": {
+          "type": "boolean",
+          "description": "If true, this interface is marked as a db model, which means it will be included in the db function autocompletion so it's easy to store and fetch data in this format.\n\nIs automatically set to true when indexing and when one of the following statements holds true\n\n- if the doc-comment contains frontmatter with `isDbModel` or `dbStorageMethod` specified\n- if the interface last word is \"db\" or \"model\" and if there are minimum 2 words\n- if the interface extends some other special interface"
+        },
+        "isOperationIndex": {
+          "type": "boolean",
+          "description": "If this is true, this is a db-model that is ALWAYS attached to an operation.\n\nBy default this means it will get a folder in the `db` folder in the operation folder, where the interface will be stored linked to the file-id in specified folder.\n\nHowever, you can also specify a `storageLocationRelativeFilePath` if you want to store the model on an exact location relative to the operation root."
+        },
+        "operationStorageLocationRelativeFilePath": {
+          "type": "string",
+          "description": "If given, specify a file path here where the data should be stored. Must be an operation relative path.\n\nThis will map onto the \"operationRelativePath\" for that instance.\n\nNB: Since this is a single file per project or per operation, it will overwrite your data in case of `jsonSingle` or `markdown` storage."
+        },
+        "dbStorageMethod": {
+          "$ref": "#/definitions/DbStorageMethod",
+          "description": "The DbStorageMethod for this inteface (only for db models, otherwise this will be undefined)\n\nIf this interface is a db model, you can also specify the default db storage method for it. You can do this by specifying it in the frontmatter of the doccomment of the interface. You can also extend a xxxModelType model which can have a dbStorageMethod attached.\n\nWhen storing something into the database, this value can be overwritten in your query configuration."
+        },
         "operationName": {
           "type": [
             "null",
@@ -70,36 +98,9 @@
           "type": "boolean",
           "description": "boolean indicating whether or not this interface is exported from the file, and with that, from the operation"
         },
-        "hasGeneric": {
-          "type": "boolean",
-          "description": "boolean indicating whether or not this interface uses one or more generic variables"
-        },
         "rawText": {
           "type": "string",
           "description": "raw interface text, coming from ts-morph"
-        },
-        "extensions": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "if the interface extends anything, names will be specified here"
-        },
-        "isDbModel": {
-          "type": "boolean",
-          "description": "If true, this interface is marked as a db model, which means it will be included in the db function autocompletion so it's easy to store and fetch data in this format.\n\nIs automatically set to true when indexing and when one of the following statements holds true\n\n- if the doc-comment contains frontmatter with `isDbModel` or `dbStorageMethod` specified\n- if the interface last word is \"db\" or \"model\" and if there are minimum 2 words\n- if the interface extends some other special interface"
-        },
-        "isOperationIndex": {
-          "type": "boolean",
-          "description": "If this is true, this is a db-model that is ALWAYS attached to an operation.\n\nBy default this means it will get a folder in the `db` folder in the operation folder, where the interface will be stored linked to the file-id in specified folder.\n\nHowever, you can also specify a `storageLocationRelativeFilePath` if you want to store the model on an exact location relative to the operation root."
-        },
-        "operationStorageLocationRelativeFilePath": {
-          "type": "string",
-          "description": "If given, specify a file path here where the data should be stored. Must be an operation relative path.\n\nThis will map onto the \"operationRelativePath\" for that instance.\n\nNB: Since this is a single file per project or per operation, it will overwrite your data in case of `jsonSingle` or `markdown` storage."
-        },
-        "dbStorageMethod": {
-          "$ref": "#/definitions/DbStorageMethod",
-          "description": "The DbStorageMethod for this inteface (only for db models, otherwise this will be undefined)\n\nIf this interface is a db model, you can also specify the default db storage method for it. You can do this by specifying it in the frontmatter of the doccomment of the interface. You can also extend a xxxModelType model which can have a dbStorageMethod attached.\n\nWhen storing something into the database, this value can be overwritten in your query configuration."
         }
       },
       "required": [
@@ -123,6 +124,70 @@
       "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nTODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.",
       "todo": "Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.",
       "properties": [
+        {
+          "name": "hasGeneric",
+          "required": true,
+          "schema": {
+            "fullComment": "boolean indicating whether or not this interface uses one or more generic variables",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "extensions",
+          "required": false,
+          "schema": {
+            "fullComment": "if the interface extends anything, names will be specified here",
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "isDbModel",
+          "required": true,
+          "schema": {
+            "fullComment": "If true, this interface is marked as a db model, which means it will be included in the db function autocompletion so it's easy to store and fetch data in this format.\n\nIs automatically set to true when indexing and when one of the following statements holds true\n\n- if the doc-comment contains frontmatter with `isDbModel` or `dbStorageMethod` specified\n- if the interface last word is \"db\" or \"model\" and if there are minimum 2 words\n- if the interface extends some other special interface",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isOperationIndex",
+          "required": true,
+          "schema": {
+            "fullComment": "If this is true, this is a db-model that is ALWAYS attached to an operation.\n\nBy default this means it will get a folder in the `db` folder in the operation folder, where the interface will be stored linked to the file-id in specified folder.\n\nHowever, you can also specify a `storageLocationRelativeFilePath` if you want to store the model on an exact location relative to the operation root.",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "operationStorageLocationRelativeFilePath",
+          "required": false,
+          "schema": {
+            "fullComment": "If given, specify a file path here where the data should be stored. Must be an operation relative path.\n\nThis will map onto the \"operationRelativePath\" for that instance.\n\nNB: Since this is a single file per project or per operation, it will overwrite your data in case of `jsonSingle` or `markdown` storage.",
+            "nb": "Since this is a single file per project or per operation, it will overwrite your data in case of `jsonSingle` or `markdown` storage.",
+            "type": "string"
+          }
+        },
+        {
+          "name": "dbStorageMethod",
+          "required": false,
+          "schema": {
+            "enum": [
+              "jsonMultiple",
+              "jsonSingle",
+              "markdown",
+              "keyValueMarkdown",
+              "csv"
+            ],
+            "fullComment": "The DbStorageMethod for this inteface (only for db models, otherwise this will be undefined)\n\nIf this interface is a db model, you can also specify the default db storage method for it. You can do this by specifying it in the frontmatter of the doccomment of the interface. You can also extend a xxxModelType model which can have a dbStorageMethod attached.\n\nWhen storing something into the database, this value can be overwritten in your query configuration.\n\nThe following strategies are available to store the data.\n\n- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`\n\n- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`\n\n- **markdown**: stores the data in a markdown file. Takes \"markdown\" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`\n\n- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`\n\n- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`\n\n## Definitions:\n\n- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`\n- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used",
+            "type": "string"
+          }
+        },
         {
           "name": "operationName",
           "required": true,
@@ -1029,74 +1094,10 @@
           }
         },
         {
-          "name": "hasGeneric",
-          "required": true,
-          "schema": {
-            "fullComment": "boolean indicating whether or not this interface uses one or more generic variables",
-            "type": "boolean"
-          }
-        },
-        {
           "name": "rawText",
           "required": false,
           "schema": {
             "fullComment": "raw interface text, coming from ts-morph",
-            "type": "string"
-          }
-        },
-        {
-          "name": "extensions",
-          "required": false,
-          "schema": {
-            "fullComment": "if the interface extends anything, names will be specified here",
-            "items": [
-              {
-                "schema": {
-                  "type": "string"
-                },
-                "name": null
-              }
-            ],
-            "type": "array"
-          }
-        },
-        {
-          "name": "isDbModel",
-          "required": true,
-          "schema": {
-            "fullComment": "If true, this interface is marked as a db model, which means it will be included in the db function autocompletion so it's easy to store and fetch data in this format.\n\nIs automatically set to true when indexing and when one of the following statements holds true\n\n- if the doc-comment contains frontmatter with `isDbModel` or `dbStorageMethod` specified\n- if the interface last word is \"db\" or \"model\" and if there are minimum 2 words\n- if the interface extends some other special interface",
-            "type": "boolean"
-          }
-        },
-        {
-          "name": "isOperationIndex",
-          "required": true,
-          "schema": {
-            "fullComment": "If this is true, this is a db-model that is ALWAYS attached to an operation.\n\nBy default this means it will get a folder in the `db` folder in the operation folder, where the interface will be stored linked to the file-id in specified folder.\n\nHowever, you can also specify a `storageLocationRelativeFilePath` if you want to store the model on an exact location relative to the operation root.",
-            "type": "boolean"
-          }
-        },
-        {
-          "name": "operationStorageLocationRelativeFilePath",
-          "required": false,
-          "schema": {
-            "fullComment": "If given, specify a file path here where the data should be stored. Must be an operation relative path.\n\nThis will map onto the \"operationRelativePath\" for that instance.\n\nNB: Since this is a single file per project or per operation, it will overwrite your data in case of `jsonSingle` or `markdown` storage.",
-            "nb": "Since this is a single file per project or per operation, it will overwrite your data in case of `jsonSingle` or `markdown` storage.",
-            "type": "string"
-          }
-        },
-        {
-          "name": "dbStorageMethod",
-          "required": false,
-          "schema": {
-            "enum": [
-              "jsonMultiple",
-              "jsonSingle",
-              "markdown",
-              "keyValueMarkdown",
-              "csv"
-            ],
-            "fullComment": "The DbStorageMethod for this inteface (only for db models, otherwise this will be undefined)\n\nIf this interface is a db model, you can also specify the default db storage method for it. You can do this by specifying it in the frontmatter of the doccomment of the interface. You can also extend a xxxModelType model which can have a dbStorageMethod attached.\n\nWhen storing something into the database, this value can be overwritten in your query configuration.\n\nThe following strategies are available to store the data.\n\n- **jsonMultiple *(default)***: stores the data in a json file which is an array of this data structure. This file will be located in `db/[pluralized-kebab-case-model-name].json`\n\n- **jsonSingle**: stores the data in a json file which is of this data structure (single object) These files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].json`\n\n- **markdown**: stores the data in a markdown file. Takes \"markdown\" parameter as the main markdown. The other parameters are stored as front-matter. This these files will be located in `db/[pluralized-kebab-case-model-name]/[instance-slug-or-id].md`\n\n- **keyValueMarkdown**: stores the data in key value markdown format. This file will be located in `db/[pluralized-kebab-case-model-name].md`\n\n- **csv**: stores the data in a csv file (only possible for flat object datastructures). This file will be located in `db/[pluralized-kebab-case-model-name].csv`\n\n## Definitions:\n\n- [pluralized-kebab-case-model-name]: e.g. `StudentUser` becomes `student-users`\n- [instance-slug-or-id]: For all models with a slug parameter, the filename will be that slug of that instance. Otherwise, `id` will be used",
             "type": "string"
           }
         }

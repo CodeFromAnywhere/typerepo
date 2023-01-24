@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379276769,
+  "updatedAt": 1673379276769,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379276769,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "useVariantResult",
+  "slug": "use-variant-result",
+  "operationRelativeTypescriptFilePath": "src/components/useVariant.ts",
+  "type": {
+    "rawType": "(fileContextualPromptResults?: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPromptResult\").ContextualPromptResult[] | null | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  fileContextualPromptResults?: ContextualPromptResult[] | null\n) => {\n  const router = useRouter();\n  const [defaultVariant] = useStore(\"generativeWeb.defaultVariant\");\n\n  /**\n   * Variant either comes from URL or from the stored default variant slug from localStorage\n   */\n  const variantResultPromptSlug = router.query?.variant\n    ? takeFirst(router.query.variant)\n    : defaultVariant\n    ? defaultVariant\n    : undefined;\n\n  const variantResult = fileContextualPromptResults?.find(\n    (x) => x.contextualPromptSlug === variantResultPromptSlug\n  );\n\n  return variantResult;\n}",
+  "description": "",
+  "id": "drgzqchjxwrszowzvzlnvtvj"
+}

@@ -1,0 +1,49 @@
+{
+  "createdAt": 1672134429761,
+  "updatedAt": 1672134429761,
+  "deletedAt": 0,
+  "createdFirstAt": 1672134429761,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/browserSession.ts",
+  "commentsInside": [],
+  "rawText": " (browser: Browser) => {\n    browserSession.set(\"browser\", browser);\n}",
+  "name": "setBrowserSession",
+  "slug": "set-browser-session",
+  "parameters": [
+    {
+      "name": "browser",
+      "schema": {
+        "$ref": "#/definitions/Browser"
+      },
+      "simplifiedSchema": {
+        "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+        "properties": [],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 70,
+    "lines": 3,
+    "bytes": 70,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "evecmqikamqlodvqacsvgccb"
+}

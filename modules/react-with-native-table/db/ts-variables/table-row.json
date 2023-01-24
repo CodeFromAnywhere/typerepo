@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775575026,
-  "updatedAt": 1668775575026,
+  "createdAt": 1672638711371,
+  "updatedAt": 1672638711371,
   "deletedAt": 0,
-  "createdFirstAt": 1668775575026,
+  "createdFirstAt": 1672638711371,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends { [key: string]: any } = any>({\n  row,\n  columns,\n  renderExtraColumns,\n  extraColumnsAtStart,\n  shouldHighlight,\n}: RowType<T>) => {\n  /**\n   * Check which presentation type is set for this column and return this component\n   */\n  return (\n    <tr className={shouldHighlight ? \"bg-blue-300\" : undefined}>\n      {extraColumnsAtStart && (\n        <td className={tdClassName}>{renderExtraColumns?.(row)}</td>\n      )}\n      {columns.map((column, index) => {\n        if (!row) {\n          return <Skeleton />;\n        }\n\n        // we can optionally have a custom presentation for any column\n        if (column.customPresentation) {\n          return column.customPresentation(row);\n        }\n\n        return renderColumn(column, row, index);\n      })}\n\n      {!extraColumnsAtStart && (\n        <td className={tdClassName}>{renderExtraColumns?.(row)}</td>\n      )}\n    </tr>\n  );\n}",
   "description": "",
-  "id": "gsnovlsqduufpfukstgclmzs"
+  "id": "utoyhzgdgaycowxuhuayuxai"
 }

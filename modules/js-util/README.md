@@ -117,6 +117,18 @@ return "something" + a + b + c;
 
 
 
+## takeFirst()
+
+takes any type T or an array of T and returns T or the first of the array (which is T)
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## 📄 destructureOptionalObject (exported const)
 
 Easy way to destructure your object even if it may be `undefined` or `null`.
@@ -144,33 +156,10 @@ return "something" + a + b + c;
 <!-- It would be great if I could also make examples that not only refer to input/output combos but maybe another function that showcases it's usage... -->
 
 
-## takeFirst()
-
-takes any type T or an array of T and returns T or the first of the array (which is T)
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
 ## 📄 takeFirst (exported const)
 
 takes any type T or an array of T and returns T or the first of the array (which is T)
 
-
-## omitUndefinedValues()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | {  }   |    |
-
-
-
-## 📄 omitUndefinedValues (exported const)
 
 ## mergeNestedObject()
 
@@ -218,6 +207,15 @@ It's great, because you can't make any type mistakes, and your code becomes much
 
 
 
+## omitUndefinedValues()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
 ## 📄 mergeNestedObject (exported const)
 
 Merges an object into an object, ensuring typesafety. The second object needs to be a recursive subset of the first.
@@ -255,6 +253,8 @@ result will be: { a: 'lol', b: 8, c: { x: 'lol', y: 88, z: { a: 'wow', b: 999, c
 It's great, because you can't make any type mistakes, and your code becomes much shorter for altering an object
 
 
+## 📄 omitUndefinedValues (exported const)
+
 ## getSubsetFromObject()
 
 takes an object and a subset of its keys and returns a subset of that object
@@ -271,6 +271,15 @@ output: { x: "a" }
 
 
 
+## sum()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| a | number |  |,| b | number |  |
+| **Output** |    |    |
+
+
+
 ## 📄 getSubsetFromObject (exported const)
 
 takes an object and a subset of its keys and returns a subset of that object
@@ -279,6 +288,8 @@ input: { x: "a", y: "b", z: "c" } and ["x"]
 
 output: { x: "a" }
 
+
+## 📄 sum (exported const)
 
 ## isAllTrue()
 
@@ -341,15 +352,6 @@ console.log(removeIndexFromArray(exampleArray, 2)); //c should be removed
 
 
 
-## sum()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| a | number |  |,| b | number |  |
-| **Output** |    |    |
-
-
-
 ## trimSlashes()
 
 Trims a slash on both sides in any path
@@ -386,8 +388,6 @@ console.log(removeIndexFromArray(exampleArray, 2)); //c should be removed
 ```
 
 
-## 📄 sum (exported const)
-
 ## 📄 trimSlashes (exported const)
 
 Trims a slash on both sides in any path
@@ -407,13 +407,6 @@ NB: Don't use this inside of render functions, it's a very slow function, the wh
 
 
 
-## 📄 createMappedObject (exported const)
-
-Creates a `MappedObject` of an array of any type. `MappedObject`s are great for increasing efficiency to get an item from an array. Especially useful when finds are needed on a specific key match for huge arrays. Instead of finding on the array you can simply get the right property from this object.
-
-NB: Don't use this inside of render functions, it's a very slow function, the whole idea is that this makes it faster, so just do it once!
-
-
 ## getObjectKeysArray()
 
 Handy function to get the keys of an object, but typed.
@@ -426,6 +419,20 @@ NB: The only difference from Object.keys is that this returns the keys in a type
 | - | | |
 | **Output** | {  }[]   |    |
 
+
+
+## 📄 createMappedObject (exported const)
+
+Creates a `MappedObject` of an array of any type. `MappedObject`s are great for increasing efficiency to get an item from an array. Especially useful when finds are needed on a specific key match for huge arrays. Instead of finding on the array you can simply get the right property from this object.
+
+NB: Don't use this inside of render functions, it's a very slow function, the whole idea is that this makes it faster, so just do it once!
+
+
+## 📄 getObjectKeysArray (exported const)
+
+Handy function to get the keys of an object, but typed.
+
+NB: The only difference from Object.keys is that this returns the keys in a typesafe manner
 
 
 ## insertAt()
@@ -487,13 +494,6 @@ NB: this is not the most efficient method, as it reverses the string by making i
 | string | string |  |,| searchValue | string |  |,| replaceValue | string |  |
 | **Output** | `String`   |    |
 
-
-
-## 📄 getObjectKeysArray (exported const)
-
-Handy function to get the keys of an object, but typed.
-
-NB: The only difference from Object.keys is that this returns the keys in a typesafe manner
 
 
 ## 📄 insertAt (exported const)
@@ -612,6 +612,15 @@ all letters of b can be found in a, in order (but other letters in between are a
 
 
 
+## isArrayEqual()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| a | {  }[] |  |,| b | {  }[] |  |
+| **Output** | {  }   |    |
+
+
+
 ## mapValuesSync()
 
 maps over all values in an object and replaces them using a mapfn
@@ -716,6 +725,15 @@ return `${value}123`;
 
 
 
+## onlyDuplicates()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | {  }   |    |
+
+
+
 ## putIndexAtIndex()
 
 Takes an item from an index of an array and put it somewhere at another index
@@ -748,6 +766,8 @@ sums all keys of an array of objects, assuming the objects have the same datastr
 | **Output** | {  }   |    |
 
 
+
+## 🔹 O
 
 ## 📄 apply (exported const)
 
@@ -787,6 +807,8 @@ ouput: { xyz: [{path:"xyz"},{path:"xyz"}], abc: [{path:"abc"}]}
 
 all letters of b can be found in a, in order (but other letters in between are allowed)
 
+
+## 📄 isArrayEqual (exported const)
 
 ## 📄 mapValuesSync (exported const)
 
@@ -857,6 +879,8 @@ return `${value}123`;
 ```
 
 
+## 📄 onlyDuplicates (exported const)
+
 ## 📄 putIndexAtIndex (exported const)
 
 Takes an item from an index of an array and put it somewhere at another index
@@ -912,7 +936,7 @@ sums all keys of an array of objects, assuming the objects have the same datastr
 
 # Internal
 
-<details><summary>Show internal (15)</summary>
+<details><summary>Show internal (14)</summary>
     
   # createEnum()
 
@@ -1024,8 +1048,6 @@ sums all parameters in two objects together
 | **Output** | {  }   |    |
 
 
-
-## 🔹 O
 
 ## 📄 createEnum (exported const)
 

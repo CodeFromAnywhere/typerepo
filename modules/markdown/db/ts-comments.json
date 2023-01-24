@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1671485350766,
-    "updatedAt": 1671485350766,
+    "createdAt": 1674134928990,
+    "updatedAt": 1674134928990,
     "deletedAt": 0,
-    "createdFirstAt": 1671485350766,
+    "createdFirstAt": 1674134928990,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/MarkdownContentRender.tsx",
-    "comment": "import { useLastSelection } from \"share\";",
-    "rawStatement": "import { Tooltip } from \"tooltip\";",
+    "operationRelativeTypescriptFilePath": "src/util/getRealSrc.ts",
+    "comment": "Based on markdown info, gest the real source for an asset",
+    "rawStatement": "export const getRealSrc = (\n  src: string | undefined,\n  config: MarkdownParseRenderConfig\n) => {\n  // src from static folder of next.js\n  const relativeUrlStrategy =\n    config.isDev || !config.isStatic ? \"api\" : \"static\";\n\n  if (!src) return undefined;\n\n  if (\n    isPathRelative(src) &&\n    config.projectRelativeBaseFolderPath &&\n    config.projectRelativeMarkdownFilePath\n  ) {\n    return getUrlFromRelativeUrl(\n      src,\n      relativeUrlStrategy,\n      config.projectRelativeBaseFolderPath,\n      config.projectRelativeMarkdownFilePath\n    );\n  }\n\n  return src;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 13,
-    "lastLine": 13,
-    "id": "eggofeilddmbiebalotpwdbx"
+    "firstLine": 5,
+    "lastLine": 7,
+    "id": "hwpqjtfsafsyseyydsuhexqg"
   }
 ]

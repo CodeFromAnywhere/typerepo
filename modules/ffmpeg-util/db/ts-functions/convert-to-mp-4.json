@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671316366472,
-  "updatedAt": 1671316366472,
+  "createdAt": 1674543145213,
+  "updatedAt": 1674543145213,
   "deletedAt": 0,
-  "createdFirstAt": 1671316366472,
-  "isApiExposed": true,
+  "createdFirstAt": 1674543145213,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/convertToMp4.ts",
   "commentsInside": [],
   "rawText": " (\n  sourcePath: string,\n  destinationPath: string\n): Promise<string | undefined> => {\n  return new Promise<string | undefined>((resolve, reject) => {\n    ffmpeg({ source: sourcePath })\n      .toFormat(\"mp4\")\n      .saveToFile(destinationPath)\n      .on(\"end\", () => {\n        resolve(destinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        resolve(undefined);\n      });\n  });\n}",
@@ -53,5 +52,5 @@
     "linesPerFile": 18,
     "numberOfFiles": 1
   },
-  "id": "uexeoslfhvmkbnxgzcpczmhi"
+  "id": "cmvhgjogbjnmcxfflqmoakvr"
 }

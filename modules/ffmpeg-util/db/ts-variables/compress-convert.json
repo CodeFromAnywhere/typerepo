@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674543130054,
+  "updatedAt": 1674543130054,
+  "deletedAt": 0,
+  "createdFirstAt": 1674543130054,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "compressConvert",
+  "slug": "compress-convert",
+  "operationRelativeTypescriptFilePath": "src/compressConvert.ts",
+  "type": {
+    "rawType": "(absoluteSourceFilePath: string, config?: { isStatusLogged?: boolean | undefined; outputFolderPath?: string | undefined; name?: string | undefined; fps?: number | undefined; sizeWidthPx?: number | undefined; aspectRatio?: { x: number; y: number; } | undefined; quality?: number | undefined; targetFormat?: \"webp\" | \"png\" | \"mp4\" | \"mp3\" | \"wav\" | undefined; is16bitWav?: boolean | undefined; keepOriginal?: boolean | undefined; isDebug?: boolean | undefined; } | undefined) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  absoluteSourceFilePath: string,\n  config?: {\n    isStatusLogged?: boolean;\n    /**\n     * If given, outputted file will be put in this folder\n     */\n    outputFolderPath?: string;\n    /**\n     * If given, name will change into this\n     */\n    name?: string;\n    /**\n     * frames per second (only for targetformat mp4)\n     */\n    fps?: number;\n    /**\n     * width pixels, will preserve same size if not given\n     */\n    sizeWidthPx?: number;\n    /**\n     * if not given, will preserve ratio\n     */\n    aspectRatio?: { x: number; y: number };\n    /**\n     * quality number in range: 0-100\n     */\n    quality?: number;\n    targetFormat?: \"webp\" | \"png\" | \"mp4\" | \"mp3\" | \"wav\";\n    /**\n     * If true, and targetformat is wav, will convert to 16bit wav (uses `-ar 16000 -ac 1 -codec:a pcm_s16le` as extra options)\n     *\n     * Useful for whisper.cpp\n     */\n    is16bitWav?: boolean;\n    /**\n     * if true, original won't be thrown away afterwards\n     */\n    keepOriginal?: boolean;\n    isDebug?: boolean;\n  }\n) => {\n  if (isLocked(absoluteSourceFilePath)) {\n    return;\n  }\n  if (!fs.existsSync(absoluteSourceFilePath)) {\n    console.log(\"Path doesn't exist\", absoluteSourceFilePath);\n    return;\n  }\n\n  let result = ffmpeg({ source: absoluteSourceFilePath });\n  if (config?.quality) {\n    result = result.addOption(`-quality ${config?.quality || 100}`);\n  }\n\n  if (config?.fps && config.targetFormat === \"mp4\") {\n    // set output fps\n    result = result.withOutputFps(config.fps);\n  }\n\n  if (config?.targetFormat === \"wav\" && config?.is16bitWav) {\n    result = result.outputOptions([\"-ar 16000\", \"-ac 1\", \"-codec:a pcm_s16le\"]);\n  }\n\n  if (config?.sizeWidthPx) {\n    result = result.size(`${config?.sizeWidthPx}x?`);\n  }\n\n  if (config?.aspectRatio) {\n    result = result.aspect(`${config?.aspectRatio.x}:${config.aspectRatio.y}`);\n  }\n\n  if (config?.targetFormat) {\n    result = result.toFormat(config?.targetFormat);\n  }\n\n  const parsedPath = path.parse(absoluteSourceFilePath);\n\n  const destinationName = config?.name || parsedPath.name;\n\n  const folderPath = config?.outputFolderPath || parsedPath.dir;\n\n  const extension = config?.targetFormat\n    ? `.${config?.targetFormat}`\n    : parsedPath.ext;\n\n  // ffmpeg can't edit in-place\n  const destinationPath = path.join(\n    folderPath,\n    `${destinationName}.converted${extension}`\n  );\n\n  const finalDestinationPath = replaceLastOccurence(\n    destinationPath,\n    \".converted\",\n    \"\"\n  );\n\n  // if (fs.existsSync(finalDestinationPath)) {\n  //   console.log(\n  //     `Shouldn't happen, but compressConvert was called for a file for which the finalDestinationPath already seems to exist`\n  //   );\n  //   return;\n  // }\n\n  result = result.save(destinationPath);\n\n  let totalTime = 1;\n  let shownPercentage = 0;\n\n  const finalPath = await new Promise<string | undefined>((resolve) => {\n    result\n      .on(\"codecData\", (data) => {\n        // HERE YOU GET THE TOTAL TIME\n        totalTime = parseInt(data.duration.replace(/:/g, \"\"));\n        console.log(\"Converting Started...\");\n      })\n      .on(\"progress\", (progress) => {\n        // HERE IS THE CURRENT TIME\n        const time = parseInt(progress.timemark.replace(/:/g, \"\"));\n        // AND HERE IS THE CALCULATION\n        const percent = Math.floor((time / totalTime) * 100);\n\n        lock(absoluteSourceFilePath, `${percent}%`);\n\n        if (config?.isDebug) {\n          console.log(`${percent}%`);\n        } else if (\n          percent % 2 === 1 &&\n          percent !== shownPercentage &&\n          config?.isStatusLogged\n        ) {\n          shownPercentage = percent;\n          console.log(`${destinationName} status: ${percent}%`);\n        }\n      })\n      .on(\"end\", async () => {\n        if (!config?.keepOriginal) {\n          // new file is created, old one is not overwritten, and we need to remove the old\n          // NB: don't wait for it!\n          await fs.rm(absoluteSourceFilePath);\n        }\n\n        unlock(absoluteSourceFilePath);\n\n        if (fs.existsSync(finalDestinationPath)) {\n          // already exists for some reason...\n          await fs.rm(destinationPath);\n          resolve(destinationPath);\n          return;\n        }\n\n        if (!fs.existsSync(destinationPath)) {\n          //doens't existalthough we just converted it, multiple processes doing the same, probably\n          resolve(undefined);\n          return;\n        }\n\n        await fs.rename(destinationPath, finalDestinationPath);\n        resolve(finalDestinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        console.log({ e });\n        resolve(undefined);\n      });\n  });\n\n  return finalPath;\n}",
+  "description": "Super useful wrapper around ffmpeg to do just all the stuff I want to do with it\n\nTODO: fix fps, not implemented yet",
+  "id": "cwdnogljtxyfvugjzrtgxxvn"
+}

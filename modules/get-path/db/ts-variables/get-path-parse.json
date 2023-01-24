@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315976965,
-  "updatedAt": 1671315976965,
+  "createdAt": 1673959169173,
+  "updatedAt": 1673959169173,
   "deletedAt": 0,
-  "createdFirstAt": 1671315976965,
+  "createdFirstAt": 1673959169173,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(absolutePath: string): PathParse | undefined => {\n  const projectRoot = getProjectRoot(absolutePath);\n  if (!projectRoot) return;\n  const relativePathFromProjectRoot = absolutePath.slice(projectRoot.length);\n  return { relativePathFromProjectRoot };\n}",
   "description": "gets all kinds of information that can be inferred from any path (file or folder).",
-  "id": "vuojvqqozwhqkkmhhhhnhgke"
+  "id": "jrimerpupqovzhityeyhyrvm"
 }

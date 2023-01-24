@@ -1,0 +1,20 @@
+{
+  "createdAt": 1670185281159,
+  "updatedAt": 1670185281159,
+  "deletedAt": 0,
+  "createdFirstAt": 1670185281159,
+  "slug": "translate-everything",
+  "name": "translate-everything",
+  "language": "english",
+  "id": "mjeclvudyalomdrhuzzvstnx",
+  "promptContent": "CAMELCASE TRANSLATION\nNames can be translated word by word. You can split up the camelCase or PascalCase statement name into an array of words before translating every individual word (e.g. `englishWordsArray` becomes [\"english\",\"words\",\"array\"], which in turn becomes [\"engels\",\"woorden\",\"lijst\"] which then becomes `engelsWoordenLijst` in dutch.\n\nPlease translate this typescript file into Dutch:\n\n- Comments and string literals can be translated directly\n- Apply camelCase translation on function names, variable names, destructured variable names, object properties\n- reserved typescript words should be translated\n- translate anything else as well\n- be creative\n\n```\n%context\n```",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "code",
+    "code-translation"
+  ]
+}

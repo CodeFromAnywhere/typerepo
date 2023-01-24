@@ -1,0 +1,25 @@
+{
+  "createdAt": 1670190447239,
+  "updatedAt": 1670190447239,
+  "deletedAt": 0,
+  "createdFirstAt": 1670190447239,
+  "contextType": [
+    "text"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "text",
+    "art",
+    "rick-and-morty"
+  ],
+  "pricing": "bad",
+  "slug": "rick-and-morty",
+  "name": "rick-and-morty",
+  "language": "english",
+  "id": "evebanhbejvadbqjamvmwaip",
+  "title": "Rick teaches Morty",
+  "description": "Rick will teach morty everything that is said in the file you run this prompt on!",
+  "promptContent": "Consider the following text\n\n```text\n%context\n```\n\n\nRick is a typescript expert. Can you write a dialogue between Rick and Morty, where rick explains the thing said in text and Morty asks questions in between? Ensure they keep character.\n\nThings to consider:\n\n- Rick burps in once or twice every sentence he says\n- Rick offends Morty a lot\n- Rick is drunk\n- Rick hates the government\n- Rick hates python and loves to talk about that and compare it with Typescript\n",
+  "folderContentContext": "summary",
+  "usesContext": true
+}

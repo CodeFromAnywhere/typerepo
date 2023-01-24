@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1668692026091,
-    "updatedAt": 1668692026091,
+    "createdAt": 1673862123173,
+    "updatedAt": 1673862123173,
     "deletedAt": 0,
-    "createdFirstAt": 1668692026091,
+    "createdFirstAt": 1673862123173,
     "name": "WatchEventType",
     "slug": "watch-event-type",
     "module": "./WatchEventType",
@@ -13,6 +13,24 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "oluokhgwdxexirjjkzqbrhlw"
+    "id": "kdamlntlftbpzlcnihubjkfj"
+  },
+  {
+    "createdAt": 1673862123174,
+    "updatedAt": 1673862123174,
+    "deletedAt": 0,
+    "createdFirstAt": 1673862123174,
+    "name": "ApiFunctionParameters",
+    "slug": "api-function-parameters",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "code-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/ProjectWatcher.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "pxmqaqzeuvpizoxwqsalpuwn"
   }
 ]

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116977321,
-  "updatedAt": 1671116977321,
+  "createdAt": 1672638791297,
+  "updatedAt": 1672638791297,
   "deletedAt": 0,
-  "createdFirstAt": 1671116977321,
+  "createdFirstAt": 1672638791297,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends { [key: string]: any }>(\n  objectsArray: T[]\n): T => {\n  const result = objectsArray.reduce((previous, current) => {\n    return { ...previous, ...current };\n  }, {} as T);\n\n  return result;\n}",
   "description": "TODO: find a way to return the correct type interface",
-  "id": "yakjhbbiwlivdiqqybyjqhgz"
+  "id": "alonphdvbbppthydiijzahwk"
 }

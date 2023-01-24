@@ -1,0 +1,31 @@
+{
+  "createdAt": 1674117575914,
+  "updatedAt": 1674117575914,
+  "deletedAt": 0,
+  "createdFirstAt": 1674117575914,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "maximumLockTime",
+  "slug": "maximum-lock-time",
+  "operationRelativeTypescriptFilePath": "src/variables.ts",
+  "type": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "optional": false,
+      "type": "number"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": true,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "type": "number"
+    }
+  },
+  "value": "3600 * 1000 * 3",
+  "description": "",
+  "id": "bojoubynxccimvrtbskerxhb"
+}

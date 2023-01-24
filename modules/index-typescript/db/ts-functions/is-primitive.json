@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671116432174,
-  "updatedAt": 1671116432174,
+  "createdAt": 1673863441419,
+  "updatedAt": 1673863441419,
   "deletedAt": 0,
-  "createdFirstAt": 1671116432174,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863441419,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/typeToSchema.ts",
   "commentsInside": [],
   "rawText": " (type: Type) =>\n  type.isBoolean() || type.isNumber() || type.isString()",
@@ -41,5 +40,5 @@
     "linesPerFile": 4,
     "numberOfFiles": 1
   },
-  "id": "ngxsacgkrsypbvktewoasidx"
+  "id": "uyzvpzjplhpvfyjadpqxzmzu"
 }

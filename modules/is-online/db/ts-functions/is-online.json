@@ -1,0 +1,41 @@
+{
+  "createdAt": 1668336407575,
+  "updatedAt": 1668336407575,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336407575,
+  "publicAuthorization": [
+    "read",
+    "search"
+  ],
+  "isApiExposed": false,
+  "isPostApi": false,
+  "isGetApi": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/isOnline.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const { isConnected } = await fetchWithTimeout(\"https://google.com\", 10000);\n\n  return isConnected;\n}",
+  "name": "isOnline",
+  "slug": "is-online",
+  "parameters": [],
+  "description": "Fetches google.com to check if we have an internet connection",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 179,
+    "lines": 5,
+    "bytes": 179,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 36,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "schqyjzrfdrkyejxieesxpbp"
+}

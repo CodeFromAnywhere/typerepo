@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ffmpeg -i /Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-web/public/markdown-assets/operations/tools/asset/todo/done/upload12.wav -f lavfi -i color=size=1200x120:duration=1.8625:rate=25:color=black -vf "drawtext=fontfile='/System/Library/Fonts/Supplemental/Courier New Bold.ttf':fontsize=24:fontcolor=gray:x=(w-text_w)/2:y=h/2:text='':enable='between(t,0,0)',drawtext=fontfile='/System/Library/Fonts/Supplemental/Courier New Bold.ttf':fontsize=24:fontcolor=gray:x=(w-text_w)/2:y=h/2:text='>  Boom.':enable='between(t,0,2)',drawtext=fontfile='/System/Library/Fonts/Supplemental/Courier New Bold.ttf':fontsize=24:fontcolor=lightgreen:x=(w-text_w)/2+8:y=h/2:text='>  Boom|\ ':enable='between(t,1.09,1.57)',drawtext=fontfile='/System/Library/Fonts/Supplemental/Courier New Bold.ttf':fontsize=24:fontcolor=lightgreen:x=(w-text_w)/2+8:y=h/2+16:text='\ \ _____\ ':enable='between(t,1.09,1.57)',drawtext=fontfile='/System/Library/Fonts/Supplemental/Courier New Bold.ttf':fontsize=24:fontcolor=lightgreen:x=(w-text_w)/2+8:y=h/2:text='> \ \ \ \ \ .|':enable='between(t,1.79,1.79)',drawtext=fontfile='/System/Library/Fonts/Supplemental/Courier New Bold.ttf':fontsize=24:fontcolor=lightgreen:x=(w-text_w)/2+8:y=h/2+16:text='\ \ \ \ \ \ \ _':enable='between(t,1.79,1.79)'" -c:v libx264 -pix_fmt yuv420p -y /Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-web/public/markdown-assets/operations/tools/asset/todo/done/upload12.wav.mp4
+
+
+echo "Your video has been saved to /Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-web/public/markdown-assets/operations/tools/asset/todo/done/upload12.wav.mp4"
+
+echo "  ffplay /Users/king/King/operations/tools/purpose/codebase-introspection/reader/markdown-reader-web/public/markdown-assets/operations/tools/asset/todo/done/upload12.wav.mp4"
+

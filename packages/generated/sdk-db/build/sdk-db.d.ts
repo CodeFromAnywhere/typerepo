@@ -1,4 +1,6 @@
+import type { AiDataset } from "ai-types";
 import type { AiDemoApp } from "ai-types";
+import type { AiModel } from "ai-types";
 import type { ContextualPrompt } from "ai-types";
 import type { ContextualPromptResult } from "ai-types";
 import type { GptIdeasUser } from "ai-types";
@@ -59,7 +61,9 @@ import type { SelfSprintReview } from "todo-types";
 import type { TodoFile } from "todo-types";
 import type { TodoOffer } from "todo-types";
 export declare type DbModels = {
+    AiDataset: AiDataset;
     AiDemoApp: AiDemoApp;
+    AiModel: AiModel;
     ContextualPrompt: ContextualPrompt;
     ContextualPromptResult: ContextualPromptResult;
     GptIdeasUser: GptIdeasUser;
@@ -120,10 +124,16 @@ export declare type DbModels = {
     TodoFile: TodoFile;
     TodoOffer: TodoOffer;
 };
-export declare const dbModelKeys: readonly ["AiDemoApp", "ContextualPrompt", "ContextualPromptResult", "GptIdeasUser", "AuthorizationModel", "BrowserPage", "BrowserSession", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "CreatorMarkdownFile", "MarkdownCallToAction", "WebMarkdownFile", "WebsiteHeader", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Queue", "Interest", "MediaChannel", "MediaCredential", "MediaPost", "SelfSprintReview", "TodoFile", "TodoOffer"];
+export declare const dbModelKeys: readonly ["AiDataset", "AiDemoApp", "AiModel", "ContextualPrompt", "ContextualPromptResult", "GptIdeasUser", "AuthorizationModel", "BrowserPage", "BrowserSession", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "CreatorMarkdownFile", "MarkdownCallToAction", "WebMarkdownFile", "WebsiteHeader", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Queue", "Interest", "MediaChannel", "MediaCredential", "MediaPost", "SelfSprintReview", "TodoFile", "TodoOffer"];
 export declare type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
+    AiDataset: {
+        dbStorageMethod: string;
+    };
     AiDemoApp: {
+        dbStorageMethod: string;
+    };
+    AiModel: {
         dbStorageMethod: string;
     };
     ContextualPrompt: {

@@ -1,0 +1,116 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.460
+ So if the front end generation is a step too far for you,
+
+00:00:03.460 --> 00:00:04.920
+ you can also just use the very
+
+00:00:04.920 --> 00:00:08.380
+ powerful API object of type repo.
+
+00:00:08.380 --> 00:00:11.730
+ Every function on the backend that you create will be
+
+00:00:11.730 --> 00:00:14.160
+ attached to the API object in the front
+
+00:00:14.160 --> 00:00:15.160
+ end.
+
+00:00:15.160 --> 00:00:19.570
+ So whenever you make a change in your backend code, it will
+
+00:00:19.570 --> 00:00:21.800
+ immediately be available in the
+
+00:00:21.800 --> 00:00:24.400
+ front end through the API object.
+
+00:00:24.400 --> 00:00:25.400
+ Look at this.
+
+00:00:25.400 --> 00:00:31.100
+ So the function sign up with password with context can be
+
+00:00:31.100 --> 00:00:34.000
+ found here in the API object.
+
+00:00:34.000 --> 00:00:37.810
+ And it has almost the exact same footprint as the backend
+
+00:00:37.810 --> 00:00:39.720
+ function except for that it
+
+00:00:39.720 --> 00:00:41.920
+ doesn't have the function context.
+
+00:00:41.920 --> 00:00:46.590
+ The function context is provided automatically by the API,
+
+00:00:46.590 --> 00:00:49.280
+ by the fetch request function.
+
+00:00:49.280 --> 00:00:53.080
+ So you only need to provide the parameters that you require
+
+00:00:53.080 --> 00:00:53.160
+.
+
+00:00:53.160 --> 00:00:57.150
+ And whenever you change something on the backend, it will
+
+00:00:57.150 --> 00:01:00.560
+ also be seen in the API object.
+
+00:01:00.560 --> 00:01:03.850
+ Another cool thing is that we have complete integration
+
+00:01:03.850 --> 00:01:05.560
+ with React query through the
+
+00:01:05.560 --> 00:01:07.060
+ queries object.
+
+00:01:07.060 --> 00:01:11.810
+ So if you want to do an API call, for example, every time
+
+00:01:11.810 --> 00:01:14.560
+ you go back to the page, you can
+
+00:01:14.560 --> 00:01:19.010
+ just use the queries object and choose your hook that you
+
+00:01:19.010 --> 00:01:19.760
+ want.
+
+00:01:19.760 --> 00:01:25.890
+ For example, use get me with context will make sure that
+
+00:01:25.890 --> 00:01:29.160
+ you get the locked in user and all
+
+00:01:29.160 --> 00:01:32.680
+ their information every time you come back to the
+
+00:01:32.680 --> 00:01:33.960
+ application.
+
+00:01:33.960 --> 00:01:37.110
+ And you can also easily reload and all the other
+
+00:01:37.110 --> 00:01:39.400
+ capabilities of React query.
+
+00:01:39.400 --> 00:01:41.700
+ It comes out of the box and every function that you
+
+00:01:41.700 --> 00:01:43.560
+ generate on the backend will generate
+
+00:01:43.560 --> 00:01:45.760
+ automatically the hook and the API for you.
+
+00:01:45.760 --> 00:01:48.000
+ (buzzing)
+

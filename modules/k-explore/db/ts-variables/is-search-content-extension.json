@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216116716,
-  "updatedAt": 1670216116716,
+  "createdAt": 1672637411879,
+  "updatedAt": 1672637411879,
   "deletedAt": 0,
-  "createdFirstAt": 1670216116716,
+  "createdFirstAt": 1672637411879,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  extension: string\n): extension is SearchableExtension => {\n  return allowedSearchContentExtensions\n    .map((x) => x as string)\n    .includes(extension);\n}",
   "description": "type checker for a string to be an extension that can be searched for",
-  "id": "tmzfhjkfauhiwgmqvkccqkwa"
+  "id": "vifyysikjunryxndwbawparj"
 }

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316977705,
-  "updatedAt": 1671316977705,
+  "createdAt": 1673862643041,
+  "updatedAt": 1673862643041,
   "deletedAt": 0,
-  "createdFirstAt": 1671316977705,
+  "createdFirstAt": 1673862643041,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  ip: string,\n  authToken: string,\n  peerName?: string,\n  /**\n   * If true, it does not validate the IP to see if it is online and it is authorized...\n   */\n  force?: boolean,\n  isMe?: boolean\n) => {\n  // get new PeerMessages after last sync\n\n  const apiResult = await apiWithConfig.ping({\n    apiUrl: `http://${ip}:${ports[\"function-server\"]}`,\n    authToken,\n    timeout: 2000,\n  });\n\n  const isConnectionEstablished =\n    apiResult?.isSuccessful &&\n    !apiResult?.isUnauthorized &&\n    apiResult.result === true;\n\n  if (!force && !isConnectionEstablished) {\n    return {\n      isSuccesful: false,\n      message:\n        \"Peer connection could not be established. Are you sure the peer is online? Use force if you want to add your peer anyway. If you have a node version lower than v17, this will also fail.\",\n    };\n  }\n}",
   "description": "TODO:",
-  "id": "uyllnziqhyoxqyriscuiqgcj"
+  "id": "rgnbnjityvpiwjmtdbhniezf"
 }

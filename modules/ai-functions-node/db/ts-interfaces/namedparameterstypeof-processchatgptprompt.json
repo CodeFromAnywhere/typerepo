@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671505949884,
-  "updatedAt": 1671505949884,
+  "createdAt": 1674133285754,
+  "updatedAt": 1674133285754,
   "deletedAt": 0,
-  "createdFirstAt": 1671505949884,
+  "createdFirstAt": 1674133285754,
   "id": "namedparameterstypeof-processchatgptprompt",
   "name": "NamedParameters<typeof processChatGptPrompt>",
   "slug": "namedparameterstypeof-processchatgptprompt",
@@ -50,6 +50,13 @@
               },
               {
                 "name": "contextualPromptSlug",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "anyContext",
                 "required": false,
                 "schema": {
                   "type": "string"

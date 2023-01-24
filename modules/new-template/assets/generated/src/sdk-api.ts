@@ -1,4 +1,5 @@
 import { fetchUrl } from "ai-browser";
+import { addEmojiToEveryWord } from "ai-functions-node";
 import { addStatement } from "ai-functions-node";
 import { addWord } from "ai-functions-node";
 import { biggestFunctionName } from "ai-functions-node";
@@ -6,7 +7,6 @@ import { checkQueue } from "ai-functions-node";
 import { cleanup } from "ai-functions-node";
 import { controlChatGptWrapper } from "ai-functions-node";
 import { controlChatGpt } from "ai-functions-node";
-import { convertTo1337speak } from "ai-functions-node";
 import { deletePromptResult } from "ai-functions-node";
 import { developersQuote } from "ai-functions-node";
 import { diaryToInstagram } from "ai-functions-node";
@@ -15,27 +15,36 @@ import { emojiAugmentation } from "ai-functions-node";
 import { explainInDutch } from "ai-functions-node";
 import { explainInNepali } from "ai-functions-node";
 import { explainInPortuguese } from "ai-functions-node";
+import { explainLineByLine } from "ai-functions-node";
 import { explain } from "ai-functions-node";
 import { fixGrammarAndSpellingMistakes } from "ai-functions-node";
+import { followUpQuestions } from "ai-functions-node";
 import { getContextualPromptCategories } from "ai-functions-node";
 import { getContextualPromptResultJsonFilePath } from "ai-functions-node";
 import { getContextualPrompt } from "ai-functions-node";
 import { getObjectForkKeyRecursively } from "ai-functions-node";
+import { getToolFunctions } from "ai-functions-node";
 import { gptIdeasRegisterWithContext } from "ai-functions-node";
 import { haiku } from "ai-functions-node";
+import { hookOneliners } from "ai-functions-node";
 import { improveCode } from "ai-functions-node";
-import { keywords } from "ai-functions-node";
+import { investorPitch } from "ai-functions-node";
 import { marcusAurelius } from "ai-functions-node";
+import { opposite } from "ai-functions-node";
+import { outlineToInvestorPitch } from "ai-functions-node";
 import { poem } from "ai-functions-node";
 import { processChatGptPrompt } from "ai-functions-node";
 import { processPromptOnFile } from "ai-functions-node";
-import { processPromptOnFolder } from "ai-functions-node";
+import { processPromptOnFolderWithContext } from "ai-functions-node";
+import { quiz } from "ai-functions-node";
 import { removeAllFake } from "ai-functions-node";
 import { rickAndMortyRick } from "ai-functions-node";
 import { rickAndMorty } from "ai-functions-node";
 import { setIsFavoritePromptResult } from "ai-functions-node";
+import { shouldAddToQueue } from "ai-functions-node";
 import { socratesAndSnoopDogg } from "ai-functions-node";
 import { storytelling } from "ai-functions-node";
+import { toolFunctionWithContext } from "ai-functions-node";
 import { translateEverythingIntoHindi } from "ai-functions-node";
 import { translateEverythingPortuguese } from "ai-functions-node";
 import { translateEverything } from "ai-functions-node";
@@ -46,6 +55,17 @@ import { writeContextualPromptSdk } from "ai-functions-node";
 import { writeCreatePromptCode } from "ai-functions-node";
 import { ye } from "ai-functions-node";
 import { yodafy } from "ai-functions-node";
+import { imageToText } from "ai-models";
+import { languageTranslation } from "ai-models";
+import { musicTrackSeparation } from "ai-models";
+import { speakerSeparation } from "ai-models";
+import { speechToText } from "ai-models";
+import { textToImage } from "ai-models";
+import { textToSpeech } from "ai-models";
+import { textToText } from "ai-models";
+import { bananaCarrot } from "bananadev-wrapper";
+import { bananaStableDiffusion } from "bananadev-wrapper";
+import { bananaWhisper } from "bananadev-wrapper";
 import { augmentMarkdown } from "generative-functions-node";
 import { canSeeFileContent } from "generative-functions-node";
 import { canSeeFile } from "generative-functions-node";
@@ -60,6 +80,11 @@ import { getReaderPageProps } from "generative-functions-node";
 import { makeMarkdownLink } from "generative-functions-node";
 import { readerPageGetStaticPaths } from "generative-functions-node";
 import { readerPageGetStaticProps } from "generative-functions-node";
+import { gtpIndex } from "gpt-index";
+import { huggingfaceSpeakerDiarization } from "huggingface-wrapper";
+import { request } from "huggingface-wrapper";
+import { calculateTokenCount } from "openai-wrapper";
+import { gpt3 } from "openai-wrapper";
 import { compressAsset } from "asset-functions-node";
 import { deleteReferencedAsset } from "asset-functions-node";
 import { downloadRemoteAsset } from "asset-functions-node";
@@ -74,6 +99,8 @@ import { processItemAssets } from "asset-functions-node";
 import { removeOldTemporaryAssets } from "asset-functions-node";
 import { serverDownloadReply } from "asset-functions-node";
 import { uploadAssetWithContext } from "asset-functions-node";
+import { getFileCollectionPaths } from "file-collection-util";
+import { renameFileCollection } from "file-collection-util";
 import { folderGetUpdatedAt } from "folder-get-updated-at";
 import { getExtension } from "fs-util-js";
 import { getFileOrFolderName } from "fs-util-js";
@@ -83,6 +110,7 @@ import { isPathRelative } from "fs-util-js";
 import { makeRelative } from "fs-util-js";
 import { removeTrailingSlash } from "fs-util-js";
 import { withoutExtension } from "fs-util-js";
+import { withoutSubExtensions } from "fs-util-js";
 import { getAssociatedMd } from "get-associated-md";
 import { getAvailableFolderPath } from "get-available-folder-path";
 import { getOperationBins } from "get-package-json";
@@ -143,6 +171,7 @@ import { findAllFoldersWithName } from "k-explore";
 import { findAllPackages } from "k-explore";
 import { findAllTodoFolderPaths } from "k-explore";
 import { findFilesRecursively } from "k-explore";
+import { getFolderTypescriptFiles } from "k-explore";
 import { pathArrayIsOperation } from "k-explore";
 import { deleteApp } from "pm2-util";
 import { listApps } from "pm2-util";
@@ -164,10 +193,16 @@ import { decreaseBrightness } from "brightness";
 import { increaseBrightness } from "brightness";
 import { macosSetup } from "clean-macos-setup";
 import { fileExplorerOpen } from "file-explorer-open";
+import { importAppleNotes } from "import-notes";
+import { importGhostBlogs } from "import-notes";
+import { importGoogleKeep } from "import-notes";
+import { isSystemBusy } from "is-system-busy";
+import { getFolderNames } from "play-music";
 import { playMusic } from "play-music";
 import { generateRecurringReminders } from "reminders";
 import { remindMeAboutNextMinute } from "reminders";
 import { setRandomTimezone } from "set-random-timezone";
+import { time } from "time";
 import { disableDarkMode } from "toggle-dark-mode";
 import { enableDarkMode } from "toggle-dark-mode";
 import { setDarkmodeCommand } from "toggle-dark-mode";
@@ -181,6 +216,29 @@ import { setVolume } from "volume";
 import { upVolume } from "volume";
 import { getOpenableFilePath } from "vscode-open";
 import { vscodeOpen } from "vscode-open";
+import { watchAudioVideo } from "watch-audio-video-doc";
+import { watchMp3WithoutWav } from "watch-audio-video-doc";
+import { watchMp4WithoutWav } from "watch-audio-video-doc";
+import { watchWavToSpeakers } from "watch-audio-video-doc";
+import { watchWavToSpeech } from "watch-audio-video-doc";
+import { watchWavWithoutMp3 } from "watch-audio-video-doc";
+import { exploreBadNamingFiles } from "watch-bad-naming";
+import { isBadName } from "watch-bad-naming";
+import { renameAllBadlyNamedFiles } from "watch-bad-naming";
+import { renameBadlyNamedFile } from "watch-bad-naming";
+import { watchBadNaming } from "watch-bad-naming";
+import { exploreAndRename } from "watch-markdown";
+import { findJsonInMarkdown } from "watch-markdown";
+import { getBetterFilename } from "watch-markdown";
+import { getBetterLocation } from "watch-markdown";
+import { makeMarkdownIndex } from "watch-markdown";
+import { trimCodeblock } from "watch-markdown";
+import { watchMarkdown } from "watch-markdown";
+import { watchMp3Transcriptions } from "watch-mp3-transcriptions";
+import { getYoutubeVideoUrls } from "watch-system-recordings";
+import { watchAppleMemos } from "watch-system-recordings";
+import { whisperLocalCpp } from "whisper-local";
+import { whisper } from "whisper-local";
 import { loginToDevto } from "dev-to-controller";
 import { publishBlogOnDevTo } from "dev-to-controller";
 import { typeIntoTheField } from "dev-to-controller";
@@ -206,14 +264,16 @@ import { translateText } from "google-translate-controller";
 import { sendMail } from "mail";
 import { publishBlogOnMedium } from "medium-controller";
 import { publishBlogOnReddit } from "reddit-controller";
+import { sendDailyAlarmSms } from "sms";
 import { sendSms } from "sms";
-import { getTwitterPostUrl } from "twitter-controller";
-import { postTweetOnTwitter } from "twitter-controller";
 import { youtubeSearchAndDownload } from "youtube-controller";
 import { youtubeSearch } from "youtube-controller";
 import { youtubeToMp3 } from "youtube-controller";
 import { youtubeToMp4 } from "youtube-controller";
 import { getPort } from "get-port";
+import { isLocked } from "lock-util";
+import { lock } from "lock-util";
+import { unlock } from "lock-util";
 import { getBundleSummary } from "bundle-util";
 import { getDbModelsForBundle } from "bundle-util";
 import { createBackup } from "create-backup";
@@ -274,14 +334,11 @@ import { getPaymentWebPages } from "payment-node";
 import { succeed } from "payment-node";
 import { mapArrayJson } from "edit-json-file";
 import { mapObjectJson } from "edit-json-file";
-import { videoToMp3 } from "video-to-mp3";
 import { unzip } from "unzip";
 import { zip } from "zip";
 import { csvItemArrayToCsvString } from "csv-util";
 import { tryParseCsv } from "csv-util";
-import { convertCsvToJson } from "xls-to-csv-json";
-import { convertXlsToJson } from "xls-to-csv-json";
-import { compressImage } from "ffmpeg-util";
+import { compressConvert } from "ffmpeg-util";
 import { compressImages } from "ffmpeg-util";
 import { compressMp4 } from "ffmpeg-util";
 import { convertToMp3 } from "ffmpeg-util";
@@ -343,6 +400,7 @@ import { tsFunctionToMarkdownString } from "markdown-parsings";
 import { tsInterfaceToMarkdownString } from "markdown-parsings";
 import { tsVariableToMarkdownString } from "markdown-parsings";
 import { upMarkdownChunkLevelRecursively } from "markdown-parsings";
+import { convertPdfToMd } from "pdf-to-md";
 import { findAudioWithViewsArray } from "short-markdown-parser-js";
 import { markdownParseToShortMarkdown } from "short-markdown-parser-js";
 import { shortMarkdownToMarkdownParse } from "short-markdown-parser-js";
@@ -354,6 +412,8 @@ import { parseDialogue } from "short-markdown-parser-node";
 import { uberduckGetPath } from "short-markdown-parser-node";
 import { uberduckSpeak } from "short-markdown-parser-node";
 import { voiceCloneDialogue } from "short-markdown-parser-node";
+import { convertCsvToJson } from "xls-to-csv-json";
+import { convertXlsToJson } from "xls-to-csv-json";
 import { readCsvFileSync } from "read-csv-file";
 import { readCsvFile } from "read-csv-file";
 import { readJsonFileSync } from "read-json-file";
@@ -430,14 +490,32 @@ import { getFunctionQueryPaths } from "function-functions-node";
 import { getPublicBundleConfig } from "function-functions-node";
 import { getSrcRelativeFolderPath } from "function-functions-node";
 import { getTsFunction } from "function-functions-node";
+import { getAllOperations } from "github-operation-sync";
+import { getAllPackagesNames } from "github-operation-sync";
+import { getGithubPersonalAccessToken } from "github-operation-sync";
+import { getGithubRepoLastCommitInfo } from "github-operation-sync";
+import { getRepoNameFromRepositoryUrl } from "github-operation-sync";
+import { initializeGitOrUseExistingAndPull } from "github-operation-sync";
+import { operationGithubPull } from "github-operation-sync";
+import { operationGithubPush } from "github-operation-sync";
+import { pullMultipleOperations } from "github-operation-sync";
+import { pushMultipleOperations } from "github-operation-sync";
+import { readAndWriteToPackageJsonExample } from "github-operation-sync";
+import { updateAllOperationStatus } from "github-operation-sync";
 import { getAugmentedWordObject } from "augmented-word-node";
 import { getAugmentedWords } from "augmented-word-node";
 import { getBundleAugmentedWords } from "augmented-word-node";
 import { codestoriesGetPages } from "codestorys-node";
 import { codestoriesGetStaticPaths } from "codestorys-node";
 import { codestoriesGetStaticProps } from "codestorys-node";
+import { docsGetPages } from "docs-get-pages";
+import { getMarkdownReaderPages } from "docs-get-pages";
+import { getPublicMarkdownFilePaths } from "docs-get-pages";
+import { removeExtensionsFromPath } from "docs-get-pages";
+import { removeNumberPrefix } from "docs-get-pages";
+import { shouldExposeMarkdownFile } from "docs-get-pages";
+import { stripReadmeFromFolder } from "docs-get-pages";
 import { copyStaticAssets } from "markdown-reader-functions";
-import { docsGetPages } from "markdown-reader-functions";
 import { docsGetStaticPaths } from "markdown-reader-functions";
 import { docsGetStaticProps } from "markdown-reader-functions";
 import { getAllMarkdownReaderPages } from "markdown-reader-functions";
@@ -445,19 +523,13 @@ import { getChildren } from "markdown-reader-functions";
 import { getFolderExplorationInfo } from "markdown-reader-functions";
 import { getMarkdownModelPages } from "markdown-reader-functions";
 import { getMarkdownPageInfo } from "markdown-reader-functions";
-import { getMarkdownReaderPages } from "markdown-reader-functions";
 import { getMarkdownReaderQueryPaths } from "markdown-reader-functions";
 import { getOperationPages } from "markdown-reader-functions";
-import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
 import { getReaderTodoPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
 import { markdownReaderGetStaticPropsFromPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticProps } from "markdown-reader-functions";
 import { putReadmeOnTop } from "markdown-reader-functions";
-import { removeExtensionsFromPath } from "markdown-reader-functions";
-import { removeNumberPrefix } from "markdown-reader-functions";
-import { shouldExposeMarkdownFile } from "markdown-reader-functions";
-import { stripReadmeFromFolder } from "markdown-reader-functions";
 import { getQueryPath } from "markdown-reader-functions-js";
 import { addPeerMessage } from "peer-functions";
 import { addPeer } from "peer-functions";
@@ -520,10 +592,17 @@ import { findAllDependencyOperations } from "find-all-dependency-operations";
 import { findDependantsRecursively } from "find-all-dependency-operations";
 import { findDependants } from "find-all-dependency-operations";
 import { findDependenciesRecursively } from "find-all-dependency-operations";
+import { findMonorepoExports } from "find-all-dependency-operations";
+import { findMonorepoImports } from "find-all-dependency-operations";
 import { findMonorepoModules } from "find-all-dependency-operations";
 import { getDependencyObject } from "find-all-dependency-operations";
 import { getDependencyTree } from "find-all-dependency-operations";
+import { getOldDependencyTree } from "find-all-dependency-operations";
+import { getOperationDependencyReasons } from "find-all-dependency-operations";
+import { generateBunFile } from "generate-bun-monopackage";
 import { generateBunMonopackage } from "generate-bun-monopackage";
+import { generateBunTypes } from "generate-bun-monopackage";
+import { generateBunVariables } from "generate-bun-monopackage";
 import { getItemNewPath } from "generate-bun-monopackage";
 import { generateNamedIndex } from "generate-index";
 import { generateSimpleIndex } from "generate-index";
@@ -622,6 +701,19 @@ import { shouldSkip } from "rebuild-operation";
 import { yarnBuild } from "rebuild-operation";
 import { renameOperation } from "rename-operation";
 import { createSimpleTypescriptFile } from "simple-typescript-node";
+import { alterTypescriptFile } from "swc-util";
+import { alterTypescriptInstance } from "swc-util";
+import { buildEverythingInRightOrder } from "swc-util";
+import { detectCircularDependencies } from "swc-util";
+import { getImports } from "swc-util";
+import { getOperationPathsRebuildRequired } from "swc-util";
+import { getTypescriptData } from "swc-util";
+import { isAbsoluteModuleName } from "swc-util";
+import { operationGetDependencies } from "swc-util";
+import { operationGetIndexedDependencies } from "swc-util";
+import { reindexAllOperationsCircularDependencies } from "swc-util";
+import { reindexCircularDependencies } from "swc-util";
+import { setTypescriptData } from "swc-util";
 import { runTestsForOperation } from "k-test";
 import { runTests } from "k-test";
 import { getAllTsMorphSourceFiles } from "ts-morph-util";
@@ -694,13 +786,16 @@ import { sendSlackMessage } from "slack-controller";
 import { slackLogin } from "slack-controller";
 import { storeAllSlackChannel } from "slack-controller";
 import { storeSlackChannelMember } from "slack-controller";
+import { detectTwitterPage } from "twitter-controller";
+import { getTwitterPostUrl } from "twitter-controller";
+import { postTweetOnTwitter } from "twitter-controller";
+import { scrapPersonTweets } from "twitter-controller";
 import { getAbsolutePathMdFileName } from "social-media-node";
 import { getAllPostables } from "social-media-node";
 import { getPersonDetails } from "social-media-node";
 import { getPersonsMenu } from "social-media-node";
 import { getSocialMediaChannelsMenu } from "social-media-node";
 import { getSocialMediaMenu } from "social-media-node";
-import { getSubExtensions } from "social-media-node";
 import { addSocialMediaCredential } from "social-media-wrapper";
 import { canBePosted } from "social-media-wrapper";
 import { createAllSocialMediaPost } from "social-media-wrapper";
@@ -726,45 +821,9 @@ import { earthDistance } from "himalayajeep-functions";
 import { getMyJeep } from "himalayajeep-functions";
 import { getPublicJeeps } from "himalayajeep-functions";
 import { updateMyProfile } from "himalayajeep-functions";
-import { getAllOperations } from "github-operation-sync";
-import { getAllPackagesNames } from "github-operation-sync";
-import { getGithubPersonalAccessToken } from "github-operation-sync";
-import { getGithubRepoLastCommitInfo } from "github-operation-sync";
-import { getRepoNameFromRepositoryUrl } from "github-operation-sync";
-import { initializeGitOrUseExistingAndPull } from "github-operation-sync";
-import { operationGithubPull } from "github-operation-sync";
-import { operationGithubPush } from "github-operation-sync";
-import { pullMultipleOperations } from "github-operation-sync";
-import { pushMultipleOperations } from "github-operation-sync";
-import { readAndWriteToPackageJsonExample } from "github-operation-sync";
-import { updateAllOperationStatus } from "github-operation-sync";
-import { calculateFullCompany } from "foodchain-recipes";
-import { companyAttachContributionInformation } from "foodchain-recipes";
-import { companyAttachEsgMetricProofStates } from "foodchain-recipes";
-import { companyAttachRequirements } from "foodchain-recipes";
-import { companyAttachTransparency } from "foodchain-recipes";
-import { concatenateItems } from "foodchain-recipes";
-import { contributionAddNextContributions } from "foodchain-recipes";
-import { getActivities } from "foodchain-recipes";
-import { getAverage } from "foodchain-recipes";
-import { getCompanies } from "foodchain-recipes";
-import { getFinalProducts } from "foodchain-recipes";
-import { getFullCompanyData } from "foodchain-recipes";
-import { getIngredientProducts } from "foodchain-recipes";
-import { getProductValueChainForProduct } from "foodchain-recipes";
-import { getProductValueChain } from "foodchain-recipes";
-import { getRequiredValueChainData } from "foodchain-recipes";
-import { getSustainabilityPlan } from "foodchain-recipes";
-import { hasEsgMetricWithStatus } from "foodchain-recipes";
-import { requirementAttachProofStates } from "foodchain-recipes";
-import { sumEsgMetricProofStates } from "foodchain-recipes";
-import { getCompanyRequirementDescription } from "foodchain-recipes-js";
-import { requirementAppliesToCompany } from "foodchain-recipes-js";
-import { parseAddress } from "parse-address-henrik";
 import { addToken } from "asset-functions-js";
 import { ensureToken } from "asset-functions-js";
 import { findAssetParametersRecursively } from "asset-functions-js";
-import { getAssetDirectlyApiUrl } from "asset-functions-js";
 import { getConversionInfoFromType } from "asset-functions-js";
 import { getExtensionFromAsset } from "asset-functions-js";
 import { getNameFromRelativePath } from "asset-functions-js";
@@ -800,6 +859,7 @@ import { oneUp } from "fs-util";
 import { parseMd } from "fs-util";
 import { removeAllExcept } from "fs-util";
 import { renameAndCreate } from "fs-util";
+import { updateSingleNestedJsonFile } from "fs-util";
 import { writeJsonToFile } from "fs-util";
 import { writeStringToFile } from "fs-util";
 import { writeToFiles } from "fs-util";
@@ -829,6 +889,7 @@ import { getRelativeLinkPath } from "get-path";
 import { getRelativePath } from "get-path";
 import { getRootPath } from "get-path";
 import { getSrcRelativeFileId } from "get-path";
+import { getSubExtensions } from "get-path";
 import { hasDependency } from "get-path";
 import { isBundle } from "get-path";
 import { isOperation } from "get-path";
@@ -875,6 +936,7 @@ import { parseFrontmatterMarkdownString } from "markdown-parse-js";
 import { parseMarkdownParagraph } from "markdown-parse-js";
 import { parseMdToChunks } from "markdown-parse-js";
 import { removeHeaderPrefix } from "markdown-parse-js";
+import { findCodeblocks } from "marked-util";
 import { findCodespans } from "marked-util";
 import { findEmbeds } from "marked-util";
 import { findLinks } from "marked-util";
@@ -897,6 +959,7 @@ import { searchRecursiveObjectArray } from "search";
 import { frontmatterParseToString } from "frontmatter-util";
 import { frontmatterToObject } from "frontmatter-util";
 import { getFrontmatterValueString } from "frontmatter-util";
+import { markdownModelTypeToMarkdownString } from "frontmatter-util";
 import { objectToFrontmatter } from "frontmatter-util";
 import { parseFrontmatterString } from "frontmatter-util";
 import { quotedOrNot } from "frontmatter-util";
@@ -916,7 +979,6 @@ import { generatePassword } from "model-types";
 import { generateRandomString } from "model-types";
 import { generateTime } from "model-types";
 import { isEmail } from "model-types";
-import { markdownModelTypeToMarkdownString } from "model-types";
 import { createUser } from "os-types";
 import { getBacktickContents } from "os-types";
 import { isInPeriod } from "os-types";
@@ -978,11 +1040,13 @@ import { LabeledButton } from "labeled-button";
 import { getFullPath } from "next-paths";
 import { getLastPathsChunk } from "next-paths";
 import { usePath } from "next-paths";
+import { Tabs } from "tabs";
 import { createCodeblockMarkdown } from "ui-util";
 import { useCustomUrlStore } from "use-url-store";
 import { getKeysAtPathFromNestedObject } from "recursive-util";
 import { getMenuPagesObject } from "recursive-util";
 import { makeNestedObjectFromQueryPathObject } from "recursive-util";
+import { mapChildObjectRecursive } from "recursive-util";
 import { nestedObjectToChildObject } from "recursive-util";
 import { nestedPathObjectToNestedMenuRecursive } from "recursive-util";
 import { nestifyQueryPathObjectRecursive } from "recursive-util";
@@ -992,6 +1056,7 @@ import { camelCase } from "convert-case";
 import { capitalCase } from "convert-case";
 import { capitaliseFirstLetter } from "convert-case";
 import { convertCase } from "convert-case";
+import { fileSlugify } from "convert-case";
 import { getDelimiter } from "convert-case";
 import { humanCase } from "convert-case";
 import { kebabCase } from "convert-case";
@@ -1012,6 +1077,7 @@ import { groupByKey } from "js-util";
 import { hasAllLetters } from "js-util";
 import { insertAt } from "js-util";
 import { isAllTrue } from "js-util";
+import { isArrayEqual } from "js-util";
 import { makeArray } from "js-util";
 import { mapAsync } from "js-util";
 import { mapKeys } from "js-util";
@@ -1026,6 +1092,7 @@ import { objectMapAsync } from "js-util";
 import { objectMapSync } from "js-util";
 import { objectValuesMap } from "js-util";
 import { omitUndefinedValues } from "js-util";
+import { onlyDuplicates } from "js-util";
 import { onlyUnique2 } from "js-util";
 import { onlyUnique } from "js-util";
 import { pickRandomArrayItem } from "js-util";
@@ -1059,6 +1126,7 @@ import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
 import { getBrowserPageById } from "puppeteer-utils";
 import { getBrowserTabs } from "puppeteer-utils";
+import { getBrowser } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
 import { getConnectedBrowsers } from "puppeteer-utils";
 import { getIdlePage } from "puppeteer-utils";
@@ -1074,6 +1142,7 @@ import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
 import { setBrowserPageIdle } from "puppeteer-utils";
+import { setBrowserSession } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
 import { solveReptcha } from "puppeteer-utils";
@@ -1084,6 +1153,7 @@ import { typeOnTheTargetWithXpathSelector } from "puppeteer-utils";
 import { waitMilliseconds } from "puppeteer-utils";
 
 export const sdk = { fetchUrl,
+addEmojiToEveryWord,
 addStatement,
 addWord,
 biggestFunctionName,
@@ -1091,7 +1161,6 @@ checkQueue,
 cleanup,
 controlChatGptWrapper,
 controlChatGpt,
-convertTo1337speak,
 deletePromptResult,
 developersQuote,
 diaryToInstagram,
@@ -1100,27 +1169,36 @@ emojiAugmentation,
 explainInDutch,
 explainInNepali,
 explainInPortuguese,
+explainLineByLine,
 explain,
 fixGrammarAndSpellingMistakes,
+followUpQuestions,
 getContextualPromptCategories,
 getContextualPromptResultJsonFilePath,
 getContextualPrompt,
 getObjectForkKeyRecursively,
+getToolFunctions,
 gptIdeasRegisterWithContext,
 haiku,
+hookOneliners,
 improveCode,
-keywords,
+investorPitch,
 marcusAurelius,
+opposite,
+outlineToInvestorPitch,
 poem,
 processChatGptPrompt,
 processPromptOnFile,
-processPromptOnFolder,
+processPromptOnFolderWithContext,
+quiz,
 removeAllFake,
 rickAndMortyRick,
 rickAndMorty,
 setIsFavoritePromptResult,
+shouldAddToQueue,
 socratesAndSnoopDogg,
 storytelling,
+toolFunctionWithContext,
 translateEverythingIntoHindi,
 translateEverythingPortuguese,
 translateEverything,
@@ -1131,6 +1209,17 @@ writeContextualPromptSdk,
 writeCreatePromptCode,
 ye,
 yodafy,
+imageToText,
+languageTranslation,
+musicTrackSeparation,
+speakerSeparation,
+speechToText,
+textToImage,
+textToSpeech,
+textToText,
+bananaCarrot,
+bananaStableDiffusion,
+bananaWhisper,
 augmentMarkdown,
 canSeeFileContent,
 canSeeFile,
@@ -1145,6 +1234,11 @@ getReaderPageProps,
 makeMarkdownLink,
 readerPageGetStaticPaths,
 readerPageGetStaticProps,
+gtpIndex,
+huggingfaceSpeakerDiarization,
+request,
+calculateTokenCount,
+gpt3,
 compressAsset,
 deleteReferencedAsset,
 downloadRemoteAsset,
@@ -1159,6 +1253,8 @@ processItemAssets,
 removeOldTemporaryAssets,
 serverDownloadReply,
 uploadAssetWithContext,
+getFileCollectionPaths,
+renameFileCollection,
 folderGetUpdatedAt,
 getExtension,
 getFileOrFolderName,
@@ -1168,6 +1264,7 @@ isPathRelative,
 makeRelative,
 removeTrailingSlash,
 withoutExtension,
+withoutSubExtensions,
 getAssociatedMd,
 getAvailableFolderPath,
 getOperationBins,
@@ -1228,6 +1325,7 @@ findAllFoldersWithName,
 findAllPackages,
 findAllTodoFolderPaths,
 findFilesRecursively,
+getFolderTypescriptFiles,
 pathArrayIsOperation,
 deleteApp,
 listApps,
@@ -1249,10 +1347,16 @@ decreaseBrightness,
 increaseBrightness,
 macosSetup,
 fileExplorerOpen,
+importAppleNotes,
+importGhostBlogs,
+importGoogleKeep,
+isSystemBusy,
+getFolderNames,
 playMusic,
 generateRecurringReminders,
 remindMeAboutNextMinute,
 setRandomTimezone,
+time,
 disableDarkMode,
 enableDarkMode,
 setDarkmodeCommand,
@@ -1266,6 +1370,29 @@ setVolume,
 upVolume,
 getOpenableFilePath,
 vscodeOpen,
+watchAudioVideo,
+watchMp3WithoutWav,
+watchMp4WithoutWav,
+watchWavToSpeakers,
+watchWavToSpeech,
+watchWavWithoutMp3,
+exploreBadNamingFiles,
+isBadName,
+renameAllBadlyNamedFiles,
+renameBadlyNamedFile,
+watchBadNaming,
+exploreAndRename,
+findJsonInMarkdown,
+getBetterFilename,
+getBetterLocation,
+makeMarkdownIndex,
+trimCodeblock,
+watchMarkdown,
+watchMp3Transcriptions,
+getYoutubeVideoUrls,
+watchAppleMemos,
+whisperLocalCpp,
+whisper,
 loginToDevto,
 publishBlogOnDevTo,
 typeIntoTheField,
@@ -1291,14 +1418,16 @@ translateText,
 sendMail,
 publishBlogOnMedium,
 publishBlogOnReddit,
+sendDailyAlarmSms,
 sendSms,
-getTwitterPostUrl,
-postTweetOnTwitter,
 youtubeSearchAndDownload,
 youtubeSearch,
 youtubeToMp3,
 youtubeToMp4,
 getPort,
+isLocked,
+lock,
+unlock,
 getBundleSummary,
 getDbModelsForBundle,
 createBackup,
@@ -1359,14 +1488,11 @@ getPaymentWebPages,
 succeed,
 mapArrayJson,
 mapObjectJson,
-videoToMp3,
 unzip,
 zip,
 csvItemArrayToCsvString,
 tryParseCsv,
-convertCsvToJson,
-convertXlsToJson,
-compressImage,
+compressConvert,
 compressImages,
 compressMp4,
 convertToMp3,
@@ -1428,6 +1554,7 @@ tsFunctionToMarkdownString,
 tsInterfaceToMarkdownString,
 tsVariableToMarkdownString,
 upMarkdownChunkLevelRecursively,
+convertPdfToMd,
 findAudioWithViewsArray,
 markdownParseToShortMarkdown,
 shortMarkdownToMarkdownParse,
@@ -1439,6 +1566,8 @@ parseDialogue,
 uberduckGetPath,
 uberduckSpeak,
 voiceCloneDialogue,
+convertCsvToJson,
+convertXlsToJson,
 readCsvFileSync,
 readCsvFile,
 readJsonFileSync,
@@ -1515,14 +1644,32 @@ getFunctionQueryPaths,
 getPublicBundleConfig,
 getSrcRelativeFolderPath,
 getTsFunction,
+getAllOperations,
+getAllPackagesNames,
+getGithubPersonalAccessToken,
+getGithubRepoLastCommitInfo,
+getRepoNameFromRepositoryUrl,
+initializeGitOrUseExistingAndPull,
+operationGithubPull,
+operationGithubPush,
+pullMultipleOperations,
+pushMultipleOperations,
+readAndWriteToPackageJsonExample,
+updateAllOperationStatus,
 getAugmentedWordObject,
 getAugmentedWords,
 getBundleAugmentedWords,
 codestoriesGetPages,
 codestoriesGetStaticPaths,
 codestoriesGetStaticProps,
-copyStaticAssets,
 docsGetPages,
+getMarkdownReaderPages,
+getPublicMarkdownFilePaths,
+removeExtensionsFromPath,
+removeNumberPrefix,
+shouldExposeMarkdownFile,
+stripReadmeFromFolder,
+copyStaticAssets,
 docsGetStaticPaths,
 docsGetStaticProps,
 getAllMarkdownReaderPages,
@@ -1530,19 +1677,13 @@ getChildren,
 getFolderExplorationInfo,
 getMarkdownModelPages,
 getMarkdownPageInfo,
-getMarkdownReaderPages,
 getMarkdownReaderQueryPaths,
 getOperationPages,
-getPublicMarkdownFilePaths,
 getReaderTodoPages,
 markdownReaderGetStaticPaths,
 markdownReaderGetStaticPropsFromPages,
 markdownReaderGetStaticProps,
 putReadmeOnTop,
-removeExtensionsFromPath,
-removeNumberPrefix,
-shouldExposeMarkdownFile,
-stripReadmeFromFolder,
 getQueryPath,
 addPeerMessage,
 addPeer,
@@ -1605,10 +1746,17 @@ findAllDependencyOperations,
 findDependantsRecursively,
 findDependants,
 findDependenciesRecursively,
+findMonorepoExports,
+findMonorepoImports,
 findMonorepoModules,
 getDependencyObject,
 getDependencyTree,
+getOldDependencyTree,
+getOperationDependencyReasons,
+generateBunFile,
 generateBunMonopackage,
+generateBunTypes,
+generateBunVariables,
 getItemNewPath,
 generateNamedIndex,
 generateSimpleIndex,
@@ -1707,6 +1855,19 @@ shouldSkip,
 yarnBuild,
 renameOperation,
 createSimpleTypescriptFile,
+alterTypescriptFile,
+alterTypescriptInstance,
+buildEverythingInRightOrder,
+detectCircularDependencies,
+getImports,
+getOperationPathsRebuildRequired,
+getTypescriptData,
+isAbsoluteModuleName,
+operationGetDependencies,
+operationGetIndexedDependencies,
+reindexAllOperationsCircularDependencies,
+reindexCircularDependencies,
+setTypescriptData,
 runTestsForOperation,
 runTests,
 getAllTsMorphSourceFiles,
@@ -1779,13 +1940,16 @@ sendSlackMessage,
 slackLogin,
 storeAllSlackChannel,
 storeSlackChannelMember,
+detectTwitterPage,
+getTwitterPostUrl,
+postTweetOnTwitter,
+scrapPersonTweets,
 getAbsolutePathMdFileName,
 getAllPostables,
 getPersonDetails,
 getPersonsMenu,
 getSocialMediaChannelsMenu,
 getSocialMediaMenu,
-getSubExtensions,
 addSocialMediaCredential,
 canBePosted,
 createAllSocialMediaPost,
@@ -1811,45 +1975,9 @@ earthDistance,
 getMyJeep,
 getPublicJeeps,
 updateMyProfile,
-getAllOperations,
-getAllPackagesNames,
-getGithubPersonalAccessToken,
-getGithubRepoLastCommitInfo,
-getRepoNameFromRepositoryUrl,
-initializeGitOrUseExistingAndPull,
-operationGithubPull,
-operationGithubPush,
-pullMultipleOperations,
-pushMultipleOperations,
-readAndWriteToPackageJsonExample,
-updateAllOperationStatus,
-calculateFullCompany,
-companyAttachContributionInformation,
-companyAttachEsgMetricProofStates,
-companyAttachRequirements,
-companyAttachTransparency,
-concatenateItems,
-contributionAddNextContributions,
-getActivities,
-getAverage,
-getCompanies,
-getFinalProducts,
-getFullCompanyData,
-getIngredientProducts,
-getProductValueChainForProduct,
-getProductValueChain,
-getRequiredValueChainData,
-getSustainabilityPlan,
-hasEsgMetricWithStatus,
-requirementAttachProofStates,
-sumEsgMetricProofStates,
-getCompanyRequirementDescription,
-requirementAppliesToCompany,
-parseAddress,
 addToken,
 ensureToken,
 findAssetParametersRecursively,
-getAssetDirectlyApiUrl,
 getConversionInfoFromType,
 getExtensionFromAsset,
 getNameFromRelativePath,
@@ -1885,6 +2013,7 @@ oneUp,
 parseMd,
 removeAllExcept,
 renameAndCreate,
+updateSingleNestedJsonFile,
 writeJsonToFile,
 writeStringToFile,
 writeToFiles,
@@ -1914,6 +2043,7 @@ getRelativeLinkPath,
 getRelativePath,
 getRootPath,
 getSrcRelativeFileId,
+getSubExtensions,
 hasDependency,
 isBundle,
 isOperation,
@@ -1960,6 +2090,7 @@ parseFrontmatterMarkdownString,
 parseMarkdownParagraph,
 parseMdToChunks,
 removeHeaderPrefix,
+findCodeblocks,
 findCodespans,
 findEmbeds,
 findLinks,
@@ -1982,6 +2113,7 @@ searchRecursiveObjectArray,
 frontmatterParseToString,
 frontmatterToObject,
 getFrontmatterValueString,
+markdownModelTypeToMarkdownString,
 objectToFrontmatter,
 parseFrontmatterString,
 quotedOrNot,
@@ -2001,7 +2133,6 @@ generatePassword,
 generateRandomString,
 generateTime,
 isEmail,
-markdownModelTypeToMarkdownString,
 createUser,
 getBacktickContents,
 isInPeriod,
@@ -2063,11 +2194,13 @@ LabeledButton,
 getFullPath,
 getLastPathsChunk,
 usePath,
+Tabs,
 createCodeblockMarkdown,
 useCustomUrlStore,
 getKeysAtPathFromNestedObject,
 getMenuPagesObject,
 makeNestedObjectFromQueryPathObject,
+mapChildObjectRecursive,
 nestedObjectToChildObject,
 nestedPathObjectToNestedMenuRecursive,
 nestifyQueryPathObjectRecursive,
@@ -2077,6 +2210,7 @@ camelCase,
 capitalCase,
 capitaliseFirstLetter,
 convertCase,
+fileSlugify,
 getDelimiter,
 humanCase,
 kebabCase,
@@ -2097,6 +2231,7 @@ groupByKey,
 hasAllLetters,
 insertAt,
 isAllTrue,
+isArrayEqual,
 makeArray,
 mapAsync,
 mapKeys,
@@ -2111,6 +2246,7 @@ objectMapAsync,
 objectMapSync,
 objectValuesMap,
 omitUndefinedValues,
+onlyDuplicates,
 onlyUnique2,
 onlyUnique,
 pickRandomArrayItem,
@@ -2144,6 +2280,7 @@ foundOrNotXpath,
 foundOrNot,
 getBrowserPageById,
 getBrowserTabs,
+getBrowser,
 getChromeExecutablePath,
 getConnectedBrowsers,
 getIdlePage,
@@ -2159,6 +2296,7 @@ racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
 setBrowserPageIdle,
+setBrowserSession,
 setInnerHtml,
 setInputValue,
 solveReptcha,

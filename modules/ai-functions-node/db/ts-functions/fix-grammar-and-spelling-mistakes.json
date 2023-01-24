@@ -1,15 +1,14 @@
 {
-  "createdAt": 1671505962487,
-  "updatedAt": 1671505962487,
+  "createdAt": 1674133292869,
+  "updatedAt": 1674133292869,
   "deletedAt": 0,
-  "createdFirstAt": 1671505962487,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133292869,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "explicitTypeName": "PromptFunction",
   "operationRelativeTypescriptFilePath": "src/prompts.ts",
   "commentsInside": [],
-  "rawText": " async (\n  contextContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"fix-grammar-and-spelling-mistakes\",\n    contextContent,\n  });\n\n  return result;\n}",
+  "rawText": " async (contextContent: string, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"fix-grammar-and-spelling-mistakes\",\n      contextContent\n    });\n\n    return result;\n\n  }",
   "name": "fixGrammarAndSpellingMistakes",
   "slug": "fix-grammar-and-spelling-mistakes",
   "parameters": [
@@ -44,15 +43,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 3,
   "size": {
-    "characters": 235,
-    "lines": 12,
-    "bytes": 235,
+    "characters": 244,
+    "lines": 11,
+    "bytes": 244,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 20,
-    "linesPerFile": 12,
+    "charactersPerLine": 22,
+    "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "whisnmslchuwryhwjcmjlltr"
+  "id": "ahjtidxemvuuayicotgkcfqr"
 }

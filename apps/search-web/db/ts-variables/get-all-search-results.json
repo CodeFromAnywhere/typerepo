@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527608260,
-  "updatedAt": 1670527608260,
+  "createdAt": 1674542351415,
+  "updatedAt": 1674542351415,
   "deletedAt": 0,
-  "createdFirstAt": 1670527608260,
+  "createdFirstAt": 1674542351415,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-all-search-results",
   "operationRelativeTypescriptFilePath": "src/util/getAllSearchResults.ts",
   "type": {
-    "rawType": "(query: string | null) => import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").SearchResult[] | undefined",
+    "rawType": "(query: string | null) => Promise<import(\"/Users/king/King/operations/tools/purpose/search/search-web/src/util/types\").SearchResult[]>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  query: string | null\n): SearchResult[] | undefined => {\n  return [\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n    {},\n  ];\n}",
+  "value": "async (\n  query: string | null\n): Promise<SearchResult[]> => {\n  const projectRoot = getProjectRoot();\n\n  if (!query || !projectRoot) return [];\n  //  Alter search function to return all results from functions, files and db, and links to there.\n  const functions = Object.keys(sdkFunctionPaths)\n    .map((name) => {\n      const path = sdkFunctionPaths[name as keyof typeof sdkFunctionPaths];\n\n      return { name, path };\n    })\n    .filter((x) => {\n      const names = `${x.name.toLowerCase()} ${humanCase(\n        x.name\n      ).toLowerCase()}`;\n      return names.includes(query.toLowerCase());\n    })\n    .map((x) => {\n      const result: SearchResult = {\n        title: `⚡️ ${x.name}`,\n        description: x.path,\n        url: `/function/${x.name}`,\n      };\n\n      return result;\n    });\n  const files = (\n    await explore({\n      basePath: projectRoot,\n      ignore: [\n        ...generatedFolders,\n        \"db\",\n        \"cloned\",\n        \"backups\",\n        \"bundled\",\n        \"buntest\",\n      ],\n      readmeOnTop: true,\n      search: query || undefined,\n      extension: [\"md\", \"ts\", \"tsx\"],\n    })\n  ).map((x) => {\n    const relativePath = makeRelative(x.path, projectRoot);\n    const result: SearchResult = {\n      title: `${x.isFolder ? \"📁\" : \"📄\"} ${relativePath}`,\n      url: `/files/${relativePath}`,\n    };\n\n    return result;\n  });\n\n  const dbModels = dbModelKeys\n    .filter((x) =>\n      `${x.toLowerCase()} ${humanCase(x).toLowerCase()}`.includes(\n        query.toLowerCase()\n      )\n    )\n    .map((x) => {\n      const result: SearchResult = {\n        title: `🗄 ${x}`,\n        url: `/db/${x}`,\n      };\n      return result;\n    });\n\n  return [...dbModels, ...functions, ...files];\n}",
   "description": "Searches filepaths, then links to any `ui-web` that has this file available as a page, or VSCode.\n\nFor this we need to get the `MarkdownReaderPage` and other pages that are available in ui's and see the files they are linked to.\n\nI want to be able to:\n\n- search functions, interfaces, variables\n- search operations\n- search markdown files, anywhere\n- search db-ui models\n\nBut there's more. To make a good serach...\n\nTODO:\n- gather everything i've made before about search",
-  "id": "obyeluoorvhqnqvfaqgftklm"
+  "id": "jcbfexaziwaslbaajuaqzsyc"
 }

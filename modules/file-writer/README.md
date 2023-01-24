@@ -14,31 +14,25 @@ This is a ui-esm operation. This means it's a ui operation that builds to javasc
 
 # Api reference
 
-## `<FileWriter />`
+## useFileWriter()
+
+Returns a filewriter for a project relative filePath with a function to save it
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
-| **Output** | `JSX.Element`   |    |
+| **Output** | { renderFileWriter: {  }, <br />save: {  }, <br />isSaved: boolean, <br /> }   |    |
 
 
 
-## 📄 FileWriter (exported const)
+## 📄 useFileWriter (exported const)
 
-## `<WriterLayout />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | `JSX.Element`   |    |
-
-
-
-## 📄 WriterLayout (exported const)
+Returns a filewriter for a project relative filePath with a function to save it
 
 # Internal
 
-<details><summary>Show internal (3)</summary>
+<details><summary>Show internal (5)</summary>
     
   # `<OpenFileWriterPages />`
 
@@ -52,10 +46,23 @@ This is a ui-esm operation. This means it's a ui operation that builds to javasc
 
 
 
+## `<WriterLayout />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## 📄 OpenFileWriterPages (exported const)
 
 ## 📄 { useStore, StoreProvider } (exported const)
 
 Combining two store types to create an aggregated store
+
+
+## 📄 WriterLayout (exported const)
+
   </details>
 

@@ -1,4 +1,4 @@
-export * from "./FileWriter";
+export * from "./useFileWriter";
 export * from "./OpenFileWriterPages";
 export * from "./WriterLayout";
 export * from "./store";

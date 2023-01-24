@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { EditorProps } from "./types";
 /**
 TextArea with ability to enhance personal database and execute prompts

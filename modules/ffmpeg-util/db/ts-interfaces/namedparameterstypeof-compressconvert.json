@@ -1,0 +1,233 @@
+{
+  "createdAt": 1674543127416,
+  "updatedAt": 1674543127416,
+  "deletedAt": 0,
+  "createdFirstAt": 1674543127416,
+  "id": "namedparameterstypeof-compressconvert",
+  "name": "NamedParameters<typeof compressConvert>",
+  "slug": "namedparameterstypeof-compressconvert",
+  "operationRelativeTypescriptFilePath": "src/compressConvert.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absoluteSourceFilePath": {
+          "type": "string"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "isStatusLogged": {
+              "type": "boolean"
+            },
+            "outputFolderPath": {
+              "type": "string",
+              "description": "If given, outputted file will be put in this folder"
+            },
+            "name": {
+              "type": "string",
+              "description": "If given, name will change into this"
+            },
+            "fps": {
+              "type": "number",
+              "description": "frames per second (only for targetformat mp4)"
+            },
+            "sizeWidthPx": {
+              "type": "number",
+              "description": "width pixels, will preserve same size if not given"
+            },
+            "aspectRatio": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "additionalProperties": false,
+              "description": "if not given, will preserve ratio"
+            },
+            "quality": {
+              "type": "number",
+              "description": "quality number in range: 0-100"
+            },
+            "targetFormat": {
+              "type": "string",
+              "enum": [
+                "webp",
+                "png",
+                "mp4",
+                "mp3",
+                "wav"
+              ]
+            },
+            "is16bitWav": {
+              "type": "boolean",
+              "description": "If true, and targetformat is wav, will convert to 16bit wav (uses `-ar 16000 -ac 1 -codec:a pcm_s16le` as extra options)\n\nUseful for whisper.cpp"
+            },
+            "keepOriginal": {
+              "type": "boolean",
+              "description": "if true, original won't be thrown away afterwards"
+            },
+            "isDebug": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "absoluteSourceFilePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absoluteSourceFilePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "isStatusLogged",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "outputFolderPath",
+                "required": false,
+                "schema": {
+                  "fullComment": "If given, outputted file will be put in this folder",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "name",
+                "required": false,
+                "schema": {
+                  "fullComment": "If given, name will change into this",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "fps",
+                "required": false,
+                "schema": {
+                  "fullComment": "frames per second (only for targetformat mp4)",
+                  "type": "number"
+                }
+              },
+              {
+                "name": "sizeWidthPx",
+                "required": false,
+                "schema": {
+                  "fullComment": "width pixels, will preserve same size if not given",
+                  "type": "number"
+                }
+              },
+              {
+                "name": "aspectRatio",
+                "required": false,
+                "schema": {
+                  "fullComment": "if not given, will preserve ratio",
+                  "properties": [
+                    {
+                      "name": "x",
+                      "required": true,
+                      "schema": {
+                        "type": "number"
+                      }
+                    },
+                    {
+                      "name": "y",
+                      "required": true,
+                      "schema": {
+                        "type": "number"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "quality",
+                "required": false,
+                "schema": {
+                  "fullComment": "quality number in range: 0-100",
+                  "type": "number"
+                }
+              },
+              {
+                "name": "targetFormat",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "webp",
+                    "png",
+                    "mp4",
+                    "mp3",
+                    "wav"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "is16bitWav",
+                "required": false,
+                "schema": {
+                  "fullComment": "If true, and targetformat is wav, will convert to 16bit wav (uses `-ar 16000 -ac 1 -codec:a pcm_s16le` as extra options)\n\nUseful for whisper.cpp",
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "keepOriginal",
+                "required": false,
+                "schema": {
+                  "fullComment": "if true, original won't be thrown away afterwards",
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isDebug",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof compressConvert>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

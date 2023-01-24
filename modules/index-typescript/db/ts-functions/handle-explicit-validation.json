@@ -1,14 +1,13 @@
 {
-  "createdAt": 1671116432175,
-  "updatedAt": 1671116432175,
+  "createdAt": 1673863441420,
+  "updatedAt": 1673863441420,
   "deletedAt": 0,
-  "createdFirstAt": 1671116432175,
+  "createdFirstAt": 1673863441420,
   "isApiExposed": false,
   "name": "handleExplicitValidation",
   "slug": "handle-explicit-validation",
   "isExported": false,
   "operationRelativeTypescriptFilePath": "src/typeToSchema.ts",
-  "groupAuthorization": {},
   "commentsInside": [],
   "description": "",
   "parameters": [],
@@ -32,5 +31,5 @@
   },
   "rawText": "\n\nfunction handleExplicitValidation(\n  type: string,\n  schema: any,\n  decorators: Decorator[] = []\n): SimpleJsonSchema {\n  decorators.forEach((d) => {\n    const dName = d.getName();\n    switch (dName) {\n      case \"min\":\n      case \"max\": {\n        const firstArgumentTextNumber = +d.getArguments()[0].getText();\n        schema = merge(\n          schema,\n          getMinMaxValidation(dName, type, firstArgumentTextNumber)\n        );\n        break;\n      }\n      case \"time\":\n      case \"date\":\n      case \"dateTime\":\n      case \"duration\":\n      case \"uri\":\n      case \"uriReference\":\n      case \"uriTemplate\":\n      case \"email\":\n      case \"hostname\":\n      case \"ipv4\":\n      case \"ipv6\":\n      case \"uuid\":\n      case \"jsonPointer\":\n      case \"relativeJsonPointer\": {\n        schema = merge(schema, { format: toSnack(dName) });\n        break;\n      }\n    }\n  });\n  return schema;\n}",
   "maxIndentationDepth": 5,
-  "id": "uzbqyviqpbyfauyzbuxnaekc"
+  "id": "yhpbgmiqjvwfipinazcamaau"
 }

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1670064004446,
-  "updatedAt": 1670064004446,
+  "createdAt": 1673862976763,
+  "updatedAt": 1673862976763,
   "deletedAt": 0,
-  "createdFirstAt": 1670064004446,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862976763,
+  "isApiExposed": false,
   "isExported": false,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/FunctionExecution.ts",
   "commentsInside": [],
   "rawText": " async (functionName: string) => {\n  // const examples = (await db.get(\"FunctionExecution\")).filter(x=>x.isExample && x.functionName === functionName)\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "kzasjnvjdmxepgnzbucffpdq"
+  "id": "bpvhlnnjhaqykljrubnxnqqi"
 }

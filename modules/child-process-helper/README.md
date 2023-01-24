@@ -13,7 +13,7 @@ promises to exec something with response and success as result (Promised)
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| command | string |  |
+| command | string |  |,| execOptions | `ExecOptions` |  |
 | **Output** |    |    |
 
 

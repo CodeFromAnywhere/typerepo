@@ -1,0 +1,24 @@
+{
+  "createdAt": 1671477281400,
+  "updatedAt": 1671477281400,
+  "deletedAt": 0,
+  "createdFirstAt": 1671477281400,
+  "contextType": [
+    "text"
+  ],
+  "categoryStack": [],
+  "pricing": "bad",
+  "slug": "investor-pitch",
+  "name": "investor-pitch",
+  "language": "english",
+  "id": "xrgvdmazsintesiwioygqgxm",
+  "title": "Investor pitch",
+  "description": "This prompt will give you advise on how to pitch the content of your file to investors (if it were a valuable idea)",
+  "model": "chat-gpt",
+  "promptContent": "I am reading this file:\n\n```\n%context\n```\n\nHow would you pitch this to an investor?",
+  "folderContentContext": "summary",
+  "usesContext": true,
+  "usesSelection": false,
+  "usesAnyContext": false,
+  "isFavorite": true
+}

@@ -1,0 +1,132 @@
+{
+  "createdAt": 1674542299522,
+  "updatedAt": 1674542299522,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542299522,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "initialEdges",
+  "slug": "initial-edges",
+  "operationRelativeTypescriptFilePath": "src/components/function-web/Flow.tsx",
+  "type": {
+    "rawType": "{ id: string; source: string; sourceHandle: string; target: string; }[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "source": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "sourceHandle": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          },
+          "target": {
+            "type": "string",
+            "allOf": [
+              {
+                "transform": [
+                  "trim"
+                ]
+              },
+              {
+                "minLength": 1
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "source",
+          "sourceHandle",
+          "target"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "id",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "source",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "sourceHandle",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "target",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "value": "[\n  { id: \"edge-1\", source: \"node-1\", sourceHandle: \"a\", target: \"node-2\" },\n  { id: \"edge-2\", source: \"node-1\", sourceHandle: \"b\", target: \"node-3\" },\n]",
+  "description": "",
+  "id": "blhbgvodggoumbwpmpmravmt"
+}

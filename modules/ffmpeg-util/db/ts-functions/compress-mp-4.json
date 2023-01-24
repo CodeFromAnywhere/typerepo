@@ -1,14 +1,13 @@
 {
-  "createdAt": 1671316354898,
-  "updatedAt": 1671316354898,
+  "createdAt": 1674543138299,
+  "updatedAt": 1674543138299,
   "deletedAt": 0,
-  "createdFirstAt": 1671316354898,
-  "isApiExposed": true,
+  "createdFirstAt": 1674543138299,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/compressMp4.ts",
   "commentsInside": [],
-  "rawText": " async (absolutePath: string) => {\n  const result = await compressImage(absolutePath, {\n    quality: 20,\n    sizeWidthPx: 360,\n    targetFormat: \"mp4\",\n    isDebug: true,\n  });\n  console.log({ result });\n}",
+  "rawText": " async (absolutePath: string) => {\n  const result = await compressConvert(absolutePath, {\n    quality: 20,\n    sizeWidthPx: 360,\n    targetFormat: \"mp4\",\n    fps: 4,\n    isDebug: true,\n  });\n  console.log({ result });\n}",
   "name": "compressMp4",
   "slug": "compress-mp-4",
   "parameters": [
@@ -35,13 +34,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 231,
-    "lines": 9,
-    "bytes": 231,
+    "characters": 245,
+    "lines": 10,
+    "bytes": 245,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 26,
-    "linesPerFile": 9,
+    "charactersPerLine": 25,
+    "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "omrtijjvazzeaocfwvqrchsu"
+  "id": "gdsghxtqplupnnpjogwxmxre"
 }

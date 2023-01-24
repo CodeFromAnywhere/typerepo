@@ -1,0 +1,135 @@
+{
+  "createdAt": 1673379265642,
+  "updatedAt": 1673379265642,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379265642,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "generativeWebInitialValues",
+  "slug": "generative-web-initial-values",
+  "operationRelativeTypescriptFilePath": "src/components/store.ts",
+  "type": {
+    "rawType": "{ \"generativeWeb.defaultVariant\": string | null; \"generativeWeb.isEditing\": boolean; \"generativeWeb.config\": { disableAdmin?: boolean | undefined; customAbsoluteBasePaths?: string[] | undefined; activeCustomBasePath?: string | undefined; }; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "generativeWeb.defaultVariant": {
+          "type": "string | null"
+        },
+        "generativeWeb.isEditing": {
+          "type": "boolean"
+        },
+        "generativeWeb.config": {
+          "type": "object",
+          "properties": {
+            "disableAdmin": {
+              "type": "boolean"
+            },
+            "customAbsoluteBasePaths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              }
+            },
+            "activeCustomBasePath": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            }
+          }
+        }
+      },
+      "required": [
+        "generativeWeb.isEditing",
+        "generativeWeb.config"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "generativeWeb.defaultVariant",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "generativeWeb.isEditing",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "generativeWeb.config",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "disableAdmin",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "customAbsoluteBasePaths",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "activeCustomBasePath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{\n  \"generativeWeb.defaultVariant\": null,\n  \"generativeWeb.isEditing\": false,\n  \"generativeWeb.config\": {},\n}",
+  "description": "",
+  "id": "ucmvvvwxaqbjyjbzqpzotjbt"
+}

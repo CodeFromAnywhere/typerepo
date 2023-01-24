@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671101613263,
-  "updatedAt": 1671101613263,
+  "createdAt": 1672637653055,
+  "updatedAt": 1672637653055,
   "deletedAt": 0,
-  "createdFirstAt": 1671101613263,
+  "createdFirstAt": 1672637653055,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFileContents.ts",
   "commentsInside": [],
-  "rawText": " async (\n  projectRelativeFilePath: string\n): Promise<{\n  isSuccessful: boolean;\n  message?: string;\n  fileContents?: string;\n}> => {\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const stats = await fs.stat(absolutePath);\n\n  if (stats.size > 1024 * 1024 || stats.isDirectory()) {\n    return {\n      isSuccessful: false,\n      message: \"That's a directory or bigger than 1MB\",\n    };\n  }\n\n  const fileContents = await fs.readFile(absolutePath, \"utf8\");\n\n  return { fileContents, isSuccessful: true };\n}",
+  "rawText": " async (\n  projectRelativeFilePath?: string\n): Promise<{\n  isSuccessful: boolean;\n  message?: string;\n  fileContents?: string;\n}> => {\n  if (!projectRelativeFilePath) {\n    return {\n      isSuccessful: false,\n      message: \"No path\",\n    };\n  }\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const stats = await fs.stat(absolutePath);\n\n  if (stats.size > 1024 * 1024 || stats.isDirectory()) {\n    return {\n      isSuccessful: false,\n      message: \"That's a directory or bigger than 1MB\",\n    };\n  }\n\n  const fileContents = await fs.readFile(absolutePath, \"utf8\");\n\n  return { fileContents, isSuccessful: true };\n}",
   "name": "getFileContents",
   "slug": "get-file-contents",
   "parameters": [
@@ -20,7 +20,7 @@
       "simplifiedSchema": {
         "type": "string"
       },
-      "required": true
+      "required": false
     }
   ],
   "description": "Gets the contents of a file in the project",
@@ -35,13 +35,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 815,
-    "lines": 32,
-    "bytes": 815,
+    "characters": 927,
+    "lines": 38,
+    "bytes": 927,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 25,
-    "linesPerFile": 32,
+    "charactersPerLine": 24,
+    "linesPerFile": 38,
     "numberOfFiles": 1
   },
-  "id": "dsnijjkkxxsnwriysxkoobfx"
+  "id": "arhhbxqbcnkbbfutsyusriiq"
 }

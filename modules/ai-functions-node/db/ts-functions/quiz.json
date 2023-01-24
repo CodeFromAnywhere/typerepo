@@ -1,0 +1,67 @@
+{
+  "createdAt": 1674133292869,
+  "updatedAt": 1674133292869,
+  "deletedAt": 0,
+  "createdFirstAt": 1674133292869,
+  "isApiExposed": false,
+  "isExported": true,
+  "explicitTypeName": "PromptFunction",
+  "operationRelativeTypescriptFilePath": "src/prompts.ts",
+  "commentsInside": [],
+  "rawText": " async (contextContent: string, prompt_projectRelativePath: string, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"quiz\",\n      contextContent,\nprompt_projectRelativePath\n    });\n\n    return result;\n\n  }",
+  "name": "quiz",
+  "slug": "quiz",
+  "parameters": [
+    {
+      "name": "contextContent",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "prompt_projectRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "isDeferred",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "Quiz",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 283,
+    "lines": 12,
+    "bytes": 283,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "nteuptsjoalhvsuearpxenvu"
+}

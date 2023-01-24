@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674476835905,
+  "updatedAt": 1674476835905,
+  "deletedAt": 0,
+  "createdFirstAt": 1674476835905,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "readerPageGetStaticProps",
+  "slug": "reader-page-get-static-props",
+  "operationRelativeTypescriptFilePath": "src/readerPageGetStatic.ts",
+  "type": {
+    "rawType": "(context: import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").GetStaticPropsContext<import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").ParsedUrlQuery, import(\"/Users/king/King/operations/tools/purpose/codebase-introspection/reader/next-types/build/types\").PreviewData>) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  context: GetStaticPropsContext\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    // NB: this can happen on revalidation and blocked static requests, because we aren't using .projectRoot file anywhere. It's fine\n    console.log(\"NO PROJECTROOT\");\n\n    const props: ReaderProps = {\n      notFound: true,\n      notFoundReason: \"This file cannot be found.\",\n    };\n\n    return { props };\n  }\n\n  const basePath = process.env.NEXT_PUBLIC_BASEPATH;\n\n  // the queryPath from\n  const queryPath = context.params?.queryPath;\n  const realQueryPathArray = queryPath ? makeArray(queryPath) : [];\n  const realQueryPath = realQueryPathArray.join(\"/\");\n\n  const staticPropResult = omitUndefinedValues(\n    await getReaderPageProps(basePath || \"\", realQueryPath, false)\n  );\n\n  return staticPropResult;\n}",
+  "description": "",
+  "id": "bmqqpwttoetjcqookabvcnwb"
+}

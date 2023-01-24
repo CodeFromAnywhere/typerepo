@@ -1,0 +1,33 @@
+{
+  "createdAt": 1672134430060,
+  "updatedAt": 1672134430060,
+  "deletedAt": 0,
+  "createdFirstAt": 1672134430060,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "setBrowserSession",
+  "slug": "set-browser-session",
+  "operationRelativeTypescriptFilePath": "src/browserSession.ts",
+  "type": {
+    "rawType": "(browser: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Browser) => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(browser: Browser) => {\n    browserSession.set(\"browser\", browser);\n}",
+  "description": "",
+  "id": "tpibjlmupbtrdqwzxnunsqvd"
+}

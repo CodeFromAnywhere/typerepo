@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671317011602,
-  "updatedAt": 1671317011602,
+  "createdAt": 1673862676924,
+  "updatedAt": 1673862676924,
   "deletedAt": 0,
-  "createdFirstAt": 1671317011602,
+  "createdFirstAt": 1673862676924,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const peerMessages = await db.get(\"PeerMessage\", {\n    include: { referenceKey: \"peerSlug\" },\n  });\n\n  const sortedPeerMessages = peerMessages\n    .sort((a, b) => {\n      return a.createdAt < b.createdAt ? 1 : -1;\n    })\n    .slice(0, 1000);\n\n  return sortedPeerMessages;\n}",
   "description": "",
-  "id": "wfuybcutrqeqszzgtqtokvqu"
+  "id": "holeynpijksctmdhmiokipjo"
 }

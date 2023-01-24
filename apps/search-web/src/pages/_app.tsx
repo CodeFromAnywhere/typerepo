@@ -3,6 +3,7 @@ import { AuthenticationLayout } from "layout";
 import Head from "next/head";
 import ProgressBar from "@badrap/bar-of-progress";
 import Router from "next/router";
+import { Div } from "react-with-native";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { AlertProvider } from "react-with-native-alert";
 import { ModalProvider } from "react-with-native-modal";
@@ -31,7 +32,6 @@ import "react-with-native-router/css.css";
 import "react-with-native-select/css.css";
 import "react-with-native-store/css.css";
 import "react-with-native-ui/css.css";
-import "react-with-native-table/css.css";
 import "big-button/css.css";
 import "fancy-loader/css.css";
 import "apps-menu/css.css";
@@ -45,8 +45,6 @@ import "function-form/css.css";
 import "simplified-schema-form/css.css";
 import "big-button/css.css";
 
-import { Div } from "react-with-native";
-
 const progress = new ProgressBar();
 
 //Binding events.
@@ -57,8 +55,6 @@ Router.events.on("routeChangeError", progress.finish);
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
   return (
     <QueryClientProvider client={queryClient}>
       <Head>
@@ -69,8 +65,14 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
         />
 
-        <meta name="description" content="Description" />
-        <meta name="keywords" content="Keywords" />
+        <meta
+          name="description"
+          content="Yougle is a search engine that helps you automate parts of your workflow"
+        />
+        <meta
+          name="keywords"
+          content="ai, search engine, artificial intelligence"
+        />
 
         <link rel="manifest" href="/manifest.json" />
         <link
@@ -88,7 +90,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="apple-touch-icon" href="/apple-icon.png"></link>
         <meta name="theme-color" content="#317EFB" />
 
-        <title>Search</title>
+        <title>Clarity AI</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -110,17 +112,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ToastContainer />
       <AlertProvider>
         <StoreProvider>
-          <ModalProvider>
-            <AuthenticationLayout
-              customHeader={
-                <Div className="absolute top-0 right-0 p-4 z-50 rounded-bl-full bg-green-400">
-                  <MeAuthenticationInfo />
-                </Div>
-              }
-              nextPage={Component}
-              pageProps={pageProps}
-            />
-          </ModalProvider>
+          {/* <ModalProvider> */}
+          <Component {...pageProps} />
+          {/* </ModalProvider> */}
         </StoreProvider>
       </AlertProvider>
     </QueryClientProvider>

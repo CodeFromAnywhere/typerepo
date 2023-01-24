@@ -1,4 +1,6 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.deployToVercel=void 0;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.deployToVercel = void 0;
 /**
  * NB: Obviously, this is not the right place for this function, but none of these functions are properly located yet...
  *
@@ -6,5 +8,6 @@
  *
  * should return an url where the project will be served and the estimated time when it will be live
  */
-var deployToVercel=function(){};exports.deployToVercel=deployToVercel;
+var deployToVercel = function () { };
+exports.deployToVercel = deployToVercel;
 //# sourceMappingURL=deployToVercel.js.map

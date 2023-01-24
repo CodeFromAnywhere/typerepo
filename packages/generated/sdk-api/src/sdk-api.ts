@@ -14,6 +14,7 @@ import { mapChunkRecursively } from "make-codestory";
 import { mapMarkdownParseSections } from "make-codestory";
 import { writeAllCodestories } from "make-codestory";
 import { writeCodespanDetails } from "make-codestory";
+import { addEmojiToEveryWord } from "ai-functions-node";
 import { addStatement } from "ai-functions-node";
 import { addWord } from "ai-functions-node";
 import { biggestFunctionName } from "ai-functions-node";
@@ -21,7 +22,6 @@ import { checkQueue } from "ai-functions-node";
 import { cleanup } from "ai-functions-node";
 import { controlChatGptWrapper } from "ai-functions-node";
 import { controlChatGpt } from "ai-functions-node";
-import { convertTo1337speak } from "ai-functions-node";
 import { deletePromptResult } from "ai-functions-node";
 import { developersQuote } from "ai-functions-node";
 import { diaryToInstagram } from "ai-functions-node";
@@ -30,27 +30,36 @@ import { emojiAugmentation } from "ai-functions-node";
 import { explainInDutch } from "ai-functions-node";
 import { explainInNepali } from "ai-functions-node";
 import { explainInPortuguese } from "ai-functions-node";
+import { explainLineByLine } from "ai-functions-node";
 import { explain } from "ai-functions-node";
 import { fixGrammarAndSpellingMistakes } from "ai-functions-node";
+import { followUpQuestions } from "ai-functions-node";
 import { getContextualPromptCategories } from "ai-functions-node";
 import { getContextualPromptResultJsonFilePath } from "ai-functions-node";
 import { getContextualPrompt } from "ai-functions-node";
 import { getObjectForkKeyRecursively } from "ai-functions-node";
+import { getToolFunctions } from "ai-functions-node";
 import { gptIdeasRegisterWithContext } from "ai-functions-node";
 import { haiku } from "ai-functions-node";
+import { hookOneliners } from "ai-functions-node";
 import { improveCode } from "ai-functions-node";
-import { keywords } from "ai-functions-node";
+import { investorPitch } from "ai-functions-node";
 import { marcusAurelius } from "ai-functions-node";
+import { opposite } from "ai-functions-node";
+import { outlineToInvestorPitch } from "ai-functions-node";
 import { poem } from "ai-functions-node";
 import { processChatGptPrompt } from "ai-functions-node";
 import { processPromptOnFile } from "ai-functions-node";
-import { processPromptOnFolder } from "ai-functions-node";
+import { processPromptOnFolderWithContext } from "ai-functions-node";
+import { quiz } from "ai-functions-node";
 import { removeAllFake } from "ai-functions-node";
 import { rickAndMortyRick } from "ai-functions-node";
 import { rickAndMorty } from "ai-functions-node";
 import { setIsFavoritePromptResult } from "ai-functions-node";
+import { shouldAddToQueue } from "ai-functions-node";
 import { socratesAndSnoopDogg } from "ai-functions-node";
 import { storytelling } from "ai-functions-node";
+import { toolFunctionWithContext } from "ai-functions-node";
 import { translateEverythingIntoHindi } from "ai-functions-node";
 import { translateEverythingPortuguese } from "ai-functions-node";
 import { translateEverything } from "ai-functions-node";
@@ -136,6 +145,13 @@ import { validateInput } from "db-recipes";
 import { validateResult } from "db-recipes";
 import { filterInterfacesFromOperationNames } from "db-util";
 import { getDbModelsFromOperations } from "db-util";
+import { docsGetPages } from "docs-get-pages";
+import { getMarkdownReaderPages } from "docs-get-pages";
+import { getPublicMarkdownFilePaths } from "docs-get-pages";
+import { removeExtensionsFromPath } from "docs-get-pages";
+import { removeNumberPrefix } from "docs-get-pages";
+import { shouldExposeMarkdownFile } from "docs-get-pages";
+import { stripReadmeFromFolder } from "docs-get-pages";
 import { comparePassword } from "encrypt-password";
 import { encryptPassword } from "encrypt-password";
 import { exploreOperation } from "explore-project";
@@ -149,18 +165,23 @@ import { getProjectRelativePaths } from "explore-project";
 import { getTodoPages } from "explore-project";
 import { getTodoPaths } from "explore-project";
 import { hasSameProjectPath } from "explore-project";
-import { compressImage } from "ffmpeg-util";
+import { compressConvert } from "ffmpeg-util";
 import { compressImages } from "ffmpeg-util";
 import { compressMp4 } from "ffmpeg-util";
 import { convertToMp3 } from "ffmpeg-util";
 import { convertToMp4 } from "ffmpeg-util";
+import { fileExplorerOpen } from "file-explorer-open";
 import { findAllDependencyOperations } from "find-all-dependency-operations";
 import { findDependantsRecursively } from "find-all-dependency-operations";
 import { findDependants } from "find-all-dependency-operations";
 import { findDependenciesRecursively } from "find-all-dependency-operations";
+import { findMonorepoExports } from "find-all-dependency-operations";
+import { findMonorepoImports } from "find-all-dependency-operations";
 import { findMonorepoModules } from "find-all-dependency-operations";
 import { getDependencyObject } from "find-all-dependency-operations";
 import { getDependencyTree } from "find-all-dependency-operations";
+import { getOldDependencyTree } from "find-all-dependency-operations";
+import { getOperationDependencyReasons } from "find-all-dependency-operations";
 import { folderGetUpdatedAt } from "folder-get-updated-at";
 import { addDefaultValues } from "fs-orm";
 import { alterAny } from "fs-orm";
@@ -204,6 +225,7 @@ import { isPathRelative } from "fs-util-js";
 import { makeRelative } from "fs-util-js";
 import { removeTrailingSlash } from "fs-util-js";
 import { withoutExtension } from "fs-util-js";
+import { withoutSubExtensions } from "fs-util-js";
 import { getFunctionExecutions } from "function-functions-node";
 import { getFunctionQueryPaths } from "function-functions-node";
 import { getPublicBundleConfig } from "function-functions-node";
@@ -239,6 +261,20 @@ import { newFunctionSdkOperation } from "generate-sdk-operations";
 import { tsFunctionIsIndexable } from "generate-sdk-operations";
 import { tsFunctionIsSdkable } from "generate-sdk-operations";
 import { updateClassifications } from "generate-sdk-operations";
+import { augmentMarkdown } from "generative-functions-node";
+import { canSeeFileContent } from "generative-functions-node";
+import { canSeeFile } from "generative-functions-node";
+import { expandFrontmatter } from "generative-functions-node";
+import { findClosestAbsolutePath } from "generative-functions-node";
+import { getContextualPromptResults } from "generative-functions-node";
+import { getContextualPromptsArray } from "generative-functions-node";
+import { getContextualPrompts } from "generative-functions-node";
+import { getFirstFile } from "generative-functions-node";
+import { getFolderRelativeScopeDbFilePath } from "generative-functions-node";
+import { getReaderPageProps } from "generative-functions-node";
+import { makeMarkdownLink } from "generative-functions-node";
+import { readerPageGetStaticPaths } from "generative-functions-node";
+import { readerPageGetStaticProps } from "generative-functions-node";
 import { getAllOperationSourcePaths } from "get-all-operation-source-paths";
 import { getImportedDependencies } from "get-imported-dependencies";
 import { getPackage } from "get-imported-dependencies";
@@ -291,6 +327,9 @@ import { removeTypescriptIndex } from "index-typescript";
 import { schemaToTsInterface } from "index-typescript";
 import { tryCreateSchema } from "index-typescript";
 import { typeToSchema } from "index-typescript";
+import { fetchWithTimeout } from "is-online";
+import { isOnline } from "is-online";
+import { isSystemBusy } from "is-system-busy";
 import { dev } from "k-dev";
 import { determineFileType } from "k-explore";
 import { exploreGitRepoFolders } from "k-explore";
@@ -304,10 +343,14 @@ import { findAllFoldersWithName } from "k-explore";
 import { findAllPackages } from "k-explore";
 import { findAllTodoFolderPaths } from "k-explore";
 import { findFilesRecursively } from "k-explore";
+import { getFolderTypescriptFiles } from "k-explore";
 import { pathArrayIsOperation } from "k-explore";
 import { runTestsForOperation } from "k-test";
 import { runTests } from "k-test";
 import { preIndexLint } from "lint";
+import { isLocked } from "lock-util";
+import { lock } from "lock-util";
+import { unlock } from "lock-util";
 import { sendMail } from "mail";
 import { addDependantCount } from "markdown-parsings";
 import { bundleFolderWithMarkdown } from "markdown-parsings";
@@ -352,7 +395,6 @@ import { tsInterfaceToMarkdownString } from "markdown-parsings";
 import { tsVariableToMarkdownString } from "markdown-parsings";
 import { upMarkdownChunkLevelRecursively } from "markdown-parsings";
 import { copyStaticAssets } from "markdown-reader-functions";
-import { docsGetPages } from "markdown-reader-functions";
 import { docsGetStaticPaths } from "markdown-reader-functions";
 import { docsGetStaticProps } from "markdown-reader-functions";
 import { getAllMarkdownReaderPages } from "markdown-reader-functions";
@@ -360,19 +402,13 @@ import { getChildren } from "markdown-reader-functions";
 import { getFolderExplorationInfo } from "markdown-reader-functions";
 import { getMarkdownModelPages } from "markdown-reader-functions";
 import { getMarkdownPageInfo } from "markdown-reader-functions";
-import { getMarkdownReaderPages } from "markdown-reader-functions";
 import { getMarkdownReaderQueryPaths } from "markdown-reader-functions";
 import { getOperationPages } from "markdown-reader-functions";
-import { getPublicMarkdownFilePaths } from "markdown-reader-functions";
 import { getReaderTodoPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticPaths } from "markdown-reader-functions";
 import { markdownReaderGetStaticPropsFromPages } from "markdown-reader-functions";
 import { markdownReaderGetStaticProps } from "markdown-reader-functions";
 import { putReadmeOnTop } from "markdown-reader-functions";
-import { removeExtensionsFromPath } from "markdown-reader-functions";
-import { removeNumberPrefix } from "markdown-reader-functions";
-import { shouldExposeMarkdownFile } from "markdown-reader-functions";
-import { stripReadmeFromFolder } from "markdown-reader-functions";
 import { getQueryPath } from "markdown-reader-functions-js";
 import { minifyBuild } from "minify-build";
 import { getAvailableOperationName } from "new-template";
@@ -478,7 +514,9 @@ import { parseDialogue } from "short-markdown-parser-node";
 import { uberduckGetPath } from "short-markdown-parser-node";
 import { uberduckSpeak } from "short-markdown-parser-node";
 import { voiceCloneDialogue } from "short-markdown-parser-node";
+import { sendDailyAlarmSms } from "sms";
 import { sendSms } from "sms";
+import { time } from "time";
 import { getAllTsMorphSourceFiles } from "ts-morph-util";
 import { getHasGeneric } from "ts-morph-util";
 import { getTsMorphProject } from "ts-morph-util";
@@ -539,6 +577,7 @@ import { camelCase } from "convert-case";
 import { capitalCase } from "convert-case";
 import { capitaliseFirstLetter } from "convert-case";
 import { convertCase } from "convert-case";
+import { fileSlugify } from "convert-case";
 import { getDelimiter } from "convert-case";
 import { humanCase } from "convert-case";
 import { kebabCase } from "convert-case";
@@ -593,6 +632,7 @@ import { oneUp } from "fs-util";
 import { parseMd } from "fs-util";
 import { removeAllExcept } from "fs-util";
 import { renameAndCreate } from "fs-util";
+import { updateSingleNestedJsonFile } from "fs-util";
 import { writeJsonToFile } from "fs-util";
 import { writeStringToFile } from "fs-util";
 import { writeToFiles } from "fs-util";
@@ -618,6 +658,7 @@ import { getRelativeLinkPath } from "get-path";
 import { getRelativePath } from "get-path";
 import { getRootPath } from "get-path";
 import { getSrcRelativeFileId } from "get-path";
+import { getSubExtensions } from "get-path";
 import { hasDependency } from "get-path";
 import { isBundle } from "get-path";
 import { isOperation } from "get-path";
@@ -655,6 +696,7 @@ import { objectMapAsync } from "js-util";
 import { objectMapSync } from "js-util";
 import { objectValuesMap } from "js-util";
 import { omitUndefinedValues } from "js-util";
+import { onlyDuplicates } from "js-util";
 import { onlyUnique2 } from "js-util";
 import { onlyUnique } from "js-util";
 import { pickRandomArrayItem } from "js-util";
@@ -703,6 +745,7 @@ import { removeHeaderPrefix } from "markdown-parse-js";
 import { markdownParseToMarkdownModelType } from "markdown-types";
 import { parseMarkdownModelTimestamp } from "markdown-types";
 import { tryParseDate } from "markdown-types";
+import { findCodeblocks } from "marked-util";
 import { findCodespans } from "marked-util";
 import { findEmbeds } from "marked-util";
 import { findLinks } from "marked-util";
@@ -748,6 +791,7 @@ import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
 import { getBrowserPageById } from "puppeteer-utils";
 import { getBrowserTabs } from "puppeteer-utils";
+import { getBrowser } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
 import { getConnectedBrowsers } from "puppeteer-utils";
 import { getIdlePage } from "puppeteer-utils";
@@ -763,6 +807,7 @@ import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
 import { setBrowserPageIdle } from "puppeteer-utils";
+import { setBrowserSession } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
 import { solveReptcha } from "puppeteer-utils";
@@ -829,6 +874,7 @@ mapChunkRecursively,
 mapMarkdownParseSections,
 writeAllCodestories,
 writeCodespanDetails,
+addEmojiToEveryWord,
 addStatement,
 addWord,
 biggestFunctionName,
@@ -836,7 +882,6 @@ checkQueue,
 cleanup,
 controlChatGptWrapper,
 controlChatGpt,
-convertTo1337speak,
 deletePromptResult,
 developersQuote,
 diaryToInstagram,
@@ -845,27 +890,36 @@ emojiAugmentation,
 explainInDutch,
 explainInNepali,
 explainInPortuguese,
+explainLineByLine,
 explain,
 fixGrammarAndSpellingMistakes,
+followUpQuestions,
 getContextualPromptCategories,
 getContextualPromptResultJsonFilePath,
 getContextualPrompt,
 getObjectForkKeyRecursively,
+getToolFunctions,
 gptIdeasRegisterWithContext,
 haiku,
+hookOneliners,
 improveCode,
-keywords,
+investorPitch,
 marcusAurelius,
+opposite,
+outlineToInvestorPitch,
 poem,
 processChatGptPrompt,
 processPromptOnFile,
-processPromptOnFolder,
+processPromptOnFolderWithContext,
+quiz,
 removeAllFake,
 rickAndMortyRick,
 rickAndMorty,
 setIsFavoritePromptResult,
+shouldAddToQueue,
 socratesAndSnoopDogg,
 storytelling,
+toolFunctionWithContext,
 translateEverythingIntoHindi,
 translateEverythingPortuguese,
 translateEverything,
@@ -951,6 +1005,13 @@ validateInput,
 validateResult,
 filterInterfacesFromOperationNames,
 getDbModelsFromOperations,
+docsGetPages,
+getMarkdownReaderPages,
+getPublicMarkdownFilePaths,
+removeExtensionsFromPath,
+removeNumberPrefix,
+shouldExposeMarkdownFile,
+stripReadmeFromFolder,
 comparePassword,
 encryptPassword,
 exploreOperation,
@@ -964,18 +1025,23 @@ getProjectRelativePaths,
 getTodoPages,
 getTodoPaths,
 hasSameProjectPath,
-compressImage,
+compressConvert,
 compressImages,
 compressMp4,
 convertToMp3,
 convertToMp4,
+fileExplorerOpen,
 findAllDependencyOperations,
 findDependantsRecursively,
 findDependants,
 findDependenciesRecursively,
+findMonorepoExports,
+findMonorepoImports,
 findMonorepoModules,
 getDependencyObject,
 getDependencyTree,
+getOldDependencyTree,
+getOperationDependencyReasons,
 folderGetUpdatedAt,
 addDefaultValues,
 alterAny,
@@ -1019,6 +1085,7 @@ isPathRelative,
 makeRelative,
 removeTrailingSlash,
 withoutExtension,
+withoutSubExtensions,
 getFunctionExecutions,
 getFunctionQueryPaths,
 getPublicBundleConfig,
@@ -1054,6 +1121,20 @@ newFunctionSdkOperation,
 tsFunctionIsIndexable,
 tsFunctionIsSdkable,
 updateClassifications,
+augmentMarkdown,
+canSeeFileContent,
+canSeeFile,
+expandFrontmatter,
+findClosestAbsolutePath,
+getContextualPromptResults,
+getContextualPromptsArray,
+getContextualPrompts,
+getFirstFile,
+getFolderRelativeScopeDbFilePath,
+getReaderPageProps,
+makeMarkdownLink,
+readerPageGetStaticPaths,
+readerPageGetStaticProps,
 getAllOperationSourcePaths,
 getImportedDependencies,
 getPackage,
@@ -1106,6 +1187,9 @@ removeTypescriptIndex,
 schemaToTsInterface,
 tryCreateSchema,
 typeToSchema,
+fetchWithTimeout,
+isOnline,
+isSystemBusy,
 dev,
 determineFileType,
 exploreGitRepoFolders,
@@ -1119,10 +1203,14 @@ findAllFoldersWithName,
 findAllPackages,
 findAllTodoFolderPaths,
 findFilesRecursively,
+getFolderTypescriptFiles,
 pathArrayIsOperation,
 runTestsForOperation,
 runTests,
 preIndexLint,
+isLocked,
+lock,
+unlock,
 sendMail,
 addDependantCount,
 bundleFolderWithMarkdown,
@@ -1167,7 +1255,6 @@ tsInterfaceToMarkdownString,
 tsVariableToMarkdownString,
 upMarkdownChunkLevelRecursively,
 copyStaticAssets,
-docsGetPages,
 docsGetStaticPaths,
 docsGetStaticProps,
 getAllMarkdownReaderPages,
@@ -1175,19 +1262,13 @@ getChildren,
 getFolderExplorationInfo,
 getMarkdownModelPages,
 getMarkdownPageInfo,
-getMarkdownReaderPages,
 getMarkdownReaderQueryPaths,
 getOperationPages,
-getPublicMarkdownFilePaths,
 getReaderTodoPages,
 markdownReaderGetStaticPaths,
 markdownReaderGetStaticPropsFromPages,
 markdownReaderGetStaticProps,
 putReadmeOnTop,
-removeExtensionsFromPath,
-removeNumberPrefix,
-shouldExposeMarkdownFile,
-stripReadmeFromFolder,
 getQueryPath,
 minifyBuild,
 getAvailableOperationName,
@@ -1293,7 +1374,9 @@ parseDialogue,
 uberduckGetPath,
 uberduckSpeak,
 voiceCloneDialogue,
+sendDailyAlarmSms,
 sendSms,
+time,
 getAllTsMorphSourceFiles,
 getHasGeneric,
 getTsMorphProject,
@@ -1354,6 +1437,7 @@ camelCase,
 capitalCase,
 capitaliseFirstLetter,
 convertCase,
+fileSlugify,
 getDelimiter,
 humanCase,
 kebabCase,
@@ -1408,6 +1492,7 @@ oneUp,
 parseMd,
 removeAllExcept,
 renameAndCreate,
+updateSingleNestedJsonFile,
 writeJsonToFile,
 writeStringToFile,
 writeToFiles,
@@ -1433,6 +1518,7 @@ getRelativeLinkPath,
 getRelativePath,
 getRootPath,
 getSrcRelativeFileId,
+getSubExtensions,
 hasDependency,
 isBundle,
 isOperation,
@@ -1470,6 +1556,7 @@ objectMapAsync,
 objectMapSync,
 objectValuesMap,
 omitUndefinedValues,
+onlyDuplicates,
 onlyUnique2,
 onlyUnique,
 pickRandomArrayItem,
@@ -1518,6 +1605,7 @@ removeHeaderPrefix,
 markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
+findCodeblocks,
 findCodespans,
 findEmbeds,
 findLinks,
@@ -1563,6 +1651,7 @@ foundOrNotXpath,
 foundOrNot,
 getBrowserPageById,
 getBrowserTabs,
+getBrowser,
 getChromeExecutablePath,
 getConnectedBrowsers,
 getIdlePage,
@@ -1578,6 +1667,7 @@ racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
 setBrowserPageIdle,
+setBrowserSession,
 setInnerHtml,
 setInputValue,
 solveReptcha,

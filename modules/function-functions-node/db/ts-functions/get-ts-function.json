@@ -1,11 +1,10 @@
 {
-  "createdAt": 1670527337012,
-  "updatedAt": 1670527337012,
+  "createdAt": 1673862608490,
+  "updatedAt": 1673862608490,
   "deletedAt": 0,
-  "createdFirstAt": 1670527337012,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862608490,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getTsFunction.ts",
   "commentsInside": [],
   "rawText": " async (\n  functionName?: string\n): Promise<undefined | FunctionData> => {\n  const tsFunctions = (await db.get(\"TsFunction\")).filter((x) => x.isExported);\n\n  const tsFunction = tsFunctions.find(\n    (x) => x.name !== undefined && x.name === functionName\n  );\n\n  if (!tsFunction) return;\n\n  const functionData: FunctionData = { tsFunction };\n\n  return functionData;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "iipivlzrcqpwinltenbqpsmy"
+  "id": "qqzeiultfmykgpvoduhundsj"
 }

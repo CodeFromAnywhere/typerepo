@@ -1,0 +1,21 @@
+{
+  "createdAt": 1670186683316,
+  "updatedAt": 1670186683316,
+  "deletedAt": 0,
+  "createdFirstAt": 1670186683316,
+  "name": "explain-line-by-line",
+  "language": "english",
+  "title": "Explain line-by-line",
+  "promptContent": "Replace every line in the code by an explanation of what happens there.\n\n```\n\n%context\n\n```",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "slug": "explain-line-by-line",
+  "id": "fpctghsxkdtjihbrkxdxtmys",
+  "categoryStack": [
+    "code",
+    "code-auditory-interface"
+  ]
+}

@@ -1,0 +1,232 @@
+1
+00:00:00,000 --> 00:00:05,000
+ Okay, so now I will briefly also touch upon the other
+
+2
+00:00:05,000 --> 00:00:06,300
+ features that we're working very
+
+3
+00:00:06,300 --> 00:00:09,500
+ hard for the coming months.
+
+4
+00:00:09,500 --> 00:00:11,260
+ First of all, test automation.
+
+5
+00:00:11,260 --> 00:00:16,210
+ We are working on detecting certain function executions in
+
+6
+00:00:16,210 --> 00:00:18,460
+ the backend so that you can
+
+7
+00:00:18,460 --> 00:00:22,230
+ automatically choose which executions could be tests and
+
+8
+00:00:22,230 --> 00:00:24,500
+ then you can automatically test
+
+9
+00:00:24,500 --> 00:00:25,500
+ them.
+
+10
+00:00:25,500 --> 00:00:29,380
+ We already have a user interface for that but it's still
+
+11
+00:00:29,380 --> 00:00:31,460
+ very experimental so it's not
+
+12
+00:00:31,460 --> 00:00:32,460
+ ready yet.
+
+13
+00:00:32,460 --> 00:00:35,240
+ The second thing is which is kind of related, this
+
+14
+00:00:35,240 --> 00:00:37,580
+ execution monitoring so you can see all
+
+15
+00:00:37,580 --> 00:00:41,990
+ your functions that are executed on the backend and you can
+
+16
+00:00:41,990 --> 00:00:44,100
+ monitor the executions.
+
+17
+00:00:44,100 --> 00:00:46,490
+ Also there is going to be which is one of the most
+
+18
+00:00:46,490 --> 00:00:48,140
+ important things actually.
+
+19
+00:00:48,140 --> 00:00:51,410
+ There's going to be a monetization layer on top of type
+
+20
+00:00:51,410 --> 00:00:53,180
+ repo out of the box which means
+
+21
+00:00:53,180 --> 00:01:00,150
+ that for startups it's very easy to monetize anything you
+
+22
+00:01:00,150 --> 00:01:00,860
+ create.
+
+23
+00:01:00,860 --> 00:01:05,230
+ That's going to really, really shorten your time to market
+
+24
+00:01:05,230 --> 00:01:06,460
+ because you don't have to
+
+25
+00:01:06,460 --> 00:01:10,840
+ build your own integration with something like Stripe
+
+26
+00:01:10,840 --> 00:01:13,500
+ because you just have to provide
+
+27
+00:01:13,500 --> 00:01:16,960
+ your token and then you can from the type repo user
+
+28
+00:01:16,960 --> 00:01:19,600
+ interface create your own settings
+
+29
+00:01:19,600 --> 00:01:22,820
+ for payments for different things.
+
+30
+00:01:22,820 --> 00:01:26,490
+ That's something I'm very excited about but it's going to
+
+31
+00:01:26,490 --> 00:01:28,540
+ take a couple months at least.
+
+32
+00:01:28,540 --> 00:01:31,380
+ Then the most important that we still didn't finish yet is
+
+33
+00:01:31,380 --> 00:01:33,300
+ the authentication and authorization
+
+34
+00:01:33,300 --> 00:01:34,540
+ layer.
+
+35
+00:01:34,540 --> 00:01:37,630
+ That's something that really needs to be there in my
+
+36
+00:01:37,630 --> 00:01:40,540
+ opinion and it will help you to when
+
+37
+00:01:40,540 --> 00:01:44,350
+ you start a new project to immediately have login, sign up,
+
+38
+00:01:44,350 --> 00:01:46,700
+ two factor authentication,
+
+39
+00:01:46,700 --> 00:01:50,260
+ authorization, groups, roles, everything you want in a
+
+40
+00:01:50,260 --> 00:01:52,180
+ regular platform out of the box
+
+41
+00:01:52,180 --> 00:01:56,260
+ so that you don't have to reinvent the wheel.
+
+42
+00:01:56,260 --> 00:02:00,480
+ Last but not least, we want to make it very easy for
+
+43
+00:02:00,480 --> 00:02:02,540
+ developers, for code creators to
+
+44
+00:02:02,540 --> 00:02:06,180
+ earn money with their code that they make.
+
+45
+00:02:06,180 --> 00:02:08,810
+ We're going to build a code marketplace where you can
+
+46
+00:02:08,810 --> 00:02:10,820
+ create your own code and share it not
+
+47
+00:02:10,820 --> 00:02:19,060
+ only open source but also earn money with the code.
+
+48
+00:02:19,060 --> 00:02:22,620
+ There are going to be multiple business models coupled to
+
+49
+00:02:22,620 --> 00:02:24,380
+ it so you can for example earn
+
+50
+00:02:24,380 --> 00:02:30,620
+ for a one-time fee when people buy your source or maybe you
+
+51
+00:02:30,620 --> 00:02:33,420
+ want to earn money by paying
+
+52
+00:02:33,420 --> 00:02:34,820
+ for execution.
+
+53
+00:02:34,820 --> 00:02:39,540
+ These things are something we're working on right now.
+
+54
+00:02:39,540 --> 00:02:43,050
+ These are some insights on the things we're still working
+
+55
+00:02:43,050 --> 00:02:45,020
+ on and in the coming months,
+
+56
+00:02:45,020 --> 00:02:47,020
+ these things will be added to type repo.
+
+57
+00:02:47,020 --> 00:02:49,020
+ Hope you like it.
+
+58
+00:02:49,020 --> 00:02:51,820
+ Let me know what you think and see you in the community.
+

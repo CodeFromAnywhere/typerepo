@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336341352,
-  "updatedAt": 1668336341352,
+  "createdAt": 1673380409617,
+  "updatedAt": 1673380409617,
   "deletedAt": 0,
-  "createdFirstAt": 1668336341352,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380409617,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
   "rawText": " (\n  /**\n   * NB: texts of more than a sentence are not supported\n   */\n  text: string,\n  target: Casing\n) =>\n  text\n    .split(nonCasingDelimiters)\n    .reduce(\n      (all, word) => all.concat(splitCasingDelimiters(word)),\n      [] as string[]\n    )\n    .map((word, index) => convertToTargetCasing(word, index, target))\n    .join(getDelimiter(target))",
@@ -70,5 +65,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "ozxlniopqxgsxawstkvhfcuv"
+  "id": "lnjwrturyxuoeehfhlbjaemf"
 }

@@ -1,0 +1,24 @@
+{
+  "createdAt": 1674543125953,
+  "updatedAt": 1674543125953,
+  "deletedAt": 0,
+  "createdFirstAt": 1674543125953,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "[absolutePath]",
+  "slug": "absolute-path",
+  "operationRelativeTypescriptFilePath": "src/cli/makeWav.cli.ts",
+  "type": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "value": "process.argv.slice(2)",
+  "description": "",
+  "id": "zqqvsmrbkaxorvowmcwektps"
+}

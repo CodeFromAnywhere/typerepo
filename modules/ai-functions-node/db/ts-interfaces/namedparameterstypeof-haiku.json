@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671505954474,
-  "updatedAt": 1671505954474,
+  "createdAt": 1674133288311,
+  "updatedAt": 1674133288311,
   "deletedAt": 0,
-  "createdFirstAt": 1671505954474,
+  "createdFirstAt": 1674133288311,
   "id": "namedparameterstypeof-haiku",
   "name": "NamedParameters<typeof haiku>",
   "slug": "namedparameterstypeof-haiku",
@@ -17,7 +17,10 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
-        "selectionContent": {
+        "anyContext": {
+          "type": "string"
+        },
+        "prompt_projectRelativePath": {
           "type": "string"
         },
         "isDeferred": {
@@ -25,14 +28,22 @@
         }
       },
       "required": [
-        "selectionContent"
+        "anyContext",
+        "prompt_projectRelativePath"
       ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
-          "name": "selectionContent",
+          "name": "anyContext",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "prompt_projectRelativePath",
           "required": true,
           "schema": {
             "type": "string"

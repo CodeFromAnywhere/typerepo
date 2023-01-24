@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671101629958,
-  "updatedAt": 1671101629958,
+  "createdAt": 1672637657523,
+  "updatedAt": 1672637657523,
   "deletedAt": 0,
-  "createdFirstAt": 1671101629958,
+  "createdFirstAt": 1672637657523,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const projectRelativePaths = (await getProjectRelativePaths()) || [];\n\n  const writerWebPages: WriterWebPage[] = projectRelativePaths.map(\n    (projectRelativeFilePath) => {\n      const writerWebPage: WriterWebPage = {\n        pageData: { projectRelativeFilePath },\n        queryPath: projectRelativeFilePath,\n      };\n      return writerWebPage;\n    }\n  );\n\n  return writerWebPages;\n}",
   "description": "",
-  "id": "bdljmsympgyqbioudioonmof"
+  "id": "lxqwsmndnfcrhilvkhoqsxcb"
 }

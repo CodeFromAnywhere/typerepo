@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115959906,
-  "updatedAt": 1671115959906,
+  "createdAt": 1674135570111,
+  "updatedAt": 1674135570111,
   "deletedAt": 0,
-  "createdFirstAt": 1671115959906,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135570111,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getMarkdownModelPages.ts",
   "commentsInside": [],
   "rawText": " async (\n  projectRoot: string\n): Promise<ReaderWebPage[]> => {\n  const markdownModelNames = getObjectKeysArray(modelQueryConfig).filter(\n    (modelName) => {\n      const config = modelQueryConfig[modelName] as QueryConfig;\n\n      const isMarkdownModelType = config.dbStorageMethod === \"markdown\";\n      const noSpecificPath = !config.operationRelativePath;\n      return isMarkdownModelType && noSpecificPath;\n    }\n  );\n\n  const basePaths = markdownModelNames\n    .map((modelName) =>\n      path.join(projectRoot, \"db\", pluralize(kebabCase(modelName)))\n    )\n    .filter((potentialBasePath) => fs.existsSync(potentialBasePath));\n\n  const markdownReaderPages = await getMarkdownReaderPages({\n    projectRoot,\n    basePaths,\n  });\n\n  return markdownReaderPages;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 33,
     "numberOfFiles": 1
   },
-  "id": "axzzgaaciymgoauqcrjukurd"
+  "id": "yxdgtryiyfggpjltmtikxzbr"
 }

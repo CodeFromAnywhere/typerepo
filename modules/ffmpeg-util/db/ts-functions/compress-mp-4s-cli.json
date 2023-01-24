@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671316339558,
-  "updatedAt": 1671316339558,
+  "createdAt": 1674543122799,
+  "updatedAt": 1674543122799,
   "deletedAt": 0,
-  "createdFirstAt": 1671316339558,
-  "isApiExposed": true,
+  "createdFirstAt": 1674543122799,
+  "isApiExposed": false,
   "isExported": false,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/cli/compressMp4s.cli.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const argumentsArray = process.argv.slice(2);\n\n  if (argumentsArray.length > 0) {\n    oneByOne(argumentsArray, async (absoluteOrRelativePath) => {\n      const absoluteFilePath = absoluteOrRelativePath.startsWith(\".\")\n        ? path.join(process.cwd(), absoluteOrRelativePath)\n        : absoluteOrRelativePath;\n\n      if (!absoluteFilePath || !fs.existsSync(absoluteFilePath)) {\n        log(\"couldn't find that path\");\n        return;\n      }\n\n      // console.log({ operationNames, operationName });\n      await compressMp4(absoluteFilePath);\n    });\n  }\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "baadlibnbdjgishceffxjnie"
+  "id": "doepzcokmkmecbmnmeugplmi"
 }

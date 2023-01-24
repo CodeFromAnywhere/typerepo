@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669385442708,
-  "updatedAt": 1669385442708,
+  "createdAt": 1671554618818,
+  "updatedAt": 1671554618818,
   "deletedAt": 0,
-  "createdFirstAt": 1669385442708,
+  "createdFirstAt": 1671554618818,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  queryPaths: string[]\n): NestedPathObject => {\n  const nestedPathObject: NestedPathObject = reduceQueryPathsRecursively(\n    queryPaths,\n    {}\n  );\n  return nestedPathObject;\n}",
   "description": "Handy function to transform an array of `querypaths` into a nested menu, assuming you want to create a new sub-menu for every path\n\nMay also work for relative filePaths\n\nInput:\n\n[\"hello/world\",\"hello/moon\",\"hello/sun\"]\n\nOutput:\n\n{\n\"hello\":{\n\"moon\":null,\n\"world\":null,\n\"sun\":null\n}\n}",
-  "id": "tagswlxbwvwnsgmlpbdruxik"
+  "id": "eldgwjnqnkqhcvkdylsuilqy"
 }

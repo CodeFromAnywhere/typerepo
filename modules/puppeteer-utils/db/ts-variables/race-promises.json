@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457717862,
-  "updatedAt": 1671457717862,
+  "createdAt": 1672134478573,
+  "updatedAt": 1672134478573,
   "deletedAt": 0,
-  "createdFirstAt": 1671457717862,
+  "createdFirstAt": 1672134478573,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  promises: Promise<any>[]\n): Promise<number> => {\n  const indexedPromises: Array<Promise<number>> = promises.map(\n    (promise, index) =>\n      new Promise<number>((resolve) =>\n        promise\n          .then(() => resolve(index))\n          .catch((err) => {\n            console.log(\"RACE PROMISE INDEX \" + index + \" TIMED OUT !!!\");\n          })\n      )\n  );\n  return Promise.race(indexedPromises);\n}",
   "description": "",
-  "id": "emqdcdfjtzxveqgtzkzoegbb"
+  "id": "ykldwmbqvleflznepuaibums"
 }

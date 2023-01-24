@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671116398105,
-  "updatedAt": 1671116398105,
+  "createdAt": 1673863387376,
+  "updatedAt": 1673863387376,
   "deletedAt": 0,
-  "createdFirstAt": 1671116398105,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863387376,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getSizeSummary.ts",
   "commentsInside": [],
   "rawText": " (string: string): SizeSummary => {\n  const characters = string.length;\n  const lines = string.split(\"\\n\").length;\n  const bytes = byteCount(string);\n  return {\n    characters,\n    lines,\n    bytes,\n    bytesPerCharacter: bytes / characters,\n    charactersPerLine: Math.round(characters / lines),\n    linesPerFile: lines,\n    numberOfFiles: 1,\n  };\n}",
@@ -132,5 +131,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "crbaibngzhqjbqpijbvnfysa"
+  "id": "pwjasbwqckhpavgndbsunvaz"
 }

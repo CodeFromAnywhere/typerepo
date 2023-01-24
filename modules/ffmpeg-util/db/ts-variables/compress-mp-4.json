@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316355252,
-  "updatedAt": 1671316355252,
+  "createdAt": 1674543138552,
+  "updatedAt": 1674543138552,
   "deletedAt": 0,
-  "createdFirstAt": 1671316355252,
+  "createdFirstAt": 1674543138552,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (absolutePath: string) => {\n  const result = await compressImage(absolutePath, {\n    quality: 20,\n    sizeWidthPx: 360,\n    targetFormat: \"mp4\",\n    isDebug: true,\n  });\n  console.log({ result });\n}",
+  "value": "async (absolutePath: string) => {\n  const result = await compressConvert(absolutePath, {\n    quality: 20,\n    sizeWidthPx: 360,\n    targetFormat: \"mp4\",\n    fps: 4,\n    isDebug: true,\n  });\n  console.log({ result });\n}",
   "description": "Compress mp4 to very small",
-  "id": "jgroupqsogrfgihbejtjcqbw"
+  "id": "pulygyqcyfukspdbyegrylzd"
 }

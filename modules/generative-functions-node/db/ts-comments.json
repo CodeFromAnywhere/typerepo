@@ -1,0 +1,20 @@
+[
+  {
+    "createdAt": 1674476836155,
+    "updatedAt": 1674476836155,
+    "deletedAt": 0,
+    "createdFirstAt": 1674476836155,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/readerPageGetStatic.ts",
+    "comment": "NB: I can't do this with a fallback , because next.js doesn't include my docs folder into the bundle.\n\nA solution could be to add the docs folder into the next.js folder or copy it...\n\nhttps://github.com/vercel/next.js/discussions/32236?sort=new#discussioncomment-3029649\n\nTher are other workarounds here to make sure it ends up in the bundle.",
+    "rawStatement": "export const readerPageGetStaticPaths: GetStaticPaths = async () => {\n  // TODO: what does context.locale do? can we use that for the domain or so? because it's the only context we have here , so that might be super useful\n\n  const basePath = process.env.NEXT_PUBLIC_BASEPATH;\n  // can probably also fetch the domain using the api, right? I might be able to determine what the basepath is based on an environment variable.\n\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    console.log(\"NO PROJECTROOT\");\n    return { fallback: \"blocking\", paths: [] };\n  }\n\n  const realBasePath = basePath\n    ? path.join(projectRoot, basePath)\n    : projectRoot;\n\n  // const paths = (\n  //   await explore({ basePath: realBasePath, includeFoldersWithResults: true })\n  // ).map((x) => x.path);\n\n  // for now, let's just generate the props every time. later we can fetch the actual paths here, but that would require lots of calculation, so this might actually be fine since it will cache the result. We can also make the page load until the props are provided. I need to read the docs about it to make it all super smooth\n  return {\n    paths: [],\n\n    // paths.map((path) => {\n    //   const queryPath = makeRelative(path, realBasePath).split(\"/\");\n    //   return {\n    //     params: {\n    //       queryPath,\n    //     },\n    //   };\n    // }),\n    // TODO: Maybe needs to be \"false\"?\n    fallback: \"blocking\",\n  };\n};",
+    "parameters": {},
+    "types": [
+      "nb"
+    ],
+    "firstLine": 41,
+    "lastLine": 50,
+    "id": "mgzjuqhlzxlqctwgdfxsmtrx"
+  }
+]

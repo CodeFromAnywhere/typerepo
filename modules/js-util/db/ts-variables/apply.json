@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116953985,
-  "updatedAt": 1671116953985,
+  "createdAt": 1672638766367,
+  "updatedAt": 1672638766367,
   "deletedAt": 0,
-  "createdFirstAt": 1671116953985,
+  "createdFirstAt": 1672638766367,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T>(functions: ((input: T) => T)[], value: T) => {\n  return functions.reduce((val, fn) => {\n    return fn(val);\n  }, value);\n}",
   "description": "function that takes an array of functions and applies them one by one, on the value or the result of the previous function. Only possible if the type of the value stays the same.",
-  "id": "oojdaxvxlqxxxbayvjleyval"
+  "id": "urnnxwszfhtbavrgwrmuhrik"
 }

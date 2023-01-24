@@ -99,6 +99,18 @@ The reduce is a bit vague, I need to  test this function further to make sure it
 
 
 
+## mapChildObjectRecursive()
+
+maps a ChildObject and all it's children, recursively
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## 📄 getKeysAtPathFromNestedObject (exported const)
 
 Gets all children keys of a nested object at a certain (nested) location in the nested object
@@ -106,6 +118,11 @@ Gets all children keys of a nested object at a certain (nested) location in the 
 `nestedObject` should extend the `NestedObject`.
 
 The reduce is a bit vague, I need to  test this function further to make sure it does exactly what I want.
+
+
+## 📄 mapChildObjectRecursive (exported const)
+
+maps a ChildObject and all it's children, recursively
 
 # Internal
 

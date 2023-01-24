@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673380284900,
+  "updatedAt": 1673380284900,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380284900,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findMonorepoExports",
+  "slug": "find-monorepo-exports",
+  "operationRelativeTypescriptFilePath": "src/getDependencyTree.ts",
+  "type": {
+    "rawType": "(allExports: import(\"/Users/king/King/operations/tools/types/code-types/build/TsExport\").TsExport[], operationName: string) => string[]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  allExports: TsExport[],\n  operationName: string\n): string[] => {\n  const uniqueExports = allExports\n    .filter((x) => x.operationName === operationName)\n    .filter(onlyUnique2<TsExport>((a, b) => a.name === b.name))\n    .map((x) => x.name);\n\n  return uniqueExports;\n}",
+  "description": "",
+  "id": "yctmtquesinxaxeaoayommvk"
+}

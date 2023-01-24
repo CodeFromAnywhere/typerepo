@@ -1,0 +1,70 @@
+{
+  "createdAt": 1674133288312,
+  "updatedAt": 1674133288312,
+  "deletedAt": 0,
+  "createdFirstAt": 1674133288312,
+  "id": "namedparameterstypeof-addemojitoeveryword",
+  "name": "NamedParameters<typeof addEmojiToEveryWord>",
+  "slug": "namedparameterstypeof-addemojitoeveryword",
+  "operationRelativeTypescriptFilePath": "src/prompts.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "contextContent": {
+          "type": "string"
+        },
+        "prompt_projectRelativePath": {
+          "type": "string"
+        },
+        "isDeferred": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "contextContent",
+        "prompt_projectRelativePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "contextContent",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "prompt_projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isDeferred",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof addEmojiToEveryWord>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671116453381,
-  "updatedAt": 1671116453381,
+  "createdAt": 1673863474992,
+  "updatedAt": 1673863474992,
   "deletedAt": 0,
-  "createdFirstAt": 1671116453381,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863474992,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util.ts",
   "commentsInside": [],
   "rawText": " (string: string) => {\n  return string.split(\"\\n\").length;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "iubmbzqdmimomdevxuhgfnam"
+  "id": "tcpzkijjwjvzkyaqlldesblh"
 }

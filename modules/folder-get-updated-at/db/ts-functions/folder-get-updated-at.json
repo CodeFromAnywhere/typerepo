@@ -1,24 +1,19 @@
 {
-  "createdAt": 1668331773543,
-  "updatedAt": 1668331773543,
+  "createdAt": 1672636521099,
+  "updatedAt": 1672636521099,
   "deletedAt": 0,
-  "createdFirstAt": 1668331773543,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1672636521099,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/folderGetUpdatedAt.ts",
   "commentsInside": [],
-  "rawText": " async ({\n  folderPath,\n}: {\n  folderPath: string;\n}): Promise<number> => {\n  return (\n    await explore({\n      basePath: folderPath,\n      includeStats: true,\n      extension: [\"ts\", \"tsx\"],\n      ignore: \"index.ts\",\n    })\n  ).reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.updatedAt;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n}",
+  "rawText": " async (config: {\n  folderPath: string;\n}): Promise<number> => {\n  const { folderPath } = config;\n  const typescriptFiles = await getFolderTypescriptFiles(folderPath, true);\n  return typescriptFiles.reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.updatedAt;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n}",
   "name": "folderGetUpdatedAt",
   "slug": "folder-get-updated-at",
   "parameters": [
     {
-      "name": "{\n  folderPath,\n}",
+      "name": "config",
       "schema": {
         "type": "object",
         "properties": {
@@ -46,7 +41,7 @@
       "required": true
     }
   ],
-  "description": "get last updated file updatedAt time in whole folder, recursively",
+  "description": "get last updated file updatedAt time in whole folder, recursively. only finds typescript files, ignores index.",
   "returnType": {
     "rawType": "Promise<number>",
     "typeCoverage": 0,
@@ -56,15 +51,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 3,
+  "maxIndentationDepth": 2,
   "size": {
-    "characters": 505,
-    "lines": 19,
-    "bytes": 505,
+    "characters": 519,
+    "lines": 12,
+    "bytes": 519,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 19,
+    "charactersPerLine": 43,
+    "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "mpvgiurhvjmzqsaermsazbjf"
+  "id": "duqitdblzbonkmbglxosleet"
 }

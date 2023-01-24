@@ -1,0 +1,143 @@
+{
+  "createdAt": 1673379270310,
+  "updatedAt": 1673379270310,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379270310,
+  "id": "namedparameterstypeof-usefileactions",
+  "name": "NamedParameters<typeof useFileActions>",
+  "slug": "namedparameterstypeof-usefileactions",
+  "operationRelativeTypescriptFilePath": "src/components/useFileActions.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "basePath": {
+          "type": "string"
+        },
+        "navigation": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/FolderContent"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "basePath",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "navigation",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "fullComment": "",
+                  "properties": [
+                    {
+                      "name": "name",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "projectRelativePath",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "required": true,
+                      "schema": {
+                        "enum": [
+                          "folder",
+                          "file",
+                          "link",
+                          "unknown"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "firstFile",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "isPrivate",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "isDraft",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "isSecret",
+                      "required": false,
+                      "schema": {
+                        "type": "boolean"
+                      }
+                    },
+                    {
+                      "name": "authorizedGroup",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "frontmatter",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+                        "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+                        "properties": [],
+                        "type": "object"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "name": "FolderContent"
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof useFileActions>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

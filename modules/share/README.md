@@ -11,7 +11,7 @@ share (`OperationClassification` ui-esm)
 | Input      |    |    |
 | ---------- | -- | -- |
 | isDisabled (optional) | boolean |  |
-| **Output** | {  }   |    |
+| **Output** | { selection?: {  }, <br />reset: {  }, <br /> }   |    |
 
 
 
@@ -33,7 +33,14 @@ and
 
 ## 📄 Share (exported const)
 
-## `<Shareable />`
+# Internal
+
+<details><summary>Show internal (6)</summary>
+    
+  # `<Shareable />`
+
+
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -42,16 +49,7 @@ and
 
 
 
-## 📄 Shareable (exported const)
-
-# Internal
-
-<details><summary>Show internal (4)</summary>
-    
-  # useAllText()
-
-
-
+## useAllText()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -73,6 +71,8 @@ Upload the blob immediately using `processAsset`, which will result in a file in
 | **Output** | { getImage: {  }, <br />projectRelativeFilePath?: {  }, <br />ref: { current?: ul / , <br /> }, <br /> }   |    |
 
 
+
+## 📄 Shareable (exported const)
 
 ## 📄 useAllText (exported const)
 

@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var write_to_assets_1=require("write-to-assets"),getOldDependencyTree_1=require("../getOldDependencyTree"),operationName=process.argv.slice(2)[0];(0,getOldDependencyTree_1.getOldDependencyTree)([operationName],[]).then((function(e){return(0,write_to_assets_1.writeToAssets)(__filename,e,"".concat(operationName,".json"))}));
+//# sourceMappingURL=getOldDependencyTree.cli.js.map

@@ -56,6 +56,23 @@ find all codespans
 
 find all links
 
+
+## findCodeblocks()
+
+find all codespans
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| markdownString | string |  |
+| **Output** | string[]   |    |
+
+
+
+## 📄 findCodeblocks (exported const)
+
+find all codespans
+
 # Tests
 
 <details><summary>Show test information(2)</summary>

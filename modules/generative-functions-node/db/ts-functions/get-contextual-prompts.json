@@ -1,0 +1,74 @@
+{
+  "createdAt": 1671553292253,
+  "updatedAt": 1671553292253,
+  "deletedAt": 0,
+  "createdFirstAt": 1671553292253,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getContextualPrompts.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  /**\n   * If not given, will return all\n   */\n  contextType?: FileType,\n  scopeProjectRelativePath?: string,\n  isDev?: boolean\n): Promise<ContextualPromptsObject> => {\n  const contextualPromptsObject = await getContextualPromptsArray(\n    scopeProjectRelativePath\n  );\n\n  const databaseContextualPromptSlugs =\n    contextualPromptsObject.databaseResult.map((x) => x.slug);\n  const contextualPrompts = Object.values(contextualPromptsObject).flat();\n\n  const rightType = contextualPrompts\n    .filter((x) => (contextType ? x.contextType?.includes(contextType) : true))\n    .filter((x) => (isDev ? true : x.isFavorite))\n    .map(omitUndefinedValues)\n    // sort on fav first\n    .sort((a, b) => {\n      if (a.isFavorite && !b.isFavorite) return -1;\n      if (b.isFavorite && !a.isFavorite) return 1;\n      return 0;\n    });\n\n  const selectionContextualPrompts = rightType.filter(\n    (x) => x.usesSelection || x.usesAnyContext\n  );\n\n  const pageContextualPrompts = rightType.filter(\n    (x) => (!x.usesSelection && x.usesContext) || x.usesAnyContext\n  );\n\n  const folderContextualPrompts = rightType.filter(\n    (x) =>\n      (!x.usesSelection && !x.usesContext && x.folderContentContext) ||\n      x.usesAnyContext\n  );\n  return {\n    selectionContextualPrompts,\n    pageContextualPrompts,\n    folderContextualPrompts,\n    databaseContextualPromptSlugs,\n  };\n}",
+  "name": "getContextualPrompts",
+  "slug": "get-contextual-prompts",
+  "parameters": [
+    {
+      "name": "contextType",
+      "schema": {
+        "$ref": "#/definitions/FileType",
+        "description": "If not given, will return all"
+      },
+      "simplifiedSchema": {
+        "enum": [
+          "code",
+          "data",
+          "text"
+        ],
+        "fullComment": "If not given, will return all\n\n",
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "name": "scopeProjectRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "name": "isDev",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": false
+    }
+  ],
+  "description": "Returns all contextual prompts for the selection and for the page with the right context type",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPromptObject\").ContextualPromptsObject>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 1459,
+    "lines": 47,
+    "bytes": 1459,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 47,
+    "numberOfFiles": 1
+  },
+  "id": "xcsxctuusvdampjiijqoguiv"
+}

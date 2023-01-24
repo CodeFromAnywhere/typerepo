@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457661099,
-  "updatedAt": 1671457661099,
+  "createdAt": 1672134433129,
+  "updatedAt": 1672134433129,
   "deletedAt": 0,
-  "createdFirstAt": 1671457661099,
+  "createdFirstAt": 1672134433129,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "run-browser",
   "operationRelativeTypescriptFilePath": "src/cli/runBrowser.cli.ts",
   "type": {
-    "rawType": "() => Promise<import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Browser>",
+    "rawType": "() => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Browser>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (): Promise<Browser> => {\n  console.log(\"Run browser called\");\n  puppeteer.use(\n    RecaptchaPlugin({\n      provider: {\n        id: \"2captcha\",\n        token: \"243f9da05482cc8e9b76203a184943c9\", // REPLACE THIS WITH YOUR OWN 2CAPTCHA API KEY ⚡\n      },\n      visualFeedback: true, // colorize reCAPTCHAs (violet = detected, green = solved)\n    })\n  );\n\n  puppeteer.use(StealthPlugin());\n  const browser = await puppeteer.launch(browserLunchOptions);\n  const browserWSEndpoint = browser.wsEndpoint();\n  const browserSession: Creation<BrowserSession> = {\n    browserName: \"browser\",\n    browserSessionId: browserWSEndpoint,\n  };\n  console.log(\"browserId\", browser.wsEndpoint());\n  // Remove all the old session\n  await db.clear(\"BrowserSession\");\n  await db.clear(\"BrowserPage\");\n  await db.upsert(\"BrowserSession\", browserSession);\n  openMultiTabs({\n    noOfTabs: 10,\n    tabUrl: \"https://chat.openai.com/chat\",\n    browser,\n  });\n  return browser;\n}",
   "description": "",
-  "id": "yxjvsguxfprouitkfxszkvzs"
+  "id": "xdmfmsseoprbjzpjejsksswv"
 }

@@ -22,31 +22,31 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1671365990604,
+    "lastRebuildAt": 1674135034494,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 10,
-        "lines": 303,
-        "characters": 8794,
-        "bytes": 8794
+        "numberOfFiles": 12,
+        "lines": 370,
+        "characters": 10252,
+        "bytes": 10252
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 115,
-        "characters": 3534,
-        "bytes": 3534
+        "lines": 120,
+        "characters": 3673,
+        "bytes": 3673
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 302,
-        "characters": 6077,
-        "bytes": 6077
+        "lines": 413,
+        "characters": 8595,
+        "bytes": 8595
       },
       "size": {
-        "bytes": 18405,
-        "characters": 18405,
-        "lines": 720,
-        "numberOfFiles": 14
+        "bytes": 22520,
+        "characters": 22520,
+        "lines": 903,
+        "numberOfFiles": 16
       }
     },
     "folderNameIndexed": "ai-types",
@@ -56,20 +56,25 @@
     "operationDependenciesIndexed": [
       "DefaultModelType",
       "SlugModelType",
+      "DefaultModelType",
+      "ChildObject",
       "SlugModelType",
       "FileType",
       "DefaultModelType",
       "BackendAsset",
       "DefaultModelType",
       "BackendAsset",
+      "ApiFunctionParameters",
       "Frontmatter"
     ],
     "packageDependenciesIndexed": []
   },
   "dependencies": {
     "model-types": "0.0.1",
+    "recursive-types": "0.0.1",
     "filename-conventions": "0.0.1",
     "asset-type": "0.0.1",
+    "code-types": "0.0.1",
     "matter-types": "0.0.1"
   },
   "slug": "ai-types",

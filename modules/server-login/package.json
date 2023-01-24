@@ -18,11 +18,10 @@
     "js-util": "0.0.1",
     "asset-functions-node": "0.0.1",
     "asset-type": "0.0.1",
-    "function-server-types": "0.0.1",
     "fs-orm": "1.0.1",
-    "auth-types": "0.0.1",
     "fs-util": "1.0.5",
-    "get-path": "0.0.1"
+    "get-path": "0.0.1",
+    "code-types": "0.0.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
@@ -43,7 +42,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/interfaces/api/server-login/src/loginPostApi.ts. Error: Error: Unknown node \\\"this\\\" of kind \\\"ThisType\\\"\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/api/server-login/src/signupWithContext.ts. Error: Error: Invalid index \"authorizations\" in type \"interface-730448310-910-4724-730448310-0-4761\""
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "node-cjs",
@@ -51,7 +52,7 @@
     "folderNameIndexed": "server-login",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671318437793,
+    "lastRebuildAt": 1673863666298,
     "operationDependenciesIndexed": [
       "db",
       "isEmail",
@@ -136,25 +137,25 @@
       "codeSize": {
         "numberOfFiles": 20,
         "lines": 998,
-        "characters": 28711,
-        "bytes": 28711
+        "characters": 28667,
+        "bytes": 28667
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 196,
-        "characters": 6016,
-        "bytes": 6016
+        "lines": 204,
+        "characters": 6194,
+        "bytes": 6194
       },
       "textSize": {
         "numberOfFiles": 4,
-        "lines": 459,
-        "characters": 14553,
-        "bytes": 14553
+        "lines": 439,
+        "characters": 13863,
+        "bytes": 13863
       },
       "size": {
-        "bytes": 49280,
-        "characters": 49280,
-        "lines": 1653,
+        "bytes": 48724,
+        "characters": 48724,
+        "lines": 1641,
         "numberOfFiles": 26
       }
     },

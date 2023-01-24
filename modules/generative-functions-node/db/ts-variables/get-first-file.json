@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671553283656,
+  "updatedAt": 1671553283656,
+  "deletedAt": 0,
+  "createdFirstAt": 1671553283656,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getFirstFile",
+  "slug": "get-first-file",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "(fullPath: string) => Promise<string | undefined>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  fullPath: string\n): Promise<string | undefined> => {\n  const content = await fs.readdir(fullPath, {\n    encoding: \"utf8\",\n    withFileTypes: true,\n  });\n  const files = content.filter((x) => x.isFile());\n  const readme = files.find((x) => x.name.toLowerCase() === \"readme.md\")?.name;\n  const index = files.find((x) => x.name.startsWith(\"index.\"))?.name;\n  const firstFile = readme || index || files[0]?.name || undefined;\n  return firstFile;\n}",
+  "description": "Gets the first file in a directory:\n\nEither readme or index, or the first file it finds.",
+  "id": "ihiccboktlekzxdkgtqngejt"
+}

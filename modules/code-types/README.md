@@ -38,12 +38,6 @@ Properties:
 | cumulativeCodeSize (optional) | object |  |
 | maxIndentationDepth  | number |  |
 | dependantFiles (optional) | array |  |
-| groupAuthorization  | object |  |
-| isApiExposed  | boolean |  |
-| canCache (optional) | boolean |  |
-| runEveryPeriod (optional) | string |  |
-| price (optional) | number |  |
-| classification (optional) | string |  |
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
@@ -71,6 +65,12 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| hasGeneric  | boolean |  |
+| extensions (optional) | array |  |
+| isDbModel  | boolean |  |
+| isOperationIndex  | boolean |  |
+| operationStorageLocationRelativeFilePath (optional) | string |  |
+| dbStorageMethod (optional) | string |  |
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
@@ -82,13 +82,7 @@ Properties:
 | description (optional) | string |  |
 | commentsInside  | array |  |
 | isExported  | boolean |  |
-| hasGeneric  | boolean |  |
 | rawText (optional) | string |  |
-| extensions (optional) | array |  |
-| isDbModel  | boolean |  |
-| isOperationIndex  | boolean |  |
-| operationStorageLocationRelativeFilePath (optional) | string |  |
-| dbStorageMethod (optional) | string |  |
 
 
 
@@ -122,7 +116,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | path (optional) | string |  |
 | main (optional) | string |  |
 | source (optional) | string |  |
@@ -179,6 +173,19 @@ Properties:
 
 
 
+## 🔹 FunctionParameter
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| name  | string |  |
+| schema (optional) | object |  |
+| simplifiedSchema (optional) | object |  |
+| required  | boolean |  |
+
+
+
 ## 🔹 OperationClassification
 
 TODO: Ensure embedding this will embed the actual docs in my markdown renderer. I guess it might already do so!
@@ -191,19 +198,6 @@ TODO: It would be great to learn more about this topic and see if I can make mor
 
 
 
-
-
-
-## 🔹 FunctionParameter
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| name  | string |  |
-| schema (optional) | object |  |
-| simplifiedSchema (optional) | object |  |
-| required  | boolean |  |
 
 
 
@@ -302,6 +296,66 @@ Properties:
 
 
 
+## 🔸 TsExport
+
+jsonMultiple model
+
+
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| name  | string |  |
+| slug  | string |  |
+| operationRelativeTypescriptFilePath  | string |  |
+| comments  | array |  |
+| type (optional) | string |  |
+| alias (optional) | string |  |
+| hasGeneric (optional) | boolean |  |
+
+
+
+## 🔹 ApiFunction
+
+TODO: rename to `StandardFunction`, it's not just for the API
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| version (optional) | string |  |
+| versionInfo (optional) | object |  |
+| isHeavy (optional) | boolean |  |
+| isInternetRequired (optional) | boolean |  |
+| isBrowserRequired (optional) | boolean |  |
+| isPublic (optional) | boolean |  |
+| isApiExposed (optional) | boolean |  |
+| domain (optional) | string |  |
+| isPaid (optional) | boolean |  |
+| price (optional) | number |  |
+| allowedRoles (optional) | array |  |
+| groupAuthorization (optional) | object |  |
+| canCache (optional) | boolean |  |
+| runEveryPeriod (optional) | string |  |
+| classification (optional) | string |  |
+
+
+
 ## 🔸 Dataset
 
 jsonMultiple model
@@ -338,7 +392,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | modelName  | string |  |
 | price (optional) | number |  |
 | defaultView (optional) | string |  |
@@ -414,7 +468,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | functionName  | string |  |
 | tsFunctionId  | string |  |
 | inputParameters (optional) | array |  |
@@ -506,33 +560,27 @@ Properties:
 
 
 
-## 🔸 TsExport
-
-jsonMultiple model
-
-
-
-
-
-
-
-
+## 🔹 ApiFunctionParameters
 
 Properties: 
 
  | Name | Type | Description |
 |---|---|---|
-| operationName  | null |  |
-| projectRelativePath  | string |  |
-| operationRelativePath (optional) | string |  |
-| id  | string |  |
-| name  | string |  |
-| slug  | string |  |
-| operationRelativeTypescriptFilePath  | string |  |
-| comments  | array |  |
-| type (optional) | string |  |
-| alias (optional) | string |  |
-| hasGeneric (optional) | boolean |  |
+| version (optional) | string |  |
+| versionInfo (optional) | object |  |
+| isHeavy (optional) | boolean |  |
+| isInternetRequired (optional) | boolean |  |
+| isBrowserRequired (optional) | boolean |  |
+| isPublic (optional) | boolean |  |
+| isApiExposed (optional) | boolean |  |
+| domain (optional) | string |  |
+| isPaid (optional) | boolean |  |
+| price (optional) | number |  |
+| allowedRoles (optional) | array |  |
+| groupAuthorization (optional) | object |  |
+| canCache (optional) | boolean |  |
+| runEveryPeriod (optional) | string |  |
+| classification (optional) | string |  |
 
 
 
@@ -947,6 +995,12 @@ Properties:
  | Name | Type | Description |
 |---|---|---|
 | type  | object |  |
+| hasGeneric  | boolean |  |
+| extensions (optional) | array |  |
+| isDbModel  | boolean |  |
+| isOperationIndex  | boolean |  |
+| operationStorageLocationRelativeFilePath (optional) | string |  |
+| dbStorageMethod (optional) | string |  |
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
@@ -957,13 +1011,7 @@ Properties:
 | description (optional) | string |  |
 | commentsInside  | array |  |
 | isExported  | boolean |  |
-| hasGeneric  | boolean |  |
 | rawText (optional) | string |  |
-| extensions (optional) | array |  |
-| isDbModel  | boolean |  |
-| isOperationIndex  | boolean |  |
-| operationStorageLocationRelativeFilePath (optional) | string |  |
-| dbStorageMethod (optional) | string |  |
 
 
 
@@ -1056,6 +1104,21 @@ Properties:
 
 ## 🔹 SimplifiedSchemaType
 
+## 🔹 TsInterfaceProperties
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| hasGeneric  | boolean |  |
+| extensions (optional) | array |  |
+| isDbModel  | boolean |  |
+| isOperationIndex  | boolean |  |
+| operationStorageLocationRelativeFilePath (optional) | string |  |
+| dbStorageMethod (optional) | string |  |
+
+
+
 ## 🔹 TypeInfo
 
 all info that should always be collected when indexing any type interface
@@ -1109,7 +1172,7 @@ Properties:
 
 # Internal
 
-<details><summary>Show internal (26)</summary>
+<details><summary>Show internal (25)</summary>
     
   # getFunctionExersize()
 
@@ -1320,27 +1383,6 @@ Properties:
 
 
 
-## 🔹 TsFunctionFrontmatterConfig
-
-Everything you can do with frontmatter on a TsFunction
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| groupAuthorization  | object |  |
-| isApiExposed  | boolean |  |
-| canCache (optional) | boolean |  |
-| runEveryPeriod (optional) | string |  |
-| price (optional) | number |  |
-| classification (optional) | string |  |
-
-
-
 ## 🔹 TsFunctionIndex
 
 Properties: 
@@ -1416,7 +1458,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 
 
 

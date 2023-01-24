@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457727367,
-  "updatedAt": 1671457727367,
+  "createdAt": 1672134485429,
+  "updatedAt": 1672134485429,
   "deletedAt": 0,
-  "createdFirstAt": 1671457727367,
+  "createdFirstAt": 1672134485429,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (pageId: string, status: boolean) => {\n  await db.update(\n    \"BrowserPage\",\n    (c) => c.pageId === pageId,\n    (content) => ({ ...content, isIdle: status })\n  );\n}",
   "description": "",
-  "id": "yzkhqfxinmetpejvdujbpqar"
+  "id": "ozyptcasmddfsdwsinrpsccm"
 }

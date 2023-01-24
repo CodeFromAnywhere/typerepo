@@ -62,6 +62,15 @@ markdownParseRenderConfig={markdownParseRenderConfig}
 
 
 
+## `<MarkdownParsePresentation />`
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { markdownParse: `MarkdownParse`, <br />augmentedWordObject?: `MappedObject<AugmentedWord>`, <br />projectRelativeBaseFolderPath: string, <br />projectRelativeMarkdownFilePath: string, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
 ## 📄 EditWriterInput (exported const)
 
 the newer one, eventually to replace `ContextTextArea`
@@ -72,9 +81,12 @@ onChange={onChange}
 markdownParseRenderConfig={markdownParseRenderConfig}
 />
 
+
+## 📄 MarkdownParsePresentation (exported const)
+
 # Internal
 
-<details><summary>Show internal (67)</summary>
+<details><summary>Show internal (65)</summary>
     
   # `<Completion />`
 
@@ -243,15 +255,6 @@ only detect typescript if the string starts with `import`. must be improved late
 | Input      |    |    |
 | ---------- | -- | -- |
 | props | { context: {  }, <br />augmentedWords?: `AugmentedWord`[], <br />augmentedWordObject?: `MappedObject<AugmentedWord>`, <br /> } |  |
-| **Output** | `JSX.Element`   |    |
-
-
-
-## `<MarkdownParsePresentation />`
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | { markdownParse: `MarkdownParse`, <br />augmentedWordObject?: `MappedObject<AugmentedWord>`, <br />projectRelativeBaseFolderPath: string, <br />projectRelativeMarkdownFilePath: string, <br /> } |  |
 | **Output** | `JSX.Element`   |    |
 
 
@@ -548,8 +551,6 @@ only detect typescript if the string starts with `import`. must be improved late
 
 
 ## 📄 MarkdownCompletions (exported const)
-
-## 📄 MarkdownParsePresentation (exported const)
 
 ## 📄 MarkedParagraph (exported const)
 

@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671317436841,
-  "updatedAt": 1671317436841,
+  "createdAt": 1673863244738,
+  "updatedAt": 1673863244738,
   "deletedAt": 0,
-  "createdFirstAt": 1671317436841,
+  "createdFirstAt": 1673863244738,
   "id": "creatormarkdownproperties",
   "name": "CreatorMarkdownProperties",
   "slug": "creatormarkdownproperties",
   "operationRelativeTypescriptFilePath": "src/CreatorMarkdownProperties.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "export type CreatorMarkdownProperties = {\n  /**\n  DESCRIPTION: Only accessible to admin\n   */\n  isPrivate?: boolean;\n\n  /**\n   * DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`\n   */\n  isSecret?: boolean;\n\n  /**\n   * DESCRIPTION: If authorizedGroup is set, file content will not be available for people that aren't part of this group.\n   */\n  authorizedGroup?: \"\" | \"premium\" | \"enterprise\";\n\n  /**\n   * DESCRIPTION:If true, will not show up in reader ui's\n   */\n  isDraft?: boolean;\n\n  /**\n   * DESCRIPTION: If this is a date in the future, the file won't be available until that date\n   */\n  isAvailableFromDateAt?: number;\n};",
+  "rawText": "export type CreatorMarkdownProperties = {\n  /**\n  DESCRIPTION: Only accessible to admin\n   */\n  isPrivate?: boolean;\n\n  /**\n   * DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`\n   */\n  isSecret?: boolean;\n\n  /**\n   * Not sure how I should make this possible yet, but the biggest reason for having persona's is because you may want to do things anonymously. If persona's are truly not really needed, just anonymous and non-anonymous, then we can greatly simplify things by removing that model altogether.\n   *\n   * Also you'd have much fine-grained control over what's anonymous and what isn't in this way. I like this a lot.\n   */\n  isAnonymous?: boolean;\n\n  /**\n   * DESCRIPTION: If authorizedGroup is set, file content will not be available for people that aren't part of this group.\n   */\n  authorizedGroup?: \"\" | \"premium\" | \"enterprise\";\n\n  /**\n   * DESCRIPTION:If true, will not show up in reader ui's\n   */\n  isDraft?: boolean;\n\n  /**\n   * DESCRIPTION: If this is a date in the future, the file won't be available until that date\n   */\n  isAvailableFromDateAt?: number;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -26,6 +26,10 @@
         "isSecret": {
           "type": "boolean",
           "description": "DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`"
+        },
+        "isAnonymous": {
+          "type": "boolean",
+          "description": "Not sure how I should make this possible yet, but the biggest reason for having persona's is because you may want to do things anonymously. If persona's are truly not really needed, just anonymous and non-anonymous, then we can greatly simplify things by removing that model altogether.\n\nAlso you'd have much fine-grained control over what's anonymous and what isn't in this way. I like this a lot."
         },
         "authorizedGroup": {
           "type": "string",
@@ -64,6 +68,14 @@
           "schema": {
             "fullComment": "DESCRIPTION: Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`",
             "description": "Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true`",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isAnonymous",
+          "required": false,
+          "schema": {
+            "fullComment": "Not sure how I should make this possible yet, but the biggest reason for having persona's is because you may want to do things anonymously. If persona's are truly not really needed, just anonymous and non-anonymous, then we can greatly simplify things by removing that model altogether.\n\nAlso you'd have much fine-grained control over what's anonymous and what isn't in this way. I like this a lot.",
             "type": "boolean"
           }
         },

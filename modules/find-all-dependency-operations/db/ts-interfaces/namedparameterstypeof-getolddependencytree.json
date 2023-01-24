@@ -1,0 +1,82 @@
+{
+  "createdAt": 1673380286070,
+  "updatedAt": 1673380286070,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380286070,
+  "id": "namedparameterstypeof-getolddependencytree",
+  "name": "NamedParameters<typeof getOldDependencyTree>",
+  "slug": "namedparameterstypeof-getolddependencytree",
+  "operationRelativeTypescriptFilePath": "src/getOldDependencyTree.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "operationNames": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "stack": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "operationNames",
+        "stack"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "operationNames",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "stack",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getOldDependencyTree>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670526995866,
-  "updatedAt": 1670526995866,
+  "createdAt": 1672637084201,
+  "updatedAt": 1672637084201,
   "deletedAt": 0,
-  "createdFirstAt": 1670526995866,
+  "createdFirstAt": 1672637084201,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -44,5 +44,5 @@
   },
   "value": "async (\n  absoluteFolderPath: string,\n  /**\n   * Folders smaller than this won't provide details\n   */\n  minimumReportSizeMb: number = 0,\n  ignoreGenerated: boolean = true\n): Promise<ChildObject<{ size: number; name: string }>[]> => {\n  const files = await fs.readdir(absoluteFolderPath, { withFileTypes: true });\n\n  const paths = (\n    await Promise.all(\n      files.map(async (file) => {\n        const newPath = path.join(absoluteFolderPath, file.name);\n\n        if (file.isDirectory()) {\n          if (\n            ignoreGenerated &&\n            [...generatedFolders, \"public\"].includes(file.name)\n          )\n            return;\n          const children = await getFolderSizeObject(newPath);\n\n          const size = sum(children.map((x) => x.size));\n          return {\n            name: file.name,\n            size,\n            /**\n             *\n             */\n            children:\n              size > minimumReportSizeMb * 1024 * 1024 ? children : undefined,\n          };\n        }\n\n        if (file.isFile()) {\n          const { size } = await fs.stat(newPath);\n\n          return {\n            size,\n            children: undefined,\n            name: file.name,\n          };\n        }\n\n        return minimumReportSizeMb\n          ? undefined\n          : { size: 0, children: undefined, name: file.name };\n      })\n    )\n  ).filter(notEmpty);\n\n  return paths;\n}",
   "description": "returns an object with all sizes of all folders and files, recursively",
-  "id": "dvhnaifdcmoydhzsyiwugasy"
+  "id": "wqajfoxvbwknyiwrlkigqwbb"
 }

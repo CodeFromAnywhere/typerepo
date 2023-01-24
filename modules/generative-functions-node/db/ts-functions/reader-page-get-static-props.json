@@ -1,0 +1,102 @@
+{
+  "createdAt": 1674476835637,
+  "updatedAt": 1674476835637,
+  "deletedAt": 0,
+  "createdFirstAt": 1674476835637,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/readerPageGetStatic.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  context: GetStaticPropsContext\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    // NB: this can happen on revalidation and blocked static requests, because we aren't using .projectRoot file anywhere. It's fine\n    console.log(\"NO PROJECTROOT\");\n\n    const props: ReaderProps = {\n      notFound: true,\n      notFoundReason: \"This file cannot be found.\",\n    };\n\n    return { props };\n  }\n\n  const basePath = process.env.NEXT_PUBLIC_BASEPATH;\n\n  // the queryPath from\n  const queryPath = context.params?.queryPath;\n  const realQueryPathArray = queryPath ? makeArray(queryPath) : [];\n  const realQueryPath = realQueryPathArray.join(\"/\");\n\n  const staticPropResult = omitUndefinedValues(\n    await getReaderPageProps(basePath || \"\", realQueryPath, false)\n  );\n\n  return staticPropResult;\n}",
+  "name": "readerPageGetStaticProps",
+  "slug": "reader-page-get-static-props",
+  "parameters": [
+    {
+      "name": "context",
+      "schema": {
+        "$ref": "#/definitions/GetStaticPropsContext"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "params",
+            "required": false,
+            "schema": {
+              "fullComment": "",
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "preview",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "previewData",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "locale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "locales",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "type": "string"
+                  },
+                  "name": null
+                }
+              ],
+              "type": "array"
+            }
+          },
+          {
+            "name": "defaultLocale",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 820,
+    "lines": 29,
+    "bytes": 820,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 29,
+    "numberOfFiles": 1
+  },
+  "id": "jvmrgfpbsgtyuadolwfdptoa"
+}

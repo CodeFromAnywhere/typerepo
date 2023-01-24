@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671318661805,
-  "updatedAt": 1671318661805,
+  "createdAt": 1671554722155,
+  "updatedAt": 1671554722155,
   "deletedAt": 0,
-  "createdFirstAt": 1671318661805,
+  "createdFirstAt": 1671554722155,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/Header.tsx",
   "commentsInside": [],
-  "rawText": " (props: { publicBundleConfig?: PublicBundleConfig }) => {\n  const { publicBundleConfig } = props;\n\n  const [isMobileMenuEnabled, setIsMobileMenuEnabled] = useStore(\n    \"menu.isMobileMenuEnabled\"\n  );\n\n  return (\n    <Div\n      className=\"dark:bg-gray-800\"\n      style={{\n        justifyContent: \"space-between\",\n        flex: 1,\n        display: \"flex\",\n        flexDirection: \"row\",\n        alignItems: \"center\",\n      }}\n    >\n      <Div className=\"flex flex-row items-center\">\n        <ALink\n          href={\n            typeof window !== \"undefined\"\n              ? location.protocol + \"//\" + location.host\n              : \"#\"\n          }\n          style={{ fontSize: 32 }}\n        >\n          {publicBundleConfig?.emoji}\n        </ALink>\n\n        <P className=\"font-bold pl-2\">{publicBundleConfig?.name}</P>\n      </Div>\n\n      <Div className=\"flex flex-row items-center\">\n        <Div>\n          {props.publicBundleConfig?.isGitRepoPublic &&\n          props.publicBundleConfig.gitRepoUrl ? (\n            <P>\n              <ALink\n                className=\"pr-2\"\n                target=\"_blank\"\n                href={props.publicBundleConfig.gitRepoUrl}\n              >\n                🐈 GitHub\n              </ALink>\n            </P>\n          ) : null}\n          <P>\n            <a target=\"_blank\" href=\"https://twitter.com/WKarsens\">\n              🐤 Twitter\n            </a>\n          </P>\n        </Div>\n\n        <Share />\n\n        <PingApi />\n\n        <Div className=\"lg:hidden\">\n          <ClickableIcon\n            emoji=\"🔍\"\n            onClick={() => setIsMobileMenuEnabled(!isMobileMenuEnabled)}\n          />\n        </Div>\n\n        <MeAuthenticationInfo />\n      </Div>\n    </Div>\n  );\n}",
+  "rawText": " (props: { publicBundleConfig?: PublicBundleConfig }) => {\n  const { publicBundleConfig } = props;\n\n  const [isMobileMenuEnabled, setIsMobileMenuEnabled] = useStore(\n    \"menu.isMobileMenuEnabled\"\n  );\n\n  return (\n    <Div\n      className=\"dark:bg-gray-800\"\n      style={{\n        justifyContent: \"space-between\",\n        flex: 1,\n        display: \"flex\",\n        flexDirection: \"row\",\n        alignItems: \"center\",\n      }}\n    >\n      <Div className=\"flex flex-row items-center\">\n        <ALink\n          href={\n            typeof window !== \"undefined\"\n              ? location.protocol + \"//\" + location.host\n              : \"#\"\n          }\n          style={{ fontSize: 32 }}\n        >\n          {publicBundleConfig?.emoji}\n        </ALink>\n\n        <P className=\"font-bold pl-2\">{publicBundleConfig?.name}</P>\n      </Div>\n\n      <Div className=\"flex flex-row items-center\">\n        <Div>\n          {props.publicBundleConfig?.isGitRepoPublic &&\n          props.publicBundleConfig.gitRepoUrl ? (\n            <P>\n              <ALink\n                className=\"pr-2\"\n                target=\"_blank\"\n                href={props.publicBundleConfig.gitRepoUrl}\n              >\n                🐈 GitHub\n              </ALink>\n            </P>\n          ) : null}\n          <P>\n            <a target=\"_blank\" href=\"https://twitter.com/WKarsens\">\n              🐤 Twitter\n            </a>\n          </P>\n        </Div>\n\n        {/* <Share /> */}\n\n        <PingApi />\n\n        <Div className=\"lg:hidden\">\n          <ClickableIcon\n            emoji=\"🔍\"\n            onClick={() => setIsMobileMenuEnabled(!isMobileMenuEnabled)}\n          />\n        </Div>\n\n        <MeAuthenticationInfo />\n      </Div>\n    </Div>\n  );\n}",
   "name": "Header",
   "slug": "header",
   "parameters": [
@@ -186,13 +186,13 @@
   },
   "maxIndentationDepth": 8,
   "size": {
-    "characters": 1707,
+    "characters": 1715,
     "lines": 70,
-    "bytes": 1713,
-    "bytesPerCharacter": 1.0035149384885764,
-    "charactersPerLine": 24,
+    "bytes": 1721,
+    "bytesPerCharacter": 1.0034985422740526,
+    "charactersPerLine": 25,
     "linesPerFile": 70,
     "numberOfFiles": 1
   },
-  "id": "uopaoxftrqbrpygspbgbfnqx"
+  "id": "pkbfhvrhrztempzzwinpwsrm"
 }

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1669962230630,
-  "updatedAt": 1669962230630,
+  "createdAt": 1673959595308,
+  "updatedAt": 1673959595308,
   "deletedAt": 0,
-  "createdFirstAt": 1669962230630,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959595308,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findCodespans.ts",
   "commentsInside": [],
   "rawText": " (markdownString: string): string[] => {\n  const result = flattenMarkdownString(\n    markdownString,\n    (token) => token.type === \"codespan\"\n  );\n\n  const codespans: string[] = result\n    .map((token) => {\n      if (token.type !== \"codespan\") return;\n\n      return token.text;\n    })\n    .filter(notEmpty);\n\n  return codespans;\n}",
@@ -71,5 +70,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "wgpshzmqmzslrdsfnybocnah"
+  "id": "nyygbasprwzdijeeqamermwe"
 }

@@ -1,0 +1,59 @@
+{
+  "createdAt": 1674117613092,
+  "updatedAt": 1674117613092,
+  "deletedAt": 0,
+  "createdFirstAt": 1674117613092,
+  "id": "namedparameterstypeof-lock",
+  "name": "NamedParameters<typeof lock>",
+  "slug": "namedparameterstypeof-lock",
+  "operationRelativeTypescriptFilePath": "src/lock.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "aboluteLockableFilePath": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "aboluteLockableFilePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "aboluteLockableFilePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "status",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof lock>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

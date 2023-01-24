@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671101610461,
-  "updatedAt": 1671101610461,
+  "createdAt": 1672637651983,
+  "updatedAt": 1672637651983,
   "deletedAt": 0,
-  "createdFirstAt": 1671101610461,
+  "createdFirstAt": 1672637651983,
   "id": "namedparameterstypeof-getfilecontents",
   "name": "NamedParameters<typeof getFileContents>",
   "slug": "namedparameterstypeof-getfilecontents",
@@ -21,16 +21,13 @@
           "type": "string"
         }
       },
-      "required": [
-        "projectRelativeFilePath"
-      ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
           "name": "projectRelativeFilePath",
-          "required": true,
+          "required": false,
           "schema": {
             "type": "string"
           }

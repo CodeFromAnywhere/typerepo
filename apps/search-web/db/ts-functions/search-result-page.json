@@ -1,14 +1,13 @@
 {
-  "createdAt": 1670527597451,
-  "updatedAt": 1670527597451,
+  "createdAt": 1674542296992,
+  "updatedAt": 1674542296992,
   "deletedAt": 0,
-  "createdFirstAt": 1670527597451,
-  "isApiExposed": true,
+  "createdFirstAt": 1674542296992,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/components/SearchResultPage.tsx",
   "commentsInside": [],
-  "rawText": " (props: QueryPageProps) => {\n  const { query, searchResults } = props;\n  const router = useRouter();\n  return (\n    <Div>\n      <Div className=\"flex w-full justify-between\">\n        <Div\n          className=\"text-3xl p-2 cursor-pointer\"\n          onClick={() => router.push(\"/\")}\n        >\n          🏠\n        </Div>\n        <SearchBar initialValue={query || undefined} />\n        <Div />\n      </Div>\n      <a\n        className=\"text-blue-500\"\n        href={`https://www.google.nl/search?q=${query}`}\n      >\n        {query}\n      </a>\n      {searchResults?.map((searchResult, index) => {\n        return (\n          <SearchResultComponent\n            key={`s${index}`}\n            index={index}\n            searchResult={searchResult}\n          />\n        );\n      })}\n    </Div>\n  );\n}",
+  "rawText": " (props: QueryPageProps) => {\n  const { searchResults } = props;\n  const router = useRouter();\n\n  const query = router.query?.query\n    ? makeArray(router.query.query).join(\"/\")\n    : undefined;\n  return (\n    <Div>\n      <Div className=\"flex w-full justify-between\">\n        <Div\n          className=\"text-3xl p-2 cursor-pointer\"\n          onClick={() => router.push(\"/\")}\n        >\n          🏠\n        </Div>\n        <SearchBar initialValue={query || undefined} />\n        <Div />\n      </Div>\n      {/* \n      <p>\n        <MarkdownContent\n          content={`\nSearch not implemented yet. Soon though! Until then, check out these cool tools:\n\n- **[copy.ai](https://copy.ai)**: writes articles and social media posts for you\n\n- **[perplexity.ai](https://perplexity.ai)**: explains exactly what you want to know by coupling bing search with AI\n\n- **[presentations.ai](https://presentations.ai)**: make slides about any topic without making slides\n\n- **[otter.ai](https://otter.ai)**: record your meeting, transcribe it, and automatically summarise it\n\n- **[clipsai.com](https://clipsai.com)**: long-form content to social media posts\n\n- **[podly.ai](https://podly.ai)**: perfect podcast annotation\n\n- **[ChatGPT](https://chat.openai.com/)**: answers any question\n\nSign up for [our workshop](https://workshop.gptideas.com/) to learn how to automate your job asap!\n`}\n          config={{}}\n        />\n      </p> */}\n      {searchResults?.map((searchResult, index) => {\n        return (\n          <SearchResultComponent\n            key={`s${index}`}\n            index={index}\n            searchResult={searchResult}\n          />\n        );\n      })}\n      <h1>Or try these:</h1>\n      <div className=\"flex flex-row w-full h-40\">\n        <a\n          className=\"bg-orange-700 hover flex flex-1 justify-center items-center hover:bg-orange-500\"\n          href={`https://search.brave.com/search?q=${query}`}\n        >\n          🦁 Brave\n        </a>\n        <a\n          className=\"bg-gray-700 hover flex flex-1 justify-center items-center hover:bg-gray-500\"\n          href={`https://www.google.com/search?igu=1&q=${query}`}\n        >\n          🤖 Google\n        </a>\n      </div>\n    </Div>\n  );\n}",
   "name": "SearchResultPage",
   "slug": "search-result-page",
   "parameters": [
@@ -110,13 +109,13 @@
   },
   "maxIndentationDepth": 6,
   "size": {
-    "characters": 789,
-    "lines": 33,
-    "bytes": 791,
-    "bytesPerCharacter": 1.002534854245881,
-    "charactersPerLine": 24,
-    "linesPerFile": 33,
+    "characters": 2192,
+    "lines": 71,
+    "bytes": 2198,
+    "bytesPerCharacter": 1.0027372262773722,
+    "charactersPerLine": 31,
+    "linesPerFile": 71,
     "numberOfFiles": 1
   },
-  "id": "wjcovbfsivmbavpkqoslbamy"
+  "id": "wwqyfilgtyjvpjvoqehpmqsh"
 }

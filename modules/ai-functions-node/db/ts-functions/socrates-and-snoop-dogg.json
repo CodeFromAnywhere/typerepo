@@ -1,15 +1,14 @@
 {
-  "createdAt": 1671505962487,
-  "updatedAt": 1671505962487,
+  "createdAt": 1674133292870,
+  "updatedAt": 1674133292870,
   "deletedAt": 0,
-  "createdFirstAt": 1671505962487,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133292870,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "explicitTypeName": "PromptFunction",
   "operationRelativeTypescriptFilePath": "src/prompts.ts",
   "commentsInside": [],
-  "rawText": " async (\n  selectionContent: string,\n  isDeferred?: boolean\n) => {\n  const result = await processChatGptPrompt({\n    isDeferred,\n    contextualPromptSlug: \"socrates-and-snoop-dogg\",\n    selectionContent,\n  });\n\n  return result;\n}",
+  "rawText": " async (selectionContent: string, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"socrates-and-snoop-dogg\",\n      selectionContent\n    });\n\n    return result;\n\n  }",
   "name": "socratesAndSnoopDogg",
   "slug": "socrates-and-snoop-dogg",
   "parameters": [
@@ -44,15 +43,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 3,
   "size": {
-    "characters": 229,
-    "lines": 12,
-    "bytes": 229,
+    "characters": 238,
+    "lines": 11,
+    "bytes": 238,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 19,
-    "linesPerFile": 12,
+    "charactersPerLine": 22,
+    "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "zatirnrnjaigwovnstatxyoe"
+  "id": "jmztmrdcveppqzbajfeagodd"
 }

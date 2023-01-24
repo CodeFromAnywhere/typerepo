@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671457715147,
-  "updatedAt": 1671457715147,
+  "createdAt": 1672134476176,
+  "updatedAt": 1672134476176,
   "deletedAt": 0,
-  "createdFirstAt": 1671457715147,
+  "createdFirstAt": 1672134476176,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/openPage.ts",
   "commentsInside": [],
-  "rawText": " async (pageId?: string): Promise<Page | undefined> => {\n  const browser = await openNewBrowser();\n  if (!browser) {\n    console.log(\"BROSER NOT FOUND\");\n    await delay(5000);\n    console.log(\"TRY AGAIN\");\n    const browser = await openNewBrowser();\n    if (!browser) return;\n    if (browser) {\n      if (pageId) {\n        return getBrowserPageById(browser, pageId);\n      }\n\n      const page = await getNewPage(browser);\n      await page?.setBypassCSP(true);\n      return page;\n    }\n    return;\n  }\n\n  if (pageId) {\n    return getBrowserPageById(browser, pageId);\n  }\n\n  const page = await getNewPage(browser);\n  await page?.setBypassCSP(true);\n  return page;\n}",
+  "rawText": " async (pageId?: string): Promise<Page | undefined> => {\n    const browser = await openNewBrowser();\n    if (!browser) {\n        console.log(\"BROSER NOT FOUND\");\n        await delay(5000);\n        console.log(\"TRY AGAIN\");\n        const browser = await openNewBrowser();\n        if (!browser) return;\n        if (browser) {\n            if (pageId) {\n                return getBrowserPageById(browser, pageId);\n            }\n\n            const page = await getNewPage(browser);\n\n            await page?.setBypassCSP(true);\n            return page;\n        }\n        return;\n    }\n\n    if (pageId) {\n        return getBrowserPageById(browser, pageId);\n    }\n\n    const page = await getNewPage(browser);\n    await page?.setBypassCSP(true);\n    return page;\n}",
   "name": "openPage",
   "slug": "open-page",
   "parameters": [
@@ -25,7 +25,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined>",
+    "rawType": "Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -33,15 +33,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 4,
+  "maxIndentationDepth": 8,
   "size": {
-    "characters": 664,
-    "lines": 28,
-    "bytes": 664,
+    "characters": 755,
+    "lines": 29,
+    "bytes": 755,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 24,
-    "linesPerFile": 28,
+    "charactersPerLine": 26,
+    "linesPerFile": 29,
     "numberOfFiles": 1
   },
-  "id": "fnimvaqckdlrercdnexxwsli"
+  "id": "zxqlqvjtsywjsdeqbvfpnetg"
 }

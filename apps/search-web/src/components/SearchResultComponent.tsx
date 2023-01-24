@@ -1,4 +1,7 @@
+import { renderMarkdownContent } from "markdown";
+import { ALink } from "next-a-link";
 import { Div } from "react-with-native";
+import { Tooltip } from "tooltip";
 import { SearchResult } from "../util/types";
 
 /**
@@ -9,5 +12,13 @@ export const SearchResultComponent = (props: {
   index: number;
 }) => {
   const { index, searchResult } = props;
-  return <Div key={`searchhit${index}`}>hit {index}</Div>;
+  return (
+    <Div key={`index${index}`}>
+      <ALink href={searchResult.url}>{searchResult.title}</ALink>
+
+      {searchResult.description ? (
+        <Div>{renderMarkdownContent(searchResult.description, {})}</Div>
+      ) : null}
+    </Div>
+  );
 };

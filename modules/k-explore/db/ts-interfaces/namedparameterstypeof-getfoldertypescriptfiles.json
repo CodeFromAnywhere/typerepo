@@ -1,0 +1,60 @@
+{
+  "createdAt": 1672637422495,
+  "updatedAt": 1672637422495,
+  "deletedAt": 0,
+  "createdFirstAt": 1672637422495,
+  "id": "namedparameterstypeof-getfoldertypescriptfiles",
+  "name": "NamedParameters<typeof getFolderTypescriptFiles>",
+  "slug": "namedparameterstypeof-getfoldertypescriptfiles",
+  "operationRelativeTypescriptFilePath": "src/getFolderTypescriptFiles.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "folderPath": {
+          "type": "string"
+        },
+        "includeStats": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "folderPath",
+        "includeStats"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "folderPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "includeStats",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getFolderTypescriptFiles>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

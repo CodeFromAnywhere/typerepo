@@ -1,8 +1,6 @@
 export declare const operations: {
     "codestorys-web": string;
-    "db-web": string;
     "function-server": string;
-    "function-web": string;
     "markdown-reader-web": string;
     "search-web": string;
     "todo-web": string;
@@ -47,10 +45,12 @@ export declare const operations: {
     "db-crud": string;
     "db-recipes": string;
     "db-util": string;
+    "docs-get-pages": string;
     "encrypt-password": string;
     "explore-project": string;
     "fancy-loader": string;
     "ffmpeg-util": string;
+    "file-explorer-open": string;
     "file-icons": string;
     "file-search": string;
     "file-tabs": string;
@@ -66,11 +66,12 @@ export declare const operations: {
     "function-form": string;
     "function-functions-node": string;
     "function-server-endpoints": string;
-    "function-server-types": string;
     "function-types": string;
     "function-util": string;
     "generate-index": string;
     "generate-sdk-operations": string;
+    "generative-functions-node": string;
+    "generative-ui": string;
     "geo-types": string;
     "get-all-operation-source-paths": string;
     "get-imported-dependencies": string;
@@ -81,6 +82,8 @@ export declare const operations: {
     "get-ts-config": string;
     hotkeys: string;
     "index-typescript": string;
+    "is-online": string;
+    "is-system-busy": string;
     "js-util": string;
     "json-util": string;
     "k-dev": string;
@@ -91,6 +94,8 @@ export declare const operations: {
     "language-types": string;
     layout: string;
     lint: string;
+    "lock-system": string;
+    "lock-util": string;
     log: string;
     mail: string;
     "make-file-type": string;
@@ -171,6 +176,7 @@ export declare const operations: {
     "swipe-homepage": string;
     tabs: string;
     "text-or-binary": string;
+    time: string;
     timeline: string;
     "todo-types": string;
     tooltip: string;

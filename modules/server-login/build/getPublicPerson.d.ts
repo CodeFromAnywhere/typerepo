@@ -1,3 +1,3 @@
-import { ApiFunction } from "function-server-types";
+import { ApiFunction } from "code-types";
 export declare const getPublicPerson: ApiFunction;
 //# sourceMappingURL=getPublicPerson.d.ts.map

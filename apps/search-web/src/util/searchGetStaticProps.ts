@@ -14,7 +14,7 @@ export const searchGetStaticProps: GetStaticProps<QueryPageProps> = async (
   const imagePaths = await fs.readdir(
     path.join(__dirname, "../../..", "public/headers")
   );
-  const searchResults = getAllSearchResults(query) || null;
+  const searchResults = await getAllSearchResults(query);
 
   const timelineItems: {
     comment: string;

@@ -1,0 +1,62 @@
+{
+  "createdAt": 1672637099624,
+  "updatedAt": 1672637099624,
+  "deletedAt": 0,
+  "createdFirstAt": 1672637099624,
+  "id": "namedparameterstypeof-updatesinglenestedjsonfile",
+  "name": "NamedParameters<typeof updateSingleNestedJsonFile>",
+  "slug": "namedparameterstypeof-updatesinglenestedjsonfile",
+  "operationRelativeTypescriptFilePath": "src/updateSingleNestedJsonFile.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "partialNewObject": {
+          "$ref": "#/definitions/NestedPartial%3C%3E"
+        }
+      },
+      "required": [
+        "path",
+        "partialNewObject"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "path",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "partialNewObject",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof updateSingleNestedJsonFile>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

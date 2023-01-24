@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316361223,
-  "updatedAt": 1671316361223,
+  "createdAt": 1674543142135,
+  "updatedAt": 1674543142135,
   "deletedAt": 0,
-  "createdFirstAt": 1671316361223,
+  "createdFirstAt": 1674543142135,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "convert-to-mp-3",
   "operationRelativeTypescriptFilePath": "src/convertToMp3.ts",
   "type": {
-    "rawType": "(sourcePath: string, destinationPath: string) => Promise<string | undefined>",
+    "rawType": "(sourcePath: string, destinationPath: string, config?: { toWav?: boolean | undefined; } | undefined) => Promise<string | undefined>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  sourcePath: string,\n  destinationPath: string\n): Promise<string | undefined> => {\n  return new Promise<string | undefined>((resolve, reject) => {\n    if (!fs.existsSync(sourcePath)) {\n      console.log(\"sourcePath doesn't exist\", sourcePath);\n    }\n    ffmpeg({ source: sourcePath })\n      .toFormat(\"mp3\")\n      .saveToFile(destinationPath)\n      .on(\"end\", () => {\n        resolve(destinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        console.log({ e });\n        resolve(undefined);\n      });\n  });\n}",
+  "value": "(\n  sourcePath: string,\n  destinationPath: string,\n  config?: {\n    toWav?: boolean;\n  }\n): Promise<string | undefined> => {\n  const toWav = config?.toWav;\n\n  return new Promise<string | undefined>((resolve, reject) => {\n    if (!fs.existsSync(sourcePath)) {\n      console.log(\"sourcePath doesn't exist\", sourcePath);\n    }\n    ffmpeg({ source: sourcePath })\n      .toFormat(toWav ? \"wav\" : \"mp3\")\n      .saveToFile(destinationPath)\n      .on(\"end\", () => {\n        resolve(destinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        console.log({ e });\n        resolve(undefined);\n      });\n  });\n}",
   "description": "Uses ffmpeg to convert a file to mp3\n\nReturns the new file path on success",
-  "id": "lvwjgjkskjadpghjuzxkfinz"
+  "id": "rjwslutvditgyrsbjcevdsuf"
 }

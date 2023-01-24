@@ -1,0 +1,191 @@
+{
+  "createdAt": 1673380284602,
+  "updatedAt": 1673380284602,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380284602,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getDependencyTree.ts",
+  "commentsInside": [],
+  "rawText": " (\n  allExports: TsExport[],\n  operationName: string\n): string[] => {\n  const uniqueExports = allExports\n    .filter((x) => x.operationName === operationName)\n    .filter(onlyUnique2<TsExport>((a, b) => a.name === b.name))\n    .map((x) => x.name);\n\n  return uniqueExports;\n}",
+  "name": "findMonorepoExports",
+  "slug": "find-monorepo-exports",
+  "parameters": [
+    {
+      "name": "allExports",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/TsExport"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "fullComment": "",
+              "properties": [
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "id",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "unique id of the model",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name (identifier) of the model",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "slug",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "kebab-case variant of the name",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativeTypescriptFilePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "comments",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "surrounding comments and comments inside of the import",
+                    "items": [],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "type",
+                  "required": false,
+                  "schema": {
+                    "enum": [
+                      "value",
+                      "type"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "alias",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "used for duplicate export names",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "hasGeneric",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "only for type exports. tells you whether or not the type has one or more generic parameter(s)",
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "TsExport"
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    },
+    {
+      "name": "operationName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 274,
+    "lines": 11,
+    "bytes": 274,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "tyxhtgutxecippchcxknnpte"
+}

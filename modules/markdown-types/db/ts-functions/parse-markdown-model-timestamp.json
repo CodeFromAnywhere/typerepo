@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317481660,
-  "updatedAt": 1671317481660,
+  "createdAt": 1673863282766,
+  "updatedAt": 1673863282766,
   "deletedAt": 0,
-  "createdFirstAt": 1671317481660,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863282766,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/markdownParseToMarkdownModelType.ts",
   "commentsInside": [],
   "rawText": " (\n  parameters: Frontmatter,\n  markdownParse: MarkdownParse,\n  parameterName:\n    | \"createdAt\"\n    | \"createdFirstAt\"\n    | \"updatedAt\"\n    | \"deletedAt\"\n    | \"openedAt\"\n): number => {\n  const parameterValue = parameters[parameterName];\n  const markdownParseValue = markdownParse[parameterName];\n\n  const parsedParameterValue =\n    typeof parameterValue === \"number\" && !isNaN(parameterValue)\n      ? parameterValue\n      : typeof parameterValue === \"string\"\n      ? tryParseDate(parameterValue)\n      : undefined;\n\n  const generatedValue =\n    parameterName === \"deletedAt\" || parameterName === \"openedAt\"\n      ? 0\n      : Date.now();\n\n  const parsedTimestamp =\n    parsedParameterValue !== undefined\n      ? parsedParameterValue\n      : markdownParseValue !== undefined\n      ? markdownParseValue\n      : generatedValue;\n\n  return parsedTimestamp;\n}",
@@ -293,5 +292,5 @@
     "linesPerFile": 38,
     "numberOfFiles": 1
   },
-  "id": "vmyngykmdjzndppcwhrbruus"
+  "id": "jmgctwjcotgqepxhxkhitgvg"
 }

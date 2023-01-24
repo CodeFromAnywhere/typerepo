@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671318426742,
-  "updatedAt": 1671318426742,
+  "createdAt": 1673863649129,
+  "updatedAt": 1673863649129,
   "deletedAt": 0,
-  "createdFirstAt": 1671318426742,
+  "createdFirstAt": 1673863649129,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  functionContext: FunctionContext,\n  details: PersonProfileDetails\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const person = functionContext.device.currentPersonCalculated;\n\n  const processedAsset = await processAsset(details.pictureImage);\n\n  details.pictureImage = processedAsset;\n\n  if (!person) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't find you, are you logged in?\",\n    };\n  }\n\n  const { isSuccesful, message, amountUpdated } = await db.update(\n    \"Person\",\n    (item) => item.id === person.id,\n    (old) => ({ ...old, ...details })\n  );\n\n  const isReallySuccessful = (isSuccesful && amountUpdated === 1) || false;\n\n  return {\n    isSuccessful: isReallySuccessful,\n    message: isReallySuccessful\n      ? \"Updated your profile details\"\n      : message || \"Something went wrong (no message)\",\n  };\n}",
   "description": "",
-  "id": "qvxgujxhvbeurxrrfjerjuhl"
+  "id": "wndlqccwxedpkmgjnvoiatla"
 }

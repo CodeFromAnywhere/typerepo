@@ -1,0 +1,51 @@
+{
+  "createdAt": 1672134427915,
+  "updatedAt": 1672134427915,
+  "deletedAt": 0,
+  "createdFirstAt": 1672134427915,
+  "id": "namedparameterstypeof-setbrowsersession",
+  "name": "NamedParameters<typeof setBrowserSession>",
+  "slug": "namedparameterstypeof-setbrowsersession",
+  "operationRelativeTypescriptFilePath": "src/browserSession.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "browser": {
+          "$ref": "#/definitions/Browser"
+        }
+      },
+      "required": [
+        "browser"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "browser",
+          "required": true,
+          "schema": {
+            "fullComment": "A Browser is created when Puppeteer connects to a Chromium instance, either through\n {@link  PuppeteerNode.launch }  or  {@link  Puppeteer.connect } .",
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof setBrowserSession>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

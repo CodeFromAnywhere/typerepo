@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316357634,
-  "updatedAt": 1671316357634,
+  "createdAt": 1674543140045,
+  "updatedAt": 1674543140045,
   "deletedAt": 0,
-  "createdFirstAt": 1671316357634,
+  "createdFirstAt": 1674543140045,
   "id": "namedparameterstypeof-converttomp3",
   "name": "NamedParameters<typeof convertToMp3>",
   "slug": "namedparameterstypeof-converttomp3",
@@ -22,6 +22,15 @@
         },
         "destinationPath": {
           "type": "string"
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "toWav": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
         }
       },
       "required": [
@@ -44,6 +53,22 @@
           "required": true,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "toWav",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
           }
         }
       ],

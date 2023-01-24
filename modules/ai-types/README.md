@@ -30,7 +30,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | isValidCalculated (optional) | boolean |  |
 | isFake (optional) | boolean |  |
 | contextualPromptSlug  | string |  |
@@ -78,7 +78,6 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
 | title (optional) | string |  |
 | description (optional) | string |  |
 | scopeProjectRelativePath (optional) | string |  |
@@ -88,6 +87,49 @@ Properties:
 | usesContext (optional) | boolean |  |
 | usesSelection (optional) | boolean |  |
 | usesAnyContext (optional) | boolean |  |
+
+
+
+## 🔹 ReaderProps
+
+This is what we need on the page level. There are many subtleties to it, but this is the core
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| notFound (optional) | boolean |  |
+| notFoundReason (optional) | string |  |
+| isFolder (optional) | boolean |  |
+| canSeeContent (optional) | boolean |  |
+| unauthorizedWarningMessage (optional) | string |  |
+| markdown (optional) | string |  |
+| contextualPromptsObject (optional) | object |  |
+| contextualPromptResults (optional) | object |  |
+| actualProjectRelativeFilePath (optional) | string |  |
+| navigation (optional) | array |  |
+| contextualPromptCategories (optional) | object |  |
+
+
+
+## 🔹 CategoryChildObject
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| category (optional) | string |  |
+| categoryStack  | array |  |
+| count  | number |  |
+| name (optional) | string |  |
+| title (optional) | string |  |
+| description (optional) | string |  |
+| pricing (optional) | string |  |
+| children (optional) | array |  |
 
 
 
@@ -140,31 +182,6 @@ Properties:
 
 
 
-## 🔹 ReaderProps
-
-This is what we need on the page level. There are many subtleties to it, but this is the core
-
-
-
-
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| notFound (optional) | boolean |  |
-| notFoundReason (optional) | string |  |
-| isFolder (optional) | boolean |  |
-| canSeeContent (optional) | boolean |  |
-| unauthorizedWarningMessage (optional) | string |  |
-| markdown (optional) | string |  |
-| contextualPromptsObject (optional) | object |  |
-| contextualPromptResults (optional) | object |  |
-| actualProjectRelativeFilePath (optional) | string |  |
-| navigation (optional) | array |  |
-
-
-
 ## 🔸 AiDemoApp
 
 jsonSingle model
@@ -192,7 +209,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | domain (optional) | string |  |
 | headerTitle  | string |  |
 | hasImageBoolean (optional) | boolean |  |
@@ -226,6 +243,21 @@ Properties:
 
  | Name | Type | Description |
 |---|---|---|
+| version (optional) | string |  |
+| versionInfo (optional) | object |  |
+| isHeavy (optional) | boolean |  |
+| isInternetRequired (optional) | boolean |  |
+| isBrowserRequired (optional) | boolean |  |
+| isPublic (optional) | boolean |  |
+| isApiExposed (optional) | boolean |  |
+| domain (optional) | string |  |
+| isPaid (optional) | boolean |  |
+| price (optional) | number |  |
+| allowedRoles (optional) | array |  |
+| groupAuthorization (optional) | object |  |
+| canCache (optional) | boolean |  |
+| runEveryPeriod (optional) | string |  |
+| classification (optional) | string |  |
 | contextualPromptInfo  | object |  |
 
 
@@ -234,9 +266,88 @@ Properties:
 
 # Internal
 
-<details><summary>Show internal (4)</summary>
+<details><summary>Show internal (6)</summary>
     
-  # 🔹 ContextualPromptInfo
+  # 🔸 AiDataset
+
+jsonMultiple model
+
+
+
+AI datasets
+example: https://pile.eleuther.ai/
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStack (optional) | array |  |
+| name  | string |  |
+| company (optional) | string |  |
+| dataType  | string |  |
+| description (optional) | string |  |
+| sizeGb (optional) | number |  |
+| url (optional) | string |  |
+| isPublic (optional) | boolean |  |
+
+
+
+## 🔸 AiModel
+
+jsonMultiple model
+
+
+
+
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt  | number |  |
+| updatedAt  | number |  |
+| deletedAt  | number |  |
+| createdFirstAt  | number |  |
+| operationName  | null |  |
+| projectRelativePath  | string |  |
+| operationRelativePath (optional) | string |  |
+| id  | string |  |
+| categoryStack (optional) | array |  |
+| name  | string |  |
+| company  | string |  |
+| task  | string |  |
+| description (optional) | string |  |
+| notes (optional) | string |  |
+| trainingCostUsd (optional) | number |  |
+| isOpenSource (optional) | boolean |  |
+| isModelPublic (optional) | boolean |  |
+| canRunLocally (optional) | boolean |  |
+| isGpuRequired (optional) | boolean |  |
+| systemRequirements (optional) | string |  |
+| paperUrl (optional) | string |  |
+| githubUrl (optional) | string |  |
+| hasApi (optional) | boolean |  |
+| apiUrls (optional) | array |  |
+
+
+
+## 🔹 ContextualPromptInfo
 
 To be appended to the generated typescript
 
@@ -280,7 +391,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | email  | string |  |
 | tier  | string |  |
 | newsletter  | string |  |

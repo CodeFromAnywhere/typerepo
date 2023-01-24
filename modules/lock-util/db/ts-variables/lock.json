@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674117614253,
+  "updatedAt": 1674117614253,
+  "deletedAt": 0,
+  "createdFirstAt": 1674117614253,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "lock",
+  "slug": "lock",
+  "operationRelativeTypescriptFilePath": "src/lock.ts",
+  "type": {
+    "rawType": "(aboluteLockableFilePath: string, status?: string | undefined) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  aboluteLockableFilePath: string,\n  status?: string\n) => {\n  const parsedPath = path.parse(aboluteLockableFilePath);\n  const lockFilePath = path.join(parsedPath.dir, `${parsedPath.name}.lock`);\n\n  await writeJsonToFile<LockInfo>(lockFilePath, {\n    status: status || \"busy\",\n    updatedAt: Date.now(),\n  });\n}",
+  "description": "either creates the lockfile if it didn't exist or it will update it with new updatedAt and status. If status isn't set, status will be removed",
+  "id": "vtilskziummzhkuhtpwspqmf"
+}

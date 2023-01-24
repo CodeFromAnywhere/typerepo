@@ -1,11 +1,10 @@
 {
-  "createdAt": 1669200353032,
-  "updatedAt": 1669200353032,
+  "createdAt": 1673861929369,
+  "updatedAt": 1673861929369,
   "deletedAt": 0,
-  "createdFirstAt": 1669200353032,
-  "isApiExposed": true,
+  "createdFirstAt": 1673861929369,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/js.ts",
   "commentsInside": [],
   "rawText": " (p: string) =>\n  p.charAt(0) === \"/\" ? p.slice(1) : p",
@@ -32,5 +31,5 @@
     "linesPerFile": 2,
     "numberOfFiles": 1
   },
-  "id": "selciiefnseocxmphdddozfg"
+  "id": "tyaiuxumiugyzgeluvlgwlxs"
 }

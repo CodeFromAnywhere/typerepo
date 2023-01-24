@@ -1,52 +1,18 @@
 [
   {
-    "createdAt": 1671505973537,
-    "updatedAt": 1671505973537,
+    "createdAt": 1674133320366,
+    "updatedAt": 1674133320366,
     "deletedAt": 0,
-    "createdFirstAt": 1671505973537,
+    "createdFirstAt": 1674133320366,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
-    "comment": "function `processPromptOnFile` to execute `processChatGptPrompt` for a file, so we don't need to store the whole file content and it can be executed later and still have the most recent file contents\n\nIn order to keep the file itself as a source of truth for its content, it's useful to have this because you can add this to the queue",
-    "rawStatement": "export const processPromptOnFile = async (\n  projectRelativeFilePath: string,\n  contextualPromptSlug: string\n) => {\n  console.log(\"called processPromptOnFile\", {\n    projectRelativeFilePath,\n    contextualPromptSlug,\n  });\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No projectroot\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  const exists = fs.existsSync(absolutePath);\n\n  if (!exists) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const contextContent = await fs.readFile(absolutePath, \"utf8\");\n  const result = await processChatGptPrompt({\n    contextContent,\n    contextualPromptSlug,\n    isDeferred: true,\n    prompt_projectRelativePath: projectRelativeFilePath,\n  });\n\n  return result;\n};",
+    "operationRelativeTypescriptFilePath": "src/tool/toolFunctionWithContext.ts",
+    "comment": "Function to be executed straight from the frontend, where details is replaced with actual parameters of the function you want to execute.\n\n`.functionContext` and `.functionName` to be stripped out of the form",
+    "rawStatement": "export const toolFunctionWithContext = async (\n  functionContext: FunctionContext,\n  functionName: string,\n  email: string,\n  /**\n   * Needed in this format because we need to show it nicely in the form (maybe not needed, try without also)\n   */\n  details: { [parameterName: string]: any }\n) => {\n  const fn = sdk[functionName as keyof typeof sdk] as ApiFunction | undefined;\n\n  const isNoTool = !fn || typeof fn !== \"function\" || !fn.domain;\n  if (isNoTool) {\n    return { isSuccessful: false, message: \"This is no tool\" };\n  }\n\n  // 1) save device email to device if not already\n  const emailAdded = await addDeviceAuthenticationMethodWithContext(\n    functionContext,\n    \"email\",\n    email\n  );\n\n  if (!emailAdded.isSuccessful) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't add your email to device\",\n    };\n  }\n\n  // 2) check how often you are running this function, there should be a rate limit, maybe later (TODO)\n\n  // 2) get parameters\n  const parameters = Object.values(details);\n\n  // 3) validate parameters (TODO, can also partly be done in function itself because we need pretty strict maybe for length and stuff)\n\n  // 4) add to queue\n  const queueItem: Creation<Queue> = {\n    functionName,\n    parameters,\n    executionAuthToken: functionContext.authToken,\n    notifyLateAfterSeconds: 60,\n    shouldNotifyOnResult: true,\n  };\n  const upsertResult = await db.upsert(\"Queue\", queueItem);\n\n  return {\n    isSuccessful: upsertResult.isSuccesful,\n    message: upsertResult.isSuccesful\n      ? \"Check your mail in a moment\"\n      : `Couldn't add to queue ${upsertResult.message}`,\n  };\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 11,
+    "firstLine": 12,
     "lastLine": 16,
-    "id": "xrngudvnhgatklxxxpgsjcpz"
-  },
-  {
-    "createdAt": 1671505973537,
-    "updatedAt": 1671505973537,
-    "deletedAt": 0,
-    "createdFirstAt": 1671505973537,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
-    "comment": "function that can execute `processPromptOnFile` for all files in a folder, by just upserting the executions to the queue.",
-    "rawStatement": "export const processPromptOnFolder = async (config: {\n  projectRelativeFolderPath: string;\n  promptSlug: string;\n  isRecursive?: boolean;\n  /**\n   * File extension(s) to be searched for in the folder\n   *\n   * If not given, just finds all file extensions\n   *\n   * exension without dot\n   */\n  extension?: string | string[];\n}) => {\n  const { projectRelativeFolderPath, promptSlug, extension, isRecursive } =\n    config;\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No projectroot\" };\n  }\n  const absoluteFolderPath = path.join(projectRoot, projectRelativeFolderPath);\n\n  const exists = fs.existsSync(absoluteFolderPath);\n\n  if (!exists) {\n    return { isSuccessful: false, message: \"Folder not found\" };\n  }\n\n  const stats = await fs.stat(absoluteFolderPath);\n  if (!stats.isDirectory()) {\n    return { isSuccessful: false, message: \"That's not a folder\" };\n  }\n\n  // get files\n  const projectRelativeFilePaths = (\n    await explore({\n      basePath: absoluteFolderPath,\n      doNotExploreChildFolders: !isRecursive,\n      extension,\n      ignore: \".index\",\n    })\n  ).map((x) => makeRelative(x.path, projectRoot));\n\n  const queueItems: Creation<Queue>[] = projectRelativeFilePaths.map(\n    (projectRelativeFilePath) => {\n      return {\n        functionName: \"processPromptOnFile\",\n        parameters: [projectRelativeFilePath, promptSlug],\n        type: \"puppeteer\",\n      };\n    }\n  );\n\n  const upsertResult = await db.upsert(\"Queue\", queueItems);\n\n  return {\n    isSuccessful: upsertResult.isSuccesful,\n    message: upsertResult.isSuccesful ? \"Added to queue\" : upsertResult.message,\n  };\n};",
-    "parameters": {},
-    "types": [],
-    "firstLine": 49,
-    "lastLine": 51,
-    "id": "abnpdwmsjohpstsinwjaiwqd"
-  },
-  {
-    "createdAt": 1671505973537,
-    "updatedAt": 1671505973537,
-    "deletedAt": 0,
-    "createdFirstAt": 1671505973537,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/queue-functions.ts",
-    "comment": "\ncron that runs every minute for executing new puppeteer queue items. It will open it as child process. You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.",
-    "rawStatement": "export const checkQueue = async () => {\n  const queueItems = await db.get(\"Queue\");\n  if (queueItems.length === 0) return;\n\n  // 1. check how many chrome tabs are available (according to OS settings / memory limit)\n  const idlePages = (await db.get(\"BrowserPage\")).filter((p) => p.isIdle);\n\n  if (idlePages.length === 0) return;\n  // 2. check how many queue items can be executed now, and sort by importancy\n  const queueItemsToExecute = queueItems.slice(0, 1); //idlePages.length);\n  // NB: limit to 1 for now to test if that works\n\n  // 3. take the ones that are most important and execute those\n  await Promise.all(\n    queueItemsToExecute.map(async (queue) => {\n      const fn = sdk[queue.functionName as keyof typeof sdk] as\n        | ((...parameters: any[]) => any)\n        | undefined;\n\n      if (!fn) return;\n\n      await fn(...queue.parameters);\n    })\n  );\n\n  const removeResult = await db.remove(\"Queue\", (item) =>\n    queueItemsToExecute.map((x) => x.id).includes(item.id)\n  );\n  console.log(`executed`, { removeResult });\n};",
-    "parameters": {
-      "runEveryPeriod": "minute"
-    },
-    "types": [],
-    "firstLine": 113,
-    "lastLine": 120,
-    "id": "uzfpyeyfubvlmedvjhvlesrd"
+    "id": "vebwppuizanbwabluptsnnzw"
   }
 ]

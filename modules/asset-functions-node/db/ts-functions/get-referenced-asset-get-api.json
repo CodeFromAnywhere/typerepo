@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115506727,
-  "updatedAt": 1671115506727,
+  "createdAt": 1673861901670,
+  "updatedAt": 1673861901670,
   "deletedAt": 0,
-  "createdFirstAt": 1671115506727,
-  "isApiExposed": true,
+  "createdFirstAt": 1673861901670,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/server-context/getReferencedAssetGetApi.ts",
   "commentsInside": [],
   "rawText": " async (\n  serverContext: Context\n): Promise<{\n  isSuccessful: boolean;\n  isUnauthorized?: boolean;\n  message: string;\n}> => {\n  if (!serverContext) {\n    return { isSuccessful: false, message: \"No server context provided\" };\n  }\n  /**\n  const authToken = (ctx as any).cookies?.authToken;\n  const authToken2 = ctx.cookie?.authToken;\n\n  console.log({\n    authToken,\n    authToken2,\n    cookie: ctx.cookie,\n    cookies: (ctx as any).cookies,\n    headers: ctx.req.headers,\n  });\n\n  const isAuthed = functionAuthPlugin(\"uploadAsset\", authToken);\n  if (!isAuthed) {\n    return {\n      isSuccessful: false,\n      isUnauthorized: true,\n      message: \"You can only do this when authenticated\",\n    };\n  }\n  */\n  const isDownload = takeFirst(serverContext.query.isDownload) === \"1\";\n\n  const projectRelativeReferencingFilePath = takeFirst(\n    serverContext.query.projectRelativeReferencingFilePath\n  );\n\n  const referencingFileRelativeAssetPath = takeFirst(\n    serverContext?.query.referencingFileRelativeAssetPath\n  );\n\n  const { absoluteAssetPath, message, isSuccessful } =\n    await findAbsoluteAssetPathFromReference(\n      projectRelativeReferencingFilePath,\n      referencingFileRelativeAssetPath\n    );\n\n  if (!absoluteAssetPath) {\n    return { isSuccessful, message };\n  }\n\n  return serverDownloadReply(absoluteAssetPath, isDownload);\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 78,
     "numberOfFiles": 1
   },
-  "id": "umljbkkbszffndzrhbepyawl"
+  "id": "hjguernoeitjcldkyyznhory"
 }

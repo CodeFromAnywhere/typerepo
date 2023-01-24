@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116409914,
-  "updatedAt": 1671116409914,
+  "createdAt": 1673863405957,
+  "updatedAt": 1673863405957,
   "deletedAt": 0,
-  "createdFirstAt": 1671116409914,
+  "createdFirstAt": 1673863405957,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  eventName: WatchEventType,\n  path: string\n) => {\n  // for indexation we don't care about any other event than adding or changing a file\n  if (![\"add\", \"change\"].includes(eventName)) return false;\n  // in order to index a file, it must be in an operation, which means it must be in src\n  if (!path.includes(\"/src/\")) return false;\n  // only ts and tsx files matter, the rest doesn't need to be indexed\n  if (![\"ts\", \"tsx\"].includes(getExtension(path))) return false;\n\n  return true;\n}",
   "description": "",
-  "id": "bubbzukvvmubidkmdqvbpybf"
+  "id": "gndyjprpdizbbpxgidmuzcpd"
 }

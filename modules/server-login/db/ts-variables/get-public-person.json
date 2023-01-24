@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671318400215,
-  "updatedAt": 1671318400215,
+  "createdAt": 1673863610529,
+  "updatedAt": 1673863610529,
   "deletedAt": 0,
-  "createdFirstAt": 1671318400215,
+  "createdFirstAt": 1673863610529,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,99 +10,15 @@
   "slug": "get-public-person",
   "operationRelativeTypescriptFilePath": "src/getPublicPerson.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/user-interfaces/api/function-server-types/build/ApiFunction\").ApiFunction",
-    "typeDefinition": {
-      "type": "object",
-      "properties": {
-        "isPublic": {
-          "type": "boolean"
-        },
-        "isPaid": {
-          "enum": [
-            "ru",
-            "isSuccessful"
-          ],
-          "x-enumNames": [
-            "ru",
-            "isSuccessful"
-          ],
-          "type": "string"
-        },
-        "price": {
-          "type": "number"
-        },
-        "allowedRoles": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "allOf": [
-              {
-                "transform": [
-                  "trim"
-                ]
-              },
-              {
-                "minLength": 1
-              }
-            ]
-          }
-        }
-      },
-      "optional": false
-    },
+    "rawType": "import(\"/Users/king/King/operations/tools/types/code-types/build/ApiFunction\").ApiFunction",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
-    "isObject": true,
+    "isObject": false,
     "isPrimitive": false,
-    "isEnumLiteral": false,
-    "simplifiedSchema": {
-      "properties": [
-        {
-          "name": "isPublic",
-          "required": false,
-          "schema": {
-            "type": "boolean"
-          }
-        },
-        {
-          "name": "isPaid",
-          "required": false,
-          "schema": {
-            "enum": [
-              "ru",
-              "isSuccessful"
-            ],
-            "type": "string"
-          }
-        },
-        {
-          "name": "price",
-          "required": false,
-          "schema": {
-            "type": "number"
-          }
-        },
-        {
-          "name": "allowedRoles",
-          "required": false,
-          "schema": {
-            "items": [
-              {
-                "schema": {
-                  "type": "string"
-                },
-                "name": null
-              }
-            ],
-            "type": "array"
-          }
-        }
-      ],
-      "type": "object"
-    }
+    "isEnumLiteral": false
   },
   "value": "async (id?: string) => {\n  return (await getPublicPersons()).find((x) => x.id === id);\n}",
   "description": "",
-  "id": "inocznbveqjswrjzvmmnruaz"
+  "id": "wnvqzycntsptqilkzbftcehy"
 }

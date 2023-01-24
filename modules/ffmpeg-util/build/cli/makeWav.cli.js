@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0});var compressConvert_1=require("../compressConvert"),absolutePath=process.argv.slice(2)[0];(0,compressConvert_1.compressConvert)(absolutePath,{targetFormat:"wav",is16bitWav:!0,keepOriginal:!0});
+//# sourceMappingURL=makeWav.cli.js.map

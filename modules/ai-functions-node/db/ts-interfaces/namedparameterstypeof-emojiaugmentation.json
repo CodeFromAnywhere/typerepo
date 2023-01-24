@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671505954477,
-  "updatedAt": 1671505954477,
+  "createdAt": 1674133288312,
+  "updatedAt": 1674133288312,
   "deletedAt": 0,
-  "createdFirstAt": 1671505954477,
+  "createdFirstAt": 1674133288312,
   "id": "namedparameterstypeof-emojiaugmentation",
   "name": "NamedParameters<typeof emojiAugmentation>",
   "slug": "namedparameterstypeof-emojiaugmentation",
@@ -20,12 +20,16 @@
         "contextContent": {
           "type": "string"
         },
+        "prompt_projectRelativePath": {
+          "type": "string"
+        },
         "isDeferred": {
           "type": "boolean"
         }
       },
       "required": [
-        "contextContent"
+        "contextContent",
+        "prompt_projectRelativePath"
       ],
       "additionalProperties": false
     },
@@ -33,6 +37,13 @@
       "properties": [
         {
           "name": "contextContent",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "prompt_projectRelativePath",
           "required": true,
           "schema": {
             "type": "string"

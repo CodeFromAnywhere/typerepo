@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671315923494,
-  "updatedAt": 1671315923494,
+  "createdAt": 1673959143492,
+  "updatedAt": 1673959143492,
   "deletedAt": 0,
-  "createdFirstAt": 1671315923494,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959143492,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findOperationBasePath.ts",
   "commentsInside": [],
   "rawText": " (\n  startPath: string\n):\n  | { folderPath: string; classification: OperationClassification }\n  | undefined => {\n  // returns if `getOperationClassification` does not return `undefined`\n  const result = findFolderWhereMatch(startPath, getOperationClassification);\n\n  return result\n    ? { folderPath: result.folderPath, classification: result.matchResult! }\n    : undefined;\n}",
@@ -87,5 +86,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "logzieeejcyjdrapkpzxtovc"
+  "id": "mubhebicdwvwgtzpvnsdrwhh"
 }

@@ -1,0 +1,34 @@
+[
+  {
+    "createdAt": 1673959371145,
+    "updatedAt": 1673959371145,
+    "deletedAt": 0,
+    "createdFirstAt": 1673959371145,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/time.ts",
+    "comment": "import { setRandomTimezone } from \"set-random-timezone\";",
+    "rawStatement": "export const time = () => {\n  const nowMs = Date.now();\n  const nowDate = new Date(nowMs);\n  const fakeOffsetMs = 60000 * nowDate.getTimezoneOffset();\n  // hardcoded on GMT+1\n  const realOffsetMs = 60 * 60000;\n\n  const myTimeMs = nowMs + fakeOffsetMs + realOffsetMs;\n\n  const myTimeDate = new Date(myTimeMs);\n\n  //   console.log({\n  //     nowMs,\n  //     myTimeMs,\n  //     fakeOffsetH: fakeOffsetMs / 3600000,\n  //     realOffsetMs: realOffsetMs / 3600000,\n  //   });\n\n  //setRandomTimezone();\n  return {\n    timeString: `${myTimeDate.getHours()}:${myTimeDate.getMinutes()}`,\n    myTimeDate,\n    myTimeMs,\n  };\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 1,
+    "lastLine": 1,
+    "id": "xjfzqangsayqmosqoyapwwoq"
+  },
+  {
+    "createdAt": 1673959371145,
+    "updatedAt": 1673959371145,
+    "deletedAt": 0,
+    "createdFirstAt": 1673959371145,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/time.ts",
+    "comment": "To enable possibility to change the timezone in the OS, this is the actually correct time, assuming we are in timezone GMT+1",
+    "rawStatement": "export const time = () => {\n  const nowMs = Date.now();\n  const nowDate = new Date(nowMs);\n  const fakeOffsetMs = 60000 * nowDate.getTimezoneOffset();\n  // hardcoded on GMT+1\n  const realOffsetMs = 60 * 60000;\n\n  const myTimeMs = nowMs + fakeOffsetMs + realOffsetMs;\n\n  const myTimeDate = new Date(myTimeMs);\n\n  //   console.log({\n  //     nowMs,\n  //     myTimeMs,\n  //     fakeOffsetH: fakeOffsetMs / 3600000,\n  //     realOffsetMs: realOffsetMs / 3600000,\n  //   });\n\n  //setRandomTimezone();\n  return {\n    timeString: `${myTimeDate.getHours()}:${myTimeDate.getMinutes()}`,\n    myTimeDate,\n    myTimeMs,\n  };\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 3,
+    "lastLine": 5,
+    "id": "sqmbvpjojeenvwqqgslrospp"
+  }
+]

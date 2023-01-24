@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671505940329,
-  "updatedAt": 1671505940329,
+  "createdAt": 1674133277466,
+  "updatedAt": 1674133277466,
   "deletedAt": 0,
-  "createdFirstAt": 1671505940329,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133277466,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getContextualPromptCategories.test.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const result = await getContextualPromptCategories();\n\n  writeToAssets(__filename, result, \"contextual-prompt-categories.json\");\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "edbawbhzobglwbtjpznieeur"
+  "id": "ifzbwntkwjwichmmtojljtol"
 }

@@ -1,0 +1,304 @@
+{
+  "createdAt": 1673863254334,
+  "updatedAt": 1673863254334,
+  "deletedAt": 0,
+  "createdFirstAt": 1673863254334,
+  "id": "markdownindex",
+  "name": "MarkdownIndex",
+  "slug": "markdownindex",
+  "operationRelativeTypescriptFilePath": "src/MarkdownIndex.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "/**\n * Every time a markdown file comes in (watcher), can we do some default functions and GPT for it.\n */\nexport type MarkdownIndex = {\n  createdAt?: number;\n  updatedAt?: number;\n  source?: string;\n  isSource?: boolean;\n\n  title?: string;\n  seoTitle?: string;\n  keywords?: string[];\n  seoKeywords?: string[];\n\n  statements?: string[];\n\n  takeAways?: string[];\n\n  socialMediaPosts?: string[];\n\n  /**\n   *  GPT to get visual descriptions for any markdown file, which in turn can be turned into images\n   */\n  imagePromptDescritpions?: string[];\n\n  /**\n   * summary of the file\n   */\n  summary?: string;\n\n  /**\n   * Interesting standalone snippet finding in bigger video/audio\n   */\n  snippets?: { firstLine: string; lastLine: string }[];\n\n  /**\n   * Using GPT to determine suggested location where this file should go\n   */\n  suggestedLocation?: string;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "Every time a markdown file comes in (watcher), can we do some default functions and GPT for it.",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "createdAt": {
+          "type": "number"
+        },
+        "updatedAt": {
+          "type": "number"
+        },
+        "source": {
+          "type": "string"
+        },
+        "isSource": {
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        },
+        "seoTitle": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "seoKeywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "statements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "takeAways": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "socialMediaPosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "imagePromptDescritpions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "GPT to get visual descriptions for any markdown file, which in turn can be turned into images"
+        },
+        "summary": {
+          "type": "string",
+          "description": "summary of the file"
+        },
+        "snippets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "firstLine": {
+                "type": "string"
+              },
+              "lastLine": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "firstLine",
+              "lastLine"
+            ],
+            "additionalProperties": false
+          },
+          "description": "Interesting standalone snippet finding in bigger video/audio"
+        },
+        "suggestedLocation": {
+          "type": "string",
+          "description": "Using GPT to determine suggested location where this file should go"
+        }
+      },
+      "additionalProperties": false,
+      "description": "Every time a markdown file comes in (watcher), can we do some default functions and GPT for it."
+    },
+    "simplifiedSchema": {
+      "fullComment": "Every time a markdown file comes in (watcher), can we do some default functions and GPT for it.",
+      "properties": [
+        {
+          "name": "createdAt",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "updatedAt",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "source",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "isSource",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "title",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "seoTitle",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "keywords",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "seoKeywords",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "statements",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "takeAways",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "socialMediaPosts",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "imagePromptDescritpions",
+          "required": false,
+          "schema": {
+            "fullComment": "GPT to get visual descriptions for any markdown file, which in turn can be turned into images",
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "summary",
+          "required": false,
+          "schema": {
+            "fullComment": "summary of the file",
+            "type": "string"
+          }
+        },
+        {
+          "name": "snippets",
+          "required": false,
+          "schema": {
+            "fullComment": "Interesting standalone snippet finding in bigger video/audio",
+            "items": [
+              {
+                "schema": {
+                  "properties": [
+                    {
+                      "name": "firstLine",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "lastLine",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "suggestedLocation",
+          "required": false,
+          "schema": {
+            "fullComment": "Using GPT to determine suggested location where this file should go",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "MarkdownIndex",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671553278761,
+  "updatedAt": 1671553278761,
+  "deletedAt": 0,
+  "createdFirstAt": 1671553278761,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/findClosestAbsolutePath.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  absoluteQueryPath: string\n): Promise<{\n  absoluteQueryPath: string;\n  isFile?: boolean;\n  isFolder?: boolean;\n}> => {\n  const pathExists = fs.existsSync(absoluteQueryPath);\n\n  const stats = pathExists ? await fs.stat(absoluteQueryPath) : null;\n  const isFile = stats?.isFile();\n  const isFolder = stats?.isDirectory();\n\n  const isValidPath = pathExists && (isFile || isFolder);\n\n  if (isValidPath) return { absoluteQueryPath, isFile, isFolder };\n\n  // no valid path\n\n  const folderUpPath = getFolderJs(absoluteQueryPath);\n\n  return findClosestAbsolutePath(folderUpPath);\n}",
+  "name": "findClosestAbsolutePath",
+  "slug": "find-closest-absolute-path",
+  "parameters": [
+    {
+      "name": "absoluteQueryPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ absoluteQueryPath: string; isFile?: boolean | undefined; isFolder?: boolean | undefined; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 583,
+    "lines": 23,
+    "bytes": 583,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 25,
+    "linesPerFile": 23,
+    "numberOfFiles": 1
+  },
+  "id": "wpckvdhzzqwndejjrqmcsuto"
+}

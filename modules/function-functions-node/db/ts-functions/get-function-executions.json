@@ -1,11 +1,10 @@
 {
-  "createdAt": 1670527323797,
-  "updatedAt": 1670527323797,
+  "createdAt": 1673862599397,
+  "updatedAt": 1673862599397,
   "deletedAt": 0,
-  "createdFirstAt": 1670527323797,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862599397,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFunctionExecutions.ts",
   "commentsInside": [],
   "rawText": " async (\n  functionName: string | undefined\n): Promise<FunctionExecution[]> => {\n  if (!functionName) return [];\n  const functionExecutions = (\n    await db.get(\"FunctionExecution\", {\n      // TODO: ensure executiosn are stored in the right place before I add this back\n      //  operationName: tsFunction.operationName,\n    })\n  )\n    .filter((x) => x.functionName === functionName)\n    .map(omitUndefinedValues);\n\n  return functionExecutions;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "pjaguyhtjjmdolysqbhlpwig"
+  "id": "jlafyuztsxtpzmlllovkrorw"
 }

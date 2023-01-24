@@ -1,0 +1,70 @@
+{
+  "createdAt": 1674133308707,
+  "updatedAt": 1674133308707,
+  "deletedAt": 0,
+  "createdFirstAt": 1674133308707,
+  "id": "namedparameterstypeof-shouldaddtoqueue",
+  "name": "NamedParameters<typeof shouldAddToQueue>",
+  "slug": "namedparameterstypeof-shouldaddtoqueue",
+  "operationRelativeTypescriptFilePath": "src/queue/shouldAddToQueue.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "functionName": {
+          "type": "string"
+        },
+        "parameters": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "functionName",
+        "parameters"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "functionName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "parameters",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof shouldAddToQueue>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216116716,
-  "updatedAt": 1670216116716,
+  "createdAt": 1672637411879,
+  "updatedAt": 1672637411879,
   "deletedAt": 0,
-  "createdFirstAt": 1670216116716,
+  "createdFirstAt": 1672637411879,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(filePath: string): FileType | null => {\n  const extension = path.parse(filePath).ext.substring(1);\n  if (!isSearchContentExtension(extension)) return null;\n  const index = fileTypes.findIndex((fileType) =>\n    extensions[fileType].includes(extension)\n  );\n  const fileType = fileTypes[index];\n  return fileType;\n}",
   "description": "returns the file type or null if it's unknown",
-  "id": "enbqsahgrkrggcosruzqfclp"
+  "id": "dgkybidshbpvrwetpcxkomrw"
 }

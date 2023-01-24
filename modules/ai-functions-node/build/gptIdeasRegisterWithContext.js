@@ -71,6 +71,8 @@ var gptIdeasRegisterWithContext = function (functionContext, name, email, tier, 
                         name: name,
                         slug: (0, convert_case_1.slugify)(name),
                         amountAuthenticationMethodsRequired: 1,
+                        authorizations: [],
+                        requiredAuthenticationMethods: null,
                     })];
             case 3:
                 signupResult = _a.sent();

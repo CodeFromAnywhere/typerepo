@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671115612352,
+  "updatedAt": 1671115612352,
+  "deletedAt": 0,
+  "createdFirstAt": 1671115612352,
+  "id": "namedparameterstypeof-fileexploreropen",
+  "name": "NamedParameters<typeof fileExplorerOpen>",
+  "slug": "namedparameterstypeof-fileexploreropen",
+  "operationRelativeTypescriptFilePath": "src/fileExplorerOpen.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "projectRelativePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "projectRelativePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "projectRelativePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof fileExplorerOpen>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

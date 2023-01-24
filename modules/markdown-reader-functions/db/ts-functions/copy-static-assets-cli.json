@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115927729,
-  "updatedAt": 1671115927729,
+  "createdAt": 1674135535994,
+  "updatedAt": 1674135535994,
   "deletedAt": 0,
-  "createdFirstAt": 1671115927729,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135535994,
+  "isApiExposed": false,
   "isExported": false,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/cli/copyStaticAssets.cli.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const markdownReaderPages = await getAllMarkdownReaderPages();\n\n  if (!markdownReaderPages) return;\n  const isSuccessful = await copyStaticAssets(markdownReaderPages);\n\n  console.log({ isSuccessful });\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 8,
     "numberOfFiles": 1
   },
-  "id": "ogdcgdvhevjjasyqiieoyoxp"
+  "id": "vqecasefvsvlyuveoqgvfrgn"
 }

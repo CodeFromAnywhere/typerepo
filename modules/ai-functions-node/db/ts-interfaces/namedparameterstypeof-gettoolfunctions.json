@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674133315870,
+  "updatedAt": 1674133315870,
+  "deletedAt": 0,
+  "createdFirstAt": 1674133315870,
+  "id": "namedparameterstypeof-gettoolfunctions",
+  "name": "NamedParameters<typeof getToolFunctions>",
+  "slug": "namedparameterstypeof-gettoolfunctions",
+  "operationRelativeTypescriptFilePath": "src/tool/getToolFunctions.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getToolFunctions>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

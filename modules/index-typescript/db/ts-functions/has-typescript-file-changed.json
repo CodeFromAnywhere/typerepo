@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671116409765,
-  "updatedAt": 1671116409765,
+  "createdAt": 1673863405728,
+  "updatedAt": 1673863405728,
   "deletedAt": 0,
-  "createdFirstAt": 1671116409765,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863405728,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/hasTypescriptFileChanged.ts",
   "commentsInside": [],
   "rawText": " (\n  eventName: WatchEventType,\n  path: string\n) => {\n  // for indexation we don't care about any other event than adding or changing a file\n  if (![\"add\", \"change\"].includes(eventName)) return false;\n  // in order to index a file, it must be in an operation, which means it must be in src\n  if (!path.includes(\"/src/\")) return false;\n  // only ts and tsx files matter, the rest doesn't need to be indexed\n  if (![\"ts\", \"tsx\"].includes(getExtension(path))) return false;\n\n  return true;\n}",
@@ -70,5 +69,5 @@
     "linesPerFile": 13,
     "numberOfFiles": 1
   },
-  "id": "luayewtawyihjnojwztvjlzc"
+  "id": "ezteplqgbrrzkdkpsuvvtrmz"
 }

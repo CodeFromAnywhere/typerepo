@@ -1,4 +1,4 @@
-import { Page } from "puppeteer-core";
+import { Page } from "puppeteer";
 /**
  * Help to type in the field in given selector by setting value
  */

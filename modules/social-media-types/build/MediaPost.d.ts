@@ -26,6 +26,7 @@ export interface MediaPost extends MarkdownModelType {
      * URL that leads directly to the posted message
      */
     postedUrl?: string;
+    postedAt?: number;
     channelOrGroupName?: string;
     /**
      * projectRelativePath referring to the file that has been parsed into this MediaPost
@@ -59,9 +60,19 @@ export interface MediaPost extends MarkdownModelType {
      * Omitted from the form in writer-input because it's indexed
      */
     postedDetailsIndexed?: {
-        views: number;
-        reactions: number;
-        interactions: number;
+        views?: number;
+        /**
+         * can also be `likes` for example
+         */
+        reactions?: number;
+        /**
+         * e.g. retweet or shares
+         */
+        shares?: number;
+        /**
+         * can be `comments`, for example
+         */
+        interactions?: number;
         statisticsUpdatedAt: number;
     };
 }

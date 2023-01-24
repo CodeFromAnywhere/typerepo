@@ -3,8 +3,8 @@ import { TsVariable, TsFunction, TsInterface } from "code-types";
 import { Creation } from "model-types";
 import { Frontmatter } from "matter-types";
 export declare const getFrontmatterFunctionParameters: (frontmatter: Frontmatter) => {
-    runEveryPeriod: TsFunction["runEveryPeriod"];
-    isApiExposed: TsFunction["isApiExposed"];
+    runEveryPeriod: "minute" | "5-minutes" | "quarter-hour" | "hour" | "6-hours" | "midnight" | "week" | "month" | "3-months" | "year" | undefined;
+    isApiExposed: boolean;
 };
 export declare type VariableDeclarationInfo = {
     isExported: boolean;

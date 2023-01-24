@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671318509740,
-  "updatedAt": 1671318509740,
+  "createdAt": 1674134928839,
+  "updatedAt": 1674134928839,
   "deletedAt": 0,
-  "createdFirstAt": 1671318509740,
+  "createdFirstAt": 1674134928839,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  src: string | undefined,\n  config: MarkdownParseRenderConfig\n) => {\n  // src from static folder of next.js\n  const relativeUrlStrategy =\n    config.isDev || !config.isStatic ? \"api\" : \"static\";\n\n  if (!src) return undefined;\n\n  if (\n    isPathRelative(src) &&\n    config.projectRelativeBaseFolderPath &&\n    config.projectRelativeMarkdownFilePath\n  ) {\n    return getUrlFromRelativeUrl(\n      src,\n      relativeUrlStrategy,\n      config.projectRelativeBaseFolderPath,\n      config.projectRelativeMarkdownFilePath\n    );\n  }\n\n  return src;\n}",
   "description": "Based on markdown info, gest the real source for an asset",
-  "id": "ilgdxtkwyymiwvdbhpnjjysc"
+  "id": "bcladyuuobjzoswkxafmfzas"
 }

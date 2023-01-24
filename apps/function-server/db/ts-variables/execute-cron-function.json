@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671317801663,
-  "updatedAt": 1671317801663,
+  "createdAt": 1674548108868,
+  "updatedAt": 1674548108868,
   "deletedAt": 0,
-  "createdFirstAt": 1671317801663,
+  "createdFirstAt": 1674548108868,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (tsFunction: TsFunction) => {\n  if (\n    tsFunction.parameters &&\n    tsFunction.parameters.length > 0 &&\n    tsFunction.parameters.find((x) => x.required)\n  ) {\n    log(\"CRON Functions cannot have required parameters\", { type: \"error\" });\n    process.exit();\n  }\n\n  //@ts-ignore\n  sdk[tsFunction.name]?.();\n}",
   "description": "NB: cron functions cannot have parameters",
-  "id": "fatxfmrpkhytsawgipcsrzhe"
+  "id": "kfgvijuivhhdymojgzioabdg"
 }

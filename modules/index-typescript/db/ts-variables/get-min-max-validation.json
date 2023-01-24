@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116432819,
-  "updatedAt": 1671116432819,
+  "createdAt": 1673863442359,
+  "updatedAt": 1673863442359,
   "deletedAt": 0,
-  "createdFirstAt": 1671116432819,
+  "createdFirstAt": 1673863442359,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  keyword: \"min\" | \"max\",\n  type: string,\n  value: number\n) => {\n  const t = type.toLowerCase() as keyof typeof ajvMap;\n  return set({}, keyword + ajvMap[t], value);\n}",
   "description": "",
-  "id": "kntocjvnmrirndxbvcdonqtt"
+  "id": "wazzbfutzndohrbzopkmveqw"
 }

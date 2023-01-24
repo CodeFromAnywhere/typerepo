@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671317821937,
-  "updatedAt": 1671317821937,
+  "createdAt": 1671554335453,
+  "updatedAt": 1671554335453,
   "deletedAt": 0,
-  "createdFirstAt": 1671317821937,
+  "createdFirstAt": 1671554335453,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  ipInfo: IPInfo,\n  userAgent: IResult\n): string => {\n  const deviceName: string = slugify(\n    `${userAgent.os.name}-${userAgent.browser.name}-${ipInfo.country}-${\n      ipInfo.region\n    }-${ipInfo.city}-${ipInfo.ip}-${generateRandomString(4)}`\n  );\n\n  return deviceName;\n}",
   "description": "",
-  "id": "gckoxattqknjkrlsrngodxjl"
+  "id": "zkvzfpfynexalzwhalfdyblg"
 }

@@ -1,0 +1,66 @@
+{
+  "createdAt": 1674133309952,
+  "updatedAt": 1674133309952,
+  "deletedAt": 0,
+  "createdFirstAt": 1674133309952,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/queue/shouldAddToQueue.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  functionName: string,\n  parameters: any[]\n) => {\n  const isBusy = await isSystemBusy();\n  if (isBusy) {\n    //add to the queue if the cpus/memory are too busy.\n    const upsertResult = await db.upsert(\"Queue\", {\n      executionAuthToken: \".....\", // what is the auth token if it's done by a watcher?\n      functionName,\n      parameters,\n    });\n\n    return true;\n  }\n  return false;\n}",
+  "name": "shouldAddToQueue",
+  "slug": "should-add-to-queue",
+  "parameters": [
+    {
+      "name": "functionName",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "parameters",
+      "schema": {
+        "type": "array",
+        "items": {}
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "properties": [],
+              "type": "object"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
+  "description": "Checks if system is busy and if so, adds the task to queue",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 454,
+    "lines": 17,
+    "bytes": 454,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 17,
+    "numberOfFiles": 1
+  },
+  "id": "oupehpdgezaeryccjbuowvzr"
+}

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671315509214,
-  "updatedAt": 1671315509214,
+  "createdAt": 1674134604900,
+  "updatedAt": 1674134604900,
   "deletedAt": 0,
-  "createdFirstAt": 1671315509214,
-  "isApiExposed": true,
+  "createdFirstAt": 1674134604900,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/ContextualPromptResultsTab.tsx",
   "commentsInside": [],
   "rawText": " (props: {\n  prompt_projectRelativePath: string;\n}) => {\n  const { prompt_projectRelativePath } = props;\n\n  const contextualPromptResultsQuery = queries.useGetContextualPromptResults({\n    prompt_projectRelativePath,\n  });\n\n  return (\n    <Div>\n      {contextualPromptResultsQuery.data?.result?.map(\n        (item: ContextualPromptResult) => {\n          return (\n            <Div>\n              <b>prompt</b>\n              {item.prompt ? (\n                <MarkdownContent content={item.prompt} config={{}} />\n              ) : null}\n\n              <b>result</b>\n\n              {item.resultText ? (\n                <MarkdownContent content={item.resultText} config={{}} />\n              ) : null}\n            </Div>\n          );\n        }\n      )}\n    </Div>\n  );\n}",
@@ -65,5 +64,5 @@
     "linesPerFile": 32,
     "numberOfFiles": 1
   },
-  "id": "vchwtrwsjqfsgrarflwqxmaw"
+  "id": "vvivnnhdkpodkxosrsykrvit"
 }

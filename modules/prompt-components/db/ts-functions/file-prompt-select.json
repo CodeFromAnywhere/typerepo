@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671483649405,
-  "updatedAt": 1671483649405,
+  "createdAt": 1674134608124,
+  "updatedAt": 1674134608124,
   "deletedAt": 0,
-  "createdFirstAt": 1671483649405,
-  "isApiExposed": true,
+  "createdFirstAt": 1674134608124,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/FilePromptSelect.tsx",
   "commentsInside": [],
   "rawText": " (props: {\n  items: ContextualPrompt[] | undefined;\n  contextContent: string;\n  context_projectRelativeFilePath?: string;\n}) => {\n  const { items, contextContent, context_projectRelativeFilePath } = props;\n\n  const { selection: contextSelection } = useLastSelection();\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n\n  const selectItems = items?.map((prompt) => {\n    const item: Item<string> = { label: prompt.name, value: prompt.id };\n\n    return item;\n  });\n  const allSelectItems = [{ label: \"Select a prompt\", value: \"\" }].concat(\n    selectItems || []\n  );\n  const [SelectComponent, _, setValue] = useSelect(\n    allSelectItems,\n    undefined,\n    async (selection) => {\n      const id = selection?.value;\n\n      const prompt = items?.find((x) => x.id === id);\n\n      if (!prompt) {\n        alert?.(\"Invalid value\");\n        return;\n      }\n\n      setValue(null);\n\n      processPrompt({\n        contextualPromptSlug: prompt.slug,\n        contextualContent: {\n          contextContent,\n          context_projectRelativeFilePath,\n          contextSelection,\n        },\n        showPromptAlert,\n      });\n    }\n  );\n  return <SelectComponent />;\n}",
@@ -358,5 +357,5 @@
     "linesPerFile": 47,
     "numberOfFiles": 1
   },
-  "id": "tcpcyutjzjcvvwjwojnhveol"
+  "id": "azghyjowtaizdubniqpxkmtj"
 }

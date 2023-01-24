@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216180356,
-  "updatedAt": 1670216180356,
+  "createdAt": 1673862448975,
+  "updatedAt": 1673862448975,
   "deletedAt": 0,
-  "createdFirstAt": 1670216180356,
+  "createdFirstAt": 1673862448975,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(operationName: string) => {\n  if (!operationName) return false;\n  return operationName === \"sdk\" || operationName.startsWith(\"sdk-\");\n}",
   "description": "",
-  "id": "qfgwzwvrssnufhberjohfvhz"
+  "id": "jbezzwtdfnnamdetgobhnobq"
 }

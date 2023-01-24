@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671505985495,
-  "updatedAt": 1671505985495,
+  "createdAt": 1674133273376,
+  "updatedAt": 1674133273376,
   "deletedAt": 0,
-  "createdFirstAt": 1671505985495,
+  "createdFirstAt": 1674133273376,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "writeCreatePromptCode",
   "slug": "write-create-prompt-code",
-  "operationRelativeTypescriptFilePath": "src/writeCreatePromptCode.ts",
+  "operationRelativeTypescriptFilePath": "src/generate-sdk/writeCreatePromptCode.ts",
   "type": {
     "rawType": "(contextualPrompt: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPrompt\").ContextualPrompt) => string",
     "typeDefinition": {
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(contextualPrompt: ContextualPrompt) => {\n  const parameters = [\n    contextualPrompt.usesAnyContext ? `anyContext` : undefined,\n    ,\n    contextualPrompt.usesContext ? `contextContent` : undefined,\n    contextualPrompt.usesSelection ? `selectionContent` : undefined,\n    contextualPrompt.folderContentContext ? `projectRelativePath` : undefined,\n  ].filter(notEmpty);\n\n  const functionLineParametersString = parameters\n    .map((x) => `${x}: string`)\n    .join(\", \");\n  const objectParametersString = parameters.join(\",\\n\");\n\n  const { contextType, instantExecution, isFavorite, categoryStack } =\n    contextualPrompt;\n  const contextualPromptInfo = {\n    contextType,\n    instantExecution,\n    isFavorite,\n    categoryStack,\n  };\n  const functionName = camelCase(contextualPrompt.name);\n\n  return `\n  ${\n    contextualPrompt.title\n      ? `/**\n  ${contextualPrompt.title}\n  */`\n      : \"\"\n  }\n  export const ${functionName}: PromptFunction = async (${functionLineParametersString}, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"${contextualPrompt.slug}\",\n      ${objectParametersString}\n    });\n\n    return result;\n\n  }\n\n${functionName}.contextualPromptInfo = ${JSON.stringify(contextualPromptInfo)}`;\n}",
+  "value": "(contextualPrompt: ContextualPrompt) => {\n  const parameters = [\n    contextualPrompt.usesAnyContext ? `anyContext` : undefined,\n    contextualPrompt.usesContext ? `contextContent` : undefined,\n    contextualPrompt.usesSelection ? `selectionContent` : undefined,\n    contextualPrompt.folderContentContext\n      ? `prompt_projectRelativePath`\n      : undefined,\n  ].filter(notEmpty);\n\n  const functionLineParametersString = parameters\n    .map((x) => `${x}: string`)\n    .join(\", \");\n  const objectParametersString = parameters.join(\",\\n\");\n\n  const { contextType, instantExecution, isFavorite, categoryStack } =\n    contextualPrompt;\n  const contextualPromptInfo = {\n    contextType,\n    instantExecution,\n    isFavorite,\n    categoryStack,\n  };\n  const functionName = camelCase(contextualPrompt.name);\n\n  const functionLineFullString =\n    parameters.length === 0 ? \"\" : `${functionLineParametersString}, `;\n  return `\n  ${\n    contextualPrompt.title\n      ? `/**\n  ${contextualPrompt.title}\n  */`\n      : \"\"\n  }\n  export const ${functionName}: PromptFunction = async (${functionLineFullString}isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"${contextualPrompt.slug}\",\n      ${objectParametersString}\n    });\n\n    return result;\n\n  }\n\n${functionName}.contextualPromptInfo = ${JSON.stringify(contextualPromptInfo)};\n\n${\n  contextualPrompt.isFavorite\n    ? `${functionName}.domain = \"${functionName}\";`\n    : \"\"\n}`;\n}",
   "description": "",
-  "id": "cslrqnroxbkeahlnadlvidla"
+  "id": "fpzifyeknzxnbuqayvozjekt"
 }

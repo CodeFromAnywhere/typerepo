@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116432819,
-  "updatedAt": 1671116432819,
+  "createdAt": 1673863442359,
+  "updatedAt": 1673863442359,
   "deletedAt": 0,
-  "createdFirstAt": 1671116432819,
+  "createdFirstAt": 1673863442359,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  type: Type,\n  decorators: Decorator[],\n  schemaProps: { [key: string]: any } = {}\n) => {\n  const schema: SimpleJsonSchema = {};\n  // schema = {} handleExplicitValidation(\"object\", schema, decorators);\n  schema.type = \"object\";\n  schema.properties = {};\n  schema.required = schema.required || [];\n  const typeText = type.getText();\n  const nonNullableType = type.getNonNullableType();\n  const nonNullableTypeText = nonNullableType.getText();\n  schema.optional = nonNullableTypeText !== typeText;\n  type\n    .getNonNullableType()\n    .getProperties()\n    .forEach((prop) => {\n      const key = prop.getName();\n      const isGetter = prop.hasFlags(SymbolFlags.GetAccessor);\n      if ([\"request\", \"reply\"].includes(key) || isGetter) return;\n      const valueDeclaration = prop.getValueDeclarationOrThrow();\n      const decorators = (valueDeclaration as any).getDecorators\n        ? (valueDeclaration as any).getDecorators()\n        : [];\n\n      schema.properties[key] = {\n        ...(getParamSchema(valueDeclaration.getType(), decorators, prop) || {}),\n        ...(schemaProps[key] || {}),\n      };\n\n      if (!schema.properties[key]) {\n        console.warn(\"missing type for - \" + key);\n        schema.properties[key] = { type: \"object\" };\n      }\n      if (schema.properties[key].optional !== true) {\n        schema.required?.push(key);\n      }\n      delete schema.properties[key].optional;\n    });\n\n  if (!schema.required.length) {\n    delete schema.required;\n  }\n\n  return schema;\n}",
   "description": "",
-  "id": "tfvpifjnaxabgtlcbfrnyhob"
+  "id": "mpoiyxiwqoggfuhodnjvkgxa"
 }

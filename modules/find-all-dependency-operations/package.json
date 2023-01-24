@@ -11,7 +11,9 @@
     "fs-util": "1.0.5",
     "code-types": "0.0.1",
     "all": "0.0.1",
-    "one-by-one": "0.0.1"
+    "one-by-one": "0.0.1",
+    "write-to-assets": "0.0.1",
+    "recursive-types": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -34,7 +36,9 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "indexInteracesErrors": "[\"No schema/definitions found for /Users/king/King/operations/tools/typescript/find-all-dependency-operations/src/findAllDependencyOperations.ts. Error: Error: Unknown type \\\"function\\\"\"]",
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/typescript/find-all-dependency-operations/src/getOperationDependencyReasons.test.ts. Error: Error: Unknown node \"(result) =>\n  writeToAssets(__filename, result, \"depreasons.json\")\" of kind \"ArrowFunction\""
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "node-cjs",
@@ -42,7 +46,7 @@
     "folderNameIndexed": "find-all-dependency-operations",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1668335833181,
+    "lastRebuildAt": 1673380300941,
     "operationDependenciesIndexed": [
       "mergeObjectsArray",
       "notEmpty",
@@ -55,36 +59,56 @@
       "Operation",
       "TsImport",
       "oneByOne",
+      "writeToAssets",
+      "db",
+      "TsExport",
+      "TsImport",
+      "db",
+      "mergeObjectsArray",
+      "notEmpty",
+      "onlyUnique",
+      "onlyUnique2",
+      "sum",
+      "ChildObject",
+      "db",
+      "mergeObjectsArray",
+      "writeToAssets",
+      "TsFunction",
+      "TsImport",
+      "TsInterface",
+      "db",
+      "onlyUnique2",
       "forAllFolders",
       "db",
-      "getLastFolder"
+      "getLastFolder",
+      "writeToAssets"
     ],
     "packageDependenciesIndexed": [],
     "relativeOperationLocationPathIndexed": "operations/tools/typescript",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 2,
-        "lines": 343,
-        "characters": 8833,
-        "bytes": 8833
+        "numberOfFiles": 8,
+        "lines": 607,
+        "characters": 16472,
+        "bytes": 16472
       },
       "dataSize": {
-        "numberOfFiles": 2,
-        "lines": 133,
-        "characters": 3219,
-        "bytes": 3219
+        "numberOfFiles": 6,
+        "lines": 5089,
+        "characters": 1852647,
+        "bytes": 1852647
       },
       "textSize": {
         "numberOfFiles": 1,
-        "lines": 196,
-        "characters": 3123,
-        "bytes": 3123
+        "lines": 274,
+        "characters": 4704,
+        "bytes": 4704
       },
       "size": {
-        "bytes": 15175,
-        "characters": 15175,
-        "lines": 672,
-        "numberOfFiles": 5
+        "bytes": 1873823,
+        "characters": 1873823,
+        "lines": 5970,
+        "numberOfFiles": 15
       }
     },
     "hasGeneratedImportsIndexed": false

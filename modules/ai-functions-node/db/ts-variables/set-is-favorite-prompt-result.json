@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671505978243,
-  "updatedAt": 1671505978243,
+  "createdAt": 1674133314362,
+  "updatedAt": 1674133314362,
   "deletedAt": 0,
-  "createdFirstAt": 1671505978243,
+  "createdFirstAt": 1674133314362,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  projectRelativePath: string,\n  id: string,\n  isFavorite: boolean\n) => {\n  const resultPath = await getContextualPromptResultJsonFilePath(\n    projectRelativePath\n  );\n\n  if (!resultPath) return { isSuccessful: false };\n\n  const result = await alterJsonMultiple(\n    {\n      absolutePath: resultPath,\n      modelName: \"ContextualPromptResult\",\n      projectRelativePath: resultPath,\n      operationName: \"\",\n    },\n    (old) => {\n      return {\n        newStoredData: old.map((item) => {\n          if (item.id !== id) return item;\n          return { ...item, isFavorite };\n        }),\n        amountUpdated: 1,\n      };\n    }\n  );\n\n  return { isSuccessful: result.amountUpdated === 1 };\n}",
   "description": "",
-  "id": "uxxoohzllapyleylvcfphgif"
+  "id": "craltjolastncpjsxlpteajt"
 }

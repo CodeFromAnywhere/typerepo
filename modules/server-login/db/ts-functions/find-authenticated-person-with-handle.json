@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671318392269,
-  "updatedAt": 1671318392269,
+  "createdAt": 1673863598646,
+  "updatedAt": 1673863598646,
   "deletedAt": 0,
-  "createdFirstAt": 1671318392269,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863598646,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findAuthenticatedPersonWithHandle.ts",
   "commentsInside": [],
   "rawText": " async (\n  method: AuthenticationMethodMethod,\n  handle: string\n) => {\n  const persons = await db.get(\"Person\");\n  const alreadyPerson = persons.find((person) => {\n    const matchingAuthMethod = person.authenticationMethods.find(\n      (authMethod) =>\n        authMethod.method === method &&\n        authMethod.isAuthenticated &&\n        authMethod.handle === handle\n    );\n\n    return !!matchingAuthMethod;\n  });\n  return alreadyPerson;\n}",
@@ -65,5 +64,5 @@
     "linesPerFile": 17,
     "numberOfFiles": 1
   },
-  "id": "iyyfisbdpapehnigkacncnsc"
+  "id": "vqqkvoplkaxjfkhsvxuqcwof"
 }

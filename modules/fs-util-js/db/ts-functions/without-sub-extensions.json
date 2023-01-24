@@ -1,0 +1,35 @@
+{
+  "createdAt": 1673861929370,
+  "updatedAt": 1673861929370,
+  "deletedAt": 0,
+  "createdFirstAt": 1673861929370,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/js.ts",
+  "commentsInside": [],
+  "rawText": " (fileName: string) => {\n  const pieces = fileName.split(\".\");\n  return pieces[0];\n}",
+  "name": "withoutSubExtensions",
+  "slug": "without-sub-extensions",
+  "parameters": [],
+  "description": "Removes all subextensions from the filename (if any) including main extension.\n\nOnly returns everything before the first dot (.)",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 212,
+    "lines": 6,
+    "bytes": 212,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 35,
+    "linesPerFile": 6,
+    "numberOfFiles": 1
+  },
+  "id": "ywsmhqphyjbxrmivqtwfengk"
+}

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115495859,
-  "updatedAt": 1671115495859,
+  "createdAt": 1673861889770,
+  "updatedAt": 1673861889770,
   "deletedAt": 0,
-  "createdFirstAt": 1671115495859,
-  "isApiExposed": true,
+  "createdFirstAt": 1673861889770,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getTemporaryAssetsFolderPath.ts",
   "commentsInside": [],
   "rawText": " () => {\n  return path.join(__dirname, \"..\", \"assets\");\n}",
@@ -36,5 +35,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "wiazefhslubabheouyuyblta"
+  "id": "swdwxieqjvbukkubkmxlmeom"
 }

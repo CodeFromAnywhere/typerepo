@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671505943373,
-  "updatedAt": 1671505943373,
+  "createdAt": 1674133280018,
+  "updatedAt": 1674133280018,
   "deletedAt": 0,
-  "createdFirstAt": 1671505943373,
+  "createdFirstAt": 1674133280018,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  stackCount: StackCount,\n  key: string,\n  originalKey: string,\n  items: ContextualPrompt[]\n): CategoryChildObject | undefined => {\n  const categoryStack = key.split(\".\");\n\n  if (categoryStack.length !== 1) return;\n\n  const firstCategory = categoryStack[0];\n\n  //get all children:\n\n  //1) find all keys that start with firstCategory\n  const childrenKeys = Object.keys(stackCount).filter((key) =>\n    key.startsWith(`${firstCategory}.`)\n  );\n\n  //2) remove the firstCategory from the keys\n  const strippedKeys = childrenKeys.map((key) =>\n    key.replace(`${firstCategory}.`, \"\")\n  );\n\n  // create strippedStackCount\n  const strippedStackCount = strippedKeys.reduce((newStackCount, key) => {\n    return { ...newStackCount, [key]: stackCount[`${firstCategory}.${key}`] };\n  }, {} as StackCount);\n\n  //3) insert into this same function\n  const categoryChildren = strippedKeys\n    .map((strippedKey, index) =>\n      getObjectForkKeyRecursively(\n        strippedStackCount,\n        strippedKey,\n        childrenKeys[index],\n        items\n      )\n    )\n    .filter(notEmpty);\n\n  const itemChildren = items\n    .filter(\n      (x) =>\n        x.categoryStack &&\n        categoryStack[categoryStack.length - 1] ===\n          x.categoryStack[x.categoryStack.length - 1]\n    )\n    .map((item) => {\n      const { categoryStack, description, name, title, pricing } = item;\n      const object: CategoryChildObject = omitUndefinedValues({\n        categoryStack: categoryStack!,\n        count: 1,\n        description,\n        name,\n        title,\n        pricing,\n      });\n      return object;\n    });\n\n  //  console.log({ itemChildren, categoryStack });\n\n  const children = categoryChildren.concat(itemChildren);\n\n  const object: CategoryChildObject = {\n    category: firstCategory,\n    categoryStack,\n    count: stackCount[firstCategory],\n  };\n\n  if (children.length) object.children = children;\n\n  return object;\n}",
   "description": "",
-  "id": "dppqswzxotwaemslgrbxhzxd"
+  "id": "bmfdfhymkmalcesnosepxxpd"
 }

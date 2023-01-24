@@ -63,6 +63,7 @@ Properties:
 | price (optional) | number |  |
 | isPrivate (optional) | boolean | Only accessible to admin |
 | isSecret (optional) | boolean | Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true` |
+| isAnonymous (optional) | boolean |  |
 | authorizedGroup (optional) | string | If authorizedGroup is set, file content will not be available for people that aren't part of this group. |
 | isDraft (optional) | boolean | If true, will not show up in reader ui's |
 | isAvailableFromDateAt (optional) | number | If this is a date in the future, the file won't be available until that date |
@@ -79,7 +80,7 @@ Properties:
 | name  | string |  |
 | slug  | string |  |
 | markdown  | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 
 
 
@@ -167,7 +168,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | path (optional) | string | Absolute queryPath to the CTA. Leave empty for going to the homepage. Empty paths will be omitted on the domains where you are already on that domain... If there's a path, will be omitted on other domains (`MarkdownCallToAction`s with a different hostname) |
 | hostname  | string | Hostname as described in `https://www.w3schools.com/js/js_window_location.asp`. |
 | title (optional) | string |  |
@@ -245,6 +246,36 @@ Properties:
 | alt  | string |  |
 | src  | string |  |
 | type  | string |  |
+
+
+
+## 🔹 MarkdownIndex
+
+Every time a markdown file comes in (watcher), can we do some default functions and GPT for it.
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| createdAt (optional) | number |  |
+| updatedAt (optional) | number |  |
+| source (optional) | string |  |
+| isSource (optional) | boolean |  |
+| title (optional) | string |  |
+| seoTitle (optional) | string |  |
+| keywords (optional) | array |  |
+| seoKeywords (optional) | array |  |
+| statements (optional) | array |  |
+| takeAways (optional) | array |  |
+| socialMediaPosts (optional) | array |  |
+| imagePromptDescritpions (optional) | array |  |
+| summary (optional) | string |  |
+| snippets (optional) | array |  |
+| suggestedLocation (optional) | string |  |
 
 
 
@@ -354,6 +385,7 @@ Properties:
 |---|---|---|
 | isPrivate (optional) | boolean | Only accessible to admin |
 | isSecret (optional) | boolean | Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true` |
+| isAnonymous (optional) | boolean |  |
 | authorizedGroup (optional) | string | If authorizedGroup is set, file content will not be available for people that aren't part of this group. |
 | isDraft (optional) | boolean | If true, will not show up in reader ui's |
 | isAvailableFromDateAt (optional) | number | If this is a date in the future, the file won't be available until that date |
@@ -368,7 +400,7 @@ Properties:
 | name  | string |  |
 | slug  | string |  |
 | markdown  | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 
 
 
@@ -380,6 +412,7 @@ Properties:
 |---|---|---|
 | isPrivate (optional) | boolean | Only accessible to admin |
 | isSecret (optional) | boolean | Don't show in the file explorer if you don't have access to this file. NB: only works in combination with pricing or `.isPrivate: true` |
+| isAnonymous (optional) | boolean |  |
 | authorizedGroup (optional) | string | If authorizedGroup is set, file content will not be available for people that aren't part of this group. |
 | isDraft (optional) | boolean | If true, will not show up in reader ui's |
 | isAvailableFromDateAt (optional) | number | If this is a date in the future, the file won't be available until that date |
@@ -441,7 +474,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 
 
 

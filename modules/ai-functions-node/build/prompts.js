@@ -37,16 +37,19 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.translateToPortuguese = exports.explain = exports.emojiAugmentation = exports.convertTo1337speak = exports.diaryToInstagram = exports.developersQuote = exports.rickAndMorty = exports.rickAndMortyRick = exports.keywords = exports.williamShakespear = exports.socratesAndSnoopDogg = exports.marcusAurelius = exports.translateEverything = exports.translateEverythingPortuguese = exports.translateEverythingIntoHindi = exports.fixGrammarAndSpellingMistakes = exports.cleanup = exports.improveCode = exports.typescriptExplain = exports.explainInPortuguese = exports.explainInNepali = exports.explainInDutch = exports.documentationWriting = exports.biggestFunctionName = exports.storytelling = exports.yodafy = exports.ye = exports.poem = exports.haiku = void 0;
+exports.translateToPortuguese = exports.explain = exports.opposite = exports.emojiAugmentation = exports.addEmojiToEveryWord = exports.diaryToInstagram = exports.developersQuote = exports.williamShakespear = exports.socratesAndSnoopDogg = exports.marcusAurelius = exports.yodafy = exports.ye = exports.rickAndMorty = exports.rickAndMortyRick = exports.poem = exports.haiku = exports.quiz = exports.outlineToInvestorPitch = exports.investorPitch = exports.hookOneliners = exports.followUpQuestions = exports.translateEverything = exports.translateEverythingPortuguese = exports.translateEverythingIntoHindi = exports.fixGrammarAndSpellingMistakes = exports.cleanup = exports.improveCode = exports.typescriptExplain = exports.explainInPortuguese = exports.explainInNepali = exports.explainInDutch = exports.documentationWriting = exports.biggestFunctionName = exports.storytelling = exports.explainLineByLine = void 0;
 var processChatGptPrompt_1 = require("./processChatGptPrompt");
-var haiku = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+/**
+Explain line-by-line
+*/
+var explainLineByLine = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
-                    contextualPromptSlug: "haiku",
-                    selectionContent: selectionContent,
+                    contextualPromptSlug: "explain-line-by-line",
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -54,87 +57,12 @@ var haiku = function (selectionContent, isDeferred) { return __awaiter(void 0, v
         }
     });
 }); };
-exports.haiku = haiku;
-exports.haiku.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["art"],
-};
+exports.explainLineByLine = explainLineByLine;
+exports.explainLineByLine.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-auditory-interface"] };
+exports.explainLineByLine.domain = "explainLineByLine";
 /**
-  Write a poem
-  */
-var poem = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
-    var result;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
-                    isDeferred: isDeferred,
-                    contextualPromptSlug: "poem",
-                    selectionContent: selectionContent,
-                })];
-            case 1:
-                result = _a.sent();
-                return [2 /*return*/, result];
-        }
-    });
-}); };
-exports.poem = poem;
-exports.poem.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["art"],
-};
-/**
-  Let Kanye West write a poem about your selection
-  */
-var ye = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
-    var result;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
-                    isDeferred: isDeferred,
-                    contextualPromptSlug: "ye",
-                    selectionContent: selectionContent,
-                })];
-            case 1:
-                result = _a.sent();
-                return [2 /*return*/, result];
-        }
-    });
-}); };
-exports.ye = ye;
-exports.ye.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["art"],
-};
-/**
-  Let Yoda say your selection in his words
-  */
-var yodafy = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
-    var result;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
-                    isDeferred: isDeferred,
-                    contextualPromptSlug: "yodafy",
-                    selectionContent: selectionContent,
-                })];
-            case 1:
-                result = _a.sent();
-                return [2 /*return*/, result];
-        }
-    });
-}); };
-exports.yodafy = yodafy;
-exports.yodafy.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["art"],
-};
-/**
-  Write a story about this code and what's happening in there
-  */
+Write a story about this code and what's happening in there
+*/
 var storytelling = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -142,7 +70,7 @@ var storytelling = function (contextContent, isDeferred) { return __awaiter(void
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "storytelling",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -151,11 +79,8 @@ var storytelling = function (contextContent, isDeferred) { return __awaiter(void
     });
 }); };
 exports.storytelling = storytelling;
-exports.storytelling.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-auditory-interface"],
-};
+exports.storytelling.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-auditory-interface"] };
+exports.storytelling.domain = "storytelling";
 var biggestFunctionName = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -163,7 +88,7 @@ var biggestFunctionName = function (contextContent, isDeferred) { return __await
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "biggest-function-name",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -172,11 +97,8 @@ var biggestFunctionName = function (contextContent, isDeferred) { return __await
     });
 }); };
 exports.biggestFunctionName = biggestFunctionName;
-exports.biggestFunctionName.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-comprehension"],
-};
+exports.biggestFunctionName.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-comprehension"] };
+exports.biggestFunctionName.domain = "biggestFunctionName";
 var documentationWriting = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -184,7 +106,7 @@ var documentationWriting = function (contextContent, isDeferred) { return __awai
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "documentation-writing",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -193,11 +115,8 @@ var documentationWriting = function (contextContent, isDeferred) { return __awai
     });
 }); };
 exports.documentationWriting = documentationWriting;
-exports.documentationWriting.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-comprehension"],
-};
+exports.documentationWriting.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-comprehension"] };
+exports.documentationWriting.domain = "documentationWriting";
 var explainInDutch = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -205,7 +124,7 @@ var explainInDutch = function (contextContent, isDeferred) { return __awaiter(vo
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "explain-in-dutch",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -214,11 +133,8 @@ var explainInDutch = function (contextContent, isDeferred) { return __awaiter(vo
     });
 }); };
 exports.explainInDutch = explainInDutch;
-exports.explainInDutch.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-comprehension"],
-};
+exports.explainInDutch.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-comprehension"] };
+exports.explainInDutch.domain = "explainInDutch";
 var explainInNepali = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -226,7 +142,7 @@ var explainInNepali = function (contextContent, isDeferred) { return __awaiter(v
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "explain-in-nepali",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -235,11 +151,8 @@ var explainInNepali = function (contextContent, isDeferred) { return __awaiter(v
     });
 }); };
 exports.explainInNepali = explainInNepali;
-exports.explainInNepali.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-comprehension"],
-};
+exports.explainInNepali.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-comprehension"] };
+exports.explainInNepali.domain = "explainInNepali";
 var explainInPortuguese = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -247,7 +160,7 @@ var explainInPortuguese = function (contextContent, isDeferred) { return __await
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "explain-in-portuguese",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -256,11 +169,8 @@ var explainInPortuguese = function (contextContent, isDeferred) { return __await
     });
 }); };
 exports.explainInPortuguese = explainInPortuguese;
-exports.explainInPortuguese.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-comprehension"],
-};
+exports.explainInPortuguese.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-comprehension"] };
+exports.explainInPortuguese.domain = "explainInPortuguese";
 var typescriptExplain = function (contextContent, selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -269,7 +179,7 @@ var typescriptExplain = function (contextContent, selectionContent, isDeferred) 
                     isDeferred: isDeferred,
                     contextualPromptSlug: "typescript-explain",
                     contextContent: contextContent,
-                    selectionContent: selectionContent,
+                    selectionContent: selectionContent
                 })];
             case 1:
                 result = _a.sent();
@@ -278,11 +188,8 @@ var typescriptExplain = function (contextContent, selectionContent, isDeferred) 
     });
 }); };
 exports.typescriptExplain = typescriptExplain;
-exports.typescriptExplain.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-comprehension"],
-};
+exports.typescriptExplain.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-comprehension"] };
+exports.typescriptExplain.domain = "typescriptExplain";
 var improveCode = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -290,7 +197,7 @@ var improveCode = function (contextContent, isDeferred) { return __awaiter(void 
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "improve-code",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -299,11 +206,8 @@ var improveCode = function (contextContent, isDeferred) { return __awaiter(void 
     });
 }); };
 exports.improveCode = improveCode;
-exports.improveCode.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-education"],
-};
+exports.improveCode.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-education"] };
+exports.improveCode.domain = "improveCode";
 var cleanup = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -311,7 +215,7 @@ var cleanup = function (contextContent, isDeferred) { return __awaiter(void 0, v
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "cleanup",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -320,11 +224,8 @@ var cleanup = function (contextContent, isDeferred) { return __awaiter(void 0, v
     });
 }); };
 exports.cleanup = cleanup;
-exports.cleanup.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-refactoring"],
-};
+exports.cleanup.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-refactoring"] };
+exports.cleanup.domain = "cleanup";
 var fixGrammarAndSpellingMistakes = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -332,7 +233,7 @@ var fixGrammarAndSpellingMistakes = function (contextContent, isDeferred) { retu
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "fix-grammar-and-spelling-mistakes",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -341,11 +242,8 @@ var fixGrammarAndSpellingMistakes = function (contextContent, isDeferred) { retu
     });
 }); };
 exports.fixGrammarAndSpellingMistakes = fixGrammarAndSpellingMistakes;
-exports.fixGrammarAndSpellingMistakes.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-refactoring"],
-};
+exports.fixGrammarAndSpellingMistakes.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-refactoring"] };
+exports.fixGrammarAndSpellingMistakes.domain = "fixGrammarAndSpellingMistakes";
 var translateEverythingIntoHindi = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -353,7 +251,7 @@ var translateEverythingIntoHindi = function (contextContent, isDeferred) { retur
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "translate-everything-into-hindi",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -362,11 +260,8 @@ var translateEverythingIntoHindi = function (contextContent, isDeferred) { retur
     });
 }); };
 exports.translateEverythingIntoHindi = translateEverythingIntoHindi;
-exports.translateEverythingIntoHindi.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-translation"],
-};
+exports.translateEverythingIntoHindi.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-translation"] };
+exports.translateEverythingIntoHindi.domain = "translateEverythingIntoHindi";
 var translateEverythingPortuguese = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -374,7 +269,7 @@ var translateEverythingPortuguese = function (contextContent, isDeferred) { retu
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "translate-everything-portuguese",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -383,11 +278,8 @@ var translateEverythingPortuguese = function (contextContent, isDeferred) { retu
     });
 }); };
 exports.translateEverythingPortuguese = translateEverythingPortuguese;
-exports.translateEverythingPortuguese.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-translation"],
-};
+exports.translateEverythingPortuguese.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-translation"] };
+exports.translateEverythingPortuguese.domain = "translateEverythingPortuguese";
 var translateEverything = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -395,7 +287,7 @@ var translateEverything = function (contextContent, isDeferred) { return __await
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "translate-everything",
-                    contextContent: contextContent,
+                    contextContent: contextContent
                 })];
             case 1:
                 result = _a.sent();
@@ -404,19 +296,15 @@ var translateEverything = function (contextContent, isDeferred) { return __await
     });
 }); };
 exports.translateEverything = translateEverything;
-exports.translateEverything.contextualPromptInfo = {
-    contextType: ["code"],
-    isFavorite: true,
-    categoryStack: ["code-translation"],
-};
-var marcusAurelius = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.translateEverything.contextualPromptInfo = { "contextType": ["code"], "isFavorite": true, "categoryStack": ["code", "code-translation"] };
+exports.translateEverything.domain = "translateEverything";
+var followUpQuestions = function (isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
-                    contextualPromptSlug: "marcus-aurelius",
-                    selectionContent: selectionContent,
+                    contextualPromptSlug: "follow-up-questions",
                 })];
             case 1:
                 result = _a.sent();
@@ -424,20 +312,15 @@ var marcusAurelius = function (selectionContent, isDeferred) { return __awaiter(
         }
     });
 }); };
-exports.marcusAurelius = marcusAurelius;
-exports.marcusAurelius.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["conversation"],
-};
-var socratesAndSnoopDogg = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.followUpQuestions = followUpQuestions;
+exports.followUpQuestions.contextualPromptInfo = { "contextType": ["text"], "categoryStack": [] };
+var hookOneliners = function (isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
-                    contextualPromptSlug: "socrates-and-snoop-dogg",
-                    selectionContent: selectionContent,
+                    contextualPromptSlug: "hook-oneliners",
                 })];
             case 1:
                 result = _a.sent();
@@ -445,41 +328,20 @@ var socratesAndSnoopDogg = function (selectionContent, isDeferred) { return __aw
         }
     });
 }); };
-exports.socratesAndSnoopDogg = socratesAndSnoopDogg;
-exports.socratesAndSnoopDogg.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["conversation"],
-};
-var williamShakespear = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.hookOneliners = hookOneliners;
+exports.hookOneliners.contextualPromptInfo = { "contextType": ["text"], "categoryStack": [] };
+/**
+Investor pitch
+*/
+var investorPitch = function (contextContent, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
-                    contextualPromptSlug: "william-shakespear",
-                    selectionContent: selectionContent,
-                })];
-            case 1:
-                result = _a.sent();
-                return [2 /*return*/, result];
-        }
-    });
-}); };
-exports.williamShakespear = williamShakespear;
-exports.williamShakespear.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["conversation"],
-};
-var keywords = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
-    var result;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
-                    isDeferred: isDeferred,
-                    contextualPromptSlug: "keywords",
+                    contextualPromptSlug: "investor-pitch",
                     contextContent: contextContent,
+                    prompt_projectRelativePath: prompt_projectRelativePath
                 })];
             case 1:
                 result = _a.sent();
@@ -487,20 +349,103 @@ var keywords = function (contextContent, isDeferred) { return __awaiter(void 0, 
         }
     });
 }); };
-exports.keywords = keywords;
-exports.keywords.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["data-structurization"],
-};
-var rickAndMortyRick = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.investorPitch = investorPitch;
+exports.investorPitch.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": [] };
+exports.investorPitch.domain = "investorPitch";
+var outlineToInvestorPitch = function (isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "outline-to-investor-pitch",
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.outlineToInvestorPitch = outlineToInvestorPitch;
+exports.outlineToInvestorPitch.contextualPromptInfo = { "contextType": ["text"], "categoryStack": [] };
+/**
+Quiz
+*/
+var quiz = function (contextContent, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "quiz",
+                    contextContent: contextContent,
+                    prompt_projectRelativePath: prompt_projectRelativePath
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.quiz = quiz;
+exports.quiz.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": [] };
+exports.quiz.domain = "quiz";
+/**
+Write a Haiku
+*/
+var haiku = function (anyContext, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "haiku",
+                    anyContext: anyContext,
+                    prompt_projectRelativePath: prompt_projectRelativePath
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.haiku = haiku;
+exports.haiku.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "art"] };
+exports.haiku.domain = "haiku";
+/**
+Write a poem
+*/
+var poem = function (anyContext, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "poem",
+                    anyContext: anyContext,
+                    prompt_projectRelativePath: prompt_projectRelativePath
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.poem = poem;
+exports.poem.contextualPromptInfo = { "contextType": ["text", "code"], "isFavorite": true, "categoryStack": ["text", "art"] };
+exports.poem.domain = "poem";
+/**
+Ricktalk
+*/
+var rickAndMortyRick = function (anyContext, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "rick-and-morty-rick",
-                    selectionContent: selectionContent,
+                    anyContext: anyContext,
+                    prompt_projectRelativePath: prompt_projectRelativePath
                 })];
             case 1:
                 result = _a.sent();
@@ -509,19 +454,20 @@ var rickAndMortyRick = function (selectionContent, isDeferred) { return __awaite
     });
 }); };
 exports.rickAndMortyRick = rickAndMortyRick;
-exports.rickAndMortyRick.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["rick-and-morty"],
-};
-var rickAndMorty = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.rickAndMortyRick.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "art", "rick-and-morty"] };
+exports.rickAndMortyRick.domain = "rickAndMortyRick";
+/**
+Rick teaches Morty
+*/
+var rickAndMorty = function (contextContent, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "rick-and-morty",
-                    selectionContent: selectionContent,
+                    contextContent: contextContent,
+                    prompt_projectRelativePath: prompt_projectRelativePath
                 })];
             case 1:
                 result = _a.sent();
@@ -530,11 +476,104 @@ var rickAndMorty = function (selectionContent, isDeferred) { return __awaiter(vo
     });
 }); };
 exports.rickAndMorty = rickAndMorty;
-exports.rickAndMorty.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["rick-and-morty"],
-};
+exports.rickAndMorty.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "art", "rick-and-morty"] };
+exports.rickAndMorty.domain = "rickAndMorty";
+/**
+Let Kanye West write a poem about your selection
+*/
+var ye = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "ye",
+                    selectionContent: selectionContent
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.ye = ye;
+exports.ye.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "art"] };
+exports.ye.domain = "ye";
+/**
+Let Yoda say your selection in his words
+*/
+var yodafy = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "yodafy",
+                    selectionContent: selectionContent
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.yodafy = yodafy;
+exports.yodafy.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "art"] };
+exports.yodafy.domain = "yodafy";
+var marcusAurelius = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "marcus-aurelius",
+                    selectionContent: selectionContent
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.marcusAurelius = marcusAurelius;
+exports.marcusAurelius.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "conversation"] };
+exports.marcusAurelius.domain = "marcusAurelius";
+var socratesAndSnoopDogg = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "socrates-and-snoop-dogg",
+                    selectionContent: selectionContent
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.socratesAndSnoopDogg = socratesAndSnoopDogg;
+exports.socratesAndSnoopDogg.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "conversation"] };
+exports.socratesAndSnoopDogg.domain = "socratesAndSnoopDogg";
+var williamShakespear = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "william-shakespear",
+                    selectionContent: selectionContent
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.williamShakespear = williamShakespear;
+exports.williamShakespear.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "conversation"] };
+exports.williamShakespear.domain = "williamShakespear";
 var developersQuote = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -542,7 +581,7 @@ var developersQuote = function (selectionContent, isDeferred) { return __awaiter
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "developers-quote",
-                    selectionContent: selectionContent,
+                    selectionContent: selectionContent
                 })];
             case 1:
                 result = _a.sent();
@@ -551,11 +590,8 @@ var developersQuote = function (selectionContent, isDeferred) { return __awaiter
     });
 }); };
 exports.developersQuote = developersQuote;
-exports.developersQuote.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["social-media"],
-};
+exports.developersQuote.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "social-media"] };
+exports.developersQuote.domain = "developersQuote";
 var diaryToInstagram = function (selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
@@ -563,7 +599,7 @@ var diaryToInstagram = function (selectionContent, isDeferred) { return __awaite
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
                     contextualPromptSlug: "diary-to-instagram",
-                    selectionContent: selectionContent,
+                    selectionContent: selectionContent
                 })];
             case 1:
                 result = _a.sent();
@@ -572,19 +608,20 @@ var diaryToInstagram = function (selectionContent, isDeferred) { return __awaite
     });
 }); };
 exports.diaryToInstagram = diaryToInstagram;
-exports.diaryToInstagram.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["social-media"],
-};
-var convertTo1337speak = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.diaryToInstagram.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "social-media"] };
+exports.diaryToInstagram.domain = "diaryToInstagram";
+/**
+Emojify++
+*/
+var addEmojiToEveryWord = function (contextContent, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
                     isDeferred: isDeferred,
-                    contextualPromptSlug: "convert-to-1337speak",
+                    contextualPromptSlug: "add-emoji-to-every-word",
                     contextContent: contextContent,
+                    prompt_projectRelativePath: prompt_projectRelativePath
                 })];
             case 1:
                 result = _a.sent();
@@ -592,12 +629,13 @@ var convertTo1337speak = function (contextContent, isDeferred) { return __awaite
         }
     });
 }); };
-exports.convertTo1337speak = convertTo1337speak;
-exports.convertTo1337speak.contextualPromptInfo = {
-    contextType: ["text"],
-    categoryStack: ["text-bending"],
-};
-var emojiAugmentation = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.addEmojiToEveryWord = addEmojiToEveryWord;
+exports.addEmojiToEveryWord.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "text-bending"] };
+exports.addEmojiToEveryWord.domain = "addEmojiToEveryWord";
+/**
+Emojify
+*/
+var emojiAugmentation = function (contextContent, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -605,6 +643,7 @@ var emojiAugmentation = function (contextContent, isDeferred) { return __awaiter
                     isDeferred: isDeferred,
                     contextualPromptSlug: "emoji-augmentation",
                     contextContent: contextContent,
+                    prompt_projectRelativePath: prompt_projectRelativePath
                 })];
             case 1:
                 result = _a.sent();
@@ -613,11 +652,29 @@ var emojiAugmentation = function (contextContent, isDeferred) { return __awaiter
     });
 }); };
 exports.emojiAugmentation = emojiAugmentation;
-exports.emojiAugmentation.contextualPromptInfo = {
-    contextType: ["text"],
-    categoryStack: ["text-bending"],
-};
-var explain = function (contextContent, selectionContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.emojiAugmentation.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "text-bending"] };
+exports.emojiAugmentation.domain = "emojiAugmentation";
+var opposite = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+    var result;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0: return [4 /*yield*/, (0, processChatGptPrompt_1.processChatGptPrompt)({
+                    isDeferred: isDeferred,
+                    contextualPromptSlug: "opposite",
+                    contextContent: contextContent
+                })];
+            case 1:
+                result = _a.sent();
+                return [2 /*return*/, result];
+        }
+    });
+}); };
+exports.opposite = opposite;
+exports.opposite.contextualPromptInfo = { "contextType": ["text"], "categoryStack": ["text", "text-bending"] };
+/**
+🤔 Explain
+*/
+var explain = function (contextContent, selectionContent, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -626,6 +683,7 @@ var explain = function (contextContent, selectionContent, isDeferred) { return _
                     contextualPromptSlug: "explain",
                     contextContent: contextContent,
                     selectionContent: selectionContent,
+                    prompt_projectRelativePath: prompt_projectRelativePath
                 })];
             case 1:
                 result = _a.sent();
@@ -634,12 +692,12 @@ var explain = function (contextContent, selectionContent, isDeferred) { return _
     });
 }); };
 exports.explain = explain;
-exports.explain.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["text-comprehension"],
-};
-var translateToPortuguese = function (contextContent, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
+exports.explain.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "text-comprehension"] };
+exports.explain.domain = "explain";
+/**
+Translate to Portuguese
+*/
+var translateToPortuguese = function (contextContent, prompt_projectRelativePath, isDeferred) { return __awaiter(void 0, void 0, void 0, function () {
     var result;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -647,6 +705,7 @@ var translateToPortuguese = function (contextContent, isDeferred) { return __awa
                     isDeferred: isDeferred,
                     contextualPromptSlug: "translate-to-portuguese",
                     contextContent: contextContent,
+                    prompt_projectRelativePath: prompt_projectRelativePath
                 })];
             case 1:
                 result = _a.sent();
@@ -655,9 +714,6 @@ var translateToPortuguese = function (contextContent, isDeferred) { return __awa
     });
 }); };
 exports.translateToPortuguese = translateToPortuguese;
-exports.translateToPortuguese.contextualPromptInfo = {
-    contextType: ["text"],
-    isFavorite: true,
-    categoryStack: ["translation"],
-};
+exports.translateToPortuguese.contextualPromptInfo = { "contextType": ["text"], "isFavorite": true, "categoryStack": ["text", "translation"] };
+exports.translateToPortuguese.domain = "translateToPortuguese";
 //# sourceMappingURL=prompts.js.map

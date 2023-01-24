@@ -1,4 +1,4 @@
-import { ApiFunction } from "function-server-types";
+import { ApiFunction } from "code-types";
 /**
  * For now only username/pass is supported due to direct verification
  *

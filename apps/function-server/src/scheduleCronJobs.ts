@@ -47,6 +47,7 @@ export const scheduleCronJobs = async () => {
   getObjectKeysArray(scheduleObject).map((interval) => {
     const cronExpression = scheduleObject[interval];
     const functionsToExecute = tsFunctions.filter(
+      //@ts-ignore should later be replaced with the thing you find on the actual function
       (x) => x.runEveryPeriod === interval
     );
     if (functionsToExecute.length > 0) {

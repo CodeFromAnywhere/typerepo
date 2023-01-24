@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671448919382,
-  "updatedAt": 1671448919382,
+  "createdAt": 1672637564831,
+  "updatedAt": 1672637564831,
   "deletedAt": 0,
-  "createdFirstAt": 1671448919382,
+  "createdFirstAt": 1672637564831,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  statementItem: StatementItem\n): string | undefined => {\n  if (statementItem.tsFunction) {\n    return tsFunctionToMarkdownString(statementItem.tsFunction);\n  }\n\n  if (statementItem.tsInterface) {\n    return tsInterfaceToMarkdownString(statementItem.tsInterface);\n  }\n\n  if (statementItem.tsVariable) {\n    return tsVariableToMarkdownString(statementItem.tsVariable);\n  }\n}",
   "description": "",
-  "id": "mbdlrwmwbpoicyobkgmmdwnw"
+  "id": "jxmoinvpaeuhobczkkjobuxm"
 }

@@ -1,0 +1,72 @@
+{
+  "createdAt": 1671009773963,
+  "updatedAt": 1671009773963,
+  "deletedAt": 0,
+  "createdFirstAt": 1671009773963,
+  "version": "0.0.1",
+  "main": "build/index.js",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "tsc -w",
+    "build": "tsc"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^18.0.1",
+    "typescript": "^4.7.4"
+  },
+  "name": "file-explorer-open",
+  "operation": {
+    "hasGeneratedDependenciesIndexed": false,
+    "buildResultIndexed": {
+      "buildSucceeded": true,
+      "indexImportExportError": "",
+      "lintProblems": []
+    },
+    "lastRebuildAt": 1671115617947,
+    "sizeIndexed": {
+      "codeSize": {
+        "numberOfFiles": 1,
+        "lines": 38,
+        "characters": 962,
+        "bytes": 962
+      },
+      "dataSize": {
+        "numberOfFiles": 2,
+        "lines": 110,
+        "characters": 3394,
+        "bytes": 3394
+      },
+      "textSize": {
+        "numberOfFiles": 2,
+        "lines": 33,
+        "characters": 449,
+        "bytes": 449
+      },
+      "size": {
+        "bytes": 4805,
+        "characters": 4805,
+        "lines": 181,
+        "numberOfFiles": 5
+      }
+    },
+    "folderNameIndexed": "file-explorer-open",
+    "relativeOperationLocationPathIndexed": "operations/tools/control-system",
+    "classificationIndexed": "node-cjs",
+    "coreDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "fs",
+      "path",
+      "getProjectRoot"
+    ],
+    "packageDependenciesIndexed": [
+      "execSync"
+    ]
+  },
+  "dependencies": {
+    "fs-util": "1.0.5",
+    "get-path": "0.0.1"
+  },
+  "slug": "file-explorer-open",
+  "id": "hotfxksjiugdbklpfenmlcyq"
+}

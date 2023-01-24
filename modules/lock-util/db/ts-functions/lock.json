@@ -1,0 +1,56 @@
+{
+  "createdAt": 1674117614113,
+  "updatedAt": 1674117614113,
+  "deletedAt": 0,
+  "createdFirstAt": 1674117614113,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/lock.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  aboluteLockableFilePath: string,\n  status?: string\n) => {\n  const parsedPath = path.parse(aboluteLockableFilePath);\n  const lockFilePath = path.join(parsedPath.dir, `${parsedPath.name}.lock`);\n\n  await writeJsonToFile<LockInfo>(lockFilePath, {\n    status: status || \"busy\",\n    updatedAt: Date.now(),\n  });\n}",
+  "name": "lock",
+  "slug": "lock",
+  "parameters": [
+    {
+      "name": "aboluteLockableFilePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "status",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    }
+  ],
+  "description": "either creates the lockfile if it didn't exist or it will update it with new updatedAt and status. If status isn't set, status will be removed",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 461,
+    "lines": 12,
+    "bytes": 461,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 38,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "louizclyvudhizgwkmbhmbwk"
+}

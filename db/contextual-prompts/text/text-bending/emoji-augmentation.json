@@ -1,0 +1,24 @@
+{
+  "createdAt": 1670187125444,
+  "updatedAt": 1670187125444,
+  "deletedAt": 0,
+  "createdFirstAt": 1670187125444,
+  "contextType": [
+    "text"
+  ],
+  "categoryStack": [
+    "text",
+    "text-bending"
+  ],
+  "pricing": "bad",
+  "slug": "emoji-augmentation",
+  "name": "emoji-augmentation",
+  "language": "english",
+  "id": "emecssrqhjfrmksxogupmwvx",
+  "title": "Emojify",
+  "description": "Emojify adds a relevant emoji at the end of every sentence. Works best with markdown!",
+  "promptContent": "Please augment the following text: by adding an emoji to the end of every sentence that represents the sentence the most.\n\n```\n%context\n```",
+  "folderContentContext": "summary",
+  "usesContext": true,
+  "isFavorite": true
+}

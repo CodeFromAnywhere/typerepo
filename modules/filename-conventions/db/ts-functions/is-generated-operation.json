@@ -1,11 +1,10 @@
 {
-  "createdAt": 1670216180145,
-  "updatedAt": 1670216180145,
+  "createdAt": 1673862448757,
+  "updatedAt": 1673862448757,
   "deletedAt": 0,
-  "createdFirstAt": 1670216180145,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862448757,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/isGeneratedOperation.ts",
   "commentsInside": [],
   "rawText": " (operationBasePath: string) => {\n  return operationBasePath.includes(\"/generated/\");\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "wqamrurvacwmkrkrvhylbswk"
+  "id": "uxduugiwmqtvnmnhqmxyotyj"
 }

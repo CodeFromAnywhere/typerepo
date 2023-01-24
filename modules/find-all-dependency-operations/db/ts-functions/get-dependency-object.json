@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668150463842,
-  "updatedAt": 1668150463842,
+  "createdAt": 1673380275726,
+  "updatedAt": 1673380275726,
   "deletedAt": 0,
-  "createdFirstAt": 1668150463842,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380275726,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const allOperations = await exploreOperationFolders({});\n\n  const dependencyObject = mergeObjectsArray(\n    await Promise.all(\n      allOperations.map(async (operationFolderPath) => {\n        const operationName = getLastFolder(operationFolderPath);\n        const monorepoModules = await findMonorepoModules(operationName);\n\n        return { [operationName]: monorepoModules };\n      })\n    )\n  );\n\n  return dependencyObject;\n}",
+  "rawText": " async () => {\n  const allOperations = await exploreOperationFolders({});\n  const allImports = await db.get(\"TsImport\");\n\n  const dependencyObject = mergeObjectsArray(\n    await Promise.all(\n      allOperations.map(async (operationFolderPath) => {\n        const operationName = getLastFolder(operationFolderPath);\n        const monorepoModules = await findMonorepoModules(\n          allImports,\n          operationName\n        );\n\n        return { [operationName]: monorepoModules };\n      })\n    )\n  );\n\n  return dependencyObject;\n}",
   "name": "getDependencyObject",
   "slug": "get-dependency-object",
   "parameters": [],
@@ -27,15 +22,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 4,
+  "maxIndentationDepth": 5,
   "size": {
-    "characters": 592,
-    "lines": 26,
-    "bytes": 592,
+    "characters": 681,
+    "lines": 30,
+    "bytes": 681,
     "bytesPerCharacter": 1,
     "charactersPerLine": 23,
-    "linesPerFile": 26,
+    "linesPerFile": 30,
     "numberOfFiles": 1
   },
-  "id": "dfnyemktbkaliwetqzqltkau"
+  "id": "agobryiqzsdkrafmlbnwrkvy"
 }

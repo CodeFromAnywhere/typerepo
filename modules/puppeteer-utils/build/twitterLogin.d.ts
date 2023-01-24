@@ -1,11 +1,10 @@
-import { Page } from "puppeteer-core";
+import { Page } from "puppeteer";
 /**
  * Method that help to login into twitter
  */
 export declare const twitterLogin: (props: {
     page: Page;
-    email: string;
-    phoneNo: string;
     password: string;
+    username: string;
 }) => Promise<void>;
 //# sourceMappingURL=twitterLogin.d.ts.map

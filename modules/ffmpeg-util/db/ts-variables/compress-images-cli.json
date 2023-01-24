@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316335102,
-  "updatedAt": 1671316335102,
+  "createdAt": 1674543119241,
+  "updatedAt": 1674543119241,
   "deletedAt": 0,
-  "createdFirstAt": 1671316335102,
+  "createdFirstAt": 1674543119241,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const argumentsArray = process.argv.slice(2);\n\n  if (argumentsArray.length > 0) {\n    oneByOne(argumentsArray, async (absoluteOrRelativePath) => {\n      const absoluteFolderPath = absoluteOrRelativePath.startsWith(\".\")\n        ? path.join(process.cwd(), absoluteOrRelativePath)\n        : absoluteOrRelativePath;\n\n      if (!absoluteFolderPath) {\n        log(\"couldn't find that path\");\n        return;\n      }\n\n      // console.log({ operationNames, operationName });\n      await compressImages(absoluteFolderPath);\n    });\n  }\n}",
   "description": "`compressImages` CLI syntax:\n\n`compressImages [basePath]`\n\ncan also be relative path",
-  "id": "tvtybmakosqivgczrwzunabt"
+  "id": "uvqkokvlsqwpjwilkduqizno"
 }

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671505945709,
-  "updatedAt": 1671505945709,
+  "createdAt": 1674133282104,
+  "updatedAt": 1674133282104,
   "deletedAt": 0,
-  "createdFirstAt": 1671505945709,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133282104,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getContextualPromptResultJsonFilePath.ts",
   "commentsInside": [],
   "rawText": " async (\n  projectRelativePath?: string\n) => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) return;\n  const prompt_absolutePath = projectRelativePath\n    ? path.join(projectRoot, projectRelativePath)\n    : undefined;\n\n  const exists = prompt_absolutePath\n    ? fs.existsSync(prompt_absolutePath)\n    : undefined;\n\n  const stats =\n    exists && prompt_absolutePath\n      ? await fs.stat(prompt_absolutePath)\n      : undefined;\n  const isFolder = stats ? stats.isDirectory() : false;\n  const isFile = stats ? stats.isFile() : false;\n  const pathParse = prompt_absolutePath\n    ? path.parse(prompt_absolutePath)\n    : undefined;\n\n  const contextualPromptResultsJsonPath =\n    pathParse && isFile\n      ? path.join(\n          pathParse.dir,\n          \".index\",\n          pathParse.name,\n          \"prompt-results.json\"\n        )\n      : isFolder && prompt_absolutePath\n      ? path.join(prompt_absolutePath, \".index\", \"prompt-results.json\")\n      : undefined;\n\n  return contextualPromptResultsJsonPath;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 37,
     "numberOfFiles": 1
   },
-  "id": "ohvyjhmwgmovyxjyfwbhrbbj"
+  "id": "dnyghhcufpwgcjaytwadvtje"
 }

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379242244,
+  "updatedAt": 1673379242244,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379242244,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "NavButton",
+  "slug": "nav-button",
+  "operationRelativeTypescriptFilePath": "src/components/NavButton.tsx",
+  "type": {
+    "rawType": "(props: { onClick?: (() => void) | undefined; href?: string | undefined; isActive?: boolean | undefined; title: string; id?: string | undefined; isDisabled?: boolean | undefined; openContextMenuProps?: object | undefined; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  onClick?: () => void;\n  href?: string;\n  isActive?: boolean;\n  title: string;\n  id?: string;\n  isDisabled?: boolean;\n  openContextMenuProps?: object;\n}) => {\n  const {\n    href,\n    title,\n    onClick,\n    isActive,\n    openContextMenuProps,\n    id,\n    isDisabled,\n  } = props;\n\n  const className = ` ${isActive ? \"dark:bg-blue-800\" : \"dark:bg-gray-700\"} ${\n    isDisabled ? \"\" : \"dark:hover:bg-gray-600\"\n  } ${isActive ? \"bg-blue-300\" : \"bg-gray-100\"} ${\n    isDisabled ? \"\" : \"light:hover:bg-gray-200\"\n  } rounded-md border border-black p-2 my-1 mr-2 cursor-pointer lg:mr-4`;\n  if (onClick) {\n    return (\n      <P\n        id={id}\n        onClick={onClick}\n        className={className}\n        {...openContextMenuProps}\n      >\n        {title}\n      </P>\n    );\n  }\n\n  return (\n    <ALink id={id} href={href} className={className}>\n      <div id={id} {...openContextMenuProps}>\n        {title}\n      </div>\n    </ALink>\n  );\n}",
+  "description": "",
+  "id": "eydwjrqwfnnesdimyucpfvvf"
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671448847666,
-  "updatedAt": 1671448847666,
+  "createdAt": 1672637480687,
+  "updatedAt": 1672637480687,
   "deletedAt": 0,
-  "createdFirstAt": 1671448847666,
+  "createdFirstAt": 1672637480687,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "({\n  bundleConfigId,\n  includeModules,\n}: {\n  bundleConfigId: string;\n  /** if true, also includes the private modules */\n  includeModules?: boolean;\n}): string => {\n  /**\n       - explain operation config itself, e.g. which apps there are and an outline of the packages and modules\n    \n       - extract all needed operations from bundle config (with or without modules) and use operationToMd for those\n      \n       - extract docs and readmes from bundle config and bundle those\n      */\n  return \"\";\n}",
   "description": "creates a summary for a whole bundle\n\nNB: Related to `bundleToBookMd`",
-  "id": "utbtyuadanzebxbduxvrxvfh"
+  "id": "fdzboftbnmljajjlighuhfwv"
 }

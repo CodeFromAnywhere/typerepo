@@ -1,0 +1,20 @@
+{
+  "createdAt": 1670185763914,
+  "updatedAt": 1670185763914,
+  "deletedAt": 0,
+  "createdFirstAt": 1670185763914,
+  "slug": "translate-everything-into-hindi",
+  "name": "translate-everything-into-hindi",
+  "language": "english",
+  "id": "nytyfceeiwtxsjnfaatwfpva",
+  "promptContent": "# Definitions:\n\n\"camelCase translation\": Names can be translated word by word. You can split up the camelCase or PascalCase statement name into an array of words before translating every individual word (e.g. `englishWordsArray` becomes [\"english\",\"words\",\"array\"], which in turn becomes [\"engels\",\"woorden\",\"lijst\"] which then becomes `engelsWoordenLijst` in dutch.\n\n# Assignment\n\nPlease translate a typescript file into Hindi. Apply the following rules:\n\n- Comments and string literals should be translated directly\n- Apply \"camelCase translation\" on function names, variable names, destructured variable names, object properties, object parameter keys, object values\n- reserved typescript words should be translated directly. Find an appropriate Hindi word for each. Be creative. The reserved typescript words in English are: break, case, catch, class, const, continue, debugger, default, delete, do, else, enum, export, extends, false, finally, for, function, if, import, in, instanceof, new, null, return, super, switch, this, throw, true, try, typeof, var, void, while, with, as, implements, interface, let, package, private, protected, public, static, yield, any, boolean, constructor, declare, get, module, require, number, set, string, symbol, type, from, of, namespace, async, await.\n- it does not matter that the code wouldn't run in a typescript environment. You need to translate as much as possible.\n\n# File\n\nThis is the file:\n\n```\n%context\n```\n\nGood luck!",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "code",
+    "code-translation"
+  ]
+}

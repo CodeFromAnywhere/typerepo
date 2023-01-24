@@ -3,6 +3,7 @@ export declare type ProcessPromptProps = {
     contextContent?: string | null;
     selectionContent?: string | null;
     contextualPromptSlug?: string;
+    anyContext?: string;
     /**
      * DESCRIPTION: These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format
      */

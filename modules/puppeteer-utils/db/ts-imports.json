@@ -1,9 +1,25 @@
 [
   {
-    "createdAt": 1671457655795,
-    "updatedAt": 1671457655795,
+    "createdAt": 1672134424525,
+    "updatedAt": 1672134424525,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655795,
+    "createdFirstAt": 1672134424525,
+    "name": "Browser",
+    "slug": "browser",
+    "module": "puppeteer",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/browserSession.ts",
+    "classification": "package",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": false,
+    "id": "mdjxzczpvphmxvljqlqosfbn"
+  },
+  {
+    "createdAt": 1672134424526,
+    "updatedAt": 1672134424526,
+    "deletedAt": 0,
+    "createdFirstAt": 1672134424526,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -13,29 +29,29 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "baxtwspqscwntondnusiimww"
+    "id": "lzcgaesrxblpeqovlaolkpbr"
   },
   {
-    "createdAt": 1671457655796,
-    "updatedAt": 1671457655796,
+    "createdAt": 1672134424526,
+    "updatedAt": 1672134424526,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655796,
+    "createdFirstAt": 1672134424526,
     "name": "Page",
     "slug": "page",
-    "module": "puppeteer-core",
+    "module": "puppeteer",
     "isModuleResolved": true,
     "comments": [],
     "operationRelativeTypescriptFilePath": "src/facebookLogin.ts",
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "emubdecdtuuakeazazotdscf"
+    "id": "amswabspejkoxdxvdbpcqrce"
   },
   {
-    "createdAt": 1671457655796,
-    "updatedAt": 1671457655796,
+    "createdAt": 1672134424526,
+    "updatedAt": 1672134424526,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655796,
+    "createdFirstAt": 1672134424526,
     "name": "typeInTheInputField",
     "slug": "type-in-the-input-field",
     "module": "./typeInTheInputField",
@@ -45,13 +61,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "scynsjrwuvimsmlicciwukwf"
+    "id": "sfxmyohpnsecltbuwrkjjyey"
   },
   {
-    "createdAt": 1671457655796,
-    "updatedAt": 1671457655796,
+    "createdAt": 1672134424526,
+    "updatedAt": 1672134424526,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655796,
+    "createdFirstAt": 1672134424526,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -61,13 +77,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "vcnlmhspwjucurgwsmtltlin"
+    "id": "xacfjqogjbyvtffxgmvsegkp"
   },
   {
-    "createdAt": 1671457655796,
-    "updatedAt": 1671457655796,
+    "createdAt": 1672134424526,
+    "updatedAt": 1672134424526,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655796,
+    "createdFirstAt": 1672134424526,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -77,13 +93,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "crtndzagzadlqnirmnsjcvrm"
+    "id": "zfltwqvsyfocrtwqlacmhbir"
   },
   {
-    "createdAt": 1671457655796,
-    "updatedAt": 1671457655796,
+    "createdAt": 1672134424527,
+    "updatedAt": 1672134424527,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655796,
+    "createdFirstAt": 1672134424527,
     "name": "Browser",
     "slug": "browser",
     "module": "puppeteer",
@@ -93,17 +109,16 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "osmnsuyqrntswokgmedyotwo"
+    "id": "adokpqjjzjlyspiczfxnzhqy"
   },
   {
-    "createdAt": 1671457655797,
-    "updatedAt": 1671457655797,
+    "createdAt": 1672134424527,
+    "updatedAt": 1672134424527,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655797,
+    "createdFirstAt": 1672134424527,
     "name": "BrowserSession",
     "slug": "browser-session",
-    "type": "type",
-    "hasGeneric": false,
+    "type": "value",
     "module": "browser-types",
     "isModuleResolved": true,
     "comments": [],
@@ -111,13 +126,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "fpamaelkrifbvddxwjztkemt"
+    "id": "dcamaspuxszqaibmapafdipf"
   },
   {
-    "createdAt": 1671457655797,
-    "updatedAt": 1671457655797,
+    "createdAt": 1672134424527,
+    "updatedAt": 1672134424527,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655797,
+    "createdFirstAt": 1672134424527,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -127,13 +142,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "pqvhbckotghzsnsskqrlvarh"
+    "id": "naqammwpgvophhfuybhimdri"
   },
   {
-    "createdAt": 1671457655797,
-    "updatedAt": 1671457655797,
+    "createdAt": 1672134424528,
+    "updatedAt": 1672134424528,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655797,
+    "createdFirstAt": 1672134424528,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -144,13 +159,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "sdavuvqktwbdyqembfstotoh"
+    "id": "opsidfopdqdazqpfywqpwjer"
   },
   {
-    "createdAt": 1671457655797,
-    "updatedAt": 1671457655797,
+    "createdAt": 1672134424528,
+    "updatedAt": 1672134424528,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655797,
+    "createdFirstAt": 1672134424528,
     "name": "platform",
     "slug": "platform",
     "module": "os",
@@ -160,13 +175,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "dotfqkgbvadsggspxseqimzm"
+    "id": "kyzypaivmkpzvrgofpmoeaxw"
   },
   {
-    "createdAt": 1671457655797,
-    "updatedAt": 1671457655797,
+    "createdAt": 1672134424528,
+    "updatedAt": 1672134424528,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655797,
+    "createdFirstAt": 1672134424528,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -177,17 +192,16 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ivstxcjkvagbewlxwcfutyai"
+    "id": "jvvkokenqkrpyerpecagliwv"
   },
   {
-    "createdAt": 1671457655798,
-    "updatedAt": 1671457655798,
+    "createdAt": 1672134424528,
+    "updatedAt": 1672134424528,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655798,
+    "createdFirstAt": 1672134424528,
     "name": "BrowserSession",
     "slug": "browser-session",
-    "type": "type",
-    "hasGeneric": false,
+    "type": "value",
     "module": "browser-types",
     "isModuleResolved": true,
     "comments": [],
@@ -195,13 +209,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "vqwudbpkgpngajauretxxzti"
+    "id": "zkrersjbpedqeuadfzbzqckq"
   },
   {
-    "createdAt": 1671457655798,
-    "updatedAt": 1671457655798,
+    "createdAt": 1672134424528,
+    "updatedAt": 1672134424528,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655798,
+    "createdFirstAt": 1672134424528,
     "name": "Browser",
     "slug": "browser",
     "module": "puppeteer",
@@ -211,13 +225,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "tjzjkgtxxlgacvzylgasjsee"
+    "id": "ygtzskldoeqrsazwkulakpqv"
   },
   {
-    "createdAt": 1671457655798,
-    "updatedAt": 1671457655798,
+    "createdAt": 1672134424529,
+    "updatedAt": 1672134424529,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655798,
+    "createdFirstAt": 1672134424529,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer",
@@ -227,13 +241,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "jlzjogwzozofhbwctujflfty"
+    "id": "vtrprtbekmjgwzigxjbucdyu"
   },
   {
-    "createdAt": 1671457655798,
-    "updatedAt": 1671457655798,
+    "createdAt": 1672134424529,
+    "updatedAt": 1672134424529,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655798,
+    "createdFirstAt": 1672134424529,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -244,13 +258,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "aadjitlrcchwrauuqjpodfyu"
+    "id": "tibhxooqoudtdmccyzxkqavv"
   },
   {
-    "createdAt": 1671457655798,
-    "updatedAt": 1671457655798,
+    "createdAt": 1672134424529,
+    "updatedAt": 1672134424529,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655798,
+    "createdFirstAt": 1672134424529,
     "name": "Browser",
     "slug": "browser",
     "module": "puppeteer",
@@ -260,13 +274,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "dsfqgnmnkdctshzkqbaayolc"
+    "id": "aoqpmyfwmpgpglkgmtmgozch"
   },
   {
-    "createdAt": 1671457655798,
-    "updatedAt": 1671457655798,
+    "createdAt": 1672134424529,
+    "updatedAt": 1672134424529,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655798,
+    "createdFirstAt": 1672134424529,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer",
@@ -276,13 +290,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "uacnyysmbjscknttzlgvhyya"
+    "id": "qrgmgjunbsrrebsqjesensld"
   },
   {
-    "createdAt": 1671457655799,
-    "updatedAt": 1671457655799,
+    "createdAt": 1672134424529,
+    "updatedAt": 1672134424529,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655799,
+    "createdFirstAt": 1672134424529,
     "name": "getIdlePage",
     "slug": "get-idle-page",
     "module": "./getIdlePage",
@@ -292,13 +306,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "uevibipiibbrimdhhnuuwopi"
+    "id": "eddelybtcmjrknztfvanfytz"
   },
   {
-    "createdAt": 1671457655799,
-    "updatedAt": 1671457655799,
+    "createdAt": 1672134424530,
+    "updatedAt": 1672134424530,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655799,
+    "createdFirstAt": 1672134424530,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -308,13 +322,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "ccuociiqxbjgwxvtaqdvqyeg"
+    "id": "dwmzwhkjwdjvrxdauswitwyv"
   },
   {
-    "createdAt": 1671457655799,
-    "updatedAt": 1671457655799,
+    "createdAt": 1672134424530,
+    "updatedAt": 1672134424530,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655799,
+    "createdFirstAt": 1672134424530,
     "name": "setInputValue",
     "slug": "set-input-value",
     "module": "./setInputValue",
@@ -324,13 +338,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "pmskgfmzyhqfnihmeyoprgqw"
+    "id": "xrsvskdvajbwmxuiwatngsef"
   },
   {
-    "createdAt": 1671457655799,
-    "updatedAt": 1671457655799,
+    "createdAt": 1672134424530,
+    "updatedAt": 1672134424530,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655799,
+    "createdFirstAt": 1672134424530,
     "name": "clickOnSpanTag",
     "slug": "click-on-span-tag",
     "module": "./clickOnSpanTag",
@@ -340,13 +354,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "vejhnntivpqdzpljhqdamsdm"
+    "id": "cssxxqjrijcnbfmlfkicphrb"
   },
   {
-    "createdAt": 1671457655799,
-    "updatedAt": 1671457655799,
+    "createdAt": 1672134424530,
+    "updatedAt": 1672134424530,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655799,
+    "createdFirstAt": 1672134424530,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer",
@@ -356,13 +370,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "ipxvyjzoqqpmazcyrplvfijp"
+    "id": "jfynyedfzykfgmizlzqjqdlr"
   },
   {
-    "createdAt": 1671457655799,
-    "updatedAt": 1671457655799,
+    "createdAt": 1672134424530,
+    "updatedAt": 1672134424530,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655799,
+    "createdFirstAt": 1672134424530,
     "name": "CaptchaInfo",
     "slug": "captcha-info",
     "module": "puppeteer-extra-plugin-recaptcha/dist/types",
@@ -372,13 +386,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "crhdelwsrdtfhfivtiwlnggw"
+    "id": "glyrugapyxbcwtzqocafqyer"
   },
   {
-    "createdAt": 1671457655799,
-    "updatedAt": 1671457655799,
+    "createdAt": 1672134424530,
+    "updatedAt": 1672134424530,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655799,
+    "createdFirstAt": 1672134424530,
     "name": "FindRecaptchasResult",
     "slug": "find-recaptchas-result",
     "module": "puppeteer-extra-plugin-recaptcha/dist/types",
@@ -388,13 +402,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "dftkszfjbtxkdfgewrfpoqtg"
+    "id": "zwkhmgrrldpmvujotzqbthzp"
   },
   {
-    "createdAt": 1671457655799,
-    "updatedAt": 1671457655799,
+    "createdAt": 1672134424531,
+    "updatedAt": 1672134424531,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655799,
+    "createdFirstAt": 1672134424531,
     "name": "fork",
     "slug": "fork",
     "module": "child_process",
@@ -404,13 +418,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "ngetaducuffloinjdijtqhbu"
+    "id": "cvgzcyeqkasqxvhxdgicvwia"
   },
   {
-    "createdAt": 1671457655800,
-    "updatedAt": 1671457655800,
+    "createdAt": 1672134424531,
+    "updatedAt": 1672134424531,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655800,
+    "createdFirstAt": 1672134424531,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -421,13 +435,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "klggqonwpyqpnqcwgyjxwtdf"
+    "id": "hhhecrpcygwgveydmkrnuwut"
   },
   {
-    "createdAt": 1671457655800,
-    "updatedAt": 1671457655800,
+    "createdAt": 1672134424531,
+    "updatedAt": 1672134424531,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655800,
+    "createdFirstAt": 1672134424531,
     "name": "getProjectRoot",
     "slug": "get-project-root",
     "type": "value",
@@ -438,13 +452,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "efululphybbqigpjvgaeskpr"
+    "id": "mfhremiqsbhorjhbxgipajzl"
   },
   {
-    "createdAt": 1671457655800,
-    "updatedAt": 1671457655800,
+    "createdAt": 1672134424531,
+    "updatedAt": 1672134424531,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655800,
+    "createdFirstAt": 1672134424531,
     "name": "getOperationPath",
     "slug": "get-operation-path",
     "type": "value",
@@ -455,13 +469,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tynodothvcwqwmautwuihpcb"
+    "id": "kfyxhkwovdmwsgssxnkaffko"
   },
   {
-    "createdAt": 1671457655800,
-    "updatedAt": 1671457655800,
+    "createdAt": 1672134424532,
+    "updatedAt": 1672134424532,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655800,
+    "createdFirstAt": 1672134424532,
     "name": "Browser",
     "slug": "browser",
     "module": "puppeteer",
@@ -471,17 +485,16 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "vmdibdgwmgrnwoarupfpowcw"
+    "id": "mxvyimyhxbxhflmhghxckjfp"
   },
   {
-    "createdAt": 1671457655800,
-    "updatedAt": 1671457655800,
+    "createdAt": 1672134424532,
+    "updatedAt": 1672134424532,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655800,
+    "createdFirstAt": 1672134424532,
     "name": "BrowserPage",
     "slug": "browser-page",
-    "type": "type",
-    "hasGeneric": false,
+    "type": "value",
     "module": "browser-types",
     "isModuleResolved": true,
     "comments": [],
@@ -489,17 +502,16 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rtiruytmioptcvvledqlklmv"
+    "id": "djtrhwbelwsllacuduaiahfa"
   },
   {
-    "createdAt": 1671457655800,
-    "updatedAt": 1671457655800,
+    "createdAt": 1672134424532,
+    "updatedAt": 1672134424532,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655800,
+    "createdFirstAt": 1672134424532,
     "name": "Creation",
     "slug": "creation",
-    "type": "type",
-    "hasGeneric": true,
+    "type": "value",
     "module": "model-types",
     "isModuleResolved": true,
     "comments": [],
@@ -507,13 +519,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "mwvurfmgjvainpjctjdlotet"
+    "id": "vnoimcfnebqzcnmvkfbiifut"
   },
   {
-    "createdAt": 1671457655800,
-    "updatedAt": 1671457655800,
+    "createdAt": 1672134424532,
+    "updatedAt": 1672134424532,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655800,
+    "createdFirstAt": 1672134424532,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -524,13 +536,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xkggqitblquaqbkldhdlujkp"
+    "id": "erqszpqfijisizjnvkqsiszv"
   },
   {
-    "createdAt": 1671457655800,
-    "updatedAt": 1671457655800,
+    "createdAt": 1672134424532,
+    "updatedAt": 1672134424532,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655800,
+    "createdFirstAt": 1672134424532,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -541,13 +553,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "stufkqseiabrexrglrshcxaa"
+    "id": "zolafduvvzzlnxxhdckozhft"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424532,
+    "updatedAt": 1672134424532,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424532,
     "name": "Browser",
     "slug": "browser",
     "module": "puppeteer",
@@ -557,13 +569,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "fvhifcpymegadciyskxwyrna"
+    "id": "vzungwtmtpknqjpltnnxxrfn"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424533,
+    "updatedAt": 1672134424533,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424533,
     "name": "openNewBrowserOnChildProcess",
     "slug": "open-new-browser-on-child-process",
     "module": "./openBrowserOnChildProcess",
@@ -573,13 +585,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ymyjtreycvfqpdnizqmxzqmw"
+    "id": "llyqwlewohgmnzqnakjwtlsu"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424533,
+    "updatedAt": 1672134424533,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424533,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer",
@@ -589,13 +601,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "qkpcbyotyakbggqwjrqtjatz"
+    "id": "jnrambaivvjtatcsvhzzqqrt"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424533,
+    "updatedAt": 1672134424533,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424533,
     "name": "openNewBrowser",
     "slug": "open-new-browser",
     "module": "./openNewBrowser",
@@ -605,13 +617,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "lxmdpxjoxhackiftnddeqdyh"
+    "id": "rzpbmugfnijsgcesklydlunk"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424533,
+    "updatedAt": 1672134424533,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424533,
     "name": "getNewPage",
     "slug": "get-new-page",
     "module": "./getNewPage",
@@ -621,13 +633,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ddqqegnafiirrbvkwoqcisch"
+    "id": "lqpzrhlgvnpfrqhigxaaukvl"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424533,
+    "updatedAt": 1672134424533,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424533,
     "name": "getBrowserPageById",
     "slug": "get-browser-page-by-id",
     "module": "./getBrowserPageById",
@@ -637,13 +649,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "vdozachcntoazhdymlojlrvr"
+    "id": "whfuzfthveemuawsertnjeuf"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424533,
+    "updatedAt": 1672134424533,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424533,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -653,13 +665,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "tsbngipzlwsciapjnodefjnl"
+    "id": "iiczxvfyzbqdxnmjfjiliybm"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424534,
+    "updatedAt": 1672134424534,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424534,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -670,13 +682,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "iybuohlqkfdlybobwnvopawi"
+    "id": "scdktvhqtairnbfwiabzuoot"
   },
   {
-    "createdAt": 1671457655801,
-    "updatedAt": 1671457655801,
+    "createdAt": 1672134424534,
+    "updatedAt": 1672134424534,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655801,
+    "createdFirstAt": 1672134424534,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -686,13 +698,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "byjqbahbkdhrwtnswkwgyrlr"
+    "id": "jllkqczohxmaljlqcxznusbg"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424534,
+    "updatedAt": 1672134424534,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424534,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -702,13 +714,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "jcjhhetrrgjggoxldesjrnjc"
+    "id": "zocpttcubpmnxlgbslsfcdzh"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424534,
+    "updatedAt": 1672134424534,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424534,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer",
@@ -718,13 +730,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "oclchtlykggpruphmkigfxbz"
+    "id": "xhtrarhwgfxyizgvuzxdgpec"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424534,
+    "updatedAt": 1672134424534,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424534,
     "name": "SolveRecaptchasResult",
     "slug": "solve-recaptchas-result",
     "module": "puppeteer-extra-plugin-recaptcha/dist/types",
@@ -734,13 +746,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "vetzgypxxxyoemhanarywzns"
+    "id": "yqespczfnjavdiaynlexigib"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424534,
+    "updatedAt": 1672134424534,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424534,
     "name": "openPage",
     "slug": "open-page",
     "module": "./openPage",
@@ -750,13 +762,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "uquarmrfunonioourottkhzt"
+    "id": "lzlkeghgxwtaqubyydetrdkt"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424535,
+    "updatedAt": 1672134424535,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424535,
     "name": "setBrowserPageIdle",
     "slug": "set-browser-page-idle",
     "module": "./setBrowserPageIdle",
@@ -766,13 +778,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "nchaiskqcxowpcnwxoywztdf"
+    "id": "kedkjeoywxcgepyufeazfyfi"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424535,
+    "updatedAt": 1672134424535,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424535,
     "name": "isCaptchaExist",
     "slug": "is-captcha-exist",
     "module": "./isCaptchaExist",
@@ -782,13 +794,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ebgaojtptiikyjqpvfoyqlft"
+    "id": "ngwhjkuuiotvfuqddmvwsfcn"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424535,
+    "updatedAt": 1672134424535,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424535,
     "name": "runBrowser",
     "slug": "run-browser",
     "module": "./cli/runBrowser.cli",
@@ -798,13 +810,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "poobiaiklihlhbofyfasamix"
+    "id": "zihqufxymixpqqwdrwtjtqgz"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424535,
+    "updatedAt": 1672134424535,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424535,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -814,29 +826,29 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "fxcanoffqoajxduhfupslogt"
+    "id": "zzbldyukodzevvwevexeaglb"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424535,
+    "updatedAt": 1672134424535,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424535,
     "name": "Page",
     "slug": "page",
-    "module": "puppeteer-core",
+    "module": "puppeteer",
     "isModuleResolved": true,
     "comments": [],
     "operationRelativeTypescriptFilePath": "src/twitterLogin.ts",
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "zqbhgwycfaanjypgkjezipow"
+    "id": "uyinyagvaxinfvfixnwknlxr"
   },
   {
-    "createdAt": 1671457655802,
-    "updatedAt": 1671457655802,
+    "createdAt": 1672134424535,
+    "updatedAt": 1672134424535,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655802,
+    "createdFirstAt": 1672134424535,
     "name": "typeInTheInputField",
     "slug": "type-in-the-input-field",
     "module": "./typeInTheInputField",
@@ -846,29 +858,29 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "yzroenpvwiohiovmmvbqmgvm"
+    "id": "nqmtcscbyqpjntusgopgtvlb"
   },
   {
-    "createdAt": 1671457655803,
-    "updatedAt": 1671457655803,
+    "createdAt": 1672134424536,
+    "updatedAt": 1672134424536,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655803,
+    "createdFirstAt": 1672134424536,
     "name": "Page",
     "slug": "page",
-    "module": "puppeteer-core",
+    "module": "puppeteer",
     "isModuleResolved": true,
     "comments": [],
     "operationRelativeTypescriptFilePath": "src/typeInTheInputField.ts",
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "reivaigdarwozgpmklzvvlnq"
+    "id": "sawymryvtjefcxkavbcpewzr"
   },
   {
-    "createdAt": 1671457655803,
-    "updatedAt": 1671457655803,
+    "createdAt": 1672134424536,
+    "updatedAt": 1672134424536,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655803,
+    "createdFirstAt": 1672134424536,
     "name": "Page",
     "slug": "page",
     "module": "puppeteer-core",
@@ -878,13 +890,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "pblgultmjgszfkdgplzqtyjn"
+    "id": "vbyfgbxdgyehoisxsdzgjkli"
   },
   {
-    "createdAt": 1671457655803,
-    "updatedAt": 1671457655803,
+    "createdAt": 1672134424536,
+    "updatedAt": 1672134424536,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655803,
+    "createdFirstAt": 1672134424536,
     "name": "getChromeExecutablePath",
     "slug": "get-chrome-executable-path",
     "module": "../getChromeExecutablePath",
@@ -894,13 +906,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "azzzblcsrujpsknucmcajpfe"
+    "id": "kzpxjycbelobbhxeipciahie"
   },
   {
-    "createdAt": 1671457655804,
-    "updatedAt": 1671457655804,
+    "createdAt": 1672134424536,
+    "updatedAt": 1672134424536,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655804,
+    "createdFirstAt": 1672134424536,
     "name": "Browser",
     "slug": "browser",
     "module": "puppeteer",
@@ -910,13 +922,13 @@
     "classification": "package",
     "isAbsolute": true,
     "isModuleFromMonorepo": false,
-    "id": "qyiunyflbfittytbnwtcvcsg"
+    "id": "bqamxopthbxbdgtuqxlxuhtc"
   },
   {
-    "createdAt": 1671457655804,
-    "updatedAt": 1671457655804,
+    "createdAt": 1672134424536,
+    "updatedAt": 1672134424536,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655804,
+    "createdFirstAt": 1672134424536,
     "name": "db",
     "slug": "db",
     "type": "value",
@@ -927,17 +939,16 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "jkbvwchorskrxgfysmazrtvz"
+    "id": "ivqnrhqweyinikzgumbkjpge"
   },
   {
-    "createdAt": 1671457655804,
-    "updatedAt": 1671457655804,
+    "createdAt": 1672134424536,
+    "updatedAt": 1672134424536,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655804,
+    "createdFirstAt": 1672134424536,
     "name": "Creation",
     "slug": "creation",
-    "type": "type",
-    "hasGeneric": true,
+    "type": "value",
     "module": "model-types",
     "isModuleResolved": true,
     "comments": [],
@@ -945,17 +956,16 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tzkqcvkpvyhrtxszhdvlxfej"
+    "id": "skyozeysalhkpjfbhsqxpblh"
   },
   {
-    "createdAt": 1671457655804,
-    "updatedAt": 1671457655804,
+    "createdAt": 1672134424537,
+    "updatedAt": 1672134424537,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655804,
+    "createdFirstAt": 1672134424537,
     "name": "BrowserSession",
     "slug": "browser-session",
-    "type": "type",
-    "hasGeneric": false,
+    "type": "value",
     "module": "browser-types",
     "isModuleResolved": true,
     "comments": [],
@@ -963,17 +973,16 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ahiwlcaxpraoagdzdgaqvrtb"
+    "id": "eozoyabwdlocfzbwfmzutbvm"
   },
   {
-    "createdAt": 1671457655804,
-    "updatedAt": 1671457655804,
+    "createdAt": 1672134424537,
+    "updatedAt": 1672134424537,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655804,
+    "createdFirstAt": 1672134424537,
     "name": "BrowserPage",
     "slug": "browser-page",
-    "type": "type",
-    "hasGeneric": false,
+    "type": "value",
     "module": "browser-types",
     "isModuleResolved": true,
     "comments": [],
@@ -981,13 +990,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "dgqgsqlcfxscpusgwwyftrdo"
+    "id": "qaytcllpwuoisuradcpxqppe"
   },
   {
-    "createdAt": 1671457655805,
-    "updatedAt": 1671457655805,
+    "createdAt": 1672134424537,
+    "updatedAt": 1672134424537,
     "deletedAt": 0,
-    "createdFirstAt": 1671457655805,
+    "createdFirstAt": 1672134424537,
     "name": "openMultiTabs",
     "slug": "open-multi-tabs",
     "module": "../openMultiTabs",
@@ -997,6 +1006,6 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "mgouuqlaxkiciutsmnzmyzzk"
+    "id": "coarvxdskkkynularbqzxivh"
   }
 ]

@@ -1,0 +1,211 @@
+{
+  "createdAt": 1674541468522,
+  "updatedAt": 1674541468522,
+  "deletedAt": 0,
+  "createdFirstAt": 1674541468522,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/components/ReaderPageNext.tsx",
+  "commentsInside": [],
+  "rawText": " (props: ReaderProps) => {\n  // props provide the static data for the website\n  const queryPath = useQueryPath();\n  const basePath = process.env.NEXT_PUBLIC_BASEPATH;\n  const [config] = useStore(\"generativeWeb.config\");\n\n  const readerPageQuery = queries.useGetReaderPageProps(\n    basePath,\n    queryPath,\n    true,\n    config.activeCustomBasePath\n  );\n\n  const queryProps = readerPageQuery.data?.result?.props;\n\n  // either use the props returned from the query or from the static site\n  const realProps = queryProps?.actualProjectRelativeFilePath\n    ? queryProps\n    : props;\n  return <Div>TeSt</Div>;\n  //  return <ReaderPage {...realProps} />;\n}",
+  "name": "ReaderPageNext",
+  "slug": "reader-page-next",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "$ref": "#/definitions/ReaderProps"
+      },
+      "simplifiedSchema": {
+        "fullComment": "This is what we need on the page level. There are many subtleties to it, but this is the core",
+        "properties": [
+          {
+            "name": "notFound",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "notFoundReason",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isFolder",
+            "required": false,
+            "schema": {
+              "fullComment": "If true, the current path represents a folder, not a file.",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "canSeeContent",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "unauthorizedWarningMessage",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "markdown",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contextualPromptsObject",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "contextualPromptResults",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "actualProjectRelativeFilePath",
+            "required": false,
+            "schema": {
+              "fullComment": "Project relative file path that is actually used",
+              "type": "string"
+            }
+          },
+          {
+            "name": "navigation",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "fullComment": "",
+                    "properties": [
+                      {
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "projectRelativePath",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "type",
+                        "required": true,
+                        "schema": {
+                          "enum": [
+                            "folder",
+                            "file",
+                            "link",
+                            "unknown"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "firstFile",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "isPrivate",
+                        "required": false,
+                        "schema": {
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "isDraft",
+                        "required": false,
+                        "schema": {
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "isSecret",
+                        "required": false,
+                        "schema": {
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "authorizedGroup",
+                        "required": false,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "frontmatter",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+                          "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+                          "properties": [],
+                          "type": "object"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "name": "FolderContent"
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "ReaderPage to export for next project. Uses either the props from the next server, or if they're available, the props from the query.",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 784,
+    "lines": 22,
+    "bytes": 784,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 36,
+    "linesPerFile": 22,
+    "numberOfFiles": 1
+  },
+  "id": "omeyoyeawwxfvriszpihslui"
+}

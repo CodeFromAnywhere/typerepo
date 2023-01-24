@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115955483,
-  "updatedAt": 1671115955483,
+  "createdAt": 1674135564577,
+  "updatedAt": 1674135564577,
   "deletedAt": 0,
-  "createdFirstAt": 1671115955483,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135564577,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getChildren.ts",
   "commentsInside": [],
   "rawText": " (webPages: WebPage<any>[], queryPath: string) => {\n  const queryPathDepth = queryPath.split(\"/\").length;\n  const childrenKeys = webPages\n    .filter(\n      (x) =>\n        x.queryPath.startsWith(queryPath) &&\n        x.queryPath.split(\"/\").length - queryPathDepth === 1\n    )\n    .map((x) => x.queryPath.split(\"/\")[queryPathDepth]);\n\n  return childrenKeys;\n}",
@@ -57,5 +56,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "gyyoxscnatstmahsvgsjslwd"
+  "id": "cowugdpiuczbkzngmryjbxvq"
 }

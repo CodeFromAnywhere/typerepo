@@ -1,0 +1,36 @@
+{
+  "createdAt": 1673379273695,
+  "updatedAt": 1673379273695,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379273695,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/useQueryPath.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const router = useRouter();\n  const queryPath = router.query.queryPath;\n  const realQueryPathArray = queryPath ? makeArray(queryPath) : [];\n\n  const realQueryPath = realQueryPathArray.join(\"/\");\n  return realQueryPath;\n}",
+  "name": "useQueryPath",
+  "slug": "use-query-path",
+  "parameters": [],
+  "description": "Returns the queryPath of your URL without everything after ? and #",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 297,
+    "lines": 8,
+    "bytes": 297,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 37,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "fpvgfzfbbjeyvrryvofsfjpk"
+}

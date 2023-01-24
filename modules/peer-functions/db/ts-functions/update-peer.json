@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317057100,
-  "updatedAt": 1671317057100,
+  "createdAt": 1673862722158,
+  "updatedAt": 1673862722158,
   "deletedAt": 0,
-  "createdFirstAt": 1671317057100,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862722158,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/updatePeer.ts",
   "commentsInside": [],
   "rawText": " async (\n  slug: string,\n  updatedValues: {\n    name?: string;\n    description?: string;\n    authToken?: string;\n    isFavorite?: boolean;\n    isMe?: boolean;\n  }\n): Promise<{ isSuccesful: boolean; message: string }> => {\n  const updateResult = await db.update(\n    \"Person\",\n    (person) => {\n      return person.slug === slug;\n    },\n    (peer) => {\n      return { ...peer, ...omitUndefinedValues(updatedValues) };\n    }\n  );\n\n  return {\n    isSuccesful: !!updateResult.isSuccesful,\n    message: updateResult.isSuccesful\n      ? \"Peer updated\"\n      : `Something went wrong: ${updateResult.message}`,\n  };\n}",
@@ -108,5 +107,5 @@
     "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "oqtpizwtqctljdcfdtjhbkxe"
+  "id": "xzfnmfujnxdmkovfiqagzmby"
 }

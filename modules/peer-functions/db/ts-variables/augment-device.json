@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671316984801,
-  "updatedAt": 1671316984801,
+  "createdAt": 1673862650150,
+  "updatedAt": 1673862650150,
   "deletedAt": 0,
-  "createdFirstAt": 1671316984801,
+  "createdFirstAt": 1673862650150,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(x: Device) => {\n  const isOnlineCalculated = x.lastOnlineAt > Date.now() - 300 * 1000;\n  const isLocalIpCalculated = x.ip.startsWith(\"192.168.\");\n\n  const newDevice: Device = {\n    ...x,\n    isOnlineCalculated,\n    isLocalIpCalculated,\n  };\n  return newDevice;\n}",
   "description": "",
-  "id": "uzjhzjhvhlyjosjatyuewmwe"
+  "id": "rmggaimokdfwahgjtylztoks"
 }

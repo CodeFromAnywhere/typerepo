@@ -54,7 +54,7 @@ Gets the contents of a file in the project
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| projectRelativeFilePath | string |  |
+| projectRelativeFilePath (optional) | string |  |
 | **Output** |    |    |
 
 

@@ -1,0 +1,2 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.findCodeblocks=void 0;var js_util_1=require("js-util"),flattenMarkdownString_1=require("./flattenMarkdownString"),findCodeblocks=function(t){return(0,flattenMarkdownString_1.flattenMarkdownString)(t,(function(t){return"code"===t.type})).map((function(t){if("code"===t.type)return t.text})).filter(js_util_1.notEmpty)};exports.findCodeblocks=findCodeblocks;
+//# sourceMappingURL=findCodeblocks.js.map

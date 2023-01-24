@@ -1,0 +1,24 @@
+{
+  "createdAt": 1671128970936,
+  "updatedAt": 1671128970936,
+  "deletedAt": 0,
+  "createdFirstAt": 1671128970936,
+  "contextType": [
+    "text"
+  ],
+  "categoryStack": [
+    "text",
+    "text-bending"
+  ],
+  "pricing": "bad",
+  "slug": "add-emoji-to-every-word",
+  "name": "add-emoji-to-every-word",
+  "language": "english",
+  "id": "swcuodbqsttciecfwubmtdef",
+  "title": "Emojify++",
+  "description": "Emojify++ adds lots of emojis for important words in your text.",
+  "promptContent": "I am reading this file:\n\n```\n%context\n\n```\n\nReplace every word in the whole file with an utf8 emoji that reflects that word the most, and return the new file contents.",
+  "folderContentContext": "flat",
+  "usesContext": true,
+  "isFavorite": true
+}

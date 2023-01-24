@@ -1,0 +1,56 @@
+{
+  "createdAt": 1673380393491,
+  "updatedAt": 1673380393491,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380393491,
+  "isApiExposed": true,
+  "isExported": false,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/useProjectRelativeScreenshot.ts",
+  "commentsInside": [],
+  "rawText": " () => [() => null, (x: any) => null]",
+  "name": "useScreenshot",
+  "slug": "use-screenshot",
+  "parameters": [],
+  "description": "import { useScreenshot } from \"use-react-screenshot\";\n\ntodo: take this thing over",
+  "returnType": {
+    "rawType": "((x: any) => null)[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 0,
+  "size": {
+    "characters": 118,
+    "lines": 3,
+    "bytes": 118,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 39,
+    "linesPerFile": 3,
+    "numberOfFiles": 1
+  },
+  "id": "indulcsaekjgacnqwthwaozz"
+}

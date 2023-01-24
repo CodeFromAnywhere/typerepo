@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673380284900,
+  "updatedAt": 1673380284900,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380284900,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findMonorepoImports",
+  "slug": "find-monorepo-imports",
+  "operationRelativeTypescriptFilePath": "src/getDependencyTree.ts",
+  "type": {
+    "rawType": "(allImports: import(\"/Users/king/King/operations/tools/types/code-types/build/TsImport\").TsImport[], operationName: string) => any",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  allImports: TsImport[],\n  operationName: string\n) => {\n  const imports = allImports.filter((x) => x.operationName === operationName);\n\n  const monorepoModules = imports\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved\n        ? { module: x.module, name: x.name }\n        : null\n    )\n    .filter(notEmpty)\n    .filter(\n      onlyUnique2<{ name: string; module: string }>((a, b) => a.name === b.name)\n    );\n\n  return monorepoModules;\n}",
+  "description": "finds all unique imports in an operation name",
+  "id": "didlpmdrcweaqaqcbddknbbs"
+}

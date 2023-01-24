@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336341352,
-  "updatedAt": 1668336341352,
+  "createdAt": 1673380409616,
+  "updatedAt": 1673380409616,
   "deletedAt": 0,
-  "createdFirstAt": 1668336341352,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380409616,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
   "rawText": " (word: string) => {\n  return word.charAt(0).toUpperCase().concat(word.substring(1));\n}",
@@ -48,5 +43,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "liiiavqqqwgtxtvtdokmrszd"
+  "id": "syadmirewmvzrrnzyeesuwkf"
 }

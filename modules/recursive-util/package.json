@@ -21,37 +21,37 @@
     "buildResultIndexed": {
       "lintProblems": [],
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/smart/recursive-util/src/mapChildObjectRecursive.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
+        "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/smart/recursive-util/src/nestifyQueryPathObjectRecursive.ts. Error: TypeError: Cannot read properties of undefined (reading 'getId')"
       ],
       "buildSucceeded": true,
       "indexImportExportError": ""
     },
     "hasGeneratedDependenciesIndexed": false,
-    "lastRebuildAt": 1669385452360,
+    "lastRebuildAt": 1671554642910,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 8,
-        "lines": 337,
-        "characters": 10035,
-        "bytes": 10035
+        "numberOfFiles": 9,
+        "lines": 359,
+        "characters": 10580,
+        "bytes": 10580
       },
       "dataSize": {
         "numberOfFiles": 2,
         "lines": 121,
-        "characters": 3906,
-        "bytes": 3906
+        "characters": 3908,
+        "bytes": 3908
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 175,
-        "characters": 3794,
-        "bytes": 3794
+        "lines": 192,
+        "characters": 4074,
+        "bytes": 4074
       },
       "size": {
-        "bytes": 17735,
-        "characters": 17735,
-        "lines": 633,
-        "numberOfFiles": 12
+        "bytes": 18562,
+        "characters": 18562,
+        "lines": 672,
+        "numberOfFiles": 13
       }
     },
     "folderNameIndexed": "recursive-util",
@@ -64,6 +64,7 @@
       "WebPage",
       "MenuObjectType",
       "NestedObject",
+      "ChildObject",
       "ChildObject",
       "NestedObject",
       "MenuItemType",

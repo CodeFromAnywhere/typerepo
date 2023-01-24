@@ -6,28 +6,25 @@
   "id": "kizrquhyzzljipgcekjjtedi",
   "dependencies": {
     "@popperjs/core": "2.4.4",
-    "asset-functions-js": "0.0.1",
-    "augmented-word-types": "0.0.1",
-    "clickable-icon": "0.0.1",
-    "code-types": "0.0.1",
-    "fs-util-js": "0.0.1",
-    "js-util": "0.0.1",
-    "markdown-parse-js": "0.0.1",
-    "matter-types": "0.0.1",
     "react": "*",
     "react-markdown": "*",
     "react-with-native": "1.4.9",
     "rehype-raw": "^6.1.1",
     "rehype-highlight": "^5.0.2",
     "remark-gfm": "^3.0.1",
+    "fs-util-js": "0.0.1",
     "server-api-url": "0.0.1",
-    "tooltip": "0.0.1",
+    "asset-functions-js": "0.0.1",
+    "markdown-parse-js": "0.0.1",
     "ui-util": "0.0.1",
+    "clickable-icon": "0.0.1",
     "asset-view": "0.0.0",
     "asset-type": "0.0.1",
+    "tooltip": "0.0.1",
+    "matter-types": "0.0.1",
     "markdown-types": "0.0.1",
-    "prompt-components": "1.0.0",
-    "share": "1.0.0",
+    "augmented-word-types": "0.0.1",
+    "js-util": "0.0.1",
     "ai-types": "0.0.1"
   },
   "devDependencies": {
@@ -71,7 +68,7 @@
     "folderNameIndexed": "markdown",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671318512154,
+    "lastRebuildAt": 1674134931167,
     "operationDependenciesIndexed": [
       "path",
       "apiUrl",
@@ -96,7 +93,6 @@
       "MarkdownChunk",
       "AssetView",
       "AugmentedWord",
-      "useSelectionPromptsMenu",
       "Asset",
       "getFolderJs",
       "isPathRelative",
@@ -123,15 +119,15 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 15,
-        "lines": 1007,
-        "characters": 29848,
-        "bytes": 29848
+        "lines": 988,
+        "characters": 29233,
+        "bytes": 29233
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 178,
-        "characters": 4920,
-        "bytes": 4920
+        "lines": 172,
+        "characters": 4711,
+        "bytes": 4711
       },
       "textSize": {
         "numberOfFiles": 4,
@@ -140,9 +136,9 @@
         "bytes": 8139
       },
       "size": {
-        "bytes": 42907,
-        "characters": 42907,
-        "lines": 1500,
+        "bytes": 42083,
+        "characters": 42083,
+        "lines": 1475,
         "numberOfFiles": 21
       }
     },

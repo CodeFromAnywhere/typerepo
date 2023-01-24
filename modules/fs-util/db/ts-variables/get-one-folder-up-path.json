@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670526998900,
-  "updatedAt": 1670526998900,
+  "createdAt": 1672637086129,
+  "updatedAt": 1672637086129,
   "deletedAt": 0,
-  "createdFirstAt": 1670526998900,
+  "createdFirstAt": 1672637086129,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(folderPath: string) => {\n  const pathParts = folderPath.split(\"/\");\n  pathParts.pop();\n  return pathParts.join(\"/\");\n}",
   "description": "Takes a folder path and returns a path that is one folder up",
-  "id": "ylovxbppamjevnlajlicplve"
+  "id": "prbswmsbxpxgmcudvhkaulva"
 }

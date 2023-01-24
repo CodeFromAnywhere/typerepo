@@ -1,7 +1,6 @@
-import { Authorization } from "auth-types";
 import { Credit, DefaultModelType, Id, Slug } from "model-types";
 import { BackendAsset } from "asset-type";
-import { AuthenticationMethod, AuthenticationMethodMethod } from "./AuthenticationMethjod";
+import { AuthenticationMethod } from "./AuthenticationMethjod";
 import { Device } from "./Device";
 import { Group } from "./Group";
 import { PersonInformationValue } from "./PersonInformationValue";
@@ -76,16 +75,11 @@ export interface Person extends DefaultModelType {
     groups?: Group[];
     /**
      * Which custom authorizations does this `Person` have?
+     *
+     * authorizations?: Authorization[];
+     *
+     * I don't think we need this, since we are going to build a trust-based authorization system
      */
-    authorizations?: Authorization[];
-    /**
-     * By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one
-     */
-    amountAuthenticationMethodsRequired?: number;
-    /**
-     * Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device
-     */
-    requiredAuthenticationMethods?: AuthenticationMethodMethod[];
     /**
      * For now this can be a stripe token, stored for this "customer". Handy to connect the customer to the Person. Later this can become an array of multiple credentials, for example if you want to add multiple creditcards.
      */
@@ -98,5 +92,14 @@ export interface Person extends DefaultModelType {
      * Insufficient credit can limit the persons possibilities within the OS
      */
     credit?: Credit;
+    note?: string;
+    /**
+     * Later to be formalised with city, country, address, lat/lng, and maybe multiple possible locations. For now, and if we are using GPT for search, a string might be enough.
+     */
+    location?: string;
+    /**
+     * Number 0-1 to indicate my trust towards this person
+     */
+    trust?: number;
 }
 //# sourceMappingURL=Person.d.ts.map

@@ -126,6 +126,15 @@ Returns absolute paths for all docs folders (not the files inside)
 
 
 
+## getFolderTypescriptFiles()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| folderPath | string |  |,| includeStats | boolean |  |
+| **Output** |    |    |
+
+
+
 ## 📄 determineFileType (exported const)
 
 returns the file type or null if it's unknown
@@ -142,6 +151,8 @@ Returns absolute paths for all docs folders (not the files inside)
 
 
 ## 📄 findAllPackages (exported const)
+
+## 📄 getFolderTypescriptFiles (exported const)
 
 # CLI
 

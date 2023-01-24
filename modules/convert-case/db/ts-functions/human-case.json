@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668336341352,
-  "updatedAt": 1668336341352,
+  "createdAt": 1673380409617,
+  "updatedAt": 1673380409617,
   "deletedAt": 0,
-  "createdFirstAt": 1668336341352,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380409617,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
   "rawText": " (text: string) => convertCase(text, \"human\")",
@@ -48,5 +43,5 @@
     "linesPerFile": 1,
     "numberOfFiles": 1
   },
-  "id": "zzpaplobyurzhlicldolyilg"
+  "id": "bnkhxgqqxdmqeqhkcecxetsa"
 }

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674541468686,
+  "updatedAt": 1674541468686,
+  "deletedAt": 0,
+  "createdFirstAt": 1674541468686,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "ReaderPageNext",
+  "slug": "reader-page-next",
+  "operationRelativeTypescriptFilePath": "src/components/ReaderPageNext.tsx",
+  "type": {
+    "rawType": "(props: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ReaderProps\").ReaderProps) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: ReaderProps) => {\n  // props provide the static data for the website\n  const queryPath = useQueryPath();\n  const basePath = process.env.NEXT_PUBLIC_BASEPATH;\n  const [config] = useStore(\"generativeWeb.config\");\n\n  const readerPageQuery = queries.useGetReaderPageProps(\n    basePath,\n    queryPath,\n    true,\n    config.activeCustomBasePath\n  );\n\n  const queryProps = readerPageQuery.data?.result?.props;\n\n  // either use the props returned from the query or from the static site\n  const realProps = queryProps?.actualProjectRelativeFilePath\n    ? queryProps\n    : props;\n  return <Div>TeSt</Div>;\n  //  return <ReaderPage {...realProps} />;\n}",
+  "description": "ReaderPage to export for next project. Uses either the props from the next server, or if they're available, the props from the query.",
+  "id": "nfzvbhsulohtdyhhqpzeptwg"
+}

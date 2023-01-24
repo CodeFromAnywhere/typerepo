@@ -1,0 +1,20 @@
+{
+  "createdAt": 1670181512415,
+  "updatedAt": 1670181512415,
+  "deletedAt": 0,
+  "createdFirstAt": 1670181512415,
+  "name": "cleanup",
+  "language": "english",
+  "promptContent": "```typescript\n%context\n```\n\nCan you clean up this code?",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "slug": "cleanup",
+  "id": "xoirboypzwacefwfvlsalmvb",
+  "categoryStack": [
+    "code",
+    "code-refactoring"
+  ]
+}

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317046273,
-  "updatedAt": 1671317046273,
+  "createdAt": 1673862711369,
+  "updatedAt": 1673862711369,
   "deletedAt": 0,
-  "createdFirstAt": 1671317046273,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862711369,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/proactivePushAddPeerMessage.ts",
   "commentsInside": [],
   "rawText": " async (\n  message: string,\n  peerSlug: string\n): Promise<boolean> => {\n  await addPeerMessage(message, peerSlug);\n\n  const peers = await db.get(\"Person\", {\n    include: { referenceKey: \"personId\" },\n  });\n  await Promise.all(\n    peers.map(async (peer) => {\n      //  if (peer.) return;\n      const apiResult = await apiWithConfig.addPeerMessage(\n        {\n          apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n          //  authToken: peer,\n          timeout: 2000,\n        },\n        message,\n        peerSlug\n      );\n\n      return apiResult;\n    })\n  );\n\n  return true;\n}",
@@ -53,5 +52,5 @@
     "linesPerFile": 28,
     "numberOfFiles": 1
   },
-  "id": "wgipuhmgdvzljzemakflzkqk"
+  "id": "gduudtujbptooankdjiyfkep"
 }

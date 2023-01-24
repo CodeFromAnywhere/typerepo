@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317000910,
-  "updatedAt": 1671317000910,
+  "createdAt": 1673862666532,
+  "updatedAt": 1673862666532,
   "deletedAt": 0,
-  "createdFirstAt": 1671317000910,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862666532,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFirstEmoji.ts",
   "commentsInside": [],
   "rawText": " (text?: string): string | undefined => {\n  if (!text) return;\n  return text?.match(emojiRegex())?.[0];\n}",
@@ -60,5 +59,5 @@
     "linesPerFile": 4,
     "numberOfFiles": 1
   },
-  "id": "fnsdloufrfozohywkfrjlrkq"
+  "id": "lqxtpdelteailypotmpyalih"
 }

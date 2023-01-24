@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315991029,
-  "updatedAt": 1671315991029,
+  "createdAt": 1673959174112,
+  "updatedAt": 1673959174112,
   "deletedAt": 0,
-  "createdFirstAt": 1671315991029,
+  "createdFirstAt": 1673959174112,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "(absolutePath: string) => {\n  const osRootFilePath = path.join(absolutePath, \".project-root\");\n  const osRootFileExists = fs.existsSync(osRootFilePath);\n  return osRootFileExists;\n}",
   "description": "",
-  "id": "ysawnpgfsnzlpsrnrrkjmqpv"
+  "id": "mzqvmflavuloojhahhodydkc"
 }

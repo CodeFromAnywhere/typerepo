@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673959593428,
+  "updatedAt": 1673959593428,
+  "deletedAt": 0,
+  "createdFirstAt": 1673959593428,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findCodeblocks",
+  "slug": "find-codeblocks",
+  "operationRelativeTypescriptFilePath": "src/findCodeblocks.ts",
+  "type": {
+    "rawType": "(markdownString: string) => string[]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(markdownString: string): string[] => {\n  const result = flattenMarkdownString(\n    markdownString,\n    (token) => token.type === \"code\"\n  );\n\n  const codesblocks: string[] = result\n    .map((token) => {\n      if (token.type !== \"code\") return;\n\n      return token.text;\n    })\n    .filter(notEmpty);\n\n  return codesblocks;\n}",
+  "description": "find all codespans",
+  "id": "uqgvtyemnnpyyesfwdstaqnp"
+}

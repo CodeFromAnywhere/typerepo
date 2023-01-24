@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216128383,
-  "updatedAt": 1670216128383,
+  "createdAt": 1672637425710,
+  "updatedAt": 1672637425710,
   "deletedAt": 0,
-  "createdFirstAt": 1670216128383,
+  "createdFirstAt": 1672637425710,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async (amount: number = 100) => {\n  const key = `find src folders x${amount}`;\n  console.time(key);\n  let docs = await exploreOperationFolders({\n    basePath: getPathsWithOperations(),\n  });\n\n  console.timeEnd(key);\n  console.log(docs.length, \"folders found\", docs);\n}",
   "description": "",
-  "id": "mausqcbnkneyivqisufxgmea"
+  "id": "kivtudvdhaxcaamhgipmfibx"
 }

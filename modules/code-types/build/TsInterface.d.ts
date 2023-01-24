@@ -3,32 +3,11 @@ import { Markdown, TsIndexModelType } from "model-types";
 import { TypeInfo } from "./TypeInfo";
 import { TsComment } from "./TsComment";
 import { DbStorageMethod } from "./DbStorageMethod";
-/**
- * ---
- * dbStorageMethod: jsonSingle
- * ---
- *
- * TODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.
- */
-export interface TsInterface extends TsIndexModelType {
-    type: TypeInfo;
-    /**
-     * jsdoc comment above the interface, if any
-     */
-    description?: Markdown;
-    commentsInside: TsComment[];
-    /**
-     * boolean indicating whether or not this interface is exported from the file, and with that, from the operation
-     */
-    isExported: boolean;
+export declare type TsInterfaceProperties = {
     /**
      * boolean indicating whether or not this interface uses one or more generic variables
      */
     hasGeneric: boolean;
-    /**
-     * raw interface text, coming from ts-morph
-     */
-    rawText?: string;
     /**
      * if the interface extends anything, names will be specified here
      */
@@ -61,14 +40,37 @@ export interface TsInterface extends TsIndexModelType {
      */
     operationStorageLocationRelativeFilePath?: string;
     /**
-    The DbStorageMethod for this inteface (only for db models, otherwise this will be undefined)
-    
-    If this interface is a db model, you can also specify the default db storage method for it. You can do this by specifying it in the frontmatter of the doccomment of the interface. You can also extend a xxxModelType model which can have a dbStorageMethod attached.
-  
-   When storing something into the database, this value can be overwritten in your query configuration.
-  
-     */
+        The DbStorageMethod for this inteface (only for db models, otherwise this will be undefined)
+        
+        If this interface is a db model, you can also specify the default db storage method for it. You can do this by specifying it in the frontmatter of the doccomment of the interface. You can also extend a xxxModelType model which can have a dbStorageMethod attached.
+      
+       When storing something into the database, this value can be overwritten in your query configuration.
+      
+         */
     dbStorageMethod?: DbStorageMethod;
+};
+/**
+ * ---
+ * dbStorageMethod: jsonSingle
+ * ---
+ *
+ * TODO: Just like parameters, this should be linted for. If you define an interface that's not declared here, that should ring a bell.
+ */
+export interface TsInterface extends TsIndexModelType, TsInterfaceProperties {
+    type: TypeInfo;
+    /**
+     * jsdoc comment above the interface, if any
+     */
+    description?: Markdown;
+    commentsInside: TsComment[];
+    /**
+     * boolean indicating whether or not this interface is exported from the file, and with that, from the operation
+     */
+    isExported: boolean;
+    /**
+     * raw interface text, coming from ts-morph
+     */
+    rawText?: string;
 }
 /**
  * at some point in processing we need this interface where definition can also be null

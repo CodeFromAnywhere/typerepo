@@ -1,14 +1,13 @@
 {
-  "createdAt": 1671317801355,
-  "updatedAt": 1671317801355,
+  "createdAt": 1674548108502,
+  "updatedAt": 1674548108502,
   "deletedAt": 0,
-  "createdFirstAt": 1671317801355,
-  "isApiExposed": true,
+  "createdFirstAt": 1674548108502,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/scheduleCronJobs.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  log(\"Scheduling CRON jobs\", { type: \"important\" });\n\n  getObjectKeysArray(scheduleObject).map((interval) => {\n    const cronExpression = scheduleObject[interval];\n    const functionsToExecute = tsFunctions.filter(\n      (x) => x.runEveryPeriod === interval\n    );\n    if (functionsToExecute.length > 0) {\n      console.log(\n        `- ${functionsToExecute.length} functions for ${interval} cron`\n      );\n      schedule(\n        cronExpression,\n        () => {\n          oneByOne(functionsToExecute, executeCronFunction);\n        },\n        { name: interval }\n      );\n    }\n  });\n}",
+  "rawText": " async () => {\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  log(\"Scheduling CRON jobs\", { type: \"important\" });\n\n  getObjectKeysArray(scheduleObject).map((interval) => {\n    const cronExpression = scheduleObject[interval];\n    const functionsToExecute = tsFunctions.filter(\n      //@ts-ignore should later be replaced with the thing you find on the actual function\n      (x) => x.runEveryPeriod === interval\n    );\n    if (functionsToExecute.length > 0) {\n      console.log(\n        `- ${functionsToExecute.length} functions for ${interval} cron`\n      );\n      schedule(\n        cronExpression,\n        () => {\n          oneByOne(functionsToExecute, executeCronFunction);\n        },\n        { name: interval }\n      );\n    }\n  });\n}",
   "name": "scheduleCronJobs",
   "slug": "schedule-cron-jobs",
   "parameters": [],
@@ -24,13 +23,13 @@
   },
   "maxIndentationDepth": 5,
   "size": {
-    "characters": 650,
-    "lines": 24,
-    "bytes": 650,
+    "characters": 741,
+    "lines": 25,
+    "bytes": 741,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 24,
+    "charactersPerLine": 30,
+    "linesPerFile": 25,
     "numberOfFiles": 1
   },
-  "id": "nlqzuxzbwmiefcsonhqhllzj"
+  "id": "zuxmvowueyuibaullsnvglya"
 }

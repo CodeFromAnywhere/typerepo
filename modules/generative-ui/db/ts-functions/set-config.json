@@ -1,0 +1,81 @@
+{
+  "createdAt": 1673379262842,
+  "updatedAt": 1673379262842,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379262842,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/setConfig.ts",
+  "commentsInside": [],
+  "rawText": " (\n  apiUrl: string,\n  disableAdmin: boolean,\n  /**\n   * TITLE: Absolute base path of your file system to show\n   */\n  customAbsoluteBasePaths: string[]\n) => {\n  setItem(\"api.customUrl\", apiUrl === \"\" ? null : apiUrl);\n  setItem(\"generativeWeb.config\", { disableAdmin, customAbsoluteBasePaths });\n}",
+  "name": "setConfig",
+  "slug": "set-config",
+  "parameters": [
+    {
+      "name": "apiUrl",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "disableAdmin",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": true
+    },
+    {
+      "name": "customAbsoluteBasePaths",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "TITLE: Absolute base path of your file system to show"
+      },
+      "simplifiedSchema": {
+        "fullComment": "TITLE: Absolute base path of your file system to show",
+        "title": "Absolute base path of your file system to show",
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "void",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 298,
+    "lines": 11,
+    "bytes": 298,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "wqtvhvxhixvuhmvqtkvjncvo"
+}

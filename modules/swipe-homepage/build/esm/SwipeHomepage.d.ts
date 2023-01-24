@@ -5,7 +5,7 @@ export declare type SwipeItem = {
     markdown?: string;
     isMarkdownNoLimit?: boolean;
     markdownSourcePath?: string;
-    title: string;
+    title?: string;
     /**
      * if given,href for the title and description (when clicking on one of those)
      */

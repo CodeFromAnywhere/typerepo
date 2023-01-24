@@ -1,0 +1,2 @@
+"use strict";var __importDefault=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.getBrowser=exports.setBrowserSession=void 0;var lru_cache_1=__importDefault(require("lru-cache")),browserSession=new lru_cache_1.default({max:100}),setBrowserSession=function(e){browserSession.set("browser",e)};exports.setBrowserSession=setBrowserSession;var getBrowser=function(){return browserSession.get("browser")};exports.getBrowser=getBrowser;
+//# sourceMappingURL=browserSession.js.map

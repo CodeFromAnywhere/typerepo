@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671495816123,
-  "updatedAt": 1671495816123,
+  "createdAt": 1672638778488,
+  "updatedAt": 1672638778488,
   "deletedAt": 0,
-  "createdFirstAt": 1671495816123,
+  "createdFirstAt": 1672638778488,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(a: any[], b: any[]): boolean => {\n  return (\n    Array.isArray(a) &&\n    Array.isArray(b) &&\n    a.length === b.length &&\n    a.every((val, index) => val === b[index])\n  );\n}",
   "description": "",
-  "id": "nurzfkhosdirpujtrvqlcatt"
+  "id": "rcyiuyjwvnerxjkscquaukdz"
 }

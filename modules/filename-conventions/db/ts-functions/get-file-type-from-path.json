@@ -1,11 +1,10 @@
 {
-  "createdAt": 1670216176318,
-  "updatedAt": 1670216176318,
+  "createdAt": 1673862444671,
+  "updatedAt": 1673862444671,
   "deletedAt": 0,
-  "createdFirstAt": 1670216176318,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862444671,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFileTypeFromPath.ts",
   "commentsInside": [],
   "rawText": " (path?: string): FileType | \"other\" => {\n  if (!path) return \"other\";\n  //code\n  if (path.endsWith(\".ts\")) return \"code\";\n  if (path.endsWith(\".tsx\")) return \"code\";\n  if (path.endsWith(\".js\")) return \"code\";\n  if (path.endsWith(\".jsx\")) return \"code\";\n\n  //text\n  if (path.endsWith(\".md\")) return \"text\";\n  if (path.endsWith(\".mdx\")) return \"text\";\n  if (path.endsWith(\".txt\")) return \"text\";\n\n  //data\n  if (path.endsWith(\".json\")) return \"data\";\n\n  return \"other\";\n}",
@@ -68,5 +67,5 @@
     "linesPerFile": 18,
     "numberOfFiles": 1
   },
-  "id": "wgxvqlbzcvlteimapdyljuqv"
+  "id": "xrsdkjoqqnvkmkkqquffradk"
 }

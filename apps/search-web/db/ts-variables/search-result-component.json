@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527594547,
-  "updatedAt": 1670527594547,
+  "createdAt": 1674542294870,
+  "updatedAt": 1674542294870,
   "deletedAt": 0,
-  "createdFirstAt": 1670527594547,
+  "createdFirstAt": 1674542294870,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: {\n  searchResult: SearchResult;\n  index: number;\n}) => {\n  const { index, searchResult } = props;\n  return <Div key={`searchhit${index}`}>hit {index}</Div>;\n}",
+  "value": "(props: {\n  searchResult: SearchResult;\n  index: number;\n}) => {\n  const { index, searchResult } = props;\n  return (\n    <Div key={`index${index}`}>\n      <ALink href={searchResult.url}>{searchResult.title}</ALink>\n\n      {searchResult.description ? (\n        <Div>{renderMarkdownContent(searchResult.description, {})}</Div>\n      ) : null}\n    </Div>\n  );\n}",
   "description": "If you click on a site that up and running, it should startup via pm2 before being redirected there",
-  "id": "rwuzqlngfxdubiioepccqdtx"
+  "id": "dnkintxiuhqevlrzfdckhmvl"
 }

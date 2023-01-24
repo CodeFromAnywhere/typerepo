@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671315969243,
-  "updatedAt": 1671315969243,
+  "createdAt": 1673959166300,
+  "updatedAt": 1673959166300,
   "deletedAt": 0,
-  "createdFirstAt": 1671315969243,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959166300,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getOperationRelativePath.ts",
   "commentsInside": [],
   "rawText": " (\n  absolutePath: string,\n  operationBasePath: string\n) => {\n  return absolutePath.slice(operationBasePath.length + 1);\n}",
@@ -53,5 +52,5 @@
     "linesPerFile": 6,
     "numberOfFiles": 1
   },
-  "id": "wxfnnewpsoemgzwylbrnqlfp"
+  "id": "wfumgttvlrlcldsdvkgetgtc"
 }

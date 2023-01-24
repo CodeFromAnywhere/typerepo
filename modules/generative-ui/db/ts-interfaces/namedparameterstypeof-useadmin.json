@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379267290,
+  "updatedAt": 1673379267290,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379267290,
+  "id": "namedparameterstypeof-useadmin",
+  "name": "NamedParameters<typeof useAdmin>",
+  "slug": "namedparameterstypeof-useadmin",
+  "operationRelativeTypescriptFilePath": "src/components/useAdmin.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof useAdmin>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

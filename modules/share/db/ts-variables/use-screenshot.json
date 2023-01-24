@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673380393719,
+  "updatedAt": 1673380393719,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380393719,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "useScreenshot",
+  "slug": "use-screenshot",
+  "operationRelativeTypescriptFilePath": "src/useProjectRelativeScreenshot.ts",
+  "type": {
+    "rawType": "() => ((x: any) => null)[]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => [() => null, (x: any) => null]",
+  "description": "",
+  "id": "ypxrtqruqpyacvecmwqkrezj"
+}

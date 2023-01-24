@@ -1,0 +1,79 @@
+{
+  "createdAt": 1673380287217,
+  "updatedAt": 1673380287217,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380287217,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getOldDependencyTree.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  operationNames: string[],\n  stack: string[]\n): Promise<DependencyTree | null> => {\n  if (operationNames.length === 0) return null;\n  const allImports = await db.get(\"TsImport\");\n\n  const dependencyTree = mergeObjectsArray(\n    await Promise.all(\n      operationNames.map(async (name) => {\n        const deps = await findMonorepoModules(allImports, name);\n        const newStack = stack.concat(name);\n        const filtered = deps.filter((dep) => !newStack.includes(dep));\n        const filteredOut = deps.filter((dep) => newStack.includes(dep));\n        if (deps.length !== filtered.length) {\n          console.log(\n            `prevented circular dependency at ${name} (${filteredOut.join(\n              \", \"\n            )} were removed)`\n          );\n        }\n        return {\n          [name]: await getOldDependencyTree(filtered, newStack),\n        };\n      })\n    )\n  );\n\n  return dependencyTree;\n}",
+  "name": "getOldDependencyTree",
+  "slug": "get-old-dependency-tree",
+  "parameters": [
+    {
+      "name": "operationNames",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    },
+    {
+      "name": "stack",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": null
+          }
+        ],
+        "type": "array"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<import(\"/Users/king/King/operations/tools/typescript/find-all-dependency-operations/src/getDependencyTree\").DependencyTree | null>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 915,
+    "lines": 30,
+    "bytes": 915,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 31,
+    "linesPerFile": 30,
+    "numberOfFiles": 1
+  },
+  "id": "hlezuskidjnykaqkvnjjkbva"
+}

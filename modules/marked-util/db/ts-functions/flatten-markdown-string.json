@@ -1,14 +1,13 @@
 {
-  "createdAt": 1669962238263,
-  "updatedAt": 1669962238263,
+  "createdAt": 1673959603413,
+  "updatedAt": 1673959603413,
   "deletedAt": 0,
-  "createdFirstAt": 1669962238263,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959603413,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/flattenMarkdownString.ts",
   "commentsInside": [],
-  "rawText": " (\n  markdownString: string,\n  findFunction: (token: marked.Token) => boolean\n): marked.Token[] => {\n  const result = marked\n    .lexer(markdownString)\n    .map((x) => flattenMarkedTokenRecursive(x, findFunction))\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
+  "rawText": " (\n  markdownString: string,\n  findFunction: (token: marked.Token) => boolean\n): marked.Token[] => {\n  const tokenList = marked.lexer(markdownString);\n  const result = tokenList\n    .map((x) => flattenMarkedTokenRecursive(x, findFunction))\n    .filter(notEmpty)\n    .flat();\n\n  return result;\n}",
   "name": "flattenMarkdownString",
   "slug": "flatten-markdown-string",
   "parameters": [],
@@ -107,13 +106,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 335,
+    "characters": 361,
     "lines": 12,
-    "bytes": 335,
+    "bytes": 361,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 28,
+    "charactersPerLine": 30,
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "mvijtfqxtncncohacsgpqigd"
+  "id": "lxzwlgvblkhcqshigwpnoboo"
 }

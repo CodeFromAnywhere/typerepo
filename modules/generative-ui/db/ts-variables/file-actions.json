@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379234604,
+  "updatedAt": 1673379234604,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379234604,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "FileActions",
+  "slug": "file-actions",
+  "operationRelativeTypescriptFilePath": "src/components/FileActions.tsx",
+  "type": {
+    "rawType": "(props: { basePath?: string | undefined; navigation?: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ReaderProps\").FolderContent[] | undefined; projectRelativeFilePath?: string | undefined; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  basePath?: string;\n  navigation?: FolderContent[];\n  projectRelativeFilePath?: string;\n}) => {\n  const { basePath, navigation, projectRelativeFilePath } = props;\n  const actions = useFileActions(basePath, navigation);\n  const admin = useAdmin();\n  const alert = useAlert();\n  const { save, isSaved } = useFileWriter({\n    projectRelativeFilePath,\n    hideButtons: true,\n    initialWriterView: \"edit\",\n  });\n\n  const saveAction: ContextMenuItem = {\n    getTitle: () => \"💾 Save\",\n    getIsEnabled: () => !isSaved,\n    onClick: () => save(),\n  };\n\n  const allActions = [saveAction].concat(actions);\n\n  return (\n    <Div className=\"flex flex-row flex-wrap\">\n      {allActions.map((action) => {\n        if (action.getIsEnabled?.(projectRelativeFilePath) === false) {\n          return null;\n        }\n\n        return (\n          <Div\n            className=\"hover:bg-black/10 p-2 cursor-pointer\"\n            onClick={async () => {\n              await action.onClick(projectRelativeFilePath);\n\n              if (!admin.refetch) {\n                alert?.(\"WTF no admin\");\n              }\n              admin.refetch?.();\n            }}\n          >\n            {action.getTitle(projectRelativeFilePath)}\n          </Div>\n        );\n      })}\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "jdgmiicoewtqmdawjukrvpqy"
+}

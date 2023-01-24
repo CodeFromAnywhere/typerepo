@@ -1,0 +1,62 @@
+{
+  "createdAt": 1674117574465,
+  "updatedAt": 1674117574465,
+  "deletedAt": 0,
+  "createdFirstAt": 1674117574465,
+  "id": "lockinfo",
+  "name": "LockInfo",
+  "slug": "lockinfo",
+  "operationRelativeTypescriptFilePath": "src/variables.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type LockInfo = { updatedAt: number; status: string };",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "updatedAt": {
+          "type": "number"
+        },
+        "status": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "updatedAt",
+        "status"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "updatedAt",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "status",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "LockInfo",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

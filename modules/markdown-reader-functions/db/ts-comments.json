@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1671115994916,
-    "updatedAt": 1671115994916,
+    "createdAt": 1674135591029,
+    "updatedAt": 1674135591029,
     "deletedAt": 0,
-    "createdFirstAt": 1671115994916,
+    "createdFirstAt": 1674135591029,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/stripReadmeFromFolder.ts",
-    "comment": "To get the queryPath, we need to strip the README.md so we get the folder as URL instead of the attached README.md",
-    "rawStatement": "export const stripReadmeFromFolder = (filePath: string): string => {\n  const suffix = \"/readme.md\";\n\n  if (filePath.toLowerCase().endsWith(suffix)) {\n    const strippedPath = filePath.slice(0, filePath.length - suffix.length);\n\n    return strippedPath;\n  }\n\n  return filePath;\n};",
+    "operationRelativeTypescriptFilePath": "src/putReadmeOnTop.ts",
+    "comment": "Takes an array of items (`explore` results) and checks them to put readme at the start\n\nDEPRECATED: After writing this, I found that `explore` also has `readmeOnTop` possibility, so this whole thing is not needed",
+    "rawStatement": "export const putReadmeOnTop = <\n  T extends {\n    path: string;\n    isFolder: boolean;\n  }\n>(\n  items: T[]\n) => {\n  const itemsReadmesFirst = items.reduce((previous, item, index, array) => {\n    if (!item.path.toLowerCase().endsWith(\"readme.md\")) {\n      return previous;\n    }\n\n    const folderIndex = array.findIndex(\n      (x) => x.isFolder && x.path === getFolder(item.path)\n    );\n\n    if (folderIndex === -1) {\n      return previous;\n    }\n\n    return putIndexAtIndex(previous, index, folderIndex + 1);\n  }, items);\n\n  return itemsReadmesFirst;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 1,
-    "lastLine": 3,
-    "id": "irijqxrsasodjxlxrekargfj"
+    "firstLine": 4,
+    "lastLine": 8,
+    "id": "xwcwwevruwkvrlgwxalhyfkr"
   }
 ]

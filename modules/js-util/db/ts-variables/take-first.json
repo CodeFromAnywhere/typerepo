@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116953985,
-  "updatedAt": 1671116953985,
+  "createdAt": 1672638766368,
+  "updatedAt": 1672638766368,
   "deletedAt": 0,
-  "createdFirstAt": 1671116953985,
+  "createdFirstAt": 1672638766368,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T>(arrayOrNot: T | T[]) => {\n  return makeArray(arrayOrNot)[0];\n}",
   "description": "takes any type T or an array of T and returns T or the first of the array (which is T)",
-  "id": "hxsrqxzkuqpmdevafafjnkfb"
+  "id": "utbfesqqktjyqjoatvuqwxtb"
 }

@@ -1,4 +1,4 @@
-import { ApiFunction } from "function-server-types";
+import { ApiFunction } from "code-types";
 /**
  * Login with username and password
  *

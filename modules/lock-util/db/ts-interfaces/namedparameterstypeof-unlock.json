@@ -1,0 +1,49 @@
+{
+  "createdAt": 1674117615033,
+  "updatedAt": 1674117615033,
+  "deletedAt": 0,
+  "createdFirstAt": 1674117615033,
+  "id": "namedparameterstypeof-unlock",
+  "name": "NamedParameters<typeof unlock>",
+  "slug": "namedparameterstypeof-unlock",
+  "operationRelativeTypescriptFilePath": "src/unlock.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "aboluteLockedFilePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "aboluteLockedFilePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "aboluteLockedFilePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof unlock>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

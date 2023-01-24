@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674133310101,
+  "updatedAt": 1674133310101,
+  "deletedAt": 0,
+  "createdFirstAt": 1674133310101,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "shouldAddToQueue",
+  "slug": "should-add-to-queue",
+  "operationRelativeTypescriptFilePath": "src/queue/shouldAddToQueue.ts",
+  "type": {
+    "rawType": "(functionName: string, parameters: any[]) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  functionName: string,\n  parameters: any[]\n) => {\n  const isBusy = await isSystemBusy();\n  if (isBusy) {\n    //add to the queue if the cpus/memory are too busy.\n    const upsertResult = await db.upsert(\"Queue\", {\n      executionAuthToken: \".....\", // what is the auth token if it's done by a watcher?\n      functionName,\n      parameters,\n    });\n\n    return true;\n  }\n  return false;\n}",
+  "description": "Checks if system is busy and if so, adds the task to queue",
+  "id": "ldqklrhaignlwrntqbpyeagh"
+}

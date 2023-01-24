@@ -1,0 +1,166 @@
+{
+  "createdAt": 1673380283050,
+  "updatedAt": 1673380283050,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380283050,
+  "id": "namedparameterstypeof-findmonorepoexports",
+  "name": "NamedParameters<typeof findMonorepoExports>",
+  "slug": "namedparameterstypeof-findmonorepoexports",
+  "operationRelativeTypescriptFilePath": "src/getDependencyTree.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "allExports": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TsExport"
+          }
+        },
+        "operationName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "allExports",
+        "operationName"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "allExports",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "fullComment": "",
+                  "properties": [
+                    {
+                      "name": "operationName",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                        "type": "null"
+                      }
+                    },
+                    {
+                      "name": "projectRelativePath",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "operationRelativePath",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "id",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "unique id of the model",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "name",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "name (identifier) of the model",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "slug",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "kebab-case variant of the name",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "operationRelativeTypescriptFilePath",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "relative file path from the operation that this indexed instance is referencing to\n\ne.g. src/general.ts\n\n(no preceding slash)",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "comments",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "surrounding comments and comments inside of the import",
+                        "items": [],
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "type",
+                      "required": false,
+                      "schema": {
+                        "enum": [
+                          "value",
+                          "type"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "alias",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "used for duplicate export names",
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "hasGeneric",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "only for type exports. tells you whether or not the type has one or more generic parameter(s)",
+                        "type": "boolean"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                },
+                "name": "TsExport"
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof findMonorepoExports>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457675361,
-  "updatedAt": 1671457675361,
+  "createdAt": 1672134445616,
+  "updatedAt": 1672134445616,
   "deletedAt": 0,
-  "createdFirstAt": 1671457675361,
+  "createdFirstAt": 1672134445616,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-browser-page-by-id",
   "operationRelativeTypescriptFilePath": "src/getBrowserPageById.ts",
   "type": {
-    "rawType": "(browser: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Browser, pageId: string) => unknown",
+    "rawType": "(browser: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Browser, pageId: string) => unknown",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (browser: Browser, pageId: string) => {\n  const allPages = await browser.pages();\n  const targetPage = allPages.find(\n    //@ts-ignore\n    (p) => p.target()._targetId === pageId\n  );\n  await targetPage?.setBypassCSP(true);\n  return targetPage;\n}",
   "description": "",
-  "id": "cwwtfpgsobwoitsnuncycqsy"
+  "id": "gqbzxumwnnfxfmhtxjitshbg"
 }

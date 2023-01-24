@@ -1,0 +1,22 @@
+ repoships with is the database integration.
+ We created our own database to make it as easy as possible
+ for you to create your new models and make an app full of
+ data.
+ We have this database user interface where you can see
+ all your data, where you can create new models, where you
+ can add updates and delete new instances.
+ You can view your models in different ways.
+ You can search your data and much more.
+ So if you want to create a new model in type repo, you don
+'t
+ need to create anything hard.
+ It's just a TypeScript interface.
+ And that's it.
+ So you just extend a model type, you let it be indexed by
+ type repo, and you can see it in your database.
+ So if I want to add something here, all I need to do is
+ change the type interface, and the model is ready to be
+ used.
+ Because the indexation, it's never been as easy as this to
+ create or alter your database models.
+ [BLANK_AUDIO]

@@ -1,0 +1,47 @@
+{
+  "createdAt": 1673380414581,
+  "updatedAt": 1673380414581,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380414581,
+  "isApiExposed": false,
+  "name": "fileSlugify",
+  "slug": "file-slugify",
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/slugify.ts",
+  "groupAuthorization": {},
+  "commentsInside": [],
+  "description": "/**\n * Slugification for filepaths in specific\n */",
+  "parameters": [
+    {
+      "name": "string",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "size": {
+    "characters": 875,
+    "lines": 26,
+    "bytes": 956,
+    "bytesPerCharacter": 1.0925714285714285,
+    "charactersPerLine": 34,
+    "linesPerFile": 26,
+    "numberOfFiles": 1
+  },
+  "rawText": "\n\n/**\n * Slugification for filepaths in specific\n */\nexport function fileSlugify(string: string) {\n  const a =\n    \"àáâäæãåāăąçćčđďèéêëēėęěğǵḧîïíīįìıİłḿñńǹňôöòóœøōõőṕŕřßśšşșťțûüùúūǘůűųẃẍÿýžźż·,:;\";\n  const b =\n    \"aaaaaaaaaacccddeeeeeeeegghiiiiiiiilmnnnnoooooooooprrsssssttuuuuuuuuuwxyyzzz----\";\n  const p = new RegExp(a.split(\"\").join(\"|\"), \"g\");\n\n  return (\n    string\n      .toString()\n      .replace(/\\s+/g, \"-\") // Replace spaces with -\n      .replace(p, (c) => b.charAt(a.indexOf(c))) // Replace special characters\n      .replace(/&/g, \"-and-\") // Replace & with 'and'\n      // .replace(/[^\\w\\-]+/g, \"\") // Remove all non-word characters\n      .replace(/\\-\\-+/g, \"-\") // Replace multiple - with single -\n      .replace(/^-+/, \"\") // Trim - from start of text\n      .replace(/-+$/, \"\")\n  ); // Trim - from end of text\n}",
+  "maxIndentationDepth": 3,
+  "id": "hffjrsjyrizawdxiydeefaxw"
+}

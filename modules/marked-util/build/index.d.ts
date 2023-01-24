@@ -1,3 +1,4 @@
+export * from "./findCodeblocks";
 export * from "./findCodespans";
 export * from "./findEmbeds";
 export * from "./findLinks";

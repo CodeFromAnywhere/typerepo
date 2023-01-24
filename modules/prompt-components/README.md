@@ -6,18 +6,6 @@ prompt-components (`OperationClassification` ui-esm)
 
 # Api reference
 
-## `<ContextualPromptResultsTab />`
-
-Visual to show the different prompt results. Probably deprecated, probably better to show it in a more structured way.
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| props | { prompt_projectRelativePath: string, <br /> } |  |
-| **Output** | `JSX.Element`   |    |
-
-
-
 ## `<FilePromptSelect />`
 
 Component that shows a selectbox for different prompts that can be applied on this file
@@ -54,11 +42,6 @@ Recursive hook that calls its own function if you click "respond", which creates
 
 
 
-## 📄 ContextualPromptResultsTab (exported const)
-
-Visual to show the different prompt results. Probably deprecated, probably better to show it in a more structured way.
-
-
 ## 📄 FilePromptSelect (exported const)
 
 Component that shows a selectbox for different prompts that can be applied on this file
@@ -72,4 +55,25 @@ Main function to process a prompt. For now it calls `processChatGptPrompt` api a
 ## 📄 usePromptResultAlert (exported const)
 
 Recursive hook that calls its own function if you click "respond", which creates an additional item in the thread
+
+# Internal
+
+<details><summary>Show internal (2)</summary>
+    
+  # `<ContextualPromptResultsTab />`
+
+Visual to show the different prompt results. Probably deprecated, probably better to show it in a more structured way.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| props | { prompt_projectRelativePath: string, <br /> } |  |
+| **Output** | `JSX.Element`   |    |
+
+
+
+## 📄 ContextualPromptResultsTab (exported const)
+
+Visual to show the different prompt results. Probably deprecated, probably better to show it in a more structured way.
+  </details>
 

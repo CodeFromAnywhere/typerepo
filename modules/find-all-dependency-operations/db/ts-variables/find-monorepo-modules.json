@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150464363,
-  "updatedAt": 1668150464363,
+  "createdAt": 1673380276241,
+  "updatedAt": 1673380276241,
   "deletedAt": 0,
-  "createdFirstAt": 1668150464363,
+  "createdFirstAt": 1673380276241,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "find-monorepo-modules",
   "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
   "type": {
-    "rawType": "(operationName: string) => unknown",
+    "rawType": "(allImports: import(\"/Users/king/King/operations/tools/types/code-types/build/TsImport\").TsImport[], operationName: string) => unknown",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (operationName: string) => {\n  const imports = await db.get(\"TsImport\", { operationName });\n  const monorepoModules = imports\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved ? x.module : null\n    )\n    .filter(notEmpty)\n    .filter(onlyUnique);\n\n  return monorepoModules;\n}",
+  "value": "async (\n  allImports: TsImport[],\n  operationName: string\n) => {\n  const imports = allImports.filter((x) => x.operationName === operationName);\n\n  const monorepoModules = imports\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved ? x.module : null\n    )\n    .filter(notEmpty)\n    .filter(onlyUnique);\n\n  return monorepoModules;\n}",
   "description": "finds all dependencies of an operation name",
-  "id": "yeyiipvxxokvbfaecthqbetp"
+  "id": "fbzkmoilqvsuonpyjtxamcww"
 }

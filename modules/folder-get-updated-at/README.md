@@ -11,19 +11,17 @@ Get last updated file updatedAt time in whole folder, recursively
 
 ## folderGetUpdatedAt()
 
-get last updated file updatedAt time in whole folder, recursively
+get last updated file updatedAt time in whole folder, recursively. only finds typescript files, ignores index.
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| {
-  folderPath,
-} | { folderPath: string, <br /> } |  |
+| config | { folderPath: string, <br /> } |  |
 | **Output** |    |    |
 
 
 
 ## 📄 folderGetUpdatedAt (exported const)
 
-get last updated file updatedAt time in whole folder, recursively
+get last updated file updatedAt time in whole folder, recursively. only finds typescript files, ignores index.
 

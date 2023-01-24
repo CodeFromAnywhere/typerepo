@@ -1,0 +1,55 @@
+{
+  "createdAt": 1674117612201,
+  "updatedAt": 1674117612201,
+  "deletedAt": 0,
+  "createdFirstAt": 1674117612201,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/isLocked.ts",
+  "commentsInside": [],
+  "rawText": " (absolutePath: string) => {\n  const parsedPath = path.parse(absolutePath);\n  const potentialLockFilePath = path.join(\n    parsedPath.dir,\n    `${parsedPath.name}.lock`\n  );\n\n  if (fs.existsSync(potentialLockFilePath)) {\n    const lock = readJsonFileSync<LockInfo>(potentialLockFilePath);\n\n    // there's a lockfile\n    if (lock?.updatedAt && Date.now() - lock.updatedAt < maximumLockTime) {\n      // status has recently enough been updated\n      return true;\n    }\n  }\n  return false;\n}",
+  "name": "isLocked",
+  "slug": "is-locked",
+  "parameters": [
+    {
+      "name": "absolutePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "{}",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 487,
+    "lines": 18,
+    "bytes": 487,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 27,
+    "linesPerFile": 18,
+    "numberOfFiles": 1
+  },
+  "id": "wtonphzhogrbbmynivithhyo"
+}

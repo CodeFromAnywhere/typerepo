@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668336324713,
-  "updatedAt": 1668336324713,
+  "createdAt": 1674032513184,
+  "updatedAt": 1674032513184,
   "deletedAt": 0,
-  "createdFirstAt": 1668336324713,
+  "createdFirstAt": 1674032513184,
   "id": "namedparameterstypeof-execasync",
   "name": "NamedParameters<typeof execAsync>",
   "slug": "namedparameterstypeof-execasync",
@@ -19,10 +19,14 @@
       "properties": {
         "command": {
           "type": "string"
+        },
+        "execOptions": {
+          "$ref": "#/definitions/ExecOptions"
         }
       },
       "required": [
-        "command"
+        "command",
+        "execOptions"
       ],
       "additionalProperties": false
     },
@@ -33,6 +37,110 @@
           "required": true,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "execOptions",
+          "required": true,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "uid",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "gid",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "cwd",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "env",
+                "required": false,
+                "schema": {
+                  "fullComment": "",
+                  "properties": [
+                    {
+                      "name": "TZ",
+                      "required": false,
+                      "schema": {
+                        "fullComment": "Can be used to change the default timezone at runtime",
+                        "type": "string"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "windowsHide",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "timeout",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "shell",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "signal",
+                "required": false,
+                "schema": {
+                  "fullComment": "A signal object that allows you to communicate with a DOM request (such as a Fetch) and abort it if required via an AbortController object.",
+                  "properties": [
+                    {
+                      "name": "aborted",
+                      "required": true,
+                      "schema": {
+                        "fullComment": "Returns true if this AbortSignal's AbortController has signaled to abort, and false otherwise.",
+                        "type": "boolean"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "maxBuffer",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "killSignal",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
           }
         }
       ],

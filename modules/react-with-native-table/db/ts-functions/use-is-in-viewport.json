@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668775574557,
-  "updatedAt": 1668775574557,
+  "createdAt": 1672638710678,
+  "updatedAt": 1672638710678,
   "deletedAt": 0,
-  "createdFirstAt": 1668775574557,
+  "createdFirstAt": 1672638710678,
   "isApiExposed": false,
   "name": "useIsInViewport",
   "slug": "use-is-in-viewport",
@@ -31,15 +31,15 @@
     }
   },
   "size": {
-    "characters": 489,
-    "lines": 25,
-    "bytes": 489,
+    "characters": 559,
+    "lines": 27,
+    "bytes": 559,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 20,
-    "linesPerFile": 25,
+    "charactersPerLine": 21,
+    "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "rawText": "\n\nexport function useIsInViewport(ref: React.MutableRefObject<Element | null>) {\n  const [isIntersecting, setIsIntersecting] = useState(false);\n\n  const observer = useMemo(\n    () =>\n      new IntersectionObserver(([entry]) =>\n        setIsIntersecting(entry.isIntersecting)\n      ),\n    []\n  );\n\n  useEffect(() => {\n    if (!ref.current) return;\n\n    observer.observe(ref.current);\n\n    return () => {\n      observer.disconnect();\n    };\n  }, [ref, observer]);\n\n  return isIntersecting;\n}",
-  "maxIndentationDepth": 4,
-  "id": "ygsrgobijsqkwcgdhugpaoqy"
+  "rawText": "\n\nexport function useIsInViewport(ref: React.MutableRefObject<Element | null>) {\n  const [isIntersecting, setIsIntersecting] = useState(false);\n\n  const observer = useMemo(\n    () =>\n      typeof window !== \"undefined\"\n        ? new IntersectionObserver(([entry]) =>\n            setIsIntersecting(entry.isIntersecting)\n          )\n        : undefined,\n    []\n  );\n\n  useEffect(() => {\n    if (!ref.current) return;\n\n    observer?.observe(ref.current);\n\n    return () => {\n      observer?.disconnect();\n    };\n  }, [ref, observer]);\n\n  return isIntersecting;\n}",
+  "maxIndentationDepth": 6,
+  "id": "iucwqfsrprzvdbsjnwikankc"
 }

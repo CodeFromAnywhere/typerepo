@@ -1,15 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.getChildren = void 0;
-var getChildren = function (webPages, queryPath) {
-    var queryPathDepth = queryPath.split("/").length;
-    var childrenKeys = webPages
-        .filter(function (x) {
-        return x.queryPath.startsWith(queryPath) &&
-            x.queryPath.split("/").length - queryPathDepth === 1;
-    })
-        .map(function (x) { return x.queryPath.split("/")[queryPathDepth]; });
-    return childrenKeys;
-};
-exports.getChildren = getChildren;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.getChildren=void 0;var getChildren=function(t,e){var r=e.split("/").length;return t.filter((function(t){return t.queryPath.startsWith(e)&&t.queryPath.split("/").length-r==1})).map((function(t){return t.queryPath.split("/")[r]}))};exports.getChildren=getChildren;
 //# sourceMappingURL=getChildren.js.map

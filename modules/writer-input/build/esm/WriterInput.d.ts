@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import type { DbModels } from "sdk-db";
 import { AugmentedWord } from "augmented-word-types";
 import { WriterType } from "filename-conventions";

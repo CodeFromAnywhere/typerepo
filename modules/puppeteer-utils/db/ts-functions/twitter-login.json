@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671457741540,
-  "updatedAt": 1671457741540,
+  "createdAt": 1672134499608,
+  "updatedAt": 1672134499608,
   "deletedAt": 0,
-  "createdFirstAt": 1671457741540,
+  "createdFirstAt": 1672134499608,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/twitterLogin.ts",
   "commentsInside": [],
-  "rawText": " async (props: {\n  page: Page;\n  email: string;\n  phoneNo: string;\n  password: string;\n}) => {\n  const { page, email, phoneNo, password } = props;\n  await page.goto(\"https://twitter.com/login\");\n  // Adding listener for console\n  page.on(\"console\", (message) => console.log(`${message.text()}`));\n  // wait for username input field to appear\n  await typeInTheInputField({\n    page,\n    selector: 'input[autocomplete=\"username\"]',\n    value: phoneNo,\n  });\n\n  // clicking next button\n  await page.click(\n    'div[class=\"css-18t94o4 css-1dbjc4n r-sdzlij r-1phboty r-rs99b7 r-ywje51 r-usiww2 r-2yi16 r-1qi8awa r-1ny4l3l r-ymttw5 r-o7ynqc r-6416eg r-lrvibr r-13qz1uu\"]'\n  );\n\n  // wait for the password field to appear\n  await typeInTheInputField({\n    page,\n    selector: 'input[autocomplete=\"current-password\"]',\n    value: password,\n  });\n  // waiting and clicking on the login button\n  await page.waitForSelector(\n    'div[class=\"css-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0\"]'\n  );\n  await page.click(\n    'div[class=\"css-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0\"]'\n  );\n}",
+  "rawText": " async (props: {\n  page: Page;\n  password: string;\n  username: string;\n}) => {\n  const { page, password, username } = props;\n  await page.goto(\"https://twitter.com/login\");\n  // Adding listener for console\n  page.on(\"console\", (message) => console.log(`${message.text()}`));\n  // wait for username input field to appear\n  await typeInTheInputField({\n    page,\n    selector: 'input[autocomplete=\"username\"]',\n    value: username,\n  });\n\n  // clicking next button\n  await page.click(\n    'div[class=\"css-18t94o4 css-1dbjc4n r-sdzlij r-1phboty r-rs99b7 r-ywje51 r-usiww2 r-2yi16 r-1qi8awa r-1ny4l3l r-ymttw5 r-o7ynqc r-6416eg r-lrvibr r-13qz1uu\"]'\n  );\n\n  // wait for the password field to appear\n  await typeInTheInputField({\n    page,\n    selector: 'input[autocomplete=\"current-password\"]',\n    value: password,\n  });\n  // waiting and clicking on the login button\n  await page.waitForSelector(\n    'div[class=\"css-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0\"]'\n  );\n  await page.click(\n    'div[class=\"css-901oao r-1awozwy r-6koalj r-18u37iz r-16y2uox r-37j5jr r-a023e6 r-b88u0q r-1777fci r-rjixqe r-bcqeeo r-q4m81j r-qvutc0\"]'\n  );\n}",
   "name": "twitterLogin",
   "slug": "twitter-login",
   "parameters": [
@@ -20,21 +20,17 @@
           "page": {
             "$ref": "#/definitions/Page"
           },
-          "email": {
-            "type": "string"
-          },
-          "phoneNo": {
-            "type": "string"
-          },
           "password": {
+            "type": "string"
+          },
+          "username": {
             "type": "string"
           }
         },
         "required": [
           "page",
-          "email",
-          "phoneNo",
-          "password"
+          "password",
+          "username"
         ],
         "additionalProperties": false
       },
@@ -50,21 +46,14 @@
             }
           },
           {
-            "name": "email",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "phoneNo",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
             "name": "password",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "username",
             "required": true,
             "schema": {
               "type": "string"
@@ -88,13 +77,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 1267,
-    "lines": 36,
-    "bytes": 1267,
+    "characters": 1246,
+    "lines": 35,
+    "bytes": 1246,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 35,
-    "linesPerFile": 36,
+    "charactersPerLine": 36,
+    "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "ibufvbirkbgtuxrugabhoozp"
+  "id": "aigifnttfmpqifvbtovftsbf"
 }

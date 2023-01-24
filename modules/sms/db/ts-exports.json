@@ -1,26 +1,38 @@
 [
   {
-    "createdAt": 1668334634844,
-    "updatedAt": 1668334634844,
+    "createdAt": 1673379721615,
+    "updatedAt": 1673379721615,
     "deletedAt": 0,
-    "createdFirstAt": 1668334634844,
+    "createdFirstAt": 1673379721615,
     "name": "sendSms",
     "slug": "send-sms",
     "operationRelativeTypescriptFilePath": "src/index.ts",
     "comments": [],
     "type": "value",
-    "id": "jpyknevacgkhsjujonpyjbrm"
+    "id": "dlfgjgrlvckrqdjlxitcvzun"
   },
   {
-    "createdAt": 1668334634844,
-    "updatedAt": 1668334634844,
+    "createdAt": 1673379721616,
+    "updatedAt": 1673379721616,
     "deletedAt": 0,
-    "createdFirstAt": 1668334634844,
+    "createdFirstAt": 1673379721616,
+    "name": "sendDailyAlarmSms",
+    "slug": "send-daily-alarm-sms",
+    "operationRelativeTypescriptFilePath": "src/sendDailyAlarmSms.ts",
+    "comments": [],
+    "type": "value",
+    "id": "ycwyynbtpbulmlmbvzvqehrr"
+  },
+  {
+    "createdAt": 1673379721616,
+    "updatedAt": 1673379721616,
+    "deletedAt": 0,
+    "createdFirstAt": 1673379721616,
     "name": "sendSms",
     "slug": "send-sms",
     "operationRelativeTypescriptFilePath": "src/sendSms.ts",
     "comments": [],
     "type": "value",
-    "id": "zvdmzmashcjsgxtfknfxjguc"
+    "id": "ffrdtjykjvqhljmrxxoodptn"
   }
 ]

@@ -1,3 +1,4 @@
+export * from "./ApiFunction";
 export * from "./CommitInfo";
 export * from "./Dataset";
 export * from "./DbStorageMethod";

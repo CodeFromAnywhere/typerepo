@@ -95,12 +95,18 @@ var controlChatGptWrapper = function (prompt, isHeadless, thread, controller) { 
 }); };
 exports.controlChatGptWrapper = controlChatGptWrapper;
 var processChatGptPrompt = function (config) { return __awaiter(void 0, void 0, void 0, function () {
-    var contextContent, contextualPromptSlug, customPromptContent, saveNewPromptWithName, prompt_projectRelativePath, selectionContent, isHeadless, isDeferred, thread, extension, contextType, projectRoot, prompt_absolutePath, exists, contextualPrompt, finalPrompt, useChatGpt, promiseResult, processPromptFunctionResult, _a, result;
+    var 
+    //context
+    contextContent, prompt_projectRelativePath, selectionContent, 
+    //existing or new
+    contextualPromptSlug, customPromptContent, saveNewPromptWithName, 
+    // config
+    isHeadless, isDeferred, thread, extension, contextType, projectRoot, prompt_absolutePath, exists, contextualPrompt, finalPrompt, useChatGpt, promiseResult, processPromptFunctionResult, _a, result;
     var _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
             case 0:
-                contextContent = config.contextContent, contextualPromptSlug = config.contextualPromptSlug, customPromptContent = config.customPromptContent, saveNewPromptWithName = config.saveNewPromptWithName, prompt_projectRelativePath = config.prompt_projectRelativePath, selectionContent = config.selectionContent, isHeadless = config.isHeadless, isDeferred = config.isDeferred, thread = config.thread;
+                contextContent = config.contextContent, prompt_projectRelativePath = config.prompt_projectRelativePath, selectionContent = config.selectionContent, contextualPromptSlug = config.contextualPromptSlug, customPromptContent = config.customPromptContent, saveNewPromptWithName = config.saveNewPromptWithName, isHeadless = config.isHeadless, isDeferred = config.isDeferred, thread = config.thread;
                 extension = prompt_projectRelativePath
                     ? fs_util_1.path.parse(prompt_projectRelativePath).ext.slice(1)
                     : undefined;

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317015673,
-  "updatedAt": 1671317015673,
+  "createdAt": 1673862681058,
+  "updatedAt": 1673862681058,
   "deletedAt": 0,
-  "createdFirstAt": 1671317015673,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862681058,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getPeerPeople.ts",
   "commentsInside": [],
   "rawText": " async (): Promise<{\n  success: boolean;\n  peerPeople: Person[];\n}> => {\n  const devices = await db.get(\"Device\");\n\n  // person array met voor elke person alle devices die een papi hebben\n  const peerPeople = await getAugmentedPersons(devices, {\n    onlyOnline: false,\n    onlyWithDevices: true,\n    onlyWithPapi: true,\n    withAppsCalculated: true,\n  });\n\n  return { success: true, peerPeople };\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "ssgakcnycjgdhldnpvygbljp"
+  "id": "cwacfsvrqooadhsjnggkzzgy"
 }

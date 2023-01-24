@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668150463841,
-  "updatedAt": 1668150463841,
+  "createdAt": 1673380275726,
+  "updatedAt": 1673380275726,
   "deletedAt": 0,
-  "createdFirstAt": 1668150463841,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380275726,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
   "commentsInside": [],
-  "rawText": " async ({\n  imports,\n  packageJsons,\n  operationNames,\n  ignoreOperationNames,\n  ignoreFilter,\n}: {\n  /**\n   * All imports\n   */\n  imports: TsImport[];\n  packageJsons: PackageJson[];\n  operationNames: string[];\n  ignoreOperationNames?: string[];\n  ignoreFilter?: (operationName: string) => boolean;\n}) => {\n  const dependencies = (\n    await oneByOne(operationNames, async (operationName) => {\n      process.stdout.write(`${operationName} ... `);\n\n      return findDependenciesRecursively(\n        imports,\n        packageJsons,\n        operationName,\n        operationNames,\n        ignoreOperationNames,\n        ignoreFilter\n      );\n    })\n  ).flat();\n\n  return dependencies.filter(onlyUnique);\n}",
+  "rawText": " async ({\n  imports,\n  operations,\n  operationNames,\n  ignoreOperationNames,\n  ignoreFilter,\n}: {\n  /**\n   * All imports\n   */\n  imports: TsImport[];\n  operations: Operation[];\n  operationNames: string[];\n  ignoreOperationNames?: string[];\n  ignoreFilter?: (operationName: string) => boolean;\n}) => {\n  const dependencies = (\n    await oneByOne(operationNames, async (operationName) => {\n      process.stdout.write(`${operationName} ... `);\n\n      return findDependenciesRecursively(\n        imports,\n        operations,\n        operationName,\n        operationNames,\n        ignoreOperationNames,\n        ignoreFilter\n      );\n    })\n  ).flat();\n\n  return dependencies.filter(onlyUnique);\n}",
   "name": "findAllDependencyOperations",
   "slug": "find-all-dependency-operations",
   "parameters": [],
@@ -29,13 +24,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 835,
+    "characters": 827,
     "lines": 35,
-    "bytes": 835,
+    "bytes": 827,
     "bytesPerCharacter": 1,
     "charactersPerLine": 24,
     "linesPerFile": 35,
     "numberOfFiles": 1
   },
-  "id": "xlrmjaihakgwefvkstgzqvce"
+  "id": "aeuhtqwjbqjxzsgdnghqnfnq"
 }

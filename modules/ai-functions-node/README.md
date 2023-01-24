@@ -18,7 +18,58 @@ ai-functions-node (`OperationClassification` node-cjs)
 
 
 
+## getContextualPromptCategories()
+
+Pretty cool stuff!
+
+I've shown a way to count all nested categories and make a child object based on that
+
+TODO:
+
+- Currently, only supports unique category names due to not checking the full stack
+- needs to be formalised, generalised
+
+Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
+## shouldAddToQueue()
+
+Checks if system is busy and if so, adds the task to queue
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionName | string |  |,| parameters | {  }[] |  |
+| **Output** |    |    |
+
+
+
 ## 📄 controlChatGptWrapper (exported const)
+
+## 📄 getContextualPromptCategories (exported const)
+
+Pretty cool stuff!
+
+I've shown a way to count all nested categories and make a child object based on that
+
+TODO:
+
+- Currently, only supports unique category names due to not checking the full stack
+- needs to be formalised, generalised
+
+Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
+
+
+## 📄 shouldAddToQueue (exported const)
+
+Checks if system is busy and if so, adds the task to queue
 
 # CLI
 
@@ -73,7 +124,18 @@ ai-functions-node (`OperationClassification` node-cjs)
 
 # Internal
 
-cron that runs every minute for executing new puppeteer queue items. It will open it as child process. You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.
+Cron that runs every minute for executing queue items.
+
+Regular items: It will execute max `MAX_REGULAR_ITEMS_AMOUNT`
+
+Browser items: You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.
+
+Heavy items: functions with `.isHeavy: true` inside. Will execute max 1 every minute if the system isn't busy already.
+
+- sort on priority high first
+- filter out internet items if we are offline
+- find single heavy item if it's there and if we're not busy
+- find up to N (amount tabs available) queue items that require browser
 
 
 | Input      |    |    |
@@ -106,15 +168,6 @@ cron that runs every minute for executing new puppeteer queue items. It will ope
 | Input      |    |    |
 | ---------- | -- | -- |
 | prompt | string |  |,| headless (optional) | boolean |  |
-| **Output** |    |    |
-
-
-
-## convertTo1337speak()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| contextContent | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -157,9 +210,12 @@ cron that runs every minute for executing new puppeteer queue items. It will ope
 
 ## emojiAugmentation()
 
+Emojify
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
-| contextContent | string |  |,| isDeferred (optional) | boolean |  |
+| contextContent | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -191,11 +247,26 @@ cron that runs every minute for executing new puppeteer queue items. It will ope
 
 
 
-## explain()
+## explainLineByLine()
+
+Explain line-by-line
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| contextContent | string |  |,| selectionContent | string |  |,| isDeferred (optional) | boolean |  |
+| contextContent | string |  |,| isDeferred (optional) | boolean |  |
+| **Output** |    |    |
+
+
+
+## explain()
+
+🤔 Explain
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| contextContent | string |  |,| selectionContent | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -209,28 +280,16 @@ cron that runs every minute for executing new puppeteer queue items. It will ope
 
 
 
-## getCategoriesTest()
+## followUpQuestions()
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| - | | |
+| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
 
-## getContextualPromptCategories()
-
-Pretty cool stuff!
-
-I've shown a way to count all nested categories and make a child object based on that
-
-TODO:
-
-- Currently, only supports unique category names due to not checking the full stack
-- needs to be formalised, generalised
-
-Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
-
+## getCategoriesTest()
 
 | Input      |    |    |
 | ---------- | -- | -- |
@@ -269,6 +328,18 @@ Calculates path where the result json index is supposed to be
 
 
 
+## getToolFunctions()
+
+Returns all tool functions to the frontend
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## gptIdeasRegisterWithContext()
 
 TODO: move to gptideas backend package
@@ -283,9 +354,21 @@ TODO: move to gptideas backend package
 
 ## haiku()
 
+Write a Haiku
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
-| selectionContent | string |  |,| isDeferred (optional) | boolean |  |
+| anyContext | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
+| **Output** |    |    |
+
+
+
+## hookOneliners()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -299,11 +382,14 @@ TODO: move to gptideas backend package
 
 
 
-## keywords()
+## investorPitch()
+
+Investor pitch
+
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| contextContent | string |  |,| isDeferred (optional) | boolean |  |
+| contextContent | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -317,6 +403,24 @@ TODO: move to gptideas backend package
 
 
 
+## opposite()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| contextContent | string |  |,| isDeferred (optional) | boolean |  |
+| **Output** |    |    |
+
+
+
+## outlineToInvestorPitch()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| isDeferred (optional) | boolean |  |
+| **Output** |    |    |
+
+
+
 ## poem()
 
 Write a poem
@@ -324,7 +428,7 @@ Write a poem
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| selectionContent | string |  |,| isDeferred (optional) | boolean |  |
+| anyContext | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -352,14 +456,26 @@ In order to keep the file itself as a source of truth for its content, it's usef
 
 
 
-## processPromptOnFolder()
+## processPromptOnFolderWithContext()
 
 function that can execute `processPromptOnFile` for all files in a folder, by just upserting the executions to the queue.
 
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| config | { projectRelativeFolderPath: string, <br />promptSlug: string, <br />isRecursive?: boolean, <br />extension?: {  }, <br /> } |  |
+| functionContext | `FunctionContext` |  |,| config | { projectRelativeFolderPath: string, <br />promptSlug: string, <br />isRecursive?: boolean, <br />extension?: {  }, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## quiz()
+
+Quiz
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| contextContent | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -375,18 +491,24 @@ function that can execute `processPromptOnFile` for all files in a folder, by ju
 
 ## rickAndMortyRick()
 
+Ricktalk
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
-| selectionContent | string |  |,| isDeferred (optional) | boolean |  |
+| anyContext | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
 
 ## rickAndMorty()
 
+Rick teaches Morty
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
-| selectionContent | string |  |,| isDeferred (optional) | boolean |  |
+| contextContent | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -421,6 +543,20 @@ Write a story about this code and what's happening in there
 
 
 
+## toolFunctionWithContext()
+
+Function to be executed straight from the frontend, where details is replaced with actual parameters of the function you want to execute.
+
+`.functionContext` and `.functionName` to be stripped out of the form
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| functionContext | `FunctionContext` |  |,| functionName | string |  |,| email | string |  |,| details | {  } | Needed in this format because we need to show it nicely in the form (maybe not needed, try without also) |
+| **Output** |    |    |
+
+
+
 ## translateEverythingIntoHindi()
 
 | Input      |    |    |
@@ -450,9 +586,12 @@ Write a story about this code and what's happening in there
 
 ## translateToPortuguese()
 
+Translate to Portuguese
+
+
 | Input      |    |    |
 | ---------- | -- | -- |
-| contextContent | string |  |,| isDeferred (optional) | boolean |  |
+| contextContent | string |  |,| prompt_projectRelativePath | string |  |,| isDeferred (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -526,6 +665,7 @@ Properties:
 | contextContent (optional) | string |  |
 | selectionContent (optional) | string |  |
 | contextualPromptSlug (optional) | string |  |
+| anyContext (optional) | string |  |
 | customPromptContent (optional) | string | These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format |
 | saveNewPromptWithName (optional) | string |  |
 | isHeadless (optional) | boolean |  |
@@ -536,6 +676,11 @@ Properties:
 
 
 ## 🔹 StackCount
+
+## 📄 addEmojiToEveryWord (exported const)
+
+Emojify++
+
 
 ## 📄 addStatement (exported const)
 
@@ -555,7 +700,19 @@ Adds word either to the WordMatrix or to the WordCombination database model
 runEveryPeriod: minute
 ---
 
-cron that runs every minute for executing new puppeteer queue items. It will open it as child process. You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.
+
+Cron that runs every minute for executing queue items.
+
+Regular items: It will execute max `MAX_REGULAR_ITEMS_AMOUNT`
+
+Browser items: You can set the amount of tabs it should have as a limit, and it will keep the tabs open afterwards, but after the thing is done it will just remove the item from the `Queue`.
+
+Heavy items: functions with `.isHeavy: true` inside. Will execute max 1 every minute if the system isn't busy already.
+
+- sort on priority high first
+- filter out internet items if we are offline
+- find single heavy item if it's there and if we're not busy
+- find up to N (amount tabs available) queue items that require browser
 
 
 ## 📄 cleanup (exported const)
@@ -563,8 +720,6 @@ cron that runs every minute for executing new puppeteer queue items. It will ope
 ## 📄 controlChatGptCli (exported const)
 
 ## 📄 controlChatGpt (exported const)
-
-## 📄 convertTo1337speak (exported const)
 
 ## 📄 deletePromptResult (exported const)
 
@@ -576,31 +731,30 @@ cron that runs every minute for executing new puppeteer queue items. It will ope
 
 ## 📄 emojiAugmentation (exported const)
 
+Emojify
+
+
 ## 📄 explainInDutch (exported const)
 
 ## 📄 explainInNepali (exported const)
 
 ## 📄 explainInPortuguese (exported const)
 
+## 📄 explainLineByLine (exported const)
+
+Explain line-by-line
+
+
 ## 📄 explain (exported const)
+
+🤔 Explain
+
 
 ## 📄 fixGrammarAndSpellingMistakes (exported const)
 
+## 📄 followUpQuestions (exported const)
+
 ## 📄 getCategoriesTest (exported const)
-
-## 📄 getContextualPromptCategories (exported const)
-
-Pretty cool stuff!
-
-I've shown a way to count all nested categories and make a child object based on that
-
-TODO:
-
-- Currently, only supports unique category names due to not checking the full stack
-- needs to be formalised, generalised
-
-Another, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.
-
 
 ## 📄 getContextualPromptResultJsonFilePath (exported const)
 
@@ -611,6 +765,11 @@ Calculates path where the result json index is supposed to be
 
 ## 📄 getObjectForkKeyRecursively (exported const)
 
+## 📄 getToolFunctions (exported const)
+
+Returns all tool functions to the frontend
+
+
 ## 📄 gptIdeasRegisterWithContext (exported const)
 
 TODO: move to gptideas backend package
@@ -618,11 +777,25 @@ TODO: move to gptideas backend package
 
 ## 📄 haiku (exported const)
 
+Write a Haiku
+
+
+## 📄 hookOneliners (exported const)
+
 ## 📄 improveCode (exported const)
 
-## 📄 keywords (exported const)
+## 📄 investorPitch (exported const)
+
+Investor pitch
+
 
 ## 📄 marcusAurelius (exported const)
+
+## 📄 MAX_REGULAR_ITEMS_AMOUNT (exported const)
+
+## 📄 opposite (exported const)
+
+## 📄 outlineToInvestorPitch (exported const)
 
 ## 📄 poem (exported const)
 
@@ -638,16 +811,27 @@ function `processPromptOnFile` to execute `processChatGptPrompt` for a file, so 
 In order to keep the file itself as a source of truth for its content, it's useful to have this because you can add this to the queue
 
 
-## 📄 processPromptOnFolder (exported const)
+## 📄 processPromptOnFolderWithContext (exported const)
 
 function that can execute `processPromptOnFile` for all files in a folder, by just upserting the executions to the queue.
+
+
+## 📄 quiz (exported const)
+
+Quiz
 
 
 ## 📄 removeAllFake (exported const)
 
 ## 📄 rickAndMortyRick (exported const)
 
+Ricktalk
+
+
 ## 📄 rickAndMorty (exported const)
+
+Rick teaches Morty
+
 
 ## 📄 setIsFavoritePromptResult (exported const)
 
@@ -658,6 +842,13 @@ function that can execute `processPromptOnFile` for all files in a folder, by ju
 Write a story about this code and what's happening in there
 
 
+## 📄 toolFunctionWithContext (exported const)
+
+Function to be executed straight from the frontend, where details is replaced with actual parameters of the function you want to execute.
+
+`.functionContext` and `.functionName` to be stripped out of the form
+
+
 ## 📄 translateEverythingIntoHindi (exported const)
 
 ## 📄 translateEverythingPortuguese (exported const)
@@ -665,6 +856,9 @@ Write a story about this code and what's happening in there
 ## 📄 translateEverything (exported const)
 
 ## 📄 translateToPortuguese (exported const)
+
+Translate to Portuguese
+
 
 ## 📄 typescriptExplain (exported const)
 

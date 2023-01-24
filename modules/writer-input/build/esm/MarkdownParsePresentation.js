@@ -57,7 +57,7 @@ export var MarkdownParsePresentation = function (props) {
     var navigation = (React.createElement(Div, { className: "flex flex-row gap-3" }, navigationIcons.map(function (item, index) { return (React.createElement(ClickableIcon, __assign({}, item, { key: "icon".concat(index) }))); })));
     var title = paragraph.categoryStack[paragraph.categoryStack.length - 1];
     return (React.createElement(Div, { className: "flex flex-col flex-1" },
-        React.createElement(Div, { className: "flex flex-1 flex-col" },
+        React.createElement(Div, { className: "flex flex-1 flex-col h-screen" },
             React.createElement(Div, { className: "flex flex-col justify-center items-center" },
                 React.createElement(P, { className: "text-4xl" }, title),
                 React.createElement(Div, { className: "flex flex-row flex-wrap" }, renderBreadCrumbs(paragraph.categoryStack))),

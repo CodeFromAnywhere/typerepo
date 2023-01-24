@@ -1,0 +1,111 @@
+{
+  "createdAt": 1673380283050,
+  "updatedAt": 1673380283050,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380283050,
+  "id": "dependencytreechildobject",
+  "name": "DependencyTreeChildObject",
+  "slug": "dependencytreechildobject",
+  "operationRelativeTypescriptFilePath": "src/getDependencyTree.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\n/**\n * Gives a clear overview of why an operation requires every dependency\n */\nexport type DependencyTreeChildObject = ChildObject<{\n  operationName: string;\n  dependencyCount: number;\n  usedExports: string[];\n  usedExportsCount: number;\n  cumulativeExportsCount: number;\n  cumulativeUsedExportsCount: number;\n  //allExports: string[];\n  allExportsCount: number;\n}>;",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "Gives a clear overview of why an operation requires every dependency",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "$ref": "#/definitions/ChildObject%3Cstructure-1798146908-994-1227-1798146908-981-1228-1798146908-860-1229-1798146908-0-3327%3E",
+      "description": "Gives a clear overview of why an operation requires every dependency"
+    },
+    "simplifiedSchema": {
+      "fullComment": "Gives a clear overview of why an operation requires every dependency\n\n",
+      "properties": [
+        {
+          "name": "operationName",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "dependencyCount",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "usedExports",
+          "required": true,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "usedExportsCount",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "cumulativeExportsCount",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "cumulativeUsedExportsCount",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "allExportsCount",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "children",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "circularRefName": "ChildObject<structure-1798146908-994-1227-1798146908-981-1228-1798146908-860-1229-1798146908-0-3327>",
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": "ChildObject<structure-1798146908-994-1227-1798146908-981-1228-1798146908-860-1229-1798146908-0-3327>"
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "DependencyTreeChildObject",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

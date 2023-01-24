@@ -1,25 +1,25 @@
 [
   {
-    "createdAt": 1668336325582,
-    "updatedAt": 1668336325582,
+    "createdAt": 1674032516103,
+    "updatedAt": 1674032516103,
     "deletedAt": 0,
-    "createdFirstAt": 1668336325582,
+    "createdFirstAt": 1674032516103,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/general.ts",
     "comment": "promises to exec something with response and success as result (Promised)",
-    "rawStatement": "export const execAsync = (\n  command: string\n): Promise<{ success: boolean; response: string }> => {\n  return new Promise((resolve) => {\n    exec(command, (error, stdout, stderr) => {\n      if (error) {\n        console.log(error);\n        resolve({ success: false, response: stderr });\n      } else {\n        resolve({ success: true, response: stdout });\n      }\n    });\n  });\n};",
+    "rawStatement": "export const execAsync = async (\n  command: string,\n  execOptions: ExecOptions\n): Promise<{ isSuccessful: boolean; response: string }> => {\n  const result = await new Promise<{ isSuccessful: boolean; response: string }>(\n    (resolve) => {\n      exec(command, execOptions, (error, stdout, stderr) => {\n        console.log({ error, stdout, stderr });\n      })\n        .on(\"exit\", (code) => {\n          resolve({ response: String(code), isSuccessful: false });\n        })\n        .on(\"message\", (message) => {\n          console.log({ message });\n        })\n        .on(\"error\", (err) => {\n          resolve({ response: String(err), isSuccessful: false });\n        });\n    }\n  );\n\n  return result;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 12,
-    "lastLine": 14,
-    "id": "srusqxupcogvfgqksfyegmrf"
+    "firstLine": 13,
+    "lastLine": 15,
+    "id": "korramvnpbhyppyhnfxwquxi"
   },
   {
-    "createdAt": 1668336325582,
-    "updatedAt": 1668336325582,
+    "createdAt": 1674032516104,
+    "updatedAt": 1674032516104,
     "deletedAt": 0,
-    "createdFirstAt": 1668336325582,
+    "createdFirstAt": 1674032516104,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/general.ts",
@@ -27,8 +27,8 @@
     "rawStatement": "export const spawnAsync = (\n  command: string,\n  options: SpawnOptionsWithoutStdio\n): Promise<{ success: boolean; response: string; data?: string[] }> => {\n  return new Promise((resolve) => {\n    const spawned = spawn(command, options);\n\n    const data: string[] = [];\n    spawned\n      .on(\"exit\", (code) => {\n        resolve({ response: String(code), success: false, data });\n      })\n      .on(\"message\", (message) => {\n        //not sure if this does anything\n      })\n      .on(\"data\", (message) => {\n        //not sure if this does anything\n        data.push(message);\n      })\n      .on(\"error\", (err) => {\n        resolve({ response: String(err), success: false, data });\n      });\n  });\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 30,
-    "lastLine": 32,
-    "id": "eyeaazmfphdtmsakcgqbnwsx"
+    "firstLine": 40,
+    "lastLine": 42,
+    "id": "bhspbfqcuuyoipbibjxkurfb"
   }
 ]

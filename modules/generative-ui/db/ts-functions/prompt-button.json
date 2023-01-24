@@ -1,0 +1,367 @@
+{
+  "createdAt": 1673379244954,
+  "updatedAt": 1673379244954,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379244954,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/PromptButton.tsx",
+  "commentsInside": [],
+  "rawText": " (props: {\n  item: ContextualPrompt;\n  markdown?: string | null;\n  contextSelection?: string | null;\n  projectRelativeFilePath?: string;\n}) => {\n  const { item, markdown, projectRelativeFilePath, contextSelection } = props;\n  const admin = useAdmin();\n  const router = useRouter();\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n  const title = `${item.isFavorite ? \"⭐️ \" : \"\"}${item.title || item.name}`;\n\n  const projectRelativeFolderPath = getFolderJs(projectRelativeFilePath);\n  return (\n    <Tooltip\n      hoverTimeout={100}\n      tooltip={\n        <Div>\n          <P className=\"font-bold text-xl\">{title}</P>\n          {item.description ? (\n            <MarkdownContent content={item.description} config={{}} />\n          ) : null}\n          <br />\n\n          <ClickableIcon\n            emoji={\n              item.isFavorite\n                ? \"⭐️ Favorite (click to change)\"\n                : \"💩 Not favorite (click to change)\"\n            }\n            onClick={async () => {\n              // go to upsert ContextualPrompt db page.\n              const apiResult = await api.upsertDbModel(\"ContextualPrompt\", {\n                ...item,\n                isFavorite: !item.isFavorite,\n              });\n\n              showStandardResponse(apiResult);\n\n              admin.refetch?.();\n            }}\n          />\n\n          <ClickableIcon\n            emoji=\"✏️ Edit\"\n            onClick={() => {\n              if (!admin.isAdminActive) {\n                warningToast(\n                  \"You can't do this yet! You first need to install your server on your machine\"\n                );\n                return;\n              }\n              // go to upsert ContextualPrompt db page.\n              router.push(`/edit/ContextualPrompt?id=${item.id}`);\n            }}\n          />\n\n          <ClickableIcon\n            emoji=\"🗑 Delete\"\n            onClick={async () => {\n              alert?.(\n                \"Are you sure?\",\n                \"You're going to remove this prompt from your database\",\n                [\n                  {\n                    text: \"Do it\",\n                    style: \"destructive\",\n                    onPress: async () => {\n                      const apiResult = await api.deleteDbModel(\n                        \"ContextualPrompt\",\n                        item.id\n                      );\n\n                      showStandardResponse(apiResult);\n\n                      if (apiResult?.result?.isSuccesful) {\n                        admin.refetch?.();\n                      }\n                    },\n                  },\n                  {\n                    text: \"Cancel\",\n                    style: \"cancel\",\n                  },\n                ]\n              );\n              // delete prompt\n            }}\n          />\n\n          {contextSelection ? null : (\n            <ClickableIcon\n              emoji=\"💥 Apply on folder\"\n              onClick={() => {\n                if (!projectRelativeFolderPath) return;\n\n                alert?.(\n                  \"Apply on folder\",\n                  `You're going to apply the prompt ${item.name} on all files in the folder. Are you sure?`,\n                  [\n                    { style: \"cancel\", text: \"cancel\" },\n                    {\n                      style: \"default\",\n                      text: \"Yes\",\n                      onPress: async () => {\n                        const apiResult =\n                          await api.processPromptOnFolderWithContext({\n                            projectRelativeFolderPath,\n                            promptSlug: item.slug,\n                            isRecursive: false,\n                          });\n\n                        showStandardResponse(apiResult);\n                      },\n                    },\n                    {\n                      style: \"destructive\",\n                      text: \"Yes, recursive\",\n                      onPress: async () => {\n                        const apiResult =\n                          await api.processPromptOnFolderWithContext({\n                            projectRelativeFolderPath,\n                            promptSlug: item.slug,\n                            isRecursive: true,\n                          });\n\n                        showStandardResponse(apiResult);\n                      },\n                    },\n                  ]\n                );\n              }}\n            />\n          )}\n        </Div>\n      }\n      placement=\"top\"\n    >\n      <NavButton\n        onClick={async () => {\n          if (!markdown) return;\n          await processPrompt({\n            contextualPromptSlug: item.slug,\n            showPromptAlert,\n            contextualContent: {\n              contextContent: markdown,\n              contextSelection,\n              context_projectRelativeFilePath: projectRelativeFilePath,\n            },\n          });\n\n          router.replace({\n            query: {\n              queryPath: router.query.queryPath,\n              variant: item.slug,\n            },\n          });\n        }}\n        title={item.title || item.name}\n      />\n    </Tooltip>\n  );\n}",
+  "name": "PromptButton",
+  "slug": "prompt-button",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "item": {
+            "$ref": "#/definitions/ContextualPrompt"
+          },
+          "markdown": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "contextSelection": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "projectRelativeFilePath": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "item"
+        ],
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "item",
+            "required": true,
+            "schema": {
+              "fullComment": "--- dbStorageMethod: jsonSingle\n---\n\nModel for prompting information from third party sources",
+              "properties": [
+                {
+                  "name": "contextType",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "If given, will be used to filter the selection of prompts to match the context type",
+                    "items": [
+                      {
+                        "schema": {
+                          "enum": [
+                            "code",
+                            "data",
+                            "text"
+                          ],
+                          "fullComment": "",
+                          "type": "string"
+                        },
+                        "name": "FileType"
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "instantExecution",
+                  "required": false,
+                  "schema": {
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isFavorite",
+                  "required": false,
+                  "schema": {
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "categoryStack",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
+                    "nb": "Changing this value when updating/upserting, changes where the item is located!",
+                    "items": [
+                      {
+                        "schema": {
+                          "type": "string"
+                        },
+                        "name": null
+                      }
+                    ],
+                    "type": "array"
+                  }
+                },
+                {
+                  "name": "pricing",
+                  "required": false,
+                  "schema": {
+                    "enum": [
+                      "bad",
+                      "good",
+                      "premium",
+                      "enterprise",
+                      "private"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "slug",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "kebab-case of the name, should be unique\n\nuse this for any identifier that's not an Id-type. Usually this is a kebab-case version of a written text, but it can also be a file path, for example.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "descriptive name of what the prompt does, the same way as you would name a function.\n\nUsed to generate the name of the function",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "language",
+                  "required": true,
+                  "schema": {
+                    "enum": [
+                      "english",
+                      "dutch",
+                      "nepali",
+                      "portuguese",
+                      "brazilian",
+                      "german",
+                      "french",
+                      "spanish",
+                      "italian",
+                      "norwegian",
+                      "swedish",
+                      "danish",
+                      "vietnamese",
+                      "indonesian",
+                      "southAfrican",
+                      "tokiPona",
+                      "hindi",
+                      "mandarin",
+                      "arabic",
+                      "bengali",
+                      "urdu",
+                      "japanese",
+                      "swahili"
+                    ],
+                    "fullComment": "all currently supported languages",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "createdAt",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Time\n\nTime can be stored in various ways but in my experience it is, again, best to keep it simple and just have one way to store time. I can think about this for hours, but my intuition goes towards using the same format as Date.now() because it is a very small format and is easy to read.\n\nIt is the amount of ms since 1970.\n\nI could argue to store it in seconds since 1970 since there are few applications of doing ms, but maybe we do, and it's just 30% bigger. No problem.\n\nTherefore, let's store all time values in the format Date.now()",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "updatedAt",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Time\n\nTime can be stored in various ways but in my experience it is, again, best to keep it simple and just have one way to store time. I can think about this for hours, but my intuition goes towards using the same format as Date.now() because it is a very small format and is easy to read.\n\nIt is the amount of ms since 1970.\n\nI could argue to store it in seconds since 1970 since there are few applications of doing ms, but maybe we do, and it's just 30% bigger. No problem.\n\nTherefore, let's store all time values in the format Date.now()",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "deletedAt",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Time\n\nTime can be stored in various ways but in my experience it is, again, best to keep it simple and just have one way to store time. I can think about this for hours, but my intuition goes towards using the same format as Date.now() because it is a very small format and is easy to read.\n\nIt is the amount of ms since 1970.\n\nI could argue to store it in seconds since 1970 since there are few applications of doing ms, but maybe we do, and it's just 30% bigger. No problem.\n\nTherefore, let's store all time values in the format Date.now()",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "createdFirstAt",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "in some cases, data can be created before it was created in our system. In this case, use CreatedFirstAt if this information is important.\n\nTime\n\nTime can be stored in various ways but in my experience it is, again, best to keep it simple and just have one way to store time. I can think about this for hours, but my intuition goes towards using the same format as Date.now() because it is a very small format and is easy to read.\n\nIt is the amount of ms since 1970.\n\nI could argue to store it in seconds since 1970 since there are few applications of doing ms, but maybe we do, and it's just 30% bigger. No problem.\n\nTherefore, let's store all time values in the format Date.now()",
+                    "type": "number"
+                  }
+                },
+                {
+                  "name": "operationName",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "name of operation the model belongs to\n\n- calculated value (not stored in database)\n- can be `null` or an actual operationName that it was saved at\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "null"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "path to dbfile\n\n- calculated value (not stored in database)\n- relatively from the project (without slash at start)\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "operationRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "path to db file\n\n- relatively from the operation root folder (without slash at start)\n- calculated value (not stored in database)\n- can be `undefined` if the db file does not belong to an operation\n- can be `undefined` when you are creating an item, because then it can be set for you",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "id",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Should be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "title",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Short description of the function.\n\nUsed to be added to as a doc-comment when generating a function for the prompt",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "description",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Bit longer description of the prompt",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "scopeProjectRelativePath",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "if given, should be a path to a file or folder, so the prompt will never be shown outside of this scope\n\nNever stored! Is found based on the location of the file in your file system",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "model",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Which models can this be applied on?",
+                    "properties": [],
+                    "type": "object"
+                  }
+                },
+                {
+                  "name": "promptContent",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Only prompt is stored (string)",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "folderContentContext",
+                  "required": false,
+                  "schema": {
+                    "enum": [
+                      "summary",
+                      "flat",
+                      "recursive"
+                    ],
+                    "fullComment": "Variable: `${folder}`\n\nIf set to `flat`, all folder content will be added as context, without sub-folders\n\nIf set to `recursive`, all folder content will be added as context, including sub-folders\n\nIf set to `summary-flat`/`summary-recursive`, a key-value with \"filename: summary\" with a one-line summary of the content of the file/folder will be added. Folder summaries must be longer.\n\nIDEA: if you have any question about your complete codebase, you can do a recurisve search in files/folders, taking all the relevant summaries every time, and doing a prompt for every result that might have the answer.\n\n1) First we need to collect the relevant information 2) Then we need to prune the relevant information 3) Then we can answer the question based on truth that links to files\n\nIf I can do this, I have a very powerful search engine.",
+                    "idea": "if you have any question about your complete codebase, you can do a recurisve search in files/folders, taking all the relevant summaries every time, and doing a prompt for every result that might have the answer.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "usesContext",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Variable: ${context}\n\nWhether or not the prompt requires the context\n\nCan be a file contents, but can also be the contents of an HTML page",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "usesSelection",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Variable: ${selection}\n\nWhether or not the prompt requires the selection",
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "usesAnyContext",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Variable: ${any}\n\nIf true, will return this prompt in any context prompt, as selection results because it can use any of them as its variable. It will use the smallest one available.",
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "markdown",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contextSelection",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "projectRelativeFilePath",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 14,
+  "size": {
+    "characters": 5108,
+    "lines": 164,
+    "bytes": 5126,
+    "bytesPerCharacter": 1.0035238841033673,
+    "charactersPerLine": 31,
+    "linesPerFile": 164,
+    "numberOfFiles": 1
+  },
+  "id": "qgswwmpzbffvjnbcklhafamq"
+}

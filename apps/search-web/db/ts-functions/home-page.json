@@ -1,14 +1,13 @@
 {
-  "createdAt": 1670527587871,
-  "updatedAt": 1670527587871,
+  "createdAt": 1674542290013,
+  "updatedAt": 1674542290013,
   "deletedAt": 0,
-  "createdFirstAt": 1670527587871,
-  "isApiExposed": true,
+  "createdFirstAt": 1674542290013,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/components/HomePage.tsx",
   "commentsInside": [],
-  "rawText": " (props: QueryPageProps) => {\n  const { imagePaths } = props;\n\n  const hour = new Date(Date.now()).getHours();\n  const quote = quotes[hour % quotes.length];\n  const imagePath = imagePaths[hour % imagePaths.length];\n  const [mindspace, setMindspace] = useState(mindspaces[0]);\n  const [mouseDown, setMouseDown] = useState(false);\n  const [mouseDownTimeout, setMouseDownTimeout] =\n    useState<NodeJS.Timeout | null>(null);\n\n  const yourName = \"King 🤴\";\n  const yourLocation = \"Napoli 🇮🇹\";\n  const dayPart = \"day\";\n\n  return (\n    <Div className=\"\">\n      <Timeline\n        items={[\n          {\n            imageUrl: `headers/${imagePath}`,\n            component: () => {\n              return (\n                <Div\n                  className=\"flex flex-1 min-h-screen items-center flex-col justify-around\"\n                  // style={{ background: `url(${imagePath})` }}\n                >\n                  <Div\n                    className=\"text-3xl text-white drop-shadow cursor-grab\"\n                    onMouseDown={(e) => {\n                      const timeout = setTimeout(() => {\n                        setMouseDown(true);\n                      }, 200);\n                      setMouseDownTimeout(timeout);\n                    }}\n                    onMouseUp={(e) => {\n                      if (mouseDownTimeout) {\n                        clearTimeout(mouseDownTimeout);\n                      }\n                      setMouseDown(false);\n                    }}\n                    onClick={(e) => {\n                      e.preventDefault();\n                      setMindspace(pickRandomArrayItem(mindspaces));\n                    }}\n                  >\n                    Good{\" \"}\n                    {mouseDown ? `${dayPart} in ${yourLocation}` : mindspace},{\" \"}\n                    {yourName}\n                  </Div>\n\n                  <Div className=\"italic text-white\">{quote}</Div>\n                  <SearchBar placeholder={mindspace} />\n                  <Div className=\"max-w-xl\">\n                    <AppsMenu />\n                  </Div>\n                </Div>\n              );\n            },\n          },\n          {\n            markdown: `I see dead people`,\n          },\n          ...props.timelineItems?.map((x) => {\n            return {\n              markdown: x.comment,\n              projectRelativeFilePath: x.filePath,\n              line: x.line,\n            };\n          }),\n        ]}\n      />\n    </Div>\n  );\n}",
+  "rawText": " (props: QueryPageProps) => {\n  const { imagePaths } = props;\n\n  const hour = new Date(Date.now()).getHours();\n  const quote = quotes[hour % quotes.length];\n  const imagePath = imagePaths[hour % imagePaths.length];\n  const [mindspace, setMindspace] = useState(mindspaces[0]);\n  const [mouseDown, setMouseDown] = useState(false);\n  const [mouseDownTimeout, setMouseDownTimeout] =\n    useState<NodeJS.Timeout | null>(null);\n\n  return (\n    <Div className=\"\">\n      <Timeline\n        items={[\n          {\n            imageUrl: `headers/${imagePath}`,\n            component: () => {\n              return (\n                <Div\n                  className=\"flex flex-1 min-h-screen items-center flex-col justify-around\"\n                  // style={{ background: `url(${imagePath})` }}\n                >\n                  <a\n                    href=\"https://twitter.com/wkarsens\"\n                    target=\"_blank\"\n                    className=\"absolute top-0 right-0 p-4 z-50 rounded-bl-full bg-blue-400\"\n                  >\n                    🦚 Twit\n                  </a>\n                  <Div\n                    className=\"text-3xl text-white drop-shadow cursor-grab\"\n                    onMouseDown={(e) => {\n                      const timeout = setTimeout(() => {\n                        setMouseDown(true);\n                      }, 200);\n                      setMouseDownTimeout(timeout);\n                    }}\n                    onMouseUp={(e) => {\n                      if (mouseDownTimeout) {\n                        clearTimeout(mouseDownTimeout);\n                      }\n                      setMouseDown(false);\n                    }}\n                    onClick={(e) => {\n                      e.preventDefault();\n                      setMindspace(pickRandomArrayItem(mindspaces));\n                    }}\n                  >\n                    Clarity AI\n                  </Div>\n\n                  <Div className=\"italic text-white\">{quote}</Div>\n                  <SearchBar\n                    changePlaceholder={() =>\n                      setMindspace(pickRandomArrayItem(mindspaces))\n                    }\n                    placeholder={mindspace}\n                  />\n                  <Div className=\"max-w-xl\">\n                    <A href=\"/db/Person\">DB</A>\n                    <A href=\"/files/README.md\">Files</A>\n                    <A href=\"/functions/explore\">Functions</A>\n                    <AppsMenu />\n                  </Div>\n                </Div>\n              );\n            },\n          },\n          // {\n          //   markdown: `I see dead people`,\n          // },\n          ...props.timelineItems?.map((x) => {\n            return {\n              markdown: x.comment,\n              projectRelativeFilePath: x.filePath,\n              line: x.line,\n            };\n          }),\n        ]}\n      />\n    </Div>\n  );\n}",
   "name": "HomePage",
   "slug": "home-page",
   "parameters": [
@@ -110,13 +109,13 @@
   },
   "maxIndentationDepth": 12,
   "size": {
-    "characters": 2445,
-    "lines": 75,
-    "bytes": 2451,
-    "bytesPerCharacter": 1.0024539877300613,
-    "charactersPerLine": 33,
-    "linesPerFile": 75,
+    "characters": 2863,
+    "lines": 84,
+    "bytes": 2865,
+    "bytesPerCharacter": 1.0006985679357316,
+    "charactersPerLine": 34,
+    "linesPerFile": 84,
     "numberOfFiles": 1
   },
-  "id": "lfrqxsvxkuhhggxdayphropx"
+  "id": "ltxecbzqrbgeqfzgevwbvhgx"
 }

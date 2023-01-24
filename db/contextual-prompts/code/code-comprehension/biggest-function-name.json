@@ -1,0 +1,20 @@
+{
+  "createdAt": 1670183415259,
+  "updatedAt": 1670183415259,
+  "deletedAt": 0,
+  "createdFirstAt": 1670183415259,
+  "slug": "biggest-function-name",
+  "name": "biggest-function-name",
+  "language": "english",
+  "id": "oxghqqhuqgfwsyeyzgichdfi",
+  "promptContent": "Let's imagine that you are a typescript compiler and are executing a typescript function that analyses code. The function output is the name of the biggest function in the file. Please consider this code:\n\n```tsx\n%context\n```\n\nWhat is your output? Don't apply formatting. Don't put quotes around it. Don't end with a period.\n\nThe output would be:",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "code",
+    "code-comprehension"
+  ]
+}

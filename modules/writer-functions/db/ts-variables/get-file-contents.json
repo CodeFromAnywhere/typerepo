@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671101613623,
-  "updatedAt": 1671101613623,
+  "createdAt": 1672637653196,
+  "updatedAt": 1672637653196,
   "deletedAt": 0,
-  "createdFirstAt": 1671101613623,
+  "createdFirstAt": 1672637653196,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-file-contents",
   "operationRelativeTypescriptFilePath": "src/getFileContents.ts",
   "type": {
-    "rawType": "(projectRelativeFilePath: string) => Promise<{ isSuccessful: boolean; message?: string | undefined; fileContents?: string | undefined; }>",
+    "rawType": "(projectRelativeFilePath?: string | undefined) => Promise<{ isSuccessful: boolean; message?: string | undefined; fileContents?: string | undefined; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  projectRelativeFilePath: string\n): Promise<{\n  isSuccessful: boolean;\n  message?: string;\n  fileContents?: string;\n}> => {\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const stats = await fs.stat(absolutePath);\n\n  if (stats.size > 1024 * 1024 || stats.isDirectory()) {\n    return {\n      isSuccessful: false,\n      message: \"That's a directory or bigger than 1MB\",\n    };\n  }\n\n  const fileContents = await fs.readFile(absolutePath, \"utf8\");\n\n  return { fileContents, isSuccessful: true };\n}",
+  "value": "async (\n  projectRelativeFilePath?: string\n): Promise<{\n  isSuccessful: boolean;\n  message?: string;\n  fileContents?: string;\n}> => {\n  if (!projectRelativeFilePath) {\n    return {\n      isSuccessful: false,\n      message: \"No path\",\n    };\n  }\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) {\n    return { isSuccessful: false, message: \"No project root\" };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativeFilePath);\n\n  if (!fs.existsSync(absolutePath)) {\n    return { isSuccessful: false, message: \"File doesn't exist\" };\n  }\n\n  const stats = await fs.stat(absolutePath);\n\n  if (stats.size > 1024 * 1024 || stats.isDirectory()) {\n    return {\n      isSuccessful: false,\n      message: \"That's a directory or bigger than 1MB\",\n    };\n  }\n\n  const fileContents = await fs.readFile(absolutePath, \"utf8\");\n\n  return { fileContents, isSuccessful: true };\n}",
   "description": "Gets the contents of a file in the project",
-  "id": "hednktbnjjsxrkspzkqyrnwh"
+  "id": "likbbmtruapjkhiveptvjunk"
 }

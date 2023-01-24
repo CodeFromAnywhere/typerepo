@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336407212,
+  "updatedAt": 1668336407212,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336407212,
+  "id": "namedparameterstypeof-isonline",
+  "name": "NamedParameters<typeof isOnline>",
+  "slug": "namedparameterstypeof-isonline",
+  "operationRelativeTypescriptFilePath": "src/isOnline.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isOnline>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

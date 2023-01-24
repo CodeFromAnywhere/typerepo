@@ -20,7 +20,7 @@
     "recursive-util": "0.0.1",
     "recursive-types": "0.0.1",
     "fs-util-js": "0.0.1",
-    "function-server-types": "0.0.1"
+    "code-types": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "^18.0.1",
@@ -51,7 +51,7 @@
     "folderNameIndexed": "peer-functions",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671317066225,
+    "lastRebuildAt": 1673862731477,
     "operationDependenciesIndexed": [
       "apiWithConfig",
       "db",
@@ -108,14 +108,14 @@
       "codeSize": {
         "numberOfFiles": 22,
         "lines": 573,
-        "characters": 15044,
-        "bytes": 15044
+        "characters": 15033,
+        "bytes": 15033
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 172,
-        "characters": 5222,
-        "bytes": 5222
+        "lines": 174,
+        "characters": 5270,
+        "bytes": 5270
       },
       "textSize": {
         "numberOfFiles": 1,
@@ -124,9 +124,9 @@
         "bytes": 5972
       },
       "size": {
-        "bytes": 26238,
-        "characters": 26238,
-        "lines": 1092,
+        "bytes": 26275,
+        "characters": 26275,
+        "lines": 1094,
         "numberOfFiles": 25
       }
     },

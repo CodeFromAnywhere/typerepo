@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116983153,
-  "updatedAt": 1671116983153,
+  "createdAt": 1672638796420,
+  "updatedAt": 1672638796420,
   "deletedAt": 0,
-  "createdFirstAt": 1671116983153,
+  "createdFirstAt": 1672638796420,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T>(\n  config: T | undefined,\n  defaults: T | undefined\n) => {\n  const parameters = Object.keys({\n    ...config,\n    ...defaults,\n  }) as (keyof T)[];\n\n  const mergedConfig = parameters.reduce(\n    (getConfig, p) => ({ ...getConfig, [p]: config?.[p] || defaults?.[p] }),\n    {} as Partial<T>\n  );\n  return mergedConfig;\n}",
   "description": "merges two objects: a config object and a defaults object. If the config object has something missing, a default will be used from the defaults object.\n\nIn short: merges two objects, for every parameter, use the default as a fallback\n\nDEPRECATED: in favor of mergeObjects",
-  "id": "frenguzobcoyeqindzbsukfj"
+  "id": "seaswajqaccnfjprrbnsjiop"
 }

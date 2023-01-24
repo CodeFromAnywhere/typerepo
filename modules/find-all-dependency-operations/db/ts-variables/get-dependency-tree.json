@@ -1,16 +1,16 @@
 {
-  "createdAt": 1668150464363,
-  "updatedAt": 1668150464363,
+  "createdAt": 1673380284900,
+  "updatedAt": 1673380284900,
   "deletedAt": 0,
-  "createdFirstAt": 1668150464363,
+  "createdFirstAt": 1673380284900,
   "classification": "const",
   "comments": [],
   "isExported": true,
   "name": "getDependencyTree",
   "slug": "get-dependency-tree",
-  "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
+  "operationRelativeTypescriptFilePath": "src/getDependencyTree.ts",
   "type": {
-    "rawType": "(operationNames: string[], stack: string[]) => Promise<import(\"/Users/king/King/operations/tools/typescript/find-all-dependency-operations/src/findAllDependencyOperations\").DependencyTree | null>",
+    "rawType": "(allImports: import(\"/Users/king/King/operations/tools/types/code-types/build/TsImport\").TsImport[], allExports: import(\"/Users/king/King/operations/tools/types/code-types/build/TsExport\").TsExport[], operationName: string, usedImports: string[], alreadySearched?: string[]) => Promise<import(\"/Users/king/King/operations/tools/typescript/find-all-dependency-operations/src/getDependencyTree\").DependencyTreeChildObject>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  operationNames: string[],\n  stack: string[]\n): Promise<DependencyTree | null> => {\n  if (operationNames.length === 0) return null;\n\n  const dependencyTree = mergeObjectsArray(\n    await Promise.all(\n      operationNames.map(async (name) => {\n        const deps = await findMonorepoModules(name);\n        const newStack = stack.concat(name);\n        const filtered = deps.filter((dep) => !newStack.includes(dep));\n        const filteredOut = deps.filter((dep) => newStack.includes(dep));\n        if (deps.length !== filtered.length) {\n          console.log(\n            `prevented circular dependency at ${name} (${filteredOut.join(\n              \", \"\n            )} were removed)`\n          );\n        }\n        return {\n          [name]: await getDependencyTree(filtered, newStack),\n        };\n      })\n    )\n  );\n\n  return dependencyTree;\n}",
+  "value": "async (\n  allImports: TsImport[],\n  allExports: TsExport[],\n  operationName: string,\n  usedImports: string[],\n  alreadySearched: string[] = []\n): Promise<DependencyTreeChildObject> => {\n  console.log(operationName);\n  const uniqueExportedNames = findMonorepoExports(allExports, operationName);\n\n  const allMonorepoImports = findMonorepoImports(allImports, operationName);\n  const newStack = alreadySearched.concat(operationName);\n\n  const newImportsPerModule = allMonorepoImports\n    .map((x) => x.module)\n    .filter(onlyUnique2())\n    .map((operationName) => {\n      return {\n        operationName,\n        importNames: allMonorepoImports\n          .filter((x) => x.module === operationName)\n          .map((x) => x.name),\n      };\n    });\n\n  const children: DependencyTreeChildObject[] = (\n    await Promise.all(\n      newImportsPerModule.map((perModule) =>\n        // don't go infinite recursion\n        newStack.includes(perModule.operationName)\n          ? undefined\n          : getDependencyTree(\n              allImports,\n              allExports,\n              perModule.operationName,\n              perModule.importNames,\n              newStack\n            )\n      )\n    )\n  ).filter(notEmpty);\n\n  const object: DependencyTreeChildObject = {\n    operationName,\n    dependencyCount: children.length,\n    usedExportsCount: usedImports.length,\n    allExportsCount: uniqueExportedNames.length,\n    cumulativeExportsCount:\n      sum(children.map((x) => x.cumulativeExportsCount)) +\n      uniqueExportedNames.length,\n    cumulativeUsedExportsCount:\n      usedImports.length +\n      sum(children.map((x) => x.cumulativeUsedExportsCount)),\n    usedExports: usedImports,\n    // allExports: uniqueExportedNames,\n    children,\n  };\n\n  return object;\n}",
   "description": "",
-  "id": "xouxesbedzvhlkewjtmqguyj"
+  "id": "jzmoxtaudkncodzolgpczjja"
 }

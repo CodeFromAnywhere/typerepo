@@ -1,0 +1,47 @@
+{
+  "createdAt": 1671115613839,
+  "updatedAt": 1671115613839,
+  "deletedAt": 0,
+  "createdFirstAt": 1671115613839,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/fileExplorerOpen.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return {\n      isSuccessful: false,\n      message: \"No projectroot\",\n    };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!absolutePath || !fs.existsSync(absolutePath)) {\n    return { isSuccessful: false, message: \"This path doesn't exist\" };\n  }\n\n  const pathStats = await fs.stat(absolutePath);\n\n  const folderPath = pathStats.isDirectory()\n    ? absolutePath\n    : path.parse(absolutePath).dir;\n\n  var isWindows = process.platform === \"win32\";\n\n  const command = isWindows ? `start ${folderPath}` : `open ${folderPath}`;\n\n  execSync(command);\n\n  return { isSuccessful: true, message: \"Opened\" };\n}",
+  "name": "fileExplorerOpen",
+  "slug": "file-explorer-open",
+  "parameters": [
+    {
+      "name": "projectRelativePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "Promise<{ isSuccessful: boolean; message: string; }>",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 799,
+    "lines": 31,
+    "bytes": 799,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 26,
+    "linesPerFile": 31,
+    "numberOfFiles": 1
+  },
+  "id": "xptteiyheewbzrnjhqugymnh"
+}

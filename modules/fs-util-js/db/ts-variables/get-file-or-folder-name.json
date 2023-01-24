@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200353510,
-  "updatedAt": 1669200353510,
+  "createdAt": 1673861930121,
+  "updatedAt": 1673861930121,
   "deletedAt": 0,
-  "createdFirstAt": 1669200353510,
+  "createdFirstAt": 1673861930121,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<T extends string | undefined>(\n  fileOrFolderPath: T\n): T => {\n  if (!fileOrFolderPath) return undefined as T;\n  const last = fileOrFolderPath.split(\"/\").pop()!;\n  return last as T;\n}",
   "description": "",
-  "id": "zdteouxdjfzvpnafwzzmzphq"
+  "id": "zjznxbkvsmlzqeeaaydhluyk"
 }

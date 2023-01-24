@@ -1,0 +1,25 @@
+[
+  {
+    "createdAt": 1671097978270,
+    "updatedAt": 1671097978270,
+    "deletedAt": 0,
+    "createdFirstAt": 1671097978270,
+    "name": "admin",
+    "language": "english",
+    "description": "This is admin group",
+    "customAuthorizations": [
+      {
+        "isProjectWide": true,
+        "canExecute": true,
+        "canWriteCreate": true,
+        "canWriteUpdate": true,
+        "canWriteDelete": true,
+        "canRead": true,
+        "canSearch": true
+      }
+    ],
+    "amountAuthenticationMethodsRequired": 1,
+    "slug": "admin",
+    "id": "wrxetoqtrggdpuohtzqxcrax"
+  }
+]

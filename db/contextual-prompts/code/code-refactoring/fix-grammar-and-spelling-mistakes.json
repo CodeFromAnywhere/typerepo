@@ -1,0 +1,20 @@
+{
+  "createdAt": 1670184985140,
+  "updatedAt": 1670184985140,
+  "deletedAt": 0,
+  "createdFirstAt": 1670184985140,
+  "name": "fix-grammar-and-spelling-mistakes",
+  "language": "english",
+  "promptContent": "Please fix all grammar and spelling mistakes in this code. Don't change the names of variables and statements, only of string literals and comments.\n\n```\n%context\n```",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "slug": "fix-grammar-and-spelling-mistakes",
+  "id": "lpenqanvnfutjtfyswxeefdt",
+  "categoryStack": [
+    "code",
+    "code-refactoring"
+  ]
+}

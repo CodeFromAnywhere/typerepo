@@ -7,6 +7,7 @@ export * from "./getObjectKeysArray";
 export * from "./getParameterAtLocation";
 export * from "./getSubsetFromObject";
 export * from "./hasAllLetters";
+export * from "./isArrayEqual";
 export * from "./mapAsync";
 export * from "./mapMany";
 export * from "./mergeNestedObject";
@@ -19,5 +20,4 @@ export * from "./removeOptionalKeysFromObject";
 export * from "./replaceLastOccurence";
 export * from "./trimSlashes";
 export * from "./types";
-export * from "./isArrayEqual";
 //# sourceMappingURL=index.d.ts.map

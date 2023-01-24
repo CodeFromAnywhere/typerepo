@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { useScreenshot } from "use-react-screenshot";
+// import { useScreenshot } from "use-react-screenshot";
+// todo: take this thing over
+var useScreenshot = function () { return [function () { return null; }, function (x) { return null; }]; };
 /**
  * Use https://www.npmjs.com/package/use-react-screenshot to get a blob of any component with the click a button
 

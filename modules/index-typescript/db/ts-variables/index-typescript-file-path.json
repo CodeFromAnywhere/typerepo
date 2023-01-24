@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116422026,
-  "updatedAt": 1671116422026,
+  "createdAt": 1673863424864,
+  "updatedAt": 1673863424864,
   "deletedAt": 0,
-  "createdFirstAt": 1671116422026,
+  "createdFirstAt": 1673863424864,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,13 +10,140 @@
   "slug": "index-typescript-file-path",
   "operationRelativeTypescriptFilePath": "src/indexTypescriptFilePath.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/control-project/watch-types/build/ProjectWatcher\").ProjectWatcher",
+    "rawType": "import(\"/Users/king/King/operations/tools/control-project/watch-types/build/ProjectWatcher\").ProjectWatcher<any>",
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "startupStrategy": {
+          "enum": [
+            "ignore",
+            "sync",
+            "async",
+            "queue"
+          ],
+          "x-enumNames": [
+            "ignore",
+            "sync",
+            "async",
+            "queue"
+          ],
+          "type": "string"
+        },
         "filter": {
           "type": "object",
           "properties": {}
+        },
+        "config": {
+          "type": "object",
+          "properties": {
+            "version": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            },
+            "versionInfo": {
+              "type": "object",
+              "properties": {}
+            },
+            "isHeavy": {
+              "type": "boolean"
+            },
+            "isInternetRequired": {
+              "type": "boolean"
+            },
+            "isBrowserRequired": {
+              "type": "boolean"
+            },
+            "isPublic": {
+              "type": "boolean"
+            },
+            "isApiExposed": {
+              "type": "boolean"
+            },
+            "domain": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            },
+            "isPaid": {
+              "enum": [
+                "ru",
+                "isSuccessful"
+              ],
+              "x-enumNames": [
+                "ru",
+                "isSuccessful"
+              ],
+              "type": "string"
+            },
+            "price": {
+              "type": "number"
+            },
+            "allowedRoles": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              }
+            },
+            "groupAuthorization": {
+              "type": "object",
+              "properties": {}
+            },
+            "canCache": {
+              "type": "boolean"
+            },
+            "runEveryPeriod": {},
+            "classification": {
+              "enum": [
+                "wise",
+                "dumb",
+                "smart",
+                "genius",
+                "react-with-native",
+                "cli",
+                "test"
+              ],
+              "x-enumNames": [
+                "wise",
+                "dumb",
+                "smart",
+                "genius",
+                "react-with-native",
+                "cli",
+                "test"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "runEveryPeriod"
+          ]
         }
       },
       "required": [
@@ -33,10 +160,161 @@
     "simplifiedSchema": {
       "properties": [
         {
+          "name": "startupStrategy",
+          "required": false,
+          "schema": {
+            "enum": [
+              "ignore",
+              "sync",
+              "async",
+              "queue"
+            ],
+            "type": "string"
+          }
+        },
+        {
           "name": "filter",
           "required": true,
           "schema": {
             "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "config",
+          "required": false,
+          "schema": {
+            "properties": [
+              {
+                "name": "version",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "versionInfo",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "isHeavy",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isInternetRequired",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isBrowserRequired",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isPublic",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "isApiExposed",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "domain",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "isPaid",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "ru",
+                    "isSuccessful"
+                  ],
+                  "type": "string"
+                }
+              },
+              {
+                "name": "price",
+                "required": false,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "allowedRoles",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "groupAuthorization",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "canCache",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "runEveryPeriod",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "classification",
+                "required": false,
+                "schema": {
+                  "enum": [
+                    "wise",
+                    "dumb",
+                    "smart",
+                    "genius",
+                    "react-with-native",
+                    "cli",
+                    "test"
+                  ],
+                  "type": "string"
+                }
+              }
+            ],
             "type": "object"
           }
         }
@@ -46,5 +324,5 @@
   },
   "value": "async (\n  eventName,\n  filePath\n) => {\n  const name = path.parse(filePath).name;\n  process.stdout.write(`Indexing file: ${name}`);\n\n  await indexTypescript({\n    filePaths: [filePath],\n    manualProjectRoot: null,\n    showLogging: false,\n  });\n\n  console.log(\"✅\\n\");\n}",
   "description": "Index a single typescript file",
-  "id": "qsyajmmuxwkxrkelyhavvhsb"
+  "id": "jrxqzievmolcxwcqfjjllajs"
 }

@@ -1,61 +1,10 @@
-"use strict";
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.nestifyQueryPathObjectRecursive = void 0;
-var nestifyQueryPathObjectRecursive = function (queryPathObjects, level) {
-    console.log({ level: level });
-    var nestedPathObject = queryPathObjects.reduce(function (previous, current, currentIndex, queryPathObjects) {
-        var queryPathRemainder = current.queryPathRemainder || current.queryPath;
-        var parts = queryPathRemainder.split("/");
-        var firstPart = parts.find(function (x) { return x.length !== 0; });
-        var hasFirstPartAlready = !!previous.find(function (x) { return x.queryPathChunk === firstPart; });
-        if (hasFirstPartAlready) {
-            // Base case 1: if we already have it, skip it, go to the next
-            return previous;
-        }
-        var children = queryPathObjects
-            // not myself!
-            .filter(function (x) { return x.queryPath !== current.queryPath; })
-            .filter(function (x) {
-            var queryPath = x.queryPathRemainder || x.queryPath;
-            var isMatch = queryPath.startsWith(firstPart + "/");
-            return isMatch;
-        })
-            .map(function (x) {
-            // everything after the first part
-            var queryPathRemainder = x.queryPath.split(firstPart)[1];
-            return __assign(__assign({}, x), { queryPathRemainder: queryPathRemainder });
-        });
-        var newNestedQueryPathObject = __assign(__assign({}, current), { 
-            // queryPath: folderQueryPath,
-            children: children.length === 0
-                ? undefined
-                : __spreadArray([
-                    current
-                ], (0, exports.nestifyQueryPathObjectRecursive)(children, (level || 0) + 1), true), queryPathChunk: firstPart });
-        // add the new one to the array
-        return __spreadArray(__spreadArray([], previous, true), [newNestedQueryPathObject], false);
-    }, []);
-    return nestedPathObject;
-};
-exports.nestifyQueryPathObjectRecursive = nestifyQueryPathObjectRecursive;
+"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(r){for(var e,t=1,n=arguments.length;t<n;t++)for(var a in e=arguments[t])Object.prototype.hasOwnProperty.call(e,a)&&(r[a]=e[a]);return r},__assign.apply(this,arguments)},__spreadArray=this&&this.__spreadArray||function(r,e,t){if(t||2===arguments.length)for(var n,a=0,i=e.length;a<i;a++)!n&&a in e||(n||(n=Array.prototype.slice.call(e,0,a)),n[a]=e[a]);return r.concat(n||Array.prototype.slice.call(e))};Object.defineProperty(exports,"__esModule",{value:!0}),exports.nestifyQueryPathObjectRecursive=void 0;var nestifyQueryPathObjectRecursive=function(r,e){console.log({level:e});var t=r.reduce((function(r,t,n,a){var i=(t.queryPathRemainder||t.queryPath).split("/").find((function(r){return 0!==r.length}));if(!!r.find((function(r){return r.queryPathChunk===i})))
+// Base case 1: if we already have it, skip it, go to the next
+return r;var s=a.filter((function(r){return r.queryPath!==t.queryPath})).filter((function(r){return(r.queryPathRemainder||r.queryPath).startsWith(i+"/")})).map((function(r){
+// everything after the first part
+var e=r.queryPath.split(i)[1];return __assign(__assign({},r),{queryPathRemainder:e})})),u=__assign(__assign({},t),{
+// queryPath: folderQueryPath,
+children:0===s.length?void 0:__spreadArray([t],(0,exports.nestifyQueryPathObjectRecursive)(s,(e||0)+1),!0),queryPathChunk:i});
+// add the new one to the array
+return __spreadArray(__spreadArray([],r,!0),[u],!1)}),[]);return t};exports.nestifyQueryPathObjectRecursive=nestifyQueryPathObjectRecursive;
 //# sourceMappingURL=nestifyQueryPathObjectRecursive.js.map

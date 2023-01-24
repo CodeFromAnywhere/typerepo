@@ -1,4 +1,3 @@
-/// <reference types="react" />
 import { MappedObject } from "js-util";
 import { AugmentedWord } from "augmented-word-types";
 import { TextEditingContext } from "../old/getContext";

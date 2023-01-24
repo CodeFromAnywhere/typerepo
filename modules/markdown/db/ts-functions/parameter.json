@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671318486989,
-  "updatedAt": 1671318486989,
+  "createdAt": 1674134907064,
+  "updatedAt": 1674134907064,
   "deletedAt": 0,
-  "createdFirstAt": 1671318486989,
-  "isApiExposed": true,
+  "createdFirstAt": 1674134907064,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/Parameter.tsx",
   "commentsInside": [],
   "rawText": " (props: { text: string }) => {\n  const { text } = props;\n  if (!text) return null;\n  const [parameter, value] = text\n    .slice(1)\n    .split(\":\")\n    .map((x) => x.trim());\n  return (\n    <Span className=\"rounded-md bg-purple-400 dark:bg-purple-800 px-1\">\n      {parameter ? <Span>{parameter}</Span> : null}\n      {value ? <Span className=\"bg-white bg-opacity-50\">{value}</Span> : null}\n    </Span>\n  );\n}",
@@ -65,5 +64,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "xsqtqkcwhdfkynwufothgecp"
+  "id": "qhvhqoukugjesphiwootmtgj"
 }

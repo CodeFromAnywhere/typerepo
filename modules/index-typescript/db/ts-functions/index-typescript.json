@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671116414316,
-  "updatedAt": 1671116414316,
+  "createdAt": 1673863412937,
+  "updatedAt": 1673863412937,
   "deletedAt": 0,
-  "createdFirstAt": 1671116414316,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863412937,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/indexTypescript.ts",
   "commentsInside": [],
   "rawText": " async (props: {\n  showLogging?: boolean;\n  /**\n   * filepaths of files to index. must be files from the same operation.\n   */\n  filePaths: string[];\n  manualProjectRoot: string | null;\n}): Promise<void> => {\n  const { filePaths, manualProjectRoot, showLogging } = props;\n  // NB: fix to globally alter real fs in order to fix EMFile error that happens in TSMorph (see https://github.com/isaacs/node-graceful-fs)\n  gracefulFs.gracefulify(realFs);\n\n  const firstFilePath = filePaths[0];\n  if (!firstFilePath) {\n    log(\"Please provide some file paths\");\n  }\n\n  // NB: we can assume all files are from the same operation\n  const operationBasePath = findOperationBasePath(firstFilePath);\n  if (!operationBasePath) {\n    log(\"Operation must have a basepath to be indexed\", { type: \"error\" });\n    return;\n  }\n  const projectRoot = manualProjectRoot || getProjectRoot(firstFilePath);\n  if (!projectRoot) {\n    log(\"No project root found\", { type: \"error\" });\n    return;\n  }\n  const packageJson = await readJsonFile<Operation>(\n    path.join(operationBasePath, \"package.json\")\n  );\n\n  if (!packageJson) {\n    log(\"Operation must have a package.json to be indexed\", { type: \"error\" });\n    return;\n  }\n\n  const operationName = packageJson.name;\n\n  if (!operationName) {\n    log(\"Operation must have a name to be indexed\", { type: \"error\" });\n    return;\n  }\n\n  const problems: string[] = [];\n\n  // TODO: this takes a long time. I should probably execute everything for every file after this and use the same project\n\n  //create tsmorph project for full operation\n  const project = getTsMorphProject(operationBasePath);\n\n  if (!project) {\n    const problem = \"couldn't load project\";\n    problems.push(problem);\n    await db.update(\n      \"Operation\",\n      (item) => item.name === getFolder(operationBasePath),\n      (old) =>\n        mergeNestedObject(old, {\n          operation: { buildResultIndexed: { indexErrors: problems } },\n        })\n    );\n\n    log(problem, { type: \"error\" });\n    return;\n  }\n\n  const filePathsToIndex = filePaths\n    .map(getValidatedOperationPathParse)\n    .filter(notEmpty);\n\n  // NB: one by one because if you do multiple at once, writing commets goes corrupt because concurrent writing.\n  await oneByOne(filePathsToIndex, async (file, index) => {\n    if (showLogging) {\n      process.stdout.write(`${index + 1}) ${file.srcFileId} `);\n    }\n    const result = await indexTypescriptFile(project, file, projectRoot);\n    if (showLogging) {\n      console.log(\"✅\");\n    }\n    return result;\n  });\n}",
@@ -98,5 +97,5 @@
     "linesPerFile": 92,
     "numberOfFiles": 1
   },
-  "id": "zqhgtbtpcisobubkirhxdbgv"
+  "id": "mkitjsveebwwyayfzirxodes"
 }

@@ -1,0 +1,49 @@
+{
+  "createdAt": 1671553276850,
+  "updatedAt": 1671553276850,
+  "deletedAt": 0,
+  "createdFirstAt": 1671553276850,
+  "id": "namedparameterstypeof-findclosestabsolutepath",
+  "name": "NamedParameters<typeof findClosestAbsolutePath>",
+  "slug": "namedparameterstypeof-findclosestabsolutepath",
+  "operationRelativeTypescriptFilePath": "src/findClosestAbsolutePath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absoluteQueryPath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absoluteQueryPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absoluteQueryPath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof findClosestAbsolutePath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

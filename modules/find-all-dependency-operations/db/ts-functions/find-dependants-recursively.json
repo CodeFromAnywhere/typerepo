@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150463842,
-  "updatedAt": 1668150463842,
+  "createdAt": 1673380275727,
+  "updatedAt": 1673380275727,
   "deletedAt": 0,
-  "createdFirstAt": 1668150463842,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380275727,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
   "commentsInside": [],
   "rawText": " async (\n  operationName: string,\n  already?: string[]\n): Promise<string[]> => {\n  const dependantOperationNames = await findDependants({\n    returnOperationName: true,\n    operationName,\n  });\n\n  const dependantsUntilNow = [\n    operationName,\n    ...dependantOperationNames,\n    ...(already || []),\n  ];\n\n  const recursedDependants: string[] =\n    dependantOperationNames.length > 0\n      ? (\n          await Promise.all(\n            dependantOperationNames.map((name) =>\n              findDependantsRecursively(name, dependantsUntilNow)\n            )\n          )\n        ).flat()\n      : [];\n\n  return [...dependantsUntilNow, ...recursedDependants].filter(onlyUnique2());\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 36,
     "numberOfFiles": 1
   },
-  "id": "kurzflfxuwgeuotrkdgiqeat"
+  "id": "mjynkctblgykzadlxgvnigzn"
 }

@@ -1,0 +1,40 @@
+{
+  "createdAt": 1673379242095,
+  "updatedAt": 1673379242095,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379242095,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/NavButton.tsx",
+  "commentsInside": [],
+  "rawText": " (props: {\n  onClick?: () => void;\n  href?: string;\n  isActive?: boolean;\n  title: string;\n  id?: string;\n  isDisabled?: boolean;\n  openContextMenuProps?: object;\n}) => {\n  const {\n    href,\n    title,\n    onClick,\n    isActive,\n    openContextMenuProps,\n    id,\n    isDisabled,\n  } = props;\n\n  const className = ` ${isActive ? \"dark:bg-blue-800\" : \"dark:bg-gray-700\"} ${\n    isDisabled ? \"\" : \"dark:hover:bg-gray-600\"\n  } ${isActive ? \"bg-blue-300\" : \"bg-gray-100\"} ${\n    isDisabled ? \"\" : \"light:hover:bg-gray-200\"\n  } rounded-md border border-black p-2 my-1 mr-2 cursor-pointer lg:mr-4`;\n  if (onClick) {\n    return (\n      <P\n        id={id}\n        onClick={onClick}\n        className={className}\n        {...openContextMenuProps}\n      >\n        {title}\n      </P>\n    );\n  }\n\n  return (\n    <ALink id={id} href={href} className={className}>\n      <div id={id} {...openContextMenuProps}>\n        {title}\n      </div>\n    </ALink>\n  );\n}",
+  "name": "NavButton",
+  "slug": "nav-button",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 943,
+    "lines": 45,
+    "bytes": 943,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 45,
+    "numberOfFiles": 1
+  },
+  "id": "kmmbnwcfuxvxlyluoyovubub"
+}

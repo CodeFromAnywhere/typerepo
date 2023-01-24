@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116255317,
-  "updatedAt": 1671116255317,
+  "createdAt": 1671554221070,
+  "updatedAt": 1671554221070,
   "deletedAt": 0,
-  "createdFirstAt": 1671116255317,
+  "createdFirstAt": 1671554221070,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "() => {\n  const [customProjectRoot] = process.argv.slice(2);\n  const defaultProjectRoot = getProjectRoot(process.cwd());\n\n  generateOperationsSdk({\n    manualProjectRoot: customProjectRoot || defaultProjectRoot,\n  });\n}",
   "description": "",
-  "id": "axiqttddmjgssdpuezdhiycf"
+  "id": "kkcyufliehfliwiqhutepyez"
 }

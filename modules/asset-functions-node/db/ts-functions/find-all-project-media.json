@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115491575,
-  "updatedAt": 1671115491575,
+  "createdAt": 1673861884982,
+  "updatedAt": 1673861884982,
   "deletedAt": 0,
-  "createdFirstAt": 1671115491575,
-  "isApiExposed": true,
+  "createdFirstAt": 1673861884982,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findAllProjectMedia.ts",
   "commentsInside": [],
   "rawText": " async (\n  searchQuery?: string,\n  /**\n   * defaults to absolute\n   */\n  returnType?: \"projectRelative\" | \"absolute\"\n): Promise<string[]> => {\n  const projectRoot = getProjectRoot();\n\n  if (!projectRoot) return [];\n\n  const dbPath = path.join(projectRoot, databaseFolderName);\n\n  const operationBasePaths = Object.values(operations).map(\n    (projectRelativePath) => path.join(projectRoot, projectRelativePath)\n  );\n\n  const databaseFolderPaths = operationBasePaths\n    .map((absoluteOperationPath) =>\n      path.join(absoluteOperationPath, databaseFolderName)\n    )\n    .concat(dbPath)\n    .filter(fs.existsSync);\n\n  const dbResults = await explore({\n    basePath: databaseFolderPaths,\n    extension: mediaExtensions,\n    search: searchQuery,\n  });\n\n  const operationResults = await explore({\n    basePath: operationBasePaths,\n    extension: mediaExtensions,\n    ignore: [...generatedFolders, databaseFolderName, sourceFolderName],\n    search: searchQuery,\n  });\n\n  const anywhereResults = await explore({\n    cancelRecursionOn: pathArrayIsOperation,\n    basePath: projectRoot,\n    extension: mediaExtensions,\n    ignore: [databaseFolderName, \"node_modules\", \".git\"],\n  });\n\n  const results = [dbResults, operationResults, anywhereResults]\n    .flat()\n    .map((x) => x.path);\n\n  return returnType === \"projectRelative\"\n    ? results.map((x) => makeRelative(x, projectRoot))\n    : results;\n}",
@@ -63,5 +62,5 @@
     "linesPerFile": 58,
     "numberOfFiles": 1
   },
-  "id": "rcqkpxmerundxoqnltkcfcfb"
+  "id": "qrcrggkxvakrilxockbehctx"
 }

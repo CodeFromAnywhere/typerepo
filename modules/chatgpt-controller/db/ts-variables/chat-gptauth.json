@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671503169825,
-  "updatedAt": 1671503169825,
+  "createdAt": 1671430193449,
+  "updatedAt": 1671430193449,
   "deletedAt": 0,
-  "createdFirstAt": 1671503169825,
+  "createdFirstAt": 1671430193449,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "chat-gptauth",
   "operationRelativeTypescriptFilePath": "src/chatGPTAuth.ts",
   "type": {
-    "rawType": "(page: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page) => Promise<import(\"/Users/king/King/operations/legacy/bhagya-doing-nov-30/control-web/chatgpt-controller/src/chatGPTAuth\").LoginResponse>",
+    "rawType": "(page: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page) => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/packages/niches/bhagya/doing/control-web/chatgpt-controller/src/chatGPTAuth\").LoginResponse>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (page: Page): Promise<LoginResponse> => {\n  try {\n    console.log(\"Chatgpt login chandler called\");\n    const credentials: MediaCredential[] = await db.get(\"MediaCredential\");\n    console.log({ credentials });\n    const openAICredential = credentials?.find(\n      (c) => c.username === \"openai\"\n    ) || {\n      email: \"bhagyasah4u@gmail.com\",\n      password: \"openai@199201\",\n    };\n    console.log({ openAICredential });\n    if (!openAICredential)\n      return { isSuccessfull: false, message: \"Credential not found\" };\n    const { email, password } = openAICredential || openAICredential;\n    await page.goto(\"https://chat.openai.com/auth/login\", {\n      waitUntil: \"domcontentloaded\",\n    });\n\n    const isSecurePageApear = await page.$x(\n      \"//h2[contains(., 'Checking if the site connection is secure')]\"\n    );\n\n    if (isSecurePageApear) {\n      console.log(\"Need to captcha solution\");\n      const isCaptchaExistRes = await isCaptchaExist(page);\n      console.log({ isCaptchaExistRes });\n      await page.waitForSelector(\n        'button[class=\"btn flex justify-center gap-2 btn-primary\"]'\n      );\n    }\n\n    const isLoginPageApear = await page.$x(\"//button[contains(., 'Log in')]\");\n    if (Boolean(isLoginPageApear[0])) {\n      console.log(\"LOGIN PAGE DETECTED\");\n      //@ts-ignore\n      isLoginPageApear[0].click();\n      await page.waitForNavigation({ waitUntil: \"domcontentloaded\" });\n      await page.waitForSelector('input[id=\"username\"]');\n      const usernameInput = await page.$('input[id=\"username\"]');\n\n      if (usernameInput) {\n        //@ts-ignore\n        usernameInput.click();\n        //@ts-ignore\n        await page.keyboard.type(email);\n      }\n      //Checking and solving the captcha\n      const { captchas } = await isCaptchaExist(page);\n      if (captchas.length > 0) {\n        console.log(\"CAPTCHA DETECTED\");\n        const captchaSolveResponse = await solveReptcha(page);\n        console.log({\n          captchaSolveResponse: JSON.stringify(captchaSolveResponse),\n        });\n        if (!captchaSolveResponse.error) {\n          await page.waitForSelector('button[type=\"submit\"]');\n          await page.click('button[type=\"submit\"]');\n          await page.waitForSelector('input[name=\"password\"]', {\n            timeout: 30000,\n          });\n          await page.focus('input[name=\"password\"]');\n          await page.keyboard.type(password);\n          await page.waitForSelector('button[type=\"submit\"]');\n          await page.click('button[type=\"submit\"]');\n          page.waitForNavigation({ waitUntil: \"domcontentloaded\" });\n          return { isSuccessfull: true, message: \"Login Succcessfull\" };\n        }\n      }\n    }\n    return { isSuccessfull: false, message: \"Login faild\" };\n  } catch (e: Error | any) {\n    return { isSuccessfull: false, message: e?.message };\n  }\n}",
   "description": "",
-  "id": "vvvbhcxushsorffydmoffing"
+  "id": "ckbscygodhbdmofabqmvmyzz"
 }

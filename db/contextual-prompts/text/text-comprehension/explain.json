@@ -1,0 +1,25 @@
+{
+  "createdAt": 1670178312330,
+  "updatedAt": 1670178312330,
+  "deletedAt": 0,
+  "createdFirstAt": 1670178312330,
+  "contextType": [
+    "text"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "text",
+    "text-comprehension"
+  ],
+  "pricing": "bad",
+  "slug": "explain",
+  "name": "explain",
+  "language": "english",
+  "id": "gvlzkoaorbeuqoxfgyilehno",
+  "title": "🤔 Explain",
+  "description": "The AI will explain what I mean by this.",
+  "promptContent": "I am reading this text:\n\n```\n%context\n```\n\nI have selected this piece of the text:\n\n```\n%selection\n```\n\nDo you know what the author means with this piece of the text that I have selected?",
+  "folderContentContext": "summary",
+  "usesContext": true,
+  "usesSelection": true
+}

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457705241,
-  "updatedAt": 1671457705241,
+  "createdAt": 1672134468258,
+  "updatedAt": 1672134468258,
   "deletedAt": 0,
-  "createdFirstAt": 1671457705241,
+  "createdFirstAt": 1672134468258,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const operationFolderPath = await getOperationPath(\"puppeteer-utils\");\n  console.log(\"Child Process called\", operationFolderPath);\n  const browserSession = await db.get(\"BrowserSession\");\n  if (browserSession.length === 0) {\n    const newProcess = fork(\n      `${operationFolderPath}/build/cli/runBrowser.cli.js`,\n      {\n        detached: true,\n        // stdio: \"ignore\",\n      }\n    );\n    newProcess.unref();\n  }\n}",
   "description": "",
-  "id": "gxoxiytvqmphficfsaxcismg"
+  "id": "twjzbxixtoxvhjcigplgitii"
 }

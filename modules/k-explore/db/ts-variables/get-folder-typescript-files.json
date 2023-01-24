@@ -1,0 +1,33 @@
+{
+  "createdAt": 1672637423754,
+  "updatedAt": 1672637423754,
+  "deletedAt": 0,
+  "createdFirstAt": 1672637423754,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getFolderTypescriptFiles",
+  "slug": "get-folder-typescript-files",
+  "operationRelativeTypescriptFilePath": "src/getFolderTypescriptFiles.ts",
+  "type": {
+    "rawType": "(folderPath: string, includeStats: boolean) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  folderPath: string,\n  includeStats: boolean\n) => {\n  return explore({\n    basePath: folderPath,\n    includeStats,\n    extension: [\"ts\", \"tsx\"],\n    ignore: [\"index.ts\", \"build\", \"db\", \"node_modules\"],\n  });\n}",
+  "description": "",
+  "id": "upshktpkzxmojiekedilfyqg"
+}

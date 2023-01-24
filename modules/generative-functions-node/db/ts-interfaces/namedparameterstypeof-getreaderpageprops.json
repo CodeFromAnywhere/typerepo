@@ -1,0 +1,87 @@
+{
+  "createdAt": 1671553295053,
+  "updatedAt": 1671553295053,
+  "deletedAt": 0,
+  "createdFirstAt": 1671553295053,
+  "id": "namedparameterstypeof-getreaderpageprops",
+  "name": "NamedParameters<typeof getReaderPageProps>",
+  "slug": "namedparameterstypeof-getreaderpageprops",
+  "operationRelativeTypescriptFilePath": "src/getReaderPageProps.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "basePath": {
+          "type": "string",
+          "description": "BasePath for this project"
+        },
+        "queryPath": {
+          "type": "string",
+          "description": "QueryPath as in the URL"
+        },
+        "isAdmin": {
+          "type": "boolean",
+          "description": "If true, isDev will be overwritten to be false, even in prod"
+        },
+        "absoluteBasePath": {
+          "type": "string",
+          "description": "If given, will be used instead of basePath, if it exists."
+        }
+      },
+      "required": [
+        "queryPath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "basePath",
+          "required": false,
+          "schema": {
+            "fullComment": "BasePath for this project",
+            "type": "string"
+          }
+        },
+        {
+          "name": "queryPath",
+          "required": true,
+          "schema": {
+            "fullComment": "QueryPath as in the URL",
+            "type": "string"
+          }
+        },
+        {
+          "name": "isAdmin",
+          "required": false,
+          "schema": {
+            "fullComment": "If true, isDev will be overwritten to be false, even in prod",
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "absoluteBasePath",
+          "required": false,
+          "schema": {
+            "fullComment": "If given, will be used instead of basePath, if it exists.",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getReaderPageProps>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

@@ -1,0 +1,294 @@
+{
+  "createdAt": 1674541466765,
+  "updatedAt": 1674541466765,
+  "deletedAt": 0,
+  "createdFirstAt": 1674541466765,
+  "id": "namedparameterstypeof-readerpagenext",
+  "name": "NamedParameters<typeof ReaderPageNext>",
+  "slug": "namedparameterstypeof-readerpagenext",
+  "operationRelativeTypescriptFilePath": "src/components/ReaderPageNext.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "$ref": "#/definitions/ReaderProps"
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "fullComment": "This is what we need on the page level. There are many subtleties to it, but this is the core",
+            "properties": [
+              {
+                "name": "notFound",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "notFoundReason",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "isFolder",
+                "required": false,
+                "schema": {
+                  "fullComment": "If true, the current path represents a folder, not a file.",
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "canSeeContent",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "unauthorizedWarningMessage",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "markdown",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "contextualPromptsObject",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "contextualPromptResults",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "actualProjectRelativeFilePath",
+                "required": false,
+                "schema": {
+                  "fullComment": "Project relative file path that is actually used",
+                  "type": "string"
+                }
+              },
+              {
+                "name": "navigation",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "fullComment": "",
+                        "properties": [
+                          {
+                            "name": "name",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "projectRelativePath",
+                            "required": true,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "type",
+                            "required": true,
+                            "schema": {
+                              "enum": [
+                                "folder",
+                                "file",
+                                "link",
+                                "unknown"
+                              ],
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "firstFile",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "isPrivate",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          },
+                          {
+                            "name": "isDraft",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          },
+                          {
+                            "name": "isSecret",
+                            "required": false,
+                            "schema": {
+                              "type": "boolean"
+                            }
+                          },
+                          {
+                            "name": "authorizedGroup",
+                            "required": false,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "frontmatter",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+                              "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+                              "properties": [],
+                              "type": "object"
+                            }
+                          }
+                        ],
+                        "type": "object"
+                      },
+                      "name": "FolderContent"
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "contextualPromptCategories",
+                "required": false,
+                "schema": {
+                  "fullComment": "Should later be moved elsewhere\n\n\n\n",
+                  "properties": [
+                    {
+                      "name": "category",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "categoryStack",
+                      "required": true,
+                      "schema": {
+                        "items": [
+                          {
+                            "schema": {
+                              "type": "string"
+                            },
+                            "name": null
+                          }
+                        ],
+                        "type": "array"
+                      }
+                    },
+                    {
+                      "name": "count",
+                      "required": true,
+                      "schema": {
+                        "type": "number"
+                      }
+                    },
+                    {
+                      "name": "name",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "title",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "description",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "pricing",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "children",
+                      "required": false,
+                      "schema": {
+                        "items": [
+                          {
+                            "schema": {
+                              "circularRefName": "ChildObject<structure-t.d.ts-101-262-t.d.ts-88-263-t.d.ts-46-264-t.d.ts-0-314>",
+                              "properties": [],
+                              "type": "object"
+                            },
+                            "name": "ChildObject<structure-t.d.ts-101-262-t.d.ts-88-263-t.d.ts-46-264-t.d.ts-0-314>"
+                          }
+                        ],
+                        "type": "array"
+                      }
+                    }
+                  ],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof ReaderPageNext>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

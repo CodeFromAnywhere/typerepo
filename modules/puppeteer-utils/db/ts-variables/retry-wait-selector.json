@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457723353,
-  "updatedAt": 1671457723353,
+  "createdAt": 1672134483082,
+  "updatedAt": 1672134483082,
   "deletedAt": 0,
-  "createdFirstAt": 1671457723353,
+  "createdFirstAt": 1672134483082,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "retry-wait-selector",
   "operationRelativeTypescriptFilePath": "src/retryWaitSelector.ts",
   "type": {
-    "rawType": "(props: { page: import(\"/Users/king/King/operations/node_modules/puppeteer-core/lib/types\").Page; selector: string; maxTime: number; }) => Promise<{ success: boolean; found?: any; }>",
+    "rawType": "(props: { page: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer-core/lib/types\").Page; selector: string; maxTime: number; }) => Promise<{ success: boolean; found?: any; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: Page;\n  /** the css selector to search for */\n  selector: string;\n  /**  maxium time to retry. defaults to 30 seconds. */\n  maxTime: number;\n}): Promise<{ success: boolean; found?: any }> => {\n  const { page, selector, maxTime = 30000 } = props;\n  return new Promise(async (resolve, reject) => {\n    let totalTime = 0;\n    while (totalTime < maxTime) {\n      try {\n        const found = await page.waitForSelector(selector, { timeout: 1000 });\n        resolve({ success: true, found });\n      } catch (err) {\n        totalTime += 1000;\n        console.log(\"retrying... \" + selector + \" / totalTime \" + totalTime);\n      }\n    }\n    resolve({ success: false });\n  });\n}",
   "description": "Utility function that loops waiting a second and checking\nif selector showed up. Fails if it takes more than 30 seconds.\n\nthis is good to use instead of page.waitForTimeout + page.waitForSelector",
-  "id": "tvemrblannffyebtjtvhzagu"
+  "id": "szdcvougkvdxrfboxpvmoaxc"
 }

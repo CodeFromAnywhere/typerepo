@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671116400406,
-  "updatedAt": 1671116400406,
+  "createdAt": 1673863390881,
+  "updatedAt": 1673863390881,
   "deletedAt": 0,
-  "createdFirstAt": 1671116400406,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863390881,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getSpecialExtensionDbStorageMethod.ts",
   "commentsInside": [],
   "rawText": " (extensions?: string[]) => {\n  if (!extensions) return;\n\n  /**\n   * put any models here that should, if they are used as extension, have a db model generated\n   */\n  const specialExtensions = {\n    TsIndexModelType: \"jsonMultiple\",\n    OperationIndexModelType: \"jsonMultiple\",\n    DefaultModelType: \"jsonMultiple\",\n    SlugModelType: \"jsonMultiple\",\n    CsvModelType: \"csv\",\n    KeyValueMarkdownModelType: \"keyValueMarkdown\",\n    CategoryModelType: \"jsonMultiple\",\n    MarkdownModelType: \"markdown\",\n  };\n\n  const specialExtensionKeys = Object.keys(specialExtensions);\n\n  const specialExtension = extensions.find((x) =>\n    specialExtensionKeys.includes(x)\n  ) as undefined | keyof typeof specialExtensions;\n\n  if (!specialExtension) return;\n\n  const dbStorageMethod = specialExtensions[\n    specialExtension\n  ] as DbStorageMethod;\n  return dbStorageMethod;\n}",
@@ -54,5 +53,5 @@
     "linesPerFile": 30,
     "numberOfFiles": 1
   },
-  "id": "jnsspunrburifovpfpvkrqpi"
+  "id": "hltsvfslvytvurxjanbzodof"
 }

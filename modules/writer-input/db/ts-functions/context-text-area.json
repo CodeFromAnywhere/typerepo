@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671317364626,
-  "updatedAt": 1671317364626,
+  "createdAt": 1673380089089,
+  "updatedAt": 1673380089089,
   "deletedAt": 0,
-  "createdFirstAt": 1671317364626,
+  "createdFirstAt": 1673380089089,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/old/ContextTextArea.tsx",
   "commentsInside": [],
-  "rawText": " (props: EditorProps) => {\n  const { value, onChange, withContext, className, projectRelativeFilePath } =\n    props;\n\n  const fileType = getFileTypeFromPath(props.projectRelativeFilePath);\n\n  const contextualPromptsQuery = queries.useGetContextualPrompts(\n    fileType === \"other\" ? undefined : fileType\n  );\n\n  const alert = useAlert();\n\n  const contextSelection = useLastSelection();\n\n  const selectionPrompts =\n    contextualPromptsQuery.data?.result?.selectionContextualPrompts || [];\n\n  const { onClose, openContextMenuProps, renderContextMenu } =\n    useSelectionPromptsMenu(selectionPrompts, {\n      contextContent: value,\n      context_projectRelativeFilePath: projectRelativeFilePath,\n      contextSelection,\n    });\n\n  // EDITOR HOTKEYS\n  useHotkeys([], ({ code, metaKey, ctrlKey, altKey, shiftKey, key }) => {\n    if (code === \"Escape\") {\n      // go out of intellisense\n      alert?.(\"ESCAPE\");\n      onClose();\n    }\n\n    if (ctrlKey && code === \"Space\") {\n      // intellisense on\n      alert?.(\"intellisense on\");\n    }\n    if (altKey && code === \"KeyZ\") {\n      if (shiftKey) {\n        alert?.(\"redo\");\n      } else {\n        alert?.(\"undo\");\n      }\n    }\n\n    if (metaKey && key === \"b\") {\n      alert?.(\"bold\");\n    }\n\n    if (metaKey && key === \"i\") {\n      alert?.(\"italic\");\n    }\n  });\n\n  return (\n    <>\n      {renderContextMenu()}\n      <div\n        className={className}\n        {...openContextMenuProps}\n        ref={openContextMenuProps.ref}\n        onClick={() => onClose()}\n      >\n        <textarea\n          className={className}\n          value={value}\n          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {\n            const newText = e.target.value;\n            const positionIndex = e.target.selectionStart;\n            const textEditingContext = getContext({\n              text: newText,\n              positionIndex,\n            });\n            withContext?.(textEditingContext);\n\n            onChange(newText);\n          }}\n        />\n      </div>\n    </>\n  );\n}",
+  "rawText": " (props: EditorProps) => {\n  const { value, onChange, withContext, className, projectRelativeFilePath } =\n    props;\n\n  const fileType = getFileTypeFromPath(props.projectRelativeFilePath);\n\n  const contextualPromptsQuery = queries.useGetContextualPrompts(\n    fileType === \"other\" ? undefined : fileType\n  );\n\n  const alert = useAlert();\n\n  // EDITOR HOTKEYS\n  useHotkeys([], ({ code, metaKey, ctrlKey, altKey, shiftKey, key }) => {\n    if (code === \"Escape\") {\n      // go out of intellisense\n      alert?.(\"ESCAPE\");\n    }\n\n    if (ctrlKey && code === \"Space\") {\n      // intellisense on\n      alert?.(\"intellisense on\");\n    }\n    if (altKey && code === \"KeyZ\") {\n      if (shiftKey) {\n        alert?.(\"redo\");\n      } else {\n        alert?.(\"undo\");\n      }\n    }\n\n    if (metaKey && key === \"b\") {\n      alert?.(\"bold\");\n    }\n\n    if (metaKey && key === \"i\") {\n      alert?.(\"italic\");\n    }\n  });\n\n  return (\n    <>\n      <div className={className}>\n        <textarea\n          className={className}\n          value={value}\n          onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => {\n            const newText = e.target.value;\n            const positionIndex = e.target.selectionStart;\n            const textEditingContext = getContext({\n              text: newText,\n              positionIndex,\n            });\n            withContext?.(textEditingContext);\n\n            onChange(newText);\n          }}\n        />\n      </div>\n    </>\n  );\n}",
   "name": "ContextTextArea",
   "slug": "context-text-area",
   "parameters": [],
@@ -28,13 +28,13 @@
   },
   "maxIndentationDepth": 7,
   "size": {
-    "characters": 2940,
-    "lines": 100,
-    "bytes": 2940,
+    "characters": 2385,
+    "lines": 81,
+    "bytes": 2385,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
-    "linesPerFile": 100,
+    "linesPerFile": 81,
     "numberOfFiles": 1
   },
-  "id": "oxadqzvuoqxqpeotrohwkydf"
+  "id": "kardnfouhfkjlusgrjxikxpi"
 }

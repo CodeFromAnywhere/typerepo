@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379262989,
+  "updatedAt": 1673379262989,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379262989,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "setConfig",
+  "slug": "set-config",
+  "operationRelativeTypescriptFilePath": "src/components/setConfig.ts",
+  "type": {
+    "rawType": "(apiUrl: string, disableAdmin: boolean, customAbsoluteBasePaths: string[]) => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(\n  apiUrl: string,\n  disableAdmin: boolean,\n  /**\n   * TITLE: Absolute base path of your file system to show\n   */\n  customAbsoluteBasePaths: string[]\n) => {\n  setItem(\"api.customUrl\", apiUrl === \"\" ? null : apiUrl);\n  setItem(\"generativeWeb.config\", { disableAdmin, customAbsoluteBasePaths });\n}",
+  "description": "",
+  "id": "xdhasmveffirmgperfizsvxy"
+}

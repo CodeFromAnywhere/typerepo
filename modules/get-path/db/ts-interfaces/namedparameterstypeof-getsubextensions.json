@@ -1,0 +1,49 @@
+{
+  "createdAt": 1673959187407,
+  "updatedAt": 1673959187407,
+  "deletedAt": 0,
+  "createdFirstAt": 1673959187407,
+  "id": "namedparameterstypeof-getsubextensions",
+  "name": "NamedParameters<typeof getSubExtensions>",
+  "slug": "namedparameterstypeof-getsubextensions",
+  "operationRelativeTypescriptFilePath": "src/getSubExtensions.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "absolutePath": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "absolutePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "absolutePath",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof getSubExtensions>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

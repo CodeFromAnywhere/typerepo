@@ -1,11 +1,10 @@
 {
-  "createdAt": 1669962236175,
-  "updatedAt": 1669962236175,
+  "createdAt": 1673959601356,
+  "updatedAt": 1673959601356,
   "deletedAt": 0,
-  "createdFirstAt": 1669962236175,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959601356,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findLinks.ts",
   "commentsInside": [],
   "rawText": " (markdownString: string): MarkdownLink[] => {\n  const result = flattenMarkdownString(\n    markdownString,\n    (token) => token.type === \"link\"\n  );\n\n  const links: MarkdownLink[] = result\n    .map((token) => {\n      if (token.type !== \"link\") return;\n\n      const markdownEmbed: MarkdownLink = {\n        alt: token.text || \"\",\n        href: token.href,\n        type: getTypeFromUrlOrPath(token.href),\n      };\n\n      return markdownEmbed;\n    })\n    .filter(notEmpty);\n\n  return links;\n}",
@@ -141,5 +140,5 @@
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "ogdmjjbucqbtmibhpdrryucj"
+  "id": "ufuijcerfynknilwnklmiegx"
 }

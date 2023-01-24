@@ -1,6 +1,8 @@
 // THIS FILE HAS BEEN GENERATED
 
+import type { AiDataset } from "ai-types";
 import type { AiDemoApp } from "ai-types";
+import type { AiModel } from "ai-types";
 import type { ContextualPrompt } from "ai-types";
 import type { ContextualPromptResult } from "ai-types";
 import type { GptIdeasUser } from "ai-types";
@@ -62,13 +64,23 @@ import type { TodoFile } from "todo-types";
 import type { TodoOffer } from "todo-types";
 
 
-export type DbModels = { AiDemoApp: AiDemoApp,ContextualPrompt: ContextualPrompt,ContextualPromptResult: ContextualPromptResult,GptIdeasUser: GptIdeasUser,AuthorizationModel: AuthorizationModel,BrowserPage: BrowserPage,BrowserSession: BrowserSession,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,CreatorMarkdownFile: CreatorMarkdownFile,MarkdownCallToAction: MarkdownCallToAction,WebMarkdownFile: WebMarkdownFile,WebsiteHeader: WebsiteHeader,SlugModelType: SlugModelType,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,Queue: Queue,Interest: Interest,MediaChannel: MediaChannel,MediaCredential: MediaCredential,MediaPost: MediaPost,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer };
-export const dbModelKeys = [ "AiDemoApp","ContextualPrompt","ContextualPromptResult","GptIdeasUser","AuthorizationModel","BrowserPage","BrowserSession","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","CreatorMarkdownFile","MarkdownCallToAction","WebMarkdownFile","WebsiteHeader","SlugModelType","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","Queue","Interest","MediaChannel","MediaCredential","MediaPost","SelfSprintReview","TodoFile","TodoOffer" ] as const;
+export type DbModels = { AiDataset: AiDataset,AiDemoApp: AiDemoApp,AiModel: AiModel,ContextualPrompt: ContextualPrompt,ContextualPromptResult: ContextualPromptResult,GptIdeasUser: GptIdeasUser,AuthorizationModel: AuthorizationModel,BrowserPage: BrowserPage,BrowserSession: BrowserSession,BundleConfig: BundleConfig,FrontBackBundle: FrontBackBundle,Dataset: Dataset,FunctionExecution: FunctionExecution,Operation: Operation,TsBuildError: TsBuildError,TsComment: TsComment,TsConfig: TsConfig,TsExport: TsExport,TsFunction: TsFunction,TsImport: TsImport,TsInterface: TsInterface,TsLintWarning: TsLintWarning,TsVariable: TsVariable,TypescriptFile: TypescriptFile,Address: Address,Area: Area,City: City,Country: Country,Location: Location,KvmdWord: KvmdWord,MarkdownWord: MarkdownWord,NepaliEnglishTranslationMatrix: NepaliEnglishTranslationMatrix,Statement: Statement,TokiPonaMatrix: TokiPonaMatrix,Translation: Translation,Word: Word,WordCategory: WordCategory,WordCombination: WordCombination,WordMatrix: WordMatrix,CreatorMarkdownFile: CreatorMarkdownFile,MarkdownCallToAction: MarkdownCallToAction,WebMarkdownFile: WebMarkdownFile,WebsiteHeader: WebsiteHeader,SlugModelType: SlugModelType,Device: Device,Group: Group,PageVisit: PageVisit,PeerMessage: PeerMessage,Person: Person,Persona: Persona,PersonInformation: PersonInformation,PersonInformationValue: PersonInformationValue,PersonPlatformConnection: PersonPlatformConnection,Platform: Platform,Queue: Queue,Interest: Interest,MediaChannel: MediaChannel,MediaCredential: MediaCredential,MediaPost: MediaPost,SelfSprintReview: SelfSprintReview,TodoFile: TodoFile,TodoOffer: TodoOffer };
+export const dbModelKeys = [ "AiDataset","AiDemoApp","AiModel","ContextualPrompt","ContextualPromptResult","GptIdeasUser","AuthorizationModel","BrowserPage","BrowserSession","BundleConfig","FrontBackBundle","Dataset","FunctionExecution","Operation","TsBuildError","TsComment","TsConfig","TsExport","TsFunction","TsImport","TsInterface","TsLintWarning","TsVariable","TypescriptFile","Address","Area","City","Country","Location","KvmdWord","MarkdownWord","NepaliEnglishTranslationMatrix","Statement","TokiPonaMatrix","Translation","Word","WordCategory","WordCombination","WordMatrix","CreatorMarkdownFile","MarkdownCallToAction","WebMarkdownFile","WebsiteHeader","SlugModelType","Device","Group","PageVisit","PeerMessage","Person","Persona","PersonInformation","PersonInformationValue","PersonPlatformConnection","Platform","Queue","Interest","MediaChannel","MediaCredential","MediaPost","SelfSprintReview","TodoFile","TodoOffer" ] as const;
 export type DbModelEnum = typeof dbModelKeys[number];
 export const modelQueryConfig = {
-    AiDemoApp: {
+    AiDataset: {
+          
+          dbStorageMethod: "jsonMultiple",
+          
+        },
+AiDemoApp: {
           
           dbStorageMethod: "jsonSingle",
+          
+        },
+AiModel: {
+          
+          dbStorageMethod: "jsonMultiple",
           
         },
 ContextualPrompt: {

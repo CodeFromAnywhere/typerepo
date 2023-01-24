@@ -1,14 +1,13 @@
 {
-  "createdAt": 1671505982940,
-  "updatedAt": 1671505982940,
+  "createdAt": 1674133271119,
+  "updatedAt": 1674133271119,
   "deletedAt": 0,
-  "createdFirstAt": 1671505982940,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133271119,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
-  "operationRelativeTypescriptFilePath": "src/writeContextualPromptSdk.ts",
+  "operationRelativeTypescriptFilePath": "src/generate-sdk/writeContextualPromptSdk.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const functionStrings = contextualPrompts\n    .map((contextualPrompt) => {\n      return writeCreatePromptCode(contextualPrompt);\n    })\n    .join(\"\\n\\n\\n\");\n\n  const codeString = `// this file is generated, you can edit it, but it will be re-generated based on the contextual prompts database\n\nimport { processChatGptPrompt } from \"./processChatGptPrompt\";\n\n${functionStrings}`;\n\n  return codeString;\n}",
+  "rawText": " async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const functionStrings = contextualPrompts\n    .map((contextualPrompt) => {\n      return writeCreatePromptCode(contextualPrompt);\n    })\n    .join(\"\\n\\n\\n\");\n\n  const codeString = `// this file is generated, you can edit it, but it will be re-generated based on the contextual prompts database\n  \nimport { PromptFunction } from \"ai-types\";\nimport { processChatGptPrompt } from \"./processChatGptPrompt\";\n\n${functionStrings}`;\n\n  return codeString;\n}",
   "name": "writeContextualPromptSdk",
   "slug": "write-contextual-prompt-sdk",
   "parameters": [],
@@ -24,13 +23,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 482,
-    "lines": 17,
-    "bytes": 482,
+    "characters": 527,
+    "lines": 18,
+    "bytes": 527,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 28,
-    "linesPerFile": 17,
+    "charactersPerLine": 29,
+    "linesPerFile": 18,
     "numberOfFiles": 1
   },
-  "id": "dxpagdgaqupereyghoynqhdg"
+  "id": "kchtlnbgwzuyiqzwplauongc"
 }

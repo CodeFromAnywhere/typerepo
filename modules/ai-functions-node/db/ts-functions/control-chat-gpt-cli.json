@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671505930102,
-  "updatedAt": 1671505930102,
+  "createdAt": 1674133262804,
+  "updatedAt": 1674133262804,
   "deletedAt": 0,
-  "createdFirstAt": 1671505930102,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133262804,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/cli/controlChatGpt.cli.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const promptArray = process.argv.slice(2);\n  const noHeadless = promptArray[0] === \"show\";\n  const prompt = noHeadless\n    ? promptArray.slice(1).join(\" \")\n    : promptArray.join(\" \");\n  console.log({ noHeadless, prompt });\n  const result = await controlChatGpt(prompt, noHeadless);\n  console.log({ result });\n  return;\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "ezpbgqodvvtsorepynnyeybu"
+  "id": "cvfupncympwopgvykibicwde"
 }

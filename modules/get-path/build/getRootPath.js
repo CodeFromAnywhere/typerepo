@@ -24,6 +24,7 @@ exports.osRootFoldersConst = [
     "cloned",
     "distributions",
     "operations",
+    "knowledge",
 ];
 /**
  * can be accessed in projects as well as in the OS

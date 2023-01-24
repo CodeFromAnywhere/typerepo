@@ -1,6 +1,7 @@
 export * from "./CreatorMarkdownProperties";
 export * from "./ExtendedMarkdownProperties";
 export * from "./MarkdownCallToAction";
+export * from "./MarkdownIndex";
 export * from "./MarkdownParse";
 export * from "./PostableProperties";
 export * from "./TextJson";

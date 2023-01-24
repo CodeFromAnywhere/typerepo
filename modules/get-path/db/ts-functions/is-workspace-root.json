@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671316069354,
-  "updatedAt": 1671316069354,
+  "createdAt": 1673959197834,
+  "updatedAt": 1673959197834,
   "deletedAt": 0,
-  "createdFirstAt": 1671316069354,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959197834,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/isWorkspaceRoot.ts",
   "commentsInside": [],
   "rawText": " (\n  folderPath: string\n): undefined | { isBundle: boolean; isWorkspaceRoot: boolean } => {\n  const packageJsonPath = path.join(folderPath, \"package.json\");\n  const existsPackageJson = fs.existsSync(packageJsonPath);\n  if (!existsPackageJson) return;\n\n  const packageJson = tryParseJson<Operation>(\n    fs.readFileSync(packageJsonPath, \"utf8\")\n  );\n\n  if (!packageJson || !packageJson.workspaces) {\n    return;\n  }\n\n  return {\n    isBundle: packageJson.operation?.isBundle || false,\n    isWorkspaceRoot: true,\n  };\n}",
@@ -78,5 +77,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "gccmzrcpfhwjtwdgdqlwuvre"
+  "id": "ygaiosistsahepbjbnawyqrb"
 }

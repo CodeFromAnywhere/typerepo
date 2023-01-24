@@ -1,0 +1,365 @@
+
+ Alright
+,
+ so
+ how
+ to
+ rebuild
+.
+ So
+ it
+'s
+ very
+ important
+ to
+ rebuild
+ your
+ operation
+.
+ Well
+,
+ how
+ is
+ it
+ easy
+?
+ You
+ just
+ run
+ this
+ command
+ in
+ the
+ package
+ where
+ you
+ are
+.
+ So
+ that
+'s
+ the
+ answer
+ to
+ where
+ and
+ how
+ I
+ guess
+.
+ So
+ as
+ you
+ can
+ see
+,
+ I
+'m
+ now
+ in
+ the
+ SMS
+ package
+.
+
+ So
+ let
+'s
+ here
+ and
+ in
+ order
+ to
+ rebuild
+ this
+ one
+,
+ I
+ can
+ just
+ rebuild
+ operation
+ dot
+.
+ However
+,
+ if
+ I
+ were
+ in
+ the
+ B
+2
+P
+ folder
+,
+ I
+ can
+ run
+ rebuild
+ operation
+ SMS
+,
+ right
+?
+ Because
+ the
+ folder
+ SMS
+ is
+ located
+ in
+ the
+ B
+2
+P
+ folder
+.
+ So
+ basically
+ the
+ argument
+ of
+ the
+ rebuild
+ operation
+ CLI
+ is
+ the
+ folder
+ that
+ you
+ want
+ to
+ rebuild
+,
+
+ relatively
+ to
+ your
+ current
+ working
+ directory
+.
+ So
+,
+ oh
+,
+ actually
+,
+ or
+ it
+'s
+ the
+ name
+ of
+ the
+ operation
+.
+ Sorry
+,
+ I
+ forgot
+ to
+ specify
+ the
+ exact
+ meaning
+.
+ So
+ the
+ exact
+ meaning
+ of
+ the
+ first
+ argument
+ is
+ either
+ a
+ relative
+ path
+ to
+ the
+ folder
+ of
+ the
+ operation
+ or
+ it
+'s
+ just
+ simply
+ the
+ name
+ of
+ the
+ operation
+.
+
+ So
+ in
+ case
+ I
+ am
+ anywhere
+ else
+,
+ for
+ example
+ here
+,
+ I
+ can
+ rebuild
+ operation
+ SMS
+ to
+ rebuild
+ SMS
+ operation
+.
+ What
+ this
+ does
+ and
+ that
+'s
+ the
+ answer
+ to
+ your
+ why
+ question
+ is
+ it
+ will
+ create
+ the
+ database
+ here
+ for
+ your
+ operation
+,
+
+ which
+ will
+ index
+ all
+ the
+ code
+,
+ all
+ the
+ type
+ code
+,
+ and
+ find
+ all
+ the
+ imports
+,
+ all
+ the
+ exports
+,
+ all
+ the
+ comments
+,
+ all
+ the
+ build
+ errors
+,
+ it
+ indexes
+ your
+ operation
+ with
+ operation
+ index
+ and
+ it
+ finds
+ all
+ the
+ variables
+,
+ all
+ the
+ interfaces
+ and
+ all
+ the
+ functions
+.
+ That
+'s
+ the
+ most
+ important
+,
+ what
+ it
+ does
+.
+
+ And
+ with
+ that
+ you
+ can
+ basically
+ use
+ that
+ in
+ order
+ to
+ do
+ other
+ things
+,
+ like
+ make
+ a
+ form
+,
+ for
+ example
+,
+ automatically
+,
+ because
+ we
+ have
+ the
+ index
+ of
+ the
+ function
+,
+ we
+ know
+ exactly
+ what
+ the
+ input
+ is
+ and
+ what
+ the
+ output
+ will
+ be
+.
+ So
+ this
+ is
+ why
+ we
+ need
+ it
+.

@@ -1,0 +1,39 @@
+{
+  "createdAt": 1674542328582,
+  "updatedAt": 1674542328582,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542328582,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pages/db/[...paths].tsx",
+  "commentsInside": [],
+  "rawText": " () => {\n  const items = [\n    { label: \"🪺 Nested\", value: \"nested\" },\n    { label: \"⚡️ Operaton-based\", value: \"operation\" },\n    { label: \"👩‍🌾 Flat\", value: \"flat\" },\n  ];\n  const [SelectMenu, menuType] = useSelect(items, items[0]);\n\n  const dbMenuQuery = queries.useGetNestedDatabaseMenu({\n    noOperationName: menuType?.value === \"flat\",\n    noOperationPath: menuType?.value !== \"nested\",\n    noSrcRelativeFolder: menuType?.value !== \"nested\",\n    noPrefix: true,\n  });\n\n  const { flat, nested } = destructureOptionalObject(dbMenuQuery.data?.result);\n\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        // NB: passionfruit wants this xD just make a layoutconfig in the PublicBundleConfig, or make it editable per user (later)\n        // menuPosition: \"left\",\n        menuHeader: () => {\n          return <SelectMenu />;\n        },\n        isLoading: dbMenuQuery.isLoading,\n        webPagesFlat: flat,\n        webPagesNested: nested,\n      }}\n      // other\n      nextPage={DbAndUpsert}\n      pageProps={{}}\n    />\n  );\n}",
+  "name": "DbLayout",
+  "slug": "db-layout",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 1055,
+    "lines": 36,
+    "bytes": 1067,
+    "bytesPerCharacter": 1.0113744075829383,
+    "charactersPerLine": 29,
+    "linesPerFile": 36,
+    "numberOfFiles": 1
+  },
+  "id": "wyjlbefjqpijzhahhuncomzu"
+}

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379231668,
+  "updatedAt": 1673379231668,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379231668,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "Dataset",
+  "slug": "dataset",
+  "operationRelativeTypescriptFilePath": "src/components/Dataset.tsx",
+  "type": {
+    "rawType": "() => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const categoriesQuery = queries.useGetContextualPromptCategories();\n\n  return (\n    <Div id=\"dataset\" className=\"h-screen overflow-y-scroll\">\n      <MarkdownContent\n        config={{}}\n        content={`\\`\\`\\`json\\n${JSON.stringify(\n          categoriesQuery.data?.result,\n          undefined,\n          2\n        )}\\n\\`\\`\\``}\n      />\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "bcktngzcxgrldkouwuqwkiqe"
+}

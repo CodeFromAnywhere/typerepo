@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671449272199,
-  "updatedAt": 1671449272199,
+  "createdAt": 1673862901327,
+  "updatedAt": 1673862901327,
   "deletedAt": 0,
-  "createdFirstAt": 1671449272199,
+  "createdFirstAt": 1673862901327,
   "id": "mediapost",
   "name": "MediaPost",
   "slug": "mediapost",
   "operationRelativeTypescriptFilePath": "src/MediaPost.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * Post/message on any medium.\n */\nexport interface MediaPost extends MarkdownModelType {\n  /**\n   * Parsed content from the postable content, every social media platform parses in a different way\n   *\n   * For example, a big blog could be parsed into multiple tweets.\n   *\n   * Another example: maybe in some cases we need to remove images or audio\n   *\n   * Another example: markdown is mostly unsupported!\n   */\n  mediaPlatform: MediaPlatformEnum;\n  posted_messageChannelId?: string;\n  posted_messageChannel?: MediaChannel;\n\n  isVerified?: boolean;\n  isPostable: boolean;\n  unpostableReason?: string;\n  isPosted?: boolean;\n\n  /**\n   * URL that leads directly to the posted message\n   */\n  postedUrl?: string;\n  channelOrGroupName?: string;\n\n  /**\n   * projectRelativePath referring to the file that has been parsed into this MediaPost\n   */\n  webMarkdownFile_projectRelativePath?: string;\n  /**\n * \n * \n * the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\n  - parsedTitle\n  - parsedContent\n\n */\n  markdown: string;\n\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedTitleCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedContentCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedAssetCalculated?: BackendAsset;\n\n  /**\n   * After it has been posted, this should be filled and frequently updated\n   *\n   * Omitted from the form in writer-input because it's indexed\n   */\n  postedDetailsIndexed?: {\n    views: number;\n    reactions: number;\n    interactions: number;\n    statisticsUpdatedAt: number;\n  };\n}",
+  "rawText": "\n\n/**\n * Post/message on any medium.\n */\nexport interface MediaPost extends MarkdownModelType {\n  /**\n   * Parsed content from the postable content, every social media platform parses in a different way\n   *\n   * For example, a big blog could be parsed into multiple tweets.\n   *\n   * Another example: maybe in some cases we need to remove images or audio\n   *\n   * Another example: markdown is mostly unsupported!\n   */\n  mediaPlatform: MediaPlatformEnum;\n  posted_messageChannelId?: string;\n  posted_messageChannel?: MediaChannel;\n\n  isVerified?: boolean;\n  isPostable: boolean;\n  unpostableReason?: string;\n  isPosted?: boolean;\n\n  /**\n   * URL that leads directly to the posted message\n   */\n  postedUrl?: string;\n  postedAt?: number;\n  channelOrGroupName?: string;\n\n  /**\n   * projectRelativePath referring to the file that has been parsed into this MediaPost\n   */\n  webMarkdownFile_projectRelativePath?: string;\n  /**\n * \n * \n * the following are DEPRECATED, use `markdown` and parse the title, content, and potential asset  from there\n\n  - parsedTitle\n  - parsedContent\n\n */\n  markdown: string;\n\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedTitleCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedContentCalculated?: string;\n  /**\n   * Calculated from `.markdown`\n   */\n  parsedAssetCalculated?: BackendAsset;\n\n  /**\n   * After it has been posted, this should be filled and frequently updated\n   *\n   * Omitted from the form in writer-input because it's indexed\n   */\n  postedDetailsIndexed?: {\n    views?: number;\n    /**\n     * can also be `likes` for example\n     */\n    reactions?: number;\n    /**\n     * e.g. retweet or shares\n     */\n    shares?: number;\n    /**\n     * can be `comments`, for example\n     */\n    interactions?: number;\n\n    statisticsUpdatedAt: number;\n  };\n}",
   "extensions": [
     "MarkdownModelType"
   ],
@@ -93,6 +93,9 @@
           "type": "string",
           "description": "URL that leads directly to the posted message"
         },
+        "postedAt": {
+          "type": "number"
+        },
         "channelOrGroupName": {
           "type": "string"
         },
@@ -119,19 +122,22 @@
               "type": "number"
             },
             "reactions": {
-              "type": "number"
+              "type": "number",
+              "description": "can also be `likes` for example"
+            },
+            "shares": {
+              "type": "number",
+              "description": "e.g. retweet or shares"
             },
             "interactions": {
-              "type": "number"
+              "type": "number",
+              "description": "can be `comments`, for example"
             },
             "statisticsUpdatedAt": {
               "type": "number"
             }
           },
           "required": [
-            "views",
-            "reactions",
-            "interactions",
             "statisticsUpdatedAt"
           ],
           "additionalProperties": false,
@@ -341,6 +347,13 @@
           }
         },
         {
+          "name": "postedAt",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
           "name": "channelOrGroupName",
           "required": false,
           "schema": {
@@ -446,22 +459,32 @@
             "properties": [
               {
                 "name": "views",
-                "required": true,
+                "required": false,
                 "schema": {
                   "type": "number"
                 }
               },
               {
                 "name": "reactions",
-                "required": true,
+                "required": false,
                 "schema": {
+                  "fullComment": "can also be `likes` for example",
+                  "type": "number"
+                }
+              },
+              {
+                "name": "shares",
+                "required": false,
+                "schema": {
+                  "fullComment": "e.g. retweet or shares",
                   "type": "number"
                 }
               },
               {
                 "name": "interactions",
-                "required": true,
+                "required": false,
                 "schema": {
+                  "fullComment": "can be `comments`, for example",
                   "type": "number"
                 }
               },

@@ -1,0 +1,85 @@
+{
+  "createdAt": 1673379261604,
+  "updatedAt": 1673379261604,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379261604,
+  "id": "namedparameterstypeof-setconfig",
+  "name": "NamedParameters<typeof setConfig>",
+  "slug": "namedparameterstypeof-setconfig",
+  "operationRelativeTypescriptFilePath": "src/components/setConfig.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "apiUrl": {
+          "type": "string"
+        },
+        "disableAdmin": {
+          "type": "boolean"
+        },
+        "customAbsoluteBasePaths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "TITLE: Absolute base path of your file system to show"
+        }
+      },
+      "required": [
+        "apiUrl",
+        "disableAdmin",
+        "customAbsoluteBasePaths"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "apiUrl",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "disableAdmin",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "customAbsoluteBasePaths",
+          "required": true,
+          "schema": {
+            "fullComment": "TITLE: Absolute base path of your file system to show",
+            "title": "Absolute base path of your file system to show",
+            "items": [
+              {
+                "schema": {
+                  "type": "string"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof setConfig>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

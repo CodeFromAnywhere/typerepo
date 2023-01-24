@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674542334476,
+  "updatedAt": 1674542334476,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542334476,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "ReaderPageLayout",
+  "slug": "reader-page-layout",
+  "operationRelativeTypescriptFilePath": "src/pages/files/[...queryPath].tsx",
+  "type": {
+    "rawType": "(props: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ReaderProps\").ReaderProps) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: ReaderProps) => {\n  return (\n    <AuthenticationLayout\n      overwriteDefaultPages={[\"signup\"]}\n      nextPage={() => <Div>READERPAGE</Div>}\n      pageProps={props}\n    />\n  );\n}",
+  "description": "",
+  "id": "lswfxpmpjzdychhneakdrfpm"
+}

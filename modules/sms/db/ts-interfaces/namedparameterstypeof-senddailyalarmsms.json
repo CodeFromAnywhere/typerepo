@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379724889,
+  "updatedAt": 1673379724889,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379724889,
+  "id": "namedparameterstypeof-senddailyalarmsms",
+  "name": "NamedParameters<typeof sendDailyAlarmSms>",
+  "slug": "namedparameterstypeof-senddailyalarmsms",
+  "operationRelativeTypescriptFilePath": "src/sendDailyAlarmSms.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof sendDailyAlarmSms>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

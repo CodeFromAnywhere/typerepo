@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115966691,
-  "updatedAt": 1671115966691,
+  "createdAt": 1674135575265,
+  "updatedAt": 1674135575265,
   "deletedAt": 0,
-  "createdFirstAt": 1671115966691,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135575265,
+  "isApiExposed": false,
   "isExported": false,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getMarkdownReaderQueryPaths.test.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  writeToAssets(\n    __filename,\n    await getMarkdownReaderQueryPaths(),\n    \"getMarkdownReaderQueryPaths.json\"\n  );\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "nmpvskabjergrpkiawpgibmv"
+  "id": "hjozveoflilbmfkhqlabtrke"
 }

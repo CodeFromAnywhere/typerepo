@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671317328466,
-  "updatedAt": 1671317328466,
+  "createdAt": 1673380073458,
+  "updatedAt": 1673380073458,
   "deletedAt": 0,
-  "createdFirstAt": 1671317328466,
+  "createdFirstAt": 1673380073458,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -57,5 +57,5 @@
   },
   "value": "(props: {\n  word: string;\n  subwordConfig: SubwordConfig;\n}) => {\n  const { word } = props;\n\n  return (\n    <span style={{ borderColor: \"red\", border: 1 }}>\n      <div>{word}</div>\n      <div\n        style={{ color: \"red\", paddingRight: 6 }}\n        contentEditable={false}\n        data-is-augmentation=\"true\"\n      >\n        xxx{word}\n      </div>\n    </span>\n  );\n}",
   "description": "",
-  "id": "rzlygpmkoubzvixpsndvrrzr"
+  "id": "radtscxbddbvwfooahbnwhjy"
 }

@@ -8,4 +8,8 @@
  * TODO: make the tranformations that are done here into smaller util functions and make a clean function that can be ran before running every casing conversion (maybe in a config)
  */
 export declare function slugify(string: string): string;
+/**
+ * Slugification for filepaths in specific
+ */
+export declare function fileSlugify(string: string): string;
 //# sourceMappingURL=slugify.d.ts.map

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527615188,
-  "updatedAt": 1670527615188,
+  "createdAt": 1674542359705,
+  "updatedAt": 1674542359705,
   "deletedAt": 0,
-  "createdFirstAt": 1670527615188,
+  "createdFirstAt": 1674542359705,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -10,10 +10,54 @@
   "slug": "initial-values",
   "operationRelativeTypescriptFilePath": "src/util/store.ts",
   "type": {
-    "rawType": "{ unsavedFiles: { [projectRelativePath: string]: string | undefined; }; openPages: import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/file-tabs/build/types\").OpenPage<string>[]; writerView: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").WriterViewEnum; subtextConfig: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").SubtextConfig; subwordConfig: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").SubwordConfig; \"menu.expanded\": import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/nested-menu/build/store\").ExpandedObject; \"menu.showMenu\": boolean; \"menu.isMobileMenuEnabled\": boolean; \"api.authToken\": string; }",
+    "rawType": "{ executionId: string; initialValues: any[] | undefined; \"tabs.currentTab\": number; \"db-crud.datasetConfig\": (import(\"/Users/king/King/operations/tools/types/code-types/build/Dataset\").DatasetConfig & { id?: string | undefined; key?: string | undefined; }) | null; \"db-crud.search\": string; unsavedFiles: { [projectRelativePath: string]: string | undefined; }; openPages: import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/file-tabs/build/types\").OpenPage<string>[]; writerView: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").WriterViewEnum; subtextConfig: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").SubtextConfig; subwordConfig: import(\"/Users/king/King/operations/tools/purpose/writer/writer-types/build/types\").SubwordConfig; \"menu.expanded\": import(\"/Users/king/King/operations/tools/user-interfaces/gui/smart/nested-menu/build/store\").ExpandedObject; \"menu.showMenu\": boolean; \"menu.isMobileMenuEnabled\": boolean; \"generativeWeb.defaultVariant\": string | null; \"generativeWeb.isEditing\": boolean; \"generativeWeb.config\": { disableAdmin?: boolean | undefined; customAbsoluteBasePaths?: string[] | undefined; activeCustomBasePath?: string | undefined; }; \"api.authToken\": string; \"api.customUrl\": string | null; \"api.timeoutAt\": number | null; }",
     "typeDefinition": {
       "type": "object",
       "properties": {
+        "executionId": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "initialValues": {
+          "type": "array",
+          "items": {}
+        },
+        "tabs.currentTab": {
+          "type": "number"
+        },
+        "db-crud.datasetConfig": {
+          "enum": [
+            "ul",
+            "mport(\"/Users/king/King/operations/tools/types/code-types/build/Dataset\").DatasetConfig & { id?: string | undefined; key?: string | undefined; "
+          ],
+          "x-enumNames": [
+            "ul",
+            "mport(\"/Users/king/King/operations/tools/types/code-types/build/Dataset\").DatasetConfig & { id?: string | undefined; key?: string | undefined; "
+          ],
+          "type": "string"
+        },
+        "db-crud.search": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
         "unsavedFiles": {
           "type": "object",
           "properties": {}
@@ -465,6 +509,49 @@
         "menu.isMobileMenuEnabled": {
           "type": "boolean"
         },
+        "generativeWeb.defaultVariant": {
+          "type": "string | null"
+        },
+        "generativeWeb.isEditing": {
+          "type": "boolean"
+        },
+        "generativeWeb.config": {
+          "type": "object",
+          "properties": {
+            "disableAdmin": {
+              "type": "boolean"
+            },
+            "customAbsoluteBasePaths": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "allOf": [
+                  {
+                    "transform": [
+                      "trim"
+                    ]
+                  },
+                  {
+                    "minLength": 1
+                  }
+                ]
+              }
+            },
+            "activeCustomBasePath": {
+              "type": "string",
+              "allOf": [
+                {
+                  "transform": [
+                    "trim"
+                  ]
+                },
+                {
+                  "minLength": 1
+                }
+              ]
+            }
+          }
+        },
         "api.authToken": {
           "type": "string",
           "allOf": [
@@ -477,9 +564,18 @@
               "minLength": 1
             }
           ]
+        },
+        "api.customUrl": {
+          "type": "string | null"
+        },
+        "api.timeoutAt": {
+          "type": "number | null"
         }
       },
       "required": [
+        "executionId",
+        "tabs.currentTab",
+        "db-crud.search",
         "unsavedFiles",
         "openPages",
         "writerView",
@@ -488,6 +584,8 @@
         "menu.expanded",
         "menu.showMenu",
         "menu.isMobileMenuEnabled",
+        "generativeWeb.isEditing",
+        "generativeWeb.config",
         "api.authToken"
       ],
       "optional": false
@@ -500,6 +598,54 @@
     "isEnumLiteral": false,
     "simplifiedSchema": {
       "properties": [
+        {
+          "name": "executionId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "initialValues",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        },
+        {
+          "name": "tabs.currentTab",
+          "required": true,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "db-crud.datasetConfig",
+          "required": false,
+          "schema": {
+            "enum": [
+              "ul",
+              "mport(\"/Users/king/King/operations/tools/types/code-types/build/Dataset\").DatasetConfig & { id?: string | undefined; key?: string | undefined; "
+            ],
+            "type": "string"
+          }
+        },
+        {
+          "name": "db-crud.search",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
         {
           "name": "unsavedFiles",
           "required": true,
@@ -983,17 +1129,86 @@
           }
         },
         {
+          "name": "generativeWeb.defaultVariant",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "generativeWeb.isEditing",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "generativeWeb.config",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "disableAdmin",
+                "required": false,
+                "schema": {
+                  "type": "boolean"
+                }
+              },
+              {
+                "name": "customAbsoluteBasePaths",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "activeCustomBasePath",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
           "name": "api.authToken",
           "required": true,
           "schema": {
             "type": "string"
+          }
+        },
+        {
+          "name": "api.customUrl",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "api.timeoutAt",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
           }
         }
       ],
       "type": "object"
     }
   },
-  "value": "{\n  ...apiStoreInitialValues,\n  ...nestedMenuStoreInitialValues,\n  ...writerInitialValues,\n  ...fileTabsInitialValues,\n}",
+  "value": "{\n  ...apiStoreInitialValues,\n  ...generativeWebInitialValues,\n  ...nestedMenuStoreInitialValues,\n  ...writerInitialValues,\n  ...fileTabsInitialValues,\n  ...dbCrudInitialValues,\n  ...tabsStoreInitialValues,\n  ...functionWebInitialValues,\n}",
   "description": "",
-  "id": "rycsvbngwlwwvvbwiorgjahu"
+  "id": "pwzlmpkntksqznxcfqjoywmh"
 }

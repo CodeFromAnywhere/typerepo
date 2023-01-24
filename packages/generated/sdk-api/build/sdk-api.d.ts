@@ -6,6 +6,7 @@ import { hasDefinition } from "index-typescript";
 import { setKeyAtLocation } from "set-json-key";
 import { makeSubscription } from "watch-folders";
 import { getTypescriptErrorsFromFiles } from "compile-typescript";
+import { fileSlugify } from "convert-case";
 import { slugify } from "convert-case";
 import { notEmpty } from "js-util";
 import { onlyUnique } from "js-util";
@@ -42,6 +43,7 @@ export declare const sdk: {
     mapMarkdownParseSections: (markdownParse: import("markdown-types").MarkdownParse, mapFunction: (content?: string | undefined) => string | undefined) => import("markdown-types").MarkdownParse;
     writeAllCodestories: (isDebug?: boolean | undefined) => Promise<void>;
     writeCodespanDetails: (codespanItemInfo: import("make-codestory").CodespanItemInfo) => string;
+    addEmojiToEveryWord: import("ai-types").PromptFunction;
     addStatement: (statement: string, importancy?: number | undefined, agreement?: number | undefined) => Promise<{
         isSuccessful: boolean;
         message?: string | undefined;
@@ -55,7 +57,6 @@ export declare const sdk: {
     cleanup: import("ai-types").PromptFunction;
     controlChatGptWrapper: (prompt: string, isHeadless: boolean | undefined, thread: string | undefined, controller: "playwright" | "puppeteer" | "faker") => Promise<import("ai-types").ProcessPromptFunctionResult>;
     controlChatGpt: (prompt: string, headless?: boolean | undefined) => Promise<import("ai-types").ProcessPromptFunctionResult>;
-    convertTo1337speak: import("ai-types").PromptFunction;
     deletePromptResult: (projectRelativePath: string, id: string) => Promise<{
         isSuccessful: boolean;
     }>;
@@ -66,26 +67,35 @@ export declare const sdk: {
     explainInDutch: import("ai-types").PromptFunction;
     explainInNepali: import("ai-types").PromptFunction;
     explainInPortuguese: import("ai-types").PromptFunction;
+    explainLineByLine: import("ai-types").PromptFunction;
     explain: import("ai-types").PromptFunction;
     fixGrammarAndSpellingMistakes: import("ai-types").PromptFunction;
+    followUpQuestions: import("ai-types").PromptFunction;
     getContextualPromptCategories: () => Promise<import("ai-types").CategoryChildObject>;
     getContextualPromptResultJsonFilePath: (projectRelativePath?: string | undefined) => Promise<string | undefined>;
     getContextualPrompt: (contextualPromptSlug: string | undefined, customPromptContent: string | undefined, saveNewPromptWithName: string | null, contextType: import("filename-conventions").FileType | undefined) => Promise<(Omit<import("ai-types").ContextualPrompt, import("model-types").OptionalForCreationKeys<import("ai-types").ContextualPrompt>> & Partial<Pick<import("ai-types").ContextualPrompt, import("model-types").OptionalForCreationKeys<import("ai-types").ContextualPrompt>>> & {
         slug: string;
     }) | undefined>;
     getObjectForkKeyRecursively: (stackCount: import("ai-functions-node").StackCount, key: string, originalKey: string, items: import("ai-types").ContextualPrompt[]) => import("ai-types").CategoryChildObject | undefined;
+    getToolFunctions: {
+        (): Promise<import("code-types").TsFunction[]>;
+        isPublic: boolean;
+    };
     gptIdeasRegisterWithContext: (functionContext: import("function-context-type").FunctionContext, name: string, email: string, tier: "free" | "indie" | "startup" | "sponsor", newsletter: "daily" | "weekly" | "unsubscribe", message?: string | undefined) => Promise<{
         isSuccessful: boolean;
         message: string;
     }>;
     haiku: import("ai-types").PromptFunction;
+    hookOneliners: import("ai-types").PromptFunction;
     improveCode: import("ai-types").PromptFunction;
-    keywords: import("ai-types").PromptFunction;
+    investorPitch: import("ai-types").PromptFunction;
     marcusAurelius: import("ai-types").PromptFunction;
+    opposite: import("ai-types").PromptFunction;
+    outlineToInvestorPitch: import("ai-types").PromptFunction;
     poem: import("ai-types").PromptFunction;
     processChatGptPrompt: (config: import("ai-functions-node").ProcessPromptProps) => Promise<import("ai-types").ProcessPromptFunctionResult>;
     processPromptOnFile: (projectRelativeFilePath: string, contextualPromptSlug: string) => Promise<import("ai-types").ProcessPromptFunctionResult>;
-    processPromptOnFolder: (config: {
+    processPromptOnFolderWithContext: (functionContext: import("function-context-type").FunctionContext, config: {
         projectRelativeFolderPath: string;
         promptSlug: string;
         isRecursive?: boolean | undefined;
@@ -94,6 +104,7 @@ export declare const sdk: {
         isSuccessful: boolean | undefined;
         message: string | undefined;
     }>;
+    quiz: import("ai-types").PromptFunction;
     removeAllFake: (basePath?: string | undefined) => Promise<{
         isSuccessful: boolean;
         message?: string | undefined;
@@ -103,8 +114,18 @@ export declare const sdk: {
     setIsFavoritePromptResult: (projectRelativePath: string, id: string, isFavorite: boolean) => Promise<{
         isSuccessful: boolean;
     }>;
+    shouldAddToQueue: (functionName: string, parameters: any[]) => Promise<boolean>;
     socratesAndSnoopDogg: import("ai-types").PromptFunction;
     storytelling: import("ai-types").PromptFunction;
+    toolFunctionWithContext: {
+        (functionContext: import("function-context-type").FunctionContext, functionName: string, email: string, details: {
+            [parameterName: string]: any;
+        }): Promise<{
+            isSuccessful: boolean | undefined;
+            message: string;
+        }>;
+        isPublic: boolean;
+    };
     translateEverythingIntoHindi: import("ai-types").PromptFunction;
     translateEverythingPortuguese: import("ai-types").PromptFunction;
     translateEverything: import("ai-types").PromptFunction;
@@ -240,8 +261,8 @@ export declare const sdk: {
     chatGPTAuth: (page: import("puppeteer").Page) => Promise<import("chatgpt-controller").LoginResponse>;
     detectChatGptPage: (page: import("puppeteer").Page) => Promise<"Login" | "Chat" | "Secure">;
     openAIChat: (props: import("chatgpt-controller").OpenAIChatProps) => Promise<import("ai-types").ProcessPromptFunctionResult>;
-    execAsync: (command: string) => Promise<{
-        success: boolean;
+    execAsync: (command: string, execOptions: import("child_process").ExecOptions) => Promise<{
+        isSuccessful: boolean;
         response: string;
     }>;
     spawnAsync: (command: string, options: import("child_process").SpawnOptionsWithoutStdio) => Promise<{
@@ -252,7 +273,7 @@ export declare const sdk: {
     cleanupTsDatabase: (operationName: string, manualProjectRoot?: string | undefined) => Promise<{
         amountRemoved: number;
     } | undefined>;
-    shouldDeleteTsModel: (tsModel: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsComment | import("code-types").TsBuildError | import("code-types").TsLintWarning | import("code-types").TsExport | import("code-types").TsImport | import("code-types").TsVariable, operationName: string, operationRelativePaths: string[]) => boolean;
+    shouldDeleteTsModel: (tsModel: import("code-types").TsFunction | import("code-types").TsInterface | import("code-types").TsComment | import("code-types").TsBuildError | import("code-types").TsLintWarning | import("code-types").TsExport | import("code-types").TsImport | import("code-types").TsVariable, operationName: string, operationRelativePaths: string[]) => boolean;
     csvItemArrayToCsvString: <T_1 extends import("csv-util").CsvItemType>(csvModelData: T_1[]) => string;
     tryParseCsv: <T_2 extends import("csv-util").CsvItemType>(csvString: string) => T_2[] | null;
     generateCsvInstance: () => import("model-types").Creation<import("database").CsvTestModel>;
@@ -328,6 +349,24 @@ export declare const sdk: {
     };
     filterInterfacesFromOperationNames: (tsInterface: import("code-types").TsInterface, operationNames?: string[] | undefined) => boolean | "" | null;
     getDbModelsFromOperations: (operationNames: string[]) => Promise<import("code-types").TsInterface[]>;
+    docsGetPages: (basePaths: {
+        projectRelativeBasePath: string;
+        queryPath: string;
+    }[]) => Promise<import("webpage-types").FileWebPage[]>;
+    getMarkdownReaderPages: (config: {
+        projectRoot: string;
+        basePaths: string[];
+        queryPathCustomPrefix?: ((basePath?: string | undefined) => string | undefined) | undefined;
+        mapQueryPath?: ((queryPath: string) => string) | undefined;
+    }) => Promise<import("webpage-types").FileWebPage[]>;
+    getPublicMarkdownFilePaths: (baseFolderPath: string, includeFoldersWithResults?: boolean | undefined) => Promise<{
+        path: string;
+        isFolder: boolean;
+    }[]>;
+    removeExtensionsFromPath: (relativePath: string) => string;
+    removeNumberPrefix: (fileOrFolderName: string) => string;
+    shouldExposeMarkdownFile: (parameters: import("matter-types").Frontmatter) => boolean;
+    stripReadmeFromFolder: (filePath: string) => string;
     comparePassword: (rawPassword: string, encryptedPassword: string) => boolean;
     encryptPassword: (rawPassword: string) => string;
     exploreOperation: (operationBasePath: string) => Promise<import("markdown-types").TextJson[]>;
@@ -361,21 +400,32 @@ export declare const sdk: {
     }>;
     getTodoPaths: (config?: import("todo-types").TodoPagesConfig | undefined) => Promise<string[]>;
     hasSameProjectPath: (projectRelativePath: string) => <T_3 extends import("model-types").TsIndexModelType>(x: T_3) => boolean;
-    compressImage: (absoluteSourceImagePath: string, config?: {
+    compressConvert: (absoluteSourceFilePath: string, config?: {
+        isStatusLogged?: boolean | undefined;
+        outputFolderPath?: string | undefined;
+        name?: string | undefined;
+        fps?: number | undefined;
         sizeWidthPx?: number | undefined;
         aspectRatio?: {
             x: number;
             y: number;
         } | undefined;
         quality?: number | undefined;
-        targetFormat?: "webp" | "png" | "mp4" | undefined;
+        targetFormat?: "webp" | "png" | "mp4" | "mp3" | "wav" | undefined;
+        is16bitWav?: boolean | undefined;
         keepOriginal?: boolean | undefined;
         isDebug?: boolean | undefined;
     } | undefined) => Promise<string | undefined>;
     compressImages: (absoluteBasePath: string, sizeWidthPx?: number | undefined, quality?: number | undefined) => Promise<void>;
     compressMp4: (absolutePath: string) => Promise<void>;
-    convertToMp3: (sourcePath: string, destinationPath: string) => Promise<string | undefined>;
+    convertToMp3: (sourcePath: string, destinationPath: string, config?: {
+        toWav?: boolean | undefined;
+    } | undefined) => Promise<string | undefined>;
     convertToMp4: (sourcePath: string, destinationPath: string) => Promise<string | undefined>;
+    fileExplorerOpen: (projectRelativePath: string) => Promise<{
+        isSuccessful: boolean;
+        message: string;
+    }>;
     findAllDependencyOperations: ({ imports, operations, operationNames, ignoreOperationNames, ignoreFilter, }: {
         imports: import("code-types").TsImport[];
         operations: import("code-types").Operation[];
@@ -392,12 +442,32 @@ export declare const sdk: {
         onlyExternal?: boolean | undefined;
     }) => Promise<string[]>;
     findDependenciesRecursively: (imports: import("code-types").TsImport[], operations: import("code-types").Operation[], operationName: string, already: string[], ignore?: string[] | undefined, ignoreFilter?: ((operationName: string) => boolean) | undefined) => Promise<string[]>;
-    findMonorepoModules: (operationName: string) => Promise<string[]>;
+    findMonorepoExports: (allExports: import("code-types").TsExport[], operationName: string) => string[];
+    findMonorepoImports: (allImports: import("code-types").TsImport[], operationName: string) => {
+        module: string;
+        name: string;
+    }[];
+    findMonorepoModules: (allImports: import("code-types").TsImport[], operationName: string) => Promise<string[]>;
     getDependencyObject: () => Promise<{
         [x: string]: string[];
     }>;
-    getDependencyTree: (operationNames: string[], stack: string[]) => Promise<import("find-all-dependency-operations").DependencyTree | null>;
-    folderGetUpdatedAt: ({ folderPath, }: {
+    getDependencyTree: (allImports: import("code-types").TsImport[], allExports: import("code-types").TsExport[], operationName: string, usedImports: string[], alreadySearched?: string[] | undefined) => Promise<import("find-all-dependency-operations").DependencyTreeChildObject>;
+    getOldDependencyTree: (operationNames: string[], stack: string[]) => Promise<import("find-all-dependency-operations").DependencyTree | null>;
+    getOperationDependencyReasons: () => Promise<{
+        cumulativeDependencies: string[];
+        operationName: string;
+        totalInstancesCount: number;
+        totalImportCount: number;
+        totalDependencyCount: number;
+        importDependencies: string[];
+        packageJsonDependencies: string[] | undefined;
+        instancesAndTheirImports: {
+            name: string;
+            fileName: string;
+            imports: string[];
+        }[];
+    }[]>;
+    folderGetUpdatedAt: (config: {
         folderPath: string;
     }) => Promise<number>;
     addDefaultValues: (bareItem: import("model-types").Creation<import("model-types").AugmentedAnyModelType>, isKvmdStorage?: boolean | undefined) => import("model-types").AugmentedAnyModelType;
@@ -483,16 +553,17 @@ export declare const sdk: {
     makeRelative: (absolutePath: string, baseFolderPath: string) => string;
     removeTrailingSlash: (p: string) => string;
     withoutExtension: (fileName: string) => string;
+    withoutSubExtensions: (fileName: string) => string;
     getFunctionExecutions: (functionName: string | undefined) => Promise<import("code-types").FunctionExecution[]>;
     getFunctionQueryPaths: (tsFunctions?: import("code-types").TsFunction[] | undefined) => Promise<{
         nested: import("webpage-types").NestedWebPage[];
         flat: import("webpage-types").WebPage<null>[];
     }>;
-    getPublicBundleConfig: import("function-server-types").ApiFunction;
+    getPublicBundleConfig: import("code-types").ApiFunction;
     getSrcRelativeFolderPath: (operationRelativeSourcePath: string) => string | undefined;
     getTsFunction: (functionName?: string | undefined) => Promise<import("function-types").FunctionData | undefined>;
     calculateDeviceName: (ipInfo: import("peer-types").IPInfo, userAgent: import("peer-types").IResult) => string;
-    executeFunctionWithParameters: <TFunctionName_2 extends "trim" | "canExecute" | "canRead" | "unzip" | "zip" | "ask" | "log" | "nodemon" | "pluralize" | "compressAsset" | "deleteReferencedAsset" | "downloadRemoteAsset" | "findAbsoluteAssetPathFromReference" | "findAllProjectMedia" | "getAssetDirectlyGetApi" | "getReferencedAssetGetApi" | "getStorageLocationInfo" | "getTemporaryAssetsFolderPath" | "processAsset" | "processItemAssets" | "removeOldTemporaryAssets" | "serverDownloadReply" | "uploadAssetWithContext" | "folderGetUpdatedAt" | "getExtension" | "getFileOrFolderName" | "getFolderJs" | "getSubExtension" | "isPathRelative" | "removeTrailingSlash" | "withoutExtension" | "getAssociatedMd" | "getAvailableFolderPath" | "getOperationBins" | "getOperationPackageName" | "getPackageJson" | "getPackageSourcePaths" | "isEqualArray" | "renameTemplateFiles" | "renameTemplateToNormalFile" | "renameToTemplateFile" | "setJsonKey" | "setKeyAtLocation" | "initiateWatch" | "makeSubscription" | "pickWatcher" | "watchFoldersChokidar" | "watchFoldersFs" | "watchFolders" | "writeToAssets" | "allOperationsRemoveJsSrc" | "allOperationsToMarkdown" | "clearAllTsDatabases" | "codeAll" | "forAllFiles" | "forAllFolders" | "getAllOperationClassifications" | "gitShipAllRepos" | "mdAllOperations" | "minifyAllOperations" | "publishAllOperations" | "removeAllFiles" | "removeAllFolders" | "removeAll" | "renameAll" | "runScriptEverywhere" | "setScriptEverywhere" | "exploreOperation" | "exploreProject" | "getExplorationType" | "getFileWithExtension" | "getFolderExplorationDetails" | "getFrontmattersMappedObject" | "getInstanceNames" | "getProjectRelativePaths" | "getTodoPages" | "getTodoPaths" | "hasSameProjectPath" | "getAllOperationSourcePaths" | "determineFileType" | "exploreGitRepoFolders" | "exploreMultiple" | "exploreOperationFolders" | "explorePreset" | "explore" | "findAllDocsFolderPaths" | "findAllDotGitFolders" | "findAllFoldersWithName" | "findAllPackages" | "findAllTodoFolderPaths" | "findFilesRecursively" | "pathArrayIsOperation" | "deleteApp" | "listApps" | "logApp" | "logTableObject" | "pm2ConnectDisconnect" | "pm2Connect" | "restartApp" | "startApp" | "stopAllAppsExcept" | "stopApps" | "watchAll" | "exitIfOperationsChange" | "gitCommitAllCron" | "watchOperations" | "brigtnessFull" | "brigtnessZero" | "decreaseBrightness" | "increaseBrightness" | "macosSetup" | "playMusic" | "generateRecurringReminders" | "remindMeAboutNextMinute" | "setRandomTimezone" | "disableDarkMode" | "enableDarkMode" | "setDarkmodeCommand" | "toggleDarkMode" | "disableScreenSleep2" | "disableScreenSleep" | "enableScreenSleep" | "downVolume" | "getVolume" | "setVolume" | "upVolume" | "getOpenableFilePath" | "vscodeOpen" | "loginToDevto" | "publishBlogOnDevTo" | "typeIntoTheField" | "facebookPostOnTheGroup" | "facebookPost" | "facebookTimeLinePost" | "getLatestFacebookPostUrl" | "sendFacebookMessage" | "searchAndDownloadGifs" | "buildQuery" | "errArrayLenZero" | "errFileSize" | "errFileType" | "errInvalidType" | "errTextLenZero" | "errTextOverflow" | "generateArrayFromJson" | "getStringForTranslation" | "launch" | "startTranslation" | "storeResult" | "translateText" | "sendMail" | "publishBlogOnMedium" | "publishBlogOnReddit" | "sendSms" | "getTwitterPostUrl" | "postTweetOnTwitter" | "youtubeSearchAndDownload" | "youtubeSearch" | "youtubeToMp3" | "youtubeToMp4" | "getPort" | "getBundleSummary" | "getDbModelsForBundle" | "createBackup" | "getHumanReadableDate" | "createDistribution" | "filterInterfacesFromOperationNames" | "getDbModelsFromOperations" | "applyDataset" | "calculateBundleDependencies" | "calculateToPath" | "copyCodestories" | "copyDocsAndReadme" | "copyFromRepoToNiche" | "copyOperation" | "copyReadmesBeforeFolderToBundle" | "copyTodosIntoBundle" | "findAndCopyOperations" | "findInherited" | "generateAllBundles" | "generateBundle" | "generateBundles" | "getBundlePaths" | "getCompareFn" | "getDataset" | "getIndirectDependencies" | "getMatchingFilters" | "mergeBundleConfigs" | "syncInformation" | "syncNicheFolder" | "yarnInstall" | "installNodeModules" | "yarnInstallNewDistribution" | "detectLanguage" | "generateSimpleSentence" | "makeAudioCourse" | "sleep" | "createFolder" | "getAllMarkdownFiles" | "getFileInfo" | "getTranslatedWord" | "markdownStoreAndRecord" | "parseMarkdownWordByWord" | "recordMdFile" | "startMarkdownTranslator" | "translatedArrayToKeyValue" | "watchMdFile" | "createWordSimplificationMap" | "findBetterWords" | "getSynonymFrequencyDataset" | "preprocessSynonyms" | "preprocessWordFrequencies" | "speakWordsToLearn" | "createPaymentRequestWithContext" | "createPaymentTransactionWithContext" | "defaultResponse" | "fail" | "getPaymentWebPages" | "succeed" | "controlChatGpt" | "getContextualPromptResults" | "getContextualPrompt" | "getContextualPrompts" | "processChatGptPrompt" | "mapArrayJson" | "mapObjectJson" | "videoToMp3" | "csvItemArrayToCsvString" | "tryParseCsv" | "convertCsvToJson" | "convertXlsToJson" | "compressImage" | "compressImages" | "convertToMp3" | "convertToMp4" | "copyCopyPairs" | "copyReaderStaticAssets" | "findReaderStaticAssets" | "findStaticAssets" | "docToMd" | "docxToMd" | "addCodestoryToSection" | "addModelName" | "findCodestories" | "makeCodespanMappedObject" | "makeCodestory" | "mapChunkRecursively" | "mapMarkdownParseSections" | "writeAllCodestories" | "writeCodespanDetails" | "addDependantCount" | "bundleFolderWithMarkdown" | "bundleToBookMarkdown" | "bundleToMarkdown" | "createMinimizedSectionMarkdown" | "createMinimizedSection" | "deployToVercel" | "emailMarkdownParse" | "flattenNestedObject" | "generateStaticSite" | "getJsonSchemaSummary" | "getMarkdownContents" | "getMergedMarkdownOutlineUrl" | "getOperationSummary" | "getOutline" | "getPublicMarkdownNestedPathObject" | "getTitlesRecursively" | "getTypeDescriptorRecursive" | "isConventionFileStatement" | "isUpperCase" | "makeOutlineMarkdownString" | "makePropertiesTable" | "markdownChunkToMarkdownStringRecursive" | "markdownChunksToMarkdownStringRecursive" | "markdownToSayable" | "mdToPdf" | "mergeMarkdownParse" | "noNewlines" | "operationRadio" | "operationToMarkdown" | "printNestedTitles" | "print" | "projectToMarkdown" | "propertyToTableRow" | "sayablesToMp3" | "selectRandomOperation" | "simplifiedSchemaToMarkdownString" | "statementItemToMarkdown" | "tsFunctionToMarkdownString" | "tsInterfaceToMarkdownString" | "tsVariableToMarkdownString" | "upMarkdownChunkLevelRecursively" | "findAudioWithViewsArray" | "markdownParseToShortMarkdown" | "shortMarkdownToMarkdownParse" | "augmentShortMarkdown" | "generateAugmentedShortMarkdown" | "getOrGenerateShortMarkdown" | "readCsvFileSync" | "readCsvFile" | "readJsonFileSync" | "readJsonFile" | "readProjectRelativeJsonFile" | "readKvmdFile" | "readMarkdownFileToModel" | "readMarkdownFile" | "getFolderTypescriptIndex" | "readTypescriptFile" | "generateCsvInstance" | "generateJsonSingleInstance" | "generateKvmdInstance" | "generateMarkdownInstance" | "generateSlugTestModel" | "getMergedQueryConfig" | "randomName" | "runModelEndToEndTest" | "testOperationModels" | "cacheLookup" | "calculateOperatingSystemBundle" | "deleteDbModel" | "getDatabaseMenu" | "getDbModelMetadata" | "getDbModelNames" | "getDbModel" | "getFunctionIndex" | "getNestedDatabaseMenu" | "getReferencableModelData" | "hasDbRecipes" | "makeSrcRelativeFolder" | "tsInterfaceToDbMenu" | "upsertDbModel" | "validateInput" | "validateResult" | "addDefaultValues" | "alterAny" | "alterCsv" | "alterJsonMultiple" | "alterJsonSingle" | "alterKeyValueMarkdown" | "alterMarkdown" | "augmentItemWithReferencedDataRecursively" | "calculateOperationsObject" | "createDb" | "findParent" | "getAugmentedData" | "getDatabaseFiles" | "getDatabaseRootFolder" | "getDbFileLocation" | "getDbStorageMethodExtension" | "getDefaultLocationPattern" | "getItemModelLocation" | "getLength" | "getLocationPattern" | "getMergedConfigOperationPath" | "getParentSlug" | "getRootFolders" | "getWildcardDbFileLocations__OLD" | "getWildcardDbFileLocations" | "groupByFile" | "makeStoringItem" | "mergeConfigs" | "removeKeyValueMarkdown" | "removeMultiple" | "upsertItems" | "upsertKeyValueMarkdown" | "upsert" | "validateModel" | "validate" | "getFunctionExecutions" | "getFunctionQueryPaths" | "getPublicBundleConfig" | "getSrcRelativeFolderPath" | "getTsFunction" | "getAugmentedWordObject" | "getAugmentedWords" | "getBundleAugmentedWords" | "codestoriesGetPages" | "codestoriesGetStaticPaths" | "codestoriesGetStaticProps" | "addPeerMessage" | "addPeer" | "augmentDevice" | "deviceGetAppsCalculated" | "getAllAppOperations" | "getAugmentedPersons" | "getFirstEmoji" | "getNestedPathObject" | "getPeerMessages" | "getPeerPeople" | "getPeersFromPeersRecursively" | "getPublicFolderNestedPathObjectFromPeer" | "getPublicFolderNestedPathObject" | "getPublicPeers" | "isPortUsed" | "lateFetchPeerMessageSync" | "ping" | "proactivePushAddPeerMessage" | "removePeer" | "sortDevices" | "updatePeer" | "getPrimaryPersona" | "youtubeToPlayItem" | "getDayNumber" | "remindMe" | "getPostableFrontmatterSchema" | "getFileContents" | "getFrontmatterSchema" | "getWriterWebPagesMenu" | "getWriterWebPages" | "newFile" | "newFolder" | "processAssetUpload" | "saveFileContents" | "getLight" | "getLocation" | "fetchWithTimeout" | "isOnline" | "calculateBbqAbility" | "calculateCloudyness" | "calculateCodeFromNatureAbility" | "calculateDresscode" | "calculateKiteability" | "calculateRainyness" | "calculateSunnyness" | "calculateWindyness" | "fetchWeatherStormGlass" | "fetchWeatherTommorowIOApi" | "getCustomWeatherData" | "cleanupTsDatabase" | "shouldDeleteTsModel" | "findAllDependencyOperations" | "findDependantsRecursively" | "findDependants" | "findDependenciesRecursively" | "findMonorepoModules" | "getDependencyObject" | "getDependencyTree" | "generateBunMonopackage" | "getItemNewPath" | "generateNamedIndex" | "generateSimpleIndex" | "isTestFn" | "mapToImportStatement" | "generateDbSdk" | "generateEnvSdks" | "generateFunctionPathsSdk" | "generateFunctionSdks" | "generateInterfacePathsSdk" | "generateOperationsSdk" | "generateSdkApiWatcher" | "generateSdkApi" | "generateSdkOperations" | "getFunctionSdksContent" | "getSdkDescription" | "getSdkFunctionsPerClassification" | "isNonUiOperationBuild" | "newEnvSdk" | "newFunctionKeysSdkOperation" | "newFunctionSdkOperation" | "tsFunctionIsIndexable" | "tsFunctionIsSdkable" | "updateClassifications" | "getImportedDependencies" | "getPackage" | "isAbsoluteImport" | "calculatePackageJsonDependencies" | "findAndWriteImportsExports" | "getDefaultSymbolType" | "getExportSpecifierNames" | "getExportSymbolTypeRecursive" | "getImportSpecifiersWithNames" | "getImportsExports" | "getPackageNameFromAbsoluteImport" | "getSymbolTypeDeclarations" | "getTypeFromImportSpecifierRecursive" | "isAbsoluteImportBuiltin" | "isImportFromOptionalFile" | "writeResult" | "getMissingDependencies" | "findAndUpsertTsInterfaces" | "findCommentTypes" | "generateSchema" | "getAllComments" | "getDbStorageMethod" | "getFrontmatterDbStorageMethod" | "getFrontmatterFunctionParameters" | "getIndexId" | "getMaxIndentationDepth" | "getMinMaxValidation" | "getNumberOfLines" | "getParamSchema" | "getParametersFromInterfaces" | "getPossibleRefs" | "getSpecialExtensionDbStorageMethod" | "getTsStatements" | "getTypeInfo" | "getValidatedOperationPathParse" | "hasDefinition" | "hasTypescriptFileChanged" | "indexImportsExportsForFilePath" | "indexTypescriptFilePath" | "indexTypescriptFile" | "indexTypescript" | "isPrimitive" | "makeTsComment" | "removeTypescriptIndex" | "schemaToTsInterface" | "tryCreateSchema" | "typeToSchema" | "preIndexLint" | "minifyBuild" | "getAvailableOperationName" | "newOperationWithFiles" | "newOperation" | "newTemplate" | "buildPackage" | "installMissingMonorepoDependencies" | "obfucsate" | "testPackage" | "prettierOperation" | "clearTsDatabase" | "executeCommandQuietUnlessFail" | "exitIfProcessDependenciesChanged" | "generateJsonSchemas" | "getAllDbModels" | "getFileIds" | "getIndexFileIds" | "getSrcIds" | "isOperationBuildNeeded" | "isSdkOperation" | "rebuildAllOperations" | "rebuildOperation" | "shouldSkip" | "yarnBuild" | "renameOperation" | "createSimpleTypescriptFile" | "runTestsForOperation" | "runTests" | "getAllTsMorphSourceFiles" | "getHasGeneric" | "getTsMorphProject" | "comparePassword" | "encryptPassword" | "calculateDeviceName" | "executeFunctionWithParameters" | "getAuthorizationInfo" | "isGetEndpoint" | "savePageVisit" | "storeFunctionExecution" | "upsertDevice" | "addAuthenticationMethod" | "addDeviceAuthenticationMethodConfirm" | "addDeviceAuthenticationMethodWithContext" | "addPersonAuthenticationMethodWithContext" | "findAuthenticatedPersonWithHandle" | "findLoggedinPersonsWithContext" | "getMeWithContext" | "getPublicPerson" | "getPublicPersons" | "isPhoneNumber" | "isValidPassword" | "loginWithContext" | "loginWithPasswordWithContext" | "logoutWithContext" | "removeDeviceAuthenticationMethodWithContext" | "removePersonAuthenticationMethodWithContext" | "signupWithContext" | "signupWithPasswordWithContext" | "switchCurrentPersonWithContext" | "updateMeWithContext" | "sayDutch" | "sayLanguage" | "sayNepali" | "saySomething" | "textToMp3" | "askOk" | "getArgumentOrAsk" | "cliVersionUpdates" | "handleVersionUpdates" | "execAsync" | "spawnAsync" | "executeCommand" | "getCommand" | "isCommandPerOs" | "getDbPath" | "rawPolygonToPolygon" | "dev" | "elementExists" | "getAllMessages" | "getLatestMessages" | "getSlackChannelMemberList" | "getSlackChannels" | "getSlackMessageFrom" | "getSlackWorkspaces" | "scrollToTop" | "sendSlackMessage" | "slackLogin" | "storeAllSlackChannel" | "storeSlackChannelMember" | "getSocialMediaMenu" | "addSocialMediaCredential" | "canBePosted" | "createAllSocialMediaPost" | "createSocialMediaPost" | "devtoCotentAnalyzer" | "facebookContentAnalyzer" | "getSocialMediaCredentials" | "mediumCotentAnalyzer" | "postSocialMediaPostToDevto" | "postSocialMediaPostToFacebook" | "postSocialMediaPostToMedium" | "postSocialMediaPostToReddit" | "postSocialMediaPostToTwitter" | "redditContentAnalyzer" | "socialMediaPostPlanner" | "startSocialMediaController" | "twitterContentAnalyzer" | "updateSocialMediaPost" | "makeExercises" | "driverLogin" | "driverSignup" | "earthDistance" | "getMyJeep" | "getPublicJeeps" | "updateMyProfile" | "getAllOperations" | "getAllPackagesNames" | "getGithubPersonalAccessToken" | "getGithubRepoLastCommitInfo" | "getRepoNameFromRepositoryUrl" | "initializeGitOrUseExistingAndPull" | "operationGithubPull" | "operationGithubPush" | "pullMultipleOperations" | "pushMultipleOperations" | "readAndWriteToPackageJsonExample" | "updateAllOperationStatus" | "calculateFullCompany" | "companyAttachContributionInformation" | "companyAttachEsgMetricProofStates" | "companyAttachRequirements" | "companyAttachTransparency" | "concatenateItems" | "contributionAddNextContributions" | "getActivities" | "getAverage" | "getCompanies" | "getFinalProducts" | "getFullCompanyData" | "getIngredientProducts" | "getProductValueChainForProduct" | "getProductValueChain" | "getRequiredValueChainData" | "getSustainabilityPlan" | "hasEsgMetricWithStatus" | "requirementAttachProofStates" | "sumEsgMetricProofStates" | "getCompanyRequirementDescription" | "requirementAppliesToCompany" | "parseAddress" | "addToken" | "ensureToken" | "findAssetParametersRecursively" | "getConversionInfoFromType" | "getExtensionFromAsset" | "getNameFromRelativePath" | "getNameWithTokenFromRelativePath" | "getReferencedAssetApiUrl" | "getTypeFromUrlOrPath" | "readableSize" | "removeTokenIfPresent" | "getEncoding" | "isBinary" | "isText" | "canAccessSync" | "canAccess" | "canExecuteSync" | "canReadSync" | "canSeeSync" | "canSee" | "canWriteSync" | "canWrite" | "copyAllRelativeFiles" | "findFileNameCaseInsensitive" | "getAllFoldersUntilFolder" | "getFileName" | "getFirstAvailableFilename" | "getFolder" | "getLastFolder" | "getOneFolderUpPath" | "getPathCombinations" | "oneUp" | "parseMd" | "removeAllExcept" | "renameAndCreate" | "writeJsonToFile" | "writeStringToFile" | "writeToFiles" | "getTsConfig" | "byteCount" | "calculatePathMetaData" | "categorizeFiles" | "getFolderSummary" | "getPathMainComment" | "getSizeSummary" | "sumSizeSummary" | "makeFileType" | "findFolderWhereMatch" | "findOperationBasePathWithClassification" | "findOperationBasePath" | "getAllPackageJsonDependencies" | "getCommonAncestor" | "getOperationClassificationObject" | "getOperationClassification" | "getOperationPathParse" | "getOperationPath" | "getOperationRelativePath" | "getPathParse" | "getPathsWithOperations" | "getProjectRoot" | "getRelativeLinkPath" | "getRelativePath" | "getRootPath" | "getSrcRelativeFileId" | "hasDependency" | "isBundle" | "isOperation" | "isUiOperation" | "isWorkspaceRoot" | "makeRelative" | "packageCompilesTs" | "tsconfigCompilesEsm" | "getDependenciesSummary" | "getOperationMetaData" | "recalculateOperationIndexJson" | "getFileTypeFromPath" | "getWriterType" | "hasSubExtension" | "isGeneratedOperationName" | "isGeneratedOperation" | "isIndexableFileId" | "getAssetInputType" | "getParameterContentType" | "isCalculatedParameter" | "isGeneratedParameterName" | "jsonToMdString" | "jsonToSayString" | "getSimpleJsonString" | "flattenMarkdownChunks" | "getKvmdItemsRecursively" | "getParagraphsRecursively" | "kvmdDataMap" | "kvmdDataToString" | "kvmdParseToMarkdownString" | "markdownStringToKvmdParse" | "parseKvmdLine" | "chunkToStringRecursively" | "getChunkParagraphsRecursively" | "getImplicitId" | "getMarkdownIntro" | "getMarkdownParseParagraphs" | "getMarkdownReferencePaths" | "getMarkdownReferencesFromParagraph" | "markdownParseToMarkdownStringFromContent" | "markdownParseToMarkdownString" | "mdContentParseRecursively" | "mdToJsonParse" | "parseFrontmatterMarkdownString" | "parseMarkdownParagraph" | "parseMdToChunks" | "removeHeaderPrefix" | "findCodespans" | "findEmbeds" | "findLinks" | "flattenMarkdownString" | "flattenMarkedTokenRecursive" | "parsePrimitiveArray" | "parsePrimitiveBoolean" | "parsePrimitiveString" | "parsePrimitive" | "tryParseJson" | "bodyFromQueryString" | "getFirstQueryStrings" | "getQueryPart" | "isValidEntry" | "toQueryString" | "findSentenceMatches" | "searchRecursiveObjectArray" | "frontmatterParseToString" | "frontmatterToObject" | "getFrontmatterValueString" | "objectToFrontmatter" | "parseFrontmatterString" | "quotedOrNot" | "stringifyNewlines" | "getFunctionExersize" | "createInvoiceContactMarkdown" | "createInvoiceMarkdown" | "createKeyValueMarkdown" | "money" | "newInvoice" | "printDate" | "markdownParseToMarkdownModelType" | "parseMarkdownModelTimestamp" | "tryParseDate" | "generateId" | "generatePassword" | "generateRandomString" | "generateTime" | "isEmail" | "markdownModelTypeToMarkdownString" | "createUser" | "getBacktickContents" | "isInPeriod" | "isOutOfStock" | "kvmdToCredential" | "upcomingOutgoingFlights" | "whereShouldIgo" | "crudPageToWebPages" | "functionFormPageToWebPage" | "stripCommentEnd" | "stripCommentStart" | "stripComment" | "stripSlashes" | "stripStar" | "getCompileErrors" | "getTypescriptErrorsFromFiles" | "writeBuildErrors" | "findFirstCommentTypes" | "getDataParameterNames" | "getPossibleReferenceParameterNames" | "getProperties" | "getRefLink" | "getReferencableModels" | "getReferenceParameterInfo" | "getSchemaItems" | "getSchema" | "simplifiedSchemaToTypeDefinitionString" | "simplifySchema" | "getSimpleTypescriptFileString" | "jsonToString" | "parseRawSimpleTypescriptFile" | "isResultOfInterface" | "makeTest" | "getGetApiUrl" | "untypedApiFunction" | "makeArraysGetEndpoint" | "makeGetEndpoint" | "objectStringToJson" | "parseIfJson" | "parsePrimitiveJson" | "stringToJson" | "getFullPath" | "getLastPathsChunk" | "usePath" | "createCodeblockMarkdown" | "useCustomUrlStore" | "getKeysAtPathFromNestedObject" | "getMenuPagesObject" | "makeNestedObjectFromQueryPathObject" | "nestedObjectToChildObject" | "nestedPathObjectToNestedMenuRecursive" | "nestifyQueryPathObjectRecursive" | "queryPathsArrayToNestedPathObject" | "reduceQueryPathsRecursively" | "camelCase" | "capitalCase" | "capitaliseFirstLetter" | "convertCase" | "getDelimiter" | "humanCase" | "kebabCase" | "lowerCaseArray" | "pascalCase" | "slugify" | "snakeCase" | "apply" | "createEnum" | "createMappedObject" | "destructureOptionalObject" | "findLastIndex" | "getObjectFromParamsString" | "getObjectKeysArray" | "getParameterAtLocation" | "getSubsetFromObject" | "groupByKey" | "hasAllLetters" | "insertAt" | "isAllTrue" | "makeArray" | "mapAsync" | "mapKeys" | "mapMany" | "mapValuesSync" | "mergeNestedObject" | "mergeObjectParameters" | "mergeObjectsArray" | "mergeObjects" | "noEmptyString" | "objectMapAsync" | "objectMapSync" | "objectValuesMap" | "omitUndefinedValues" | "onlyUnique2" | "onlyUnique" | "pickRandomArrayItem" | "putIndexAtIndex" | "removeIndexFromArray" | "removeOptionalKeysFromObjectStrings" | "removeOptionalKeysFromObject" | "replaceLastOccurence" | "reverseString" | "sumAllKeys" | "sumObjectParameters" | "sum" | "takeFirst" | "trimSlashes" | "getCallerFileName" | "parseTitle" | "cleanupTimer" | "generateUniqueId" | "getNewPerformance" | "oneByOne" | "isPlural" | "isSingular" | "singularize" | "runChildProcess" | "clickOnSpanTag" | "facebookLogin" | "foundOrNotXpath" | "foundOrNot" | "getChromeExecutablePath" | "gmailLogin" | "logConsoleIfDebug" | "retryClickAndWaitSelector" | "retryWaitSelector" | "setInnerHtml" | "setInputValue" | "trueClick" | "twitterLogin" | "typeInTheInputField" | "typeOnTheTargetWithXpathSelector" | "waitMilliseconds" | "fetchUrl" | "addStatement" | "addWord" | "biggestFunctionName" | "checkQueue" | "cleanup" | "controlChatGptWrapper" | "convertTo1337speak" | "deletePromptResult" | "developersQuote" | "diaryToInstagram" | "documentationWriting" | "emojiAugmentation" | "explainInDutch" | "explainInNepali" | "explainInPortuguese" | "explain" | "fixGrammarAndSpellingMistakes" | "getContextualPromptCategories" | "getContextualPromptResultJsonFilePath" | "getObjectForkKeyRecursively" | "gptIdeasRegisterWithContext" | "haiku" | "improveCode" | "keywords" | "marcusAurelius" | "poem" | "processPromptOnFile" | "processPromptOnFolder" | "removeAllFake" | "rickAndMortyRick" | "rickAndMorty" | "setIsFavoritePromptResult" | "socratesAndSnoopDogg" | "storytelling" | "translateEverythingIntoHindi" | "translateEverythingPortuguese" | "translateEverything" | "translateToPortuguese" | "typescriptExplain" | "williamShakespear" | "writeContextualPromptSdk" | "writeCreatePromptCode" | "ye" | "yodafy" | "augmentMarkdown" | "canSeeFileContent" | "canSeeFile" | "expandFrontmatter" | "findClosestAbsolutePath" | "getContextualPromptsArray" | "getFirstFile" | "getFolderRelativeScopeDbFilePath" | "getReaderPageProps" | "makeMarkdownLink" | "readerPageGetStaticPaths" | "readerPageGetStaticProps" | "getFolderSizeObject" | "fileExplorerOpen" | "compressMp4" | "fetchVoices" | "parseDialogue" | "uberduckGetPath" | "uberduckSpeak" | "voiceCloneDialogue" | "waitForLockfile" | "copyStaticAssets" | "docsGetPages" | "docsGetStaticPaths" | "docsGetStaticProps" | "getAllMarkdownReaderPages" | "getChildren" | "getFolderExplorationInfo" | "getMarkdownModelPages" | "getMarkdownPageInfo" | "getMarkdownReaderPages" | "getMarkdownReaderQueryPaths" | "getOperationPages" | "getPublicMarkdownFilePaths" | "getReaderTodoPages" | "markdownReaderGetStaticPaths" | "markdownReaderGetStaticPropsFromPages" | "markdownReaderGetStaticProps" | "putReadmeOnTop" | "removeExtensionsFromPath" | "removeNumberPrefix" | "shouldExposeMarkdownFile" | "stripReadmeFromFolder" | "getQueryPath" | "MatchingText" | "PathSearchResults" | "copyPath" | "deleteFileOrFolder" | "movePath" | "renameFileOrFolder" | "trashFileOrFolder" | "updateFrontmatter" | "converse" | "executeSdkFunction" | "getCachedExportedFunctions" | "getMenu" | "getSdkFunctionPaths" | "BreadCrumbs" | "renderBreadCrumbs" | "ClickableIcon" | "errorToast" | "infoToast" | "showStandardResponse" | "successToast" | "warningToast" | "FancyLoader" | "getFileType" | "LabeledButton" | "chatGPTAuth" | "detectChatGptPage" | "openAIChat" | "delay" | "getBrowserPageById" | "getBrowserTabs" | "getConnectedBrowsers" | "getIdlePage" | "getNewPage" | "isCaptchaExist" | "openMultiTabs" | "openNewBrowserOnChildProcess" | "openNewBrowser" | "openPage" | "racePromises" | "setBrowserPageIdle" | "solveReptcha" | "checkAndGetSlackFileUrl" | "scrapeSlackMessage" | "selectSlackChannel" | "selectSlackWorkspace" | "getAbsolutePathMdFileName" | "getAllPostables" | "getPersonDetails" | "getPersonsMenu" | "getSocialMediaChannelsMenu" | "getSubExtensions">(functionName: TFunctionName_2, parameters: any[] | undefined, serverContext: import("server/typings/common").Context) => Promise<import("api-types").ApiReturnType<any>>;
+    executeFunctionWithParameters: <TFunctionName_2 extends "trim" | "canExecute" | "canRead" | "unzip" | "zip" | "ask" | "log" | "nodemon" | "pluralize" | "compressAsset" | "deleteReferencedAsset" | "downloadRemoteAsset" | "findAbsoluteAssetPathFromReference" | "findAllProjectMedia" | "getAssetDirectlyGetApi" | "getReferencedAssetGetApi" | "getStorageLocationInfo" | "getTemporaryAssetsFolderPath" | "processAsset" | "processItemAssets" | "removeOldTemporaryAssets" | "serverDownloadReply" | "uploadAssetWithContext" | "folderGetUpdatedAt" | "getExtension" | "getFileOrFolderName" | "getFolderJs" | "getSubExtension" | "isPathRelative" | "removeTrailingSlash" | "withoutExtension" | "getAssociatedMd" | "getAvailableFolderPath" | "getOperationBins" | "getOperationPackageName" | "getPackageJson" | "getPackageSourcePaths" | "isEqualArray" | "renameTemplateFiles" | "renameTemplateToNormalFile" | "renameToTemplateFile" | "setJsonKey" | "setKeyAtLocation" | "initiateWatch" | "makeSubscription" | "pickWatcher" | "watchFoldersChokidar" | "watchFoldersFs" | "watchFolders" | "writeToAssets" | "allOperationsRemoveJsSrc" | "allOperationsToMarkdown" | "clearAllTsDatabases" | "codeAll" | "forAllFiles" | "forAllFolders" | "getAllOperationClassifications" | "gitShipAllRepos" | "mdAllOperations" | "minifyAllOperations" | "publishAllOperations" | "removeAllFiles" | "removeAllFolders" | "removeAll" | "renameAll" | "runScriptEverywhere" | "setScriptEverywhere" | "exploreOperation" | "exploreProject" | "getExplorationType" | "getFileWithExtension" | "getFolderExplorationDetails" | "getFrontmattersMappedObject" | "getInstanceNames" | "getProjectRelativePaths" | "getTodoPages" | "getTodoPaths" | "hasSameProjectPath" | "getAllOperationSourcePaths" | "determineFileType" | "exploreGitRepoFolders" | "exploreMultiple" | "exploreOperationFolders" | "explorePreset" | "explore" | "findAllDocsFolderPaths" | "findAllDotGitFolders" | "findAllFoldersWithName" | "findAllPackages" | "findAllTodoFolderPaths" | "findFilesRecursively" | "pathArrayIsOperation" | "deleteApp" | "listApps" | "logApp" | "logTableObject" | "pm2ConnectDisconnect" | "pm2Connect" | "restartApp" | "startApp" | "stopAllAppsExcept" | "stopApps" | "watchAll" | "exitIfOperationsChange" | "gitCommitAllCron" | "watchOperations" | "brigtnessFull" | "brigtnessZero" | "decreaseBrightness" | "increaseBrightness" | "macosSetup" | "playMusic" | "generateRecurringReminders" | "remindMeAboutNextMinute" | "setRandomTimezone" | "disableDarkMode" | "enableDarkMode" | "setDarkmodeCommand" | "toggleDarkMode" | "disableScreenSleep2" | "disableScreenSleep" | "enableScreenSleep" | "downVolume" | "getVolume" | "setVolume" | "upVolume" | "getOpenableFilePath" | "vscodeOpen" | "loginToDevto" | "publishBlogOnDevTo" | "typeIntoTheField" | "facebookPostOnTheGroup" | "facebookPost" | "facebookTimeLinePost" | "getLatestFacebookPostUrl" | "sendFacebookMessage" | "searchAndDownloadGifs" | "buildQuery" | "errArrayLenZero" | "errFileSize" | "errFileType" | "errInvalidType" | "errTextLenZero" | "errTextOverflow" | "generateArrayFromJson" | "getStringForTranslation" | "launch" | "startTranslation" | "storeResult" | "translateText" | "sendMail" | "publishBlogOnMedium" | "publishBlogOnReddit" | "sendSms" | "getTwitterPostUrl" | "postTweetOnTwitter" | "youtubeSearchAndDownload" | "youtubeSearch" | "youtubeToMp3" | "youtubeToMp4" | "getPort" | "getBundleSummary" | "getDbModelsForBundle" | "createBackup" | "getHumanReadableDate" | "createDistribution" | "filterInterfacesFromOperationNames" | "getDbModelsFromOperations" | "applyDataset" | "calculateBundleDependencies" | "calculateToPath" | "copyCodestories" | "copyDocsAndReadme" | "copyFromRepoToNiche" | "copyOperation" | "copyReadmesBeforeFolderToBundle" | "copyTodosIntoBundle" | "findAndCopyOperations" | "findInherited" | "generateAllBundles" | "generateBundle" | "generateBundles" | "getBundlePaths" | "getCompareFn" | "getDataset" | "getIndirectDependencies" | "getMatchingFilters" | "mergeBundleConfigs" | "syncInformation" | "syncNicheFolder" | "yarnInstall" | "installNodeModules" | "yarnInstallNewDistribution" | "detectLanguage" | "generateSimpleSentence" | "makeAudioCourse" | "sleep" | "createFolder" | "getAllMarkdownFiles" | "getFileInfo" | "getTranslatedWord" | "markdownStoreAndRecord" | "parseMarkdownWordByWord" | "recordMdFile" | "startMarkdownTranslator" | "translatedArrayToKeyValue" | "watchMdFile" | "createWordSimplificationMap" | "findBetterWords" | "getSynonymFrequencyDataset" | "preprocessSynonyms" | "preprocessWordFrequencies" | "speakWordsToLearn" | "createPaymentRequestWithContext" | "createPaymentTransactionWithContext" | "defaultResponse" | "fail" | "getPaymentWebPages" | "succeed" | "controlChatGpt" | "getContextualPromptResults" | "getContextualPrompt" | "getContextualPrompts" | "processChatGptPrompt" | "mapArrayJson" | "mapObjectJson" | "csvItemArrayToCsvString" | "tryParseCsv" | "convertCsvToJson" | "convertXlsToJson" | "compressImages" | "convertToMp3" | "convertToMp4" | "copyCopyPairs" | "copyReaderStaticAssets" | "findReaderStaticAssets" | "findStaticAssets" | "docToMd" | "docxToMd" | "addCodestoryToSection" | "addModelName" | "findCodestories" | "makeCodespanMappedObject" | "makeCodestory" | "mapChunkRecursively" | "mapMarkdownParseSections" | "writeAllCodestories" | "writeCodespanDetails" | "addDependantCount" | "bundleFolderWithMarkdown" | "bundleToBookMarkdown" | "bundleToMarkdown" | "createMinimizedSectionMarkdown" | "createMinimizedSection" | "deployToVercel" | "emailMarkdownParse" | "flattenNestedObject" | "generateStaticSite" | "getJsonSchemaSummary" | "getMarkdownContents" | "getMergedMarkdownOutlineUrl" | "getOperationSummary" | "getOutline" | "getPublicMarkdownNestedPathObject" | "getTitlesRecursively" | "getTypeDescriptorRecursive" | "isConventionFileStatement" | "isUpperCase" | "makeOutlineMarkdownString" | "makePropertiesTable" | "markdownChunkToMarkdownStringRecursive" | "markdownChunksToMarkdownStringRecursive" | "markdownToSayable" | "mdToPdf" | "mergeMarkdownParse" | "noNewlines" | "operationRadio" | "operationToMarkdown" | "printNestedTitles" | "print" | "projectToMarkdown" | "propertyToTableRow" | "sayablesToMp3" | "selectRandomOperation" | "simplifiedSchemaToMarkdownString" | "statementItemToMarkdown" | "tsFunctionToMarkdownString" | "tsInterfaceToMarkdownString" | "tsVariableToMarkdownString" | "upMarkdownChunkLevelRecursively" | "findAudioWithViewsArray" | "markdownParseToShortMarkdown" | "shortMarkdownToMarkdownParse" | "augmentShortMarkdown" | "generateAugmentedShortMarkdown" | "getOrGenerateShortMarkdown" | "readCsvFileSync" | "readCsvFile" | "readJsonFileSync" | "readJsonFile" | "readProjectRelativeJsonFile" | "readKvmdFile" | "readMarkdownFileToModel" | "readMarkdownFile" | "getFolderTypescriptIndex" | "readTypescriptFile" | "generateCsvInstance" | "generateJsonSingleInstance" | "generateKvmdInstance" | "generateMarkdownInstance" | "generateSlugTestModel" | "getMergedQueryConfig" | "randomName" | "runModelEndToEndTest" | "testOperationModels" | "cacheLookup" | "calculateOperatingSystemBundle" | "deleteDbModel" | "getDatabaseMenu" | "getDbModelMetadata" | "getDbModelNames" | "getDbModel" | "getFunctionIndex" | "getNestedDatabaseMenu" | "getReferencableModelData" | "hasDbRecipes" | "makeSrcRelativeFolder" | "tsInterfaceToDbMenu" | "upsertDbModel" | "validateInput" | "validateResult" | "addDefaultValues" | "alterAny" | "alterCsv" | "alterJsonMultiple" | "alterJsonSingle" | "alterKeyValueMarkdown" | "alterMarkdown" | "augmentItemWithReferencedDataRecursively" | "calculateOperationsObject" | "createDb" | "findParent" | "getAugmentedData" | "getDatabaseFiles" | "getDatabaseRootFolder" | "getDbFileLocation" | "getDbStorageMethodExtension" | "getDefaultLocationPattern" | "getItemModelLocation" | "getLength" | "getLocationPattern" | "getMergedConfigOperationPath" | "getParentSlug" | "getRootFolders" | "getWildcardDbFileLocations__OLD" | "getWildcardDbFileLocations" | "groupByFile" | "makeStoringItem" | "mergeConfigs" | "removeKeyValueMarkdown" | "removeMultiple" | "upsertItems" | "upsertKeyValueMarkdown" | "upsert" | "validateModel" | "validate" | "getFunctionExecutions" | "getFunctionQueryPaths" | "getPublicBundleConfig" | "getSrcRelativeFolderPath" | "getTsFunction" | "getAugmentedWordObject" | "getAugmentedWords" | "getBundleAugmentedWords" | "codestoriesGetPages" | "codestoriesGetStaticPaths" | "codestoriesGetStaticProps" | "addPeerMessage" | "addPeer" | "augmentDevice" | "deviceGetAppsCalculated" | "getAllAppOperations" | "getAugmentedPersons" | "getFirstEmoji" | "getNestedPathObject" | "getPeerMessages" | "getPeerPeople" | "getPeersFromPeersRecursively" | "getPublicFolderNestedPathObjectFromPeer" | "getPublicFolderNestedPathObject" | "getPublicPeers" | "isPortUsed" | "lateFetchPeerMessageSync" | "ping" | "proactivePushAddPeerMessage" | "removePeer" | "sortDevices" | "updatePeer" | "getPrimaryPersona" | "youtubeToPlayItem" | "getDayNumber" | "remindMe" | "getPostableFrontmatterSchema" | "getFileContents" | "getFrontmatterSchema" | "getWriterWebPagesMenu" | "getWriterWebPages" | "newFile" | "newFolder" | "processAssetUpload" | "saveFileContents" | "getLight" | "getLocation" | "fetchWithTimeout" | "isOnline" | "calculateBbqAbility" | "calculateCloudyness" | "calculateCodeFromNatureAbility" | "calculateDresscode" | "calculateKiteability" | "calculateRainyness" | "calculateSunnyness" | "calculateWindyness" | "fetchWeatherStormGlass" | "fetchWeatherTommorowIOApi" | "getCustomWeatherData" | "cleanupTsDatabase" | "shouldDeleteTsModel" | "findAllDependencyOperations" | "findDependantsRecursively" | "findDependants" | "findDependenciesRecursively" | "findMonorepoModules" | "getDependencyObject" | "getDependencyTree" | "generateBunMonopackage" | "getItemNewPath" | "generateNamedIndex" | "generateSimpleIndex" | "isTestFn" | "mapToImportStatement" | "generateDbSdk" | "generateEnvSdks" | "generateFunctionPathsSdk" | "generateFunctionSdks" | "generateInterfacePathsSdk" | "generateOperationsSdk" | "generateSdkApiWatcher" | "generateSdkApi" | "generateSdkOperations" | "getFunctionSdksContent" | "getSdkDescription" | "getSdkFunctionsPerClassification" | "isNonUiOperationBuild" | "newEnvSdk" | "newFunctionKeysSdkOperation" | "newFunctionSdkOperation" | "tsFunctionIsIndexable" | "tsFunctionIsSdkable" | "updateClassifications" | "getImportedDependencies" | "getPackage" | "isAbsoluteImport" | "calculatePackageJsonDependencies" | "findAndWriteImportsExports" | "getDefaultSymbolType" | "getExportSpecifierNames" | "getExportSymbolTypeRecursive" | "getImportSpecifiersWithNames" | "getImportsExports" | "getPackageNameFromAbsoluteImport" | "getSymbolTypeDeclarations" | "getTypeFromImportSpecifierRecursive" | "isAbsoluteImportBuiltin" | "isImportFromOptionalFile" | "writeResult" | "getMissingDependencies" | "findAndUpsertTsInterfaces" | "findCommentTypes" | "generateSchema" | "getAllComments" | "getDbStorageMethod" | "getFrontmatterDbStorageMethod" | "getFrontmatterFunctionParameters" | "getIndexId" | "getMaxIndentationDepth" | "getMinMaxValidation" | "getNumberOfLines" | "getParamSchema" | "getParametersFromInterfaces" | "getPossibleRefs" | "getSpecialExtensionDbStorageMethod" | "getTsStatements" | "getTypeInfo" | "getValidatedOperationPathParse" | "hasDefinition" | "hasTypescriptFileChanged" | "indexImportsExportsForFilePath" | "indexTypescriptFilePath" | "indexTypescriptFile" | "indexTypescript" | "isPrimitive" | "makeTsComment" | "removeTypescriptIndex" | "schemaToTsInterface" | "tryCreateSchema" | "typeToSchema" | "preIndexLint" | "minifyBuild" | "getAvailableOperationName" | "newOperationWithFiles" | "newOperation" | "newTemplate" | "buildPackage" | "installMissingMonorepoDependencies" | "obfucsate" | "testPackage" | "prettierOperation" | "clearTsDatabase" | "executeCommandQuietUnlessFail" | "exitIfProcessDependenciesChanged" | "generateJsonSchemas" | "getAllDbModels" | "getFileIds" | "getIndexFileIds" | "getSrcIds" | "isOperationBuildNeeded" | "isSdkOperation" | "rebuildAllOperations" | "rebuildOperation" | "shouldSkip" | "yarnBuild" | "renameOperation" | "createSimpleTypescriptFile" | "runTestsForOperation" | "runTests" | "getAllTsMorphSourceFiles" | "getHasGeneric" | "getTsMorphProject" | "comparePassword" | "encryptPassword" | "calculateDeviceName" | "executeFunctionWithParameters" | "getAuthorizationInfo" | "isGetEndpoint" | "savePageVisit" | "storeFunctionExecution" | "upsertDevice" | "addAuthenticationMethod" | "addDeviceAuthenticationMethodConfirm" | "addDeviceAuthenticationMethodWithContext" | "addPersonAuthenticationMethodWithContext" | "findAuthenticatedPersonWithHandle" | "findLoggedinPersonsWithContext" | "getMeWithContext" | "getPublicPerson" | "getPublicPersons" | "isPhoneNumber" | "isValidPassword" | "loginWithContext" | "loginWithPasswordWithContext" | "logoutWithContext" | "removeDeviceAuthenticationMethodWithContext" | "removePersonAuthenticationMethodWithContext" | "signupWithContext" | "signupWithPasswordWithContext" | "switchCurrentPersonWithContext" | "updateMeWithContext" | "sayDutch" | "sayLanguage" | "sayNepali" | "saySomething" | "textToMp3" | "askOk" | "getArgumentOrAsk" | "cliVersionUpdates" | "handleVersionUpdates" | "execAsync" | "spawnAsync" | "executeCommand" | "getCommand" | "isCommandPerOs" | "getDbPath" | "rawPolygonToPolygon" | "dev" | "elementExists" | "getAllMessages" | "getLatestMessages" | "getSlackChannelMemberList" | "getSlackChannels" | "getSlackMessageFrom" | "getSlackWorkspaces" | "scrollToTop" | "sendSlackMessage" | "slackLogin" | "storeAllSlackChannel" | "storeSlackChannelMember" | "getSocialMediaMenu" | "addSocialMediaCredential" | "canBePosted" | "createAllSocialMediaPost" | "createSocialMediaPost" | "devtoCotentAnalyzer" | "facebookContentAnalyzer" | "getSocialMediaCredentials" | "mediumCotentAnalyzer" | "postSocialMediaPostToDevto" | "postSocialMediaPostToFacebook" | "postSocialMediaPostToMedium" | "postSocialMediaPostToReddit" | "postSocialMediaPostToTwitter" | "redditContentAnalyzer" | "socialMediaPostPlanner" | "startSocialMediaController" | "twitterContentAnalyzer" | "updateSocialMediaPost" | "makeExercises" | "driverLogin" | "driverSignup" | "earthDistance" | "getMyJeep" | "getPublicJeeps" | "updateMyProfile" | "getAllOperations" | "getAllPackagesNames" | "getGithubPersonalAccessToken" | "getGithubRepoLastCommitInfo" | "getRepoNameFromRepositoryUrl" | "initializeGitOrUseExistingAndPull" | "operationGithubPull" | "operationGithubPush" | "pullMultipleOperations" | "pushMultipleOperations" | "readAndWriteToPackageJsonExample" | "updateAllOperationStatus" | "addToken" | "ensureToken" | "findAssetParametersRecursively" | "getConversionInfoFromType" | "getExtensionFromAsset" | "getNameFromRelativePath" | "getNameWithTokenFromRelativePath" | "getReferencedAssetApiUrl" | "getTypeFromUrlOrPath" | "readableSize" | "removeTokenIfPresent" | "getEncoding" | "isBinary" | "isText" | "canAccessSync" | "canAccess" | "canExecuteSync" | "canReadSync" | "canSeeSync" | "canSee" | "canWriteSync" | "canWrite" | "copyAllRelativeFiles" | "findFileNameCaseInsensitive" | "getAllFoldersUntilFolder" | "getFileName" | "getFirstAvailableFilename" | "getFolder" | "getLastFolder" | "getOneFolderUpPath" | "getPathCombinations" | "oneUp" | "parseMd" | "removeAllExcept" | "renameAndCreate" | "writeJsonToFile" | "writeStringToFile" | "writeToFiles" | "getTsConfig" | "byteCount" | "calculatePathMetaData" | "categorizeFiles" | "getFolderSummary" | "getPathMainComment" | "getSizeSummary" | "sumSizeSummary" | "makeFileType" | "findFolderWhereMatch" | "findOperationBasePathWithClassification" | "findOperationBasePath" | "getAllPackageJsonDependencies" | "getCommonAncestor" | "getOperationClassificationObject" | "getOperationClassification" | "getOperationPathParse" | "getOperationPath" | "getOperationRelativePath" | "getPathParse" | "getPathsWithOperations" | "getProjectRoot" | "getRelativeLinkPath" | "getRelativePath" | "getRootPath" | "getSrcRelativeFileId" | "hasDependency" | "isBundle" | "isOperation" | "isUiOperation" | "isWorkspaceRoot" | "makeRelative" | "packageCompilesTs" | "tsconfigCompilesEsm" | "getDependenciesSummary" | "getOperationMetaData" | "recalculateOperationIndexJson" | "getFileTypeFromPath" | "getWriterType" | "hasSubExtension" | "isGeneratedOperationName" | "isGeneratedOperation" | "isIndexableFileId" | "getAssetInputType" | "getParameterContentType" | "isCalculatedParameter" | "isGeneratedParameterName" | "jsonToMdString" | "jsonToSayString" | "getSimpleJsonString" | "flattenMarkdownChunks" | "getKvmdItemsRecursively" | "getParagraphsRecursively" | "kvmdDataMap" | "kvmdDataToString" | "kvmdParseToMarkdownString" | "markdownStringToKvmdParse" | "parseKvmdLine" | "chunkToStringRecursively" | "getChunkParagraphsRecursively" | "getImplicitId" | "getMarkdownIntro" | "getMarkdownParseParagraphs" | "getMarkdownReferencePaths" | "getMarkdownReferencesFromParagraph" | "markdownParseToMarkdownStringFromContent" | "markdownParseToMarkdownString" | "mdContentParseRecursively" | "mdToJsonParse" | "parseFrontmatterMarkdownString" | "parseMarkdownParagraph" | "parseMdToChunks" | "removeHeaderPrefix" | "findCodespans" | "findEmbeds" | "findLinks" | "flattenMarkdownString" | "flattenMarkedTokenRecursive" | "parsePrimitiveArray" | "parsePrimitiveBoolean" | "parsePrimitiveString" | "parsePrimitive" | "tryParseJson" | "bodyFromQueryString" | "getFirstQueryStrings" | "getQueryPart" | "isValidEntry" | "toQueryString" | "findSentenceMatches" | "searchRecursiveObjectArray" | "frontmatterParseToString" | "frontmatterToObject" | "getFrontmatterValueString" | "objectToFrontmatter" | "parseFrontmatterString" | "quotedOrNot" | "stringifyNewlines" | "getFunctionExersize" | "createInvoiceContactMarkdown" | "createInvoiceMarkdown" | "createKeyValueMarkdown" | "money" | "newInvoice" | "printDate" | "markdownParseToMarkdownModelType" | "parseMarkdownModelTimestamp" | "tryParseDate" | "generateId" | "generatePassword" | "generateRandomString" | "generateTime" | "isEmail" | "markdownModelTypeToMarkdownString" | "createUser" | "getBacktickContents" | "isInPeriod" | "isOutOfStock" | "kvmdToCredential" | "upcomingOutgoingFlights" | "whereShouldIgo" | "crudPageToWebPages" | "functionFormPageToWebPage" | "stripCommentEnd" | "stripCommentStart" | "stripComment" | "stripSlashes" | "stripStar" | "getCompileErrors" | "getTypescriptErrorsFromFiles" | "writeBuildErrors" | "findFirstCommentTypes" | "getDataParameterNames" | "getPossibleReferenceParameterNames" | "getProperties" | "getRefLink" | "getReferencableModels" | "getReferenceParameterInfo" | "getSchemaItems" | "getSchema" | "simplifiedSchemaToTypeDefinitionString" | "simplifySchema" | "getSimpleTypescriptFileString" | "jsonToString" | "parseRawSimpleTypescriptFile" | "isResultOfInterface" | "makeTest" | "getGetApiUrl" | "untypedApiFunction" | "makeArraysGetEndpoint" | "makeGetEndpoint" | "objectStringToJson" | "parseIfJson" | "parsePrimitiveJson" | "stringToJson" | "getFullPath" | "getLastPathsChunk" | "usePath" | "createCodeblockMarkdown" | "useCustomUrlStore" | "getKeysAtPathFromNestedObject" | "getMenuPagesObject" | "makeNestedObjectFromQueryPathObject" | "nestedObjectToChildObject" | "nestedPathObjectToNestedMenuRecursive" | "nestifyQueryPathObjectRecursive" | "queryPathsArrayToNestedPathObject" | "reduceQueryPathsRecursively" | "camelCase" | "capitalCase" | "capitaliseFirstLetter" | "convertCase" | "getDelimiter" | "humanCase" | "kebabCase" | "lowerCaseArray" | "pascalCase" | "slugify" | "snakeCase" | "apply" | "createEnum" | "createMappedObject" | "destructureOptionalObject" | "findLastIndex" | "getObjectFromParamsString" | "getObjectKeysArray" | "getParameterAtLocation" | "getSubsetFromObject" | "groupByKey" | "hasAllLetters" | "insertAt" | "isAllTrue" | "makeArray" | "mapAsync" | "mapKeys" | "mapMany" | "mapValuesSync" | "mergeNestedObject" | "mergeObjectParameters" | "mergeObjectsArray" | "mergeObjects" | "noEmptyString" | "objectMapAsync" | "objectMapSync" | "objectValuesMap" | "omitUndefinedValues" | "onlyUnique2" | "onlyUnique" | "pickRandomArrayItem" | "putIndexAtIndex" | "removeIndexFromArray" | "removeOptionalKeysFromObjectStrings" | "removeOptionalKeysFromObject" | "replaceLastOccurence" | "reverseString" | "sumAllKeys" | "sumObjectParameters" | "sum" | "takeFirst" | "trimSlashes" | "getCallerFileName" | "parseTitle" | "cleanupTimer" | "generateUniqueId" | "getNewPerformance" | "oneByOne" | "isPlural" | "isSingular" | "singularize" | "runChildProcess" | "clickOnSpanTag" | "facebookLogin" | "foundOrNotXpath" | "foundOrNot" | "getChromeExecutablePath" | "gmailLogin" | "logConsoleIfDebug" | "retryClickAndWaitSelector" | "retryWaitSelector" | "setInnerHtml" | "setInputValue" | "trueClick" | "twitterLogin" | "typeInTheInputField" | "typeOnTheTargetWithXpathSelector" | "waitMilliseconds" | "fetchUrl" | "addEmojiToEveryWord" | "addStatement" | "addWord" | "biggestFunctionName" | "checkQueue" | "cleanup" | "controlChatGptWrapper" | "deletePromptResult" | "developersQuote" | "diaryToInstagram" | "documentationWriting" | "emojiAugmentation" | "explainInDutch" | "explainInNepali" | "explainInPortuguese" | "explainLineByLine" | "explain" | "fixGrammarAndSpellingMistakes" | "followUpQuestions" | "getContextualPromptCategories" | "getContextualPromptResultJsonFilePath" | "getObjectForkKeyRecursively" | "getToolFunctions" | "gptIdeasRegisterWithContext" | "haiku" | "hookOneliners" | "improveCode" | "investorPitch" | "marcusAurelius" | "opposite" | "outlineToInvestorPitch" | "poem" | "processPromptOnFile" | "processPromptOnFolderWithContext" | "quiz" | "removeAllFake" | "rickAndMortyRick" | "rickAndMorty" | "setIsFavoritePromptResult" | "shouldAddToQueue" | "socratesAndSnoopDogg" | "storytelling" | "toolFunctionWithContext" | "translateEverythingIntoHindi" | "translateEverythingPortuguese" | "translateEverything" | "translateToPortuguese" | "typescriptExplain" | "williamShakespear" | "writeContextualPromptSdk" | "writeCreatePromptCode" | "ye" | "yodafy" | "imageToText" | "languageTranslation" | "musicTrackSeparation" | "speakerSeparation" | "speechToText" | "textToImage" | "textToSpeech" | "textToText" | "bananaCarrot" | "bananaStableDiffusion" | "bananaWhisper" | "augmentMarkdown" | "canSeeFileContent" | "canSeeFile" | "expandFrontmatter" | "findClosestAbsolutePath" | "getContextualPromptsArray" | "getFirstFile" | "getFolderRelativeScopeDbFilePath" | "getReaderPageProps" | "makeMarkdownLink" | "readerPageGetStaticPaths" | "readerPageGetStaticProps" | "gtpIndex" | "huggingfaceSpeakerDiarization" | "request" | "calculateTokenCount" | "gpt3" | "getFileCollectionPaths" | "renameFileCollection" | "getFolderSizeObject" | "updateSingleNestedJsonFile" | "withoutSubExtensions" | "getSubExtensions" | "getFolderTypescriptFiles" | "fileExplorerOpen" | "importAppleNotes" | "importGhostBlogs" | "importGoogleKeep" | "isSystemBusy" | "getFolderNames" | "time" | "watchAudioVideo" | "watchMp3WithoutWav" | "watchMp4WithoutWav" | "watchWavToSpeakers" | "watchWavToSpeech" | "watchWavWithoutMp3" | "exploreBadNamingFiles" | "isBadName" | "renameAllBadlyNamedFiles" | "renameBadlyNamedFile" | "watchBadNaming" | "exploreAndRename" | "findJsonInMarkdown" | "getBetterFilename" | "getBetterLocation" | "makeMarkdownIndex" | "trimCodeblock" | "watchMarkdown" | "watchMp3Transcriptions" | "getYoutubeVideoUrls" | "watchAppleMemos" | "whisperLocalCpp" | "whisper" | "sendDailyAlarmSms" | "isLocked" | "lock" | "unlock" | "compressConvert" | "compressMp4" | "findCodeblocks" | "convertPdfToMd" | "fetchVoices" | "parseDialogue" | "uberduckGetPath" | "uberduckSpeak" | "voiceCloneDialogue" | "waitForLockfile" | "docsGetPages" | "getMarkdownReaderPages" | "getPublicMarkdownFilePaths" | "removeExtensionsFromPath" | "removeNumberPrefix" | "shouldExposeMarkdownFile" | "stripReadmeFromFolder" | "copyStaticAssets" | "docsGetStaticPaths" | "docsGetStaticProps" | "getAllMarkdownReaderPages" | "getChildren" | "getFolderExplorationInfo" | "getMarkdownModelPages" | "getMarkdownPageInfo" | "getMarkdownReaderQueryPaths" | "getOperationPages" | "getReaderTodoPages" | "markdownReaderGetStaticPaths" | "markdownReaderGetStaticPropsFromPages" | "markdownReaderGetStaticProps" | "putReadmeOnTop" | "getQueryPath" | "MatchingText" | "PathSearchResults" | "copyPath" | "deleteFileOrFolder" | "movePath" | "renameFileOrFolder" | "trashFileOrFolder" | "updateFrontmatter" | "findMonorepoExports" | "findMonorepoImports" | "getOldDependencyTree" | "getOperationDependencyReasons" | "generateBunFile" | "generateBunTypes" | "generateBunVariables" | "alterTypescriptFile" | "alterTypescriptInstance" | "buildEverythingInRightOrder" | "detectCircularDependencies" | "getImports" | "getOperationPathsRebuildRequired" | "getTypescriptData" | "isAbsoluteModuleName" | "operationGetDependencies" | "operationGetIndexedDependencies" | "reindexAllOperationsCircularDependencies" | "reindexCircularDependencies" | "setTypescriptData" | "converse" | "executeSdkFunction" | "getCachedExportedFunctions" | "getMenu" | "getSdkFunctionPaths" | "BreadCrumbs" | "renderBreadCrumbs" | "ClickableIcon" | "errorToast" | "infoToast" | "showStandardResponse" | "successToast" | "warningToast" | "FancyLoader" | "getFileType" | "LabeledButton" | "Tabs" | "mapChildObjectRecursive" | "fileSlugify" | "isArrayEqual" | "onlyDuplicates" | "chatGPTAuth" | "detectChatGptPage" | "openAIChat" | "delay" | "getBrowserPageById" | "getBrowserTabs" | "getBrowser" | "getConnectedBrowsers" | "getIdlePage" | "getNewPage" | "isCaptchaExist" | "openMultiTabs" | "openNewBrowserOnChildProcess" | "openNewBrowser" | "openPage" | "racePromises" | "setBrowserPageIdle" | "setBrowserSession" | "solveReptcha" | "checkAndGetSlackFileUrl" | "scrapeSlackMessage" | "selectSlackChannel" | "selectSlackWorkspace" | "detectTwitterPage" | "scrapPersonTweets" | "getAbsolutePathMdFileName" | "getAllPostables" | "getPersonDetails" | "getPersonsMenu" | "getSocialMediaChannelsMenu">(functionName: TFunctionName_2, parameters: any[] | undefined, serverContext: import("server/typings/common").Context) => Promise<import("api-types").ApiReturnType<any>>;
     getAuthorizationInfo: (device: import("model-types").Storing<import("peer-types").Device>, tsFunction: import("code-types").TsFunction, fn: {
         (...parameters: any): any;
         [key: string]: any;
@@ -510,7 +581,7 @@ export declare const sdk: {
         manualProjectRoot?: string | undefined;
     }) => Promise<string | undefined>;
     isTestFn: (x: import("generate-index").ImportStatement) => boolean;
-    mapToImportStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, type: "function" | "interface" | "variable") => import("generate-index").ImportStatement;
+    mapToImportStatement: (item: import("code-types").TsFunction | import("code-types").TsInterface | import("code-types").TsVariable, type: "function" | "interface" | "variable") => import("generate-index").ImportStatement;
     generateDbSdk: (config?: {
         manualProjectRoot?: string | undefined;
         skipYarnInstall?: boolean | undefined;
@@ -541,7 +612,7 @@ export declare const sdk: {
         skipYarnInstall?: boolean | undefined;
         dryrun?: boolean | undefined;
     } | undefined) => Promise<void>;
-    generateSdkApiWatcher: import("watch-types").ProjectWatcher;
+    generateSdkApiWatcher: import("watch-types").ProjectWatcher<any>;
     generateSdkApi: (config?: {
         manualProjectRoot?: string | undefined;
         skipYarnInstall?: boolean | undefined;
@@ -586,6 +657,57 @@ export declare const sdk: {
     tsFunctionIsIndexable: (tsFunction: import("code-types").TsFunction) => boolean;
     tsFunctionIsSdkable: (tsFunction: import("code-types").TsFunction, operationClassificationObject: import("get-path").OperationClassificationObject, operationClassification: "cjs" | "ts" | "esm" | "node-cjs" | "node-esm" | "node-ts" | "server-cjs" | "ui-web" | "ui-app" | "ui-ts" | "ui-cjs" | "ui-esm") => boolean;
     updateClassifications: () => void;
+    augmentMarkdown: <T_10 extends string | null | undefined>(markdown: T_10, config?: {
+        isAdmin?: boolean | undefined;
+        augmentCode?: boolean | undefined;
+        augmentWords?: boolean | undefined;
+        augmentStatements?: boolean | undefined;
+        augmentContextualPrompts?: boolean | undefined;
+        augmentContextualPromptResults?: boolean | undefined;
+        markdown_projectRelativeFilePath?: string | undefined;
+        externalHost?: string | undefined;
+    } | undefined) => Promise<{
+        augmentedMarkdown: T_10;
+        contextualPromptResults?: import("ai-types").ContextualPromptResult[] | null | undefined;
+        contextualPromptsObject?: Omit<import("ai-types").ContextualPromptsObject, "databaseContextualPromptSlugs"> | undefined;
+    }>;
+    canSeeFileContent: (parameters: import("matter-types").Frontmatter | undefined, isDev: boolean) => boolean;
+    canSeeFile: (parameters: import("ai-types").FolderContent | undefined, isDev: boolean) => boolean;
+    expandFrontmatter: (frontmatter?: import("matter-types").Frontmatter | undefined) => {
+        isPrivate?: undefined;
+        authorizedGroup?: undefined;
+        isDraft?: undefined;
+        isSecret?: undefined;
+    } | {
+        isPrivate: boolean;
+        authorizedGroup: string;
+        isDraft: boolean;
+        isSecret: boolean;
+    };
+    findClosestAbsolutePath: (absoluteQueryPath: string) => Promise<{
+        absoluteQueryPath: string;
+        isFile?: boolean | undefined;
+        isFolder?: boolean | undefined;
+    }>;
+    getContextualPromptResults: (config?: {
+        prompt_projectRelativePath?: string | undefined;
+        promptSlugs?: string[] | undefined;
+    } | undefined) => Promise<import("ai-types").ContextualPromptResult[] | null>;
+    getContextualPromptsArray: (scopeProjectRelativePath?: string | undefined) => Promise<{
+        databaseResult: import("ai-types").ContextualPrompt[];
+        scopeResult?: import("ai-types").ContextualPrompt[] | undefined;
+    }>;
+    getContextualPrompts: (contextType?: import("filename-conventions").FileType | undefined, scopeProjectRelativePath?: string | undefined, isDev?: boolean | undefined) => Promise<import("ai-types").ContextualPromptsObject>;
+    getFirstFile: (fullPath: string) => Promise<string | undefined>;
+    getFolderRelativeScopeDbFilePath: (filename?: string | undefined) => string;
+    getReaderPageProps: (basePath: string | undefined, queryPath: string, isAdmin?: boolean | undefined, absoluteBasePath?: string | undefined) => Promise<{
+        props: import("ai-types").ReaderProps;
+    }>;
+    makeMarkdownLink: (text: string, url?: string | undefined, alt?: string | undefined) => string;
+    readerPageGetStaticPaths: import("next-types").GetStaticPaths<import("next-types").ParsedUrlQuery>;
+    readerPageGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
+        props: import("ai-types").ReaderProps;
+    }>;
     getAllOperationSourcePaths: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<string[]>;
@@ -668,8 +790,8 @@ export declare const sdk: {
     getValidatedOperationPathParse: (filePath: string) => import("index-typescript").CompleteOperationPathParse | undefined;
     hasDefinition: typeof hasDefinition;
     hasTypescriptFileChanged: (eventName: import("watch-types").WatchEventType, path: string) => boolean;
-    indexImportsExportsForFilePath: import("watch-types").ProjectWatcher;
-    indexTypescriptFilePath: import("watch-types").ProjectWatcher;
+    indexImportsExportsForFilePath: import("watch-types").ProjectWatcher<any>;
+    indexTypescriptFilePath: import("watch-types").ProjectWatcher<any>;
     indexTypescriptFile: (project: import("ts-morph").Project, file: import("index-typescript").CompleteOperationPathParse, projectRoot: string) => Promise<void>;
     indexTypescript: (props: {
         showLogging?: boolean | undefined;
@@ -684,13 +806,21 @@ export declare const sdk: {
         rawStatement: string;
         fileContent: string;
     }) => import("model-types").Creation<import("code-types").TsComment>;
-    removeTypescriptIndex: import("watch-types").ProjectWatcher;
+    removeTypescriptIndex: import("watch-types").ProjectWatcher<any>;
     schemaToTsInterface: (filePath: string, typeName: string, schema: import("json-schema").JSONSchema7, morphInterfaceInfo: import("index-typescript").MorphInterfaceInfo | undefined) => Promise<import("model-types").Creation<import("code-types").TsInterface> | undefined>;
     tryCreateSchema: (config: import("ts-json-schema-generator").Config) => {
         schema?: import("json-schema").JSONSchema7 | undefined;
         error?: string | undefined;
     };
     typeToSchema: (type: import("ts-morph").Type<import("@ts-morph/common/lib/typescript").Type>) => import("index-typescript").SimpleJsonSchema | undefined;
+    fetchWithTimeout: (url: string, timeoutMs: number) => Promise<{
+        isSuccessful: boolean;
+        isConnected: boolean;
+        response?: any;
+        message: string;
+    }>;
+    isOnline: () => Promise<boolean>;
+    isSystemBusy: () => Promise<boolean>;
     dev: (manualProjectRoot?: string | undefined) => void;
     determineFileType: (filePath: string) => import("filename-conventions").FileType | null;
     exploreGitRepoFolders: (config: import("k-explore").BaseConfig) => Promise<string[]>;
@@ -713,14 +843,18 @@ export declare const sdk: {
     findFilesRecursively: (config: Omit<import("k-explore").SearchConfig, "basePath"> & {
         basePath: string;
     }) => Promise<import("markdown-types").TextJson[]>;
+    getFolderTypescriptFiles: (folderPath: string, includeStats: boolean) => Promise<import("markdown-types").TextJson[]>;
     pathArrayIsOperation: (pathArray: string[]) => boolean;
     runTestsForOperation: (operationName: string, writeResultsToIndex?: boolean | undefined, manualProjectRoot?: string | undefined) => Promise<boolean | undefined>;
     runTests: (test: import("k-test").Test, operationName?: string | undefined) => Promise<boolean>;
     preIndexLint: ({ operationFolderPath, }: {
         operationFolderPath: string;
     }) => Promise<string[]>;
+    isLocked: (absolutePath: string) => boolean;
+    lock: (aboluteLockableFilePath: string, status?: string | undefined) => Promise<void>;
+    unlock: (absoluteLockedFilePath: string) => Promise<void> | undefined;
     sendMail: (mailData: import("mail").MailDataFromOptional | import("mail").MailDataFromOptional[], isMultiple?: boolean | undefined) => Promise<import("@sendgrid/mail").ClientResponse | undefined>;
-    addDependantCount: (type: "tsFunction" | "tsVariable" | "tsInterface", imports: import("code-types").TsImport[]) => (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable) => Promise<import("markdown-parsings").DependantCountObject>;
+    addDependantCount: (type: "tsFunction" | "tsVariable" | "tsInterface", imports: import("code-types").TsImport[]) => (item: import("code-types").TsFunction | import("code-types").TsInterface | import("code-types").TsVariable) => Promise<import("markdown-parsings").DependantCountObject>;
     bundleFolderWithMarkdown: (outlineTitle: string, markdownStrings: string[], resultFileName?: string | undefined) => Promise<{
         markdownParse: import("markdown-types").MarkdownParse;
         outlineString: string;
@@ -740,7 +874,7 @@ export declare const sdk: {
     createMinimizedSection: (markdown: string | undefined, title: string, expandTitle: string) => import("markdown-types").MarkdownParse | undefined;
     deployToVercel: () => void;
     emailMarkdownParse: () => void;
-    flattenNestedObject: <T_10>(nestedObject: import("recursive-types").NestedObject<T_10>, isLeaf?: ((content: T_10 | import("recursive-types").NestedObject<T_10> | undefined) => boolean) | undefined) => void;
+    flattenNestedObject: <T_11>(nestedObject: import("recursive-types").NestedObject<T_11>, isLeaf?: ((content: T_11 | import("recursive-types").NestedObject<T_11> | undefined) => boolean) | undefined) => void;
     generateStaticSite: ({ projectRelativeMdFilePath, singlePage, }: {
         singlePage?: boolean | undefined;
         projectRelativeMdFilePath?: string | undefined;
@@ -765,7 +899,7 @@ export declare const sdk: {
     getPublicMarkdownNestedPathObject: (absoluteFolderPath: string) => Promise<import("recursive-types").NestedObject<string>>;
     getTitlesRecursively: (chunk: import("markdown-types").MarkdownChunk) => import("markdown-parsings").NestedTitle[];
     getTypeDescriptorRecursive: (schema: import("json-schema").JSONSchema7, isMarkdown: boolean) => string;
-    isConventionFileStatement: (item: import("code-types").TsInterface | import("code-types").TsFunction | import("code-types").TsVariable, conventionFile: "test" | "cli") => boolean;
+    isConventionFileStatement: (item: import("code-types").TsFunction | import("code-types").TsInterface | import("code-types").TsVariable, conventionFile: "test" | "cli") => boolean;
     isUpperCase: (text: string) => boolean;
     makeOutlineMarkdownString: (title: string, urls: import("markdown-parsings").MergedMarkdownOutlineUrl[]) => string;
     makePropertiesTable: (properties: import("code-types").SimplifiedSchemaProperty[] | undefined) => string;
@@ -816,10 +950,6 @@ export declare const sdk: {
     copyStaticAssets: (readerWebPages: import("webpage-types").FileWebPage[], config?: {
         operationName?: string | undefined;
     } | undefined) => Promise<boolean | undefined>;
-    docsGetPages: (basePaths: {
-        projectRelativeBasePath: string;
-        queryPath: string;
-    }[]) => Promise<import("webpage-types").FileWebPage[]>;
     docsGetStaticPaths: (context: import("next-types").GetStaticPathsContext, basePaths: {
         projectRelativeBasePath: string;
         queryPath: string;
@@ -859,20 +989,10 @@ export declare const sdk: {
         previousQueryPath: string | null;
         projectRelativeMarkdownPath: string | null;
     }>;
-    getMarkdownReaderPages: (config: {
-        projectRoot: string;
-        basePaths: string[];
-        queryPathCustomPrefix?: ((basePath?: string | undefined) => string | undefined) | undefined;
-        mapQueryPath?: ((queryPath: string) => string) | undefined;
-    }) => Promise<import("webpage-types").FileWebPage[]>;
     getMarkdownReaderQueryPaths: (config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => Promise<string[] | undefined>;
     getOperationPages: (projectRoot: string, bundleMarkdownReaderConfig?: import("bundle-types").BundleMarkdownReaderConfig | undefined) => Promise<import("webpage-types").FileWebPage[]>;
-    getPublicMarkdownFilePaths: (baseFolderPath: string, includeFoldersWithResults?: boolean | undefined) => Promise<{
-        path: string;
-        isFolder: boolean;
-    }[]>;
     getReaderTodoPages: (projectRoot: string) => Promise<import("webpage-types").FileWebPage[]>;
     markdownReaderGetStaticPaths: import("next-types").GetStaticPaths<import("next-types").ParsedUrlQuery>;
     markdownReaderGetStaticPropsFromPages: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>, fileWebPages: import("webpage-types").WebPage<any>[], webOperationName: string) => Promise<{
@@ -881,14 +1001,10 @@ export declare const sdk: {
     markdownReaderGetStaticProps: (context: import("next-types").GetStaticPropsContext<import("next-types").ParsedUrlQuery, import("next-types").PreviewData>) => Promise<{
         props: import("markdown-reader-types").MarkdownReaderPageProps;
     }>;
-    putReadmeOnTop: <T_11 extends {
+    putReadmeOnTop: <T_12 extends {
         path: string;
         isFolder: boolean;
-    }>(items: T_11[]) => T_11[];
-    removeExtensionsFromPath: (relativePath: string) => string;
-    removeNumberPrefix: (fileOrFolderName: string) => string;
-    shouldExposeMarkdownFile: (parameters: import("matter-types").Frontmatter) => boolean;
-    stripReadmeFromFolder: (filePath: string) => string;
+    }>(items: T_12[]) => T_12[];
     getQueryPath: (parsedUrlQuery: import("next-types").ParsedUrlQuery | undefined) => string;
     minifyBuild: ({ operationName, buildFolderPath, }: {
         operationName?: string | undefined;
@@ -946,7 +1062,7 @@ export declare const sdk: {
         currentPersonId?: string | undefined;
         currentPersonCalculated?: import("peer-types").Person | undefined;
         authenticationMethods: import("peer-types").AuthenticationMethod[];
-        categoryStackCalculated?: import("model-types").CategoryStack | undefined;
+        categoryStack?: import("model-types").CategoryStack | undefined;
         id: string;
         operationName: string | null;
         projectRelativePath: string;
@@ -956,12 +1072,12 @@ export declare const sdk: {
         deletedAt: number;
         createdFirstAt: number;
         ip: string;
-        city: string | undefined;
-        position: import("geo-types").Position | undefined;
-        positionRadiusKm: number | undefined;
-        country: string | undefined;
-        region: string | undefined;
-        timezone: string | undefined;
+        city?: string | undefined;
+        position?: import("geo-types").Position | undefined;
+        positionRadiusKm?: number | undefined;
+        country?: string | undefined;
+        region?: string | undefined;
+        timezone?: string | undefined;
     }>;
     getAllAppOperations: () => Promise<import("peer-types").AppOperation[]>;
     getAugmentedPersons: (devices: import("peer-types").Device[], config?: {
@@ -987,7 +1103,7 @@ export declare const sdk: {
     lateFetchPeerMessageSync: () => Promise<{
         newMessagesAmount: number;
     }>;
-    ping: import("function-server-types").ApiFunction;
+    ping: import("code-types").ApiFunction;
     proactivePushAddPeerMessage: (message: string, peerSlug: string) => Promise<boolean>;
     removePeer: (id: string) => Promise<import("fs-orm").DbQueryResult>;
     sortDevices: (a: import("peer-types").Device, b: import("peer-types").Device) => 1 | -1;
@@ -1046,11 +1162,11 @@ export declare const sdk: {
         error?: Error | undefined;
         proc?: import("pm2").Proc | undefined;
     }>;
-    readCsvFileSync: <T_12 extends import("csv-util").CsvItemType>(filePath: string) => T_12[] | null;
-    readCsvFile: <T_13 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_13[] | null>;
-    readJsonFileSync: <T_14>(filePath: string) => T_14 | null;
-    readJsonFile: <T_15>(filePath: string | undefined) => Promise<T_15 | null>;
-    readProjectRelativeJsonFile: <T_16>(projectRelativePath: string) => Promise<T_16 | null>;
+    readCsvFileSync: <T_13 extends import("csv-util").CsvItemType>(filePath: string) => T_13[] | null;
+    readCsvFile: <T_14 extends import("csv-util").CsvItemType>(filePath: string | undefined) => Promise<T_14[] | null>;
+    readJsonFileSync: <T_15>(filePath: string) => T_15 | null;
+    readJsonFile: <T_16>(filePath: string | undefined) => Promise<T_16 | null>;
+    readProjectRelativeJsonFile: <T_17>(projectRelativePath: string) => Promise<T_17 | null>;
     readKvmdFile: (filePath: string, dbFileLocation: import("model-types").DbFileLocation) => Promise<import("model-types").KeyValueMarkdownParse | null>;
     readMarkdownFileToModel: (absoluteFilePath: string, webOperationName: string, markdownCallToActions: import("markdown-types").MarkdownCallToAction[]) => Promise<import("markdown-types").WebMarkdownFile | null>;
     readMarkdownFile: (filePath: string) => Promise<import("markdown-types").MarkdownParse | null>;
@@ -1140,8 +1256,8 @@ export declare const sdk: {
         persons?: import("peer-types").Person[] | undefined;
         message: string;
     }>;
-    getMeWithContext: import("function-server-types").ApiFunction;
-    getPublicPerson: import("function-server-types").ApiFunction;
+    getMeWithContext: import("code-types").ApiFunction;
+    getPublicPerson: import("code-types").ApiFunction;
     getPublicPersons: () => Promise<import("peer-types").PublicPerson[]>;
     isPhoneNumber: (phoneNumber: string) => boolean;
     isValidPassword: (password: string) => boolean;
@@ -1149,7 +1265,7 @@ export declare const sdk: {
         isSuccessful: boolean;
         message: string;
     }>;
-    loginWithPasswordWithContext: import("function-server-types").ApiFunction;
+    loginWithPasswordWithContext: import("code-types").ApiFunction;
     logoutWithContext: (functionContext: import("function-context-type").FunctionContext, rememberAuthentication?: boolean | undefined) => Promise<{
         isSuccessful: boolean;
         message: string;
@@ -1166,7 +1282,7 @@ export declare const sdk: {
         isSuccessful: boolean;
         message: string;
     }>;
-    signupWithPasswordWithContext: import("function-server-types").ApiFunction;
+    signupWithPasswordWithContext: import("code-types").ApiFunction;
     switchCurrentPersonWithContext: (functionContext: import("function-context-type").FunctionContext, newCurentPersonId: string) => Promise<{
         isSuccessful: boolean;
         message: string;
@@ -1200,7 +1316,13 @@ export declare const sdk: {
         voice: string | undefined;
         sentence: string;
     }[]>;
+    sendDailyAlarmSms: () => Promise<void>;
     sendSms: (options: import("twilio/lib/rest/api/v2010/account/message").MessageListInstanceCreateOptions) => Promise<import("twilio/lib/rest/api/v2010/account/message").MessageInstance | undefined>;
+    time: () => {
+        timeString: string;
+        myTimeDate: Date;
+        myTimeMs: number;
+    };
     getAllTsMorphSourceFiles: (operationBasePath: string) => Promise<import("ts-morph").SourceFile[] | undefined>;
     getHasGeneric: (type: import("ts-morph").TypeAliasDeclaration | import("ts-morph").InterfaceDeclaration) => boolean;
     getTsMorphProject: (operationFolderPath: string) => import("ts-morph").Project | undefined;
@@ -1269,7 +1391,7 @@ export declare const sdk: {
         isSuccessful: boolean;
         message?: string | undefined;
     }>;
-    getFileContents: (projectRelativeFilePath: string) => Promise<{
+    getFileContents: (projectRelativeFilePath?: string | undefined) => Promise<{
         isSuccessful: boolean;
         message?: string | undefined;
         fileContents?: string | undefined;
@@ -1354,6 +1476,7 @@ export declare const sdk: {
     capitalCase: (text: string) => string;
     capitaliseFirstLetter: (word: string) => string;
     convertCase: (text: string, target: import("convert-case").Casing) => string;
+    fileSlugify: typeof fileSlugify;
     getDelimiter: (target: import("convert-case").Casing) => "" | "_" | " " | "-";
     humanCase: (text: string) => string;
     kebabCase: (text: string) => string;
@@ -1433,7 +1556,8 @@ export declare const sdk: {
         removed: boolean;
     }[]>;
     renameAndCreate: (oldPath: string, newPath: string) => Promise<void>;
-    writeJsonToFile: <T_17>(p: string, data: T_17) => Promise<boolean>;
+    updateSingleNestedJsonFile: <T_18 extends import("js-util").O>(path: string, partialNewObject: import("js-util").NestedPartial<T_18>) => Promise<boolean>;
+    writeJsonToFile: <T_19>(p: string, data: T_19) => Promise<boolean>;
     writeStringToFile: (p: string, data: string) => Promise<boolean>;
     writeToFiles: (fileObject: {
         [absoluteFilePath: string]: any;
@@ -1449,9 +1573,9 @@ export declare const sdk: {
         };
     } | undefined>;
     getSdkFunctionPaths: () => Promise<false | import("function-util").FnMatch[]>;
-    findFolderWhereMatch: <T_18>(fullSourcePath: string, matchFunction: (folderPath: string) => T_18) => {
+    findFolderWhereMatch: <T_20>(fullSourcePath: string, matchFunction: (folderPath: string) => T_20) => {
         folderPath: string;
-        matchResult: T_18;
+        matchResult: T_20;
     } | undefined;
     findOperationBasePathWithClassification: (startPath: string) => {
         folderPath: string;
@@ -1475,10 +1599,11 @@ export declare const sdk: {
     getProjectRoot: (fullSourcePath?: string | undefined) => string | undefined;
     getRelativeLinkPath: (absoluteFromFilePath: string, absoluteToFilePath: string, debug?: boolean | undefined) => string;
     getRelativePath: (absolutePath: string, relativeFrom: "project-root") => string | undefined;
-    getRootPath: (name?: "text" | "operations" | "assets" | "backups" | "bundled" | "cloned" | "distributions" | "db" | undefined, config?: {
+    getRootPath: (name?: "text" | "operations" | "assets" | "backups" | "bundled" | "cloned" | "distributions" | "knowledge" | "db" | undefined, config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => string | undefined;
     getSrcRelativeFileId: (operationRelativePath: string) => string;
+    getSubExtensions: (absolutePath: string) => string[];
     hasDependency: (operation: import("code-types").Operation, dependency: string) => boolean;
     isBundle: (folderPath?: string | undefined) => boolean;
     isOperation: (absoluteFolderPath: string) => boolean;
@@ -1490,55 +1615,55 @@ export declare const sdk: {
     packageCompilesTs: (packageJson: import("code-types").Operation | null) => boolean;
     tsconfigCompilesEsm: (tsconfig: import("code-types").TsConfig) => boolean;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
-    apply: <T_19>(functions: ((input: T_19) => T_19)[], value: T_19) => T_19;
-    createEnum: <T_20 extends readonly string[]>(array: T_20) => { [K in T_20[number]]: K; };
-    createMappedObject: <T_21 extends {
+    apply: <T_21>(functions: ((input: T_21) => T_21)[], value: T_21) => T_21;
+    createEnum: <T_22 extends readonly string[]>(array: T_22) => { [K in T_22[number]]: K; };
+    createMappedObject: <T_23 extends {
         [key: string]: any;
-    }, U = T_21>(array: T_21[], mapKey: keyof T_21, mapFn?: ((value: T_21, array: T_21[]) => U) | undefined) => import("js-util").MappedObject<U>;
-    destructureOptionalObject: <T_22 extends {
+    }, U = T_23>(array: T_23[], mapKey: keyof T_23, mapFn?: ((value: T_23, array: T_23[]) => U) | undefined) => import("js-util").MappedObject<U>;
+    destructureOptionalObject: <T_24 extends {
         [key: string]: any;
-    }>(object: T_22 | null | undefined) => Partial<T_22>;
-    findLastIndex: <T_23>(array: T_23[], findFn: (item: T_23) => boolean) => number | undefined;
+    }>(object: T_24 | null | undefined) => Partial<T_24>;
+    findLastIndex: <T_25>(array: T_25[], findFn: (item: T_25) => boolean) => number | undefined;
     getObjectFromParamsString: (paramsString: string) => {
         [x: string]: string;
     };
     getObjectKeysArray: <TObject extends {
         [key: string]: any;
     }>(object: TObject) => Extract<keyof TObject, string>[];
-    getParameterAtLocation: <T_24 = any>(object: {
+    getParameterAtLocation: <T_26 = any>(object: {
         [key: string]: any;
-    }, location: string[]) => T_24;
-    getSubsetFromObject: <T_25, K_1 extends readonly (keyof T_25)[]>(object: T_25, keys: K_1) => Pick<T_25, K_1[number]>;
-    groupByKey: <T_26 extends {
+    }, location: string[]) => T_26;
+    getSubsetFromObject: <T_27, K_1 extends readonly (keyof T_27)[]>(object: T_27, keys: K_1) => Pick<T_27, K_1[number]>;
+    groupByKey: <T_28 extends {
         [key: string]: any;
-    }>(array: T_26[], key: keyof T_26) => {
-        [key: string]: T_26[];
+    }>(array: T_28[], key: keyof T_28) => {
+        [key: string]: T_28[];
     };
     hasAllLetters: (a: string, b: string) => boolean;
-    insertAt: <T_27>(array: T_27[], items: T_27 | T_27[], beforeIndex: number) => T_27[];
+    insertAt: <T_29>(array: T_29[], items: T_29 | T_29[], beforeIndex: number) => T_29[];
     isAllTrue: (array: boolean[]) => boolean;
     isArrayEqual: (a: any[], b: any[]) => boolean;
-    makeArray: <T_28>(...arrayOrNotArray: (T_28 | T_28[] | undefined)[]) => T_28[];
-    mapAsync: <T_29, U_1>(array: T_29[], callback: (value: T_29, index: number, array: T_29[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
+    makeArray: <T_30>(...arrayOrNotArray: (T_30 | T_30[] | undefined)[]) => T_30[];
+    mapAsync: <T_31, U_1>(array: T_31[], callback: (value: T_31, index: number, array: T_31[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
     mapKeys: (object: {
         [key: string]: any;
     }, mapFn: (key: string) => string | Promise<string> | undefined) => Promise<{
         [x: string]: any;
     }>;
-    mapMany: <T_30, U_2>(array: T_30[], mapFn: (item: T_30, index: number, array: T_30[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
-    mapValuesSync: <T_31, U_3>(object: {
-        [key: string]: T_31;
-    }, mapFn: (value: T_31) => U_3) => {
+    mapMany: <T_32, U_2>(array: T_32[], mapFn: (item: T_32, index: number, array: T_32[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
+    mapValuesSync: <T_33, U_3>(object: {
+        [key: string]: T_33;
+    }, mapFn: (value: T_33) => U_3) => {
         [x: string]: U_3;
     };
-    mergeNestedObject: <T_32 extends import("js-util").O>(object: T_32, otherObject: import("js-util").NestedPartial<T_32> | undefined) => T_32;
-    mergeObjectParameters: <T_33>(config: T_33 | undefined, defaults: T_33 | undefined) => Partial<T_33>;
-    mergeObjectsArray: <T_34 extends {
+    mergeNestedObject: <T_34 extends import("js-util").O>(object: T_34, otherObject: import("js-util").NestedPartial<T_34> | undefined) => T_34;
+    mergeObjectParameters: <T_35>(config: T_35 | undefined, defaults: T_35 | undefined) => Partial<T_35>;
+    mergeObjectsArray: <T_36 extends {
         [key: string]: any;
-    }>(objectsArray: T_34[]) => T_34;
-    mergeObjects: <T_35 extends {
+    }>(objectsArray: T_36[]) => T_36;
+    mergeObjects: <T_37 extends {
         [key: string]: any;
-    }>(...objects: (Partial<T_35> | undefined)[]) => T_35 | undefined;
+    }>(...objects: (Partial<T_37> | undefined)[]) => T_37 | undefined;
     noEmptyString: (input: string | undefined) => string | undefined;
     notEmpty: typeof notEmpty;
     objectMapAsync: <TObject_1 extends {
@@ -1547,44 +1672,45 @@ export declare const sdk: {
     objectMapSync: <TObject_2 extends {
         [key: string]: any;
     }, TMapResult, TResultObject_1 extends { [key_1 in keyof TObject_2]: TMapResult; }>(object: TObject_2, mapFn: (key: keyof TObject_2, value: TObject_2[keyof TObject_2]) => TMapResult) => TResultObject_1;
-    objectValuesMap: <T_36 extends {
-        [key: string]: T_36[string];
-    }, U_4 extends unknown>(object: T_36, mapFn: (key: string, value: T_36[string]) => U_4) => {
+    objectValuesMap: <T_38 extends {
+        [key: string]: T_38[string];
+    }, U_4 extends unknown>(object: T_38, mapFn: (key: string, value: T_38[string]) => U_4) => {
         [key: string]: U_4;
     };
-    omitUndefinedValues: <T_37 extends {
+    omitUndefinedValues: <T_39 extends {
         [key: string]: any;
-    }>(object: T_37) => T_37;
-    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_38 extends U_5>(value: T_38, index: number, self: T_38[]) => boolean;
+    }>(object: T_39) => T_39;
+    onlyDuplicates: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_40 extends U_5>(value: T_40, index: number, self: T_40[]) => boolean;
+    onlyUnique2: <U_6>(isEqualFn?: ((a: U_6, b: U_6) => boolean) | undefined) => <T_41 extends U_6>(value: T_41, index: number, self: T_41[]) => boolean;
     onlyUnique: typeof onlyUnique;
-    pickRandomArrayItem: <T_39>(array: T_39[]) => T_39;
-    putIndexAtIndex: <T_40>(array: T_40[], index: number, toIndex: number) => T_40[];
-    removeIndexFromArray: <T_41>(array: T_41[], index: number) => T_41[];
+    pickRandomArrayItem: <T_42>(array: T_42[]) => T_42;
+    putIndexAtIndex: <T_43>(array: T_43[], index: number, toIndex: number) => T_43[];
+    removeIndexFromArray: <T_44>(array: T_44[], index: number) => T_44[];
     removeOptionalKeysFromObjectStrings: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: string[]) => TObject_3;
     removeOptionalKeysFromObject: <TObject_4 extends import("js-util").O>(object: TObject_4, keys: Exclude<Extract<keyof TObject_4, string>, Exclude<import("js-util").KeysOfType<TObject_4, Exclude<TObject_4[keyof TObject_4], undefined>>, undefined>>[]) => TObject_4;
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
-    sumAllKeys: <T_42 extends {
+    sumAllKeys: <T_45 extends {
         [key: string]: number | undefined;
-    }>(objectArray: T_42[], keys: (keyof T_42)[]) => T_42;
+    }>(objectArray: T_45[], keys: (keyof T_45)[]) => T_45;
     sumObjectParameters: <TObject_5 extends {
         [key: string]: number;
     }>(object1: TObject_5, object2: TObject_5) => TObject_5;
     sum: (items: number[]) => number;
-    takeFirst: <T_43>(arrayOrNot: T_43 | T_43[]) => T_43;
+    takeFirst: <T_46>(arrayOrNot: T_46 | T_46[]) => T_46;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
     flattenMarkdownChunks: (markdownChunks: import("markdown-types").MarkdownChunk[]) => import("markdown-types").MarkdownParagraph[];
     getKvmdItemsRecursively: (chunk: import("markdown-types").MarkdownChunk, categoryStackUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
     getParagraphsRecursively: (chunk: import("markdown-types").MarkdownChunk, categoryStackUntilNow?: import("model-types").CategoryStack | undefined) => import("markdown-types").MarkdownParagraph[];
-    kvmdDataMap: <T_44 extends {
+    kvmdDataMap: <T_47 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackName, commentName, }: {
         keyName?: string | undefined;
         valueName?: string | undefined;
         commentName?: string | undefined;
         categoryStackName?: string | undefined;
-    }) => T_44[];
+    }) => T_47[];
     kvmdDataToString: (kvmdData: import("model-types").KeyValueMarkdownModelType, previous: import("model-types").KeyValueMarkdownModelType | undefined) => string;
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
@@ -1620,6 +1746,7 @@ export declare const sdk: {
     markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
     parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
     tryParseDate: (dateString: string) => number | undefined;
+    findCodeblocks: (markdownString: string) => string[];
     findCodespans: (markdownString: string) => string[];
     findEmbeds: (markdownString: string) => import("markdown-types").MarkdownEmbed[];
     findLinks: (markdownString: string) => import("markdown-types").MarkdownLink[];
@@ -1643,7 +1770,7 @@ export declare const sdk: {
         lastChunk: string | undefined;
         fullPath: string;
     };
-    oneByOne: <T_45, U_6>(array: T_45[], callback: (instance: T_45, index: number) => Promise<U_6>) => Promise<U_6[]>;
+    oneByOne: <T_48, U_7>(array: T_48[], callback: (instance: T_48, index: number) => Promise<U_7>) => Promise<U_7[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
         operationDependencies: string[];
@@ -1692,6 +1819,7 @@ export declare const sdk: {
     }) => Promise<boolean>;
     getBrowserPageById: (browser: import("puppeteer").Browser, pageId: string) => Promise<import("puppeteer").Page | undefined>;
     getBrowserTabs: (browserInfo: import("browser-types").BrowserSession) => Promise<import("puppeteer-core").Page[]>;
+    getBrowser: () => unknown;
     getChromeExecutablePath: () => "/usr/bin/google-chrome-stable" | "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
     getConnectedBrowsers: () => Promise<import("browser-types").BrowserSession[]>;
     getIdlePage: (browser: import("puppeteer").Browser) => Promise<import("puppeteer").Page | undefined>;
@@ -1728,6 +1856,7 @@ export declare const sdk: {
         found?: any;
     }>;
     setBrowserPageIdle: (pageId: string, status: boolean) => Promise<void>;
+    setBrowserSession: (browser: import("puppeteer").Browser) => void;
     setInnerHtml: (props: {
         page: import("puppeteer-core").Page;
         selector: string;
@@ -1746,13 +1875,12 @@ export declare const sdk: {
         success: boolean;
     }>;
     twitterLogin: (props: {
-        page: import("puppeteer-core").Page;
-        email: string;
-        phoneNo: string;
+        page: import("puppeteer").Page;
         password: string;
+        username: string;
     }) => Promise<void>;
     typeInTheInputField: (props: {
-        page: import("puppeteer-core").Page;
+        page: import("puppeteer").Page;
         selector: string;
         value: string;
     }) => Promise<void>;
@@ -1762,24 +1890,24 @@ export declare const sdk: {
         text: string;
     }) => Promise<void>;
     waitMilliseconds: (milliseconds: number) => Promise<unknown>;
-    getKeysAtPathFromNestedObject: <T_46 extends {
+    getKeysAtPathFromNestedObject: <T_49 extends {
         [key: string]: any;
-    }>(nestedObject: T_46, objectPath: string) => string[];
-    getMenuPagesObject: <T_47>(flat: import("webpage-types").WebPage<T_47>[]) => import("webpage-types").MenuObjectType<T_47>;
-    makeNestedObjectFromQueryPathObject: <T_48 extends import("recursive-util").QueryPathObject>(objectArray: T_48[], initialValue: import("recursive-types").NestedObject<T_48>) => import("recursive-types").NestedObject<T_48>;
-    mapChildObjectRecursive: <T_49 extends {
+    }>(nestedObject: T_49, objectPath: string) => string[];
+    getMenuPagesObject: <T_50>(flat: import("webpage-types").WebPage<T_50>[]) => import("webpage-types").MenuObjectType<T_50>;
+    makeNestedObjectFromQueryPathObject: <T_51 extends import("recursive-util").QueryPathObject>(objectArray: T_51[], initialValue: import("recursive-types").NestedObject<T_51>) => import("recursive-types").NestedObject<T_51>;
+    mapChildObjectRecursive: <T_52 extends {
         [key: string]: any;
-    }, U_7 extends {
+    }, U_8 extends {
         [key: string]: any;
-    }>(childObject: import("recursive-types").ChildObject<T_49>, mapFunction: (item: import("recursive-types").ChildObject<T_49>) => U_7) => import("recursive-types").ChildObject<U_7>;
-    nestedObjectToChildObject: <T_50 extends {
+    }>(childObject: import("recursive-types").ChildObject<T_52>, mapFunction: (item: import("recursive-types").ChildObject<T_52>) => U_8) => import("recursive-types").ChildObject<U_8>;
+    nestedObjectToChildObject: <T_53 extends {
         [key: string]: any;
-    }>(nestedObject: import("recursive-types").NestedObject<T_50>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_50>, key: string) => T_50, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_50>[];
+    }>(nestedObject: import("recursive-types").NestedObject<T_53>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_53>, key: string) => T_53, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_53>[];
     nestedPathObjectToNestedMenuRecursive: (nestedPathObject: import("recursive-types").NestedPathObject | null, pathStack?: string[] | undefined, config?: {
         target?: "_blank" | undefined;
         getHref?: ((fullPath: string) => string) | undefined;
     } | undefined) => import("nested-menu-types").MenuItemType[] | undefined;
-    nestifyQueryPathObjectRecursive: <T_51 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_51[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_51>[];
+    nestifyQueryPathObjectRecursive: <T_54 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_54[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_54>[];
     queryPathsArrayToNestedPathObject: (queryPaths: string[]) => import("recursive-types").NestedPathObject;
     reduceQueryPathsRecursively: (queryPaths: string[], initialValue: import("recursive-types").NestedPathObject) => import("recursive-types").NestedPathObject;
     bodyFromQueryString: (query?: string | undefined) => import("rest-util").QueryableObject | undefined;
@@ -1806,10 +1934,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_52>(searchMessage: string, array: T_52[], getSentence?: ((x: T_52) => string) | undefined) => T_52[];
-    searchRecursiveObjectArray: <T_53 extends {
-        children?: T_53[] | undefined;
-    } & Object>(array: T_53[], baseMatcher: (item: T_53) => boolean, afterMapper?: ((item: T_53, isMatch: boolean, hasChildMatch: boolean) => T_53) | undefined) => T_53[];
+    findSentenceMatches: <T_55>(searchMessage: string, array: T_55[], getSentence?: ((x: T_55) => string) | undefined) => T_55[];
+    searchRecursiveObjectArray: <T_56 extends {
+        children?: T_56[] | undefined;
+    } & Object>(array: T_56[], baseMatcher: (item: T_56) => boolean, afterMapper?: ((item: T_56, isMatch: boolean, hasChildMatch: boolean) => T_56) | undefined) => T_56[];
     objectStringToJson: (string: string) => {
         [key: string]: import("string-to-json").JSONValue;
     };
@@ -1823,9 +1951,9 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_54>(text: string, logParseError?: boolean | undefined) => T_54 | null;
+    tryParseJson: <T_57>(text: string, logParseError?: boolean | undefined) => T_57 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_55 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_55, (newValue: T_55 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_58 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_58, (newValue: T_58 | undefined) => Promise<boolean>];
     crudPageToWebPages: (pageData: import("webpage-types").CrudPage) => import("webpage-types").WebPage<import("webpage-types").CrudPage>[];
     functionFormPageToWebPage: (pageData: import("webpage-types").FunctionFormPage) => import("webpage-types").WebPage<import("webpage-types").FunctionFormPage>;
 };

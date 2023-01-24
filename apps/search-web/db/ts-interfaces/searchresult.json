@@ -1,15 +1,15 @@
 {
-  "createdAt": 1670527616430,
-  "updatedAt": 1670527616430,
+  "createdAt": 1674542361135,
+  "updatedAt": 1674542361135,
   "deletedAt": 0,
-  "createdFirstAt": 1670527616430,
+  "createdFirstAt": 1674542361135,
   "id": "searchresult",
   "name": "SearchResult",
   "slug": "searchresult",
   "operationRelativeTypescriptFilePath": "src/util/types.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type SearchResult = {};",
+  "rawText": "\n\nexport type SearchResult = {\n  title: string;\n  description?: string;\n  url: string;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -18,10 +18,47 @@
   "type": {
     "typeDefinition": {
       "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "url"
+      ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
-      "properties": [],
+      "properties": [
+        {
+          "name": "title",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "description",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "url",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
       "type": "object"
     },
     "typeCoverage": 0,

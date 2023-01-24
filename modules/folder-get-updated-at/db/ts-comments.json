@@ -1,18 +1,18 @@
 [
   {
-    "createdAt": 1668331773857,
-    "updatedAt": 1668331773857,
+    "createdAt": 1672636521387,
+    "updatedAt": 1672636521387,
     "deletedAt": 0,
-    "createdFirstAt": 1668331773857,
+    "createdFirstAt": 1672636521387,
     "name": "Comment",
     "slug": "comment",
     "operationRelativeTypescriptFilePath": "src/folderGetUpdatedAt.ts",
-    "comment": "get last updated file updatedAt time in whole folder, recursively",
-    "rawStatement": "export const folderGetUpdatedAt = async ({\n  folderPath,\n}: {\n  folderPath: string;\n}): Promise<number> => {\n  return (\n    await explore({\n      basePath: folderPath,\n      includeStats: true,\n      extension: [\"ts\", \"tsx\"],\n      ignore: \"index.ts\",\n    })\n  ).reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.updatedAt;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n};",
+    "comment": "get last updated file updatedAt time in whole folder, recursively. only finds typescript files, ignores index.",
+    "rawStatement": "export const folderGetUpdatedAt = async (config: {\n  folderPath: string;\n}): Promise<number> => {\n  const { folderPath } = config;\n  const typescriptFiles = await getFolderTypescriptFiles(folderPath, true);\n  return typescriptFiles.reduce((updatedAt, file) => {\n    const fileUpdatedAt = file.stats?.updatedAt;\n    if (!fileUpdatedAt) return updatedAt;\n    if (fileUpdatedAt > updatedAt) return fileUpdatedAt;\n    return updatedAt;\n  }, 0);\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 3,
-    "lastLine": 5,
-    "id": "krqbhtmltnmvtcyumsgpmayl"
+    "firstLine": 2,
+    "lastLine": 4,
+    "id": "yucatcurbjifyfhwhezubjiy"
   }
 ]

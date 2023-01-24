@@ -1,15 +1,15 @@
 {
-  "createdAt": 1670064009606,
-  "updatedAt": 1670064009606,
+  "createdAt": 1673862984915,
+  "updatedAt": 1673862984915,
   "deletedAt": 0,
-  "createdFirstAt": 1670064009606,
+  "createdFirstAt": 1673862984915,
   "id": "operation",
   "name": "Operation",
   "slug": "operation",
   "operationRelativeTypescriptFilePath": "src/Operation.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n/**\n * ---\n * dbStorageMethod: jsonSingle\n * operationRelativePath: package.json\n * ---\n *\n * Model for `typerepo` operations. Stored in `package.json` in every package (compatible with regular npm package.json data structure). An `Operation` is a NPM Package that applies the `typerepo` convention.\n *\n * TODO: add a validation to package.json files for the whole project, to ensure i can apply `fs-orm` convention\n */\nexport interface Operation extends SlugModelType {\n  // Default keys\n  path?: string;\n  name: string;\n  main?: string;\n  source?: string;\n\n  contributors?: ContributorPersonInfo[];\n\n  /**\n   * one-line description of the operation\n   */\n  description?: string;\n  version?: string;\n  private?: boolean;\n  author?: string | { [key: string]: string };\n  /**\n   * NB: this data becomes public, even for private repositories. If you don't want this, you're out of luck.\n   */\n  repository?: string | OperationRepositoryInfo;\n  homepage?: string;\n  dependencies?: PackageInfoObject;\n  devDependencies?: PackageInfoObject;\n  peerDependencies?: PackageInfoObject;\n  bin?: { [key: string]: string };\n  workspaces?: string[];\n  scripts?: { [commandName: string]: string };\n  /** custom keys, both indexed and generated */\n  operation?: {\n    /**\n     * Can be set in case this is a ui-web operation\n     */\n    port?: number;\n\n    /**\n     * Who is responsible for this operation?\n     */\n    codeOwner_personId?: Id;\n\n    /**\n     * Set to true if this operations serves a server. Will be omitted from api.\n     */\n    isNodeServer?: boolean;\n    /**\n     * Set to true if this package.json is your bundle. This means almost all other config doesn't apply.\n     *\n     * replaces `isSensibleProject`.\n     *\n     * TODO: Might be interesting to see what the differences between the two are, and if it is truly needed to create a convention for this. The bundle folder structure convention is is the more conventional way of structuring a monorepo, but I doubt the if it really benefits me, especially if I have to maintain two conventions for this, and do different things based on the type of applied convention.\n     */\n    isBundle?: boolean;\n    /**\n     * Indexed from OPERATION.md, don't edit this if you already have an OPERATION.md! If you don't, you can use this property to change the long-form operation description.\n     *\n     * Motivation to have both: it's annoying to write markdown inside of JSON in VSCode...\n     */\n    markdown?: Markdown;\n\n    /**\n     * If true, it means that this operation has dependency on one or more operations that have been generated at runtime. We need to know this because it can easily cause circular imports if we don't filter them out sometimes\n     */\n    hasGeneratedDependenciesIndexed?: boolean;\n\n    buildResultIndexed?: {\n      buildSucceeded?: boolean;\n      dependenciesBuildsFailed?: boolean;\n      indexImportExportError?: string;\n      lintProblems?: string[];\n      indexInteracesErrors?: string[];\n      indexErrors?: string[];\n    };\n\n    lastRebuildAt?: number;\n\n    sizeIndexed?: FolderSummary;\n\n    /**\n     * name of the operation folder\n     */\n    folderNameIndexed?: string;\n\n    /**\n     * relative path to the operation (does not include operation folder itself)\n     *\n     * relative from project root\n     */\n    relativeOperationLocationPathIndexed?: string;\n    classificationIndexed?: OperationClassification;\n\n    /**\n     * external package dependency names (non-operation)\n     *\n     * TODO: this are imported names, not the module names.... rename this and add them both under clear names\n     */\n    packageDependenciesIndexed?: string[];\n    /**\n     * operation dependency names\n     */\n    operationDependenciesIndexed?: string[];\n    /**\n     * core dependencies (e.g. `path` and `fs`)\n     */\n    coreDependenciesIndexed?: string[];\n\n    // Configurable stuff:\n\n    /**\n     *\n     *\n     * Sometimes you are using function in a UI, which cannot be inferred with imports because they are used indirectly via an api. Here you can specify which operations on the backend are needed for an operation (ui mostly)\n     *\n     * This array is simply a list of operation names needed for this operation that are not imported.\n     *\n     * NB: No need to specify things here that you also import in this operation, because these are already automatically detected.\n     */\n    indirectDependencies?: string[];\n\n    /**\n     * IDEA: this could be super useful for generating the permissions! if you simply fill this in (or can we even find all object access automatically? that would be sick, i've seen people do it before...) then we can say something like this:\n     *\n     * all functions in this UI require permission \"xyz\"\n     *\n     * this is an interesting idea because setting permissions is kindof annoying...\n     *\n     * But I guess it's not that bad to also hardcode the authorised groups on top of a function , so this is probably not needed... in the end, you still need to define this, it's just as annoying...\n     * \n     * \n     indirectFunctions?: string[];\n     */\n\n    /**\n     * A list of authors\n     *\n     * Should be used to create bundle AUTHORS.md\n     */\n    authors?: string[];\n\n    /**\n     * A list of contributors\n     *\n     * Can be used to create bundle CONTRIBUTORS.md\n     */\n    contributors?: string[];\n\n    /**\n     * TODO:\n     */\n    paymentPlanId?: string;\n\n    /**\n     * For ui-*, it should be noted which platforms are supported\n     *\n     * Can be used to generate nice component in the documentation\n     */\n    uiSupport?: {\n      android?: boolean;\n      ios?: boolean;\n      web?: boolean;\n      /**\n       * optionally, let others know why they are not supported yet or what good alternatives are in case they are not supported in certain platforms\n       */\n      description?: string;\n    };\n\n    /**\n     * put on to true if minify doesn't work, so it will be skipped by `rebuildOperation`\n     */\n    skipMinify?: boolean;\n\n    /**\n     * If set to true, this operation will not be included into the SDKs\n     *\n     * Configurable\n     */\n    isNotSdkable?: boolean;\n  };\n}",
+  "rawText": "\n/**\n * ---\n * dbStorageMethod: jsonSingle\n * operationRelativePath: package.json\n * ---\n *\n * Model for `typerepo` operations. Stored in `package.json` in every package (compatible with regular npm package.json data structure). An `Operation` is a NPM Package that applies the `typerepo` convention.\n *\n * TODO: add a validation to package.json files for the whole project, to ensure i can apply `fs-orm` convention\n */\nexport interface Operation extends SlugModelType {\n  // Default keys\n  path?: string;\n  name: string;\n  main?: string;\n  source?: string;\n\n  contributors?: ContributorPersonInfo[];\n\n  /**\n   * one-line description of the operation\n   */\n  description?: string;\n  version?: string;\n  private?: boolean;\n  author?: string | { [key: string]: string };\n  /**\n   * NB: this data becomes public, even for private repositories. If you don't want this, you're out of luck.\n   */\n  repository?: string | OperationRepositoryInfo;\n  homepage?: string;\n  dependencies?: PackageInfoObject;\n  devDependencies?: PackageInfoObject;\n  peerDependencies?: PackageInfoObject;\n  bin?: { [key: string]: string };\n  workspaces?: string[];\n  scripts?: { [commandName: string]: string };\n  /** custom keys, both indexed and generated */\n  operation?: {\n    /**\n     * Indexed circular dependencies found\n     */\n    circularDependencies?: string[][];\n    /**\n     * Can be set in case this is a ui-web operation\n     */\n    port?: number;\n\n    /**\n     * Who is responsible for this operation?\n     */\n    codeOwner_personId?: Id;\n\n    /**\n     * Set to true if this operations serves a server. Will be omitted from api.\n     */\n    isNodeServer?: boolean;\n    /**\n     * Set to true if this package.json is your bundle. This means almost all other config doesn't apply.\n     *\n     * replaces `isSensibleProject`.\n     *\n     * TODO: Might be interesting to see what the differences between the two are, and if it is truly needed to create a convention for this. The bundle folder structure convention is is the more conventional way of structuring a monorepo, but I doubt the if it really benefits me, especially if I have to maintain two conventions for this, and do different things based on the type of applied convention.\n     */\n    isBundle?: boolean;\n    /**\n     * Indexed from OPERATION.md, don't edit this if you already have an OPERATION.md! If you don't, you can use this property to change the long-form operation description.\n     *\n     * Motivation to have both: it's annoying to write markdown inside of JSON in VSCode...\n     */\n    markdown?: Markdown;\n\n    /**\n     * If true, it means that this operation has dependency on one or more operations that have been generated at runtime. We need to know this because it can easily cause circular imports if we don't filter them out sometimes\n     */\n    hasGeneratedDependenciesIndexed?: boolean;\n\n    buildResultIndexed?: {\n      buildSucceeded?: boolean;\n      dependenciesBuildsFailed?: boolean;\n      indexImportExportError?: string;\n      lintProblems?: string[];\n      indexInteracesErrors?: string[];\n      indexErrors?: string[];\n    };\n\n    lastRebuildAt?: number;\n\n    sizeIndexed?: FolderSummary;\n\n    /**\n     * name of the operation folder\n     */\n    folderNameIndexed?: string;\n\n    /**\n     * relative path to the operation (does not include operation folder itself)\n     *\n     * relative from project root\n     */\n    relativeOperationLocationPathIndexed?: string;\n    classificationIndexed?: OperationClassification;\n\n    /**\n     * external package dependency names (non-operation)\n     *\n     * TODO: this are imported names, not the module names.... rename this and add them both under clear names\n     */\n    packageDependenciesIndexed?: string[];\n    /**\n     * operation dependency names\n     */\n    operationDependenciesIndexed?: string[];\n    /**\n     * core dependencies (e.g. `path` and `fs`)\n     */\n    coreDependenciesIndexed?: string[];\n\n    // Configurable stuff:\n\n    /**\n     *\n     *\n     * Sometimes you are using function in a UI, which cannot be inferred with imports because they are used indirectly via an api. Here you can specify which operations on the backend are needed for an operation (ui mostly)\n     *\n     * This array is simply a list of operation names needed for this operation that are not imported.\n     *\n     * NB: No need to specify things here that you also import in this operation, because these are already automatically detected.\n     */\n    indirectDependencies?: string[];\n\n    /**\n     * IDEA: this could be super useful for generating the permissions! if you simply fill this in (or can we even find all object access automatically? that would be sick, i've seen people do it before...) then we can say something like this:\n     *\n     * all functions in this UI require permission \"xyz\"\n     *\n     * this is an interesting idea because setting permissions is kindof annoying...\n     *\n     * But I guess it's not that bad to also hardcode the authorised groups on top of a function , so this is probably not needed... in the end, you still need to define this, it's just as annoying...\n     * \n     * \n     indirectFunctions?: string[];\n     */\n\n    /**\n     * A list of authors\n     *\n     * Should be used to create bundle AUTHORS.md\n     */\n    authors?: string[];\n\n    /**\n     * A list of contributors\n     *\n     * Can be used to create bundle CONTRIBUTORS.md\n     */\n    contributors?: string[];\n\n    /**\n     * TODO:\n     */\n    paymentPlanId?: string;\n\n    /**\n     * For ui-*, it should be noted which platforms are supported\n     *\n     * Can be used to generate nice component in the documentation\n     */\n    uiSupport?: {\n      android?: boolean;\n      ios?: boolean;\n      web?: boolean;\n      /**\n       * optionally, let others know why they are not supported yet or what good alternatives are in case they are not supported in certain platforms\n       */\n      description?: string;\n    };\n\n    /**\n     * put on to true if minify doesn't work, so it will be skipped by `rebuildOperation`\n     */\n    skipMinify?: boolean;\n\n    /**\n     * If set to true, this operation will not be included into the SDKs\n     *\n     * Configurable\n     */\n    isNotSdkable?: boolean;\n  };\n}",
   "extensions": [
     "SlugModelType"
   ],
@@ -64,7 +64,7 @@
         "id": {
           "$ref": "#/definitions/Id"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack",
           "description": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!"
         },
@@ -150,6 +150,16 @@
         "operation": {
           "type": "object",
           "properties": {
+            "circularDependencies": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "description": "Indexed circular dependencies found"
+            },
             "port": {
               "type": "number",
               "description": "Can be set in case this is a ui-web operation"
@@ -435,7 +445,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": false,
           "schema": {
             "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -633,6 +643,30 @@
           "schema": {
             "fullComment": "custom keys, both indexed and generated",
             "properties": [
+              {
+                "name": "circularDependencies",
+                "required": false,
+                "schema": {
+                  "fullComment": "Indexed circular dependencies found",
+                  "items": [
+                    {
+                      "schema": {
+                        "items": [
+                          {
+                            "schema": {
+                              "type": "string"
+                            },
+                            "name": null
+                          }
+                        ],
+                        "type": "array"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
               {
                 "name": "port",
                 "required": false,

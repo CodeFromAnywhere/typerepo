@@ -12,6 +12,12 @@ export declare const getSubExtension: (filename: string) => string | undefined;
  */
 export declare const withoutExtension: (fileName: string) => string;
 /**
+ * Removes all subextensions from the filename (if any) including main extension.
+ *
+ * Only returns everything before the first dot (.)
+ */
+export declare const withoutSubExtensions: (fileName: string) => string;
+/**
  * returns the extension of the filename or path WITHOUT dot
  *
  * NB: not sure, but could be nice to replace this with path.extname(pathString)

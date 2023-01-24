@@ -1,0 +1,76 @@
+{
+  "createdAt": 1674542308902,
+  "updatedAt": 1674542308902,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542308902,
+  "id": "namedparameterstypeof-functionlayout",
+  "name": "NamedParameters<typeof FunctionLayout>",
+  "slug": "namedparameterstypeof-functionlayout",
+  "operationRelativeTypescriptFilePath": "src/components/function-web/FunctionLayout.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "props": {
+          "type": "object",
+          "properties": {
+            "pageProps": {},
+            "nextPage": {}
+          },
+          "required": [
+            "pageProps",
+            "nextPage"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "props"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "props",
+          "required": true,
+          "schema": {
+            "properties": [
+              {
+                "name": "pageProps",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "nextPage",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof FunctionLayout>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

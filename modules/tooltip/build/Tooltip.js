@@ -1,2 +1,56 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var o in t=arguments[r])Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o]);return e},__assign.apply(this,arguments)};Object.defineProperty(exports,"__esModule",{value:!0}),exports.Tooltip=void 0;var jsx_runtime_1=require("react/jsx-runtime"),react_1=require("react"),core_1=require("@popperjs/core"),DEFAULT_HOVER_TIMEOUT_MS=500,Tooltip=function(e){var t=e.hoverTimeout||DEFAULT_HOVER_TIMEOUT_MS,r=(0,react_1.useState)(!1),n=r[0],o=r[1],a=(0,react_1.useState)(null),s=a[0],i=a[1],u=(0,react_1.useState)(null),c=u[0],_=u[1],l=(0,react_1.createRef)(),p=(0,react_1.createRef)(),m=(0,react_1.useState)(!1),f=m[0],x=m[1],d=f||n;return(0,jsx_runtime_1.jsxs)("span",{children:[e.tooltip?(0,jsx_runtime_1.jsx)("span",__assign({onMouseEnter:function(){s&&clearTimeout(s),x(!0)},onMouseLeave:function(){var e=setTimeout((function(){return x(!1)}),t);i(e)},className:"mb-8 dark:text-gray-100 text-black bg-slate-200 dark:bg-slate-800 p-2 z-30 text-sm max-w-xs break-words rounded-md".concat(d?" block":" hidden"),ref:p},{children:e.tooltip})):null,(0,jsx_runtime_1.jsx)("span",__assign({onMouseEnter:function(){l.current&&p.current&&((0,core_1.createPopper)(l.current,p.current,{placement:e.placement||"auto"}),o(!0),c&&clearTimeout(c))},onMouseLeave:function(){var e=setTimeout((function(){return o(!1)}),t);_(e)},ref:l},{children:e.children}))]})};exports.Tooltip=Tooltip;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Tooltip = void 0;
+var jsx_runtime_1 = require("react/jsx-runtime");
+var react_1 = require("react");
+var core_1 = require("@popperjs/core");
+var DEFAULT_HOVER_TIMEOUT_MS = 500;
+var Tooltip = function (props) {
+    var timeoutMs = props.hoverTimeout || DEFAULT_HOVER_TIMEOUT_MS;
+    var _a = (0, react_1.useState)(false), hoverLink = _a[0], setHoverLink = _a[1];
+    var _b = (0, react_1.useState)(null), tooltipTimeout = _b[0], setTooltipTimeout = _b[1];
+    var _c = (0, react_1.useState)(null), linkTimeout = _c[0], setLinkTimeout = _c[1];
+    var btnRef = (0, react_1.createRef)();
+    var popoverRef = (0, react_1.createRef)();
+    var _d = (0, react_1.useState)(false), hoverTooltip = _d[0], setHoverTooltip = _d[1];
+    var onEnterLink = function () {
+        if (!btnRef.current || !popoverRef.current)
+            return;
+        (0, core_1.createPopper)(btnRef.current, popoverRef.current, {
+            placement: props.placement || "auto",
+        });
+        setHoverLink(true);
+        if (linkTimeout) {
+            clearTimeout(linkTimeout);
+        }
+    };
+    var onLeaveLink = function () {
+        var timeout = setTimeout(function () { return setHoverLink(false); }, timeoutMs);
+        setLinkTimeout(timeout);
+    };
+    var popoverShow = hoverTooltip || hoverLink;
+    var onEnterTooltip = function () {
+        if (tooltipTimeout) {
+            clearTimeout(tooltipTimeout);
+        }
+        setHoverTooltip(true);
+    };
+    var onLeaveTooltip = function () {
+        var timeout = setTimeout(function () { return setHoverTooltip(false); }, timeoutMs);
+        setTooltipTimeout(timeout);
+    };
+    return ((0, jsx_runtime_1.jsxs)("span", { children: [props.tooltip ? ((0, jsx_runtime_1.jsx)("span", __assign({ onMouseEnter: onEnterTooltip, onMouseLeave: onLeaveTooltip, className: "mb-8 dark:text-gray-100 text-black bg-slate-200 dark:bg-slate-800 p-2 z-30 text-sm max-w-xs break-words rounded-md".concat(popoverShow ? " block" : " hidden"), ref: popoverRef }, { children: props.tooltip }))) : null, (0, jsx_runtime_1.jsx)("span", __assign({ onMouseEnter: onEnterLink, onMouseLeave: onLeaveLink, ref: btnRef }, { children: props.children }))] }));
+};
+exports.Tooltip = Tooltip;
 //# sourceMappingURL=Tooltip.js.map

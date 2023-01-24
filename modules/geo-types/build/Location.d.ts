@@ -28,6 +28,19 @@ export interface Location extends KeyValueMarkdownModelType {
     parent_locationSlug?: Slug;
     parent_location?: Location;
 }
+/**
+
+The old location interface I made up had multiple references, but I don't think this is needed. We can simply use the category interface
+
+
+export interface Location extends SlugModelType {
+  continent_locationSlug: Slug;
+  country_locationSlug?: Slug;
+  regionProvinceState_locationSlug?: Slug;
+  city_locationSlug?: Slug;
+}
+
+*/
 export interface Address extends SlugModelType {
     locationSlug: Slug;
     location?: Location;

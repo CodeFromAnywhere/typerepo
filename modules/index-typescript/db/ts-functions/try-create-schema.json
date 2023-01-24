@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671116380556,
-  "updatedAt": 1671116380556,
+  "createdAt": 1673863358777,
+  "updatedAt": 1673863358777,
   "deletedAt": 0,
-  "createdFirstAt": 1671116380556,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863358777,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/generateSchema.ts",
   "commentsInside": [],
   "rawText": " (\n  config: Config\n): { schema?: Schema; error?: string } => {\n  try {\n    const generator = createGenerator(config);\n    const schema: Schema = generator.createSchema(config.type);\n    return { schema };\n  } catch (e) {\n    return { error: String(e) };\n  }\n}",
@@ -202,5 +201,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "qipkxrmegshiotakqrkunpxv"
+  "id": "lvwrwqjhekacspifvffsfshb"
 }

@@ -100,6 +100,20 @@ format ["word1","word2","word3"] from a string of any casing.
 
 
 
+## fileSlugify()
+
+/**
+ * Slugification for filepaths in specific
+ */
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| string | string |  |
+| **Output** |    |    |
+
+
+
 ## 📄 capitaliseFirstLetter (exported const)
 
 # Internal

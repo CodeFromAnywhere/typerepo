@@ -1,11 +1,10 @@
 {
-  "createdAt": 1670527611554,
-  "updatedAt": 1670527611554,
+  "createdAt": 1674542354755,
+  "updatedAt": 1674542354755,
   "deletedAt": 0,
-  "createdFirstAt": 1670527611554,
-  "isApiExposed": true,
+  "createdFirstAt": 1674542354755,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/util/searchGetStaticProps.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const comments = await db.get(\"TsComment\");\n\n  const items = comments\n    .filter((x) => x.types.includes(\"todo\"))\n    .map((x) => {\n      const isMultiLine = x.firstLine !== x.lastLine;\n\n      const operationPath =\n        operations[x.operationName as keyof typeof operations];\n\n      const comment = isMultiLine\n        ? `/**\\n${x.comment}\\n*/\\n\\n${x.rawStatement}`\n        : `// ${x.comment} \\n ${x.rawStatement}`;\n\n      const filePath = operationPath\n        ? path.join(operationPath, x.operationRelativeTypescriptFilePath)\n        : undefined;\n      return {\n        comment,\n        filePath,\n        line: x.firstLine,\n      };\n    });\n\n  return items;\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "kfqmxyqwlwtqehtukfgblrwa"
+  "id": "zaeyaxuhrboxxlysogczqott"
 }

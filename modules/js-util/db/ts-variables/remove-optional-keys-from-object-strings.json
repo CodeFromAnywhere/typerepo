@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116989562,
-  "updatedAt": 1671116989562,
+  "createdAt": 1672638802724,
+  "updatedAt": 1672638802724,
   "deletedAt": 0,
-  "createdFirstAt": 1671116989562,
+  "createdFirstAt": 1672638802724,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "<TObject extends O>(\n  object: TObject,\n  keys: string[]\n): TObject => {\n  const newObject = keys.reduce((objectNow, key) => {\n    return {\n      ...objectNow,\n      [key]: undefined,\n    };\n  }, object);\n\n  return newObject;\n}",
   "description": "",
-  "id": "aleylyoyfmimyvxvdwvdqxbq"
+  "id": "htifoyoevmglxbdsngrpmsiv"
 }

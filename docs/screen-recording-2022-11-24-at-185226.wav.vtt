@@ -1,0 +1,68 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.760
+ repoships with is the database integration.
+
+00:00:03.760 --> 00:00:07.600
+ We created our own database to make it as easy as possible
+
+00:00:07.600 --> 00:00:12.760
+ for you to create your new models and make an app full of
+
+00:00:12.760 --> 00:00:14.040
+ data.
+
+00:00:14.040 --> 00:00:17.560
+ We have this database user interface where you can see
+
+00:00:17.560 --> 00:00:23.800
+ all your data, where you can create new models, where you
+
+00:00:23.800 --> 00:00:26.680
+ can add updates and delete new instances.
+
+00:00:26.680 --> 00:00:30.400
+ You can view your models in different ways.
+
+00:00:30.400 --> 00:00:34.800
+ You can search your data and much more.
+
+00:00:34.800 --> 00:00:39.480
+ So if you want to create a new model in type repo, you don
+
+00:00:39.480 --> 00:00:39.560
+'t
+
+00:00:39.560 --> 00:00:43.880
+ need to create anything hard.
+
+00:00:43.880 --> 00:00:46.360
+ It's just a TypeScript interface.
+
+00:00:46.360 --> 00:00:47.680
+ And that's it.
+
+00:00:47.680 --> 00:00:51.160
+ So you just extend a model type, you let it be indexed by
+
+00:00:51.160 --> 00:00:56.160
+ type repo, and you can see it in your database.
+
+00:00:56.160 --> 00:01:02.320
+ So if I want to add something here, all I need to do is
+
+00:01:02.320 --> 00:01:05.760
+ change the type interface, and the model is ready to be
+
+00:01:05.760 --> 00:01:07.320
+ used.
+
+00:01:07.320 --> 00:01:12.280
+ Because the indexation, it's never been as easy as this to
+
+00:01:12.280 --> 00:01:15.400
+ create or alter your database models.
+
+00:01:15.400 --> 00:01:25.400
+ [BLANK_AUDIO]
+

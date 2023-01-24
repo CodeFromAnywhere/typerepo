@@ -30,6 +30,7 @@ __exportStar(require("./getRelativeLinkPath"), exports);
 __exportStar(require("./getRelativePath"), exports);
 __exportStar(require("./getRootPath"), exports);
 __exportStar(require("./getSrcRelativeFileId"), exports);
+__exportStar(require("./getSubExtensions"), exports);
 __exportStar(require("./hasDependency"), exports);
 __exportStar(require("./isBundle"), exports);
 __exportStar(require("./isOperation"), exports);

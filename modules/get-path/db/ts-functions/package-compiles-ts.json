@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671315944811,
-  "updatedAt": 1671315944811,
+  "createdAt": 1673959155102,
+  "updatedAt": 1673959155102,
   "deletedAt": 0,
-  "createdFirstAt": 1671315944811,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959155102,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getOperationClassification.ts",
   "commentsInside": [],
   "rawText": " (packageJson: Operation | null) => {\n  return (\n    !!packageJson?.main &&\n    packageJson.main.startsWith(\"src/\") &&\n    (packageJson.main.endsWith(\".ts\") || packageJson.main.endsWith(\".tsx\"))\n  );\n}",
@@ -51,5 +50,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "kimjdjynrobwhtyilsvsxyhr"
+  "id": "adbfyyixfdeumetnilmibzxt"
 }

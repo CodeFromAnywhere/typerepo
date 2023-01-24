@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669200353510,
-  "updatedAt": 1669200353510,
+  "createdAt": 1673861930121,
+  "updatedAt": 1673861930121,
   "deletedAt": 0,
-  "createdFirstAt": 1669200353510,
+  "createdFirstAt": 1673861930121,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(filename: string): string | undefined => {\n  const parts = filename.split(\".\");\n  //removes extension\n  parts.pop();\n  //returns extension that's left (the sub-extension)\n  const subExtension = parts.pop();\n  return subExtension;\n}",
   "description": "Provide a filename including its extension, to get the subextension.",
-  "id": "wisognugjvarrdjlwlgmiumh"
+  "id": "jvlkqlbhajdsbtyywdnhmyju"
 }

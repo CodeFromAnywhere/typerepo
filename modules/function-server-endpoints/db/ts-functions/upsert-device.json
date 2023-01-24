@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671317848792,
-  "updatedAt": 1671317848792,
+  "createdAt": 1671554377117,
+  "updatedAt": 1671554377117,
   "deletedAt": 0,
-  "createdFirstAt": 1671317848792,
+  "createdFirstAt": 1671554377117,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
   "commentsInside": [],
-  "rawText": " async (\n  serverContext: Context\n): Promise<Storing<Device> | undefined> => {\n  // in your function\n  const executionId = generateUniqueId();\n  const performance: (PerformanceItem | undefined)[] = [];\n\n  performance.push(getNewPerformance(\"start\", executionId, true));\n\n  const authToken: string | undefined = serverContext.data?.authToken;\n  const ip = serverContext.ip;\n\n  if (!authToken || authToken.length < 24) {\n    console.log(\"warn upsert device: no authToken\");\n    return;\n  }\n\n  // NB: range: [ <low bound of IP block>, <high bound of IP block> ], the rest is described in the type interface\n  const ipLookup = (geoip.lookup(ip) || {}) as Partial<geoip.Lookup>;\n  const {\n    city,\n    area: positionRadiusKm,\n    ll,\n    country,\n    region,\n    timezone,\n  } = ipLookup;\n\n  const position: Position | undefined =\n    !!ll?.[0] && !!ll?.[1] ? { latitude: ll[0], longitude: ll[1] } : undefined;\n\n  const userAgentString = serverContext.req.get(\"User-Agent\");\n  const userAgent: IResult = parseUserAgent(userAgentString);\n\n  const ipInfo: IPInfo = {\n    ip,\n    city,\n    position,\n    positionRadiusKm,\n    country,\n    region,\n    timezone,\n  };\n\n  const origin = serverContext.req.get(\"Origin\") as string;\n  const referer = serverContext.req.get(\"Referrer\") as string;\n\n  const dbPath = getRootPath(\"db\");\n  if (!dbPath) return;\n  const deviceFilePath = path.join(dbPath, \"devices\", `${authToken}.json`);\n\n  const exists = fs.existsSync(deviceFilePath);\n\n  const deviceBefore: Storing<Device> | null = exists\n    ? await readJsonFile<Storing<Device>>(deviceFilePath)\n    : null;\n\n  const newDevice = !exists\n    ? {\n        authToken,\n        authenticationMethods: [],\n        ...ipInfo,\n        createdAt: Date.now(),\n        createdFirstAt: Date.now(),\n        deletedAt: 0,\n        id: authToken,\n        lastOnlineAt: Date.now(),\n        name: authToken,\n        updatedAt: Date.now(),\n        userAgentString: userAgentString || \"no useragent\",\n      }\n    : null;\n\n  if (newDevice) {\n    await writeJsonToFile(deviceFilePath, newDevice);\n  }\n\n  savePageVisit(authToken, ipInfo, referer);\n\n  // attach persons and groups\n  const groups = await db.get(\"Group\");\n  const persons = (await db.get(\"Person\"))\n    .filter((x) => deviceBefore?.personIds?.includes(x.id))\n    .map((p) => {\n      return {\n        ...p,\n        groups: groups.filter((g) => p.groupSlugs?.includes(g.slug)),\n      };\n    });\n\n  const augmentedDevice: Storing<Device> = deviceBefore\n    ? { ...deviceBefore, persons }\n    : newDevice!;\n\n  // console.dir({ augmentedDevice }, { depth: 999 });\n  return augmentedDevice;\n}",
+  "rawText": " async (\n  serverContext: Context\n): Promise<Storing<Device> | undefined> => {\n  // in your function\n  const executionId = generateUniqueId();\n  const performance: (PerformanceItem | undefined)[] = [];\n\n  performance.push(getNewPerformance(\"start\", executionId, true));\n\n  const authToken: string | undefined = serverContext.data?.authToken;\n  const ip = serverContext.ip;\n\n  if (!authToken || authToken.length < 24) {\n    console.log(\"warn upsert device: no authToken\");\n    return;\n  }\n\n  // NB: range: [ <low bound of IP block>, <high bound of IP block> ], the rest is described in the type interface\n  // const ipLookup = (geoip.lookup(ip) || {}) as Partial<geoip.Lookup>;\n  // const {\n  //   city,\n  //   area: positionRadiusKm,\n  //   ll,\n  //   country,\n  //   region,\n  //   timezone,\n  // } = ipLookup;\n\n  // const position: Position | undefined =\n  //   !!ll?.[0] && !!ll?.[1] ? { latitude: ll[0], longitude: ll[1] } : undefined;\n\n  const userAgentString = serverContext.req.get(\"User-Agent\");\n  const userAgent: IResult = parseUserAgent(userAgentString);\n\n  // const ipInfo: IPInfo = {\n  //   ip,\n  //   city,\n  //   position,\n  //   positionRadiusKm,\n  //   country,\n  //   region,\n  //   timezone,\n  // };\n\n  const origin = serverContext.req.get(\"Origin\") as string;\n  const referer = serverContext.req.get(\"Referrer\") as string;\n\n  const dbPath = getRootPath(\"db\");\n  if (!dbPath) return;\n  const deviceFilePath = path.join(dbPath, \"devices\", `${authToken}.json`);\n\n  const exists = fs.existsSync(deviceFilePath);\n\n  const deviceBefore: Storing<Device> | null = exists\n    ? await readJsonFile<Storing<Device>>(deviceFilePath)\n    : null;\n\n  const newDevice: Storing<Device> | null = !exists\n    ? {\n        authToken,\n        authenticationMethods: [],\n        ip,\n        createdAt: Date.now(),\n        createdFirstAt: Date.now(),\n        deletedAt: 0,\n        id: authToken,\n        lastOnlineAt: Date.now(),\n        name: authToken,\n        updatedAt: Date.now(),\n        userAgentString: userAgentString || \"no useragent\",\n      }\n    : null;\n\n  if (newDevice) {\n    await writeJsonToFile(deviceFilePath, newDevice);\n  }\n\n  //savePageVisit(authToken, {ip}, referer);\n\n  // attach persons and groups\n  const groups = await db.get(\"Group\");\n  const persons = (await db.get(\"Person\"))\n    .filter((x) => deviceBefore?.personIds?.includes(x.id))\n    .map((p) => {\n      return {\n        ...p,\n        groups: groups.filter((g) => p.groupSlugs?.includes(g.slug)),\n      };\n    });\n\n  const augmentedDevice: Storing<Device> = deviceBefore\n    ? { ...deviceBefore, persons }\n    : newDevice!;\n\n  // console.dir({ augmentedDevice }, { depth: 999 });\n  return augmentedDevice;\n}",
   "name": "upsertDevice",
   "slug": "upsert-device",
   "parameters": [],
@@ -24,13 +24,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 3024,
+    "characters": 3101,
     "lines": 105,
-    "bytes": 3024,
+    "bytes": 3101,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 29,
+    "charactersPerLine": 30,
     "linesPerFile": 105,
     "numberOfFiles": 1
   },
-  "id": "gqfrqfiubsagqukfcnvtpjxu"
+  "id": "tghiiudcnynkpqdijuvahasp"
 }

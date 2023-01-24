@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671116387676,
-  "updatedAt": 1671116387676,
+  "createdAt": 1673863370200,
+  "updatedAt": 1673863370200,
   "deletedAt": 0,
-  "createdFirstAt": 1671116387676,
-  "isApiExposed": true,
+  "createdFirstAt": 1673863370200,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getFrontmatterDbStorageMethod.ts",
   "commentsInside": [],
   "rawText": " (\n  parameters: null | Frontmatter\n): DbStorageMethod | null | undefined => {\n  if (!parameters) return;\n\n  const dbStorageMethod =\n    parameters.dbStorageMethod &&\n    typeof parameters.dbStorageMethod === \"string\" &&\n    dbStorageMethods.includes(parameters.dbStorageMethod)\n      ? (parameters.dbStorageMethod as DbStorageMethod)\n      : undefined;\n\n  if (dbStorageMethod) return dbStorageMethod;\n\n  const isDbModel = parameters.isDbModel;\n\n  if (isDbModel === \"true\") return \"jsonMultiple\";\n\n  if (isDbModel === \"false\") return null;\n}",
@@ -51,5 +50,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "nkeizzfkybbnbzagnmgdmmnf"
+  "id": "obblvucnfxcsstbvkzhtetck"
 }

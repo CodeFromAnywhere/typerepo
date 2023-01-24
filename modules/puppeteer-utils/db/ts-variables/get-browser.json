@@ -1,0 +1,33 @@
+{
+  "createdAt": 1672134430061,
+  "updatedAt": 1672134430061,
+  "deletedAt": 0,
+  "createdFirstAt": 1672134430061,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getBrowser",
+  "slug": "get-browser",
+  "operationRelativeTypescriptFilePath": "src/browserSession.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n    return browserSession.get(\"browser\");\n}",
+  "description": "",
+  "id": "xwmphidgrtmkazkmelokowsx"
+}

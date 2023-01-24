@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668331773209,
-  "updatedAt": 1668331773209,
+  "createdAt": 1672636519865,
+  "updatedAt": 1672636519865,
   "deletedAt": 0,
-  "createdFirstAt": 1668331773209,
+  "createdFirstAt": 1672636519865,
   "id": "namedparameterstypeof-foldergetupdatedat",
   "name": "NamedParameters<typeof folderGetUpdatedAt>",
   "slug": "namedparameterstypeof-foldergetupdatedat",
@@ -17,7 +17,7 @@
     "typeDefinition": {
       "type": "object",
       "properties": {
-        "{\n  folderPath,\n}": {
+        "config": {
           "type": "object",
           "properties": {
             "folderPath": {
@@ -31,14 +31,14 @@
         }
       },
       "required": [
-        "{\n  folderPath,\n}"
+        "config"
       ],
       "additionalProperties": false
     },
     "simplifiedSchema": {
       "properties": [
         {
-          "name": "{\n  folderPath,\n}",
+          "name": "config",
           "required": true,
           "schema": {
             "properties": [

@@ -90,6 +90,18 @@ Helps to login into gmail account
 
 
 
+## racePromises()
+
+Typescript
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| promises | {  }[] |  |
+| **Output** |    |    |
+
+
+
 ## setBrowserPageIdle()
 
 | Input      |    |    |
@@ -136,7 +148,7 @@ Method that help to login into twitter
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| props | { page: `Page`, <br />email: string, <br />phoneNo: string, <br />password: string, <br /> } |  |
+| props | { page: `Page`, <br />password: string, <br />username: string, <br /> } |  |
 | **Output** |    |    |
 
 
@@ -148,6 +160,8 @@ Method that help to login into twitter
 ## 📄 isCaptchaExist (exported const)
 
 ## 📄 openPage (exported const)
+
+## 📄 racePromises (exported const)
 
 ## 📄 setBrowserPageIdle (exported const)
 
@@ -208,7 +222,7 @@ Method that help to login into twitter
 
 # Internal
 
-<details><summary>Show internal (43)</summary>
+<details><summary>Show internal (45)</summary>
     
   # delay()
 
@@ -262,6 +276,15 @@ Utility function that always returns a boolean instead of throwing an error.
 | Input      |    |    |
 | ---------- | -- | -- |
 | browserInfo | `BrowserSession` |  |
+| **Output** |    |    |
+
+
+
+## getBrowser()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
 | **Output** |    |    |
 
 
@@ -333,18 +356,6 @@ If the flag is not set, doesn't print anything.
 
 
 
-## racePromises()
-
-Typescript
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| promises | {  }[] |  |
-| **Output** |    |    |
-
-
-
 ## retryClickAndWaitSelector()
 
 Utility function that loops waiting a second and checking
@@ -380,6 +391,15 @@ this is good to use instead of page.waitForTimeout + page.waitForSelector
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
+| **Output** |    |    |
+
+
+
+## setBrowserSession()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| browser | `Browser` |  |
 | **Output** |    |    |
 
 
@@ -490,6 +510,8 @@ Utility function that always returns a boolean instead of throwing an error.
 
 ## 📄 getBrowserTabs (exported const)
 
+## 📄 getBrowser (exported const)
+
 ## 📄 getConnectedBrowsers (exported const)
 
 ## 📄 getIdlePage (exported const)
@@ -508,8 +530,6 @@ If the flag is not set, doesn't print anything.
 
 ## 📄 openNewBrowser (exported const)
 
-## 📄 racePromises (exported const)
-
 ## 📄 retryClickAndWaitSelector (exported const)
 
 Utility function that loops waiting a second and checking
@@ -527,6 +547,8 @@ this is good to use instead of page.waitForTimeout + page.waitForSelector
 
 
 ## 📄 runBrowser (exported const)
+
+## 📄 setBrowserSession (exported const)
 
 ## 📄 trueClick (exported const)
 

@@ -1,14 +1,13 @@
 {
-  "createdAt": 1671316349840,
-  "updatedAt": 1671316349840,
+  "createdAt": 1674543134074,
+  "updatedAt": 1674543134074,
   "deletedAt": 0,
-  "createdFirstAt": 1671316349840,
-  "isApiExposed": true,
+  "createdFirstAt": 1674543134074,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/compressImages.ts",
   "commentsInside": [],
-  "rawText": " async (\n  absoluteBasePath: string,\n  sizeWidthPx?: number,\n  quality?: number\n) => {\n  const results = (\n    await explore({\n      basePath: absoluteBasePath,\n      extension: [\"jpg\", \"jpeg\", \"png\"],\n    })\n  ).map((x) => x.path);\n\n  const compressionResult = await Promise.all(\n    results.map((path) =>\n      compressImage(path, {\n        targetFormat: \"webp\",\n        quality: quality || 50,\n        sizeWidthPx: sizeWidthPx || 1920,\n      })\n    )\n  );\n\n  const isSuccessful =\n    compressionResult.filter(notEmpty).length === compressionResult.length;\n\n  console.log(\"DONE\", { isSuccessful });\n}",
+  "rawText": " async (\n  absoluteBasePath: string,\n  sizeWidthPx?: number,\n  quality?: number\n) => {\n  const results = (\n    await explore({\n      basePath: absoluteBasePath,\n      extension: [\"jpg\", \"jpeg\", \"png\"],\n    })\n  ).map((x) => x.path);\n\n  const compressionResult = await Promise.all(\n    results.map((path) =>\n      compressConvert(path, {\n        targetFormat: \"webp\",\n        quality: quality || 50,\n        sizeWidthPx: sizeWidthPx || 1920,\n      })\n    )\n  );\n\n  const isSuccessful =\n    compressionResult.filter(notEmpty).length === compressionResult.length;\n\n  console.log(\"DONE\", { isSuccessful });\n}",
   "name": "compressImages",
   "slug": "compress-images",
   "parameters": [
@@ -55,13 +54,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 674,
+    "characters": 676,
     "lines": 27,
-    "bytes": 674,
+    "bytes": 676,
     "bytesPerCharacter": 1,
     "charactersPerLine": 25,
     "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "jwfntyytrqazfyrwmkvaknrk"
+  "id": "xwkzlmveqjbafhslxxdzmcmf"
 }

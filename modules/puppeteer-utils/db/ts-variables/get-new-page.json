@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457692654,
-  "updatedAt": 1671457692654,
+  "createdAt": 1672134458411,
+  "updatedAt": 1672134458411,
   "deletedAt": 0,
-  "createdFirstAt": 1671457692654,
+  "createdFirstAt": 1672134458411,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-new-page",
   "operationRelativeTypescriptFilePath": "src/getNewPage.ts",
   "type": {
-    "rawType": "(browser: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Browser) => Promise<import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined>",
+    "rawType": "(browser: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Browser) => Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  browser: Browser\n): Promise<Page | undefined> => {\n  const allPage = await browser.pages();\n  const allPageTitle = await Promise.all(allPage.map(async (p) => p.title()));\n  let indexOfIdlePage = allPageTitle.indexOf(\"\");\n  if (indexOfIdlePage === -1) {\n    const idlePage = await getIdlePage(browser);\n    return idlePage;\n  }\n  return allPage[indexOfIdlePage];\n}",
+  "value": "async (\n    browser: Browser\n): Promise<Page | undefined> => {\n    const allPage = await browser.pages();\n    const allPageTitle = await Promise.all(allPage.map(async (p) => p.title()));\n    let indexOfIdlePage = allPageTitle.indexOf(\"\");\n    if (indexOfIdlePage === -1) {\n        const idlePage = await getIdlePage(browser);\n        return idlePage;\n    }\n    return allPage[indexOfIdlePage];\n}",
   "description": "",
-  "id": "jtvvlkclwqrtkgibvgttmfti"
+  "id": "hmhktxpxghupkdklabyliqri"
 }

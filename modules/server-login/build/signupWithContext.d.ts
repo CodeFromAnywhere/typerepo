@@ -1,6 +1,6 @@
 import { FunctionContext } from "function-context-type";
 import { Person } from "peer-types";
-export declare type SignupPersonData = Pick<Person, "authorizations" | "credit" | "dataEntries" | "interestSlugs" | "media" | "name" | "slug" | "pictureImage" | "groupSlugs" | "requiredAuthenticationMethods" | "amountAuthenticationMethodsRequired">;
+export declare type SignupPersonData = Pick<Person, "credit" | "dataEntries" | "interestSlugs" | "media" | "name" | "slug" | "pictureImage" | "groupSlugs">;
 /**
  * Creates a new `Person` for a `Device`. Adds that person to the `Device`.
  *

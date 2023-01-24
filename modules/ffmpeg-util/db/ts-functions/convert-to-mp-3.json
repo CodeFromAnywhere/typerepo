@@ -1,14 +1,13 @@
 {
-  "createdAt": 1671316360874,
-  "updatedAt": 1671316360874,
+  "createdAt": 1674543141886,
+  "updatedAt": 1674543141886,
   "deletedAt": 0,
-  "createdFirstAt": 1671316360874,
-  "isApiExposed": true,
+  "createdFirstAt": 1674543141886,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/convertToMp3.ts",
   "commentsInside": [],
-  "rawText": " (\n  sourcePath: string,\n  destinationPath: string\n): Promise<string | undefined> => {\n  return new Promise<string | undefined>((resolve, reject) => {\n    if (!fs.existsSync(sourcePath)) {\n      console.log(\"sourcePath doesn't exist\", sourcePath);\n    }\n    ffmpeg({ source: sourcePath })\n      .toFormat(\"mp3\")\n      .saveToFile(destinationPath)\n      .on(\"end\", () => {\n        resolve(destinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        console.log({ e });\n        resolve(undefined);\n      });\n  });\n}",
+  "rawText": " (\n  sourcePath: string,\n  destinationPath: string,\n  config?: {\n    toWav?: boolean;\n  }\n): Promise<string | undefined> => {\n  const toWav = config?.toWav;\n\n  return new Promise<string | undefined>((resolve, reject) => {\n    if (!fs.existsSync(sourcePath)) {\n      console.log(\"sourcePath doesn't exist\", sourcePath);\n    }\n    ffmpeg({ source: sourcePath })\n      .toFormat(toWav ? \"wav\" : \"mp3\")\n      .saveToFile(destinationPath)\n      .on(\"end\", () => {\n        resolve(destinationPath);\n      })\n      .on(\"error\", (e: Error) => {\n        console.log({ e });\n        resolve(undefined);\n      });\n  });\n}",
   "name": "convertToMp3",
   "slug": "convert-to-mp-3",
   "parameters": [
@@ -31,6 +30,31 @@
         "type": "string"
       },
       "required": true
+    },
+    {
+      "name": "config",
+      "schema": {
+        "type": "object",
+        "properties": {
+          "toWav": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "simplifiedSchema": {
+        "properties": [
+          {
+            "name": "toWav",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": false
     }
   ],
   "description": "Uses ffmpeg to convert a file to mp3\n\nReturns the new file path on success",
@@ -45,13 +69,13 @@
   },
   "maxIndentationDepth": 4,
   "size": {
-    "characters": 597,
-    "lines": 22,
-    "bytes": 597,
+    "characters": 684,
+    "lines": 27,
+    "bytes": 684,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 27,
-    "linesPerFile": 22,
+    "charactersPerLine": 25,
+    "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "lbnlmxdieigkevosoytxkmui"
+  "id": "fcpjlcumpznxsvkuhddrjjna"
 }

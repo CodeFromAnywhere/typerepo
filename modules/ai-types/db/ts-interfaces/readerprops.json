@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671365973616,
-  "updatedAt": 1671365973616,
+  "createdAt": 1674135007304,
+  "updatedAt": 1674135007304,
   "deletedAt": 0,
-  "createdFirstAt": 1671365973616,
+  "createdFirstAt": 1674135007304,
   "id": "readerprops",
   "name": "ReaderProps",
   "slug": "readerprops",
   "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\n/**\n * This is what we need on the page level. There are many subtleties to it, but this is the core\n */\nexport type ReaderProps = {\n  notFound?: boolean;\n  notFoundReason?: string | null;\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder?: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown?: string | null;\n  contextualPromptsObject?: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults?: ContextualPromptResult[] | null;\n\n  /**\n   * Project relative file path that is actually used\n   */\n  actualProjectRelativeFilePath?: string;\n  navigation?: FolderContent[];\n};",
+  "rawText": "\n\n/**\n * This is what we need on the page level. There are many subtleties to it, but this is the core\n */\nexport type ReaderProps = {\n  notFound?: boolean;\n  notFoundReason?: string | null;\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder?: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown?: string | null;\n  contextualPromptsObject?: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults?: ContextualPromptResult[] | null;\n\n  /**\n   * Project relative file path that is actually used\n   */\n  actualProjectRelativeFilePath?: string;\n  navigation?: FolderContent[];\n\n  /**\n   * Should later be moved elsewhere\n   */\n  contextualPromptCategories?: CategoryChildObject;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "This is what we need on the page level. There are many subtleties to it, but this is the core",
@@ -105,6 +105,10 @@
           "items": {
             "$ref": "#/definitions/FolderContent"
           }
+        },
+        "contextualPromptCategories": {
+          "$ref": "#/definitions/CategoryChildObject",
+          "description": "Should later be moved elsewhere"
         }
       },
       "additionalProperties": false,
@@ -269,6 +273,90 @@
               }
             ],
             "type": "array"
+          }
+        },
+        {
+          "name": "contextualPromptCategories",
+          "required": false,
+          "schema": {
+            "fullComment": "Should later be moved elsewhere\n\n\n\n",
+            "properties": [
+              {
+                "name": "category",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "categoryStack",
+                "required": true,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "type": "string"
+                      },
+                      "name": null
+                    }
+                  ],
+                  "type": "array"
+                }
+              },
+              {
+                "name": "count",
+                "required": true,
+                "schema": {
+                  "type": "number"
+                }
+              },
+              {
+                "name": "name",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "title",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "description",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "pricing",
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "children",
+                "required": false,
+                "schema": {
+                  "items": [
+                    {
+                      "schema": {
+                        "circularRefName": "ChildObject<structure-1168205643-94-257-1168205643-81-258-1168205643-46-259-1168205643-0-260>",
+                        "properties": [],
+                        "type": "object"
+                      },
+                      "name": "ChildObject<structure-1168205643-94-257-1168205643-81-258-1168205643-46-259-1168205643-0-260>"
+                    }
+                  ],
+                  "type": "array"
+                }
+              }
+            ],
+            "type": "object"
           }
         }
       ],

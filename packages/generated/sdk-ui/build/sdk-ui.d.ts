@@ -261,9 +261,6 @@ export declare const sdk: {
     }) => JSX.Element;
     PingApi: () => JSX.Element;
     getLegacyMenu: (queryPaths: string[]) => import("webpage-types").WebPage<null>[] | undefined;
-    Menu: (props: import("menu").MenuProps & {
-        message?: string | undefined;
-    }) => JSX.Element;
     getRealItemRecursive: (item: import("webpage-types").NestedWebPage) => import("webpage-types").NestedWebPage;
     getTitle: (item: import("webpage-types").WebPage<null>) => string;
     NestedMenuItem: (props: {
@@ -351,9 +348,6 @@ export declare const sdk: {
         extra?: (TInputs_1[T_4] extends import("react-with-native-form").PluginInputType ? TInputs_1[T_4]["extra"] : any) | undefined;
         type: T_4;
     };
-    setConfig: <TInputs_2, TState_1 extends {
-        [key: string]: any;
-    }>(DataForm: (props: import("react-with-native-form").DataFormProps<TInputs_2, TState_1>) => JSX.Element, config: import("react-with-native-form").DataFormConfig<TInputs_2>) => (props: import("react-with-native-form").DataFormProps<TInputs_2, TState_1>) => JSX.Element;
     castToNumber: (numberString: string | null | undefined) => number | null | undefined;
     DateInput: import("react-with-native-form").PluginComponent<import("react-with-native-form-inputs").DateInputType>;
     DatetimeInput: import("react-with-native-form").PluginComponent<import("react-with-native-form-inputs").DatetimeInputType>;
@@ -484,18 +478,79 @@ export declare const sdk: {
         placement?: import("@popperjs/core").Placement | undefined;
     }) => JSX.Element;
     useOnScreen: typeof useOnScreen;
-    FileWriter: (props: {
-        markdownModelName?: string | number | symbol | undefined;
-        projectRelativeFilePath: string;
-        initialWriterView?: import("writer-types").WriterViewEnum | undefined;
-        disabledMenuItems?: string[] | undefined;
-        hideButtons?: boolean | undefined;
-    }) => JSX.Element;
     OpenFileWriterPages: (props: {
         pagesObject: import("file-tabs").PagesObjectShape;
     }) => JSX.Element;
+    useFileWriter: (props: {
+        markdownModelName?: string | number | symbol | undefined;
+        projectRelativeFilePath?: string | undefined;
+        initialWriterView?: import("writer-types").WriterViewEnum | undefined;
+        disabledMenuItems?: string[] | undefined;
+        hideButtons?: boolean | undefined;
+    }) => {
+        renderFileWriter: () => JSX.Element;
+        save: () => Promise<void>;
+        isSaved: boolean;
+    };
     WriterLayout: (props: {
         children: JSX.Element;
+    }) => JSX.Element;
+    Dataset: () => JSX.Element;
+    FileActions: (props: {
+        basePath?: string | undefined;
+        navigation?: import("ai-types").FolderContent[] | undefined;
+        projectRelativeFilePath?: string | undefined;
+    }) => JSX.Element;
+    Menu: (props: {
+        notFound?: boolean | undefined;
+        projectRelativeFilePath?: string | undefined;
+        folderPath?: string | undefined;
+        filename?: string | undefined;
+        isFolder?: boolean | undefined;
+        navigation?: import("ai-types").FolderContent[] | undefined;
+        contextualPromptsObject?: Omit<import("ai-types").ContextualPromptsObject, "databaseContextualPromptSlugs"> | null | undefined;
+        fileContextualPromptResults: import("ai-types").ContextualPromptResult[] | undefined;
+        thePrompts: import("ai-types").ContextualPrompt[];
+        selectionContextualPromptResults: import("ai-types").ContextualPromptResult[] | undefined;
+    }) => JSX.Element;
+    NavButton: (props: {
+        onClick?: (() => void) | undefined;
+        href?: string | undefined;
+        isActive?: boolean | undefined;
+        title: string;
+        id?: string | undefined;
+        isDisabled?: boolean | undefined;
+        openContextMenuProps?: object | undefined;
+    }) => JSX.Element;
+    PromptButton: (props: {
+        item: import("ai-types").ContextualPrompt;
+        markdown?: string | null | undefined;
+        contextSelection?: string | null | undefined;
+        projectRelativeFilePath?: string | undefined;
+    }) => JSX.Element;
+    ReaderPageNext: (props: import("ai-types").ReaderProps) => JSX.Element;
+    ReaderPage: (props: import("ai-types").ReaderProps) => JSX.Element;
+    SelectionPrompts: (props: {
+        selectionContextualPrompts?: import("ai-types").ContextualPrompt[] | undefined;
+        contentString: string;
+        projectRelativeFilePath?: string | undefined;
+    }) => JSX.Element;
+    setConfig: (apiUrl: string, disableAdmin: boolean, customAbsoluteBasePaths: string[]) => void;
+    SettingsPage: () => JSX.Element;
+    useAdmin: () => {
+        isAdminActive: boolean;
+        isLoading?: boolean | undefined;
+        refetch?: (<TPageData>(options?: (import("react-query").RefetchOptions & import("react-query").RefetchQueryFilters<TPageData>) | undefined) => Promise<import("react-query").QueryObserverResult<import("api-types").ApiReturnType<"getReaderPageProps">, unknown>>) | undefined;
+    };
+    useFileActions: (basePath?: string | undefined, navigation?: import("ai-types").FolderContent[] | undefined) => import("context-menu").ContextMenuItem[];
+    useQueryPath: () => string;
+    useVariantResult: (fileContextualPromptResults?: import("ai-types").ContextualPromptResult[] | null | undefined) => import("ai-types").ContextualPromptResult | undefined;
+    VariantSelector: (props: {
+        projectRelativeFilePath?: string | undefined;
+        folderPath: string;
+        isFolder?: boolean | undefined;
+        filename?: string | undefined;
+        contextualPromptResults?: import("ai-types").ContextualPromptResult[] | undefined;
     }) => JSX.Element;
     getRealSrc: (src: string | undefined, config: import("markdown").MarkdownParseRenderConfig) => string | undefined;
     getUrlFromRelativeUrl: (relativeUrl: string, relativeUrlStrategy: "api" | "static", projectRelativeBaseFolderPath: string, projectRelativeMarkdownFilePath: string) => string | undefined;

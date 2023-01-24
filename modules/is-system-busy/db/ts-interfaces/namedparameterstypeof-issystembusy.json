@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674034671654,
+  "updatedAt": 1674034671654,
+  "deletedAt": 0,
+  "createdFirstAt": 1674034671654,
+  "id": "namedparameterstypeof-issystembusy",
+  "name": "NamedParameters<typeof isSystemBusy>",
+  "slug": "namedparameterstypeof-issystembusy",
+  "operationRelativeTypescriptFilePath": "src/isSystemBusy.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof isSystemBusy>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

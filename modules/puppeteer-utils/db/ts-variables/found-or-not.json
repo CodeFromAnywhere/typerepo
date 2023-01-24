@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457669402,
-  "updatedAt": 1671457669402,
+  "createdAt": 1672134440796,
+  "updatedAt": 1672134440796,
   "deletedAt": 0,
-  "createdFirstAt": 1671457669402,
+  "createdFirstAt": 1672134440796,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "found-or-not",
   "operationRelativeTypescriptFilePath": "src/foundOrNot.ts",
   "type": {
-    "rawType": "(props: { page: import(\"/Users/king/King/operations/node_modules/puppeteer-core/lib/types\").Page; selector: string; timeoutMilliseconds?: number | undefined; }) => Promise<boolean>",
+    "rawType": "(props: { page: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer-core/lib/types\").Page; selector: string; timeoutMilliseconds?: number | undefined; }) => Promise<boolean>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  /** the page element from puppeteer got with browser.pages */\n  page: Page;\n  /** the css selector to search for */\n  selector: string;\n  /** (optional) change default timeout to wait for selector */\n  timeoutMilliseconds?: number;\n}): Promise<boolean> => {\n  const { page, selector, timeoutMilliseconds } = props;\n  return new Promise(async (resolve, reject) => {\n    // Correct Method\n    await page\n      .waitForSelector(selector, { timeout: timeoutMilliseconds || 30 * 1000 })\n      .then(() => {\n        resolve(true);\n      })\n      .catch((e: any) => {\n        resolve(false);\n      });\n  });\n}",
   "description": "Utility function that always returns a boolean instead of throwing an error.",
-  "id": "vbgiourgnzvbumqtnhduxfmy"
+  "id": "wqciiqmwxsyvatboegkqolsd"
 }

@@ -38,7 +38,33 @@
     "writer-input": "1.0.0",
     "context-menu": "0.0.0",
     "share": "1.0.0",
-    "file-tabs": "0.0.0"
+    "file-tabs": "0.0.0",
+    "markdown": "1.0.0",
+    "next-a-link": "0.0.1",
+    "generative-ui": "1.0.0",
+    "convert-case": "0.0.1",
+    "filename-conventions": "0.0.1",
+    "get-path": "0.0.1",
+    "k-explore": "0.0.2",
+    "fs-util-js": "0.0.1",
+    "tabs": "0.0.1",
+    "db-crud": "0.0.0",
+    "recursive-types": "0.0.1",
+    "cool-toast": "0.0.0",
+    "code-types": "0.0.1",
+    "function-form": "0.0.1",
+    "json-util": "0.0.1",
+    "ui-util": "0.0.1",
+    "api-types": "0.0.1",
+    "markdown-parse-js": "0.0.1",
+    "react-with-native-table": "0.0.1",
+    "fancy-loader": "0.0.1",
+    "api": "0.0.1",
+    "string-to-json": "0.0.1",
+    "clickable-icon": "0.0.1",
+    "markdown-reader-functions-js": "0.0.1",
+    "big-button": "0.0.1",
+    "reactflow": "*"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.0",
@@ -71,33 +97,35 @@
     "classificationIndexed": "ui-web",
     "coreDependenciesIndexed": [
       "useState",
-      "useState"
+      "useState",
+      "useEffect"
     ],
     "folderNameIndexed": "search-web",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670527621566,
+    "lastRebuildAt": 1673379975790,
     "operationDependenciesIndexed": [
       "AppsMenu",
       "pickRandomArrayItem",
       "Div",
       "Timeline",
-      "Share",
-      "useContextMenu",
       "Div",
       "Form",
       "Input",
       "useRouter",
+      "Tooltip",
       "Div",
       "Div",
       "useRouter",
+      "MarkdownContent",
+      "makeArray",
       "AuthenticationLayout",
+      "Div",
       "AlertProvider",
       "ModalProvider",
       "useRouter",
       "ToastContainer",
       "MeAuthenticationInfo",
-      "Div",
       "takeFirst",
       "fs",
       "path",
@@ -120,26 +148,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 11,
-        "lines": 483,
-        "characters": 13691,
-        "bytes": 13691
+        "lines": 554,
+        "characters": 16187,
+        "bytes": 16187
       },
       "dataSize": {
         "numberOfFiles": 9,
-        "lines": 283,
-        "characters": 6913,
-        "bytes": 6913
+        "lines": 291,
+        "characters": 18714,
+        "bytes": 18714
       },
       "textSize": {
         "numberOfFiles": 5,
-        "lines": 243,
-        "characters": 5606,
-        "bytes": 5606
+        "lines": 230,
+        "characters": 5366,
+        "bytes": 5366
       },
       "size": {
-        "bytes": 26210,
-        "characters": 26210,
-        "lines": 1009,
+        "bytes": 40267,
+        "characters": 40267,
+        "lines": 1075,
         "numberOfFiles": 25
       }
     },

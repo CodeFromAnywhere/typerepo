@@ -1,16 +1,11 @@
 {
-  "createdAt": 1668150468904,
-  "updatedAt": 1668150468904,
+  "createdAt": 1673380293723,
+  "updatedAt": 1673380293723,
   "deletedAt": 0,
-  "createdFirstAt": 1668150468904,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380293723,
+  "isApiExposed": true,
   "isExported": false,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const sdkDependants = await findDependantsRecursively(\"sdk\");\n\n  console.log({ sdkDependants });\n}",
@@ -37,5 +32,5 @@
     "linesPerFile": 5,
     "numberOfFiles": 1
   },
-  "id": "kzlbaqyhbpcotwddrqbfmwsd"
+  "id": "xbvopvxsspitmnwzntvdfcpw"
 }

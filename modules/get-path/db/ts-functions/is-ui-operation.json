@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671315944812,
-  "updatedAt": 1671315944812,
+  "createdAt": 1673959155102,
+  "updatedAt": 1673959155102,
   "deletedAt": 0,
-  "createdFirstAt": 1671315944812,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959155102,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getOperationClassification.ts",
   "commentsInside": [],
   "rawText": " (\n  tsconfig: TsConfig | null,\n  packageJson: Operation | null\n) => {\n  const isReactPackage =\n    !!packageJson &&\n    (hasDependency(packageJson, \"react\") ||\n      hasDependency(packageJson, \"react-native\") ||\n      hasDependency(packageJson, \"next\") ||\n      hasDependency(packageJson, \"expo\"));\n\n  const usesJsx = !!tsconfig?.compilerOptions?.jsx;\n\n  return isReactPackage && usesJsx;\n}",
@@ -69,5 +68,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "omnklupfydlbgivwiugokryc"
+  "id": "pmtujkunpisijrydumgaudwi"
 }

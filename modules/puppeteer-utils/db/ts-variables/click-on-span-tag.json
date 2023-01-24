@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457664501,
-  "updatedAt": 1671457664501,
+  "createdAt": 1672134435684,
+  "updatedAt": 1672134435684,
   "deletedAt": 0,
-  "createdFirstAt": 1671457664501,
+  "createdFirstAt": 1672134435684,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "click-on-span-tag",
   "operationRelativeTypescriptFilePath": "src/clickOnSpanTag.ts",
   "type": {
-    "rawType": "(props: { page: import(\"/Users/king/King/operations/node_modules/puppeteer-core/lib/types\").Page; spanText: string; }) => unknown",
+    "rawType": "(props: { page: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer-core/lib/types\").Page; spanText: string; }) => unknown",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (props: {\n  page: Page;\n  spanText: string;\n}) => {\n  const { page, spanText } = props;\n  // getting and clicking on the write something button to post the content\n  await page.waitForFunction(\n    `document.querySelector(\"body\").innerText.includes(\"${spanText}\")`\n  );\n  const targetSpanTag = await page.$x(`//span[contains(text(),\"${spanText}\")]`);\n  if (targetSpanTag[0]) {\n    //@ts-ignore\n    targetSpanTag[0]?.click();\n  } else {\n    return { success: false, message: `${spanText} tag not found.` };\n  }\n}",
   "description": "",
-  "id": "dvwhijfbouxprpiiguwrshsp"
+  "id": "oyhfcatxksatphibjgfubfjn"
 }

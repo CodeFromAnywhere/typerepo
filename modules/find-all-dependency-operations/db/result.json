@@ -1,0 +1,283 @@
+{
+  "k-explore": {
+    "fs-util": {
+      "log": null,
+      "js-util": null,
+      "recursive-types": null,
+      "filename-conventions": { "js-util": null },
+      "write-to-assets": {
+        "get-path": {
+          "log": null,
+          "code-types": {
+            "model-types": { "matter-types": null },
+            "pluralize": null,
+            "convert-case": { "make-test": null },
+            "measure-performance": { "model-types": { "matter-types": null } },
+            "matter-types": null
+          },
+          "read-json-file": { "try-parse-json": null },
+          "try-parse-json": null,
+          "js-util": null,
+          "sdk-operations": null,
+          "fs-util-js": null,
+          "filename-conventions": { "js-util": null }
+        }
+      }
+    },
+    "read-json-file": {
+      "fs-util": {
+        "log": null,
+        "js-util": null,
+        "recursive-types": null,
+        "filename-conventions": { "js-util": null },
+        "write-to-assets": {
+          "get-path": {
+            "log": null,
+            "code-types": {
+              "model-types": { "matter-types": null },
+              "pluralize": null,
+              "convert-case": { "make-test": null },
+              "measure-performance": {
+                "model-types": { "matter-types": null }
+              },
+              "matter-types": null
+            },
+            "try-parse-json": null,
+            "js-util": null,
+            "sdk-operations": null,
+            "fs-util-js": null,
+            "filename-conventions": { "js-util": null }
+          }
+        }
+      },
+      "try-parse-json": null,
+      "get-path": {
+        "fs-util": {
+          "log": null,
+          "js-util": null,
+          "recursive-types": null,
+          "filename-conventions": { "js-util": null },
+          "write-to-assets": null
+        },
+        "log": null,
+        "code-types": {
+          "model-types": { "matter-types": null },
+          "pluralize": null,
+          "convert-case": { "make-test": null },
+          "measure-performance": { "model-types": { "matter-types": null } },
+          "matter-types": null
+        },
+        "try-parse-json": null,
+        "js-util": null,
+        "sdk-operations": null,
+        "fs-util-js": null,
+        "filename-conventions": { "js-util": null }
+      }
+    },
+    "markdown-types": {
+      "model-types": { "matter-types": null },
+      "asset-type": null,
+      "matter-types": null,
+      "convert-case": { "make-test": null },
+      "bundle-types": { "model-types": { "matter-types": null } },
+      "code-types": {
+        "model-types": { "matter-types": null },
+        "pluralize": null,
+        "convert-case": { "make-test": null },
+        "measure-performance": { "model-types": { "matter-types": null } },
+        "matter-types": null
+      }
+    },
+    "fs-util-js": null,
+    "js-util": null,
+    "markdown-parse-js": {
+      "markdown-types": {
+        "model-types": { "matter-types": null },
+        "asset-type": null,
+        "matter-types": null,
+        "convert-case": { "make-test": null },
+        "bundle-types": { "model-types": { "matter-types": null } },
+        "code-types": {
+          "model-types": { "matter-types": null },
+          "pluralize": null,
+          "convert-case": { "make-test": null },
+          "measure-performance": { "model-types": { "matter-types": null } },
+          "matter-types": null
+        }
+      },
+      "js-util": null,
+      "convert-case": { "make-test": null },
+      "frontmatter-util": {
+        "matter-types": null,
+        "make-test": null,
+        "js-util": null,
+        "asset-type": null,
+        "code-types": {
+          "model-types": { "matter-types": null },
+          "pluralize": null,
+          "convert-case": { "make-test": null },
+          "measure-performance": { "model-types": { "matter-types": null } },
+          "matter-types": null
+        },
+        "name-conventions": {
+          "code-types": {
+            "model-types": { "matter-types": null },
+            "pluralize": null,
+            "convert-case": { "make-test": null },
+            "measure-performance": { "model-types": { "matter-types": null } },
+            "matter-types": null
+          },
+          "convert-case": { "make-test": null },
+          "pluralize": null
+        },
+        "marked-util": {
+          "js-util": null,
+          "markdown-types": {
+            "model-types": { "matter-types": null },
+            "asset-type": null,
+            "matter-types": null,
+            "convert-case": { "make-test": null },
+            "bundle-types": { "model-types": { "matter-types": null } },
+            "code-types": {
+              "model-types": { "matter-types": null },
+              "pluralize": null,
+              "convert-case": { "make-test": null },
+              "measure-performance": {
+                "model-types": { "matter-types": null }
+              },
+              "matter-types": null
+            }
+          },
+          "asset-functions-js": {
+            "js-util": null,
+            "name-conventions": {
+              "code-types": {
+                "model-types": { "matter-types": null },
+                "pluralize": null,
+                "convert-case": { "make-test": null },
+                "measure-performance": {
+                  "model-types": { "matter-types": null }
+                },
+                "matter-types": null
+              },
+              "convert-case": { "make-test": null },
+              "pluralize": null
+            },
+            "asset-type": null,
+            "fs-util-js": null,
+            "api": {
+              "api-types": { "sdk-api": null },
+              "server-api-url": {
+                "sdk-env-public": null,
+                "react-with-native-store": null,
+                "port-conventions": null
+              },
+              "react-with-native-store": null,
+              "js-util": null,
+              "sdk-api-keys": null,
+              "rest-util": { "js-util": null },
+              "convert-case": { "make-test": null }
+            },
+            "text-or-binary": null,
+            "model-types": { "matter-types": null }
+          }
+        },
+        "markdown-types": {
+          "model-types": { "matter-types": null },
+          "asset-type": null,
+          "matter-types": null,
+          "convert-case": { "make-test": null },
+          "bundle-types": { "model-types": { "matter-types": null } },
+          "code-types": {
+            "model-types": { "matter-types": null },
+            "pluralize": null,
+            "convert-case": { "make-test": null },
+            "measure-performance": { "model-types": { "matter-types": null } },
+            "matter-types": null
+          }
+        },
+        "model-types": { "matter-types": null }
+      },
+      "make-test": null,
+      "matter-types": null,
+      "code-types": {
+        "model-types": { "matter-types": null },
+        "pluralize": null,
+        "convert-case": { "make-test": null },
+        "measure-performance": { "model-types": { "matter-types": null } },
+        "matter-types": null
+      }
+    },
+    "filename-conventions": { "js-util": null },
+    "get-path": {
+      "fs-util": {
+        "log": null,
+        "js-util": null,
+        "recursive-types": null,
+        "filename-conventions": { "js-util": null },
+        "write-to-assets": null
+      },
+      "log": null,
+      "code-types": {
+        "model-types": { "matter-types": null },
+        "pluralize": null,
+        "convert-case": { "make-test": null },
+        "measure-performance": { "model-types": { "matter-types": null } },
+        "matter-types": null
+      },
+      "read-json-file": {
+        "fs-util": {
+          "log": null,
+          "js-util": null,
+          "recursive-types": null,
+          "filename-conventions": { "js-util": null },
+          "write-to-assets": null
+        },
+        "try-parse-json": null
+      },
+      "try-parse-json": null,
+      "js-util": null,
+      "sdk-operations": null,
+      "fs-util-js": null,
+      "filename-conventions": { "js-util": null }
+    },
+    "write-to-assets": {
+      "fs-util": {
+        "log": null,
+        "js-util": null,
+        "recursive-types": null,
+        "filename-conventions": { "js-util": null }
+      },
+      "get-path": {
+        "fs-util": {
+          "log": null,
+          "js-util": null,
+          "recursive-types": null,
+          "filename-conventions": { "js-util": null }
+        },
+        "log": null,
+        "code-types": {
+          "model-types": { "matter-types": null },
+          "pluralize": null,
+          "convert-case": { "make-test": null },
+          "measure-performance": { "model-types": { "matter-types": null } },
+          "matter-types": null
+        },
+        "read-json-file": {
+          "fs-util": {
+            "log": null,
+            "js-util": null,
+            "recursive-types": null,
+            "filename-conventions": { "js-util": null }
+          },
+          "try-parse-json": null
+        },
+        "try-parse-json": null,
+        "js-util": null,
+        "sdk-operations": null,
+        "fs-util-js": null,
+        "filename-conventions": { "js-util": null }
+      }
+    }
+  }
+}

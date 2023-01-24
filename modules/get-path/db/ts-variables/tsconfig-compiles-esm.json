@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315945593,
-  "updatedAt": 1671315945593,
+  "createdAt": 1673959155636,
+  "updatedAt": 1673959155636,
   "deletedAt": 0,
-  "createdFirstAt": 1671315945593,
+  "createdFirstAt": 1673959155636,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(tsconfig: TsConfig) => {\n  return (\n    !!tsconfig.compilerOptions.module &&\n    !!tsconfig.compilerOptions.moduleResolution &&\n    tsconfig.compilerOptions.module !== ModuleKind.CommonJS &&\n    tsconfig.compilerOptions.moduleResolution !== ModuleResolutionKind.Classic\n  );\n}",
   "description": "",
-  "id": "fjfbmodupuypjsgcmwrtnpeu"
+  "id": "zijcikiokndmaafgnsxhosli"
 }

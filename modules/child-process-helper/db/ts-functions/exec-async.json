@@ -1,19 +1,13 @@
 {
-  "createdAt": 1668336325158,
-  "updatedAt": 1668336325158,
+  "createdAt": 1674032515440,
+  "updatedAt": 1674032515440,
   "deletedAt": 0,
-  "createdFirstAt": 1668336325158,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
+  "createdFirstAt": 1674032515440,
   "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "commentsInside": [],
-  "rawText": " (\n  command: string\n): Promise<{ success: boolean; response: string }> => {\n  return new Promise((resolve) => {\n    exec(command, (error, stdout, stderr) => {\n      if (error) {\n        console.log(error);\n        resolve({ success: false, response: stderr });\n      } else {\n        resolve({ success: true, response: stdout });\n      }\n    });\n  });\n}",
+  "rawText": " async (\n  command: string,\n  execOptions: ExecOptions\n): Promise<{ isSuccessful: boolean; response: string }> => {\n  const result = await new Promise<{ isSuccessful: boolean; response: string }>(\n    (resolve) => {\n      exec(command, execOptions, (error, stdout, stderr) => {\n        console.log({ error, stdout, stderr });\n      })\n        .on(\"exit\", (code) => {\n          resolve({ response: String(code), isSuccessful: false });\n        })\n        .on(\"message\", (message) => {\n          console.log({ message });\n        })\n        .on(\"error\", (err) => {\n          resolve({ response: String(err), isSuccessful: false });\n        });\n    }\n  );\n\n  return result;\n}",
   "name": "execAsync",
   "slug": "exec-async",
   "parameters": [
@@ -26,11 +20,100 @@
         "type": "string"
       },
       "required": true
+    },
+    {
+      "name": "execOptions",
+      "schema": {
+        "$ref": "#/definitions/ExecOptions"
+      },
+      "simplifiedSchema": {
+        "fullComment": "",
+        "properties": [
+          {
+            "name": "uid",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "gid",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "cwd",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "windowsHide",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "timeout",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "shell",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "signal",
+            "required": false,
+            "schema": {
+              "fullComment": "A signal object that allows you to communicate with a DOM request (such as a Fetch) and abort it if required via an AbortController object.",
+              "properties": [
+                {
+                  "name": "aborted",
+                  "required": true,
+                  "schema": {
+                    "fullComment": "Returns true if this AbortSignal's AbortController has signaled to abort, and false otherwise.",
+                    "type": "boolean"
+                  }
+                }
+              ],
+              "type": "object"
+            }
+          },
+          {
+            "name": "maxBuffer",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "killSignal",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
     }
   ],
   "description": "promises to exec something with response and success as result (Promised)",
   "returnType": {
-    "rawType": "Promise<{ success: boolean; response: string; }>",
+    "rawType": "Promise<{ isSuccessful: boolean; response: string; }>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -38,15 +121,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 4,
+  "maxIndentationDepth": 5,
   "size": {
-    "characters": 427,
-    "lines": 14,
-    "bytes": 427,
+    "characters": 745,
+    "lines": 23,
+    "bytes": 745,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 31,
-    "linesPerFile": 14,
+    "charactersPerLine": 32,
+    "linesPerFile": 23,
     "numberOfFiles": 1
   },
-  "id": "kyqbaqxbguyiinjcnfnahuds"
+  "id": "zyrshcpmhpzyjtqwgauilden"
 }

@@ -1,0 +1,44 @@
+{
+  "createdAt": 1673380283050,
+  "updatedAt": 1673380283050,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380283050,
+  "id": "dependencytree",
+  "name": "DependencyTree",
+  "slug": "dependencytree",
+  "operationRelativeTypescriptFilePath": "src/getDependencyTree.ts",
+  "hasGeneric": false,
+  "isExported": true,
+  "rawText": "\n\nexport type DependencyTree = {\n  [dependencyName: string]: DependencyTree | null;\n};",
+  "extensions": [],
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/DependencyTree"
+          },
+          {
+            "type": "null"
+          }
+        ]
+      }
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "DependencyTree",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

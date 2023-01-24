@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150464363,
-  "updatedAt": 1668150464363,
+  "createdAt": 1673380276241,
+  "updatedAt": 1673380276241,
   "deletedAt": 0,
-  "createdFirstAt": 1668150464363,
+  "createdFirstAt": 1673380276241,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  const allOperations = await exploreOperationFolders({});\n\n  const dependencyObject = mergeObjectsArray(\n    await Promise.all(\n      allOperations.map(async (operationFolderPath) => {\n        const operationName = getLastFolder(operationFolderPath);\n        const monorepoModules = await findMonorepoModules(operationName);\n\n        return { [operationName]: monorepoModules };\n      })\n    )\n  );\n\n  return dependencyObject;\n}",
+  "value": "async () => {\n  const allOperations = await exploreOperationFolders({});\n  const allImports = await db.get(\"TsImport\");\n\n  const dependencyObject = mergeObjectsArray(\n    await Promise.all(\n      allOperations.map(async (operationFolderPath) => {\n        const operationName = getLastFolder(operationFolderPath);\n        const monorepoModules = await findMonorepoModules(\n          allImports,\n          operationName\n        );\n\n        return { [operationName]: monorepoModules };\n      })\n    )\n  );\n\n  return dependencyObject;\n}",
   "description": "",
-  "id": "pliibrhazttpledkhvikyqmd"
+  "id": "fhuoabejjrzrgnyhfoceelny"
 }

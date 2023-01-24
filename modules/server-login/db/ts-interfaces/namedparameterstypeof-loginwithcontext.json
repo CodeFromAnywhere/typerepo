@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671318403503,
-  "updatedAt": 1671318403503,
+  "createdAt": 1673863615273,
+  "updatedAt": 1673863615273,
   "deletedAt": 0,
-  "createdFirstAt": 1671318403503,
+  "createdFirstAt": 1673863615273,
   "id": "namedparameterstypeof-loginwithcontext",
   "name": "NamedParameters<typeof loginWithContext>",
   "slug": "namedparameterstypeof-loginwithcontext",
@@ -1976,76 +1976,6 @@
                       }
                     },
                     {
-                      "name": "groupAuthorization",
-                      "required": true,
-                      "schema": {
-                        "fullComment": "Other keys in frontmatter that are group names, can be added here",
-                        "properties": [],
-                        "type": "object"
-                      }
-                    },
-                    {
-                      "name": "isApiExposed",
-                      "required": true,
-                      "schema": {
-                        "fullComment": "for all exported functions in node operations, true by default false for others\n\ncan be overwritten using frontmatter",
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "canCache",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "whether or not the function can be cached (relies on cache invalidation)",
-                        "type": "boolean"
-                      }
-                    },
-                    {
-                      "name": "runEveryPeriod",
-                      "required": false,
-                      "schema": {
-                        "enum": [
-                          "minute",
-                          "5-minutes",
-                          "quarter-hour",
-                          "hour",
-                          "6-hours",
-                          "midnight",
-                          "week",
-                          "month",
-                          "3-months",
-                          "year"
-                        ],
-                        "fullComment": "You can specify `runEveryPeriod` in your frontmatter of a function. This will set `runEveryPeriod` for the TsFunction. This is used by `function-server`: it will execute CRON-jobs that run these things on those periods.\n\nWill only work if the function takes no arguments.\n\nUsed to specify functions that need to run every time with a specific interval\n\nAll times are at at the server timezone time\n\n- `minute`: every minute at 0 seconds\n- `5-mintues`: every 5 minutes, starting at the first minute of the hour\n- `quarter-hour`: every 15 minutes, starting at the first minute of the hour\n- `hour`: every hour, starting at the first minute of the hour\n- `6-hours`: every 6 hours, starting at midnight\n- `midnight`: every midnight (00:00:00)\n- `week`: every week at sundaynight (sunday, 1 second after 23:59:59 PM)\n- `month`: at the first second of the first day of the month (0:00:00)\n- `3-months`: every start of the quarter: january 1st (0:00:00), april 1st, july 1st, october 1st\n- `year`: every new year at january 1st at 0:00:00",
-                        "type": "string"
-                      }
-                    },
-                    {
-                      "name": "price",
-                      "required": false,
-                      "schema": {
-                        "fullComment": "Indexed from frontmatter `price`\n\nTLDR;EUROS\n\nA price is a number indicating the relative cost. Absolute cost is calculated by many other factors\n\nFor now, we're going to keep it simple: 1 `Price` is equal to 1 Eurocent.\n\nLater we can add all kinds of extra conversion:\n\n- currency support\n- king os currency\n- lower cost for poorer people\n\netc...\n\nFirst we need to start making sales before we can add such complexity.\n\n",
-                        "type": "number"
-                      }
-                    },
-                    {
-                      "name": "classification",
-                      "required": false,
-                      "schema": {
-                        "enum": [
-                          "wise",
-                          "dumb",
-                          "smart",
-                          "genius",
-                          "react-with-native",
-                          "cli",
-                          "test"
-                        ],
-                        "fullComment": "- `react`: The core library that should always be used that wraps react and react native.\n\n- `dumb`: Presentational components that only care about how things look, and have no idea about the type of information that they will contain (**data-agnostic**), nor their context they're used in.\n\n- `smart`: Presentational components that may contain getters and setters for global state. This means they're still easy enough to set up, but\n\n- `wise`: stateful components that use the backend as well to do things. for example, `simplified-schema-form`\n\n- `genius`: blocks of components that have certain functionality. Example: `file-writer` or `crud`",
-                        "type": "string"
-                      }
-                    },
-                    {
                       "name": "operationName",
                       "required": true,
                       "schema": {
@@ -2407,7 +2337,7 @@
                             }
                           },
                           {
-                            "name": "categoryStackCalculated",
+                            "name": "categoryStack",
                             "required": false,
                             "schema": {
                               "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -2682,7 +2612,7 @@
                                         }
                                       },
                                       {
-                                        "name": "categoryStackCalculated",
+                                        "name": "categoryStack",
                                         "required": false,
                                         "schema": {
                                           "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -2873,7 +2803,7 @@
                                         }
                                       },
                                       {
-                                        "name": "categoryStackCalculated",
+                                        "name": "categoryStack",
                                         "required": false,
                                         "schema": {
                                           "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -3246,159 +3176,6 @@
                             }
                           },
                           {
-                            "name": "authorizations",
-                            "required": false,
-                            "schema": {
-                              "fullComment": "Which custom authorizations does this `Person` have?",
-                              "items": [
-                                {
-                                  "schema": {
-                                    "fullComment": "`Authorization` helps you provide certain access to files, data, functionality, and code. Authorization can be provided custom, or by indexation. The indexation of the codebase and text-files overwrites the custom authorization in the `Group`-model.\n\n## Different authorizations\n\nFor files (ts, md, json, etc...):\n\n- canWriteCreate\n- canWriteUpdate\n- canWriteDelete\n- canRead\n- canSearch (only search index)\n\nFor db model data subsets:\n\n- canWriteUpdate\n- canWriteCreate\n- canWriteDelete\n- canRead\n- canSearch (only search index)\n\nFor functions:\n\n- canExecute\n\nFor functions, interfaces, variables:\n\n- canRead (reading docs only. for source, you need to provide the file auth)\n- canSearch (only search index)",
-                                    "properties": [
-                                      {
-                                        "name": "isProjectWide",
-                                        "required": false,
-                                        "schema": {
-                                          "fullComment": "If true, this authorization is project-wide and applies to everything",
-                                          "type": "boolean"
-                                        }
-                                      },
-                                      {
-                                        "name": "authorizedOperationName",
-                                        "required": false,
-                                        "schema": {
-                                          "fullComment": "If selected, the authorization will apply to the whole operation",
-                                          "type": "string"
-                                        }
-                                      },
-                                      {
-                                        "name": "tsFunctionId",
-                                        "required": false,
-                                        "schema": {
-                                          "fullComment": "If selected, the authorization will apply to this function\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
-                                          "type": "string"
-                                        }
-                                      },
-                                      {
-                                        "name": "tsVariableId",
-                                        "required": false,
-                                        "schema": {
-                                          "fullComment": "If selected, the authorization will apply to this variable\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
-                                          "type": "string"
-                                        }
-                                      },
-                                      {
-                                        "name": "tsInterfaceId",
-                                        "required": false,
-                                        "schema": {
-                                          "fullComment": "If selected, the authorization will apply to this interface\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
-                                          "type": "string"
-                                        }
-                                      },
-                                      {
-                                        "name": "datasetId",
-                                        "required": false,
-                                        "schema": {
-                                          "fullComment": "If selected, the authorization will apply to this dataset\n\nShould be an unique string By default, you can use `generateId()` to generate a random string of 16 characters. If you wish, you can also use any other string, as long as you are sure it's unique.\n\n# Background Info\n\nazAZ09 characters are easy to copy and provide 62 characters. the goal of an id is to be unique.\n\nthe advantage of a random id compared to an numeric id starting with 1 with auto increment is that you can set them up decentralised.\n\nthe change of duplicate ids gets bigger once you make them shorter the change of finding an existing id gets bigger once you make them shorter\n\nAn Id with 12 characters would provide 3.22e21 combinations.\n\nWhat is the change of duplicate ids? This depends on the amount of identifyable items in the data What is the change of guessing an id? This depends on speed of a brute force attack and the amount of available datapoints. If you can guess 10000 times per second, you can make 864.000.000 guesses. A billion guesses on a dataset of a billion datapoints yields 3226 correct ids on average.\n\nWhy make an id short? I don't know if there's an important reason.\n\nAll in all, I think we should make ids 24 characters by default. This would make it very easy to store, yet, with more than E42 combinations, make it nearly impossible to get duplication or brute force hits.\n\nAn id would look like this:\n\n``` { \"id\": \"sk2EcW9AkZpksk2EcW9AkZpk\" } ```\n\nLooks good to me! Don't think about it and just keep it simple. We can always migrate later to a bigger amount, but I don't see good reason to keep it smaller than this.",
-                                          "type": "string"
-                                        }
-                                      },
-                                      {
-                                        "name": "authorizedProjectRelativePath",
-                                        "required": false,
-                                        "schema": {
-                                          "fullComment": "If selected, the authorization will apply to everything in this folder or to this specific file",
-                                          "type": "string"
-                                        }
-                                      },
-                                      {
-                                        "name": "canExecute",
-                                        "required": false,
-                                        "schema": {
-                                          "type": "boolean"
-                                        }
-                                      },
-                                      {
-                                        "name": "canWriteCreate",
-                                        "required": false,
-                                        "schema": {
-                                          "type": "boolean"
-                                        }
-                                      },
-                                      {
-                                        "name": "canWriteUpdate",
-                                        "required": false,
-                                        "schema": {
-                                          "type": "boolean"
-                                        }
-                                      },
-                                      {
-                                        "name": "canWriteDelete",
-                                        "required": false,
-                                        "schema": {
-                                          "type": "boolean"
-                                        }
-                                      },
-                                      {
-                                        "name": "canRead",
-                                        "required": false,
-                                        "schema": {
-                                          "type": "boolean"
-                                        }
-                                      },
-                                      {
-                                        "name": "canSearch",
-                                        "required": false,
-                                        "schema": {
-                                          "type": "boolean"
-                                        }
-                                      }
-                                    ],
-                                    "type": "object"
-                                  },
-                                  "name": "Authorization"
-                                }
-                              ],
-                              "type": "array"
-                            }
-                          },
-                          {
-                            "name": "amountAuthenticationMethodsRequired",
-                            "required": false,
-                            "schema": {
-                              "fullComment": "By default, one is enough, but if this is defined, the user needs to use this amount of authentication methods before he/she is authenticated. Must be at least one",
-                              "type": "number"
-                            }
-                          },
-                          {
-                            "name": "requiredAuthenticationMethods",
-                            "required": false,
-                            "schema": {
-                              "fullComment": "Optionally, the user can setup for themselves which authentication methods they require for themselves to authenticate on another device",
-                              "items": [
-                                {
-                                  "schema": {
-                                    "enum": [
-                                      "usernamePassword",
-                                      "phoneNumber",
-                                      "email",
-                                      "apple",
-                                      "google",
-                                      "facebook",
-                                      "twitter",
-                                      "linkedin",
-                                      "github"
-                                    ],
-                                    "fullComment": "Username + password should be the default\n\nEmail OTP, phone number OTP (sms or call or whatsapp), should be optional 2FA methods\n\nAll others can also act as authentication methods, but the token shouldn't be stored",
-                                    "type": "string"
-                                  },
-                                  "name": "AuthenticationMethodMethod"
-                                }
-                              ],
-                              "type": "array"
-                            }
-                          },
-                          {
                             "name": "paymentAuthToken",
                             "required": false,
                             "schema": {
@@ -3411,6 +3188,29 @@
                             "required": false,
                             "schema": {
                               "fullComment": "Actions by the `Person` can create changes in the amount of credits\n\nThe exact meaning of the number of credits is determined by the OS settings. Can for example be 1:1 to euro, 1:1 to bitcoin, or a custom credit system. Transferability is also customisable.\n\nInsufficient credit can limit the persons possibilities within the OS\n\n",
+                              "type": "number"
+                            }
+                          },
+                          {
+                            "name": "note",
+                            "required": false,
+                            "schema": {
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "location",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "Later to be formalised with city, country, address, lat/lng, and maybe multiple possible locations. For now, and if we are using GPT for search, a string might be enough.",
+                              "type": "string"
+                            }
+                          },
+                          {
+                            "name": "trust",
+                            "required": false,
+                            "schema": {
+                              "fullComment": "Number 0-1 to indicate my trust towards this person",
                               "type": "number"
                             }
                           }
@@ -3553,7 +3353,7 @@
                       }
                     },
                     {
-                      "name": "categoryStackCalculated",
+                      "name": "categoryStack",
                       "required": false,
                       "schema": {
                         "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -3806,7 +3606,7 @@
                             }
                           },
                           {
-                            "name": "categoryStackCalculated",
+                            "name": "categoryStack",
                             "required": false,
                             "schema": {
                               "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -4118,7 +3918,7 @@
                                         }
                                       },
                                       {
-                                        "name": "categoryStackCalculated",
+                                        "name": "categoryStack",
                                         "required": false,
                                         "schema": {
                                           "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",

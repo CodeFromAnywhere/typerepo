@@ -83,5 +83,32 @@ export interface Persona extends SlugModelType {
     apiKey2Captcha?: string;
     openAiPassword?: string;
     openAiEmail?: string;
+    openAiToken?: string;
+    linkedinEmail?: string;
+    linkedinPassword?: string;
+    /**
+     * phone, email or username
+     */
+    twitterLoginHandle?: string;
+    twitterPassword?: string;
+    facebookLoginHandle?: string;
+    facebookPassword?: string;
+    mediumLoginHandle?: string;
+    mediumPassword?: string;
+    redditLoginHandle?: string;
+    redditPassword?: string;
+    devtoLoginHandle?: string;
+    devtoPassword?: string;
+    slackLoginHandle?: string;
+    slackPassword?: string;
+    huggingfaceAuthToken?: string;
+    uberduckApiKey?: string;
+    uberduckSecret?: string;
+    bananadevApiKey?: string;
+    bananadevModelKeys?: {
+        [key: string]: string;
+    };
+    email: string;
+    phone: string;
 }
 //# sourceMappingURL=Persona.d.ts.map

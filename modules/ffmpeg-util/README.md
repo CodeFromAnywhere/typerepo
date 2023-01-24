@@ -15,7 +15,7 @@ Returns the new file path on success
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| sourcePath | string |  |,| destinationPath | string |  |
+| sourcePath | string |  |,| destinationPath | string |  |,| config (optional) | { toWav?: boolean, <br /> } |  |
 | **Output** |    |    |
 
 
@@ -25,6 +25,27 @@ Returns the new file path on success
 Uses ffmpeg to convert a file to mp3
 
 Returns the new file path on success
+
+
+## compressConvert()
+
+Super useful wrapper around ffmpeg to do just all the stuff I want to do with it
+
+TODO: fix fps, not implemented yet
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| absoluteSourceFilePath | string |  |,| config (optional) | { outputFolderPath?: string, <br />name?: string, <br />fps?: number, <br />sizeWidthPx?: number, <br />aspectRatio?: { x: number, <br />y: number, <br /> }, <br />quality?: number, <br />targetFormat?: webp / png / mp4 / mp3 / wav, <br />is16bitWav?: boolean, <br />keepOriginal?: boolean, <br />isDebug?: boolean, <br /> } |  |
+| **Output** |    |    |
+
+
+
+## 📄 compressConvert (exported const)
+
+Super useful wrapper around ffmpeg to do just all the stuff I want to do with it
+
+TODO: fix fps, not implemented yet
 
 
 ## convertToMp4()
@@ -103,21 +124,9 @@ can also be relative path
 
 # Internal
 
-<details><summary>Show internal (6)</summary>
+<details><summary>Show internal (4)</summary>
     
-  # compressImage()
-
-
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| absoluteSourceImagePath | string |  |,| config (optional) | { sizeWidthPx?: number, <br />aspectRatio?: { x: number, <br />y: number, <br /> }, <br />quality?: number, <br />targetFormat?: webp / png / mp4, <br />keepOriginal?: boolean, <br />isDebug?: boolean, <br /> } |  |
-| **Output** |    |    |
-
-
-
-## compressImages()
+  # compressImages()
 
 searches the folder recursively for all images and converts them to webp
 
@@ -140,8 +149,6 @@ Compress mp4 to very small
 | **Output** |    |    |
 
 
-
-## 📄 compressImage (exported const)
 
 ## 📄 compressImages (exported const)
 

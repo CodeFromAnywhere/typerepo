@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1671365953525,
-    "updatedAt": 1671365953525,
+    "createdAt": 1674134984421,
+    "updatedAt": 1674134984421,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953525,
+    "createdFirstAt": 1674134984421,
     "name": "DefaultModelType",
     "slug": "default-model-type",
     "type": "type",
@@ -15,13 +15,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ekxbdyjmztakqqbjfhjqyhvr"
+    "id": "zlhxhhihrghrfxfuwlivjlfy"
   },
   {
-    "createdAt": 1671365953526,
-    "updatedAt": 1671365953526,
+    "createdAt": 1674134984422,
+    "updatedAt": 1674134984422,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953526,
+    "createdFirstAt": 1674134984422,
     "name": "SlugModelType",
     "slug": "slug-model-type",
     "type": "type",
@@ -33,13 +33,49 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "xserbaifckyyziqsdwnscykf"
+    "id": "cziemlbymqtcexryzrrgiwze"
   },
   {
-    "createdAt": 1671365953526,
-    "updatedAt": 1671365953526,
+    "createdAt": 1674134984422,
+    "updatedAt": 1674134984422,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953526,
+    "createdFirstAt": 1674134984422,
+    "name": "DefaultModelType",
+    "slug": "default-model-type",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "model-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/AiModel.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "vszururkboevwzcnwmzpjoqh"
+  },
+  {
+    "createdAt": 1674134984422,
+    "updatedAt": 1674134984422,
+    "deletedAt": 0,
+    "createdFirstAt": 1674134984422,
+    "name": "ChildObject",
+    "slug": "child-object",
+    "type": "type",
+    "hasGeneric": true,
+    "module": "recursive-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/CategoryChildObject.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "szqtwttnmdpkqrnyxaecjxbt"
+  },
+  {
+    "createdAt": 1674134984422,
+    "updatedAt": 1674134984422,
+    "deletedAt": 0,
+    "createdFirstAt": 1674134984422,
     "name": "SlugModelType",
     "slug": "slug-model-type",
     "type": "type",
@@ -51,13 +87,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wjeubmzpmundsdptkwpieqpl"
+    "id": "vovpxwpzgfqtuzytoeiclzrg"
   },
   {
-    "createdAt": 1671365953526,
-    "updatedAt": 1671365953526,
+    "createdAt": 1674134984422,
+    "updatedAt": 1674134984422,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953526,
+    "createdFirstAt": 1674134984422,
     "name": "FileType",
     "slug": "file-type",
     "type": "type",
@@ -69,13 +105,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qtqgmvruhmcrfgtjaeawjgal"
+    "id": "grhkkfgwhtklbcudiwviveke"
   },
   {
-    "createdAt": 1671365953526,
-    "updatedAt": 1671365953526,
+    "createdAt": 1674134984422,
+    "updatedAt": 1674134984422,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953526,
+    "createdFirstAt": 1674134984422,
     "name": "ContextualPrompt",
     "slug": "contextual-prompt",
     "module": "./ContextualPrompt",
@@ -85,13 +121,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "vhgsmefkmksikjcnvrzhmmmv"
+    "id": "plxpsbrhrghwzqqwncmzjxoo"
   },
   {
-    "createdAt": 1671365953526,
-    "updatedAt": 1671365953526,
+    "createdAt": 1674134984422,
+    "updatedAt": 1674134984422,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953526,
+    "createdFirstAt": 1674134984422,
     "name": "DefaultModelType",
     "slug": "default-model-type",
     "type": "type",
@@ -103,13 +139,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "mpmqosxdyuyjnroeldouulyt"
+    "id": "fnzqxrqzcxplnqgrschulrtq"
   },
   {
-    "createdAt": 1671365953526,
-    "updatedAt": 1671365953526,
+    "createdAt": 1674134984423,
+    "updatedAt": 1674134984423,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953526,
+    "createdFirstAt": 1674134984423,
     "name": "BackendAsset",
     "slug": "backend-asset",
     "type": "type",
@@ -121,13 +157,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "whigwhxigmolawxtmwxibvbv"
+    "id": "vnczugufuvqpfypqfuwurdef"
   },
   {
-    "createdAt": 1671365953527,
-    "updatedAt": 1671365953527,
+    "createdAt": 1674134984423,
+    "updatedAt": 1674134984423,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953527,
+    "createdFirstAt": 1674134984423,
     "name": "DefaultModelType",
     "slug": "default-model-type",
     "type": "type",
@@ -139,13 +175,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "euuxrpcxloahvbwxuoawtiuc"
+    "id": "vdwqyzruydyravisgyuyznaz"
   },
   {
-    "createdAt": 1671365953527,
-    "updatedAt": 1671365953527,
+    "createdAt": 1674134984423,
+    "updatedAt": 1674134984423,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953527,
+    "createdFirstAt": 1674134984423,
     "name": "BackendAsset",
     "slug": "backend-asset",
     "type": "type",
@@ -157,13 +193,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "sxlvagtkhfbphyhzysndzrjj"
+    "id": "qyiyydgqblnhwndbnpgenbou"
   },
   {
-    "createdAt": 1671365953527,
-    "updatedAt": 1671365953527,
+    "createdAt": 1674134984423,
+    "updatedAt": 1674134984423,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953527,
+    "createdFirstAt": 1674134984423,
     "name": "ContextualPromptInfo",
     "slug": "contextual-prompt-info",
     "module": "./ContextualPrompt",
@@ -173,13 +209,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "pkeghtalnbwszpkgpysvnlpn"
+    "id": "gdcnprwzhjikckyddlwoleld"
   },
   {
-    "createdAt": 1671365953527,
-    "updatedAt": 1671365953527,
+    "createdAt": 1674134984423,
+    "updatedAt": 1674134984423,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953527,
+    "createdFirstAt": 1674134984423,
     "name": "ProcessPromptFunctionResult",
     "slug": "process-prompt-function-result",
     "module": "./ProcessPromptFunctionResult",
@@ -189,13 +225,31 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "tygdhwwfqevszeyymamtxnep"
+    "id": "khoofdhpehvvgdramfjwxlsf"
   },
   {
-    "createdAt": 1671365953527,
-    "updatedAt": 1671365953527,
+    "createdAt": 1674134984423,
+    "updatedAt": 1674134984423,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953527,
+    "createdFirstAt": 1674134984423,
+    "name": "ApiFunctionParameters",
+    "slug": "api-function-parameters",
+    "type": "type",
+    "hasGeneric": false,
+    "module": "code-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/PromptFunction.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "epaurojfzffrkzfbywtpxzty"
+  },
+  {
+    "createdAt": 1674134984423,
+    "updatedAt": 1674134984423,
+    "deletedAt": 0,
+    "createdFirstAt": 1674134984423,
     "name": "Frontmatter",
     "slug": "frontmatter",
     "type": "type",
@@ -207,13 +261,29 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "urszeajxpgpsgxvxypwjhqpz"
+    "id": "dfnsmwqcfpwnbkhxwchceare"
   },
   {
-    "createdAt": 1671365953527,
-    "updatedAt": 1671365953527,
+    "createdAt": 1674134984423,
+    "updatedAt": 1674134984423,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953527,
+    "createdFirstAt": 1674134984423,
+    "name": "CategoryChildObject",
+    "slug": "category-child-object",
+    "module": "./CategoryChildObject",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
+    "classification": "internal",
+    "isAbsolute": false,
+    "isModuleFromMonorepo": false,
+    "id": "ydtzjvyqorrtnmuikwrmrcbu"
+  },
+  {
+    "createdAt": 1674134984424,
+    "updatedAt": 1674134984424,
+    "deletedAt": 0,
+    "createdFirstAt": 1674134984424,
     "name": "ContextualPromptsObject",
     "slug": "contextual-prompts-object",
     "module": "./ContextualPromptObject",
@@ -223,13 +293,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "hwptgttjxhjyytdxeepkoove"
+    "id": "xbazjpbwcruohoflceklgglz"
   },
   {
-    "createdAt": 1671365953527,
-    "updatedAt": 1671365953527,
+    "createdAt": 1674134984424,
+    "updatedAt": 1674134984424,
     "deletedAt": 0,
-    "createdFirstAt": 1671365953527,
+    "createdFirstAt": 1674134984424,
     "name": "ContextualPromptResult",
     "slug": "contextual-prompt-result",
     "module": "./ContextualPromptResult",
@@ -239,6 +309,6 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "jriyoigrnwgavilyoilkgslw"
+    "id": "oalxzjgcokbmhtwlsghslhkl"
   }
 ]

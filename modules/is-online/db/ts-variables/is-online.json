@@ -1,0 +1,33 @@
+{
+  "createdAt": 1668336407785,
+  "updatedAt": 1668336407785,
+  "deletedAt": 0,
+  "createdFirstAt": 1668336407785,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "isOnline",
+  "slug": "is-online",
+  "operationRelativeTypescriptFilePath": "src/isOnline.ts",
+  "type": {
+    "rawType": "() => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async () => {\n  const { isConnected } = await fetchWithTimeout(\"https://google.com\", 10000);\n\n  return isConnected;\n}",
+  "description": "Fetches google.com to check if we have an internet connection",
+  "id": "zdejbnbbjlajkphbxtfgkprr"
+}

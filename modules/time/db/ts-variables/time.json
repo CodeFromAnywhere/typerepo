@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673959371003,
+  "updatedAt": 1673959371003,
+  "deletedAt": 0,
+  "createdFirstAt": 1673959371003,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "time",
+  "slug": "time",
+  "operationRelativeTypescriptFilePath": "src/time.ts",
+  "type": {
+    "rawType": "() => { timeString: string; myTimeDate: any; myTimeMs: any; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const nowMs = Date.now();\n  const nowDate = new Date(nowMs);\n  const fakeOffsetMs = 60000 * nowDate.getTimezoneOffset();\n  // hardcoded on GMT+1\n  const realOffsetMs = 60 * 60000;\n\n  const myTimeMs = nowMs + fakeOffsetMs + realOffsetMs;\n\n  const myTimeDate = new Date(myTimeMs);\n\n  //   console.log({\n  //     nowMs,\n  //     myTimeMs,\n  //     fakeOffsetH: fakeOffsetMs / 3600000,\n  //     realOffsetMs: realOffsetMs / 3600000,\n  //   });\n\n  //setRandomTimezone();\n  return {\n    timeString: `${myTimeDate.getHours()}:${myTimeDate.getMinutes()}`,\n    myTimeDate,\n    myTimeMs,\n  };\n}",
+  "description": "To enable possibility to change the timezone in the OS, this is the actually correct time, assuming we are in timezone GMT+1",
+  "id": "tfstemufiejvxecktpqmiajl"
+}

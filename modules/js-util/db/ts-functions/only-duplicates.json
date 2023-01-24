@@ -1,0 +1,45 @@
+{
+  "createdAt": 1672638765135,
+  "updatedAt": 1672638765135,
+  "deletedAt": 0,
+  "createdFirstAt": 1672638765135,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "commentsInside": [],
+  "rawText": "\n  <U>(isEqualFn?: (a: U, b: U) => boolean) =>\n  <T extends U>(value: T, index: number, self: T[]) => {\n    return (\n      self.findIndex((v) => (isEqualFn ? isEqualFn(v, value) : v === value)) !==\n      index\n    );\n  }",
+  "name": "onlyDuplicates",
+  "slug": "only-duplicates",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "<T extends U>(value: T, index: number, self: T[]) => boolean",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 220,
+    "lines": 8,
+    "bytes": 220,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 8,
+    "numberOfFiles": 1
+  },
+  "id": "figktdxsikssqeuxbavdwjey"
+}

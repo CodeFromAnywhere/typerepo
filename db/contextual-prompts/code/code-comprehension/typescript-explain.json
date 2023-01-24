@@ -1,0 +1,21 @@
+{
+  "createdAt": 1670077172618,
+  "updatedAt": 1670077172618,
+  "deletedAt": 0,
+  "createdFirstAt": 1670077172618,
+  "slug": "typescript-explain",
+  "name": "typescript-explain",
+  "language": "english",
+  "id": "hxqhtnihrqbbftwjbttnsvho",
+  "promptContent": "Here is my code:\n\n```\n%context\n```\n\nI am looking at this:\n\n```\n%selection\n```\n\nI don't understand this. Can you explain?",
+  "usesContext": true,
+  "usesSelection": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "code",
+    "code-comprehension"
+  ]
+}

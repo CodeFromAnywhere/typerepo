@@ -1,9 +1,9 @@
 [
   {
-    "createdAt": 1669385423816,
-    "updatedAt": 1669385423816,
+    "createdAt": 1671554587935,
+    "updatedAt": 1671554587935,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423816,
+    "createdFirstAt": 1671554587935,
     "name": "NestedObject",
     "slug": "nested-object",
     "type": "type",
@@ -15,13 +15,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wlsyddrrgugkmtocwghzfllg"
+    "id": "ccdywtkecgzadfimrpeizvso"
   },
   {
-    "createdAt": 1669385423816,
-    "updatedAt": 1669385423816,
+    "createdAt": 1671554587935,
+    "updatedAt": 1671554587935,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423816,
+    "createdFirstAt": 1671554587935,
     "name": "NestedWebPage",
     "slug": "nested-web-page",
     "type": "type",
@@ -33,13 +33,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "okhbfykmssoiigeulabtobns"
+    "id": "fzpmjaopuguprhjfbrkbiaov"
   },
   {
-    "createdAt": 1669385423816,
-    "updatedAt": 1669385423816,
+    "createdAt": 1671554587935,
+    "updatedAt": 1671554587935,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423816,
+    "createdFirstAt": 1671554587935,
     "name": "WebPage",
     "slug": "web-page",
     "type": "type",
@@ -51,13 +51,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tukgdpwyckgffquyaseikzww"
+    "id": "ehdxfgxaecmhyapvmybmxohc"
   },
   {
-    "createdAt": 1669385423816,
-    "updatedAt": 1669385423816,
+    "createdAt": 1671554587936,
+    "updatedAt": 1671554587936,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423816,
+    "createdFirstAt": 1671554587936,
     "name": "MenuObjectType",
     "slug": "menu-object-type",
     "type": "type",
@@ -69,13 +69,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "wxanvllricwdjybyojrcrbqr"
+    "id": "wqqltarbtzicdkpvekwuixsx"
   },
   {
-    "createdAt": 1669385423817,
-    "updatedAt": 1669385423817,
+    "createdAt": 1671554587936,
+    "updatedAt": 1671554587936,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423817,
+    "createdFirstAt": 1671554587936,
     "name": "makeNestedObjectFromQueryPathObject",
     "slug": "make-nested-object-from-query-path-object",
     "module": "./makeNestedObjectFromQueryPathObject",
@@ -85,13 +85,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "ooqjhodyjhubyqxqquxlfqon"
+    "id": "dskasqchcabztwkyegcabibp"
   },
   {
-    "createdAt": 1669385423817,
-    "updatedAt": 1669385423817,
+    "createdAt": 1671554587936,
+    "updatedAt": 1671554587936,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423817,
+    "createdFirstAt": 1671554587936,
     "name": "nestedObjectToChildObject",
     "slug": "nested-object-to-child-object",
     "module": "./nestedObjectToChildObject",
@@ -101,13 +101,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "tbusycutqsrptxlmsmphkxnd"
+    "id": "rlpgarlqoooseblwngppqqgw"
   },
   {
-    "createdAt": 1669385423817,
-    "updatedAt": 1669385423817,
+    "createdAt": 1671554587936,
+    "updatedAt": 1671554587936,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423817,
+    "createdFirstAt": 1671554587936,
     "name": "NestedObject",
     "slug": "nested-object",
     "type": "type",
@@ -119,13 +119,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "agzvzhyskcjkbjtyvrwumbce"
+    "id": "cunpvjsvrdrkxegnxckrviqx"
   },
   {
-    "createdAt": 1669385423817,
-    "updatedAt": 1669385423817,
+    "createdAt": 1671554587936,
+    "updatedAt": 1671554587936,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423817,
+    "createdFirstAt": 1671554587936,
     "name": "QueryPathObject",
     "slug": "query-path-object",
     "module": "./nestifyQueryPathObjectRecursive",
@@ -135,13 +135,31 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "luryxgihffgcloqutdmpuotk"
+    "id": "oqfjrjqpejpqlddcjvuzdfak"
   },
   {
-    "createdAt": 1669385423817,
-    "updatedAt": 1669385423817,
+    "createdAt": 1671554587937,
+    "updatedAt": 1671554587937,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423817,
+    "createdFirstAt": 1671554587937,
+    "name": "ChildObject",
+    "slug": "child-object",
+    "type": "type",
+    "hasGeneric": true,
+    "module": "recursive-types",
+    "isModuleResolved": true,
+    "comments": [],
+    "operationRelativeTypescriptFilePath": "src/mapChildObjectRecursive.ts",
+    "classification": "operation",
+    "isAbsolute": true,
+    "isModuleFromMonorepo": true,
+    "id": "wsjqhqvpbqwpnsiwlasxzdok"
+  },
+  {
+    "createdAt": 1671554587937,
+    "updatedAt": 1671554587937,
+    "deletedAt": 0,
+    "createdFirstAt": 1671554587937,
     "name": "ChildObject",
     "slug": "child-object",
     "type": "type",
@@ -153,13 +171,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "rbyaindhakywmqlegfptjcav"
+    "id": "ruitouirpvhkpoxjkfjugflp"
   },
   {
-    "createdAt": 1669385423817,
-    "updatedAt": 1669385423817,
+    "createdAt": 1671554587937,
+    "updatedAt": 1671554587937,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423817,
+    "createdFirstAt": 1671554587937,
     "name": "NestedObject",
     "slug": "nested-object",
     "type": "type",
@@ -171,13 +189,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "qlwdruddhamemycwdxktfwrc"
+    "id": "afstogbvuamdypkaojbetcqj"
   },
   {
-    "createdAt": 1669385423817,
-    "updatedAt": 1669385423817,
+    "createdAt": 1671554587937,
+    "updatedAt": 1671554587937,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423817,
+    "createdFirstAt": 1671554587937,
     "name": "MenuItemType",
     "slug": "menu-item-type",
     "type": "type",
@@ -189,13 +207,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "epvxwafeyjjninzdgtfqfiso"
+    "id": "qrlmfpnhlaqugtlxicmcbxzw"
   },
   {
-    "createdAt": 1669385423818,
-    "updatedAt": 1669385423818,
+    "createdAt": 1671554587938,
+    "updatedAt": 1671554587938,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423818,
+    "createdFirstAt": 1671554587938,
     "name": "NestedPathObject",
     "slug": "nested-path-object",
     "type": "type",
@@ -207,13 +225,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "hnbeostrxeitvkduqlxlfkcw"
+    "id": "aqlfgbyblwpcfhfubnsermuv"
   },
   {
-    "createdAt": 1669385423818,
-    "updatedAt": 1669385423818,
+    "createdAt": 1671554587938,
+    "updatedAt": 1671554587938,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423818,
+    "createdFirstAt": 1671554587938,
     "name": "ChildObject",
     "slug": "child-object",
     "type": "type",
@@ -225,13 +243,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "skteiivibcvmcpgzctzknjdb"
+    "id": "vubupubchmjwtqcgvjdpohbw"
   },
   {
-    "createdAt": 1669385423818,
-    "updatedAt": 1669385423818,
+    "createdAt": 1671554587938,
+    "updatedAt": 1671554587938,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423818,
+    "createdFirstAt": 1671554587938,
     "name": "NestedObject",
     "slug": "nested-object",
     "type": "type",
@@ -243,13 +261,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "crcaofodxirhjkpauxizwpjf"
+    "id": "uvmaplbbshbcrkrtaarxddhy"
   },
   {
-    "createdAt": 1669385423818,
-    "updatedAt": 1669385423818,
+    "createdAt": 1671554587938,
+    "updatedAt": 1671554587938,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423818,
+    "createdFirstAt": 1671554587938,
     "name": "NestedPathObject",
     "slug": "nested-path-object",
     "type": "type",
@@ -261,13 +279,13 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "tdzwgrlfwzrdfnpoizcvvgar"
+    "id": "avndntpzlylhspvpdidhucxy"
   },
   {
-    "createdAt": 1669385423818,
-    "updatedAt": 1669385423818,
+    "createdAt": 1671554587938,
+    "updatedAt": 1671554587938,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423818,
+    "createdFirstAt": 1671554587938,
     "name": "reduceQueryPathsRecursively",
     "slug": "reduce-query-paths-recursively",
     "module": "./reduceQueryPathsRecursively",
@@ -277,13 +295,13 @@
     "classification": "internal",
     "isAbsolute": false,
     "isModuleFromMonorepo": false,
-    "id": "nvcgzeqbmzhjskjzzowrdqkg"
+    "id": "rchomjewbzofnayezeuthbqs"
   },
   {
-    "createdAt": 1669385423819,
-    "updatedAt": 1669385423819,
+    "createdAt": 1671554587938,
+    "updatedAt": 1671554587938,
     "deletedAt": 0,
-    "createdFirstAt": 1669385423819,
+    "createdFirstAt": 1671554587938,
     "name": "NestedPathObject",
     "slug": "nested-path-object",
     "type": "type",
@@ -295,6 +313,6 @@
     "classification": "operation",
     "isAbsolute": true,
     "isModuleFromMonorepo": true,
-    "id": "ewhfejatzmyjcqoxmoauwius"
+    "id": "zphrfydxvicbifkxtzhgeyrf"
   }
 ]

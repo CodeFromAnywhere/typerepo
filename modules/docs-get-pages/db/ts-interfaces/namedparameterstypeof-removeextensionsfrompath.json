@@ -1,0 +1,51 @@
+{
+  "createdAt": 1674135472282,
+  "updatedAt": 1674135472282,
+  "deletedAt": 0,
+  "createdFirstAt": 1674135472282,
+  "id": "namedparameterstypeof-removeextensionsfrompath",
+  "name": "NamedParameters<typeof removeExtensionsFromPath>",
+  "slug": "namedparameterstypeof-removeextensionsfrompath",
+  "operationRelativeTypescriptFilePath": "src/removeExtensionsFromPath.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "relativePath": {
+          "type": "string",
+          "description": "should also work for filenames"
+        }
+      },
+      "required": [
+        "relativePath"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "relativePath",
+          "required": true,
+          "schema": {
+            "fullComment": "should also work for filenames",
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof removeExtensionsFromPath>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

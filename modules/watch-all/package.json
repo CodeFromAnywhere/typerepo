@@ -23,30 +23,30 @@
       "indexImportExportError": "",
       "lintProblems": []
     },
-    "lastRebuildAt": 1669055122709,
+    "lastRebuildAt": 1673862108866,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 3,
-        "lines": 99,
-        "characters": 2640,
-        "bytes": 2640
+        "lines": 210,
+        "characters": 5567,
+        "bytes": 5567
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 120,
-        "characters": 3588,
-        "bytes": 3588
+        "lines": 132,
+        "characters": 3845,
+        "bytes": 3845
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 85,
-        "characters": 2200,
-        "bytes": 2200
+        "lines": 80,
+        "characters": 2123,
+        "bytes": 2123
       },
       "size": {
-        "bytes": 8428,
-        "characters": 8428,
-        "lines": 304,
+        "bytes": 11535,
+        "characters": 11535,
+        "lines": 422,
         "numberOfFiles": 7
       }
     },
@@ -61,7 +61,13 @@
       "db",
       "ProjectWatcher",
       "notEmpty",
-      "oneByOne"
+      "oneByOne",
+      "isOnline",
+      "path",
+      "explore",
+      "Queue",
+      "Creation",
+      "isSystemBusy"
     ],
     "packageDependenciesIndexed": [
       "watch"
@@ -75,7 +81,13 @@
     "chokidar": "*",
     "database": "0.0.1",
     "js-util": "0.0.1",
-    "watch-types": "0.0.1"
+    "watch-types": "0.0.1",
+    "fs-util": "1.0.5",
+    "k-explore": "0.0.2",
+    "queue-types": "0.0.1",
+    "model-types": "0.0.1",
+    "is-online": "0.0.1",
+    "is-system-busy": "0.0.1"
   },
   "slug": "watch-all",
   "id": "wdrlkzjoriemaynaejxldjgd"

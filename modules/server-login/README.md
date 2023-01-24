@@ -11,6 +11,20 @@ This thing is far from finished, see `todo/` for what needs to be done.
 
 # Api reference
 
+## addAuthenticationMethod()
+
+sends an email or sms, or already confirms in case of emailPassword
+
+core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| method | `AuthenticationMethodMethod` |  |,| handle | string |  |,| shouldBeUnique (optional) | boolean | TODO: check if it's unique before sending an email. This is needed in case you are a person trying to add a method, because then there might be another person with the same handle. |,| credential (optional) | string |  |
+| **Output** |    |    |
+
+
+
 ## addDeviceAuthenticationMethodWithContext()
 
 returns new function context with added authenticationmethod
@@ -43,9 +57,16 @@ Creates a new `Person` for a `Device`. Adds that person to the `Device`.
 
 | Input      |    |    |
 | ---------- | -- | -- |
-| functionContext | `FunctionContext` |  |,| personData | `SignupPersonData` | Data required for creating a `Person`. Can be filled in by the user partly, but also partly automatically |
+| - | | |
 | **Output** |    |    |
 
+
+
+## 📄 addAuthenticationMethod (exported const)
+
+sends an email or sms, or already confirms in case of emailPassword
+
+core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
 
 
 ## 📄 addDeviceAuthenticationMethodWithContext (exported const)
@@ -65,23 +86,9 @@ Creates a new `Person` for a `Device`. Adds that person to the `Device`.
 
 # Internal
 
-<details><summary>Show internal (35)</summary>
+<details><summary>Show internal (32)</summary>
     
-  # addAuthenticationMethod()
-
-sends an email or sms, or already confirms in case of emailPassword
-
-core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| method | `AuthenticationMethodMethod` |  |,| handle | string |  |,| shouldBeUnique (optional) | boolean | TODO: check if it's unique before sending an email. This is needed in case you are a person trying to add a method, because then there might be another person with the same handle. |,| credential (optional) | string |  |
-| **Output** |    |    |
-
-
-
-## addDeviceAuthenticationMethodConfirm()
+  # addDeviceAuthenticationMethodConfirm()
 
 adds an `authenticatedMethod` to `Device` after the OTP is correct
 
@@ -276,33 +283,6 @@ This function makes an authenticationmethod for the device and then signs up by 
 | functionContext | `FunctionContext` |  |,| details | `PersonProfileDetails` |  |
 | **Output** |    |    |
 
-
-
-## 🔹 SignupPersonData
-
-Properties: 
-
- | Name | Type | Description |
-|---|---|---|
-| authorizations (optional) | array |  |
-| credit (optional) | number |  |
-| dataEntries (optional) | array |  |
-| interestSlugs (optional) | array |  |
-| media (optional) | array |  |
-| name  | string |  |
-| slug  | string |  |
-| pictureImage (optional) | object |  |
-| groupSlugs (optional) | array |  |
-| requiredAuthenticationMethods (optional) | array |  |
-| amountAuthenticationMethodsRequired (optional) | number |  |
-
-
-
-## 📄 addAuthenticationMethod (exported const)
-
-sends an email or sms, or already confirms in case of emailPassword
-
-core function for `addPersonAuthenticationMethod` and `addDeviceAuthenticatedMethod`
 
 
 ## 📄 addDeviceAuthenticationMethodConfirm (exported const)

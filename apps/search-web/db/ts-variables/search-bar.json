@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527591490,
-  "updatedAt": 1670527591490,
+  "createdAt": 1674542292837,
+  "updatedAt": 1674542292837,
   "deletedAt": 0,
-  "createdFirstAt": 1670527591490,
+  "createdFirstAt": 1674542292837,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "search-bar",
   "operationRelativeTypescriptFilePath": "src/components/SearchBar.tsx",
   "type": {
-    "rawType": "(props: { initialValue?: string | undefined; placeholder?: string | undefined; }) => JSX.Element",
+    "rawType": "(props: { initialValue?: string | undefined; placeholder?: string | undefined; changePlaceholder?: (() => void) | undefined; }) => JSX.Element",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(props: {\n  initialValue?: string;\n  placeholder?: string;\n}) => {\n  const { initialValue, placeholder } = props;\n  const [search, setSearch] = useState(initialValue || \"\");\n  const router = useRouter();\n\n  const go = () => {\n    if (search.length === 0) return;\n    router.push(`/${search}`);\n  };\n  return (\n    <Div className=\"rounded-full border border-zinc-700 dark:border-zinc-300 p-2 px-4 text-3xl hover:bg-zinc-200 dark:hover:bg-zinc-800 bg-zinc-100 bg-opacity-75 dark:bg-zinc-600 dark flex flex-row max-w-xl\">\n      <Form\n        onSubmit={(e) => {\n          e.preventDefault();\n          go();\n        }}\n      >\n        <Input\n          placeholder={placeholder || \"Go crazy\"}\n          className=\"flex px-3 flex-1 bg-transparent focus:outline-none\"\n          value={search}\n          onChange={(e) => setSearch(e.target.value)}\n        />\n      </Form>\n      <Div\n        className={search.length === 0 ? \"cursor-default\" : \"cursor-progress\"}\n        onMouseEnter={go}\n      >\n        🔎\n      </Div>\n    </Div>\n  );\n}",
+  "value": "(props: {\n  initialValue?: string;\n  placeholder?: string;\n  changePlaceholder?: () => void;\n}) => {\n  const { initialValue, placeholder, changePlaceholder } = props;\n  const [search, setSearch] = useState(initialValue || \"\");\n  const router = useRouter();\n\n  const go = () => {\n    if (search.length === 0) return;\n    router.push(`/${search}`);\n  };\n\n  const goBrave = () => {\n    if (search.length === 0) return;\n    router.push(`/${search}`);\n  };\n\n  return (\n    <Div className=\"rounded-full border border-zinc-700 dark:border-zinc-300 p-2 px-4 text-3xl hover:bg-zinc-200 dark:hover:bg-zinc-800 bg-zinc-100 bg-opacity-75 dark:bg-zinc-600 dark flex flex-row max-w-xl\">\n      <Form\n        onSubmit={(e) => {\n          e.preventDefault();\n          go();\n        }}\n      >\n        <Input\n          placeholder={placeholder || \"Go crazy\"}\n          className=\"flex px-3 flex-1 bg-transparent focus:outline-none\"\n          value={search}\n          onClick={changePlaceholder}\n          onChange={(e) => setSearch(e.target.value)}\n        />\n      </Form>\n      <Tooltip\n        tooltip={<div className=\"dark:text-white\">Search with Yougle</div>}\n      >\n        <Div onClick={go} className=\"cursor-pointer\">\n          🔎\n        </Div>\n      </Tooltip>\n      <Tooltip\n        tooltip={<div className=\"dark:text-white\">Search on brave instead</div>}\n      >\n        <a\n          href={`https://search.brave.com/search?q=${search}`}\n          onClick={goBrave}\n        >\n          🦁\n        </a>\n      </Tooltip>\n    </Div>\n  );\n}",
   "description": "",
-  "id": "bfiahrvxyztoeotucmbwiehw"
+  "id": "aethxalrsckfefbcfxeianad"
 }

@@ -34,7 +34,7 @@ Properties:
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 | isHeaderCalculated  | boolean |  |
 | parent_locationSlug (optional) | string |  |
 
@@ -78,7 +78,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | continent  | string |  |
 | subContinent  | string |  |
 | latitude  | number |  |
@@ -134,7 +134,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | locationSlug  | string |  |
 | postalCode  | string |  |
 | street  | string |  |
@@ -171,7 +171,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | polygon (optional) | array |  |
 | circles (optional) | array |  |
 | center (optional) | object |  |
@@ -216,7 +216,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | latitude  | number |  |
 | longitude  | number |  |
 | population  | number |  |

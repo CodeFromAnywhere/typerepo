@@ -1,0 +1,24 @@
+{
+  "createdAt": 1671234720713,
+  "updatedAt": 1671234720713,
+  "deletedAt": 0,
+  "createdFirstAt": 1671234720713,
+  "contextType": [
+    "text"
+  ],
+  "categoryStack": [],
+  "pricing": "bad",
+  "slug": "quiz",
+  "name": "quiz",
+  "language": "english",
+  "id": "crvhypfcxvdzcmclgdklobeg",
+  "title": "Quiz",
+  "description": "This prompt creates a 10 question quiz about the content of the file. Good for creating teaching material!",
+  "model": "chat-gpt",
+  "promptContent": "I am reading this file:\n\n```\n%context\n```\n\nCan you create a quiz with 10 questions about this information?",
+  "folderContentContext": "summary",
+  "usesContext": true,
+  "usesSelection": false,
+  "usesAnyContext": false,
+  "isFavorite": true
+}

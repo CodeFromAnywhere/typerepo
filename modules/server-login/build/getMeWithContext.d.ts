@@ -1,4 +1,4 @@
-import { ApiFunction } from "function-server-types";
+import { ApiFunction } from "code-types";
 /**
  Get all relevant information about yourself, including all persons that are attached to you.
 

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115487479,
-  "updatedAt": 1671115487479,
+  "createdAt": 1673861880418,
+  "updatedAt": 1673861880418,
   "deletedAt": 0,
-  "createdFirstAt": 1671115487479,
-  "isApiExposed": true,
+  "createdFirstAt": 1673861880418,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/deleteReferencedAsset.ts",
   "commentsInside": [],
   "rawText": " async (\n  projectRelativeReferencingFilePath: string,\n  referencingFileRelativeAssetPath: string\n) => {\n  const { absoluteAssetPath, message, isSuccessful } =\n    await findAbsoluteAssetPathFromReference(\n      projectRelativeReferencingFilePath,\n      referencingFileRelativeAssetPath\n    );\n\n  if (!absoluteAssetPath) {\n    return { isSuccessful, message };\n  }\n\n  // got `absoluteAssetPath`\n\n  await fs.rm(absoluteAssetPath);\n\n  return { isSuccessful: true, message: \"Deleted the asset\" };\n}",
@@ -53,5 +52,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "ccqytinmsmhxflgwfkrzdhqp"
+  "id": "iacnupqmjxordilpuaclpimo"
 }

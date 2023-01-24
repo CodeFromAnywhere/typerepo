@@ -1,0 +1,18 @@
+[
+  {
+    "createdAt": 1671115614137,
+    "updatedAt": 1671115614137,
+    "deletedAt": 0,
+    "createdFirstAt": 1671115614137,
+    "name": "Comment",
+    "slug": "comment",
+    "operationRelativeTypescriptFilePath": "src/fileExplorerOpen.ts",
+    "comment": "",
+    "rawStatement": "export const fileExplorerOpen = async (\n  projectRelativePath: string\n): Promise<{ isSuccessful: boolean; message: string }> => {\n  const projectRoot = getProjectRoot();\n  if (!projectRoot) {\n    return {\n      isSuccessful: false,\n      message: \"No projectroot\",\n    };\n  }\n\n  const absolutePath = path.join(projectRoot, projectRelativePath);\n\n  if (!absolutePath || !fs.existsSync(absolutePath)) {\n    return { isSuccessful: false, message: \"This path doesn't exist\" };\n  }\n\n  const pathStats = await fs.stat(absolutePath);\n\n  const folderPath = pathStats.isDirectory()\n    ? absolutePath\n    : path.parse(absolutePath).dir;\n\n  var isWindows = process.platform === \"win32\";\n\n  const command = isWindows ? `start ${folderPath}` : `open ${folderPath}`;\n\n  execSync(command);\n\n  return { isSuccessful: true, message: \"Opened\" };\n};",
+    "parameters": {},
+    "types": [],
+    "firstLine": 5,
+    "lastLine": 6,
+    "id": "ovfaeeyapzrawvejosqzuspa"
+  }
+]

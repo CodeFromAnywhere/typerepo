@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669288089420,
-  "updatedAt": 1669288089420,
+  "createdAt": 1672638735987,
+  "updatedAt": 1672638735987,
   "deletedAt": 0,
-  "createdFirstAt": 1669288089420,
+  "createdFirstAt": 1672638735987,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: { children: JSX.Element }) => {\n  const { fullPath } = usePath();\n\n  return (\n    <Div\n      className={`flex flex-col flex-1 h-full`}\n      textClassName=\"dark:text-white\"\n    >\n      <Div className=\"sticky top-0\">\n        <OpenFileWriterPages pagesObject={{}} />\n        <BreadCrumbs path={fullPath || \"\"} />\n      </Div>\n      {props.children}\n    </Div>\n  );\n}",
   "description": "",
-  "id": "oiocvpnchkcaiweboqkadkis"
+  "id": "cigxuoypunjmxaafslsswfpa"
 }

@@ -1,0 +1,74 @@
+{
+  "createdAt": 1673959188548,
+  "updatedAt": 1673959188548,
+  "deletedAt": 0,
+  "createdFirstAt": 1673959188548,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/getSubExtensions.ts",
+  "commentsInside": [],
+  "rawText": " (absolutePath: string): string[] => {\n  const fileName = path.parse(absolutePath).name;\n  const allSubExtensionsArray = fileName?.split(\".\") || [];\n  const allSubExtensions = allSubExtensionsArray.slice(\n    1,\n    allSubExtensionsArray.length - 1\n  );\n\n  return allSubExtensions;\n}",
+  "name": "getSubExtensions",
+  "slug": "get-sub-extensions",
+  "parameters": [
+    {
+      "name": "absolutePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "string[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "allOf": [
+          {
+            "transform": [
+              "trim"
+            ]
+          },
+          {
+            "minLength": 1
+          }
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 283,
+    "lines": 10,
+    "bytes": 283,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "cncupfaxxwbxdauoxgyjizzv"
+}

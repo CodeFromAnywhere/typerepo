@@ -39,31 +39,31 @@
         "No schema/definitions found for /Users/king/King/operations/tools/user-interfaces/gui/wise/share/src/Shareable.tsx. Error: Error: Unknown node \"new (props: P) => Component<P, any>\" of kind \"ConstructorType\""
       ]
     },
-    "lastRebuildAt": 1671449635915,
+    "lastRebuildAt": 1673380396256,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 6,
+        "numberOfFiles": 5,
         "lines": 278,
-        "characters": 8451,
-        "bytes": 8451
+        "characters": 8594,
+        "bytes": 8594
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 128,
-        "characters": 3484,
-        "bytes": 3484
+        "lines": 136,
+        "characters": 3621,
+        "bytes": 3621
       },
       "textSize": {
         "numberOfFiles": 3,
         "lines": 126,
-        "characters": 3335,
-        "bytes": 3335
+        "characters": 3378,
+        "bytes": 3378
       },
       "size": {
-        "bytes": 15270,
-        "characters": 15270,
-        "lines": 532,
-        "numberOfFiles": 11
+        "bytes": 15593,
+        "characters": 15593,
+        "lines": 540,
+        "numberOfFiles": 10
       }
     },
     "folderNameIndexed": "share",
@@ -89,9 +89,7 @@
       "ClickableIcon",
       "api"
     ],
-    "packageDependenciesIndexed": [
-      "useScreenshot"
-    ]
+    "packageDependenciesIndexed": []
   },
   "dependencies": {
     "api": "0.0.1",

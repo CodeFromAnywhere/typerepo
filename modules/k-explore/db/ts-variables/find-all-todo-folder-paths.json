@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670216124043,
-  "updatedAt": 1670216124043,
+  "createdAt": 1672637419512,
+  "updatedAt": 1672637419512,
   "deletedAt": 0,
-  "createdFirstAt": 1670216124043,
+  "createdFirstAt": 1672637419512,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  basePath: string,\n  ignoreOperations?: boolean\n): Promise<string[]> => {\n  return findAllFoldersWithName({\n    basePath,\n    folderName: \"todo\",\n    ignoreOperations,\n  });\n}",
   "description": "",
-  "id": "qdivdyzcelszyxbqpvgnqrzt"
+  "id": "mwqcqzgvfqhwcbmtqurctliz"
 }

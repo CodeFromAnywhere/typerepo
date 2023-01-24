@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379245115,
+  "updatedAt": 1673379245115,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379245115,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "PromptButton",
+  "slug": "prompt-button",
+  "operationRelativeTypescriptFilePath": "src/components/PromptButton.tsx",
+  "type": {
+    "rawType": "(props: { item: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPrompt\").ContextualPrompt; markdown?: string | null | undefined; contextSelection?: string | null | undefined; projectRelativeFilePath?: string | undefined; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  item: ContextualPrompt;\n  markdown?: string | null;\n  contextSelection?: string | null;\n  projectRelativeFilePath?: string;\n}) => {\n  const { item, markdown, projectRelativeFilePath, contextSelection } = props;\n  const admin = useAdmin();\n  const router = useRouter();\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n  const title = `${item.isFavorite ? \"⭐️ \" : \"\"}${item.title || item.name}`;\n\n  const projectRelativeFolderPath = getFolderJs(projectRelativeFilePath);\n  return (\n    <Tooltip\n      hoverTimeout={100}\n      tooltip={\n        <Div>\n          <P className=\"font-bold text-xl\">{title}</P>\n          {item.description ? (\n            <MarkdownContent content={item.description} config={{}} />\n          ) : null}\n          <br />\n\n          <ClickableIcon\n            emoji={\n              item.isFavorite\n                ? \"⭐️ Favorite (click to change)\"\n                : \"💩 Not favorite (click to change)\"\n            }\n            onClick={async () => {\n              // go to upsert ContextualPrompt db page.\n              const apiResult = await api.upsertDbModel(\"ContextualPrompt\", {\n                ...item,\n                isFavorite: !item.isFavorite,\n              });\n\n              showStandardResponse(apiResult);\n\n              admin.refetch?.();\n            }}\n          />\n\n          <ClickableIcon\n            emoji=\"✏️ Edit\"\n            onClick={() => {\n              if (!admin.isAdminActive) {\n                warningToast(\n                  \"You can't do this yet! You first need to install your server on your machine\"\n                );\n                return;\n              }\n              // go to upsert ContextualPrompt db page.\n              router.push(`/edit/ContextualPrompt?id=${item.id}`);\n            }}\n          />\n\n          <ClickableIcon\n            emoji=\"🗑 Delete\"\n            onClick={async () => {\n              alert?.(\n                \"Are you sure?\",\n                \"You're going to remove this prompt from your database\",\n                [\n                  {\n                    text: \"Do it\",\n                    style: \"destructive\",\n                    onPress: async () => {\n                      const apiResult = await api.deleteDbModel(\n                        \"ContextualPrompt\",\n                        item.id\n                      );\n\n                      showStandardResponse(apiResult);\n\n                      if (apiResult?.result?.isSuccesful) {\n                        admin.refetch?.();\n                      }\n                    },\n                  },\n                  {\n                    text: \"Cancel\",\n                    style: \"cancel\",\n                  },\n                ]\n              );\n              // delete prompt\n            }}\n          />\n\n          {contextSelection ? null : (\n            <ClickableIcon\n              emoji=\"💥 Apply on folder\"\n              onClick={() => {\n                if (!projectRelativeFolderPath) return;\n\n                alert?.(\n                  \"Apply on folder\",\n                  `You're going to apply the prompt ${item.name} on all files in the folder. Are you sure?`,\n                  [\n                    { style: \"cancel\", text: \"cancel\" },\n                    {\n                      style: \"default\",\n                      text: \"Yes\",\n                      onPress: async () => {\n                        const apiResult =\n                          await api.processPromptOnFolderWithContext({\n                            projectRelativeFolderPath,\n                            promptSlug: item.slug,\n                            isRecursive: false,\n                          });\n\n                        showStandardResponse(apiResult);\n                      },\n                    },\n                    {\n                      style: \"destructive\",\n                      text: \"Yes, recursive\",\n                      onPress: async () => {\n                        const apiResult =\n                          await api.processPromptOnFolderWithContext({\n                            projectRelativeFolderPath,\n                            promptSlug: item.slug,\n                            isRecursive: true,\n                          });\n\n                        showStandardResponse(apiResult);\n                      },\n                    },\n                  ]\n                );\n              }}\n            />\n          )}\n        </Div>\n      }\n      placement=\"top\"\n    >\n      <NavButton\n        onClick={async () => {\n          if (!markdown) return;\n          await processPrompt({\n            contextualPromptSlug: item.slug,\n            showPromptAlert,\n            contextualContent: {\n              contextContent: markdown,\n              contextSelection,\n              context_projectRelativeFilePath: projectRelativeFilePath,\n            },\n          });\n\n          router.replace({\n            query: {\n              queryPath: router.query.queryPath,\n              variant: item.slug,\n            },\n          });\n        }}\n        title={item.title || item.name}\n      />\n    </Tooltip>\n  );\n}",
+  "description": "",
+  "id": "cqrhjfbkkbxxfwhlmwsntyai"
+}

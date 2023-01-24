@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115975273,
-  "updatedAt": 1671115975273,
+  "createdAt": 1674135582022,
+  "updatedAt": 1674135582022,
   "deletedAt": 0,
-  "createdFirstAt": 1671115975273,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135582022,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getReaderTodoPages.ts",
   "commentsInside": [],
   "rawText": " async (\n  projectRoot: string\n): Promise<ReaderWebPage[]> => {\n  const operationsPath = getRootPath(\"operations\");\n  if (!operationsPath) return [];\n\n  const todoFolderPaths = await findAllTodoFolderPaths(operationsPath, false);\n  const markdownReaderPages: ReaderWebPage[] = await getMarkdownReaderPages({\n    projectRoot,\n    basePaths: todoFolderPaths,\n    mapQueryPath: (queryPath) => {\n      const almostPath = queryPath\n        .replaceAll(\"todo/\", \"\")\n        .replace(\"operations/\", \"todo/\");\n\n      return almostPath.startsWith(\"todo/\") ? almostPath : \"todo/\" + almostPath;\n    },\n  });\n\n  return markdownReaderPages;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "ewieydgzhorjloxgbdcgxbgh"
+  "id": "gqxnywzfymcrtrkjxrlzxwgp"
 }

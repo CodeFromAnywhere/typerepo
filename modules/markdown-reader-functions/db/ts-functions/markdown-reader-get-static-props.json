@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115979892,
-  "updatedAt": 1671115979892,
+  "createdAt": 1674135586513,
+  "updatedAt": 1674135586513,
   "deletedAt": 0,
-  "createdFirstAt": 1671115979892,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135586513,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/markdownReaderGetStaticProps.ts",
   "commentsInside": [],
   "rawText": " async (\n  context: GetStaticPropsContext\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = (await getAllMarkdownReaderPages()) || [];\n  return markdownReaderGetStaticPropsFromPages(\n    context,\n    flat,\n    \"markdown-reader-web\"\n  );\n}",
@@ -99,5 +98,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "yxngndednkuqjaebvexnllen"
+  "id": "ggklmbprfqyujfkzgqsllrbv"
 }

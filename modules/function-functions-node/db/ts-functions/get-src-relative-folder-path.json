@@ -1,11 +1,10 @@
 {
-  "createdAt": 1670527333741,
-  "updatedAt": 1670527333741,
+  "createdAt": 1673862606227,
+  "updatedAt": 1673862606227,
   "deletedAt": 0,
-  "createdFirstAt": 1670527333741,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862606227,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getSrcRelativeFolderPath.ts",
   "commentsInside": [],
   "rawText": " (\n  operationRelativeSourcePath: string\n) => {\n  // 1) remove src/\n  const withouSrc = operationRelativeSourcePath.startsWith(\"src/\")\n    ? operationRelativeSourcePath.slice(\"src/\".length)\n    : undefined;\n\n  const folder = getFolderJs(withouSrc);\n\n  if (folder === \"\") return undefined;\n\n  return folder;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 14,
     "numberOfFiles": 1
   },
-  "id": "vxunbmtuxjbkxinhsfmelvwd"
+  "id": "augprwzsnserleunbcjxqzhc"
 }

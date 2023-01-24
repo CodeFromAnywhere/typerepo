@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115934302,
-  "updatedAt": 1671115934302,
+  "createdAt": 1674135540267,
+  "updatedAt": 1674135540267,
   "deletedAt": 0,
-  "createdFirstAt": 1671115934302,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135540267,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/docsGetStaticPaths.ts",
   "commentsInside": [],
   "rawText": " async (\n  context: GetStaticPathsContext,\n  basePaths: { projectRelativeBasePath: string; queryPath: string }[]\n): Promise<GetStaticPathsResult> => {\n  const paths: string[] | undefined = (await docsGetPages(basePaths)).map(\n    (x) => x.queryPath\n  );\n\n  // console.log({ paths });\n  if (!paths) {\n    return { paths: [], fallback: \"blocking\" };\n  }\n\n  const staticPaths = paths\n    .filter((x) => x !== \"\")\n    .map((p) => ({ params: { paths: p.split(\"/\") } }));\n\n  return {\n    paths: staticPaths,\n    fallback: \"blocking\",\n  };\n}",
@@ -118,5 +117,5 @@
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "aaruqvvbwhktecnwhpvhfyzi"
+  "id": "nncbibyhbnayunhfdjzvjfxd"
 }

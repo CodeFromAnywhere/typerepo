@@ -40,7 +40,6 @@
     "react-with-native-alert": "1.0.33",
     "react-with-native-select": "2.0.7",
     "share": "1.0.0",
-    "db-crud": "0.0.0",
     "context-menu": "0.0.0",
     "react-native": "*",
     "short-markdown-writer-input": "1.0.0",
@@ -98,7 +97,7 @@
     "folderNameIndexed": "writer-input",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671317412425,
+    "lastRebuildAt": 1673380108772,
     "operationDependenciesIndexed": [
       "api",
       "queries",
@@ -133,6 +132,7 @@
       "MappedObject",
       "AugmentedWord",
       "flattenMarkdownChunks",
+      "useHotkey",
       "Div",
       "MarkdownParse",
       "createStore",
@@ -204,7 +204,6 @@
       "useHotkeys",
       "queries",
       "getFileTypeFromPath",
-      "useSelectionPromptsMenu",
       "Div",
       "WriterType",
       "tryParseJson"
@@ -224,26 +223,26 @@
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 30,
-        "lines": 2432,
-        "characters": 70078,
-        "bytes": 70078
+        "lines": 2428,
+        "characters": 69799,
+        "bytes": 69799
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 281,
-        "characters": 7455,
-        "bytes": 7455
+        "lines": 277,
+        "characters": 7294,
+        "bytes": 7294
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 651,
-        "characters": 19026,
-        "bytes": 19026
+        "lines": 652,
+        "characters": 19027,
+        "bytes": 19027
       },
       "size": {
-        "bytes": 96559,
-        "characters": 96559,
-        "lines": 3364,
+        "bytes": 96120,
+        "characters": 96120,
+        "lines": 3357,
         "numberOfFiles": 34
       }
     },

@@ -1,2 +1,90 @@
-"use strict";var __assign=this&&this.__assign||function(){return __assign=Object.assign||function(t){for(var e,n=1,i=arguments.length;n<i;n++)for(var a in e=arguments[n])Object.prototype.hasOwnProperty.call(e,a)&&(t[a]=e[a]);return t},__assign.apply(this,arguments)},__awaiter=this&&this.__awaiter||function(t,e,n,i){return new(n||(n=Promise))((function(a,o){function r(t){try{c(i.next(t))}catch(t){o(t)}}function u(t){try{c(i.throw(t))}catch(t){o(t)}}function c(t){var e;t.done?a(t.value):(e=t.value,e instanceof n?e:new n((function(t){t(e)}))).then(r,u)}c((i=i.apply(t,e||[])).next())}))},__generator=this&&this.__generator||function(t,e){var n,i,a,o,r={label:0,sent:function(){if(1&a[0])throw a[1];return a[1]},trys:[],ops:[]};return o={next:u(0),throw:u(1),return:u(2)},"function"==typeof Symbol&&(o[Symbol.iterator]=function(){return this}),o;function u(o){return function(u){return function(o){if(n)throw new TypeError("Generator is already executing.");for(;r;)try{if(n=1,i&&(a=2&o[0]?i.return:o[0]?i.throw||((a=i.return)&&a.call(i),0):i.next)&&!(a=a.call(i,o[1])).done)return a;switch(i=0,a&&(o=[2&o[0],a.value]),o[0]){case 0:case 1:a=o;break;case 4:return r.label++,{value:o[1],done:!1};case 5:r.label++,i=o[1],o=[0];continue;case 7:o=r.ops.pop(),r.trys.pop();continue;default:if(!(a=r.trys,(a=a.length>0&&a[a.length-1])||6!==o[0]&&2!==o[0])){r=0;continue}if(3===o[0]&&(!a||o[1]>a[0]&&o[1]<a[3])){r.label=o[1];break}if(6===o[0]&&r.label<a[1]){r.label=a[1],a=o;break}if(a&&r.label<a[2]){r.label=a[2],r.ops.push(o);break}a[2]&&r.ops.pop(),r.trys.pop();continue}o=e.call(t,r)}catch(t){o=[6,t],i=0}finally{n=a=0}if(5&o[0])throw o[1];return{value:o[0]?o[1]:void 0,done:!0}}([o,u])}}};Object.defineProperty(exports,"__esModule",{value:!0}),exports.addDeviceAuthenticationMethodWithContext=void 0;var database_1=require("database"),addAuthenticationMethod_1=require("./addAuthenticationMethod"),js_util_1=require("js-util"),addDeviceAuthenticationMethodWithContext=function(t,e,n,i){return __awaiter(void 0,void 0,void 0,(function(){var a,o,r,u,c,s,h,d,l;return __generator(this,(function(f){switch(f.label){case 0:return[4/*yield*/,(0,addAuthenticationMethod_1.addAuthenticationMethod)(e,n,!1,i)];case 1:return a=f.sent(),o=a.isSuccessful,r=a.message,u=a.authenticationMethod,o&&u?(c=(null===(l=t.device.authenticationMethods)||void 0===l?void 0:l.filter((function(t){return t.method!==u.method})))||[],s=c.concat(u),[4/*yield*/,database_1.db.update("Device",(function(e){return e.authToken===t.authToken}),(function(t){return __assign(__assign({},t),{authenticationMethods:s})}))]):[2/*return*/,{isSuccessful:o,message:r}];case 2:return h=f.sent(),d=(0,js_util_1.mergeNestedObject)(t,{device:{authenticationMethods:s}}),[2/*return*/,{isSuccessful:h.isSuccesful,message:"Method added",functionContext:d,authenticationMethod:u}]}}))}))};exports.addDeviceAuthenticationMethodWithContext=addDeviceAuthenticationMethodWithContext;
+"use strict";
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.addDeviceAuthenticationMethodWithContext = void 0;
+var database_1 = require("database");
+var addAuthenticationMethod_1 = require("./addAuthenticationMethod");
+var js_util_1 = require("js-util");
+/**
+ * returns new function context with added authenticationmethod
+ */
+var addDeviceAuthenticationMethodWithContext = function (functionContext, method, handle, credential) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, isSuccessful, message, authenticationMethod, cleanAuthenticationMethods, newAuthenticationMethods, updateResult, newFunctionContext;
+    var _b;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0: return [4 /*yield*/, (0, addAuthenticationMethod_1.addAuthenticationMethod)(method, handle, false, credential)];
+            case 1:
+                _a = _c.sent(), isSuccessful = _a.isSuccessful, message = _a.message, authenticationMethod = _a.authenticationMethod;
+                if (!isSuccessful || !authenticationMethod) {
+                    return [2 /*return*/, { isSuccessful: isSuccessful, message: message }];
+                }
+                cleanAuthenticationMethods = ((_b = functionContext.device.authenticationMethods) === null || _b === void 0 ? void 0 : _b.filter(function (x) { return x.method !== authenticationMethod.method; })) || [];
+                newAuthenticationMethods = cleanAuthenticationMethods.concat(authenticationMethod);
+                return [4 /*yield*/, database_1.db.update("Device", function (item) { return item.authToken === functionContext.authToken; }, function (old) {
+                        return __assign(__assign({}, old), { authenticationMethods: newAuthenticationMethods });
+                    })];
+            case 2:
+                updateResult = _c.sent();
+                newFunctionContext = (0, js_util_1.mergeNestedObject)(functionContext, {
+                    device: {
+                        authenticationMethods: newAuthenticationMethods,
+                    },
+                });
+                return [2 /*return*/, {
+                        isSuccessful: updateResult.isSuccesful,
+                        message: "Method added",
+                        functionContext: newFunctionContext,
+                        authenticationMethod: authenticationMethod,
+                    }];
+        }
+    });
+}); };
+exports.addDeviceAuthenticationMethodWithContext = addDeviceAuthenticationMethodWithContext;
 //# sourceMappingURL=addDeviceAuthenticationMethodWithContext.js.map

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671505977960,
-  "updatedAt": 1671505977960,
+  "createdAt": 1674133314214,
+  "updatedAt": 1674133314214,
   "deletedAt": 0,
-  "createdFirstAt": 1671505977960,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133314214,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/setIsFavoritePromptResult.ts",
   "commentsInside": [],
   "rawText": " async (\n  projectRelativePath: string,\n  id: string,\n  isFavorite: boolean\n) => {\n  const resultPath = await getContextualPromptResultJsonFilePath(\n    projectRelativePath\n  );\n\n  if (!resultPath) return { isSuccessful: false };\n\n  const result = await alterJsonMultiple(\n    {\n      absolutePath: resultPath,\n      modelName: \"ContextualPromptResult\",\n      projectRelativePath: resultPath,\n      operationName: \"\",\n    },\n    (old) => {\n      return {\n        newStoredData: old.map((item) => {\n          if (item.id !== id) return item;\n          return { ...item, isFavorite };\n        }),\n        amountUpdated: 1,\n      };\n    }\n  );\n\n  return { isSuccessful: result.amountUpdated === 1 };\n}",
@@ -63,5 +62,5 @@
     "linesPerFile": 31,
     "numberOfFiles": 1
   },
-  "id": "ffvuixuhodqgbejcufaisfav"
+  "id": "mclattmekkkcugtsuhitdmpt"
 }

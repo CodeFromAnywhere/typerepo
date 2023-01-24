@@ -1,0 +1,21 @@
+{
+  "createdAt": 1670186683316,
+  "updatedAt": 1670186683316,
+  "deletedAt": 0,
+  "createdFirstAt": 1670186683316,
+  "name": "storytelling",
+  "language": "english",
+  "title": "Write a story about this code and what's happening in there",
+  "promptContent": "Tell a story about the things that are happening in the code, line by line. You can add extras to make it more compelling. Be creative\n\n```typescript\n\n%context\n\n```",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "slug": "storytelling",
+  "id": "fpctghsxkdtjihbrkxdxtmys",
+  "categoryStack": [
+    "code",
+    "code-auditory-interface"
+  ]
+}

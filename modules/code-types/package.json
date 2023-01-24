@@ -13,7 +13,6 @@
     "fs-util": "1.0.5",
     "json-schema": "*",
     "ts-json-schema-generator": "*",
-    "auth-types": "0.0.1",
     "asset-type": "0.0.1",
     "measure-performance": "0.0.1"
   },
@@ -39,7 +38,9 @@
       "dependenciesBuildsFailed": false,
       "indexErrors": [],
       "indexImportExportError": "",
-      "indexInteracesErrors": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/types/code-types/src/Operation.ts. Error: TypeError: Cannot read properties of undefined (reading 'filter')"
+      ],
       "lintProblems": []
     },
     "classificationIndexed": "cjs",
@@ -47,7 +48,7 @@
     "folderNameIndexed": "code-types",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670064118199,
+    "lastRebuildAt": 1673863172903,
     "operationDependenciesIndexed": [
       "DefaultModelType",
       "SlugModelType",
@@ -91,28 +92,28 @@
     "relativeOperationLocationPathIndexed": "operations/tools/types",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 26,
-        "lines": 1781,
-        "characters": 49812,
-        "bytes": 49812
+        "numberOfFiles": 27,
+        "lines": 1843,
+        "characters": 52076,
+        "bytes": 52076
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 147,
-        "characters": 3379,
-        "bytes": 3379
+        "lines": 149,
+        "characters": 3570,
+        "bytes": 3570
       },
       "textSize": {
         "numberOfFiles": 3,
-        "lines": 1647,
-        "characters": 43365,
-        "bytes": 43365
+        "lines": 1689,
+        "characters": 44478,
+        "bytes": 44478
       },
       "size": {
-        "bytes": 96556,
-        "characters": 96556,
-        "lines": 3575,
-        "numberOfFiles": 31
+        "bytes": 100124,
+        "characters": 100124,
+        "lines": 3681,
+        "numberOfFiles": 32
       }
     },
     "hasGeneratedImportsIndexed": false

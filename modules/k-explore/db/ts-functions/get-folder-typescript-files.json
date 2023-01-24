@@ -1,0 +1,57 @@
+{
+  "createdAt": 1672637423615,
+  "updatedAt": 1672637423615,
+  "deletedAt": 0,
+  "createdFirstAt": 1672637423615,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getFolderTypescriptFiles.ts",
+  "commentsInside": [],
+  "rawText": " async (\n  folderPath: string,\n  includeStats: boolean\n) => {\n  return explore({\n    basePath: folderPath,\n    includeStats,\n    extension: [\"ts\", \"tsx\"],\n    ignore: [\"index.ts\", \"build\", \"db\", \"node_modules\"],\n  });\n}",
+  "name": "getFolderTypescriptFiles",
+  "slug": "get-folder-typescript-files",
+  "parameters": [
+    {
+      "name": "folderPath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "includeStats",
+      "schema": {
+        "type": "boolean"
+      },
+      "simplifiedSchema": {
+        "type": "boolean"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 219,
+    "lines": 11,
+    "bytes": 219,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 11,
+    "numberOfFiles": 1
+  },
+  "id": "xfuteuwonkvrkdlogwjlodlq"
+}

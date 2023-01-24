@@ -1,0 +1,39 @@
+{
+  "createdAt": 1674542334248,
+  "updatedAt": 1674542334248,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542334248,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/pages/files/[...queryPath].tsx",
+  "commentsInside": [],
+  "rawText": " (props: ReaderProps) => {\n  return (\n    <AuthenticationLayout\n      overwriteDefaultPages={[\"signup\"]}\n      nextPage={() => <Div>READERPAGE</Div>}\n      pageProps={props}\n    />\n  );\n}",
+  "name": "ReaderPageLayout",
+  "slug": "reader-page-layout",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 3,
+  "size": {
+    "characters": 187,
+    "lines": 9,
+    "bytes": 187,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 21,
+    "linesPerFile": 9,
+    "numberOfFiles": 1
+  },
+  "id": "cbdhnxzpquqspwwkduvmjmub"
+}

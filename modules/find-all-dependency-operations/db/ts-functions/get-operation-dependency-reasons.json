@@ -1,0 +1,36 @@
+{
+  "createdAt": 1673380291345,
+  "updatedAt": 1673380291345,
+  "deletedAt": 0,
+  "createdFirstAt": 1673380291345,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/getOperationDependencyReasons.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const tsImports = await db.get(\"TsImport\");\n  const operations = await db.get(\"Operation\");\n  const tsFunctions = await db.get(\"TsFunction\");\n  const tsInterfaces = await db.get(\"TsInterface\");\n\n  const result = operations.map((operation) => {\n    const packageJsonDependencies = operation.dependencies\n      ? Object.keys(operation.dependencies)\n      : undefined;\n\n    const operationImports = tsImports\n      .filter((x) => x.operationName === operation.name)\n      .filter((x) => x.isModuleResolved && x.isAbsolute);\n\n    const instances: (TsFunction | TsInterface)[] = [\n      ...tsFunctions,\n      ...tsInterfaces,\n    ];\n\n    const operationInstances = instances.filter(\n      (x) => x.operationName === operation.name\n    );\n\n    const instancesAndTheirImports = operationInstances.map((tsFunction) => {\n      return {\n        name: tsFunction.name,\n        fileName: tsFunction.operationRelativeTypescriptFilePath,\n        imports: operationImports\n          .filter(\n            (x) =>\n              x.operationRelativeTypescriptFilePath ===\n              tsFunction.operationRelativeTypescriptFilePath\n          )\n          .map((x) => `${x.name} from ${x.module}`),\n      };\n    });\n\n    const importDependencies = operationImports\n      .filter(onlyUnique2<TsImport>((a, b) => a.module === b.module))\n      .map((x) => x.module);\n\n    const result = {\n      operationName: operation.name,\n      totalInstancesCount: operationInstances.length,\n      totalImportCount: operationImports.length,\n      totalDependencyCount: importDependencies.length,\n      importDependencies,\n      packageJsonDependencies,\n      instancesAndTheirImports,\n    };\n\n    return result;\n  });\n\n  const getImportDependenciesRecurisve = (\n    array: any[],\n    operationName: string,\n    already: string[] = []\n  ): string[] => {\n    const now: string[] =\n      array.find((x) => x.operationName === operationName)\n        ?.importDependencies || [];\n\n    const filtered = now.filter((x) => !already.includes(x));\n\n    if (filtered.length !== now.length) {\n      console.log(\"circular skipped\");\n    }\n\n    const importDependencies: string[] = filtered\n      .map((x) =>\n        getImportDependenciesRecurisve(array, x, [...already, ...filtered])\n      )\n      .flat();\n\n    return [operationName, ...importDependencies].filter(onlyUnique2());\n  };\n\n  const withCumulative = result.map((item, index, array) => {\n    const cumulativeDependencies = getImportDependenciesRecurisve(\n      array,\n      item.operationName\n    );\n    return { ...item, cumulativeDependencies };\n  });\n\n  return withCumulative;\n}",
+  "name": "getOperationDependencyReasons",
+  "slug": "get-operation-dependency-reasons",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 7,
+  "size": {
+    "characters": 2609,
+    "lines": 89,
+    "bytes": 2609,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 89,
+    "numberOfFiles": 1
+  },
+  "id": "ppnpglnhwfpgfxrazsfobadb"
+}

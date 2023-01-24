@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668336325367,
-  "updatedAt": 1668336325367,
+  "createdAt": 1674032515770,
+  "updatedAt": 1674032515770,
   "deletedAt": 0,
-  "createdFirstAt": 1668336325367,
+  "createdFirstAt": 1674032515770,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "exec-async",
   "operationRelativeTypescriptFilePath": "src/general.ts",
   "type": {
-    "rawType": "(command: string) => Promise<{ success: boolean; response: string; }>",
+    "rawType": "(command: string, execOptions: import(\"child_process\").ExecOptions) => Promise<{ isSuccessful: boolean; response: string; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "(\n  command: string\n): Promise<{ success: boolean; response: string }> => {\n  return new Promise((resolve) => {\n    exec(command, (error, stdout, stderr) => {\n      if (error) {\n        console.log(error);\n        resolve({ success: false, response: stderr });\n      } else {\n        resolve({ success: true, response: stdout });\n      }\n    });\n  });\n}",
+  "value": "async (\n  command: string,\n  execOptions: ExecOptions\n): Promise<{ isSuccessful: boolean; response: string }> => {\n  const result = await new Promise<{ isSuccessful: boolean; response: string }>(\n    (resolve) => {\n      exec(command, execOptions, (error, stdout, stderr) => {\n        console.log({ error, stdout, stderr });\n      })\n        .on(\"exit\", (code) => {\n          resolve({ response: String(code), isSuccessful: false });\n        })\n        .on(\"message\", (message) => {\n          console.log({ message });\n        })\n        .on(\"error\", (err) => {\n          resolve({ response: String(err), isSuccessful: false });\n        });\n    }\n  );\n\n  return result;\n}",
   "description": "promises to exec something with response and success as result (Promised)",
-  "id": "setpzzzumfeuhqgmshvwihwu"
+  "id": "pimierumjfmrceslicaaztdy"
 }

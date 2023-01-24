@@ -1,0 +1,40 @@
+{
+  "createdAt": 1673379254463,
+  "updatedAt": 1673379254463,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379254463,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/SelectionPrompts.tsx",
+  "commentsInside": [],
+  "rawText": " (props: {\n  selectionContextualPrompts?: ContextualPrompt[];\n  contentString: string;\n  projectRelativeFilePath?: string;\n}) => {\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n  const { selectionContextualPrompts, contentString, projectRelativeFilePath } =\n    props;\n  const admin = useAdmin();\n\n  const { selection: contextSelection, reset } = useLastSelection();\n\n  /**\n   * TODO: also sort them here based on which selection you make (`.contextualContent.contextSelection`) and your settings (probably isFavorite first, but other sorting may be beneficial.\n   */\n  const promptItems: SelectionItem[] =\n    selectionContextualPrompts?.map((prompt) => {\n      const item: SelectionItem = {\n        onClick: () =>\n          processPrompt({\n            contextualPromptSlug: prompt.slug,\n            contextualContent: {\n              contextSelection,\n              contextContent: contentString,\n              context_projectRelativeFilePath: projectRelativeFilePath,\n            },\n            showPromptAlert,\n          }),\n        title: prompt.name || \"Noname\",\n        // TODO: not sure if this is the right level, but eventually we want to filter based on the selection, maybe\n        isEnabled: true,\n      };\n\n      return item;\n    }) || [];\n\n  const selectionWordCount = contextSelection\n    ? contextSelection.split(\" \").length\n    : 0;\n\n  const isStatement = selectionWordCount > 1;\n  const isWord = selectionWordCount <= 4;\n\n  const selectionItems: SelectionItem[] = [\n    {\n      onClick: async () => {\n        if (!contextSelection) {\n          alert?.(\n            \"Select a word\",\n            `You didn't select a word or word-combination (up to 4 words)`\n          );\n          return;\n        }\n        const apiResult = await api.addWord(contextSelection, undefined);\n\n        showStandardResponse(apiResult);\n\n        admin.refetch?.();\n      },\n      title: \"🧠 Add word\",\n      isEnabled: isWord,\n    },\n\n    {\n      onClick: async () => {\n        if (!contextSelection) {\n          alert?.(\n            \"Select a statement\",\n            `You didn't select a statement (minimum 2 words)`\n          );\n          return;\n        }\n\n        // NB: for now, don't let user add agreement and importancy, just assume the defaults. Let's see where this goes first\n\n        const apiResult = await api.addStatement(\n          contextSelection,\n          undefined,\n          undefined\n        );\n\n        showStandardResponse(apiResult);\n\n        admin.refetch?.();\n      },\n      title: \"🧠 Add statement\",\n      isEnabled: isStatement,\n    },\n\n    {\n      title: \"🕊 Free-form prompt\",\n      isEnabled: true,\n      onClick: async () => {\n        let question = prompt(\"What do you want to ask/prompt?\");\n\n        if (!question || question === \"\") {\n          return;\n        }\n\n        let name = prompt(\n          \"How should we call the prompt? (empty for not storing)\"\n        );\n        const realName = name === \"\" ? null : name;\n\n        const customPromptContent = `I am reading this file:\\n\\n\\`\\`\\`\\n%context\\n\\`\\`\\`\\n\\nMore specifically, I'm looking at this part: \\n\\n\\`\\`\\`\\n%selection\\n\\`\\`\\`\\n\\n${question}`;\n\n        await processPrompt({\n          contextualContent: {\n            contextContent: contentString,\n            context_projectRelativeFilePath: projectRelativeFilePath,\n            contextSelection,\n          },\n          showPromptAlert,\n          customPromptContent,\n          saveNewPromptWithName: realName,\n        });\n      },\n    },\n\n    {\n      title: \"🎤 Speak\",\n      isEnabled: true,\n      onClick: () => {\n        alert?.(\n          \"Coming soon!\",\n          <Div>\n            <P>\n              This button should let you record your voice so you can ask a\n              question through human speech. The speech will be converted into\n              text by whisper, it will then choose an existing prompt action, or\n              if it can't find that, do a free-form prompt.\n            </P>\n\n            <P>\n              P.S. Would be nice if this option is there by default, also for\n              other menus, or it's even accessible via other ways, but this is a\n              great way to try it out first.\n            </P>\n          </Div>\n        );\n      },\n    },\n  ];\n\n  return (\n    <Div>\n      <P className=\"font-bold\">Apply a prompt on your selection</P>\n      <Div className=\"bg-black/20 dark:bg-white/20 flex flex-row justify-between rounded-md p-2 my-2\">\n        {contextSelection ? (\n          <>\n            <P>{contextSelection}</P>\n            <ClickableIcon emoji=\"❌\" onClick={() => reset()} />\n          </>\n        ) : (\n          <P>Please select a piece of text first</P>\n        )}\n      </Div>\n\n      {contextSelection ? (\n        <Div className=\"flex flex-row flex-wrap\">\n          {selectionItems\n            .filter((selectionItem) => selectionItem.isEnabled)\n            .map((item, index) => {\n              return (\n                <NavButton\n                  title={item.title}\n                  onClick={item.onClick}\n                  key={`sele${index}`}\n                />\n              );\n            })}\n\n          {selectionContextualPrompts?.map((prompt) => {\n            return (\n              <PromptButton\n                key={`selectPrompt${prompt.id}`}\n                item={prompt}\n                contextSelection={contextSelection}\n                markdown={contentString}\n                projectRelativeFilePath={projectRelativeFilePath}\n              />\n            );\n          })}\n        </Div>\n      ) : null}\n    </Div>\n  );\n}",
+  "name": "SelectionPrompts",
+  "slug": "selection-prompts",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 9,
+  "size": {
+    "characters": 5579,
+    "lines": 189,
+    "bytes": 5589,
+    "bytesPerCharacter": 1.0017924359204158,
+    "charactersPerLine": 30,
+    "linesPerFile": 189,
+    "numberOfFiles": 1
+  },
+  "id": "paosivmpketjsdyofykrvncz"
+}

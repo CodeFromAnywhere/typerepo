@@ -35,7 +35,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | name  | string |  |
 | slug  | string |  |
 | pictureImage (optional) | object |  |
@@ -47,11 +47,11 @@ Properties:
 | devicesCalculated (optional) | array |  |
 | authenticationMethods  | array |  |
 | groupSlugs (optional) | array |  |
-| authorizations (optional) | array |  |
-| amountAuthenticationMethodsRequired (optional) | number |  |
-| requiredAuthenticationMethods (optional) | array |  |
 | paymentAuthToken (optional) | string |  |
 | credit (optional) | number |  |
+| note (optional) | string |  |
+| location (optional) | string |  |
+| trust (optional) | number |  |
 
 
 
@@ -91,7 +91,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | authToken  | string |  |
 | userAgentString  | string |  |
 | name  | string |  |
@@ -137,7 +137,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | description (optional) | string |  |
 | customAuthorizations (optional) | array |  |
 | indexedAuthorizationCalculated (optional) | array |  |
@@ -185,7 +185,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | peerSlug  | string |  |
 | message  | string |  |
 
@@ -209,8 +209,9 @@ Properties:
 | mediaChannelIds (optional) | array |  |
 | preferred_mediaChannelId (optional) | string |  |
 | media (optional) | array |  |
-| amountAuthenticationMethodsRequired (optional) | number |  |
-| requiredAuthenticationMethods (optional) | array |  |
+| note (optional) | string |  |
+| location (optional) | string |  |
+| trust (optional) | number |  |
 
 
 
@@ -325,7 +326,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | deviceId  | string |  |
 | path  | string |  |
 | ipInfo  | object |  |
@@ -378,7 +379,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | name  | string |  |
 | slug  | string |  |
 | pictureImage (optional) | object |  |
@@ -390,11 +391,11 @@ Properties:
 | devicesCalculated (optional) | array |  |
 | authenticationMethods  | array |  |
 | groupSlugs (optional) | array |  |
-| authorizations (optional) | array |  |
-| amountAuthenticationMethodsRequired (optional) | number |  |
-| requiredAuthenticationMethods (optional) | array |  |
 | paymentAuthToken (optional) | string |  |
 | credit (optional) | number |  |
+| note (optional) | string |  |
+| location (optional) | string |  |
+| trust (optional) | number |  |
 | achievements  | array |  |
 
 
@@ -509,7 +510,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | isPrimary (optional) | boolean |  |
 | isFavorite (optional) | boolean |  |
 | pictureImages (optional) | array |  |
@@ -531,6 +532,28 @@ Properties:
 | apiKey2Captcha (optional) | string |  |
 | openAiPassword (optional) | string |  |
 | openAiEmail (optional) | string |  |
+| openAiToken (optional) | string |  |
+| linkedinEmail (optional) | string |  |
+| linkedinPassword (optional) | string |  |
+| twitterLoginHandle (optional) | string |  |
+| twitterPassword (optional) | string |  |
+| facebookLoginHandle (optional) | string |  |
+| facebookPassword (optional) | string |  |
+| mediumLoginHandle (optional) | string |  |
+| mediumPassword (optional) | string |  |
+| redditLoginHandle (optional) | string |  |
+| redditPassword (optional) | string |  |
+| devtoLoginHandle (optional) | string |  |
+| devtoPassword (optional) | string |  |
+| slackLoginHandle (optional) | string |  |
+| slackPassword (optional) | string |  |
+| huggingfaceAuthToken (optional) | string |  |
+| uberduckApiKey (optional) | string |  |
+| uberduckSecret (optional) | string |  |
+| bananadevApiKey (optional) | string |  |
+| bananadevModelKeys (optional) | object |  |
+| email  | string |  |
+| phone  | string |  |
 
 
 
@@ -562,7 +585,7 @@ Properties:
 | operationName  | null |  |
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
-| categoryStackCalculated  | array |  |
+| categoryStack  | array |  |
 | isHeaderCalculated  | boolean |  |
 | parent_personInformationSlug (optional) | string |  |
 
@@ -619,7 +642,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | personId  | string |  |
 | personInformationSlug  | string |  |
 | value  | string |  |
@@ -654,7 +677,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | personId  | string |  |
 | isFollow  | boolean |  |
 | scrapeSucceededAt  | number |  |
@@ -713,7 +736,7 @@ Properties:
 | projectRelativePath  | string |  |
 | operationRelativePath (optional) | string |  |
 | id  | string |  |
-| categoryStackCalculated (optional) | array |  |
+| categoryStack (optional) | array |  |
 | userUrlPrefix  | string |  |
 | userUrlSuffix  | string |  |
 

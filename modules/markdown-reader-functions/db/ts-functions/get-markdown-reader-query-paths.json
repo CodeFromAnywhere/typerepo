@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115968947,
-  "updatedAt": 1671115968947,
+  "createdAt": 1674135577639,
+  "updatedAt": 1674135577639,
   "deletedAt": 0,
-  "createdFirstAt": 1671115968947,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135577639,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getMarkdownReaderQueryPaths.ts",
   "commentsInside": [],
   "rawText": " async (config?: {\n  manualProjectRoot?: string;\n}) => {\n  const pages = await getAllMarkdownReaderPages(config);\n  // NB: this is kind of a hack, but it's way harder to add it into the pages I guess, so it's easier like this.\n  const queryPaths = pages?.map((x) => x.queryPath);\n\n  const queryPaths2 = pages\n    ?.map((x) => x.queryPath)\n    .map((queryPath) => getAllFoldersUntilFolder(queryPath))\n    .flat()\n    .filter(onlyUnique2())\n    .filter((x) => x !== \"/\")\n    .map((x) => trimSlashes(x));\n\n  // console.log({ queryPaths2 });\n  return queryPaths2;\n}",
@@ -58,5 +57,5 @@
     "linesPerFile": 18,
     "numberOfFiles": 1
   },
-  "id": "bcloorgeczunapiudukpyskw"
+  "id": "pcvnphfllapedhczcupzsqor"
 }

@@ -20,32 +20,35 @@
     "buildResultIndexed": {
       "buildSucceeded": true,
       "indexImportExportError": "",
-      "lintProblems": []
+      "lintProblems": [],
+      "indexInteracesErrors": [
+        "No schema/definitions found for /Users/king/King/operations/tools/control-project/watch-types/src/ProjectWatcher.ts. Error: Error: Unknown type \"function\""
+      ]
     },
-    "lastRebuildAt": 1668692033420,
+    "lastRebuildAt": 1673862141788,
     "sizeIndexed": {
       "codeSize": {
         "numberOfFiles": 2,
-        "lines": 29,
-        "characters": 803,
-        "bytes": 803
+        "lines": 52,
+        "characters": 1974,
+        "bytes": 1974
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 67,
-        "characters": 2374,
-        "bytes": 2374
+        "lines": 105,
+        "characters": 3451,
+        "bytes": 3451
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 36,
-        "characters": 639,
-        "bytes": 639
+        "lines": 31,
+        "characters": 556,
+        "bytes": 556
       },
       "size": {
-        "bytes": 3816,
-        "characters": 3816,
-        "lines": 132,
+        "bytes": 5981,
+        "characters": 5981,
+        "lines": 188,
         "numberOfFiles": 6
       }
     },
@@ -53,10 +56,14 @@
     "relativeOperationLocationPathIndexed": "operations/tools/control-project",
     "classificationIndexed": "cjs",
     "coreDependenciesIndexed": [],
-    "operationDependenciesIndexed": [],
+    "operationDependenciesIndexed": [
+      "ApiFunctionParameters"
+    ],
     "packageDependenciesIndexed": []
   },
-  "dependencies": {},
+  "dependencies": {
+    "code-types": "0.0.1"
+  },
   "slug": "watch-types",
   "id": "fqainblkfoklcbftrwkdgvtm"
 }

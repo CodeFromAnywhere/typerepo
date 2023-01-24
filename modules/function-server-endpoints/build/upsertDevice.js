@@ -69,7 +69,7 @@ var database_1 = require("database");
  * Needed for having `authToken` with GET as well in a safe manner (e.g. for images)
  */
 var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, void 0, function () {
-    var executionId, performance, authToken, ip, userAgentString, userAgent, origin, referer, dbPath, deviceFilePath, exists, deviceBefore, _a, newDevice, groups, persons, augmentedDevice;
+    var executionId, performance, authToken, ip, userAgentString, userAgent, origin, referer, dbPath, deviceFilePath, exists, deviceBefore, _a, newDevice, groups, persons, currentPersonCalculated, augmentedDevice;
     var _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -132,8 +132,9 @@ var upsertDevice = function (serverContext) { return __awaiter(void 0, void 0, v
                     .map(function (p) {
                     return __assign(__assign({}, p), { groups: groups.filter(function (g) { var _a; return (_a = p.groupSlugs) === null || _a === void 0 ? void 0 : _a.includes(g.slug); }) });
                 });
+                currentPersonCalculated = persons.find(function (x) { return x.id === (deviceBefore === null || deviceBefore === void 0 ? void 0 : deviceBefore.currentPersonId); });
                 augmentedDevice = deviceBefore
-                    ? __assign(__assign({}, deviceBefore), { persons: persons }) : newDevice;
+                    ? __assign(__assign({}, deviceBefore), { persons: persons, currentPersonCalculated: currentPersonCalculated }) : newDevice;
                 // console.dir({ augmentedDevice }, { depth: 999 });
                 return [2 /*return*/, augmentedDevice];
         }

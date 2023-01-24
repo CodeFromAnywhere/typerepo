@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671448864127,
-  "updatedAt": 1671448864127,
+  "createdAt": 1672637495857,
+  "updatedAt": 1672637495857,
   "deletedAt": 0,
-  "createdFirstAt": 1671448864127,
+  "createdFirstAt": 1672637495857,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "({ absoluteFilePath }: { absoluteFilePath: string }) => {\n  /**\n    \n    markdown files should be rendered via the renderer first\n    \n    ts, json files should be color highlighted (we can simply wrap this in triple backticks and print it as markdown)\n    */\n}",
   "description": "should print any file using a preconfigured printer (which can be local or remote. if remote and there is no connection, it should save the task for later)\n\nthis function maybe needs \"generateStaticSite\"",
-  "id": "aaesldogbtxhvqopgwsswfqk"
+  "id": "wmlbcfmpmshflkyypazpcuif"
 }

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1672637100832,
+  "updatedAt": 1672637100832,
+  "deletedAt": 0,
+  "createdFirstAt": 1672637100832,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "updateSingleNestedJsonFile",
+  "slug": "update-single-nested-json-file",
+  "operationRelativeTypescriptFilePath": "src/updateSingleNestedJsonFile.ts",
+  "type": {
+    "rawType": "<T extends import(\"/Users/king/King/operations/tools/util/js-util/build/NestedPartial\").O>(path: string, partialNewObject: import(\"/Users/king/King/operations/tools/util/js-util/build/NestedPartial\").NestedPartial<T>) => unknown",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async <T extends O>(\n  path: string,\n  partialNewObject: NestedPartial<T>\n) => {\n  const json = await readJsonFile<T>(path);\n  if (!json) return false;\n  const newData = mergeNestedObject(json, partialNewObject);\n  const isSuccessful = await writeJsonToFile(path, newData);\n  return isSuccessful;\n}",
+  "description": "Uses mergeNestedObject on a JSON file",
+  "id": "navggvpeuuveujcqrhqjivon"
+}

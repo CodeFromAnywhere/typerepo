@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671505932844,
-  "updatedAt": 1671505932844,
+  "createdAt": 1674133265105,
+  "updatedAt": 1674133265105,
   "deletedAt": 0,
-  "createdFirstAt": 1671505932844,
+  "createdFirstAt": 1674133265105,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  prompt: string,\n  headless?: boolean\n): Promise<ProcessPromptFunctionResult> => {\n  const api = new ChatGPTAPI({ headless });\n  // open chromium and wait until you've logged in\n  await api.init({ auth: \"blocking\" });\n  // send a message and wait for the response\n  const response = await api.sendMessage(prompt);\n  api.close();\n  return {\n    isSuccessful: true,\n    message: \"Done\",\n    result: { thread: \"\", text: response },\n  };\n}",
   "description": "",
-  "id": "ipwydjeryszfkldgegnfaerl"
+  "id": "wohobjchdvgcpoesetadazco"
 }

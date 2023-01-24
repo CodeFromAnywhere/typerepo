@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671457692471,
-  "updatedAt": 1671457692471,
+  "createdAt": 1672134458212,
+  "updatedAt": 1672134458212,
   "deletedAt": 0,
-  "createdFirstAt": 1671457692471,
+  "createdFirstAt": 1672134458212,
   "isApiExposed": true,
   "isExported": true,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getNewPage.ts",
   "commentsInside": [],
-  "rawText": " async (\n  browser: Browser\n): Promise<Page | undefined> => {\n  const allPage = await browser.pages();\n  const allPageTitle = await Promise.all(allPage.map(async (p) => p.title()));\n  let indexOfIdlePage = allPageTitle.indexOf(\"\");\n  if (indexOfIdlePage === -1) {\n    const idlePage = await getIdlePage(browser);\n    return idlePage;\n  }\n  return allPage[indexOfIdlePage];\n}",
+  "rawText": " async (\n    browser: Browser\n): Promise<Page | undefined> => {\n    const allPage = await browser.pages();\n    const allPageTitle = await Promise.all(allPage.map(async (p) => p.title()));\n    let indexOfIdlePage = allPageTitle.indexOf(\"\");\n    if (indexOfIdlePage === -1) {\n        const idlePage = await getIdlePage(browser);\n        return idlePage;\n    }\n    return allPage[indexOfIdlePage];\n}",
   "name": "getNewPage",
   "slug": "get-new-page",
   "parameters": [
@@ -27,7 +27,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page | undefined>",
+    "rawType": "Promise<import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page | undefined>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -35,15 +35,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 4,
   "size": {
-    "characters": 374,
+    "characters": 396,
     "lines": 12,
-    "bytes": 374,
+    "bytes": 396,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 31,
+    "charactersPerLine": 33,
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "mluatniqttfaogkstkgeqyau"
+  "id": "btqdlfdcohmjmjtttrrudirl"
 }

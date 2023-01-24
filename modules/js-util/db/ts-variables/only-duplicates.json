@@ -1,0 +1,33 @@
+{
+  "createdAt": 1672638766368,
+  "updatedAt": 1672638766368,
+  "deletedAt": 0,
+  "createdFirstAt": 1672638766368,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "onlyDuplicates",
+  "slug": "only-duplicates",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "type": {
+    "rawType": "<U>(isEqualFn?: ((a: U, b: U) => boolean) | undefined) => <T extends U>(value: T, index: number, self: T[]) => boolean",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "<U>(isEqualFn?: (a: U, b: U) => boolean) =>\n  <T extends U>(value: T, index: number, self: T[]) => {\n    return (\n      self.findIndex((v) => (isEqualFn ? isEqualFn(v, value) : v === value)) !==\n      index\n    );\n  }",
+  "description": "",
+  "id": "jyjijxeanrklmcoffomdmxiq"
+}

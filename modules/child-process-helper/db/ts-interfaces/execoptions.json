@@ -1,0 +1,187 @@
+{
+  "createdAt": 1674032513184,
+  "updatedAt": 1674032513184,
+  "deletedAt": 0,
+  "createdFirstAt": 1674032513184,
+  "id": "execoptions",
+  "name": "ExecOptions",
+  "slug": "execoptions",
+  "operationRelativeTypescriptFilePath": "src/general.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "number"
+        },
+        "gid": {
+          "type": "number"
+        },
+        "cwd": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/URL"
+            }
+          ]
+        },
+        "env": {
+          "$ref": "#/definitions/global.NodeJS.ProcessEnv"
+        },
+        "windowsHide": {
+          "type": "boolean",
+          "default": true
+        },
+        "timeout": {
+          "type": "number",
+          "default": 0
+        },
+        "shell": {
+          "type": "string"
+        },
+        "signal": {
+          "type": "object",
+          "properties": {
+            "aborted": {
+              "type": "boolean",
+              "description": "Returns true if this AbortSignal's AbortController has signaled to abort, and false otherwise."
+            }
+          },
+          "required": [
+            "aborted"
+          ],
+          "additionalProperties": false,
+          "description": "A signal object that allows you to communicate with a DOM request (such as a Fetch) and abort it if required via an AbortController object."
+        },
+        "maxBuffer": {
+          "type": "number"
+        },
+        "killSignal": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/global.NodeJS.Signals"
+            },
+            {
+              "type": "number"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "uid",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "gid",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "cwd",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "env",
+          "required": false,
+          "schema": {
+            "fullComment": "",
+            "properties": [
+              {
+                "name": "TZ",
+                "required": false,
+                "schema": {
+                  "fullComment": "Can be used to change the default timezone at runtime",
+                  "type": "string"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "windowsHide",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "timeout",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "shell",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "signal",
+          "required": false,
+          "schema": {
+            "fullComment": "A signal object that allows you to communicate with a DOM request (such as a Fetch) and abort it if required via an AbortController object.",
+            "properties": [
+              {
+                "name": "aborted",
+                "required": true,
+                "schema": {
+                  "fullComment": "Returns true if this AbortSignal's AbortController has signaled to abort, and false otherwise.",
+                  "type": "boolean"
+                }
+              }
+            ],
+            "type": "object"
+          }
+        },
+        {
+          "name": "maxBuffer",
+          "required": false,
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "killSignal",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "ExecOptions",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

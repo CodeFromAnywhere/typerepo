@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671316022516,
-  "updatedAt": 1671316022516,
+  "createdAt": 1673959180864,
+  "updatedAt": 1673959180864,
   "deletedAt": 0,
-  "createdFirstAt": 1671316022516,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959180864,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getRelativePath.ts",
   "commentsInside": [],
   "rawText": " (\n  absolutePath: string,\n  relativeFrom: \"project-root\"\n) => {\n  const rootPath =\n    relativeFrom === \"project-root\" ? getRootPath() : getRootPath();\n\n  if (!rootPath) return;\n\n  const relativePath = absolutePath.replace(rootPath, \"\");\n\n  return relativePath;\n}",
@@ -54,5 +53,5 @@
     "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "bayycvpqwytizuubwvvqdcrl"
+  "id": "wpkvukkaxvkudrbqonxlsmwz"
 }

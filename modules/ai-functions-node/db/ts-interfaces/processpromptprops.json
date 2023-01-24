@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671505949882,
-  "updatedAt": 1671505949882,
+  "createdAt": 1674133285753,
+  "updatedAt": 1674133285753,
   "deletedAt": 0,
-  "createdFirstAt": 1671505949882,
+  "createdFirstAt": 1674133285753,
   "id": "processpromptprops",
   "name": "ProcessPromptProps",
   "slug": "processpromptprops",
   "operationRelativeTypescriptFilePath": "src/processChatGptPrompt.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n\nexport type ProcessPromptProps = {\n  contextContent?: string | null;\n  selectionContent?: string | null;\n  contextualPromptSlug?: string;\n  /**\n   * DESCRIPTION: These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format\n   */\n  customPromptContent?: string;\n  saveNewPromptWithName?: string | null;\n  isHeadless?: boolean;\n  prompt_projectRelativePath?: string;\n  thread?: string;\n  /**\n   * If true, it'll just validate if this will be executed, it won't return the actual result but will execute the result in the background\n   */\n  isDeferred?: boolean;\n};",
+  "rawText": "\n\nexport type ProcessPromptProps = {\n  contextContent?: string | null;\n  selectionContent?: string | null;\n  contextualPromptSlug?: string;\n  anyContext?: string;\n  /**\n   * DESCRIPTION: These variables can be used: %context will be replaced by your context, %selection will be replaced by your selection. Provide a good prompt that combines that in a specific format\n   */\n  customPromptContent?: string;\n  saveNewPromptWithName?: string | null;\n  isHeadless?: boolean;\n  prompt_projectRelativePath?: string;\n  thread?: string;\n  /**\n   * If true, it'll just validate if this will be executed, it won't return the actual result but will execute the result in the background\n   */\n  isDeferred?: boolean;\n};",
   "extensions": [],
   "isOperationIndex": false,
   "description": "",
@@ -32,6 +32,9 @@
           ]
         },
         "contextualPromptSlug": {
+          "type": "string"
+        },
+        "anyContext": {
           "type": "string"
         },
         "customPromptContent": {
@@ -78,6 +81,13 @@
         },
         {
           "name": "contextualPromptSlug",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "anyContext",
           "required": false,
           "schema": {
             "type": "string"

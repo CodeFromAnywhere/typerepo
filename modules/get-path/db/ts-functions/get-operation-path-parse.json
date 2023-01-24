@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671315963346,
-  "updatedAt": 1671315963346,
+  "createdAt": 1673959163720,
+  "updatedAt": 1673959163720,
   "deletedAt": 0,
-  "createdFirstAt": 1671315963346,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959163720,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getOperationPathParse.ts",
   "commentsInside": [],
   "rawText": " (\n  absolutePath: string\n): OperationPathParse | undefined => {\n  if (!absolutePath) return;\n  const pathParse = getPathParse(absolutePath);\n  if (!pathParse) return;\n  const projectRoot = getProjectRoot(absolutePath);\n  if (!projectRoot) return;\n  const operationBasePath = findOperationBasePath(absolutePath);\n  if (!operationBasePath) return;\n  const operationSrcPath = path.join(operationBasePath, \"src\");\n\n  const operationFolderName = getLastFolder(operationBasePath);\n  const operationName = readJsonFileSync<Operation>(\n    path.join(operationBasePath, \"package.json\")\n  )?.name;\n\n  const operationRelativeTypescriptFilePath = getOperationRelativePath(\n    absolutePath,\n    operationBasePath\n  );\n\n  const parsedPath = path.parse(absolutePath);\n  const srcFileId = makeRelative(\n    path.join(parsedPath.dir, parsedPath.name),\n    operationSrcPath\n  );\n\n  const relativeOperationBasePathFromProjectRoot = operationBasePath.slice(\n    projectRoot.length\n  );\n\n  return {\n    relativePathFromProjectRoot: pathParse.relativePathFromProjectRoot,\n    srcFileId,\n    operationFolderName,\n    operationRelativeTypescriptFilePath,\n    relativeOperationBasePathFromProjectRoot,\n    operationName,\n  };\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 43,
     "numberOfFiles": 1
   },
-  "id": "vmqruifwarqtdfarcbqpdgec"
+  "id": "efyiemdgdctfsrxiqlswblug"
 }

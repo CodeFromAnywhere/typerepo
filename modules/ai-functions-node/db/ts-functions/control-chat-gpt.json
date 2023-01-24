@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671505932439,
-  "updatedAt": 1671505932439,
+  "createdAt": 1674133264851,
+  "updatedAt": 1674133264851,
   "deletedAt": 0,
-  "createdFirstAt": 1671505932439,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133264851,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/controlChatGpt.ts",
   "commentsInside": [],
   "rawText": " async (\n  prompt: string,\n  headless?: boolean\n): Promise<ProcessPromptFunctionResult> => {\n  const api = new ChatGPTAPI({ headless });\n  // open chromium and wait until you've logged in\n  await api.init({ auth: \"blocking\" });\n  // send a message and wait for the response\n  const response = await api.sendMessage(prompt);\n  api.close();\n  return {\n    isSuccessful: true,\n    message: \"Done\",\n    result: { thread: \"\", text: response },\n  };\n}",
@@ -53,5 +52,5 @@
     "linesPerFile": 16,
     "numberOfFiles": 1
   },
-  "id": "euykjyqywlmwxwwtwzuzusxl"
+  "id": "zreugibtzkygynrpocaunufc"
 }

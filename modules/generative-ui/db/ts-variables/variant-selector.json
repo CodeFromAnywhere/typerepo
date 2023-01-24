@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379260854,
+  "updatedAt": 1673379260854,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379260854,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "VariantSelector",
+  "slug": "variant-selector",
+  "operationRelativeTypescriptFilePath": "src/components/VariantSelector.tsx",
+  "type": {
+    "rawType": "(props: { projectRelativeFilePath?: string | undefined; folderPath: string; isFolder?: boolean | undefined; filename?: string | undefined; contextualPromptResults?: import(\"/Users/king/King/operations/tools/ai/ai-types/build/ContextualPromptResult\").ContextualPromptResult[] | undefined; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: {\n  projectRelativeFilePath?: string;\n  folderPath: string;\n  isFolder?: boolean;\n  filename?: string;\n  contextualPromptResults?: ContextualPromptResult[];\n}) => {\n  const { contextualPromptResults, folderPath, isFolder, filename } = props;\n\n  const router = useRouter();\n  const [defaultVariant, setDefaultVariant] = useStore(\n    \"generativeWeb.defaultVariant\"\n  );\n  const [isEditing, setIsEditing] = useStore(\"generativeWeb.isEditing\");\n  const admin = useAdmin();\n  const variantResult = useVariantResult(contextualPromptResults);\n\n  const resultItems =\n    contextualPromptResults?.map((x) => {\n      const item: Item<string> = {\n        label: `${x.isFake ? \"🧪\" : \"\"}${x.isFavorite ? \"⭐️\" : \"\"}${\n          x.contextualPromptSlug\n        }`,\n        value: x.contextualPromptSlug,\n      };\n\n      return item;\n    }) || [];\n\n  const items: Item<string>[] = [\n    { label: \"Original\", value: \"___NONE___\" },\n    ...resultItems,\n  ];\n\n  const withValue = (value: Item<string> | null | undefined) => {\n    const query: {\n      queryPath: string | string[] | undefined;\n      variant?: string;\n    } = {\n      queryPath: router.query.queryPath,\n    };\n\n    if (value && value.value && value.value !== \"___NONE___\") {\n      query.variant = value.value;\n    }\n    if (value?.value === \"___NONE___\") {\n      setDefaultVariant(null);\n    }\n    router.push({ query }, undefined, { shallow: true });\n  };\n\n  return (\n    <Div\n      className=\" \n    lg:flex-row lg:w-full w-min\"\n    >\n      <Div className=\"dark:bg-gray-700 dark:hover:bg-gray-600 rounded-md border border-black p-2 m-1 cursor-pointer flex flex-row\">\n        <P>Variant:</P>\n        <Select\n          className=\"bg-transparent\"\n          title=\"Test\"\n          onChange={withValue}\n          value={items.find(\n            (x) => x.value === variantResult?.contextualPromptSlug\n          )}\n          options={items}\n        />\n        {/* {variantResult?.id ? (\n          <ALink\n            href={`${folderPath}/.index/${\n              isFolder ? \"\" : filename ? withoutExtension(filename) : \"\"\n            }`}\n          >\n            Go to index\n          </ALink>\n        ) : null} */}\n\n        {(variantResult?.contextualPromptSlug || null) !== defaultVariant ? (\n          <ClickableIcon\n            emoji=\"📌\"\n            onClick={() =>\n              setDefaultVariant(variantResult?.contextualPromptSlug || null)\n            }\n          />\n        ) : null}\n\n        {variantResult && admin.isAdminActive ? (\n          // delete, star/unstar\n          <Div className=\"flex flex-row\">\n            <ClickableIcon\n              emoji=\"🗑\"\n              onClick={async () => {\n                if (!variantResult.prompt_projectRelativePath) return;\n                const apiResult = await api.deletePromptResult(\n                  variantResult.prompt_projectRelativePath,\n                  variantResult.id\n                );\n                showStandardResponse(apiResult);\n\n                if (apiResult?.result?.isSuccessful) {\n                  admin.refetch?.();\n                }\n              }}\n            />\n            <ClickableIcon\n              emoji={variantResult.isFavorite ? \"💩\" : \"⭐️\"}\n              onClick={async () => {\n                if (!variantResult.prompt_projectRelativePath) return;\n                const apiResult = await api.setIsFavoritePromptResult(\n                  variantResult.prompt_projectRelativePath,\n                  variantResult.id,\n                  !variantResult.isFavorite\n                );\n                showStandardResponse(apiResult);\n\n                if (apiResult?.result?.isSuccessful) {\n                  admin.refetch?.();\n                }\n              }}\n            />\n          </Div>\n        ) : null}\n      </Div>\n    </Div>\n  );\n}",
+  "description": "",
+  "id": "rahkpgfjlyerwedaslxzmfjo"
+}

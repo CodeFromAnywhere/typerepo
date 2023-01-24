@@ -1,6 +1,7 @@
 /// <reference types="react" />
 /// <reference types="node" />
 import { getTypescriptErrorsFromFiles } from "compile-typescript";
+import { fileSlugify } from "convert-case";
 import { slugify } from "convert-case";
 import { notEmpty } from "js-util";
 import { onlyUnique } from "js-util";
@@ -54,6 +55,7 @@ export declare const sdk: {
     capitalCase: (text: string) => string;
     capitaliseFirstLetter: (word: string) => string;
     convertCase: (text: string, target: import("convert-case").Casing) => string;
+    fileSlugify: typeof fileSlugify;
     getDelimiter: (target: import("convert-case").Casing) => "" | "_" | " " | "-";
     humanCase: (text: string) => string;
     kebabCase: (text: string) => string;
@@ -133,7 +135,8 @@ export declare const sdk: {
         removed: boolean;
     }[]>;
     renameAndCreate: (oldPath: string, newPath: string) => Promise<void>;
-    writeJsonToFile: <T>(p: string, data: T) => Promise<boolean>;
+    updateSingleNestedJsonFile: <T extends import("js-util").O>(path: string, partialNewObject: import("js-util").NestedPartial<T>) => Promise<boolean>;
+    writeJsonToFile: <T_1>(p: string, data: T_1) => Promise<boolean>;
     writeStringToFile: (p: string, data: string) => Promise<boolean>;
     writeToFiles: (fileObject: {
         [absoluteFilePath: string]: any;
@@ -149,9 +152,9 @@ export declare const sdk: {
         };
     } | undefined>;
     getSdkFunctionPaths: () => Promise<false | import("function-util").FnMatch[]>;
-    findFolderWhereMatch: <T_1>(fullSourcePath: string, matchFunction: (folderPath: string) => T_1) => {
+    findFolderWhereMatch: <T_2>(fullSourcePath: string, matchFunction: (folderPath: string) => T_2) => {
         folderPath: string;
-        matchResult: T_1;
+        matchResult: T_2;
     } | undefined;
     findOperationBasePathWithClassification: (startPath: string) => {
         folderPath: string;
@@ -175,10 +178,11 @@ export declare const sdk: {
     getProjectRoot: (fullSourcePath?: string | undefined) => string | undefined;
     getRelativeLinkPath: (absoluteFromFilePath: string, absoluteToFilePath: string, debug?: boolean | undefined) => string;
     getRelativePath: (absolutePath: string, relativeFrom: "project-root") => string | undefined;
-    getRootPath: (name?: "text" | "assets" | "backups" | "bundled" | "cloned" | "distributions" | "operations" | "db" | undefined, config?: {
+    getRootPath: (name?: "text" | "assets" | "backups" | "bundled" | "cloned" | "distributions" | "operations" | "knowledge" | "db" | undefined, config?: {
         manualProjectRoot?: string | undefined;
     } | undefined) => string | undefined;
     getSrcRelativeFileId: (operationRelativePath: string) => string;
+    getSubExtensions: (absolutePath: string) => string[];
     hasDependency: (operation: import("code-types").Operation, dependency: string) => boolean;
     isBundle: (folderPath?: string | undefined) => boolean;
     isOperation: (absoluteFolderPath: string) => boolean;
@@ -190,55 +194,55 @@ export declare const sdk: {
     packageCompilesTs: (packageJson: import("code-types").Operation | null) => boolean;
     tsconfigCompilesEsm: (tsconfig: import("code-types").TsConfig) => boolean;
     getTsConfig: (packageFolder: string) => Promise<import("code-types").TsConfig | null>;
-    apply: <T_2>(functions: ((input: T_2) => T_2)[], value: T_2) => T_2;
-    createEnum: <T_3 extends readonly string[]>(array: T_3) => { [K in T_3[number]]: K; };
-    createMappedObject: <T_4 extends {
+    apply: <T_3>(functions: ((input: T_3) => T_3)[], value: T_3) => T_3;
+    createEnum: <T_4 extends readonly string[]>(array: T_4) => { [K in T_4[number]]: K; };
+    createMappedObject: <T_5 extends {
         [key: string]: any;
-    }, U = T_4>(array: T_4[], mapKey: keyof T_4, mapFn?: ((value: T_4, array: T_4[]) => U) | undefined) => import("js-util").MappedObject<U>;
-    destructureOptionalObject: <T_5 extends {
+    }, U = T_5>(array: T_5[], mapKey: keyof T_5, mapFn?: ((value: T_5, array: T_5[]) => U) | undefined) => import("js-util").MappedObject<U>;
+    destructureOptionalObject: <T_6 extends {
         [key: string]: any;
-    }>(object: T_5 | null | undefined) => Partial<T_5>;
-    findLastIndex: <T_6>(array: T_6[], findFn: (item: T_6) => boolean) => number | undefined;
+    }>(object: T_6 | null | undefined) => Partial<T_6>;
+    findLastIndex: <T_7>(array: T_7[], findFn: (item: T_7) => boolean) => number | undefined;
     getObjectFromParamsString: (paramsString: string) => {
         [x: string]: string;
     };
     getObjectKeysArray: <TObject extends {
         [key: string]: any;
     }>(object: TObject) => Extract<keyof TObject, string>[];
-    getParameterAtLocation: <T_7 = any>(object: {
+    getParameterAtLocation: <T_8 = any>(object: {
         [key: string]: any;
-    }, location: string[]) => T_7;
-    getSubsetFromObject: <T_8, K_1 extends readonly (keyof T_8)[]>(object: T_8, keys: K_1) => Pick<T_8, K_1[number]>;
-    groupByKey: <T_9 extends {
+    }, location: string[]) => T_8;
+    getSubsetFromObject: <T_9, K_1 extends readonly (keyof T_9)[]>(object: T_9, keys: K_1) => Pick<T_9, K_1[number]>;
+    groupByKey: <T_10 extends {
         [key: string]: any;
-    }>(array: T_9[], key: keyof T_9) => {
-        [key: string]: T_9[];
+    }>(array: T_10[], key: keyof T_10) => {
+        [key: string]: T_10[];
     };
     hasAllLetters: (a: string, b: string) => boolean;
-    insertAt: <T_10>(array: T_10[], items: T_10 | T_10[], beforeIndex: number) => T_10[];
+    insertAt: <T_11>(array: T_11[], items: T_11 | T_11[], beforeIndex: number) => T_11[];
     isAllTrue: (array: boolean[]) => boolean;
     isArrayEqual: (a: any[], b: any[]) => boolean;
-    makeArray: <T_11>(...arrayOrNotArray: (T_11 | T_11[] | undefined)[]) => T_11[];
-    mapAsync: <T_12, U_1>(array: T_12[], callback: (value: T_12, index: number, array: T_12[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
+    makeArray: <T_12>(...arrayOrNotArray: (T_12 | T_12[] | undefined)[]) => T_12[];
+    mapAsync: <T_13, U_1>(array: T_13[], callback: (value: T_13, index: number, array: T_13[]) => Promise<U_1>) => Promise<Awaited<U_1>[]>;
     mapKeys: (object: {
         [key: string]: any;
     }, mapFn: (key: string) => string | Promise<string> | undefined) => Promise<{
         [x: string]: any;
     }>;
-    mapMany: <T_13, U_2>(array: T_13[], mapFn: (item: T_13, index: number, array: T_13[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
-    mapValuesSync: <T_14, U_3>(object: {
-        [key: string]: T_14;
-    }, mapFn: (value: T_14) => U_3) => {
+    mapMany: <T_14, U_2>(array: T_14[], mapFn: (item: T_14, index: number, array: T_14[]) => Promise<U_2>, limit?: number | undefined) => Promise<U_2[]>;
+    mapValuesSync: <T_15, U_3>(object: {
+        [key: string]: T_15;
+    }, mapFn: (value: T_15) => U_3) => {
         [x: string]: U_3;
     };
-    mergeNestedObject: <T_15 extends import("js-util").O>(object: T_15, otherObject: import("js-util").NestedPartial<T_15> | undefined) => T_15;
-    mergeObjectParameters: <T_16>(config: T_16 | undefined, defaults: T_16 | undefined) => Partial<T_16>;
-    mergeObjectsArray: <T_17 extends {
+    mergeNestedObject: <T_16 extends import("js-util").O>(object: T_16, otherObject: import("js-util").NestedPartial<T_16> | undefined) => T_16;
+    mergeObjectParameters: <T_17>(config: T_17 | undefined, defaults: T_17 | undefined) => Partial<T_17>;
+    mergeObjectsArray: <T_18 extends {
         [key: string]: any;
-    }>(objectsArray: T_17[]) => T_17;
-    mergeObjects: <T_18 extends {
+    }>(objectsArray: T_18[]) => T_18;
+    mergeObjects: <T_19 extends {
         [key: string]: any;
-    }>(...objects: (Partial<T_18> | undefined)[]) => T_18 | undefined;
+    }>(...objects: (Partial<T_19> | undefined)[]) => T_19 | undefined;
     noEmptyString: (input: string | undefined) => string | undefined;
     notEmpty: typeof notEmpty;
     objectMapAsync: <TObject_1 extends {
@@ -247,44 +251,45 @@ export declare const sdk: {
     objectMapSync: <TObject_2 extends {
         [key: string]: any;
     }, TMapResult, TResultObject_1 extends { [key_1 in keyof TObject_2]: TMapResult; }>(object: TObject_2, mapFn: (key: keyof TObject_2, value: TObject_2[keyof TObject_2]) => TMapResult) => TResultObject_1;
-    objectValuesMap: <T_19 extends {
-        [key: string]: T_19[string];
-    }, U_4 extends unknown>(object: T_19, mapFn: (key: string, value: T_19[string]) => U_4) => {
+    objectValuesMap: <T_20 extends {
+        [key: string]: T_20[string];
+    }, U_4 extends unknown>(object: T_20, mapFn: (key: string, value: T_20[string]) => U_4) => {
         [key: string]: U_4;
     };
-    omitUndefinedValues: <T_20 extends {
+    omitUndefinedValues: <T_21 extends {
         [key: string]: any;
-    }>(object: T_20) => T_20;
-    onlyUnique2: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_21 extends U_5>(value: T_21, index: number, self: T_21[]) => boolean;
+    }>(object: T_21) => T_21;
+    onlyDuplicates: <U_5>(isEqualFn?: ((a: U_5, b: U_5) => boolean) | undefined) => <T_22 extends U_5>(value: T_22, index: number, self: T_22[]) => boolean;
+    onlyUnique2: <U_6>(isEqualFn?: ((a: U_6, b: U_6) => boolean) | undefined) => <T_23 extends U_6>(value: T_23, index: number, self: T_23[]) => boolean;
     onlyUnique: typeof onlyUnique;
-    pickRandomArrayItem: <T_22>(array: T_22[]) => T_22;
-    putIndexAtIndex: <T_23>(array: T_23[], index: number, toIndex: number) => T_23[];
-    removeIndexFromArray: <T_24>(array: T_24[], index: number) => T_24[];
+    pickRandomArrayItem: <T_24>(array: T_24[]) => T_24;
+    putIndexAtIndex: <T_25>(array: T_25[], index: number, toIndex: number) => T_25[];
+    removeIndexFromArray: <T_26>(array: T_26[], index: number) => T_26[];
     removeOptionalKeysFromObjectStrings: <TObject_3 extends import("js-util").O>(object: TObject_3, keys: string[]) => TObject_3;
     removeOptionalKeysFromObject: <TObject_4 extends import("js-util").O>(object: TObject_4, keys: Exclude<Extract<keyof TObject_4, string>, Exclude<import("js-util").KeysOfType<TObject_4, Exclude<TObject_4[keyof TObject_4], undefined>>, undefined>>[]) => TObject_4;
     replaceLastOccurence: (string: string, searchValue: string, replaceValue: string) => string;
     reverseString: (string: string) => string;
-    sumAllKeys: <T_25 extends {
+    sumAllKeys: <T_27 extends {
         [key: string]: number | undefined;
-    }>(objectArray: T_25[], keys: (keyof T_25)[]) => T_25;
+    }>(objectArray: T_27[], keys: (keyof T_27)[]) => T_27;
     sumObjectParameters: <TObject_5 extends {
         [key: string]: number;
     }>(object1: TObject_5, object2: TObject_5) => TObject_5;
     sum: (items: number[]) => number;
-    takeFirst: <T_26>(arrayOrNot: T_26 | T_26[]) => T_26;
+    takeFirst: <T_28>(arrayOrNot: T_28 | T_28[]) => T_28;
     trimSlashes: (absoluteOrRelativePath: string) => string;
     getSimpleJsonString: (json: import("json-util").Json) => string | undefined;
     flattenMarkdownChunks: (markdownChunks: import("markdown-types").MarkdownChunk[]) => import("markdown-types").MarkdownParagraph[];
     getKvmdItemsRecursively: (chunk: import("markdown-types").MarkdownChunk, categoryStackUntilNow?: import("model-types").CategoryStack | undefined) => import("model-types").Storing<import("model-types").KeyValueMarkdownModelType>[];
     getParagraphsRecursively: (chunk: import("markdown-types").MarkdownChunk, categoryStackUntilNow?: import("model-types").CategoryStack | undefined) => import("markdown-types").MarkdownParagraph[];
-    kvmdDataMap: <T_27 extends {
+    kvmdDataMap: <T_29 extends {
         [key: string]: string | string[] | undefined;
     }>(data: import("model-types").KeyValueMarkdownModelType[], { keyName, valueName, categoryStackName, commentName, }: {
         keyName?: string | undefined;
         valueName?: string | undefined;
         commentName?: string | undefined;
         categoryStackName?: string | undefined;
-    }) => T_27[];
+    }) => T_29[];
     kvmdDataToString: (kvmdData: import("model-types").KeyValueMarkdownModelType, previous: import("model-types").KeyValueMarkdownModelType | undefined) => string;
     kvmdParseToMarkdownString: (keyValueMarkdownParse: import("model-types").KeyValueMarkdownParse) => string;
     markdownStringToKvmdParse: (kvMdString: string, dbFileLocation: import("model-types").DbFileLocation) => import("model-types").KeyValueMarkdownParse;
@@ -320,6 +325,7 @@ export declare const sdk: {
     markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
     parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
     tryParseDate: (dateString: string) => number | undefined;
+    findCodeblocks: (markdownString: string) => string[];
     findCodespans: (markdownString: string) => string[];
     findEmbeds: (markdownString: string) => import("markdown-types").MarkdownEmbed[];
     findLinks: (markdownString: string) => import("markdown-types").MarkdownLink[];
@@ -343,7 +349,7 @@ export declare const sdk: {
         lastChunk: string | undefined;
         fullPath: string;
     };
-    oneByOne: <T_28, U_6>(array: T_28[], callback: (instance: T_28, index: number) => Promise<U_6>) => Promise<U_6[]>;
+    oneByOne: <T_30, U_7>(array: T_30[], callback: (instance: T_30, index: number) => Promise<U_7>) => Promise<U_7[]>;
     getDependenciesSummary: (operationName: string) => Promise<{
         coreDependencies: string[];
         operationDependencies: string[];
@@ -392,6 +398,7 @@ export declare const sdk: {
     }) => Promise<boolean>;
     getBrowserPageById: (browser: import("puppeteer").Browser, pageId: string) => Promise<import("puppeteer").Page | undefined>;
     getBrowserTabs: (browserInfo: import("browser-types").BrowserSession) => Promise<import("puppeteer-core").Page[]>;
+    getBrowser: () => unknown;
     getChromeExecutablePath: () => "/usr/bin/google-chrome-stable" | "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
     getConnectedBrowsers: () => Promise<import("browser-types").BrowserSession[]>;
     getIdlePage: (browser: import("puppeteer").Browser) => Promise<import("puppeteer").Page | undefined>;
@@ -428,6 +435,7 @@ export declare const sdk: {
         found?: any;
     }>;
     setBrowserPageIdle: (pageId: string, status: boolean) => Promise<void>;
+    setBrowserSession: (browser: import("puppeteer").Browser) => void;
     setInnerHtml: (props: {
         page: import("puppeteer-core").Page;
         selector: string;
@@ -446,13 +454,12 @@ export declare const sdk: {
         success: boolean;
     }>;
     twitterLogin: (props: {
-        page: import("puppeteer-core").Page;
-        email: string;
-        phoneNo: string;
+        page: import("puppeteer").Page;
         password: string;
+        username: string;
     }) => Promise<void>;
     typeInTheInputField: (props: {
-        page: import("puppeteer-core").Page;
+        page: import("puppeteer").Page;
         selector: string;
         value: string;
     }) => Promise<void>;
@@ -462,24 +469,24 @@ export declare const sdk: {
         text: string;
     }) => Promise<void>;
     waitMilliseconds: (milliseconds: number) => Promise<unknown>;
-    getKeysAtPathFromNestedObject: <T_29 extends {
+    getKeysAtPathFromNestedObject: <T_31 extends {
         [key: string]: any;
-    }>(nestedObject: T_29, objectPath: string) => string[];
-    getMenuPagesObject: <T_30>(flat: import("webpage-types").WebPage<T_30>[]) => import("webpage-types").MenuObjectType<T_30>;
-    makeNestedObjectFromQueryPathObject: <T_31 extends import("recursive-util").QueryPathObject>(objectArray: T_31[], initialValue: import("recursive-types").NestedObject<T_31>) => import("recursive-types").NestedObject<T_31>;
-    mapChildObjectRecursive: <T_32 extends {
+    }>(nestedObject: T_31, objectPath: string) => string[];
+    getMenuPagesObject: <T_32>(flat: import("webpage-types").WebPage<T_32>[]) => import("webpage-types").MenuObjectType<T_32>;
+    makeNestedObjectFromQueryPathObject: <T_33 extends import("recursive-util").QueryPathObject>(objectArray: T_33[], initialValue: import("recursive-types").NestedObject<T_33>) => import("recursive-types").NestedObject<T_33>;
+    mapChildObjectRecursive: <T_34 extends {
         [key: string]: any;
-    }, U_7 extends {
+    }, U_8 extends {
         [key: string]: any;
-    }>(childObject: import("recursive-types").ChildObject<T_32>, mapFunction: (item: import("recursive-types").ChildObject<T_32>) => U_7) => import("recursive-types").ChildObject<U_7>;
-    nestedObjectToChildObject: <T_33 extends {
+    }>(childObject: import("recursive-types").ChildObject<T_34>, mapFunction: (item: import("recursive-types").ChildObject<T_34>) => U_8) => import("recursive-types").ChildObject<U_8>;
+    nestedObjectToChildObject: <T_35 extends {
         [key: string]: any;
-    }>(nestedObject: import("recursive-types").NestedObject<T_33>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_33>, key: string) => T_33, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_33>[];
+    }>(nestedObject: import("recursive-types").NestedObject<T_35>, mapFolderToT: (nestedObject: import("recursive-types").NestedObject<T_35>, key: string) => T_35, stack?: string[] | undefined) => import("recursive-types").ChildObject<T_35>[];
     nestedPathObjectToNestedMenuRecursive: (nestedPathObject: import("recursive-types").NestedPathObject | null, pathStack?: string[] | undefined, config?: {
         target?: "_blank" | undefined;
         getHref?: ((fullPath: string) => string) | undefined;
     } | undefined) => import("nested-menu-types").MenuItemType[] | undefined;
-    nestifyQueryPathObjectRecursive: <T_34 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_34[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_34>[];
+    nestifyQueryPathObjectRecursive: <T_36 extends import("recursive-util").QueryPathObject>(queryPathObjects: T_36[], level?: number | undefined) => import("recursive-util").NestedQueryPathObject<T_36>[];
     queryPathsArrayToNestedPathObject: (queryPaths: string[]) => import("recursive-types").NestedPathObject;
     reduceQueryPathsRecursively: (queryPaths: string[], initialValue: import("recursive-types").NestedPathObject) => import("recursive-types").NestedPathObject;
     bodyFromQueryString: (query?: string | undefined) => import("rest-util").QueryableObject | undefined;
@@ -506,10 +513,10 @@ export declare const sdk: {
         name: string;
         schema: import("json-schema").JSONSchema7;
     }[], rootStack: string[]) => import("code-types").SimplifiedSchema | undefined;
-    findSentenceMatches: <T_35>(searchMessage: string, array: T_35[], getSentence?: ((x: T_35) => string) | undefined) => T_35[];
-    searchRecursiveObjectArray: <T_36 extends {
-        children?: T_36[] | undefined;
-    } & Object>(array: T_36[], baseMatcher: (item: T_36) => boolean, afterMapper?: ((item: T_36, isMatch: boolean, hasChildMatch: boolean) => T_36) | undefined) => T_36[];
+    findSentenceMatches: <T_37>(searchMessage: string, array: T_37[], getSentence?: ((x: T_37) => string) | undefined) => T_37[];
+    searchRecursiveObjectArray: <T_38 extends {
+        children?: T_38[] | undefined;
+    } & Object>(array: T_38[], baseMatcher: (item: T_38) => boolean, afterMapper?: ((item: T_38, isMatch: boolean, hasChildMatch: boolean) => T_38) | undefined) => T_38[];
     objectStringToJson: (string: string) => {
         [key: string]: import("string-to-json").JSONValue;
     };
@@ -523,9 +530,9 @@ export declare const sdk: {
     getEncoding: typeof getEncoding;
     isBinary: typeof isBinary;
     isText: typeof isText;
-    tryParseJson: <T_37>(text: string, logParseError?: boolean | undefined) => T_37 | null;
+    tryParseJson: <T_39>(text: string, logParseError?: boolean | undefined) => T_39 | null;
     createCodeblockMarkdown: (text: string, language?: string | null | undefined) => string;
-    useCustomUrlStore: <T_38 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_38, (newValue: T_38 | undefined) => Promise<boolean>];
+    useCustomUrlStore: <T_40 extends string | number | boolean | string[] | boolean[] | number[] | undefined>(queryKey: string, config: import("use-url-store").CustomUrlStoreConfig) => [T_40, (newValue: T_40 | undefined) => Promise<boolean>];
     crudPageToWebPages: (pageData: import("webpage-types").CrudPage) => import("webpage-types").WebPage<import("webpage-types").CrudPage>[];
     functionFormPageToWebPage: (pageData: import("webpage-types").FunctionFormPage) => import("webpage-types").WebPage<import("webpage-types").FunctionFormPage>;
 };

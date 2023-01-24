@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671318503061,
-  "updatedAt": 1671318503061,
+  "createdAt": 1674134922429,
+  "updatedAt": 1674134922429,
   "deletedAt": 0,
-  "createdFirstAt": 1671318503061,
-  "isApiExposed": true,
+  "createdFirstAt": 1674134922429,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/renderMarkdownTitle.tsx",
   "commentsInside": [],
   "rawText": " (title: string, level: number) => {\n  const levelSize =\n    level === 1\n      ? \"text-3xl\"\n      : level === 2\n      ? \"text-2xl\"\n      : level === 3\n      ? \"text-xl\"\n      : level === 4\n      ? \"text-lg\"\n      : level === 5\n      ? \"text-md\"\n      : level === 6\n      ? \"text-sm\"\n      : \"text-xs\";\n\n  return (\n    <P id={getImplicitId(title)} className={levelSize}>\n      {title}\n    </P>\n  );\n}",
@@ -57,5 +56,5 @@
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "bwnokafhdbevhesudmmpvtdo"
+  "id": "tqpupzbqzsfivjxkohidxqas"
 }

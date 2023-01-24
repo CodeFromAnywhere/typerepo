@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671316065736,
-  "updatedAt": 1671316065736,
+  "createdAt": 1673959195528,
+  "updatedAt": 1673959195528,
   "deletedAt": 0,
-  "createdFirstAt": 1671316065736,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959195528,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/isOperation.ts",
   "commentsInside": [],
   "rawText": " (absoluteFolderPath: string): boolean => {\n  const packageJsonPath = path.join(absoluteFolderPath, \"package.json\");\n  const existsPackageJson = fs.existsSync(packageJsonPath);\n  const tsConfigPath = path.join(absoluteFolderPath, \"tsconfig.json\");\n  const existsTsConfig = fs.existsSync(tsConfigPath);\n  // NB: must have these two in order to be an operation at all\n  if (!existsPackageJson || !existsTsConfig) {\n    return false;\n  }\n  return true;\n}",
@@ -52,5 +51,5 @@
     "linesPerFile": 11,
     "numberOfFiles": 1
   },
-  "id": "kfmjouelhnfdsqgqypnhbwzr"
+  "id": "ydtnptyknzypfomexinxhxbi"
 }

@@ -37,18 +37,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOperationPath = void 0;
-var k_explore_1 = require("k-explore");
 var fs_util_1 = require("fs-util");
+var k_explore_1 = require("k-explore");
+var log_1 = require("log");
 var sdk_operations_1 = require("sdk-operations");
 var getPathsWithOperations_1 = require("./getPathsWithOperations");
-var log_1 = require("log");
 var getProjectRoot_1 = require("./getProjectRoot");
 /*
 
 Gets a path of any operation in the project
 
-TODO: IDEA: maybe auto-generate key-value JSON where keys are the package-names of all operations and values are paths of their locations in the file system. we can easily generate this ourselves, but maybe it's also easy to use the npm yarn workspace for this, although it may not be available in all circumstances, so better not rely on it. The advantage of this would be that this function becomes sync and is much more efficient. The disadvantage is that every time you move something or add something new, this indexation has to happen, otherwise it fails.
-
+NB: relies on `sdk-operations` 100%
 */
 var getOperationPath = function (
 /**

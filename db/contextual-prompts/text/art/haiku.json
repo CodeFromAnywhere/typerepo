@@ -1,0 +1,24 @@
+{
+  "createdAt": 1670188773575,
+  "updatedAt": 1670188773575,
+  "deletedAt": 0,
+  "createdFirstAt": 1670188773575,
+  "contextType": [
+    "text"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "text",
+    "art"
+  ],
+  "pricing": "bad",
+  "slug": "haiku",
+  "name": "haiku",
+  "language": "english",
+  "id": "ozmgiapwzwhbtreokaofwfbi",
+  "title": "Write a Haiku",
+  "description": "Creates a Haiku (俳句), a type of short form Japanese poetry, about the contents of your file",
+  "promptContent": "Write a haiku about this: \n\n```\n\n%any\n\n```\n",
+  "folderContentContext": "summary",
+  "usesAnyContext": true
+}

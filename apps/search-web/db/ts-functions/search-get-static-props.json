@@ -1,15 +1,14 @@
 {
-  "createdAt": 1670527611554,
-  "updatedAt": 1670527611554,
+  "createdAt": 1674542354755,
+  "updatedAt": 1674542354755,
   "deletedAt": 0,
-  "createdFirstAt": 1670527611554,
-  "isApiExposed": true,
+  "createdFirstAt": 1674542354755,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "explicitTypeName": "GetStaticProps<QueryPageProps>",
   "operationRelativeTypescriptFilePath": "src/util/searchGetStaticProps.ts",
   "commentsInside": [],
-  "rawText": " async (\n  context\n) => {\n  const query = takeFirst(context.params?.query) || null;\n\n  const imagePaths = await fs.readdir(\n    path.join(__dirname, \"../../..\", \"public/headers\")\n  );\n  const searchResults = getAllSearchResults(query) || null;\n\n  const timelineItems: {\n    comment: string;\n    filePath: string | undefined;\n    line: number;\n  }[] = []; // = await getTimelineItems();\n\n  const props: QueryPageProps = {\n    query,\n    searchResults,\n    imagePaths,\n    timelineItems,\n  };\n\n  return {\n    props,\n  };\n}",
+  "rawText": " async (\n  context\n) => {\n  const query = takeFirst(context.params?.query) || null;\n\n  const imagePaths = await fs.readdir(\n    path.join(__dirname, \"../../..\", \"public/headers\")\n  );\n  const searchResults = await getAllSearchResults(query);\n\n  const timelineItems: {\n    comment: string;\n    filePath: string | undefined;\n    line: number;\n  }[] = []; // = await getTimelineItems();\n\n  const props: QueryPageProps = {\n    query,\n    searchResults,\n    imagePaths,\n    timelineItems,\n  };\n\n  return {\n    props,\n  };\n}",
   "name": "searchGetStaticProps",
   "slug": "search-get-static-props",
   "parameters": [],
@@ -25,13 +24,13 @@
   },
   "maxIndentationDepth": 2,
   "size": {
-    "characters": 520,
+    "characters": 518,
     "lines": 27,
-    "bytes": 520,
+    "bytes": 518,
     "bytesPerCharacter": 1,
     "charactersPerLine": 19,
     "linesPerFile": 27,
     "numberOfFiles": 1
   },
-  "id": "srjmwjzjekgaqhlyscffpfab"
+  "id": "kunxczyyonpkdzxvqldcwess"
 }

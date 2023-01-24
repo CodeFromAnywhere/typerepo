@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671448853510,
-  "updatedAt": 1671448853510,
+  "createdAt": 1672637485841,
+  "updatedAt": 1672637485841,
   "deletedAt": 0,
-  "createdFirstAt": 1671448853510,
+  "createdFirstAt": 1672637485841,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  markdown: string,\n  expandTitle: string\n) => {\n  return `<details><summary>${expandTitle}</summary>\n    \n  ${markdown}\n  </details>`;\n}",
   "description": "",
-  "id": "zrbhwcyonwetagjmdgwvgqly"
+  "id": "fyqphrbaygrpnondlwlmrzyu"
 }

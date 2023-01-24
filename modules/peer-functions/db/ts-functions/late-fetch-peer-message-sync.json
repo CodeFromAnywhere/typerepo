@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317038495,
-  "updatedAt": 1671317038495,
+  "createdAt": 1673862703497,
+  "updatedAt": 1673862703497,
   "deletedAt": 0,
-  "createdFirstAt": 1671317038495,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862703497,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/lateFetchPeerMessageSync.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  // goes over all peers, and fetches all their messages since the last sync\n  const peers = await db.get(\"Device\", {\n    include: { referenceKey: \"personId\" },\n  });\n\n  const result = await oneByOne(peers, async (peer) => {\n    const lastSyncedAt = peer.lastSyncDatabaseAtObject.PeerMessage;\n\n    // get new PeerMessages after last sync\n    const apiResult = await apiWithConfig.getDbModel(\n      {\n        apiUrl: `http://${peer.name}:${ports[\"function-server\"]}`,\n        authToken: peer.authToken,\n        timeout: 2000,\n      },\n      \"PeerMessage\",\n      {\n        filter: [\n          // {\n          //   objectParameterKey: \"peerSlug\",\n          //   operator: \"equal\",\n          //   value: peer.,\n          // },\n          {\n            // updatedAt is better than createdAt because it can also work if the model can be updated and if the messages can be edited for example. The id stays the same so upsert will overwrite it\n            objectParameterKey: \"updatedAt\",\n            operator: \"greaterThan\",\n            value: String(lastSyncedAt),\n          },\n        ],\n      }\n    );\n    const newPeerMessages = apiResult.result?.data as PeerMessage[] | undefined;\n\n    if (!newPeerMessages) {\n      // PEER is not online\n      return;\n    }\n\n    // TODO: this should be augmented I think\n    // @ts-ignore\n    const upsertResult = await db.upsert(\"PeerMessage\", newPeerMessages);\n\n    // Update peer to state that we have just synced (and the peer seems to be online)\n    const updatedResult = await db.update(\n      \"Device\",\n      (p) => p.name === peer.name,\n      (p) => ({\n        ...p,\n        lastOnlineAt: Date.now(),\n        lastSyncDatabaseAtObject: {\n          ...p.lastSyncDatabaseAtObject,\n          PeerMessage: Date.now(),\n        },\n      })\n    );\n\n    return upsertResult;\n  });\n\n  const add = (previous: number, current: number) => previous + current;\n  const sum = result\n    .filter(notEmpty)\n    .map((x) => x.amountInserted)\n    .filter(notEmpty)\n    .reduce(add, 0);\n\n  return { newMessagesAmount: sum };\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 70,
     "numberOfFiles": 1
   },
-  "id": "flheuelhssrsnllaoeppseda"
+  "id": "ghbjjblssnctqgkzuwabgkmw"
 }

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317049850,
-  "updatedAt": 1671317049850,
+  "createdAt": 1673862714849,
+  "updatedAt": 1673862714849,
   "deletedAt": 0,
-  "createdFirstAt": 1671317049850,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862714849,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/removePeer.ts",
   "commentsInside": [],
   "rawText": " async (id: string) => {\n  const removeResult = await db.remove(\"Device\", (peer) => peer.id === id);\n  return removeResult;\n}",
@@ -43,5 +42,5 @@
     "linesPerFile": 4,
     "numberOfFiles": 1
   },
-  "id": "incftgqjhknnazvtlriwlmyy"
+  "id": "hanlzefqaktbelfzhsodfbtw"
 }

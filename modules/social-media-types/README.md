@@ -178,6 +178,7 @@ Properties:
 | unpostableReason (optional) | string |  |
 | isPosted (optional) | boolean |  |
 | postedUrl (optional) | string |  |
+| postedAt (optional) | number |  |
 | channelOrGroupName (optional) | string |  |
 | webMarkdownFile_projectRelativePath (optional) | string |  |
 | parsedTitleCalculated (optional) | string |  |

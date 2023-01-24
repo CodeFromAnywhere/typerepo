@@ -1,8 +1,8 @@
 {
-  "createdAt": 1668150469198,
-  "updatedAt": 1668150469198,
+  "createdAt": 1673380294021,
+  "updatedAt": 1673380294021,
   "deletedAt": 0,
-  "createdFirstAt": 1668150469198,
+  "createdFirstAt": 1673380294021,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async () => {\n  const imports = await db.get(\"TsImport\", { operationName: \"k-test\" });\n  const packageJsons = await db.get(\"PackageJson\");\n  // const a = await findDependenciesRecursively(\n  //   imports,\n  //   packageJsons,\n  //   \"k-test\",\n  //   []\n  // );\n\n  // console.log(a);\n\n  const allImports = await db.get(\"TsImport\");\n\n  const b = await findAllDependencyOperations({\n    imports: allImports,\n    packageJsons,\n    operationNames: [\"rebuild-operation\"],\n  });\n\n  console.log(\"SECOND\", b);\n}",
+  "value": "async () => {\n  const imports = await db.get(\"TsImport\", { operationName: \"k-test\" });\n  const operations = await db.get(\"Operation\");\n  // const a = await findDependenciesRecursively(\n  //   imports,\n  //   packageJsons,\n  //   \"k-test\",\n  //   []\n  // );\n\n  // console.log(a);\n\n  const allImports = await db.get(\"TsImport\");\n\n  const b = await findAllDependencyOperations({\n    imports: allImports,\n    operations,\n    operationNames: [\"rebuild-operation\"],\n  });\n\n  console.log(\"SECOND\", b);\n}",
   "description": "",
-  "id": "ftgifvfaosqupivswzetvoiz"
+  "id": "pdvsjaqvzcgktpbnwpxnknkx"
 }

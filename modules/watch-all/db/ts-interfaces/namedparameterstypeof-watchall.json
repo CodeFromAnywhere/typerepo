@@ -1,8 +1,8 @@
 {
-  "createdAt": 1669055116475,
-  "updatedAt": 1669055116475,
+  "createdAt": 1674472000143,
+  "updatedAt": 1674472000143,
   "deletedAt": 0,
-  "createdFirstAt": 1669055116475,
+  "createdFirstAt": 1674472000143,
   "id": "namedparameterstypeof-watchall",
   "name": "NamedParameters<typeof watchAll>",
   "slug": "namedparameterstypeof-watchall",
@@ -25,7 +25,7 @@
               "items": {
                 "type": "string"
               },
-              "description": "Overwrite the default ignored behavior"
+              "description": "Overwrite the default ignored behavior.\n\nNB: is not overwriting the startup ignore behavior!"
             }
           },
           "additionalProperties": false
@@ -44,7 +44,8 @@
                 "name": "customIgnored",
                 "required": false,
                 "schema": {
-                  "fullComment": "Overwrite the default ignored behavior",
+                  "fullComment": "Overwrite the default ignored behavior.\n\nNB: is not overwriting the startup ignore behavior!",
+                  "nb": "is not overwriting the startup ignore behavior!",
                   "items": [
                     {
                       "schema": {

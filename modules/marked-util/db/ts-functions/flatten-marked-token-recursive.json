@@ -1,11 +1,10 @@
 {
-  "createdAt": 1669962240285,
-  "updatedAt": 1669962240285,
+  "createdAt": 1673959605409,
+  "updatedAt": 1673959605409,
   "deletedAt": 0,
-  "createdFirstAt": 1669962240285,
-  "isApiExposed": true,
+  "createdFirstAt": 1673959605409,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/flattenMarkedTokenRecursive.ts",
   "commentsInside": [],
   "rawText": " (\n  token: marked.Token,\n  findFunction: (token: marked.Token) => boolean\n): marked.Token[] => {\n  if (findFunction(token)) {\n    return [token];\n  }\n\n  if (token.type === \"table\") {\n    const header = token.header\n      .map((token) => {\n        const result = token.tokens\n          .map((x) => flattenMarkedTokenRecursive(x, findFunction))\n          .flat();\n        return result;\n      })\n      .flat();\n\n    const rows = token.rows\n      .map((row) => {\n        const result = row\n          .map((token) => {\n            const result = token.tokens\n              .map((x) => flattenMarkedTokenRecursive(x, findFunction))\n              .flat();\n\n            return result;\n          })\n          .flat();\n\n        return result;\n      })\n      .flat();\n\n    return [header, rows].flat();\n  }\n\n  if (token.type === \"list\") {\n    const result = token.items\n      .map((token) => {\n        const result = token.tokens\n          .map((x) => flattenMarkedTokenRecursive(x, findFunction))\n          .flat();\n        return result;\n      })\n      .flat();\n\n    return result;\n  }\n\n  if (\n    token.type === \"del\" ||\n    token.type === \"em\" ||\n    token.type === \"heading\" ||\n    token.type === \"link\" ||\n    token.type === \"paragraph\" ||\n    token.type === \"strong\"\n  ) {\n    const result = token.tokens\n      .map((x) => flattenMarkedTokenRecursive(x, findFunction))\n      .flat();\n    return result;\n  }\n\n  return [];\n}",
@@ -115,5 +114,5 @@
     "linesPerFile": 66,
     "numberOfFiles": 1
   },
-  "id": "vsisbtimzifajeczrycebaon"
+  "id": "yqylpbturnhffgffwliratpa"
 }

@@ -1,0 +1,33 @@
+{
+  "createdAt": 1671553279032,
+  "updatedAt": 1671553279032,
+  "deletedAt": 0,
+  "createdFirstAt": 1671553279032,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "findClosestAbsolutePath",
+  "slug": "find-closest-absolute-path",
+  "operationRelativeTypescriptFilePath": "src/findClosestAbsolutePath.ts",
+  "type": {
+    "rawType": "(absoluteQueryPath: string) => Promise<{ absoluteQueryPath: string; isFile?: boolean | undefined; isFolder?: boolean | undefined; }>",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "async (\n  absoluteQueryPath: string\n): Promise<{\n  absoluteQueryPath: string;\n  isFile?: boolean;\n  isFolder?: boolean;\n}> => {\n  const pathExists = fs.existsSync(absoluteQueryPath);\n\n  const stats = pathExists ? await fs.stat(absoluteQueryPath) : null;\n  const isFile = stats?.isFile();\n  const isFolder = stats?.isDirectory();\n\n  const isValidPath = pathExists && (isFile || isFolder);\n\n  if (isValidPath) return { absoluteQueryPath, isFile, isFolder };\n\n  // no valid path\n\n  const folderUpPath = getFolderJs(absoluteQueryPath);\n\n  return findClosestAbsolutePath(folderUpPath);\n}",
+  "description": "",
+  "id": "frrnadarkbadgccvwtmonysc"
+}

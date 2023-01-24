@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116407895,
-  "updatedAt": 1671116407895,
+  "createdAt": 1673863402605,
+  "updatedAt": 1673863402605,
   "deletedAt": 0,
-  "createdFirstAt": 1671116407895,
+  "createdFirstAt": 1673863402605,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  filePath: string\n): undefined | CompleteOperationPathParse => {\n  const fileParse = path.parse(filePath);\n\n  if (![\".ts\", \".tsx\"].includes(fileParse.ext)) {\n    log(`Incorrect extension ${fileParse.ext}`, { type: \"warning\" });\n    return;\n  }\n\n  // NB: filename is not only a name here but a relative path\n  if (!fs.existsSync(filePath)) {\n    log(`couldn't retreive filepath ${filePath}`, { type: \"error\" });\n    return;\n  }\n\n  const operationPathParse = getOperationPathParse(filePath);\n  if (!operationPathParse) {\n    log(\"Operation must have a pathparse to be indexed\", { type: \"error\" });\n    return;\n  }\n\n  return { ...operationPathParse, filePath };\n}",
   "description": "",
-  "id": "oouzutpfjiavntnvljuokpdo"
+  "id": "tlyhryayllvsjnwaoklupuki"
 }

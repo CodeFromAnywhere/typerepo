@@ -8,12 +8,6 @@ find-all-dependency-operations (`OperationClassification` node-cjs)
 
 ## findDependants()
 
-getDependencyTree(["k-types", "fs-orm"], []).then((res) =>
-
-console.dir(res, { depth: 999 })
-
-);
-
 finds all dependants of an operation or a specific import from that operation
 
 normally returns the files where the operation or function is used, unless you specify to return the operationNames only.
@@ -76,6 +70,15 @@ TODO: NB: this breaks with circular dependencies
 
 ## 📄 findDependantsRecursively (exported const)
 
+# CLI
+
+<details><summary>Show CLI information (1)</summary>
+    
+  # 📄 [operationName] (unexported const)
+
+
+  </details>
+
 # Tests
 
 <details><summary>Show test information(6)</summary>
@@ -120,7 +123,7 @@ TODO: NB: this breaks with circular dependencies
 
 # Internal
 
-<details><summary>Show internal (8)</summary>
+<details><summary>Show internal (18)</summary>
     
   # findDependenciesRecursively()
 
@@ -130,6 +133,27 @@ finds all dependencies of an operation name
 | Input      |    |    |
 | ---------- | -- | -- |
 | - | | |
+| **Output** |    |    |
+
+
+
+## findMonorepoExports()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| allExports | `TsExport`[] |  |,| operationName | string |  |
+| **Output** | string[]   |    |
+
+
+
+## findMonorepoImports()
+
+finds all unique imports in an operation name
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| allImports | `TsImport`[] |  |,| operationName | string |  |
 | **Output** |    |    |
 
 
@@ -172,14 +196,64 @@ const x = {
 
 | Input      |    |    |
 | ---------- | -- | -- |
+| allImports | `TsImport`[] |  |,| allExports | `TsExport`[] |  |,| operationName | string |  |,| usedImports | string[] |  |,| alreadySearched (optional) | string[] |  |
+| **Output** |    |    |
+
+
+
+## getOldDependencyTree()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| operationNames | string[] |  |,| stack | string[] |  |
+| **Output** |    |    |
+
+
+
+## getOperationDependencyReasons()
+
+| Input      |    |    |
+| ---------- | -- | -- |
 | - | | |
 | **Output** |    |    |
+
+
+
+## 🔹 DependencyTree
+
+## 🔹 DependencyTreeChildObject
+
+Gives a clear overview of why an operation requires every dependency
+
+
+
+
+
+Properties: 
+
+ | Name | Type | Description |
+|---|---|---|
+| operationName  | string |  |
+| dependencyCount  | number |  |
+| usedExports  | array |  |
+| usedExportsCount  | number |  |
+| cumulativeExportsCount  | number |  |
+| cumulativeUsedExportsCount  | number |  |
+| allExportsCount  | number |  |
+| children (optional) | array |  |
 
 
 
 ## 📄 findDependenciesRecursively (exported const)
 
 finds all dependencies of an operation name
+
+
+## 📄 findMonorepoExports (exported const)
+
+## 📄 findMonorepoImports (exported const)
+
+finds all unique imports in an operation name
 
 
 ## 📄 findMonorepoModules (exported const)
@@ -190,6 +264,10 @@ finds all dependencies of an operation name
 ## 📄 getDependencyObject (exported const)
 
 ## 📄 getDependencyTree (exported const)
+
+## 📄 getOldDependencyTree (exported const)
+
+## 📄 getOperationDependencyReasons (exported const)
 
   </details>
 

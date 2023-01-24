@@ -1,14 +1,13 @@
 {
-  "createdAt": 1671505985311,
-  "updatedAt": 1671505985311,
+  "createdAt": 1674133273207,
+  "updatedAt": 1674133273207,
   "deletedAt": 0,
-  "createdFirstAt": 1671505985311,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133273207,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
-  "operationRelativeTypescriptFilePath": "src/writeCreatePromptCode.ts",
+  "operationRelativeTypescriptFilePath": "src/generate-sdk/writeCreatePromptCode.ts",
   "commentsInside": [],
-  "rawText": " (contextualPrompt: ContextualPrompt) => {\n  const parameters = [\n    contextualPrompt.usesAnyContext ? `anyContext` : undefined,\n    ,\n    contextualPrompt.usesContext ? `contextContent` : undefined,\n    contextualPrompt.usesSelection ? `selectionContent` : undefined,\n    contextualPrompt.folderContentContext ? `projectRelativePath` : undefined,\n  ].filter(notEmpty);\n\n  const functionLineParametersString = parameters\n    .map((x) => `${x}: string`)\n    .join(\", \");\n  const objectParametersString = parameters.join(\",\\n\");\n\n  const { contextType, instantExecution, isFavorite, categoryStack } =\n    contextualPrompt;\n  const contextualPromptInfo = {\n    contextType,\n    instantExecution,\n    isFavorite,\n    categoryStack,\n  };\n  const functionName = camelCase(contextualPrompt.name);\n\n  return `\n  ${\n    contextualPrompt.title\n      ? `/**\n  ${contextualPrompt.title}\n  */`\n      : \"\"\n  }\n  export const ${functionName}: PromptFunction = async (${functionLineParametersString}, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"${contextualPrompt.slug}\",\n      ${objectParametersString}\n    });\n\n    return result;\n\n  }\n\n${functionName}.contextualPromptInfo = ${JSON.stringify(contextualPromptInfo)}`;\n}",
+  "rawText": " (contextualPrompt: ContextualPrompt) => {\n  const parameters = [\n    contextualPrompt.usesAnyContext ? `anyContext` : undefined,\n    contextualPrompt.usesContext ? `contextContent` : undefined,\n    contextualPrompt.usesSelection ? `selectionContent` : undefined,\n    contextualPrompt.folderContentContext\n      ? `prompt_projectRelativePath`\n      : undefined,\n  ].filter(notEmpty);\n\n  const functionLineParametersString = parameters\n    .map((x) => `${x}: string`)\n    .join(\", \");\n  const objectParametersString = parameters.join(\",\\n\");\n\n  const { contextType, instantExecution, isFavorite, categoryStack } =\n    contextualPrompt;\n  const contextualPromptInfo = {\n    contextType,\n    instantExecution,\n    isFavorite,\n    categoryStack,\n  };\n  const functionName = camelCase(contextualPrompt.name);\n\n  const functionLineFullString =\n    parameters.length === 0 ? \"\" : `${functionLineParametersString}, `;\n  return `\n  ${\n    contextualPrompt.title\n      ? `/**\n  ${contextualPrompt.title}\n  */`\n      : \"\"\n  }\n  export const ${functionName}: PromptFunction = async (${functionLineFullString}isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"${contextualPrompt.slug}\",\n      ${objectParametersString}\n    });\n\n    return result;\n\n  }\n\n${functionName}.contextualPromptInfo = ${JSON.stringify(contextualPromptInfo)};\n\n${\n  contextualPrompt.isFavorite\n    ? `${functionName}.domain = \"${functionName}\";`\n    : \"\"\n}`;\n}",
   "name": "writeCreatePromptCode",
   "slug": "write-create-prompt-code",
   "parameters": [
@@ -301,13 +300,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 1284,
-    "lines": 46,
-    "bytes": 1284,
+    "characters": 1492,
+    "lines": 55,
+    "bytes": 1492,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 28,
-    "linesPerFile": 46,
+    "charactersPerLine": 27,
+    "linesPerFile": 55,
     "numberOfFiles": 1
   },
-  "id": "wlhzjxiewyzgfldpbhaynyhp"
+  "id": "xlxakjbsfbvycixgthfirrhb"
 }

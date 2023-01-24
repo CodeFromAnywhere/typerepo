@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671505951337,
-  "updatedAt": 1671505951337,
+  "createdAt": 1674133286951,
+  "updatedAt": 1674133286951,
   "deletedAt": 0,
-  "createdFirstAt": 1671505951337,
-  "isApiExposed": true,
+  "createdFirstAt": 1674133286951,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/processChatGptPrompt.ts",
   "commentsInside": [],
   "rawText": " async (\n  prompt: string,\n  isHeadless: boolean | undefined,\n  thread: string | undefined,\n  controller: \"playwright\" | \"puppeteer\" | \"faker\"\n): Promise<ProcessPromptFunctionResult> => {\n  const result: ProcessPromptFunctionResult =\n    controller === \"playwright\"\n      ? await controlChatGpt(prompt, isHeadless)\n      : controller === \"puppeteer\"\n      ? await openAIChat({ prompt, isHeadless, thread })\n      : {\n          isSuccessful: true,\n          message: \"Done test\",\n          result: {\n            text: \"Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum\",\n            thread: \"\",\n          },\n        };\n\n  return result;\n}",
@@ -83,5 +82,5 @@
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "aakdlhjazamvqxwjiyekhvvp"
+  "id": "azxnuhiqyiozrrsmwheobhaa"
 }

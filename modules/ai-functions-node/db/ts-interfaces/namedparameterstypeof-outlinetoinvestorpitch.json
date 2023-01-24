@@ -1,0 +1,46 @@
+{
+  "createdAt": 1674133288311,
+  "updatedAt": 1674133288311,
+  "deletedAt": 0,
+  "createdFirstAt": 1674133288311,
+  "id": "namedparameterstypeof-outlinetoinvestorpitch",
+  "name": "NamedParameters<typeof outlineToInvestorPitch>",
+  "slug": "namedparameterstypeof-outlinetoinvestorpitch",
+  "operationRelativeTypescriptFilePath": "src/prompts.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isDeferred": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "isDeferred",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof outlineToInvestorPitch>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

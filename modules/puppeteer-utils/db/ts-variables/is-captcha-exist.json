@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457698167,
-  "updatedAt": 1671457698167,
+  "createdAt": 1672134463478,
+  "updatedAt": 1672134463478,
   "deletedAt": 0,
-  "createdFirstAt": 1671457698167,
+  "createdFirstAt": 1672134463478,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "is-captcha-exist",
   "operationRelativeTypescriptFilePath": "src/isCaptchaExist.ts",
   "type": {
-    "rawType": "(page: import(\"/Users/king/King/operations/node_modules/puppeteer/lib/types\").Page) => Promise<{ captchas: import(\"/Users/king/King/operations/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").CaptchaInfo[]; }>",
+    "rawType": "(page: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer/lib/types\").Page) => Promise<{ captchas: import(\"/Users/lucky/workspace/new-typerepo/typerepo/node_modules/puppeteer-extra-plugin-recaptcha/dist/types\").CaptchaInfo[]; }>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  page: Page\n): Promise<{ captchas: CaptchaInfo[] }> => {\n  try {\n    let recaptchaResult = await page.findRecaptchas();\n    const { captchas } = recaptchaResult;\n    return { captchas };\n  } catch (e: Error | any) {\n    console.log(\"isCaptchaExist Error\", e?.message);\n    return { captchas: [] };\n  }\n}",
   "description": "",
-  "id": "ctihbjozuqvmchfcikcmggbj"
+  "id": "lrjgagyskhaklkhumtrndljk"
 }

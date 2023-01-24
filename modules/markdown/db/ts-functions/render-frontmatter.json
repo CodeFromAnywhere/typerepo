@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671318493545,
-  "updatedAt": 1671318493545,
+  "createdAt": 1674134913291,
+  "updatedAt": 1674134913291,
   "deletedAt": 0,
-  "createdFirstAt": 1671318493545,
-  "isApiExposed": true,
+  "createdFirstAt": 1674134913291,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/renderFrontMatter.tsx",
   "commentsInside": [],
   "rawText": " (\n  parameters: Frontmatter,\n  config?: { renderSpacer?: boolean }\n) => {\n  const frontMatterKeys = Object.keys(parameters);\n\n  return frontMatterKeys.length > 0 ? (\n    <Div>\n      <Div>\n        {frontMatterKeys.map((key) => (\n          <P>\n            {key}: {parameters[key]}\n          </P>\n        ))}\n      </Div>\n\n      {config?.renderSpacer ? <P>------------</P> : null}\n    </Div>\n  ) : null;\n}",
@@ -75,5 +74,5 @@
     "linesPerFile": 20,
     "numberOfFiles": 1
   },
-  "id": "tnvdzzbcdmoipvmndrtvgrcf"
+  "id": "sacuhhrcmyerrnlmrdhuxgdj"
 }

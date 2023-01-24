@@ -1,0 +1,82 @@
+{
+  "createdAt": 1673379268453,
+  "updatedAt": 1673379268453,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379268453,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/useAdmin.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const queryPath = useQueryPath();\n  const { refetch, isLoading } = queries.useGetReaderPageProps(\n    process.env.NEXT_PUBLIC_BASEPATH || \"\",\n    queryPath,\n    true\n  );\n\n  const meQuery = queries.useGetMeWithContext();\n\n  const isAdmin = !!meQuery.data?.result?.groups?.find(\n    (x: Group) => x.slug === \"admin\"\n  );\n\n  const [config] = useStore(\"generativeWeb.config\");\n\n  const isAdminActive = isAdmin && !config.disableAdmin;\n  const result: {\n    isAdminActive: boolean;\n    isLoading?: boolean;\n    refetch?: typeof refetch;\n  } = isAdminActive\n    ? {\n        isAdminActive,\n        isLoading,\n        refetch,\n      }\n    : { isAdminActive };\n\n  return result;\n}",
+  "name": "useAdmin",
+  "slug": "use-admin",
+  "parameters": [],
+  "description": "Useful hook to make a static site dynamic for administrator",
+  "returnType": {
+    "rawType": "{ isAdminActive: boolean; isLoading?: boolean | undefined; refetch?: (<TPageData>(options?: (import(\"/Users/king/King/operations/node_modules/react-query/types/core/types\").RefetchOptions & import(\"/Users/king/King/operations/node_modules/react-query/types/core/types\").RefetchQueryFilters<TPageData>) | undefined) => Promise<import(\"/Users/king/King/operations/node_modules/react-query/types/core/types\").QueryObserverResult<TData, TError>>) | undefined; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isAdminActive": {
+          "type": "boolean"
+        },
+        "isLoading": {
+          "type": "boolean"
+        },
+        "refetch": {
+          "type": "object",
+          "properties": {}
+        }
+      },
+      "required": [
+        "isAdminActive"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "isAdminActive",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "isLoading",
+          "required": false,
+          "schema": {
+            "type": "boolean"
+          }
+        },
+        {
+          "name": "refetch",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 4,
+  "size": {
+    "characters": 742,
+    "lines": 31,
+    "bytes": 742,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 24,
+    "linesPerFile": 31,
+    "numberOfFiles": 1
+  },
+  "id": "ztrdgbcnhuhheuhzsatpgcxo"
+}

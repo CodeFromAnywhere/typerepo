@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674542311718,
+  "updatedAt": 1674542311718,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542311718,
+  "id": "namedparameterstypeof-functionpage",
+  "name": "NamedParameters<typeof FunctionPage>",
+  "slug": "namedparameterstypeof-functionpage",
+  "operationRelativeTypescriptFilePath": "src/components/function-web/FunctionPage.tsx",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof FunctionPage>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

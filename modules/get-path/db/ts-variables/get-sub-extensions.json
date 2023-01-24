@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673959188833,
+  "updatedAt": 1673959188833,
+  "deletedAt": 0,
+  "createdFirstAt": 1673959188833,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getSubExtensions",
+  "slug": "get-sub-extensions",
+  "operationRelativeTypescriptFilePath": "src/getSubExtensions.ts",
+  "type": {
+    "rawType": "(absolutePath: string) => string[]",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(absolutePath: string): string[] => {\n  const fileName = path.parse(absolutePath).name;\n  const allSubExtensionsArray = fileName?.split(\".\") || [];\n  const allSubExtensions = allSubExtensionsArray.slice(\n    1,\n    allSubExtensionsArray.length - 1\n  );\n\n  return allSubExtensions;\n}",
+  "description": "",
+  "id": "piclqcsibtozijuidemwwmtw"
+}

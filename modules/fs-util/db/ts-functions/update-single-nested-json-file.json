@@ -1,0 +1,54 @@
+{
+  "createdAt": 1672637100695,
+  "updatedAt": 1672637100695,
+  "deletedAt": 0,
+  "createdFirstAt": 1672637100695,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/updateSingleNestedJsonFile.ts",
+  "commentsInside": [],
+  "rawText": " async <T extends O>(\n  path: string,\n  partialNewObject: NestedPartial<T>\n) => {\n  const json = await readJsonFile<T>(path);\n  if (!json) return false;\n  const newData = mergeNestedObject(json, partialNewObject);\n  const isSuccessful = await writeJsonToFile(path, newData);\n  return isSuccessful;\n}",
+  "name": "updateSingleNestedJsonFile",
+  "slug": "update-single-nested-json-file",
+  "parameters": [
+    {
+      "name": "path",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": true
+    },
+    {
+      "name": "partialNewObject",
+      "schema": {
+        "$ref": "#/definitions/NestedPartial%3C%3E"
+      },
+      "required": true
+    }
+  ],
+  "description": "Uses mergeNestedObject on a JSON file",
+  "returnType": {
+    "rawType": "unknown",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 1,
+  "size": {
+    "characters": 336,
+    "lines": 10,
+    "bytes": 336,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 34,
+    "linesPerFile": 10,
+    "numberOfFiles": 1
+  },
+  "id": "hfjuaqnchlvgccxhfkpeopax"
+}

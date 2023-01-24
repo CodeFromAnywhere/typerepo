@@ -78,6 +78,10 @@ export interface Operation extends SlugModelType {
     /** custom keys, both indexed and generated */
     operation?: {
         /**
+         * Indexed circular dependencies found
+         */
+        circularDependencies?: string[][];
+        /**
          * Can be set in case this is a ui-web operation
          */
         port?: number;

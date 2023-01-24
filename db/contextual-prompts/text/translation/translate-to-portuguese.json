@@ -1,0 +1,24 @@
+{
+  "createdAt": 1670180344852,
+  "updatedAt": 1670180344852,
+  "deletedAt": 0,
+  "createdFirstAt": 1670180344852,
+  "contextType": [
+    "text"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "text",
+    "translation"
+  ],
+  "pricing": "bad",
+  "slug": "translate-to-portuguese",
+  "name": "translate-to-portuguese",
+  "language": "english",
+  "id": "aizrbkdwhvtxcowhibjketey",
+  "title": "Translate to Portuguese",
+  "description": "This prompt will translate your file contents into Portuguese (from Portugal, not Brazilian)",
+  "promptContent": "I am reading this page:\n\n```\n%context\n```\n\ncan you translate this to portuguese for me?",
+  "folderContentContext": "summary",
+  "usesContext": true
+}

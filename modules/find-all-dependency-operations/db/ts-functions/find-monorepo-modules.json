@@ -1,19 +1,14 @@
 {
-  "createdAt": 1668150463841,
-  "updatedAt": 1668150463841,
+  "createdAt": 1673380275726,
+  "updatedAt": 1673380275726,
   "deletedAt": 0,
-  "createdFirstAt": 1668150463841,
-  "publicAuthorization": [
-    "read",
-    "search"
-  ],
-  "isApiExposed": false,
-  "isPostApi": false,
-  "isGetApi": false,
+  "createdFirstAt": 1673380275726,
+  "isApiExposed": true,
   "isExported": true,
+  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/findAllDependencyOperations.ts",
   "commentsInside": [],
-  "rawText": " async (operationName: string) => {\n  const imports = await db.get(\"TsImport\", { operationName });\n  const monorepoModules = imports\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved ? x.module : null\n    )\n    .filter(notEmpty)\n    .filter(onlyUnique);\n\n  return monorepoModules;\n}",
+  "rawText": " async (\n  allImports: TsImport[],\n  operationName: string\n) => {\n  const imports = allImports.filter((x) => x.operationName === operationName);\n\n  const monorepoModules = imports\n    .map((x) =>\n      x.isModuleFromMonorepo && x.isModuleResolved ? x.module : null\n    )\n    .filter(notEmpty)\n    .filter(onlyUnique);\n\n  return monorepoModules;\n}",
   "name": "findMonorepoModules",
   "slug": "find-monorepo-modules",
   "parameters": [],
@@ -29,13 +24,13 @@
   },
   "maxIndentationDepth": 3,
   "size": {
-    "characters": 342,
-    "lines": 11,
-    "bytes": 342,
+    "characters": 389,
+    "lines": 15,
+    "bytes": 389,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 31,
-    "linesPerFile": 11,
+    "charactersPerLine": 26,
+    "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "ldtqjyrzmkhharjurxzscfye"
+  "id": "irptpducmakzvowmwxzvbazn"
 }

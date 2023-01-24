@@ -1,0 +1,40 @@
+{
+  "createdAt": 1673379257628,
+  "updatedAt": 1673379257628,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379257628,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/SettingsPage.tsx",
+  "commentsInside": [],
+  "rawText": " () => {\n  const [config, _, { hydrated }] = useStore(\"generativeWeb.config\");\n  const [customUrl, __, { hydrated: apiHydrated }] = useStore(\"api.customUrl\");\n  return (\n    <Div className=\"max-lg:mx-4 lg:mx-20\">\n      {hydrated && apiHydrated ? (\n        <FunctionForm\n          tsFunction={SetConfigIndex}\n          initialValues={[\n            customUrl,\n            config.disableAdmin,\n            config.customAbsoluteBasePaths,\n          ]}\n          submitFunction={setConfig}\n          withResult={() => {\n            showStandardResponse({ isSuccessful: true, message: \"Updated\" });\n          }}\n        />\n      ) : (\n        <FancyLoader />\n      )}\n    </Div>\n  );\n}",
+  "name": "SettingsPage",
+  "slug": "settings-page",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 6,
+  "size": {
+    "characters": 679,
+    "lines": 24,
+    "bytes": 679,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 28,
+    "linesPerFile": 24,
+    "numberOfFiles": 1
+  },
+  "id": "ludmybtqnrrwpanukwycbxnx"
+}

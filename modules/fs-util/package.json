@@ -12,7 +12,8 @@
     "graceful-fs": "*",
     "recursive-types": "0.0.1",
     "filename-conventions": "0.0.1",
-    "write-to-assets": "0.0.1"
+    "write-to-assets": "0.0.1",
+    "read-json-file": "0.0.1"
   },
   "description": "",
   "main": "build/index.js",
@@ -40,7 +41,7 @@
     "coreDependenciesIndexed": [],
     "folderNameIndexed": "fs-util",
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670527107697,
+    "lastRebuildAt": 1672637156117,
     "operationDependenciesIndexed": [
       "log",
       "trimSlashes",
@@ -52,7 +53,10 @@
       "sum",
       "makeArray",
       "notEmpty",
-      "writeToAssets"
+      "mergeNestedObject",
+      "NestedPartial",
+      "O",
+      "readJsonFile"
     ],
     "packageDependenciesIndexed": [
       "constants",
@@ -83,28 +87,28 @@
     "markdown": "General purpose wrapper around `node:fs` and `node:path` that should be used instead of those, because it removes some of its painpoints, removes unneeded stuff, and adds some other useful functions.\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 17,
-        "lines": 704,
-        "characters": 18223,
-        "bytes": 18223
+        "numberOfFiles": 18,
+        "lines": 722,
+        "characters": 18783,
+        "bytes": 18783
       },
       "dataSize": {
         "numberOfFiles": 3,
-        "lines": 31623,
-        "characters": 902190,
-        "bytes": 902190
+        "lines": 31624,
+        "characters": 902221,
+        "bytes": 902221
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 642,
-        "characters": 12520,
-        "bytes": 12520
+        "lines": 659,
+        "characters": 12829,
+        "bytes": 12829
       },
       "size": {
-        "bytes": 932933,
-        "characters": 932933,
-        "lines": 32969,
-        "numberOfFiles": 22
+        "bytes": 933833,
+        "characters": 933833,
+        "lines": 33005,
+        "numberOfFiles": 23
       }
     },
     "hasGeneratedDependenciesIndexed": false,

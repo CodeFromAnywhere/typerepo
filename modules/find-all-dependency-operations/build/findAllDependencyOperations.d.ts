@@ -3,7 +3,7 @@ import { Operation, TsImport } from "code-types";
 /**
  * finds all dependencies of an operation name
  */
-export declare const findMonorepoModules: (operationName: string) => Promise<string[]>;
+export declare const findMonorepoModules: (allImports: TsImport[], operationName: string) => Promise<string[]>;
 /**
  * finds all dependencies of an operation name
  */
@@ -26,10 +26,6 @@ export declare const findAllDependencyOperations: ({ imports, operations, operat
 export declare const getDependencyObject: () => Promise<{
     [x: string]: string[];
 }>;
-export declare type DependencyTree = {
-    [dependencyName: string]: DependencyTree | null;
-};
-export declare const getDependencyTree: (operationNames: string[], stack: string[]) => Promise<DependencyTree | null>;
 /**
  * finds all dependants of an operation or a specific import from that operation
  *

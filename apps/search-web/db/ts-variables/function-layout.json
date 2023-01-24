@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674542339969,
+  "updatedAt": 1674542339969,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542339969,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "FunctionLayout",
+  "slug": "function-layout",
+  "operationRelativeTypescriptFilePath": "src/pages/function/[...paths].tsx",
+  "type": {
+    "rawType": "() => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "() => {\n  const queryPathsQuery = queries.useGetFunctionQueryPaths();\n  const menu = queryPathsQuery.data?.result;\n  return (\n    <AuthenticationLayout\n      // menu props\n      menu={{\n        isLoading: queryPathsQuery.isLoading,\n        webPagesFlat: menu?.flat,\n        webPagesNested: menu?.nested,\n      }}\n      // other\n      nextPage={FunctionPage}\n      pageProps={{}}\n    />\n  );\n}",
+  "description": "",
+  "id": "osschmypjigxvmwgrwqfclti"
+}

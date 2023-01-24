@@ -1,28 +1,35 @@
 import { AppsMenu } from "apps-menu";
 import { pickRandomArrayItem } from "js-util";
 import { useState } from "react";
-import { Div } from "react-with-native";
+import { A, Div } from "react-with-native";
 import { QueryPageProps } from "../util/types";
 import { SearchBar } from "./SearchBar";
 import { Timeline } from "timeline";
-import { Share } from "share";
-import { useContextMenu } from "context-menu";
-import { useStore } from "../util/store";
+import { ALink } from "next-a-link";
+import { queries } from "api";
+import { Header } from "layout";
 export const mindspaces = [
-  "Typerepo",
-  "search-ui",
-  "p2p internet",
-  "reader-ui",
-  "function-ui",
-  "focus",
-  "immersion",
+  "Make a presentation",
+  "Summarize my report",
+  "Write an article",
+  "Make socialmedia post",
+  "Make a business plan",
+  "Transcribe my meeting",
+  "Annotate my podcast",
 ];
 
-const quotes = ["A day without coding is a day unlived"];
+const quotes = [
+  // "A day without coding is a day unlived",
+  "Clarity AI is creating a search experience with focus on benefiting humanity, not to sell you stuff",
+  "If you want to immerse yourself with AI tools as soon as possible, use Clarity AI",
+  "The industrial revolution of AI is at your fingertips",
+  "Automate your job and go have fun",
+];
 
 export const HomePage = (props: QueryPageProps) => {
   const { imagePaths } = props;
 
+  const publicBundleConfig = queries.useGetPublicBundleConfig().data?.result;
   const hour = new Date(Date.now()).getHours();
   const quote = quotes[hour % quotes.length];
   const imagePath = imagePaths[hour % imagePaths.length];
@@ -30,10 +37,6 @@ export const HomePage = (props: QueryPageProps) => {
   const [mouseDown, setMouseDown] = useState(false);
   const [mouseDownTimeout, setMouseDownTimeout] =
     useState<NodeJS.Timeout | null>(null);
-
-  const yourName = "King 🤴";
-  const yourLocation = "Napoli 🇮🇹";
-  const dayPart = "day";
 
   return (
     <Div className="">
@@ -43,10 +46,7 @@ export const HomePage = (props: QueryPageProps) => {
             imageUrl: `headers/${imagePath}`,
             component: () => {
               return (
-                <Div
-                  className="flex flex-1 min-h-screen items-center flex-col justify-around"
-                  // style={{ background: `url(${imagePath})` }}
-                >
+                <Div className="flex flex-1 min-h-screen items-center flex-col justify-around">
                   <Div
                     className="text-3xl text-white drop-shadow cursor-grab"
                     onMouseDown={(e) => {
@@ -66,13 +66,16 @@ export const HomePage = (props: QueryPageProps) => {
                       setMindspace(pickRandomArrayItem(mindspaces));
                     }}
                   >
-                    Good{" "}
-                    {mouseDown ? `${dayPart} in ${yourLocation}` : mindspace},{" "}
-                    {yourName}
+                    Clarity AI
                   </Div>
 
                   <Div className="italic text-white">{quote}</Div>
-                  <SearchBar placeholder={mindspace} />
+                  <SearchBar
+                    changePlaceholder={() =>
+                      setMindspace(pickRandomArrayItem(mindspaces))
+                    }
+                    placeholder={mindspace}
+                  />
                   <Div className="max-w-xl">
                     <AppsMenu />
                   </Div>
@@ -80,9 +83,9 @@ export const HomePage = (props: QueryPageProps) => {
               );
             },
           },
-          {
-            markdown: `I see dead people`,
-          },
+          // {
+          //   markdown: `I see dead people`,
+          // },
           ...props.timelineItems?.map((x) => {
             return {
               markdown: x.comment,

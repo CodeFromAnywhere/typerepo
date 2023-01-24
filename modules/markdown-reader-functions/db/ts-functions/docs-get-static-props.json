@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115936601,
-  "updatedAt": 1671115936601,
+  "createdAt": 1674135542551,
+  "updatedAt": 1674135542551,
   "deletedAt": 0,
-  "createdFirstAt": 1671115936601,
-  "isApiExposed": true,
+  "createdFirstAt": 1674135542551,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/docsGetStaticProps.ts",
   "commentsInside": [],
   "rawText": " async (\n  context: GetStaticPropsContext,\n  basePaths: {\n    projectRelativeBasePath: string;\n    queryPath: string;\n  }[],\n  /**\n   * Operation of the website that is going to be deployed\n   */\n  webOperationName: string\n): Promise<{\n  props: MarkdownReaderPageProps;\n}> => {\n  const flat = await docsGetPages(basePaths);\n  const propsObject = await markdownReaderGetStaticPropsFromPages(\n    context,\n    flat,\n    webOperationName\n  );\n  return propsObject;\n}",
@@ -161,5 +160,5 @@
     "linesPerFile": 21,
     "numberOfFiles": 1
   },
-  "id": "gmfsonangshwfwhnfmqjhtuq"
+  "id": "ulqqosmkqegtpumfytqnazpz"
 }

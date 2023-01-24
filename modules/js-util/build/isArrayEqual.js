@@ -1,11 +1,2 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.isArrayEqual = void 0;
-var isArrayEqual = function (a, b) {
-    return (Array.isArray(a) &&
-        Array.isArray(b) &&
-        a.length === b.length &&
-        a.every(function (val, index) { return val === b[index]; }));
-};
-exports.isArrayEqual = isArrayEqual;
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.isArrayEqual=void 0;var isArrayEqual=function(r,e){return Array.isArray(r)&&Array.isArray(e)&&r.length===e.length&&r.every((function(r,a){return r===e[a]}))};exports.isArrayEqual=isArrayEqual;
 //# sourceMappingURL=isArrayEqual.js.map

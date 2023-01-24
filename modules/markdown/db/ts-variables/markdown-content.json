@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671318482672,
-  "updatedAt": 1671318482672,
+  "createdAt": 1674134903009,
+  "updatedAt": 1674134903009,
   "deletedAt": 0,
-  "createdFirstAt": 1671318482672,
+  "createdFirstAt": 1674134903009,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(props: {\n  content: string;\n  config: MarkdownParseRenderConfig;\n}): JSX.Element => {\n  const { config, content } = props;\n\n  if (!content) return <Div>No content</Div>;\n\n  return <MarkdownContentRender content={content} config={config} />;\n}",
   "description": "Renders a markdown string (without frontmatter)",
-  "id": "guhujyhncfzwyreqmphifblr"
+  "id": "cjzxdrsugqbpjpdnkuxbflpo"
 }

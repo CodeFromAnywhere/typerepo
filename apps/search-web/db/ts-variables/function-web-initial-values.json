@@ -1,0 +1,78 @@
+{
+  "createdAt": 1674542359705,
+  "updatedAt": 1674542359705,
+  "deletedAt": 0,
+  "createdFirstAt": 1674542359705,
+  "classification": "const",
+  "comments": [],
+  "isExported": false,
+  "name": "functionWebInitialValues",
+  "slug": "function-web-initial-values",
+  "operationRelativeTypescriptFilePath": "src/util/store.ts",
+  "type": {
+    "rawType": "{ executionId: string; initialValues: any[] | undefined; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "executionId": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "initialValues": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "executionId"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "executionId",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "initialValues",
+          "required": false,
+          "schema": {
+            "items": [
+              {
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                },
+                "name": null
+              }
+            ],
+            "type": "array"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "{ executionId: \"__NONE__\", initialValues: [] }",
+  "description": "",
+  "id": "kukeqilpdkwunasiivdwjqva"
+}

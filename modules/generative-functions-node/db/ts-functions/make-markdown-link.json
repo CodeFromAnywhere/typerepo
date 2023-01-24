@@ -1,0 +1,40 @@
+{
+  "createdAt": 1671553274618,
+  "updatedAt": 1671553274618,
+  "deletedAt": 0,
+  "createdFirstAt": 1671553274618,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/augmentMarkdown.ts",
+  "commentsInside": [],
+  "rawText": " (text: string, url?: string, alt?: string) => {\n  return `[${text}](${url || \"#\"}${\n    alt ? ` \"${alt.replaceAll(\"\\n\", \"<br>\").replaceAll('\"', '\\\\\"')}\"` : \"\"\n  })`;\n}",
+  "name": "makeMarkdownLink",
+  "slug": "make-markdown-link",
+  "parameters": [],
+  "description": "function that writes markdown for a text + url + alt. This may differ per platform in the end, for now I'll use my own: `[\"text\"(alt)](url)`",
+  "returnType": {
+    "rawType": "String",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/String"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 308,
+    "lines": 5,
+    "bytes": 308,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 62,
+    "linesPerFile": 5,
+    "numberOfFiles": 1
+  },
+  "id": "mdtmrsrhfjwrzezmkhxenome"
+}

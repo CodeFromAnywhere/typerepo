@@ -28,6 +28,7 @@ import { camelCase } from "convert-case";
 import { capitalCase } from "convert-case";
 import { capitaliseFirstLetter } from "convert-case";
 import { convertCase } from "convert-case";
+import { fileSlugify } from "convert-case";
 import { getDelimiter } from "convert-case";
 import { humanCase } from "convert-case";
 import { kebabCase } from "convert-case";
@@ -82,6 +83,7 @@ import { oneUp } from "fs-util";
 import { parseMd } from "fs-util";
 import { removeAllExcept } from "fs-util";
 import { renameAndCreate } from "fs-util";
+import { updateSingleNestedJsonFile } from "fs-util";
 import { writeJsonToFile } from "fs-util";
 import { writeStringToFile } from "fs-util";
 import { writeToFiles } from "fs-util";
@@ -107,6 +109,7 @@ import { getRelativeLinkPath } from "get-path";
 import { getRelativePath } from "get-path";
 import { getRootPath } from "get-path";
 import { getSrcRelativeFileId } from "get-path";
+import { getSubExtensions } from "get-path";
 import { hasDependency } from "get-path";
 import { isBundle } from "get-path";
 import { isOperation } from "get-path";
@@ -144,6 +147,7 @@ import { objectMapAsync } from "js-util";
 import { objectMapSync } from "js-util";
 import { objectValuesMap } from "js-util";
 import { omitUndefinedValues } from "js-util";
+import { onlyDuplicates } from "js-util";
 import { onlyUnique2 } from "js-util";
 import { onlyUnique } from "js-util";
 import { pickRandomArrayItem } from "js-util";
@@ -192,6 +196,7 @@ import { removeHeaderPrefix } from "markdown-parse-js";
 import { markdownParseToMarkdownModelType } from "markdown-types";
 import { parseMarkdownModelTimestamp } from "markdown-types";
 import { tryParseDate } from "markdown-types";
+import { findCodeblocks } from "marked-util";
 import { findCodespans } from "marked-util";
 import { findEmbeds } from "marked-util";
 import { findLinks } from "marked-util";
@@ -237,6 +242,7 @@ import { foundOrNotXpath } from "puppeteer-utils";
 import { foundOrNot } from "puppeteer-utils";
 import { getBrowserPageById } from "puppeteer-utils";
 import { getBrowserTabs } from "puppeteer-utils";
+import { getBrowser } from "puppeteer-utils";
 import { getChromeExecutablePath } from "puppeteer-utils";
 import { getConnectedBrowsers } from "puppeteer-utils";
 import { getIdlePage } from "puppeteer-utils";
@@ -252,6 +258,7 @@ import { racePromises } from "puppeteer-utils";
 import { retryClickAndWaitSelector } from "puppeteer-utils";
 import { retryWaitSelector } from "puppeteer-utils";
 import { setBrowserPageIdle } from "puppeteer-utils";
+import { setBrowserSession } from "puppeteer-utils";
 import { setInnerHtml } from "puppeteer-utils";
 import { setInputValue } from "puppeteer-utils";
 import { solveReptcha } from "puppeteer-utils";
@@ -332,6 +339,7 @@ camelCase,
 capitalCase,
 capitaliseFirstLetter,
 convertCase,
+fileSlugify,
 getDelimiter,
 humanCase,
 kebabCase,
@@ -386,6 +394,7 @@ oneUp,
 parseMd,
 removeAllExcept,
 renameAndCreate,
+updateSingleNestedJsonFile,
 writeJsonToFile,
 writeStringToFile,
 writeToFiles,
@@ -411,6 +420,7 @@ getRelativeLinkPath,
 getRelativePath,
 getRootPath,
 getSrcRelativeFileId,
+getSubExtensions,
 hasDependency,
 isBundle,
 isOperation,
@@ -448,6 +458,7 @@ objectMapAsync,
 objectMapSync,
 objectValuesMap,
 omitUndefinedValues,
+onlyDuplicates,
 onlyUnique2,
 onlyUnique,
 pickRandomArrayItem,
@@ -496,6 +507,7 @@ removeHeaderPrefix,
 markdownParseToMarkdownModelType,
 parseMarkdownModelTimestamp,
 tryParseDate,
+findCodeblocks,
 findCodespans,
 findEmbeds,
 findLinks,
@@ -541,6 +553,7 @@ foundOrNotXpath,
 foundOrNot,
 getBrowserPageById,
 getBrowserTabs,
+getBrowser,
 getChromeExecutablePath,
 getConnectedBrowsers,
 getIdlePage,
@@ -556,6 +569,7 @@ racePromises,
 retryClickAndWaitSelector,
 retryWaitSelector,
 setBrowserPageIdle,
+setBrowserSession,
 setInnerHtml,
 setInputValue,
 solveReptcha,

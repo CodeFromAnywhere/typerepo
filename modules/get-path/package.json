@@ -42,7 +42,7 @@
     "folderNameIndexed": "get-path",
     "hasGeneratedDependenciesIndexed": true,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1671316152908,
+    "lastRebuildAt": 1673959260144,
     "operationDependenciesIndexed": [
       "path",
       "fs",
@@ -64,11 +64,11 @@
       "mergeObjectsArray",
       "notEmpty",
       "exploreOperationFolders",
-      "exploreOperationFolders",
       "getLastFolder",
       "path",
-      "operations",
+      "exploreOperationFolders",
       "log",
+      "operations",
       "path",
       "getLastFolder",
       "OperationPathParse",
@@ -83,6 +83,7 @@
       "path",
       "makeRelative",
       "databaseFolderName",
+      "path",
       "path",
       "Operation",
       "path",
@@ -100,30 +101,72 @@
     "markdown": "Useful functions to get paths within King OS.\n\nDepends on `sdk-operations`, which makes it only work inside of a typerepo.\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 22,
-        "lines": 728,
-        "characters": 21667,
-        "bytes": 21667
+        "numberOfFiles": 23,
+        "lines": 739,
+        "characters": 21502,
+        "bytes": 21502
       },
       "dataSize": {
         "numberOfFiles": 2,
-        "lines": 169,
-        "characters": 4005,
-        "bytes": 4005
+        "lines": 212,
+        "characters": 5549,
+        "bytes": 5549
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 459,
-        "characters": 9920,
-        "bytes": 9920
+        "lines": 470,
+        "characters": 9579,
+        "bytes": 9579
       },
       "size": {
-        "bytes": 35592,
-        "characters": 35592,
-        "lines": 1356,
-        "numberOfFiles": 26
+        "bytes": 36630,
+        "characters": 36630,
+        "lines": 1421,
+        "numberOfFiles": 27
       }
     },
-    "hasGeneratedImportsIndexed": false
+    "hasGeneratedImportsIndexed": false,
+    "circularDependencies": [
+      [
+        {
+          "operationName": "get-path",
+          "filePath": "/Users/king/King/operations/tools/control-project/get-path/src/getOperationClassification.ts"
+        },
+        {
+          "operationName": "read-json-file",
+          "filePath": "/Users/king/King/operations/tools/parsing/read-files/read-json-file/src/readProjectRelativeJsonFile.ts"
+        }
+      ],
+      [
+        {
+          "operationName": "get-path",
+          "filePath": "/Users/king/King/operations/tools/control-project/get-path/src/getOperationClassificationObject.ts"
+        },
+        {
+          "operationName": "k-explore",
+          "filePath": "/Users/king/King/operations/tools/control-project/k-explore/src/explore.ts"
+        }
+      ],
+      [
+        {
+          "operationName": "get-path",
+          "filePath": "/Users/king/King/operations/tools/control-project/get-path/src/getOperationPathParse.ts"
+        },
+        {
+          "operationName": "read-json-file",
+          "filePath": "/Users/king/King/operations/tools/parsing/read-files/read-json-file/src/readProjectRelativeJsonFile.ts"
+        }
+      ],
+      [
+        {
+          "operationName": "get-path",
+          "filePath": "/Users/king/King/operations/tools/control-project/get-path/src/isBundle.ts"
+        },
+        {
+          "operationName": "read-json-file",
+          "filePath": "/Users/king/King/operations/tools/parsing/read-files/read-json-file/src/readProjectRelativeJsonFile.ts"
+        }
+      ]
+    ]
   }
 }

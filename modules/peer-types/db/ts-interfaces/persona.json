@@ -1,15 +1,15 @@
 {
-  "createdAt": 1671317137302,
-  "updatedAt": 1671317137302,
+  "createdAt": 1673862800943,
+  "updatedAt": 1673862800943,
   "deletedAt": 0,
-  "createdFirstAt": 1671317137302,
+  "createdFirstAt": 1673862800943,
   "id": "persona",
   "name": "Persona",
   "slug": "persona",
   "operationRelativeTypescriptFilePath": "src/Persona.ts",
   "hasGeneric": false,
   "isExported": true,
-  "rawText": "\n/**\n * Highly private model.\n *\n * Configuration for a person identity that you say that is you.\n *\n * As a OS user you can have multiple personas between which you can easily switch.\n *\n * The difference from `Person` is that `Person` stores other people, whereas `Persona` stores different identities you give to yourself.\n *\n * NB: brands should also be able to be personas, and since some brands are shared between people, you should be able to share Persona's with other `Person`s into their OS...\n *\n * > Persona: A persona, depending on the context, is the public image of one's personality, the social role that one adopts, or simply a fictional character. The word derives from Latin, where it originally referred to a theatrical mask. On the social web, users develop virtual personas as online identities. (Wikipedia)\n */\nexport interface Persona extends SlugModelType {\n  /**\n   * If this is set to true, this persona instance will be selected when searching for a persona. Ensure that there is just one default persona!\n   *\n   * If none are `isPrimary`, the first persona instance can be selected\n   */\n  isPrimary?: boolean;\n  /**\n   * If true, this will pop up in persona selection\n   *\n   * If not, you can still find it using auto-complete, though\n   */\n  isFavorite?: boolean;\n\n  /**\n   * Some pictures that can be used that show this person\n   */\n  pictureImages?: BackendAsset[];\n\n  /**\n   * You can give different characteristics to your personas if you wish\n   */\n  dataEntries: PersonInformationValue[];\n\n  /** Interests this persona has\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  interestSlugs?: Slug[];\n  interests?: Interest[];\n\n  /**\n   * Where does this persona reside? can be multiple locations\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  locationSlugs?: Slug[];\n  locations?: Location[];\n\n  /**\n   * Languages that this persona can speak\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  spokenLanguages: Language[];\n\n  /**\n   * NB: should have a custom input in the `SimplifiedSchemaForm`\n   */\n  stripeSecret?: string;\n\n  twilioAccountSid?: string;\n  twilioAuthToken?: string;\n  /**\n   * Provide the phone number you are using by default for sending SMS messages\n   */\n  twilioFromPhoneNumber?: string;\n\n  sendgridApiKey?: string;\n  sendgridFromEmail?: string;\n\n  /**\n   * Github stuff\n   */\n  githubEmail?: string;\n  /**\n   * Personal access token\n   */\n  githubAccessToken?: string;\n  githubOrganisation?: string;\n  useGithubOrganisation?: boolean;\n\n  mediaCredentialIds?: Id[];\n  mediaCredentials?: MediaCredential[];\n\n  apiKey2Captcha?: string;\n  openAiPassword?: string;\n  openAiEmail?: string;\n}",
+  "rawText": "\n/**\n * Highly private model.\n *\n * Configuration for a person identity that you say that is you.\n *\n * As a OS user you can have multiple personas between which you can easily switch.\n *\n * The difference from `Person` is that `Person` stores other people, whereas `Persona` stores different identities you give to yourself.\n *\n * NB: brands should also be able to be personas, and since some brands are shared between people, you should be able to share Persona's with other `Person`s into their OS...\n *\n * > Persona: A persona, depending on the context, is the public image of one's personality, the social role that one adopts, or simply a fictional character. The word derives from Latin, where it originally referred to a theatrical mask. On the social web, users develop virtual personas as online identities. (Wikipedia)\n */\nexport interface Persona extends SlugModelType {\n  /**\n   * If this is set to true, this persona instance will be selected when searching for a persona. Ensure that there is just one default persona!\n   *\n   * If none are `isPrimary`, the first persona instance can be selected\n   */\n  isPrimary?: boolean;\n  /**\n   * If true, this will pop up in persona selection\n   *\n   * If not, you can still find it using auto-complete, though\n   */\n  isFavorite?: boolean;\n\n  /**\n   * Some pictures that can be used that show this person\n   */\n  pictureImages?: BackendAsset[];\n\n  /**\n   * You can give different characteristics to your personas if you wish\n   */\n  dataEntries: PersonInformationValue[];\n\n  /** Interests this persona has\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  interestSlugs?: Slug[];\n  interests?: Interest[];\n\n  /**\n   * Where does this persona reside? can be multiple locations\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  locationSlugs?: Slug[];\n  locations?: Location[];\n\n  /**\n   * Languages that this persona can speak\n   *\n   * Can be matched against a channel to be the recommended persona\n   */\n  spokenLanguages: Language[];\n\n  /**\n   * NB: should have a custom input in the `SimplifiedSchemaForm`\n   */\n  stripeSecret?: string;\n\n  twilioAccountSid?: string;\n  twilioAuthToken?: string;\n  /**\n   * Provide the phone number you are using by default for sending SMS messages\n   */\n  twilioFromPhoneNumber?: string;\n\n  sendgridApiKey?: string;\n  sendgridFromEmail?: string;\n\n  /**\n   * Github stuff\n   */\n  githubEmail?: string;\n  /**\n   * Personal access token\n   */\n  githubAccessToken?: string;\n  githubOrganisation?: string;\n  useGithubOrganisation?: boolean;\n\n  mediaCredentialIds?: Id[];\n  mediaCredentials?: MediaCredential[];\n\n  apiKey2Captcha?: string;\n  openAiPassword?: string;\n  openAiEmail?: string;\n  openAiToken?: string;\n\n  linkedinEmail?: string;\n  linkedinPassword?: string;\n\n  /**\n   * phone, email or username\n   */\n  twitterLoginHandle?: string;\n  twitterPassword?: string;\n\n  facebookLoginHandle?: string;\n  facebookPassword?: string;\n\n  mediumLoginHandle?: string;\n  mediumPassword?: string;\n\n  redditLoginHandle?: string;\n  redditPassword?: string;\n\n  devtoLoginHandle?: string;\n  devtoPassword?: string;\n\n  slackLoginHandle?: string;\n  slackPassword?: string;\n\n  huggingfaceAuthToken?: string;\n\n  uberduckApiKey?: string;\n  uberduckSecret?: string;\n\n  bananadevApiKey?: string;\n  bananadevModelKeys?: {\n    [key: string]: string;\n  };\n\n  email: string;\n  phone: string;\n}",
   "extensions": [
     "SlugModelType"
   ],
@@ -63,7 +63,7 @@
         "id": {
           "$ref": "#/definitions/Id"
         },
-        "categoryStackCalculated": {
+        "categoryStack": {
           "$ref": "#/definitions/CategoryStack",
           "description": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!"
         },
@@ -176,6 +176,76 @@
         },
         "openAiEmail": {
           "type": "string"
+        },
+        "openAiToken": {
+          "type": "string"
+        },
+        "linkedinEmail": {
+          "type": "string"
+        },
+        "linkedinPassword": {
+          "type": "string"
+        },
+        "twitterLoginHandle": {
+          "type": "string",
+          "description": "phone, email or username"
+        },
+        "twitterPassword": {
+          "type": "string"
+        },
+        "facebookLoginHandle": {
+          "type": "string"
+        },
+        "facebookPassword": {
+          "type": "string"
+        },
+        "mediumLoginHandle": {
+          "type": "string"
+        },
+        "mediumPassword": {
+          "type": "string"
+        },
+        "redditLoginHandle": {
+          "type": "string"
+        },
+        "redditPassword": {
+          "type": "string"
+        },
+        "devtoLoginHandle": {
+          "type": "string"
+        },
+        "devtoPassword": {
+          "type": "string"
+        },
+        "slackLoginHandle": {
+          "type": "string"
+        },
+        "slackPassword": {
+          "type": "string"
+        },
+        "huggingfaceAuthToken": {
+          "type": "string"
+        },
+        "uberduckApiKey": {
+          "type": "string"
+        },
+        "uberduckSecret": {
+          "type": "string"
+        },
+        "bananadevApiKey": {
+          "type": "string"
+        },
+        "bananadevModelKeys": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "email": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
         }
       },
       "required": [
@@ -183,10 +253,12 @@
         "createdFirstAt",
         "dataEntries",
         "deletedAt",
+        "email",
         "id",
         "language",
         "name",
         "operationName",
+        "phone",
         "projectRelativePath",
         "slug",
         "spokenLanguages",
@@ -312,7 +384,7 @@
           }
         },
         {
-          "name": "categoryStackCalculated",
+          "name": "categoryStack",
           "required": false,
           "schema": {
             "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -497,7 +569,7 @@
                       }
                     },
                     {
-                      "name": "categoryStackCalculated",
+                      "name": "categoryStack",
                       "required": false,
                       "schema": {
                         "fullComment": "In case of jsonSingle storageMethod, the categoryStack is generated by the location of the file in the db model folder in the db folder.\n\nNB: Changing this value when updating/upserting, changes where the item is located!\n\nTaken from the location in the folder of the db-model.\n\nNB: Changing this value when updating/upserting, changes where the item is located!",
@@ -729,6 +801,162 @@
         {
           "name": "openAiEmail",
           "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "openAiToken",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "linkedinEmail",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "linkedinPassword",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "twitterLoginHandle",
+          "required": false,
+          "schema": {
+            "fullComment": "phone, email or username",
+            "type": "string"
+          }
+        },
+        {
+          "name": "twitterPassword",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "facebookLoginHandle",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "facebookPassword",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "mediumLoginHandle",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "mediumPassword",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "redditLoginHandle",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "redditPassword",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "devtoLoginHandle",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "devtoPassword",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "slackLoginHandle",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "slackPassword",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "huggingfaceAuthToken",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "uberduckApiKey",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "uberduckSecret",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "bananadevApiKey",
+          "required": false,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "bananadevModelKeys",
+          "required": false,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "email",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "phone",
+          "required": true,
           "schema": {
             "type": "string"
           }

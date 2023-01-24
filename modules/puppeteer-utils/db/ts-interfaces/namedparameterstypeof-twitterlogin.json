@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671457740295,
-  "updatedAt": 1671457740295,
+  "createdAt": 1672134498227,
+  "updatedAt": 1672134498227,
   "deletedAt": 0,
-  "createdFirstAt": 1671457740295,
+  "createdFirstAt": 1672134498227,
   "id": "namedparameterstypeof-twitterlogin",
   "name": "NamedParameters<typeof twitterLogin>",
   "slug": "namedparameterstypeof-twitterlogin",
@@ -23,21 +23,17 @@
             "page": {
               "$ref": "#/definitions/Page"
             },
-            "email": {
-              "type": "string"
-            },
-            "phoneNo": {
-              "type": "string"
-            },
             "password": {
+              "type": "string"
+            },
+            "username": {
               "type": "string"
             }
           },
           "required": [
             "page",
-            "email",
-            "phoneNo",
-            "password"
+            "password",
+            "username"
           ],
           "additionalProperties": false
         }
@@ -64,21 +60,14 @@
                 }
               },
               {
-                "name": "email",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
-                "name": "phoneNo",
-                "required": true,
-                "schema": {
-                  "type": "string"
-                }
-              },
-              {
                 "name": "password",
+                "required": true,
+                "schema": {
+                  "type": "string"
+                }
+              },
+              {
+                "name": "username",
                 "required": true,
                 "schema": {
                   "type": "string"

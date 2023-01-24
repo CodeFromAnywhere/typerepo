@@ -15,7 +15,7 @@ NB: This is an experimental part of typerepo!
 
 # Internal
 
-<details><summary>Show internal (22)</summary>
+<details><summary>Show internal (19)</summary>
     
   # getAllSearchResults()
 
@@ -40,15 +40,6 @@ TODO:
 | ---------- | -- | -- |
 | query | string |  |
 | **Output** | {  }[]   |    |
-
-
-
-## getStaticPaths()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | { fallback: string, <br />paths: {  }[], <br /> }   |    |
 
 
 
@@ -151,10 +142,6 @@ But there's more. To make a good serach...
 TODO:
 - gather everything i've made before about search
 
-
-## 📄 getStaticPaths (exported const)
-
-## 📄 getStaticProps (exported const)
 
 ## 📄 getTimelineItems (exported const)
 

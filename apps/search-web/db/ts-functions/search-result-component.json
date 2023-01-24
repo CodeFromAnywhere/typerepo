@@ -1,14 +1,13 @@
 {
-  "createdAt": 1670527594351,
-  "updatedAt": 1670527594351,
+  "createdAt": 1674542294716,
+  "updatedAt": 1674542294716,
   "deletedAt": 0,
-  "createdFirstAt": 1670527594351,
-  "isApiExposed": true,
+  "createdFirstAt": 1674542294716,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/components/SearchResultComponent.tsx",
   "commentsInside": [],
-  "rawText": " (props: {\n  searchResult: SearchResult;\n  index: number;\n}) => {\n  const { index, searchResult } = props;\n  return <Div key={`searchhit${index}`}>hit {index}</Div>;\n}",
+  "rawText": " (props: {\n  searchResult: SearchResult;\n  index: number;\n}) => {\n  const { index, searchResult } = props;\n  return (\n    <Div key={`index${index}`}>\n      <ALink href={searchResult.url}>{searchResult.title}</ALink>\n\n      {searchResult.description ? (\n        <Div>{renderMarkdownContent(searchResult.description, {})}</Div>\n      ) : null}\n    </Div>\n  );\n}",
   "name": "SearchResultComponent",
   "slug": "search-result-component",
   "parameters": [
@@ -37,7 +36,29 @@
             "required": true,
             "schema": {
               "fullComment": "",
-              "properties": [],
+              "properties": [
+                {
+                  "name": "title",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "description",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "url",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              ],
               "type": "object"
             }
           },
@@ -68,15 +89,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 1,
+  "maxIndentationDepth": 4,
   "size": {
-    "characters": 266,
-    "lines": 7,
-    "bytes": 266,
+    "characters": 458,
+    "lines": 15,
+    "bytes": 458,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 38,
-    "linesPerFile": 7,
+    "charactersPerLine": 31,
+    "linesPerFile": 15,
     "numberOfFiles": 1
   },
-  "id": "thpepedlnadjnnkeusvhjkzc"
+  "id": "gpmkybbpqrsttucytrmqrjpe"
 }

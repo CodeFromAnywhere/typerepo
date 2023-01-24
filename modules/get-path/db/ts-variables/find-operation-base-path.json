@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671315924085,
-  "updatedAt": 1671315924085,
+  "createdAt": 1673959143820,
+  "updatedAt": 1673959143820,
   "deletedAt": 0,
-  "createdFirstAt": 1671315924085,
+  "createdFirstAt": 1673959143820,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "(\n  startPath: string\n): string | undefined => {\n  return findOperationBasePathWithClassification(startPath)?.folderPath;\n}",
   "description": "",
-  "id": "qwetvozcotcpwyukmtqjbuhi"
+  "id": "aebzecouhffbmwuhkkybfzym"
 }

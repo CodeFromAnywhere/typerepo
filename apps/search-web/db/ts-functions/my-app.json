@@ -1,14 +1,13 @@
 {
-  "createdAt": 1670527604819,
-  "updatedAt": 1670527604819,
+  "createdAt": 1674542322913,
+  "updatedAt": 1674542322913,
   "deletedAt": 0,
-  "createdFirstAt": 1670527604819,
+  "createdFirstAt": 1674542322913,
   "isApiExposed": false,
   "name": "MyApp",
   "slug": "my-app",
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/pages/_app.tsx",
-  "groupAuthorization": {},
   "commentsInside": [],
   "description": "",
   "parameters": [],
@@ -26,15 +25,15 @@
     "isEnumLiteral": false
   },
   "size": {
-    "characters": 2113,
-    "lines": 72,
-    "bytes": 2113,
+    "characters": 1966,
+    "lines": 68,
+    "bytes": 1966,
     "bytesPerCharacter": 1,
     "charactersPerLine": 29,
-    "linesPerFile": 72,
+    "linesPerFile": 68,
     "numberOfFiles": 1
   },
-  "rawText": "\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  const router = useRouter();\n\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <meta charSet=\"utf-8\" />\n        <meta httpEquiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n        <meta\n          name=\"viewport\"\n          content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\"\n        />\n\n        <meta name=\"description\" content=\"Description\" />\n        <meta name=\"keywords\" content=\"Keywords\" />\n\n        <link rel=\"manifest\" href=\"/manifest.json\" />\n        <link\n          href=\"/icons/favicon-16x16.png\"\n          rel=\"icon\"\n          type=\"image/png\"\n          sizes=\"16x16\"\n        />\n        <link\n          href=\"/icons/favicon-32x32.png\"\n          rel=\"icon\"\n          type=\"image/png\"\n          sizes=\"32x32\"\n        />\n        <link rel=\"apple-touch-icon\" href=\"/apple-icon.png\"></link>\n        <meta name=\"theme-color\" content=\"#317EFB\" />\n\n        <title>Search</title>\n\n        <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n        <link\n          rel=\"preconnect\"\n          href=\"https://fonts.gstatic.com\"\n          crossOrigin=\"true\"\n        />\n        <link\n          href=\"https://fonts.googleapis.com/css2?family=Raleway&display=swap\"\n          rel=\"stylesheet\"\n        />\n\n        {/* NB: for CODE syntax highlighting of \"markdown\" markdown-parser */}\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <StoreProvider>\n          <ModalProvider>\n            <AuthenticationLayout\n              customHeader={\n                <Div className=\"absolute top-0 right-0 p-4 z-50 rounded-bl-full bg-green-400\">\n                  <MeAuthenticationInfo />\n                </Div>\n              }\n              nextPage={Component}\n              pageProps={pageProps}\n            />\n          </ModalProvider>\n        </StoreProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
-  "maxIndentationDepth": 9,
-  "id": "aptonzwyqjsdpvdgybdpvyhm"
+  "rawText": "\n\nfunction MyApp({ Component, pageProps }: AppProps) {\n  return (\n    <QueryClientProvider client={queryClient}>\n      <Head>\n        <meta charSet=\"utf-8\" />\n        <meta httpEquiv=\"X-UA-Compatible\" content=\"IE=edge\" />\n        <meta\n          name=\"viewport\"\n          content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\"\n        />\n\n        <meta\n          name=\"description\"\n          content=\"Yougle is a search engine that helps you automate parts of your workflow\"\n        />\n        <meta\n          name=\"keywords\"\n          content=\"ai, search engine, artificial intelligence\"\n        />\n\n        <link rel=\"manifest\" href=\"/manifest.json\" />\n        <link\n          href=\"/icons/favicon-16x16.png\"\n          rel=\"icon\"\n          type=\"image/png\"\n          sizes=\"16x16\"\n        />\n        <link\n          href=\"/icons/favicon-32x32.png\"\n          rel=\"icon\"\n          type=\"image/png\"\n          sizes=\"32x32\"\n        />\n        <link rel=\"apple-touch-icon\" href=\"/apple-icon.png\"></link>\n        <meta name=\"theme-color\" content=\"#317EFB\" />\n\n        <title>Clarity AI</title>\n\n        <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\" />\n        <link\n          rel=\"preconnect\"\n          href=\"https://fonts.gstatic.com\"\n          crossOrigin=\"true\"\n        />\n        <link\n          href=\"https://fonts.googleapis.com/css2?family=Raleway&display=swap\"\n          rel=\"stylesheet\"\n        />\n\n        {/* NB: for CODE syntax highlighting of \"markdown\" markdown-parser */}\n        <link\n          rel=\"stylesheet\"\n          href=\"https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.6.0/build/styles/default.min.css\"\n        />\n      </Head>\n      <ToastContainer />\n      <AlertProvider>\n        <StoreProvider>\n          {/* <ModalProvider> */}\n          <Component {...pageProps} />\n          {/* </ModalProvider> */}\n        </StoreProvider>\n      </AlertProvider>\n    </QueryClientProvider>\n  );\n}",
+  "maxIndentationDepth": 5,
+  "id": "ihwwkaahyuuhhreriqxcfxfi"
 }

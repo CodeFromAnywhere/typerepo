@@ -1,36 +1,18 @@
 [
   {
-    "createdAt": 1671494891495,
-    "updatedAt": 1671494891495,
+    "createdAt": 1674135008808,
+    "updatedAt": 1674135008808,
     "deletedAt": 0,
-    "createdFirstAt": 1671494891495,
+    "createdFirstAt": 1674135008808,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/ContextualPrompt.ts",
-    "comment": "To be appended to the generated typescript",
-    "rawStatement": "export type ContextualPromptInfo = {\n  // extra flags, to be added to the config of the function.\n\n  /**\n   * If given, will be used to filter the selection of prompts to match the context type\n   */\n  contextType?: FileType[];\n\n  instantExecution?: boolean;\n\n  isFavorite?: boolean;\n\n  categoryStack?: string[];\n\n  pricing?: \"bad\" | \"good\" | \"premium\" | \"enterprise\" | \"private\";\n};",
+    "operationRelativeTypescriptFilePath": "src/ReaderProps.ts",
+    "comment": "This is what we need on the page level. There are many subtleties to it, but this is the core",
+    "rawStatement": "export type ReaderProps = {\n  notFound?: boolean;\n  notFoundReason?: string | null;\n  /**\n   * If true, the current path represents a folder, not a file.\n   */\n  isFolder?: boolean;\n  canSeeContent?: boolean;\n  unauthorizedWarningMessage?: string | null;\n  markdown?: string | null;\n  contextualPromptsObject?: Omit<\n    ContextualPromptsObject,\n    \"databaseContextualPromptSlugs\"\n  > | null;\n  contextualPromptResults?: ContextualPromptResult[] | null;\n\n  /**\n   * Project relative file path that is actually used\n   */\n  actualProjectRelativeFilePath?: string;\n  navigation?: FolderContent[];\n\n  /**\n   * Should later be moved elsewhere\n   */\n  contextualPromptCategories?: CategoryChildObject;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 8,
-    "lastLine": 10,
-    "id": "vqbjthrtryrcabplndwkxjqk"
-  },
-  {
-    "createdAt": 1671494891495,
-    "updatedAt": 1671494891495,
-    "deletedAt": 0,
-    "createdFirstAt": 1671494891495,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/ContextualPrompt.ts",
-    "comment": "\nModel for prompting information from third party sources",
-    "rawStatement": "export interface ContextualPrompt extends SlugModelType, ContextualPromptInfo {\n  /**\n   * descriptive name of what the prompt does, the same way as you would name a function.\n   *\n   * Used to generate the name of the function\n   */\n  name: string;\n\n  /**\n   * Short description of the function.\n   *\n   * Used to be added to as a doc-comment when generating a function for the prompt\n   */\n  title?: string;\n\n  /**\n   * Bit longer description of the prompt\n   */\n  description?: string;\n\n  /**\n   * if given, should be a path to a file or folder, so the prompt will never be shown outside of this scope\n   *\n   * Never stored! Is found based on the location of the file in your file system\n   */\n  scopeProjectRelativePath?: string;\n\n  /**\n   * Which models can this be applied on?\n   */\n  model?: LanguageModelEnum | LanguageModelEnum[];\n\n  /**\n   * Only prompt is stored (string)\n   */\n  promptContent: string;\n\n  /**\n   * Variable: `${folder}`\n   *\n   * If set to `flat`, all folder content will be added as context, without sub-folders\n   *\n   * If set to `recursive`, all folder content will be added as context, including sub-folders\n   *\n   * If set to `summary-flat`/`summary-recursive`, a key-value with \"filename: summary\" with a one-line summary of the content of the file/folder will be added. Folder summaries must be longer.\n   *\n   * IDEA: if you have any question about your complete codebase, you can do a recurisve search in files/folders, taking all the relevant summaries every time, and doing a prompt for every result that might have the answer.\n   *\n   * 1) First we need to collect the relevant information\n   * 2) Then we need to prune the relevant information\n   * 3) Then we can answer the question based on truth that links to files\n   *\n   * If I can do this, I have a very powerful search engine.\n   */\n  folderContentContext?: \"summary\" | \"flat\" | \"recursive\";\n\n  /**\n   * Variable: ${context}\n   *\n   * Whether or not the prompt requires the context\n   *\n   * Can be a file contents, but can also be the contents of an HTML page\n   */\n  usesContext?: boolean;\n\n  /**\n   * Variable: ${selection}\n   *\n   * Whether or not the prompt requires the selection\n   */\n  usesSelection?: boolean;\n\n  /**\n   * Variable: ${any}\n   *\n   * If true, will return this prompt in any context prompt, as selection results because it can use any of them as its variable. It will use the smallest one available.\n   */\n  usesAnyContext?: boolean;\n}",
-    "parameters": {
-      "dbStorageMethod": "jsonSingle"
-    },
-    "types": [],
-    "firstLine": 28,
-    "lastLine": 34,
-    "id": "rbwmvoldjcpgwqgbyennmjkm"
+    "firstLine": 6,
+    "lastLine": 8,
+    "id": "gpgrppbrqcqllekfznxqbilx"
   }
 ]

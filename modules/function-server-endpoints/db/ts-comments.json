@@ -1,36 +1,18 @@
 [
   {
-    "createdAt": 1671317849153,
-    "updatedAt": 1671317849153,
+    "createdAt": 1674548237830,
+    "updatedAt": 1674548237830,
     "deletedAt": 0,
-    "createdFirstAt": 1671317849153,
+    "createdFirstAt": 1674548237830,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
-    "comment": "To look up more info about an IP\n\nhttps://github.com/geoip-lite/node-geoip",
-    "rawStatement": "import { Include } from \"fs-orm\";",
+    "operationRelativeTypescriptFilePath": "src/getAuthorizationInfo.ts",
+    "comment": "returns `AuthorizationInfo` for a device + function",
+    "rawStatement": "export const getAuthorizationInfo = (\n  device: Storing<Device>,\n  tsFunction: TsFunction,\n  fn: { (...parameters: any): any; [key: string]: any }\n): AuthorizationInfo => {\n  const everyPersonsGroups =\n    device?.persons\n      ?.map((x) => x.groups)\n      .flat()\n      .filter(notEmpty)\n      .filter(onlyUnique2<Group>((a, b) => a.slug === b.slug)) || [];\n\n  // Accumulating all authorizations: the public authorization of the function, the manual person authorizations, and the group authorizations\n  const authorizations = everyPersonsGroups\n    .map((group) => group.customAuthorizations)\n    .flat()\n    .filter(notEmpty);\n\n  const hasAuthorization = !!authorizations.find((auth) => {\n    const authAppliesToThisFunction =\n      auth.tsFunctionId === tsFunction.id ||\n      auth.authorizedOperationName === tsFunction?.operationName ||\n      (auth.authorizedProjectRelativePath &&\n        tsFunction.projectRelativePath.startsWith(\n          auth.authorizedProjectRelativePath\n        ));\n\n    return authAppliesToThisFunction && auth.canExecute;\n  });\n\n  /**\n   * Function might ne an `ApiFunction`\n   */\n  const isPublic = fn.isPublic;\n\n  const result = {\n    hasAuthorization: isPublic || hasAuthorization,\n    authorizations,\n    groups: everyPersonsGroups,\n  };\n\n  console.log({ getAuthorizationInfo: result });\n  return result;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 2,
-    "lastLine": 6,
-    "id": "kpswjejqjxbqwfyiiihuxbso"
-  },
-  {
-    "createdAt": 1671317849153,
-    "updatedAt": 1671317849153,
-    "deletedAt": 0,
-    "createdFirstAt": 1671317849153,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/upsertDevice.ts",
-    "comment": "Returns device with all attached (logged in) `Person`s, and `currentPersonCalculated`\n\nEither finds the device and updates it according to the new request metadata, or creates a new device.\n\nShould never return `undefined` if the database functions...\n\nTODO: Use cookies (https://serverjs.io/documentation/reply/#cookie-) to login\n\nNeeded for having `authToken` with GET as well in a safe manner (e.g. for images)",
-    "rawStatement": "export const upsertDevice = async (\n  serverContext: Context\n): Promise<Storing<Device> | undefined> => {\n  // in your function\n  const executionId = generateUniqueId();\n  const performance: (PerformanceItem | undefined)[] = [];\n\n  performance.push(getNewPerformance(\"start\", executionId, true));\n\n  const authToken: string | undefined = serverContext.data?.authToken;\n  const ip = serverContext.ip;\n\n  if (!authToken || authToken.length < 24) {\n    console.log(\"warn upsert device: no authToken\");\n    return;\n  }\n\n  // NB: range: [ <low bound of IP block>, <high bound of IP block> ], the rest is described in the type interface\n  const ipLookup = (geoip.lookup(ip) || {}) as Partial<geoip.Lookup>;\n  const {\n    city,\n    area: positionRadiusKm,\n    ll,\n    country,\n    region,\n    timezone,\n  } = ipLookup;\n\n  const position: Position | undefined =\n    !!ll?.[0] && !!ll?.[1] ? { latitude: ll[0], longitude: ll[1] } : undefined;\n\n  const userAgentString = serverContext.req.get(\"User-Agent\");\n  const userAgent: IResult = parseUserAgent(userAgentString);\n\n  const ipInfo: IPInfo = {\n    ip,\n    city,\n    position,\n    positionRadiusKm,\n    country,\n    region,\n    timezone,\n  };\n\n  const origin = serverContext.req.get(\"Origin\") as string;\n  const referer = serverContext.req.get(\"Referrer\") as string;\n\n  const dbPath = getRootPath(\"db\");\n  if (!dbPath) return;\n  const deviceFilePath = path.join(dbPath, \"devices\", `${authToken}.json`);\n\n  const exists = fs.existsSync(deviceFilePath);\n\n  const deviceBefore: Storing<Device> | null = exists\n    ? await readJsonFile<Storing<Device>>(deviceFilePath)\n    : null;\n\n  const newDevice = !exists\n    ? {\n        authToken,\n        authenticationMethods: [],\n        ...ipInfo,\n        createdAt: Date.now(),\n        createdFirstAt: Date.now(),\n        deletedAt: 0,\n        id: authToken,\n        lastOnlineAt: Date.now(),\n        name: authToken,\n        updatedAt: Date.now(),\n        userAgentString: userAgentString || \"no useragent\",\n      }\n    : null;\n\n  if (newDevice) {\n    await writeJsonToFile(deviceFilePath, newDevice);\n  }\n\n  savePageVisit(authToken, ipInfo, referer);\n\n  // attach persons and groups\n  const groups = await db.get(\"Group\");\n  const persons = (await db.get(\"Person\"))\n    .filter((x) => deviceBefore?.personIds?.includes(x.id))\n    .map((p) => {\n      return {\n        ...p,\n        groups: groups.filter((g) => p.groupSlugs?.includes(g.slug)),\n      };\n    });\n\n  const augmentedDevice: Storing<Device> = deviceBefore\n    ? { ...deviceBefore, persons }\n    : newDevice!;\n\n  // console.dir({ augmentedDevice }, { depth: 999 });\n  return augmentedDevice;\n};",
-    "parameters": {},
-    "types": [
-      "todo"
-    ],
-    "firstLine": 25,
-    "lastLine": 35,
-    "id": "dyxbpvzrukbjmpmwipqjuhht"
+    "firstLine": 28,
+    "lastLine": 30,
+    "id": "lcvwwkimzbewcfebnvzyfmqc"
   }
 ]

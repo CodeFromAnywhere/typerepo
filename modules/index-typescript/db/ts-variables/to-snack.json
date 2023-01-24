@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671116432818,
-  "updatedAt": 1671116432818,
+  "createdAt": 1673863442359,
+  "updatedAt": 1673863442359,
   "deletedAt": 0,
-  "createdFirstAt": 1671116432818,
+  "createdFirstAt": 1673863442359,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "(key: string) =>\n  key.replace(/([A-Z])/g, ($1) => \"-\" + $1.toLowerCase()).replace(/^-/, \"\")",
   "description": "",
-  "id": "jyshyntogbijawzclpuvbcaa"
+  "id": "zxyqufvisqzbhrtkjajynkpg"
 }

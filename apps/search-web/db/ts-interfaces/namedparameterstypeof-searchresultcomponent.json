@@ -1,8 +1,8 @@
 {
-  "createdAt": 1670527592723,
-  "updatedAt": 1670527592723,
+  "createdAt": 1674542293664,
+  "updatedAt": 1674542293664,
   "deletedAt": 0,
-  "createdFirstAt": 1670527592723,
+  "createdFirstAt": 1674542293664,
   "id": "namedparameterstypeof-searchresultcomponent",
   "name": "NamedParameters<typeof SearchResultComponent>",
   "slug": "namedparameterstypeof-searchresultcomponent",
@@ -51,7 +51,29 @@
                 "required": true,
                 "schema": {
                   "fullComment": "",
-                  "properties": [],
+                  "properties": [
+                    {
+                      "name": "title",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "description",
+                      "required": false,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "url",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
                   "type": "object"
                 }
               },

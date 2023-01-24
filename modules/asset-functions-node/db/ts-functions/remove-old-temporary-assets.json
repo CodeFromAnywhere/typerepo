@@ -1,12 +1,11 @@
 {
-  "createdAt": 1671115502317,
-  "updatedAt": 1671115502317,
+  "createdAt": 1673861896816,
+  "updatedAt": 1673861896816,
   "deletedAt": 0,
-  "createdFirstAt": 1671115502317,
+  "createdFirstAt": 1673861896816,
   "runEveryPeriod": "midnight",
-  "isApiExposed": true,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/removeOldTemporaryAssets.ts",
   "commentsInside": [],
   "rawText": " async (): Promise<{\n  removedAmount: number;\n}> => {\n  const temporaryAssetsFolderPath = getTemporaryAssetsFolderPath();\n  const contents = await fs.readdir(temporaryAssetsFolderPath, {\n    encoding: \"utf8\",\n  });\n\n  let removedAmount = 0;\n  await Promise.all(\n    contents.map(async (fileOrFolderName) => {\n      const absolutePath = path.join(\n        temporaryAssetsFolderPath,\n        fileOrFolderName\n      );\n\n      const statistics = await fs.stat(absolutePath);\n\n      if (Date.now() - statistics.ctimeMs > 86400 * 1000) {\n        removedAmount++;\n        // more than a day old\n        await fs.rm(absolutePath, { recursive: true });\n      }\n    })\n  );\n\n  return { removedAmount };\n}",
@@ -33,5 +32,5 @@
     "linesPerFile": 37,
     "numberOfFiles": 1
   },
-  "id": "eljyrwxznegkoupagvuzbuzw"
+  "id": "pvacxvezpxkjloyusmkdxhph"
 }

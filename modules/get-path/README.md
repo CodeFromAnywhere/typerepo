@@ -40,7 +40,7 @@ if no source path is given, uses the directory name where the function is execut
 
 Gets a path of any operation in the project
 
-TODO: IDEA: maybe auto-generate key-value JSON where keys are the package-names of all operations and values are paths of their locations in the file system. we can easily generate this ourselves, but maybe it's also easy to use the npm yarn workspace for this, although it may not be available in all circumstances, so better not rely on it. The advantage of this would be that this function becomes sync and is much more efficient. The disadvantage is that every time you move something or add something new, this indexation has to happen, otherwise it fails.
+NB: relies on `sdk-operations` 100%
 
 
 | Input      |    |    |
@@ -51,6 +51,20 @@ TODO: IDEA: maybe auto-generate key-value JSON where keys are the package-names 
 
 
 ## 📄 getOperationPath (exported const)
+
+## getRootPath()
+
+Gets project path, or a folder in the root that is convention
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** | string   |    |
+
+
+
+## 📄 getRootPath (exported const)
 
 ## findOperationBasePath()
 
@@ -87,20 +101,6 @@ for a bundled project, that means /apps, /packages, /modules
 
 for the OS project, that means /operations/tools and /operations/niches
 
-
-## getRootPath()
-
-Gets project path, or a folder in the root that is convention
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** | string   |    |
-
-
-
-## 📄 getRootPath (exported const)
 
 ## getSrcRelativeFileId()
 
@@ -180,6 +180,15 @@ something like src/xxx/xxx/x.ts (no slash at start)
 something like src/xxx/xxx/x.ts (no slash at start)
 
 
+## getOperationClassificationObject()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| - | | |
+| **Output** |    |    |
+
+
+
 ## getOperationPathParse()
 
 get all operation-related path information that can be inferred from the path
@@ -206,6 +215,8 @@ gets all kinds of information that can be inferred from any path (file or folder
 
 
 
+## 📄 getOperationClassificationObject (exported const)
+
 ## 📄 getOperationPathParse (exported const)
 
 get all operation-related path information that can be inferred from the path
@@ -218,15 +229,6 @@ NB: currently it also looks up the operation name from its packagejson
 gets all kinds of information that can be inferred from any path (file or folder).
 
 
-## getOperationClassificationObject()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
 ## getRelativeLinkPath()
 
 returns a relative link between two files
@@ -236,6 +238,15 @@ returns a relative link between two files
 | ---------- | -- | -- |
 | absoluteFromFilePath | string |  |,| absoluteToFilePath | string |  |,| debug (optional) | boolean |  |
 | **Output** | `String`   |    |
+
+
+
+## getSubExtensions()
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| absolutePath | string |  |
+| **Output** | string[]   |    |
 
 
 
@@ -253,12 +264,12 @@ Checks whether or not an absolute path contains an operation. The only check it'
 
 ## 🔹 OperationClassificationObject
 
-## 📄 getOperationClassificationObject (exported const)
-
 ## 📄 getRelativeLinkPath (exported const)
 
 returns a relative link between two files
 
+
+## 📄 getSubExtensions (exported const)
 
 ## 📄 isOperation (exported const)
 

@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671317027475,
-  "updatedAt": 1671317027475,
+  "createdAt": 1673862692659,
+  "updatedAt": 1673862692659,
   "deletedAt": 0,
-  "createdFirstAt": 1671317027475,
-  "isApiExposed": true,
+  "createdFirstAt": 1673862692659,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/getPublicPeers.ts",
   "commentsInside": [],
   "rawText": " async () => {\n  const publicPeers = (await db.get(\"Device\")).filter(\n    (peer) => !peer.isPrivate\n  );\n\n  return publicPeers;\n}",
@@ -32,5 +31,5 @@
     "linesPerFile": 7,
     "numberOfFiles": 1
   },
-  "id": "lvdaprysikelqvaoxgdqimdg"
+  "id": "hwthsqmibvsekswqaccdjvak"
 }

@@ -18,7 +18,7 @@ export declare const deviceGetAppsCalculated: (device: Device) => Promise<{
     currentPersonId?: string | undefined;
     currentPersonCalculated?: import("peer-types").Person | undefined;
     authenticationMethods: import("peer-types").AuthenticationMethod[];
-    categoryStackCalculated?: import("model-types").CategoryStack | undefined;
+    categoryStack?: import("model-types").CategoryStack | undefined;
     id: string;
     operationName: string | null;
     projectRelativePath: string;
@@ -28,11 +28,11 @@ export declare const deviceGetAppsCalculated: (device: Device) => Promise<{
     deletedAt: number;
     createdFirstAt: number;
     ip: string;
-    city: string | undefined;
-    position: import("geo-types").Position | undefined;
-    positionRadiusKm: number | undefined;
-    country: string | undefined;
-    region: string | undefined;
-    timezone: string | undefined;
+    city?: string | undefined;
+    position?: import("geo-types").Position | undefined;
+    positionRadiusKm?: number | undefined;
+    country?: string | undefined;
+    region?: string | undefined;
+    timezone?: string | undefined;
 }>;
 //# sourceMappingURL=deviceGetAppsCalculated.d.ts.map

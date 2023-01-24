@@ -1,4 +1,4 @@
-export * from "./compressImage";
+export * from "./compressConvert";
 export * from "./compressImages";
 export * from "./compressMp4";
 export * from "./convertToMp3";

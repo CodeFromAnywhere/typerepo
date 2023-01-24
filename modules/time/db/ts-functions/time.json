@@ -1,0 +1,89 @@
+{
+  "createdAt": 1673959370861,
+  "updatedAt": 1673959370861,
+  "deletedAt": 0,
+  "createdFirstAt": 1673959370861,
+  "isApiExposed": false,
+  "isExported": true,
+  "operationRelativeTypescriptFilePath": "src/time.ts",
+  "commentsInside": [],
+  "rawText": " () => {\n  const nowMs = Date.now();\n  const nowDate = new Date(nowMs);\n  const fakeOffsetMs = 60000 * nowDate.getTimezoneOffset();\n  // hardcoded on GMT+1\n  const realOffsetMs = 60 * 60000;\n\n  const myTimeMs = nowMs + fakeOffsetMs + realOffsetMs;\n\n  const myTimeDate = new Date(myTimeMs);\n\n  //   console.log({\n  //     nowMs,\n  //     myTimeMs,\n  //     fakeOffsetH: fakeOffsetMs / 3600000,\n  //     realOffsetMs: realOffsetMs / 3600000,\n  //   });\n\n  //setRandomTimezone();\n  return {\n    timeString: `${myTimeDate.getHours()}:${myTimeDate.getMinutes()}`,\n    myTimeDate,\n    myTimeMs,\n  };\n}",
+  "name": "time",
+  "slug": "time",
+  "parameters": [],
+  "description": "import { setRandomTimezone } from \"set-random-timezone\";\n\nTo enable possibility to change the timezone in the OS, this is the actually correct time, assuming we are in timezone GMT+1",
+  "returnType": {
+    "rawType": "{ timeString: string; myTimeDate: any; myTimeMs: any; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "timeString": {
+          "type": "string",
+          "allOf": [
+            {
+              "transform": [
+                "trim"
+              ]
+            },
+            {
+              "minLength": 1
+            }
+          ]
+        },
+        "myTimeDate": {},
+        "myTimeMs": {}
+      },
+      "required": [
+        "timeString",
+        "myTimeDate",
+        "myTimeMs"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "timeString",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "myTimeDate",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        },
+        {
+          "name": "myTimeMs",
+          "required": true,
+          "schema": {
+            "properties": [],
+            "type": "object"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 777,
+    "lines": 27,
+    "bytes": 777,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 29,
+    "linesPerFile": 27,
+    "numberOfFiles": 1
+  },
+  "id": "fflkztegjmdouomvogesomae"
+}

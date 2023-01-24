@@ -1,0 +1,25 @@
+{
+  "createdAt": 1670188034298,
+  "updatedAt": 1670188034298,
+  "deletedAt": 0,
+  "createdFirstAt": 1670188034298,
+  "contextType": [
+    "text",
+    "code"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "text",
+    "art"
+  ],
+  "pricing": "bad",
+  "slug": "poem",
+  "name": "poem",
+  "language": "english",
+  "id": "bhnqwppdthserajxkimjlost",
+  "title": "Write a poem",
+  "description": "Writes a poem about the contents of the file",
+  "promptContent": "```\n%any\n```\n\nCan you create a poem about the text? Ensure the text doesn't loose its meaning, but every sentence rhymes with another one nearby. Please show me the poem you wrote. Use an extra newline every line",
+  "folderContentContext": "summary",
+  "usesAnyContext": true
+}

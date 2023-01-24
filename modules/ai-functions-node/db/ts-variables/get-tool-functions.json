@@ -1,0 +1,48 @@
+{
+  "createdAt": 1674133317133,
+  "updatedAt": 1674133317133,
+  "deletedAt": 0,
+  "createdFirstAt": 1674133317133,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "getToolFunctions",
+  "slug": "get-tool-functions",
+  "operationRelativeTypescriptFilePath": "src/tool/getToolFunctions.ts",
+  "type": {
+    "rawType": "{ (): Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction[]>; isPublic: boolean; }",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "isPublic": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "isPublic"
+      ],
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "isPublic",
+          "required": true,
+          "schema": {
+            "type": "boolean"
+          }
+        }
+      ],
+      "type": "object"
+    }
+  },
+  "value": "async (): Promise<TsFunction[]> => {\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  getPublicBundleConfig();\n  const toolFunctions = tsFunctions.filter((x) => {\n    const fn = sdk[x.name as keyof typeof sdk] as ApiFunction | undefined;\n    const isTool = fn && typeof fn === \"function\" && fn.domain;\n    return isTool;\n  });\n\n  return toolFunctions;\n}",
+  "description": "Returns all tool functions to the frontend",
+  "id": "mmsltllvqdsufxoaawflkimm"
+}

@@ -1,0 +1,212 @@
+{
+  "createdAt": 1673379247921,
+  "updatedAt": 1673379247921,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379247921,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/ReaderPage.tsx",
+  "commentsInside": [],
+  "rawText": " (props: ReaderProps) => {\n  const [sidebarHidden, setSidebarHidden] = useState(false);\n  const router = useRouter();\n  const [customUrl, setCustomUrl, customUrlInfo] = useStore(\"api.customUrl\");\n  const [_, setAuthToken] = useStore(\"api.authToken\");\n  const admin = useAdmin();\n  const queryPath = router.asPath.slice(1);\n  const showPromptAlert = usePromptResultAlert();\n  const alert = useAlert();\n  const basePath = process.env.NEXT_PUBLIC_BASEPATH;\n\n  const {\n    markdown,\n    actualProjectRelativeFilePath,\n    contextualPromptResults,\n    contextualPromptsObject,\n    navigation,\n    isFolder,\n    canSeeContent,\n    unauthorizedWarningMessage,\n    notFound,\n  } = props;\n\n  const { renderFileWriter, save, isSaved } = useFileWriter({\n    projectRelativeFilePath: actualProjectRelativeFilePath,\n    hideButtons: true,\n    initialWriterView: \"edit\",\n  });\n\n  const promo = `**What to do now?**\n- [🤝 Let's get to know each other! Book a call](https://calendly.com/karsens/30min)\n- [🕺 Join our discord](https://discord.gg/gehCtKJk)${\n    admin.isAdminActive\n      ? \"\"\n      : \"\\n- [🧪 Install your server](/gpt-ide/README.md)\"\n  }\n- [🏛 See my premium services and offers](/offers)\n- [🤯 Join our AI hacker villa 🏝](https://codefrombali.com)`;\n\n  const onFocus = async () => {\n    if (!customUrlInfo.hydrated) {\n      return;\n    }\n    const localUrl = \"http://localhost:42000\";\n\n    if (customUrl === localUrl) {\n      return;\n    }\n\n    const isAlive = (await apiWithConfig.ping({ apiUrl: localUrl })).result;\n\n    if (isAlive) {\n      setCustomUrl(localUrl);\n      // NB: Hardcoded?\n      setAuthToken(\"xwjkfycqhakpudymxmysxlei\");\n      alert?.(\n        \"Connected to localhost\",\n        \"It seems your server is running locally, you're now connected. You can now interact with your local file system to apply prompts on your own knowledge base!\",\n        [\n          { text: \"Okay\", style: \"default\", onPress: () => router.reload() },\n          {\n            text: \"Undo\",\n            style: \"destructive\",\n            onPress: () => {\n              setCustomUrl(null);\n            },\n          },\n        ]\n      );\n    }\n  };\n\n  React.useEffect(() => {\n    window.addEventListener(\"focus\", onFocus);\n    //   window.addEventListener(\"blur\", onBlur);\n    // Calls onFocus when the window first loads\n    onFocus();\n    // Specify how to clean up after this effect:\n    return () => {\n      window.removeEventListener(\"focus\", onFocus);\n      //  window.removeEventListener(\"blur\", onBlur);\n    };\n  }, []);\n\n  const projectRelativeBaseFolderPath = isFolder\n    ? actualProjectRelativeFilePath\n    : getFolderJs(actualProjectRelativeFilePath);\n\n  const filename = isFolder\n    ? undefined\n    : getFileOrFolderName(actualProjectRelativeFilePath);\n\n  const thePrompts = isFolder\n    ? contextualPromptsObject?.folderContextualPrompts || []\n    : contextualPromptsObject?.pageContextualPrompts || [];\n\n  const fileContextualPromptResults = contextualPromptResults?.filter(\n    (x) => !x.selectionString\n  );\n  const selectionContextualPromptResults = contextualPromptResults?.filter(\n    (x) => !!x.selectionString\n  );\n\n  const variantResult = useVariantResult(contextualPromptResults);\n  // const fileType =\n  //   fileTypePerExtension[\n  //     getExtension(\n  //       props.projectRelativeFilePath\n  //     ) as keyof typeof fileTypePerExtension\n  //   ] || undefined;\n  // NB: this doesn't allow inline links so we cannot use this type of color highlihgting...\n  const codeblockWrappedMarkdown = variantResult?.resultText\n    ? variantResult?.resultText\n    : // : fileType === \"code\"\n      // ? `\\`\\`\\`tsx\\n${markdown}\\n\\`\\`\\``\n      // : fileType === \"data\"\n      // ? `\\`\\`\\`json\\n${markdown}\\n\\`\\`\\``\n      markdown;\n\n  const contentString = codeblockWrappedMarkdown\n    ? codeblockWrappedMarkdown\n    : !canSeeContent && unauthorizedWarningMessage\n    ? unauthorizedWarningMessage\n    : props.notFound\n    ? props.notFoundReason || \"Not found\"\n    : \"No content\";\n  const markdownParse = mdToJsonParse(contentString);\n\n  const folderPath = isFolder ? queryPath : getFolderJs(queryPath);\n\n  const markdownContentConfig = {\n    fileContextualPromptResults,\n    selectionContextualPromptResults,\n    projectRelativeBaseFolderPath,\n    projectRelativeMarkdownFilePath: actualProjectRelativeFilePath,\n    disableSelectionContextMenu: true,\n    selectionPrompts: contextualPromptsObject?.selectionContextualPrompts,\n  };\n\n  const renderEditContent = () => {\n    return (\n      <Div className=\"flex flex-1 flex-col lg:h-full lg:overflow-y-scroll\">\n        <FileActions\n          projectRelativeFilePath={actualProjectRelativeFilePath}\n          basePath={basePath}\n          navigation={navigation}\n        />\n        {actualProjectRelativeFilePath ? renderFileWriter() : null}\n      </Div>\n    );\n  };\n\n  const renderPage = () => (\n    <Div className=\"flex flex-1 flex-col\">\n      <FileActions\n        projectRelativeFilePath={actualProjectRelativeFilePath}\n        basePath={basePath}\n        navigation={navigation}\n      />\n      {sidebarHidden ? (\n        <Div className=\"max-lg:hidden lg:block flex justify-end\">\n          <ClickableIcon emoji=\"<<\" onClick={() => setSidebarHidden(false)} />\n        </Div>\n      ) : null}\n      <VariantSelector\n        projectRelativeFilePath={actualProjectRelativeFilePath}\n        folderPath={folderPath}\n        isFolder={isFolder}\n        filename={filename}\n        contextualPromptResults={fileContextualPromptResults}\n      />\n\n      {/* <Shareable > */}\n      <Div className={\"p-1\"}>\n        <MarkdownContent\n          config={markdownContentConfig}\n          content={contentString}\n        />\n      </Div>\n      {/* </Shareable> */}\n\n      <SelectionPrompts\n        contentString={contentString}\n        projectRelativeFilePath={actualProjectRelativeFilePath}\n        selectionContextualPrompts={\n          props.contextualPromptsObject?.selectionContextualPrompts\n        }\n      />\n\n      <Div>\n        <P className=\"font-bold\">Apply a prompt on the whole file</P>\n        <Div className=\"flex flex-row flex-wrap\">\n          {/* Speak */}\n          <NavButton\n            title=\"🎤 Speak\"\n            onClick={async () => {\n              alert?.(\"Coming soon\", \"coming soon\");\n            }}\n          />\n          {/* Free form */}\n          {isFolder ? null : (\n            <NavButton\n              title=\"🕊 Free-form prompt\"\n              onClick={async () => {\n                let question = prompt(\n                  \"What do you want to ask/prompt about this file?\"\n                );\n\n                if (!question || question === \"\") {\n                  return;\n                }\n\n                let name = prompt(\n                  \"If we should add this prompt into the database, how should we call it? (leave empty if you don't want to save it)\"\n                );\n\n                const realName = name === \"\" ? null : name;\n\n                const customPromptContent = `I am reading this file:\\n\\n\\`\\`\\`\\n%context\\n\\`\\`\\`\\n\\n${question}`;\n\n                await processPrompt({\n                  contextualContent: {\n                    contextContent: contentString,\n                    context_projectRelativeFilePath:\n                      actualProjectRelativeFilePath,\n                  },\n                  showPromptAlert,\n                  customPromptContent,\n                  saveNewPromptWithName: realName,\n                });\n              }}\n            />\n          )}\n\n          {thePrompts.map((prompt) => {\n            return (\n              <PromptButton\n                key={`prompt${prompt.id}`}\n                item={prompt}\n                markdown={markdown}\n                projectRelativeFilePath={actualProjectRelativeFilePath}\n              />\n            );\n          })}\n        </Div>\n      </Div>\n      {isFolder && admin.isAdminActive ? (\n        <Div>\n          Execute for all files\n          <Div className=\"flex flex-row flex-wrap\">\n            {contextualPromptsObject?.pageContextualPrompts.map((prompt) => {\n              return (\n                <NavButton\n                  onClick={() => {\n                    alert?.(\n                      \"Not implemented yet\",\n                      \"Execute a certain prompt for all files in a folder, recursively. Should not show the result immediately because these things should be queued and the result is too big to show immediately. There should be settings before you execute all prompts: recursively nested folders? how fast should it be executed? Which model? Etc.\"\n                    );\n                  }}\n                  title={prompt.title || prompt.name}\n                />\n              );\n            })}\n          </Div>\n        </Div>\n      ) : null}\n\n      <Div className=\"pt-4 pb-12\">\n        <MarkdownContent content={promo} config={{}} />\n      </Div>\n    </Div>\n  );\n\n  const variantsOnLg =\n    !fileContextualPromptResults ||\n    sidebarHidden ||\n    !fileContextualPromptResults.length ? null : (\n      <Div className=\"lg:block max-lg:hidden lg:w-[280px] 2xl:w-[400px] lg:h-full lg:overflow-y-scroll\">\n        <Div className=\"flex flex-row ml-3\">\n          <ClickableIcon emoji=\"╳\" onClick={() => setSidebarHidden(true)} />\n          <P className=\"ml-2 font-bold\">File Prompt Results</P>\n        </Div>\n        {fileContextualPromptResults?.map((result) => {\n          if (!result.resultText) return null;\n          return (\n            <Div className=\"m-2 p-2 bg-gray-100 dark:bg-slate-800 rounded-lg\">\n              <Div className=\"w-full flex justify-between\">\n                <P className=\"font-bold\">{result.contextualPromptSlug}</P>\n                <ClickableIcon\n                  emoji=\"👀\"\n                  onClick={() => {\n                    const query: {\n                      queryPath: string | string[] | undefined;\n                      variant?: string;\n                    } = {\n                      queryPath: router.query.queryPath,\n                      variant: result.contextualPromptSlug,\n                    };\n\n                    router.push({ query }, undefined, { shallow: true });\n                  }}\n                />\n              </Div>\n              <MarkdownContent\n                config={markdownContentConfig}\n                content={result.resultText}\n              />\n            </Div>\n          );\n        })}\n      </Div>\n    );\n  return true ? (\n    <MarkdownParsePresentation\n      markdownParse={markdownParse}\n      projectRelativeBaseFolderPath={projectRelativeBaseFolderPath || \"/\"}\n      projectRelativeMarkdownFilePath={actualProjectRelativeFilePath || \"/\"}\n    />\n  ) : (\n    <Div className=\"lg:flex lg:flex-row h-full\">\n      <Menu\n        notFound={notFound}\n        projectRelativeFilePath={actualProjectRelativeFilePath}\n        folderPath={folderPath}\n        filename={filename}\n        isFolder={isFolder}\n        navigation={navigation}\n        contextualPromptsObject={contextualPromptsObject}\n        fileContextualPromptResults={fileContextualPromptResults}\n        selectionContextualPromptResults={selectionContextualPromptResults}\n        thePrompts={thePrompts}\n      />\n\n      <div className=\"flex flex-col flex-1 lg:h-full lg:overflow-y-scroll\">\n        <Tabs\n          tabs={[\n            { emoji: \"🪄\", title: \"Generate\", renderTab: renderPage },\n            {\n              emoji: \"🛝\",\n              title: \"Slides\",\n              renderTab: () => (\n                <MarkdownParsePresentation\n                  markdownParse={markdownParse}\n                  projectRelativeBaseFolderPath={\n                    projectRelativeBaseFolderPath || \"/\"\n                  }\n                  projectRelativeMarkdownFilePath={\n                    actualProjectRelativeFilePath || \"/\"\n                  }\n                />\n              ),\n            },\n            { emoji: \"✏️\", title: \"Write\", renderTab: renderEditContent },\n          ]}\n          title={queryPath.split(\"?\")[0]}\n        />\n      </div>\n\n      {variantsOnLg}\n    </Div>\n  );\n}",
+  "name": "ReaderPage",
+  "slug": "reader-page",
+  "parameters": [
+    {
+      "name": "props",
+      "schema": {
+        "$ref": "#/definitions/ReaderProps"
+      },
+      "simplifiedSchema": {
+        "fullComment": "This is what we need on the page level. There are many subtleties to it, but this is the core",
+        "properties": [
+          {
+            "name": "notFound",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "notFoundReason",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "isFolder",
+            "required": false,
+            "schema": {
+              "fullComment": "If true, the current path represents a folder, not a file.",
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "canSeeContent",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "unauthorizedWarningMessage",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "markdown",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "contextualPromptsObject",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "contextualPromptResults",
+            "required": false,
+            "schema": {
+              "properties": [],
+              "type": "object"
+            }
+          },
+          {
+            "name": "actualProjectRelativeFilePath",
+            "required": false,
+            "schema": {
+              "fullComment": "Project relative file path that is actually used",
+              "type": "string"
+            }
+          },
+          {
+            "name": "navigation",
+            "required": false,
+            "schema": {
+              "items": [
+                {
+                  "schema": {
+                    "fullComment": "",
+                    "properties": [
+                      {
+                        "name": "name",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "projectRelativePath",
+                        "required": true,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "type",
+                        "required": true,
+                        "schema": {
+                          "enum": [
+                            "folder",
+                            "file",
+                            "link",
+                            "unknown"
+                          ],
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "firstFile",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.",
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "isPrivate",
+                        "required": false,
+                        "schema": {
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "isDraft",
+                        "required": false,
+                        "schema": {
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "isSecret",
+                        "required": false,
+                        "schema": {
+                          "type": "boolean"
+                        }
+                      },
+                      {
+                        "name": "authorizedGroup",
+                        "required": false,
+                        "schema": {
+                          "type": "string"
+                        }
+                      },
+                      {
+                        "name": "frontmatter",
+                        "required": false,
+                        "schema": {
+                          "fullComment": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+                          "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+                          "properties": [],
+                          "type": "object"
+                        }
+                      }
+                    ],
+                    "type": "object"
+                  },
+                  "name": "FolderContent"
+                }
+              ],
+              "type": "array"
+            }
+          }
+        ],
+        "type": "object"
+      },
+      "required": true
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 11,
+  "size": {
+    "characters": 12013,
+    "lines": 362,
+    "bytes": 12041,
+    "bytesPerCharacter": 1.002330808291018,
+    "charactersPerLine": 33,
+    "linesPerFile": 362,
+    "numberOfFiles": 1
+  },
+  "id": "scnmidvgzxbklskuxpddkupz"
+}

@@ -1,0 +1,206 @@
+{
+  "createdAt": 1673379271533,
+  "updatedAt": 1673379271533,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379271533,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/useFileActions.ts",
+  "commentsInside": [],
+  "rawText": " (\n  basePath?: string,\n  navigation?: FolderContent[]\n) => {\n  const admin = useAdmin();\n\n  const updateFrontmatter = async (\n    projectRelativePath: string | undefined,\n    newFrontmatter: { [key: string]: string }\n  ) => {\n    if (!projectRelativePath) return;\n\n    if (!basePath) return;\n\n    const apiResult = await api.updateFrontmatter({\n      projectRelativePath,\n      frontmatter: newFrontmatter,\n    });\n\n    showStandardResponse(apiResult);\n\n    if (apiResult.result?.isSuccessful) {\n      admin.refetch?.();\n    }\n  };\n\n  const alert = useAlert();\n\n  const items: ContextMenuItem[] = [\n    {\n      getTitle: () => \"🗑 Delete\",\n      onClick: (projectRelativePath) => {\n        if (!projectRelativePath) return;\n\n        if (!basePath) return;\n\n        const basePathRelative = makeRelative(projectRelativePath, basePath);\n        alert?.(\"Are you sure?\", `Do you want to delete ${basePathRelative}?`, [\n          { style: \"cancel\", text: \"Cancel\" },\n          {\n            text: \"Delete\",\n            style: \"destructive\",\n            onPress: async () => {\n              // delete also works, but trash seems better for now.\n              const apiResult = await api.deleteFileOrFolder(\n                projectRelativePath\n              );\n\n              showStandardResponse(apiResult);\n\n              if (apiResult?.result?.isSuccessful) {\n                admin.refetch?.();\n              }\n            },\n          },\n        ]);\n      },\n    },\n    {\n      getTitle: () => \"📣 Rename\",\n      onClick: async (projectRelativePath) => {\n        if (!projectRelativePath) return;\n        let newFilename = prompt(\n          \"What should the new name be?\",\n          getFileOrFolderName(projectRelativePath)\n        );\n        if (!newFilename) return;\n        const apiResult = await api.renameFileOrFolder(\n          projectRelativePath,\n          newFilename\n        );\n\n        showStandardResponse(apiResult);\n        if (apiResult?.result?.isSuccessful) {\n          admin.refetch?.();\n        }\n      },\n    },\n    {\n      getTitle: () => \"↩️ Move\",\n      onClick: async (projectRelativePath) => {\n        if (!projectRelativePath) return;\n\n        if (!basePath) return;\n\n        const basePathRelative = makeRelative(projectRelativePath, basePath);\n        let newLocation = prompt(\n          \"Where should this file/folder be moved to?\",\n          getFolderJs(basePathRelative)\n        );\n        if (!newLocation) return;\n\n        const apiResult = await api.movePath(\n          projectRelativePath,\n          basePath + \"/\" + newLocation\n        );\n\n        showStandardResponse(apiResult);\n        if (apiResult?.result?.isSuccessful) {\n          admin.refetch?.();\n        }\n      },\n    },\n\n    {\n      getTitle: () => \"👯‍♀️ Make a copy\",\n      onClick: async (projectRelativePath) => {\n        if (!projectRelativePath) return;\n\n        const apiResult = await api.copyPath(projectRelativePath);\n\n        showStandardResponse(apiResult);\n\n        if (apiResult?.result?.isSuccessful) {\n          admin.refetch?.();\n        }\n      },\n    },\n\n    {\n      getTitle: () => \"🔎 Open in Explorer\",\n      onClick: async (projectRelativePath) => {\n        if (!projectRelativePath) return;\n\n        if (!basePath) return;\n\n        const apiResult = await api.fileExplorerOpen(projectRelativePath);\n\n        showStandardResponse(apiResult);\n      },\n    },\n\n    {\n      getTitle: () => \"💻 Open in VSCode\",\n      onClick: async (projectRelativePath) => {\n        if (!projectRelativePath) return;\n\n        if (!basePath) return;\n\n        const apiResult = await api.vscodeOpen({\n          files: [{ projectRelativePath }],\n        });\n\n        showStandardResponse(apiResult);\n      },\n    },\n\n    {\n      getIsEnabled: (projectRelativePath) =>\n        navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.authorizedGroup !== \"\",\n      getTitle: () => \"🕊 Make free\",\n      onClick: (path) => updateFrontmatter(path, { authorizedGroup: \"\" }),\n    },\n    {\n      getIsEnabled: (projectRelativePath) =>\n        navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.authorizedGroup !== \"premium\",\n\n      getTitle: () => \"🏛 Make indie-only\",\n      onClick: (path) =>\n        updateFrontmatter(path, { authorizedGroup: \"premium\" }),\n    },\n\n    {\n      getIsEnabled: (projectRelativePath) =>\n        navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.authorizedGroup !== \"enterprise\",\n      getTitle: () => \"🚀 Make startup-only\",\n      onClick: (path) =>\n        updateFrontmatter(path, { authorizedGroup: \"enterprise\" }),\n    },\n\n    {\n      getIsEnabled: (projectRelativePath) =>\n        !navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.isPrivate,\n      getTitle: () => \"🔑 Set private\",\n      onClick: (path) => updateFrontmatter(path, { isPrivate: \"true\" }),\n    },\n    {\n      getIsEnabled: (projectRelativePath) =>\n        navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.isPrivate === true,\n      getTitle: () => \"🔑 Set public\",\n      onClick: (path) => updateFrontmatter(path, { isPrivate: \"false\" }),\n    },\n    {\n      getIsEnabled: (projectRelativePath) =>\n        navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.isSecret !== true,\n      getTitle: () => \"🔒 Set secret\",\n      onClick: (path) => updateFrontmatter(path, { isSecret: \"true\" }),\n    },\n    {\n      getIsEnabled: (projectRelativePath) =>\n        navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.isSecret === true,\n      getTitle: () => \"🔒 Set open\",\n      onClick: (path) => updateFrontmatter(path, { isSecret: \"false\" }),\n    },\n    {\n      getIsEnabled: (projectRelativePath) =>\n        navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.isDraft !== true,\n      getTitle: () => \"🧪 Set draft\",\n      onClick: (path) => updateFrontmatter(path, { isDraft: \"true\" }),\n    },\n    {\n      getIsEnabled: (projectRelativePath) =>\n        navigation?.find((x) => x.projectRelativePath === projectRelativePath)\n          ?.isDraft === true,\n      getTitle: () => \"🧪 Set live\",\n      onClick: (path) => updateFrontmatter(path, { isDraft: \"false\" }),\n    },\n  ];\n\n  return items;\n}",
+  "name": "useFileActions",
+  "slug": "use-file-actions",
+  "parameters": [
+    {
+      "name": "basePath",
+      "schema": {
+        "type": "string"
+      },
+      "simplifiedSchema": {
+        "type": "string"
+      },
+      "required": false
+    },
+    {
+      "name": "navigation",
+      "schema": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/FolderContent"
+        }
+      },
+      "simplifiedSchema": {
+        "items": [
+          {
+            "schema": {
+              "fullComment": "",
+              "properties": [
+                {
+                  "name": "name",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "projectRelativePath",
+                  "required": true,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "type",
+                  "required": true,
+                  "schema": {
+                    "enum": [
+                      "folder",
+                      "file",
+                      "link",
+                      "unknown"
+                    ],
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "firstFile",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "In case the type is a folder, this is either the only file in that folder, or the README, or the index.*, or blank.",
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "isPrivate",
+                  "required": false,
+                  "schema": {
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isDraft",
+                  "required": false,
+                  "schema": {
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "isSecret",
+                  "required": false,
+                  "schema": {
+                    "type": "boolean"
+                  }
+                },
+                {
+                  "name": "authorizedGroup",
+                  "required": false,
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                {
+                  "name": "frontmatter",
+                  "required": false,
+                  "schema": {
+                    "fullComment": "Our version of frontmatter is a bit simpler than regular frontmatter\n\nNot sure if this is a good idea, but it keeps it simple for our OS\n\nall values parse in a similar way to csv\n\nmake sure that you use quotes if you want to store a string with commas, because commas in a parameter indicate that it is a string array\n\nNB: string arrays are comma separated values, where you can put values with special characters in between quotes",
+                    "nb": "string arrays are comma separated values, where you can put values with special characters in between quotes",
+                    "properties": [],
+                    "type": "object"
+                  }
+                }
+              ],
+              "type": "object"
+            },
+            "name": "FolderContent"
+          }
+        ],
+        "type": "array"
+      },
+      "required": false
+    }
+  ],
+  "description": "",
+  "returnType": {
+    "rawType": "import(\"/Users/king/King/operations/tools/user-interfaces/gui/dumb/context-menu/build/types\").ContextMenuItem[]",
+    "typeDefinition": {
+      "optional": false,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "getIsEnabled": {
+            "type": "object",
+            "properties": {}
+          },
+          "onClick": {
+            "type": "object",
+            "properties": {}
+          },
+          "getTitle": {
+            "type": "object",
+            "properties": {}
+          }
+        },
+        "required": [
+          "onClick",
+          "getTitle"
+        ]
+      }
+    },
+    "typeCoverage": 0,
+    "isArray": true,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "items": [
+        {
+          "schema": {
+            "properties": [
+              {
+                "name": "getIsEnabled",
+                "required": false,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "onClick",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              },
+              {
+                "name": "getTitle",
+                "required": true,
+                "schema": {
+                  "properties": [],
+                  "type": "object"
+                }
+              }
+            ],
+            "type": "object"
+          },
+          "name": null
+        }
+      ],
+      "type": "array"
+    }
+  },
+  "maxIndentationDepth": 8,
+  "size": {
+    "characters": 6330,
+    "lines": 219,
+    "bytes": 6368,
+    "bytesPerCharacter": 1.006003159557662,
+    "charactersPerLine": 29,
+    "linesPerFile": 219,
+    "numberOfFiles": 1
+  },
+  "id": "gilyjdqskaakuewtpkfzizif"
+}

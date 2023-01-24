@@ -1,14 +1,14 @@
 {
-  "createdAt": 1671457737552,
-  "updatedAt": 1671457737552,
+  "createdAt": 1672134495039,
+  "updatedAt": 1672134495039,
   "deletedAt": 0,
-  "createdFirstAt": 1671457737552,
+  "createdFirstAt": 1672134495039,
   "isApiExposed": true,
   "isExported": false,
   "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/test.ts",
   "commentsInside": [],
-  "rawText": " async () => {\n  console.log(\"test is called\");\n  // const browser = await runBrowser();\n  const page = await openPage();\n  // const page = await browser.newPage();\n  await page?.goto(\"https://www.google.com/recaptcha/api2/demo\", {\n    waitUntil: \"domcontentloaded\",\n  });\n  if (page) {\n    const captchRes = await isCaptchaExist(page);\n    console.log({ captchRes: JSON.stringify(captchRes) });\n  }\n  // //@ts-ignore\n  // const pageId = page?.target()._targetId;\n  // setBrowserPageIdle(pageId, false);\n  // const page2 = await openPage(pageId);\n  // await page2?.goto(\"https://facebook.com\", {\n  //   waitUntil: \"domcontentloaded\",\n  // });\n}",
+  "rawText": " async () => {\n    const pages = [];\n    for (let i = 0; i < 10; i++) {\n        pages.push(openPage());\n    }\n    console.log({ pages });\n    const allPages = await Promise.all(pages);\n    console.log({ allPages });\n    // allPages.forEach((p) => p?.goto(\"https://facebook.com\"));\n}",
   "name": "test",
   "slug": "test",
   "parameters": [],
@@ -22,15 +22,15 @@
     "isPrimitive": false,
     "isEnumLiteral": false
   },
-  "maxIndentationDepth": 2,
+  "maxIndentationDepth": 4,
   "size": {
-    "characters": 644,
-    "lines": 20,
-    "bytes": 644,
+    "characters": 282,
+    "lines": 10,
+    "bytes": 282,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 32,
-    "linesPerFile": 20,
+    "charactersPerLine": 28,
+    "linesPerFile": 10,
     "numberOfFiles": 1
   },
-  "id": "dsarqooejeximswbylmbbpwd"
+  "id": "udhwausldakuvyuqqgvnixox"
 }

@@ -14,6 +14,7 @@ export * from "./getRelativeLinkPath";
 export * from "./getRelativePath";
 export * from "./getRootPath";
 export * from "./getSrcRelativeFileId";
+export * from "./getSubExtensions";
 export * from "./hasDependency";
 export * from "./isBundle";
 export * from "./isOperation";

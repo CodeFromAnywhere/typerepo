@@ -50,7 +50,7 @@
     "folderNameIndexed": "k-explore",
     "hasGeneratedDependenciesIndexed": false,
     "lastPullTimeAtIndexed": 0,
-    "lastRebuildAt": 1670216151703,
+    "lastRebuildAt": 1672637450838,
     "operationDependenciesIndexed": [
       "Dirent",
       "fs",
@@ -95,28 +95,28 @@
     "markdown": "exploration functions for exploring files within King OS\n\nCurrently has a thin dependency on `get-path`, but this can probably be removed to make this operation more general purpose (and work outside of King OS too)\n",
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 8,
-        "lines": 740,
-        "characters": 21641,
-        "bytes": 21641
+        "numberOfFiles": 9,
+        "lines": 754,
+        "characters": 21939,
+        "bytes": 21939
       },
       "dataSize": {
         "numberOfFiles": 3,
-        "lines": 330,
-        "characters": 15235,
-        "bytes": 15235
+        "lines": 331,
+        "characters": 15253,
+        "bytes": 15253
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 283,
-        "characters": 5544,
-        "bytes": 5544
+        "lines": 294,
+        "characters": 5761,
+        "bytes": 5761
       },
       "size": {
-        "bytes": 42420,
-        "characters": 42420,
-        "lines": 1353,
-        "numberOfFiles": 13
+        "bytes": 42953,
+        "characters": 42953,
+        "lines": 1379,
+        "numberOfFiles": 14
       }
     },
     "hasGeneratedImportsIndexed": false

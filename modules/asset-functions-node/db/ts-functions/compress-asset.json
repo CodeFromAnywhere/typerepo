@@ -1,11 +1,10 @@
 {
-  "createdAt": 1671115485258,
-  "updatedAt": 1671115485258,
+  "createdAt": 1673861878119,
+  "updatedAt": 1673861878119,
   "deletedAt": 0,
-  "createdFirstAt": 1671115485258,
-  "isApiExposed": true,
+  "createdFirstAt": 1673861878119,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/compressAsset.ts",
   "commentsInside": [],
   "rawText": " async (\n  absolutePath: string,\n  compressionConfig: CompressionConfig\n): Promise<string> => {\n  return absolutePath;\n}",
@@ -104,5 +103,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "uzqkxdklnblinacihxokygpq"
+  "id": "sdxggdmqoctkxsopjjsfgmdw"
 }

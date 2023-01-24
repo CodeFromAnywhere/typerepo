@@ -1,34 +1,18 @@
 [
   {
-    "createdAt": 1670527018862,
-    "updatedAt": 1670527018862,
+    "createdAt": 1672637100970,
+    "updatedAt": 1672637100970,
     "deletedAt": 0,
-    "createdFirstAt": 1670527018862,
+    "createdFirstAt": 1672637100970,
     "name": "Comment",
     "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/types.ts",
-    "comment": "unlike PathLike, this is only a string\n\nFor now, we don't have a clear convention whether or not this string should be absolute or anything.",
-    "rawStatement": "export type Path = string;",
+    "operationRelativeTypescriptFilePath": "src/updateSingleNestedJsonFile.ts",
+    "comment": "Uses mergeNestedObject on a JSON file",
+    "rawStatement": "export const updateSingleNestedJsonFile = async <T extends O>(\n  path: string,\n  partialNewObject: NestedPartial<T>\n) => {\n  const json = await readJsonFile<T>(path);\n  if (!json) return false;\n  const newData = mergeNestedObject(json, partialNewObject);\n  const isSuccessful = await writeJsonToFile(path, newData);\n  return isSuccessful;\n};",
     "parameters": {},
     "types": [],
-    "firstLine": 20,
-    "lastLine": 24,
-    "id": "wsyvjnzxhdglxseqmpxmzpgy"
-  },
-  {
-    "createdAt": 1670527018862,
-    "updatedAt": 1670527018862,
-    "deletedAt": 0,
-    "createdFirstAt": 1670527018862,
-    "name": "Comment",
-    "slug": "comment",
-    "operationRelativeTypescriptFilePath": "src/types.ts",
-    "comment": "DEPRECATED: just use ParsedPath",
-    "rawStatement": "export type FolderPath = { relativeFolder: string | undefined; path: Path };",
-    "parameters": {},
-    "types": [],
-    "firstLine": 26,
-    "lastLine": 28,
-    "id": "dhcdtckwijkfitwpgvfyuiuu"
+    "firstLine": 5,
+    "lastLine": 7,
+    "id": "rjeiekjfxieqwzllhfnvztxc"
   }
 ]

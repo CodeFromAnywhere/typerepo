@@ -44,6 +44,7 @@ export declare function onlyUnique<T extends unknown>(value: T, index: number, s
  *
  */
 export declare const onlyUnique2: <U>(isEqualFn?: ((a: U, b: U) => boolean) | undefined) => <T extends U>(value: T, index: number, self: T[]) => boolean;
+export declare const onlyDuplicates: <U>(isEqualFn?: ((a: U, b: U) => boolean) | undefined) => <T extends U>(value: T, index: number, self: T[]) => boolean;
 /**
  * if something is not an array, returns it as the first element of an array
  *

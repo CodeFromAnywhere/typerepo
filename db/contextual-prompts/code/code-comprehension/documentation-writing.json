@@ -1,0 +1,20 @@
+{
+  "createdAt": 1670077368158,
+  "updatedAt": 1670077368158,
+  "deletedAt": 0,
+  "createdFirstAt": 1670077368158,
+  "slug": "documentation-writing",
+  "name": "documentation-writing",
+  "language": "english",
+  "id": "aavsskbdjagsofxffguoyfqh",
+  "promptContent": "I wrote this code\n\n```tsx\n%context\n```\n\nPlease write js-doc-comments for every line in this file.",
+  "usesContext": true,
+  "contextType": [
+    "code"
+  ],
+  "isFavorite": true,
+  "categoryStack": [
+    "code",
+    "code-comprehension"
+  ]
+}

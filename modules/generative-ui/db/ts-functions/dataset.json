@@ -1,0 +1,40 @@
+{
+  "createdAt": 1673379231481,
+  "updatedAt": 1673379231481,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379231481,
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/components/Dataset.tsx",
+  "commentsInside": [],
+  "rawText": " () => {\n  const categoriesQuery = queries.useGetContextualPromptCategories();\n\n  return (\n    <Div id=\"dataset\" className=\"h-screen overflow-y-scroll\">\n      <MarkdownContent\n        config={{}}\n        content={`\\`\\`\\`json\\n${JSON.stringify(\n          categoriesQuery.data?.result,\n          undefined,\n          2\n        )}\\n\\`\\`\\``}\n      />\n    </Div>\n  );\n}",
+  "name": "Dataset",
+  "slug": "dataset",
+  "parameters": [],
+  "description": "",
+  "returnType": {
+    "rawType": "JSX.Element",
+    "typeDefinition": {
+      "optional": false,
+      "$ref": "#/definitions/JSX.Element"
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 5,
+  "size": {
+    "characters": 364,
+    "lines": 16,
+    "bytes": 364,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 23,
+    "linesPerFile": 16,
+    "numberOfFiles": 1
+  },
+  "id": "vqkognfdaeowkopnhmegcgaq"
+}

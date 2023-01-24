@@ -1,0 +1,33 @@
+{
+  "createdAt": 1673379239979,
+  "updatedAt": 1673379239979,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379239979,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "MyLayout",
+  "slug": "my-layout",
+  "operationRelativeTypescriptFilePath": "src/components/MyLayout.tsx",
+  "type": {
+    "rawType": "(props: { pageProps: any; nextPage: any; }) => JSX.Element",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(props: { pageProps: any; nextPage: any }) => {\n  const { nextPage, pageProps } = props;\n  const router = useRouter();\n  // in index, we need this\n  if (router.isReady && router.pathname === \"/\") {\n    const Index = nextPage;\n    return <Index {...pageProps} />;\n  }\n  return (\n    <AuthenticationLayout\n      overwriteDefaultPages={[\"signup\"]}\n      nextPage={nextPage}\n      pageProps={pageProps}\n    />\n  );\n}",
+  "description": "",
+  "id": "zeerhjvoiwlmphnlljcqxlrv"
+}

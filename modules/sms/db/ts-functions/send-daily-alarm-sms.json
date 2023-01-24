@@ -1,0 +1,37 @@
+{
+  "createdAt": 1673379726346,
+  "updatedAt": 1673379726346,
+  "deletedAt": 0,
+  "createdFirstAt": 1673379726346,
+  "runEveryPeriod": "hour",
+  "isApiExposed": true,
+  "isExported": true,
+  "groupAuthorization": {},
+  "operationRelativeTypescriptFilePath": "src/sendDailyAlarmSms.ts",
+  "commentsInside": [],
+  "rawText": " async () => {\n  const now = time().myTimeDate;\n  if (now.getHours() !== 8) {\n    // only 8 pm\n    return;\n  }\n\n  const persona = await getPrimaryPersona();\n  sendSms({ to: persona.phone, body: \"Wake up!\" });\n}",
+  "name": "sendDailyAlarmSms",
+  "slug": "send-daily-alarm-sms",
+  "parameters": [],
+  "description": "---\nrunEveryPeriod: hour\n---",
+  "returnType": {
+    "rawType": "any",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "maxIndentationDepth": 2,
+  "size": {
+    "characters": 238,
+    "lines": 12,
+    "bytes": 238,
+    "bytesPerCharacter": 1,
+    "charactersPerLine": 20,
+    "linesPerFile": 12,
+    "numberOfFiles": 1
+  },
+  "id": "jywiekayrgizwdjundakyjkr"
+}
