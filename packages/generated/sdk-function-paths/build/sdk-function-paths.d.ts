@@ -24,6 +24,7 @@ export declare const sdkFunctionPaths: {
     searchGetStaticProps: string;
     SearchResultComponent: string;
     SearchResultPage: string;
+    summarizeMeetings: string;
     Test: string;
     FileWriterPage: string;
     MyLayout: string;

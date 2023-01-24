@@ -1,0 +1,60 @@
+{
+  "createdAt": 1674587715824,
+  "updatedAt": 1674587715824,
+  "deletedAt": 0,
+  "createdFirstAt": 1674587715824,
+  "id": "namedparameterstypeof-summarizemeetings",
+  "name": "NamedParameters<typeof summarizeMeetings>",
+  "slug": "namedparameterstypeof-summarizemeetings",
+  "operationRelativeTypescriptFilePath": "src/apps/summarizeMeetings.ts",
+  "hasGeneric": false,
+  "isExported": false,
+  "isOperationIndex": false,
+  "description": "",
+  "isDbModel": false,
+  "commentsInside": [],
+  "type": {
+    "typeDefinition": {
+      "type": "object",
+      "properties": {
+        "youtubeUrl": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "youtubeUrl",
+        "email"
+      ],
+      "additionalProperties": false
+    },
+    "simplifiedSchema": {
+      "properties": [
+        {
+          "name": "youtubeUrl",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "email",
+          "required": true,
+          "schema": {
+            "type": "string"
+          }
+        }
+      ],
+      "type": "object"
+    },
+    "typeCoverage": 0,
+    "rawType": "NamedParameters<typeof summarizeMeetings>",
+    "isArray": false,
+    "isEnum": false,
+    "isEnumLiteral": false,
+    "isObject": false,
+    "isPrimitive": false
+  }
+}

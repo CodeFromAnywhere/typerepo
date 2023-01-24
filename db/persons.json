@@ -13,44 +13,10 @@
         "isAuthenticated": true
       }
     ],
-    "groupSlugs": ["admin"],
+    "groupSlugs": [
+      "admin"
+    ],
     "name": "Admin",
     "slug": "admin"
-  },
-  {
-    "createdAt": 1674549417696,
-    "updatedAt": 1674549417696,
-    "deletedAt": 0,
-    "createdFirstAt": 1674549417696,
-    "id": "eluwjakefqnqmjmkbfryewwm",
-    "groupSlugs": ["admin"],
-    "authenticationMethods": [
-      {
-        "method": "usernamePassword",
-        "handle": "admin2",
-        "encryptedCredential": "$2b$10$wMhduzQ4N0udKao0v12ZD.fCjUfcfhiA3H5929AGWOdwpi3i9lKbK",
-        "isAuthenticated": true
-      }
-    ],
-    "name": "admin2",
-    "slug": "admin2"
-  },
-  {
-    "createdAt": 1674549645231,
-    "updatedAt": 1674549645231,
-    "deletedAt": 0,
-    "createdFirstAt": 1674549645231,
-    "id": "rhxonnpubfjmacqvobaonpez",
-    "groupSlugs": ["admin"],
-    "authenticationMethods": [
-      {
-        "method": "usernamePassword",
-        "handle": "admin33",
-        "encryptedCredential": "$2b$10$m2jy7D42N7CgssVRO2Jv0eFIsPNJfk4G6YG/y0PylyP7vwoUpfWzC",
-        "isAuthenticated": true
-      }
-    ],
-    "name": "admin33",
-    "slug": "admin33"
   }
 ]

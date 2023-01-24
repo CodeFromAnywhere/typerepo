@@ -17,6 +17,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof getAllSearchResults>": string;
     "NamedParameters<typeof SearchResultComponent>": string;
     "NamedParameters<typeof SearchResultPage>": string;
+    "NamedParameters<typeof summarizeMeetings>": string;
     QueryPageProps: string;
     SearchResult: string;
     "NamedParameters<typeof MyLayout>": string;

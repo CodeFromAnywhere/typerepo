@@ -90,7 +90,7 @@
       "buildSucceeded": true,
       "indexImportExportError": "",
       "indexInteracesErrors": [
-        "No schema/definitions found for /Users/king/King/operations/tools/purpose/search/search-web/src/util/searchGetStaticProps.ts. Error: TypeError: Invalid value used as weak map key"
+        "No schema/definitions found for /Users/king/King/operations/tools/purpose/search/search-web/src/pages/index.tsx. Error: Error: Unknown node \" () => {\n  return (\n    <AuthenticationLayout\n      nextPage={() => {\n        return (\n          <Div className=\"flex flex-1 min-h-[90vh] items-center flex-col justify-around\">\n            <Div className=\"text-4xl text-blue-500 drop-shadow cursor-grab\">\n              Share meeting insights for free\n            </Div>\n            <FunctionForm\n              tsFunction={Index}\n              withApiResult={(result) => {\n                alert?.(\"Yo gelukt hoor\");\n              }}\n            />\n          </Div>\n        );\n      }}\n      pageProps={{}}\n    />\n  );\n}\" of kind \"ArrowFunction\""
       ],
       "lintProblems": []
     },

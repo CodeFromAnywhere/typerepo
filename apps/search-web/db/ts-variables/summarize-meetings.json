@@ -1,0 +1,33 @@
+{
+  "createdAt": 1674587722589,
+  "updatedAt": 1674587722589,
+  "deletedAt": 0,
+  "createdFirstAt": 1674587722589,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "summarizeMeetings",
+  "slug": "summarize-meetings",
+  "operationRelativeTypescriptFilePath": "src/apps/summarizeMeetings.ts",
+  "type": {
+    "rawType": "(youtubeUrl: string, email: string) => void",
+    "typeDefinition": {
+      "type": "object",
+      "properties": {},
+      "optional": false
+    },
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": true,
+    "isPrimitive": false,
+    "isEnumLiteral": false,
+    "simplifiedSchema": {
+      "properties": [],
+      "type": "object"
+    }
+  },
+  "value": "(youtubeUrl: string, email: string) => {\n  /*\nAdd task:\n\n- download youtube url --> mp3 in their own private store\n- send email to setup account\n- mp3 --> wav --> transcript --> gpt3 stuff\n- if it's done, email the person automatically with a link where they can see the result\n*/\n}",
+  "description": "",
+  "id": "mujqjqqykiudduoinzvxkscm"
+}

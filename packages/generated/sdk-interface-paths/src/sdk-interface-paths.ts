@@ -17,6 +17,7 @@ export const sdkInterfacePaths = {
   "NamedParameters<typeof getAllSearchResults>": "/apps/search-web/db/ts-interfaces/namedparameterstypeof-getallsearchresults.json",
   "NamedParameters<typeof SearchResultComponent>": "/apps/search-web/db/ts-interfaces/namedparameterstypeof-searchresultcomponent.json",
   "NamedParameters<typeof SearchResultPage>": "/apps/search-web/db/ts-interfaces/namedparameterstypeof-searchresultpage.json",
+  "NamedParameters<typeof summarizeMeetings>": "/apps/search-web/db/ts-interfaces/namedparameterstypeof-summarizemeetings.json",
   "QueryPageProps": "/apps/search-web/db/ts-interfaces/querypageprops.json",
   "SearchResult": "/apps/search-web/db/ts-interfaces/searchresult.json",
   "NamedParameters<typeof MyLayout>": "/modules/generative-ui/db/ts-interfaces/namedparameterstypeof-mylayout.json",

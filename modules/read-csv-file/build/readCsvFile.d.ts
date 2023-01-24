@@ -1,13 +1,13 @@
 import { Path } from "fs-util";
 import { CsvItemType } from "csv-util";
 /**
- * Reads and parses CSV file
+ * Reads and parses CSV file that has columns
  *
  * specify a generic of what type of item the file contains an array of
  */
 export declare const readCsvFile: <T extends CsvItemType>(filePath: Path | undefined) => Promise<T[] | null>;
 /**
- * Reads and parses CSV file
+ * Reads and parses CSV file that has columns
  *
  * specify a generic of what type of item the file contains an array of
  */

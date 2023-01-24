@@ -1,12 +1,12 @@
 {
-  "createdAt": 1674542316293,
-  "updatedAt": 1674542316293,
+  "createdAt": 1674587430385,
+  "updatedAt": 1674587430385,
   "deletedAt": 0,
-  "createdFirstAt": 1674542316293,
+  "createdFirstAt": 1674587430385,
   "isApiExposed": false,
   "isExported": true,
   "explicitTypeName": "GetStaticPaths",
-  "operationRelativeTypescriptFilePath": "src/pages/[...query].tsx",
+  "operationRelativeTypescriptFilePath": "src/pages/search/[...query].tsx",
   "commentsInside": [],
   "rawText": " () => {\n  return { fallback: \"blocking\", paths: [] };\n}",
   "name": "getStaticPaths",
@@ -87,5 +87,5 @@
     "linesPerFile": 3,
     "numberOfFiles": 1
   },
-  "id": "dfptvlyxryuzeobpiujgzcch"
+  "id": "vgtcmwpgadmylesosrhkfgff"
 }

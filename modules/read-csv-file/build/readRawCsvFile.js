@@ -36,69 +36,28 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.test = exports.readCsvFileSync = exports.readCsvFile = void 0;
-var fs_util_1 = require("fs-util");
-var make_test_1 = require("make-test");
+exports.readRawCsvFile = void 0;
 var sync_1 = require("csv-parse/sync");
-/**
- * Reads and parses CSV file that has columns
- *
- * specify a generic of what type of item the file contains an array of
- */
-var readCsvFile = function (filePath) { return __awaiter(void 0, void 0, void 0, function () {
+var fs_util_1 = require("fs-util");
+var readRawCsvFile = function (filePath) { return __awaiter(void 0, void 0, void 0, function () {
     var readable, fileBuffer, parsed;
     return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                if (!filePath)
-                    return [2 /*return*/, null];
-                // TODO: is this needed?
-                if (!fs_util_1.fs.existsSync(filePath))
-                    return [2 /*return*/, null];
-                return [4 /*yield*/, (0, fs_util_1.canRead)(filePath)];
-            case 1:
-                readable = _a.sent();
-                if (!readable)
-                    return [2 /*return*/, null];
-                return [4 /*yield*/, fs_util_1.fs.readFile(filePath)];
-            case 2:
-                fileBuffer = _a.sent();
-                parsed = (0, sync_1.parse)(fileBuffer, { columns: true });
-                return [2 /*return*/, parsed];
-        }
+        // TODO: is this needed?
+        if (!fs_util_1.fs.existsSync(filePath))
+            return [2 /*return*/, null];
+        readable = (0, fs_util_1.canReadSync)(filePath);
+        if (!readable)
+            return [2 /*return*/, null];
+        fileBuffer = fs_util_1.fs.readFileSync(filePath);
+        if (!fileBuffer)
+            return [2 /*return*/, null];
+        parsed = (0, sync_1.parse)(fileBuffer, {
+            // relax_quotes: true,
+            relax_column_count: true,
+            // relaxQuotes: true,
+        });
+        return [2 /*return*/, parsed];
     });
 }); };
-exports.readCsvFile = readCsvFile;
-/**
- * Reads and parses CSV file that has columns
- *
- * specify a generic of what type of item the file contains an array of
- */
-var readCsvFileSync = function (filePath) {
-    // TODO: is this needed?
-    if (!fs_util_1.fs.existsSync(filePath))
-        return null;
-    var readable = (0, fs_util_1.canReadSync)(filePath);
-    if (!readable)
-        return null;
-    var fileBuffer = fs_util_1.fs.readFileSync(filePath);
-    if (!fileBuffer)
-        return null;
-    var parsed = (0, sync_1.parse)(fileBuffer, { columns: true });
-    // const parsed = tryParseCsv<T>(fileString);
-    return parsed;
-};
-exports.readCsvFileSync = readCsvFileSync;
-exports.test = [
-    (0, make_test_1.makeTest)(function () {
-        return (0, exports.readCsvFile)(fs_util_1.path.join(__dirname, "..", "assets", "example.csv"));
-    }, function (result) {
-        return (result === null || result === void 0 ? void 0 : result.length) === 6;
-    }),
-    (0, make_test_1.makeTest)(function () {
-        return (0, exports.readCsvFileSync)(fs_util_1.path.join(__dirname, "..", "assets", "example.csv"));
-    }, function (result) {
-        return (result === null || result === void 0 ? void 0 : result.length) === 6;
-    }),
-];
-//# sourceMappingURL=readCsvFile.js.map
+exports.readRawCsvFile = readRawCsvFile;
+//# sourceMappingURL=readRawCsvFile.js.map

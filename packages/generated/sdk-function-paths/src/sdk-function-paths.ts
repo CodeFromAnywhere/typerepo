@@ -24,6 +24,7 @@ export const sdkFunctionPaths = {
   "searchGetStaticProps": "/apps/search-web/db/ts-functions/search-get-static-props.json",
   "SearchResultComponent": "/apps/search-web/db/ts-functions/search-result-component.json",
   "SearchResultPage": "/apps/search-web/db/ts-functions/search-result-page.json",
+  "summarizeMeetings": "/apps/search-web/db/ts-functions/summarize-meetings.json",
   "Test": "/apps/search-web/db/ts-functions/test.json",
   "FileWriterPage": "/apps/todo-web/db/ts-functions/file-writer-page.json",
   "MyLayout": "/modules/generative-ui/db/ts-functions/my-layout.json",
