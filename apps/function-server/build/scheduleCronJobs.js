@@ -14,7 +14,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
+        while (g && (g = 0, op[0] && (_ = 0)), _) try {
             if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
             if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
@@ -86,7 +86,9 @@ var scheduleCronJobs = function () { return __awaiter(void 0, void 0, void 0, fu
                 (0, log_1.log)("Scheduling CRON jobs", { type: "important" });
                 (0, js_util_1.getObjectKeysArray)(exports.scheduleObject).map(function (interval) {
                     var cronExpression = exports.scheduleObject[interval];
-                    var functionsToExecute = tsFunctions.filter(function (x) { return x.runEveryPeriod === interval; });
+                    var functionsToExecute = tsFunctions.filter(
+                    //@ts-ignore should later be replaced with the thing you find on the actual function
+                    function (x) { return x.runEveryPeriod === interval; });
                     if (functionsToExecute.length > 0) {
                         console.log("- ".concat(functionsToExecute.length, " functions for ").concat(interval, " cron"));
                         (0, node_cron_1.schedule)(cronExpression, function () {

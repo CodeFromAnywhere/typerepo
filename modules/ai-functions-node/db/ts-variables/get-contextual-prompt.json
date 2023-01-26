@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133275533,
-  "updatedAt": 1674133275533,
+  "createdAt": 1673524351406,
+  "updatedAt": 1673524351406,
   "deletedAt": 0,
-  "createdFirstAt": 1674133275533,
+  "createdFirstAt": 1673524351406,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-contextual-prompt",
   "operationRelativeTypescriptFilePath": "src/getContextualPrompt.ts",
   "type": {
-    "rawType": "(contextualPromptSlug: string | undefined, customPromptContent: string | undefined, saveNewPromptWithName: string | null, contextType: import(\"/Users/king/King/operations/tools/conventions/filename-conventions/build/extensions\").FileType | undefined) => Promise<any>",
+    "rawType": "(contextualPromptSlug: string | undefined, customPromptContent: string | undefined, saveNewPromptWithName: string | null, contextType: import(\"/Users/clarity/os/operations/tools/conventions/filename-conventions/build/extensions\").FileType | undefined) => Promise<any>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -29,5 +29,5 @@
   },
   "value": "async (\n  contextualPromptSlug: string | undefined,\n  customPromptContent: string | undefined,\n  saveNewPromptWithName: string | null,\n  contextType: FileType | undefined\n): Promise<(Creation<ContextualPrompt> & { slug: string }) | undefined> => {\n  if (contextualPromptSlug) {\n    const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n    const contextualPrompt = contextualPrompts.find(\n      (x) => x.slug === contextualPromptSlug\n    );\n\n    if (!contextualPrompt) {\n      return undefined;\n    }\n\n    return contextualPrompt;\n  }\n\n  if (!customPromptContent || customPromptContent.length === 0) {\n    return undefined;\n  }\n\n  const isNew = saveNewPromptWithName && saveNewPromptWithName.length > 0;\n\n  // console.log({ saveNewPromptWithName, isNew });\n  const name = isNew ? saveNewPromptWithName : generateId();\n  const newContextualPrompt: Creation<ContextualPrompt> & { slug: string } = {\n    name,\n    slug: slugify(name),\n    promptContent: customPromptContent,\n    contextType: [contextType || \"text\"],\n    model: \"chat-gpt\",\n    usesContext: customPromptContent?.includes(\"%context\"),\n    usesSelection: customPromptContent?.includes(\"%selection\"),\n    usesAnyContext: customPromptContent?.includes(\"%any\"),\n  };\n\n  if (isNew) {\n    await db.upsert(\"ContextualPrompt\", newContextualPrompt);\n  }\n\n  return newContextualPrompt;\n}",
   "description": "",
-  "id": "hmjpgsmiiajjjzelvtxujlxj"
+  "id": "zigoxreqfflrbeahoknligus"
 }

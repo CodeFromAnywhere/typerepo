@@ -1,14 +1,13 @@
 {
-  "createdAt": 1671554730492,
-  "updatedAt": 1671554730492,
+  "createdAt": 1673523402407,
+  "updatedAt": 1673523402407,
   "deletedAt": 0,
-  "createdFirstAt": 1671554730492,
-  "isApiExposed": true,
+  "createdFirstAt": 1673523402407,
+  "isApiExposed": false,
   "isExported": true,
-  "groupAuthorization": {},
   "operationRelativeTypescriptFilePath": "src/PingApi.tsx",
   "commentsInside": [],
-  "rawText": " () => {\n  const [isOffline, setIsOffline] = useState(false);\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      getItem(API_NO_RESPONSE_TIME_KEY).then((value) => {\n        if (!value) {\n          if (isOffline) {\n            setIsOffline(false);\n            return;\n          }\n        }\n\n        const lastNoResponse = Number(value);\n        const timeAgo = Date.now() - lastNoResponse;\n        if (timeAgo < timeBeforeNotOffline && isOffline) {\n          setIsOffline(false);\n        } else {\n          setIsOffline(true);\n        }\n      });\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return (\n    <Div className=\"mx-4\">\n      <ALink href=\"/settings\">{isOffline ? \"🔺\" : \"💚\"} API</ALink>\n    </Div>\n  );\n}",
+  "rawText": " () => {\n  // ping every time the user returns to the screen. this way the api gets checked\n  const pingResult = queries.usePing();\n  const [isOffline, setIsOffline] = useState<boolean | undefined>(undefined);\n  useEffect(() => {\n    const intervalId = setInterval(() => {\n      // every second, check the localstorage for this thing.\n\n      getItem(API_NO_RESPONSE_TIME_KEY).then((value) => {\n        if (value === undefined) {\n          if (isOffline) {\n            setIsOffline(false);\n            return;\n          }\n        }\n\n        const lastNoResponse = Number(value);\n        console.log({ lastNoResponse });\n\n        if (lastNoResponse === 0) {\n          // last time we got a response...\n          setIsOffline(false);\n          return;\n        }\n\n        const timeAgo = Date.now() - lastNoResponse;\n\n        if (timeAgo > timeBeforeNotOffline) {\n          // long ago, let's wait for loading it again\n          setIsOffline(undefined);\n          return;\n        }\n\n        // last 10 seconds we tried but itseems to have an error during that time\n        setIsOffline(true);\n      });\n    }, 1000);\n\n    return () => clearInterval(intervalId);\n  }, []);\n\n  return (\n    <Div className=\"mx-4\">\n      <ALink href=\"/settings\">\n        {isOffline === undefined ? \"🟠\" : isOffline === true ? \"❌\" : \"✅\"} API\n        status:{\" \"}\n        {isOffline === true\n          ? \"down\"\n          : isOffline === undefined\n          ? \"loading\"\n          : \"up\"}\n      </ALink>\n    </Div>\n  );\n}",
   "name": "PingApi",
   "slug": "ping-api",
   "parameters": [],
@@ -28,13 +27,13 @@
   },
   "maxIndentationDepth": 6,
   "size": {
-    "characters": 757,
-    "lines": 31,
-    "bytes": 761,
-    "bytesPerCharacter": 1.0052840158520475,
-    "charactersPerLine": 24,
-    "linesPerFile": 31,
+    "characters": 1492,
+    "lines": 55,
+    "bytes": 1498,
+    "bytesPerCharacter": 1.0040214477211795,
+    "charactersPerLine": 27,
+    "linesPerFile": 55,
     "numberOfFiles": 1
   },
-  "id": "nidfvhinolxcwlfzqfuwdalj"
+  "id": "nlruozqirapalozmnucetqas"
 }

@@ -1,5 +1,5 @@
 import { ProcessPromptFunctionResult } from "ai-types";
-export declare type ProcessPromptProps = {
+export type ProcessPromptProps = {
     contextContent?: string | null;
     selectionContent?: string | null;
     contextualPromptSlug?: string;

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133317133,
-  "updatedAt": 1674133317133,
+  "createdAt": 1673524401171,
+  "updatedAt": 1673524401171,
   "deletedAt": 0,
-  "createdFirstAt": 1674133317133,
+  "createdFirstAt": 1673524401171,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "get-tool-functions",
   "operationRelativeTypescriptFilePath": "src/tool/getToolFunctions.ts",
   "type": {
-    "rawType": "{ (): Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction[]>; isPublic: boolean; }",
+    "rawType": "{ (): Promise<import(\"/Users/clarity/os/operations/tools/types/code-types/build/TsFunction\").TsFunction[]>; isPublic: boolean; }",
     "typeDefinition": {
       "type": "object",
       "properties": {
@@ -44,5 +44,5 @@
   },
   "value": "async (): Promise<TsFunction[]> => {\n  const tsFunctions = await db.get(\"TsFunction\");\n\n  getPublicBundleConfig();\n  const toolFunctions = tsFunctions.filter((x) => {\n    const fn = sdk[x.name as keyof typeof sdk] as ApiFunction | undefined;\n    const isTool = fn && typeof fn === \"function\" && fn.domain;\n    return isTool;\n  });\n\n  return toolFunctions;\n}",
   "description": "Returns all tool functions to the frontend",
-  "id": "mmsltllvqdsufxoaawflkimm"
+  "id": "sayxkivvopnnjdyzkqyzrgsa"
 }

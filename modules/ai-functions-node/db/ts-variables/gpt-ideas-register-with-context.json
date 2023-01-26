@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133284584,
-  "updatedAt": 1674133284584,
+  "createdAt": 1673524361921,
+  "updatedAt": 1673524361921,
   "deletedAt": 0,
-  "createdFirstAt": 1674133284584,
+  "createdFirstAt": 1673524361921,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "gpt-ideas-register-with-context",
   "operationRelativeTypescriptFilePath": "src/gptIdeasRegisterWithContext.ts",
   "type": {
-    "rawType": "(functionContext: import(\"/Users/king/King/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext, name: string, email: string, tier: \"free\" | \"indie\" | \"startup\" | \"sponsor\", newsletter: \"daily\" | \"weekly\" | \"unsubscribe\", message?: string | undefined) => unknown",
+    "rawType": "(functionContext: import(\"/Users/clarity/os/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext, name: string, email: string, tier: \"free\" | \"indie\" | \"startup\" | \"sponsor\", newsletter: \"daily\" | \"weekly\" | \"unsubscribe\", message?: string | undefined) => unknown",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  functionContext: FunctionContext,\n  name: string,\n  email: string,\n  tier: \"free\" | \"indie\" | \"startup\" | \"sponsor\",\n  newsletter: \"daily\" | \"weekly\" | \"unsubscribe\",\n  message?: string\n) => {\n  const username = email.split(\"@\")[0] + Math.round(Math.random() * 999);\n\n  const password = generateId();\n\n  // only supported for now\n  const method: AuthenticationMethodMethod = \"usernamePassword\";\n\n  const addDeviceAuthResult = await addDeviceAuthenticationMethodWithContext(\n    functionContext,\n    method,\n    username,\n    password\n  );\n\n  const addDeviceEmailAuthResult =\n    await addDeviceAuthenticationMethodWithContext(\n      functionContext,\n      \"email\",\n      email\n    );\n\n  console.log({ addDeviceEmailAuthResult });\n\n  // console.log({ addDeviceAuthResult });\n  const { functionContext: newFunctionContext, authenticationMethod } =\n    addDeviceAuthResult;\n\n  if (!authenticationMethod?.isAuthenticated || !newFunctionContext) {\n    console.log(\"NOT AUTHENTICATED AFTER ADDING DEVICE\", {\n      authenticationMethod,\n      newFunctionContext,\n    });\n    return { isSuccessful: false, message: message || \"Strange\" };\n  }\n\n  const signupResult = await signupWithContext(functionContext, {\n    name,\n    slug: slugify(name),\n    amountAuthenticationMethodsRequired: 1,\n    authorizations: [],\n    requiredAuthenticationMethods: null,\n  });\n\n  const upsertResult = await db.upsert(\"GptIdeasUser\", {\n    email,\n    newsletter,\n    tier,\n  });\n\n  return {\n    isSuccessful: signupResult.isSuccessful,\n    message: signupResult.message,\n  };\n}",
+  "value": "async (\n  functionContext: FunctionContext,\n  name: string,\n  email: string,\n  tier: \"free\" | \"indie\" | \"startup\" | \"sponsor\",\n  newsletter: \"daily\" | \"weekly\" | \"unsubscribe\",\n  message?: string\n) => {\n  const username = email.split(\"@\")[0] + Math.round(Math.random() * 999);\n\n  const password = generateId();\n\n  // only supported for now\n  const method: AuthenticationMethodMethod = \"usernamePassword\";\n\n  const addDeviceAuthResult = await addDeviceAuthenticationMethodWithContext(\n    functionContext,\n    method,\n    username,\n    password\n  );\n\n  const addDeviceEmailAuthResult =\n    await addDeviceAuthenticationMethodWithContext(\n      functionContext,\n      \"email\",\n      email\n    );\n\n  console.log({ addDeviceEmailAuthResult });\n\n  // console.log({ addDeviceAuthResult });\n  const { functionContext: newFunctionContext, authenticationMethod } =\n    addDeviceAuthResult;\n\n  if (!authenticationMethod?.isAuthenticated || !newFunctionContext) {\n    console.log(\"NOT AUTHENTICATED AFTER ADDING DEVICE\", {\n      authenticationMethod,\n      newFunctionContext,\n    });\n    return { isSuccessful: false, message: message || \"Strange\" };\n  }\n\n  const signupResult = await signupWithContext(functionContext, {\n    name,\n    slug: slugify(name),\n  });\n\n  const upsertResult = await db.upsert(\"GptIdeasUser\", {\n    email,\n    newsletter,\n    tier,\n  });\n\n  return {\n    isSuccessful: signupResult.isSuccessful,\n    message: signupResult.message,\n  };\n}",
   "description": "TODO: move to gptideas backend package",
-  "id": "myfcbgyiuwoiozkugiwnlpfp"
+  "id": "cfqhoinggjqbusoateywdtyd"
 }

@@ -21,7 +21,6 @@ import { biggestFunctionName } from "ai-functions-node";
 import { checkQueue } from "ai-functions-node";
 import { cleanup } from "ai-functions-node";
 import { controlChatGptWrapper } from "ai-functions-node";
-import { controlChatGpt } from "ai-functions-node";
 import { deletePromptResult } from "ai-functions-node";
 import { developersQuote } from "ai-functions-node";
 import { diaryToInstagram } from "ai-functions-node";
@@ -59,6 +58,7 @@ import { setIsFavoritePromptResult } from "ai-functions-node";
 import { shouldAddToQueue } from "ai-functions-node";
 import { socratesAndSnoopDogg } from "ai-functions-node";
 import { storytelling } from "ai-functions-node";
+import { summarizeMeetings } from "ai-functions-node";
 import { toolFunctionWithContext } from "ai-functions-node";
 import { translateEverythingIntoHindi } from "ai-functions-node";
 import { translateEverythingPortuguese } from "ai-functions-node";
@@ -881,7 +881,6 @@ biggestFunctionName,
 checkQueue,
 cleanup,
 controlChatGptWrapper,
-controlChatGpt,
 deletePromptResult,
 developersQuote,
 diaryToInstagram,
@@ -919,6 +918,7 @@ setIsFavoritePromptResult,
 shouldAddToQueue,
 socratesAndSnoopDogg,
 storytelling,
+summarizeMeetings,
 toolFunctionWithContext,
 translateEverythingIntoHindi,
 translateEverythingPortuguese,

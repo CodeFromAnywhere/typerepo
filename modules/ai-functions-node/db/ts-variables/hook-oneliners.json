@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133295927,
-  "updatedAt": 1674133295927,
+  "createdAt": 1673524374573,
+  "updatedAt": 1673524374573,
   "deletedAt": 0,
-  "createdFirstAt": 1674133295927,
+  "createdFirstAt": 1673524374573,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "hook-oneliners",
   "operationRelativeTypescriptFilePath": "src/prompts.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
+    "rawType": "import(\"/Users/clarity/os/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -20,5 +20,5 @@
   },
   "value": "async (isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"hook-oneliners\",\n      \n    });\n\n    return result;\n\n  }",
   "description": "",
-  "id": "eqsxobrfcmokpccssqfobxua"
+  "id": "pdwlrdjybjlkdgbbzqzdspbd"
 }

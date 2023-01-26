@@ -17,4 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./runFunctionServer"), exports);
 __exportStar(require("./runFunctionServerDev"), exports);
 __exportStar(require("./scheduleCronJobs"), exports);
+__exportStar(require("./startSearchWebIfAvailable"), exports);
 //# sourceMappingURL=index.js.map

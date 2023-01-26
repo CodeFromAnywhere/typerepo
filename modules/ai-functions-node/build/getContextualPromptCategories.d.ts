@@ -1,5 +1,5 @@
 import { CategoryChildObject, ContextualPrompt } from "ai-types";
-export declare type StackCount = {
+export type StackCount = {
     [stack: string]: number;
 };
 export declare const getObjectForkKeyRecursively: (stackCount: StackCount, key: string, originalKey: string, items: ContextualPrompt[]) => CategoryChildObject | undefined;

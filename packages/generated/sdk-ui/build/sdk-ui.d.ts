@@ -786,5 +786,5 @@ export declare const sdk: {
         disabledMenuItems?: string[] | undefined;
     }) => JSX.Element;
 };
-export declare type SdkType = typeof sdk;
+export type SdkType = typeof sdk;
 //# sourceMappingURL=sdk-ui.d.ts.map

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133287176,
-  "updatedAt": 1674133287176,
+  "createdAt": 1673524364769,
+  "updatedAt": 1673524364769,
   "deletedAt": 0,
-  "createdFirstAt": 1674133287176,
+  "createdFirstAt": 1673524364769,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "control-chat-gpt-wrapper",
   "operationRelativeTypescriptFilePath": "src/processChatGptPrompt.ts",
   "type": {
-    "rawType": "(prompt: string, isHeadless: boolean | undefined, thread: string | undefined, controller: \"playwright\" | \"puppeteer\" | \"faker\") => Promise<import(\"/Users/king/King/operations/tools/ai/ai-types/build/ProcessPromptFunctionResult\").ProcessPromptFunctionResult>",
+    "rawType": "(prompt: string, isHeadless: boolean | undefined, thread: string | undefined, controller: \"playwright\" | \"puppeteer\" | \"faker\") => Promise<import(\"/Users/clarity/os/operations/tools/ai/ai-types/build/ProcessPromptFunctionResult\").ProcessPromptFunctionResult>",
     "typeDefinition": {
       "type": "object",
       "properties": {},
@@ -27,7 +27,7 @@
       "type": "object"
     }
   },
-  "value": "async (\n  prompt: string,\n  isHeadless: boolean | undefined,\n  thread: string | undefined,\n  controller: \"playwright\" | \"puppeteer\" | \"faker\"\n): Promise<ProcessPromptFunctionResult> => {\n  const result: ProcessPromptFunctionResult =\n    controller === \"playwright\"\n      ? await controlChatGpt(prompt, isHeadless)\n      : controller === \"puppeteer\"\n      ? await openAIChat({ prompt, isHeadless, thread })\n      : {\n          isSuccessful: true,\n          message: \"Done test\",\n          result: {\n            text: \"Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum\",\n            thread: \"\",\n          },\n        };\n\n  return result;\n}",
+  "value": "async (\n  prompt: string,\n  isHeadless: boolean | undefined,\n  thread: string | undefined,\n  controller: \"playwright\" | \"puppeteer\" | \"faker\"\n): Promise<ProcessPromptFunctionResult> => {\n  const result: ProcessPromptFunctionResult =\n    controller === \"playwright\"\n      ? { isSuccessful: false, message: \"Playwright is disabled atm\" } //controlChatGpt(prompt, isHeadless)\n      : controller === \"puppeteer\"\n      ? await openAIChat({ prompt, isHeadless, thread })\n      : {\n          isSuccessful: true,\n          message: \"Done test\",\n          result: {\n            text: \"Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum\",\n            thread: \"\",\n          },\n        };\n\n  return result;\n}",
   "description": "",
-  "id": "gwrbfhsfjizgxygcxjmthtxh"
+  "id": "bdzbvlyvkyzbkdefgiuiyyqu"
 }

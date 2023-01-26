@@ -1,13 +1,13 @@
 {
-  "createdAt": 1674133286951,
-  "updatedAt": 1674133286951,
+  "createdAt": 1673524364475,
+  "updatedAt": 1673524364475,
   "deletedAt": 0,
-  "createdFirstAt": 1674133286951,
+  "createdFirstAt": 1673524364475,
   "isApiExposed": false,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/processChatGptPrompt.ts",
   "commentsInside": [],
-  "rawText": " async (\n  prompt: string,\n  isHeadless: boolean | undefined,\n  thread: string | undefined,\n  controller: \"playwright\" | \"puppeteer\" | \"faker\"\n): Promise<ProcessPromptFunctionResult> => {\n  const result: ProcessPromptFunctionResult =\n    controller === \"playwright\"\n      ? await controlChatGpt(prompt, isHeadless)\n      : controller === \"puppeteer\"\n      ? await openAIChat({ prompt, isHeadless, thread })\n      : {\n          isSuccessful: true,\n          message: \"Done test\",\n          result: {\n            text: \"Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum\",\n            thread: \"\",\n          },\n        };\n\n  return result;\n}",
+  "rawText": " async (\n  prompt: string,\n  isHeadless: boolean | undefined,\n  thread: string | undefined,\n  controller: \"playwright\" | \"puppeteer\" | \"faker\"\n): Promise<ProcessPromptFunctionResult> => {\n  const result: ProcessPromptFunctionResult =\n    controller === \"playwright\"\n      ? { isSuccessful: false, message: \"Playwright is disabled atm\" } //controlChatGpt(prompt, isHeadless)\n      : controller === \"puppeteer\"\n      ? await openAIChat({ prompt, isHeadless, thread })\n      : {\n          isSuccessful: true,\n          message: \"Done test\",\n          result: {\n            text: \"Lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum lorum ipsum\",\n            thread: \"\",\n          },\n        };\n\n  return result;\n}",
   "name": "controlChatGptWrapper",
   "slug": "control-chat-gpt-wrapper",
   "parameters": [
@@ -64,7 +64,7 @@
   ],
   "description": "",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/tools/ai/ai-types/build/ProcessPromptFunctionResult\").ProcessPromptFunctionResult>",
+    "rawType": "Promise<import(\"/Users/clarity/os/operations/tools/ai/ai-types/build/ProcessPromptFunctionResult\").ProcessPromptFunctionResult>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -74,13 +74,13 @@
   },
   "maxIndentationDepth": 6,
   "size": {
-    "characters": 671,
+    "characters": 730,
     "lines": 22,
-    "bytes": 671,
+    "bytes": 730,
     "bytesPerCharacter": 1,
-    "charactersPerLine": 31,
+    "charactersPerLine": 33,
     "linesPerFile": 22,
     "numberOfFiles": 1
   },
-  "id": "azxnuhiqyiozrrsmwheobhaa"
+  "id": "vpbqxxxfwhetzofsphbvhkqi"
 }

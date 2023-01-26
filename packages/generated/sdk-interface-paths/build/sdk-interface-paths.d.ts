@@ -17,7 +17,6 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof getAllSearchResults>": string;
     "NamedParameters<typeof SearchResultComponent>": string;
     "NamedParameters<typeof SearchResultPage>": string;
-    "NamedParameters<typeof summarizeMeetings>": string;
     QueryPageProps: string;
     SearchResult: string;
     "NamedParameters<typeof MyLayout>": string;
@@ -43,6 +42,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof writeAllCodestoriesCli>": string;
     "NamedParameters<typeof writeCodespanDetails>": string;
     AuthenticationMethodMethod: string;
+    BackendAsset: string;
     ContextualPrompt: string;
     FileType: string;
     FunctionContext: string;
@@ -52,8 +52,6 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof biggestFunctionName>": string;
     "NamedParameters<typeof checkQueue>": string;
     "NamedParameters<typeof cleanup>": string;
-    "NamedParameters<typeof controlChatGpt>": string;
-    "NamedParameters<typeof controlChatGptCli>": string;
     "NamedParameters<typeof controlChatGptWrapper>": string;
     "NamedParameters<typeof deletePromptResult>": string;
     "NamedParameters<typeof developersQuote>": string;
@@ -93,6 +91,7 @@ export declare const sdkInterfacePaths: {
     "NamedParameters<typeof shouldAddToQueue>": string;
     "NamedParameters<typeof socratesAndSnoopDogg>": string;
     "NamedParameters<typeof storytelling>": string;
+    "NamedParameters<typeof summarizeMeetings>": string;
     "NamedParameters<typeof toolFunctionWithContext>": string;
     "NamedParameters<typeof translateEverything>": string;
     "NamedParameters<typeof translateEverythingIntoHindi>": string;
@@ -109,7 +108,6 @@ export declare const sdkInterfacePaths: {
     AiDataset: string;
     AiDemoApp: string;
     AiModel: string;
-    BackendAsset: string;
     CategoryChildObject: string;
     ContextualContent: string;
     ContextualPromptInfo: string;

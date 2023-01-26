@@ -60,7 +60,7 @@ import type { MediaPost } from "social-media-types";
 import type { SelfSprintReview } from "todo-types";
 import type { TodoFile } from "todo-types";
 import type { TodoOffer } from "todo-types";
-export declare type DbModels = {
+export type DbModels = {
     AiDataset: AiDataset;
     AiDemoApp: AiDemoApp;
     AiModel: AiModel;
@@ -125,7 +125,7 @@ export declare type DbModels = {
     TodoOffer: TodoOffer;
 };
 export declare const dbModelKeys: readonly ["AiDataset", "AiDemoApp", "AiModel", "ContextualPrompt", "ContextualPromptResult", "GptIdeasUser", "AuthorizationModel", "BrowserPage", "BrowserSession", "BundleConfig", "FrontBackBundle", "Dataset", "FunctionExecution", "Operation", "TsBuildError", "TsComment", "TsConfig", "TsExport", "TsFunction", "TsImport", "TsInterface", "TsLintWarning", "TsVariable", "TypescriptFile", "Address", "Area", "City", "Country", "Location", "KvmdWord", "MarkdownWord", "NepaliEnglishTranslationMatrix", "Statement", "TokiPonaMatrix", "Translation", "Word", "WordCategory", "WordCombination", "WordMatrix", "CreatorMarkdownFile", "MarkdownCallToAction", "WebMarkdownFile", "WebsiteHeader", "SlugModelType", "Device", "Group", "PageVisit", "PeerMessage", "Person", "Persona", "PersonInformation", "PersonInformationValue", "PersonPlatformConnection", "Platform", "Queue", "Interest", "MediaChannel", "MediaCredential", "MediaPost", "SelfSprintReview", "TodoFile", "TodoOffer"];
-export declare type DbModelEnum = typeof dbModelKeys[number];
+export type DbModelEnum = typeof dbModelKeys[number];
 export declare const modelQueryConfig: {
     AiDataset: {
         dbStorageMethod: string;

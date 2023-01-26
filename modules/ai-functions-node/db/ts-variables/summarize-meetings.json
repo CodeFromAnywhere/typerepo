@@ -1,0 +1,24 @@
+{
+  "createdAt": 1673524397880,
+  "updatedAt": 1673524397880,
+  "deletedAt": 0,
+  "createdFirstAt": 1673524397880,
+  "classification": "const",
+  "comments": [],
+  "isExported": true,
+  "name": "summarizeMeetings",
+  "slug": "summarize-meetings",
+  "operationRelativeTypescriptFilePath": "src/summarizeMeetings.ts",
+  "type": {
+    "rawType": "import(\"/Users/clarity/os/operations/tools/types/code-types/build/ApiFunction\").ApiFunction",
+    "typeCoverage": 0,
+    "isArray": false,
+    "isEnum": false,
+    "isObject": false,
+    "isPrimitive": false,
+    "isEnumLiteral": false
+  },
+  "value": "(\n  /**\n   * TITLE: Email (required)\n   */\n  email?: string,\n  /**\n   * TITLE: Phone number (optional)\n   */\n  phoneNumber?: string,\n  /**\n   * TITLE: Youtube URL of your meeting (optional)\n   */\n  meetingYoutubeUrl?: string,\n  /**\n   * TITLE: Audiofile of your meeting (optional)\n   */\n  meetingAudio?: BackendAsset\n) => {\n  console.log(\"SummarizeMeeting executed\", {\n    meetingYoutubeUrl,\n    meetingAudio,\n    email,\n    phoneNumber,\n  });\n  return {\n    isSuccessful: false,\n    message: \"Not implemented yet, but you reached the backend!\",\n  };\n  /*\nAdd task:\n\n- download youtube url --> mp3 in their own private store\n- send email to setup account\n- mp3 --> wav --> transcript --> gpt3 stuff\n- if it's done, email the person automatically with a link where they can see the result\n*/\n}",
+  "description": "Endpoint that onboards users",
+  "id": "wsucftrbicvyqeszwhcqfjye"
+}

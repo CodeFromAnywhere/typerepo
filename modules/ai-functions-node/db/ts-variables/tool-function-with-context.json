@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133320211,
-  "updatedAt": 1674133320211,
+  "createdAt": 1673524404583,
+  "updatedAt": 1673524404583,
   "deletedAt": 0,
-  "createdFirstAt": 1674133320211,
+  "createdFirstAt": 1673524404583,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "tool-function-with-context",
   "operationRelativeTypescriptFilePath": "src/tool/toolFunctionWithContext.ts",
   "type": {
-    "rawType": "{ (functionContext: import(\"/Users/king/King/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext, functionName: string, email: string, details: { [parameterName: string]: any; }): unknown; isPublic: boolean; }",
+    "rawType": "{ (functionContext: import(\"/Users/clarity/os/operations/tools/user-interfaces/api/function-context-type/build/FunctionContext\").FunctionContext, functionName: string, email: string, details: { [parameterName: string]: any; }): unknown; isPublic: boolean; }",
     "typeDefinition": {
       "type": "object",
       "properties": {
@@ -44,5 +44,5 @@
   },
   "value": "async (\n  functionContext: FunctionContext,\n  functionName: string,\n  email: string,\n  /**\n   * Needed in this format because we need to show it nicely in the form (maybe not needed, try without also)\n   */\n  details: { [parameterName: string]: any }\n) => {\n  const fn = sdk[functionName as keyof typeof sdk] as ApiFunction | undefined;\n\n  const isNoTool = !fn || typeof fn !== \"function\" || !fn.domain;\n  if (isNoTool) {\n    return { isSuccessful: false, message: \"This is no tool\" };\n  }\n\n  // 1) save device email to device if not already\n  const emailAdded = await addDeviceAuthenticationMethodWithContext(\n    functionContext,\n    \"email\",\n    email\n  );\n\n  if (!emailAdded.isSuccessful) {\n    return {\n      isSuccessful: false,\n      message: \"Couldn't add your email to device\",\n    };\n  }\n\n  // 2) check how often you are running this function, there should be a rate limit, maybe later (TODO)\n\n  // 2) get parameters\n  const parameters = Object.values(details);\n\n  // 3) validate parameters (TODO, can also partly be done in function itself because we need pretty strict maybe for length and stuff)\n\n  // 4) add to queue\n  const queueItem: Creation<Queue> = {\n    functionName,\n    parameters,\n    executionAuthToken: functionContext.authToken,\n    notifyLateAfterSeconds: 60,\n    shouldNotifyOnResult: true,\n  };\n  const upsertResult = await db.upsert(\"Queue\", queueItem);\n\n  return {\n    isSuccessful: upsertResult.isSuccesful,\n    message: upsertResult.isSuccesful\n      ? \"Check your mail in a moment\"\n      : `Couldn't add to queue ${upsertResult.message}`,\n  };\n}",
   "description": "Function to be executed straight from the frontend, where details is replaced with actual parameters of the function you want to execute.\n\n`.functionContext` and `.functionName` to be stripped out of the form",
-  "id": "jwxpsyombwempxlqjutsurwu"
+  "id": "wixjwivnikdiloxdmezyoikp"
 }

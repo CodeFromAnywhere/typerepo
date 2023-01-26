@@ -67,9 +67,9 @@ var watchOperations = function (config) { return __awaiter(void 0, void 0, void 
             case 1:
                 allOperationSourcePaths = _a.sent();
                 (0, general_1.exitIfOperationsChange)(allOperationSourcePaths, projectRoot);
-                if (!manualProjectRoot) {
-                    (0, general_1.gitCommitAllCron)(projectRoot);
-                }
+                // if (!manualProjectRoot) {
+                //   gitCommitAllCron(projectRoot);
+                // }
                 (0, log_1.log)("Hi, I'm \uD83D\uDC41 \uD83D\uDC41 Watching ".concat(allOperationSourcePaths.length, " operations at ").concat(projectRoot), { type: "success" });
                 watchFunction = (0, watch_folders_1.pickWatcher)();
                 watchFunction({

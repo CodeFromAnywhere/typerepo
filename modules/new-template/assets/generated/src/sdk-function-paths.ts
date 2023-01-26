@@ -844,6 +844,7 @@ export const sdkFunctionPaths = {
   "searchGetStaticProps": "/operations/tools/purpose/search/search-web/db/ts-functions/search-get-static-props.json",
   "SearchResultComponent": "/operations/tools/purpose/search/search-web/db/ts-functions/search-result-component.json",
   "SearchResultPage": "/operations/tools/purpose/search/search-web/db/ts-functions/search-result-page.json",
+  "summarizeMeetings": "/operations/tools/purpose/search/search-web/db/ts-functions/summarize-meetings.json",
   "Test": "/operations/niches/bhagya-27-12/social-media-web/db/ts-functions/test.json",
   "Timeline": "/operations/tools/purpose/search/timeline/db/ts-functions/timeline.json",
   "getPostableFrontmatterSchema": "/operations/tools/purpose/social-media/social-media-functions/db/ts-functions/get-postable-frontmatter-schema.json",

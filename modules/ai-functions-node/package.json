@@ -26,31 +26,31 @@
         "couldn't load file /Users/king/King/operations/tools/ai/ai-functions-node/build/src/prompts.ts"
       ]
     },
-    "lastRebuildAt": 1674133332935,
+    "lastRebuildAt": 1673524417347,
     "sizeIndexed": {
       "codeSize": {
-        "numberOfFiles": 25,
-        "lines": 2676,
-        "characters": 66326,
-        "bytes": 66326
+        "numberOfFiles": 23,
+        "lines": 2479,
+        "characters": 60640,
+        "bytes": 60640
       },
       "dataSize": {
         "numberOfFiles": 3,
-        "lines": 347,
-        "characters": 8771,
-        "bytes": 8771
+        "lines": 343,
+        "characters": 8665,
+        "bytes": 8665
       },
       "textSize": {
         "numberOfFiles": 2,
-        "lines": 885,
-        "characters": 18586,
-        "bytes": 18586
+        "lines": 860,
+        "characters": 18561,
+        "bytes": 18561
       },
       "size": {
-        "bytes": 93683,
-        "characters": 93683,
-        "lines": 3908,
-        "numberOfFiles": 30
+        "bytes": 87866,
+        "characters": 87866,
+        "lines": 3682,
+        "numberOfFiles": 28
       }
     },
     "folderNameIndexed": "ai-functions-node",
@@ -66,7 +66,6 @@
       "WordCombination",
       "WordMatrix",
       "Creation",
-      "ProcessPromptFunctionResult",
       "alterJsonMultiple",
       "ContextualPrompt",
       "db",
@@ -97,7 +96,6 @@
       "fileTypePerExtension",
       "alterJsonMultiple",
       "upsert",
-      "upsertItems",
       "fs",
       "path",
       "getProjectRoot",
@@ -115,6 +113,8 @@
       "explore",
       "readJsonFile",
       "alterJsonMultiple",
+      "BackendAsset",
+      "ApiFunction",
       "path",
       "writeStringToFile",
       "writeToAssets",
@@ -157,17 +157,12 @@
       "addAuthenticationMethod",
       "addDeviceAuthenticationMethodWithContext"
     ],
-    "packageDependenciesIndexed": [
-      "ChromiumBrowserContext",
-      "Page",
-      "chromium"
-    ],
+    "packageDependenciesIndexed": [],
     "classificationIndexed": "node-cjs"
   },
   "dependencies": {
     "delay": "^5.0.0",
     "html-to-md": "^0.8.2",
-    "playwright": "^1.28.1",
     "ai-types": "0.0.1",
     "database": "0.0.1",
     "model-types": "0.0.1",

@@ -94,7 +94,7 @@ export declare const sdk: {
     frontmatterParseToString: (frontmatter: import("matter-types").Frontmatter) => string;
     frontmatterToObject: (frontmatter: import("matter-types").Frontmatter, schema: import("code-types").SimplifiedSchema) => import("matter-types").FrontmatterParse;
     getFrontmatterValueString: (value: import("frontmatter-util").FrontmatterValue) => string | null;
-    markdownModelTypeToMarkdownString: (markdownModelType: import("model-types").Storing<import("model-types").MarkdownModelType>) => string;
+    markdownModelTypeToMarkdownString: (markdownModelType: import("model-types").Storing<any>) => string;
     objectToFrontmatter: (parse: import("matter-types").FrontmatterParse, schema: import("code-types").SimplifiedSchema) => import("matter-types").Frontmatter;
     parseFrontmatterString: (value: string) => string;
     quotedOrNot: (string: string) => string;
@@ -322,8 +322,8 @@ export declare const sdk: {
     parseMarkdownParagraph: (paragraph: string) => import("markdown-parse-js").MarkdownParagraphChunk[];
     parseMdToChunks: (markdownString: string, level: number) => import("markdown-types").MarkdownChunk[];
     removeHeaderPrefix: (string: string) => string;
-    markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<import("model-types").MarkdownModelType> | null;
-    parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "updatedAt" | "deletedAt" | "createdFirstAt" | "openedAt") => number;
+    markdownParseToMarkdownModelType: (markdownParse: import("markdown-types").MarkdownParse | null) => import("model-types").Storing<any> | null;
+    parseMarkdownModelTimestamp: (parameters: import("matter-types").Frontmatter, markdownParse: import("markdown-types").MarkdownParse, parameterName: "createdAt" | "createdFirstAt" | "updatedAt" | "deletedAt" | "openedAt") => number;
     tryParseDate: (dateString: string) => number | undefined;
     findCodeblocks: (markdownString: string) => string[];
     findCodespans: (markdownString: string) => string[];
@@ -536,5 +536,5 @@ export declare const sdk: {
     crudPageToWebPages: (pageData: import("webpage-types").CrudPage) => import("webpage-types").WebPage<import("webpage-types").CrudPage>[];
     functionFormPageToWebPage: (pageData: import("webpage-types").FunctionFormPage) => import("webpage-types").WebPage<import("webpage-types").FunctionFormPage>;
 };
-export declare type SdkType = typeof sdk;
+export type SdkType = typeof sdk;
 //# sourceMappingURL=sdk-js.d.ts.map

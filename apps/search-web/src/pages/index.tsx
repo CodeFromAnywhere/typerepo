@@ -1,8 +1,11 @@
 import { FunctionForm } from "function-form";
 import { AuthenticationLayout } from "layout";
 import { Div, P } from "react-with-native";
-import Index from "search-web/db/ts-functions/summarize-meetings.json";
+import Index from "ai-functions-node/db/ts-functions/summarize-meetings.json";
+import { useAlert } from "react-with-native-alert";
+import { RealApiReturnType } from "api-types";
 export default () => {
+  const alert = useAlert();
   return (
     <AuthenticationLayout
       nextPage={() => {
@@ -13,10 +16,22 @@ export default () => {
             </Div>
             <FunctionForm
               tsFunction={Index}
-              withApiResult={(result) => {
-                alert?.("Yo gelukt hoor");
+              withApiResult={(
+                result: RealApiReturnType<"summarizeMeetings">
+              ) => {
+                alert?.("Yo gelukt hoor", result.result?.message);
               }}
+              projectRelativeStorageFilePath="assets"
             />
+            <p>
+              Clarity AI generates an automated summary to share with everyone
+              and to help you remember everything.
+            </p>
+            <p className="text-center">
+              You don't need to upload anything right now, if you just provide
+              your contact details, we'll let you know about updates, and you
+              might be welcome in our private beta.
+            </p>
           </Div>
         );
       }}

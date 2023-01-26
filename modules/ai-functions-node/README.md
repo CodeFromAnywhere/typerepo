@@ -71,26 +71,6 @@ Another, possibly more direct way, would be to traverse the filesystem, in the c
 
 Checks if system is busy and if so, adds the task to queue
 
-# CLI
-
-<details><summary>Show CLI information (2)</summary>
-    
-  # controlChatGptCli()
-
-
-
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## 📄 controlChatGptCli (exported const)
-
-  </details>
-
 # Tests
 
 <details><summary>Show test information(4)</summary>
@@ -150,24 +130,6 @@ Heavy items: functions with `.isHeavy: true` inside. Will execute max 1 every mi
 | Input      |    |    |
 | ---------- | -- | -- |
 | contextContent | string |  |,| isDeferred (optional) | boolean |  |
-| **Output** |    |    |
-
-
-
-## controlChatGptCli()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| - | | |
-| **Output** |    |    |
-
-
-
-## controlChatGpt()
-
-| Input      |    |    |
-| ---------- | -- | -- |
-| prompt | string |  |,| headless (optional) | boolean |  |
 | **Output** |    |    |
 
 
@@ -543,6 +505,18 @@ Write a story about this code and what's happening in there
 
 
 
+## summarizeMeetings()
+
+Endpoint that onboards users
+
+
+| Input      |    |    |
+| ---------- | -- | -- |
+| email (optional) | string | TITLE: Email (required) |,| phoneNumber (optional) | string | TITLE: Phone number (optional) |,| meetingYoutubeUrl (optional) | string | TITLE: Youtube URL of your meeting (optional) |,| meetingAudio (optional) | `BackendAsset` | TITLE: Audiofile of your meeting (optional) |
+| **Output** | { isSuccessful: boolean, <br />message: string, <br /> }   |    |
+
+
+
 ## toolFunctionWithContext()
 
 Function to be executed straight from the frontend, where details is replaced with actual parameters of the function you want to execute.
@@ -717,10 +691,6 @@ Heavy items: functions with `.isHeavy: true` inside. Will execute max 1 every mi
 
 ## 📄 cleanup (exported const)
 
-## 📄 controlChatGptCli (exported const)
-
-## 📄 controlChatGpt (exported const)
-
 ## 📄 deletePromptResult (exported const)
 
 ## 📄 developersQuote (exported const)
@@ -840,6 +810,11 @@ Rick teaches Morty
 ## 📄 storytelling (exported const)
 
 Write a story about this code and what's happening in there
+
+
+## 📄 summarizeMeetings (exported const)
+
+Endpoint that onboards users
 
 
 ## 📄 toolFunctionWithContext (exported const)

@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133295928,
-  "updatedAt": 1674133295928,
+  "createdAt": 1673524374575,
+  "updatedAt": 1673524374575,
   "deletedAt": 0,
-  "createdFirstAt": 1674133295928,
+  "createdFirstAt": 1673524374575,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "add-emoji-to-every-word",
   "operationRelativeTypescriptFilePath": "src/prompts.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
+    "rawType": "import(\"/Users/clarity/os/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -20,5 +20,5 @@
   },
   "value": "async (contextContent: string, prompt_projectRelativePath: string, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"add-emoji-to-every-word\",\n      contextContent,\nprompt_projectRelativePath\n    });\n\n    return result;\n\n  }",
   "description": "Emojify++",
-  "id": "wbnltkrgumegzkwabdtnsvkc"
+  "id": "vadikyujelmhgutlyysxcemj"
 }

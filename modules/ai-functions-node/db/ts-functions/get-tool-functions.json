@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133316969,
-  "updatedAt": 1674133316969,
+  "createdAt": 1673524400972,
+  "updatedAt": 1673524400972,
   "deletedAt": 0,
-  "createdFirstAt": 1674133316969,
+  "createdFirstAt": 1673524400972,
   "isApiExposed": false,
   "isExported": true,
   "operationRelativeTypescriptFilePath": "src/tool/getToolFunctions.ts",
@@ -13,7 +13,7 @@
   "parameters": [],
   "description": "Returns all tool functions to the frontend",
   "returnType": {
-    "rawType": "Promise<import(\"/Users/king/King/operations/tools/types/code-types/build/TsFunction\").TsFunction[]>",
+    "rawType": "Promise<import(\"/Users/clarity/os/operations/tools/types/code-types/build/TsFunction\").TsFunction[]>",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -31,5 +31,5 @@
     "linesPerFile": 12,
     "numberOfFiles": 1
   },
-  "id": "csznhewxxmgptwwcbslwgwgf"
+  "id": "psblwpsxxjznspgqlwhyxmkg"
 }

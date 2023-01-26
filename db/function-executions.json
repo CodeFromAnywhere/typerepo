@@ -1,0 +1,1278 @@
+[
+  {
+    "createdAt": 1673524550171,
+    "updatedAt": 1673524550171,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524550171,
+    "functionName": "ping",
+    "tsFunctionId": "qebbaazfsbtinnqtujzmkjsf",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": true,
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 9
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "poiczbsyqfurgiqtwljbmope"
+  },
+  {
+    "createdAt": 1673524550178,
+    "updatedAt": 1673524550178,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524550178,
+    "functionName": "getMeWithContext",
+    "tsFunctionId": "lcnbootnojruwfijpuehqlfx",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "authorizations": [],
+      "device": {
+        "authToken": "memkcerzlihbfyhfztzkgxzp",
+        "authenticationMethods": [],
+        "ip": "::1",
+        "createdAt": 1673524550165,
+        "createdFirstAt": 1673524550165,
+        "deletedAt": 0,
+        "id": "memkcerzlihbfyhfztzkgxzp",
+        "lastOnlineAt": 1673524550165,
+        "name": "memkcerzlihbfyhfztzkgxzp",
+        "updatedAt": 1673524550165,
+        "userAgentString": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15",
+        "persons": []
+      },
+      "groups": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 3
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 6
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 1
+      }
+    ],
+    "id": "jofappzywatpxrbttrchdbci"
+  },
+  {
+    "createdAt": 1673524550180,
+    "updatedAt": 1673524550180,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524550180,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 6
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 5
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 4
+      }
+    ],
+    "id": "gzrknchhmpwupjiyxyhrrzye"
+  },
+  {
+    "createdAt": 1673524553557,
+    "updatedAt": 1673524553557,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524553557,
+    "functionName": "summarizeMeetings",
+    "tsFunctionId": "yczupyehalsullijaqmzzktt",
+    "inputParameters": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "isSuccessful": false,
+      "message": "Not implemented yet, but you reached the backend!"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 4
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 0
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "alngkonubeoicxlmnsmxlhah"
+  },
+  {
+    "createdAt": 1673524603710,
+    "updatedAt": 1673524603710,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524603710,
+    "functionName": "ping",
+    "tsFunctionId": "qebbaazfsbtinnqtujzmkjsf",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": true,
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 10
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 2
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "fhqesjeqxcrdyzpdnpyaljhk"
+  },
+  {
+    "createdAt": 1673524603718,
+    "updatedAt": 1673524603718,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524603718,
+    "functionName": "getMeWithContext",
+    "tsFunctionId": "lcnbootnojruwfijpuehqlfx",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "authorizations": [],
+      "device": {
+        "authToken": "memkcerzlihbfyhfztzkgxzp",
+        "authenticationMethods": [],
+        "ip": "::1",
+        "createdAt": 1673524550165,
+        "createdFirstAt": 1673524550165,
+        "deletedAt": 0,
+        "id": "memkcerzlihbfyhfztzkgxzp",
+        "lastOnlineAt": 1673524550165,
+        "name": "memkcerzlihbfyhfztzkgxzp",
+        "updatedAt": 1673524550165,
+        "userAgentString": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.3 Safari/605.1.15",
+        "persons": []
+      },
+      "groups": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 9
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 9
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 1
+      }
+    ],
+    "id": "ffugfkuszggejchyemhcqpeh"
+  },
+  {
+    "createdAt": 1673524603721,
+    "updatedAt": 1673524603721,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524603721,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 11
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 2
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 12
+      }
+    ],
+    "id": "jgetietwlawrqakcytlihgxh"
+  },
+  {
+    "createdAt": 1673524618388,
+    "updatedAt": 1673524618388,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524618388,
+    "functionName": "ping",
+    "tsFunctionId": "qebbaazfsbtinnqtujzmkjsf",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": true,
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 4
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 1
+      }
+    ],
+    "id": "zhnrswqairplrykmgoropmmc"
+  },
+  {
+    "createdAt": 1673524618396,
+    "updatedAt": 1673524618396,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524618396,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 5
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 5
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 6
+      }
+    ],
+    "id": "cmuetrbdkalecuvkmfdcgkaj"
+  },
+  {
+    "createdAt": 1673524624763,
+    "updatedAt": 1673524624763,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524624763,
+    "functionName": "ping",
+    "tsFunctionId": "qebbaazfsbtinnqtujzmkjsf",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": true,
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 7
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "ljtzhvntazfnbelvdrwujfid"
+  },
+  {
+    "createdAt": 1673524624771,
+    "updatedAt": 1673524624771,
+    "deletedAt": 0,
+    "createdFirstAt": 1673524624771,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 10
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 9
+      }
+    ],
+    "id": "asbawdtlipqisqtvimaywsxd"
+  },
+  {
+    "createdAt": 1674734644968,
+    "updatedAt": 1674734644968,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734644968,
+    "functionName": "getMeWithContext",
+    "tsFunctionId": "lcnbootnojruwfijpuehqlfx",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "authorizations": [],
+      "device": {
+        "authToken": "nmqicdtdfgxufytnnpcmvesl",
+        "authenticationMethods": [],
+        "ip": "::1",
+        "createdAt": 1674734644961,
+        "createdFirstAt": 1674734644961,
+        "deletedAt": 0,
+        "id": "nmqicdtdfgxufytnnpcmvesl",
+        "lastOnlineAt": 1674734644961,
+        "name": "nmqicdtdfgxufytnnpcmvesl",
+        "updatedAt": 1674734644961,
+        "userAgentString": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15"
+      },
+      "groups": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 8
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 2
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "clmsunglhchmrtrsurcbxhqp"
+  },
+  {
+    "createdAt": 1674734644971,
+    "updatedAt": 1674734644971,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734644971,
+    "functionName": "ping",
+    "tsFunctionId": "qebbaazfsbtinnqtujzmkjsf",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": true,
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 3
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 4
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "evbekhfhbeujwmfocoffigjj"
+  },
+  {
+    "createdAt": 1674734644973,
+    "updatedAt": 1674734644973,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734644973,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 6
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 3
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 3
+      }
+    ],
+    "id": "gnipmihvicczfjqeajhsqhmw"
+  },
+  {
+    "createdAt": 1674734647096,
+    "updatedAt": 1674734647096,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734647096,
+    "functionName": "summarizeMeetings",
+    "tsFunctionId": "yczupyehalsullijaqmzzktt",
+    "inputParameters": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "isSuccessful": false,
+      "message": "Not implemented yet, but you reached the backend!"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 4
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 2
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 1
+      }
+    ],
+    "id": "rguljeepwuvvhmqurahexjcn"
+  },
+  {
+    "createdAt": 1674734881600,
+    "updatedAt": 1674734881600,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734881600,
+    "functionName": "ping",
+    "tsFunctionId": "qebbaazfsbtinnqtujzmkjsf",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": true,
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 7
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "ljqvozomsmkzemiqtkoduecv"
+  },
+  {
+    "createdAt": 1674734881607,
+    "updatedAt": 1674734881607,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734881607,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 6
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 9
+      }
+    ],
+    "id": "xzwqeazbjualkybggkbwnkwd"
+  },
+  {
+    "createdAt": 1674734928179,
+    "updatedAt": 1674734928179,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734928179,
+    "functionName": "ping",
+    "tsFunctionId": "qebbaazfsbtinnqtujzmkjsf",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": true,
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 4
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 0
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "ckpqceskfxnvapdtrnvhokpk"
+  },
+  {
+    "createdAt": 1674734928183,
+    "updatedAt": 1674734928183,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734928183,
+    "functionName": "getMeWithContext",
+    "tsFunctionId": "lcnbootnojruwfijpuehqlfx",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "authorizations": [],
+      "device": {
+        "authToken": "nmqicdtdfgxufytnnpcmvesl",
+        "authenticationMethods": [],
+        "ip": "::1",
+        "createdAt": 1674734644961,
+        "createdFirstAt": 1674734644961,
+        "deletedAt": 0,
+        "id": "nmqicdtdfgxufytnnpcmvesl",
+        "lastOnlineAt": 1674734644961,
+        "name": "nmqicdtdfgxufytnnpcmvesl",
+        "updatedAt": 1674734644961,
+        "userAgentString": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+        "persons": []
+      },
+      "groups": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 2
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 3
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 1
+      }
+    ],
+    "id": "mhghryyqthdgoaspornyxcmp"
+  },
+  {
+    "createdAt": 1674734928186,
+    "updatedAt": 1674734928186,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734928186,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 4
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 1
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 5
+      }
+    ],
+    "id": "xdpzgylbrrpooazlsaiubxkp"
+  },
+  {
+    "createdAt": 1674734942140,
+    "updatedAt": 1674734942140,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734942140,
+    "functionName": "getMeWithContext",
+    "tsFunctionId": "lcnbootnojruwfijpuehqlfx",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "authorizations": [],
+      "device": {
+        "authToken": "nmqicdtdfgxufytnnpcmvesl",
+        "authenticationMethods": [],
+        "ip": "::1",
+        "createdAt": 1674734644961,
+        "createdFirstAt": 1674734644961,
+        "deletedAt": 0,
+        "id": "nmqicdtdfgxufytnnpcmvesl",
+        "lastOnlineAt": 1674734644961,
+        "name": "nmqicdtdfgxufytnnpcmvesl",
+        "updatedAt": 1674734644961,
+        "userAgentString": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.4 Safari/605.1.15",
+        "persons": []
+      },
+      "groups": []
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 2
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 2
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 0
+      }
+    ],
+    "id": "ibetmeifgwadpjitxsjanoka"
+  },
+  {
+    "createdAt": 1674734942143,
+    "updatedAt": 1674734942143,
+    "deletedAt": 0,
+    "createdFirstAt": 1674734942143,
+    "functionName": "getPublicBundleConfig",
+    "tsFunctionId": "omhdxphalxxvwomtuhvrrnhy",
+    "inputParameters": [],
+    "isExample": false,
+    "isTest": false,
+    "isResultFromCache": false,
+    "output": {
+      "createdAt": 1667640180389,
+      "updatedAt": 1667640180389,
+      "deletedAt": 0,
+      "createdFirstAt": 1667640180389,
+      "name": "typerepo",
+      "slug": "typerepo",
+      "description": "The new way to dev",
+      "isGitRepoPublic": true,
+      "emoji": "🏰",
+      "primaryColor": "#3679c5",
+      "gitRepoUrl": "https://github.com/CodeFromAnywhere/typerepo",
+      "id": "kskoqvkjdmei8vusdkwovopwksjs",
+      "language": "en",
+      "bundleMarkdownReaderConfig": {
+        "customOperationNames": [
+          "k-dev",
+          "new-template",
+          "generate-sdk-operations",
+          "rebuild-operation",
+          "markdown-reader-web",
+          "db-web",
+          "code-types",
+          "function-server",
+          "ai-models"
+        ],
+        "omitAppsMenu": true,
+        "omitModulesMenu": true,
+        "omitPackagesMenu": true,
+        "showTodos": false,
+        "docsInRoot": true,
+        "omitDictionaryMenu": false
+      },
+      "deploymentHostname": "typerepo.com",
+      "categoryStack": [],
+      "operationName": null,
+      "projectRelativePath": "/db/bundle-configs/typerepo.json"
+    },
+    "performance": [
+      {
+        "label": "upsertDevice",
+        "durationMs": 2
+      },
+      {
+        "label": "getTsFunction",
+        "durationMs": 3
+      },
+      {
+        "label": "cacheLookup",
+        "durationMs": 0
+      },
+      {
+        "label": "inputValidation",
+        "durationMs": 0
+      },
+      {
+        "label": "auth",
+        "durationMs": 0
+      },
+      {
+        "label": "function",
+        "durationMs": 2
+      }
+    ],
+    "id": "runriwkhnpdypbagdrlmqrvb"
+  }
+]

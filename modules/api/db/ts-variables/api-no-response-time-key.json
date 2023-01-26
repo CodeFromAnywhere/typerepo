@@ -1,8 +1,8 @@
 {
-  "createdAt": 1671449405024,
-  "updatedAt": 1671449405024,
+  "createdAt": 1673523023876,
+  "updatedAt": 1673523023876,
   "deletedAt": 0,
-  "createdFirstAt": 1671449405024,
+  "createdFirstAt": 1673523023876,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -19,6 +19,6 @@
     "isEnumLiteral": false
   },
   "value": "\"api.timeoutAt\"",
-  "description": "",
-  "id": "kzogiibmjrxgowdiwzffhgvn"
+  "description": "Should contain a string unix timestamp of the last time the API had no response.",
+  "id": "mhojzjmsytcwrlvobjdtvxgy"
 }

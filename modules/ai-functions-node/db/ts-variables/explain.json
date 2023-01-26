@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133295929,
-  "updatedAt": 1674133295929,
+  "createdAt": 1673524374575,
+  "updatedAt": 1673524374575,
   "deletedAt": 0,
-  "createdFirstAt": 1674133295929,
+  "createdFirstAt": 1673524374575,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "explain",
   "operationRelativeTypescriptFilePath": "src/prompts.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
+    "rawType": "import(\"/Users/clarity/os/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -20,5 +20,5 @@
   },
   "value": "async (contextContent: string, selectionContent: string, prompt_projectRelativePath: string, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"explain\",\n      contextContent,\nselectionContent,\nprompt_projectRelativePath\n    });\n\n    return result;\n\n  }",
   "description": "🤔 Explain",
-  "id": "kpulronltookljmcykdwdzuf"
+  "id": "agmkqvstjkpadvtczfnrehyc"
 }

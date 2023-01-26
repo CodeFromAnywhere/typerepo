@@ -24,7 +24,6 @@ export declare const sdkFunctionPaths: {
     searchGetStaticProps: string;
     SearchResultComponent: string;
     SearchResultPage: string;
-    summarizeMeetings: string;
     Test: string;
     FileWriterPage: string;
     MyLayout: string;
@@ -53,9 +52,7 @@ export declare const sdkFunctionPaths: {
     biggestFunctionName: string;
     checkQueue: string;
     cleanup: string;
-    controlChatGptCli: string;
     controlChatGptWrapper: string;
-    controlChatGpt: string;
     deletePromptResult: string;
     developersQuote: string;
     diaryToInstagram: string;
@@ -94,6 +91,7 @@ export declare const sdkFunctionPaths: {
     shouldAddToQueue: string;
     socratesAndSnoopDogg: string;
     storytelling: string;
+    summarizeMeetings: string;
     toolFunctionWithContext: string;
     translateEverythingIntoHindi: string;
     translateEverythingPortuguese: string;

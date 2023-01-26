@@ -20,7 +20,7 @@ var realCustomApiUrl = typeof customApiUrl === "string" && customApiUrl !== ""
     : undefined;
 exports.apiUrl = realCustomApiUrl
     ? realCustomApiUrl
-    : isDev_1.isDev || runRemoteServer
+    : !isDev_1.isDev || runRemoteServer
         ? remoteServer
         : localhostServer;
 //# sourceMappingURL=apiUrl.js.map

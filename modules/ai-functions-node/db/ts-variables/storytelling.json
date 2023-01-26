@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133295926,
-  "updatedAt": 1674133295926,
+  "createdAt": 1673524374572,
+  "updatedAt": 1673524374572,
   "deletedAt": 0,
-  "createdFirstAt": 1674133295926,
+  "createdFirstAt": 1673524374572,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -10,7 +10,7 @@
   "slug": "storytelling",
   "operationRelativeTypescriptFilePath": "src/prompts.ts",
   "type": {
-    "rawType": "import(\"/Users/king/King/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
+    "rawType": "import(\"/Users/clarity/os/operations/tools/ai/ai-types/build/PromptFunction\").PromptFunction",
     "typeCoverage": 0,
     "isArray": false,
     "isEnum": false,
@@ -20,5 +20,5 @@
   },
   "value": "async (contextContent: string, isDeferred?: boolean) => {\n\n    const result = await processChatGptPrompt({\n      isDeferred,\n      contextualPromptSlug: \"storytelling\",\n      contextContent\n    });\n\n    return result;\n\n  }",
   "description": "Write a story about this code and what's happening in there",
-  "id": "rihrcfbbobyolyjkmrexpzse"
+  "id": "edemwimiywzmqtohxignixoy"
 }

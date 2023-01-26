@@ -1,2 +1,2 @@
-"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.publicEnvironmentVariables=void 0,exports.publicEnvironmentVariables={markdownReaderTitle:"Typerepo",dbAdminTitle:"Typerepo"};
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.publicEnvironmentVariables=void 0,exports.publicEnvironmentVariables={markdownReaderTitle:"Typerepo",dbAdminTitle:"Typerepo",remoteServer:"http://localhost:42000",runRemoteServer:!1,isBetaEnabled:!0};
 //# sourceMappingURL=public.js.map

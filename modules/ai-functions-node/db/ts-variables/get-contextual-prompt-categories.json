@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133280018,
-  "updatedAt": 1674133280018,
+  "createdAt": 1673524356673,
+  "updatedAt": 1673524356673,
   "deletedAt": 0,
-  "createdFirstAt": 1674133280018,
+  "createdFirstAt": 1673524356673,
   "classification": "const",
   "comments": [],
   "isExported": true,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const contextualPrompts = await db.get(\"ContextualPrompt\");\n\n  const stackCount = contextualPrompts.reduce((stackCount, current) => {\n    // get the stack for this contextualPrompt\n    const stack: string[] | undefined = current.categoryStack;\n\n    if (!stack || stack.length === 0) {\n      const already = stackCount.__root;\n      return {\n        ...stackCount,\n        __root: already ? already + 1 : 1,\n      };\n    }\n\n    const everyStackPart: string[] = stack.map((_, index, array) => {\n      const stackUntilHere = array.slice(0, index + 1).join(\".\");\n      return stackUntilHere;\n    });\n\n    const newStackCount = everyStackPart.reduce((stackCount, stackPart) => {\n      const already = stackCount[stackPart];\n      return {\n        ...stackCount,\n        [stackPart]: already ? already + 1 : 1,\n      };\n    }, stackCount);\n\n    return newStackCount;\n  }, {} as StackCount);\n\n  // now, let's make a childObject out of that\n\n  const { __root, ...stackCountWithoutRoot } = stackCount;\n\n  const categories = Object.keys(stackCountWithoutRoot)\n    .map((key) =>\n      getObjectForkKeyRecursively(stackCount, key, key, contextualPrompts)\n    )\n    .filter(notEmpty);\n\n  const rootCategoryChildObject: CategoryChildObject = {\n    category: \"root\",\n    categoryStack: [],\n    count: __root + sum(categories.map((x) => x.count)),\n    children: categories,\n  };\n\n  return rootCategoryChildObject;\n}",
   "description": "Pretty cool stuff!\n\nI've shown a way to count all nested categories and make a child object based on that\n\nTODO:\n\n- Currently, only supports unique category names due to not checking the full stack\n- needs to be formalised, generalised\n\nAnother, possibly more direct way, would be to traverse the filesystem, in the case of `fs-orm`, because we have files for every item in json-single.",
-  "id": "odcecrmegqnoppwkrknzsmrj"
+  "id": "jrqkyyqqmtlvxxvahlhywoyy"
 }

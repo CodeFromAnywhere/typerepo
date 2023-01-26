@@ -1,8 +1,8 @@
 {
-  "createdAt": 1674133269170,
-  "updatedAt": 1674133269170,
+  "createdAt": 1673524343960,
+  "updatedAt": 1673524343960,
   "deletedAt": 0,
-  "createdFirstAt": 1674133269170,
+  "createdFirstAt": 1673524343960,
   "classification": "const",
   "comments": [],
   "isExported": false,
@@ -29,5 +29,5 @@
   },
   "value": "async () => {\n  const destinationPath = path.join(__dirname, \"../..\", \"src\", \"prompts.ts\");\n\n  writeStringToFile(destinationPath, await writeContextualPromptSdk());\n}",
   "description": "",
-  "id": "zdrvngckgbrkbozpmdfwjrjs"
+  "id": "tivsadfakqjxvpxdqibipwoj"
 }
